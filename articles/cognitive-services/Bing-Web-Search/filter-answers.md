@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d8fd03d9c3d912788e9893377bbab3efac86f8a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431043"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383838"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>As respostas que inclui a resposta da pesquisa de filtragem  
 
@@ -44,7 +44,7 @@ Quando consultar a web, o Bing devolve todos os conteúdos relevantes para a pes
     }
 }    
 ```
-Pode filtrar os tipos de conteúdo, receberá (para imagens de exemplo, vídeos e notícias), utilizando o [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) parâmetro de consulta. Se o Bing localiza conteúdo relevante para as respostas especificadas, será devolvido. O filtro de resposta é uma lista delimitada por vírgulas de respostas. 
+Pode filtrar os tipos de conteúdo, receberá (para imagens de exemplo, vídeos e notícias), utilizando o [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) parâmetro de consulta. Se o Bing localiza conteúdo relevante para as respostas especificadas, será devolvido. O filtro de resposta é uma lista delimitada por vírgulas de respostas. 
 
 Para excluir determinados tipos de conteúdo, como imagens, de resposta, pode adicionar um `-` caráter para o início do `responseFilter` valor. Pode separar tipos excluídos com uma vírgula (`,`). Por exemplo:
 
@@ -92,7 +92,7 @@ Segue-se a resposta à consulta anterior. Uma vez que não encontrou o Bing víd
 
 Embora o Bing não devolveu resultados de vídeo e as notícias na resposta anterior, não significa que não existe conteúdo de vídeo e notícias. Simplesmente significa que a página não incluí-los. No entanto, se [página](./paging-webpages.md) através de resultados de mais, as páginas subsequentes seriam provavelmente incluí-los. Além disso, se chamar o [API de pesquisa de vídeos](../bing-video-search/search-the-web.md) e [API de pesquisa de notícias](../bing-news-search/search-the-web.md) pontos de extremidade diretamente, a resposta provavelmente iria conter os resultados.
 
-Não deve utilizar `responseFilter` para obter resultados de uma única API. Se pretender que o conteúdo a partir de uma única API do Bing, chame essa API diretamente. Por exemplo, para receber apenas imagens, enviar um pedido para o ponto de final de API de pesquisa de imagens `https://api.cognitive.microsoft.com/bing/v7.0/images/search` ou um do outro [imagens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints) pontos de extremidade. Chamar a API única é importante não só por motivos de desempenho, mas porque as APIs de específico de conteúdo oferecem resultados mais sofisticados. Por exemplo, pode utilizar filtros que não estão disponíveis para a API de pesquisa na Web para filtrar os resultados.  
+Não deve utilizar `responseFilter` para obter resultados de uma única API. Se pretender que o conteúdo a partir de uma única API do Bing, chame essa API diretamente. Por exemplo, para receber apenas imagens, enviar um pedido para o ponto de final de API de pesquisa de imagens `https://api.cognitive.microsoft.com/bing/v7.0/images/search` ou um do outro [imagens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) pontos de extremidade. Chamar a API única é importante não só por motivos de desempenho, mas porque as APIs de específico de conteúdo oferecem resultados mais sofisticados. Por exemplo, pode utilizar filtros que não estão disponíveis para a API de pesquisa na Web para filtrar os resultados.  
 
 Para obter os resultados da pesquisa de um domínio específico, inclua o `site:` operador de consulta na cadeia de consulta.  
 
@@ -101,7 +101,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 ```
 
 > [!NOTE]
-> Dependendo da consulta, se utilizar o `site:` operador de consulta, existe a possibilidade de que a resposta pode conter o conteúdo para adultos, independentemente do [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) definição. Deve utilizar `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdo para adultos.
+> Dependendo da consulta, se utilizar o `site:` operador de consulta, existe a possibilidade de que a resposta pode conter o conteúdo para adultos, independentemente do [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) definição. Deve utilizar `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdo para adultos.
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitar o número de respostas na resposta
 
@@ -121,7 +121,7 @@ Bing inclui respostas na resposta com base na classificação. Por exemplo, se c
 }
 ```
 
-Para limitar o número de respostas que o Bing devolve para as respostas de duas principais (páginas da Web e imagens), conjunto de [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) parâmetro para 2 de consulta.
+Para limitar o número de respostas que o Bing devolve para as respostas de duas principais (páginas da Web e imagens), conjunto de [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) parâmetro para 2 de consulta.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -162,7 +162,7 @@ Se adicionar o `responseFilter` parâmetro para a consulta anterior e o conjunto
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>Promover as respostas não estão ordenadas
 
-Se a parte superior com a classificação de respostas Bing devolve para uma consulta em páginas da Web, imagens, vídeos e relatedSearches, a resposta inclui as respostas. Se definir [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) para dois (2), do Bing devolve as respostas de classificações duas principais: páginas da Web e imagens. Se pretender que o Bing para incluir imagens e vídeos na resposta, especifique a [promover](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) parâmetro de consulta e defina-o como imagens e vídeos.
+Se a parte superior com a classificação de respostas Bing devolve para uma consulta em páginas da Web, imagens, vídeos e relatedSearches, a resposta inclui as respostas. Se definir [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) para dois (2), do Bing devolve as respostas de classificações duas principais: páginas da Web e imagens. Se pretender que o Bing para incluir imagens e vídeos na resposta, especifique a [promover](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) parâmetro de consulta e defina-o como imagens e vídeos.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235873"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399432"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -79,7 +79,7 @@ Rede de VM do convidado: Multi-NIC | Sim | Sim
 Azure ExpressRoute | Sim | Sim
 ILB | Sim | Sim
 ELB | Sim | Sim
-Gestor de Tráfego do Azure | Sim | Sim
+Traffic Manager do Azure | Sim | Sim
 Multi-NIC | Sim | Sim
 IP Reservado | Sim | Sim
 IPv4 | Sim | Sim
@@ -156,12 +156,12 @@ Tamanho de disco do sistema operativo | Até 2.048 GB para VMs de geração 1.<b
 Número de discos do sistema operativo | 1 | A verificação de pré-requisitos falha se não suportado.
 Número de discos de dados | 16 ou menos  | A verificação de pré-requisitos falha se não suportado.
 Tamanho VHD de disco de dados | Até 4095 GB | A verificação de pré-requisitos falha se não suportado.
-Placas de rede | São suportados vários adaptadores |
+Adaptadores de rede | São suportados vários adaptadores |
 VHD partilhado | Não suportado | A verificação de pré-requisitos falha se não suportado.
 Disco FC | Não suportado | A verificação de pré-requisitos falha se não suportado.
 Formato de disco rígido | VHD <br/><br/> VHDX | Recuperação de sites converte automaticamente VHDX em VHD quando efetuar a ativação pós-falha para o Azure. Quando a reativação pós-falha para no local, as máquinas virtuais é continuar a utilizar o formato VHDX.
 BitLocker | Não suportado | O BitLocker tem de ser desativado antes de ativar a replicação para uma VM.
-Nome da VM | Entre 1 e 63 carateres. Limitado a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou um número. | Atualize o valor nas propriedades da VM no Site Recovery.
+o nome da VM | Entre 1 e 63 carateres. Limitado a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou um número. | Atualize o valor nas propriedades da VM no Site Recovery.
 Tipo de VM | Geração 1<br/><br/> Geração 2 – Windows | VMs de geração 2, com um tipo de disco de SO do basic (que inclui um ou dois volumes de dados formatados como VHDX) e menos de 300 GB de espaço em disco são suportadas.<br></br>VMs de Linux geração 2 não são suportadas. [Saiba mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Ações de Cofre de serviços de recuperação

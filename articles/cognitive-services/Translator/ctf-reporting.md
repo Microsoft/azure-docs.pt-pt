@@ -3,19 +3,19 @@ title: Framework de tradução colaborativa (CTF) relatórios - API de texto do 
 titlesuffix: Azure Cognitive Services
 description: Como utilizar relatórios de estrutura de tradução colaborativa (CTF).
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712830"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389381"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
 
@@ -76,7 +76,7 @@ Este método obtém a contagem de traduções que são criados pelo utilizador. 
 |:---|:---|
 | appId | **Necessário** se o cabeçalho de autorização é usado, deixe o campo de appid vazio ou especificar uma cadeia de caracteres que contém "Bearer" + "" + o token de acesso.|
 | uriPrefix | **Opcional** uma cadeia de caracteres que contém o prefixo do URI da tradução.|
-| de | **Opcional** uma cadeia de caracteres que representa o código de idioma do texto de tradução. |
+| from | **Opcional** uma cadeia de caracteres que representa o código de idioma do texto de tradução. |
 | para | **Opcional** representando o código de idioma para traduzir o texto numa cadeia de caracteres.|
 | minRating| **Opcional** um valor inteiro que representa a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
 | maxRating| **Opcional** um valor inteiro que representa a classificação de qualidade máximo para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
@@ -84,7 +84,7 @@ Este método obtém a contagem de traduções que são criados pelo utilizador. 
 | category| **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro dá suporte apenas a opção de padrão geral.|
 | minDateUtc| **Opcional** a data de quando quiser obter as traduções. A data tem de estar no formato UTC. |
 | maxDateUtc| **Opcional** a data até que deseja obter as traduções. A data tem de estar no formato UTC. |
-| ignorar| **Opcional** o número de resultados que deseja ignorar numa página. Por exemplo, se pretender que a ignorar primeiro 20 linhas dos resultados e a exibição do registo de resultado 21, especifica 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
+| Ignorar| **Opcional** o número de resultados que deseja ignorar numa página. Por exemplo, se pretender que a ignorar primeiro 20 linhas dos resultados e a exibição do registo de resultado 21, especifica 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
 | tirar | **Opcional** o número de resultados que pretende recuperar. O número máximo de cada solicitação é 100. A predefinição é 100.|
 
 > [!NOTE]
@@ -96,8 +96,8 @@ O conjunto de resultados contém uma matriz do **UserTranslationCount**. Cada Us
 
 | Campo | Descrição |
 |:---|:---|
-| Contagem| O número de resultados que é obtido|
-| A partir de | O idioma de origem|
+| Count| O número de resultados que é obtido|
+| De | O idioma de origem|
 | Classificação| A classificação que é aplicada ao emissor na chamada de método AddTranslation()|
 | Para| O idioma de destino|
 | URI| O URI aplicado na chamada de método AddTranslation()|
@@ -105,7 +105,7 @@ O conjunto de resultados contém uma matriz do **UserTranslationCount**. Cada Us
 
 **Exceções**
 
-| Exceção | Mensagem | Condições |
+| Exceção | Message | Condições |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | O parâmetro '**maxDateUtc**'tem de ser maior ou igual a'**minDateUtc**'.| O valor do parâmetro **maxDateUtc** é inferior ao valor do parâmetro **minDateUtc**.|
 | TranslateApiException | O IP é sobre a quota.| <ul><li>Foi atingido o limite do número de pedidos por minuto.</li><li>O tamanho do pedido continua a ser limitado em 10000 carateres.</li><li>Uma hora a hora e uma quota diária limitam o número de carateres que a API do Microsoft Translator irá aceitar.</li></ul>|
@@ -147,7 +147,7 @@ Este método obtém as traduções que são criadas pelo utilizador. Ele fornece
 |:---|:---|
 | appId | **Necessário** se o cabeçalho de autorização é usado, deixe o campo de appid vazio ou especificar uma cadeia de caracteres que contém "Bearer" + "" + o token de acesso.|
 | uriPrefix| **Opcional** uma cadeia de caracteres que contém o prefixo do URI da tradução.|
-| de| **Opcional** uma cadeia de caracteres que representa o código de idioma do texto de tradução.|
+| from| **Opcional** uma cadeia de caracteres que representa o código de idioma do texto de tradução.|
 | para| **Opcional** representando o código de idioma para traduzir o texto numa cadeia de caracteres.|
 | minRating| **Opcional** um valor inteiro que representa a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
 | maxRating| **Opcional** um valor inteiro que representa a classificação de qualidade máximo para o texto traduzido. O valor válido é entre -10 e 10. O valor predefinido é 1.|
@@ -155,7 +155,7 @@ Este método obtém as traduções que são criadas pelo utilizador. Ele fornece
 | category| **Opcional** uma cadeia de caracteres que contém o domínio da tradução ou a categoria. Este parâmetro dá suporte apenas a opção de padrão geral.|
 | minDateUtc| **Opcional** a data de quando quiser obter as traduções. A data tem de estar no formato UTC.|
 | maxDateUtc| **Opcional** a data até que deseja obter as traduções. A data tem de estar no formato UTC.|
-| ignorar| **Opcional** o número de resultados que deseja ignorar numa página. Por exemplo, se pretender que a ignorar primeiro 20 linhas dos resultados e a exibição do registo de resultado 21, especifica 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
+| Ignorar| **Opcional** o número de resultados que deseja ignorar numa página. Por exemplo, se pretender que a ignorar primeiro 20 linhas dos resultados e a exibição do registo de resultado 21, especifica 20 para este parâmetro. O valor predefinido para este parâmetro é 0.|
 | tirar| **Opcional** o número de resultados que pretende recuperar. O número máximo de cada solicitação é 100. A predefinição é 50.|
 
 > [!NOTE]
@@ -168,7 +168,7 @@ O conjunto de resultados contém uma matriz do **UserTranslation**. Cada UserTra
 | Campo | Descrição |
 |:---|:---|
 | CreatedDateUtc| A data de criação da entrada, usando AddTranslation()|
-| A partir de| O idioma de origem|
+| De| O idioma de origem|
 | OriginalText| O texto de linguagem de código que é utilizado ao submeter o pedido|
 |Classificação |A classificação que é aplicada ao emissor na chamada de método AddTranslation()|
 |Para|    O idioma de destino|
@@ -178,7 +178,7 @@ O conjunto de resultados contém uma matriz do **UserTranslation**. Cada UserTra
 
 **Exceções**
 
-| Exceção | Mensagem | Condições |
+| Exceção | Message | Condições |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | O parâmetro '**maxDateUtc**'tem de ser maior ou igual a'**minDateUtc**'.| O valor do parâmetro **maxDateUtc** é inferior ao valor do parâmetro **minDateUtc**.|
 | TranslateApiException | O IP é sobre a quota.| <ul><li>Foi atingido o limite do número de pedidos por minuto.</li><li>O tamanho do pedido continua a ser limitado em 10000 carateres.</li><li>Uma hora a hora e uma quota diária limitam o número de carateres que a API do Microsoft Translator irá aceitar.</li></ul>|

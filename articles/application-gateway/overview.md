@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 4/30/2019
+ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 78dd4b31991a15d3d946c47c5394f64bb3afea95
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64947256"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418108"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -29,9 +29,9 @@ Este tipo de encaminhamento é conhecido como balanceamento de carga da camada d
 
 As seguintes funcionalidades estão incluídas com o Gateway de Aplicação do Azure:
 
-## <a name="secure-sockets-layer-ssl-termination"></a>Terminação de SSL (Secure Sockets Layer)
+## <a name="secure-sockets-layer-ssltls-termination"></a>Cessação do Secure Sockets Layer (SSL/TLS)
 
-O Gateway de Aplicação suporta a terminação de SSL no gateway, após o qual o tráfego normalmente flui desencriptado para os servidores de back-end. Esta funcionalidade permite que os servidores Web estejam livres de sobrecarga de encriptação e desencriptação dispendiosa. Mas, às vezes, não encriptada de comunicação para os servidores não é uma opção aceitável. Isso pode ser devido a requisitos de segurança, os requisitos de conformidade ou a aplicação só pode aceitar uma ligação segura. Para estas aplicações, o gateway de aplicação suporta a encriptação SSL ponto a ponto.
+Gateway de aplicação suporta a terminação de SSL/TLS no gateway, após o qual o tráfego normalmente flui desencriptado para os servidores de back-end. Esta funcionalidade permite que os servidores Web estejam livres de sobrecarga de encriptação e desencriptação dispendiosa. Mas, às vezes, não encriptada de comunicação para os servidores não é uma opção aceitável. Isso pode ser devido a requisitos de segurança, os requisitos de conformidade ou a aplicação só pode aceitar uma ligação segura. Para estas aplicações, o gateway de aplicação suporta a encriptação de SSL/TLS de ponto a ponto.
 
 ## <a name="autoscaling"></a>Dimensionamento automático
 

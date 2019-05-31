@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
-ms.date: 9/25/2018
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8d8df9935e935ac8d5a1194cfab103a006cf5546
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b0a9d04fccce7ccbacb700f7af5126c6ae05140a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791346"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357768"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verifique se existem erros de agrupamento e o nó
 
@@ -84,18 +84,27 @@ Pode especificar um ou mais pacotes de aplicações para um conjunto. O batch tr
 
 O nó [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) propriedade relatórios uma falha ao transferir e descomprimir um pacote de aplicação. Batch define o estado do nó como **inutilizável**.
 
+### <a name="container-download-failure"></a>Falha na transferência do contentor
+
+Pode especificar um ou mais referências de contentor num agrupamento. Batch transfere os contentores especificados para cada nó. O nó [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) propriedade uma falha ao transferir um contentor de relatórios e define o estado do nó como **inutilizável**.
+
 ### <a name="node-in-unusable-state"></a>Nó de estado não utilizável
 
 O Azure Batch pode definir os [estado do nó](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) para **inutilizável** por muitos motivos. Com o estado de nó definido como **inutilizável**, tarefas não podem ser agendadas para o nó, mas ele ainda incorre em encargos.
 
-Batch sempre tenta recuperar nós inutilizáveis, mas a recuperação pode ou não ser possível dependendo da causa.
+Nós num **unsuable**, mas sem [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) estado significa que o Batch não consegue comunicar com a VM. Neste caso, Batch sempre tenta recuperar a VM. Batch não irá automaticamente tentar recuperar as VMs que não foi possível instalar pacotes de aplicações ou contentores, mesmo que seu estado seja **inutilizável**.
 
 Se o Batch pode determinar a causa, o nó [erros](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) propriedade relatórios-lo.
 
 Exemplos adicionais de causas **inutilizável** nós incluem:
 
 - Uma imagem VM personalizada é inválida. Por exemplo, uma imagem não está corretamente preparado.
+
 - Uma VM for movida devido a uma falha de infraestrutura ou de uma atualização de nível baixo. Batch recupera o nó.
+
+- Uma imagem de VM foi implementada no hardware que não a suportam. Por exemplo uma imagem VM "HPC" em execução em hardware não HPC. Por exemplo, a tentar executar uma imagem do CentOS HPC num [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM.
+
+- As VMs estão numa [rede virtual do Azure](batch-virtual-network.md), e o tráfego foi bloqueado para principais portas.
 
 ### <a name="node-agent-log-files"></a>Ficheiros de registo do agente de nó
 

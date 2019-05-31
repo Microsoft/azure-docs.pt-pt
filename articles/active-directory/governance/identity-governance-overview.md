@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30bbddd044d1aea70e43825035c94b69a46f1f8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935836"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307053"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é a governação de identidade do Azure AD?
 
@@ -84,6 +84,6 @@ Também pode consultar o guia de introdução de **governação de identidade** 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [O que é a gestão de direitos do Azure AD? (Pré-visualização)](entitlement-management-overview.md)
-- [Revisões de quais são de acesso do Azure AD?](access-reviews-overview.md)
+- [O que são as revisões de acesso do Azure AD?](access-reviews-overview.md)
 - [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 - [O que posso fazer com os Termos de Utilização?](active-directory-tou.md)

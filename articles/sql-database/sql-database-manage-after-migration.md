@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949916"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357317"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na cloud – gerenciamento de seus bancos de dados individuais e agrupados na base de dados do Azure SQL
 
@@ -29,6 +29,7 @@ Mover o tradicional de gestão automática, ambiente Self-controlado para um amb
 
 Este artigo aborda algumas das principais características de base de dados do Azure SQL, como uma plataforma que pode ser aproveitado prontamente ao trabalhar com bases de dados individuais e bases de dados agrupadas em conjuntos elásticos. Eles são os seguintes:
 
+- Monitorizar a base de dados com o portal do Azure
 - Negócios continuidade e recuperação após desastre (BCDR)
 - Segurança e conformidade
 - Monitorização de base de dados inteligente e a manutenção
@@ -36,6 +37,25 @@ Este artigo aborda algumas das principais características de base de dados do A
 
 > [!NOTE]
 > Este artigo aplica-se para as seguintes opções de implementação na base de dados do Azure SQL: único conjuntos elásticos e bases de dados. Não é aplicável à opção de implementação de instância gerida na base de dados SQL.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Monitorizar bases de dados com o portal do Azure
+
+Na [portal do Azure](https://portal.azure.com/), pode monitorizar a uma utilização de base de dados individual s selecionando a base de dados e clicando no **monitorização** gráfico. É apresentada a janela **Métricas** que pode alterar ao clicar no botão **Editar gráfico**. Adicione as métricas seguintes:
+
+- Percentagem de CPU
+- Percentagem de DTU
+- Percentagem de ES de Dados
+- Percentagem de tamanho da Base de Dados
+
+Depois de adicionar estas métricas, pode continuar a visualizá-los no **monitorização** do gráfico com mais informações sobre o **métrica** janela. As quatro métricas mostram a percentagem de utilização média relativa à **DTU** da base de dados. Consulte a [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) artigos para obter mais informações sobre escalões de serviço.  
+
+![Monitorização da camada de serviços do desempenho da base de dados.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+Também pode configurar alertas para as métricas de desempenho. Clique no botão **Adicionar alerta** na janela **Métricas**. Siga o assistente para configurar o alerta. Tem a opção de alertar se as métricas excederem um determinado limiar ou se a métrica descer abaixo de um determinado limiar.
+
+Por exemplo, se espera que a carga de trabalho na sua base de dados aumente, pode optar por configurar um alerta por e-mail sempre que a base de dados atingir 80% em qualquer uma das métricas de desempenho. Pode usar isso como um aviso inicial para calcular quando poderá ter de mudar para o próximo tamanho de computação mais elevado.
+
+As métricas de desempenho também podem ajudar a determinar se é possível mudar para um tamanho de computação mais baixo. Parta do princípio de que está a utilizar uma base de dados Standard S2 e que todas as métricas de desempenho mostram que, em média, a base de dados não utiliza mais de 10% em qualquer momento. É provável que a base de dados funcione corretamente no Standard S1. No entanto, tenha em atenção de cargas de trabalho que aumentam ou flutuam, antes de tomar a decisão de migrar para um tamanho de computação mais baixo.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Negócios continuidade e recuperação após desastre (BCDR)
 
@@ -47,7 +67,7 @@ Não crie cópias de segurança no Azure SQL DB e isso é porque não precisa. B
 
 |Camada de serviços|Período de retenção em dias|
 |---|:---:|
-|Básico|7|
+|Básica|7|
 |Standard|35|
 |Premium|35|
 |||

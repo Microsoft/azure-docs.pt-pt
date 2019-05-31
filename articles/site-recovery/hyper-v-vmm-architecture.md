@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 553ecefc9f7588de0ee9056f2b2385f9a0ede50f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22f21f11b0c374724bc6924f30ea20a21de6ab90
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772116"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398166"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arquitetura - replicação de Hyper-V para um site secundário
 

@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: v-jaswel
-ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: d6af927e395532e43c7cc51c39665e2e42ac6781
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640318"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389984"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Como utilizar o aprendiz de conversação com outras tecnologias de criação de bot
 

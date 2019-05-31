@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523628"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387342"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurar uma web application firewall taxa limite regra com o Azure PowerShell
 A regra de limite de taxa na firewall (WAF) de aplicação web do Azure para a porta da frente do Azure controla o número de pedidos permitidos de um IP de cliente único durante um período de um minuto.
@@ -65,10 +65,10 @@ O exemplo a seguir corresponde */promo* como o valor da *RequestUri* variável:
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>Criar uma regra de limite de taxa personalizado
-Definir um limite de taxa utilizando [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). No exemplo a seguir, o limite é definido como 1000. Pedidos de qualquer cliente para a página de promoção exceder 1000 durante um minuto estão bloqueados até o minuto seguinte é iniciado.
+Definir um limite de taxa utilizando [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). No exemplo a seguir, o limite é definido como 1000. Pedidos de qualquer cliente para a página de promoção exceder 1000 durante um minuto estão bloqueados até o minuto seguinte é iniciado.
 
 ```powershell-interactive
-   $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
+   $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
      -Name "rateLimitRule" `
      -RuleType RateLimitRule `
      -MatchCondition $promoMatchCondition `

@@ -3,23 +3,23 @@ title: Referência V3.0 de API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Documentação de referência para o V3.0 de API de texto do Translator.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796868"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387506"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
-## <a name="whats-new"></a>Novidades?
+## <a name="whats-new"></a>Novidades
 
 A versão 3 da API de texto do Translator fornece uma API da Web baseados em JSON modernos. Melhora a capacidade de utilização e desempenho, a consolidação de recursos existentes em menos operações e fornece novos recursos.
 
@@ -41,7 +41,7 @@ Pedidos para a API de texto do Microsoft Translator estiverem na maioria dos cas
 
 Para forçar o pedido deve ser processada por um Data Center específico, altere o ponto final Global no pedido de API para o ponto de final desejado regional:
 
-|Descrição|Região|URL Base|
+|Descrição|Região|URL de base|
 |:--|:--|:--|
 |Azure|Global|  api.cognitive.microsofttranslator.com|
 |Azure|América do Norte|   api-nam.cognitive.microsofttranslator.com|
@@ -144,7 +144,7 @@ O código de erro é uma combinação de número de 6 dígitos o código de esta
 | 400036| O idioma de destino ("para" campo) está em falta ou é inválido.|
 | 400042| Uma das opções ("Opções" campo especificado) não é válida.|
 | 400043| O ID de rastreio de cliente (campo ClientTraceId ou cabeçalho X-ClientTranceId) está em falta ou é inválido.|
-| 400050| O texto de entrada é demasiado longo.|
+| 400050| O texto de entrada é demasiado longo. Modo de exibição [limites de pedido](../request-limits.md).|
 | 400064| O parâmetro de "tradução" está em falta ou é inválido.|
 | 400070| O número de scripts de destino (parâmetro ToScript) não corresponde ao número de idiomas de destino (para o parâmetro).|
 | 400071| O valor não é válido para TextType.|
@@ -152,14 +152,15 @@ O código de erro é uma combinação de número de 6 dígitos o código de esta
 | 400073| O parâmetro de script não é válido.|
 | 400074| O corpo do pedido não é um JSON válido.|
 | 400075| A combinação de par e categoria de idioma não é válida.|
-| 400077| Foi excedido o tamanho máximo do pedido.|
+| 400077| Foi excedido o tamanho máximo do pedido. Modo de exibição [limites de pedido](../request-limits.md).|
 | 400079| A pedido para a tradução entre de e para o idioma personalizadas do sistema não existem.|
 | 401000| O pedido não está autorizado porque as credenciais estão em falta ou inválido.|
 | 401015| "As credenciais fornecidas são para a API de voz. Este pedido requer credenciais para a API de texto. Utilize uma subscrição para a API de texto do Translator."|
 | 403000| A operação não é permitida.|
 | 403001| A operação não é permitida porque a subscrição excedeu a quota gratuita.|
 | 405000| O método de pedido não é suportado para o recurso pedido.|
-| 408001| O sistema de tradução personalizadas solicitado ainda não está disponível. Tente novamente dentro de alguns minutos.|
+| 408001| O sistema de tradução pedido está a ser preparado. Tente novamente dentro de alguns minutos.|
+| 408002| O pedido excedeu o tempo de espera no fluxo de entrada. O cliente não produziu um pedido dentro do tempo que o servidor foi preparado para aguardar. O cliente pode repetir o pedido sem modificações em qualquer altura posterior.|
 | 415000| O cabeçalho Content-Type está em falta ou é inválido.|
 | 429000, 429001, 429002| O servidor rejeitou o pedido porque o cliente excedeu os limites de pedido.|
 | 500000| Ocorreu um erro inesperado. Se o erro persistir, relatá-lo com a data/hora do erro, solicitar o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente a partir do cabeçalho de pedido X-ClientTraceId.|

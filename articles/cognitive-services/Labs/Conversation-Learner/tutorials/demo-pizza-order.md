@@ -3,19 +3,19 @@ title: Modelo de aprendiz de conversação de demonstração, a ordem de pizza -
 titleSuffix: Azure
 description: Saiba como criar um modelo de aprendiz de conversação de demonstração.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 010245480d8e1f59d5c1b92a9e717f73b5ba7f4c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60431002"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389148"
 ---
 # <a name="demo-pizza-order"></a>Demonstração: Ordem de pizza
 Essa demonstração ilustra uma bot, com suporte de pedido por de pizza único de pedido de pizza:

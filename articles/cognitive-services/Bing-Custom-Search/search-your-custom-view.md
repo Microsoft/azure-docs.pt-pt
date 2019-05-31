@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: 7a60ea934c6bb9008889992726ddca5dad21a640
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 9c0c4fc21f6f4b23b14c8020ecd7e95c63dedcbf
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595624"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388555"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chamar a sua instância de pesquisa personalizada do Bing do Portal
 
@@ -26,7 +26,7 @@ Após configurar a sua experiência de pesquisa personalizada, pode testá-lo de
 
 Depois de se para a pesquisa personalizada do Bing [portal](https://customsearch.ai), selecione a sua instância de pesquisa e clique nas **produção** separador. Sob **pontos de extremidade**, selecione um ponto final de API (por exemplo, API Web). A subscrição determina quais pontos de extremidade são exibidos.
 
-Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o ponto final. Tenha em atenção que os parâmetros apresentados no portal do podem ser alterados dependendo do ponto final que escolher. Consulte a [referência da API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que utiliza a sua instância de pesquisa, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou o idioma apropriados.
+Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o ponto final. Tenha em atenção que os parâmetros apresentados no portal do podem ser alterados dependendo do ponto final que escolher. Consulte a [referência da API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que utiliza a sua instância de pesquisa, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou o idioma apropriados.
 
 Alguns parâmetros importantes estão abaixo:
 
@@ -36,7 +36,7 @@ Alguns parâmetros importantes estão abaixo:
 |Consulta     | O termo de pesquisa para procurar. Disponível apenas para pontos finais de Web, imagem, vídeo e de sugestão automática |
 |ID de configuração personalizada | O ID de configuração da instância de pesquisa personalizada selecionada. Este campo é só de leitura. |
 |Market     | O mercado resultados serão provenientes de mensagens em fila. Apenas disponível para os pontos de extremidade da Web, imagem, vídeo e hospedado da interface do Usuário.        |
-|Chave de Subscrição | A chave de subscrição para testar com. Pode selecionar uma chave na lista pendente, ou introduza um manualmente.          |
+|Chave de subscrição | A chave de subscrição para testar com. Pode selecionar uma chave na lista pendente, ou introduza um manualmente.          |
 
 Clicar **parâmetros adicionais** revela os seguintes parâmetros:  
 

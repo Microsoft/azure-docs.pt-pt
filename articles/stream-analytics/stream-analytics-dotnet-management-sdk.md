@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4fa4a9a8d01d499dc431c8b182401226aa72bf1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480005"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303045"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>SDK de .NET de gestão: Configurar e executar tarefas de análise com a API do Azure Stream Analytics para .NET
 Saiba como configurar e executar tarefas de análise com a API do Stream Analytics para .NET com o SDK de .NET de gestão. Configurar um projeto, criar origens de entrada e saídas, transformações e iniciar e parar tarefas. Para as tarefas de análise, pode transmitir dados do armazenamento de BLOBs ou de um hub de eventos.
@@ -27,11 +27,11 @@ O Azure Stream Analytics é um serviço totalmente gerido, fornecendo o processa
 > Atualizámos o código de exemplo neste artigo com a versão do SDK de .NET de gestão do Azure Stream Analytics v2.x. Para utilizar a versão do SDK lagecy (1.x) utiliza um código de exemplo, veja [utilizar o SDK de .NET de gestão v1.x para o Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este artigo, tem de ter o seguinte:
+Antes de começar este artigo, tem de ter os seguintes requisitos:
 
-* Instale o Visual Studio 2017 ou 2015.
+* Instale o Visual Studio 2019 ou 2015.
 * Transfira e instale [SDK .NET do Azure](https://azure.microsoft.com/downloads/).
-* Crie um grupo de recursos do Azure na sua subscrição. Segue-se um exemplo de script do Azure PowerShell. Para obter informações do Azure PowerShell, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/overview);  
+* Crie um grupo de recursos do Azure na sua subscrição. O exemplo seguinte é um exemplo de script do Azure PowerShell. Para obter informações do Azure PowerShell, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/overview);  
 
    ```powershell
    # Log in to your Azure account
@@ -50,7 +50,7 @@ Antes de começar este artigo, tem de ter o seguinte:
 * Configure uma origem de entrada e de destino de saída para a tarefa ligar a.
 
 ## <a name="set-up-a-project"></a>Configure um projeto
-Para criar uma tarefa de análise utilizar a API do Stream Analytics para o .NET, primeiro configurar seu projeto.
+Para criar uma tarefa de análise, utilize a API do Stream Analytics para o .NET, primeiro configurar seu projeto.
 
 1. Crie uma aplicação de consola do Visual Studio c# .NET.
 2. Na consola do Gestor de pacotes, execute os seguintes comandos para instalar os pacotes de NuGet. A primeira é o SDK de .NET de gestão do Azure Stream Analytics. A segunda é para a autenticação de cliente do Azure.
@@ -211,7 +211,7 @@ O **TestConnection** método testa se a tarefa do Stream Analytics é capaz de l
    ```
 
 ## <a name="create-a-stream-analytics-output-target"></a>Criar um destino de saída do Stream Analytics
-A criação de um destino de saída é muito semelhante à criação de uma origem de entrada do Stream Analytics. Como as origens de entrada, saída destinos estão associados a uma tarefa específica. Para utilizar o mesmo destino de saída para as diferentes tarefas, tem de chamar o método novamente e especifique um nome de tarefa diferente.
+A criação de um destino de saída é semelhante à criação de uma origem de entrada do Stream Analytics. Como as origens de entrada, saída destinos estão associados a uma tarefa específica. Para utilizar o mesmo destino de saída para as diferentes tarefas, tem de chamar o método novamente e especifique um nome de tarefa diferente.
 
 O código seguinte cria um destino de saída (base de dados SQL do Azure). Pode personalizar o tipo de dados do destino de saída e/ou tipo de serialização.
 
@@ -289,7 +289,7 @@ O **eliminar** método irá eliminar a tarefa, bem como os recursos de secundár
 Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Que aprendeu as noções básicas da utilização de um SDK .NET para criar e executar tarefas de análise. Para saber mais, consulte o seguinte:
+Que aprendeu as noções básicas da utilização de um SDK .NET para criar e executar tarefas de análise. Para obter mais informações, consulte os artigos seguintes:
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

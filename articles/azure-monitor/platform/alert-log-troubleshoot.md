@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683396"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399195"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Resolver problemas relacionados com alertas de registo no Azure Monitor  
 
@@ -38,7 +38,7 @@ Para mitigar atrasos, o sistema deve aguardar e repete a consulta de alerta vár
 
 Conforme descrito no artigo [terminologia para alertas de registo](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), o período de tempo indicado na configuração especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo. 
 
-O período de tempo restringe os dados obtidos de uma consulta de registo evitar abusos e ele evita que qualquer comando de tempo (como **há**) utilizado numa consulta de registo. Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 são utilizados para a consulta de registo. Se a consulta de registo utiliza um comando de tempo como **há (1 dia)**, a consulta utiliza apenas dados entre 12:15 e 1 às 15:15 porque o período de tempo é definido como esse intervalo.
+O período de tempo restringe os dados obtidos de uma consulta de registo evitar abusos e ele evita que qualquer comando de tempo (como **há**) utilizado numa consulta de registo. Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 são utilizados para a consulta de registo. Se a consulta de registo utiliza um comando de tempo como **há (1 dia)** , a consulta utiliza apenas dados entre 12:15 e 1 às 15:15 porque o período de tempo é definido como esse intervalo.
 
 Verifique que o período de tempo na configuração corresponde à sua consulta. Para o exemplo mostrado anteriormente, se a consulta de registo utiliza **há (1 dia)** com marcador verde, o período de tempo deve ser definido para 24 horas ou minutos 1.440 (indicados em vermelho). Esta definição garante que a consulta é executada conforme pretendido.
 
@@ -181,6 +181,7 @@ O evento de exemplo seguintes no registo de atividades do Azure destina-se uma r
 Cada regra de alerta de registo criada no Azure Monitor, como parte de sua configuração tem de especificar uma consulta do analytics que o serviço de alertas é executada periodicamente. A consulta do analytics pode ter a sintaxe correta no momento da criação de regras ou atualização. Mas, às vezes, durante um período de tempo, a consulta fornecida na regra de alerta de registo pode desenvolver problemas de sintaxe e fazer com que a execução da regra efetuar a ativação. Algumas razões comuns, por que uma consulta do analytics fornecida numa regra de alerta de registo pode desenvolver os erros são:
 
 - A consulta é escrita [são executadas em vários recursos](../log-query/cross-workspace-query.md). E já não existem um ou mais dos recursos especificados.
+- [alerta de registo do tipo de medida da métrica](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configurado tenha um alerta consulta não está em conformidade com as normas de sintaxe
 - Não houve nenhum fluxo de dados para a plataforma de análise. O [execução da consulta dá um erro](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque não existem dados para a consulta fornecida não existe.
 - Alterações na [linguagem de consulta](https://docs.microsoft.com/azure/kusto/query/) incluem um formato revisado para comandos e funções. Portanto, a consulta fornecida anteriormente numa regra de alerta já não é válida.
 

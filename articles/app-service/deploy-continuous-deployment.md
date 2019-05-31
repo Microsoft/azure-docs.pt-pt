@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765707"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390641"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua no App Service do Azure
 Este artigo mostra-lhe como configurar a implementação contínua para [App Service do Azure](overview.md). Serviço de aplicações permite a implementação contínua do BitBucket, GitHub, e [serviços do Azure DevOps](https://www.visualstudio.com/team-services/) Pegando as atualizações mais recentes do seu repositório existente em um destes serviços.
@@ -130,7 +130,7 @@ Na **configurar** página, além do **criar** secção, especifique a estrutura 
 
 Na **teste** página, escolha se pretende ativar a testes de carga, em seguida, clique em **continuar**.
 
-Consoante a [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/plans/) do seu plano do serviço de aplicações, também poderá ver um **implementar na transição** página. Escolha se pretende [ativar ranhuras de implementação](deploy-staging-slots.md), em seguida, clique em **continuar**. 
+Consoante a [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/plans/) do seu plano do serviço de aplicações, também poderá ver um **implementar na transição** página. Escolha se pretende [ativar ranhuras de implementação](deploy-staging-slots.md), em seguida, clique em **continuar**. DevOps não permite a entrega contínua para o bloco de produção. Isto é propositado, para impedir a implementações acidentais para produção. Deve configurar a entrega contínua para um bloco de teste, verifique se existem as alterações e trocar as ranhuras quando estiver pronto.
 
 ### <a name="finish-configuration"></a>Concluir a configuração
 

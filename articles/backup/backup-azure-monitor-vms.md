@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464431"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399753"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorizar alertas de cópias de segurança de máquinas virtuais do Azure
 
@@ -40,7 +40,7 @@ Para abrir o painel de alertas de cópia de segurança da seção de alertas e e
     ![Mosaico alertas de cópia de segurança](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
 4. Para ver informações detalhadas sobre um alerta específico, na lista de eventos, clique no alerta para abrir o respetivo **detalhes** secção.
 
-    ![Detalhe do Evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
+    ![Detalhe do evento](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
     Para personalizar os atributos apresentados na lista, consulte [ver os atributos de eventos adicionais](backup-azure-monitor-vms.md)
 
@@ -69,8 +69,8 @@ Para configurar notificações por e-mail para alertas
 
    | Nível de alerta | Alertas enviados |
    | --- | --- |
-   | Crítica | Falha de cópia de segurança, falha na recuperação |
-   | Aviso | para as tarefas de cópia de segurança foi concluída com êxito com avisos (por exemplo: algumas gravadores falharam ao criar um instantâneo) |
+   | Crítico | Falha de cópia de segurança, falha na recuperação |
+   | Aviso | Atualmente, não existem alertas de aviso estão disponíveis para cópias de segurança de VM do Azure (por exemplo: algumas gravadores falharam ao criar um instantâneo) |
    | Informativo | Atualmente, não existem alertas informativos estão disponíveis para cópia de segurança de VM do Azure |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Situações em que o e-mail não é enviado, mesmo que as notificações estão configuradas

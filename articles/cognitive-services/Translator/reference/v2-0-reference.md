@@ -3,19 +3,19 @@ title: Versão 2.0 da API de texto do tradutor
 titleSuffix: Azure Cognitive Services
 description: Documentação de referência para a API de texto do Translator V2.0.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-jansko
-ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61467161"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389833"
 ---
 # <a name="translator-text-api-v20"></a>V2.0 de API de texto do tradutor
 
@@ -28,11 +28,18 @@ V2 de API de texto do Translator pode ser integrado diretamente em seus aplicati
 Para aceder à API de texto do Translator terá [Inscreva-se para o Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## <a name="authorization"></a>Autorização
-Todas as chamadas à API de texto do Microsoft Translator requerem uma chave de subscrição para autenticar. A API suporta dois modos de autenticação:
+Todas as chamadas à API de texto do Microsoft Translator requerem uma chave de subscrição para autenticar. A API suporta três modos de autenticação:
 
-* Com um token de acesso. Utilizar a chave de subscrição referenciada no **passo** 9 para gerar um token de acesso ao fazer um pedido POST para o serviço de autorização. Consulte a documentação do serviço de token para obter detalhes. Transmita o token de acesso ao serviço de Microsoft Translator usando o cabeçalho de autorização ou o parâmetro de consulta access_token. O token de acesso é válido durante 10 minutos. Obter um novo token de acesso a cada 10 minutos e continuar a utilizar o mesmo acesso o token para pedidos repetidos esses 10 minutos.
+- Um token de acesso. Utilizar a chave de subscrição referenciada no **passo** 9 para gerar um token de acesso ao fazer um pedido POST para o serviço de autorização. Consulte a documentação do serviço de token para obter detalhes. Transmitir o token de acesso ao serviço de Microsoft Translator, com o cabeçalho de autorização ou o `access_token` parâmetro de consulta. O token de acesso é válido durante 10 minutos. Obter um novo token de acesso a cada 10 minutos e continuar a utilizar o mesmo acesso o token para pedidos repetidos durante esses 10 minutos.
+- Uma chave diretamente de subscrição. Passar a sua chave de assinatura como um valor no `Ocp-Apim-Subscription-Key` cabeçalho incluído com o seu pedido para a API do Translator. Neste modo, não precisa chamar o serviço de token de autenticação para gerar um token de acesso.
+- R [subscrição múltiplos serviço de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/). Este modo permite-lhe utilizar uma única chave secreta para autenticar pedidos para vários serviços. <br/>
+Quando utiliza uma chave secreta múltiplos serviço, tem de incluir dois cabeçalhos de autenticação com o seu pedido. O cabeçalho de primeiro transmite a chave secreta. O cabeçalho de segundo Especifica a região associada à sua subscrição:
+   - `Ocp-Apim-Subscription-Key`
+   - `Ocp-Apim-Subscription-Region`
 
-* Utilizar uma chave de subscrição diretamente. Passar a sua chave de assinatura como um valor na `Ocp-Apim-Subscription-Key` cabeçalho incluído com o seu pedido para a API do Translator. Neste modo, não é necessário que chamar o serviço de token de autenticação para gerar um token de acesso.
+A região é necessária para a subscrição múltiplos serviço de API de texto. A região que selecionou é a região que pode utilizar para a tradução de texto ao utilizar a chave de subscrição de múltiplos serviços, e tem de ser a mesma região que selecionou quando se inscreveu para a sua subscrição múltiplos serviço através do portal do Azure.
+
+As regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, e `westus2`.
 
 Considere a chave de subscrição e o token de acesso como segredos que devem ser ocultados da vista.
 
@@ -46,7 +53,7 @@ Se quiser evitar que a linguagem inapropriada na tradução, independentemente d
 |:--|:--|:--|:--|
 |NoAction   |Predefinição. Mesmo que não definir a opção. Linguagem inapropriada passará de origem ao destino.        |彼はジャッカスです。     |Ele é um jackass.   |
 |Marcado     |Palavras profanas ficará rodeadas por marcas XML \<linguagem inapropriada > e \</profanity >.       |彼はジャッカスです。 |Ele é um \<linguagem inapropriada > jackass\</profanity >.  |
-|Eliminada    |Palavras profanas serão removidas da saída sem substituição.     |彼はジャッカスです。 |Ele é um.   |
+|Eliminado    |Palavras profanas serão removidas da saída sem substituição.     |彼はジャッカスです。 |Ele é um.   |
 
     
 ## <a name="excluding-content-from-translation"></a>Excluir o conteúdo de tradução
@@ -76,21 +83,21 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição    |Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição    |Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID  |(vazio)    |Necessário. Se o cabeçalho de autorização ou Ocp-Apim-Subscription-Key é usado, deixe o campo de appid vazio ou incluir uma cadeia de caracteres que contém "Bearer" + "" + "access_token".|consulta|string|
-|texto|(vazio)   |Necessário. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
-|de|(vazio)   |Opcional. Uma cadeia de caracteres que representa o código de idioma do texto de tradução. Por exemplo, en para inglês.|consulta|string|
-|para|(vazio) |Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
-|contentType|(vazio)    |Opcional. O formato de texto a ser traduzido. Os formatos suportados são text/plain (predefinição) e texto/html. Qualquer HTML tem de ser um elemento bem formado e completo.|consulta|string|
-|category|(vazio)   |Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. Predefinição é "geral".|consulta|string|
+|AppID  |(vazio)    |Necessário. Se o cabeçalho de autorização ou Ocp-Apim-Subscription-Key é usado, deixe o campo de appid vazio ou incluir uma cadeia de caracteres que contém "Bearer" + "" + "access_token".|query|string|
+|text|(vazio)   |Necessário. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|query|string|
+|from|(vazio)   |Opcional. Uma cadeia de caracteres que representa o código de idioma do texto de tradução. Por exemplo, en para inglês.|query|string|
+|para|(vazio) |Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|query|string|
+|contentType|(vazio)    |Opcional. O formato de texto a ser traduzido. Os formatos suportados são text/plain (predefinição) e texto/html. Qualquer HTML tem de ser um elemento bem formado e completo.|query|string|
+|category|(vazio)   |Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. Predefinição é "geral".|query|string|
 |Autorização|(vazio)  |Necessário se o campo de appid ou cabeçalho Ocp-Apim-Subscription-Key não for especificado. Token de autorização:  "Bearer" + "" + "access_token".|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)  |Necessário se o campo de appid ou o cabeçalho de autorização não está especificado.|cabeçalho|string|
 
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -181,14 +188,14 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
 |Autorização|(vazio)) |Necessário se o campo de appid ou cabeçalho Ocp-Apim-Subscription-Key não for especificado. Token de autorização:  "Bearer" + "" + "access_token".|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o campo de appid ou o cabeçalho de autorização não está especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP   |Razão|
+|Código de estado de HTTP   |Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas. Erros comuns incluem: <ul><li>Elemento de matriz não pode estar vazio</li><li>Categoria inválida</li><li>De idioma é inválido</li><li>A linguagem é inválida</li><li>O pedido contém demasiados elementos</li><li>O idioma de From não é suportado</li><li>Não é suportado o idioma em</li><li>Traduzir pedido tem demasiados dados</li><li>HTML não está num formato correto</li><li>Cadeias de caracteres demasiados passadas para a solicitação de traduzir</li></ul>|
 |401    |Credenciais inválidas|
@@ -222,16 +229,16 @@ Tipo de conteúdo de resposta: aplicação/xml
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|região|(vazio) |Necessário. Uma cadeia de caracteres que representa uma combinação de um código de cultura de duas letras em minúsculas do ISO 639 associadas com uma linguagem e um código de subcultura de duas letras em maiúsculas do ISO 3166 para localizar os nomes de idiomas ou um código de cultura em minúsculas do ISO 639 por si só.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|query|string|
+|Localidade|(vazio) |Necessário. Uma cadeia de caracteres que representa uma combinação de um código de cultura de duas letras em minúsculas do ISO 639 associadas com uma linguagem e um código de subcultura de duas letras em maiúsculas do ISO 3166 para localizar os nomes de idiomas ou um código de cultura em minúsculas do ISO 639 por si só.|query|string|
 |Autorização|(vazio)  |Necessário se o campo de appid ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)  |Necessário se o campo de appid ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -256,15 +263,15 @@ Tipo de conteúdo de resposta: aplicação/xml
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|query|string|
 |Autorização|(vazio)  |Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -274,7 +281,7 @@ Tipo de conteúdo de resposta: aplicação/xml
 ## <a name="get-getlanguagesforspeak"></a>GET /GetLanguagesForSpeak
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Obtém os idiomas disponíveis para síntese de voz.
+Obtém os idiomas disponíveis para síntese de fala.
 
 O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForSpeak`.
 
@@ -289,15 +296,15 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|query|string|
 |Autorização|(vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
  
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400|Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401|Credenciais inválidas|
@@ -321,19 +328,19 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|texto|(vazio)   |Necessário. Uma cadeia de caracteres contendo uma frase ou frases de idioma especificado seja falado para o fluxo de wave. O tamanho do texto para fala não pode exceder os 2.000 caracteres.|consulta|string|
-|language|(vazio)   |Necessário. Uma cadeia de caracteres representando o código de idioma com suporte para dizer o texto no. O código tem de estar presente na lista de códigos retornado do método `GetLanguagesForSpeak`.|consulta|string|
-|Formato|(vazio)|Opcional. Uma cadeia que especifica o ID do tipo de conteúdo. Atualmente, `audio/wav` e `audio/mp3` estão disponíveis. O valor predefinido é `audio/wav`.|consulta|string|
-|opções|(vazio)    |<ul><li>Opcional. Uma cadeia que especifica as propriedades da fala sintetizada:<li>`MaxQuality` e `MinSize` estão disponíveis para especificar a qualidade dos sinais de áudio. Com o `MaxQuality`, pode obter vozes com a mais alta qualidade e com `MinSize`, pode obter as vozes com o tamanho mais pequeno. A predefinição é `MinSize`.</li><li>`female` e `male` estão disponíveis para especificar o sexo pretendido de voz. A predefinição é `female`. Utilize a barra vertical <code>\|</code> para incluir várias opções. Por exemplo `MaxQuality|Male`.</li></li></ul> |consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|query|string|
+|text|(vazio)   |Necessário. Uma cadeia de caracteres contendo uma frase ou frases de idioma especificado seja falado para o fluxo de wave. O tamanho do texto para fala não pode exceder os 2.000 caracteres.|query|string|
+|language|(vazio)   |Necessário. Uma cadeia de caracteres representando o código de idioma com suporte para dizer o texto no. O código tem de estar presente na lista de códigos retornado do método `GetLanguagesForSpeak`.|query|string|
+|format|(vazio)|Opcional. Uma cadeia que especifica o ID do tipo de conteúdo. Atualmente, `audio/wav` e `audio/mp3` estão disponíveis. O valor predefinido é `audio/wav`.|query|string|
+|Opções|(vazio)    |<ul><li>Opcional. Uma cadeia que especifica as propriedades da fala sintetizada:<li>`MaxQuality` e `MinSize` estão disponíveis para especificar a qualidade dos sinais de áudio. Com o `MaxQuality`, pode obter vozes com a mais alta qualidade e com `MinSize`, pode obter as vozes com o tamanho mais pequeno. A predefinição é `MinSize`.</li><li>`female` e `male` estão disponíveis para especificar o sexo pretendido de voz. A predefinição é `female`. Utilize a barra vertical <code>\|</code> para incluir várias opções. Por exemplo `MaxQuality|Male`.</li></li></ul> |query|string|
 |Autorização|(vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)  |Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -357,16 +364,16 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)  |Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|texto|(vazio)|Necessário. Uma cadeia de caracteres que contém algum texto cujo idioma é ser identificadas. O tamanho do texto não pode exceder os 10000 carateres.|consulta| string|
+|AppID|(vazio)  |Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|query|string|
+|text|(vazio)|Necessário. Uma cadeia de caracteres que contém algum texto cujo idioma é ser identificadas. O tamanho do texto não pode exceder os 10000 carateres.|query| string|
 |Autorização|(vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key  |(vazio)    |Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400|Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -412,15 +419,15 @@ Tipo de conteúdo de resposta: aplicação/xml
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|query|string|
 |Autorização|(vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo ou cabeçalho de autorização não está especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -446,24 +453,24 @@ Tipo de conteúdo de resposta: aplicação: xml
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados   |
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados   |
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|originalText|(vazio)|Necessário. Uma cadeia de caracteres que contém o texto a traduzir. A cadeia de caracteres tem um comprimento máximo de 1000 carateres.|consulta|string|
-|translatedText|(vazio) |Necessário. Uma cadeia de caracteres que contém traduzido texto no idioma de destino. A cadeia de caracteres tem um comprimento máximo de 2000 caracteres.|consulta|string|
-|de|(vazio)   |Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de tradução. EN = inglês, Alemanha = Alemão etc...|consulta|string|
-|para|(vazio)|Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
-|classificação|(vazio) |Opcional. Um número inteiro que representa a classificação de qualidade para essa cadeia de caracteres. Valor entre -10 e 10. Predefinição é 1.|consulta|inteiro|
-|contentType|(vazio)    |Opcional. O formato de texto a ser traduzido. Os formatos suportados são "text/plain" e "text/html". Qualquer HTML tem de ser um elemento bem formado e completo.   |consulta|string|
-|category|(vazio)|Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. Predefinição é "geral".|consulta|string|
-|Utilizador|(vazio)|Necessário. Uma cadeia utilizada para controlar o originador de envio.|consulta|string|
-|uri|(vazio)|Opcional. Uma cadeia de caracteres que contém a localização do conteúdo dessa conversão.|consulta|string|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|query|string|
+|originalText|(vazio)|Necessário. Uma cadeia de caracteres que contém o texto a traduzir. A cadeia de caracteres tem um comprimento máximo de 1000 carateres.|query|string|
+|translatedText|(vazio) |Necessário. Uma cadeia de caracteres que contém traduzido texto no idioma de destino. A cadeia de caracteres tem um comprimento máximo de 2000 caracteres.|query|string|
+|from|(vazio)   |Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de tradução. EN = inglês, Alemanha = Alemão etc...|query|string|
+|para|(vazio)|Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|query|string|
+|classificação|(vazio) |Opcional. Um número inteiro que representa a classificação de qualidade para essa cadeia de caracteres. Valor entre -10 e 10. Predefinição é 1.|query|inteiro|
+|contentType|(vazio)    |Opcional. O formato de texto a ser traduzido. Os formatos suportados são "text/plain" e "text/html". Qualquer HTML tem de ser um elemento bem formado e completo.   |query|string|
+|category|(vazio)|Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. Predefinição é "geral".|query|string|
+|Utilizador|(vazio)|Necessário. Uma cadeia utilizada para controlar o originador de envio.|query|string|
+|uri|(vazio)|Opcional. Uma cadeia de caracteres que contém a localização do conteúdo dessa conversão.|query|string|
 |Autorização|(vazio)|Necessário se o campo de appid ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.    |cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -523,14 +530,14 @@ Tipo de conteúdo de resposta: aplicação/xml
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
 |Autorização|(vazio)|Necessário se o campo de appid ou cabeçalho Ocp-Apim-Subscription-Key não for especificado. Token de autorização:  "Bearer" + "" + "access_token".|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o campo de appid ou o cabeçalho de autorização não está especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -556,17 +563,17 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)  |Necessário. Se o cabeçalho de autorização ou Ocp-Apim-Subscription-Key é usado, deixe o campo de appid vazio ou incluir uma cadeia de caracteres que contém "Bearer" + "" + "access_token".|consulta| string|
-|texto|(vazio)   |Necessário. Uma cadeia de caracteres que representa o texto a dividir em frases. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
-|language   |(vazio)    |Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de entrada.|consulta|string|
+|AppID|(vazio)  |Necessário. Se o cabeçalho de autorização ou Ocp-Apim-Subscription-Key é usado, deixe o campo de appid vazio ou incluir uma cadeia de caracteres que contém "Bearer" + "" + "access_token".|query| string|
+|text|(vazio)   |Necessário. Uma cadeia de caracteres que representa o texto a dividir em frases. O tamanho do texto não pode exceder os 10000 carateres.|query|string|
+|language   |(vazio)    |Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de entrada.|query|string|
 |Autorização|(vazio)|Necessário se o campo de appid ou cabeçalho Ocp-Apim-Subscription-Key não for especificado. Token de autorização:  "Bearer" + "" + "access_token".    |cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o campo de appid ou o cabeçalho de autorização não está especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400|Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401|Credenciais inválidas|
@@ -650,19 +657,19 @@ Tipo de conteúdo de resposta: aplicação/xml
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
-|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|consulta|string|
-|texto|(vazio)|Necessário. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|consulta|string|
-|de|(vazio)|Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de tradução.|consulta|string|
-|para |(vazio)    |Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|consulta|string|
-|maxTranslations|(vazio)|Necessário. Um número inteiro que representa o número máximo de traduções para retornar.|consulta|inteiro|
+|AppID|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o campo de appid vazio incluir, caso contrário, uma cadeia de caracteres que contém `"Bearer" + " " + "access_token"`.|query|string|
+|text|(vazio)|Necessário. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|query|string|
+|from|(vazio)|Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de tradução.|query|string|
+|para |(vazio)    |Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|query|string|
+|maxTranslations|(vazio)|Necessário. Um número inteiro que representa o número máximo de traduções para retornar.|query|inteiro|
 |Autorização| (vazio)|Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|string| cabeçalho|
 |OCP-Apim-Subscription-Key|(vazio)  |Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|
@@ -770,14 +777,14 @@ Tipo de conteúdo de resposta: aplicação/xml
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|:--|
 |Autorização  |(vazio)    |Necessário se o `appid` campo ou `Ocp-Apim-Subscription-Key` cabeçalho não for especificado. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
 |OCP-Apim-Subscription-Key|(vazio)  |Necessário se o `appid` campo ou `Authorization` cabeçalho não for especificado.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
 |401    |Credenciais inválidas|

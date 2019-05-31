@@ -1,30 +1,30 @@
 ---
-title: 'Início rápido: Visualize os dados a partir do Explorador de dados do Azure com uma consulta importado no Power BI '
-description: 'Neste início rápido, irá aprender a utilizar uma das três opções para visualizar dados no Power BI: importar uma consulta a partir do Explorador de dados do Azure.'
+title: 'Visualize os dados a partir do Explorador de dados do Azure com uma consulta importado no Power BI '
+description: 'Neste artigo, irá aprender a utilizar uma das três opções para visualizar dados no Power BI: importar uma consulta a partir do Explorador de dados do Azure.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/14/2018
-ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 05/30/2019
+ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828991"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399326"
 ---
-# <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Início rápido: Visualizar dados utilizando uma consulta importada para o Power BI
+# <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualizar dados utilizando uma consulta importada para o Power BI
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Power BI é uma solução de análise de negócios que lhe permite visualizar os seus dados e partilhar os resultados na sua organização.
 
-O Explorador de dados do Azure fornece três opções para ligar aos dados no Power BI: utilizar o conector incorporado, importar uma consulta a partir do Explorador de dados do Azure ou utilizar uma consulta SQL. Este início rápido mostra como importar uma consulta para que possa obter dados e visualizá-la num relatório do Power BI.
+O Explorador de dados do Azure fornece três opções para ligar aos dados no Power BI: utilizar o conector incorporado, importar uma consulta a partir do Explorador de dados do Azure ou utilizar uma consulta SQL. Este artigo mostra-lhe como importar uma consulta para que possa obter dados e visualizá-la num relatório do Power BI.
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário o seguinte para concluir este início rápido:
+É necessário o seguinte para concluir este artigo:
 
 * Uma conta de e-mail organizacional que seja membro do Azure Active directory, para que possa ligar para o [cluster de ajuda do Explorador de dados do Azure](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -78,9 +78,8 @@ Em primeiro lugar, crie uma consulta na aplicação de ambiente de trabalho do E
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar do relatório que criou para este início rápido, elimine o ficheiro do Power BI Desktop (. pbix).
+Se já não precisar do relatório que criou para este artigo, elimine o ficheiro do Power BI Desktop (. pbix).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Quickstart: Visualizar dados utilizando uma consulta importada no Power BI](power-bi-sql-query.md)
+[Visualizar dados utilizando uma consulta importada no Power BI](power-bi-sql-query.md)

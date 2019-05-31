@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362344"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399357"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V para um site secundário
 
@@ -99,7 +99,7 @@ Múltiplos caminhos (o MPIO) | Sim
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Suportado**
+**ação** | **Suportado**
 --- | --- 
 Cofres de movimentação entre grupos de recursos (dentro ou entre subscrições) |  Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou entre subscrições) | Não

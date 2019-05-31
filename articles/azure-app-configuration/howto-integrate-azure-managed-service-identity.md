@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408885"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393658"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrar com o Azure managed identidades
 
@@ -49,7 +49,7 @@ Para concluir este tutorial, tem de ter:
 
 Para configurar uma identidade gerida no portal, primeiro crie uma aplicação como normal e, em seguida, ativar a funcionalidade.
 
-1. Crie uma aplicação no [portal do Azure](https://aka.ms/azconfig/portal) como faria normalmente. Aceda ao mesmo no portal.
+1. Crie uma aplicação no [portal do Azure](https://portal.azure.com) como faria normalmente. Aceda ao mesmo no portal.
 
 2. Desloque para baixo para o **configurações** grupo no painel do lado esquerdo e selecione **identidade**.
 
@@ -59,9 +59,9 @@ Para configurar uma identidade gerida no portal, primeiro crie uma aplicação c
 
 ## <a name="grant-access-to-app-configuration"></a>Conceder acesso a configuração de aplicações
 
-1. Na [portal do Azure](https://aka.ms/azconfig/portal), selecione **todos os recursos** e selecione o arquivo de configuração de aplicação que criou no guia de introdução.
+1. Na [portal do Azure](https://portal.azure.com), selecione **todos os recursos** e selecione o arquivo de configuração de aplicação que criou no guia de introdução.
 
-2. Selecione **controlo de acesso (IAM)**.
+2. Selecione **controlo de acesso (IAM)** .
 
 3. Na **verificar acesso** separador, selecione **Add** no **adicionar atribuição de função** cartão de interface do Usuário.
 
@@ -75,7 +75,7 @@ Para configurar uma identidade gerida no portal, primeiro crie uma aplicação c
 
 ## <a name="use-a-managed-identity"></a>Utilizar uma identidade gerida
 
-1. Open *appSettings*e adicione o seguinte script. Substitua  *\<service_endpoint >*, incluindo os parênteses, com o URL para o arquivo de configuração de aplicação:
+1. Open *appSettings*e adicione o seguinte script. Substitua  *\<service_endpoint >* , incluindo os parênteses, com o URL para o arquivo de configuração de aplicação:
 
     ```json
     "AppConfig": {

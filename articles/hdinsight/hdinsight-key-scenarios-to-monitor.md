@@ -1,19 +1,19 @@
 ---
 title: Monitorizar o desempenho do cluster - Azure HDInsight
 description: Como monitorizar um cluster do HDInsight para a capacidade e desempenho.
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
-ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.author: hrasheed
+ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799797"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393419"
 ---
 # <a name="monitor-cluster-performance"></a>Monitorizar o desempenho do cluster
 
@@ -30,7 +30,7 @@ Para obter uma visão de alto nível os nós do cluster e o carregamento, inicie
 | Cor | Descrição |
 | --- | --- |
 | Vermelho | Pelo menos um componente principal do anfitrião está inativo. Passe o Mouse para ver uma descrição que listas afetados componentes. |
-| Laranja | Pelo menos um componente secundário no anfitrião está inativo. Passe o Mouse para ver uma descrição que listas afetados componentes. |
+| Orange | Pelo menos um componente secundário no anfitrião está inativo. Passe o Mouse para ver uma descrição que listas afetados componentes. |
 | Amarelo | Servidor Ambari não ter recebido um heartbeat do anfitrião durante mais de 3 minutos. |
 | Verde | Estado de funcionamento do normal. |
 

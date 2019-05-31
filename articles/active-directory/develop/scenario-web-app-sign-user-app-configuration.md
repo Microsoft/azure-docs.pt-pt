@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2204fe3e08b3c4b909ddc8b7ade4cec219d34fb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406638"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254011"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Aplicação Web que inicia sessão os utilizadores - configuração de código
 
@@ -110,6 +110,9 @@ Da mesma forma, a fim de sessão URI seria definido como `https://localhost:4432
 
 Em aplicações Web do ASP.NET Core (e as APIs da Web), o código de fazer a inicialização do aplicativo está localizado no `Startup.cs` arquivo, e, para adicionar a autenticação com o v2.0 do Microsoft Identity platform (anteriormente conhecido como o Azure AD), terá de adicionar o código a seguir. Os comentários no código devem ser facilmente compreensíveis.
 
+  > [!NOTE]
+  > Se iniciar seu projeto com o projeto da web padrão ASP.NET core no Visual studio ou usando `dotnet new mvc` o método `AddAzureAD` está disponível por predefinição, uma vez que os pacotes relacionados são carregados automaticamente. No entanto se criar um projeto do zero e que estão tentando usar o abaixo código sugerimos que adicione o pacote NuGet **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** ao seu projeto para tornar o `AddAzureAD` método disponível.
+  
 ```CSharp
  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
          .AddAzureAD(options => configuration.Bind("AzureAd", options));

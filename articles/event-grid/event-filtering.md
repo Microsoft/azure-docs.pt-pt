@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187662"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305060"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender o evento de filtragem para subscrições do Event Grid
 
@@ -117,7 +117,7 @@ Para eventos no esquema do Event Grid, utilize os seguintes valores para a chave
 Para eventos no esquema de eventos na Cloud, utilize os seguintes valores para a chave:
 
 * EventId
-* Origem
+* Source
 * EventType
 * EventTypeVersion
 * Dados de eventos (como Data.key1)
@@ -140,8 +140,6 @@ Filtragem avançada tem as seguintes limitações:
 * Cinco filtros avançados por subscrição do event grid
 * 512 carateres por valor de cadeia
 * Cinco valores para **no** e **não está no** operadores
-* A chave só pode ter um nível de aninhamento (como data.key1)
-* Esquemas de eventos personalizados podem ser filtradas apenas em campos de nível superior
 
 A mesma chave pode ser utilizada em mais do que um filtro.
 

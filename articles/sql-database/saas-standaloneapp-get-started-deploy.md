@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485156"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304144"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação de inquilino único autónoma que utiliza a base de dados do Azure SQL
 
@@ -25,9 +25,9 @@ Neste tutorial, implementar e explorar a aplicação de exemplo Wingtip Tickets 
 
 O aplicativo autônomo ou um padrão de aplicação por inquilino implementa uma instância de aplicação para cada inquilino.  Cada aplicativo é configurado para um inquilino específico e implementado num grupo de recursos do Azure. Várias instâncias do aplicativo são aprovisionadas para fornecer uma solução de multi-inquilino. Este padrão é mais adequado para um número menor, de onde o isolamento de inquilino é uma prioridade de inquilinos. O Azure tem programas de parceria que permitem que os recursos a serem implantados na subscrição de um inquilino e geridos por um fornecedor de serviços em nome do inquilino. 
 
-Neste tutorial, irá implementar três aplicativos autônomos para três inquilinos na sua subscrição do Azure.  Tem acesso total para explorar e trabalhar com os componentes de aplicativos individuais.
+Neste tutorial, vai implementar três aplicativos autônomos para três inquilinos na sua subscrição do Azure.  Tem acesso total para explorar e trabalhar com os componentes de aplicativos individuais.
 
-Os scripts de código e gestão da origem de aplicação estão disponíveis no [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) repositório do GitHub. A aplicação foi criada com o Visual Studio 2015 e não com êxito abra e compilar no Visual Studio 2017 sem atualizar.
+Os scripts de código e gestão da origem de aplicação estão disponíveis no [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) repositório do GitHub. A aplicação foi criada com o Visual Studio 2015 e não com êxito abra e compilar no Visual Studio 2019 sem atualizar.
 
 
 Neste tutorial, ficará a saber:
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber:
 > * Onde obter o código de origem do aplicativo e os scripts de gestão.
 > * Sobre os servidores e bases de dados que constituem a aplicação.
 
-Tutoriais adicionais serão lançadas. Eles permitirá que explore uma gama de cenários de gestão com base neste padrão de aplicação.   
+Tutoriais adicionais serão lançadas. Eles permitem-lhe explorar uma variedade de cenários de gestão com base neste padrão de aplicação.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Implementar a aplicação de SaaS autónomo de bilhetes Wingtip
 
@@ -56,7 +56,7 @@ Implemente a aplicação para os três inquilinos de fornecido:
     > Alguns firewalls de autenticação e o servidor são intencionalmente não seguras para fins de demonstração. **Criar um novo grupo de recursos** para cada implementação de aplicação.  Não utilize um grupo de recursos existente. Não utilize esta aplicação nem quaisquer recursos por que ela criados para produção. Elimine todos os grupos de recursos quando tiver terminado com os aplicativos para parar a faturação relacionada.
 
     É melhor usar apenas letras minúsculas, números e hífenes no seus nomes de recursos.
-    * Para **grupo de recursos**, selecione Criar novo e, em seguida, forneça um nome em minúsculas para o grupo de recursos. **a Wingtip-sa -\<venueName\>-\<utilizador\>**  é o padrão recomendado.  Para \<venueName\>, substitua o nome de local, sem espaços. Para \<utilizador\>, substitua o valor de utilizador de abaixo.  Com esse padrão, os nomes de grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    * Para **grupo de recursos**, selecione Criar novo e, em seguida, forneça um nome em minúsculas para o grupo de recursos. **a Wingtip-sa -\<venueName\>-\<utilizador\>**  é o padrão recomendado.  Para \<venueName\>, substitua o nome de local sem espaços. Para \<utilizador\>, substitua o valor de utilizador de abaixo.  Com esse padrão, os nomes de grupo de recursos podem ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Selecione um **localização** na lista pendente.
 
     * Para **usuário** -recomendamos um valor de utilizador curto, como suas iniciais e um dígito: por exemplo, *af1*.
@@ -107,7 +107,7 @@ Cada base de dados do inquilino é uma DTU 50 *autónomo* base de dados.
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - Para saber mais sobre aplicações SaaS multi-inquilino, veja [padrões de Design para aplicações SaaS multi-inquilino](saas-tenancy-app-design-patterns.md).

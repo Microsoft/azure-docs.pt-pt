@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: c6b9f54d073b671b55f259bfbb2aa70d9eacfdc4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c436522bd5f1a9d52b71d85b7b47ac9a089c0b25
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943314"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258173"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Aplicação Power BI oferecem pré-requisitos
 
@@ -29,7 +29,7 @@ Depois da aplicação do serviço é criada e testada no Power BI, deve guardar 
 
 Os requisitos comerciais incluem obrigações de procedimentos, contratuais e legais.  Tem de:
 
-- Ser um publicador de marketplace da cloud registada. Se não estiver registrado, siga os passos em [se tornar um publicador de Marketplace da Cloud](../../become-publisher.md).
+- Ser um publicador de marketplace da cloud registada. Se não estiver registrado, siga os passos em [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
     > Utilizar a mesma conta de registo de Microsoft Developer Center para iniciar sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com). Deve ter apenas uma conta Microsoft para as ofertas de AppSource. As contas não devem ser específicas de ofertas ou serviços individuais.

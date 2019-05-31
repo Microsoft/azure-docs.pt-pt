@@ -7,13 +7,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/13/2019
-ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
-ms.translationtype: HT
+ms.date: 05/24/2019
+ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978004"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257837"
 ---
 # <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Configurar a restrição de tráfego de rede de saída para o Azure HDInsight clusters (pré-visualização)
 
@@ -32,38 +32,23 @@ A solução para proteger os endereços de saída é utilizar um dispositivo de 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configurar o Firewall do Azure com o HDInsight
 
 Um resumo dos passos para bloquear a saída de seu HDInsight existente com o Firewall do Azure são:
-1. Ative pontos finais de serviço.
 1. Crie uma firewall.
 1. Adicionar regras de aplicações para a firewall
 1. Adicione regras de rede à firewall.
 1. Crie uma tabela de encaminhamento.
 
-### <a name="enable-service-endpoints"></a>Ativar pontos finais de serviço
-
-Se pretender ignorar a firewall (por exemplo, para poupar no custo na transferência de dados), em seguida, pode ativar pontos finais de serviço para SQL e armazenamento na sua sub-rede do HDInsight. Quando tem pontos finais de serviço ativados para o Azure SQL, todas as dependências de SQL do Azure que tenha o seu cluster devem ser configuradas com pontos finais de serviço também.
-
-Para ativar os pontos de extremidade de serviço correto, conclua os seguintes passos:
-
-1. Inicie sessão no portal do Azure e selecione a rede virtual implementada no seu cluster do HDInsight.
-1. Selecione **sub-redes** sob **definições**.
-1. Selecione a sub-rede onde o cluster é implementado.
-1. No ecrã para editar as definições de sub-rede, clique em **Microsoft. SQL** e/ou **Microsoft. Storage** partir os **pontos finais de serviço**  >   **Serviços** na caixa pendente.
-1. Se estiver a utilizar um cluster do ESP, então deve também selecionar a **Microsoft. azureactivedirectory** ponto final de serviço.
-1. Clique em **Guardar**.
-
 ### <a name="create-a-new-firewall-for-your-cluster"></a>Criar uma nova firewall para o seu cluster
 
 1. Crie uma sub-rede designada **AzureFirewallSubnet** na rede virtual onde existe o seu cluster. 
 1. Criar uma nova firewall **teste FW01** utilizando os passos no [Tutorial: Implementar e configurar a Firewall do Azure no portal do Azure](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
-1. Selecione o novo firewall do portal do Azure. Clique em **regras** sob **definições** > **coleção de regras de aplicação** > **adicionar a coleção de regras de aplicação**.
-
-    ![Título: Adicionar conjunto de regras de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 ### <a name="configure-the-firewall-with-application-rules"></a>Configurar o firewall com regras de aplicações
 
 Crie uma coleção de regras de aplicação que permite que o cluster enviar e receber comunicações importantes.
 
 Selecione o novo firewall **teste FW01** do portal do Azure. Clique em **regras** sob **definições** > **coleção de regras de aplicação** > **adicionar a coleção de regras de aplicação**.
+
+![Título: Adicionar a coleção de regras de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 Sobre o **adicionar a coleção de regras de aplicação** ecrã, conclua os seguintes passos:
 
@@ -75,12 +60,9 @@ Sobre o **adicionar a coleção de regras de aplicação** ecrã, conclua os seg
     1. Uma regra para permitir que a atividade de início de sessão do Windows:
         1. Na **destino FQDNs** secção, forneça um **nome**e defina **endereços de origem** para `*`.
         1. Introduza `https:443` sob **protocolo: porta** e `login.windows.net` sob **FQDNS de destino**.
-    1. Uma regra para permitir a telemetria SQM:
-        1. Na **destino FQDNs** secção, forneça um **nome**e defina **endereços de origem** para `*`.
-        1. Introduza `https:443` sob **protocolo: porta** e `sqm.telemetry.microsoft.com` sob **FQDNS de destino**.
     1. Se o cluster está protegido por WASB e não estiver a utilizar os pontos finais de serviço acima, em seguida, adicione uma regra para WASB:
         1. Na **destino FQDNs** secção, forneça um **nome**e defina **endereços de origem** para `*`.
-        1. Introduza `http` ou [https] dependendo se estiver a utilizar wasb: / / ou wasbs: / / em **protocolo: porta** e o url da conta de armazenamento sob **destino FQDNS**.
+        1. Introduza `http` ou `https` dependendo se estiver a utilizar wasb: / / ou wasbs: / / em **protocolo: porta** e o url da conta de armazenamento sob **destino FQDNS**.
 1. Clique em **Adicionar**.
 
 ![Título: Introduza os detalhes de coleção de regra de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -88,9 +70,6 @@ Sobre o **adicionar a coleção de regras de aplicação** ecrã, conclua os seg
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurar o firewall com regras de rede
 
 Crie as regras de rede para configurar corretamente o seu cluster do HDInsight.
-
-> [!Important]
-> Pode escolher entre a utilização de etiquetas de serviço do SQL na firewall utilizar regras de rede, conforme descrito nesta secção, ou o SQL serviço ponto final de um descrito num [a secção sobre pontos finais de serviço](#enable-service-endpoints). Se optar por utilizar etiquetas SQL nas regras de rede, pode iniciar sessão e auditar o tráfego SQL. Com um ponto de final de serviço, terá a ignorar a firewall de tráfego SQL.
 
 1. Selecione o novo firewall **teste FW01** do portal do Azure.
 1. Clique em **regras** sob **definições** > **coleção de regras de rede** > **adicionar a coleção de regras de rede**.
@@ -112,12 +91,7 @@ Crie as regras de rede para configurar corretamente o seu cluster do HDInsight.
         1. Definir **endereços de origem** `*`.
         1. Introduza o endereço IP da sua conta de armazenamento no **endereços de destino**.
         1. Definir **portas de destino** para `*`.
-    1. Uma regra de rede para permitir a comunicação com o serviço de gestão da chave para o Windows ativação.
-        1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **qualquer** do **protocolo** lista pendente.
-        1. Definir **endereços de origem** `*`.
-        1. Definir **endereços de destino** para `*`.
-        1. Definir **portas de destino** para `1688`.
-    1. Se estiver a utilizar o Log Analytics, em seguida, crie uma regra de rede para permitir a comunicação com a sua área de trabalho do Log Analytics.
+    1. (Opcional) Se estiver a utilizar o Log Analytics, em seguida, crie uma regra de rede para permitir a comunicação com a sua área de trabalho do Log Analytics.
         1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **qualquer** do **protocolo** lista pendente.
         1. Definir **endereços de origem** `*`.
         1. Definir **endereços de destino** para `*`.
@@ -152,13 +126,13 @@ Por exemplo, para configurar a tabela de rotas para um cluster criado na região
 
 | Nome da rota | Prefixo de endereço | Tipo de salto seguinte | Endereço do próximo salto |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | ND |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | ND |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | ND |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | ND |
-| 13.67.223.215 | 13.67.223.215/32 | Internet | ND |
-| 40.86.83.253 | 40.86.83.253/32 | Internet | ND |
-| 168.63.129.16 | 168.63.129.16/32 | Internet | ND |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | N/D |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | N/D |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | N/D |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | N/D |
+| 13.67.223.215 | 13.67.223.215/32 | Internet | N/D |
+| 40.86.83.253 | 40.86.83.253/32 | Internet | N/D |
+| 168.63.129.16 | 168.63.129.16/32 | Internet | N/D |
 | 0.0.0.0 | 0.0.0.0/0 | Aplicação virtual | 10.1.1.4 |
 
 ![Título: Criar uma tabela de rotas](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
@@ -210,7 +184,7 @@ As instruções anteriores ajudar a configurar a Firewall do Azure para restring
 
 | **Endpoint** |
 |---|
-| Azure SQL |
+| SQL do Azure |
 | Storage do Azure |
 | Azure Active Directory |
 

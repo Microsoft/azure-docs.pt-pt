@@ -5,15 +5,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
-ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484892"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252856"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
 
@@ -26,7 +25,7 @@ Os clusters de HDInsight do Azure têm diferentes tipos de máquinas virtuais ou
 | Type | Descrição |
 | --- | --- |
 | Nó principal |  Para todos os tipos de cluster, exceto o Apache Storm, os nós principais alojam os processos de gerenciamento da execução da aplicação distribuída. O nó principal também é o nó que pode SSH no e executar aplicativos que são coordenados e, em seguida, executar entre os recursos do cluster. O número de nós principais é fixa em dois para que todos os tipos de cluster. |
-| Nó do zooKeeper | Zookeeper coordena tarefas entre os nós que estão a fazer o processamento de dados. Também não eleição de coordenador do nó principal e mantém um registro de qual nó principal está a executar um serviço principal específico. O número de nós do ZooKeeper é fixa em dois. |
+| Nó do zooKeeper | Zookeeper coordena tarefas entre os nós que estão a fazer o processamento de dados. Também não eleição de coordenador do nó principal e mantém um registro de qual nó principal está a executar um serviço principal específico. O número de nós do ZooKeeper é fixa em três. |
 | Nó de trabalho | Representa os nós que suportam a funcionalidade de processamento de dados. Nós de trabalho podem ser adicionadas ou removidas do cluster para dimensionar a capacidade de computação e gerir os custos. |
 | Nó de extremidade do R Server | O nó de extremidade do R Server representa o nó pode encaminhar o SSH para e executar aplicativos que são coordenados e, em seguida, executar entre os recursos do cluster. Um nó de extremidade não participa na análise de dados dentro do cluster. Este nó também aloja R Studio Server, permitindo-lhe executar a aplicação de R a utilizar um browser. |
 | Nó de região | Para o tipo de cluster do HBase, o nó de região (também referido como um nó de dados) é executado o servidor de região. Servidores de região servirem e gerir uma parte dos dados geridos pelo HBase. Nós de região podem ser adicionadas ou removidas do cluster para dimensionar a capacidade de computação e gerir os custos.|

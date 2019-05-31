@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956216"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397815"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Utilizar referências de Key Vault para o serviço de aplicações e as funções do Azure (pré-visualização)
 
@@ -37,7 +37,7 @@ Para ler os segredos do Key Vault, terá de ter um cofre que criou e conceder pe
    > [!NOTE] 
    > Cofre de chaves faz referência atualmente atribuído apenas sistema de suporte de identidades geridas. Não não possível utilizar as identidiades atribuídas.
 
-1. Criar uma [política no Cofre de chaves de acesso](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade de aplicação que criou anteriormente. Ative a permissão secreta "Get" nesta política. Não configure "aplicações autorizadas" ou `appliationId` definições, como isso não é compatível com uma identidade gerida.
+1. Criar uma [política no Cofre de chaves de acesso](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade de aplicação que criou anteriormente. Ative a permissão secreta "Get" nesta política. Não configure "aplicações autorizadas" ou `applicationId` definições, como isso não é compatível com uma identidade gerida.
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761953"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299174"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -31,6 +31,9 @@ Para tirar partido das **empacotamento dinâmico**, tem de ter um **Asset** com 
 Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente. 
 
 Nos serviços de multimédia, o empacotamento dinâmico é utilizado se são transmissão em fluxo ao vivo ou sob demanda. 
+
+> [!NOTE]
+> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
 
 ## <a name="common-on-demand-workflow"></a>Fluxo de trabalho comum do sob demanda
 
@@ -84,7 +87,7 @@ O diagrama seguinte mostra a transmissão em direto com o fluxo de trabalho de e
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
 |MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
 |MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+|Transmissão em Fluxo Uniforme| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs de vídeo suportado pelo empacotamento dinâmico
 
@@ -92,10 +95,32 @@ Empacotamento dinâmico suporta ficheiros MP4, que contêm vídeo codificado com
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs de áudio suportado pelo empacotamento dinâmico
 
-Suporta ficheiros MP4, que contêm áudio codificado com o empacotamento dinâmico [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, v2 HE-AAC), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(3 de AC avançada ou E AC3), Dolby Atmos, ou [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, LBR de DTS, DTS HD, HD DTS sem perdas). Transmissão em fluxo de conteúdo de Dolby Atmos é suportada para padrões como o protocolo de MPEG-DASH com o formato de transmissão em fluxo comuns (CSF) ou o formato comum de aplicativo de suporte de dados (CMAF) real de MP4 fragmentado e através de HTTP Live Streaming (HLS) com CMAF.
+### <a name="mp4-files-support"></a>Suporte de ficheiros MP4
 
-> [!NOTE]
-> Empacotamento dinâmico não suporta ficheiros que contêm [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) áudio (AC3) (é um codec herdado).
+Suporta ficheiros MP4, que contêm áudio codificado com o empacotamento dinâmico 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, v2 HE-AAC)
+* [Dolby Digital mais](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(melhorado 3 de AC ou E AC3)
+* Dolby Atmos
+   
+   Transmissão em fluxo de conteúdo de Dolby Atmos é suportada para padrões como o protocolo de MPEG-DASH com o formato de transmissão em fluxo comuns (CSF) ou o formato comum de aplicativo de suporte de dados (CMAF) real de MP4 fragmentado e através de HTTP Live Streaming (HLS) com CMAF.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    Codecs DTS suportadas pelos formatos de empacotamento DASH-CSF, DASH CMAF, HLS M2TS e HLS CMAF são:  
+
+    * Coloque Digital de DTS (dtsc)
+    * DTS HD alta resolução e áudio de mestre de DTS HD (dtsh)
+    * DTS Express (dtse)
+    * DTS HD sem perdas (não existem núcleos) (dtsl)
+
+### <a name="hls-support"></a>Suporte HLS
+
+Empacotamento dinâmico compatível com HLS (versão 4 ou superior) para recursos que têm várias faixas de áudio com vários codecs e linguagens.
+
+### <a name="not-supported"></a>Não suportado
+
+Empacotamento dinâmico não suporta ficheiros que contêm [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) áudio (AC3) (é um codec herdado).
 
 ## <a name="dynamic-encryption"></a>Encriptação dinâmica
 
@@ -167,7 +192,7 @@ Eis um exemplo de um manifesto de TRAÇO:
    </Period>
 </MPD>
 ```
-### <a name="smooth-streaming"></a>Smooth Streaming
+### <a name="smooth-streaming"></a>Transmissão em Fluxo Uniforme
 
 Eis um exemplo de um manifesto de transmissão em fluxo uniforme:
 
@@ -193,10 +218,7 @@ Eis um exemplo de um manifesto de transmissão em fluxo uniforme:
 
 ## <a name="dynamic-manifest"></a>Manifesto dinâmico
 
-Filtragem dinâmica é utilizado para controlar o número de faixas, formatos, velocidades de transmissão e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
-
-> [!NOTE]
-> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
+Filtragem dinâmica é utilizado para controlar o número de faixas, formatos, velocidades de transmissão e janelas de tempo de apresentação que são enviadas para os jogadores. Para obter mais informações, consulte [previamente filtragem se manifesta com Packager dinâmica](filters-dynamic-manifest-overview.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obter atualizações
 

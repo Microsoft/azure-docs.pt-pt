@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 180464e22b34c7b378643e738ea0c30ee5a4b11e
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455515"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298897"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar de Federação para a sincronização de hash de palavra-passe do Azure Active Directory
 
@@ -54,7 +54,7 @@ Agora é um bom momento para verificar se estas permissões são implementados p
 
 Pode escolher entre dois métodos para migrar do gerenciamento de identidades federadas para sincronização de hash de palavra-passe e totalmente integrada início de sessão único (SSO). O método utilizado depende da forma como a sua instância do AD FS foi originalmente configurada.
 
-* **Do Azure AD Connect**. Se configurou originalmente do AD FS com o Azure AD Connect, *tem* alterar para sincronização de hash de palavra-passe utilizando o Assistente do Azure AD Connect.
+* **Azure AD Connect**. Se configurou originalmente do AD FS com o Azure AD Connect, *tem* alterar para sincronização de hash de palavra-passe utilizando o Assistente do Azure AD Connect.
 
    O Azure AD Connect executa automaticamente o **MsolDomainAuthentication conjunto** cmdlet quando altera o método de início de sessão do utilizador. O Azure AD Connect unfederates automaticamente todos os domínios federados verificados no seu inquilino do Azure AD.
 
@@ -86,7 +86,7 @@ Para verificar o seu atual início de sessão definições de utilizador:
 
    * Se **sincronização de hash de palavra-passe** está definida como **desativado**, conclua os passos neste artigo para ativá-la.
    * Se **sincronização de hash de palavra-passe** está definida como **ativado**, pode ignorar a secção **passo 1: Ativar a sincronização de hash de palavra-passe** neste artigo.
-4. Sobre o **rever a sua solução** página, desloque-se para **serviços de Federação do Active Directory (AD FS)**.<br />
+4. Sobre o **rever a sua solução** página, desloque-se para **serviços de Federação do Active Directory (AD FS)** .<br />
 
    * Se a configuração do AD FS for apresentada nesta seção, pode presumir com segurança do AD FS foi originalmente configurado com o Azure AD Connect. Pode converter seus domínios de identidades federadas para identidade gerida através da utilização do Azure AD Connect **alterar utilizador inicie sessão** opção. O processo é detalhado na secção **opção a: Mudar da Federação para sincronização de hash de palavra-passe, através da utilização do Azure AD Connect**.
    * Se o AD FS não está listado nas configurações atuais, tem manualmente de converter seus domínios de identidades federadas para identidade gerida com o PowerShell. Para obter mais informações sobre este processo, consulte a secção **opção b: Mudar da Federação para sincronização de hash de palavra-passe, através da utilização do Azure AD Connect e o PowerShell**.
@@ -113,7 +113,7 @@ Para obter mais informações, veja estes artigos:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Se **SupportsMfa** está definida como **verdadeiro**, estiver a utilizar uma solução de autenticação multifator no local para injetar um desafio de segundo fator o fluxo de autenticação de utilizador. Esta configuração já não funciona para cenários de autenticação do Azure AD. 
+> Se **SupportsMfa** está definida como **verdadeiro**, estiver a utilizar uma solução de autenticação multifator no local para injetar um desafio de segundo fator o fluxo de autenticação de utilizador. Esta configuração já não funciona para cenários de autenticação do Azure AD depois de converter este domínio de federado para o managed autenticação. Depois de desativar o Federação, a relação para a Federação no local e na inclui adaptadores MFA no local. 
 >
 > Em alternativa, utilize o serviço baseado na nuvem do Azure multi-factor Authentication para efetuar a mesma função. Avalie cuidadosamente os seus requisitos de autenticação multifator antes de continuar. Antes de converter os domínios, certifique-se de que compreende como utilizar o Azure multi-factor Authentication, as implicações de licenciamento e o processo de registo do utilizador.
 
@@ -135,7 +135,7 @@ Esta secção descreve as considerações de implantação e os detalhes sobre c
 
 Antes de converter de identidades federadas para identidade gerida, examine de perto como a utilizar atualmente o AD FS para o Azure AD, o Office 365 e outros aplicativos (confianças de entidade confiadora). Especificamente, considere os cenários descritos na tabela a seguir:
 
-| IF | em seguida |
+| Se | em seguida |
 |-|-|
 | Planeia continuar a utilizar o AD FS com outros aplicativos (que não o Azure AD e o Office 365). | Depois de converter os domínios, irá utilizar o AD FS e o Azure AD. Considere a experiência do usuário. Em alguns cenários, os utilizadores poderão ser necessárias para se autenticar duas vezes: uma vez para o Azure AD (em que um utilizador obtém acesso SSO para outros aplicativos, como o Office 365) e, novamente, para todos os aplicativos que ainda estão vinculados ao AD FS, como uma fidedignidade de entidade confiadora. |
 | A instância do AD FS altamente personalizada e depende de definições de personalização específicos no ficheiro onload.js (por exemplo, se tiver alterado a experiência de início de sessão para que os utilizadores utilizam apenas um **SamAccountName** formato para o respetivo nome de utilizador em vez de um utilizador (UPN) do nome do Principal ou a sua organização tem muito com a marca a experiência de início de sessão). O ficheiro de onload.js não pode ser duplicado no Azure AD. | Antes de continuar, certifique-se de que o Azure AD pode satisfazer as suas necessidades de personalização atual. Para obter mais informações e para obter orientações, veja as secções em uma marca para AD FS e personalização do AD FS.|
@@ -167,7 +167,7 @@ Para contas de computador do Windows 8 e Windows 7, associação ao híbrido uti
 
 Para obter mais informações, consulte [híbrido do Azure configurar dispositivos associados ao AD](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
-#### <a name="branding"></a>Personalização
+#### <a name="branding"></a>Imagem corporativa
 
 Se sua organização [personalizadas as páginas de início de sessão do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) para apresentar informações que são mais pertinentes para a organização, considere fazer semelhante [personalizações para a página de início de sessão do Azure AD](https://docs.microsoft.com/azure/active-directory/customize-branding).
 

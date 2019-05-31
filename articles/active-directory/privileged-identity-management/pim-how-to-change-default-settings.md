@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 05/31/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc7d3ffcb56251825bf5f6d760de647938f1ead
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288719"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417884"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Configurar definições de função do Azure AD no PIM
 
@@ -55,13 +55,13 @@ Utilize o **notificações** comutador para especificar se os administradores re
 
 Quando definido como **ativar**, as notificações são enviadas para:
 
-- Administrador com Função Privilegiada
+- Administrador com função privilegiada
 - Administrador de Segurança
 - Administrador Global
 
 Para obter mais informações, consulte [notificações no PIM por E-Mail](pim-email-notifications.md).
 
-## <a name="incidentrequest-ticket"></a>Pedido de suporte de incidente/pedido 
+## <a name="incidentrequest-ticket"></a>Pedido de incidente/pedido
 
 Utilize o **pedido de incidente/pedido** comutador para especificar se exigir que os administradores elegíveis incluir um número de pedido de suporte quando ativar a respetiva função. Isso pode ser útil ao realizar auditorias de acesso de função.
 
@@ -72,27 +72,27 @@ Utilize o **multi-factor Authentication** comutador para especificar se pretende
 * Os utilizadores com contas Microsoft para os respetivos endereços de e-mail (normalmente @outlook.com, mas não sempre) não é possível registar para MFA do Azure. Se pretender atribuir funções a utilizadores com contas Microsoft, deve torná-los a administradores permanentes ou desativar a MFA para essa função.
 * Não é possível desativar o MFA para funções com privilégios elevados para o Azure AD e Office 365. Esse é um recurso de segurança, uma vez que estas funções devem ser protegidas com cuidado:  
   
-  * Administrador de Faturação
-  * Administrador de Aplicações de Cloud
-  * Administrador de Conformidade
+  * Administrador do Azure Information Protection
+  * Administrador de faturação
+  * Administrador da aplicação cloud
+  * Administrador de conformidade
   * Administrador de Acesso Condicional
-  * Administrador de Serviço de CRM
-  * Aprovador de Acesso ao Sistema de Proteção de Dados do Cliente
-  * Gravadores de Diretórios
+  * Administrador de serviço CRM
+  * Aprovador de acesso ao Cofre de cliente
+  * Gravadores de diretórios
   * Administrador do Exchange
   * Administrador Global
-  * Administrador do Information Protection
   * Administrador de Serviços do Intune
-  * Administrador de Serviço do Power BI
-  * Administrador com Função Privilegiada
+  * Administrador de serviço do Power BI
+  * Administrador com função privilegiada
   * Administrador de Segurança
-  * Administrador do Serviço SharePoint
-  * Administrador do Skype para Empresas
-  * Administrador de Utilizadores
+  * Administrador de serviços do SharePoint
+  * Skype para o administrador de empresa
+  * Administrador de utilizadores
 
 Para obter mais informações, consulte [multi-factor authentication (MFA) e o PIM](pim-how-to-require-mfa.md).
 
-## <a name="require-approval"></a>Exigir aprovação
+## <a name="require-approval"></a>Exigir a aprovação
 
 Se quiser exigir aprovação para ativar uma função, siga estes passos.
 

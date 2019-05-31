@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991645"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397645"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -262,7 +262,7 @@ Selecione **atualizações em falta** para ver a lista de atualizações que est
 
 ## <a name="view-update-deployments"></a>Implementações de atualização da vista
 
-Selecione o **implementações de atualizações** separador para ver a lista de implementações de atualizações existentes. Selecione qualquer uma das implementações de atualização da tabela para abrir o **atualizar implementação executar** painel para essa implementação da atualização.
+Selecione o **implementações de atualizações** separador para ver a lista de implementações de atualizações existentes. Selecione qualquer uma das implementações de atualização da tabela para abrir o **atualizar implementação executar** painel para essa implementação da atualização. Os registos da tarefa são armazenados durante um máximo de 30 dias.
 
 ![Descrição geral dos resultados de implementação de atualização](./media/automation-update-management/update-deployment-run.png)
 
@@ -281,7 +281,7 @@ As tabelas seguintes listam as classificações de atualização na gestão de a
 |Update rollups     | Um conjunto cumulativo de correções que são agrupadas para facilitar a implementação.        |
 |Pacotes de funcionalidades     | Novas funcionalidades do produto que são distribuídas fora de uma versão do produto.        |
 |Service packs     | Um conjunto cumulativo de correções que são aplicadas a uma aplicação.        |
-|Atualizações da definição     | Uma atualização para vírus ou outros ficheiros de definição.        |
+|Atualizações de definições     | Uma atualização para vírus ou outros ficheiros de definição.        |
 |Ferramentas     | Um utilitário ou funcionalidade que ajuda a concluir tarefas de um ou mais.        |
 |Atualizações     | Uma atualização para uma aplicação ou ficheiro que está instalado atualmente.        |
 
@@ -356,7 +356,7 @@ Para obter mais informações sobre as portas que requer a função de trabalho 
 
 É recomendado para utilizar os endereços listados quando definir exceções. Para endereços IP, pode baixar o [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e reflete os intervalos implementados atualmente e as alterações futuras para os intervalos de IP.
 
-## <a name="search-logs"></a>Pesquisar registos
+## <a name="search-logs"></a>Registos de pesquisa
 
 Além dos detalhes que são fornecidos no portal do Azure, pode fazer pesquisas contra os registos. Nas páginas de solução, selecione **do Log Analytics**. O **pesquisa de registos** painel abre-se.
 

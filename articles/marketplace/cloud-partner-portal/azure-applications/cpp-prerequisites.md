@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942886"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258188"
 ---
 # <a name="azure-application-prerequisites"></a>Pré-requisitos de aplicação do Azure
 
@@ -38,7 +38,8 @@ Para obter mais informações, consulte [interface de utilizador do portal do Az
 
 Os requisitos comerciais incluem as seguinte obrigações de procedimentos, contratuais e legais:
 
-* Tem de ser um publicador de Marketplace na nuvem registados. Se não estiver registado, siga os passos no artigo [se tornar um publicador de Marketplace da Cloud](../../become-publisher.md).
+* Tem de ser um publicador de Marketplace na nuvem registados. Se não estiver registado, siga os passos no artigo [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >Deve utilizar a mesma conta de registo do Microsoft Developer Center para iniciar sessão no Portal de parceiros de nuvem. Deve ter apenas uma conta Microsoft para as ofertas do Azure Marketplace. Esta conta não deve ser específica de ofertas ou serviços individuais.

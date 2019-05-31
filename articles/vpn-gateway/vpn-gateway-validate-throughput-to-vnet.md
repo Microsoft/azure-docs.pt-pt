@@ -2,31 +2,24 @@
 title: Validar o débito VPN para uma rede Virtual do Microsoft Azure | Documentos da Microsoft
 description: O objetivo deste documento é para o ajudar a um utilizador validar o débito de rede a partir dos seus recursos no local para uma máquina virtual do Azure.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457565"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388621"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar o débito de VPN para uma rede virtual
 
 Uma ligação de gateway VPN permite-lhe segura, conectividade entre a rede Virtual do Azure e no local em vários locais infraestrutura de TI.
 
-Este artigo mostra como validar o débito de rede dos recursos no local para uma máquina virtual do Azure (VM). Ele também fornece orientações de resolução de problemas.
+Este artigo mostra como validar o débito de rede dos recursos no local para uma máquina virtual do Azure (VM). Ele também fornece orientações de resolução de problemas. 
 
 >[!NOTE]
 >Este artigo destina-se para o ajudar a diagnosticar e corrigir problemas comuns. Se não for possível resolver o problema ao utilizar as seguintes informações [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -127,7 +120,7 @@ Poderá ter ficheiro lento lidar quando utilizar o Explorador do Windows ou arra
 - Velocidade de leitura/escrita do disco VM suficiente. Para obter mais informações, consulte [resolução de problemas de armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interface com acesso externo dispositivo no local
-Se o dispositivo VPN no local endereço IP de acesso à Internet está incluído nos [rede local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definição no Azure, poderá experienciar incapacidade para abrir a VPN, esporádica desliga ou problemas de desempenho.
+Se o dispositivo VPN no local endereço IP de acesso à Internet está incluído nos [rede local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definição de espaço de endereço no Azure, poderá experienciar incapacidade para abrir a VPN, esporádica desliga ou problemas de desempenho.
 
 ## <a name="checking-latency"></a>A verificar a latência
 Utilize o tracert para rastreio para o dispositivo de borda do Microsoft Azure para determinar se existem quaisquer atrasos exceder os 100 ms entre saltos.

@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704990"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389476"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorizar a identidade e acesso no Centro de segurança do Azure (pré-visualização)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
+
+> [!NOTE]
+> O "modo de exibição *clássico* identidade e acesso" link será descontinuado a 31 de Julho de 2019. Clique em [aqui](security-center-features-retirement-july2019.md#menu_classicidentity) para saber mais sobre os serviços alternativos.
 
 > [!NOTE]
 > Monitorizar a identidade e acesso está em pré-visualização e disponível apenas no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
@@ -115,11 +118,11 @@ Utilize a tabela abaixo como referência para ajudar a compreender as recomenda�
 |Subscrição|30|Remover contas externas com permissões de proprietário da sua subscrição|Remova contas externas com permissões de proprietário da sua subscrição para impedir o acesso não monitorizado. |
 |Subscrição|30|Ativar a MFA para contas de aplicação de gestão do Azure com permissões de leitura na sua subscrição|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de leitura para evitar uma violação de contas ou recursos.|
 |Subscrição|25|Remover contas externas com permissões de escrita da sua subscrição|Remova contas externas com permissões de escrita da sua subscrição para impedir o acesso não monitorizado. |
-|Subscrição|20|Remover contas preteridas com permissões de proprietário da sua subscrição|Remova contas preteridas com permissões de proprietário a partir das subscrições.|
-|Subscrição|5|Remover contas preteridas da sua subscrição|Remova contas preteridas das suas subscrições para permitir o acesso aos utilizadores apenas atuais. |
+|Subscrição|20|Remover contas preteridas com permissões de proprietário da sua subscrição|Remova contas preteridas com permissões de proprietário a partir das subscrições. As contas preteridas são as contas cujo início de sessão foi bloqueado no Azure AD.|
+|Subscrição|5|Remover contas preteridas da sua subscrição|Remova contas preteridas das suas subscrições para permitir o acesso aos utilizadores apenas atuais. As contas preteridas são as contas cujo início de sessão foi bloqueado no Azure AD.|
 |Subscrição|5|Designar mais do que um proprietário na sua subscrição|Designe mais do que um proprietário da subscrição para ter a redundância de acesso de administrador.|
 |Subscrição|5|Designar até 3 proprietários na sua subscrição|Designe menos de 3 proprietários de subscrições para reduzir a possibilidade de violação por um proprietário comprometido.|
-|Key Vault|5|Ativar os registos de diagnóstico no Key Vault|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|Key Vault|5|Ativar registos de diagnóstico no Cofre de chaves|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
 |Subscrição|15|Remover contas externas com permissões de leitura da sua subscrição|Remova contas externas com privilégios de leitura da sua subscrição para impedir o acesso não monitorizado.|
 |Subscrição|1|Disponibilizar detalhes de contacto de segurança|Fornece informações de contacto de segurança para cada uma das suas subscrições. Informações de contacto são um e-mail endereço e número de telefone. As informações são utilizadas para contactá-lo se a nossa equipa de segurança Descubra que os recursos estão comprometidos|
 

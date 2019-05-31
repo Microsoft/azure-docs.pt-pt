@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 57a96648e480c89d1112f069676edb1abcc7cfc3
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869858"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384148"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de pesquisa de imagens do Bing
 
@@ -32,7 +32,7 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 > - EN-AU (inglês, Austrália)
 > - zh-CN (Chinese, China)
 
-## <a name="countriesregions"></a>Países/Regiões
+## <a name="countriesregions"></a>Países/regiões
 
 |País/região|Código|
 |-------|----|
@@ -119,4 +119,4 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 |Estados Unidos|Espanhol|es-US|
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre os pontos de extremidade de pesquisa do Bing notícias, consulte [referência da API de pesquisa de imagens de notícias v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Para obter mais informações sobre os pontos de extremidade de pesquisa do Bing notícias, consulte [referência da API de pesquisa de imagens de notícias v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

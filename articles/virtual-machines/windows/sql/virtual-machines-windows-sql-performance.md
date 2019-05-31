@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477353"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393780"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server em máquinas de virtuais do Azure
 
@@ -179,13 +179,24 @@ Há uma exceção para esta recomendação: _se a utilização de TempDB está e
 
 Algumas implementações podem alcançar os benefícios de desempenho adicionais usando técnicas mais avançadas de configuração. A lista seguinte destaca algumas funcionalidades do SQL Server que podem ajudar a melhorar o desempenho:
 
-* **Cópia de segurança para o armazenamento do Azure**: Quando efetuar cópias de segurança para o SQL Server em execução em máquinas virtuais do Azure, pode utilizar [cópia de segurança do SQL Server para URL](https://msdn.microsoft.com/library/dn435916.aspx). Esta funcionalidade está disponível a partir do SQL Server 2012 SP1 CU2 e recomendada para o backup em discos de dados anexados. Quando cópia de segurança/restauro de/para o armazenamento do Azure, siga as recomendações fornecidas ao [SQL Server cópia de segurança para URL melhores práticas e resolução de problemas e restaurar a partir de cópias de segurança armazenadas no armazenamento do Azure](https://msdn.microsoft.com/library/jj919149.aspx). Também é possível automatizar estas cópias de segurança usando [cópia de segurança automatizada para SQL Server em máquinas de virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
+### <a name="backup-to-azure-storage"></a>Cópia de segurança para o armazenamento do Azure
+Quando efetuar cópias de segurança para o SQL Server em execução em máquinas virtuais do Azure, pode utilizar [cópia de segurança do SQL Server para URL](https://msdn.microsoft.com/library/dn435916.aspx). Esta funcionalidade está disponível a partir do SQL Server 2012 SP1 CU2 e recomendada para o backup em discos de dados anexados. Quando cópia de segurança/restauro de/para o armazenamento do Azure, siga as recomendações fornecidas ao [SQL Server cópia de segurança para URL melhores práticas e resolução de problemas e restaurar a partir de cópias de segurança armazenadas no armazenamento do Azure](https://msdn.microsoft.com/library/jj919149.aspx). Também é possível automatizar estas cópias de segurança usando [cópia de segurança automatizada para SQL Server em máquinas de virtuais do Azure](virtual-machines-windows-sql-automated-backup.md).
 
-    Antes do SQL Server 2012, pode usar [cópia de segurança do SQL Server para a ferramenta do Azure](https://www.microsoft.com/download/details.aspx?id=40740). Essa ferramenta pode ajudar a aumentar o débito de cópia de segurança com vários destinos de cópia de segurança do stripe.
+Antes do SQL Server 2012, pode usar [cópia de segurança do SQL Server para a ferramenta do Azure](https://www.microsoft.com/download/details.aspx?id=40740). Essa ferramenta pode ajudar a aumentar o débito de cópia de segurança com vários destinos de cópia de segurança do stripe.
 
-* **Ficheiros de dados do SQL Server no Azure**: Esta nova funcionalidade [ficheiros de dados do SQL Server no Azure](https://msdn.microsoft.com/library/dn385720.aspx), está disponível a partir do SQL Server 2014. Executar o SQL Server com ficheiros de dados no Azure demonstra as características de desempenho comparável como utilizar discos de dados do Azure.
+### <a name="sql-server-data-files-in-azure"></a>Ficheiros de dados do SQL Server no Azure
 
-## <a name="next-steps"></a>Próximos Passos
+Esta nova funcionalidade [ficheiros de dados do SQL Server no Azure](https://msdn.microsoft.com/library/dn385720.aspx), está disponível a partir do SQL Server 2014. Executar o SQL Server com ficheiros de dados no Azure demonstra as características de desempenho comparável como utilizar discos de dados do Azure.
+
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Instância de cluster de ativação pós-falha e espaços de armazenamento
+
+Se estiver a utilizar espaços de armazenamento, ao adicionar nós ao cluster no **confirmação** página, desmarque a caixa de seleção rotulada **adicionar todo o armazenamento elegível ao cluster**. 
+
+![Desmarque a opção de armazenamento elegível](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+Se estiver a utilizar espaços de armazenamento e não desmarque **adicionar todo o armazenamento elegível ao cluster**, Windows desliga os discos virtuais durante o processo de clustering. Como resultado, eles não serão apresentados no Gestor de discos ou Explorer até que os espaços de armazenamento são removidos do cluster e voltar a ligar com o PowerShell. Espaços de armazenamento agrupa vários discos para agrupamentos de armazenamento. Para obter mais informações, consulte [espaços de armazenamento](/windows-server/storage/storage-spaces/overview).
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o armazenamento e desempenho, consulte [diretrizes de configuração de armazenamento para o SQL Server numa VM do Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/02/2019
-ms.author: v-mohabe
-ms.openlocfilehash: 910e9acaea5c8f95dd344bc8e5454cd2bd3b7a25
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.date: 5/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968324"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258692"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e funcionalidades suportadas pelo centro de segurança do Azure
 
@@ -27,7 +27,6 @@ Monitorização de estado de segurança e recomendações, estão disponíveis p
 
 > [!NOTE]
 > Saiba mais sobre o [clássico e modelos de implementação do Resource Manager](../azure-classic-rm.md) para recursos do Azure.
->
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>Plataformas que suportam o agente de recolha de dados 
@@ -46,20 +45,29 @@ São suportados os seguintes sistemas operativos Windows:
 
 > [!NOTE]
 > Integração com o Windows Defender ATP suporta apenas o Windows Server 2012 R2 e o Windows Server 2016.
->
->
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plataformas suportadas para VMs e computadores Linux
+
 São suportados os seguintes sistemas operativos Linux:
 
-* Versões de Ubuntu 12.04 LTS, 14.04 LTS e 16.04 LTS.
-* Debian versões 6, 7, 8 e 9.
-* CentOS versões 5, 6 e 7.
-* Versões do Red Hat Enterprise Linux (RHEL) 5, 6 e 7.
-* SUSE Linux Enterprise Server (SLES) versões 11 e 12.
-* Versões de Linux do Oracle 5, 6 e 7.
-* Amazon Linux 2012.09 por meio de 2017.
-* OpenSSL 1.1.0 só é suportado em plataformas de x86_64, 64 bits.
+> [!NOTE]
+> Uma vez que a lista de sistemas operativos Linux suportados forem alterados constantemente, se preferir, clique em [aqui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) para ver a lista mais atualizada das versões suportadas, no caso de ter sido efetuadas alterações uma vez que este tópico foi publicado pela última vez.
+
+64 bits
+* CentOS 6 e 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 e 7
+* Red Hat Enterprise Linux Server 6 e 7
+* Debian GNU/Linux 8 e 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+32 bits
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 e 9
+* Ubuntu Linux 14.04 LTS e 16.04 LTS
 
 ## <a name="vms-and-cloud-services"></a>VMs e serviços Cloud
 VMs que são executadas num serviço cloud também são suportadas. Apenas funções na nuvem serviços web e de trabalho que são executados nas ranhuras de produção são monitorizadas. Para saber mais sobre os serviços cloud, veja [descrição geral dos serviços Cloud do Azure](../cloud-services/cloud-services-choose-me.md).
@@ -70,31 +78,35 @@ VMs que são executadas num serviço cloud também são suportadas. Apenas funç
 > [!div class="mx-tableFixed"]
 > 
 
-|Servidor |Windows||Linux||
-|----|----|----|----|----|
-|Ambiente|Azure|Não Pertencente ao Azure|Azure|Não Pertencente ao Azure|
-|Alertas de deteção de ameaças VMBA|✔|✔|✔ (em versões suportadas)|✔|
-|Alertas de deteção de ameaças baseada em rede|✔|X|✔|X|
-|Integração do Windows Defender ATP|✔ (em versões suportadas)|✔|X|X|
-|Patches em falta|✔|✔|✔|✔|
-|Configurações de segurança|✔|✔|✔|✔|
-|Proteção de ponto final|✔|✔|X|X|
-|Acesso JIT da VM|✔|X|✔|X|
-|Controlos de aplicação adaptável|✔|✔|✔|✔|
-|FIM|✔|✔|✔|✔|
-|Encriptação de discos|✔|X|✔|X|
-|Implantação de terceiros|✔|X|✔|X|
-|NSGs|✔|X|✔|X|
-|Deteção de ameaças fileless|✔|✔|X|X|
-|Mapa de rede|✔|X|✔|X|
-|Controlos de rede adaptável|✔|X|✔|X|
-
+|Servidor|Windows||Linux||||Preços|
+|----|----|----|----|----|----|----|----|
+|**Ambiente**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
+||**Máquina Virtual**|**Conjunto de dimensionamento de máquina virtual**||**Máquina Virtual**|**Conjunto de dimensionamento de máquina virtual**|
+|Alertas de deteção de ameaças VMBA|✔|✔|✔|✔ (em versões suportadas)|✔ (em versões suportadas)|✔|Deteção de ameaças (gratuito) de recomendações (padrão)|
+|Alertas de deteção de ameaças baseada em rede|✔|✔|X|✔|✔|X|Standard|
+|Integração do Windows Defender ATP|✔ (em versões suportadas)|✔ (em versões suportadas)|✔|X|X|X|Standard|
+|Patches em falta|✔|✔|✔|✔|✔|✔|Livre|
+|Configurações de segurança|✔|✔|✔|✔|✔|✔|Livre|
+|Avaliação de proteção de ponto final|✔|✔|✔|X|X|X|Livre|
+|Acesso JIT da VM|✔|X|X|✔|X|X|Standard|
+|Controlos de aplicações adaptáveis|✔|X|✔|✔|X|✔|Standard|
+|FIM|✔|✔|✔|✔|✔|✔|Standard|
+|Avaliação de encriptação de disco|✔|✔|X|✔|✔|X|Livre|
+|Implantação de terceiros|✔|X|X|✔|X|X|Livre|
+|Avaliação de NSGs|✔|✔|X|✔|✔|X|Livre|
+|Deteção de ameaças fileless|✔|✔|✔|X|X|X|Standard|
+|Mapa de rede|✔|✔|X|✔|✔|X|Standard|
+|Controlos de rede adaptável|✔|✔|X|✔|✔|X|Standard|
+|Dashboard de conformidade regulamentar e relatórios|✔|✔|✔|✔|✔|✔|Standard|
+|Recomendações e deteção de ameaças em contentores do Docker alojado IaaS|X|X|X|✔|✔|✔|Standard|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de ponto de extremidade suportados
 
 A tabela seguinte fornece uma matriz de:
  - Se é possível utilizar o Centro de segurança do Azure para instalar cada solução.
  - Pode descobrir qual Centro de segurança de soluções de proteção de ponto final. Se uma destas soluções de proteção de ponto final for detetada, o Centro de segurança irá recomendar não instalando uma.
+
+Para obter informações sobre o quando as recomendações são geradas para cada uma dessas proteções, veja [avaliação de proteção de ponto final e recomendações](security-center-endpoint-protection.md).
 
 | Endpoint Protection| Plataformas | Instalação do Centro de Segurança | Deteção do Centro de Segurança |
 |------|------|-----|-----|
@@ -108,13 +120,11 @@ A tabela seguinte fornece uma matriz de:
 
 > [!NOTE]
 > - A deteção do System Center Endpoint Protection (SCEP) numa máquina virtual do Windows Server 2008 R2 requer SCEP ser instaladas após PowerShell 3.0 (ou uma versão superior).
->
->
 
-## <a name="supported-paas-features"></a>Recursos de PaaS suportados 
+## <a name="supported-paas-features"></a>Recursos de PaaS suportados
 
 
-|Serviço|Recomendações|Deteção de ameaças|
+|Serviço|Recomendações (gratuitas)|Deteção de ameaças (padrão)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -124,11 +134,35 @@ A tabela seguinte fornece uma matriz de:
 |Serviços Cloud|✔| X|
 |VNets|✔| N/D|
 |Sub-redes|✔| N/D|
-|NICs|✔| ✔|
+|NICs|✔| N/D|
 |NSGs|✔| N/D|
-|Subscrição|✔| ✔|
+|Subscrição|✔ **| ✔|
+|Serviço de aplicações|✔| N/D|
+|Batch|✔| N/D|
+|Service fabric|✔| N/D|
+|Conta de automatização|✔| N/D|
+|Load balancer|✔| N/D|
+|Pesquisa|✔| N/D|
+|Service Bus|✔| N/D|
+|Stream Analytics|✔| N/D|
+|Hub de eventos|✔| N/D|
+|Aplicações lógicas|✔| N/D|
+|Subrede|✔| N/D|
+|Vnet|✔| N/D|
+|Conta de armazenamento|✔| N/D|
+|Redis|✔| N/D|
+|SQL|✔| N/D|
+|O Data lake analytics|✔| N/D|
+|Conta de armazenamento|✔| N/D|
+|Subscrição|✔| N/D|
+|Key Vault|✔| N/D|
 
-\* Estas funcionalidades são suportadas atualmente em pré-visualização pública. 
+
+
+
+\* Estas funcionalidades são suportadas atualmente em pré-visualização pública.
+
+\*\* Recomendações de AAD só estão disponíveis para as subscrições Standard
 
 
 

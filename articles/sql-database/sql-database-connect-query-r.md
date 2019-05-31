@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 796e9c17a457bfb1a79b600b178d2c733e10f91e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382415"
+ms.locfileid: "66416358"
 ---
 # <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Início rápido: Utilizar R para consultar uma base de dados SQL do Azure (pré-visualização)
 
@@ -85,6 +85,9 @@ Obtenha as informações de ligação que tem de se ligar à base de dados SQL d
 1. Passar o script R completo para o [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) procedimento armazenado.
 
    O script é transmitido a `@script` argumento. Tudo dentro do `@script` argumento tem de ser um código de R válido.
+   
+   >[!IMPORTANT]
+   >O código neste exemplo utiliza os dados de AdventureWorksLT de exemplo, o que pode escolher como origem ao criar a sua base de dados. Se a sua base de dados tiver dados diferentes, utilize a consulta SELECT tabelas da sua própria base de dados. 
 
     ```sql
     EXECUTE sp_execute_external_script

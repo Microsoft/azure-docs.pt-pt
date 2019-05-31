@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: 2f8c3aa0a5d37327ba49aebb1def94e90751b7cc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 05/28/2019
+ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597566"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299390"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -22,7 +22,7 @@ ms.locfileid: "65597566"
 
 Saiba como definir e configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, serviços de ML ou Apache Storm. Além disso, saiba como personalizar os clusters e adicionar segurança ao associá-los a um domínio.
 
-Um cluster do Hadoop é composta por várias máquinas de virtuais (nós) que são utilizadas para processamento distribuído de tarefas. O Azure HDInsight processa os detalhes de implementação da instalação e configuração de nós individuais, para que tenha apenas fornecer informações de configuração geral. 
+Um cluster do Hadoop é composta por várias máquinas de virtuais (nós) que são utilizadas para processamento distribuído de tarefas. O Azure HDInsight processa os detalhes de implementação da instalação e configuração de nós individuais, para que tenha apenas fornecer informações de configuração geral.
 
 > [!IMPORTANT]  
 > A faturação do cluster do HDInsight tem início quando o cluster é criado e termina quando é eliminado. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado. Saiba como [eliminar um cluster.](hdinsight-delete-cluster.md)
@@ -52,11 +52,7 @@ Siga as instruções no ecrã de uma configuração de cluster básico. Os detal
 * Início de sessão do cluster e nome de utilizador SSH
 * [Localização](#location)
 
-> [!IMPORTANT]  
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte [descontinuação do HDInsight 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
-
-## <a name="resource-group-name"></a>Nome do grupo de recursos 
+## <a name="resource-group-name"></a>Nome do grupo de recursos
 
 [O Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) a trabalhar com os recursos em seu aplicativo como um grupo, referido como um grupo de recursos do Azure. Pode implementar, atualizar, monitorizar ou eliminar todos os recursos para a sua aplicação numa única operação coordenada.
 
@@ -160,7 +156,7 @@ Cada tipo de cluster tem seu próprio número de nós, a terminologia para nós 
 
 | Type | Nós | Diagrama |
 | --- | --- | --- |
-| Hadoop |Nó principal (2), do nó de dados (1 +) |![Nós de cluster de Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| Hadoop |Nó principal (2), do nó de trabalho (1 +) |![Nós de cluster de Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor de cabeça (2), servidor de região (1 +), o nó de mestre/ZooKeeper (3) |![Nós de cluster do HBase do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nó nimbus (2), servidor de supervisor (1 +), o nó do ZooKeeper (3) |![Nós de cluster do HDInsight Storm](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Nó principal (2), o nó de trabalho (1 +), nós ZooKeeper (3) (gratuito para o tamanho da VM de ZooKeeper A1) |![Nós de cluster do HDInsight Spark](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
@@ -172,17 +168,16 @@ O custo de clusters do HDInsight é determinado pelo número de nós e os tamanh
 Tipos de clusters diferentes têm tipos de nó diferente, número de nós e tamanhos de nó:
 * Predefinição de tipo de cluster do Hadoop: 
     * Dois *nós principais*  
-    * Quatro *nós de dados*
+    * Quatro *nós de trabalho*
 * Predefinição de tipo de cluster do Storm: 
     * Dois *nós do Nimbus*
     * Três *nós ZooKeeper*
     * Quatro *nós de supervisor* 
 
-Se estiver apenas a experimentar HDInsight, recomendamos que utilize um nó de dados. Para obter mais informações sobre os preços do HDInsight, consulte [preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Se estiver apenas a experimentar HDInsight, recomendamos que utilize um nó de trabalho. Para obter mais informações sobre os preços do HDInsight, consulte [preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
 > O limite de tamanho de cluster varia de acordo com as subscrições do Azure. Contacte [suporte de faturação do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) para aumentar o limite.
->
 
 Quando utiliza o portal do Azure para configurar o cluster, o tamanho do nó está disponível através da **escalões de preço de nó** painel. No portal, também pode ver o custo associado os tamanhos de nó diferente. 
 
@@ -197,12 +192,10 @@ Para saber o que valor que deve utilizar para especificar um tamanho de VM ao cr
 
 > [!IMPORTANT]  
 > Se precisar de mais do que 32 nós de trabalho num cluster, tem de selecionar um tamanho de nó principal com, pelo menos, 8 núcleos e 14 GB de RAM.
->
->
 
 Para obter mais informações, consulte [tamanhos de máquinas virtuais](../virtual-machines/windows/sizes.md). Para obter informações sobre os preços de vários tamanhos, veja [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
-## <a name="advanced-settings-script-actions"></a>Definições avançadas: Ações do script
+## <a name="advanced-settings-script-actions"></a>Definições avançadas: Ações de script
 
 Pode instalar componentes adicionais ou personalizar a configuração de cluster através de scripts durante a criação. Esses scripts são invocados por meio **ação de Script**, que é uma opção de configuração que pode ser utilizada a partir do portal do Azure, cmdlets do PowerShell do Windows HDInsight ou o SDK de .NET do HDInsight. Para obter mais informações, consulte [cluster de HDInsight personalizar com ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -212,8 +205,6 @@ Alguns componentes de Java nativos, como o Apache Mahout e Cascading, podem ser 
 > Se tiver problemas com a implementação de ficheiros JAR a clusters do HDInsight, ou chamar ficheiros JAR em clusters do HDInsight, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
 >
 > Em cascata, não é suportado pelo HDInsight e não é elegível para Support da Microsoft. Para listas de componentes suportados, consulte [quais são as novidades nas versões do cluster fornecidas pelo HDInsight](hdinsight-component-versioning.md).
->
->
 
 Às vezes, pretende configurar os seguintes ficheiros de configuração durante o processo de criação:
 

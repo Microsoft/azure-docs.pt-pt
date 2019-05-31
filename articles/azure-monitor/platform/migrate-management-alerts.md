@@ -1,26 +1,26 @@
 ---
 title: Migrar os alertas do Azure em eventos de gestão para alertas de registo de atividades
 description: Alertas nos eventos de gestão serão removidas no dia 1 de Outubro. Prepare-se através de alertas existentes de migração.
-author: lingliw
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 08/14/2017
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255915"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388718"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrar os alertas do Azure em eventos de gestão para alertas de registo de atividades
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> Alertas nos eventos de gestão serão desligadas em ou após 1 de Outubro. Utilize as instruções abaixo para compreender se tiver estes alertas e migrá-los, se for o caso.
+> Alertas nos eventos de gestão serão desligadas em ou depois de Outubro 1,2017. Utilize as instruções abaixo para compreender se tiver estes alertas e migrá-los, se for o caso.
 
 ## <a name="what-is-changing"></a>O que está mudando
 
@@ -32,7 +32,7 @@ O Azure Monitor (anteriormente conhecido como Azure Insights) oferecido um recur
 O seguinte script do PowerShell devolve uma lista de todos os alertas nos eventos de gestão que tem na sua subscrição, bem como as condições definidas sobre cada alerta.
 
 ```powershell
-Connect-AzAccount -Environment AzureChinaCloud
+Connect-AzAccount
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,3 +115,4 @@ Alertas nos eventos de gestão que tenha criado anteriormente não serão migrad
 * Reveja o [esquema de webhook de alerta de registo de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Saiba mais sobre [notificações de serviço](../../azure-monitor/platform/service-notifications.md)
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md)
+

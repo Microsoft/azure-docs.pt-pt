@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: b8205383c25ba04212126e0e6ca1bd44e4efad1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31403a11e8989cee6a1c166879a0b2f594892704
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768908"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357620"
 ---
 # <a name="show-directions-from-a-to-b"></a>Mostrar as direções de A para B
 
@@ -29,7 +29,7 @@ Existem duas formas de fazê-lo. A primeira maneira é a consulta a [API do Azur
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa e define o mecanismo de autenticação a utilizar a chave de subscrição. Pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código cria um `SubscriptionKeyCredentialPolicy` para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. O `atlas.service.MapsURL.newPipeline()` aceita o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O `routeURL` representa um URL para o Azure Maps [rota](https://docs.microsoft.com/rest/api/maps/route) operações.
+O segundo bloco de código cria um `SubscriptionKeyCredentialPolicy` para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. O `atlas.service.MapsURL.newPipeline()` aceita o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instância. O `routeURL` representa um URL para o Azure Maps [rota](https://docs.microsoft.com/rest/api/maps/route) operações.
 
 O terceiro bloco de código cria e adiciona uma [origem de dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) objeto ao mapa.
 

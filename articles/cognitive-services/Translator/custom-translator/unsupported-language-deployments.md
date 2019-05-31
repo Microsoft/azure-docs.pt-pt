@@ -3,21 +3,21 @@ title: Implementações de linguagem não suportado - Translator personalizado
 titleSuffix: Azure Cognitive Services
 description: Como implementar pares de idiomas não suportado no Translator personalizado.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: v-pawal
-ms.openlocfilehash: 09fbd771d945646fe385508779d38e4abb2ee293
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64476509"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390623"
 ---
-# <a name="unsupported-language-deployments"></a>Implementações de linguagem não suportada
+# <a name="unsupported-language-deployments"></a>Implementações de linguagens não suportadas
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 
@@ -32,7 +32,7 @@ Por ordem para seus modelos para ser candidatos para a implementação, tem de c
 * O modelo tem de ser em estado de implementação quando ocorre a migração.  
 * O par de linguagem do modelo tem de ser um par de idioma não suportado no Translator personalizado.  Pares de idiomas em que uma linguagem é suportada para ou do inglês, mas o par em si não inclui o inglês, são candidatos para implementações de linguagem não suportada.  Por exemplo, um modelo de Hub para um francês a par de idioma alemão é considerado um par de entanto francês para inglês e em inglês para alemão são de idioma suportado do mesmo par do idioma não suportado.
 
-## <a name="process"></a>Processo
+## <a name="process"></a>Process
 Depois de ter migrado os modelos do Hub de que são candidatos para a implementação, pode encontrá-los ao aceder a **configurações** page de sua área de trabalho e de rolagem ao fim da página onde poderá ver um **não suportado Treinamentos do Microsoft Translator Hub** secção.  Esta secção só é apresentada se tiver projetos que cumprem os pré-requisitos mencionados acima.
 
 ![Como migrar a partir do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)

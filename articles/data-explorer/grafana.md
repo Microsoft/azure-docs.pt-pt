@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447132"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399918"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer no Grafana
 
@@ -153,9 +153,9 @@ Com o principal de serviço atribuído para o *visualizadores* função, pode ag
 
     | Interface de Usuário o Grafana | Portal do Azure | CLI do Azure |
     | --- | --- | --- |
-    | ID da subscrição | ID DA SUBSCRIÇÃO | SubscriptionId |
-    | Id de Inquilino | ID do diretório | tenant |
-    | ID de Cliente | ID da aplicação | appId |
+    | ID da subscrição | ID DE SUBSCRIÇÃO | SubscriptionId |
+    | Id do inquilino | ID do diretório | tenant |
+    | Id de cliente | ID da aplicação | appId |
     | Segredo do cliente | Palavra-passe | password |
     | | | |
 
@@ -208,6 +208,6 @@ Agora que tiver terminado de configurar o Explorador de dados do Azure como uma 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Escrever consultas do Azure Data Explorer](write-queries.md)
+* [Escrever consultas do Azure Data Explorer](write-queries.md)
 
-[Tutorial: Visualize os dados a partir do Explorador de dados do Azure no Power BI](visualize-power-bi.md)
+* [Tutorial: Visualize os dados a partir do Explorador de dados do Azure no Power BI](visualize-power-bi.md)

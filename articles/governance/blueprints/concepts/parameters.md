@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711796"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356988"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
 
@@ -44,7 +44,8 @@ Se utilizar a atribuição do esquema uma **atribuído ao sistema de identidade 
 
 Se utilizar a atribuição do esquema uma **atribuído ao utilizador a identidade gerida**, o referenciado Key Vault _poderá_ existe numa subscrição centralizada. A identidade gerida deve ser concedida direitos adequados no Key Vault antes da atribuição do esquema.
 
-Em ambos os casos, o Cofre de chaves tem de ter **ativar o acesso ao Azure Resource Manager para a implementação de modelo** configurado no **políticas de acesso** página. Para instruções sobre como ativar esta funcionalidade, consulte [Key Vault - ativar a implementação do modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> [!IMPORTANT]
+> Em ambos os casos, o Cofre de chaves tem de ter **ativar o acesso ao Azure Resource Manager para a implementação de modelo** configurado no **políticas de acesso** página. Para instruções sobre como ativar esta funcionalidade, consulte [Key Vault - ativar a implementação do modelo](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Para obter mais informações sobre o Azure Key Vault, consulte [descrição geral do Cofre de chave](../../../key-vault/key-vault-overview.md).
 

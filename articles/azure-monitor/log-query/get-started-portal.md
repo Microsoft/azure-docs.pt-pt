@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520670"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255270"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução ao Log Analytics do Azure Monitor
 
@@ -46,7 +46,7 @@ Event | search "error"
 
 Essa consulta pesquisa o _evento_ tabela para registos que contêm o termo "error" em qualquer propriedade.
 
-Consultas podem começar com o nome de uma tabela ou um **pesquisa** comando. O exemplo anterior começa com o nome da tabela _evento_, que define o âmbito da consulta. O caráter de pipe (|) separa comandos, por isso, o resultado do primeiro na entrada do comando seguinte. Pode adicionar qualquer número de comandos para uma única consulta.
+Consultas podem começar com o nome de uma tabela ou um **pesquisa** comando. O exemplo anterior começa com o nome da tabela _evento_, que define o âmbito da consulta. O caráter de pipe (|) separa comandos, para que o resultado do primeiro serve como a entrada do comando seguinte. Pode adicionar qualquer número de comandos para uma única consulta.
 
 Outra forma de escrever essa mesma consulta deve ser:
 
@@ -115,7 +115,7 @@ A tabela de resultados, muitas vezes, inclui muitas colunas. Pode achar que algu
 ![Selecionar colunas](media/get-started-portal/select-columns.png)
 
 
-## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
+## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
 Por predefinição, o Log Analytics aplica-se a _últimas 24 horas_ intervalo de tempo. Para utilizar um intervalo diferente, selecione outro valor através do Seletor de hora e clique em **executar**. Além dos valores predefinidos, pode utilizar o _intervalo de tempo personalizado_ opção de selecionar um intervalo de absoluto para sua consulta.
 
 ![Selecionador de hora](media/get-started-portal/time-picker.png)

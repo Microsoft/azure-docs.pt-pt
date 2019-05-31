@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: de2e57901becad68f3fad16967faf3ae4833177a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 928d741132623bd92dae1097724295691d7f3808
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797877"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398340"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -64,7 +64,7 @@ China | China East, China North, China North2, China East2
 
 
 
-## <a name="cache-storage"></a>Armazenamento em cache
+## <a name="cache-storage"></a>Armazenamento de cache
 
 A tabela seguinte resume o suporte para a conta de armazenamento de cache utilizada pelo Site Recovery durante a replicação.
 
@@ -182,6 +182,7 @@ Esta tabela resumidos suporte para o disco de SO de VM do Azure, disco de dados 
 Tamanho máximo do disco de SO | 2048 GB | [Saiba mais](../virtual-machines/windows/managed-disks-overview.md) acerca dos discos VM.
 Disco temporário | Não suportado | O disco temporário é sempre excluído da replicação.<br/><br/> Não armazene todos os dados persistentes no disco temporário. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md).
 Tamanho máximo do disco de dados | 4095 GB |
+Tamanho mínimo do disco de dados | Nenhuma restrição para discos não geridos. 2 GB para discos geridos | 
 Número máximo de disco de dados | Acordo em até 64, com suporte para um tamanho de VM do Azure específico | [Saiba mais](../virtual-machines/windows/sizes.md) sobre tamanhos de VM.
 Taxa de alteração de disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco de armazenamento Standard. | Se a taxa de alteração os dados média no disco é continuamente maior do que o máximo, replicação não acompanhar.<br/><br/>  No entanto, se o número máximo for excedido esporadicamente, pode acompanhar a replicação, mas pode ver pontos de recuperação um pouco atrasado.
 Disco de dados - conta de armazenamento standard | Suportadas |
@@ -249,7 +250,7 @@ Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenti
 Ligação de site-site VPN no local<br/><br/>(com ou sem o ExpressRoute)| Suportadas | Certifique-se de que as UDRs e NSGs estão configurados de forma que o tráfego do Site Recovery não é encaminhado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Ligação VNET a VNET | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos Finais de Serviço de Rede Virtual | Suportadas | Se estão a restringir o acesso de rede virtual para contas de armazenamento, certifique-se de que os serviços Microsoft fidedignos tenham permissão para aceder à conta de armazenamento.
-Funcionamento em rede acelerado | Suportadas | Funcionamento em rede acelerado tem de estar ativado na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Redes aceleradas | Suportadas | Funcionamento em rede acelerado tem de estar ativado na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

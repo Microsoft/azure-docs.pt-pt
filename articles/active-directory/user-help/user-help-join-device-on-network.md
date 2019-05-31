@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60474540"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243278"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Associar o seu dispositivo de trabalho para a rede da sua organização
 Associe o seu dispositivo de Windows 10 pertencentes à trabalho à rede da sua organização para que possa aceder a recursos potencialmente restritos.
@@ -86,7 +86,7 @@ Se já teve o seu dispositivo por um tempo e ele já está foi configurado, pode
 
 5. Sobre o **introduzir palavra-passe** ecrã, escreva a palavra-passe e, em seguida, selecione **iniciar sessão**.
 
-    ![Introduzir palavra-passe](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Introduza a palavra-passe](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
 6. No seu dispositivo móvel, aprove o seu dispositivo para que ele pode aceder à sua conta. 
 
@@ -116,3 +116,4 @@ Depois de associar o seu dispositivo à rede da sua organização, deve ser capa
 
 - Se a organização quer que Registre seu dispositivo pessoal, como o seu telemóvel, veja [registar o seu dispositivo pessoal na rede da sua organização](user-help-register-device-on-network.md).
 
+- Se sua organização for gerenciada através do Microsoft Intune e se tiver perguntas sobre a inscrição, início de sessão ou quaisquer outros problemas com o Intune, consulte a [conteúdo de ajuda de utilizador do Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

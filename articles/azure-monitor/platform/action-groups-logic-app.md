@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235136"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389568"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como realizar ações complexos com alertas do Azure Monitor
 
@@ -26,7 +26,7 @@ O processo geral é:
 
 -   Crie a aplicação de lógica para o respetivo tipo de alerta.
 
--   Importe o esquema para o respetivo tipo de alerta para a aplicação lógica.
+-   Importe um payload de exemplo para o respetivo tipo de alerta para a aplicação lógica.
 
 -   Defina o comportamento de aplicação lógica.
 
@@ -58,7 +58,7 @@ O processo é semelhante, se pretender que a aplicação lógica para executar u
 
     ![Utilizar um payload de exemplo](media/action-groups-logic-app/use-sample-payload-button.png "utilizar um payload de exemplo")
 
-8.  Copie e cole o esquema de exemplo seguinte na caixa de diálogo:
+8.  Copie e cole o payload de exemplo seguinte na caixa de diálogo:
 
     ```json
         {
@@ -140,7 +140,7 @@ Da próxima vez que um alerta chama seu grupo de ação, a sua aplicação lógi
 Entradas de estado de funcionamento do serviço do Azure fazem parte do registo de atividades. O processo de criação do alerta é semelhante à [criar um alerta de registo de atividade](#create-an-activity-log-alert-administrative), mas com algumas alterações:
 
 - Passos 1 a 7 são os mesmos.
-- Para o passo 8, utilize o esquema de exemplo seguintes para o acionador de pedido HTTP:
+- Para o passo 8, utilize o payload de exemplo seguintes para o acionador de pedido HTTP:
 
     ```json
     {
@@ -228,7 +228,7 @@ Entradas de estado de funcionamento do serviço do Azure fazem parte do registo 
 O processo para criar um alerta de métrica é semelhante à [criar um alerta de registo de atividade](#create-an-activity-log-alert-administrative), mas com algumas alterações:
 
 - Passos 1 a 7 são os mesmos.
-- Para o passo 8, utilize o esquema de exemplo seguintes para o acionador de pedido HTTP:
+- Para o passo 8, utilize o payload de exemplo seguintes para o acionador de pedido HTTP:
 
     ```json
     {
@@ -281,11 +281,11 @@ O processo para criar um alerta de métrica é semelhante à [criar um alerta de
        
        !["Condição de payload de alerta de métrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "condição de payload de alerta de métrica")
 
-  2. Na **se for true** condição, adicione um **para cada** loop e a ação do Microsoft Teams. Defina a mensagem com uma combinação de HTML e de conteúdo dinâmico.
+  1. Na **se for true** condição, adicione um **para cada** loop e a ação do Microsoft Teams. Defina a mensagem com uma combinação de HTML e de conteúdo dinâmico.
 
       !["Ação de postagem de métrica condição verdadeiro do alerta"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "ação de postagem de condições verdadeiro alerta de métricas")
 
-  3. Na **se for FALSO** de condição, defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas da aplicação lógica. Inclua JSON payload. Observe como fazer referência a `triggerBody` conteúdo dinâmico no `json()` expressão.
+  1. Na **se for FALSO** de condição, defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas da aplicação lógica. Inclua JSON payload. Observe como fazer referência a `triggerBody` conteúdo dinâmico no `json()` expressão.
 
       !["Ação de postagem de condições de Falso alerta métricas"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ação de postagem de condições falso alerta de métricas")
 
@@ -298,3 +298,4 @@ O Logic Apps tem uma série de conectores diferentes que permitem-lhe realizar a
 * Obter um [descrição geral dos alertas de registo de atividades do Azure](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas quando for lançada uma notificação do Azure Service Health](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).
+

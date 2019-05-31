@@ -12,14 +12,14 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142730"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297094"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação à Instância Gerida de Base de Dados SQL do Azure
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação para a instância gerida da base de dados SQL do Azure
 
 Hoje em dia tem várias opções ao decidir como e onde hospedar seu aplicativo.
 
@@ -56,7 +56,7 @@ Existem duas opções como ligar no local à VNet do Azure:
 - Ligação de VPN de site a Site ([portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [da CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - [ExpressRoute](../expressroute/expressroute-introduction.md) ligação  
 
-Se criada com êxito no local para a ligação do Azure e não é possível estabelecer ligação à instância gerida, verifique se a firewall tem de abrir ligação de saída na porta 1433 do SQL, bem como o intervalo de 11000 12000 de portas para o redirecionamento.
+Se criada com êxito no local para a ligação do Azure e não é possível estabelecer ligação à instância gerida, verifique se a firewall tem de abrir ligação de saída na porta 1433 do SQL, bem como o intervalo de 11000 11999 de portas para o redirecionamento.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Ligar uma aplicação na caixa de desenvolvedores
 
@@ -96,7 +96,7 @@ Este cenário é ilustrado no diagrama seguinte:
 
 Para resolução de problemas de conectividade, reveja o seguinte:
 
-- Se não é possível ligar à instância gerida a partir de uma máquina virtual do Azure dentro da mesma VNet, sub-rede diferente, mas, verifique se tem um grupo de segurança de rede definida na sub-rede VM que poderão estar a bloquear o acesso. Além disso tenha em atenção que tem de abrir a ligação de saída na porta 1433 do SQL, bem como portas no intervalo de 11000 12000, uma vez que os são necessários para ligar através do redirecionamento de dentro do limite do Azure.
+- Se não é possível ligar à instância gerida a partir de uma máquina virtual do Azure dentro da mesma VNet, sub-rede diferente, mas, verifique se tem um grupo de segurança de rede definida na sub-rede VM que poderão estar a bloquear o acesso. Além disso tenha em atenção que tem de abrir a ligação de saída na porta 1433 do SQL, bem como portas no intervalo de 11000 11999, uma vez que os são necessários para ligar através do redirecionamento de dentro do limite do Azure.
 - Certifique-se de que a propagação do BGP está definida como **ativado** para a tabela de rotas associada à VNet.
 - Se utilizar a P2S VPN, verifique a configuração no portal do Azure para ver se verá **entrada/saída** números. Números diferentes de zero indicam que Azure está a encaminhar o tráfego de/para no local.
 

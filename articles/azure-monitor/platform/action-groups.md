@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/10/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544459"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417001"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -35,9 +35,9 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 1. Na [portal](https://portal.azure.com), selecione **Monitor**. O **Monitor** painel consolida todas as suas monitorização definições e dados numa vista.
 
     ![O serviço de "Monitor"](./media/action-groups/home-monitor.png)
-1. Selecione **alertas** , em seguida, selecione **gerir grupos de ação**.
+1. Selecione **alertas** , em seguida, selecione **gerir ações**.
 
-    ![Gerir o botão de grupos de ação](./media/action-groups/manage-action-groups.png)
+    ![Gerir o botão de ações](./media/action-groups/manage-action-groups.png)
 1. Selecione **grupo de ação de adicionar**e preencha os campos.
 
     ![O comando "Adicionar grupo de ação"](./media/action-groups/add-action-group.png)
@@ -102,6 +102,8 @@ Intervalos de endereços IP de origem
  - 13.106.57.196
  - 52.244.68.117
  - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

@@ -3,25 +3,25 @@ title: Método de idiomas de API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Use o método de idiomas de API de texto do Translator.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797288"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389717"
 ---
 # <a name="translator-text-api-30-languages"></a>Texto do Translator API 3.0: Languages
 
 Obtém o conjunto de idiomas atualmente suportados pelo outras operações de API de texto do Translator. 
 
-## <a name="request-url"></a>URL do pedido
+## <a name="request-url"></a>URL do Pedido
 
 Enviar um `GET` pedido para:
 ```HTTP
@@ -40,7 +40,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td><em>Parâmetro necessário</em>.<br/>Versão da API do pedido pelo cliente. Valor tem de ser `3.0`.</td>
   </tr>
   <tr>
-    <td>âmbito</td>
+    <td>scope</td>
     <td>*O parâmetro opcional*.<br/>Uma lista separada por vírgulas de nomes de definir o grupo de idiomas para retornar. Permitidos os nomes de grupos são: `translation`, `transliteration` e `dictionary`. Se nenhum âmbito é fornecido, em seguida, todos os grupos são devolvidos, que é equivalente a passagem `scope=translation,transliteration,dictionary`. Para decidir qual conjunto de idiomas suportados é adequado para o seu cenário, consulte a descrição dos [objeto response](#response-body).</td>
   </tr>
 </table> 
@@ -232,7 +232,7 @@ A lista de idiomas suportados não serão alterados com frequência. Para poupar
   <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
-    <td>ETag</td>
+    <td>eTag</td>
     <td>Valor atual da etiqueta de entidade para os grupos de pedido de idiomas suportados. Para tornar as solicitações subseqüentes mais eficiente, o cliente pode enviar os `ETag` valor numa `If-None-Match` campo de cabeçalho.
     </td>
   </tr>
@@ -247,7 +247,7 @@ A lista de idiomas suportados não serão alterados com frequência. Para poupar
 Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
 
 <table width="100%">
-  <th width="20%">Código de Estado</th>
+  <th width="20%">Código de estado</th>
   <th>Descrição</th>
   <tr>
     <td>200</td>

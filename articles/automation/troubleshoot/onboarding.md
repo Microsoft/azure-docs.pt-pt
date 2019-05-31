@@ -4,16 +4,16 @@ description: Saiba como resolver erros de integração com a gestão de atualiza
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145156"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399763"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
@@ -42,6 +42,24 @@ Este erro é causado por permissões incorretas ou ausentes na máquina virtual,
 #### <a name="resolution"></a>Resolução
 
 Certifique-se de que tem permissões corretas para carregar a máquina virtual. Reveja os [permissões necessárias para carregar máquinas](../automation-role-based-access-control.md#onboarding) e repita para integrar a solução. Se receber o erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, certifique-se de que tem o `Microsoft.OperationalInsights/workspaces/read` permissão para ser capaz de determinar se a VM está incluído para uma área de trabalho.
+
+### <a name="diagnostic-logging"></a>Cenário: Falha de integração com a mensagem - não foi possível configurar a conta de automatização para registo de diagnósticos
+
+#### <a name="issue"></a>Problema
+
+Recebe a seguinte mensagem quando está tentando carregar uma máquina virtual para uma solução:
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>Causa
+
+Este erro pode dever-se o escalão de preço não corresponde ao modelo de faturação da subscrição. Para obter mais informações, consulte [monitorizar a utilização e custos estimados no Azure Monitor](http://aka.ms/PricingTierWarning).
+
+#### <a name="resolution"></a>Resolução
+
+Criar a sua área de trabalho do Log Analytics manualmente e repita o processo de inclusão para selecionar a área de trabalho criada.
 
 ### <a name="computer-group-query-format-error"></a>Cenário: ComputerGroupQueryFormatError
 

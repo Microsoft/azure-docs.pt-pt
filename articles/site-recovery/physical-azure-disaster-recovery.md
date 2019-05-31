@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c3b9aa6fcf5cf96e3ef1f3bdd76e9f1d19be5c5c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098172"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400108"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação após desastre para o Azure para servidores físicos no local
 
@@ -110,7 +110,7 @@ Configurar o servidor de configuração, registe-o no cofre e detetar VMs.
 2. Se não tiver um servidor de configuração, clique em **+ servidor de configuração**.
 3. Na **Adicionar servidor**, verifique se **servidor de configuração** aparece no **tipo de servidor**.
 4. Transfira o ficheiro de instalação do Site Recovery Unified Setup.
-5. Transfira a chave de registo do cofre. Precisará disto quando executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
+5. Transferir a chave de registo do cofre. Precisará disto quando executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
 
    ![Configurar a origem](./media/physical-azure-disaster-recovery/source-environment.png)
 
@@ -152,7 +152,7 @@ Selecione e verifique os recursos de destino.
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Para criar uma nova política de replicação, clique em **Infraestrutura do Site Recovery** > **Políticas de Replicação** > **+Política de Replicação**.
+1. Para criar uma nova política de replicação, clique em **Infraestrutura do Site Recovery** > **Políticas de Replicação** >  **+Política de Replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO). Este valor Especifica a frequência com que são criados pontos de recuperação de dados. Será gerado um alerta se a replicação contínua exceder este limite.
 4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.

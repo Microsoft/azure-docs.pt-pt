@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821836"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305016"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
 Quando todo regiões do Azure ou de centros de dados (se não [zonas de disponibilidade](../availability-zones/az-overview.md) servem) sofrer períodos de inatividade, é fundamental para processamento de dados continuar a funcionar numa região diferente ou datacenter. Como tal, *recuperação após desastre geográfico* e *georreplicação* são recursos importantes para todas as empresas. Os Hubs de eventos do Azure suporta a recuperação após desastre geográfico e georreplicação, ao nível do espaço de nomes. 
 
-O recurso de recuperação após desastre geográfico é globalmente disponível para o SKU Standard de Hubs de eventos.
+O recurso de recuperação após desastre geográfico é globalmente disponível para os Hubs de eventos Standard e SKU dedicado. Tenha em atenção que o utilizador pode apenas espaços de nomes para a par de georreplicação entre a mesma camada de SKU. Por exemplo, se tiver um espaço de nomes num cluster que está disponível apenas em nossa SKU dedicado, ele pode apenas ser associado um espaço de nomes no outro cluster. 
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 

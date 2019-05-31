@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562360"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305263"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos no Azure Event Grid
 
@@ -22,7 +22,8 @@ Este artigo descreve os principais conceitos no Azure Event Grid.
 
 Um evento é a menor quantidade de informações que descreve totalmente algo aconteceram no sistema. Cada evento tem informações comuns, como: origem do evento, o tempo que demorou o evento local e o identificador exclusivo. Cada evento também tem informações específicas que só são relevantes para o tipo específico de evento. Por exemplo, um evento sobre um novo ficheiro a ser criado no armazenamento do Azure inclui detalhes sobre o ficheiro, tal como o `lastTimeModified` valor. Em alternativa, um evento de Hubs de eventos tem o URL do arquivo de captura. 
 
-Cada evento está limitado a 64 KB de dados.
+Um evento de tamanho até 64 KB é abordado pelo contrato de nível de serviço do disponibilidade geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos mais de 64 KB são cobrados em incrementos de 64 KB. 
+
 
 Para obter as propriedades que são enviadas num evento, consulte [esquema de eventos do Azure Event Grid](event-schema.md).
 
@@ -59,9 +60,6 @@ Para obter exemplos de criação de subscrições, veja:
 Para obter informações sobre como obter subscrições do grid de seu evento atual, consulte [subscrições do Event Grid da consulta](query-event-subscriptions.md).
 
 ## <a name="event-subscription-expiration"></a>Expiração da subscrição de evento
-
-O [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a CLI do Azure permite-lhe definir uma expiração data quando criar uma subscrição de evento. Se estiver a utilizar a API REST, utilize `api-version=2018-09-15-preview`
-
 A subscrição do evento expirará automaticamente após essa data. Definir uma expiração para subscrições de eventos que são necessários apenas por um período limitado, e não quiser se preocupar sobre a limpeza nessas subscrições. Por exemplo, ao criar uma subscrição de evento para um cenário de teste, pode desejar definir uma vencimento. 
 
 Para obter um exemplo de configuração de uma de vencimento, consulte [subscrever com filtros avançados](how-to-filter-events.md#subscribe-with-advanced-filters).
@@ -82,7 +80,10 @@ Se o Event Grid não é possível confirmar que um evento foi recebido pelo pont
 
 ## <a name="batching"></a>Lotes
 
-Quando utilizar um tópico personalizado, eventos tem sempre de ser publicados numa matriz. Isso pode ser um lote de um para cenários de débito e baixa, no entanto, para elevado volume casos de utilização, recomenda-se que batch vários eventos em conjunto por publicar para alcançar maior eficiência. Lotes podem ser até 1 MB. Cada evento ainda não deve ser superior a 64 KB.
+Quando utilizar um tópico personalizado, eventos tem sempre de ser publicados numa matriz. Isso pode ser um lote de um para cenários de débito e baixa, no entanto, para elevado volume casos de utilização, recomenda-se que batch vários eventos em conjunto por publicar para alcançar maior eficiência. Lotes podem ser até 1 MB. Cada evento ainda não deve ser superior a 64 KB (disponibilidade geral) ou 1 MB (pré-visualização).
+
+> [!NOTE]
+> Um evento de tamanho até 64 KB é abordado pelo contrato de nível de serviço do disponibilidade geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos mais de 64 KB são cobrados em incrementos de 64 KB. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587755"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257554"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Criar a interface de utilizador do portal do Azure para a aplicação gerida
 Este documento apresenta os principais conceitos do ficheiro Createuidefinition. O portal do Azure utiliza este ficheiro para gerar a interface do usuário para a criação de um aplicativo gerenciado.
@@ -39,7 +39,7 @@ Este documento apresenta os principais conceitos do ficheiro Createuidefinition.
 Um CreateUiDefinition sempre contém três propriedades: 
 
 * Processador
-* versão
+* version
 * parameters
 
 Para aplicativos gerenciados, o manipulador deve ser sempre `Microsoft.Compute.MultiVm`, e é a versão mais recente suportada `0.1.2-preview`.
@@ -47,6 +47,8 @@ Para aplicativos gerenciados, o manipulador deve ser sempre `Microsoft.Compute.M
 O esquema da propriedade parâmetros depende a combinação do processador especificado e a versão. Para aplicativos gerenciados, as propriedades suportadas são `basics`, `steps`, e `outputs`. As propriedades de noções básicas e passos de conter o _elementos_ - como caixas de texto e as listas pendentes - a ser apresentado no portal do Azure. A propriedade de saídas é usada para mapear os valores de saída dos elementos especificados para os parâmetros do modelo de implementação Azure Resource Manager.
 
 Incluindo `$schema` é recomendada, mas opcionais. Se for especificado, o valor para `version` tem de corresponder à versão contida o `$schema` URI.
+
+Pode utilizar um editor de JSON para criar sua definição de interface do Usuário, ou pode utilizar a área de segurança de definição de interface do Usuário para criar e a definição de interface do Usuário de pré-visualização. Para obter mais informações sobre a área de segurança, consulte [testar sua interface do portal para aplicações geridas do Azure](test-createuidefinition.md).
 
 ## <a name="basics"></a>Noções básicas
 A etapa de noções básicas sempre é a primeira etapa do assistente gerado quando o portal do Azure analisa o ficheiro. Além de exibir os elementos especificados no `basics`, o portal injeta elementos aos utilizadores escolher a subscrição, grupo de recursos e localização para a implementação. Em geral, os elementos que consultar os parâmetros de toda a implementação, como o nome das credenciais de cluster ou de administrador, devem ir neste passo.
@@ -59,7 +61,7 @@ A propriedade de passos pode conter zero ou mais passos adicionais para apresent
 ## <a name="outputs"></a>Saídas
 O portal do Azure utiliza o `outputs` propriedade para mapear elementos `basics` e `steps` para os parâmetros do modelo de implementação Azure Resource Manager. As chaves nesse dictionary são os nomes dos parâmetros do modelo e os valores são propriedades dos objetos de saída dos elementos referenciados.
 
-Para definir o nome de recurso de aplicação gerida, tem de incluir um valor chamado `applicationResourceName` na propriedade saídas. Se não tiver definido este valor, o aplicativo atribui um GUID para o nome. Pode incluir uma caixa de texto na interface do usuário que solicita um nome do usuário.
+Para definir o nome de recurso de aplicação gerida, tem de incluir um valor chamado `applicationResourceName` na propriedade saídas. Se não definir este valor, o aplicativo atribui um GUID para o nome. Pode incluir uma caixa de texto na interface do usuário que solicita um nome do usuário.
 
 ```json
 "outputs": {
@@ -72,7 +74,7 @@ Para definir o nome de recurso de aplicação gerida, tem de incluir um valor ch
 ```
 
 ## <a name="functions"></a>Funções
-Assim como as funções de modelo no Azure Resource Manager (tanto na sintaxe e a funcionalidade), CreateUiDefinition fornece funções para trabalhar com dos elementos entradas e saídas, bem como recursos, tais como lógica condicional.
+Assim como as funções de modelo no Azure Resource Manager (tanto na sintaxe e a funcionalidade), CreateUiDefinition fornece funções para trabalhar com entradas e saídas e funcionalidades, tais como lógica condicional dos elementos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 O próprio ficheiro Createuidefinition tem um esquema simples. A profundidade real do mesmo é proveniente de todos os elementos suportados e as funções. Esses itens são descritos em maior detalhe em:

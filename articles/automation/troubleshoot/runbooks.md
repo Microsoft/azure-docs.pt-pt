@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401787"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397129"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -305,6 +305,8 @@ Este erro ocorre devido a um dos seguintes problemas:
 
 4. O runbook tentou chamar um executável ou subprocess num runbook que é executado numa área de segurança do Azure. Este cenário não é suportado em áreas de segurança do Azure.
 
+5. O runbook tentado escrever muitos dados de exceção para o fluxo de saída.
+
 #### <a name="resolution"></a>Resolução
 
 Qualquer uma das seguintes soluções resolver o problema:
@@ -316,6 +318,8 @@ Qualquer uma das seguintes soluções resolver o problema:
 * Outra solução é executar o runbook num [Runbook Worker híbrido](../automation-hrw-run-runbooks.md). Funções de trabalho híbridas não estão limitadas pelos limites de memória e rede que são áreas de segurança do Azure.
 
 * Se tiver de chamar um processo (por exemplo, .exe ou subprocess.call) num runbook, terá de executar o runbook [Runbook Worker híbrido](../automation-hrw-run-runbooks.md).
+
+* Existe um limite de 1MB no fluxo de saída de tarefa. Certifique-se de que incluir chamadas para um executável ou subprocess num bloco try/catch. Se eles lançam uma exceção, gravar a mensagem dessa exceção numa variável de automatização. Isto irá impedi-lo de que estão sendo gravados no fluxo de saída de tarefa.
 
 ### <a name="fails-deserialized-object"></a>Cenário: Runbook falhar devido ao objeto de serialização anulado
 
@@ -445,7 +449,7 @@ Os cmdlets do PowerShell que permitem o cenário de runbook subordinado são:
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -se existem operações que precisam ser executadas após a conclusão do runbook subordinado, este cmdlet permite-lhe verificar o estado da tarefa para cada filho.
 
-### <a name="expired webhook"></a>Cenário: Estado: 400 pedido inválido ao chamar um webhook
+### <a name="expired webhook"></a>Cenário: Status: 400 pedido inválido ao chamar um webhook
 
 #### <a name="issue"></a>Problema
 

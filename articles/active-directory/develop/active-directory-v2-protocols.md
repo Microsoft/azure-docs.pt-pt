@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536210922d13f66aaa5a09bd87bd2d92da8d416c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546124"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417664"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade do Microsoft
 
@@ -48,7 +48,7 @@ Em quase todos os fluxos do OAuth 2.0 e OpenID Connect, há quatro partes envolv
 Todas as aplicações que queira aceitar tanto pessoais e contas escolares ou profissionais têm de estar registadas através do **registos de aplicações** experiência no [portal do Azure](https://aka.ms/appregistrations) antes de pode inscrever-se esses utilizadores com o OAuth 2.0 ou OpenID Connect. O processo de registo de aplicação irá recolher e atribuir alguns valores à sua aplicação:
 
 * Uma **ID da aplicação** que identifica exclusivamente a sua aplicação
-* R **URI de redirecionamento** ou **identificador de pacote** que podem ser utilizadas para direcionar as respostas de volta à sua aplicação
+* R **URI de redirecionamento** (opcional) que podem ser utilizadas para direcionar as respostas de volta à sua aplicação
 * Alguns outros valores específicos de cenário.
 
 Para obter mais detalhes, saiba como [registar uma aplicação](quickstart-register-app.md).

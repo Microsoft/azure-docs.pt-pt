@@ -4,14 +4,14 @@ description: Saiba como configurar o débito aprovisionado para contentores do C
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953552"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389240"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -71,8 +71,7 @@ A imagem seguinte mostra como uma partição física pode alojar uma ou mais par
 Pode combinar os dois modelos. Aprovisionamento de débito no banco de dados e o contentor é permitido. O exemplo seguinte mostra como aprovisionar o débito numa base de dados do Cosmos do Azure e um contentor:
 
 * Pode criar uma base de dados do Cosmos do Azure com o nome *Z* com o débito aprovisionado de *"K"* RUs. 
-* Em seguida, cria cinco contentores com o nome *uma*, *B*, *C*, *1!d*, e *E* na base de dados.
-* Pode configurar explicitamente *"P"* RUs do débito aprovisionado num contentor com o nome *B*.
+* Em seguida, cria cinco contentores com o nome *uma*, *B*, *C*, *1!d*, e *E* na base de dados. Ao criar o contentor B, certifique-se de habilitar **débito dedicado de aprovisionamento para este contentor** opção e configurar explicitamente *"P"* RUs do débito aprovisionado nesse contêiner. Tenha em atenção que pode configurar débito dedicado e partilhado apenas quando se cria a base de dados e o contentor. 
 * O *"K"* RUs débito é compartilhado entre os contentores de quatro *uma*, *C*, *1!d*, e *E*. A quantidade exata de débito disponível para *uma*, *C*, *1!d*, ou *E* varia. Não há nenhum SLA para a taxa de transferência de cada contentor individuais.
 * O contentor com o nome *B* é garantida para obter o *"P"* RUs débito o tempo todo. Ele é suportado por SLAs.
 

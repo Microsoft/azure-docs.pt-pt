@@ -10,18 +10,26 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 05/29/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130678"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357585"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
 ![Logótipo do Office 365](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> O método recomendado para instalar e configurar a solução do Office 365 é permitir que o [conector do Office 365](../../sentinel/connect-office-365.md) na [Azure sentinela](../../sentinel/overview.md) em vez de utilizar os passos neste artigo. Esta é uma versão atualizada da solução do Office 365 com uma experiência de configuração aprimorados. Para ligar os registos do Azure AD, utilize o [Sentinel do Azure do Azure AD connector](../../sentinel/connect-azure-active-directory.md), que fornece dados de registo mais avançados que os registos de gestão do Office 365. 
+>
+> Quando [sentinela de Azure carregar](../../sentinel/quickstart-onboard.md), especifique a área de trabalho do Log Analytics que pretende que a solução do Office 365 instalada na. Depois de ativar o conector, a solução vai estar disponível na área de trabalho e usada exatamente da mesma como qualquer outras soluções de monitorização que instalou.
+>
+> Os utilizadores da cloud do Azure government tem de instalar o Office 365 através dos passos neste artigo, uma vez que o Azure sentinela ainda não está disponível na cloud do Governo.
 
 A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do Office 365 no Azure Monitor.
 
@@ -30,6 +38,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
 - Detete e investigue o comportamento dos utilizadores indesejados, que pode ser personalizado para as suas necessidades organizacionais.
 - Demonstre a conformidade e auditoria. Por exemplo, pode monitorizar operações de acesso de arquivos em ficheiros confidenciais, o que podem ajudá-lo com o processo de auditoria e conformidade.
 - Resolver os problemas operacionais usando [registar as consultas](../log-query/log-query-overview.md) sobre dados de atividade do Office 365 da sua organização.
+
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -63,8 +72,8 @@ Na área de trabalho do Log Analytics:
 
 Da sua subscrição do Office 365:
 
-- Nome de Utilizador: Endereço de e-mail de uma conta administrativa.
-- ID do Inquilino: ID exclusivo para a subscrição do Office 365.
+- Nome de utilizador: Endereço de e-mail de uma conta administrativa.
+- ID do inquilino: ID exclusivo para a subscrição do Office 365.
 - ID de cliente: cadeia de caracteres de 16 que representa o cliente do Office 365.
 - Segredo do cliente: Cadeia encriptada necessária para autenticação.
 
@@ -97,9 +106,9 @@ A primeira etapa é criar uma aplicação no Azure Active Directory que a soluç
     ![Selecionar API](media/solution-office-365/select-api.png)
 
 1. Sob **selecionar permissões** Selecione as seguintes opções para ambos **permissões de aplicação** e **permissões delegadas**:
-   - Ler informações do estado de funcionamento do serviço da sua organização
+   - Ler as informações de estado de funcionamento do serviço para a sua organização
    - Ler dados de atividade para a sua organização
-   - Ler relatórios de atividade da organização
+   - Relatórios de atividade de leitura para a sua organização
 
      ![Selecionar API](media/solution-office-365/select-permissions.png)
 
@@ -181,7 +190,7 @@ Para ativar a conta administrativa pela primeira vez, tem de fornecer consentime
 
 1. Será apresentada uma janela semelhante à abaixo. Clique em **aceitar**.
     
-    ![Consentimento de admin](media/solution-office-365/admin-consent.png)
+    ![Consentimento de administrador](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Subscrever a área de trabalho do Log Analytics
 
@@ -512,7 +521,7 @@ Clique nas **Office 365** mosaico para abrir o **do Office 365** dashboard.
 
 O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta os alertas de dez principais por contagem que satisfaçam os critérios dessa coluna para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registos que fornece toda a lista ao clicar em ver tudo na parte inferior da coluna ou ao clicar no cabeçalho da coluna.
 
-| colunas | Descrição |
+| Coluna | Descrição |
 |:--|:--|
 | Operações | Fornece informações sobre os utilizadores do Active Directory das suas subscrições do Office 365 tudo monitorizados. Também será capaz de ver o número de atividades que ocorrem ao longo do tempo.
 | Exchange | Mostra a divisão de atividades do Exchange Server, como caixa de correio de adicionar permissão ou Set-Mailbox. |
@@ -541,7 +550,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | ResultStatus | Indica se a ação (especificada na propriedade operação) foi concluída com êxito ou não. Valores possíveis são com êxito, parcial ou com falhas. Para a atividade de administrador do Exchange, o valor é True ou False. |
 | UserId | O UPN (nome Principal de utilizador) do utilizador que efetuou a ação que resultou no registo que está sendo registrado; Por exemplo, my_name@my_domain_name. Tenha em atenção que os registos de atividades realizadas por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Um ID alternativo para o utilizador identificado na propriedade de ID de utilizador.  Por exemplo, esta propriedade é preenchida com o ID exclusivo do passport (PUID) para eventos realizadas por utilizadores no SharePoint, OneDrive para empresas e o Exchange. Esta propriedade também pode especificar o mesmo valor da propriedade de ID de utilizador para eventos que ocorrem noutros serviços e eventos realizados por contas do sistema|
-| UserType | O tipo de utilizador que executou a operação.<br><br>Administração<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
+| UserType | O tipo de utilizador que executou a operação.<br><br>administrador<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base do Azure Active Directory
@@ -579,7 +588,7 @@ Estes registos são criados quando forem feitas alterações ou adições de obj
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AADTarget | O utilizador que a ação (identificada por propriedade operação) foi executada em. |
-| Ator | O utilizador ou principal de serviço que efetuou a ação. |
+| ator | O utilizador ou principal de serviço que efetuou a ação. |
 | ActorContextId | O GUID da organização que o ator pertence. |
 | ActorIpAddress | Endereço IP do ator no formato de endereço IPV4 ou IPV6. |
 | InterSystemsId | O GUID que controlam as ações em componentes no serviço do Office 365. |

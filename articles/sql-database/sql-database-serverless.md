@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951492"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393529"
 ---
 # <a name="sql-database-serverless-preview"></a>Base de dados SQL sem servidor (pré-visualização)
 
-## <a name="what-is-the-serverless-compute-tier"></a>O que é a camada de computação sem servidor
+## <a name="serverless-compute-tier"></a>Escalão de serviço de computação sem servidor
 
 Base de dados SQL sem servidor (pré-visualização) é um escalão de computação que listas do computação utilizada por uma base de dados numa base por segundo. Sem servidor é o preço-desempenho otimizada para bases de dados individuais com padrões de utilização imprevisíveis, intermitente conseguir sustentar algum atraso na computação aquecimento após períodos de inatividade de utilização.
 
@@ -66,14 +66,14 @@ A tabela seguinte resume as diferenças entre a camada de computação sem servi
 |**Cenário de uso típico**| Bases de dados com utilização imprevisível, intermitente intercaladas com períodos inativos. | Bases de dados ou conjuntos elásticos com o uso mais regular.|
 | **Esforço de gestão de desempenho** |Inferior|Superior|
 |**Dimensionamento de computação**|Automático|Manual|
-|**Capacidade de resposta de computação**|Inferior após períodos Inativos|Imediato|
+|**Capacidade de resposta de computação**|Inferior após períodos Inativos|Imediata|
 |**Granularidade de faturação**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Escalão de serviço e modelo de compra
 
 Sem servidor da base de dados SQL é atualmente suportada apenas no escalão fins gerais em hardware de geração 5 no vCore modelo de compra.
 
-## <a name="autoscaling"></a>Dimensionamento automático
+## <a name="autoscale"></a>Dimensionamento Automático
 
 ### <a name="scaling-responsiveness"></a>Dimensionar a capacidade de resposta
 
@@ -83,7 +83,7 @@ Em geral, os bancos de dados são executados numa máquina com capacidade sufici
 
 Memória para bases de dados sem servidor é recuperada mais frequentemente do que para bases de dados de computação aprovisionados. Este comportamento é importante para controlar os custos em sem servidor e pode afetar o desempenho.
 
-#### <a name="cache-reclaiming"></a>Colocar em cache reclamação
+#### <a name="cache-reclamation"></a>Recuperação de cache
 
 Ao contrário das bases de dados de computação aprovisionada, memória do cache SQL é recuperada de um banco de dados sem servidor quando a utilização de CPU ou de cache é baixa.
 
@@ -145,7 +145,7 @@ As seguintes funcionalidades não suportam autopausing e autoresuming. Ou seja, 
 - A base de dados de sincronização, utilizado na sincronização de dados SQL.
 
 
-## <a name="on-boarding-into-the-serverless-compute-tier"></a>Introdução para a camada de computação sem servidor
+## <a name="onboarding-into-serverless-compute-tier"></a>Integração na camada de computação sem servidor
 
 Criar uma nova base de dados ou para mover a que base de dados existente para um escalão de computação sem servidor segue o mesmo padrão usados para criar uma nova base de dados aprovisionada a camada de computação e envolve os seguintes dois passos:
 
@@ -167,11 +167,11 @@ Criar uma nova base de dados ou para mover a que base de dados existente para um
 > [!NOTE]
 > Com o T-SQL para mover uma base de dados existente para sem servidor ou alterar seu tamanho de computação não é atualmente suportada, mas pode ser feito através do portal do Azure ou o PowerShell.
 
-### <a name="create-new-database-using-the-azure-portal"></a>Criar nova base de dados com o portal do Azure
+### <a name="create-new-serverless-database-using-azure-portal"></a>Criar nova base de dados sem servidor com o portal do Azure
 
 Consulte [início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure](sql-database-single-database-get-started.md).
 
-### <a name="create-new-database-using-powershell"></a>Criar nova base de dados com o PowerShell
+### <a name="create-new-serverless-database-using-powershell"></a>Criar nova base de dados sem servidor com o PowerShell
 
 O exemplo seguinte cria uma nova base de dados na camada de computação sem servidor definida por objetivo de serviço com o nome GP_S_Gen5_4 com valores predefinidos para o atraso de vCores e autopause min.
 
@@ -190,7 +190,7 @@ New-AzSqlDatabase `
   -AutoPauseDelay 720
 ```
 
-### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Mover a base de dados existente para o escalão de computação sem servidor
+### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Mover a base de dados de computação aprovisionada no escalão de computação sem servidor
 
 O exemplo seguinte move uma base de dados existente de camada de computação aprovisionada para a camada de computação sem servidor. Este exemplo especifica explicitamente o min vCores, max vCores e autopause atraso.
 
@@ -207,11 +207,11 @@ Set-AzSqlDatabase
   -AutoPauseDelay 1440
 ```
 
-### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>Mover uma base de dados fora da camada de computação sem servidor
+### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Mover base de dados sem servidor para o escalão de computação aprovisionada
 
 Uma base de dados sem servidor pode ser movido para um escalão de computação aprovisionada da mesma forma como mover uma base de dados de computação aprovisionada numa camada de computação sem servidor.
 
-## <a name="modify-serverless-configuration-parameters"></a>Modificar os parâmetros de configuração sem servidor
+## <a name="modifying-serverless-configuration"></a>Modificar configuração sem servidor
 
 ### <a name="maximum-vcores"></a>Máximo de vCores
 
@@ -225,7 +225,7 @@ Modificar os vCores mínimo é executada com o [Set-AzSqlDatabase](https://docs.
 
 Modificar o atraso de autopause é executada com o [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando no PowerShell com o `AutoPauseDelay` argumento.
 
-## <a name="monitor-serverless-database"></a>Base de dados sem servidor do monitor
+## <a name="monitoring"></a>Monitorização
 
 ### <a name="resources-used-and-billed"></a>Recursos utilizados e faturadas
 
@@ -237,9 +237,9 @@ O pacote de aplicação é o limite da gestão recursos, a maioria dos e externa
 
 #### <a name="user-resource-pool"></a>Agrupamento de recursos de utilizador
 
-O agrupamento de recursos de utilizador é interno, a maioria dos limites de gestão de recursos para uma base de dados, independentemente se a base de dados está numa camada de computação sem servidor ou aprovisionado. O agrupamento de recursos de utilizador examina a CPU e e/s para carga de trabalho de utilizador gerada por consultas DDL (por exemplo, CREATE, ALTER, etc.) e consultas DML (por exemplo, SELECT, INSERT, UPDATE, DELETE, etc.). Estas consultas geralmente representam a proporção mais substancial de utilização dentro do pacote de aplicação.
+O agrupamento de recursos de utilizador é interno, a maioria dos limites de gestão de recursos para uma base de dados, independentemente se a base de dados está numa camada de computação sem servidor ou aprovisionado. Os utilizador resource pool âmbitos de CPU e e/s para carga de trabalho de utilizador gerada por consultas DDL, como consultas de criar e ALTER e DML, tais como SELECIONAR, inserir, ATUALIZAR e eliminar. Estas consultas geralmente representam a proporção mais substancial de utilização dentro do pacote de aplicação.
 
-### <a name="metrics"></a>Métrica
+### <a name="metrics"></a>Métricas
 
 |Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
@@ -279,7 +279,7 @@ Para limites de recursos, consulte [escalão de computação sem servidor](sql-d
 A quantidade de computação faturada é o número máximo de utilização de CPU e memória utilizada por segundo. Se utilizado a quantidade de CPU e memória utilizada é inferior à quantidade mínima aprovisionada para cada um, a quantidade aprovisionada é faturada. Para comparar CPU com memória para efeitos de faturação, memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.
 
 - **Recurso faturado**: CPU e memória
-- **Montante faturado ($)**: preço unitário de vCore * máximo (min vCores, vCores utilizados, a memória mínima GB * 1/3, memória GB utilizados * 1/3) 
+- **Montante faturado ($)** : preço unitário de vCore * máximo (min vCores, vCores utilizados, a memória mínima GB * 1/3, memória GB utilizados * 1/3) 
 - **Frequência de faturação**: Por segundo
 
 O preço unitário de vCore no custo por vCore por segundo. Consulte a [página de preços do Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter preços de unidade específica numa determinada região.
@@ -298,7 +298,7 @@ Neste caso, a base de dados é cobrada por computação e armazenamento, durante
 
 Mais precisamente, a fatura de computação neste exemplo é calculada da seguinte forma:
 
-|Intervalo de Tempo|vCores utilizados por segundo|GB utilizados por segundo|Dimensão faturada de computação|segundos de vCore faturados ao longo do intervalo de tempo|
+|Intervalo de tempo|vCores utilizados por segundo|GB utilizados por segundo|Dimensão faturada de computação|segundos de vCore faturados ao longo do intervalo de tempo|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores utilizados|4 vCores * 3600 segundos = 14400 vCore segundos|
 |1:00-2:00|1|12|Memória utilizada|12 Gb * 1/3 * 3600 segundos = 14400 vCore segundos|
@@ -310,7 +310,7 @@ Suponha que o preço de unidade de computação é $0.000073/vCore/second.  Em 
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-O escalão de computação sem servidor está disponível em todas as regiões, exceto nas seguintes regiões: Leste da Austrália Central, China, Norte da China, Sul de França, Alemanha Central, Alemanha Nordeste, Índia Ocidental, Sul da Coreia, África do Sul Ocidental, norte do Reino Unido, sul do Reino Unido, oeste do Reino Unido e EUA Centro-Oeste
+O escalão de computação sem servidor está disponível em todas as regiões, exceto nas seguintes regiões: Leste da Austrália Central, China, Norte da China, Sul de França, Alemanha Central, Alemanha Nordeste, Índia Ocidental, Sul da Coreia, África do Sul Ocidental, norte do Reino Unido, sul do Reino Unido, oeste do Reino Unido e EUA Centro-Oeste.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

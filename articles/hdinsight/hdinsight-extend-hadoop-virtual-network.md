@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: e586ab1bdcca9d6109cf42b6341c333fabb02993
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.date: 05/28/2019
+ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601677"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388345"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -211,41 +211,39 @@ Para ligar ao Apache Ambari e outras páginas da web através da rede virtual, u
 
 ## <a id="networktraffic"></a> Controlar o tráfego de rede
 
+### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>Controlar o tráfego de entrada para clusters do HDInsight
+
 Tráfego de rede num redes virtuais do Azure pode ser controlado através dos seguintes métodos:
 
 * **Grupos de segurança de rede** (NSG) permitem-lhe filtrar o tráfego de entrada e saído para a rede. Para obter mais informações, consulte a [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md) documento.
 
-    > [!WARNING]  
-    > HDInsight não suporta a restringir o tráfego de saída. Todo o tráfego de saída deve ser permitido.
-
-* **Rotas definidas pelo utilizador** (UDR) definem a forma como o tráfego flui entre os recursos na rede. Para obter mais informações, consulte a [rotas definidas pelo utilizador e reencaminhamento IP](../virtual-network/virtual-networks-udr-overview.md) documento.
-
 * **Aplicações virtuais de rede** replicar a funcionalidade dos dispositivos, tais como firewalls e roteadores. Para obter mais informações, consulte a [aplicações de rede](https://azure.microsoft.com/solutions/network-appliances) documento.
 
-Como um serviço gerido, HDInsight requer acesso sem restrições para o estado de funcionamento do HDInsight e dos serviços de gestão para o tráfego de entrada e saído da VNET. Ao utilizar NSGs e as UDRs, certifique-se de que esses serviços ainda consegue comunicar com o cluster do HDInsight.
+Como um serviço gerido, HDInsight requer acesso sem restrições para o estado de funcionamento do HDInsight e dos serviços de gestão para o tráfego de entrada e saído da VNET. Quando utilizar NSGs, certifique-se de que esses serviços ainda consegue comunicar com o cluster do HDInsight.
 
-### <a id="hdinsight-ip"></a> HDInsight com grupos de segurança de rede e as rotas definidas pelo utilizador
+![Diagrama de entidades de HDInsight criados num VNET personalizado do Azure](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-Se pretender utilizar **grupos de segurança de rede** ou **rotas definidas pelo utilizador** para controlar o tráfego de rede, execute as seguintes ações antes de instalar o HDInsight:
+### <a id="hdinsight-ip"></a> HDInsight com grupos de segurança de rede
+
+Se pretender utilizar **grupos de segurança de rede** para controlar o tráfego de rede, execute as seguintes ações antes de instalar o HDInsight:
 
 1. Identifica a região do Azure que pretende utilizar para o HDInsight.
 
 2. Identifica os endereços IP necessários pelo HDInsight. Para obter mais informações, consulte a [endereços IP necessários pelo HDInsight](#hdinsight-ip) secção.
 
-3. Criar ou modificar os grupos de segurança de rede ou rotas definidas pelo utilizador para a sub-rede que planeia instalar HDInsight numa.
+3. Criar ou modificar os grupos de segurança de rede para a sub-rede que planeia instalar HDInsight numa.
 
-    * __Grupos de segurança de rede__: permitir __entrada__ tráfego na porta __443__ de IP endereços. Isto irá garantir que os serviços de gestão de HDI contactar o cluster de VNET fora.
-    * __Rotas definidas pelo utilizador__: Se planeia utilizar UDRs, criar uma rota para cada endereço IP e definir o __tipo de próximo salto__ ao __Internet__. Também deve permitir que qualquer outro tráfego de saída da VNET sem restrição. Por exemplo, pode encaminhar todos os outros tráfegos à sua do Azure rede ou firewall de aplicação virtual (alojado no Azure) para efeitos de monitorização, mas o tráfego de saída não deve ser bloqueado.
+    * __Grupos de segurança de rede__: permitir __entrada__ tráfego na porta __443__ de IP endereços. Isto irá garantir que os serviços de gestão do HDInsight podem contactar o cluster a partir de fora da rede virtual.
 
-Para obter mais informações sobre grupos de segurança de rede ou rotas definidas pelo utilizador, consulte a seguinte documentação:
+Para obter mais informações sobre grupos de segurança de rede, consulte a [descrição geral de grupos de segurança de rede](../virtual-network/security-overview.md).
 
-* [Grupo de segurança de rede](../virtual-network/security-overview.md)
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controlar o tráfego de saída de clusters do HDInsight
 
-* [Rotas definidas pelo utilizador](../virtual-network/virtual-networks-udr-overview.md)
+Para obter mais informações sobre a controlar o tráfego de saída de clusters do HDInsight, consulte [configurar a restrição de tráfego de rede de saída para Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 
 #### <a name="forced-tunneling-to-on-premise"></a>O túnel forçado para no local
 
-O túnel forçado é uma configuração de encaminhamento definido pelo utilizador em que todo o tráfego de uma sub-rede é forçado a uma rede específica ou local, como a sua rede no local. HDInsight faz __não__ suporte o túnel forçado para as redes no local. Se estiver a utilizar a Firewall do Azure ou uma aplicação virtual de rede alojadas no Azure, pode utilizar as UDRs para encaminhar o tráfego para o mesmo para efeitos de monitorização e permitir todo tráfego de saída.
+O túnel forçado é uma configuração de encaminhamento definido pelo utilizador em que todo o tráfego de uma sub-rede é forçado a uma rede específica ou local, como a sua rede no local. HDInsight faz __não__ suporte forçado o encapsulamento do tráfego para redes no local. 
 
 ## <a id="hdinsight-ip"></a> Endereços IP necessários
 
@@ -279,7 +277,7 @@ Se utilizar grupos de segurança de rede, tem de permitir o tráfego dos serviç
     | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
     | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |
     | &nbsp; | Canadá Central | 52.228.37.66</br>52.228.45.222 |\*: 443 | Entrada |
-    | China | Norte da China | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
+    | China | China Norte | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | \*:443 | Entrada |
     | &nbsp; | Leste da China | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | \*:443 | Entrada |
     | &nbsp; | Norte da China 2 | 40.73.37.141</br>40.73.38.172 | \*:443 | Entrada |
     | &nbsp; | Leste da China 2 | 139.217.227.106</br>139.217.228.187 | \*:443 | Entrada |
@@ -287,21 +285,21 @@ Se utilizar grupos de segurança de rede, tem de permitir o tráfego dos serviç
     | &nbsp; | Europa Ocidental| 52.166.243.90</br>52.174.36.244 | \*:443 | Entrada |
     | França | França Central| 20.188.39.64</br>40.89.157.135 | \*:443 | Entrada |
     | Alemanha | Alemanha Central | 51.4.146.68</br>51.4.146.80 | \*:443 | Entrada |
-    | &nbsp; | Nordeste da Alemanha | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
+    | &nbsp; | Alemanha Nordeste | 51.5.150.132</br>51.5.144.101 | \*:443 | Entrada |
     | Índia | Índia Central | 52.172.153.209</br>52.172.152.49 | \*:443 | Entrada |
     | &nbsp; | Sul da Índia | 104.211.223.67<br/>104.211.216.210 | \*:443 | Entrada |
     | Japão | Leste do Japão | 13.78.125.90</br>13.78.89.60 | \*:443 | Entrada |
     | &nbsp; | Oeste do Japão | 40.74.125.69</br>138.91.29.150 | \*:443 | Entrada |
     | Coreia | Coreia do Sul Central | 52.231.39.142</br>52.231.36.209 | \*:433 | Entrada |
-    | &nbsp; | Sul da Coreia do Sul | 52.231.203.16</br>52.231.205.214 | \*:443 | Entrada
-    | Reino Unido | Oeste do R.U. | 51.141.13.110</br>51.141.7.20 | \*:443 | Entrada |
+    | &nbsp; | Coreia do Sul | 52.231.203.16</br>52.231.205.214 | \*:443 | Entrada
+    | Reino Unido | Reino Unido Oeste | 51.141.13.110</br>51.141.7.20 | \*:443 | Entrada |
     | &nbsp; | Reino Unido Sul | 51.140.47.39</br>51.140.52.16 | \*:443 | Entrada |
     | Estados Unidos | EUA Central | 13.67.223.215</br>40.86.83.253 | \*:443 | Entrada |
     | &nbsp; | EUA Leste | 13.82.225.233</br>40.71.175.99 | \*:443 | Entrada |
     | &nbsp; | EUA Centro-Norte | 157.56.8.38</br>157.55.213.99 | \*:443 | Entrada |
     | &nbsp; | EUA Centro-Oeste | 52.161.23.15</br>52.161.10.167 | \*:443 | Entrada |
     | &nbsp; | EUA Oeste | 13.64.254.98</br>23.101.196.19 | \*:443 | Entrada |
-    | &nbsp; | E.U.A. Oeste 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
+    | &nbsp; | EUA Oeste 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Entrada |
 
     Para obter informações sobre os endereços IP a utilizar para o Azure Government, consulte a [do Azure Government inteligência + análise](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) documento.
 

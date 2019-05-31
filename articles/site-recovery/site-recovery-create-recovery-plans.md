@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035827"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400009"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
@@ -21,7 +21,7 @@ Este artigo descreve como criar e personalizar um plano de recuperação no [do 
 
 ## <a name="create-a-recovery-plan"></a>Criar um plano de recuperação
 
-1. No cofre dos serviços de recuperação, selecione **(recuperação de sites) de planos de recuperação** > **+ plano de recuperação**.
+1. No cofre dos serviços de recuperação, selecione **(recuperação de sites) de planos de recuperação** >  **+ plano de recuperação**.
 2. Na **criar plano de recuperação**, especifique um nome para o plano.
 3. Escolha uma origem e de destino com base nas máquinas no plano e selecione **Resource Manager** para o modelo de implementação. A localização de origem tem de ter máquinas que estão ativadas para ativação pós-falha e recuperação. 
 
@@ -65,18 +65,21 @@ Pode personalizar um plano de recuperação através da adição de um script ou
     **Cenário** | **Ativação pós-falha** | **Reativação pós-falha**
     --- | --- | --- 
     Azure para o Azure  | Runbook | Runbook
-    VMware para o Azure | Runbook | ND 
+    VMware para o Azure | Runbook | N/D 
     Hyper-V com o VMM para o Azure | Runbook | Script
-    Site Hyper-V para o Azure | Runbook | ND
+    Site Hyper-V para o Azure | Runbook | N/D
     VMM para VMM secundário | Script | Script
 
-1. No plano de recuperação, clique no passo para o qual a ação deve ser adicionado e especificar quando a ação precisa ocorrer: um. Se pretender que a ação para ocorrer antes das máquinas no grupo são iniciadas após a ativação pós-falha, selecione **adicionar pré-ação**.
-    b. Se pretender que a ação de ocorrer após as máquinas no grupo início após a ativação pós-falha, selecione **adicionar ação posterior**. Para mover a posição da ação, selecione o **mover para cima** ou **mover para baixo** botões.
+1. No plano de recuperação, clique no passo para o qual a ação deve ser adicionado e especificar quando a ação precisa ocorrer:
+    1. Se pretender que a ação para ocorrer antes das máquinas no grupo são iniciadas após a ativação pós-falha, selecione **adicionar pré-ação**.
+    1. Se pretender que a ação de ocorrer após as máquinas no grupo início após a ativação pós-falha, selecione **adicionar ação posterior**. Para mover a posição da ação, selecione o **mover para cima** ou **mover para baixo** botões.
 2. Na **inserir ação**, selecione **Script** ou **ação Manual**.
-3. Se pretender adicionar uma ação manual, efetue o seguinte procedimento"um. Escreva um nome para a ação e escreva instruções da ação. A pessoa a executar a ativação pós-falha irá ver estas instruções.
-    b. Especifique se pretende adicionar a ação manual para todos os tipos de ativação pós-falha (teste, ativação pós-falha, a ativação pós-falha planeada (se relevante)). Em seguida, clique em **OK**.
-4. Se pretender adicionar um script, faça o seguinte: um. Se estiver a adicionar um script do VMM, selecione **ativação pós-falha para o script do VMM**e, na **caminho do Script** escreva o caminho relativo para a partilha. Por exemplo, se a partilha está localizada em \\ <VMMServerName>\MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
-    b. Se estiver a adicionar uma livro de executar a automatização do Azure, especifique a **conta de automatização do Azure** em que o runbook está localizado e selecionar a adequada **Script do Runbook do Azure**.
+3. Se pretender adicionar uma ação manual, efetue o seguinte:
+    1. Escreva um nome para a ação e escreva instruções da ação. A pessoa a executar a ativação pós-falha irá ver estas instruções.
+    1. Especifique se pretende adicionar a ação manual para todos os tipos de ativação pós-falha (teste, ativação pós-falha, a ativação pós-falha planeada (se relevante)). Em seguida, clique em **OK**.
+4. Se pretender adicionar um script, efetue o seguinte:
+    1. Se estiver a adicionar um script do VMM, selecione **ativação pós-falha para o script do VMM**e, na **caminho do Script** escreva o caminho relativo para a partilha. Por exemplo, se a partilha está localizada em \\ \<Nome_servidor_vmm > \MSSCVMMLibrary\RPScripts, especifique o caminho: \RPScripts\RPScript.PS1.
+    1. Se estiver a adicionar uma livro de executar a automatização do Azure, especifique a **conta de automatização do Azure** em que o runbook está localizado e selecionar a adequada **Script do Runbook do Azure**.
 5. Execute uma ativação pós-falha do plano de recuperação para garantir que o script funcione conforme esperado.
 
 ## <a name="watch-a-video"></a>Ver um vídeo

@@ -3,19 +3,19 @@ title: Fluxo de controlo de aprendiz de conversação - serviços cognitivos da 
 titleSuffix: Azure
 description: Saiba mais sobre o fluxo de controle de aprendiz de conversação.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e0a0a88e249c0a032e5afaeea14b9b3cfcbdc319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 22a2a3472a54188f9298c580a95d53ac681822aa
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322944"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385419"
 ---
 ## <a name="control-flow"></a>Fluxo de controlo
 

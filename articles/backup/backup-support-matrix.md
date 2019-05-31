@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 51bd4b935b32bea20d3f5de0b8cda62dfdbf07b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236621"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400167"
 ---
 # <a name="azure-backup-support-matrix"></a>Matriz de suporte do Azure Backup
 
@@ -27,7 +27,7 @@ Outras matrizes de suporte estão disponíveis:
 
 ## <a name="vault-support"></a>Suporte de cofre
 
-O Azure Backup utiliza os cofres dos serviços de recuperação para orquestrar e gerir cópias de segurança. Ele também usa cofres para armazenar dados de cópia de segurança. 
+O Azure Backup utiliza os cofres dos serviços de recuperação para orquestrar e gerir cópias de segurança. Ele também usa cofres para armazenar dados de cópia de segurança.
 
 A tabela seguinte descreve as funcionalidades de cofres dos serviços de recuperação:
 
@@ -36,8 +36,8 @@ A tabela seguinte descreve as funcionalidades de cofres dos serviços de recuper
 **Cofres de subscrição** | Até 500 cofres de serviços de recuperação numa única subscrição.
 **Máquinas num cofre** | Até 1000 VMs do Azure num único cofre.<br/><br/> Até 50 MABS servidores podem ser registados num único cofre.
 **Origens de dados no armazenamento do Cofre** | GB 54,400 máximo. Não existe nenhum limite para cópias de segurança de VM do Azure.
-**Cópias de segurança para o Cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Máquinas protegidas pelo DPM/MABS:** Duas vezes por dia.<br/><br/> **Máquinas de cópia de segurança diretamente através do agente MARS:** Três vezes por dia. 
-**Cópias de segurança entre cofres** | Cópia de segurança é dentro de uma região.<br/><br/> É necessário um cofre em cada região do Azure que contém as VMs que pretende criar cópias de segurança. Não é possível criar cópias de segurança para uma região diferente. 
+**Cópias de segurança para o Cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Máquinas protegidas pelo DPM/MABS:** Duas vezes por dia.<br/><br/> **Máquinas de cópia de segurança diretamente através do agente MARS:** Três vezes por dia.
+**Cópias de segurança entre cofres** | Cópia de segurança é dentro de uma região.<br/><br/> É necessário um cofre em cada região do Azure que contém as VMs que pretende criar cópias de segurança. Não é possível criar cópias de segurança para uma região diferente.
 **Cofres de movimentação** | Pode [mover cofres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre subscrições ou entre grupos de recursos na mesma subscrição.
 **Mover dados entre cofres** | Mover dados de cópia de segurança entre cofres não é suportada.
 **Modificar o tipo de armazenamento do Cofre** | Pode modificar o tipo de replicação de armazenamento (armazenamento georredundante ou armazenamento localmente redundante) para um cofre, antes de cópias de segurança são armazenadas. Depois de iniciar as cópias de segurança no cofre, não é possível modificar o tipo de replicação.
@@ -69,7 +69,7 @@ Eis o que é suportado se quiser fazer uma cópia de segurança de VMs do Azure:
 **Machine** | **O que é uma cópia de segurança** | **Localização** | **Funcionalidades**
 --- | --- | --- | ---
 **Cópia de segurança VM do Azure ao utilizar a extensão de VM** | VM inteira | Criar cópias de segurança para o cofre. | Extensão instalada quando ativar a cópia de segurança para uma VM.<br/><br/> Criar cópias de segurança uma vez por dia.<br/><br/> Aplicação com suporte para cópia de segurança para VMs do Windows; cópia de segurança consistente com ficheiros para VMs do Linux. Pode configurar a consistência de aplicação para computadores Linux ao utilizar scripts personalizados.<br/><br/> Restaure VM ou disco.<br/><br/> Não é possível fazer backup de uma VM do Azure para uma localização no local.
-**Cópia de segurança VM do Azure com o agente MARS** | Ficheiros, pastas | Criar cópias de segurança para o cofre. | Criar cópias de segurança três vezes por dia.<br/><br/> Se pretender criar cópias de segurança específicos ficheiros ou pastas, em vez de toda a VM, pode executar o agente de MARS juntamente com a extensão de VM.
+**Cópia de segurança VM do Azure com o agente MARS** | Ficheiros, pastas, estado do sistema | Criar cópias de segurança para o cofre. | Criar cópias de segurança três vezes por dia.<br/><br/> Se pretender criar cópias de segurança específicos ficheiros ou pastas, em vez de toda a VM, pode executar o agente de MARS juntamente com a extensão de VM.
 **VM do Azure com o DPM** | Ficheiros, pastas, volumes, o estado do sistema, os dados da aplicação | Criar cópias de segurança para o armazenamento local de VM do Azure que está a executar o DPM. O DPM, em seguida, efetua cópias de segurança para o cofre. | Instantâneos de deteção de aplicação.<br/><br/> Granularidade de completa para cópia de segurança e recuperação.<br/><br/> Linux suportada para VMs (Hyper-V/VMware).<br/><br/> Oracle não suportada.
 **VM do Azure com o MABS** | Ficheiros, pastas, volumes, o estado do sistema, os dados da aplicação | Criar cópias de segurança para o armazenamento local de VM do Azure que está a executar o MABS. MABS, em seguida, efetua cópias de segurança no cofre. | Instantâneos de deteção de aplicação.<br/><br/> Granularidade de completa para cópia de segurança e recuperação.<br/><br/> Linux suportada para VMs (Hyper-V/VMware).<br/><br/> Oracle não suportada.
 
@@ -131,8 +131,8 @@ Cópia de segurança suporta a compactação do tráfego de cópia de segurança
 
 **Machine** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir cofre (HTTPS)**
 --- | --- | ---
-**Cópia de segurança direta de máquinas do Windows no local** | ND | ![Sim][green]
-**Cópia de segurança de VMs do Azure ao utilizar a extensão de VM** | ND | ND
+**Cópia de segurança direta de máquinas do Windows no local** | N/D | ![Sim][green]
+**Cópia de segurança de VMs do Azure ao utilizar a extensão de VM** | N/D | N/D
 **Cópia de segurança em máquinas no local/Azure utilizando o MABS/DPM** | ![Sim][green] | ![Sim][green]
 
 ## <a name="retention-limits"></a>Limites de retenção

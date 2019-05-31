@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: b8cc628ef7db198c5068bb3917cf41113ba1687a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873014"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417097"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implementar o WebJobs com o Visual Studio - serviço de aplicações do Azure
 
@@ -27,7 +27,7 @@ Este artigo explica como utilizar o Visual Studio para implementar um projeto de
 
 Pode publicar WebJobs a várias para uma aplicação web individual. Certifique-se de que cada trabalho Web numa aplicação web tem um nome exclusivo.
 
-Versão 3.x dos [SDK de WebJobs do Azure](webjobs-sdk-how-to.md) permite que se desenvolva WebJobs que são executados como aplicações de .NET Core, enquanto a versão 2.x suporta apenas o .NET Framework. Da forma que implementa um projeto do WebJobs é diferentes projetos de .NET Core em comparação com aqueles do .NET Framework.
+Versão 3.x dos [SDK de WebJobs do Azure](webjobs-sdk-how-to.md) permite-lhe desenvolver trabalhos Web que são executados, como aplicações de .NET Core ou .NET Framework, aplicações, enquanto a versão 2.x suporta apenas o .NET Framework. Da forma que implementa um projeto do WebJobs é diferente para projetos de .NET Core em comparação com aqueles do .NET Framework.
 
 ## <a name="webjobs-as-net-core-console-apps"></a>WebJobs como aplicações de consola .NET Core
 
@@ -144,7 +144,7 @@ Para criar um novo projeto habilitados para o WebJobs, pode utilizar o modelo de
 > 
 
 #### <a id="createnolink"></a> Utilizar o modelo de novo projeto do WebJobs para um WebJob independente
-1. Clique em **arquivo** > **novo projeto**e, em seguida, no **novo projeto** clique da caixa de diálogo **Cloud**  >   **WebJob do Azure (.NET Framework)**.
+1. Clique em **arquivo** > **novo projeto**e, em seguida, no **novo projeto** clique da caixa de diálogo **Cloud**  >   **WebJob do Azure (.NET Framework)** .
    
     ![Caixa de diálogo do projeto nova que mostra o modelo de WebJob](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Siga as indicações mostradas anteriormente ao [tornar o aplicativo de Console, um projeto de WebJobs independente do projeto](#convertnolink).
@@ -240,7 +240,7 @@ WebJobs suporta as seguintes definições:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Todos | Permite que a tarefa seja executada no local sem primeiro a ser copiado para uma pasta temporária. Para obter mais informações, consulte [diretório de trabalho de WebJobs](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Contínuo | Execute apenas os trabalhos Web numa única instância ao aumentar horizontalmente. Para obter mais informações, consulte [definir uma tarefa contínua como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Acionado | Execute o WebJob num agendamento com base em CRON. Para obter mais informações, consulte a [artigo de referência do acionador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Acionada | Execute o WebJob num agendamento com base em CRON. Para obter mais informações, consulte a [artigo de referência do acionador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Todos | Permite controlar o comportamento de encerramento. Para obter mais informações, consulte [desligamento não](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Passos Seguintes

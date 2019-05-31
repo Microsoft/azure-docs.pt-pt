@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 532c1051522410c496fb3809c06c7e3a74340adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 73785422a7c45a12671e6cd53da89609190a8352
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66141454"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243289"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre o início de redes virtuais do Azure com as informações aqui: [Descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -103,7 +103,7 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
 * **Configuração de servidor DNS personalizado**: O serviço de gestão de API depende de vários serviços do Azure. Quando a gestão de API está alojada numa VNET com um servidor DNS personalizado, tem de resolver os nomes de anfitrião desses serviços do Azure. Siga [isso](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) orientações sobre a configuração de DNS personalizado. Consulte a tabela de portas abaixo e outros requisitos de rede para referência.
 
 > [!IMPORTANT]
-> Se planeia utilizar um servidor de DNS personalizado (es) para a VNET, deve configurá-lo **antes de** implementar um serviço de gestão de API para o mesmo. Caso contrário, tem de atualizar o serviço de gestão de API sempre que alterar o servidor ou servidores DNS executando o [aplicar a operação de configuração de rede](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)
+> Se planeia utilizar um servidor de DNS personalizado (es) para a VNET, deve configurá-lo **antes de** implementar um serviço de gestão de API para o mesmo. Caso contrário, tem de atualizar o serviço de gestão de API sempre que alterar o servidor ou servidores DNS executando o [aplicar a operação de configuração de rede](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/ApplyNetworkConfigurationUpdates)
 
 * **Portas necessárias para a gestão de API**: Tráfego de entrada e saída para a sub-rede na qual está implementada a gestão de API pode ser controlado através de [grupo de segurança de rede][Network Security Group]. Se qualquer uma destas portas não estão disponíveis, a gestão de API poderá não funcionar corretamente e poderá tornar-se inacessível. Ter uma ou mais destas portas bloqueadas é o outro problema de configuração incorreta comum, ao utilizar a gestão de API com uma VNET.
 
@@ -111,7 +111,7 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
 
 | Origem / porta de destino (s) | Direction          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem / destino   | Finalidade (*)                                                 | Tipo de rede virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente para gestão de API                      | Externa             |
+| * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente para gestão de API                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para o portal do Azure e Powershell         | Externo e interno  |
 | * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / armazenamento             | **Dependência do armazenamento do Azure**                             | Externo e interno  |
 | * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | O Azure Active Directory (quando aplicável)                   | Externo e interno  |
@@ -170,7 +170,7 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
   > [!IMPORTANT]
   > Depois de validar a conectividade, certifique-se remover todos os recursos implementados na sub-rede, antes de implementar a gestão de API para a sub-rede.
 
-* **As atualizações incrementais**: Ao fazer alterações à sua rede, consulte [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)para confirmar que o serviço de gestão de API não perdeu o acesso a qualquer um dos recursos críticos, o que ele depende. O estado de conectividade, deverão ser atualizado a cada 15 minutos.
+* **As atualizações incrementais**: Ao fazer alterações à sua rede, consulte [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/networkstatus)para confirmar que o serviço de gestão de API não perdeu o acesso a qualquer um dos recursos críticos, o que ele depende. O estado de conectividade, deverão ser atualizado a cada 15 minutos.
 
 * **Ligações de navegação de recursos**: Ao implementar numa sub-rede de vnet do Resource Manager estilo, gestão de API reserva-se a sub-rede, através da criação de uma ligação de navegação de recursos. Se a sub-rede já contém um recurso de um fornecedor diferente, implementação irá **falhar**. Da mesma forma, quando move um serviço de gestão de API para outra sub-rede ou eliminá-lo, podemos remover essa ligação de navegação de recursos.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb521ed0951999fadbfae5e0eac1f0ea275e0d48
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60779429"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391697"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir a eventos do IoT Hub com o Event Grid para realizar ações
 
@@ -25,7 +25,7 @@ O IoT Hub do Azure integra-se com o Azure Event Grid para que possa enviar notif
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A integração do Event Grid está disponível para os hubs IoT localizados em regiões onde o Event Grid é suportada. Para obter a lista mais recente de regiões, consulte [uma introdução ao Azure Event Grid](../event-grid/overview.md). 
+A integração do Event Grid está disponível para os hubs IoT localizados em regiões onde o Event Grid é suportada. Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo estão geralmente disponíveis. Eventos de telemetria do dispositivo está em pré-visualização pública e está disponível em todas as regiões, exceto E.U.A. leste, E.U.A. oeste, Europa Ocidental, [do Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/). Para obter a lista mais recente de regiões, consulte [uma introdução ao Azure Event Grid](../event-grid/overview.md). 
 
 ## <a name="event-types"></a>Tipos de eventos
 
@@ -37,6 +37,7 @@ IoT Hub publica os seguintes tipos de evento:
 | Microsoft.Devices.DeviceDeleted | Publicado quando um dispositivo é eliminado de um hub IoT. |
 | Microsoft.Devices.DeviceConnected | Publicado quando um dispositivo está ligado a um hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é ligado à Internet de um hub IoT. |
+| Microsoft.Devices.DeviceTelemetry | Publicado quando uma mensagem de telemetria do dispositivo é enviada para um hub IoT |
 
 Utilize o portal do Azure ou a CLI do Azure para configurar os eventos de publicar a partir de cada hub IoT. Por exemplo, experimente o tutorial [enviar notificações de e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
@@ -66,6 +67,42 @@ O exemplo seguinte mostra o esquema de um evento de ligada do dispositivo:
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+### <a name="device-telemetry-schema"></a>Esquema de telemetria do dispositivo
+
+Mensagem de telemetria do dispositivo tem de estar no formato JSON válido com o contentType definido como JSON e contentEncoding definido como UTF-8 na mensagem [propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties). Se não for definida, o IoT Hub escrever as mensagens no formato codificado de 64 base. O exemplo seguinte mostra o esquema de um evento de telemetria do dispositivo: 
+
+```json
+[{  
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+            },
+            "Location": "USA"        
+        },
+        "properties": {            
+            "Status": "Active"        
+        },
+        "systemProperties": {            
+          "iothub-content-type": "application/json",
+          "iothub-content-encoding": "utf-8",
+          "iothub-connection-device-id": "d1",
+          "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+          "iothub-connection-auth-generation-id": "123455432199234570",
+          "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+          "iothub-message-source": "Telemetry"        
+        }    
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -123,13 +160,21 @@ Para obter uma descrição detalhada de cada propriedade, veja [esquema de event
 
 ## <a name="filter-events"></a>Filtrar eventos
 
-Subscrições de eventos do IoT Hub podem filtrar eventos com base no nome de dispositivo e o tipo de evento. Qual se baseia assunto filtros em projetos do Event Grid **começa com** (prefixo) e **termina com** corresponde a (sufixo). O filtro utiliza um `AND` operador, para que os eventos com um assunto que corresponderem o prefixo e o sufixo são entregues ao subscritor. 
+Subscrições de eventos do IoT Hub podem filtrar eventos com base no tipo de evento, o conteúdo de dados e o assunto, o que é o nome do dispositivo.
+
+O Event Grid permite [filtragem](../event-grid/event-filtering.md) no conteúdo de tipos, assuntos e dados de eventos. Ao criar a subscrição do Event Grid, pode optar por subscrever a eventos de IoT selecionados. Qual se baseia assunto filtros em projetos do Event Grid **começa com** (prefixo) e **termina com** corresponde a (sufixo). O filtro utiliza um `AND` operador, para que os eventos com um assunto que corresponderem o prefixo e o sufixo são entregues ao subscritor. 
 
 O assunto de eventos de IoT utiliza o formato:
 
 ```json
 devices/{deviceId}
 ```
+
+Grelha de eventos também permite a filtragem de atributos de cada evento, incluindo o conteúdo de dados. Isto permite-lhe escolher quais eventos são entregues com base conteúdo da mensagem de telemetria. Veja [filtragem avançada](../event-grid/event-filtering.md#advanced-filtering) para ver exemplos. 
+
+Sem ser de telemetria dos eventos, como DeviceConnected, DeviceDisconnected, DeviceCreated e DeviceDeleted, a filtragem do Event Grid pode ser utilizada ao criar a subscrição. Para eventos de telemetria, além de filtragem na grelha de eventos, os utilizadores também podem filtrar em dispositivos duplos, propriedades da mensagem e corpo através da consulta de encaminhamento de mensagens. Criamos uma predefinição [rota](iot-hub-devguide-messages-d2c.md) no IoT Hub, com base na sua subscrição do Event Grid para telemetria do dispositivo. Esta rota única pode processar todas as suas subscrições do Event Grid. Para filtrar as mensagens antes do envio de dados de telemetria, pode atualizar sua [consulta de encaminhamento](iot-hub-devguide-routing-query-syntax.md). Tenha em atenção de que essa consulta de encaminhamento pode ser aplicada ao corpo da mensagem apenas se o corpo for JSON.
+
+
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitações para dispositivo ligado e o dispositivo desligado eventos
 
 Para receber o dispositivo ligado e eventos de dispositivo desligado, tem de abrir a ligação de D2C ou C2D ligação para o seu dispositivo. Se o dispositivo estiver a utilizar o protocolo MQTT, o IoT Hub manterá C2D link abrir. Para AMQP, é possível abrir a ligação de C2D ao chamar o [receber API de Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
@@ -144,7 +189,7 @@ Aplicações que processam os eventos do IoT Hub devem seguir estas práticas su
 
 * Não parta do princípio que todos os eventos recebidos são os tipos que esperava. Verifique sempre o eventType antes de processar a mensagem.
 
-* As mensagens podem chegar fora de ordem ou após um atraso. Utilize o campo de etag para compreender se as suas informações sobre os objetos estão atualizadas.
+* As mensagens podem chegar fora de ordem ou após um atraso. Utilize o campo de etag para saber se as informações sobre objetos são atualizadas para o dispositivo criado ou eventos de dispositivo eliminado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 16efb97569aabbea28065b03e9944d6881c39eee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60895385"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390172"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Suporte de idioma e região para a API de verificação ortográfica do Bing
 
 Esses idiomas são suportados pela API de verificação de ortografia do Bing (apenas em `spell` modo).
 
-Tenha em atenção que para funcionar com qualquer outra linguagem que `en-US`, o `mkt` deve ser definida e qualquer um dos `Accept-Language` ou `setLang` deve ser definido como foi descrito na [v7 referência da API de verificação ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+Tenha em atenção que para funcionar com qualquer outra linguagem que `en-US`, o `mkt` deve ser definida e qualquer um dos `Accept-Language` ou `setLang` deve ser definido como foi descrito na [v7 referência da API de verificação ortográfica](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Idioma    | Código do idioma |
 |:----------- |:-------------:|
@@ -30,8 +30,8 @@ Tenha em atenção que para funcionar com qualquer outra linguagem que `en-US`, 
 | Chinês (RAE de Hong Kong)    | `zh-HK`          |
 | Chinês (Taiwan)     | `zh-TW`          |
 | Dinamarquês      | `da`          |
-| Neerlandês (Bélgica)       | `nl-BE`          |
-| Neerlandês (Países Baixos)      | `nl-NL`          |
+| Holandês (Bélgica)       | `nl-BE`          |
+| Holandês (Países Baixos)      | `nl-NL`          |
 | Inglês (Austrália)    | `en-AU`          |
 | Inglês (Canadá)     | `en-CA`          |
 | English (India)    | `en-IN`          |

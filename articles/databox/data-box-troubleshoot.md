@@ -1,54 +1,36 @@
 ---
-title: Resolver problemas sobre o Azure Data Box | Documentos da Microsoft
-description: Descreve como resolver problemas detetados no Azure Data Box ao carregar dados para o Azure.
+title: Resolver problemas sobre o Azure Data Box, pesadas de caixa de dados do Azure | Documentos da Microsoft
+description: Descreve como resolver problemas detetados no Azure Data Box e pesadas de caixa de dados do Azure quando se copiam dados para estes dispositivos.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594012"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257292"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box"></a>Resolver problemas relacionados com o Azure Data Box
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Resolver problemas relacionados com o Azure Data Box e pesadas de caixa de dados do Azure
 
-Este artigo fornece detalhes sobre as informações sobre como resolver problemas, pode ver quando utilizar o Azure Data Box.
+Este artigo fornece detalhes sobre as informações sobre como resolver problemas, pode ver quando utiliza o Boxn de dados do Azure ou pesadas de caixa de dados do Azure.
 
 ## <a name="errors-during-data-copy"></a>Erros durante a cópia de dados
 
 Todos os erros que são vistos durante a cópia de dados estão resumidos nas seções a seguir.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**Descrição do erro:** O nome do contentor ou da partilha tem de ter entre 3 e 63 carateres.
-
-**Resolução sugerida:** A pasta abaixo da partilha de dados de caixa (SMB/NFS) para o qual copiou dados torna-se um contentor do Azure na sua conta de armazenamento. 
-
-- Sobre o **Connect e a cópia** página da IU web local, transferir e reveja os ficheiros de erro para identificar a pasta de nomes com problemas do Data Box.
-- Altere o nome da pasta abaixo da partilha do Data Box para se certificar de que:
-
-    - O nome tem entre 3 e 63 carateres.
-    - Os nomes só podem ter letras, números e hífenes.
-    - Os nomes não podem começar nem terminar com hífenes.
-    - Os nomes não podem conter hífenes consecutivos.
-    - Exemplos de nomes válidos: `my-folder-1`, `my-really-extra-long-folder-111`.
-    - Exemplos de nomes que não são válidos: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
-
-    Para obter mais informações, veja as convenções de nomenclatura do Azure [os nomes dos contentores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [partilhar nomes](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
-
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **Descrição do erro:** O nome do contentor ou da partilha tem de ter entre 3 e 63 carateres. 
 
-**Resolução sugerida:** A pasta abaixo da partilha de dados de caixa (SMB/NFS) para o qual copiou dados torna-se um contentor do Azure na sua conta de armazenamento. 
+**Resolução sugerida:** A pasta na share(SMB/NFS) Data Box ou pesadas de caixa de dados para o qual copiou dados torna-se um contentor do Azure na sua conta de armazenamento. 
 
-- Sobre o **Connect e a cópia** página da IU web local, transferir e reveja os ficheiros de erro para identificar a pasta de nomes com problemas do Data Box.
-- Altere o nome da pasta abaixo da partilha do Data Box para se certificar de que:
+- Sobre o **Connect e a cópia** página da web local do dispositivo da interface do Usuário, download e reveja os ficheiros de erro para identificar a pasta de nomes com problemas.
+- Altere o nome da pasta compartilhamento da caixa de dados ou dados de caixa pesadas para se certificar de que:
 
     - O nome tem entre 3 e 63 carateres.
     - Os nomes só podem ter letras, números e hífenes.
@@ -64,10 +46,10 @@ Todos os erros que são vistos durante a cópia de dados estão resumidos nas se
 
 **Descrição do erro:** O nome do contentor ou da partilha só pode ter letras, números ou hífenes.
 
-**Resolução sugerida:** A pasta abaixo da partilha de dados de caixa (SMB/NFS) para o qual copiou dados torna-se um contentor do Azure na sua conta de armazenamento. 
+**Resolução sugerida:** A pasta na share(SMB/NFS) Data Box ou pesadas de caixa de dados para o qual copiou dados torna-se um contentor do Azure na sua conta de armazenamento. 
 
-- Sobre o **Connect e a cópia** página da IU web local, transferir e reveja os ficheiros de erro para identificar a pasta de nomes com problemas do Data Box.
-- Altere o nome da pasta abaixo da partilha do Data Box para se certificar de que:
+- Sobre o **Connect e a cópia** página da web local do dispositivo da interface do Usuário, download e reveja os ficheiros de erro para identificar a pasta de nomes com problemas.
+- Altere o nome da pasta compartilhamento da caixa de dados ou dados de caixa pesadas para se certificar de que:
 
     - O nome tem entre 3 e 63 carateres.
     - Os nomes só podem ter letras, números e hífenes.
@@ -82,10 +64,10 @@ Todos os erros que são vistos durante a cópia de dados estão resumidos nas se
 
 **Descrição do erro:** Os nomes de contentor e nomes de partilha não é possível iniciar ou terminar com hífenes e não pode conter hífenes consecutivos.
 
-**Resolução sugerida:** A pasta abaixo da partilha de dados de caixa (SMB/NFS) para o qual copiou dados torna-se um contentor do Azure na sua conta de armazenamento. 
+**Resolução sugerida:** A pasta na share(SMB/NFS) Data Box ou pesadas de caixa de dados para o qual copiou dados torna-se um contentor do Azure na sua conta de armazenamento. 
 
-- Sobre o **Connect e a cópia** página da IU web local, transferir e reveja os ficheiros de erro para identificar a pasta de nomes com problemas do Data Box.
-- Altere o nome da pasta abaixo da partilha do Data Box para se certificar de que:
+- Sobre o **Connect e a cópia** página da web local do dispositivo da interface do Usuário, download e reveja os ficheiros de erro para identificar a pasta de nomes com problemas.
+- Altere o nome da pasta compartilhamento da caixa de dados ou dados de caixa pesadas para se certificar de que:
 
     - O nome tem entre 3 e 63 carateres.
     - Os nomes só podem ter letras, números e hífenes.
@@ -112,7 +94,7 @@ Para obter mais informações, consulte [cópia para os managed disks](data-box-
 
 **Descrição do erro:** Partilha de ficheiros do Azure limita uma partilha de 5 TB de dados. Este limite foi excedido para alguns partilhas.
 
-**Resolução sugerida:** Sobre o **Connect e a cópia** página do Data Box IU da web local, transfira e reveja os ficheiros de erro.
+**Resolução sugerida:** Sobre o **Connect e a cópia** página da web local da interface do Usuário, transfira e reveja os ficheiros de erro.
 
 Identifique as pastas que têm este problema dos registos de erros e certifique-se de que os ficheiros nessa pasta são menos de 5 TB.
 
@@ -194,7 +176,7 @@ Para obter mais informações, veja as convenções de nomenclatura do Azure par
 
 **Descrição do erro:** O blob ou ficheiro está alinhado incorretamente.
 
-**Resolução sugerida:** A partilha de blob de página no Data Box só suporta ficheiros de 512 bytes alinhado (por exemplo, VHD/VHDX). Todos os dados copiados para a partilha de blob de página são carregados para o Azure, como blobs de páginas.
+**Resolução sugerida:** A partilha de blob de página em caixa de dados ou dados de caixa pesada só suporta ficheiros que são de 512 bytes alinhado (por exemplo, VHD/VHDX). Todos os dados copiados para a partilha de blob de página são carregados para o Azure, como blobs de páginas.
 
 Remova todos os dados não-VHD/VHDX da partilha de blob de página. Pode utilizar partilhas de blob de blocos ou ficheiros do Azure para dados genéricos.
 

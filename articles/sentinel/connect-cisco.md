@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2019
 ms.author: rkarlin
-ms.openlocfilehash: a0ece3007e1eadf6cb2901941b771f0ff3243f02
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: fd04e380b0b5732db1e39ffc9b5aa6047c7ef777
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921948"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382990"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Ligar a sua aplicação Cisco ASA 
 
@@ -118,7 +118,7 @@ Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no
 
 3. Certifique-se de que estão em conformidade com os registos enviados [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. No computador que executa o agente de Syslog, certifique-se de que estas portas 514, 25226 são abertos e está a escutar, utilizando o comando `netstat -a -n:`. Para obter mais informações sobre como utilizar este comando, consulte [netstat(8) - página de homem de Linux](https://linux.die.netman/8/netstat). Se estiver a escutar corretamente, verá isto:
+4. No computador que executa o agente de Syslog, certifique-se de que estas portas 514, 25226 são abertos e está a escutar, utilizando o comando `netstat -a -n:`. Para obter mais informações sobre como utilizar este comando, consulte [netstat(8) - página de homem de Linux](https://linux.die.net/man/8/netstat). Se estiver a escutar corretamente, verá isto:
 
    ![Portas de Sentinel do Azure](./media/connect-cef/ports.png) 
 

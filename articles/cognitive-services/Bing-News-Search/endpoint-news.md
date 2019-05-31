@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: b680f476345bde61797fd1cc137cad6e5653d0a5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6ea218da23d65696c76008cb15e183fcc4bbda10
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798205"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383233"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Pontos finais de API de pesquisa de notícias do Bing
 
@@ -39,7 +39,7 @@ Devolve itens de notícias com base numa consulta de pesquisa. Se a consulta de 
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Devolve os itens de notícias superior por categoria. Pode pedir especificamente o negócio superior, desporto ou artigos de entretenimento usando `category=business`, `category=sports`, ou `category=entertainment`.  O `category` parâmetro só pode ser utilizado com o `/news` URL. Existem alguns requisitos formais para especificar categorias; consulte a `category` no [parâmetro de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters) documentação. Enviar uma consulta ao url de seu termo de pesquisa de codificação e anexando-o para o`q=""` parâmetro. Para disponibilidade, consulte [países/regiões e mercados suportados](language-support.md#supported-markets-for-news-endpoint).
+Devolve os itens de notícias superior por categoria. Pode pedir especificamente o negócio superior, desporto ou artigos de entretenimento usando `category=business`, `category=sports`, ou `category=entertainment`.  O `category` parâmetro só pode ser utilizado com o `/news` URL. Existem alguns requisitos formais para especificar categorias; consulte a `category` no [parâmetro de consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) documentação. Enviar uma consulta ao url de seu termo de pesquisa de codificação e anexando-o para o`q=""` parâmetro. Para disponibilidade, consulte [países/regiões e mercados suportados](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Tópicos de notícias em destaque 
 
@@ -51,7 +51,7 @@ Devolve os tópicos de notícias são popularidade atual nas redes sociais. Quan
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter detalhes sobre os cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a [pesquisa de notícias do Bing API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) referência.
+Para obter detalhes sobre os cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a [pesquisa de notícias do Bing API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) referência.
 
 Para obter informações completas sobre os parâmetros suportados por cada ponto de extremidade, consulte as páginas de referência para cada tipo.
 Para obter exemplos de solicitações básicas com a API de pesquisa de notícias, consulte [inícios rápidos de pesquisa de notícias do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).

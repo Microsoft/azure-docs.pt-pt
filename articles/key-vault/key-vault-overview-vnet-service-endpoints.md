@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700962"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416433"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para o Azure Key Vault
 
@@ -53,7 +53,7 @@ Para obter mais informações, consulte [configurar o Azure Key Vault firewalls 
 > Tenha em atenção as seguintes limitações de configuração:
 > * É permitido um máximo de 127 regras de rede virtual e 127 regras de IPv4. 
 > * Intervalos de endereços pequenos que utilizam o "/ 31" ou "/ 32" prefixo tamanhos não são suportados. Em vez disso, configure estes intervalos com regras de endereços IP individuais.
-> * Regras de rede IP só são permitidas para endereços IP públicos. Intervalos de endereços IP reservados para redes privadas (conforme definido em RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que comecem com **10.**, **172.16 31**, e **192.168.**. 
+> * Regras de rede IP só são permitidas para endereços IP públicos. Intervalos de endereços IP reservados para redes privadas (conforme definido em RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que comecem com **10.** , **172.16 31**, e **192.168.** . 
 > * Apenas endereços IPv4 são suportados neste momento.
 
 ## <a name="trusted-services"></a>Serviços confiáveis
@@ -62,13 +62,13 @@ Aqui está uma lista de serviços confiáveis que têm permissão para aceder um
 
 |Serviço de confiança|Cenários de utilização|
 | --- | --- |
-|Serviço de implementação de Máquinas Virtuais do Azure|[Implementar certificados para VMs a partir do Cofre de chaves geridas pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
-|Serviço de implementação de modelos do Azure Resource Manager|[Transmitir valores seguros durante a implementação](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
-|Azure Disk Encryption para serviço encriptação de volumes|Permita o acesso à chave do BitLocker (Windows VM) ou a frase de acesso do DM (Linux VM) e a chave de encriptação de chave, durante a implementação da máquina virtual. Isto permite [do Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
+|Serviço de implementação de máquinas virtuais do Azure|[Implementar certificados para VMs a partir do Cofre de chaves geridas pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Serviço de implementação de modelo do Azure Resource Manager|[Transmitir valores seguros durante a implementação](../azure-resource-manager/resource-manager-keyvault-parameter.md).|
+|Serviço de encriptação de volume de encriptação de disco do Azure|Permita o acesso à chave do BitLocker (Windows VM) ou a frase de acesso do DM (Linux VM) e a chave de encriptação de chave, durante a implementação da máquina virtual. Isto permite [do Azure Disk Encryption](../security/azure-security-disk-encryption.md).|
 |Azure Backup|Permitir cópia de segurança e restauro de relevantes chaves e segredos durante a cópia de segurança de máquinas virtuais do Azure, utilizando [cópia de segurança do Azure](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online & SharePoint Online|Permitir o acesso à chave do cliente para a encriptação do serviço de armazenamento do Azure com [chave de cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Permitir o acesso à chave de inquilino para [do Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Serviço de Aplicações do Azure|[Implementar o certificado de aplicação Web do Azure através do Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Serviço de Aplicações do Azure|[Implementar o certificado de aplicação Web do Azure através do Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Base de Dados SQL do Azure|[Encriptação de dados transparente com suporte de traga a sua própria chave para a base de dados do Azure SQL e o armazém de dados](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Storage do Azure|[Encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Encriptação de dados no Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerida pelo cliente.|

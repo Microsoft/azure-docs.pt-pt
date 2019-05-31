@@ -1,30 +1,30 @@
 ---
-title: 'Início rápido: Visualize os dados a partir do Explorador de dados do Azure com uma consulta SQL no Power BI'
-description: 'Neste início rápido, irá aprender a utilizar uma das três opções para visualizar dados no Power BI: uma consulta SQL em relação a um cluster do Explorador de dados do Azure.'
+title: Visualize os dados a partir do Explorador de dados do Azure com uma consulta SQL no Power BI
+description: 'Neste artigo, irá aprender a utilizar uma das três opções para visualizar dados no Power BI: uma consulta SQL em relação a um cluster do Explorador de dados do Azure.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/14/2018
-ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 05/30/2019
+ms.openlocfilehash: 13cec67a690239204bfc52d04b7cf03fd571148a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828874"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399277"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início rápido: Visualizar dados utilizando o conector do Explorador de dados do Azure para o Power BI
+# <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualizar dados utilizando o conector do Explorador de dados do Azure para o Power BI
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Power BI é uma solução de análise de negócios que lhe permite visualizar os seus dados e partilhar os resultados na sua organização.
 
-O Explorador de dados do Azure fornece três opções para ligar aos dados no Power BI: utilizar o conector incorporado, importar uma consulta a partir do Explorador de dados do Azure ou utilizar uma consulta SQL. Este guia de introdução mostra-lhe como utilizar uma consulta SQL para obter dados e visualizá-la num relatório do Power BI.
+O Explorador de dados do Azure fornece três opções para ligar aos dados no Power BI: utilizar o conector incorporado, importar uma consulta a partir do Explorador de dados do Azure ou utilizar uma consulta SQL. Este artigo mostra-lhe como utilizar uma consulta SQL para obter dados e visualizá-la num relatório do Power BI.
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário o seguinte para concluir este início rápido:
+É necessário o seguinte para concluir este artigo:
 
 * Uma conta de e-mail organizacional que seja membro do Azure Active directory, para que possa ligar para o [cluster de ajuda do Explorador de dados do Azure](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -50,7 +50,7 @@ Geralmente usa a linguagem de consulta nativa com o Explorador de dados do Azure
 
     **Definição** | **Valor** | **Descrição do campo**
     |---|---|---|
-    | Servidor | *help.kusto.windows.net* | O URL para o cluster de ajuda (sem *https://*). Para outros clusters, o URL está no formato  *\<ClusterName\>.\< Região\>. kusto.windows.net*. |
+    | Servidor | *help.kusto.windows.net* | O URL para o cluster de ajuda (sem *https://* ). Para outros clusters, o URL está no formato  *\<ClusterName\>.\< Região\>. kusto.windows.net*. |
     | Base de Dados | *Amostras* | A base de dados de exemplo que está alojado no cluster que está a ligar. |
     | Modo de conectividade de dados | *Importar* | Determina se o Power BI importa os dados ou ligar diretamente à origem de dados. Pode usar qualquer uma das opções com este conector. |
     | Tempo limite do comando | Deixar em branco | O tempo que a consulta é executada antes de ele emite um erro de tempo limite. |
@@ -80,9 +80,8 @@ Geralmente usa a linguagem de consulta nativa com o Explorador de dados do Azure
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar do relatório que criou para este início rápido, elimine o ficheiro do Power BI Desktop (. pbix).
+Se já não precisar do relatório que criou para este artigo, elimine o ficheiro do Power BI Desktop (. pbix).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Quickstart: Visualizar dados utilizando uma consulta importada no Power BI](power-bi-connector.md)
+[Visualizar dados utilizando uma consulta importada no Power BI](power-bi-connector.md)

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 99aea38ec877074075eaec8cf9ab8da077901acf
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150421"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393115"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Proteção de conteúdo com encriptação dinâmica
 
@@ -39,14 +39,13 @@ Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo
 
 1. Código de serviços de multimédia do Azure
   
-   O [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) exemplo mostra-lhe como implementar o sistema de multi-DRM com serviços de multimédia v3 e também utilizar o serviço de entrega de licença/chave de serviços de multimédia. Pode encriptar cada elemento com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Veja [Protocolos de transmissão em fluxo e tipos de encriptação](#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
+   O [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) exemplo mostra-lhe como implementar o sistema do multi-DRM com serviços de multimédia v3 através do .NET. Ele também mostra como utilizar o serviço de entrega de licença/chave de serviços de multimédia. Pode encriptar cada elemento com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Veja [Protocolos de transmissão em fluxo e tipos de encriptação](#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
   
    O exemplo mostra como:
 
-   1. Criar e configurar [diretivas de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Criar e configurar uma [diretivas de chave de conteúdo](content-key-policy-concept.md). Criar uma **política de chave de conteúdo** para configurar a forma como a chave de conteúdo (que fornece acesso seguro aos seus ativos) é entregue para clientes finais.    
 
       * Defina a autorização de entrega de licença, especificando a lógica de verificação de autorização com base em declarações em JWT.
-      * Configure a encriptação de DRM ao especificar a chave de conteúdo.
       * Configurar [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), e/ou [FairPlay](fairplay-license-overview.md) licenças. Os modelos permitem-lhe configurar direitos e permissões para cada um os DRMs utilizados.
 
         ```
@@ -54,11 +53,11 @@ Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-   2. Criar uma [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators) que está configurado para transmitir o elemento encriptado. 
+   2. Criar uma [localizador de transmissão em fluxo](streaming-locators-concept.md) que está configurado para transmitir o elemento encriptado. 
   
-      O **localizador de transmissão em fluxo** tem de ser associado um [política de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingpolicies). No exemplo, definimos StreamingLocator.StreamingPolicyName como a política de "Predefined_MultiDrmCencStreaming". Esta política indica que queremos para duas chaves de conteúdo (envelope e CENC) para obter gerado e definir sobre o localizador. Por conseguinte, são aplicadas as encriptação de envelope, do PlayReady e do Widevine (a chave é entregue ao cliente para reprodução, com base nas licenças DRM configuradas). Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
-    
-      Uma vez que queremos encriptar o vídeo, o **política de chave de conteúdo** que configurámos anteriormente também tem de ser associados a **localizador de transmissão em fluxo**. 
+      O **localizador de transmissão em fluxo** tem de ser associado um [política de transmissão em fluxo](streaming-policy-concept.md). No exemplo, definimos StreamingLocator.StreamingPolicyName como a política de "Predefined_MultiDrmCencStreaming". Os PlayReady e Widevine encriptações são aplicadas, a chave é entregue ao cliente de reprodução com base em licenças DRM configuradas. Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
+      
+      O localizador de transmissão em fluxo também está associado a **conteúdo de chave de política** que foi definida.
     
    3. Crie um token de teste.
 
@@ -102,11 +101,11 @@ O protocolo HLS suporta os seguintes formatos de contêiner e esquemas de cripto
 
 |Formato de contêiner|Esquema de encriptação|Exemplo de URL|
 |---|---|---|
-|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
-|MPG2-TS |CBCS (FairPlay) ||
-|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
-|MPG2-TS |CENC (PlayReady) ||
-|CMAF(fmp4) |CENC (PlayReady) ||
+|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cbcs-aapl)`|
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-aapl,encryption=cenc)`|
+|CMAF(fmp4) |CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=m3u8-cmaf,encryption=cenc)`|
 
 HLS/CMAF + FairPlay (incluindo HEVC / H.265) é suportado nos seguintes dispositivos:
 
@@ -120,18 +119,18 @@ O protocolo de MPEG-DASH suporta os seguintes formatos de contêiner e esquemas 
 
 |Formato de contêiner|Esquema de encriptação|Exemplos de URL
 |---|---|---|
-|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
-|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
-|CMAF(fmp4)|CENC (Widevine + PlayReady)||
+|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(format=mpd-time-cmaf,encryption=cenc)`|
 
 ### <a name="smooth-streaming"></a>Transmissão em Fluxo Uniforme
 
 O protocolo de transmissão em fluxo uniforme suporta os seguintes formatos de contêiner e esquemas de criptografia.
 
-|Protocolo|Formato de contêiner|Esquema de encriptação|
+|Protocol|Formato de contêiner|Esquema de encriptação|
 |---|---|---|
-|fMP4|AES||
-|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+|fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
 
 ### <a name="browsers"></a>Browsers
 

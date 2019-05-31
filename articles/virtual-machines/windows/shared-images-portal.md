@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236591"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244998"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagem partilhada com o portal do Azure
 
@@ -67,6 +67,7 @@ Este exemplo cria uma VM com o nome *myVMfromImage*, na *myResourceGroup* no *E.
 1. Se pretender permitir o acesso remoto à VM, em **portas de entrada públicas**, escolha **permitir portas selecionadas** e, em seguida, selecione **RDP (. 3389)** na lista suspensa. Se não pretender permitir o acesso remoto à VM, deixe **None** selecionado para **portas de entrada públicas**.
 1. Quando tiver terminado, selecione o **rever + criar** na parte inferior da página.
 1. Depois da VM passa na validação, selecione **criar** na parte inferior da página para iniciar a implementação.
+
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

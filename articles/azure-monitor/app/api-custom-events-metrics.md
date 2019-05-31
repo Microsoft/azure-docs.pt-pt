@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785886"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299258"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -53,7 +53,7 @@ Se ainda não tem uma referência no SDK do Application Insights:
   * [Projeto de Java](../../azure-monitor/app/java-get-started.md)
   * [Projeto de node. js](../../azure-monitor/app/nodejs.md)
   * [JavaScript em cada página da Web](../../azure-monitor/app/javascript.md) 
-* No código do seu dispositivo ou servidor Web, inclua:
+* No código de servidor web ou de dispositivo, incluem:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
@@ -299,7 +299,7 @@ A telemetria está disponível na `customMetrics` de tabela no [Application Insi
 * `valueSum` -Essa é a soma das medidas. Para obter o valor médio, divida por `valueCount`.
 * `valueCount` -O número de medidas que foram agregados deste `trackMetric(..)` chamar.
 
-## <a name="page-views"></a>Visualizações da página
+## <a name="page-views"></a>Vistas de página
 
 Num aplicativo de dispositivo ou página Web, telemetria de vista de página é enviada por predefinição, quando cada ecrã ou uma página for carregada. Mas pode alterá-la para controlar as vistas de página em momentos diferentes ou adicionais. Por exemplo, numa aplicação que apresenta os separadores ou painéis, pode querer controlar uma página sempre que o usuário abre um painel novo.
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Dados de liberar
 
-Normalmente, o SDK envia dados, às vezes escolhidos para minimizar o impacto no utilizador. No entanto, em alguns casos, pode querer liberar o buffer – por exemplo, se estiver a utilizar o SDK num aplicativo que seja fechado.
+Normalmente, o SDK envia dados em intervalos fixos (normalmente de 30 segundos), ou sempre que a memória intermédia é completa (normalmente 500 itens). No entanto, em alguns casos, pode querer liberar o buffer – por exemplo, se estiver a utilizar o SDK num aplicativo que seja fechado.
 
 *C#*
 
@@ -1201,7 +1201,7 @@ Para determinar o tempo que os dados são mantidos, consulte [retenção de dado
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 * [Todas as plataformas](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## <a name="questions"></a>Perguntas
+## <a name="questions"></a>Dúvidas
 
 * *As exceções poderão lançar Track_() chamadas?*
 

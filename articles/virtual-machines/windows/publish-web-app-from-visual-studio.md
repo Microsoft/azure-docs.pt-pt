@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204421"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305920"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar uma aplicação ASP.NET Web para uma VM do Azure a partir do Visual Studio
 
-Este documento descreve como publicar uma aplicação web do ASP.NET para uma máquina virtual do Azure (VM) a utilizar o **máquinas virtuais do Microsoft Azure** funcionalidade de publicação no Visual Studio 2017.  
+Este documento descreve como publicar uma aplicação web do ASP.NET para uma máquina virtual do Azure (VM) a utilizar o **máquinas virtuais do Microsoft Azure** funcionalidade de publicação no Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar o Visual Studio para publicar um projeto do ASP.NET para uma VM do Azure, a VM tem de ser corretamente definida.
@@ -34,7 +34,7 @@ Para usar o Visual Studio para publicar um projeto do ASP.NET para uma VM do Azu
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publicar a aplicação web ASP.NET para a VM do Azure com o Visual Studio
 A seguinte secção descreve como publicar uma aplicação web ASP.NET existente para uma máquina virtual do Azure.
 
-1. Abra a sua solução de aplicação web no Visual Studio 2017.
+1. Abra a sua solução de aplicação web no Visual Studio 2019.
 2. Com o botão direito do rato no Explorador de soluções e escolha **publicar...**
 3. Use a seta à direita da página para percorrer as opções de publicação até encontrar **máquinas virtuais do Microsoft Azure**.  
 
@@ -58,7 +58,7 @@ A seguinte secção descreve como publicar uma aplicação web ASP.NET existente
 
 7. Clique em OK para começar a publicar.
 
-8. Quando lhe forem pedidas credenciais, forneça o nome de utilizador e palavra-passe de uma conta de utilizador na VM que está configurado com a publicação de direitos (normalmente, o nome de utilizador do administrador e palavra-passe utilizada ao criar a VM) de destino.  
+8. Quando lhe forem pedidas credenciais, forneça o nome de utilizador e palavra-passe de uma conta de utilizador na VM que esteja configurada com direitos de publicação de destino. Estas credenciais são, normalmente, o nome de utilizador administrador e a palavra-passe utilizada ao criar a VM.  
 
    ![Início de sessão de WebDeploy]
 
@@ -99,12 +99,12 @@ As definições de devem ter um aspeto semelhante ao seguinte:
 ![Definições - página de ligação de publicação]
 
 #### <a name="save-user-name-and-password"></a>Guarde o nome de utilizador e palavra-passe
-- Para evitar fornecer informações de autenticação, sempre que publicar, que pode preencher o **nome de utilizador** e **palavra-passe** campos e selecione o **guardar palavra-passe** caixa.
+- Evite fornecer informações de autenticação, sempre que publicar. Para tal, preencher a **nome de utilizador** e **palavra-passe** campos e selecione o **guardar palavra-passe** caixa.
 - Utilize o **validar ligação** botão para confirmar que introduziu as informações corretas.
 
 #### <a name="deploy-to-clean-web-server"></a>Implementar para limpar o servidor web
 
-- Se pretender certificar-se de que o servidor web tem uma cópia limpa do aplicativo web após cada carregamento (e que não existem outros ficheiros restantes desligar-se em torno de uma implementação anterior), pode verificar o **remover ficheiros adicionais no destino** caixa de seleção de **definições** separador.
+- Se pretender certificar-se de que o servidor web tem uma cópia limpa do aplicativo web após cada carregamento e que não existem outros ficheiros restantes de uma implementação anterior, pode verificar o **remover ficheiros adicionais no destino** caixa de seleção do  **Definições** separador.
 
 - Aviso: Publicação com esta definição elimina todos os ficheiros que existem no servidor web (diretório wwwroot). Certifique-se de que sabe o estado da máquina antes de publicar com esta opção ativada. 
 

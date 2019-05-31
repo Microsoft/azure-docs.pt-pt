@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800991"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296817"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
 
@@ -208,7 +208,7 @@ Depois de adicionar o GUID para o modelo ou no agente de utilizador e registar o
 
 Depois de alterar o seu modelo e executar uma implementação de teste, utilize o seguinte script do PowerShell para obter os recursos que implementou e etiquetados.
 
-Pode usar o script para verificar se o GUID é adicionado com êxito para o modelo do Resource Manager. O script não se aplica a implementação de API do Resource Manager.
+Pode usar o script para verificar se o GUID é adicionado com êxito para o modelo do Resource Manager. O script não se aplica às implementações de API do Resource Manager ou o Terraform.
 
 Inicie sessão no Azure. Selecione a subscrição com a implementação que pretende verificar antes de executar o script. Execute o script dentro do contexto de subscrição da implementação.
 

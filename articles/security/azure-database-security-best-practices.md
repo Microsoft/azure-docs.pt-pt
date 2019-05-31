@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409814"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258687"
 ---
 # <a name="azure-database-security-best-practices"></a>Práticas recomendadas de segurança da base de dados do Azure
 Este artigo descreve as melhores práticas de segurança da base de dados.
@@ -40,7 +40,7 @@ As firewalls impedem todo o acesso ao seu servidor de base de dados até especif
 
 A seguir mostra a figura local onde configurou uma firewall de servidor na base de dados SQL:
 
-![Regras de firewall](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
+![Regras da firewall](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
 
 O serviço de base de dados do Azure SQL está disponível apenas através da porta TCP 1433. Para acessar um banco de dados SQL no seu computador, certifique-se de que a firewall de computador do cliente permite comunicação TCP de saída na porta TCP 1433. Bloquear ligações de entrada na porta TCP 1433 utilizando regras de firewall, se não tiver estas ligações para outros aplicativos.
 
@@ -165,6 +165,10 @@ Ativar estas capacidades ajuda-o:
 - Detetar e responder a potenciais ameaças.
 
 Além disso, a deteção de ameaças integra alertas no Centro de segurança do Azure para uma visão central do Estado de segurança de todos os seus recursos do Azure.
+
+## <a name="enable-feature-restrictions"></a>Ativar restrições de recurso
+
+Os dados contidos nas suas bases de dados podem ser expostos a ataques com vetores de ataque que tiram partido dos erros de base de dados e tempos de execução da consulta. Base de dados SQL do Azure fornece vários mecanismos de restrição de funcionalidade para proteger a sua base de dados. Para obter mais informações, consulte [restrições de recurso de base de dados SQL](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Ver [padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md) para obter mais melhores práticas de segurança a utilizar quando estiver conceber, implementar e gerir soluções na cloud ao utilizar o Azure.

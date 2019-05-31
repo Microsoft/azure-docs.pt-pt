@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 815aeb9ae6036f08fc87e41980a623e2be8414e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7343692e8484e50a02963b4528889a35cc1fcaa6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751262"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239078"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer perguntas que podem ser respondidas com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciência de dados para a série de iniciantes
@@ -48,7 +48,7 @@ Falamos sobre como a ciência de dados é o processo de uso (também denominado 
 
 Não tem uma pergunta vaga de ser respondidas com um nome ou um número. Tem de ser uma pergunta sharp.
 
-Imagine que encontrou uma mágica lamp com um genie que puder sustentar vai responder a qualquer pergunta. Mas é um genie mischievous, e ele vai tentar tornar sua resposta mais vagas e confusos, como ele pode se contentar com. Pretende afixar em contato com ele para baixo com uma pergunta tão airtight que ele não pode ajudar a mas dizer o que deseja saber.
+Imagine que encontrou uma mágica lamp com um genie que puder sustentar vai responder a qualquer pergunta. Mas é um genie mischievous, que irá tentar fazer sua resposta como vagas e confuso, pois pode se contentar com. Deseja afixá-los para baixo com uma pergunta tão airtight que não pode ajudar, mas lhe dizer o que deseja saber.
 
 Se fosse fazer uma pergunta de vaga, como "O que vai acontecer com meu stock?", poderá responder a genie, "o preço será alterado". Essa é uma resposta truthful, mas não é muito útil.
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415470"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240181"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Pacote de Segurança Enterprise mediante a utilização do Azure Active Directory Domain Services
 
@@ -31,13 +31,13 @@ Neste artigo, irá aprender a configurar um cluster do HDInsight com ESP, utiliz
 >
 > Se o armazenamento de cluster é o armazenamento de Blobs do Azure (WASB), não desative a MFA.
 
-Ativar AzureAD DS é um pré-requisito antes de poder criar um cluster do HDInsight com ESP. Para obter mais informações, consulte [ativar o Azure Active Directory Domain Services no portal do Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Ativar AzureAD DS é um pré-requisito antes de poder criar um cluster do HDInsight com ESP. Para obter mais informações, consulte [ativar o Azure Active Directory Domain Services no portal do Azure](../../active-directory-domain-services/create-instance.md). 
 
 Quando o Azure AD-DS está ativado, todos os utilizadores e objetos de iniciar a sincronização do Azure Active Directory (AAD) para o Azure AD-DS por predefinição. O comprimento da operação de sincronização depende do número de objetos no Azure AD. A sincronização pode demorar alguns dias para centenas de milhares de objetos. 
 
-Pode optar por sincronizar apenas os grupos que precisam de acesso para os clusters do HDInsight. Esta opção de apenas determinados grupos de sincronização é chamada *âmbito de sincronização*. Ver [configurar um âmbito sincronização do Azure AD ao seu domínio gerido](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md) para obter instruções.
+Pode optar por sincronizar apenas os grupos que precisam de acesso para os clusters do HDInsight. Esta opção de apenas determinados grupos de sincronização é chamada *âmbito de sincronização*. Ver [configurar um âmbito sincronização do Azure AD ao seu domínio gerido](../../active-directory-domain-services/scoped-synchronization.md) para obter instruções.
 
-Quando ativar o LDAP seguro, coloque o nome de domínio no nome do requerente e o nome alternativo do requerente no certificado. Por exemplo, se o nome de domínio for *contoso100.onmicrosoft.com*, certifique-se de que nome exato existe no seu nome de requerente do certificado e o nome alternativo do requerente. Para obter mais informações, consulte [configurar LDAP seguro para um Azure AD-DS o domínio gerido](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). Seguem-se um exemplo de criação de um certificado autoassinado e ter o nome de domínio (*contoso100.onmicrosoft.com*) no nome do requerente e DnsName (nome alternativo do requerente):
+Quando ativar o LDAP seguro, coloque o nome de domínio no nome do requerente e o nome alternativo do requerente no certificado. Por exemplo, se o nome de domínio for *contoso100.onmicrosoft.com*, certifique-se de que nome exato existe no seu nome de requerente do certificado e o nome alternativo do requerente. Para obter mais informações, consulte [configurar LDAP seguro para um Azure AD-DS o domínio gerido](../../active-directory-domain-services/configure-ldaps.md). Seguem-se um exemplo de criação de um certificado autoassinado e ter o nome de domínio (*contoso100.onmicrosoft.com*) no nome do requerente e DnsName (nome alternativo do requerente):
 
 ```powershell
 $lifetime=Get-Date

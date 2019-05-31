@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: 9a6a1a744a8441d2f082d4d14a3aba8aa1cfc09e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510241"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306026"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Criar e gerir réplicas de leitura a partir da CLI do Azure
 
 Neste artigo, saiba como criar e gerir réplicas de leitura na base de dados do Azure para PostgreSQL a partir da CLI do Azure. Para saber mais acerca das réplicas de leitura, veja a [descrição geral](concepts-read-replicas.md).
 
-> [!NOTE]
-> Da CLI do Azure não suporta ainda a criação de réplicas numa região diferente do servidor principal. Para criar uma réplica em várias regiões, utilize o [portal do Azure](howto-read-replicas-portal.md).
+> [!IMPORTANT]
+> Pode criar uma réplica de leitura na mesma região que o servidor principal ou em qualquer outra região do Azure à sua escolha. A replicação entre regiões está atualmente em pré-visualização pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma [base de dados do Azure para o servidor PostgreSQL](quickstart-create-server-up-azure-cli.md) deve ser o servidor principal.
@@ -55,8 +55,16 @@ O [criar réplica do az postgres server](/cli/azure/postgres/server/replica?view
 | name | mydemoserver-replica | O nome do novo servidor de réplica, que é criado. |
 | source-server | mydemoserver | O nome ou o recurso ID do servidor mestre existente para replicar a partir do. |
 
+No exemplo da CLI abaixo, a réplica ser criada na mesma região que o mestre.
+
 ```azurecli-interactive
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
+```
+
+Para criar uma cruz região ler réplica, utilize o `--location` parâmetro. O exemplo da CLI abaixo cria a réplica na região E.U.A. oeste.
+
+```azurecli-interactive
+az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 Se ainda não definir o `azure.replication_support` parâmetro **RÉPLICA** numa finalidade geral ou com otimização de memória principal do servidor e reinicie o servidor, receberá um erro. Conclua esses dois passos antes de criar uma réplica.

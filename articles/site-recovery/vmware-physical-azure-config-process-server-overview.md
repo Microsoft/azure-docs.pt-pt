@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b3815fc9dc44484779a70b51ebff4802265d53a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523552"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417735"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Sobre os componentes do Site Recovery (configuração, processo, destino principal)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205930"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357407"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -91,7 +91,7 @@ Para aninhar o modelo dentro do modelo principal, utilize o **modelo** proprieda
 > [!NOTE]
 > Para aninhados modelos, é possível utilizar parâmetros ou variáveis que estão definidas dentro do modelo aninhado. Pode usar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` recupera um valor a partir do modelo principal, não o modelo aninhado. Esta restrição não é aplicável a modelos externos.
 >
-> Dois recursos definida dentro de um modelo de aninhamento e um recurso depende de outro, o valor da dependência é simplesmente o nome do recurso dependentes:
+> Dois recursos definida dentro de um modelo aninhado e um recurso depende de outro, o valor da dependência é simplesmente o nome do recurso dependente:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

@@ -10,16 +10,16 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1d344f388b03acb3a81fcfde0e214eb7d82dc9b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578730"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390487"
 ---
 # <a name="how-to-page-through-news-search-results"></a>Como paginar através de resultados de pesquisa de notícias
 
-Quando chama a API de pesquisa de notícias, o Bing devolve uma lista de resultados que são relevantes para a sua consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-totalmatches) campo.  
+Quando chama a API de pesquisa de notícias, o Bing devolve uma lista de resultados que são relevantes para a sua consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-totalmatches) campo.  
   
 A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma resposta de notícias.  
 
@@ -32,7 +32,7 @@ A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma respost
 }  
 ```  
   
-Para a página por meio dos artigos disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset) parâmetros de consulta.  
+Para a página por meio dos artigos disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset) parâmetros de consulta.  
  
 
 |Parâmetro  |Descrição  |

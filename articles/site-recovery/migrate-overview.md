@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 856d03b1ecc1c7a3bd527eb265061f9a305d8f50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b7858793ec75d20bb367a6cf49b59fa9906ec9b
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196053"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396474"
 ---
 # <a name="about-migration"></a>Acerca da migração
 
@@ -28,7 +28,7 @@ Eis o que pode migrar com o Site Recovery:
 
 ## <a name="what-do-we-mean-by-migration"></a>O que queremos dizer com migração?
 
-Além de utilizar o Site Recovery para recuperação após desastre de VMs do Azure e no local, pode utilizar o serviço Site Recovery para migrá-los. Qual é a diferença?
+Além de utilizar o Site Recovery para recuperação após desastre de VMs do Azure e no local, pode utilizar o serviço Site Recovery para migrá-los. O que é a diferença?
 
 - Para a recuperação após desastre, replicar máquinas em intervalos regulares para o Azure. Quando ocorre uma falha, pós-falha as máquinas do site primário para o site secundário do Azure e aceder aos mesmos a partir daí. Quando o site primário estiver novamente disponível, efetuar a ativação pós-falha do Azure.
 - Para a migração, replicar máquinas no local para o Azure ou VMs do Azure para uma região secundária. Em seguida, falhar a VM através do site primário para o secundário e concluir o processo de migração. Não há nenhuma reativação pós-falha envolvida.  

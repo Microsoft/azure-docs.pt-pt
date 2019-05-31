@@ -8,28 +8,29 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 23137cd686bcdba59880ff705a43b16ced992b59
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002320"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303982"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados durante o uso de cópia de segurança do Azure com as informações listadas abaixo:
 
-## <a name="backup"></a>Criar cópia de segurança
+## <a name="backup"></a>Cópia de segurança
+Esta secção abrange a falha da operação de cópia de segurança da Máquina Virtual do Azure.
 
-### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime -Copying backed up data from vault timed out
+## <a name="copyingvhdsfrombackupvaulttakinglongtime---copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime - Copying backed up data from vault timed out
 
-Código do erro: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Código de erro: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Mensagem de erro: Cópia de segurança dos dados do cofre foi excedido
 
 Isto pode acontecer devido a erros de armazenamento transitório ou a conta de armazenamento insuficiente IOPS para o serviço de cópia de segurança para transferir dados para o Cofre dentro do período de tempo limite. Configurar cópia de segurança VM utilizar estes [melhores práticas](backup-azure-vms-introduction.md#best-practices) e repita a operação de cópia de segurança.
 
-### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - a VM não está num Estado que permita cópias de segurança.
+## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - a VM não está num Estado que permita cópias de segurança.
 
-Código do erro: UserErrorVmNotInDesirableState <br/>
+Código de erro: UserErrorVmNotInDesirableState <br/>
 Mensagem de erro: VM não está num Estado que permita cópias de segurança.<br/>
 
 A operação de cópia de segurança falhou porque a VM está num estado falhado. Para a VM de cópia de segurança bem-sucedida Estado deve estar em execução, parado ou parada (desalocada).
@@ -37,9 +38,9 @@ A operação de cópia de segurança falhou porque a VM está num estado falhado
 * Se a VM está num estado transitório entre **em execução** e **Encerrar**, aguarde que a alteração do Estado. Em seguida, acione a tarefa de cópia de segurança.
 *  Se a VM é uma VM do Linux e utiliza o módulo de kernel de Security-Enhanced Linux, excluir o caminho do agente Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se a extensão de cópia de segurança é instalada.
 
-### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - falhou ao fixar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de ficheiros
+## <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - falhou ao fixar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de ficheiros
 
-Código do erro: UserErrorFsFreezeFailed <br/>
+Código de erro: UserErrorFsFreezeFailed <br/>
 Mensagem de erro: Falha ao fixar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de ficheiros.
 
 * Verifique o estado do sistema de ficheiros de todos os dispositivos montados usando o **tune2fs** por exemplo, o comando **tune2fs -l/desenvolvimento/sdb1 \\** .\| grep **deestadodosistemadeficheiros**.
@@ -47,31 +48,32 @@ Mensagem de erro: Falha ao fixar um ou mais pontos de montagem da VM para tirar 
 * Execute uma verificação de consistência do sistema de ficheiros nestes dispositivos com o **fsck** comando.
 * Os dispositivos de montagem novamente e repita a operação de cópia de segurança.</ol>
 
-### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - extensão instalação/operação falhou devido a um erro COM+
+## <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - extensão instalação/operação falhou devido a um erro COM+
 
-Código do erro: ExtensionSnapshotFailedCOM <br/>
+Código de erro: ExtensionSnapshotFailedCOM <br/>
 Mensagem de erro: Operação de instantâneo falhou devido ao erro COM+
 
-Código do erro: ExtensionInstallationFailedCOM  <br/>
+Código de erro: ExtensionInstallationFailedCOM  <br/>
 Mensagem de erro: Instalação/operação de extensão falhou devido a um erro COM+
 
-Código do erro: Mensagem de erro ExtensionInstallationFailedMDTC: A instalação da extensão falhou com o erro "COM+ não conseguiu comunicar com o coordenador de transações do Microsoft Distributed
+Código de erro: ExtensionInstallationFailedMDTC <br/>
+Mensagem de erro: A instalação da extensão falhou com o erro "COM+ não conseguiu comunicar com o coordenador de transações do Microsoft Distributed <br/>
 
 A operação de cópia de segurança falhou devido a um problema com o serviço do Windows **COM+ sistema** aplicação.  Para resolver este problema, siga estes passos:
 
 * Tente iniciar/reiniciar o serviço do Windows **aplicação de sistema COM+** (num prompt de comando elevado **-net iniciar COMSysApp**).
-* Certifique-se **coordenador de transações distribuídas** serviços está a ser executado **serviço de rede** conta. Se não, alterá-la para ser executado como **serviço de rede** da conta e reinicie **aplicação de sistema COM+**.
+* Certifique-se **coordenador de transações distribuídas** serviços está a ser executado **serviço de rede** conta. Se não, alterá-la para ser executado como **serviço de rede** da conta e reinicie **aplicação de sistema COM+** .
 * Se não for possível reiniciar o serviço, em seguida, reinstale **coordenador de transações distribuídas** service ao seguir os passos abaixo:
     * Pare o serviço MS DTC
     * Abra uma linha de comandos (cmd)
     * Execute o comando "msdtc-desinstalar"
     * comando de anulação "msdtc-instalar"
     * Inicie o serviço MS DTC
-* Iniciar o serviço do Windows **aplicação de sistema COM+**. Depois do **aplicação de sistema COM+** é iniciado, acionar uma tarefa de cópia de segurança do portal do Azure.</ol>
+* Iniciar o serviço do Windows **aplicação de sistema COM+** . Depois do **aplicação de sistema COM+** é iniciado, acionar uma tarefa de cópia de segurança do portal do Azure.</ol>
 
-### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - operação de instantâneo falhou porque eram de escritores VSS num Estado incorreto
+## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState - operação de instantâneo falhou porque eram de escritores VSS num Estado incorreto
 
-Código do erro: ExtensionFailedVssWriterInBadState <br/>
+Código de erro: ExtensionFailedVssWriterInBadState <br/>
 Mensagem de erro: A operação de instantâneo falhou porque eram de escritores VSS num Estado incorreto.
 
 Reinicie os escritores VSS que estão num Estado incorreto. A partir da linha de comandos elevada, execute ```vssadmin list writers```. A saída contém todos os escritores VSS e o respetivo estado. Para cada escritor VSS com um Estado que não seja **[1] estável**para reiniciar o escritor VSS, execute os seguintes comandos numa linha de comandos elevada:
@@ -79,9 +81,9 @@ Reinicie os escritores VSS que estão num Estado incorreto. A partir da linha de
   * ```net stop serviceName```
   * ```net start serviceName```
 
-### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Falha ao analisar a configuração para a extensão de cópia de segurança
+## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Falha ao analisar a configuração para a extensão de cópia de segurança
 
-Código do erro: ExtensionConfigParsingFailure<br/>
+Código de erro: ExtensionConfigParsingFailure<br/>
 Mensagem de erro: Falha ao analisar a configuração para a extensão da cópia de segurança.
 
 Este erro ocorre devido a permissões alteradas no **MachineKeys** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
@@ -108,9 +110,9 @@ Se vir as permissões no **MachineKeys** directory que são diferentes dos padr�
     * Sob **pessoais** > **certificados**, elimine todos os certificados em que **emitido para** é o modelo de implementação clássica ou **CRP do Windows Azure Gerador de certificados**.
 3. Acione uma tarefa de cópia de segurança de VM.
 
-### <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - o estado de extensão não é suporta a operação de cópia de segurança
+## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState - o estado de extensão não é suporta a operação de cópia de segurança
 
-Código do erro: ExtensionStuckInDeletionState <br/>
+Código de erro: ExtensionStuckInDeletionState <br/>
 Mensagem de erro: Estado da extensão não é suporta a operação de cópia de segurança
 
 A operação de cópia de segurança falhou devido a um estado inconsistente da extensão de cópia de segurança. Para resolver este problema, siga estes passos:
@@ -121,9 +123,9 @@ A operação de cópia de segurança falhou devido a um estado inconsistente da 
 * Depois de eliminar a extensão de cópia de segurança, repita a operação de cópia de segurança
 * A operação de cópia de segurança subsequente irá instalar a nova extensão no estado pretendido
 
-### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - operação de instantâneo falhou porque o limite de instantâneos foi excedido para alguns dos discos ligados
+## <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError - operação de instantâneo falhou porque o limite de instantâneos foi excedido para alguns dos discos ligados
 
-Código do erro: ExtensionFailedSnapshotLimitReachedError  <br/>
+Código de erro: ExtensionFailedSnapshotLimitReachedError  <br/>
 Mensagem de erro: A operação de instantâneo falhou porque o limite de instantâneos foi excedida para alguns dos discos ligados
 
 A operação de instantâneo falhou porque o limite de instantâneos foi excedido para alguns dos discos ligados. Concluir a seguir passos e, em seguida, repita a operação de resolução de problemas.
@@ -135,9 +137,9 @@ A operação de instantâneo falhou porque o limite de instantâneos foi excedid
     * Certifique-se o valor de **isanysnapshotfailed** está definido como falso no /etc/azure/vmbackup.conf
     * Agende o Azure Site Recovery noutra altura, que ele não entram em conflito a operação de cópia de segurança.
 
-### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - operação de instantâneo falhou devido a recursos da VM inadequados.
+## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive - operação de instantâneo falhou devido a recursos da VM inadequados.
 
-Código do erro: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
+Código de erro: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Mensagem de erro: Operação de instantâneo falhou devido a recursos da VM inadequados.
 
 Operação de cópia de segurança na VM falhou devido ao atraso nas chamadas de rede ao executar a operação de instantâneo. Para resolver este problema, siga o Passo 1. Se o problema persistir, experimente os passos 2 e 3.
@@ -157,13 +159,13 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 
 **Passo 3**: Tente [aumentar o tamanho da VM](https://azure.microsoft.com/blog/resize-virtual-machines/) e repita a operação
 
-### <a name="common-vm-backup-errors"></a>Erros de cópia de segurança de VM comuns
+## <a name="common-vm-backup-errors"></a>Erros de cópia de segurança de VM comuns
 
 | Detalhes do erro | Solução |
 | ------ | --- |
-| Código do erro: 320001<br/> Mensagem de erro: Não foi possível executar a operação visto que a VM já não existe. <br/> <br/> Código do erro: 400094 <br/> Mensagem de erro: A máquina virtual não existe <br/> <br/>  Não foi encontrada uma máquina virtual do Azure.  |Este erro ocorre quando a VM principal é eliminada, mas a política de cópia de segurança ainda procura de uma VM para criar cópias de segurança. Para corrigir este erro, siga os passos seguintes: <ol><li> Voltar a criar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço cloud**,<br>**ou**</li><li> Pare a proteção da máquina virtual com ou sem eliminar os dados de cópia de segurança. Para obter mais informações, consulte [parar a proteção de máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| Código de erro: 320001<br/> Mensagem de erro: Não foi possível executar a operação visto que a VM já não existe. <br/> <br/> Código de erro: 400094 <br/> Mensagem de erro: A máquina virtual não existe <br/> <br/>  Não foi encontrada uma máquina virtual do Azure.  |Este erro ocorre quando a VM principal é eliminada, mas a política de cópia de segurança ainda procura de uma VM para criar cópias de segurança. Para corrigir este erro, siga os passos seguintes: <ol><li> Voltar a criar a máquina virtual com o mesmo nome e o mesmo nome do grupo de recursos, **nome do serviço cloud**,<br>**ou**</li><li> Pare a proteção da máquina virtual com ou sem eliminar os dados de cópia de segurança. Para obter mais informações, consulte [parar a proteção de máquinas virtuais](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | A VM está no Estado com falhas de aprovisionamento: <br>Reinicie a VM e certifique-se de que a VM está em execução ou encerrada. | Este erro ocorre quando uma das falhas de extensões de coloca a VM no Estado com falhas de aprovisionamento. Vá para a lista de extensões, verifique se existe uma extensão com falha, remova-a e tente reiniciar a máquina virtual. Se todas as extensões estão no estado de execução, verifique se o serviço de agente da VM está em execução. Caso contrário, reinicie o serviço de agente da VM. |
-|Código do erro: UserErrorBCMPremiumStorageQuotaError<br/> Mensagem de erro: Não foi possível copiar o instantâneo da máquina virtual, devido a insuficiente espaço livre na conta de armazenamento | Para VMs do premium na pilha de cópia de segurança de VM V1, podemos copiar o instantâneo para a conta de armazenamento. Este passo certifica-se de que o tráfego de gestão de cópia de segurança, que funciona no instantâneo, não limita o número de IOPS disponíveis para a aplicação utilizando os discos premium. <br><br>Recomendamos que atribua apenas 50 por cento, 17,5 TB, de espaço de conta de armazenamento total. Em seguida, o serviço de cópia de segurança do Azure pode copiar o instantâneo para os dados de conta e a transferência de armazenamento a partir desta localização copiada na conta de armazenamento para o cofre. |
+|Código de erro: UserErrorBCMPremiumStorageQuotaError<br/> Mensagem de erro: Não foi possível copiar o instantâneo da máquina virtual, devido a insuficiente espaço livre na conta de armazenamento | Para VMs do premium na pilha de cópia de segurança de VM V1, podemos copiar o instantâneo para a conta de armazenamento. Este passo certifica-se de que o tráfego de gestão de cópia de segurança, que funciona no instantâneo, não limita o número de IOPS disponíveis para a aplicação utilizando os discos premium. <br><br>Recomendamos que atribua apenas 50 por cento, 17,5 TB, de espaço de conta de armazenamento total. Em seguida, o serviço de cópia de segurança do Azure pode copiar o instantâneo para os dados de conta e a transferência de armazenamento a partir desta localização copiada na conta de armazenamento para o cofre. |
 | Falha ao instalar a extensão de serviços de recuperação da Microsoft, como a máquina virtual não está em execução <br>O agente da VM é um pré-requisito para a extensão de serviços de recuperação do Azure. Instale o agente da Máquina Virtual do Azure e reinicie a operação de registo. |<ol> <li>Verifique se o agente da VM está instalado corretamente. <li>Certifique-se de que o sinalizador sobre a configuração VM está definido corretamente.</ol> Leia mais sobre como instalar o agente da VM e como validar a instalação do agente de VM. |
 | A operação de instantâneo falhou com o erro de operação do serviço de cópia de sombra de volumes (VSS) **esta unidade está bloqueada pela criptografia de unidade de disco BitLocker. Tem de desbloquear esta unidade do painel de controlo.** |Desativa o BitLocker para todas as unidades na VM e verifique se o problema VSS foi resolvido. |
 | A VM não estiver num Estado que permita cópias de segurança. |<ul><li>Se a VM está num estado transitório entre **em execução** e **Encerrar**, aguarde que a alteração do Estado. Em seguida, acione a tarefa de cópia de segurança. <li> Se a VM é uma VM do Linux e utiliza o módulo de kernel de Security-Enhanced Linux, excluir o caminho do agente Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se a extensão de cópia de segurança é instalada.  |
@@ -239,7 +241,7 @@ Certifique-se a versão do agente de VM em VMs do Windows:
 ## <a name="troubleshoot-vm-snapshot-issues"></a>Resolver problemas de instantâneos VM
 Cópia de segurança VM depende de emissão de comandos de instantâneo para o armazenamento subjacente. Não ter acesso a armazenamento ou a atrasos numa tarefa de instantâneo executar pode fazer com que a tarefa de cópia de segurança efetuar a ativação. As seguintes condições podem causar a falha de tarefa de instantâneo:
 
-- **Acesso à rede para o armazenamento é bloqueado ao utilizar o NSG**. Saiba mais sobre como [estabeleça o acesso de rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity) para o armazenamento através da utilização de qualquer lista branca de IPs ou através de um servidor proxy.
+- **Acesso à rede para o armazenamento é bloqueado ao utilizar o NSG**. Saiba mais sobre como [estabeleça o acesso de rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity) para o armazenamento através da utilização de qualquer lista permitida de IPs ou através de um servidor proxy.
 - **As VMs com cópia de segurança do SQL Server configurada podem fazer com que o atraso na tarefa de instantâneo**. Por predefinição, cópia de segurança da VM cria uma VSS cópia de segurança completa em VMs do Windows. VMs que executam o SQL Server, com a cópia de segurança do SQL Server configurada, podem passar por atrasos de instantâneo. Se os atrasos de instantâneo provocar falhas de cópia de segurança, defina a seguinte chave de registo:
 
    ```
@@ -262,8 +264,8 @@ A necessidade de resolver os endereços de internet pública é discutida [este 
 
 Depois de resolução de nomes é feita corretamente, acesso a IPs do Azure também tem de ser fornecido. Para desbloquear o acesso para a infraestrutura do Azure, siga um destes passos:
 
-- Intervalos de IP do datacenter do Azure da lista de permissões:
-   1. Obter a lista de [IPs de datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) de permissões.
+- Permitir a lista de intervalos IP do datacenter do Azure:
+   1. Obter a lista de [IPs de datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) para estar na lista de permissões.
    1. Os IPs de desbloqueio utilizando o [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet. Execute este cmdlet dentro da VM do Azure, numa janela elevada do PowerShell. Execute como administrador.
    1. Adicione regras ao NSG, se tiver um no local, para permitir o acesso a IPs.
 - Crie um caminho para o fluxo do tráfego HTTP:

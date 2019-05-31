@@ -3,19 +3,19 @@ title: Como utilizar a API chama-se com um modelo de aprendiz de conversação -
 titleSuffix: Azure
 description: Aprenda a usar chamadas de API com um modelo de aprendiz de conversação.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: aba3c2eb925370704ea52364891502a7a09cc9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 1f7c7c72703d7c3134dd2acdcc466fc0182fa38a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60635762"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389947"
 ---
 # <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Como adicionar chamadas de API para um modelo de aprendiz de conversação
 

@@ -3,22 +3,21 @@ title: Copiar dados do SAP Business Warehouse através de Hub aberto com o Azure
 description: Saiba como copiar dados do SAP Business Warehouse (BW) através de Hub aberta para arquivos de dados de sink suportado com uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 03/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/08/2019
+ms.author: jingwang
+ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848899"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256912"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse através de Hub aberto com o Azure Data Factory
 
@@ -30,7 +29,7 @@ Pode copiar dados do SAP Business Warehouse através do Hub de abrir qualquer ar
 
 Especificamente, este conector SAP Business Warehouse aberto Hub suporta:
 
-- SAP Business Warehouse **versão 7.01 ou superior (numa recente SAP suporte pacote pilha lançada após o ano de 2015)**.
+- SAP Business Warehouse **versão 7.01 ou superior (numa recente SAP suporte pacote pilha lançada após o ano de 2015)** .
 - Cópia de dados por meio da tabela de local de destino de Hub aberto que, por baixo, pode ser DSO, consulta do InfoCube, MultiProvider, origem de dados, etc.
 - Cópia de dados usando a autenticação básica.
 - A ligar ao servidor de aplicações.
@@ -135,7 +134,7 @@ As seguintes propriedades são suportadas para o serviço de SAP Business Wareho
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados do Salesforce.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados de Hub aberto do SAP BW.
 
 Para copiar dados de e para o Hub aberto do SAP BW, defina a propriedade de tipo de conjunto de dados para **SapOpenHubTable**. São suportadas as seguintes propriedades.
 
@@ -173,7 +172,7 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW aberto Hub, como origem
 
-Para copiar dados de Hub aberto do SAP BW, definir o tipo de origem na atividade de cópia para **SapOpenHubSource**. Embora não haja nenhum propriedades de específicos do tipo adicionais necessárias na atividade de cópia **origem** secção.
+Para copiar dados de Hub aberto do SAP BW, definir o tipo de origem na atividade de cópia para **SapOpenHubSource**. Não há adicionais específicos do tipo propriedades necessários da atividade de cópia **origem** secção.
 
 **Exemplo:**
 

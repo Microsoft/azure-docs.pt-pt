@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6e1a1c614bfa126d58cf9343f945d16fd1c2733
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30a4bfa2cf7a39a28db0575a6851f5b7b481524c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65781019"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388177"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolher o tipo de aplicação ao adicionar uma aplicação no Azure Active Directory
 Saiba mais sobre os quatro tipos de aplicativos, que pode adicionar ao Azure Active Directory (Azure AD). Quando estiver a adicionar uma aplicação no Azure Active Directory, será solicitado a escolher um do tipo de quatro aplicação. 
@@ -80,7 +80,7 @@ Seguem-se a suportados **início de sessão único** modos para aplicações do 
   >
   >
 
-- **Com base no cabeçalho de início de sessão** – Escolha esta [com base no cabeçalho de início de sessão](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) único-modo de sessão se tiver uma aplicação com o PingAccess que suporta a autenticação baseada em cabeçalho de HTTP que deseja executar o início de sessão único para 
+- **Com base no cabeçalho de início de sessão** – Escolha esta [com base no cabeçalho de início de sessão](application-proxy-configure-single-sign-on-with-ping-access.md) único-modo de sessão se tiver uma aplicação com o PingAccess que suporta a autenticação baseada em cabeçalho de HTTP que deseja executar o início de sessão único para 
 
   >[!NOTE]
   >Esta opção só está disponível quando o proxy de aplicações e o PingAccess está configurado para uma aplicação.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471654"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399679"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -40,10 +40,10 @@ Saiba mais sobre a cópia de segurança [a utilizar um servidor de cópia de seg
 
 **ação** | **Suporte**
 --- | ---
-Ativar cópia de segurança quando criar uma VM do Windows Azure | Suporte para:  Windows Server de 2019 (núcleos de Datacenter/Datacenter), Windows Server 2016 (núcleos de Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM e SP1)
+Ativar cópia de segurança quando criar uma VM do Windows Azure | Suporte para: <br/><br/> -Windows Server de 2019 (Core de Datacenter/Datacenter/Standard) <br/><br/> -Windows Server 2016 (Core de Datacenter/Datacenter/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM e SP1 Standard)
 Ativar cópia de segurança, quando cria uma VM do Linux | Suporte para:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Fazer uma cópia de segurança de uma VM que está encerramento/offline VM | Suportado.<br/><br/> Instantâneo é consistente de falhas única, não consistente com a aplicação.
-Criar cópias de segurança discos depois de migrar para discos geridos | Suportado.<br/><br/> Cópia de segurança continuarão a funcionar. Não é necessária nenhuma ação.
+Criar cópias de segurança discos depois de migrar para discos geridos | Suportado.<br/><br/> Cópia de segurança continuarão a funcionar. Não é necessário realizar qualquer ação.
 Fazer cópias de segurança de discos geridos depois de ativar o bloqueio do grupo de recursos | Não suportado.<br/><br/> O Azure Backup não é possível eliminar os pontos mais antigos do recurso e as cópias de segurança começarão a falhar quando for atingido o limite máximo de pontos de restauro.
 Modificar a política de cópia de segurança para uma VM | Suportado.<br/><br/> A VM será efetuada utilizando as definições de agendamento e retenção na nova política. Se as definições de retenção estão expandidas, pontos de recuperação existentes são marcados e mantidos. Se eles estão reduzidos, pontos de recuperação existentes serão eliminados na tarefa de limpeza seguinte e, eventualmente, eliminados.
 Cancelar uma tarefa de cópia de segurança | Suportado durante o processo de instantâneo.<br/><br/> Não é suportada quando o instantâneo é que está a ser transferido para o cofre.
@@ -61,7 +61,7 @@ A tabela seguinte resume os sistemas operativos suportados, ao fazer backup de V
 
 **Cenário** | **Suporte do sistema operacional**
 --- | ---
-Criar cópias de segurança com a extensão de agente de VM do Azure | Cliente do Windows: Não suportado<br/><br/> Windows Server de 2019 (núcleos de Datacenter/Datacenter), Windows Server 2016 (núcleos de Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM e SP1)
+Criar cópias de segurança com a extensão de agente de VM do Azure | Cliente do Windows: Não suportado<br/><br/>-Windows Server de 2019 (Core de Datacenter/Datacenter/Standard) <br/><br/> -Windows Server 2016 (Core de Datacenter/Datacenter/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM e SP1 Standard)
 Criar cópias de segurança com o agente MARS | [Suportado](backup-support-matrix-mars-agent.md#support-for-direct-backups) sistemas operativos.
 Criar cópias de segurança com o DPM/MABS | Sistemas operativos suportados para a cópia de segurança com [MABS](backup-mabs-protection-matrix.md) e [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -184,7 +184,7 @@ VMs com endereços IP públicos    | Suportado.<br/><br/> Associar um endereço 
 Grupo de segurança de rede (NSG) na sub-rede/NIC. |   Suportado.
 Endereço IP reservado (estático) | Não suportado.<br/><br/> Não pode criar uma VM com um endereço IP reservado e nenhum ponto de extremidade definido.
 Endereço IP dinâmico |    Suportado.<br/><br/> Se a NIC na origem da VM utiliza endereçamento IP dinâmico, por predefinição o NIC à VM restaurada irá utilizá-lo demasiado.
-Gestor de Tráfego do Azure   | Suportado.<br/><br/>Se a VM de cópia de segurança estiver no Gestor de tráfego, adicione manualmente a VM restaurada para a mesma instância do Gestor de tráfego.
+Traffic Manager do Azure   | Suportado.<br/><br/>Se a VM de cópia de segurança estiver no Gestor de tráfego, adicione manualmente a VM restaurada para a mesma instância do Gestor de tráfego.
 DNS do Azure | Suportado.
 DNS Personalizado |    Suportado.
 Conectividade de saída através do proxy de HTTP | Suportado.<br/><br/> Não é suportado um proxy autenticado.

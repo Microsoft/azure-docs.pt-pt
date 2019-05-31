@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 1edaf89c056918f640a905b99d01775273b2c133
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e31efb9a52ff004e6e35ddfc251732c014eedae9
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941935"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257452"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
 
 Este artigo explica como registar uma aplicação SaaS com o Microsoft [portal do Azure](https://portal.azure.com/).  Depois de um registo com êxito, irá receber um token de segurança do Azure Active Directory (Azure AD) que pode utilizar para aceder às APIs de preenchimento do SaaS.  Para obter mais informações sobre o Azure AD, consulte [o que é a autenticação?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+
+> [!IMPORTANT] 
+> SaaS oferecem funcionalidade tiver sido migrada para o [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos os novos editores tem de utilizar Centro de parceiros para novas ofertas de SaaS de criação e gestão de ofertas existentes.  Os publicadores atuais com ofertas de SaaS estão a ser batchwise migrados do Portal de parceiros da Cloud para o Centro de parceiros.  O Portal de parceiros da Cloud irá apresentar mensagens de estado para indicar quando ofertas existentes específicas foram migradas.
+> Para obter mais informações, consulte [crie uma nova oferta SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 
 ## <a name="service-to-service-authentication-flow"></a>Fluxo de autenticação de serviço a serviço
@@ -45,7 +49,7 @@ Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de es
         - Selecione **aplicação Web / API** para [aplicativos cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e [aplicações de API derecursos/](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que são instaladas num servidor seguro. Esta definição é utilizada para OAuth confidencial [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) e públicas [baseada no utilizador-agente clientes](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         A mesma aplicação também pode expor um cliente e um recurso/API.
     -   **Início de sessão no URL**: Para aplicações de aplicação/API da Web, indique o URL de base da sua aplicação. Por exemplo, **http://localhost:31544** pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores, em seguida, usaria este URL para iniciar sessão a uma aplicação de cliente da web.
-    -   **URI de redirecionamento**: Para aplicações nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http://MyFirstAADApp**.
+    -   **URI de redirecionamento**: Para aplicações nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http://MyFirstAADApp** .
 
         ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-v1-2.png)
 
@@ -72,7 +76,7 @@ Método HTTP
 
 *Request URL* (URL do pedido)
 
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
+**https://login.microsoftonline.com/ *{tenantId}* /oauth2/token**
 
 *Parâmetro URI*
 
@@ -97,7 +101,7 @@ Método HTTP
 |  Grant_type         | Verdadeiro         | Tipo de concessão. O valor predefinido é `client_credentials`.                    |
 |  Client_id          | Verdadeiro         |  Identificador de cliente/aplicação associado à aplicação do Azure AD.                  |
 |  client_secret      | Verdadeiro         |  Palavra-passe associado à aplicação do Azure AD.                               |
-|  Recurso           | Verdadeiro         |  Recurso de destino para a qual o token é solicitado. O valor predefinido é `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  Resource           | Verdadeiro         |  Recurso de destino para a qual o token é solicitado. O valor predefinido é `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 

@@ -3,20 +3,19 @@ title: Filtragem de palavras ofensivas - API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Utilize linguagem inapropriada filtragem na API de texto do Translator.
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-origin.date: 02/21/2019
-ms.date: 03/12/2019
-ms.author: v-junlch
-ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/21/2019
+ms.author: v-pawal
+ms.openlocfilehash: 3ffe14450f0191b88a8d8a71b5f28ae4c59b68c1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880035"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387572"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Adicionar palavras ofensivas filtragem com a API de texto do tradutor
 
@@ -31,9 +30,8 @@ O método de Translate() usa o parâmetro de "Opções", que contém o novo elem
 | :---|:---|:---|:---|
 | NoAction | Predefinição. Mesmo que não definir a opção. Linguagem inapropriada passa de origem para destino. | 彼は変態です。 | Ele é idiota. |
 | Marcado | Palavras profanas são cercadas por marcas XML \<linguagem inapropriada >... \</profanity >. | 彼は変態です。 | Ele é um \<linguagem inapropriada > puxão\</profanity >. |
-| Eliminada | Palavras profanas são removidas da saída sem substituição. | 彼は。 | Ele é um. |
+| Eliminado | Palavras profanas são removidas da saída sem substituição. | 彼は。 | Ele é um. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Aplicam-se a linguagem inapropriada filtragem da chamada de API do Translator](reference/v3-0-translate.md)
-

@@ -3,25 +3,25 @@ title: Método de transcrição de API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Use o método de Transliteração de API de texto do Translator.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: cd7fee34f020f16d1511bc57b4ad86dbd5eb168d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 138a04cca1bbbaf7b59f628f491a5f13d73fb6f7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796940"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387398"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Texto do Translator API 3.0: Transliterate
 
 Converte texto num idioma de um script para outro script.
 
-## <a name="request-url"></a>URL do pedido
+## <a name="request-url"></a>URL do Pedido
 
 Enviar um `POST` pedido para:
 
@@ -127,7 +127,7 @@ Um resposta JSON de exemplo é:
 Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
 
 <table width="100%">
-  <th width="20%">Código de Estado</th>
+  <th width="20%">Código de estado</th>
   <th>Descrição</th>
   <tr>
     <td>200</td>

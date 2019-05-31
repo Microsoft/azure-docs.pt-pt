@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477244"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393865"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientações de preços para as VMs do SQL Server do Azure
 
@@ -59,9 +59,9 @@ Se tiver uma carga de trabalho de produção não lightweight, utilize uma das s
 |-----|-----|
 | Web | Sites da web pequeno |
 | Standard | Pequenas e médias cargas de trabalho |
-| Enterprise | Cargas de trabalho grandes ou de missão crítica|
+| Empresarial | Cargas de trabalho grandes ou de missão crítica|
 
-Tem duas opções para pagar o licenciamento do SQL Server para estas edições: *pagamento por uso* ou *traga a sua própria licença (BYOL)*.
+Tem duas opções para pagar o licenciamento do SQL Server para estas edições: *pagamento por uso* ou *traga a sua própria licença (BYOL)* .
 
 ## <a name="pay-per-usage"></a>Pagar por utilização
 
@@ -99,7 +99,7 @@ Para criar uma VM do SQL Server 2017 do Azure com uma destas imagens de pagament
 **Trazer a sua própria licença do SQL Server por meio de mobilidade de licenças**, também referido como **BYOL**, significa que, com uma licença de Volume existente do SQL Server com Software Assurance numa VM do Azure. Uma VM do SQL Server com custos BYOL apenas para o custo de execução da VM, não para o licenciamento do SQL Server, dado que já tenham adquirido licenças e Software Assurance através de um programa de licenciamento por Volume.
 
 > [!IMPORTANT]
-> Imagens BYOL requerem um contrato Enterprise com Software Assurance. Não estão disponíveis como parte do parceiro de soluções do Azure Cloud (CSP) neste momento.
+> Imagens BYOL requerem um contrato Enterprise com Software Assurance. Não estão disponíveis como parte do parceiro de soluções do Azure Cloud (CSP) neste momento. Clientes CSP podem trazer a sua própria licença ao implementar uma imagem de pay as you go e, em seguida, ativar a [benefício híbrido do Azure](virtual-machines-windows-sql-ahb.md).
 
 > [!NOTE]
 > As imagens BYOL só estão atualmente disponíveis para as máquinas virtuais do Windows. No entanto, pode instalar manualmente do SQL Server numa VM apenas de Linux. Consulte as diretrizes a [FAQ de VM do Linux SQL](../../linux/sql/sql-server-linux-faq.md).

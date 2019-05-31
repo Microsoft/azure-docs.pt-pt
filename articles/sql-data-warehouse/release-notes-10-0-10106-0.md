@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 215f7c9c65658ddbb10498bb59f3d326bf3a10f1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988292"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417715"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de versão do armazém de dados SQL do Azure
 
@@ -23,7 +23,7 @@ Este artigo resume as novas funcionalidades e melhorias nas versões recentes do
 
 ## <a name="check-your-azure-sql-data-warehouse-version"></a>Verificar a sua versão do Azure SQL Data Warehouse
 
-Novos recursos estão sendo lançados para todas as regiões, volte a verificar a versão implementada para a sua instância e as notas de versão mais recente do Azure SQL DW para a disponibilidade de funcionalidades. Para verificar a sua versão do Azure SQL DW, ligar ao seu armazém de dados através do SQL Server Management Studio (SSMS) e execute `SELECT @@VERSION AS 'SQL Data Warehouse';` para devolver a versão atual do Azure SQL DW.
+À medida que novos recursos estão sendo lançados para todas as regiões, verifique a versão implementada para a sua instância e as notas de versão mais recente do Azure SQL DW para a disponibilidade de funcionalidades. Para verificar a sua versão do Azure SQL DW, ligar ao seu armazém de dados através do SQL Server Management Studio (SSMS) e execute `SELECT @@VERSION AS 'SQL Data Warehouse';` para devolver a versão atual do Azure SQL DW.
 
 Exemplo de saída: ![Versão do SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
@@ -38,6 +38,7 @@ Utilize a data identificada para confirmar que versão foi aplicada ao seu armaz
 |**Suporte adicional de T-SQL**|A área de superfície de linguagem T-SQL para o SQL Data Warehouse foi expandida para incluir suporte para: </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**Funções JSON**|Os analistas comerciais podem agora utilizar o familiar em linguagem T-SQL para consultar e manipular documentos que são formatados como dados JSON com as seguintes funções JSON de novo no armazém de dados do Azure:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**Conjunto de resultados, colocação em cache (pré-visualização)**|Conjunto de resultados de colocação em cache permite que os tempos de resposta de consulta instantâneas reduzindo o tempo de resposta para analistas de negócios e os utilizadores de relatórios. Para obter mais informações, consulte:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTERAR opções de conjunto de base de dados (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [SET RESULT SET CACHING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [Instrução SET (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**Ordem de índice columnstore em cluster (pré-visualização)**|Columnstore é um ativador de chave para armazenar e consultar com eficiência os grandes quantidades de dados. Para cada tabela, ele divide os dados de entrada em grupos de linhas e cada coluna de formulários de um grupo de linhas um segmento num disco.  Ordenado columnstore em cluster índices ainda mais otimizam a execução da consulta ao ativar a eliminação de segmento eficiente.   Para obter mais informações, consulte:</br> -  [Criar tabela (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -72,7 +73,7 @@ Utilize a data identificada para confirmar que versão foi aplicada ao seu armaz
 
 | Melhorias de documentação | Detalhes |
 | --- | --- |
-|nenhum | |
+|Nenhum | |
 | | |
 
 ## <a name="december-2018"></a>Dezembro de 2018

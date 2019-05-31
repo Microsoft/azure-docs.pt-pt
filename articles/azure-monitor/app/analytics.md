@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574273"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255648"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
 A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária.
-Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação ao abrir Analytics a partir da sua aplicação [painel de descrição geral](app-insights-dashboards.md).
+Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar dados da sua aplicação, abrindo a análise do painel de descrição geral da sua aplicação.
 
 ![Abrir portal.azure.com, abra o recurso do Application Insights e clique em Analytics.](./media/analytics/001.png)
 
 Também pode utilizar o [recreio de análise](https://go.microsoft.com/fwlink/?linkid=859557) que é um ambiente de demonstração gratuito com uma grande quantidade de dados de exemplo.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Registos de relação para o Azure Monitor
 O Application Insights analytics baseia-se no [Explorador de dados do Azure](/azure/data-explorer) como o Azure Monitor faz e também utiliza o [linguagem de consulta de Kusto](/azure/kusto/query). Ele usa o mesmo [portal do log analytics](../log-query/get-started-portal.md) como registos do Azure Monitor, embora os seus dados são armazenados numa partição separada.

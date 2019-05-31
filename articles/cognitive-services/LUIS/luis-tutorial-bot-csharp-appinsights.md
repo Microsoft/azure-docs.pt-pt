@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: d546951cf283cf15874b1b6d95da75549a8a93ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60496871"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399667"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Adicionar o LUIS resultados para o Application Insights com um Bot emC#
 
 Este tutorial adiciona informações de resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
 
-O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
+O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure. R [Bot Framework 4.x com tutorial de LUIS](luis-csharp-tutorial-bf-v4.md) também está disponível.
 
 Neste tutorial, ficará a saber como:
 
@@ -204,7 +204,7 @@ Abrir o Application Insights para ver as entradas de LUIS.
 
 1. No portal, selecione **todos os recursos** , em seguida, filtrar por nome do bot da aplicação web. Clique no recurso com o tipo **Application Insights**. O ícone do Application Insights é uma lâmpada.
 
-    ![Procurar informações de aplicação no Portal do Azure](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![Procurar informações de aplicação no portal do Azure](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. Quando o recurso for aberta, clique nas **pesquisa** ícone da Lupa no painel à extrema direita. Um novo painel para a direita apresenta. Dependendo de quantos dados de telemetria é encontrado, o painel poderão demorar um momento para apresentar. Procurar `LUIS`. A lista é reduzida de modo a apenas LUIS os resultados da consulta adicionados com este tutorial.
 
@@ -221,7 +221,7 @@ Abrir o Application Insights para ver as entradas de LUIS.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Application Insights para intenção, a pontuação e a expressão de consulta
 
-O Application Insights dá-lhe o poder para consultar os dados com o [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) linguagem, assim como as export-lo para [PowerBI](https://powerbi.microsoft.com).
+O Application Insights dá-lhe o poder para consultar os dados com o [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) linguagem, assim como as export-lo para [Power BI](https://powerbi.microsoft.com).
 
 1. Clique em **Analytics** na parte superior da dependência listagem, acima da caixa do filtro.
 

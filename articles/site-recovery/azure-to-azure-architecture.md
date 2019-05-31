@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791181"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399579"
 ---
-# <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure
+# <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
 
 Este artigo descreve a arquitetura, componentes e processos utilizados ao implementar a recuperação após desastre para máquinas virtuais do Azure (VMs) com o [do Azure Site Recovery](site-recovery-overview.md) serviço. Com a recuperação de desastres, configurar, as VMs do Azure continuamente replicar a partir de uma região de destino diferente. Se ocorrer uma falha, pode efetuar a ativação pós-falha de VMs para a região secundária e aceder aos mesmos a partir daí. Quando tudo o que está a funcionar normalmente novamente, pode efetuar a reativação pós-falha e continuar a trabalhar na localização primária.
@@ -74,7 +74,7 @@ Pode gerir e modificar as predefinições das políticas de replicação da segu
 - Pode modificar as definições, como ativar a replicação.
 - Pode criar uma política de replicação em qualquer altura e, em seguida, aplicá-la quando ativa a replicação.
 
-### <a name="multi-vm-consistency"></a>Consistência de multi-VMs
+### <a name="multi-vm-consistency"></a>Consistência de multi-VMS
 
 Se pretender que as VMs para replicar em conjunto e partilhar consistentes de falhas e pontos de recuperação consistente com a aplicação a ativação pós-falha, pode recolhê-los em conjunto num grupo de replicação. Consistência multi-VM afeta o desempenho da carga de trabalho e só deve ser utilizada para VMs com cargas de trabalho que necessitam de consistência em todas as máquinas. 
 
@@ -95,13 +95,13 @@ O site Recovery tira instantâneos da seguinte forma:
 
 A tabela seguinte explica os diferentes tipos de consistência.
 
-### <a name="crash-consistent"></a>Consistente com a Falha
+### <a name="crash-consistent"></a>Crash-consistent
 
 **Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---
 Um instantâneo consistente de falhas captura de dados que se encontravam no disco quando o instantâneo foi tirado. Ele não inclui qualquer coisa na memória.<br/><br/> Ela contém o equivalente dos dados no disco que estarão presentes se a VM falhou ou o cabo de alimentação foi obtido a partir do servidor no instante em que o instantâneo foi tirado.<br/><br/> Um consistentes de falhas não garantem a consistência de dados para o sistema operativo, ou para aplicações na VM. | Site Recovery cria pontos de recuperação consistentes com falhas em cinco minutos por predefinição. Não é possível modificar esta definição.<br/><br/>  | Hoje em dia, a maioria das aplicações pode recuperar bem a partir de pontos de consistentes de falhas.<br/><br/> Pontos de recuperação consistentes com falhas, geralmente são suficientes para a replicação de sistemas operativos e aplicações, tais como servidores DHCP e servidores de impressão.
 
-### <a name="app-consistent"></a>Consistente com a Aplicação
+### <a name="app-consistent"></a>Consistente com a aplicação
 
 **Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---

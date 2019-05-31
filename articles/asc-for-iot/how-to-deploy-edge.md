@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 5d56c878eab92a7152bc0b248cab5c2ebf7e6dde
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198384"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254301"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementar um módulo de segurança no seu dispositivo IoT Edge
 
@@ -70,7 +70,7 @@ Utilize os seguintes passos para implementar um ASC para o módulo de segurança
 
 Existem três passos para criar uma implementação de IoT Edge para o Centro de segurança do Azure para IoT. As seções a seguir, percorra cada um deles. 
 
-#### <a name="step-1-add-modules"></a>Passo 1: Adicionar Módulos
+#### <a name="step-1-add-modules"></a>Passo 1: Adicionar módulos
 
 1. Partir do **adicionar módulos** separador, **módulos de implementação** área, clique em **AzureSecurityCenterforIoT**. 
    
@@ -134,13 +134,13 @@ Existem três passos para criar uma implementação de IoT Edge para o Centro de
    
 1. Clique em **Seguinte**.
 
-#### <a name="step-2-specify-routes"></a>Passo 2: Especificar Rotas 
+#### <a name="step-2-specify-routes"></a>Passo 2: Especificar rotas 
 
 1. Na **especificar rotas** separador, defina o **ASCForIoTToIoTHub** encaminhar para **"da/mensagens/módulos/azureiotsecurity/\* em $ a montante"** e clique em  **Próxima**.
 
    ![Especificar rotas](media/howto/edge-onboarding-9.png)
 
-#### <a name="step-3-review-deployment"></a>Passo 3: Rever Implementação
+#### <a name="step-3-review-deployment"></a>Passo 3: Implementação de revisão
 
 1. Na **rever implantação** separador, reveja as suas informações de implantação, em seguida, selecione **submeter** para concluir a implementação.
 
@@ -158,7 +158,7 @@ Se ocorrer um problema, registos de contentor são a melhor forma de saber mais 
    
    | Name | IMAGEM |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
    | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    

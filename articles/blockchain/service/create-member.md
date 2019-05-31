@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 357dc47027582d5c638bb3c7344c839f37f93dc5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5cb236dc38ae41b202004b7e4806d8129378cfdb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399136"
+ms.locfileid: "66417510"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-using-the-azure-portal"></a>Início rápido: Criar um serviço do Azure Blockchain com o portal do Azure
 
@@ -44,7 +44,7 @@ O serviço do Azure Blockchain é criado com um conjunto definido de recursos de
     Nome de consórcio | Para um consórcio nova, introduza um nome exclusivo. Se associar um consórcio por meio de um convite, o valor é o consortium que estiver associando.
     Descrição | Descrição do consortium.
     Protocol |  Pré-visualização suporta o protocolo de quórum.
-    Preços | A configuração do nó para o seu novo serviço. Selecione **padrão**. 2 nós de validador e 1 transação nó é a predefinição.
+    Preços | A configuração do nó para o seu novo serviço. Selecione **padrão**. 2 nós de validador e o nó 1 transação são as configurações padrão.
     Palavra-passe de nó de transação | A palavra-passe para o nó de transação o membro predefinido. Utilize a palavra-passe para a autenticação básica quando ligar ao ponto de extremidade no padrão transação nó pública do membro de blockchain.
 
 1. Selecione **criar** para aprovisionar o serviço. O aprovisionamento demora cerca de 10 minutos.

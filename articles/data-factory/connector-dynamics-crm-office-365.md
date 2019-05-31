@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869539"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356964"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service) ou o Dynamics CRM com o Azure Data Factory
 
@@ -205,7 +205,7 @@ Para copiar dados do Dynamics, defina o tipo de origem na atividade de cópia pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **DynamicsSource**. | Sim |
-| query | FetchXML é uma linguagem de consulta de proprietários que é utilizada no Dynamics (online e no local). Veja o seguinte exemplo. Para obter mais informações, consulte [criar consultas com FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se for especificado "entityName" no conjunto de dados) |
+| query | FetchXML é uma linguagem de consulta de proprietários que é utilizada no Dynamics (online e no local). Veja o seguinte exemplo. Para obter mais informações, consulte [criar consultas com o FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se for especificado "entityName" no conjunto de dados) |
 
 >[!NOTE]
 >A coluna de PK sempre será copiada mesmo que não contém a projeção de coluna que configurou a consultas de FetchXML-lo.
@@ -269,12 +269,12 @@ Para copiar dados para o Dynamics, defina o tipo de sink na atividade de cópia 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de sink de atividade de cópia tem de ser definida **DynamicsSink**. | Sim |
-| writeBehavior | O comportamento da operação de escrita.<br/>Permitido é de valor **"Upsert"**. | Sim |
+| writeBehavior | O comportamento da operação de escrita.<br/>Permitido é de valor **"Upsert"** . | Sim |
 | writeBatchSize | A contagem de linhas de dados escritos para o Dynamics em cada lote. | Não (a predefinição é 10) |
 | ignoreNullValues | Indica se a ignorar valores nulos de dados de entrada (exceto os campos de chave) durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert/atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **False**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert/atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
 
 >[!NOTE]
->O valor predefinido do coletor "**writeBatchSize**"e a atividade de cópia"**[parallelCopies](copy-activity-performance.md#parallel-copy)**" para o sink de Dynamics são ambos os 10. Por conseguinte, 100 registos são submetidos ao Dynamics e ao mesmo tempo.
+>O valor predefinido do coletor "**writeBatchSize**"e a atividade de cópia" **[parallelCopies](copy-activity-performance.md#parallel-copy)** " para o sink de Dynamics são ambos os 10. Por conseguinte, 100 registos são submetidos ao Dynamics e ao mesmo tempo.
 
 Para online para o Dynamics 365, existe um limite de [2 chamadas de batch em simultâneo por organização](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Se esse limite for excedido, uma falha de "Servidor ocupado" será gerada antes do primeiro pedido nunca é executado. Manter "writeBatchSize" inferior ou igual a 10 evitaria essa limitação de chamadas simultâneas.
 

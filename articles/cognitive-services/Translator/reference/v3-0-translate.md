@@ -3,25 +3,25 @@ title: API de texto do Translator traduzir o método
 titleSuffix: Azure Cognitive Services
 description: Use o método API de texto do Translator tradução.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.author: v-pawal
+ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235820"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389761"
 ---
 # <a name="translator-text-api-30-translate"></a>Texto do Translator API 3.0: Translate
 
 Traduz texto.
 
-## <a name="request-url"></a>URL do pedido
+## <a name="request-url"></a>URL do Pedido
 
 Enviar um `POST` pedido para:
 
@@ -189,7 +189,7 @@ Exemplo de respostas JSON são fornecidos na [exemplos](#examples) secção.
 Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
 
 <table width="100%">
-  <th width="20%">Código de Estado</th>
+  <th width="20%">Código de estado</th>
   <th>Descrição</th>
   <tr>
     <td>200</td>
@@ -374,7 +374,7 @@ Se quiser evitar que a linguagem inapropriada na tradução, independentemente d
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Acção</th>
+  <th>Ação</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Este é o comportamento padrão. Linguagem inapropriada passará de origem ao destino.<br/><br/>
