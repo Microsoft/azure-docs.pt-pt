@@ -75,11 +75,11 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | type |A propriedade de tipo tem de ser definida como: **OnPremisesPostgreSql** |Sim |
-| servidor |Nome do servidor PostgreSQL. |Sim |
-| base de dados |Nome da base de dados PostgreSQL. |Sim |
+| server |Nome do servidor PostgreSQL. |Sim |
+| database |Nome da base de dados PostgreSQL. |Sim |
 | schema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
-| o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
+| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do PostgreSQL no local. |Sim |
 
@@ -101,7 +101,7 @@ Quando a origem é do tipo **RelationalSource** (que inclui o PostgreSQL), as se
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 > [!NOTE]
 > Nomes de tabela e esquema diferenciam maiúsculas de minúsculas. Coloque-as no `""` (as aspas duplas) na consulta.
