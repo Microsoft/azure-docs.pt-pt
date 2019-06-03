@@ -1,7 +1,10 @@
 - name: Espaços de Programador do Azure
+  href: ./index.yml
   items:
     - name: Descrição geral
-      href: index.yml
+      items:
+        - name: Acerca do Azure Dev Spaces
+          href: about.md
     - name: Inícios rápidos
       items:
         - name: Desenvolvimento em equipa
@@ -10,7 +13,7 @@
           href: quickstart-java.md
         - name: .NET Core (VS Code e CLI)
           href: quickstart-netcore.md
-        - name: .NET Core (Visual Studio 2017)
+        - name: .NET Core (Visual Studio)
           href: quickstart-netcore-visualstudio.md
         - name: Node.js (VS Code e CLI)
           href: quickstart-nodejs.md
@@ -32,7 +35,7 @@
               href: multi-service-netcore.md
             - name: 3 - Desenvolvimento em equipa
               href: team-development-netcore.md
-        - name: .NET Core (Visual Studio 2017)
+        - name: .NET Core (Visual Studio)
           items:
             - name: 1 - Introdução
               href: get-started-netcore-visualstudio.md

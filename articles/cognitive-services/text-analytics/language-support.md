@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829553"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417324"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte de idioma e região para a API de análise de texto
 
@@ -23,7 +23,11 @@ Este artigo explica que idiomas são suportados para cada operação: análise d
 
 ## <a name="language-detection"></a>Deteção de Idioma
 
-A API de análise de texto pode detetar até 120 idiomas diferentes. Deteção de idioma devolve "script" de um idioma. Por exemplo, para a frase "Tenho um cachorro" irá devolver `en` em vez de `en-US`. Caso apenas especial é chinês, onde irá devolver a capacidade de deteção de idioma `zh_CHS` ou `zh_CHT` se ele pode determinar o script tendo em conta o texto fornecido. Em situações em que um script específico não é possível identificar de um documento do chinês, irá devolver simplesmente `zh`.
+A API de análise de texto pode detectar uma grande variedade de linguagens, variantes, dialetos e alguns idiomas regionais/cultural.  Deteção de idioma devolve "script" de um idioma. Por exemplo, para a frase "Tenho um cachorro" irá devolver `en` em vez de `en-US`. Caso apenas especial é chinês, onde irá devolver a capacidade de deteção de idioma `zh_CHS` ou `zh_CHT` se ele pode determinar o script tendo em conta o texto fornecido. Em situações em que um script específico não é possível identificar de um documento do chinês, irá devolver simplesmente `zh`.
+
+Não publicamos a lista exata de idiomas para esta funcionalidade, mas ele pode detectar uma grande variedade de linguagens, variantes, dialetos e alguns idiomas regionais/cultural. 
+
+Se tiver conteúdo expressado numa linguagem com menos frequência utilizada, pode tentar a deteção de idioma para ver se ele retorna um código. A resposta para idiomas que não puderem ser detetadas está `unknown`.
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Análise de sentimentos, extração de expressões-chave e o reconhecimento de entidades
 

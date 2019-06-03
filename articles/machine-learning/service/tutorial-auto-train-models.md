@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035451"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417302"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -38,7 +38,7 @@ Neste tutorial, vai aprender as seguintes tarefas:
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
 >[!NOTE]
-> Código neste artigo foi testado com versão 1.0.0 do SDK do Azure Machine Learning.
+> Código neste artigo foi testado com o Azure Machine Learning SDK versão 1.0.39.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -147,7 +147,7 @@ dflow_prepared.get_profile()
       <th>Type</th>
       <th>Mín.</th>
       <th>Máx.</th>
-      <th>Contagem</th>
+      <th>Count</th>
       <th>Contagem de em falta</th>
       <th>Não tem em falta contagem</th>
       <th>Percentagem em falta</th>
@@ -162,7 +162,7 @@ dflow_prepared.get_profile()
       <th>95% quantile</th>
       <th>99% quantile</th>
       <th>99,9 quantile de %</th>
-      <th>Média</th>
+      <th>média</th>
       <th>Desvio padrão</th>
       <th>Variância</th>
       <th>Assimetrias</th>

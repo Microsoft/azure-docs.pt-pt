@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b967dc872529ec8b045df81542eec4c555b17a6c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559737"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418446"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelos do Azure Resource Manager para a base de dados do Azure SQL
 
@@ -33,7 +33,6 @@ A tabela seguinte inclui ligações para modelos Azure Resource Manager para a b
 | [Servidor lógico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Este modelo do Azure Resource Manager cria um servidor lógico da base de dados do Azure SQL. |
 | [Conjunto elástico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Este modelo permite-lhe implementar um novo conjunto elástico com o seu novo servidor SQL associado e novas bases de dados do SQL para atribuir a ele. |
 | [Grupos de ativação pós-falha](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Este modelo cria dois servidores lógicos de SQL do Azure, base de dados SQL e um grupo de ativação pós-falha.|
-| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Este modelo permite-lhe implementar um servidor lógico SQL do Azure com proteção avançada contra ameaças ativada e uma base de dados de SQL do Azure opcional. O SQL Advanced Threat Protection é um pacote unificado para capacidades avançadas de segurança do SQL.|
 | [Deteção de ameaças](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Este modelo permite-lhe implementar um servidor lógico SQL do Azure e um conjunto de bases de dados do Azure SQL ativada, com um endereço de e-mail para alertas para cada base de dados de deteção de ameaças. Deteção de ameaças faz parte da oferta SQL Advanced Threat Protection (ATP) e fornece uma camada de segurança que responde a potenciais ameaças em servidores SQL e bancos de dados.|
 | [Auditoria para o armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Este modelo permite-lhe implementar um servidor lógico SQL do Azure com auditoria ativada para escrever registos de auditoria para um armazenamento de Blobs. A auditoria da base de dados do Azure SQL regista os eventos de base de dados e escreve-as num registo de auditoria que pode ser colocado na sua conta de armazenamento do Azure, área de trabalho do OMS ou os Hubs de eventos.|
 | [Auditoria para o Hub de eventos do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Este modelo permite-lhe implementar um servidor SQL do Azure com auditoria ativada para escrever registos de auditoria para um Hub de eventos existente. Para enviar eventos de auditoria para o Hub de eventos, definir configurações com de auditoria `Enabled` `State` e defina `IsAzureMonitorTargetEnabled` como `true`. Além disso, configure as definições de diagnóstico com `SQLSecurityAuditEvents` categoria de registos de diagnóstico sobre o `master` base de dados (para servir ao nível de auditoria). Auditoria para a base de dados do Azure SQL e o armazém de dados do SQL regista os eventos de base de dados e escreve-as num registo de auditoria que pode ser colocado na sua conta de armazenamento do Azure, área de trabalho do OMS ou os Hubs de eventos.|

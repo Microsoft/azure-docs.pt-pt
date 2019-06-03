@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 80fabccb8a59bcd472812698f624d49dc26c24fa
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9037c7b5498a5e0a37b05e5ee09891bf8066393d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399121"
+ms.locfileid: "66417482"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Tutorial: Enviar transações com o serviço do Azure Blockchain
 
@@ -183,7 +183,7 @@ Pode obter a chave pública na lista de nó de transação. Copie a chave públi
 
 ## <a name="create-smart-contract"></a>Criar o contrato inteligente
 
-1. Na pasta **contratos**, crie um novo ficheiro designado `SimpleStorage.sol`. Adicione o seguinte código.
+1. Na **contratos** pasta, crie um novo ficheiro designado `SimpleStorage.sol`. Adicione o seguinte código.
 
     ```solidity
     pragma solidity >=0.4.21 <0.6.0;
@@ -205,7 +205,7 @@ Pode obter a chave pública na lista de nó de transação. Copie a chave públi
     }
     ```
     
-1. Na pasta **migrações**, crie um novo ficheiro designado `2_deploy_simplestorage.js`. Adicione o seguinte código.
+1. Na **migrações** pasta, crie um novo ficheiro designado `2_deploy_simplestorage.js`. Adicione o seguinte código.
 
     ```solidity
     var SimpleStorage = artifacts.require("SimpleStorage.sol");
@@ -223,10 +223,10 @@ Pode obter a chave pública na lista de nó de transação. Copie a chave públi
     |-------|-------------
     | \<chave pública do nó alfa\> | Chave pública do nó alfa
     | \<Endereço da conta Ethereum\> | Endereço da conta Ethereum criado no nó de transação padrão
-    
+
     Neste exemplo, o valor inicial do **storeData** valor está definido como 42.
 
-    **privateFor** define os nós nos quais o contrato está disponível. Neste exemplo, conta do nó de transação de predefinição pode converter privadas transações para o **alpha** nó. Tem de adicionar as chaves públicas para todos os participantes da transação privada. Se não incluir **privateFor:** e **partir:** , as transações de contrato inteligentes sejam públicas e pode ser vistas por todos os membros de consortium.
+    **privateFor** define os nós nos quais o contrato está disponível. Neste exemplo, conta do nó de transação de predefinição pode converter privadas transações para o **alpha** nó. Adicionar chaves públicas para todos os participantes da transação privada. Se não incluir **privateFor:** e **partir:** , as transações de contrato inteligentes sejam públicas e pode ser vistas por todos os membros de consortium.
 
 1. Guarde todos os ficheiros selecionando **ficheiro > Guardar tudo**.
 

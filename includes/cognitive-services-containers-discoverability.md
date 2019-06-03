@@ -4,19 +4,19 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2019
-ms.openlocfilehash: d3a176171d106f2ed01cfddbb46993a43be3bb41
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2361bae06606a8337b709099832d677ca32c4499
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302832"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420705"
 ---
 ## <a name="blog-posts"></a>Publicações no blogue
 
 * [Contentores de serviços cognitivos em execução](https://azure.microsoft.com/blog/running-cognitive-service-containers/)
-* [Introdução ao contentor de compreensão de idiomas de serviços cognitivos](https://azure.microsoft.com/en-us/blog/getting-started-with-cognitive-services-language-understanding-container/)
+* [Introdução ao contentor de compreensão de idiomas de serviços cognitivos](https://azure.microsoft.com/blog/getting-started-with-cognitive-services-language-understanding-container/)
 
-## <a name="developer-samples"></a>Exemplos do programador
+## <a name="developer-samples"></a>Exemplos de programador
 
 Exemplos de programador estão disponíveis em nosso [repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-containers-samples).
 

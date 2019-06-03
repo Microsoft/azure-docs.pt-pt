@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd8af0ed016dca5ab9c14b117a2673ca214e08c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 554a4c63c8492d69ad0899176cdc58895c5146f5
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688094"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do Active Directory do Azure com o JIRA SAML SSO pela Microsoft
 
@@ -44,7 +44,7 @@ Utilize a sua conta do Microsoft Azure Active Directory com o servidor de Atlass
 Para configurar a integração do Azure AD com JIRA SAML SSO pela Microsoft, precisa do seguinte:
 
 - Uma subscrição do Azure
-- Núcleo do JIRA e 6.0 do Software para 7.12 ou JIRA Service Desk 3.0, 3.5 devem instalado e configurado na versão Windows de 64 bits
+- Núcleo do JIRA e 6.4 de Software para 8.0 ou JIRA Service Desk 3.0, 3.5 devem instalado e configurado na versão Windows de 64 bits
 - Servidor JIRA é ativadas por HTTPS
 - Tenha em atenção de que as versões suportadas para o plug-in do JIRA mencionadas abaixo de secção.
 - Servidor JIRA está acessível na internet, especialmente para a página de início de sessão do Azure AD para autenticação e deve capaz de receber o token do Azure AD
@@ -62,7 +62,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 ## <a name="supported-versions-of-jira"></a>Versões suportadas do JIRA
 
-* Núcleo do JIRA e Software: 6.0 para 7.12
+* Núcleo do JIRA e Software: 6.4 para 8.0
 * Serviço de atendimento JIRA 3.0.0 para 3.5.0
 * JIRA também suporta 5.2. Para obter mais detalhes, clique em [Microsoft Azure Active Directory início de sessão único para JIRA 5.2](jira52microsoft-tutorial.md)
 
@@ -81,7 +81,7 @@ Para configurar a integração do JIRA SAML SSO pela Microsoft para o Azure AD, 
 
 **Para adicionar JIRA SAML SSO pela Microsoft a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -179,34 +179,40 @@ Para configurar o Azure AD início de sessão único com o JIRA SAML SSO pela Mi
 
 6. Execute os seguintes passos na página de configuração:
 
-    ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon52.png)
+    ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon53.png)
 
     > [!TIP]
     > Certifique-se de que existe apenas um certificado mapeado em relação a aplicação, para que não há nenhum erro na resolução de metadados. Se existirem vários certificados, após resolver os metadados, o administrador obtém um erro.
 
-    a. Na **URL de metadados** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure e clique nas **resolver** botão. Lê o URL de metadados de IdP e preenche a todas as informações de campos.
+    1. Na **URL de metadados** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure e clique nas **resolver** botão. Lê o URL de metadados de IdP e preenche a todas as informações de campos.
 
-    b. Copiar o **identificador, o URL de resposta e o URL de início de sessão** valores e cole-os na **identificador, o URL de resposta e o URL de início de sessão** respectivamente em caixas de texto **JIRA SAML SSO ao Microsoft Domain e URLs** secção no portal do Azure.
+    1. Copiar o **identificador, o URL de resposta e o URL de início de sessão** valores e cole-os na **identificador, o URL de resposta e o URL de início de sessão** respectivamente em caixas de texto **JIRA SAML SSO ao Microsoft Domain e URLs** secção no portal do Azure.
 
-    c. Na **nome do botão de início de sessão** escreva o nome do botão, a organização quer que os utilizadores para ver no ecrã de início de sessão.
+    1. Na **nome do botão de início de sessão** escreva o nome do botão, a organização quer que os utilizadores para ver no ecrã de início de sessão.
 
-    d. Na **locais de ID de usuário de SAML** selecione **ID de utilizador é no elemento NameIdentifier da declaração do requerente** ou **ID de utilizador está num elemento de atributo**.  Este ID deve ser o ID de utilizador no JIRA. Se o ID de utilizador não for encontrado, sistema não permitirá que os utilizadores iniciem sessão.
+    1. Na **locais de ID de usuário de SAML** selecione **ID de utilizador é no elemento NameIdentifier da declaração do requerente** ou **ID de utilizador está num elemento de atributo**.  Este ID deve ser o ID de utilizador no JIRA. Se o ID de utilizador não for encontrado, sistema não permitirá que os utilizadores iniciem sessão.
 
-    > [!Note]
-    > Localização de ID de utilizador de SAML predefinida é o identificador de nome. Pode alterá-la para uma opção de atributo e introduza o nome do atributo adequado.
+       > [!Note]
+       > Localização de ID de utilizador de SAML predefinida é o identificador de nome. Pode alterá-la para uma opção de atributo e introduza o nome do atributo adequado.
 
-    e. Se selecionou **ID de utilizador está num elemento de atributo** opção, em seguida, no **nome do atributo** caixa de texto, escreva o nome do atributo onde é esperado o ID de utilizador.
+    1. Se selecionou **ID de utilizador está num elemento de atributo** opção, em seguida, no **nome do atributo** caixa de texto, escreva o nome do atributo onde é esperado o ID de utilizador.
 
-    f. Se estiver a utilizar o domínio Federado (como etc. do AD FS) com o Azure AD, em seguida, clique nas **ativar a deteção de Realm inicial** opção e configurar o **nome de domínio**.
+    1. Se estiver a utilizar o domínio Federado (como etc. do AD FS) com o Azure AD, em seguida, clique nas **ativar a deteção de Realm inicial** opção e configurar o **nome de domínio**.
 
-    g. Na **nome de domínio** escreva o nome de domínio aqui em caso do início de sessão baseado no AD FS.
+    1. Na **nome de domínio** escreva o nome de domínio aqui em caso do início de sessão baseado no AD FS.
 
-    h. Verifique **ativar o início de sessão único horizontalmente** se deseja terminar sessão do Azure AD quando um utilizador terminar sessão no JIRA.
+    1. Verifique **ativar o início de sessão único horizontalmente** se deseja terminar sessão do Azure AD quando um utilizador terminar sessão no JIRA.
+    
+    1. Ativar **início de sessão do força Azure** caixa de verificação, se quiser iniciar sessão através do Azure AD apenas credenciais.
+    
+       > [!Note]
+       > Para ativar o formulário de início de sessão predefinido para início de sessão de administrador na página de início de sessão quando o início de sessão força do azure está ativado, adicione o parâmetro de consulta no URL do navegador.
+       > `https://<domain:port>/login.action?force_azure_login=false`
 
-    i. Clique em **guardar** botão para guardar as definições.
+    1. Clique em **guardar** botão para guardar as definições.
 
-    > [!NOTE]
-    > Para obter mais informações sobre a instalação e resolução de problemas, visite [Guia do administrador do conector MS JIRA SSO](../ms-confluence-jira-plugin-adminguide.md) e também há [FAQ](../ms-confluence-jira-plugin-faq.md) para sua assistência
+       > [!NOTE]
+       > Para obter mais informações sobre a instalação e resolução de problemas, visite [Guia do administrador do conector MS JIRA SSO](../ms-confluence-jira-plugin-adminguide.md). Há também uma [FAQ](../ms-confluence-jira-plugin-faq.md) para sua assistência.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 

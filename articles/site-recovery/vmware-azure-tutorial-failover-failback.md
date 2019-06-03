@@ -6,15 +6,15 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7a089b3e4d7b8a38f2bf88c8ccf6e269331589be
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 854e09600440c28f7505a016566ea0f05e994f5f
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966290"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418325"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms"></a>Ativação pós-falha e reativação pós-falha de VMs de VMware
 

@@ -11,16 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225881"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417971"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
 
 Este artigo contém respostas para perguntas mais frequentes sobre a compreensão de idiomas (LUIS).
+
+## <a name="whats-new"></a>Novidades
+
+[Saiba mais](whats-new.md) sobre o que há de novo na compreensão de idiomas.
 
 <a name="luis-authoring"></a>
 
@@ -64,7 +68,7 @@ Cortana criados previamente as aplicações foram preteridas em 2017. Já não s
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como transferir a propriedade de uma aplicação do LUIS?
 Para transferir uma aplicação do LUIS para uma subscrição do Azure diferente, exportar a aplicação do LUIS e importe-o utilizando uma conta nova. Atualize o ID da aplicação LUIS no aplicativo cliente que chama-lo. A nova aplicação poderá devolver as LUIS ligeiramente diferente pontuações da aplicação original.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade pré-criados é identificada numa expressão de exemplo em vez de minha entidade personalizada. Como posso corrigir isto? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade pré-criados é identificada numa expressão de exemplo em vez de minha entidade personalizada. Como posso corrigir esta situação? 
 
 Ver [entidades previamente concebidas de resolução de problemas](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 

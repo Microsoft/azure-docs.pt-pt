@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b29798bb87b7c5c677e7d80e552e45e8d1290541
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786894"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428317"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Responder a eventos do Azure Service Bus recebidos através do Azure Event Grid com as funções do Azure e Azure Logic Apps
 Neste tutorial, saiba como responder a eventos do Azure Service Bus que são recebidos através do Azure Event Grid com as funções do Azure e Azure Logic Apps. Terá de efetuar os seguintes passos:
@@ -127,7 +127,7 @@ Em seguida, siga os passos abaixo:
 1. Configurar a função a utilizar **V1** versão: 
     1. Selecione a sua aplicação de função na vista de árvore e selecione **as definições da aplicação de função**. 
 
-        ![Definições da aplicação de funções]()./media/service-bus-to-event-grid-integration-example/function-app-settings.png)
+        ![Definições da Aplicação de funções]()./media/service-bus-to-event-grid-integration-example/function-app-settings.png)
     2. Selecione **~ 1** para **versão de Runtime**. 
 2. Expanda **funções** na árvore de ver e selecionar a sua função. Substitua o código para a função com o código a seguir: 
 
@@ -280,13 +280,12 @@ Ligar uma aplicação lógica com o Azure Service Bus e Azure Event Grid atravé
     3. Para **nome do recurso**, selecione o seu espaço de nomes do Service Bus. 
     4. Selecione **adicione o novo parâmetro**e selecione **filtro de sufixo**. 
     5. Para **filtro de sufixo**, introduza o nome da sua subscrição de tópico do Service Bus segundo. 
-
         ![Estruturador de aplicações lógicas - configurar eventos](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Selecione **+ novo passo** no designer, e siga os passos abaixo:
     1. Procure **Service Bus**.
     2. Selecione **do Service Bus** na lista. 
     3. Selecione para **obter mensagens** no **ações** lista. 
-    4. Selecione **obter mensagens de uma subscrição de tópico (bloqueio de pré-visualização)**. 
+    4. Selecione **obter mensagens de uma subscrição de tópico (bloqueio de pré-visualização)** . 
 
         ![Estruturador de aplicações lógicas - ação de mensagens de get](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
     5. Introduza um **nome da ligação**. Por exemplo: **Obter mensagens de subscrição de tópico**e selecione o espaço de nomes do Service Bus. 

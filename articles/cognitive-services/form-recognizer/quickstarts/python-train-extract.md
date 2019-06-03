@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 139c0c29033dc45d07fd0987c2eee92308512329
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2657c69ef631c32b498404908014d8788d485989
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906977"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417969"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python
 
@@ -45,9 +45,12 @@ Quando são concedido acesso ao utilizar o reconhecedor de formulário, receber�
 
 Quando o recurso do reconhecedor de forma a conclusão da implantação, localize e selecione-o a partir da **todos os recursos** lista no portal. Em seguida, selecione o **chaves** separador para ver as chaves de subscrição. Nenhuma das chaves fornecerá o acesso a aplicações para o recurso. Copie o valor da **chave 1**. Irá utilizá-lo na próxima seção.
 
-## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
+## <a name="train-a-form-recognizer-model"></a>Preparar um modelo de formulário reconhecedor
 
-Para criar e executar o exemplo, efetue estas alterações para o fragmento de código que se segue:
+Em primeiro lugar, terá um conjunto de dados de treinamento num blob de armazenamento do Azure. Deve ter um mínimo de cinco exemplo formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio. Nome de ficheiro do formulário tem de incluir a palavra "vazia".
+
+Para preparar um modelo de formulário reconhecedor utilizando os documentos no seu contentor de Blobs do Azure, chame o **treinar** API ao executar o python de código a seguir. Antes de executar o código, efetue estas alterações:
+
 1. Substitua `<Endpoint>` com o URL de ponto final para o recurso do reconhecedor de formulário na região do Azure, onde obteve as chaves de subscrição.
 1. Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS) da localização de dados de treinamento.  
 1. Substitua `<Subscription key>` com a chave de subscrição que copiou no passo anterior.

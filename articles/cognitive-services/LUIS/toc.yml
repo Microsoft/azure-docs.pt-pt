@@ -83,7 +83,7 @@
           displayName: roles
         - name: Extrair dados sem formulário
           href: luis-tutorial-pattern-any.md
-    - name: Utilizar o bot
+    - name: Utilizar o Bot Framework V4
       items:
         - name: 'Com C#'
           href: luis-csharp-tutorial-bf-v4.md
@@ -198,7 +198,7 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: Com o serviço de Voz
           href: luis-tutorial-speech-to-intent.md
-        - name: Com um bot
+        - name: Utilizar o Bot Framework V3
           items:
             - name: Bot de aplicação Web
               items:
@@ -279,6 +279,8 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Limites
       href: luis-boundaries.md
+    - name: Definições da aplicação
+      href: luis-reference-application-settings.md
     - name: Referência de entidade pré-concebida
       items:
         - name: Entidades por cultura
@@ -398,6 +400,8 @@
       href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
 - name: Recursos
   items:
+    - name: Novidades
+      href: whats-new.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Suporte de idioma e região

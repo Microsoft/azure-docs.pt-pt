@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 037c323b2ef9e0a2d264e3fd5f7655456c30a1be
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235599"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417477"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com cURL
 
@@ -47,7 +47,7 @@ Quando o recurso do reconhecedor de forma a conclusão da implantação, localiz
 
 ## <a name="train-a-form-recognizer-model"></a>Preparar um modelo de formulário reconhecedor
 
-Em primeiro lugar, terá um conjunto de dados de treinamento. Pode utilizar dados num blob do Azure ou os seus dados de treinamento locais. Deve ter um mínimo de cinco exemplo formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio. Nome de ficheiro do formulário tem de incluir a palavra "vazia".
+Em primeiro lugar, terá um conjunto de dados de treinamento num blob de armazenamento do Azure. Deve ter um mínimo de cinco exemplo formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio. Nome de ficheiro do formulário tem de incluir a palavra "vazia".
 
 Para preparar um modelo de formulário reconhecedor utilizando os documentos no seu contentor de Blobs do Azure, chame o **treinar** API ao executar o comando cURL que se segue. Antes de executar o comando, efetue estas alterações:
 

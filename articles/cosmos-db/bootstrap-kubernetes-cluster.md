@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 43aa0956ef1f44fa5705800ff2b424608ec75499
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2c6af53aeec5d40f603d65595d93527107c0d80a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65795603"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427713"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como utilizar o Kubernetes do Azure com o Azure Cosmos DB (pré-visualização)
 
@@ -29,7 +29,7 @@ Para saber mais sobre etcd API no Azure Cosmos DB, veja a [descrição geral](et
 
 1. Instale a versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Pode transferir o CLI do Azure específica para seu sistema operativo e instalar.
 
-1. Instalar o [v0.32.3](https://github.com/Azure/aks-engine/releases/tag/v0.32.3) versão do motor de Kubernetes do Azure. As instruções de instalação para sistemas operativos diferentes estão disponíveis no [motor de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) página. Precisa apenas os passos da **instalar o motor de AKS** secção de documentos vinculada. Depois de transferir, extrair o ficheiro zip.
+1. Instalar o [versão mais recente](https://github.com/Azure/aks-engine/releases) do motor de Kubernetes do Azure. As instruções de instalação para sistemas operativos diferentes estão disponíveis no [motor de Kubernetes do Azure](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) página. Precisa apenas os passos da **instalar o motor de AKS** secção de documentos vinculada. Depois de transferir, extrair o ficheiro zip.
 
    O motor de Kubernetes do Azure (**mecanismo de aks**) gera modelos Azure Resource Manager para clusters do Kubernetes no Azure. A entrada para o motor de aks é um ficheiro de definição de cluster que descreve o cluster pretendido, incluindo o orchestrator, recursos e agentes. A estrutura dos ficheiros de entrada é semelhante para a API pública do serviço Kubernetes do Azure.
 
@@ -77,7 +77,7 @@ Para saber mais sobre etcd API no Azure Cosmos DB, veja a [descrição geral](et
 1. Na linha de comandos, navegue para a pasta onde está localizado o executável do motor de Kubernetes do Azure. Por exemplo, na sua linha de comandos pode navegar para a pasta como:
 
    ```cmd
-   cd "\aks-engine-v0.32.3-windows-amd64\aks-engine-v0.32.3-windows-amd64"
+   cd "\aks-engine-v0.36.3-windows-amd64\aks-engine-v0.36.3-windows-amd64"
    ```
 
 1. Abra um editor de texto à sua escolha e definir um modelo do Resource Manager que implementa o cluster de Kubernetes do Azure com o Azure Cosmos DB etcd API. Copie a seguinte definição JSON para o seu editor de texto e guarde o ficheiro como `apiModel.json`:

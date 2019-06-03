@@ -5,15 +5,15 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 29189a5919a01fcb897758fb64ca9e84b9381fb6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 07a5ee6ccdaecc78c9a8e61ae9e64a5264e3a875
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410893"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418349"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparar os recursos do Azure para a recuperação após desastre de máquinas no local
 
@@ -68,7 +68,7 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 
 1. No portal do Azure, selecione **+ criar um recurso**e, em seguida, procure no Azure Marketplace para serviços de recuperação.
-2. Selecione **Backup e Site Recovery (OMS)**. Em seguida, na **Backup e Site Recovery** página, selecione **criar**.
+2. Selecione **Backup e Site Recovery (OMS)** . Em seguida, na **Backup e Site Recovery** página, selecione **criar**.
 1. Na **cofre dos Recovery services > nome**, introduza um nome amigável para identificar o cofre. Neste tutorial, utilize **ContosoVMVault**.
 2. Na **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo. Neste tutorial, utilize **contosoRG**.
 3. Na **localização**, selecione a região em que o cofre deve estar localizado. Neste tutorial, utilize **Europa Ocidental**.
