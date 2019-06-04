@@ -70,7 +70,7 @@ Utilize a sua aplicação de desenvolvimento de API favorita para gerar uma cham
 
 | Chave | Value |
 | --- | ----- |
-| o nome de utilizador | leadiocl@outlook.com |
+| username | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
@@ -113,7 +113,7 @@ Construa uma chamada POST, como o mostrado aqui com as informações na tabela s
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| Recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* e *recurso* são os valores que apontou anteriormente como a ID da aplicação. *Refresh_token* é o token que recebeu na chamada de autenticação mencionada anteriormente.
