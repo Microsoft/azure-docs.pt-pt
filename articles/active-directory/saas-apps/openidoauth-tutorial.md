@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 166452b052313397f1ec17adb59cad3c20fab1f9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780988"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497430"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar uma aplicação de OpenID/OAuth a partir da Galeria de aplicações do Azure AD
 
@@ -98,7 +98,25 @@ A Graph API também fornece acesso a utilizadores e grupos do Azure AD e outros 
 
 Os passos seguintes mostram como o consentimento refletir funciona para o desenvolvedor de aplicativos e o utilizador:
 
-1. Suponha que tem uma aplicação de cliente web que precisa para solicitar permissões específicas para aceder um recurso ou API. O portal do Azure é utilizado para declarar as solicitações de permissão no momento da configuração. Como outras definições de configuração, que se tornem parte do registo da aplicação do Azure AD:
+1. Suponha que tem uma aplicação de cliente web que precisa para solicitar permissões específicas para aceder um recurso ou API. O portal do Azure é utilizado para declarar as solicitações de permissão no momento da configuração. Como outras definições de configuração, eles tornam-se parte de registos da aplicação do Azure AD. Para o caminho da solicitação de permissão tem da siga os passos abaixo:
+
+    a. Clique nas **registos das aplicações** do lado esquerdo do menu e abrir seu aplicativo ao escrever o aplicativo dê um nome na caixa de pesquisa.
+
+    ![Graph API](./media/openidoauth-tutorial/application.png)
+
+    b. Clique em **ver permissões de API**.
+
+    ![Graph API](./media/openidoauth-tutorial/api-permission.png)
+
+    c. Clique em **adicionar uma permissão**.
+
+    ![Graph API](./media/openidoauth-tutorial/add-permission.png)
+
+    d. Clique em **Microsoft Graph**.
+
+    ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+
+    e. Selecione as opções necessárias da **permissões delegadas** e **permissões de aplicação**.
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -106,7 +124,7 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
 
 3. Se o utilizador já não for autenticado, o Azure AD / autorizar pedidos de ponto final de início de sessão.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![Autenticação](./media/openidoauth-tutorial/authentication.png)
 
 4. Depois do utilizador tem sessão iniciada, o Azure AD determina se o utilizador tem de ser apresentada uma página de consentimento. Essa determinação baseia-se o utilizador (ou o administrador da sua organização) já concedeu o consentimento da aplicação.
 
@@ -118,12 +136,12 @@ Um utilizador normal pode consentir algumas permissões. Outras permissões requ
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Diferença entre o consentimento de administrador e o consentimento do utilizador
 
-Como administrador, pode também autorizar permissões delegadas de uma aplicação em nome de todos os utilizadores no seu inquilino. Consentimento administrativo impede que a caixa de diálogo de consentimento que aparece para cada utilizador no inquilino. Os utilizadores que têm a função de administrador podem fornecer consentimento no portal do Azure. Partir do **definições** página para a sua aplicação, selecione **permissões obrigatórias** > **conceder permissões**.
+Como administrador, pode também autorizar permissões delegadas de uma aplicação em nome de todos os utilizadores no seu inquilino. Consentimento administrativo impede que a caixa de diálogo de consentimento que aparece para cada utilizador no inquilino. Os utilizadores que têm a função de administrador podem fornecer consentimento no portal do Azure. Do **configurações** página para a sua aplicação, selecione **permissões obrigatórias** > **conceder autorização de administrador**.
 
 ![Botão de conceder permissões](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Concessão de consentimento explícito, utilizando o **conceder permissões** botão agora é necessário para a página única (SPAs aplicativos) que utilizam ADAL.js. Caso contrário, o aplicativo falhar quando o token de acesso é solicitado.
+> Conceder permissão explícita utilizando o **conceder autorização de administrador** botão agora é necessário para a página única (SPAs aplicativos) que utilizam ADAL.js. Caso contrário, o aplicativo falhar quando o token de acesso é solicitado.
 
 Permissões só de aplicação necessitam sempre de consentimento de um administrador de inquilino. Se a aplicação solicite uma permissão só de aplicação e um utilizador tenta iniciar sessão na aplicação, é apresentada uma mensagem de erro. A mensagem diz que o utilizador não é capaz de dar consentimento.
 

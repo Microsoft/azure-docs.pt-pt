@@ -20,14 +20,6 @@
       href: concepts-dependency-visualization.md
 - name: Guias de procedimentos
   items:
-    - name: Melhores práticas de migração
-      items:
-        - name: Melhores práticas para segurança e gestão após a migração
-          href: migrate-best-practices-security-management.md
-        - name: Melhores práticas para funcionamento em rede após a migração
-          href: migrate-best-practices-networking.md
-        - name: Melhores práticas para avaliar custos e dimensionar após a migração
-          href: migrate-best-practices-costs.md
     - name: Exemplos de migração - Série Contoso
       href: contoso-migration-overview.md
     - name: Descobrir e avaliar um ambiente de grandes dimensões

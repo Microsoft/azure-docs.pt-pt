@@ -7,14 +7,14 @@ ms.author: sngun
 ms.subservice: cosmosdb-graph
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 05/29/2018
+ms.date: 05/29/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3aee8c6b4983d2c82b8a9eef8f9f0c974e162854
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c53657995977164af895d2a05daa752ba14e2e00
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080787"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474903"
 ---
 # <a name="azure-cosmos-db-create-a-gremlin-api-account-using-powershell"></a>o Azure Cosmos DB: Criar uma conta da API do Gremlin com o PowerShell
 

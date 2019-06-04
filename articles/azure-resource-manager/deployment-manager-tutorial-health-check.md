@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/06/2019
+ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790118"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479173"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Utilizar a verificação de estado de funcionamento no Azure Deployment Manager (pré-visualização pública)
 
@@ -50,18 +50,18 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Para concluir este artigo, precisa de:
 
 * Concluída [utilize o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
-* Baixe [os modelos e os artefactos](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) que é utilizado por este tutorial. 
+* Baixe [os modelos e os artefactos](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) que é utilizado por este tutorial.
 
 ## <a name="create-a-health-check-service-simulator"></a>Criar um simulador de serviço de verificação de estado de funcionamento
 
-Na produção, geralmente usa um ou mais fornecedores de monitorização. Para fazer a integração de estado de funcionamento mais fácil possível, Microsoft tem trabalhado com algumas da empresas para lhe fornecer uma solução simples de copiar/colar para integrar as verificações de estado de funcionamento com as suas implementações de monitoramento de integridade de principais de serviço. Para obter uma lista destas empresas, consulte [fornecedores de monitorização de estado de funcionamento](./deployment-manager-health-check.md#health-monitoring-providers). Para efeitos deste tutorial, vai criar uma [função do Azure](/azure/azure-functions/) para simular um Estado de funcionamento do serviço de monitorização. Esta função aceita um código de estado e retorna o mesmo código. O modelo de Gestor de implementação do Azure utiliza o código de status para determinar como proceder com a implementação. 
+Na produção, geralmente usa um ou mais fornecedores de monitorização. Para fazer a integração de estado de funcionamento mais fácil possível, Microsoft tem trabalhado com algumas da empresas para lhe fornecer uma solução simples de copiar/colar para integrar as verificações de estado de funcionamento com as suas implementações de monitoramento de integridade de principais de serviço. Para obter uma lista destas empresas, consulte [fornecedores de monitorização de estado de funcionamento](./deployment-manager-health-check.md#health-monitoring-providers). Para efeitos deste tutorial, vai criar uma [função do Azure](/azure/azure-functions/) para simular um Estado de funcionamento do serviço de monitorização. Esta função aceita um código de estado e retorna o mesmo código. O modelo de Gestor de implementação do Azure utiliza o código de status para determinar como proceder com a implementação.
 
 Os seguintes dois ficheiros são utilizados para implementar a função do Azure. Não precisa de transferir estes ficheiros para seguir o tutorial.
 
-* Um modelo do Resource Manager, localizado em [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Implementar este modelo para criar uma função do Azure.  
-* Um ficheiro zip do código-fonte função do Azure, [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Este zip chamado é chamada pelo modelo do Resource Manager.
+* Um modelo do Resource Manager, localizado em [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Implementar este modelo para criar uma função do Azure.
+* Um ficheiro zip do código-fonte função do Azure, [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Este zip chamado é chamada pelo modelo do Resource Manager.
 
-Para implementar a função do Azure, selecione **experimente** para abrir o Azure Cloud shell e, em seguida, cole o seguinte script para a janela do shell.  Colar o código, com o botão direito da janela do shell e, em seguida, selecione **colar**. 
+Para implementar a função do Azure, selecione **experimente** para abrir o Azure Cloud shell e, em seguida, cole o seguinte script para a janela do shell.  Colar o código, com o botão direito da janela do shell e, em seguida, selecione **colar**.
 
 > [!IMPORTANT]
 > **projectName** no PowerShell script é utilizado para gerar nomes para os serviços do Azure que são implementados neste tutorial. Diferentes serviços do Azure têm requisitos diferentes nos nomes. Para garantir que a implementação for bem sucedida, escolha um nome com menos de 12 carateres com apenas letras minúsculas e números.
@@ -81,7 +81,7 @@ Para verificar e testar a função do Azure:
 1. Abra o [Portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos.  O nome predefinido é o nome do projeto com **rg** anexado.
 1. Selecione o serviço de aplicações do grupo de recursos.  O nome predefinido do serviço de aplicações é o nome de projeto com **webapp** anexado.
-1. Expanda **funções**e, em seguida, selecione **HttpTrigger1**. 
+1. Expanda **funções**e, em seguida, selecione **HttpTrigger1**.
 
     ![Verificação de estado de funcionamento do Gestor de implementação do Azure função do Azure](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
@@ -178,7 +178,7 @@ O objetivo desta secção é mostrar como incluem um passo de verificação de e
     },
     ```
 
-    Com base na definição, a implementação continua se o estado de funcionamento *bom estado de funcionamento* ou *aviso*. 
+    Com base na definição, a implementação continua se o estado de funcionamento *bom estado de funcionamento* ou *aviso*.
 
 1. Atualização do **dependsON** da definição de implementação para incluir o passo de verificação de estado de funcionamento definidas recentemente:
 
@@ -189,7 +189,7 @@ O objetivo desta secção é mostrar como incluem um passo de verificação de e
     ],
     ```
 
-1. Atualização **stepGroups** para incluir o passo de verificação de estado de funcionamento. O **healthCheckStep** denomina-se **postDeploymentSteps** de **stepGroup2**. **stepGroup3** e **stepGroup4** são implementadas apenas se o estado de funcionamento correto *bom estado de funcionamento* ou *aviso*. 
+1. Atualização **stepGroups** para incluir o passo de verificação de estado de funcionamento. O **healthCheckStep** denomina-se **postDeploymentSteps** de **stepGroup2**. **stepGroup3** e **stepGroup4** são implementadas apenas se o estado de funcionamento correto *bom estado de funcionamento* ou *aviso*.
 
     ```json
     "stepGroups": [
@@ -265,7 +265,7 @@ Para ver os recursos, **Mostrar tipos ocultos** tem de estar selecionado.
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Implementar a implementação com o estado de mau estado de funcionamento
 
-Para simplificar o tutorial, o modelo de implementação revisado é partilhado na seguinte localização para que não precisa de preparar a sua própria cópia. Se quiser usar sua própria, siga as instruções em [Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
+Para simplificar o tutorial, o modelo de implementação revisado é compartilhado nas seguintes localizações para que não precisa de preparar a sua própria cópia. Se quiser usar sua própria, siga as instruções em [Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
 
 * Modelo de topologia: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
 * Armazenamento de artefactos: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
@@ -394,7 +394,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
     * **&lt;namePrefix>ServiceWUSrg**: contém os recursos definidos por ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**: contém os recursos definidos por ServiceEUS.
     * O grupo de recursos da identidade gerida atribuída pelo utilizador.
-3. Selecione o nome do grupo de recursos.  
+3. Selecione o nome do grupo de recursos.
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 5. Repita os dois últimos passos para eliminar outros grupos de recursos criados neste tutorial.
 

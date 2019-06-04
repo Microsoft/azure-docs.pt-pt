@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 3315af0898cb3b18af0334a433a94242b056a8bd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236205"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479806"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial:  Obter o sentimento de expressão
 
@@ -54,6 +54,7 @@ Como é uma definição de publicação, não o vê nas páginas de intenções 
 
 ## <a name="add-personname-prebuilt-entity"></a>Adicionar PersonName pré-criados de entidade 
 
+1. Selecione **criar** no menu de navegação.
 
 1. Selecione **Entidades** no menu de navegação esquerdo.
 
@@ -69,11 +70,11 @@ Como é uma definição de publicação, não o vê nas páginas de intenções 
 
 Adicione uma nova intenção para capturar os comentários dos colaboradores membros da empresa. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Selecione **Intents** (Intenções) no painel esquerdo.
 
-2. Selecione **Create new intent** (Criar nova intenção).
+1. Selecione **Create new intent** (Criar nova intenção).
 
-3. Nomeie a nova intenção `EmployeeFeedback`.
+1. Nomeie a nova intenção `EmployeeFeedback`.
 
     ![Criar nova caixa de diálogo de intenção com EmployeeFeedback como nome](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
@@ -106,7 +107,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
 1. Selecione **Gerir** no painel de navegação superior direito e, em seguida, selecione **Definições de publicação** no menu à esquerda.
 
-1. Selecione **a análise de sentimentos** para ativar esta definição. 
+1. Selecione **utilizar análise de sentimentos para determinar se a expressão de um utilizador é neutro, positivo ou negativo.** Para ativar esta definição. 
 
     ![Ativar análise de sentimentos como a configuração de publicação](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
@@ -118,7 +119,11 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Vá para o final do URL no endereço e introduza `Jill Jones work with the media team on the public portal was amazing`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `EmployeeFeedback` com a análise de sentimentos extraída.
+1. Vá para o final do URL o endereço e introduza a seguinte expressão:
+
+    `Jill Jones work with the media team on the public portal was amazing` 
+
+    O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões etiquetadas, pelo que é um bom teste e deve devolver a intenção `EmployeeFeedback` com a análise de sentimentos extraída.
     
     ```json
     {
@@ -153,6 +158,8 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
     ```
 
     O sentimentAnalysis é positivo com uma classificação de 86%. 
+
+    Tente outra expressão ao remover o valor para `q` na barra de endereço do browser: `William Jones did a terrible job presenting his ideas.` A classificação de sentimento indica um sentimento negativo, retornando uma pontuação baixa `0.18597582`.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

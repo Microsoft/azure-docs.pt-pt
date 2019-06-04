@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 86113246fab399e8364653198e9a6971317e3f2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46247d42837f8ac181d33216d2b93d28e2533c09
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121740"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66482320"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
 Este guia demonstra como implementar o início de sessão com a Microsoft com uma solução ASP.NET MVC tradicional baseada no browser e aplicações web utilizando OpenID Connect.
 
-No final deste guia, seu aplicativo será capaz de aceitar inícios de sessão de contas pessoais (incluindo o outlook.com, live.com e outros), bem como o trabalho contas escolares ou profissionais de qualquer empresa ou organização que está integrado com o Azure Active Directory.
+No final deste guia, seu aplicativo será capaz de aceitar inícios de sessão de contas pessoais, por exemplo outlook.com, live.com e outros. Estas contas também incluem o trabalho contas escolares ou profissionais de qualquer empresa ou organização que está integrado com o Azure Active Directory.
 
-> Este guia requer o Visual Studio 2017.  Não o tem?  [Transferir o Visual Studio 2017 gratuitamente](https://www.visualstudio.com/downloads/)
+> Este guia requer o Visual Studio 2019.  Não o tem?  [Transfira gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/)
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como funciona a aplicação de exemplo gerada por este guia
 
-![Mostra como a aplicação de exemplo gerado por este funciona de tutoriais](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
+![Mostra como funciona a aplicação de exemplo gerada por este tutorial](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.svg)
 
-O aplicativo de exemplo criado por este guia baseia-se no cenário em que um utilizador usa o browser para aceder a um web site do ASP.NET a pedir um utilizador seja autenticado por meio de um botão de início de sessão. Neste cenário, a maior parte do trabalho para compor a página Web ocorre do lado do servidor.
+O aplicativo de exemplo que cria baseia-se o cenário em que utiliza o browser para aceder a um web site ASP.NET que solicite um utilizador seja autenticado por meio de um botão de início de sessão. Neste cenário, a maior parte do trabalho para compor a página Web ocorre do lado do servidor.
 
 ## <a name="libraries"></a>Bibliotecas
 

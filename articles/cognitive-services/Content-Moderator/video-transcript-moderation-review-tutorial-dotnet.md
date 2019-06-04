@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608257"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474697"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeos e transcrições
 
@@ -40,19 +40,19 @@ Este tutorial mostrar-lhe como:
 - Para executar o aplicativo de exemplo, precisa de uma conta do Azure, um recurso de serviços de multimédia do Azure, um recurso do Azure Content Moderator e as credenciais do Azure Active Directory. Para obter instruções sobre como obter estes, consulte a [API de moderação de vídeo](video-moderation-api.md) guia.
 - Transfira o [aplicação de consola de revisão de vídeo](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) do GitHub.
 
-## <a name="enter-credentials"></a>Introduzir credenciais
+## <a name="enter-credentials"></a>Introduza as credenciais
 
 Editar a `App.config` de ficheiros e adicionar o nome de inquilino do Active Directory, pontos finais de serviço e as chaves de subscrição indicadas pelo `#####`. Precisará das seguintes informações:
 
-    |Chave|Descrição|
-    |-|-|
-    |`AzureMediaServiceRestApiEndpoint`|Ponto final da API dos Serviços de Multimédia do Azure (AMS)|
-    |`ClientSecret`|Chave de subscrição dos Serviços de Multimédia do Azure|
-    |`ClientId`|ID de cliente dos Serviços de Multimédia do Azure|
-    |`AzureAdTenantName`|Nome de inquilino do Active Directory que representa a sua organização|
-    |`ContentModeratorReviewApiSubscriptionKey`|Chave de subscrição da API de revisão do Content Moderator|
-    |`ContentModeratorApiEndpoint`|Ponto final da API do Content Moderator|
-    |`ContentModeratorTeamId`|ID de equipa do Content Moderator|
+|Chave|Descrição|
+|-|-|
+|`AzureMediaServiceRestApiEndpoint`|Ponto final da API dos Serviços de Multimédia do Azure (AMS)|
+|`ClientSecret`|Chave de subscrição dos Serviços de Multimédia do Azure|
+|`ClientId`|ID de cliente dos Serviços de Multimédia do Azure|
+|`AzureAdTenantName`|Nome de inquilino do Active Directory que representa a sua organização|
+|`ContentModeratorReviewApiSubscriptionKey`|Chave de subscrição da API de revisão do Content Moderator|
+|`ContentModeratorApiEndpoint`|Ponto final da API do Content Moderator|
+|`ContentModeratorTeamId`|ID de equipa do Content Moderator|
 
 ## <a name="examine-the-main-code"></a>Examinar o código principal
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/20/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924526"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476938"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalar o Edge de caixa de dados do Azure
 
@@ -70,7 +70,7 @@ Este dispositivo é enviado numa única caixa. Conclua os passos seguintes para 
 1. Coloque a caixa numa superfície plana e uniforme.
 2. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou empacotamento gravemente está danificado, não abri-lo. Contacte o Suporte da Microsoft para ajudar a avaliar se o dispositivo está funcional.
 3. Desembale a caixa. Depois de desembalar a caixa, certifique-se de que tem:
-    - Um dispositivo Edge de bastidor único
+    - Um dispositivo de limite de caixa de dados de bastidor único
     - Dois cabos de alimentação
     - Assembly do um rail kit
     - Um livreto de segurança, ambientais e normas de informações
@@ -100,7 +100,7 @@ Localize os componentes para instalar o assembly do rail kit:
 1. II de ReadyRails Dell dois A7 deslizante assemblies do rail
 2. Dois straps hook e loop
 
-![Identificar o conteúdo do kit de rail](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Identificar o conteúdo do kit de rail](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Instalar e remover a ferramenta sem rails (buraco quadrado ou buraco redondo racks)
 
@@ -109,10 +109,10 @@ Localize os componentes para instalar o assembly do rail kit:
 
 1. Posicionar as partes de fim de left e right rail rotuladas **FRONT** com acesso à inward e orientar a cada peça final para os buracos no lado do front-de flanges o bastidor vertical de usuários.
 2. Alinhe cada peça final os buracos na parte inferior e superior dos espaços de U pretendidos.
-3. Interagir com o back-end do rail até ele totalmente o flange vertical rack e os cliques de bloqueio temporário no lugar certo. Repita estes passos para posicionar e a parte de front-end no flange bastidor vertical de usuários.
+3. Interagir com o back-end do rail até ele totalmente o flange vertical rack e os cliques de bloqueio temporário no lugar certo. Repita estes passos para posicionar e a parte front-end no flange bastidor vertical de usuários.
 4. Para remover os rails, extrair o botão de versão do bloqueio temporário no ponto de médio de peça final e unseat cada rail.
 
-![Instalar e remover a ferramenta sem rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
+    ![Instalar e remover a ferramenta sem rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Instalar e remover rails tooled (Threaded buraco racks)
 
@@ -124,7 +124,7 @@ Localize os componentes para instalar o assembly do rail kit:
 3. Anexe à esquerda e direita montar rails para as flanges de front-rack vertical através de dois pares de screws.
 4. Deslize o lado esquerda e direita de cópia de parênteses Retos reencaminhar contra os flanges rear vertical rack e anexe-os através de dois pares de screws.
 
-![Instalar e remover tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Instalar e remover tooled rails](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Instalar o sistema num bastidor
 
@@ -133,7 +133,7 @@ Localize os componentes para instalar o assembly do rail kit:
 3. Enviar por push o sistema inward até que o alavancas de bloqueio, clique no lugar certo.
 4. Prima os botões de bloqueio de lançamento de slide on rails e slide o sistema em rack.
 
-![Instalar o sistema num bastidor](./media/data-box-edge-deploy-install/installing-system-rack.png)
+    ![Instalar o sistema num bastidor](./media/data-box-edge-deploy-install/installing-system-rack.png)
 
 ### <a name="remove-the-system-from-the-rack"></a>Remover o sistema de bastidor
 
@@ -141,7 +141,7 @@ Localize os componentes para instalar o assembly do rail kit:
 2. Desbloquear cada alavanca por girando-o até sua posição de versão.
 3. Entender os lados do sistema firmemente e recebê-los para frente até que o standoffs da grade são na frente da J-ranhuras. Leve o sistema de cima e para fora do rack e coloque-o numa superfície de nível.
 
-![Remover o sistema de bastidor](./media/data-box-edge-deploy-install/removing-system-rack.png)
+    ![Remover o sistema de bastidor](./media/data-box-edge-deploy-install/removing-system-rack.png)
 
 ### <a name="engage-and-release-the-slam-latch"></a>Se envolver e liberar o bloqueio temporário mais
 
@@ -152,7 +152,7 @@ Localize os componentes para instalar o assembly do rail kit:
 2. As travas envolver-se automaticamente à medida que o sistema é enviada para o bastidor e são lançadas ao extrair a cópia de segurança nas travas.
 3. Para proteger o sistema de remessa no rack ou de outros ambientes instáveis, localize o screw de montagem disco rígido em cada bloqueio temporário e reforçar a cada screw com um #2 Phillips screwdriver.
 
-![Interaja com e sem bloqueios temporários de mais de versão](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Interaja com e sem bloqueios temporários de mais de versão](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 ### <a name="route-the-cables"></a>Encaminhar os cabos
 
@@ -164,16 +164,16 @@ Localize os componentes para instalar o assembly do rail kit:
 3. Os straps hook e o loop por meio de ranhuras nos colchetes CMA externas de cada lado do sistema para proteger os pacotes de cabo de thread.
 
 
-![Encaminhar os cabos](./media/data-box-edge-deploy-install/routing-cables.png)
+    ![Encaminhar os cabos](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Ligar o dispositivo
 
-Os procedimentos seguintes explicam como ligar o dispositivo Edge em termos de alimentação e rede.
+Os procedimentos seguintes explicam como ligar o seu dispositivo do Edge de caixa de dados para poder e a rede.
 
 Antes de começar a cablagem o seu dispositivo, precisa do seguinte:
 
-- Desembalar e montar o dispositivo físico do Edge em bastidor.
-- Dois cabos de alimentação. 
+- O dispositivo físico do Edge de caixa de dados, descompactado e rack montado.
+- Dois cabos de alimentação.
 - Pelo menos um cabo de rede de 1 GbE RJ-45 para ligar à interface de gestão. Existem duas interfaces de rede de 1 GbE, uma de gestão e uma de dados, no dispositivo.
 - Um cabo de cobre de 25 GbE SFP+ para cada interface de rede de dados a ser configurada. Interface de rede de dados, pelo menos, um dentre porta 2, porta 3, 4 de porta, porta 5 ou 6 da porta tem de estar ligado à Internet (com uma conectividade para o Azure).  
 - Acesso para duas unidades de distribuição de energia (recomendado).
@@ -181,34 +181,46 @@ Antes de começar a cablagem o seu dispositivo, precisa do seguinte:
 > [!NOTE]
 > - Se estiver a ligar apenas uma interface de rede de dados, recomendamos que utilize uma interface de rede de 25/10 GbE, como a porta 3, 4 de porta, porta 5 ou 6 de porta para enviar dados para o Azure. 
 > - Para obter um melhor desempenho e lidar com grandes volumes de dados, considere ligar todas as portas de dados.
-> - O dispositivo Edge deve estar ligado à rede do datacenter para que possa ingerir dados dos servidores de origem de dados.
+> - O dispositivo de limite de caixa de dados deve estar ligado à rede do datacenter, para que ele pode ingerir dados de servidores de origem de dados.
 
-O dispositivo Edge tem 8 SSDs NVMe. O painel frontal também tem LEDs de estado e botões de energia. O dispositivo inclui unidades de fonte de alimentação de energia redundantes (PSUs), no fundo. O dispositivo tem seis interfaces de rede:
+No seu dispositivo do Edge de caixa de dados:
 
-- Duas interfaces de 1 Gbps
-- Interfaces de 25 quatro Gbps que também podem servir como interfaces de 10 Gbps.
-- Um controlador de gestão de placas base (BMC). 
+- O painel frontal tem unidades de disco e um botão de energia.
 
-Identifique as várias portas no painel posterior do dispositivo.
- 
-  ![Painel posterior de um dispositivo ligado por cabo](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    - Há 10 blocos de disco no início do seu dispositivo.
+    - Ranhura 0 tem uma unidade SATA de 240 GB utilizada como um disco de sistema operativo. Ranhura 1 está vazia e blocos de 2 a 9 são que nvme SSD utilizados como discos de dados.
+- O plano de fundo inclui unidades de fonte de alimentação de energia redundantes (PSUs).
+- O plano de fundo possui seis interfaces de rede:
 
-O dispositivo tiver duas placas de rede correspondente para as 6 portas: 
+    - Duas interfaces de 1 Gbps.
+    - Interfaces de 25 quatro Gbps que também podem servir como interfaces de 10 Gbps.
+    - Um controlador de gestão de placas base (BMC).
 
- - QLogic FastLinQ 41264
- - QLogic FastLinQ 41262
+- O plano de fundo tem duas placas de rede correspondente para as 6 portas:
+
+    - QLogic FastLinQ 41264
+    - QLogic FastLinQ 41262
 
 Para obter uma lista completa de transcetores para essas placas de rede, comutadores e cabos suportados, aceda a [Cavium FastlinQ 41000 série interoperabilidade matriz](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Siga os passos seguintes para instalar os cabos do dispositivo para poder e a rede.
 
-1. Ligue os cabos de alimentação a cada uma das PSUs no bastidor. Para garantir uma elevada disponibilidade, instale e ligue as PSUs a diferentes fontes de alimentação.
+1. Identifica as várias portas no plano de fundo do seu dispositivo.
 
-2. Ligue os cabos de alimentação às unidades de distribuição de energia (PDUs) em bastidor. Certifique-se de que as duas PSUs utilizam fontes de alimentação separadas.
+    ![Plano de fundo de um dispositivo cabled](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-3. Ligue-se a interface de rede de 1 GbE 1 de porta para o computador que é utilizado para configurar o dispositivo físico. A PORTA 1 é a interface de gestão dedicada.
+2. Localize os blocos de disco e o botão de energia na frente do dispositivo.
 
-4. Ligue uma ou mais das PORTAS 2, 3, 4, 5 ou 6 à rede/Internet do datacenter. Se ligar a PORTA 2, utilize o cabo de rede RJ-45. Para as interfaces de rede de 10/25 GbE, utilize os cabos SFP + cobre.  
+    ![Plano de front-de um dispositivo](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+
+3. Ligue os cabos de alimentação a cada uma das PSUs no bastidor. Para garantir uma elevada disponibilidade, instale e ligue as PSUs a diferentes fontes de alimentação.
+4. Ligue os cabos de alimentação às unidades de distribuição de energia (PDUs) em bastidor. Certifique-se de que as duas PSUs utilizam fontes de alimentação separadas.
+5. Prima o botão de energia para ativar o dispositivo.
+6. Ligue-se a interface de rede de 1 GbE 1 de porta para o computador que é utilizado para configurar o dispositivo físico. A PORTA 1 é a interface de gestão dedicada.
+7. Ligue uma ou mais das PORTAS 2, 3, 4, 5 ou 6 à rede/Internet do datacenter.
+
+    - Se ligar a PORTA 2, utilize o cabo de rede RJ-45.
+    - Para as interfaces de rede de 10/25 GbE, utilize os cabos SFP + cobre.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -223,5 +235,3 @@ Avance para o próximo tutorial para aprender a ligar, configurar e ativar o seu
 
 > [!div class="nextstepaction"]
 > [Ligar e configurar dados de caixa de borda](./data-box-edge-deploy-connect-setup-activate.md)
-
-

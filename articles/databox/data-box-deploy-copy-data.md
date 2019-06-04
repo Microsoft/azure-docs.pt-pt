@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 83eabca3b2ec1903e25b02083b1a2d5b49745396
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6b2a0655173405008e0bccf3e31a8db391da6127
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800455"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496295"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
@@ -68,7 +68,7 @@ Se utilizar um computador de anfitrião do Windows Server, siga estes passos par
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Os caminhos de partilha de acordo com seu formato de dados, são os seguintes:
+    Consoante o seu formato de dados, os caminhos de partilha são os seguintes:
     - Blob de blocos do Azure- `\\10.126.76.172\devicemanagertest1_BlockBlob`
     - BLOBs de página do Azure- `\\10.126.76.172\devicemanagertest1_PageBlob`
     - Ficheiros do Azure- `\\10.126.76.172\devicemanagertest1_AzFile`
@@ -202,7 +202,7 @@ Para otimizar o desempenho, utilize os seguintes parâmetros do Robocopy ao copi
 
 Para obter mais informações sobre o comando do Robocopy, aceda a [Robocopy e alguns exemplos](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Abra a pasta de destino para ver e verificar os ficheiros copiados. Se ocorrerem erros durante o processo de cópia, transfira os ficheiros de erro para resolução de problemas. Para obter mais informações, consulte [ver registos de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Para obter uma lista detalhada de erros durante a cópia de dados, consulte [resolver problemas relacionados com o Data Box emite](data-box-troubleshoot.md).
+Abra a pasta de destino para ver e verificar os ficheiros copiados. Se ocorrerem erros durante o processo de cópia, transfira os ficheiros de erro para resolução de problemas. Para obter mais informações, consulte [ver registos de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, consulte [resolver problemas relacionados com o Data Box emite](data-box-troubleshoot.md).
 
 Para garantir a integridade dos dados, a soma de verificação é calculada inline à medida que os dados são copiados. Quando a cópia estiver concluída, verifique o espaço utilizado e o espaço livre no seu dispositivo.
     

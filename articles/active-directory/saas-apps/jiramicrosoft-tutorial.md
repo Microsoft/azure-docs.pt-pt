@@ -17,11 +17,11 @@ ms.date: 05/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 554a4c63c8492d69ad0899176cdc58895c5146f5
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455853"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do Active Directory do Azure com o JIRA SAML SSO pela Microsoft
 

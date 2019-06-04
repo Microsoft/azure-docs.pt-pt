@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 05/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c9268495ed42ca67f815615b441986cf03332f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9c422e93a6768b764873f21ad9eab6fad4a868e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683656"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Active Directory do Azure com confluência SAML SSO pela Microsoft
 
@@ -78,6 +78,7 @@ A partir de agora, os seguintes versões do confluência são suportadas:
 - Confluência: 6.10.0
 - Confluência: 6.11.0
 - Confluência: 6.12.0
+- Confluência: 6.15.3
 
 > [!NOTE]
 > Tenha em atenção que os nossos Plug-in do confluência também funciona no Ubuntu 16.04 de versão
@@ -94,7 +95,7 @@ Para configurar a integração do confluência SAML SSO pela Microsoft para o Az
 
 **Para adicionar confluência SAML SSO pela Microsoft a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -177,34 +178,40 @@ Para configurar o Azure AD início de sessão único com confluência SAML SSO p
 
 5. Execute os seguintes passos na página de configuração:
 
-    ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/addon52.png)
+    ![Configurar o início de sessão único](./media/confluencemicrosoft-tutorial/addon53.png)
 
     > [!TIP]
     > Certifique-se de que existe apenas um certificado mapeado em relação a aplicação, para que não há nenhum erro na resolução de metadados. Se existirem vários certificados, o administrador obtém um erro ao resolver os metadados.
 
-    a. Na **URL de metadados** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure e clique nas **resolver** botão. Lê o URL de metadados de IdP e preenche a todas as informações de campos.
+    1. Na **URL de metadados** caixa de texto, colar **Url de metadados de Federação de aplicação** valor que copiou do portal do Azure e clique nas **resolver** botão. Lê o URL de metadados de IdP e preenche a todas as informações de campos.
 
-    b. Copiar o **identificador, o URL de resposta e o URL de início de sessão** valores e cole-os na **identificador, o URL de resposta e o URL de início de sessão** respectivamente em caixas de texto **configuração básica de SAML** secção no portal do Azure.
+    1. Copiar o **identificador, o URL de resposta e o URL de início de sessão** valores e cole-os na **identificador, o URL de resposta e o URL de início de sessão** respectivamente em caixas de texto **configuração básica de SAML** secção no portal do Azure.
 
-    c. Na **nome do botão de início de sessão** escreva o nome do botão, a organização quer que os utilizadores para ver no ecrã de início de sessão.
+    1. Na **nome do botão de início de sessão** escreva o nome do botão, a organização quer que os utilizadores para ver no ecrã de início de sessão.
 
-    d. Na **locais de ID de usuário de SAML**, selecione **ID de utilizador é no elemento NameIdentifier da declaração do requerente** ou **ID de utilizador está num elemento de atributo**.  Este ID deve ser o ID de utilizador confluência. Se o ID de utilizador não for encontrado, sistema não permitirá que os utilizadores iniciem sessão. 
+    1. Na **locais de ID de usuário de SAML**, selecione **ID de utilizador é no elemento NameIdentifier da declaração do requerente** ou **ID de utilizador está num elemento de atributo**.  Este ID deve ser o ID de utilizador confluência. Se o ID de utilizador não for encontrado, sistema não permitirá que os utilizadores iniciem sessão. 
 
-    > [!Note]
-    > Localização de ID de utilizador de SAML predefinida é o identificador de nome. Pode alterá-la para uma opção de atributo e introduza o nome do atributo adequado.
+       > [!Note]
+       > Localização de ID de utilizador de SAML predefinida é o identificador de nome. Pode alterá-la para uma opção de atributo e introduza o nome do atributo adequado.
     
-    e. Se selecionou **ID de utilizador está num elemento de atributo** opção, em seguida, no **nome do atributo** caixa de texto, escreva o nome do atributo onde é esperado o ID de utilizador. 
+    1. Se selecionou **ID de utilizador está num elemento de atributo** opção, em seguida, no **nome do atributo** caixa de texto, escreva o nome do atributo onde é esperado o ID de utilizador. 
 
-    f. Se estiver a utilizar o domínio Federado (como etc. do AD FS) com o Azure AD, em seguida, clique nas **ativar a deteção de Realm inicial** opção e configurar o **nome de domínio**.
+    1. Se estiver a utilizar o domínio Federado (como etc. do AD FS) com o Azure AD, em seguida, clique nas **ativar a deteção de Realm inicial** opção e configurar o **nome de domínio**.
     
-    g. Na **nome de domínio** escreva o nome de domínio aqui em caso do início de sessão baseado no AD FS.
+    1. Na **nome de domínio** escreva o nome de domínio aqui em caso do início de sessão baseado no AD FS.
 
-    h. Verifique **ativar o início de sessão único horizontalmente** se deseja terminar sessão do Azure AD quando um utilizador termina sessão confluência. 
+    1. Verifique **ativar o início de sessão único horizontalmente** se deseja terminar sessão do Azure AD quando um utilizador termina sessão confluência. 
 
-    i. Clique em **guardar** botão para guardar as definições.
+    1. Ativar **início de sessão do força Azure** caixa de verificação, se quiser iniciar sessão através do Azure AD apenas credenciais.
+    
+       > [!Note]
+       > Para ativar o formulário de início de sessão predefinido para início de sessão de administrador na página de início de sessão quando o início de sessão força do azure está ativado, adicione o parâmetro de consulta no URL do navegador.
+       > `https://<domain:port>/login.action?force_azure_login=false`
+    
+    1. Clique em **guardar** botão para guardar as definições.
 
-    > [!NOTE]
-    > Para obter mais informações sobre a instalação e resolução de problemas, visite [Guia do administrador do conector MS confluência SSO](../ms-confluence-jira-plugin-adminguide.md) e também há [FAQ](../ms-confluence-jira-plugin-faq.md) para sua assistência
+       > [!NOTE]
+       > Para obter mais informações sobre a instalação e resolução de problemas, visite [Guia do administrador do conector MS confluência SSO](../ms-confluence-jira-plugin-adminguide.md). Há também uma [FAQ](../ms-confluence-jira-plugin-faq.md) para sua assistência.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 

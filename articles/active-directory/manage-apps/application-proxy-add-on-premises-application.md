@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7110d7004ae9be58bb150674d516692049507608
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82c7b698f655b82ba95f66127f27a921def02cde
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299088"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472992"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory
 
@@ -34,10 +34,11 @@ Este tutorial permite:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para adicionar uma aplicação ao seu inquilino, precisa de:
+Para adicionar uma aplicação no local para o Azure AD, é necessário:
 
 * A [subscrição basic ou premium do Microsoft Azure AD](https://azure.microsoft.com/pricing/details/active-directory)
 * Uma conta de administrador da aplicação
+* Identidades de utilizador tem de ser sincronizadas a partir de um diretório no local ou criadas diretamente dentro de seus inquilinos do Azure AD. Sincronização de identidade permite que o Azure AD para autenticar previamente os utilizadores antes de lhes conceder acesso ao Proxy de aplicação aplicações publicadas e para que as informações de identificador de utilizador necessários para efetuar logon único (SSO).
 
 ### <a name="windows-server"></a>Servidor do Windows
 
@@ -112,7 +113,7 @@ Para instalar o conector:
 4. Sob **Manage**, selecione **proxy de aplicações**.
 5. Selecione **transferir o conector serviço**.
     
-    ![Transferir o serviço de conector](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
+    ![Transferir o serviço do conector](./media/application-proxy-add-on-premises-application/application-proxy-download-connector-service.png)
 
 6. Leia os termos de serviço.  Quando estiver pronto, selecione **aceitar termos e transferir**.
 7. Na parte inferior da janela, selecione **executar** para instalar o conector. É aberto um Assistente de instalação. 

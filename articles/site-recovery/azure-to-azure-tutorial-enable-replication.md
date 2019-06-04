@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 74f7d8a1a828732d5448bf29c0878adb5f74b5e1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5602298ffe60ad15d3daf52587c50357c310200c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398255"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480104"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurar a recuperação após desastre para VMs do Azure
 
@@ -23,7 +23,7 @@ O [do Azure Site Recovery](site-recovery-overview.md) serviço contribui para a 
 Este tutorial mostra-lhe como configurar a recuperação após desastre para VMs do Azure, replicando-os partir de uma região do Azure para outra. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um cofre dos Serviços de Recuperação 
+> * Criar um cofre dos Serviços de Recuperação
 > * Verificar as definições dos recursos de destino
 > * Configurar a conectividade de rede de saída para VMs
 > * Ativar replicação para uma VM
@@ -35,10 +35,10 @@ Este tutorial mostra-lhe como configurar a recuperação após desastre para VMs
 
 Para concluir este tutorial:
 
-- Certifique-se de que compreende a [arquitetura e os componentes do cenário](concepts-azure-to-azure-architecture.md).
+- Reveja a [arquitetura e os componentes do cenário](concepts-azure-to-azure-architecture.md).
 - Reveja a [suportar requisitos](site-recovery-support-matrix-azure-to-azure.md) antes de começar.
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 Crie o cofre em qualquer região, exceto na região de origem.
 

@@ -66,7 +66,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 
 **Para ativar a encriptação numa ligação de Oracle**, tem duas opções:
 
-1.  Para utilizar **Encryption de Triple-DES (3DES) e Advanced Encryption Standard (AES)**, no lado do servidor Oracle, vá para Oracle Advanced Security (OAS) e configurar as definições de encriptação, consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Conector ADF Oracle negocia automaticamente o método de encriptação a utilizar um que configurar no OAS quando estabelecer ligação ao Oracle.
+1.  Para utilizar **Encryption de Triple-DES (3DES) e Advanced Encryption Standard (AES)** , no lado do servidor Oracle, vá para Oracle Advanced Security (OAS) e configurar as definições de encriptação, consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Conector ADF Oracle negocia automaticamente o método de encriptação a utilizar um que configurar no OAS quando estabelecer ligação ao Oracle.
 
 2.  Para utilizar **SSL**, siga os passos abaixo:
 
@@ -284,13 +284,13 @@ Quando copia dados de e para a Oracle, os seguintes mapeamentos são utilizados 
 | CHAR |String |
 | CLOB |String |
 | DATE |DateTime |
-| NÚMERO DE VÍRGULA FLUTUANTE |Número decimal, cadeia de caracteres (se precisão > 28) |
-| NÚMERO INTEIRO |Número decimal, cadeia de caracteres (se precisão > 28) |
+| FLOAT |Decimal, String (se precisão > 28) |
+| INTEGER |Decimal, String (se precisão > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NÚMERO |Número decimal, cadeia de caracteres (se precisão > 28) |
+| NUMBER |Decimal, String (se precisão > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

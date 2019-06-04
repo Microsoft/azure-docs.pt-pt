@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial:  Integrar uma única floresta do AD para o Azure com a autenticação pass-through (PTA) | Documentos da Microsoft'
+title: 'Tutorial:  Integrar uma única floresta do AD no Azure com o PTA'
 description: Demonstra como configurar um ambiente de identidade híbrida através da autenticação pass-through.
 services: active-directory
 author: billmath
@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d848202840d49dde18d358769519329141c2b35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233911"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473004"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial:  Integrar uma única floresta do AD através da autenticação pass-through (PTA)
 

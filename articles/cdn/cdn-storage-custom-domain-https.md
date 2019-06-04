@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 7aaf4be23c806dda621430c4d1b0c142f41feb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51fcb1e504f853973d9772bcece7e893a2d94e44
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323887"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472149"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Blobs de armazenamento de acesso com um domínio personalizado da CDN do Azure através de HTTPS
 
@@ -44,7 +44,7 @@ A CDN do Azure ignora quaisquer restrições adicionadas ao token SAS. Por exemp
 Se criar vários URLs de SAS para o mesmo ponto final do blob, considere ativar a colocação em cache de cadeias de consulta. Isto garante que cada URL é tratado como uma entidade exclusiva. Para obter mais informações, veja [Controlar o comportamento de colocação em cache da CDN do Azure com cadeias de consulta](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Redirecionamento de HTTP para HTTPS
-Pode optar por redirecionar o tráfego HTTP para HTTPS através da criação de uma [Regra de redirecionamento de URL](cdn-rules-engine-reference-features.md#url-redirect) com o [Motor de regras da CDN do Azure](cdn-rules-engine.md). Esta opção requer um perfil **Premium da CDN do Azure da Verizon**. 
+Pode optar por redirecionar o tráfego HTTP para HTTPS através da criação de uma [Regra de redirecionamento de URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) com o [Motor de regras da CDN do Azure](cdn-verizon-premium-rules-engine.md). Esta opção requer um perfil **Premium da CDN do Azure da Verizon**.
 
 ![Regra de redirecionamento de URL](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 

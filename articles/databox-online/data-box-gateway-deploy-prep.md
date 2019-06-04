@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d99b10598b9f16da2cf202330f0b5bac9219699f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686523"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476828"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparar a implementação de Gateway de caixa de dados do Azure
 
@@ -51,7 +51,11 @@ Aqui, vai encontrar os pré-requisitos de configuração para o recurso do Data 
 Antes de começar, certifique-se de que:
 
 - Subscrição do Microsoft Azure deve ser suportada para o recurso de Gateway de caixa de dados. Subscrições pay as you go não são suportadas.
-- Tem o proprietário ou Contribuidor aceder à sua subscrição.
+- Tem o proprietário ou contribuinte de acesso ao nível do grupo de recursos para os recursos de Gateway de caixa de Edge/dados de caixa de dados, o IoT Hub e o armazenamento do Azure.
+
+    - Para criar qualquer Edge do Data Box / recurso de Gateway de caixa de dados, deve ter as permissões como um contribuinte (ou superior) com âmbito ao nível do grupo de recursos. Terá também de certificar-se de que o `Microsoft.DataBoxEdge` fornecedor está registado. Para obter informações sobre como registar, aceda a [fornecedor de recursos de registo](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para criar qualquer recurso do IoT Hub, certificar-se de que esse provedor Microsoft.Devices está registado. Para obter informações sobre como registar, aceda a [fornecedor de recursos de registo](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para criar um recurso de conta de armazenamento, novamente tem escopo definido no nível do grupo de recursos de acesso superiores ou contribuinte. Armazenamento do Azure é, por predefinição, um fornecedor de recursos registado.
 - Tem o administrador ou utilizador o acesso ao Azure Active Directory Graph API. Para obter mais informações, consulte [do Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
 

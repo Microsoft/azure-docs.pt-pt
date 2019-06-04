@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 6bc7af30d409fb7add321953aa2e956a0a3c1840
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8ee96f2e06071d60eb97596687387fd80ba14cc3
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427773"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496281"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb-preview"></a>Tutorial: Copiar dados para o Azure dados caixa pesada através de SMB (pré-visualização)
 
@@ -227,7 +227,7 @@ Depois de se ligar à partilha de SMB, iniciar a cópia de dados.
 
     ![Transferir os ficheiros de erro](media/data-box-heavy-deploy-copy-data/download-error-files.png)
 
-    Para obter mais informações, consulte [ver registos de erros durante a cópia de dados para dados de caixa pesada](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Para obter uma lista detalhada de erros durante a cópia de dados, consulte [problemas de resolução de problemas de dados de caixa pesada](data-box-troubleshoot.md).
+    Para obter mais informações, consulte [ver registos de erros durante a cópia de dados para dados de caixa pesada](data-box-logs.md#view-error-log-during-data-copy). Para obter uma lista detalhada de erros durante a cópia de dados, consulte [problemas de resolução de problemas de dados de caixa pesada](data-box-troubleshoot.md).
 
 5. Abra o ficheiro de erro no bloco de notas. O seguinte ficheiro de erro indica que os dados não estão alinhados corretamente.
 

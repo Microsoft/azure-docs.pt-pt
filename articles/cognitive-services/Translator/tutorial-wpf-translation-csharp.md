@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d51c7b7c2e8d7f9774018f54a6639bebb882420
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653293"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471542"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com WPF
 
@@ -79,9 +79,9 @@ Vamos adicionar assemblies ao nosso projeto para serializar e desserializar obje
 1. Localize o seu projeto no Explorador de soluções do Visual Studio (painel direito). Clique com o botão direito do rato no seu projeto, em seguida, selecione **adicionar > referência...** , que abre **Gestor de referências**.
    ![Adicionar referências ao assembly](media/add-assemblies-sample.png)
 2. O separador de assemblies apresenta uma lista de todos os assemblies do .NET Framework que estão disponíveis para referência. Utilize a barra de pesquisa no canto superior direito do ecrã para pesquisar essas referências e adicioná-los ao seu projeto:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. Depois de adicionar estas referências ao seu projeto, pode clicar em **OK** para fechar **Gestor de referências**.
 
 > [!NOTE]
@@ -114,8 +114,8 @@ O interfaceador de utilizador inclui estes componentes:
 | `ToLanguageComboBox` | ComboBox | Apresenta a mesma lista de idiomas como `FromComboBox`, mas é utilizado para selecionar o idioma é a tradução para o utilizador. |
 | `TextToTranslate` | TextBox | Permite ao utilizador introduzir texto para ser convertido. |
 | `TranslateButton` | Botão | Utilize este botão para traduzir texto. |
-| `TranslatedTextLabel` | Label | Apresenta a tradução. |
-| `DetectedLanguageLabel` | Label | Apresenta o idioma detetado do texto ser traduzida (`TextToTranslate`). |
+| `TranslatedTextLabel` | Etiqueta | Apresenta a tradução. |
+| `DetectedLanguageLabel` | Etiqueta | Apresenta o idioma detetado do texto ser traduzida (`TextToTranslate`). |
 
 > [!NOTE]
 > Estamos a criar este formulário com o código-fonte XAML, no entanto, é possível criar o formulário com o editor no Visual Studio.

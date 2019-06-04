@@ -6,14 +6,14 @@ ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/13/2017
+ms.date: 12/13/2018
 ms.reviewer: sngun
-ms.openlocfilehash: d7d68c2dbdf5ca32fb2936e92daafac838c97a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 372f2ffc6b64cefb93f8dfa17e1ba752fd81b538
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627138"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477842"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configurar a distribuição global do Azure Cosmos DB com a API de Tabela
 

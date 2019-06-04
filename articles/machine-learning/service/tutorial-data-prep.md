@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: dabb43cb2fe9b66d5d83d163b74d2f22354e33b8
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8b7bf5a0ece3927c7dbafdec9716b7c6f8dfbc0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418027"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474700"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para a modelação de regressão
 
@@ -92,7 +92,7 @@ import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> Certifique-se de que instalou a versão mais recente. Este tutorial não funcionará com o número de versão inferior 1.1.0
+> Certifique-se de que instalou a versão mais recente do pacote azureml.dataprep. Este tutorial não funcionará com o número de versão inferior 1.1.0
 
 ## <a name="load-data"></a>Carregar dados
 

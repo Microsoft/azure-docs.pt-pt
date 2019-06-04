@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 02/23/2017
+ms.date: 12/23/2018
 ms.author: sngun
-ms.openlocfilehash: d9ac2cb5e269f84b0a047d7838918492f9b83059
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 4f4d5f89e56211e9135dba33200751b59b508123
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298766"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478900"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Criar uma aplicação Web Python Flask com o Azure Cosmos DB
 
