@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0aab2250d6692d7db99c55b23604c08f5fe619a6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 3ca166b287858b3e42aeda1421d1733fe24c81ab
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235714"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479705"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Instruções de acompanhamento de utilização para criar vários folheio de uma conversa
 
@@ -389,7 +389,11 @@ Adicionou instruções na sua base de dados de conhecimento e testou o fluxo no 
 
 O [exibir texto e a ordem de exibição](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), devolvido na resposta JSON, que é suportado para edição pela [API de atualização](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
-CORRIGIR - precisa ir para o pai, em seguida, a coluna de resposta, em seguida, edite a resposta. 
+<!--
+
+FIX - Need to go to parent, then answer column, then edit answer. 
+
+-->
 
 ## <a name="next-steps"></a>Passos Seguintes
 

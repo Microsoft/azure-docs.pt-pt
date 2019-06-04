@@ -261,7 +261,7 @@ Para controlar quais as afirmações são emitidas e de onde vêm os dados, use 
 **Tipo de dados:** BLOBs JSON com uma ou mais entradas de esquema de afirmação
 
 **Resumo:** Esta propriedade define que afirmações estão presentes nos tokens de afetados pela política, além do conjunto de afirmações básica e o conjunto de declarações de núcleo.
-Para cada entrada de esquema de afirmação definida nessa propriedade, são necessárias determinadas informações. Especifique os dados proveniência (**valor** ou **par de ID de origem/**), e que os dados de afirmação é emitida em (**tipo de afirmação**).
+Para cada entrada de esquema de afirmação definida nessa propriedade, são necessárias determinadas informações. Especifique os dados proveniência (**valor** ou **par de ID de origem/** ), e que os dados de afirmação é emitida em (**tipo de afirmação**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de afirmação
 

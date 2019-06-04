@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60606360"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497314"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
 
@@ -28,7 +28,7 @@ Para utilizar o serviço de visão personalizada para classificação de imagens
 
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de visão personalizada no portal do Azure
-Para utilizar o serviço de visão personalizada, terá de criar recursos de formação de visão personalizada e predição no do [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Esta ação irá criar recursos de formação e predição. 
+Para utilizar o serviço de visão personalizada, terá de criar recursos de formação de visão personalizada e predição no [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Esta ação irá criar recursos de formação e predição. 
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
@@ -70,8 +70,8 @@ Para preparar o seu modelo com eficiência, utilize imagens com variedade visual
 * background
 * Estilo Visual
 * subject(s) indivíduo/agrupados
-* tamanho
-* tipo
+* size
+* type
 
 Além disso, certifique-se de que todas as imagens de formação cumpram os seguintes critérios:
 * formato. jpg,. png ou. bmp

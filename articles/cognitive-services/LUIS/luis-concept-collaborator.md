@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956993"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473526"
 ---
 # <a name="collaborating-with-other-authors"></a>Colaborar com outros autores
 
@@ -31,7 +31,7 @@ Ver [utilizador de inquilino do Azure Active Directory](luis-how-to-collaborate.
 
 ## <a name="luis-app-owner"></a>Proprietário da aplicação LUIS
 
-A conta que cria uma aplicação é o proprietário e cada aplicação tem um único proprietário. O proprietário está listado na aplicação **[configurações](luis-how-to-collaborate.md)** página. O proprietário pode eliminar a aplicação receber correio eletrónico quando 75% do limite mensal de atingir a quota de ponto final. 
+A conta que cria uma aplicação é o proprietário e cada aplicação tem um único proprietário. O proprietário está listado na aplicação **[configurações](luis-how-to-collaborate.md)** página. O proprietário recebe e-mail quando a quota de ponto final atinge 75% do limite mensal. 
 
 ## <a name="authorization-roles"></a>Funções de autorização
 LUIS não suporta funções diferentes para os proprietários e colaboradores com uma exceção. O proprietário é a única conta que pode eliminar a aplicação.
@@ -42,7 +42,7 @@ Se estiver interessado no controle de acesso ao modelo, considere dividir o mode
 LUIS não fornece a transferência de propriedade, no entanto, qualquer funcionário pode exportar a aplicação e, em seguida, crie uma aplicação através da importação é. Lembre-se de que a nova aplicação tem um ID de aplicação diferente. A nova aplicação precisa ser preparado, publicado e o novo ponto final utilizado.
 
 ## <a name="luis-app-collaborators"></a>Colaboradores de aplicação LUIS
-Um proprietário da aplicação pode adicionar os colaboradores a uma aplicação. O proprietário tem de adicionar o endereço de e-mail do funcionário na aplicação  **[configurações](luis-how-to-collaborate.md)**. O acesso do funcionário tem acesso total à aplicação. Se o acesso do funcionário elimina a aplicação, a aplicação é removida da conta do funcionário, mas continuará a ser a conta do proprietário. 
+Um proprietário da aplicação pode adicionar os colaboradores a uma aplicação. O proprietário tem de adicionar o endereço de e-mail do funcionário na aplicação  **[configurações](luis-how-to-collaborate.md)** . O acesso do funcionário tem acesso total à aplicação. Se o acesso do funcionário elimina a aplicação, a aplicação é removida da conta do funcionário, mas continuará a ser a conta do proprietário. 
 
 Se pretender partilhar várias aplicações com os colaboradores, cada aplicação tem de e-mail do colaborador adicionado. 
 

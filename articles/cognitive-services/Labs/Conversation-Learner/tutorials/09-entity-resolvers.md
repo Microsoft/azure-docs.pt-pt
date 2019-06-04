@@ -1,5 +1,5 @@
 ---
-title: Resoluções de entidade num modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Resoluções de entidade num modelo de aprendiz de conversação - serviços cognitivos do Azure | Documentos da Microsoft
 titleSuffix: Azure
 description: Saiba como utilizar resoluções de entidade no Aprendiz de conversação.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b5f5645a8b5d1d993f87d18503fe270f42c5de5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 51f74f504f0ad70c8c7f73be8ee6a05add685824
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390032"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475753"
 ---
 # <a name="entity-resolvers"></a>Resoluções de entidade
 
@@ -94,4 +94,4 @@ Comece na home page na IU da Web.
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Entradas alternativas](./10-alternative-inputs.md)
+> [Entidades de enumeração](./tutorial-enum-set-entity.md)

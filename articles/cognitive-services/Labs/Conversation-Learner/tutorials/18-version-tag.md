@@ -1,5 +1,5 @@
 ---
-title: Como utilizar a versão de marcação de mensagens em fila com um modelo de aprendiz de conversação - serviços cognitivos da Microsoft | Documentos da Microsoft
+title: Como utilizar a versão de marcação de mensagens em fila com um modelo de aprendiz de conversação - serviços cognitivos do Azure | Documentos da Microsoft
 titleSuffix: Azure
 description: Saiba como utilizar o controlo de versões e a etiquetagem com um modelo de aprendiz de conversação.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7a1d94700cf84068f918ecff4f4dd433358341e0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388404"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475719"
 ---
 # <a name="how-to-use-version-tagging"></a>Como utilizar a marcação de versão
 
@@ -109,4 +109,4 @@ Agora viu como funciona o controle de versão e como pode interagir com o Bot a 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Demonstração - reposição de palavra-passe](./demo-password-reset.md)
+> [Entidades de enumeração e ações de entidades de conjunto](./tutorial-enum-set-entity.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792683"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496930"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 O [ciclo de vida de desenvolvimento de base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) orienta-o sobre como gerir a sua BDC do início ao fim. Utilize estas melhores práticas para melhorar a sua base de dados de conhecimento e fornecer os melhores resultados para os utilizadores finais do seu bot de aplicação/bate-papo.
@@ -72,6 +72,9 @@ Certifique-se de que está fazendo o melhor uso dos recursos de classificação 
 ### <a name="choosing-a-threshold"></a>Escolher um limiar
 A pontuação de confiança de predefinição que é utilizada como um limiar é 50, no entanto, pode alterá-lo para a sua BDC com base nas suas necessidades. Uma vez que cada KB é diferente, deve testar e escolha o limiar de que é melhor adequado para seu KB. Leia mais sobre o [pontuação de confiança](../Concepts/confidence-score.md). 
 
+### <a name="choosing-ranker-type"></a>Escolher tipo classificador
+Por predefinição, o QnA Maker procura por meio de perguntas e respostas. Se quiser pesquisar apenas perguntas, para gerar uma resposta, utilize o `RankerType=QuestionOnly` no corpo POST da solicitação GenerateAnswer.
+
 ### <a name="add-alternate-questions"></a>Adicionar perguntas alternativas
 [Alternate perguntas](../How-To/edit-knowledge-base.md) melhorar a probabilidade de uma correspondência com uma consulta de utilizador. Perguntas alternativas são úteis quando existem múltiplas formas em que pode ser solicitada a mesma pergunta. Isto pode incluir alterações na estrutura da sentença e estilo do word.
 
@@ -103,7 +106,7 @@ Por exemplo, pode ter dois QnAs separados com as seguintes perguntas:
 |onde está o estacionamento *localização*|
 |onde está o caixa Eletrônico *localização*|
 
-Uma vez que estes dois QnAs são dizer com palavras muito semelhantes, essa semelhança poderia causar pontuações muito semelhantes para muitas consultas de utilizador que estão a dizer, como *"em que é o `<x>` localização"*. Em vez disso, tente claramente diferenciá-los com consultas como *"em que é a área de estacionamento"* e *"onde está o caixa Eletrônico"*, ao evitar palavras como "localização" que poderia ser em muitas perguntas em sua KB. 
+Uma vez que estes dois QnAs são dizer com palavras muito semelhantes, essa semelhança poderia causar pontuações muito semelhantes para muitas consultas de utilizador que estão a dizer, como *"em que é o `<x>` localização"* . Em vez disso, tente claramente diferenciá-los com consultas como *"em que é a área de estacionamento"* e *"onde está o caixa Eletrônico"* , ao evitar palavras como "localização" que poderia ser em muitas perguntas em sua KB. 
 
 ## <a name="collaborate"></a>Colaboração
 A ferramenta QnA Maker permite que os usuários [colaborar](../How-to/collaborate-knowledge-base.md) numa base de dados de conhecimento. Os utilizadores precisam de acesso para o grupo de recursos do Azure QnA Maker para acessar as bases de dados de conhecimento. Algumas organizações poderão querer terceirizar a edição de base de dados de conhecimento e a manutenção e continuará a poder proteger o acesso aos seus recursos do Azure. Esse modelo de aprovador de editor é feito ao configurar dois idêntico [serviços do QnA Maker](../How-to/set-up-qnamaker-service-azure.md) em diferentes subscrições e selecionando um para o ciclo de teste de edição. Assim que o teste estiver concluído, o conteúdo de base de dados é transferido com um [importação-exportação](../Tutorials/migrate-knowledge-base.md) processos para o serviço QnA Maker do aprovador que finalmente publicar a base de dados de conhecimento e atualizar o ponto final.

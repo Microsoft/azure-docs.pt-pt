@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813918"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473586"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Criação e a consulta a chaves do ponto final de predição em LUIS
 LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md), [atribuí-la](luis-how-to-azure-subscription.md) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 
@@ -49,11 +49,11 @@ Quando precisar **consultas de ponto final de produção**, crie um recurso do A
 
 Quando o processo de criação de recursos do Azure estiver concluído, [atribuir a chave](luis-how-to-azure-subscription.md) para a aplicação. 
 
-    * A chave de ponto final permite uma quota de acertos de ponto final com base no plano de utilização que especificou ao criar a chave. Ver [preços de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) para informações sobre preços.
+* A chave de ponto final permite uma quota de acertos de ponto final com base no plano de utilização que especificou ao criar a chave. Ver [preços de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) para informações sobre preços.
 
-    * A chave de ponto final pode ser utilizada para todas as aplicações do LUIS ou para aplicações específicas do LUIS. 
+* A chave de ponto final pode ser utilizada para todas as aplicações do LUIS ou para aplicações específicas do LUIS. 
 
-    * Não utilize a chave de ponto final para a criação de aplicações do LUIS. 
+* Não utilize a chave de ponto final para a criação de aplicações do LUIS. 
 
 ## <a name="use-endpoint-key-in-query"></a>Chave de ponto final de utilização na consulta
 O ponto de extremidade do LUIS aceita dois estilos de consulta, ambos utilizam mas de chave, o ponto final em locais diferentes:
