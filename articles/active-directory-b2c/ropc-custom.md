@@ -269,7 +269,7 @@ Utilize a sua aplicação de desenvolvimento de API favorita para gerar uma cham
 
 | Chave | Value |
 | --- | ----- |
-| o nome de utilizador | `user-account` |
+| username | `user-account` |
 | password | `password1` |
 | grant_type | password |
 | scope | openid `application-id` offline_access |
@@ -317,7 +317,7 @@ Construa uma chamada POST, como o mostrado aqui. Utilize as informações na tab
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | `application-id` |
-| Recurso | `application-id` |
+| resource | `application-id` |
 | refresh_token | `refresh-token` |
 
 - Substitua `application-id` com o ID de aplicação a partir de *ROPC_Auth_app* registo.
