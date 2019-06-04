@@ -92,7 +92,7 @@ A atividade Pig do HDInsight numa fábrica de dados [pipeline](data-factory-crea
 | outputs |Um ou mais saídas produzidas pela atividade Pig |Sim |
 | linkedServiceName |Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory |Sim |
 | script |Especifique o inline de script Pig |Não |
-| scriptPath |Store o script Pig num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
+| caminho do script |Store o script Pig num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
 | defines |Especifique parâmetros como pares chave/valor para fazer referência no Pig script |Não |
 
 ## <a name="example"></a>Exemplo
@@ -211,7 +211,7 @@ Para utilizar o script de Pig parametrizada, faça o seguinte:
       }
     }
     ```
-* No Pig Script, consulte os parâmetros com '**$parameterName**' conforme mostrado no exemplo a seguir:
+* No Pig Script, consulte os parâmetros com ' **$parameterName**' conforme mostrado no exemplo a seguir:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

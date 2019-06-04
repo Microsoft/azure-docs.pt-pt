@@ -56,7 +56,7 @@ As seguintes propriedades são suportadas para o serviço ligado do ODBC:
 | authenticationType | Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC.<br/>Valores permitidos são: **Básica** e **anônimo**. | Sim |
 | userName | Especifique o nome de utilizador se estiver a utilizar autenticação básica. | Não |
 | password | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
-| credential | A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marca esse campo como uma SecureString. | Não |
+| credencial | A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marca esse campo como uma SecureString. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo 1: usando a autenticação básica**
