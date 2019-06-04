@@ -71,7 +71,7 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 | --- | --- | --- |
 | type |A propriedade de tipo tem de ser definida como: **Salesforce**. |Sim |
 | environmentUrl | Especifique a instância de URL do Salesforce. <br><br> -Predefinição é "https:\//login.salesforce.com". <br> -Para copiar dados de proteção de segurança, especifique "https://test.salesforce.com". <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
-| o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
+| username |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | password |Especifique uma palavra-passe da conta de utilizador. |Sim |
 | securityToken |Especifique um token de segurança da conta de utilizador. Ver [obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como repor/obter um token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Sim |
 
@@ -98,7 +98,7 @@ Na atividade de cópia, quando a origem é do tipo **RelationalSource** (que inc
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Uma consulta de SQL-92 ou [linguagem de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta. Por exemplo: `select * from MyTable__c`. |Não (se o **tableName** da **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Uma consulta de SQL-92 ou [linguagem de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta. Por exemplo: `select * from MyTable__c`. |Não (se o **tableName** da **conjunto de dados** for especificado) |
 
 > [!IMPORTANT]
 > A parte de "__c" o nome da API é necessário para qualquer objeto personalizado.
