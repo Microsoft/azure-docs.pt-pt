@@ -329,14 +329,14 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| nome | Nome da atividade no pipeline. | Sim |
+| name | Nome da atividade no pipeline. | Sim |
 | description | Texto que descreve o que faz a atividade. | Não |
-| tipo | Esta propriedade tem de ser definida para HDInsightSpark. | Sim |
+| type | Esta propriedade tem de ser definida para HDInsightSpark. | Sim |
 | linkedServiceName | Nome do serviço ligado do HDInsight em que o programa Spark é executado. | Sim |
 | rootPath | O contentor de BLOBs e a pasta que contém o ficheiro de Spark. O nome de ficheiro diferencia maiúsculas de minúsculas. | Sim |
 | entryFilePath | Caminho relativo para a pasta raiz do código/pacote Spark. | Sim |
 | className | Classe de principal de Java/Spark do aplicativo. | Não |
-| argumentos | Uma lista de argumentos da linha de comandos para o programa Spark. | Não |
+| arguments | Uma lista de argumentos da linha de comandos para o programa Spark. | Não |
 | proxyUser | A conta de utilizador para representar a execução do programa Spark. | Não |
 | sparkConfig | Especifique valores para as propriedades de configuração de Spark listadas na [configuração de Spark: Propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não |
 | getDebugInfo | Especifica quando os ficheiros de registo do Spark são copiados para o armazenamento utilizado pelo cluster do HDInsight (ou) especificado pelo sparkJobLinkedService. Valores permitidos são nenhum, sempre ou falha. O valor predefinido é nenhum. | Não |
