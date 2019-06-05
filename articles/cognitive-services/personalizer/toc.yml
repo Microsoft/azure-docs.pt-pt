@@ -27,6 +27,9 @@
         - name: Apresenta a Ação e Contexto
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Aprendizagem ativa
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
         - name: Recompensas
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -44,7 +47,7 @@
   items:
     - name: Criar e configurar o Personalizador
       href: how-to-settings.md
-      displayName: 'azure, portal, settings, evaluation, offline, policy'
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
     - name: Analisar
       items:
         - name: Avaliação offline

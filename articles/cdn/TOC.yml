@@ -42,7 +42,7 @@
       href: cdn-pop-list-api.md
     - name: Migrar do Standard Verizon para o Premium Verizon
       href: cdn-migrate.md
-    - name: Proteção contra DDOS
+    - name: Proteção contra DDoS
       href: cdn-ddos.md
 - name: Guias de procedimentos
   items:
@@ -94,7 +94,7 @@
         - name: Monitorizar recursos
           href: cdn-resource-health.md
         - name: Substituir comportamento por regras
-          href: cdn-rules-engine.md
+          href: cdn-verizon-premium-rules-engine.md
         - name: Utilizar o Gestor de Tráfego
           href: cdn-traffic-manager.md
     - name: Analisar
@@ -134,15 +134,15 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Referência
   items:
-    - name: Referência do motor de regras
-      href: cdn-rules-engine-reference.md
+    - name: Referência do motor de regras Premium da Verizon
+      href: cdn-verizon-premium-rules-engine-reference.md
       items:
         - name: Expressões condicionais do motor de regras
-          href: cdn-rules-engine-reference-conditional-expressions.md
+          href: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
         - name: Condições de correspondência do motor de regras
-          href: cdn-rules-engine-reference-match-conditions.md
+          href: cdn-verizon-premium-rules-engine-reference-match-conditions.md
         - name: Funcionalidades do motor de regras
-          href: cdn-rules-engine-reference-features.md
+          href: cdn-verizon-premium-rules-engine-reference-features.md
         - name: Variáveis de HTTP
           href: cdn-http-variables.md
     - name: Cabeçalhos de HTTP específicos da Verizon
@@ -158,8 +158,6 @@
       href: /java/api/com.microsoft.azure.management.cdn
     - name: REST
       href: /rest/api/cdn/
-    - name: Modelo do Resource Manager
-      href: /azure/templates/microsoft.cdn/allversions
 - name: Recursos
   items:
     - name: Localizações POP da CDN do Azure

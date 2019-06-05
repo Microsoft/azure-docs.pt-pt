@@ -7,34 +7,10 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar um cluster e uma base de dados
-      items:
-        - name: Portal do Azure
-          href: create-cluster-database-portal.md
-        - name: CLI do Azure
-          href: create-cluster-database-cli.md
-        - name: PowerShell
-          href: create-cluster-database-powershell.md
-        - name: 'C#'
-          href: create-cluster-database-csharp.md
-        - name: Python
-          href: create-cluster-database-python.md
-    - name: Ingerir dados
-      items:
-        - name: Transmissão de dados - Hub de Eventos
-          href: ingest-data-event-hub.md
-        - name: Transmissão de dados - Event Grid
-          href: ingest-data-event-grid.md
-        - name: Transmissão de dados - Kafka
-          href: ingest-data-kafka.md
-        - name: Criação de lotes de dados - Python
-          href: python-ingest-data.md
-        - name: Colocação de dados em lotes - SDK Node
-          href: node-ingest-data.md
-        - name: Colocar dados em lote - SDK .NET Standard
-          href: net-standard-ingest-data.md
-        - name: Criação de batches de dados - Logstash
-          href: ingest-data-logstash.md
+    - name: Criar um cluster e uma base de dados - portal do Azure
+      href: create-cluster-database-portal.md
+    - name: Ingerir dados de exemplo
+      href: ingest-sample-data.md
     - name: Consultar dados
       items:
         - name: IU da Web
@@ -52,12 +28,38 @@
     - name: Descrição geral da ingestão de dados
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
+    - name: Descrição geral da visualização de dados
+      href: viz-overview.md
 - name: Guias de procedimentos
   items:
-    - name: Introdução
+    - name: Criar um cluster e uma base de dados
       items:
-        - name: Ingerir dados de exemplo
-          href: ingest-sample-data.md
+        - name: CLI do Azure
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Ingerir dados
+      items:
+        - name: Hub de Eventos
+          href: ingest-data-event-hub.md
+        - name: Event Grid
+          href: ingest-data-event-grid.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Python
+          href: python-ingest-data.md
+        - name: SDK de Node
+          href: node-ingest-data.md
+        - name: SDK .NET Standard
+          href: net-standard-ingest-data.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: Copiar dados com o Azure Data Factory
+          href: data-factory-load-data.md
     - name: Implementação
       items:
         - name: Tarefa de DevOps
@@ -82,10 +84,14 @@
               href: power-bi-imported-query.md
             - name: Consulta SQL
               href: power-bi-sql-query.md
+        - name: Conector ODBC
+          href: connect-odbc.md
         - name: Sisense
           href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Tableau
+          href: tableau.md
     - name: Gerir
       items:
         - name: Gerir permissões da base de dados
@@ -100,11 +106,11 @@
           href: delete-data.md
         - name: Lidar com dados duplicados
           href: dealing-with-duplicates.md
-    - name: Monitorização
+    - name: Monitorizar
       items:
         - name: Utilizar métricas para monitorizar o estado de funcionamento do cluster
           href: using-metrics.md
-    - name: Trabalhar com outras ferramentas
+    - name: Integrar com outras ferramentas
       items:
         - name: Conector do Apache Spark
           href: spark-connector.md
@@ -112,10 +118,6 @@
           href: connect-from-databricks.md
         - name: Analisar dados no Jupyter Notebook e Kqlmagic
           href: kqlmagic.md
-        - name: Copiar dados com o Azure Data Factory
-          href: data-factory-load-data.md
-        - name: Entrar em contacto com o ODBC
-          href: connect-odbc.md
     - name: Resolução de problemas
       items:
         - name: Criar um cluster

@@ -96,9 +96,9 @@
         - name: Criar e publicar uma base de dados de conhecimento
           href: Quickstarts/create-publish-knowledge-base.md
           displayName: 'create bot, bot, publish to bot, test, edit'
-        - name: Obter resposta
+        - name: Obter resposta com metadados
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
         - name: Criar bot com base de dados de conhecimento ativada
           href: Tutorials/integrate-qnamaker-luis.md
         - name: Criar uma base de dados de conhecimento num idioma diferente
