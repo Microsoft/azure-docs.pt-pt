@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6bd7a014e765d32349951d99d3027c90f61f7eb7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2befe553cc19fc2a20f506fa8e505623c3f3f452
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118014"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514605"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Como inscrever-se para a API de texto do tradutor
 

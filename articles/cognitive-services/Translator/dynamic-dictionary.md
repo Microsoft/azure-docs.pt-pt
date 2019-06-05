@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 72c23270d6e8cdef55f07d0b702fd1858a7710f8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: d3a77ee9273e9f587b6157bb6ed2294865b1fca5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389560"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514249"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Como utilizar a funcionalidade de dicionário dinâmica da API de texto do tradutor
+# <a name="how-to-use-a-dynamic-dictionary"></a>Como utilizar um dicionário dinâmico
 
 Se já sabe a tradução que pretende aplicar a uma palavra ou frase, pode fornecer como marcação dentro do pedido. O dicionário dinâmico só é seguro para substantivos compostos, como nomes próprios e nomes de produtos.
 
