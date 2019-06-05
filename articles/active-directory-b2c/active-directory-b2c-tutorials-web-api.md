@@ -2,20 +2,20 @@
 title: Tutorial - conceder acesso a uma API web ASP.NET - Azure Active Directory B2C | Documentos da Microsoft
 description: Tutorial sobre como utilizar o Active Directory B2C para proteger uma API web ASP.NET e chamá-lo a partir de uma aplicação web ASP.NET.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 77e3eaeffba862c727e021427e5f27967fcf35bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6b93a7848e5c8516507c825d3064fb61a404e3cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687985"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507754"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API através do Azure Active Directory B2C web ASP.NET
 
@@ -135,7 +135,7 @@ São os seguintes dois projetos na solução de exemplo:
 
 Tem de executar os dois projetos, **TaskWebApp** e **TaskService**. 
 
-1. No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Definir Projetos de Arranque...**. 
+1. No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Definir Projetos de Arranque...** . 
 2. Selecione **vários projetos de arranque**.
 3. Altere a **Ação** em ambos os projetos para **Iniciar**.
 4. Clique em **OK** para guardar a configuração.

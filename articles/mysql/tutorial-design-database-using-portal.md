@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Conceber uma base de dados do Azure para MySQL com o portal do Azure'
-description: Este tutorial explica como criar e gerir a Base de Dados do Azure para o servidor MySQL e a base de dados através do Portal do Azure.
+description: Este tutorial explica como criar e gerir a base de dados do Azure para servidor MySQL e base de dados com o portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 0b637ab5f2b6234fed301a60ee1857960a464a33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342786"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515842"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Criar uma base de dados do Azure para MySQL com o portal do Azure
 A Base de Dados do Azure para MySQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados MySQL de alta disponibilidade na cloud. No portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
@@ -58,6 +58,9 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
     Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 5*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
     
    ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > Com o **aumento automático** ativado para o seu servidor aumenta o armazenamento, quando está prestes a atingir o limite alocado, sem afetar a carga de trabalho.
 
 3. Clique em **Criar**. Num ou dois minutos, uma nova Base de Dados do Azure para o servidor MySQL estará em execução na cloud. Pode clicar no botão **Notificações** na barra de ferramentas para monitorizar o processo de implementação.
 

@@ -8,14 +8,14 @@ manager: erhopf
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 441aa1cd0c43b50c8c1212e7ba8840ed97a890d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 723e7e33a043f3700b562cf50a6f75539741507f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468079"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515223"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento de sentença com Go
 

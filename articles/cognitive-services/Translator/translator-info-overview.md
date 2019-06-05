@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89b836109818f7a4c1aafdbc9a1b3a72fe806269
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60609083"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515033"
 ---
-# <a name="what-is-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
+# <a name="what-is-the-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
 
 A API de Texto do Microsoft Translator é fácil de integrar nas suas aplicações, sites, ferramentas e soluções. Pode adicionar experiências de utilizador de vários idiomas em [mais de 60 idiomas](languages.md) e pode ser utilizada em qualquer plataforma de hardware com qualquer sistema operativo para a tradução de idioma de texto para texto.
 

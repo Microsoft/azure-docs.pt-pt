@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 33e60161deb54f1df3f9e2bf0182ba494005bdb9
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: f2d5a9d5564b6136601a003e01a3c58cac5a74e3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604334"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514875"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto com Java
 

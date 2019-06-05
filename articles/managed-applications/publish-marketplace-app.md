@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/10/2018
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572579"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688558"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 
@@ -42,7 +42,7 @@ Além disso, existem vários pré-requisitos empresariais. São:
 Para se tornar um editor no Azure Marketplace, tem de:
 
 1. Criar um ID da Microsoft - Crie a sua conta Microsoft com um endereço de e-mail que pertença ao domínio da sua empresa, mas não a um único indivíduo. Este endereço de e-mail é utilizado para o Centro para Programadores da Microsoft e o Cloud Partner Portal. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
-1. Submeter o [Formulário de Nomeação do Azure Marketplace](https://aka.ms/ampnomination) - Para **Que solução quer publicar?**, selecione **Aplicação Gerida**. Depois de o formulário ser submetido, a equipa de inclusão do Marketplace revê a candidatura e valida o pedido. O processo de aprovação pode demorar entre um a três dias. Quando a nomeação for aprovada, receberá um código promocional para renunciar a taxa de registo do centro para programadores. Se **não** preencher o Formulário de Nomeação do Marketplace, é-lhe solicitado que pague uma taxa de registo de $99.
+1. Submeter [formulário de nomeação do Azure Marketplace](https://aka.ms/ampnomination) – para **solução que pretende publicar?** selecionar **Managed Application**. Depois de o formulário ser submetido, a equipa de inclusão do Marketplace revê a candidatura e valida o pedido. O processo de aprovação pode demorar entre um a três dias. Quando a nomeação for aprovada, receberá um código promocional para renunciar a taxa de registo do centro para programadores. Se **não** preencher o Formulário de Nomeação do Marketplace, é-lhe solicitado que pague uma taxa de registo de $99.
 1. Registar no [Developer Center](https://dev.windows.com/registration?accountprogram=azure) -Microsoft valida que a sua organização é uma entidade legal válida com um ID de imposto sobre válido para o país/região na qual está registado. O processo de aprovação pode demorar entre 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu no e-mail do processo de nomeação. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
 1. Inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com) – No perfil do editor, associe a sua conta do Centro para Programadores ao Perfil de Editor do Marketplace. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
 
@@ -102,7 +102,9 @@ Um SKU aparece na oferta principal no marketplace. É apresentado como a sua pr�
    Preencha os seguintes campos:
 
    * **Versão**: Introduza uma versão para o pacote que carrega. Deverá estar no formato `{number}.{number}.{number}{number}`.
-   * **Ficheiro de pacote (. zip)**: Este pacote contém ficheiros necessários dois compactados num pacote. zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
+   * **Ficheiro de pacote (. zip)** : Este pacote contém ficheiros necessários dois compactados num pacote. zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
+   * **ID do inquilino**: O ID de inquilino para a conta para obter acesso.
+   * **Ativar o acesso JIT**: Selecione **Sim** para ativar [controlo de acesso just-in-time](request-just-in-time-access.md) para a conta. Quando ativada, solicitar o acesso à conta do consumidor durante um período de tempo especificado. Para exigir que os consumidores do seu aplicativo gerenciado concedem o acesso permanente de conta, selecione **não**.
    * **PrincipalId**: Esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, o grupo de utilizadores ou a aplicação que é concedida acesso aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
    * **Definição de função**: Esta propriedade é uma lista de todos os as controlo de acesso baseado em funções (RBAC) funções incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
    * **Definições de política**: Aplicar uma [do Azure Policy](../governance/policy/overview.md) para seu aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implementadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../governance/policy/samples/index.md).
@@ -117,7 +119,7 @@ O formulário do Marketplace pede campos que aparecem no [Azure Marketplace](htt
 
 ### <a name="preview-subscription-ids"></a>Pré-visualizar IDs de subscrição
 
-Introduza uma lista de IDs de subscrição do Azure que possa aceder à oferta depois da sua publicação. Pode utilizar estas subscrições permitidas para testar a oferta pré-visualizada antes de publicá-la. Pode compilar uma lista de permissão com um máximo de 100 subscrições no portal de parceiros.
+Introduza uma lista de IDs de subscrição do Azure que possa aceder à oferta depois da sua publicação. Pode utilizar estas subscrições permitidas para testar a oferta pré-visualizada antes de publicá-la. Pode compilar uma lista de permissões de até 100 subscrições no portal de parceiros.
 
 ### <a name="suggested-categories"></a>Categorias sugeridas
 

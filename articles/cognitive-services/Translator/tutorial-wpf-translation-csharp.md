@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 3d51c7b7c2e8d7f9774018f54a6639bebb882420
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 2deaa0ed8b21d5e091fe5d3b3e6986eaf2340281
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/04/2019
-ms.locfileid: "66471542"
+ms.locfileid: "66514715"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com WPF
 

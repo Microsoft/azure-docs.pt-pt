@@ -70,8 +70,6 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'
     - name: API de Predição de Visão Personalizada
       href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: Glossário
-      href: glossary-of-terms.md
     - name: SDKs
       items:
         - name: .NET

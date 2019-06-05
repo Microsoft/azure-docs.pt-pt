@@ -147,16 +147,12 @@
       items:
         - name: Arquitetura do Duplo OPC
           href: overview-opc-twin-architecture.md
-        - name: Arquitetura da Fábrica Ligada
-          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Guias de procedimentos
       items:
         - name: Fábrica Ligada
           items:
             - name: Utilizar o dashboard
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Implementar um gateway
-              href: iot-accelerators-connected-factory-gateway-deployment.md
             - name: Utilizar o publicador OPC
               href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Configurar o acelerador de soluções

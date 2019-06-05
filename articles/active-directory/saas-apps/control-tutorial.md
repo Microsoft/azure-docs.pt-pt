@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integração do Active Directory do Azure com o controlo | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o controle.
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a continuidade do controle.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 569021d79e74bc7a5a2582741109e1094ba90de8
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: aa66ae77ccc271e475d61b286e0f236429e40feb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65862697"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507515"
 ---
-# <a name="tutorial-integrate-control-with-azure-active-directory"></a>Tutorial: Integrar o controle com o Azure Active Directory
+# <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Tutorial: Integrar o controle de continuidade com o Azure Active Directory
 
-Neste tutorial, irá aprender como integrar o controle com o Azure Active Directory (Azure AD). Quando integrar o controle com o Azure AD, pode:
+Neste tutorial, irá aprender como integrar o controle de continuidade (controlo) com o Azure Active Directory (Azure AD). Quando integrar o controle com o Azure AD, pode:
 
-* Controlar no Azure AD que tenha acesso ao controle.
+* Gerir no Azure AD que tenha acesso ao controle.
 * Permita que os utilizadores ser automaticamente sessão iniciada para controlar com as suas contas do Azure AD.
 * Gira as suas contas num local central – portal do Azure.
 
@@ -38,7 +38,7 @@ Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [
 Para começar, terá dos seguintes itens:
 
 * Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter a versão de avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* Controlo de sessão único (SSO) ativado na subscrição.
+* Um controlo de sessão único (SSO) ativado na subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -83,7 +83,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<SUBDOMAIN>.continuity.net/auth/saml`
 
     > [!Note]
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de controlo](mailto:help@continuity.net) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor não é real. Atualize o valor com o subdomínio correto. O subdomínio SSO pode ser configurado nos [estratégias de autenticação de controle](https://control.continuity.net/settings/account_profile#tab/security). Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 1. Na **certificado de assinatura SAML** secção, clique em **editar** botão para abrir **certificado de assinatura SAML** caixa de diálogo.
 
@@ -93,19 +93,13 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     ![Copie o valor do Thumbprint](common/copy-thumbprint.png)
 
-1. Sobre o **configurar o controlo** secção, copie os URLs apropriados de acordo com seus requisitos.
+1. Sobre o **configurar o controlo** secção, copie o URL de início de sessão e guarde-o no seu computador.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
-
-    b. Identificador do Azure AD
-
-    c. URL de fim de sessão
-
 ### <a name="configure-control-sso"></a>Configurar o controlo de SSO
 
-Para configurar o início de sessão único num **controlo** lado, terá de enviar o **valor do Thumbprint** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de controlo](mailto:help@continuity.net). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único no **controlo** lado, tem de atualizar as definições de autenticação de início de sessão único na [estratégias de autenticação de controle](https://control.continuity.net/settings/account_profile#tab/security). Atualização **URL de SSO SAML** com o **URL de início de sessão** e **impressão digital do certificado** com o **valor do Thumbprint** do portal do Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -139,7 +133,7 @@ Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure início de sessã
 
 ### <a name="create-control-test-user"></a>Criar utilizador de teste de controle
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no controle. Trabalhar com [equipa de suporte de controlo](mailto:help@continuity.net) para adicionar os utilizadores na plataforma do controle. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no controle. Trabalhar com [equipa de suporte de controlo](mailto:help@continuity.net) para adicionar os utilizadores na plataforma do controle. Utilizar a Eduarda Almeida do Azure AD **nome de utilizador** para preencher ela **ID de utilizador do fornecedor de identidade** no controle. Os utilizadores têm de ser criados e seus **ID de utilizador do fornecedor de identidade** definido, num controlo antes de poderem utilizar o início de sessão único.
 
 ### <a name="test-sso"></a>Teste SSO
 

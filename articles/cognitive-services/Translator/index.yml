@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/21/2019
+  ms.date: 06/04/2019
   ms.author: v-jansko
 abstract:
   description: 'A Tradução de Texto é um serviço de tradução automática com base na cloud que pode utilizar para traduzir texto quase em tempo real através de uma simples chamada à API REST. A API utiliza uma tecnologia de tradução automática neural e oferece tecnologia de tradução automática estatística. O Custom Translator é uma extensão da API de Texto do Microsoft Translator, que lhe permite criar sistemas de tradução neural. O sistema de tradução personalizado pode ser utilizado para traduzir texto com a API de Texto do Microsoft Translator ou com os <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Serviços de Voz da Microsoft</a>. Para obter a lista de idiomas suportados de ambos os tipos de tradução automática, neural e estatística, veja o artigo <a href="languages.md">Idiomas suportados</a>.'

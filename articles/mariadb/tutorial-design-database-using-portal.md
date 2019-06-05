@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 1eb24d90c3aefa81f53a3e31c0bd460f45e5a250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1938a84d3e9c0ba8c84cbdbd2eee5b7ca448554d
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626392"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515672"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar uma base de dados do Azure para MariaDB base de dados com o portal do Azure
 
@@ -63,6 +63,9 @@ Vai criar um Azure Database for MariaDB Server com um conjunto definido de [recu
     Escalão de preço | Veja a descrição. | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço** > **Fins Gerais**. Mantenha os valores predefinidos para as seguintes definições:<br><ul><li>**Geração de Computação** (Ger 5)</li><li>**vCore** (4 vCores)</li><li>**Armazenamento** (100 GB)</li><li>**Período de Retenção da Cópia de Segurança** (7 dias)</li></ul><br>Para ativar as cópias de segurança do servidor no armazenamento georredundante, em **Backup Redundancy Options** (Opções de Redundância da Cópia de Segurança), selecione **Geographically Redundant** (Geograficamente Redundante). <br><br>Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
     
    ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > Com o **aumento automático** ativado para o seu servidor aumenta o armazenamento, quando está prestes a atingir o limite alocado, sem afetar a carga de trabalho.
 
 4. Selecione **Criar**. Em menos de dois minutos, um novo Azure Database for MariaDB Server estará em execução na cloud. Para monitorizar o processo de implementação, selecione **Notificações** na barra de ferramentas.
 

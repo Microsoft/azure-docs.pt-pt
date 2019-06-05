@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 52b5291e4b56b5065b9dddd5b8908ade0c1a8387
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66019835"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515639"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: Prever o preço de automóvel com a interface visual
 
@@ -80,11 +80,11 @@ Se não concluir o início rápido, siga estes passos para criar rapidamente uma
 
 1. Criar uma nova experimentação selecionando **+ novo** na parte inferior da janela de visual interface.
 
-1. Selecione **experimentação** >  **em branco experimentação**.
+1. Selecione **experimentações** >  **em branco experimentação**.
 
 1. Selecione o nome predefinido da experimentação **"as minhas experiências criado em...** "na parte superior da tela e renomeá-lo para algo significativo. Por exemplo, **predição do preço automóvel**. O nome não tem de ser exclusivo.
 
-1. À esquerda da tela da experimentação existe uma paleta de conjuntos de dados e módulos. Para localizar os módulos, utilize a caixa de pesquisa na parte superior da paleta do módulo. Tipo **automóvel** na caixa de pesquisa para encontrar o conjunto de dados denominado **dados de preço do automóvel (bruto)**. Arraste este conjunto de dados para a tela da experimentação.
+1. À esquerda da tela da experimentação existe uma paleta de conjuntos de dados e módulos. Para localizar os módulos, utilize a caixa de pesquisa na parte superior da paleta do módulo. Tipo **automóvel** na caixa de pesquisa para encontrar o conjunto de dados denominado **dados de preço do automóvel (bruto)** . Arraste este conjunto de dados para a tela da experimentação.
 
     ![Captura de ecrã como encontrar o conjunto de dados de preços de automóveis](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
 
@@ -114,7 +114,7 @@ Se não concluir o início rápido, siga estes passos para criar rapidamente uma
 
 1. Tipo **Clean** na caixa de pesquisa para localizar o **Clean Missing Data** módulo. Arrastar o **apagar dados em falta** módulo para a experimentação tela e ligá-la para o **Select Columns in Dataset** módulo.
 
-1. No painel **Properties**, selecione **Remove entire row (Remover linha inteira)**, em **Cleaning mode (Modo de limpeza)**. Estas opções direct **Clean Missing Data** para limpar os dados ao remover as linhas que tenham valores em falta. Clique duas vezes no módulo e escreva o comentário "Remover linhas de valor em falta".
+1. No painel **Properties**, selecione **Remove entire row (Remover linha inteira)** , em **Cleaning mode (Modo de limpeza)** . Estas opções direct **Clean Missing Data** para limpar os dados ao remover as linhas que tenham valores em falta. Clique duas vezes no módulo e escreva o comentário "Remover linhas de valor em falta".
 
 ![Captura de ecrã que mostra o configuração correta do módulo apagar dados em falta](./media/ui-tutorial-automobile-price-train-score/clean-missing-data.png)
 
@@ -167,7 +167,7 @@ Agora que Treinou o modelo usando 70 por cento dos seus dados, pode usá-lo para
 
 1. Tipo **modelo de pontuação** na caixa de pesquisa para localizar o **Score Model** módulo e arraste o módulo para a tela da experimentação. Ligue a saída dos **Train Model** porta de entrada do módulo para a esquerda **Score Model**. Ligue a saída de dados teste (porta direita) a do **Split Data** porta de entrada do módulo para a direita **Score Model**.
 
-1. Tipo **avaliar** na caixa de pesquisa para localizar o **Evaluate Model** e arraste o it módulo para a tela da experimentação. Ligue a saída dos **modelo de pontuação** módulo à entrada da esquerda de **Evaluate Model**. A experimentação final deve ter este aspeto:
+1. Tipo **avaliar** na caixa de pesquisa para localizar o **Evaluate Model** e arraste o módulo para a tela da experimentação. Ligue a saída dos **modelo de pontuação** módulo à entrada da esquerda de **Evaluate Model**. A experimentação final deve ter este aspeto:
 
     ![Captura de ecrã que mostra a configuração correta final da experimentação.](./media/ui-tutorial-automobile-price-train-score/final-graph.png)
 
@@ -183,8 +183,8 @@ Agora que Treinou o modelo usando 70 por cento dos seus dados, pode usá-lo para
 
 As estatísticas seguintes são apresentadas para o modelo:
 
-* **Significa que o erro absoluto (MAE)**: A média dos erros absolutos (um erro é a diferença entre o valor previsto e o valor real).
-* **Média de raiz ao quadrado erro (RMSE)**: A raiz quadrada da média dos erros ao quadrado das predições efetuadas no conjunto de dados de teste.
+* **Significa que o erro absoluto (MAE)** : A média dos erros absolutos (um erro é a diferença entre o valor previsto e o valor real).
+* **Média de raiz ao quadrado erro (RMSE)** : A raiz quadrada da média dos erros ao quadrado das predições efetuadas no conjunto de dados de teste.
 * **Erro relativo absoluto**: A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
 * **Relativo ao quadrado erro**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
 * **Coeficiente de determinação**: Também conhecido como o R ao quadrado valor, esta é uma métrica de estatística que indica o quão bem um modelo é adequado para os dados.

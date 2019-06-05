@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 5/16/2019
-ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 94988f4f287730c69b51e44bcbfa4e3d63d139fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069162"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515705"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL - servidor único com o portal do Azure
 
@@ -54,7 +54,7 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
     Grupo de recursos|*myresourcegroup*| Um nome de grupo de recursos novo ou um já existente na sua subscrição.
     Nome do servidor |*mydemoserver*|Um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome de domínio *postgres.database.azure.com* é acrescentado ao nome de servidor que indicar. O servidor só pode conter letras minúsculas, números e o caráter de hífen (-). Tem de conter, pelo menos, 3 a 63 carateres.
     Origem de dados | *Nenhum* | Selecione *None* para criar um novo servidor a partir do zero. (Selecione *Cópia de segurança* se estiver a criar um servidor a partir de uma cópia de segurança geo de um servidor da Base de Dados do Azure para PostgreSQL existente).
-    Nome de utilizador de administrador |*myadmin*| A sua própria conta de início de sessão quando se ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** ou **public**. Não pode começar por **pg_**.
+    Nome de utilizador administrador |*myadmin*| A sua própria conta de início de sessão quando se ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** ou **public**. Não pode começar por **pg_** .
     Palavra-passe |A sua palavra-passe| Uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números (0 a 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Location|A região mais próxima dos seus utilizadores| A localização que esteja mais próxima dos seus utilizadores.
     Version|A versão principal mais recente| A versão principal mais recente do PostgreSQL, a não ser que tenha requisitos específicos.
@@ -65,6 +65,9 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
    > 
 
     ![Painel “Escalão de preço”](./media/quickstart-create-database-portal/2-pricing-tier.png)
+
+    > [!TIP]
+    > Com o **aumento automático** ativado para o seu servidor aumenta o armazenamento, quando está prestes a atingir o limite alocado, sem afetar a carga de trabalho.
 
 5. Selecione **rever + criar** para rever as suas seleções. Selecione **Criar** para aprovisionar o servidor. Esta operação poderá demorar alguns minutos.
 
