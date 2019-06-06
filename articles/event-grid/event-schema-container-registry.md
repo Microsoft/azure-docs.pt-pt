@@ -157,12 +157,12 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | string | Identificador exclusivo para o evento. |
-| dados | objeto | Dados de eventos de armazenamento de Blobs. |
+| id | string | Identificador exclusivo para o evento. |
+| data | objeto | Dados de eventos de armazenamento de Blobs. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
@@ -170,33 +170,33 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| ID | string | O ID de evento. |
+| id | string | O ID de evento. |
 | timestamp | string | A hora em que ocorreu o evento. |
 | action | string | A ação que abrange o evento fornecido. |
-| destino | objeto | O destino do evento. |
-| pedido | objeto | O pedido que gerou o evento. |
+| target | objeto | O destino do evento. |
+| request | objeto | O pedido que gerou o evento. |
 
 O objeto de destino tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | mediaType | string | O tipo MIME do objeto referenciado. |
-| tamanho | inteiro | O número de bytes do conteúdo. Mesmo que o campo de comprimento. |
-| Resumo | string | O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2. |
-| Comprimento | inteiro | O número de bytes do conteúdo. Mesmo que o campo de tamanho. |
-| Repositório | string | O nome do repositório. |
-| etiqueta | string | O nome da etiqueta. |
-| nome | string | O nome do gráfico. |
-| versão | string | A versão de gráfico. |
+| size | inteiro | O número de bytes do conteúdo. Mesmo que o campo de comprimento. |
+| digest | string | O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2. |
+| length | inteiro | O número de bytes do conteúdo. Mesmo que o campo de tamanho. |
+| repository | string | O nome do repositório. |
+| tag | string | O nome da etiqueta. |
+| name | string | O nome do gráfico. |
+| version | string | A versão de gráfico. |
 
 O objeto de solicitação tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| ID | string | O ID do pedido que deu início ao evento. |
+| id | string | O ID do pedido que deu início ao evento. |
 | addr | string | O IP ou nome de anfitrião e, possivelmente, porta da ligação de cliente que deu início ao evento. Este valor é o RemoteAddr no pedido de http padrão. |
-| anfitrião | string | O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião http em solicitações de entrada. |
-| método | string | O método de pedido que gerou o evento. |
+| host | string | O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião http em solicitações de entrada. |
+| method | string | O método de pedido que gerou o evento. |
 | useragent | string | O cabeçalho do agente de utilizador do pedido. |
 
 ## <a name="next-steps"></a>Passos Seguintes
