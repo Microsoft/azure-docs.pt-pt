@@ -90,12 +90,12 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | string | Identificador exclusivo para o evento. |
-| dados | objeto | Dados de eventos de armazenamento de Blobs. |
+| id | string | Identificador exclusivo para o evento. |
+| data | objeto | Dados de eventos de armazenamento de Blobs. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
@@ -111,7 +111,7 @@ O objeto de dados tem as seguintes propriedades:
 | contentLength | inteiro | O tamanho do blob em bytes. |
 | blobType | string | O tipo de blob. Valores válidos são "BlockBlob" ou "PageBlob". |
 | url | string | O caminho para o blob. |
-| Sequenciador | string | Um valor controlada pelo utilizador que pode utilizar para monitorizar os pedidos. |
+| sequencer | string | Um valor controlada pelo utilizador que pode utilizar para monitorizar os pedidos. |
 | storageDiagnostics | objeto | Informações sobre os diagnósticos de armazenamento. |
  
 ## <a name="next-steps"></a>Passos Seguintes
