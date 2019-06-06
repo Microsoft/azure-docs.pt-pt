@@ -49,14 +49,14 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 
 | Atributo | Type | Descrição |
 | --- | --- | --- |
-| ID | string | Identificador exclusivo para o evento. |
-| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
-| dados | objeto | Dados de eventos específicos para o fornecedor de recursos. |
+| id | string | Identificador exclusivo para o evento. |
+| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
+| data | objeto | Dados de eventos específicos para o fornecedor de recursos. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
-| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
 
 Para obter mais informações sobre o esquema de eventos do Event Grid:
 
