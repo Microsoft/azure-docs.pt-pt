@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d572da27cee33cf546933e55a59c27dac4c1efd9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709925"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475197"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para o motor de regras de CDN do Azure
 As variáveis HTTP fornecem os meios através dos quais pode recuperar os metadados de solicitação e resposta HTTP. Estes metadados, em seguida, podem ser utilizado para alterar dinamicamente uma solicitação ou uma resposta. A utilização de variáveis HTTP é restrita para as seguintes funcionalidades do motor de regras:
 
-- [Reescrita de chave de cache](cdn-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modificar o cabeçalho de pedido do cliente](cdn-rules-engine-reference-features.md#modify-client-request-header)
-- [Modificar o cabeçalho de resposta do cliente](cdn-rules-engine-reference-features.md#modify-client-response-header)
-- [Redirecionamento de URL](cdn-rules-engine-reference-features.md#url-redirect)
-- [Reescrever URL](cdn-rules-engine-reference-features.md#url-rewrite)
+- [Reescrita de chave de cache](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [Modificar o cabeçalho de pedido do cliente](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [Modificar o cabeçalho de resposta do cliente](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [Redirecionamento de URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [Reescrever URL](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>Definições
 A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é retornado quando metadados de Georreplicação (por exemplo, código postal) não estão disponível para uma determinada solicitação.
@@ -62,7 +62,7 @@ A tabela seguinte descreve as variáveis HTTP suportadas. Um valor em branco é 
 | Esquema de pedido | %{scheme} | Indica o esquema de pedido. |http |
 | Pedido de URI (relativo) | %{request_uri} | Indica o caminho relativo, incluindo a cadeia de consulta, definida no URI do pedido. | /marketing/foo.js?loggedin=true |
 | Pedido de URI (relativo sem cadeia de consulta) | %{uri} | Indica o caminho relativo para o conteúdo solicitado. <br /><br/>Informações da chave:<br />-Este caminho relativo exclui a cadeia de consulta.<br />-Este caminho relativo reflete reescritas da URL. Um URL vai ser reescrito nas seguintes condições:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Recurso de reconfiguração URL: Esta funcionalidade reescreve o caminho relativo, definido no URI do pedido.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-URL de CNAME edge: Este tipo de pedido é reescrito para o URL de CDN correspondente. |/800001/corigin/rewrittendir/foo.js |
-| URI de pedido | % {pedido} | Descreve o pedido. <br />Sintaxe: &lt;Método HTTP&gt; &lt;caminho relativo&gt; &lt;protocolo HTTP&gt; | OBTER /marketing/foo.js?loggedin=true HTTP/1.1. |
+| URI do pedido | % {pedido} | Descreve o pedido. <br />Sintaxe: &lt;Método HTTP&gt; &lt;caminho relativo&gt; &lt;protocolo HTTP&gt; | OBTER /marketing/foo.js?loggedin=true HTTP/1.1. |
 | Valor de cabeçalho de resposta | %{resp_&lt;ResponseHeader&gt;} | Devolve o valor correspondente para o cabeçalho de resposta identificado pelos &lt;ResponseHeader&gt; termo. <br /><br />Se o nome do cabeçalho de resposta contém um travessão (por exemplo, agente do usuário), substitua-o com um caráter de sublinhado (por exemplo, User_Agent). | Utilização de exemplo: % {resp_Content_Length}<br /><br />Valor de exemplo: 100 |
 
 ## <a name="usage"></a>Utilização
@@ -102,7 +102,7 @@ Os delimitadores são descritos na tabela seguinte.
 | / | Delimits uma variável de HTTP ou um padrão. |
 | // | Localizar e substituir todas as instâncias do padrão especificado. |
 | /= | Localizar, copiar e reescrever todas as ocorrências do padrão especificado. |
-| ,  | Converta o valor associado a variável HTTP em minúsculas. |
+| , | Converta o valor associado a variável HTTP em minúsculas. |
 | ^ | Converta o valor associado a variável HTTP em maiúsculas. |
 | ,, | Converta todas as instâncias do caractere especificado no valor associado com a variável HTTP em minúsculas. |
 | ^^ | Converta todas as instâncias do caractere especificado no valor associado com a variável HTTP em maiúsculas. |
@@ -113,7 +113,7 @@ A tabela seguinte descreve as circunstâncias em que o texto especificado não �
 | Condição | Descrição | Exemplo |
 | --------- | ----------- | --------|
 | Símbolo de % de carateres de escape | O símbolo de percentagem pode ser ignorado com o uso de uma barra invertida. <br />O valor de exemplo para a direita será tratado como um valor literal e não como uma variável de HTTP.| \%{host} |
-| Variáveis desconhecidas | Uma cadeia vazia é sempre retornada para variáveis desconhecidas. | % {unknownvariable} |
+| Variáveis desconhecidas | Uma cadeia vazia é sempre retornada para variáveis desconhecidas. | %{unknown_variable} |
 | Sintaxe ou carateres inválidos | Variáveis que contêm sintaxe ou carateres inválidos são tratadas como valores literais. <br /><br />Exemplo #1: O valor especificado contém um caráter inválido (por exemplo,-). <br /><br />Exemplo #2: O valor especificado contém um conjunto duplo de chaves. <br /><br />Exemplo #3: O valor especificado está em falta uma chave de fechamento.<br /> | Exemplo #1: % {resp_user-agente} <br /><br />Exemplo #2: % {{anfitrião}} <br /><br />Exemplo #3: % {anfitrião |
 | Nome da variável em falta | Um valor nulo sempre é retornado quando uma variável não for especificada. | %{} |
 | Carateres à direita | Carateres que o início de uma variável são tratadas como valores literais. <br />O valor de exemplo para a direita contém uma chave à direita que será tratada como um valor literal. | %{host}} |
@@ -127,9 +127,9 @@ A tabela seguinte descreve como definir um valor predefinido.
 
 | Condição | Sintaxe | Exemplo | Descrição |
 | --------- | ------ | --------| ----------- |
-| Defina um cabeçalho para um valor padrão quando ele cumpre qualquer uma das seguintes condições: <br /><br />-Cabeçalho em falta <br /><br />-Valor de cabeçalho é definido como nulo.| %{Variable:=Value} | %{http_referer:=unspecified} | O cabeçalho do referenciador apenas será definido como *não especificado* quando está em falta ou é definida como NULL. Nenhuma ação ocorrerá se foi definida. |
-| Defina um cabeçalho para um valor padrão quando ele está em falta. | %{Variable=Value} | %{http_referer=unspecified} | O cabeçalho do referenciador apenas será definido como *não especificado* quando está em falta. Nenhuma ação ocorrerá se foi definida. |
-| Defina o cabeçalho para um valor predefinido quando não cumpre qualquer uma das seguintes condições: <br /><br />-Em falta<br /><br /> -Definido como nulo. | % {Variável: + valor} | %{http_referer:+unspecified} | O cabeçalho do referenciador apenas será definido como *não especificado* quando foi atribuído um valor a ela. Nenhuma ação ocorrerá se estiver em falta ou é definida como NULL. |
+| Defina um cabeçalho para um valor padrão quando ele cumpre qualquer uma das seguintes condições: <br /><br />-Cabeçalho em falta <br /><br />-Valor de cabeçalho é definido como nulo.| %{Variable:=Value} | %{http_referrer:=unspecified} | O cabeçalho do referenciador apenas será definido como *não especificado* quando está em falta ou é definida como NULL. Nenhuma ação ocorrerá se foi definida. |
+| Defina um cabeçalho para um valor padrão quando ele está em falta. | %{Variable=Value} | %{http_referrer=unspecified} | O cabeçalho do referenciador apenas será definido como *não especificado* quando está em falta. Nenhuma ação ocorrerá se foi definida. |
+| Defina o cabeçalho para um valor predefinido quando não cumpre qualquer uma das seguintes condições: <br /><br />-Em falta<br /><br /> -Definido como nulo. | % {Variável: + valor} | %{http_referrer:+unspecified} | O cabeçalho do referenciador apenas será definido como *não especificado* quando foi atribuído um valor a ela. Nenhuma ação ocorrerá se estiver em falta ou é definida como NULL. |
 
 ## <a name="manipulating-variables"></a>Manipulação de variáveis
 As variáveis podem ser manipuladas das seguintes formas:

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200634"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430782"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor
 
@@ -96,7 +96,7 @@ Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automat
 | Caller_s |Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados. |
 | Tenant_g | GUID que identifica o inquilino para o chamador. |
 | JobId_g |GUID que é o Id do trabalho do runbook. |
-| ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Novo<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>-Concluída |
+| ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Novo<br>-Criado<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>-Concluída |
 | Category | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
 | Resource | Nome da conta de automatização |

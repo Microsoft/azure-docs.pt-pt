@@ -4,14 +4,14 @@ description: Utilize o Azure Resource Manager e o Azure PowerShell para implemen
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 63d729f19b0ef20d0e7a716d6857b4627095856b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779949"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476976"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
@@ -35,6 +35,8 @@ Para implementar um **subscrição**, utilize [New-AzDeployment](/powershell/mod
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
+Atualmente, só são suportadas implementações do grupo de gestão através da API REST. Ver [implementar recursos com modelos do Resource Manager e API de REST do Resource Manager](resource-group-template-deploy-rest.md).
+
 Os exemplos neste artigo utilizam implementações do grupo de recursos. Para obter mais informações sobre implementações de subscrição, veja [criar grupos de recursos e recursos ao nível da subscrição](deploy-to-subscription.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -44,7 +46,7 @@ Precisa de um modelo para implementar. Se ainda não tiver uma, transferir e gua
 A menos que utilize o Azure Cloud shell para implementar modelos, tem de instalar o Azure PowerShell e ligue-se para o Azure:
 
 - **Instale cmdlets Azure PowerShell no seu computador local.** Para obter mais informações, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Ligar ao Azure, utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Se tiver várias subscrições do Azure, também poderá ter de ser executado [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
+- **Ligar ao Azure, utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Se tiver várias subscrições do Azure, também poderá ter de ser executado [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
 
 ## <a name="deploy-local-template"></a>Implementar o modelo de local
 

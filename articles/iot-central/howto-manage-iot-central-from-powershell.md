@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8d432d588cfd563ee48b93f9042339e9590bb5e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 086c7d303fd199090de3be77b2456c4ebcd053a8
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533259"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726943"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gerir o IoT Central a partir do Azure PowerShell
 
@@ -25,7 +25,7 @@ Em vez de criar e gerir aplicações de IoT Central a partir do Centro de IoT [G
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se preferir executar o Azure PowerShell no seu computador local, veja [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Ao executar localmente o Azure PowerShell, utilize o **Connect-AzAccount** cmdlet para iniciar sessão no Azure antes de tentar os cmdlets neste artigo.
 
@@ -71,7 +71,7 @@ O script cria primeiro um grupo de recursos na região Leste região dos EUA par
 |Subdomínio         |O subdomínio no URL da aplicação. No exemplo, o URL da aplicação é https://mysubdomain.azureiotcentral.com. |
 |Sku               |Atualmente, o único valor é **S1** (escalão standard). Ver [preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modelo          | O modelo de aplicação a utilizar. Para obter mais informações, consulte a tabela seguinte: |
-|Nome a Apresentar       |O nome da aplicação tal como apresentado na IU. |
+|displayName       |O nome da aplicação tal como apresentado na IU. |
 
 **Modelos de aplicativos**
 

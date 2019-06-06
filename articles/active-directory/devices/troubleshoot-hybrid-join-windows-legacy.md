@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76177972cbd002793f5d9fc4ab8bbe6ef2121e91
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ce1d2aaed85f61e2e18f696d749219a1b951c862
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106696"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474337"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior 
 
@@ -87,7 +87,7 @@ Se o dispositivo não tiver sido associado ao Azure AD híbrido, pode tentar faz
     
   - Autoworkplace.exe não conseguiu autenticar silenciosamente com o Azure AD ou AD FS. Isto pode dever-se em falta ou configurado incorretamente o AD FS (para domínios federados) ou em falta ou incorrectamente configurado do Azure AD totalmente integrada início de sessão único (para domínios geridos) ou problemas de rede. 
     
-    - É possível que a autenticação multifator (MFA) é ativada ou não está configurado para o utilizador e WIAORMUTLIAUTHN não está configurado no servidor do AD FS. 
+    - É possível que a autenticação multifator (MFA) é ativada ou não está configurado para o utilizador e WIAORMULTIAUTHN não está configurado no servidor do AD FS. 
      
     - Outra possibilidade é essa página de deteção (HRD) de realm inicial está a aguardar interação do usuário, que impede **autoworkplace.exe** silenciosamente solicitem um token.
      

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782927"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431224"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos Azure Resource Manager
 
@@ -339,7 +339,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | devolver | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>contém
+## <a name="contains"></a>Contém
 
 `contains (container, itemToFind)`
 
@@ -349,7 +349,7 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| contentor |Sim |cadeia de caracteres, objeto ou matriz |O valor que contém o valor a localizar. |
+| container |Sim |cadeia de caracteres, objeto ou matriz |O valor que contém o valor a localizar. |
 | itemToFind |Sim |cadeia de caracteres ou int |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -530,7 +530,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Olá, mundo! |
 
-## <a name="empty"></a>Vazio
+## <a name="empty"></a>vazio
 
 `empty(itemToTest)`
 
@@ -713,7 +713,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | arrayOutput | String | um |
 | stringOutput | String | O |
 
-## <a name="format"></a>Formato
+## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
@@ -1015,7 +1015,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
-## <a name="length"></a>Comprimento
+## <a name="length"></a>length
 
 `length(string)`
 
@@ -1259,7 +1259,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1272,9 +1272,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| secondOutput | String | 123-123-xxxx |
 
-## <a name="skip"></a>ignorar
+## <a name="skip"></a>Ignorar
 
 `skip(originalValue, numberToSkip)`
 
@@ -1550,7 +1550,7 @@ Devolve uma subcadeia que começa com a posição do caráter especificado e con
 |:--- |:--- |:--- |:--- |
 | stringToParse |Sim |string |A cadeia de caracteres original do qual a subcadeia é extraída. |
 | startIndex |Não |int |A baseado em zero caractere posição inicial para a subcadeia. |
-| Comprimento |Não |int |O número de carateres para a subcadeia. Deve referir-se para uma localização na cadeia. Tem de ser zero ou superior. |
+| length |Não |int |O número de carateres para a subcadeia. Deve referir-se para uma localização na cadeia. Tem de ser zero ou superior. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -2077,7 +2077,7 @@ Devolve o valor de datetime (UTC) atual no formato especificado. Se não for for
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| Formato |Não |string |O URI codificado valor a converter numa cadeia. A utilização de uma [cadeias de caracteres de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Não |string |O URI codificado valor a converter numa cadeia. A utilização de uma [cadeias de caracteres de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observações
 

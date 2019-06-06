@@ -7,15 +7,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/24/2019
-ms.openlocfilehash: c40bae6ac1af2489e4e77d2c280b95cccf8b5603
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.date: 05/30/2019
+ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257837"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743253"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Configurar a restrição de tráfego de rede de saída para o Azure HDInsight clusters (pré-visualização)
+# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurar o tráfego de rede de saída para clusters do HDInsight do Azure através do Firewall (pré-visualização)
 
 Este artigo fornece os passos para proteger o tráfego de saída do seu cluster do HDInsight com o Firewall do Azure. Os passos abaixo partem do princípio de que está a configurar uma Firewall do Azure para um cluster existente. Se estiver implantando um novo cluster e protegido por uma firewall, crie primeiro o seu cluster do HDInsight e a sub-rede e, em seguida, siga os passos neste guia.
 
@@ -60,9 +60,9 @@ Sobre o **adicionar a coleção de regras de aplicação** ecrã, conclua os seg
     1. Uma regra para permitir que a atividade de início de sessão do Windows:
         1. Na **destino FQDNs** secção, forneça um **nome**e defina **endereços de origem** para `*`.
         1. Introduza `https:443` sob **protocolo: porta** e `login.windows.net` sob **FQDNS de destino**.
-    1. Se o cluster está protegido por WASB e não estiver a utilizar os pontos finais de serviço acima, em seguida, adicione uma regra para WASB:
+    1. Se o cluster é apoiado pela WASB, em seguida, adicione uma regra para WASB:
         1. Na **destino FQDNs** secção, forneça um **nome**e defina **endereços de origem** para `*`.
-        1. Introduza `http` ou `https` dependendo se estiver a utilizar wasb: / / ou wasbs: / / em **protocolo: porta** e o url da conta de armazenamento sob **destino FQDNS**.
+        1. Introduza `http:80,https:443` sob **protocolo: porta** e o url da conta de armazenamento sob **destino FQDNS**. O formato será semelhante a < storage_account_name.blob.core.windows.net >. Para utilizar https apenas Certifique-se de ligações ["transferência segura necessária"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está ativada na conta de armazenamento.
 1. Clique em **Adicionar**.
 
 ![Título: Introduza os detalhes de coleção de regra de aplicação](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -75,29 +75,29 @@ Crie as regras de rede para configurar corretamente o seu cluster do HDInsight.
 1. Clique em **regras** sob **definições** > **coleção de regras de rede** > **adicionar a coleção de regras de rede**.
 1. Na **adicionar a coleção de regras de rede** ecrã, introduza um **nome**, **prioridade**e clique em **permitir** do **ação** menu pendente.
 1. Crie as seguintes regras:
-    1. Uma regra de rede que permite que o cluster para realizar a sincronização do relógio usando NTP.
-        1. Na **regras** secção, forneça um **nome** e selecione **qualquer** do **protocolo** lista pendente.
+    1. Uma regra de rede na secção de endereços IP que permite que o cluster para realizar a sincronização do relógio usando NTP.
+        1. Na **regras** secção, forneça um **nome** e selecione **UDP** do **protocolo** lista pendente.
         1. Definir **endereços de origem** e **endereços de destino** para `*`.
         1. Definir **portas de destino** para 123.
-    1. Se estiver a utilizar o pacote de segurança da empresa (ESP), em seguida, adicione uma regra de rede que permite a comunicação com o AAD-DS para clusters do ESP.
+    1. Se estiver a utilizar o pacote de segurança da empresa (ESP), em seguida, adicione uma regra de rede na secção de endereços IP que permite a comunicação com o AAD-DS para clusters do ESP.
         1. Determine os dois endereços IP para os controladores de domínio.
         1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **qualquer** do **protocolo** lista pendente.
         1. Definir **endereços de origem** `*`.
         1. Introduza todos os endereços IP para os controladores de domínio no **endereços de destino** separados por vírgulas.
         1. Definir **portas de destino** para `*`.
-    1. Se estiver a utilizar o armazenamento do Azure Data Lake, em seguida, pode adicionar uma regra de rede para resolver um problema SNI com ADLS Gen1 e Gen2. Esta opção irá encaminhar o tráfego à firewall que poderá resultar em custos de superiores para cargas de dados de grande dimensão, mas o tráfego será iniciada e auditada.
+    1. Se estiver a utilizar o armazenamento do Azure Data Lake, pode adicionar uma regra de rede na secção de endereços IP para resolver um problema SNI com ADLS Gen1 e Gen2. Esta opção irá encaminhar o tráfego à firewall que poderá resultar em custos de superiores para cargas de dados de grande dimensão, mas o tráfego será iniciada e auditada nos registos de firewall.
         1. Determine o endereço IP para a sua conta de armazenamento do Data Lake. Pode utilizar um comando do powershell como `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` para resolver o FQDN para um endereço IP.
-        1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **qualquer** do **protocolo** lista pendente.
+        1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **TCP** do **protocolo** lista pendente.
         1. Definir **endereços de origem** `*`.
         1. Introduza o endereço IP da sua conta de armazenamento no **endereços de destino**.
         1. Definir **portas de destino** para `*`.
-    1. (Opcional) Se estiver a utilizar o Log Analytics, em seguida, crie uma regra de rede para permitir a comunicação com a sua área de trabalho do Log Analytics.
-        1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **qualquer** do **protocolo** lista pendente.
+    1. (Opcional) Se estiver a utilizar o Log Analytics, em seguida, crie uma regra de rede na secção de endereços IP para permitir a comunicação com a sua área de trabalho do Log Analytics.
+        1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **TCP** do **protocolo** lista pendente.
         1. Definir **endereços de origem** `*`.
         1. Definir **endereços de destino** para `*`.
         1. Definir **portas de destino** para `12000`.
-    1. Configure uma etiqueta de serviço do SQL que lhe permite iniciar sessão e auditar o tráfego SQL.
-        1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **qualquer** do **protocolo** lista pendente.
+    1. Configure uma regra de rede na secção de etiquetas de serviço para o SQL que lhe permite iniciar sessão e auditar o tráfego SQL, a menos que os pontos finais de serviço que configurou para o SQL Server na sub-rede do HDInsight que irá ignorar a firewall.
+        1. Na próxima linha a **regras** secção, forneça um **nome** e selecione **TCP** do **protocolo** lista pendente.
         1. Definir **endereços de origem** `*`.
         1. Definir **endereços de destino** para `*`.
         1. Selecione **Sql** partir do **etiquetas de serviço** lista pendente.
@@ -110,10 +110,9 @@ Crie as regras de rede para configurar corretamente o seu cluster do HDInsight.
 
 Crie uma tabela de rotas com as seguintes entradas:
 
-1. Sete aborda desde [esta lista de endereços IP de gestão de HDInsight necessários](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) com um salto seguinte da **Internet**:
+1. Seis aborda desde [esta lista de endereços IP de gestão de HDInsight necessários](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) com um salto seguinte da **Internet**:
     1. Quatro endereços IP para todos os clusters em todas as regiões
     1. Dois endereços IP que são específicos para a região onde o cluster é criado
-    1. Um endereço IP para o resolvedor recursivo do Azure
 1. Uma rota de aplicação Virtual para 0.0.0.0/0 de endereço IP com o salto seguinte a ser o seu endereço IP privado do Firewall do Azure.
 
 Por exemplo, para configurar a tabela de rotas para um cluster criado na região E.U.A. de "E.u.a. Central", utilize passos seguintes:
@@ -132,20 +131,15 @@ Por exemplo, para configurar a tabela de rotas para um cluster criado na região
 | 138.91.141.162 | 138.91.141.162/32 | Internet | N/D |
 | 13.67.223.215 | 13.67.223.215/32 | Internet | N/D |
 | 40.86.83.253 | 40.86.83.253/32 | Internet | N/D |
-| 168.63.129.16 | 168.63.129.16/32 | Internet | N/D |
 | 0.0.0.0 | 0.0.0.0/0 | Aplicação virtual | 10.1.1.4 |
-
-![Título: Criar uma tabela de rotas](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
 
 Conclua a configuração da tabela de rota:
 
 1. Atribuir a tabela de rotas que criou para a sub-rede do HDInsight ao clicar em **sub-redes** sob **definições** e, em seguida **associar**.
-1. Sobre o **associar sub-rede** ecrã, selecione a rede virtual que o cluster foi criado em e o **AzureFirewallSubnet** que criou para utilização com a firewall.
+1. No **associar sub-rede** ecrã, selecione a rede virtual criada no seu cluster e o **sub-rede do HDInsight** que utilizou para o seu cluster do HDInsight.
 1. Clique em **OK**.
 
-![Título: Criar uma tabela de rotas](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
-
-## <a name="edge-node-application-traffic"></a>Tráfego de aplicativo do nó de extremidade
+## <a name="edge-node-or-custom-application-traffic"></a>Nó de extremidade ou tráfego de aplicativo personalizada
 
 Os passos acima permitirá que o cluster a funcionar sem problemas. Ainda tem de configurar as dependências para acomodar as suas aplicações personalizadas em execução em nós de extremidade, se aplicável.
 
@@ -166,6 +160,9 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
 Integrar o Firewall do Azure com os registos do Azure Monitor é útil ao primeiro obter uma aplicação a funcionar quando não estiver ciente de todas as dependências de aplicativo. Pode saber mais sobre os registos do Azure Monitor de [analisar dados de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+
+## <a name="access-to-the-cluster"></a>Acesso ao cluster
+Depois de ter a configuração de firewall com êxito, pode utilizar o ponto final interno (https://<clustername>-int.azurehdinsight.net) para acessar o Ambari de dentro da VNET. Para utilizar o ponto final público (https://<clustername>. azurehdinsight.net) ou ssh ponto final (<clustername>-ssh.azurehdinsight.net), certifique-se de que tem as rotas direita na tabela de rotas e regras NSG de configuração para evitar o problema de encaminhamento da asymetric explicado [aqui](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configure outra aplicação de rede virtual
 

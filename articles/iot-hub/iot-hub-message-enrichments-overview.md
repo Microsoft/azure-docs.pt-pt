@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2de945d2ef1d87b47ea81aac034916466d3c9bda
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6ddfd90956fde0c57e14083a3704cbf365456c75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258853"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735168"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Possível de mensagem para mensagens do dispositivo-para-cloud do Hub de IoT (pré-visualização)
 
@@ -49,6 +49,8 @@ As mensagens podem ser provenientes de qualquer origem de dados suportada pelo [
 
 Pode adicionar o possível para mensagens que vão para o ponto final interno de um IoT Hub ou mensagens que estão a ser encaminhadas para os pontos finais personalizados, como armazenamento de Blobs do Azure, uma fila do Service Bus ou um tópico do Service Bus.
 
+Também pode adicionar o possível para as mensagens que estão a ser publicadas para o Event Grid, ao selecionar o ponto de extremidade como o Event Grid. Para obter mais informações, consulte [Iot Hub e o Event Grid](iot-hub-event-grid.md).
+
 Possível é aplicadas por ponto final. Se especificar cinco possível para ser marcados para um ponto final específico, todas as mensagens que passam para esse ponto final são marcadas com o mesmo cinco possível.
 
 Para ver como testar o possível de mensagem, consulte o [tutorial possível de mensagem](tutorial-message-enrichments.md)
@@ -75,7 +77,7 @@ Possível de mensagem está disponíveis sem nenhum custo adicional. Atualmente,
 
 ## <a name="availability"></a>Disponibilidade
 
-Esta capacidade está disponível em pré-visualização e está disponível em todas as regiões, exceto E.U.A. leste, E.U.A. oeste, Europa Ocidental, [do Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
+Esta capacidade está disponível em pré-visualização e está disponível em todas as regiões, exceto E.U.A. leste, E.U.A. oeste, Europa Ocidental, [do Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china/china-welcome), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8bb06d04aec8e98308c0f5595b6b39e4b98302ff
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242429"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480052"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: Conceitos e arquitetura
 
@@ -162,6 +162,9 @@ Quando inicia um treinamento execute onde o diretório de origem é um repositó
 ## <a name="snapshot"></a>Instantâneo
 
 Quando submete uma execução, o Azure Machine Learning compacta o diretório que contém o script como um ficheiro zip e envia-os para o destino de computação. O ficheiro zip, em seguida, é extraído e o script é executado lá. O Azure Machine Learning também armazena o ficheiro zip como um instantâneo como parte do registo de execução. Qualquer pessoa com acesso à área de trabalho pode procurar um registo de execução e transferir o instantâneo.
+
+> [!NOTE]
+> Para impedir a ser incluído no instantâneo de arquivos desnecessários, criar um ficheiro de ignorar (. gitignore ou .amlignore). Coloque este ficheiro no diretório instantâneo e adicione os nomes de arquivo para ignorar nela. O ficheiro de .amlignore utiliza as mesmas [sintaxe e padrões como o ficheiro. gitignore](https://git-scm.com/docs/gitignore). Se existirem ambos os ficheiros, o ficheiro de .amlignore tem precedência.
 
 ## <a name="activity"></a>Atividade
 

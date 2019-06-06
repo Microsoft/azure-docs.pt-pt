@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 5/31/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae35c735cffeb8cd85af1f32bb2d14ede6dc6b69
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345897"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427423"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
 
@@ -27,13 +27,13 @@ Alerta de registo é composta por regras de pesquisa de registos, criadas para [
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Log search regra de alerta - definição e tipos
 
-São criadas regras de pesquisa de registos pelos Alertas do Azure para executar automaticamente consultas de registos especificados a intervalos regulares.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, é criado um registo de alerta. A regra pode executar automaticamente uma ou mais ações através dos [Grupos de Ações](../../azure-monitor/platform/action-groups.md). [Contribuidor de monitorização do Azure](../../azure-monitor/platform/roles-permissions-security.md) função para a criação, modificação e alertas de registo de atualização poderão ser necessários; juntamente com direitos de execução de acesso e de consulta para o destino de análise (s) na regra de alerta ou consulta de alerta. Se a criação de utilizador não tem acesso a todos os destinos de análise na regra de alerta ou consulta de alerta - a criação de regra poderá falhar ou a regra de alerta de registo será executada com resultados parciais.
+São criadas regras de pesquisa de registos pelos Alertas do Azure para executar automaticamente consultas de registos especificados a intervalos regulares.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, é criado um registo de alerta. A regra pode executar automaticamente uma ou mais ações através dos [Grupos de Ações](../../azure-monitor/platform/action-groups.md). [Contribuidor de monitorização do Azure](../../azure-monitor/platform/roles-permissions-security.md) função para a criação, modificação e alertas de registo de atualização poderão ser necessários; juntamente com direitos de execução de acesso e de consulta para o destino de análise (s) na regra de alerta ou consulta de alerta. No caso de criação de utilizador não tem acesso a todos os destinos de análise na regra de alerta ou consulta de alerta - a criação de regra poderá falhar ou a regra de alerta de registo será executada com resultados parciais.
 
 Regras de pesquisa de registo são definidas pelos seguintes detalhes:
 
 - **Consulta de registo**.  A consulta é executada sempre que a regra de alerta é acionado.  Os registos devolvidos por esta consulta são utilizados para determinar se um alerta é acionado. Consulta do Analytics pode ser para uma área de trabalho do Log Analytics específica ou uma aplicação do Application Insights e até mesmo abranger várias [vários recursos do Log Analytics e Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) desde que o utilizador tem acesso, bem como consultar direitos a todos recursos. 
     > [!IMPORTANT]
-    > Alerta de registo **isso não é possível** suporta a utilização de [funções](../log-query/functions.md) por motivos de segurança. Também [entre recursos consulta](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) suporte em alertas de registo para o Application Insights e log de alertas para [configurados utilizando scheduledQueryRules API do Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) apenas.
+    > [entre recursos consulta](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) suporte em alertas de registo para o Application Insights e log de alertas para [Log Analytics configurada utilizando scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md) apenas.
 
     Alguns comandos de análise e combinações são incompatíveis com o uso em alertas de registo; Para ver mais detalhes, [consultas de alertas de registo no Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
 
@@ -45,8 +45,8 @@ Regras de pesquisa de registo são definidas pelos seguintes detalhes:
 
 Regras de pesquisa de registo, sê-lo para [registos do Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), podem ter dois tipos. Cada um desses tipos é descrita detalhadamente nas seções a seguir.
 
-- **[Número de resultados](#number-of-results-alert-rules)**. Único alerta criada quando um número especificado de excedem o número de registos devolvido pela pesquisa de registo.
-- **[Medida da métrica](#metric-measurement-alert-rules)**.  Alerta criado para cada objeto nos resultados da pesquisa de registo com valores que excedam o limiar especificado.
+- **[Número de resultados](#number-of-results-alert-rules)** . Único alerta criada quando um número especificado de excedem o número de registos devolvido pela pesquisa de registo.
+- **[Medida da métrica](#metric-measurement-alert-rules)** .  Alerta criado para cada objeto nos resultados da pesquisa de registo com valores que excedam o limiar especificado.
 
 Seguem-se as diferenças entre os tipos de regra de alerta.
 
@@ -76,7 +76,7 @@ Em seguida, alerta seria executar a consulta a cada 5 minutos, com 30 minutos de
 
 ### <a name="metric-measurement-alert-rules"></a>Regras de alerta de medida da métrica
 
-**Medida da métrica** regras de alerta criar um alerta para cada objeto numa consulta com um valor que excede um limiar especificado.  Eles têm as seguintes diferenças distintas de **número de resultados** regras de alerta.
+**Medida da métrica** regras de alerta criar um alerta para cada objeto numa consulta com um valor que excede um limiar especificado e especificar a condição de acionamento. Ao contrário **número de resultados** regras, de alerta **medida da métrica** regras de alerta de trabalho quando o resultado do analytics fornece uma série de tempo. Eles têm as seguintes diferenças distintas de **número de resultados** regras de alerta.
 
 - **Função de agregação**: Determina o cálculo que é executado e, potencialmente, com um numérico campo a agregar.  Por exemplo, **count ()** devolve o número de registos na consulta, **avg(CounterValue)** devolve a média do campo CounterValue ao longo do intervalo. Função de agregação na consulta tem de ser com o nome/chamado: AggregatedValue e fornecer um valor numérico. 
 
@@ -127,16 +127,16 @@ Uma vez que o alerta está configurado para acionador com base no total de falha
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Log search regra de alerta - acionadas e Estado
 
-Regra de alerta de pesquisa de registo funciona na lógica vinculada por utilizador de acordo com a configuração e a consulta de análise personalizada utilizada. Desde a lógica da condição exata ou motivo por que a regra de alerta deve o acionador é encapsulado numa consulta do Analytics - que pode ser diferente em cada regra de alerta de registo. Alertas do Azure tem informações escassos da específica subjacente causa dentro os resultados de registo quando a condição de limiar de regra de alerta de pesquisa de registo é atingida ou excedida. Assim, alertas de registo são referidas como como estado sem e irá disparar sempre que o resultado da pesquisa de registo é suficiente para exceder o limiar especificado nos alertas de registo de *número de resultados* ou *medida da métrica* tipo da condição. E regras de alerta de registo continuamente irão manter disparo, desde que a condição de alerta for cumprida, o resultado da consulta do analytics personalizado fornecido; sem o alerta resolvido cada introdução. Como a lógica a causa exata da falha de monitorização está oculto dentro da consulta de análise fornecida pelo usuário; não existe nenhuma forma dos alertas do Azure para deduzir as consequências se o resultado de pesquisa de registo não cumprir o limiar indica a resolução do problema.
+Regra de alerta de pesquisa de registo funciona na lógica vinculada por utilizador de acordo com a configuração e a consulta de análise personalizada utilizada. Desde a lógica de monitorização incluindo a condição exata ou o motivo por que deve acionar a regra de alerta é encapsulado numa consulta do analytics - que pode ser diferente em cada regra de alerta de registo. Alertas do Azure tem informações escassos o cenário que está a ser avaliada quando a condição de limiar de regra de alerta de pesquisa de registo é atingida ou excedida específica subjacente causa (ou). Portanto, alertas de registo são referidas como sem estado. E regras de alerta de registo irão manter trabalharem, desde que a condição do alerta é cumprida ao resultado da consulta de análise personalizada fornecida. Sem o alerta cada introdução resolvido, como a lógica a causa exata da falha de monitorização está oculto dentro da consulta de análise fornecida pelo usuário. Daí que estão em nenhum mecanismo para alertas do Azure Monitor deduzir as consequências causa de raiz que está sendo resolvida.
 
-Agora vamos supor que temos uma regra de alerta de registo denominada *Contoso-alerta de registo*, de acordo com a configuração no [exemplo fornecido para alerta de registo do tipo de número de resultados](#example-of-number-of-records-type-log-alert). 
-- Em 1 05 PM quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo gerou 0 registros; abaixo do limiar e, por conseguinte, não disparando o alerta. 
-- Na próxima iteração às 1: 22:00 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecido 5 registos; a exceder o limiar e disparando o alerta, logo após ao acionar a [grupo de ação](../../azure-monitor/platform/action-groups.md) associados. 
-- Em 1 às 15:15 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecido 2 registos; a exceder o limiar e disparando o alerta, logo após ao acionar a [grupo de ação](../../azure-monitor/platform/action-groups.md) associados.
-- Agora na próxima iteração em 1:20 PM quando o alerta de registo de Contoso foi executada pelo alerta do Azure, o resultado de pesquisa de registo fornecida novamente 0 registros; abaixo do limiar e, por conseguinte, não disparando o alerta.
+Permite-na ver o mesmo com um exemplo prático. Vamos supor que temos uma regra de alerta de registo denominada *Contoso-alerta de registo*, de acordo com a configuração no [exemplo fornecido para alerta de registo do tipo de número de resultados](#example-of-number-of-records-type-log-alert) – onde a consulta de alerta personalizada é projetada para procurar por 500 código de resultado nos registos.
 
-Mas no caso listado acima, em 1 às 15:15 - alertas do Azure não consegue determinar que os problemas subjacentes vistos em 1:10 manter e se houver falhas novo net; como a consulta fornecida pelo utilizador pode ser tendo em conta registos anteriores - podem Certifique-se os alertas do Azure. Por conseguinte, para err no lado de advertência, quando o alerta de registo de Contoso é executado em 1 às 15:15, configurado [grupo de ação](../../azure-monitor/platform/action-groups.md) é acionado novamente. Agora em 1:20 PM quando não existem registos são vistos: alertas do Azure não podem ser-se de que foi resolvida a causa dos registos; Por conseguinte, o alerta de registo de Contoso será não alterados como resolvido no dashboard de alerta do Azure e/ou notificações enviadas informando a resolução do alerta.
+- Em 1 05 PM quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo gerou zero registos com o código de resultado ter 500. Uma vez que zero é inferior ao limiar, e não é acionado o alerta.
+- Na próxima iteração às 1: 22:00 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecido cinco registos com o código de resultado como 500. Uma vez que cinco excede o limiar e o alerta é acionado com ações associadas obter acionada.
+- Em 1 às 15:15 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecidos dois registos com o código de resultado 500. Uma vez que os dois é superior ao limiar e o alerta é acionado com ações associadas obter acionada.
+- Agora na próxima iteração em 1:20 PM quando o alerta de registo de Contoso foi executada pelo alerta do Azure, o resultado da pesquisa de registo fornecido novamente zero registos com o código de resultado 500. Uma vez que zero é inferior ao limiar, e não é acionado o alerta.
 
+Mas, no caso listado acima, em 1 às 15:15 - alertas do Azure não consegue determinar que os problemas subjacentes vistos em 1:10 manter e se houver falhas líquidas de novo. Como a consulta fornecida pelo utilizador pode ser tendo em conta registos anteriores - podem Certifique-se os alertas do Azure. Uma vez que a lógica para o alerta é encapsulada na consulta de alerta - portanto, dois registos com o código de resultado 500 visto em 1 às 15:15 podem ou não podem ser vistos já às 1: 22:00. Por conseguinte, para err com cautela, quando o alerta de registo Contoso é executado em 1 às 15:15, ação configurada é acionada novamente. Agora em 1:20 PM quando são vistos zero registos com o código de resultado 500 - alertas do Azure não podem ter a certeza de que a causa do código de resultado 500 visto em 1: 22:00 e 1 às 15:15 agora está resolvida e alertas do Azure Monitor com confiança podem deduzir os problemas de 500 Erro não acontecerá pela mesma razão s novamente. Por conseguinte, o alerta de registo de Contoso será não alterados como resolvido no dashboard de alerta do Azure e/ou notificações enviadas informando a resolução do alerta. Em vez disso, o utilizador que entenda a condição exata ou o motivo para a lógica incorporada na consulta do analytics, pode [marque o alerta como fechada](alerts-managing-alert-states.md) conforme necessário.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e faturação de alertas de registo
 
@@ -154,6 +154,8 @@ Para remover os recursos de scheduleQueryRules ocultos criados para uma faturaç
 
 - De qualquer utilizador pode [mudar a preferência de API para as regras de alerta na área de trabalho do Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) e sem perda de suas regras de alerta ou a movimentação de monitorização para o Azure Resource Manager em conformidade [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Deste modo, elimina a necessidade de tornar as regras de alerta de pseudo-autenticação ocultada para faturação.
 - Ou se o utilizador não quer alternar a preferência de API, o usuário precisará **eliminar** a agenda original e, em seguida, utilizar a ação do alerta [API do Log Analytics legada](api-alerts.md) ou eliminar no [portal do Azure a regra de alerta de registo original](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
+
+Além disso, para os recursos de scheduleQueryRules ocultos criados para uma faturação de regras de alerta com [API do Log Analytics legadas](api-alerts.md), qualquer operação de modificação como PUT irá falhar. Como o `microsoft.insights/scheduledqueryrules` são de tipo pseudo regras para fins de faturação as regras de alerta criadas utilizando [API do Log Analytics legadas](api-alerts.md). Qualquer modificação de regra de alerta deve ser feita utilizando [API do Log Analytics legadas](api-alerts.md) (ou) o utilizador pode [mudar a preferência de API para as regras de alerta](../../azure-monitor/platform/alerts-log-api-switch.md) utilizar [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) em vez disso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

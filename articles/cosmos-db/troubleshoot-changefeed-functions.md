@@ -7,12 +7,12 @@ ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242518"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734519"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e resolver problemas ao utilizar o acionador do Azure Cosmos DB nas funções do Azure
 
@@ -88,6 +88,12 @@ Se, achar que algumas alterações não foram recebidas em todos os pelo seu aci
 Além disso, o cenário pode ser validado, se sabe quantas instâncias de aplicação de funções do Azure tem em execução. Se inspecionar o contentor de concessões e contar o número de itens de concessão dentro, os valores distintos do `Owner` propriedade nos mesmos, deve ser igual ao número de instâncias da sua aplicação de função. Se existirem mais proprietários que as instâncias da aplicação de funções do Azure conhecidos, significa que estes proprietários extras são um "roubar" as alterações.
 
 Uma maneira fácil para resolver esta situação, é aplicar uma `LeaseCollectionPrefix/leaseCollectionPrefix` à sua função com um valor novo/diferente ou, em alternativa, testar com um novo contentor de concessões.
+
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Enlace só pode ser feito com IReadOnlyList<Document> ou JArray
+
+Este erro ocorre se o seu projeto de funções do Azure (ou qualquer projeto referenciado) contém uma referência de NuGet manual para o SDK do Azure Cosmos DB com uma versão diferente daquele fornecido pelos [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+
+Para resolver esta situação, remova a referência de NuGet manual que foi adicionada e deixar que a referência do SDK do Azure Cosmos DB resolver por meio do pacote de extensão do Azure funções Cosmos DB.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

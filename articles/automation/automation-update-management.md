@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397645"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729489"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -78,9 +78,6 @@ A tabela seguinte mostra uma lista dos sistemas operativos suportados:
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |Ubuntu 14.04 LTS e 16.04 LTS e 18.04 (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
-
-> [!NOTE]
-> Conjuntos de dimensionamento de máquina virtual do Azure podem ser geridos com o gerenciamento de atualizações. Gestão de atualizações funciona nas instâncias de si mesmos e não a imagem base. Precisará agendar as atualizações de forma incremental, não atualizar todas as instâncias VM ao mesmo tempo.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
 
@@ -195,7 +192,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 É feita uma análise duas vezes por dia em cada computador Windows gerido. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização determinar se o estado foi alterado. Se o estado mudou, é iniciada uma análise de conformidade.
 
-Uma análise é executada em três horas para cada computador Linux gerido.
+Uma análise é executada a cada hora para cada computador Linux gerido.
 
 Pode demorar entre 30 minutos e 6 horas para o dashboard apresentar os dados atualizados dos computadores gerenciados.
 
@@ -492,7 +489,7 @@ Update
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
 | where UpdateState=~"Needed" and Approved!=false
 | summarize by UpdateID, Classification )
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security"
+| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
 ```
 
 ##### <a name="computers-list"></a>Lista de computadores

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f60146e4e11e50b2f2254a0d8d7f59c01ba74464
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024878"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479945"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexar documentos no armazenamento de Blobs do Azure com o Azure Search
 Este artigo mostra como utilizar o Azure Search para documentos de índice (como PDFs, documentos do Microsoft Office e diversos outros formatos comuns) armazenados no armazenamento de Blobs do Azure. Em primeiro lugar, ele explica as noções básicas de definir e configurar um indexador de Blobs. Em seguida, ele oferece uma discussão mais aprofundada dos comportamentos e cenários que tem probabilidade de encontrar.
@@ -139,6 +139,7 @@ Consoante a [a configuração do indexador](#PartsOfBlobToIndex), o indexador bl
   * **Metadados\_armazenamento\_último\_modificado** (Edm.DateTimeOffset) - última modificação timestamp para o blob. O Azure Search utiliza este timestamp para identificar blobs alterados, para evitar a reindexação tudo após a indexação inicial.
   * **Metadados\_armazenamento\_tamanho** (Edm.Int64) - tamanho em bytes do blob.
   * **Metadados\_armazenamento\_conteúdo\_md5** (EDM) - hash MD5 do conteúdo do blob, se disponível.
+  * **Metadados\_armazenamento\_sas\_token** (EDM) - um token temporário que pode ser utilizado por [competências personalizadas](cognitive-search-custom-skill-interface.md) para obter acesso adequado para o blob. Este token sas não deve ser armazenado para uso posterior, como poderão expirar.
 * Propriedades de metadados específicas para cada formato de documento são extraídas nos campos listados [aqui](#ContentSpecificMetadata).
 
 Não precisa de definir os campos para todas as propriedades acima no seu índice de pesquisa - capturar apenas as propriedades que precisa para a sua aplicação.

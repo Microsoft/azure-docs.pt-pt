@@ -2,20 +2,20 @@
 title: Tutorial - criar um inquilino do Azure Active Directory B2C | Documentos da Microsoft
 description: Aprenda a preparar para registar as suas aplicações através da criação de um inquilino do Azure Active Directory B2C no portal do Azure.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6bcb8e8d5b8b6ef1ebac8141dd13964ecf62af6f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e2568bca8f8ecf170c82c5388823193b8b0457cf
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601702"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734470"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um inquilino do Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Criar um inquilino do Azure AD B2C
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Certifique-se de que está a utilizar o diretório que contém a sua subscrição ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que o contém. Este diretório é diferente daquela que irá conter o seu inquilino do Azure AD B2C.
+2. Certifique-se de que está a utilizar o diretório que contém a sua subscrição ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que o contém. Este diretório é diferente do que irá conter o seu inquilino do Azure AD B2C.
 
     ![Mude para o diretório da subscrição](./media/tutorial-create-tenant/switch-directory-subscription.png)
 

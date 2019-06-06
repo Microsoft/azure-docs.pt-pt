@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 76d18b6a942ed9b8c6871b0ff7cbc1c83917ada4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130472"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472599"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Ativar o Azure Monitor para descrição geral de VMs (pré-visualização)
 
@@ -40,6 +40,7 @@ Antes de começar, certifique-se de que compreende as informações nas secçõe
 Monitor do Azure para VMs oferece suporte a uma área de trabalho do Log Analytics nas seguintes regiões:
 
 - EUA Centro-Oeste
+- E.U.A. oeste 2<sup>1</sup>
 - EUA Leste
 - Canada Central<sup>1</sup>
 - Sul do Reino Unido<sup>1</sup>
@@ -74,7 +75,7 @@ Para configurar a sua área de trabalho para o cenário de à escala, pode confi
 
 A tabela seguinte lista os sistemas operativos Windows e Linux que são suportados com o Azure Monitor para as VMs. Uma lista completa, que fornece detalhes sobre a versão de SO Linux principal e secundária e versões de kernel suportadas será fornecida posteriormente nesta secção.
 
-|Versão do SO |Desempenho |Maps |Saúde |
+|Versão do SO |Desempenho |Maps |Estado de Funcionamento |
 |-----------|------------|-----|-------|
 |Windows Server 2019 | X | X | X |
 |Windows Server 2016 1803 | X | X | X |

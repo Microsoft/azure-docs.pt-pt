@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0256396cd228898f3852772b113e6064a0656746
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4d385f1e8c883453b4153ca4c9119d3be0a608bb
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237661"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495565"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personalizar o Azure IoT Central da interface do Usuário 
 
@@ -75,6 +75,5 @@ Também pode adicionar novas entradas ao menu de ajuda e remover as entradas pre
 
 Agora que aprendeu como personalizar a interface do Usuário em seu aplicativo de IoT Central, seguem-se alguns passos seguintes sugeridos:
 
-> [!div class="nextstepaction"]
-> [Administrar o seu aplicativo](./howto-administer.md)
-> [configurar o dashboard de aplicações](./howto-configure-homepage.md)
+- [Administrar a sua aplicação](./howto-administer.md)
+- [Configurar o dashboard de aplicações](./howto-configure-homepage.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: dbc8363052556f29633c069bcd82af5249a3406f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306882"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428110"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 
@@ -38,7 +38,7 @@ Para executar uma aplicação existente num contentor do Windows num cluster do 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um computador de programação com:
-  * Visual Studio 2015 ou Visual Studio 2017.
+  * Visual Studio 2015 ou Visual Studio 2019.
   * [SDK e ferramentas do Service Fabric](service-fabric-get-started.md).
   *  Docker para Windows. [Obtenha o Docker CE para Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
 
@@ -482,7 +482,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Contentores do Windows Server não são compatíveis entre todas as versões de um sistema operacional host. Por exemplo:
  
 - Contentores do Windows Server criados com a versão 1709 do Windows Server não funcionam num anfitrião com o Windows Server versão 2016. 
-- Contentores do Windows Server criados com o Windows Server 2016 funcionam no modo de isolamento de Hyper-v apenas num anfitrião com o Windows Server versão 1709. 
+- Contentores do Windows Server criados com o Windows Server 2016 funcionam no modo de isolamento de Hyper-V apenas num anfitrião com o Windows Server versão 1709. 
 - Com contentores do Windows Server criados com o Windows Server 2016, poderá ser necessário para se certificar de que a revisão do contentor de sistema operacional e o sistema operacional host são os mesmos quando em execução no modo de isolamento do processo num anfitrião com o Windows Server 2016.
  
 Para obter mais informações, consulte [compatibilidade de versões do contentor Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 527e9979b624970dd55b4300fe63c27386640ac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a293f0b656c075ae3b21ccf98e602e43ed761958
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560517"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428452"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Tutorial: Notificações push localizada para dispositivos iOS com Notification Hubs do Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "60560517"
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-Este tutorial mostra-lhe como utilizar o [modelos](notification-hubs-templates-cross-platform-push-messages.md) funcionalidade dos Hubs de notificação do Azure para difundir notificações de notícias de última hora que foram localizadas por idioma e o dispositivo. Neste tutorial, começa com a aplicação iOS criada no [Use Notification Hubs to send breaking news (Utilizar Hubs de Notificação para enviar notícias de última hora)]. Quando terminar, pode se registrar para categorias de que interesse, especificar um idioma no qual pretende receber as notificações e receber apenas notificações push para as categorias selecionadas nesse idioma.
+Este tutorial mostra-lhe como utilizar o [modelos](notification-hubs-templates-cross-platform-push-messages.md) funcionalidade dos Hubs de notificação do Azure para difundir notificações de notícias de última hora que foram localizadas por idioma e o dispositivo. Neste tutorial, começa com a aplicação iOS criada no [Use Notification Hubs to send breaking news (Utilizar Hubs de Notificação para enviar notícias de última hora)]. Quando terminar, pode se registrar para categorias que tiver interesse em, especificar um idioma no qual pretende receber as notificações e receber notificações de push apenas para as categorias selecionadas nesse idioma.
 
 Existem duas partes para este cenário:
 
@@ -49,7 +49,7 @@ Na [Use Notification Hubs to send breaking news (Utilizar Hubs de Notificação 
 > [!NOTE]
 > É uma forma de enviar notificações localizadas criar várias versões de cada etiqueta. Por exemplo, para oferecer suporte a inglês, francês e Mandarim, terá de ter três etiquetas diferentes para notícias do mundo: "world_en", "world_fr," e "world_ch". Em seguida, terá de enviar uma versão localizada de notícias do mundo para cada uma dessas marcas. Neste tópico, utilize modelos para evitar a proliferação de etiquetas e o requisito de enviar várias mensagens.
 
-Num alto nível, os modelos são uma forma de especificar a forma como um dispositivo específico deve receber uma notificação. O modelo especifica o formato de payload exato ao consultar as propriedades que fazem parte da mensagem enviada pelo back-end da sua aplicação. No seu caso, envia uma mensagem de independente de localidade que contém todos os idiomas suportados:
+Os modelos são uma forma de especificar a forma como um dispositivo específico deve receber uma notificação. O modelo especifica o formato de payload exato ao consultar as propriedades que fazem parte da mensagem enviada pelo back-end da sua aplicação. No seu caso, envia uma mensagem de independente de localidade que contém todos os idiomas suportados:
 
 ```json
 {
@@ -74,7 +74,7 @@ Para obter mais informações sobre modelos, consulte [modelos](notification-hub
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Concluir o [notificações Push para dispositivos iOS específico](notification-hubs-ios-xplat-segmented-apns-push-notification.md) tutorial e ter o código disponível, porque este tutorial baseia-se diretamente nesse código.
-* Visual Studio 2017 é opcional.
+* 2019 do Visual Studio é opcional.
 
 ## <a name="update-the-app-user-interface"></a>Atualizar a interface de utilizador de aplicação
 
@@ -90,7 +90,7 @@ Em seguida, certifique-se adicionar um IBOutlet no seu viewcontroller. H, confor
 
 ## <a name="build-the-ios-app"></a>Compilar a aplicação para iOS
 
-1. No seu `Notification.h` adicione o `retrieveLocale` método e modificar o arquivo e subscrever métodos, conforme mostrado no seguinte código:
+1. No seu `Notification.h`, adicione o `retrieveLocale` método e modificar o arquivo e subscrever métodos, conforme mostrado no seguinte código:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;

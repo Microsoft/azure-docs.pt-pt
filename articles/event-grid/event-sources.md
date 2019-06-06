@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257953"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735010"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origens de eventos no Azure Event Grid
 
@@ -140,6 +140,15 @@ Subscreva eventos de mapas do Azure para responder a eventos do perímetro geogr
 | [Reagir a eventos do Azure Maps com o Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Descrição geral da integração do Azure Maps com o Event Grid. |
 | [Tutorial: Configurar um perímetro geográfico](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial explica-lhe os passos de noções básicas para configurar o perímetro geográfico com o Azure Maps. Utilize o Azure Event Grid para transmitir os resultados do perímetro geográfico e configurar uma notificação com base nos resultados do perímetro geográfico. |
 | [Esquema de eventos](event-schema-azure-maps.md) | Mostra os campos nos eventos do Azure Maps. |
+
+## <a name="app-configuration"></a>App Configuration
+Subscreva eventos de configuração de aplicações do Azure para responder a eventos de modificação de chave-valor.
+
+|Cargo | Descrição |
+|---------|---------|
+| [Reagir a eventos de configuração de aplicações do Azure com o Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Descrição geral da integração de configuração de aplicações do Azure com o Event Grid. |
+| [Início rápido: encaminhar eventos de configuração de aplicações do Azure para um ponto final web personalizado com a CLI do Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar a CLI do Azure para enviar eventos de configuração de aplicações do Azure para um WebHook. |
+| [Esquema de eventos](event-schema-app-configuration.md) | Mostra os campos nos eventos de configuração de aplicações do Azure. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

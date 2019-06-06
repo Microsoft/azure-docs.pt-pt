@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 15232c92e60d21d759bec59597cb161480b8c2ea
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258522"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743237"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças no Centro de segurança do Azure
 
@@ -44,10 +44,6 @@ Estas capacidades já estão disponíveis no Centro de Segurança do Azure:
 - **Detalhadas de investigação da máquina**: Os clientes do Centro de segurança do Azure podem aceder a consola do Windows Defender ATP para efetuar uma investigação detalhada para descobrir o âmbito de uma violação.
 
 ![Centro de segurança do Azure, exibindo uma lista de alertas e informações gerais sobre cada alerta](media/security-center-wdatp/image1.png)
-
-Pode [investigar o alerta](security-center-investigation.md) no Centro de segurança do Azure:
-
-![O dashboard de investigação de alertas no Centro de segurança do Azure](media/security-center-wdatp/image2.png)
 
 Pode continuar a investigar o alerta por dinamização para o Windows Defender ATP. Aqui pode ver informações adicionais, como a árvore de processos de alerta e o gráfico de incidente. Também pode ver uma linha cronológica de máquina detalhado que mostra cada comportamento durante um período de histórico de até seis meses.
 

@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925867"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730450"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações push com Notification Hubs do Azure: Perguntas mais frequentes
 
@@ -43,7 +43,7 @@ Os detalhes de preços mais recentes podem ser encontrados no [Preços dos Hubs 
 Funcionalidades do escalão Standard:
 
 * **Telemetria avançada**: Pode utilizar Notification Hubs da telemetria por mensagem para acompanhar todos os pedidos de push e comentários do sistema de notificação de plataforma para depuração.
-* **Arquitetura "multitenancy"**: Pode trabalhar com as credenciais do sistema de notificação de plataforma num nível de espaço de nomes. Esta opção permite-lhe facilmente divididas inquilinos em hubs dentro do mesmo espaço de nomes.
+* **Arquitetura "multitenancy"** : Pode trabalhar com as credenciais do sistema de notificação de plataforma num nível de espaço de nomes. Esta opção permite-lhe facilmente divididas inquilinos em hubs dentro do mesmo espaço de nomes.
 * **Agendado push**: Pode agendar notificações para serem enviados a qualquer momento.
 * **Em massa operações**: Ativa a funcionalidade de exportação/importação de registos, conforme descrito no [Exportação/importação de registos] documento.
 
@@ -56,7 +56,7 @@ Para os escalões básico e Standard dos Hubs de notificação, as aplicações 
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Como posso atualizar ou mudar o meu hub ou espaço de nomes para um escalão diferente?
 
-Vá para o  **[portal do Azure]** > **espaços de nomes de Hubs de notificação** ou **os Hubs de notificação**. Selecione o recurso que pretende atualizar e aceda a **escalão de preço**. Tenha em atenção os seguintes requisitos:
+Vá para o  **[portal do Azure]**  > **espaços de nomes de Hubs de notificação** ou **os Hubs de notificação**. Selecione o recurso que pretende atualizar e aceda a **escalão de preço**. Tenha em atenção os seguintes requisitos:
 
 * O escalão de preço atualizado aplica-se ao *todos os* hubs num espaço de nomes que está a trabalhar.
 * Se a contagem de dispositivos exceder o limite da camada que está a fazer downgrade, terá de eliminar dispositivos antes de mudar a versão.
@@ -69,17 +69,17 @@ SDKs do servidor estão disponíveis para .NET, Java, node. js, PHP e Python. AP
 
 ### <a name="which-client-platforms-do-you-support"></a>Que plataformas de cliente suporta?
 
-Notificações push são suportadas para [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Universal do Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (por meio do Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android, [aplicações do Chrome](notification-hubs-chrome-push-notifications-get-started.md), e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Para obter mais informações, vá para o [Tutoriais de introdução aos Hubs de notificação] página.
+Notificações push são suportadas para [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Universal do Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (por meio do Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e Android, e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Para obter mais informações, vá para o [Tutoriais de introdução aos Hubs de notificação] página.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Suporta a mensagem de texto, correio eletrónico ou notificações de web?
 
 Os Hubs de notificação foi concebido principalmente para enviar notificações para aplicações móveis. Ele não fornece e-mail ou texto capacidades para mensagens. No entanto, as plataformas de terceiros que oferece esses recursos podem ser integradas com os Hubs de notificação para enviar notificações push nativas utilizando [Aplicações Móveis].
 
-Os Hubs de notificação também não fornece um serviço de disponibilização de notificação push no navegador de imediato. Os clientes podem implementar esta funcionalidade utilizando o SignalR sobre as plataformas suportadas do lado do servidor. Se pretender enviar notificações para aplicações de browser na sandbox do Chrome, consulte a [tutorial de aplicações do Chrome].
+Os Hubs de notificação também não fornece um serviço de disponibilização de notificação push no navegador de imediato. Os clientes podem implementar esta funcionalidade utilizando o SignalR sobre as plataformas suportadas do lado do servidor. 
 
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Como são aplicações móveis e os Hubs de notificação do Azure relacionados e quando devo utilizá-los?
 
-Se tiver um back-end de aplicações móveis existente e pretender adicionar apenas a capacidade de enviar notificações push, pode utilizar os Hubs de notificação do Azure. Se quiser configurar o seu back-end de aplicação móvel do zero, considere utilizar a funcionalidade de aplicações móveis do serviço de aplicações do Azure. Uma aplicação móvel Aprovisiona automaticamente um hub de notificação para que pode enviar facilmente notificações push do back-end da aplicação móvel. Preços de aplicações móveis incluem cobranças de base para um hub de notificação. Paga apenas quando exceder os pushes incluídos. Para obter mais detalhes sobre os custos, vá para o [Preços do serviço de aplicações] página.
+Se tiver um back-end de aplicações móveis existente e pretender adicionar apenas a capacidade de enviar notificações push, pode utilizar os Hubs de notificação do Azure. Se quiser configurar o seu back-end de aplicação móvel do zero, considere utilizar a funcionalidade de aplicações móveis do serviço de aplicações do Azure. Uma aplicação móvel Aprovisiona automaticamente um hub de notificação para que pode enviar facilmente notificações push do back-end da aplicação móvel. Preços de aplicações móveis incluem cobranças de base para um hub de notificação. Paga apenas quando exceder os pushes incluídos. Para obter mais detalhes sobre os custos, vá para o [Preços do Serviço de Aplicações] página.
 
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Quantos dispositivos posso suportar se posso enviar notificações push através dos Hubs de notificação?
 
@@ -210,7 +210,6 @@ Pode também acessar programaticamente métricas. Para obter mais informações,
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [REST APIs dos Hubs de notificação]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Tutoriais de introdução aos Hubs de notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Tutorial de aplicações do Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Documentação de orientação do registo de back-end]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Documentação de orientação do registo de back-end 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
@@ -222,4 +221,4 @@ Pode também acessar programaticamente métricas. Para obter mais informações,
 [Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Aplicações Móveis]: https://azure.microsoft.com/services/app-service/mobile/
-[Preços do serviço de aplicações]: https://azure.microsoft.com/pricing/details/app-service/
+[Preços do Serviço de Aplicações]: https://azure.microsoft.com/pricing/details/app-service/

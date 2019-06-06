@@ -11,20 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfababeae15ee18a140042d9a6ca10be40e41339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b1c9c24f5b594935c0057eb15acec09a0b27324
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415808"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496791"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando utilizar um fornecedor de autenticação do multi-factor do Azure
 
 A verificação de dois passos está disponível por predefinição para os administradores globais que tenham utilizadores do Azure Active Directory e do Office 365. No entanto, se pretender tirar partido das [funcionalidades avançadas](howto-mfa-mfasettings.md), deverá comprar a versão completa do Multi-Factor Authentication (MFA) do Azure.
 
 Um fornecedor do multi-factor Auth do Azure é utilizado para tirar partido das funcionalidades fornecidas pelo Azure multi-factor Authentication para os utilizadores quem **não têm licenças**.
-
-Se tiver licenças que abrangem todos os utilizadores na sua organização, em seguida, não terá um fornecedor do multi-factor Auth do Azure. Crie um fornecedor de autenticação do multi-factor do Azure apenas se também tem de fornecer a verificação de dois passos para alguns usuários que não têm licenças.
 
 > [!NOTE]
 > Em vigor a partir de 1 de Setembro de 2018 novos auth fornecedores já não podem ser criados. Fornecedores de autenticação existentes podem continuar a ser utilizado e atualizados. Multi-factor authentication irá continuar a estar disponível como uma funcionalidade no licenças do Azure AD Premium.

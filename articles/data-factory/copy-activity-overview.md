@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/06/2019
 ms.locfileid: "65150887"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
 ## <a name="overview"></a>Descrição geral
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-data-movement-activities.md)
 > * [Versão atual](copy-activity-overview.md)
 

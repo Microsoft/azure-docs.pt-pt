@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 149452bd7d43ce46f320b9bae63a6f9cd48d98d4
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416699"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730688"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption para VMs de IaaS FAQ
 
@@ -82,6 +82,9 @@ Não, o Azure Disk Encryption encripta apenas volumes montados.
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Como rodar segredos ou chaves de encriptação?
 
 Para rodar segredos, basta chamar o mesmo comando que utilizou originalmente para ativar a encriptação de disco, especificando um cofre de chaves diferentes. Rodar a chave de encriptação de chave, chame o mesmo comando que utilizou originalmente para ativar a encriptação de disco, especificando a encriptação de chave nova. 
+
+>[!WARNING]
+> - Se tiver utilizado anteriormente [do Azure Disk Encryption, com a aplicação do Azure AD](azure-security-disk-encryption-prerequisites-aad.md) ao especificar credenciais do Azure AD para encriptar esta VM, terá de continuar a utilizar esta opção para encriptar a sua VM. Não é possível usar [do Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) nesta VM encriptada como isso não é um cenário suportado, significado mudar para fora da aplicação do AAD para encriptados esta VM não é suportada ainda.
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Como adicionar ou remover uma chave de encriptação de chave, se eu originalmente não utilizar um?
 

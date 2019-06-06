@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e38e1479c1e094f691e8f22f0a48f9342cae5cf3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001708"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475090"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Atributos de segurança para o serviço de aplicações do Azure
 
@@ -51,7 +51,7 @@ Este artigo documenta os atributos comuns de segurança incorporados no serviço
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | Os clientes podem criar aplicações no serviço de aplicações que se integram automaticamente [do Azure Active Directory (Azure AD)](../active-directory/index.md) , bem como outros fornecedores de identidade compatível de OAuth; consulte [autenticação e autorização nas Serviço de aplicações do Azure](overview-authentication-authorization.md). Para obter acesso de gestão a recursos de serviço de aplicações, todo o acesso é controlado por uma combinação de principal do Azure AD autenticado e funções do RBAC do Azure Resource Manager. |
+| Autenticação| Sim | Os clientes podem criar aplicações no serviço de aplicações que se integram automaticamente [do Azure Active Directory (Azure AD)](../active-directory/index.yml) , bem como outros fornecedores de identidade compatível de OAuth; consulte [autenticação e autorização nas Serviço de aplicações do Azure](overview-authentication-authorization.md). Para obter acesso de gestão a recursos de serviço de aplicações, todo o acesso é controlado por uma combinação de principal do Azure AD autenticado e funções do RBAC do Azure Resource Manager. |
 | Autorização| Sim | Para obter acesso de gestão a recursos de serviço de aplicações, todo o acesso é controlado por uma combinação de principal do Azure AD autenticado e funções do RBAC do Azure Resource Manager.  |
 
 

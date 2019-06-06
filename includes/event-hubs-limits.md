@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 3f3b60c3744ce9dea61054b3fa0aaccfea27d784
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238703"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66736023"
 ---
 A tabela seguinte apresenta uma lista de quotas e limites específica [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços de Hubs de eventos, consulte [preços de Hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -39,11 +39,11 @@ A oferta de Hubs de eventos dedicados é faturada por um preço mensal fixo, com
 | --- | ---|
 | Largura de banda |  20 CUs |
 | Espaços de nomes | 50 por CU |
-| Hubs de Eventos |  Sem limite sobre os hubs de eventos/tópicos |
+| Hubs de Eventos |  1000 por espaço de nomes |
 | Eventos de entrada | Incluída |
 | Tamanho da Mensagem | 1 milhão de Bytes |
 | Partições | 2000 por CU |
 | Grupos de consumidores | Sem limite por CU, 1000 por hub de eventos |
 | Ligações mediadas | 100 mil incluídos |
-| Retenção de Mensagens | 90 dias, 10 TB, incluído por CU |
+| Retenção de Mensagens | Se a 7 dias (90 dias de retenção em breve), 10 TB incluídos por CU |
 | Captura | Incluída |

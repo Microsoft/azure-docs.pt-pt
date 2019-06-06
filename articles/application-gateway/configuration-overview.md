@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64946816"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431295"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -57,7 +57,7 @@ Grupos de segurança de rede (NSGs) são suportados no Gateway de aplicação. N
 
 - Tráfego a partir da **AzureLoadBalancer** etiqueta tem de ter permissão.
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>Acesso de Gateway de aplicação de lista branca de IPs de origem alguns
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir o acesso de Gateway de aplicação para alguns IPs de origem
 
 Para este cenário, utilize NSGs na sub-rede de Gateway de aplicação. Coloca as seguintes restrições na sub-rede por esta ordem de prioridade:
 
@@ -118,7 +118,7 @@ Escolha o endereço IP Front-end que pretende associar este serviço de escuta. 
 
 Escolha a porta de front-end. Selecione uma porta existente ou crie um novo. Escolha qualquer valor entre o [intervalo de portas permitido](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Pode usar não apenas portas bem conhecidas, como 80 e 443, mas qualquer porta permitida personalizada que é adequada. Uma porta pode ser utilizada para serviços de escuta de destinado ao público ou privado com acesso à escuta.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Escolha HTTP ou HTTPS:
 
@@ -209,19 +209,19 @@ Para uma regra com base no caminho, adicione várias definições de HTTP de bac
 
 ### <a name="redirection-setting"></a>Configuração de redirecionamento
 
-Se o redirecionamento está configurado para uma regra básica, todos os pedidos no serviço de escuta associado são redirecionados para o destino. Isto é *global* redirecionamento. Se o redirecionamento está configurado para uma regra baseada em caminho, são redirecionados apenas pedidos numa área de site específico. Um exemplo é uma área de carrinho de compras é indicada pelo */cart/\**. Isto é *baseado no caminho* redirecionamento.
+Se o redirecionamento está configurado para uma regra básica, todos os pedidos no serviço de escuta associado são redirecionados para o destino. Isto é *global* redirecionamento. Se o redirecionamento está configurado para uma regra baseada em caminho, são redirecionados apenas pedidos numa área de site específico. Um exemplo é uma área de carrinho de compras é indicada pelo */cart/\** . Isto é *baseado no caminho* redirecionamento.
 
 Para obter mais informações sobre redirecionamentos, consulte [descrição geral do redirecionamento de Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 #### <a name="redirection-type"></a>Tipo de redirecionamento
 
-Escolha o tipo de redirecionamento de: *Permanent(301)*, *Temporary(307)*, *Found(302)*, ou *ver other(303)*.
+Escolha o tipo de redirecionamento de: *Permanent(301)* , *Temporary(307)* , *Found(302)* , ou *ver other(303)* .
 
 #### <a name="redirection-target"></a>Destino de redirecionamento
 
 Escolha outro serviço de escuta ou um site externo, como o destino de redirecionamento.
 
-##### <a name="listener"></a>Serviço de Escuta
+##### <a name="listener"></a>Serviço de escuta
 
 Escolha o serviço de escuta de como o destino de redirecionamento para redirecionar o tráfego de um serviço de escuta para outra no gateway. Esta definição é necessária para ativar o redirecionamento de HTTP para HTTPS. Ele redireciona o tráfego a partir do serviço de escuta de origem que verifica a existência de pedidos de HTTP de entrada para o serviço de escuta de destino que verifica a existência de pedidos recebidos de HTTPS. Também pode optar por incluir a cadeia de consulta e o caminho do pedido original no pedido que seja reencaminhado para o destino de redirecionamento.
 
@@ -259,13 +259,13 @@ Esta funcionalidade é útil quando deseja manter uma sessão de utilizador no m
 
 Drenagem de ligação ajuda-o com elegância remover membros do conjunto de back-end durante as atualizações de serviço planeada. Pode aplicar esta definição para todos os membros de um conjunto de back-end durante a criação de regra. Ele garante que todas as instâncias de anular o registo de um conjunto de back-end não recebem as novas solicitações. Enquanto isso, são permitidos pedidos existentes para ser concluída no prazo de um limite de tempo configurado. Drenagem de ligação aplica-se com as instâncias de back-end que são explicitamente removidas do conjunto back-end por uma chamada à API. Também se aplica às instâncias de back-end que são apresentadas como *mau estado de funcionamento* pelo Estado de funcionamento sondas.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Gateway de aplicação suporta HTTP e HTTPS de encaminhamento de pedidos para os servidores de back-end. Se optar por HTTP, o tráfego para os servidores de back-end é não encriptado. Se a comunicação desencriptada não for aceitável, escolha o HTTPS.
 
 Esta definição juntamente com HTTPS em suporta o serviço de escuta [SSL ponto a ponto](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Isto permite-lhe transmitir dados confidenciais encriptados para o back-end de forma segura. Cada servidor de back-end no conjunto de back-end com SSL de ponta a ponta ativado deve ser configurado com um certificado para permitir a comunicação segura.
 
-### <a name="port"></a>Porta
+### <a name="port"></a>Port
 
 Esta definição especifica a porta em que os servidores de back-end escutam o tráfego do gateway de aplicação. Pode configurar as portas entre 1 e 65535.
 

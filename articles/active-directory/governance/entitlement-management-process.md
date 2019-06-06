@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab18c8f165fc30636cd05091be1181743f9972d
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873662"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473042"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Pedir o processo e notificações de e-mail na gestão de direitos do Azure AD (pré-visualização)
 
@@ -44,10 +44,10 @@ Um utilizador que precisa de acesso a um pacote de acesso pode submeter um pedid
 | --- | --- |
 | Submetido | Utilizador submete um pedido. |
 | Aprovação pendente | Se a política para um pacote de acesso necessita de aprovação, move de um pedido para aguardar a aprovação. |
-| Fora do prazo | Se não os aprovadores rever um pedido dentro do tempo de limite do pedido de aprovação, o pedido expira. Para tentar novamente, o utilizador terá de voltar a submeter o pedido. |
-| Negada | Aprovador nega um pedido. |
+| Fora do prazo | Se não os aprovadores aprovar um pedido dentro do tempo de limite do pedido de aprovação, o pedido expira. Para tentar novamente, o utilizador terá de voltar a submeter o pedido. |
+| Negado | Aprovador nega um pedido. |
 | Aprovado | Um pedido de aprovação do aprovador. |
-| A entregar | O utilizador tem **não** foi atribuído acesso a todos os recursos do pacote de acesso. Se se tratar de um utilizador externo, o utilizador ainda não tem acedidos no diretório de recursos e aceite o pedido de permissões. |
+| Entrega | O utilizador tem **não** foi atribuído acesso a todos os recursos do pacote de acesso. Se se tratar de um utilizador externo, o utilizador ainda não tem acedidos no diretório de recursos e aceite o pedido de permissões. |
 | Entregue | Foi atribuído acesso a todos os recursos no pacote de acesso do utilizador. |
 | Acesso estendido | Se as extensões são permitidas na política, o utilizador estendido a atribuição. |
 | Acesso expirado | Acesso de utilizador para o pacote de acesso a expirou. Para obter acesso mais uma vez, o utilizador terá que submeter um pedido. |
@@ -60,7 +60,7 @@ Se for um aprovador, são enviadas notificações por e-mail quando tem de aprov
 
 A tabela seguinte fornece mais detalhes sobre cada uma dessas notificações de e-mail.
 
-| # | Assunto da mensagem de e-mail | Quando enviados | Enviado para |
+| # | Assunto do e-mail | Quando enviados | Enviado para |
 | --- | --- | --- | --- |
 | 1 | Ação necessária: Analisar pedido de acesso de *[requerente]* ao *[pacote acesso]* por *[date]* | Quando um solicitante envia uma solicitação para um pacote de acesso | Todos os aprovadores |
 | 2 | Ação necessária: Analisar pedido de acesso de *[requerente]* ao *[pacote acesso]* por *[date]* | Tempo limite do pedido de X dias antes da aprovação | Todos os aprovadores |
@@ -71,7 +71,7 @@ A tabela seguinte fornece mais detalhes sobre cada uma dessas notificações de 
 | 7 | O acesso ao *[pacote acesso]* expira em X dia (s) | X dias antes de acesso do requerente para o pacote de acesso expira | Requerente |
 | 8 | O acesso ao *[pacote acesso]* expirou | Quando o acesso do requerente a um pacote de acesso expira | Requerente |
 
-### <a name="review-access-request-emails"></a>Mensagens de e-mail de pedido de acesso de revisão
+### <a name="access-request-emails"></a>Mensagens de e-mail de pedido de acesso
 
 Quando um solicitante envia um pedido de acesso para um pacote de acesso que está configurado para exigir a aprovação, todos os aprovadores configurados na política de recebem uma notificação por e-mail com detalhes do pedido. Detalhes incluem o nome do requerente, organização, aceder a data de início e fim se for fornecido, justificação de negócio, quando o pedido foi submetido, e quando o pedido irá expirar. O e-mail inclui uma ligação em que os aprovadores podem aprovar ou negar o pedido de acesso. Aqui está uma notificação de e-mail de exemplo que é enviada para um aprovador quando um solicitante envia um pedido de acesso.
 
@@ -79,7 +79,7 @@ Quando um solicitante envia um pedido de acesso para um pacote de acesso que est
 
 ### <a name="approved-or-denied-emails"></a>Mensagens de correio eletrónico aprovadas ou negadas
 
-Requerentes são notificados quando o pedido de acesso é aprovado e disponíveis para acesso, ou quando o pedido de acesso é negado. Quando um aprovador revisões de um pedido de acesso enviado por um requerente, pode aprovar ou negar o pedido de acesso. O aprovador tem de adicionar uma justificativa comercial para a sua decisão.
+Requerentes são notificados quando o pedido de acesso é aprovado e disponíveis para acesso, ou quando o pedido de acesso é negado. Quando um aprovador recebe um pedido de acesso enviado por um requerente, pode aprovar ou negar o pedido de acesso. O aprovador tem de adicionar uma justificativa comercial para a sua decisão.
 
 Quando for aprovado um pedido de acesso, gestão de direitos inicia o processo de conceder o acesso de requerente para cada um dos recursos do pacote de acesso. Depois do requerente tem sido concedido acesso a todos os recursos do pacote de acesso, é enviada uma notificação por e-mail para o requerente do que o seu pedido de acesso foi aprovado e se têm agora acesso ao pacote de acesso. Aqui está uma notificação de e-mail de exemplo que é enviada para um requerente quando eles recebem acesso a um pacote de acesso.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000973"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476029"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação
 
@@ -153,11 +153,11 @@ Pode avaliar um cabeçalho de solicitação ou resposta HTTP para a presença de
 
 ## <a name="limitations"></a>Limitações
 
+- Se uma resposta tem mais do que um cabeçalhos com o mesmo nome, em seguida, reescrever o valor de um dos cabeçalhos de irá resultar em remover os outros cabeçalhos na resposta. Normalmente, isto pode acontecer com cabeçalho Set-Cookie, uma vez que pode ter mais de um cabeçalho de Set-Cookie numa resposta. Um cenário desse tipo é quando estiver a utilizar um serviço de aplicações com um gateway de aplicação e tiver configurado a afinidade de sessão baseada em cookies no gateway de aplicação. Neste caso, a resposta conterá 2 cabeçalhos de Set-Cookie: usada pelo serviço de aplicações, ou seja, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para a afinidade do gateway de aplicação, ou seja, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. A regravação de um dos cabeçalhos Set-Cookie neste cenário pode resultar em remover o cabeçalho de Set-Cookie da resposta.
+
 - Reescrever os cabeçalhos de ligação, a atualização e o anfitrião não é atualmente suportada.
 
 - Os nomes de cabeçalho podem conter quaisquer carateres alfanuméricos e símbolos específicos conforme definido na [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Atualmente não é suportado o caráter de sublinhado (\_) caráter especial no nomes de cabeçalho.
-
-- Se uma resposta tem vários cabeçalhos com o mesmo nome, em seguida, reescrever o valor de um dos cabeçalhos de irá resultar em remover os outros cabeçalhos na resposta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

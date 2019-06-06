@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502254"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427525"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Ferramentas de exploração e visualização de dados na máquina de Virtual de ciência de dados
 
-É uma etapa importante da ciência de dados compreender os dados. Visualização e ferramentas de exploração de dados ajudam a acelerar a compreensão de dados. Aqui estão algumas ferramentas fornecidas no DSVM que facilitam o nessa importante etapa. 
+É uma etapa importante da ciência de dados compreender os dados. Visualização e ferramentas de exploração de dados ajudam a acelerar a compreensão de dados. Aqui estão algumas ferramentas fornecidas no DSVM que facilitam a nessa importante etapa. 
 
 ## <a name="apache-drill"></a>Apache Drill
 |    |           |
@@ -56,12 +56,12 @@ ms.locfileid: "60502254"
 | Links para amostras      | [Rattle](https://togaware.com/onepager/) |
 | Ferramentas relacionadas na DSVM      |LightGBM, Weka, Xgboost   |
 
-## <a name="powerbi-desktop"></a>PowerBI Desktop 
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
 | O que é?   | Visualização interativa de dados e ferramenta de BI    |
 | Versões suportadas DSVM      | Windows  |
 | Utilizações típicas      |  Visualização de dados e a criação de Dashboards   |
 | Como utilizar / executá-lo?      | Atalho de Desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Ferramentas relacionadas na DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
+| Ferramentas relacionadas na DSVM      |   2019 do Visual Studio, Visual Studio Code, Juno      |
 

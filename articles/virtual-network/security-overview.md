@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 751a3a940dad74cbc8c7343ee70309736b381d5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731689"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478864"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>
@@ -35,7 +35,7 @@ Os grupos de segurança de rede contêm zero ou tantas regras conforme pretender
 |Name|Um nome exclusivo no grupo de segurança de rede.|
 |Prioridade | Um número entre 100 e 4096. As regras são processadas por ordem de prioridade, sendo os números mais baixos processados antes dos mais elevados, uma vez que têm uma prioridade superior. Quando o tráfego corresponder a uma regra, o processamento para. Como resultado, qualquer regra que exista com prioridades inferiores (números mais elevados) e que tenham os mesmos atributos das regras com prioridades superiores não é processada.|
 |Origem ou destino| Qualquer endereço IP ou um endereço IP individual, um bloco CIDR (Classless Inter-domain Routing) (por exemplo, 10.0.0.0/24), [etiqueta de serviço](#service-tags) ou [grupo de segurança de aplicações](#application-security-groups). Se especificar um endereço para um recurso do Azure, indique o endereço IP privado atribuído ao mesmo. Os grupos de segurança de rede são processados depois de o Azure traduzir um endereço IP público num privado para tráfego de entrada e antes de traduzir um endereço IP privado num público para tráfego de saída. Saiba mais sobre os [endereços IP](virtual-network-ip-addresses-overview-arm.md) do Azure. Especificar um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicações permite-lhe criar menos regras de segurança. A capacidade de especificar vários endereços IP individuais e intervalos de endereços IP (não pode indicar etiquetas de serviço ou grupos de aplicações) numa regra é denominada [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede gerados através do modelo de implementação do Resource Manager. Não pode especificar vários endereços IP nem intervalos de endereços IP em grupos de segurança de rede criados com o modelo de implementação clássica. Saiba mais sobre os [modelos de implementação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocolo     | TCP, UDP ou qualquer, incluindo (mas não limitado a) TCP, UDP e ICMP. Não pode especificar ICMP individualmente, pelo que, se precisar deste, utilize Qualquer. |
+|Protocol     | TCP, UDP ou qualquer, incluindo (mas não limitado a) TCP, UDP e ICMP. Não pode especificar ICMP individualmente, pelo que, se precisar deste, utilize Qualquer. |
 |Direction| Indica se a regra se aplica a tráfego de entrada ou de saída.|
 |Intervalo de portas     |Pode especificar uma porta individual ou um intervalo de portas. Por exemplo, pode indicar 80 ou 10000-10005. Especificar intervalos permite-lhe criar menos regras de segurança. As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede gerados através do modelo de implementação do Resource Manager. Não pode especificar várias portas nem intervalos de portas na mesma regra de segurança em grupos de segurança de rede criados com o modelo de implementação clássica.   |
 |Ação     | Permitir ou negar        |
@@ -72,7 +72,7 @@ As regras de segurança aumentadas simplificam a definição de segurança das r
 * **AzureContainerRegistry** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço do Azure Container Registry. Se especificar *AzureContainerRegistry* no valor, o tráfego será permitido ou negado para o AzureContainerRegistry. Se só pretender permitir o acesso ao AzureContainerRegistry numa [região](https://azure.microsoft.com/regions) específica, poderá especificar a região no seguinte formato AzureContainerRegistry.[nome da região]. 
 * **AppService** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço AppService do Azure. Se especificar *AppService* no valor, o tráfego será permitido ou negado para o AppService. Se só pretender permitir o acesso ao AppService numa [região](https://azure.microsoft.com/regions) específica, poderá especificar a região no seguinte formato AppService.[region nome da região]. 
 * **AppServiceManagement** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço de gestão de serviço de aplicações do Azure. Se especificar *AppServiceManagement* no valor, o tráfego será permitido ou negado para o AppServiceManagement. 
-* **ApiManagement** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço de gestão de Api do Azure. Se especificar *ApiManagement* no valor, o tráfego será permitido ou negado para ApiManagement.  
+* **ApiManagement** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço de gestão de Api do Azure. Se especificar *ApiManagement* no valor, o tráfego é permitido ou negado a partir da interface de gestão de ApiManagement.  
 * **AzureConnectors** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço de conectores do Azure. Se especificar *AzureConnectors* no valor, o tráfego será permitido ou negado para o AzureConnectors. Se só pretender permitir o acesso ao AzureConnectors numa [região](https://azure.microsoft.com/regions) específica, poderá especificar a região no seguinte formato AzureConnectors.[nome da região]. 
 * **GatewayManager** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço Gestor de Gateway do Azure. Se especificar *GatewayManager* no valor, o tráfego será permitido ou negado para o GatewayManager.  
 * **AzureDataLake** (apenas Resource Manager): Esta etiqueta denota os prefixos de endereço do serviço Azure Data Lake. Se especificar *AzureDataLake* no valor, o tráfego será permitido ou negado para o AzureDataLake. 
@@ -96,19 +96,19 @@ O Azure cria as seguintes regras predefinidas em cada grupo de segurança de red
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Source|Portas de origem|Destino|Portas de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Todos|Permitir|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Source|Portas de origem|Destino|Portas de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Todos|Permitir|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Source|Portas de origem|Destino|Portas de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Todos|Negar|
 
@@ -116,19 +116,19 @@ O Azure cria as seguintes regras predefinidas em cada grupo de segurança de red
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Source|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Todos | Permitir |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Source|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Todos | Permitir |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Source|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Todos | Negar |
 
@@ -148,7 +148,7 @@ Na imagem anterior, *NIC1* e *NIC2* são membros do grupo de segurança de rede 
 
 Esta regra é necessária para permitir o tráfego da Internet para os servidores Web. Uma vez que o tráfego de entrada a partir da Internet é negado pela regra de segurança [DenyAllInbound](#denyallinbound) predefinida, não é necessária qualquer regra adicional para os grupos de segurança de aplicações *AsgLogic* ou *AsgDb*.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Source|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Permitir |
 
@@ -156,7 +156,7 @@ Esta regra é necessária para permitir o tráfego da Internet para os servidore
 
 Uma vez que a regra de segurança predefinida [AllowVNetInBound](#allowvnetinbound) permite todas as comunicações entre recursos na mesma rede virtual, esta regra é necessária para negar o tráfego de todos os recursos.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Source|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Todos | Negar |
 
@@ -164,7 +164,7 @@ Uma vez que a regra de segurança predefinida [AllowVNetInBound](#allowvnetinbou
 
 Esta regra permite o tráfego do grupo de segurança de aplicações *AsgLogic* para o grupo de segurança de aplicações *AsgDb*. A prioridade desta regra é mais alta do que a da regra *Deny-Database-All*. Como resultado, esta regra é processada antes da regra *Deny-Database-All*, de modo a que o tráfego do grupo de segurança de aplicações *AsgLogic* seja permitido, ao passo que o restante tráfego é bloqueado.
 
-|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Source|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Permitir |
 
@@ -219,7 +219,7 @@ Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md
 ## <a name="azure-platform-considerations"></a>Considerações sobre a plataforma do Azure
 
 - **IP virtual do nó anfitrião**: Serviços de infraestrutura básica, tais como DHCP, DNS, IMDS e monitorização de estado de funcionamento são fornecidos através de endereços IP do anfitrião virtualizado 168.63.129.16 e 169.254.169.254. Estes endereços IP pertencem à Microsoft e são apenas endereços IP virtualizados utilizados em todas as regiões para este fim.
-- **Licenciamento (serviço de gestão de chaves)**: Imagens do Windows em execução em máquinas virtuais têm de estar licenciadas. Para garantir o licenciamento, é enviado um pedido para os servidores de anfitrião do Key Management Service que processam estas consultas. O pedido é feito através da porta 1688 de saída. Para implementações que utilizam a configuração de [rota predefinida 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), esta regra de plataforma será desativada.
+- **Licenciamento (serviço de gestão de chaves)** : Imagens do Windows em execução em máquinas virtuais têm de estar licenciadas. Para garantir o licenciamento, é enviado um pedido para os servidores de anfitrião do Key Management Service que processam estas consultas. O pedido é feito através da porta 1688 de saída. Para implementações que utilizam a configuração de [rota predefinida 0.0.0.0/0](virtual-networks-udr-overview.md#default-route), esta regra de plataforma será desativada.
 - **Máquinas de virtuais em conjuntos com balanceamento de carga**: O intervalo de porta e o endereço de origem aplicados são provenientes do computador, não do Balanceador de carga. A porta de destino e o intervalo de endereços destinam-se ao computador de destino, não ao balanceador de carga.
 - **Instâncias de serviço do Azure**: Instâncias de vários serviços do Azure, como o HDInsight, ambientes de serviço de aplicações e os conjuntos de dimensionamento de máquinas virtuais são implementadas em sub-redes da rede virtual. Para obter uma lista completa dos serviços que pode implementar em redes virtuais, veja [Rede virtual para os serviços do Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Certifique-se de que se familiariza com os requisitos de portas de cada serviço antes de aplicar um grupo de segurança de rede à sub-rede na qual o recurso está implementado. Se negar portas de que os serviços precisam, estes não funcionarão corretamente.
 - **Enviar e-mails de saída**: A Microsoft recomenda que utilize serviços de reencaminhamento de SMTP autenticados (normalmente ligados através da porta TCP 587, mas, muitas vezes, também) para enviar e-mails a partir das máquinas de virtuais do Azure. Os serviços de reencaminhamento de SMTP especializam-se na reputação do remetente, para minimizar a possibilidade de os fornecedores de e-mail de terceiros rejeitarem mensagens. Esses serviços de reencaminhamento de SMTP incluem, sem estarem limitados, o Exchange Online Protection e o SendGrid. A utilização dos serviços de reencaminhamento de SMTP não está de forma alguma restringida no Azure, independentemente do seu tipo de subscrição. 
@@ -227,7 +227,7 @@ Pode ver as [regras de segurança em vigor](virtual-network-network-interface.md
   Se tiver criado a sua subscrição do Azure antes de 15 de novembro de 2017, para além de poder utilizar os serviços de reencaminhamento de SMTP, também pode enviar e-mails diretamente através da porta TCP 25. Se tiver criado a sua subscrição após 15 de novembro de 2017, poderá não conseguir enviar e-mails diretamente através da porta 25. O comportamento da comunicação de saída através da porta 25 depende do seu tipo de subscrição, da seguinte forma:
 
      - **Contrato Enterprise**: Comunicação de saída através da porta 25 é permitida. Pode enviar e-mails de saída diretamente a partir de máquinas virtuais para fornecedores de e-mail externos, sem restrições impostas pela plataforma do Azure. 
-     - **Pay as you go:** Comunicação de saída através da porta 25 está bloqueada a partir de todos os recursos. Se tiver de enviar e-mails a partir de uma máquina virtual diretamente para fornecedores de e-mail externos (sem utilizar um reencaminhamento de SMTP autenticado), pode fazer um pedido para remover a restrição. Os pedidos são analisados e aprovados à discrição da Microsoft, apenas sendo concedidos após as verificações contra fraudes. Para fazer um pedido, abra um processo de suporte com o tipo de problema *Técnico*, *Conectividade da Rede Virtual*, *Não é possível enviar e-mails (SMTP/Porta 25)*. No processo de suporte, inclua detalhes sobre o motivo pelo qual a subscrição tem de enviar e-mails diretamente para fornecedores de e-mail, em vez de utilizar um reencaminhamento de SMTP autenticado. Se a sua subscrição for isenta, apenas as máquinas virtuais criadas após a data de isenção conseguem realizar comunicações de saída através da porta 25.
+     - **Pay as you go:** Comunicação de saída através da porta 25 está bloqueada a partir de todos os recursos. Se tiver de enviar e-mails a partir de uma máquina virtual diretamente para fornecedores de e-mail externos (sem utilizar um reencaminhamento de SMTP autenticado), pode fazer um pedido para remover a restrição. Os pedidos são analisados e aprovados à discrição da Microsoft, apenas sendo concedidos após as verificações contra fraudes. Para fazer um pedido, abra um processo de suporte com o tipo de problema *Técnico*, *Conectividade da Rede Virtual*, *Não é possível enviar e-mails (SMTP/Porta 25)* . No processo de suporte, inclua detalhes sobre o motivo pelo qual a subscrição tem de enviar e-mails diretamente para fornecedores de e-mail, em vez de utilizar um reencaminhamento de SMTP autenticado. Se a sua subscrição for isenta, apenas as máquinas virtuais criadas após a data de isenção conseguem realizar comunicações de saída através da porta 25.
      - **MSDN, Azure Pass, Azure no Open, Education, BizSpark e gratuito avaliação**: Comunicação de saída através da porta 25 está bloqueada a partir de todos os recursos. Não pode fazer pedidos para remover a restrição, porque os pedidos não são concedidos. Se tiver de enviar e-mails a partir da sua máquina virtual, tem de utilizar um serviço de reencaminhamento de SMTP.
      - **Fornecedor de serviços cloud**: Os clientes que estão consumindo recursos do Azure através de um fornecedor de serviço em nuvem podem criar um incidente de suporte com o respetivo fornecedor de serviços cloud e solicitar que o fornecedor de criar um caso de desbloqueio em seu nome, se não é possível utilizar um reencaminhamento de SMTP seguro.
 

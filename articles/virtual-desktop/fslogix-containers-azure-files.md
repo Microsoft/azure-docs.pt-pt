@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c3f31e8d260ea5e462e8782fadd9f61f34d03add
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b3032aa796b3c79572bbf8b2beb85efc252ff73b
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307276"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497526"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contentores de perfil FSLogix e ficheiros do Azure
 
-O serviço de pré-visualização de ambiente de Trabalho Virtual do Windows recomenda FSLogix contentores de perfil, como uma solução de perfil do usuário. FSLogix foi projetado para se mover perfis em ambientes de computação remotas, como a área de Trabalho Virtual do Windows. Armazena um perfil de usuário completa num único contentor. No início de sessão, o contentor dinamicamente está ligado para o ambiente de computação com nativos, no convidado rígido Virtual do Hyper-V e de disco rígido Virtual (VHD) disco (VHDX) serviços da Microsoft. O perfil de utilizador está imediatamente disponível e é apresentado no sistema exatamente como um perfil de utilizador nativa.
+O serviço de pré-visualização de ambiente de Trabalho Virtual do Windows recomenda FSLogix contentores de perfil, como uma solução de perfil do usuário. FSLogix foi projetado para se mover perfis em ambientes de computação remotas, como a área de Trabalho Virtual do Windows. Armazena um perfil de usuário completa num único contentor. No início de sessão, este contentor dinamicamente está ligado para o ambiente de computação suportado nativamente de disco rígido Virtual do Hyper-V e de disco rígido Virtual (VHD) (VHDX) a utilizar. O perfil de utilizador está imediatamente disponível e é apresentado no sistema exatamente como um perfil de utilizador nativa.
 
 Neste artigo, descreveremos os contentores de perfil de FSLogix utilizados com ficheiros do Azure. As informações estão no contexto de Trabalho Virtual de Windows, o que foi [anunciados no 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
@@ -67,7 +67,7 @@ Os clusters de S2D requerem um sistema operativo que é corrigido, atualizado e 
 
 ## <a name="fslogix-profile-containers"></a>Contentores de perfil FSLogix
 
-19 de Novembro de 2018 [a Microsoft adquiriu FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). Os endereços de FSLogix muitos perfil contentor desafios, chaves entre eles são:
+19 de Novembro de 2018 [a Microsoft adquiriu FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix aborda muitos desafios de contentor do perfil. Chave entre eles são:
 
 - **Desempenho:** O [contentores de perfil FSLogix](https://fslogix.com/products/profile-containers) são de alto desempenho e resolva os problemas de desempenho que, historicamente, tem bloqueado do exchange modo de cache.
 - **OneDrive:** Sem FSLogix contentores de perfil, o OneDrive para empresas não é suportado em ambientes de RDSH ou VDI não persistentes. [OneDrive para empresas e FSLogix melhores práticas](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) descreve a forma como eles interagem. Para obter mais informações, consulte [utilizar o cliente de sincronização em áreas de trabalho virtuais](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).

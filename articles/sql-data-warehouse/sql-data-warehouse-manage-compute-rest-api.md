@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 658b35163e20d024118bc7a3142c86614540f00c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105331"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476069"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para o armazém de dados SQL do Azure
 APIs REST para gerir a computação do Azure SQL Data Warehouse.
@@ -51,6 +51,9 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ```
 
 ## <a name="check-database-state"></a>Verificar o estado da base de dados
+
+> [!NOTE]
+> Atualmente o estado da base de dados de verificação pode devolver ONLINE, enquanto a base de dados está a concluir o fluxo de trabalho online, resultando em erros de ligação. Poderá ter de adicionar um atraso de 2 a 3 minutos no código da aplicação, se estiver a utilizar esta chamada à API para acionar as tentativas de ligação.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1

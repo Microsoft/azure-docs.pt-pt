@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 06/03/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6636c87493230e3e392c29ffaf182b489ab0ba34
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 842c35a1575c7bcf6f547fb04d5680178b3bee78
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967769"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730367"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência Swagger de duplos Digital do Azure
 
@@ -42,15 +42,15 @@ O material de referência de Swagger gerado automaticamente fornece uma visão g
 
 Um resumo conciso descreve a API.
 
-![Parte superior do swagger][1]
+[![Parte superior do swagger](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
 
 Modelos de objeto de API de gestão também estão listados.
 
-![Modelos de swagger][2]
+[![Modelos de swagger](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
 
 Pode selecionar cada modelo de objeto listadas para obter um resumo mais detalhado de atributos de chaves.
 
-![Modelo de swagger][3]
+[![Modelo de swagger](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
 
 Os modelos de objeto do Swagger gerados são convenientes ver todos os gémeos de Digital do Azure disponíveis [objetos e APIs](./concepts-objectmodel-spatialgraph.md). Os desenvolvedores podem usar este recurso quando eles criam soluções no duplos Digital do Azure.
 
@@ -64,7 +64,7 @@ Cada ponto de extremidade listado também inclui as informações de solicitaç�
 * Tipos de dados de parâmetro necessário.
 * Método HTTP para aceder ao recurso.
 
-![Pontos de extremidade do swagger][4]
+[![Pontos de extremidade do swagger](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
 
 Para ver uma descrição mais detalhada, selecione cada recurso.
 
@@ -74,11 +74,11 @@ Para ver uma descrição mais detalhada, selecione cada recurso.
 
 Depois de selecionar um ponto de extremidade específico, consulte **experimentá-lo**.
 
-![Tente do swagger][5]
+[![Tente do swagger](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
 
 Expanda essa secção para aparecer em campos de entrada para cada um dos parâmetros obrigatório e opcional. Introduza os valores corretos e selecione **Execute**.
 
-![Tentei do swagger][6]
+[![Tentei do swagger](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
 
 Depois de executar o teste, pode validar os dados de resposta.
 
@@ -86,7 +86,7 @@ Depois de executar o teste, pode validar os dados de resposta.
 
 Cada ponto de extremidade listado também inclui dados de corpo de resposta para validar o seu desenvolvimento e testes. Estes exemplos incluem os códigos de estado e o JSON que pretende ver os pedidos HTTP com êxito.
 
-![Resposta do swagger][7]
+[![Resposta do swagger](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
 
 Os exemplos incluem também os códigos de erro para o ajudar a depurar ou melhorar a falhar de testes.
 
@@ -118,31 +118,22 @@ Para saber mais sobre testar interativamente os pedidos protegidos pelo OAuth 2.
 
 5. Copie o ID da sua aplicação do Azure AD.
 
-6. Clique no botão de autorizar na sua página de swagger.
+Depois de concluir o registo do Azure Active Directory:
 
-    ![Botão de autorizar do swagger](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+6. Clique nas **autorizar** botão na página do swagger.
 
-7. Cole o ID da aplicação no campo client_id.
+    [![Clique em Swagger autorizar botão](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-    ![Swagger client_id field](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+7. Cole o ID da aplicação para o **client_id** campo.
 
-    ![Conceder permissões de aplicação do swagger](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+    [![Campo de client_id do swagger](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. Agora, deverá ver o portador token de autenticação transmitido no cabeçalho de autorização e a identidade do utilizador com sessão iniciada apresentada no resultado.
+8. Em seguida, será redirecionado para o sucesso seguinte modal.
 
-    ![Resultado de token do swagger](../../includes/media/digital-twins-permissions/swagger-token-example.png)
+    [![Modal de redirecionamento do swagger](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Leia mais sobre modelos de objetos duplos Digital do Azure e o gráfico de inteligência espaciais, leia [modelos de objeto de compreender duplos de Digital do Azure](./concepts-objectmodel-spatialgraph.md).
 
 - Para saber como autenticar com a API de gestão, leia [autenticar com as APIs](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/how-to-use-swagger/swagger_management_top.PNG
-[2]: media/how-to-use-swagger/swagger_management_models.PNG
-[3]: media/how-to-use-swagger/swagger_management_model.PNG
-[4]: media/how-to-use-swagger/swagger_management_endpoints.PNG
-[5]: media/how-to-use-swagger/swagger_management_try.PNG
-[6]: media/how-to-use-swagger/swagger_management_tried.PNG
-[7]: media/how-to-use-swagger/swagger_management_response.PNG

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508410"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497099"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -180,17 +180,18 @@ Sim. Instâncias de função todas as VMs e serviços Cloud, implementadas numa 
 ## <a name="azure-services-that-connect-to-vnets"></a>Serviços do Azure que ligar VNets
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Pode utilizar aplicações de Web do serviço de aplicações do Azure com uma VNet?
-Sim. Pode implementar aplicações Web dentro de uma VNet com um ASE (ambiente de serviço de aplicações). Se tiver uma ligação de ponto a site configurada para a sua VNet, todas as aplicações Web pode ligar em segurança e aceder aos recursos na VNet. Para obter mais informações, veja os artigos seguintes:
+Sim. Pode implementar aplicações Web dentro de uma VNet com um ASE (ambiente de serviço de aplicações), ligar o back-end das suas aplicações para as suas VNets com a integração de VNet e bloquear o tráfego de entrada à sua aplicação com pontos finais de serviço. Para obter mais informações, veja os artigos seguintes:
 
+* [Funcionalidades de rede do serviço de aplicações](../app-service/networking-features.md)
 * [Criar aplicações Web num ambiente do serviço de aplicações](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Integrar a sua aplicação com uma rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Utilizar ligações híbridas e de integração de VNet com as aplicações Web](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json#hybrid-connections-and-app-service-environments)
+* [Restrições de acesso de serviço de aplicações](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Pode implementar serviços em nuvem com funções web e de trabalho (PaaS) numa VNet?
 Sim. (Opcionalmente), pode implementar instâncias de função dos serviços Cloud nas VNets. Para tal, especifique o nome da VNet e os mapeamentos de função/sub-rede na seção de configuração de rede da sua configuração de serviço. Não é necessário atualizar qualquer um dos seus binários.
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>Pode ligar uma Máquina Virtual de dimensionamento definido (VMSS) a uma VNet?
-Sim. Tem de ligar um VMSS a uma VNet.
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>Ligar a um conjunto de dimensionamento para uma VNet?
+Sim. Tem de ligar um conjunto a uma VNet de dimensionamento de máquina virtual.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Existe que uma lista completa do Azure de serviços que posso implementar os recursos a partir de numa VNet?
 Sim, para obter detalhes, consulte [integração da rede Virtual para serviços do Azure](virtual-network-for-azure-services.md).
@@ -219,7 +220,7 @@ Sim. Para obter detalhes, consulte [descrição geral da segurança de rede de A
 ## <a name="apis-schemas-and-tools"></a>APIs, os esquemas e ferramentas
 
 ### <a name="can-i-manage-vnets-from-code"></a>Pode gerir VNets a partir do código?
-Sim. Pode utilizar as APIs REST para VNets na [do Azure Resource Manager](/rest/api/virtual-network) e [clássicas (gestão de serviço)](https://go.microsoft.com/fwlink/?LinkId=296833) modelos de implementação.
+Sim. Pode utilizar as APIs REST para VNets na [do Azure Resource Manager](/rest/api/virtual-network) e [clássico](https://go.microsoft.com/fwlink/?LinkId=296833) modelos de implementação.
 
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe suporte de ferramentas para VNets?
 Sim. Saiba mais sobre como utilizar:
@@ -239,15 +240,15 @@ Sim. Global VNet peering permite-lhe configurar o peering entre VNets em diferen
 Se as duas redes virtuais estiverem numa região diferente (Global VNet Peering), é possível ligar a recursos que utilizar o Balanceador de carga básico. Pode ligar a recursos que utilizam o Balanceador de carga Standard.
 Os seguintes recursos utilizam balanceadores de carga básico, que significa que não consegue comunicar aos mesmos através de Global VNet Peering:
 - VMs por trás de balanceadores de carga básico
-- Conjuntos de dimensionamento de VM com balanceadores de carga básico 
+- Conjuntos de dimensionamento de máquinas virtuais com balanceadores de carga básico 
 - Cache de Redis 
 - Gateway de aplicação (v1) SKU
 - Service Fabric
 - SQL MI
 - Gestão de API
 - Serviço de domínio do Active Directory (ADDS)
-- Logic Apps
-- HD Insight
+- Aplicações Lógicas
+- HDInsight
 -   Azure Batch
 - AKS
 - Ambiente do Serviço de Aplicações
@@ -285,7 +286,7 @@ Não. Peering transitivo não é suportada. Deve configurar o peering também e 
 Não. VNet peering, sejam locais ou globais, não impõe quaisquer restrições de largura de banda. Largura de banda é limitada apenas pela VM ou o recurso de computação.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Como posso resolver problemas de VNet Peering?
-Aqui está um [guia de resolução de problemas] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) pode experimentar.
+Aqui está uma [guia de resolução de problemas](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) pode experimentar.
 
 ## <a name="virtual-network-tap"></a>TAP de rede virtual
 
@@ -395,12 +396,12 @@ Não existe nenhum limite no número total de pontos finais de serviço de VNet 
 |---|---|
 |Serviço do Azure| Limites para as regras de VNet|
 |Storage do Azure| 100|
-|Azure SQL| 128|
-|SQL Data Warehouse do Azure|  128|
+|SQL do Azure| 128|
+|Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
-|Azure Service Bus| 128|
+|Service Bus do Azure| 128|
 |Azure Data Lake Store V1|  100|
  
 >[!NOTE]

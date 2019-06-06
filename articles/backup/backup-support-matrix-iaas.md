@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399679"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743185"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -54,6 +54,8 @@ Cópias de segurança por dia (por meio do DPM/MABS) | Duas cópias de seguranç
 Cópia de segurança mensais/anuais   | Não é suportada quando a cópia de segurança com a extensão de VM do Azure. Apenas é suportado diárias e semanais.<br/><br/> Pode configurar a política de modo a reter cópias de segurança diárias/semanais durante período de retenção mensais/anuais.
 Ajuste automático do relógio | Não suportado.<br/><br/> O Azure Backup não ajustar automaticamente as alterações de horário de Verão ao fazer backup de uma VM.<br/><br/>  Modificar a política manualmente, conforme necessário.
 [Recursos de segurança para cópia de segurança híbridas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  Desativar as funcionalidades de segurança não é suportada.
+VM cujo tempo de máquina é alterado de cópia de segurança | Não suportado.<br/><br/> Se o tempo de máquina é alterado para uma data e hora futura depois de ativar a cópia de segurança para essa VM; No entanto, mesmo que a alteração do horário é revertida, a cópia de segurança bem-sucedida não é garantida.  
+
 
 ## <a name="operating-system-support-windows"></a>Suporte do sistema operativo (Windows)
 
@@ -146,7 +148,7 @@ Cópia de segurança de VMs no [conjuntos de disponibilidade](https://docs.micro
 Cópia de segurança de VMs no [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Não suportado.
 Cópia de segurança de VMs que são implementadas com [benefício de utilização híbrida (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Suportado.
 Cópia de segurança de VMs que são implementadas num [conjunto de dimensionamento](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  Não suportado.
-Cópia de segurança de VMs implementadas a partir do [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicada pela Microsoft, terceiros) |  Suportado.<br/><br/> A VM tem de executar um sistema operativo suportado.<br/><br/> Quando a recuperação de arquivos na VM, pode restaurar apenas a um sistema de operacional compatível (não um SO anterior ou posterior).
+Cópia de segurança de VMs implementadas a partir do [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicada pela Microsoft, terceiros) |  Suportado.<br/><br/> A VM tem de executar um sistema operativo suportado.<br/><br/> Quando a recuperação de arquivos na VM, pode restaurar apenas a um sistema de operacional compatível (não um SO anterior ou posterior). Não podemos restaurar a VMs do Azure Marketplace de segurança como VMs, como informações de compra essas necessidades, mas apenas como discos.
 Cópia de segurança de VMs que são implementadas a partir de uma imagem personalizada (de terceiros) |   Suportado.<br/><br/> A VM tem de executar um sistema operativo suportado.<br/><br/> Quando a recuperação de arquivos na VM, pode restaurar apenas a um sistema de operacional compatível (não um SO anterior ou posterior).
 Fazer uma cópia de segurança de VMs que são migradas para o Azure  | Suportado.<br/><br/> Para fazer backup da VM, o agente da VM deve ser instalado na máquina migrada.
 Criar cópias de segurança consistência multi-VM | Cópia de segurança do Azure não fornece consistência de dados e aplicações em várias VMs.

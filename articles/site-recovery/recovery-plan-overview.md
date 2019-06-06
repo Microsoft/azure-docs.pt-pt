@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400014"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471440"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
@@ -37,10 +37,10 @@ Um plano de recuperação ajuda-o a definir um processo de recuperação sistem�
 
 Planear e criar um grupo de recuperação para capturar as propriedades específicas da aplicação. Por exemplo, vamos considerar um aplicativo típico de três camadas com um servidor SQL back-end, middleware e um front-end da web. Normalmente, personalizar o plano de recuperação para que as máquinas em cada escalão de começar, na ordem correta, após a ativação pós-falha.
 
-    - O back-end do SQL deve começar em primeiro lugar, o middleware da próxima e, finalmente, o front-end da web.
-    - Esta ordem de início garante que a aplicação está a funcionar quando a última máquina é iniciado.
-    - Esta ordem garante que quando o middleware é iniciado e tenta estabelecer ligação com o escalão do SQL Server, o escalão do SQL Server já está em execução. 
-    - Esta ordem também ajuda a garantir que o servidor front-end é iniciado último, para que os utilizadores finais não ligar para o URL da aplicação antes de todos os componentes estão operacionais e em execução e a aplicação está pronto para aceitar pedidos.
+- O back-end do SQL deve começar em primeiro lugar, o middleware da próxima e, finalmente, o front-end da web.
+- Esta ordem de início garante que a aplicação está a funcionar quando a última máquina é iniciado.
+- Esta ordem garante que quando o middleware é iniciado e tenta estabelecer ligação com o escalão do SQL Server, o escalão do SQL Server já está em execução. 
+- Esta ordem também ajuda a garantir que o servidor front-end é iniciado último, para que os utilizadores finais não ligar para o URL da aplicação antes de todos os componentes estão operacionais e em execução e a aplicação está pronto para aceitar pedidos.
 
 Para criar esta ordem, adicionar grupos ao grupo de recuperação e adicionar máquinas em grupos.
 - Em que ordem for especificada, é utilizada a sequenciação. Ações executam em paralelo quando apropriado, para melhorar a recuperação de aplicativos RTO.

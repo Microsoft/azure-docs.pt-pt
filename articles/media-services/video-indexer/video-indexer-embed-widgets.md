@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/05/2019
 ms.author: juliako
-ms.openlocfilehash: 5acd9b68368f56000a0a32d1ade310cf30143950
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799387"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735078"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações
 
@@ -42,7 +42,7 @@ Um widget **Player** permite-lhe transmitir o vídeo com uma velocidade de trans
 |t|Segundos a partir do início|Faz com que o leitor inicie a reprodução a partir de um determinado momento.<br/>Exemplo: t=60|
 |captions|Código do idioma|Obtém a legenda no idioma especificado durante o carregamento do widget para ficar disponível no menu das legendas.<br/>Exemplo: captions=pt-PT|
 |showCaptions|Um valor booleano|Faz com que o leitor carregue já com as legendas ativadas.<br/>Exemplo: showCaptions=true|
-|tipo||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|
+|type||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|
 |autoplay|Um valor booleano|Indica se o leitor deve iniciar a reprodução do vídeo ao ser carregado (predefinição: true)<br/>Exemplo: autoplay=false|
 |language|Código do idioma|Controla o idioma do leitor (predefinição: en-US)<br/>Exemplo: language=pt-PT|
 
@@ -61,6 +61,9 @@ Um widget **Player** permite-lhe transmitir o vídeo com uma velocidade de trans
 5. Copie o código de incorporação e adicione-o à sua aplicação. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+
+> [!NOTE]
+> Se tiver problemas com os URLs de vídeos de partilha, tente adicionar o parâmetro de "localização" para a ligação. O parâmetro deve ser definido o [regiões do Azure na qual existe Video Indexer](regions.md). Por exemplo, `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Incorporar conteúdos privados
 

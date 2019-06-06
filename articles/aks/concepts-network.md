@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074055"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431314"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Azure Kubernetes Service (AKS)
 
@@ -99,6 +99,8 @@ Quando cria um tipo de LoadBalancer serviço, é criado um recurso do Balanceado
 No AKS, pode criar um recurso de entrada através de algo como NGINX ou utilizar a funcionalidade de encaminhamento de aplicação de HTTP do AKS. Quando ativar o encaminhamento de aplicações de HTTP para um cluster do AKS, a plataforma do Azure cria o controlador de entrada e um *DNS externo* controlador. À medida que novos recursos de entrada são criados no Kubernetes, são criados os necessários registos DNS numa zona DNS específicos do cluster. Para obter mais informações, consulte [implementar o encaminhamento de aplicações de HTTP][aks-http-routing].
 
 Outra funcionalidade comum de entrada é a terminação de SSL/TLS. Em aplicativos da web de grandes acedidos através de HTTPS, a terminação de TLS pode ser tratada pelo recurso de entrada, em vez de dentro da própria aplicação. Para fornecer a geração automática a certificação TLS e a configuração, pode configurar o recurso de entrada a utilizar fornecedores, como vamos encriptar. Para obter mais informações sobre como configurar um controlador de entrada do NGINX com vamos encriptar, consulte [entrada e TLS][aks-ingress-tls].
+
+Também pode configurar seu controlador de entrada para preservar o IP de origem do cliente nos pedidos para contentores no cluster do AKS. Quando a solicitação de um cliente é encaminhada para um contentor no seu cluster do AKS por meio de seu controlador de entrada, o ip de origem original de que a solicitação não estarão disponível para o contentor de destino. Quando ativa *preservação de IP de origem do cliente*, o IP de origem para o cliente está disponível no cabeçalho do pedido sob *X-reencaminhados-para*. Se estiver a utilizar preservação de IP de origem do cliente no seu controlador de entrada, é possível utilizar o pass-through do SSL. Preservação de IP de origem do cliente e pass-through do SSL podem ser usados com outros serviços, tais como o *LoadBalancer* tipo.
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 

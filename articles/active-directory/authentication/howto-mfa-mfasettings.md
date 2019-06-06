@@ -5,22 +5,22 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a74548d0dc965127c5568708155341f60dbc65
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359202"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496752"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
-Este artigo ajuda-o a gerir as definições de multi-factor Authentication no portal do Azure. Ele aborda vários tópicos ajudam-na tirar o máximo partido do Azure multi-factor Authentication. Nem todos os recursos estão disponíveis em cada [versão do multi-factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
+Este artigo ajuda-o a gerir as definições de multi-factor Authentication no portal do Azure. Ele aborda vários tópicos ajudam-na tirar o máximo partido do Azure multi-factor Authentication. Nem todos os recursos estão disponíveis em todas as versões do multi-factor Authentication.
 
 Pode aceder a definições relacionadas com a multi-factor Authentication no portal do Azure ao navegar para **do Azure Active Directory** > **MFA**.
 
@@ -33,20 +33,20 @@ Algumas destas definições aplicam-se para o servidor de MFA, MFA do Azure ou a
 | Funcionalidade | Descrição |
 | ------- | ----------- |
 | Bloqueio de conta | Temporariamente bloquear contas no serviço de autenticação multifator se existirem demasiados negado tentativas de autenticação numa linha. Esta funcionalidade aplica-se apenas a utilizadores que introduziram um PIN para autenticar. (Servidor MFA) |
-| [Bloquear/desbloquear utilizadores](#block-and-unblock-users) | Utilizado para bloquear utilizadores específicos no servidor de MFA (no local) a capacidade receber pedidos de multi-factor Authentication. Qualquer tentativa de autenticação aos utilizadores bloqueados é rejeitada automaticamente. Os utilizadores ficam bloqueados durante 90 dias a partir do momento em que são bloqueados. |
+| [Bloquear/desbloquear utilizadores](#block-and-unblock-users) | Utilizado para impedir que os utilizadores específicos de conseguir receber pedidos de multi-factor Authentication. Qualquer tentativa de autenticação aos utilizadores bloqueados é rejeitada automaticamente. Os utilizadores ficam bloqueados durante 90 dias a partir do momento em que são bloqueados. |
 | [Alerta de fraude](#fraud-alert) | Configurar definições relacionadas com a capacidade dos utilizadores de pedidos de verificação fraudulenta de relatório |
 | Notificações | Ative as notificações de eventos do servidor MFA. |
 | [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilizado em ambientes de MFA do Azure baseado na nuvem para gerir os tokens OATH para os utilizadores. |
 | [Definições de chamada telefónica](#phone-call-settings) | Configure definições relacionadas com chamadas telefónicas e saudações para ambientes de cloud e no local. |
 | Fornecedores | Isto irá mostrar quaisquer fornecedores de autenticação existentes que podem ter associado sua conta. Novos fornecedores de autenticação não podem ser criados a partir de 1 de Setembro de 2018 |
 
-## <a name="manage-mfa-server"></a>Gerir Servidor MFA
+## <a name="manage-mfa-server"></a>Gerir o servidor MFA
 
 As definições nesta secção destinam-se apenas ao servidor MFA.
 
 | Funcionalidade | Descrição |
 | ------- | ----------- |
-| Definições do servidor | Transferir o servidor MFA e gerar credenciais de ativação para inicializar seu ambiente |
+| definições do servidor | Transferir o servidor MFA e gerar credenciais de ativação para inicializar seu ambiente |
 | [Omissão de uso individual](#one-time-bypass) | Permitir que um utilizador a autenticação sem efetuar verificação de dois passos por um período limitado. |
 | [Regras de colocação em cache](#caching-rules) |  Colocação em cache é usada principalmente quando sistemas no local, por exemplo, VPN, enviam várias solicitações de verificação, enquanto o primeiro pedido ainda está em curso. Esta funcionalidade permite que os pedidos subsequentes para ter êxito automaticamente, após o utilizador ser bem sucedida a primeira verificação em curso. |
 | Estado do servidor | Ver o estado dos seus servidores MFA no local, incluindo a versão, estado, IP e última comunicação data e hora. |
@@ -89,7 +89,7 @@ Configurar o _alerta de fraude_ de recursos para que os usuários podem relatar 
 ### <a name="configuration-options"></a>Opções de configuração
 
 * **Bloquear utilizador quando é reportada fraude**: Se um utilizador comunicar fraude, a conta está bloqueada durante 90 dias ou até que um administrador desbloqueia a respetiva conta. Um administrador pode rever os inícios de sessão utilizando o relatório de início de sessão e tomar as medidas adequadas para prevenir a fraude futura. Um administrador pode então [desbloquear](#unblock-a-user) a conta de utilizador.
-* **Código para reportar fraude durante a saudação inicial**: Quando os utilizadores recebem uma chamada telefónica para efetuar a verificação de dois passos, o normalmente pressione **#** para confirmar o início de sessão. Para reportar fraude, o usuário insere um código antes de prima **#**. Esse código é **0** por predefinição, mas pode personalizá-lo.
+* **Código para reportar fraude durante a saudação inicial**: Quando os utilizadores recebem uma chamada telefónica para efetuar a verificação de dois passos, o normalmente pressione **#** para confirmar o início de sessão. Para reportar fraude, o usuário insere um código antes de prima **#** . Esse código é **0** por predefinição, mas pode personalizá-lo.
 
    >[!NOTE]
    >As saudações de voz padrão da Microsoft instruir que os usuários pressionem **n º 0** para submeter um alerta de fraude. Se pretender utilizar um código que **0**, registe e carregue seus próprios saudações de voz personalizada com as instruções adequadas para os seus utilizadores.
@@ -265,7 +265,7 @@ Se sua organização implementa a extensão NPS para fornecer a MFA a observaç�
 
 | Tipo de inquilino do Azure AD | Opções de funcionalidades de IPs fidedignas |
 |:--- |:--- |
-| Gerido |**Intervalo de endereços IP específico**: Os administradores de especificar um intervalo de endereços IP que pode ignorar a verificação de dois passos para os utilizadores que iniciem sessão a partir da intranet da empresa.|
+| Managed |**Intervalo de endereços IP específico**: Os administradores de especificar um intervalo de endereços IP que pode ignorar a verificação de dois passos para os utilizadores que iniciem sessão a partir da intranet da empresa.|
 | Federado |**Todos os utilizadores federados**: Todos os utilizadores federados que iniciem sessão a partir de dentro da organização podem ignorar a verificação de dois passos. Os utilizadores ignorar a verificação através de uma afirmação que é emitida por serviços de Federação do Active Directory (AD FS).<br/>**Intervalo de endereços IP específico**: Os administradores de especificar um intervalo de endereços IP que pode ignorar a verificação de dois passos para os utilizadores que iniciem sessão a partir da intranet da empresa. |
 
 Os IPs fidedignos ignorar funciona apenas a partir de dentro da intranet da empresa. Se selecionar a **todos os utilizadores federados** opção e um utilizador inicia sessão a partir fora da intranet da empresa, o utilizador tem a autenticação com a verificação de dois passos. O processo é o mesmo, mesmo que o usuário apresentaria uma afirmação de AD FS. 
@@ -338,7 +338,7 @@ Quando os utilizadores inscreverem suas contas para o Azure multi-factor Authent
 | Ligar para telefone |Coloca uma chamada de voz automatizada. O utilizador a chamada e prime # no teclado do telefone para autenticar. O número de telefone não é sincronizado para o Active Directory no local. |
 | Mensagem de texto para telefone |Envia uma mensagem de texto que contém um código de verificação. É pedido ao utilizador para introduzir o código de verificação na interface de início de sessão. Este processo é denominado SMS unidirecional. SMS bidirecional significa que o utilizador tem texto de volta um código em particular. SMS bidirecional é preterida e não suportada após a 14 de Novembro de 2018. Os utilizadores que estão configurados para SMS bidirecionais estão automaticamente no modo _chamada para o telefone_ verificação nesse momento.|
 | Notificação através de aplicação móvel |Envia uma notificação push para o seu telefone ou dispositivo registado. O utilizador vê a notificação e seleciona **Verifique se** para concluir a verificação. A aplicação Microsoft Authenticator está disponível para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Código de verificação da aplicação móvel ou do token de hardware |A aplicação Microsoft Authenticator gera um novo código de verificação OATH cada 30 segundos. O utilizador introduz o código de verificação a interface de início de sessão. A aplicação Microsoft Authenticator está disponível para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Código de verificação da aplicação móvel ou token de hardware |A aplicação Microsoft Authenticator gera um novo código de verificação OATH cada 30 segundos. O utilizador introduz o código de verificação a interface de início de sessão. A aplicação Microsoft Authenticator está disponível para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Ativar e desativar os métodos de verificação
 
@@ -351,7 +351,7 @@ Quando os utilizadores inscreverem suas contas para o Azure multi-factor Authent
 
 Detalhes adicionais sobre a utilização de métodos de autenticação podem ser encontradas no artigo [quais são os métodos de autenticação](concept-authentication-methods.md).
 
-## <a name="remember-multi-factor-authentication"></a>Memorizar o Multi-Factor Authentication
+## <a name="remember-multi-factor-authentication"></a>Lembre-se a multi-factor Authentication
 
 O _Lembre-se a multi-factor Authentication_ recurso para dispositivos e browsers que sejam consideradas fidedignas pelo usuário é uma funcionalidade gratuita para todos os utilizadores de multi-factor Authentication. Os utilizadores podem ignorar as verificações subsequentes para um número especificado de dias, após eles já com êxito com sessão iniciada num dispositivo com o multi-factor Authentication. A funcionalidade aprimora a usabilidade, minimizando o número de vezes que um utilizador tem de executar a verificação de dois passos no mesmo dispositivo.
 

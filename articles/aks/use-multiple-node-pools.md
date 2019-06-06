@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a295dfa1f7f2c58b3e45036212434837ac4bfb4d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235758"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475464"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Pré-visualizar - criar e gerir vários conjuntos de nós de um cluster no Azure Kubernetes Service (AKS)
 
@@ -74,6 +74,7 @@ As seguintes limitações aplicam-se ao criar e gerir clusters do AKS que oferec
 * Não é possível eliminar o primeiro conjunto de nós.
 * Não é possível utilizar o suplemento de encaminhamento de aplicação de HTTP.
 * Não é possível utilizar um modelo do Resource Manager existente tal como acontece com a maioria das operações de conjuntos de nós de adicionar/atualizar/eliminar. Em vez disso, [utilizar um modelo do Resource Manager separado](#manage-node-pools-using-a-resource-manager-template) fazer alterações em conjuntos de nós num cluster do AKS.
+* Não é possível utilizar o dimensionamento automático de cluster (atualmente em pré-visualização no AKS).
 
 Enquanto esta funcionalidade está em pré-visualização, aplicam-se as seguintes limitações adicionais:
 
@@ -222,7 +223,7 @@ Demora alguns minutos para eliminar os nós e o conjunto de nós.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Especificar um tamanho VM para um conjunto de nós
 
-Nos exemplos anteriores para criar um conjunto de nós, o tamanho de VM predefinido foi utilizado para os nós criados no cluster. Um cenário mais comum é a criação de conjuntos de nós com diferentes tamanhos de VM e recursos. Por exemplo, pode criar um conjunto de nós que contém nós com grandes quantidades de CPU ou memória ou um conjunto de nós que fornece suporte GPU. No próximo passo, [taints de utilização e tolerations][#schedule-pods-using-taints-and-tolerations] para informar o agendador do Kubernetes como limitar o acesso a pods que podem ser executadas em nós.
+Nos exemplos anteriores para criar um conjunto de nós, o tamanho de VM predefinido foi utilizado para os nós criados no cluster. Um cenário mais comum é a criação de conjuntos de nós com diferentes tamanhos de VM e recursos. Por exemplo, pode criar um conjunto de nós que contém nós com grandes quantidades de CPU ou memória ou um conjunto de nós que fornece suporte GPU. No próximo passo, [utilizar taints e tolerations](#schedule-pods-using-taints-and-tolerations) para informar o agendador do Kubernetes como limitar o acesso a pods que podem ser executadas em nós.
 
 No exemplo a seguir, criar um conjunto de nós baseada em GPU que utiliza a *Standard_NC6* tamanho da VM. Estas VMs têm a tecnologia NVIDIA Tesla K80 cartão. Para obter informações sobre tamanhos VM disponíveis, consulte [tamanhos de máquinas de virtuais do Linux no Azure][vm-sizes].
 
@@ -332,7 +333,7 @@ Apenas os pods que tenham este taint aplicada podem ser agendados em nós *gpuno
 
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gerir conjuntos de nós com um modelo do Resource Manager
 
-Quando utiliza um modelo Azure Resource Manager para criar e recursos gerenciados, normalmente, é possível atualizar as definições no seu modelo e Reimplementar para atualizar o recurso. Com nodepools no AKS, o perfil de nodepool inicial não pode ser atualizado depois de criar o cluster do AKS. Este comportamento significa que não é possível atualizar um modelo do Resource Manager existente, faça uma alteração para os conjuntos de nós e voltar a implementar. Em vez disso, tem de criar um modelo do Resource Manager separado, que atualiza os conjuntos de agentes para um cluster do AKS existente.
+Quando utiliza um modelo Azure Resource Manager para criar e recursos gerenciados, normalmente, é possível atualizar as definições no seu modelo e Reimplementar para atualizar o recurso. Com conjuntos de nós no AKS, o perfil do conjunto inicial de nós não pode ser atualizado depois de criar o cluster do AKS. Este comportamento significa que não é possível atualizar um modelo do Resource Manager existente, faça uma alteração para os conjuntos de nós e voltar a implementar. Em vez disso, tem de criar um modelo do Resource Manager separado, que atualiza os conjuntos de agentes para um cluster do AKS existente.
 
 Criar um modelo como `aks-agentpools.json` e cole o manifesto de exemplo seguinte. Este modelo de exemplo configura as seguintes definições:
 
@@ -437,7 +438,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu como criar e gerir vários conjuntos de nós num cluster do AKS. Para obter mais informações sobre como controlar os pods em conjuntos de nós, consulte [melhores práticas para as funcionalidades avançadas do scheduler no AKS][operator-best-practices-advanced-scheduler].
+Neste artigo, aprendeu a criar e gerir vários conjuntos de nós num cluster do AKS. Para obter mais informações sobre como controlar os pods em conjuntos de nós, consulte [melhores práticas para as funcionalidades avançadas do scheduler no AKS][operator-best-practices-advanced-scheduler].
 
 Para criar e utilizar conjuntos de nós de contentor do Windows Server, consulte [criar um contentor do Windows Server no AKS][aks-windows].
 

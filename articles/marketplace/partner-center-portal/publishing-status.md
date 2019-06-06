@@ -7,22 +7,34 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 461c9f3f3725ba27410088ca19f1ec050375adf2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806150"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66474517"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Verificar o estado de publicação da sua oferta do Marketplace comercial
 
 Pode ver o seu atual **estado de publicação** no **descrição geral da oferta** separador do [portal Marketplace comerciais](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Centro de parceiros.
 
+Um dos indicadores de estado seguintes deve ser exibido para cada oferta.
+
+| **Estado**    | **Descrição**  |
+| :---------- | :-------------------|
+| **Rascunho** | Oferta foi criada, mas ele não está a ser publicado. |
+| **Publicar em curso** | Plano de oferta/está a funcionar ao percorrer os passos do processo de publicação. |
+| **Atenção necessária** | Uma questão crítica foi descoberta durante a certificação da Microsoft ou de qualquer uma das etapas de publicação. |
+| **Pré-visualização** | A oferta foi certificada pela Microsoft e agora awaits uma verificação final pelo editor. Selecione vai direto para tornar a oferta em direto. |
+| **Live** | Oferta está em direta no marketplace e pode ser vista e adquirida por parte dos clientes. |
+| **Venda de paragem pendente** | Publicador selecionada "parar venda" na oferta ou plano, mas ainda não foi concluída a ação. |
+| **Não está disponível no marketplace** | Foi removido um publicadas anteriormente/plano de oferta no marketplace. |
+
 ## <a name="automated-validation"></a>Validação automáticos
 
 A primeira etapa no processo de publicação é um conjunto de validações automatizadas. Cada etapa de validação corresponde a um recurso que escolheu para ativar na criação da sua oferta. Se essa funcionalidade não foi ativada, a validação ignora-se em frente para a próxima etapa de publicação. Cada verificação de validação deve ser concluída antes do Estado de publicação é aprovado.
 
-- **Configuração de fluxo de compra da oferta (> 10 min)**
+- **Configuração de fluxo de compra da oferta (< 10 min)**
 
 Neste passo, podemos assegurar que a sua oferta pode ser concluída se forem comprados pelos clientes através do portal do Azure. Este passo só é aplicável para ofertas que está a ser vendidas através do Microsoft.
 
@@ -34,7 +46,7 @@ Neste passo, iremos validar os dados fornecidos na seção de configuração té
 
 Neste passo, após validar os dados e a funcionalidade da sua versão de teste no passo anterior, implemente e replicar as instâncias da sua versão de teste para que eles estão prontos para uso do cliente.  Este passo só é aplicável para ofertas com um test-drive ativado.
 
-- **Levar a validação de gestão e de registo (> 15 min)**
+- **Levar a validação de gestão e de registo (< 15 min)**
 
 Neste passo, vamos confirmar que o seu sistema de gestão de oportunidades potenciais pode receber oportunidades potenciais com base nos detalhes fornecidos na configuração da oferta. Este passo só é aplicável para ofertas com a gestão de oportunidades potenciais ativada.
 

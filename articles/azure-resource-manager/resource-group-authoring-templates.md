@@ -1,23 +1,18 @@
 ---
 title: Estrutura de modelo do Azure Resource Manager e a sintaxe | Documentos da Microsoft
 description: Descreve a estrutura e propriedades de modelos Azure Resource Manager usando sintaxe declarativa do JSON.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/18/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 94ed3c876ece827e4decd2b5b14332f5e854ab83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3b8b6b969568fc15558002c268cdc4a16c2fadd
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728036"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431236"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
@@ -72,7 +67,21 @@ Na expressão, a sintaxe `resourceGroup()` chama uma das funções que o Resourc
 
 Funções de modelo e os respetivos parâmetros diferenciam maiúsculas de minúsculas. Por exemplo, o Gestor de recursos é resolvido **variables('var1')** e **VARIABLES('VAR1')** da mesma. Quando avaliadas, a menos que a função expressamente modifica caso (como toUpper ou toLower), a função preserva o caso. Determinados tipos de recursos podem ter requisitos de casos, independentemente de como são avaliadas as funções.
 
-Ter uma cadeia literal, comece com um colchete `[`, mas não o tiver interpretada como uma expressão, adicione um parêntesis extra para iniciar a cadeia de caracteres com `[[`.
+Ter uma cadeia literal, comece com um parênteses Reto de abertura `[` e terminar com um Reto `]`, mas não o tiver interpretada como uma expressão, adicione um parêntesis extra para iniciar a cadeia de caracteres com `[[`. Por exemplo, a variável:
+
+```json
+"demoVar1": "[[test value]"
+```
+
+Resolve para `[test value]`.
+
+No entanto, se a cadeia literal não termina com um colchete, não saiam Reto de fecho primeiro. Por exemplo, a variável:
+
+```json
+"demoVar2": "[test] value"
+```
+
+Resolve para `[test] value`.
 
 Transmita um valor de cadeia de caracteres como um parâmetro para uma função, utilize plicas.
 
@@ -493,20 +502,20 @@ Define os recursos com a seguinte estrutura:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| condition | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implementação. Quando `false`, o recurso é ignorado para esta implementação. Ver [condição](#condition). |
+| condição | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implementação. Quando `false`, o recurso é ignorado para esta implementação. Ver [condição](#condition). |
 | apiVersion |Sim |Versão da API REST para utilizar para criar o recurso. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
-| tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). Para um recurso de subordinado, o formato do tipo depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
-| nome |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. Para um recurso de subordinado, o formato do nome depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
-| localização |Varia |Georreplicação-localizações suportadas do recurso fornecido. Pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que está perto dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exigem uma localização, mas alguns tipos (por exemplo, uma atribuição de função) não precisam de uma localização. |
-| etiquetas |Não |Etiquetas de associado ao recurso. Aplica etiquetas para organizar logicamente os recursos na sua subscrição. |
+| type |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). Para um recurso de subordinado, o formato do tipo depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
+| name |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. Para um recurso de subordinado, o formato do nome depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
+| location |Varia |Georreplicação-localizações suportadas do recurso fornecido. Pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que está perto dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exigem uma localização, mas alguns tipos (por exemplo, uma atribuição de função) não precisam de uma localização. |
+| tags |Não |Etiquetas de associado ao recurso. Aplica etiquetas para organizar logicamente os recursos na sua subscrição. |
 | comentários |Não |Suas anotações para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
-| copiar |Não |Se for necessário mais de uma instância, o número de recursos para criar. O modo predefinido é paralelo. Especifique o modo serial quando não quiser que todos os ou os recursos necessários para implementar ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
+| cópia |Não |Se for necessário mais de uma instância, o número de recursos para criar. O modo predefinido é paralelo. Especifique o modo serial quando não quiser que todos os ou os recursos necessários para implementar ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Não |Recursos que devem ser implementados para que este recurso está implementado. Resource Manager avalia as dependências entre os recursos e implementa-as na ordem correta. Quando os recursos não são dependentes entre si, serem implementadas em paralelo. O valor pode ser uma lista separada por vírgulas de um recurso nomes ou identificadores exclusivos de recursos. Lista apenas os recursos que são implementados neste modelo. Recursos que não sejam definidos neste modelo tem de existir. Evite a adição de dependências desnecessárias como podem atrasar a implantação e criar dependências circulares. Para obter orientações sobre as dependências de definição, consulte [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md). |
 | properties |Não |Definições de configuração de recursos específicos. Os valores para as propriedades são os mesmos que os valores que fornecer no corpo do pedido para a operação de REST API (método PUT) criar o recurso. Também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
-| sku | Não | Alguns recursos permitem que os valores que definem o SKU para implementar. Por exemplo, pode especificar o tipo de redundância para uma conta de armazenamento. |
+| SKU | Não | Alguns recursos permitem que os valores que definem o SKU para implementar. Por exemplo, pode especificar o tipo de redundância para uma conta de armazenamento. |
 | tipo | Não | Alguns recursos permitem que um valor que define o tipo de recurso que implementa. Por exemplo, pode especificar o tipo do Cosmos DB para criar. |
 | plano | Não | Alguns recursos permitem que os valores que definem o plano de implementar. Por exemplo, pode especificar a imagem do marketplace para uma máquina virtual. | 
-| recursos |Não |Recursos de subordinados que dependem do recurso que está a ser definido. Fornece apenas os tipos de recursos que são permitidos pelo esquema do recurso principal. Dependência do recurso principal não está implícita. Tem de definir explicitamente essa dependência. Ver [recursos subordinados](#child-resources). |
+| Recursos |Não |Recursos de subordinados que dependem do recurso que está a ser definido. Fornece apenas os tipos de recursos que são permitidos pelo esquema do recurso principal. Dependência do recurso principal não está implícita. Tem de definir explicitamente essa dependência. Ver [recursos subordinados](#child-resources). |
 
 ### <a name="condition"></a>Condição
 
@@ -735,8 +744,8 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
 | outputName |Sim |Nome do valor de saída. Tem de ser um identificador de JavaScript válido. |
-| condition |Não | É devolvido o valor booleano que indica se este valor de saída. Quando `true`, o valor está incluído na saída para a implementação. Quando `false`, o valor de saída é ignorado para esta implementação. Quando não especificado, o valor predefinido é `true`. |
-| tipo |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. Se especificar **securestring** para o tipo de saída, o valor não for apresentado no histórico de implementação e não pode ser obtido a partir de outro modelo. Para utilizar um valor secreto no mais do que um modelo, armazenar o segredo no Cofre de chaves e o segredo no ficheiro de parâmetros de referência. Para obter mais informações, consulte [do Azure com o Key Vault para transmitir o valor do parâmetro segura durante a implementação](resource-manager-keyvault-parameter.md). |
+| condição |Não | É devolvido o valor booleano que indica se este valor de saída. Quando `true`, o valor está incluído na saída para a implementação. Quando `false`, o valor de saída é ignorado para esta implementação. Quando não especificado, o valor predefinido é `true`. |
+| type |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. Se especificar **securestring** para o tipo de saída, o valor não for apresentado no histórico de implementação e não pode ser obtido a partir de outro modelo. Para utilizar um valor secreto no mais do que um modelo, armazenar o segredo no Cofre de chaves e o segredo no ficheiro de parâmetros de referência. Para obter mais informações, consulte [do Azure com o Key Vault para transmitir o valor do parâmetro segura durante a implementação](resource-manager-keyvault-parameter.md). |
 | value |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
 
 ### <a name="define-and-use-output-values"></a>Definir e utilizar valores de saída

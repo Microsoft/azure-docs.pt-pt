@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 69399513291a47f7109003e825052314f447125a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 01c1711fb70d31fe84c7e20272de0eb7ce82c879
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002333"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494242"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Criar filtros com o API de REST dos serviços de multimédia
 
-Quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o cliente poderá ter mais flexibilidade do que o que é descrito no arquivo de manifesto do recurso padrão. Serviços de multimédia do Azure permite-lhe definir os filtros de conta e filtros de recurso para o seu conteúdo. Para obter mais informações, consulte [filtros](filters-concept.md) e [manifestos dinâmica](filters-dynamic-manifest-overview.md).
+Quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o cliente poderá ter mais flexibilidade do que o que é descrito no arquivo de manifesto do recurso padrão. Serviços de multimédia do Azure permite-lhe definir os filtros de conta e filtros de recurso para o seu conteúdo. 
+
+Para obter descrição detalhada desta funcionalidade e cenários em que é utilizada, consulte [manifestos dinâmica](filters-dynamic-manifest-overview.md) e [filtros](filters-concept.md).
 
 Este tópico mostra como definir um filtro para ver um vídeo num recurso a pedido e utilizar REST APIs para criar [filtros de conta](https://docs.microsoft.com/rest/api/media/accountfilters) e [Asset filtros](https://docs.microsoft.com/rest/api/media/assetfilters). 
 

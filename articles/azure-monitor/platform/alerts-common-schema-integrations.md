@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: b51b9f08819a4c496e051d375f6d52aaa985c8e6
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 13cb3880662e1665b03dd63f009645acbe97fc75
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394135"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734895"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema comum do alerta com o Logic Apps
 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como criar uma aplicação lógica que utiliza o esquema 
 
 ## <a name="overview"></a>Descrição geral
 
-O [esquema comum do alerta](https://aka.ms/commonAlertSchemaDocs) fornece um esquema JSON padronizado e extensível em todos os seus tipos de alerta diferentes. O esquema comum do alerta é mais útil quando utilizado por meio de programação – através de webhooks, runbooks e aplicações lógicas. Neste artigo, demonstraremos como uma aplicação lógica única pode ser criada para lidar com todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos de programação. A aplicação de lógica descrita neste artigo cria variáveis bem definidas para o [campos 'essenciais'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)e também descreve como processar [tipo de alerta]('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') lógica específica.
+O [esquema comum do alerta](https://aka.ms/commonAlertSchemaDocs) fornece um esquema JSON padronizado e extensível em todos os seus tipos de alerta diferentes. O esquema comum do alerta é mais útil quando utilizado por meio de programação – através de webhooks, runbooks e aplicações lógicas. Neste artigo, demonstraremos como uma aplicação lógica única pode ser criada para lidar com todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos de programação. A aplicação de lógica descrita neste artigo cria variáveis bem definidas para o [campos 'essenciais'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)e também descreve como processar [tipo de alerta](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) lógica específica.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -125,7 +125,7 @@ Este artigo pressupõe que o leitor está familiarizado com o
 
     ![Expressão de aplicação lógica](media/alerts-common-schema-integrations/logic-app-expressions.png "expressão de aplicação lógica")
     
-     O [campo 'monitoringService']('https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields') permite-lhe identificar exclusivamente o tipo de alerta com base no que é possível criar a lógica condicional.
+     O [campo 'monitoringService'](/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) permite-lhe identificar exclusivamente o tipo de alerta com base no que é possível criar a lógica condicional.
 
     
     Por exemplo, a seguir o trecho de código verifica se o alerta é um alerta de registo do Application Insights com base e, se assim for, imprime os resultados da pesquisa. Caso contrário, imprime "ND".

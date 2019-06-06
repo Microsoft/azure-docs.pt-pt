@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 635e72a8e8a70b8885afea282511fbfaf24d2f94
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957348"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729470"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -110,7 +110,7 @@ No JavaScript, [enlaces](functions-triggers-bindings.md) são configuradas e def
 
 ### <a name="inputs"></a>Entradas
 Entrada são divididas em duas categorias nas funções do Azure: um é a entrada de Acionador e o outro é a entrada adicional. Acionador e outros enlaces de entrada (enlaces de `direction === "in"`) podem ser lidos por uma função de três formas:
- - **_[Recomendável]_  Como parâmetros transmitidos para a sua função.** Elas são passadas para a função na mesma ordem em que elas estão definidas na *Function*. O `name` propriedade definida no *Function* não tem de corresponder ao nome do seu parâmetro, embora ele deve.
+ - ** _[Recomendável]_  Como parâmetros transmitidos para a sua função.** Elas são passadas para a função na mesma ordem em que elas estão definidas na *Function*. O `name` propriedade definida no *Function* não tem de corresponder ao nome do seu parâmetro, embora ele deve.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -141,7 +141,7 @@ Saídas (enlaces de `direction === "out"`) pode ser escrito por uma função de 
 
 Pode atribuir os dados para ligações de saída de uma das seguintes formas (não o combine estes métodos):
 
-- **_[Recomendado para várias saídas]_  Retornando um objeto.** Se estiver a utilizar uma função de retorno do async/promessa, pode retornar um objeto com dados de saída atribuído. No exemplo abaixo, as ligações de saída são com o nome "httpResponse" e "queueOutput" no *Function*.
+- ** _[Recomendado para várias saídas]_  Retornando um objeto.** Se estiver a utilizar uma função de retorno do async/promessa, pode retornar um objeto com dados de saída atribuído. No exemplo abaixo, as ligações de saída são com o nome "httpResponse" e "queueOutput" no *Function*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Pode atribuir os dados para ligações de saída de uma das seguintes formas (n�
   ```
 
   Se estiver a utilizar uma função síncrona, pode retornar este objeto utilizando [ `context.done` ](#contextdone-method) (veja o exemplo).
-- **_[Recomendado para saída única]_  Retornar um valor diretamente e utilizar o nome da ligação $return.** Isso só funciona para async/promessa, retornando as funções. Veja o exemplo na [exportar uma função de async](#exporting-an-async-function). 
+- ** _[Recomendado para saída única]_  Retornar um valor diretamente e utilizar o nome da ligação $return.** Isso só funciona para async/promessa, retornando as funções. Veja o exemplo na [exportar uma função de async](#exporting-an-async-function). 
 - **Atribuir valores para `context.bindings`**  pode atribuir valores diretamente a context.bindings.
 
   ```javascript
@@ -397,9 +397,9 @@ Ao trabalhar com acionadores HTTP, pode acessar os objetos de solicitação e re
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Apenas de resposta]_  Chamando `context.res.send(body?: any)`.** Uma resposta HTTP é criada com entrada `body` como o corpo da resposta. `context.done()` é chamado implicitamente.
++ ** _[Apenas de resposta]_  Chamando `context.res.send(body?: any)`.** Uma resposta HTTP é criada com entrada `body` como o corpo da resposta. `context.done()` é chamado implicitamente.
 
-+ **_[Apenas de resposta]_  Chamando `context.done()`.** Um tipo especial de enlace HTTP retorna a resposta que é passada para o `context.done()` método. Enlace de saída HTTP seguinte define uma `$return` parâmetro de saída:
++ ** _[Apenas de resposta]_  Chamando `context.done()`.** Um tipo especial de enlace HTTP retorna a resposta que é passada para o `context.done()` método. Enlace de saída HTTP seguinte define uma `$return` parâmetro de saída:
 
     ```json
     {
@@ -418,7 +418,7 @@ Ao trabalhar com acionadores HTTP, pode acessar os objetos de solicitação e re
 
 A tabela seguinte mostra a versão do node. js utilizada por cada versão principal do runtime das funções:
 
-| Versão de funções | Versão Node.js | 
+| Versão de funções | Versão node. js | 
 |---|---|
 | 1.x | 6.11.2 (bloqueados pelo tempo de execução) |
 | 2.x  | _Active Directory LTS_ e até mesmo-numerados _atual_ versões de node. js (8.11.1 e 10.14.1 recomendado). Definir a versão com o WEBSITE_NODE_DEFAULT_VERSION [definição de aplicação](functions-how-to-use-azure-function-app-settings.md#settings).|
@@ -465,23 +465,16 @@ Existem duas formas de instalar os pacotes em sua aplicação de funções:
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [as definições da aplicação](functions-app-settings.md), por exemplo, a ligação de serviço são expostos cadeias de caracteres, como variáveis de ambiente durante a execução. Pode acessar essas configurações usando `process.env`, conforme mostrado aqui no `GetEnvironmentVariable` função:
+Em funções, [as definições da aplicação](functions-app-settings.md), por exemplo, a ligação de serviço são expostos cadeias de caracteres, como variáveis de ambiente durante a execução. Pode acessar essas configurações usando `process.env`, conforme mostrado a seguir as chamadas segunda e terceira `context.log()` onde podemos iniciar o `AzureWebJobsStorage` e `WEBSITE_SITE_NAME` variáveis de ambiente:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]

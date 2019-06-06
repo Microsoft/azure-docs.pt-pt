@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789250"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476127"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos
 
@@ -73,7 +73,7 @@ Veja a seguinte tabela para as portas de saída que é necessário abrir para ut
 | -------- | ----- | ------- | 
 | AMQP | 5671 e 5672 | Consulte [Guia do protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9092 | Consulte [dos Hubs de eventos de utilização de aplicações do Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Consulte [dos Hubs de eventos de utilização de aplicações do Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Que endereços IP é necessário à lista de permissões?
 Para localizar os endereços IP corretos para a lista de permissões para as suas ligações, siga estes passos:

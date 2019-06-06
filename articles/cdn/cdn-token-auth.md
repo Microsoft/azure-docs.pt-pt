@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869413"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472152"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger recursos da CDN do Azure com a autenticação de token
 
@@ -173,17 +173,17 @@ O fluxograma a seguir descreve como a CDN do Azure valida um pedido de cliente q
 3. Sob **HTTP grandes**, selecione **motor de regras**. Utilize o mecanismo de regras para definir caminhos para aplicar a funcionalidade, ativar a funcionalidade de autenticação de token e habilitar recursos relacionados à autenticação de token adicionais. Para obter mais informações, consulte [referência do motor de regras](cdn-rules-engine-reference.md).
 
    1. Selecione uma regra existente ou crie uma nova regra para definir o recurso ou o caminho para o qual pretende aplicar a autenticação de token. 
-   2. Para ativar a autenticação de token numa regra, selecione **[autenticação de Token](cdn-rules-engine-reference-features.md#token-auth)** partir o **funcionalidades** lista, em seguida, selecione **ativado**. Selecione **atualização** se estiver a atualizar uma regra ou **Add** se estiver a criar uma regra.
+   2. Para ativar a autenticação de token numa regra, selecione **[autenticação de Token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** partir o **funcionalidades** lista, em seguida, selecione **ativado**. Selecione **atualização** se estiver a atualizar uma regra ou **Add** se estiver a criar uma regra.
         
       ![Exemplo de ativar autenticação de token de motor de regras CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. O mecanismo de regras, também pode ativar funcionalidades relacionadas com a autenticação de token adicionais. Para ativar qualquer uma das seguintes funcionalidades, selecione-o a partir da **funcionalidades** lista, em seguida, selecione **ativado**.
     
-   - **[Código de negação de autenticação de token](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Determina o tipo de resposta que é retornado para um utilizador quando um pedido é negado. O código de resposta definido de substituição de regras definidas a **a manipulação de recusa personalizado** secção na página de autenticação baseada em tokens.
+   - **[Código de negação de autenticação de token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)** : Determina o tipo de resposta que é retornado para um utilizador quando um pedido é negado. O código de resposta definido de substituição de regras definidas a **a manipulação de recusa personalizado** secção na página de autenticação baseada em tokens.
 
-   - **[Autenticação de token ignorar URL maiúsculas / minúsculas](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Determina se o URL utilizado para validar o token diferencia maiúsculas de minúsculas.
+   - **[Autenticação de token ignorar URL maiúsculas / minúsculas](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)** : Determina se o URL utilizado para validar o token diferencia maiúsculas de minúsculas.
 
-   - **[Parâmetro de autenticação de token](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Muda o nome o parâmetro de cadeia de caracteres de consulta de token de autenticação que é apresentado no URL solicitado. 
+   - **[Parâmetro de autenticação de token](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)** : Muda o nome o parâmetro de cadeia de caracteres de consulta de token de autenticação que é apresentado no URL solicitado. 
         
      ![Exemplo de definições de autenticação de token de motor de regras CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

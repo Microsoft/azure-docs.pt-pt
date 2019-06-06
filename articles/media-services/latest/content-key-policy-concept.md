@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417997"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425429"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
 
@@ -35,7 +35,7 @@ Recomenda-se para permitir que os serviços de multimédia para gerar automatica
 > * Propriedades de **diretivas de chave de conteúdo** que são de Datetime tipo são sempre em formato UTC.
 > * Deve criar um conjunto limitado de políticas para a sua conta de serviço de suporte de dados e utilizá-los novamente para os localizadores de transmissão em fluxo sempre que as mesmas opções são necessárias. Para obter mais informações, consulte [Quotas e limitações](limits-quotas-constraints.md).
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 
 Para obter a chave, utilize **GetPolicyPropertiesWithSecretsAsync**, como mostra a [obter uma chave de assinatura da política existente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exemplo.
 

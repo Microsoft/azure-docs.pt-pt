@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fe913f057d00fd18b1b163f124d9dd0b83abf0de
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5854a795ba7ceeeb4512f1e2fd16d98826d55dd5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925886"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477980"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - pontos finais do IoT Hub
 
@@ -69,26 +69,26 @@ O [do Azure IoT SDKs](iot-hub-devguide-sdks.md) artigo descreve as várias forma
 
 Todos os pontos de extremidade do IoT Hub utilizam o [TLS](https://tools.ietf.org/html/rfc5246) protocolo e nenhum ponto final nunca é exposto em canais não encriptados/desprotegido.
 
-## <a name="custom-endpoints"></a>Pontos finais personalizados
+## <a name="custom-endpoints"></a>Os pontos finais personalizados
 
 Pode ligar os serviços do Azure existentes na sua subscrição ao seu hub IoT para atuar como pontos finais para encaminhamento de mensagens. Estes pontos finais funcionam como pontos finais de serviço e são utilizados como sinks para rotas de mensagens. Dispositivos não é possível escrever diretamente para os pontos finais adicionais. Saiba mais sobre [roteamento de mensagens](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 Atualmente, o IoT Hub suporta os seguintes serviços do Azure como pontos finais adicionais:
 
-* Contentores de Armazenamento do Azure
+* Contentores de armazenamento do Azure
 * Hubs de Eventos
 * Filas de Service Bus
 * Tópicos de Service Bus
 
 Para os limites no número de pontos de extremidade pode adicionar, ver [Quotas e limitação](iot-hub-devguide-quotas-throttling.md).
 
-Pode utilizar a API REST [obter estado de funcionamento do ponto de extremidade](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de funcionamento dos pontos finais. Recomendamos que utilize o [métricas do IoT Hub](iot-hub-metrics.md) relacionadas com a latência da mensagem de encaminhamento para identificar e depurar erros quando o estado de funcionamento do ponto final está inativo ou mau estado de funcionamento.
+Pode utilizar a API REST [obter estado de funcionamento do ponto de extremidade](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter o estado de funcionamento dos pontos finais. Recomendamos que utilize o [métricas do IoT Hub](iot-hub-metrics.md) relacionadas com a latência da mensagem de encaminhamento para identificar e depurar erros quando o estado de funcionamento do ponto final está inativo ou mau estado de funcionamento, conforme esperado latência sejam mais elevados quando o ponto final está em um desses Estados.
 
-|Estado de Funcionamento|Descrição|
+|Estado de funcionamento|Descrição|
 |---|---|
-|bom estado de funcionamento|O ponto final está a aceitar mensagens conforme esperado.|
+|Bom estado de funcionamento|O ponto final está a aceitar mensagens conforme esperado.|
 |Mau estado de funcionamento|O ponto final não está a aceitar mensagens conforme esperado e o IoT Hub está a tentar novamente para enviar dados para este ponto final. O estado de um ponto de extremidade de mau estado de funcionamento será atualizado para o bom estado de funcionamento quando o IoT Hub estabeleceu um Estado de funcionamento eventualmente consistente do Estado de funcionamento.|
-|desconhecido|IoT Hub não estabeleceu uma conexão com o ponto final. Não existem mensagens foram entregues ao ou rejeitadas a partir deste ponto final.|
+|Desconhecido|IoT Hub não estabeleceu uma conexão com o ponto final. Não existem mensagens foram entregues ao ou rejeitadas a partir deste ponto final.|
 |papel já era|O ponto final não está a aceitar mensagens, depois do IoT Hub repetida envio de mensagens para o período de retrial.|
 
 ## <a name="field-gateways"></a>Gateways de campo

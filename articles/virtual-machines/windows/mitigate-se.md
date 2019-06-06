@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.author: cynthn
-ms.openlocfilehash: b11562015e16cf52b6b6604f1a061a0bb03598c2
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 0302b29103fbe993589ee4d3f44b8a5fff5bd77c
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620245"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735234"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Documentação de orientação para mitigar vulnerabilidades side-channel de execução especulativa no Azure
 

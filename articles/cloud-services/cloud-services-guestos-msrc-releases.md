@@ -11,65 +11,63 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/23/2019
+ms.date: 6/6/2019
 ms.author: raiye
-ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241312"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743042"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
 
 ## <a name="may-2019-guest-os"></a>SO de convidado de Maio de 2019
 
->[!NOTE]
->O SO de convidado pode está atualmente a ser lançado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado pode. Esta lista está sujeita a alterações.
-
 | Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 05 de 19   |  [4498206 ]  |  Pode Rollup do IE   |  2,86, 3.73, 4.66  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4505050 ]  |  Pode Rollup do IE   |  2,86, 3.73, 4.66  |  18 de Maio de 2019  |
-|  Rel 05 de 19   |  [4497932 ]  |  Pode Flash Update   |  3.73, 4.66, 5.31  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4499175 ]  |  Pode Rollup de segurança   |  2.86  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4495612 ]  |  Pode Rollup de segurança .NET 3.5   |  2.86  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4495593 ]  |  Pode Rollup de segurança .NET 4.5.2   |  2.86  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4499158 ]  |  Pode Rollup de segurança   |  3.73  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4495607 ]  |  Pode Rollup de segurança .NET 3.5   |  3.73  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4495591 ]  |  Pode Rollup de segurança .NET 4.5.2   |  3.73  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4492872 ]  |  Agregação do IE   |  3.73  |  16 de Abril de 2019  |
-|  Rel 05 de 19   |  [4499165 ]  |  Agregação de segurança de Março   |  4.66  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4495615 ]  |  Pode Rollup de segurança .NET 3.5   |  4.66  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4495589 ]  |  Pode Rollup de segurança .NET 4.5.2   |  4.66  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4498947 ]  |  Maio SSU   |  5.31  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4494175 ]  |  Talvez a ativação do microcódigo Update   |  5.31  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4505052 ]  |  Pode Rollup de segurança   |  5.31  |  19 de Maio de 2019  |
-|  Rel 05 de 19   |  [4499728 ]  |  Maio SSU   |  6.7  |  19 de Maio de 2019  |
-|  Rel 05 de 19   |  [4505056 ]  |  Pode Rollup de segurança   |  6.7  |  19 de Maio de 2019  |
-|  Rel 05 de 19   |  [4494174 ]  |  Talvez a ativação do microcódigo Update   |  6.7  |  14 de Maio de 2019  |
-|  Rel 05 de 19   |  [4495590 ]  |  Pode Rollup de segurança .NET   |  6.7  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4498206]  |  Pode Rollup do IE   |  2,86, 3.73, 4.66  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4505050]  |  Pode Rollup do IE   |  2,86, 3.73, 4.66  |  18 de Maio de 2019  |
+|  Rel 05 de 19   |  [4497932]  |  Pode Flash Update   |  3.73, 4.66, 5.31  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4499175]  |  Pode Rollup de segurança   |  2.86  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495612]  |  Pode Rollup de segurança .NET 3.5   |  2.86  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495593]  |  Pode Rollup de segurança .NET 4.5.2   |  2.86  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4499158]  |  Pode Rollup de segurança   |  3.73  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495607]  |  Pode Rollup de segurança .NET 3.5   |  3.73  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495591]  |  Pode Rollup de segurança .NET 4.5.2   |  3.73  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4492872]  |  Agregação do IE   |  3.73  |  16 de Abril de 2019  |
+|  Rel 05 de 19   |  [4499165]  |  Agregação de segurança de Março   |  4.66  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495615]  |  Pode Rollup de segurança .NET 3.5   |  4.66  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495589]  |  Pode Rollup de segurança .NET 4.5.2   |  4.66  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4498947]  |  Maio SSU   |  5.31  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4494175]  |  Talvez a ativação do microcódigo Update   |  5.31  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4505052]  |  Pode Rollup de segurança   |  5.31  |  19 de Maio de 2019  |
+|  Rel 05 de 19   |  [4499728]  |  Maio SSU   |  6.7  |  19 de Maio de 2019  |
+|  Rel 05 de 19   |  [4505056]  |  Pode Rollup de segurança   |  6.7  |  19 de Maio de 2019  |
+|  Rel 05 de 19   |  [4494174]  |  Talvez a ativação do microcódigo Update   |  6.7  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495590]  |  Pode Rollup de segurança .NET   |  6.7  |  14 de Maio de 2019  |
 
-[KB4493510]: https://support.microsoft.com/kb/KB4493510
-[KB4493472]: https://support.microsoft.com/kb/KB4493472
-[KB4493451]: https://support.microsoft.com/kb/KB4493451
-[KB4493446]: https://support.microsoft.com/kb/KB4493446
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[4498206]: https://support.microsoft.com/kb/4498206
+[4505050]: https://support.microsoft.com/kb/4505050
+[4497932]: https://support.microsoft.com/kb/4497932
+[4499175]: https://support.microsoft.com/kb/4499175
+[4495612]: https://support.microsoft.com/kb/4495612
+[4495593]: https://support.microsoft.com/kb/4495593
+[4499158]: https://support.microsoft.com/kb/4499158
+[4495607]: https://support.microsoft.com/kb/4495607
+[4495591]: https://support.microsoft.com/kb/4495591
+[4492872]: https://support.microsoft.com/kb/4492872
+[4499165]: https://support.microsoft.com/kb/4499165
+[4495615]: https://support.microsoft.com/kb/4495615
+[4495589]: https://support.microsoft.com/kb/4495589
+[4498947]: https://support.microsoft.com/kb/4498947
+[4494175]: https://support.microsoft.com/kb/4494175
+[4505052]: https://support.microsoft.com/kb/4505052
+[4499728]: https://support.microsoft.com/kb/4499728
+[4505056]: https://support.microsoft.com/kb/4505056
+[4494174]: https://support.microsoft.com/kb/4494174
+[4495590]: https://support.microsoft.com/kb/4495590
 
 
 ## <a name="april-2019-guest-os"></a>SO de convidado de Abril de 2019
@@ -83,11 +81,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 04 de 19 | [4493448] | Segurança do Windows | 2.85 | 9 de Abril de 2019 |
 | Rel 04 de 19 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | 9 de Abril de 2019 |
 | Rel 04 de 19 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 de Abril de 2019 |
-| Rel 04 de 19 | [KB4490628] | Atualização de pilha de manutenção | 2.85 | 12 de Março de 2019 |
-| Rel 04 de 19 | [KB4474419] | Suporte de SHA2 | 2.85 | 12 de Março de 2019 |
-| Rel 04 de 19 | [KB4489878] | Agregação de não-segurança de Março | 2.85 | 12 de Março de 2019 |
-| Rel 04 de 19 | [KB4489891] | Agregação de não-segurança de Março | 3.72 | 12 de Março de 2019 |
-| Rel 04 de 19 | [KB4489881] | Agregação de não-segurança de Março | 4.65 | 12 de Março de 2019 |
+| Rel 04 de 19 | [4490628] | Atualização de pilha de manutenção | 2.85 | 12 de Março de 2019 |
+| Rel 04 de 19 | [4474419] | Suporte de SHA2 | 2.85 | 12 de Março de 2019 |
+| Rel 04 de 19 | [4489878] | Agregação de não-segurança de Março | 2.85 | 12 de Março de 2019 |
+| Rel 04 de 19 | [4489891] | Agregação de não-segurança de Março | 3.72 | 12 de Março de 2019 |
+| Rel 04 de 19 | [4489881] | Agregação de não-segurança de Março | 4.65 | 12 de Março de 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -96,11 +94,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4493448]: https://support.microsoft.com/kb/4493448
 [4493478]: https://support.microsoft.com/kb/4493478
 [4493435]: https://support.microsoft.com/kb/4493435
-[KB4490628]: https://support.microsoft.com/kb/KB4490628
-[KB4474419]: https://support.microsoft.com/kb/KB4474419
-[KB4489878]: https://support.microsoft.com/kb/KB4489878
-[KB4489891]: https://support.microsoft.com/kb/KB4489891
-[KB4489881]: https://support.microsoft.com/kb/KB4489881
+[4490628]: https://support.microsoft.com/kb/KB4490628
+[4474419]: https://support.microsoft.com/kb/KB4474419
+[4489878]: https://support.microsoft.com/kb/KB4489878
+[4489891]: https://support.microsoft.com/kb/KB4489891
+[4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>SO de convidado de Março de 2019
 

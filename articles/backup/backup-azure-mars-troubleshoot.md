@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d8a1d261808eb8f97d1e0dab78b767b37ae6802f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243437"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743147"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Resolver problemas de agente do Microsoft Azure Recovery Services (MARS)
 
@@ -82,7 +82,15 @@ Recomendamos que efetue a abaixo validação, antes de começar a resolução de
 Se as cópias de segurança agendadas não obter acionadas automaticamente, enquanto as cópias de segurança manuais funcionam sem problemas, tente as seguintes ações:
 
 - Certifique-se a agenda de cópia de segurança do Windows Server não entram em conflito com a agenda de cópia de segurança do Azure de ficheiros e pastas.
-- Aceda a **painel de controlo** > **ferramentas administrativas** > **Programador de tarefas**. Expanda **Microsoft**e selecione **cópia de segurança Online**. Faça duplo clique em **Microsoft OnlineBackup**e vá para o **Acionadores** separador. Certifique-se de que o estado é definido como **ativado**. Se não estiver, selecione **edite**e selecione o **ativado** caixa de verificação e clique em **OK**. No **gerais** separador, aceda à **opções de segurança** e certifique-se de que a conta de utilizador selecionada para executar a tarefa é um **sistema** ou **Local Grupo de administradores** no servidor.
+
+- Certifique-se de que o estado de cópia de segurança Online está definido como **ativar**. Para verificar o estado de efetuar o abaixo:
+
+  - Aceda a **painel de controlo** > **ferramentas administrativas** > **Programador de tarefas**.
+    - Expanda **Microsoft**e selecione **cópia de segurança Online**.
+  - Faça duplo clique em **Microsoft OnlineBackup**e vá para o **Acionadores** separador.
+  - Verificar se o estado estiver definido como **ativado**. Se não estiver, selecione **edite**e selecione o **ativado** caixa de verificação e clique em **OK**.
+
+- Certifique-se de que a conta de utilizador selecionada para executar a tarefa está **SYSTEM** ou **Grupo Local de administradores** no servidor. Para verificar a conta de utilizador, vá para o **gerais** separador e verificar o **opções de segurança**.
 
 - Veja se o PowerShell 3.0 ou posterior está instalado no servidor. Para verificar a versão do PowerShell, execute o seguinte comando e certifique-se de que o *principais* número de versão é igual ou superior a 3.
 
@@ -98,6 +106,15 @@ Se as cópias de segurança agendadas não obter acionadas automaticamente, enqu
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
 
+- Certifique-se o servidor foi reiniciado após a instalação do agente de cópia de segurança
+
+- Certifique-se de que existem não existem em falta ou danificado **PowerShell** módulo **MSonlineBackup**. Caso haja qualquer ficheiro em falta ou danificado, para resolver o problema, efetue o abaixo:
+
+  - De outro computador (Windows 2008 R2) a ter o agente de MARS a funcionar corretamente, copie a pasta de MSOnlineBackup partir *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* caminho.
+  - Colar isto no computador problemático no mesmo caminho *(C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules)* .
+  - Se **MSOnlineBackup** já está a pasta existe na máquina, colar/substituir os ficheiros de conteúdo no interior do mesmo.
+
+
 > [!TIP]
 > Para garantir que as alterações são aplicadas de forma consistente, reinicie o servidor depois de efetuar os passos acima.
 
@@ -108,7 +125,7 @@ Cópia de segurança do Azure com êxito não poderá montar o volume de recuper
 
 1.  Cancele o processo de montagem em curso, caso ele esteve em execução durante vários minutos.
 
-2.  Veja se está na versão mais recente do agente do Backup. Para saber a versão no **ações** painel de consola do MARS, selecione **sobre o Microsoft Azure Recovery Services Agent**. Confirme que o **versão** número é igual ou superior à versão mencionada [este artigo](https://go.microsoft.com/fwlink/?linkid=229525). Pode baixar a versão mais recente a partir [aqui](https://go.microsoft.com/fwLink/?LinkID=288905).
+2.  Veja se está na versão mais recente do agente do Backup. Para saber a versão no **ações** painel de consola do MARS, selecione **sobre o Microsoft Azure Recovery Services Agent**. Confirme que o **versão** número é igual ou superior à versão mencionada [este artigo](https://go.microsoft.com/fwlink/?linkid=229525). Pode transferir a versão mais recente [aqui](https://go.microsoft.com/fwLink/?LinkID=288905).
 
 3.  Aceda a **Gestor de dispositivos** > **controladores de armazenamento**e localize **Iniciador do Microsoft iSCSI**. Se pode localizá-lo, vá diretamente para o passo 7.
 

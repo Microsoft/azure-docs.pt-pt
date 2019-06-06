@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 92476f9ac48c168c3bbe85d4da49b6afe034c117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cccae343e0a06af88c2e996c37910de72138c60
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730504"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475054"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
@@ -42,6 +42,8 @@ Para implementar um **subscrição**, utilize [criar a implementação de az](/c
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
+
+Atualmente, só são suportadas implementações do grupo de gestão através da API REST. Ver [implementar recursos com modelos do Resource Manager e API de REST do Resource Manager](resource-group-template-deploy-rest.md).
 
 Os exemplos neste artigo utilizam implementações do grupo de recursos. Para obter mais informações sobre implementações de subscrição, veja [criar grupos de recursos e recursos ao nível da subscrição](deploy-to-subscription.md).
 
@@ -102,7 +104,7 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Implementar novamente quando ocorre uma falha de implementação
 
-Esta funcionalidade também é conhecido como *reversão com o erro*. Quando uma implementação falhar, pode implementar automaticamente novamente uma implementação anterior, com êxito do seu histórico de implementação. Para especificar a nova implementação, utilize o `--rollback-on-error` parâmetro no comando de implementação. Essa funcionalidade é útil se tiver tem um bom estado conhecido para a implementação de infraestrutura e que a ser revertida para o. Há uma série de limitações e restrições:
+Esta funcionalidade também é conhecido como *reversão com o erro*. Quando uma implementação falhar, pode implementar automaticamente novamente uma implementação anterior, com êxito do seu histórico de implementação. Para especificar a nova implementação, utilize o `--rollback-on-error` parâmetro no comando de implementação. Essa funcionalidade é útil se tem um bom estado conhecido para a sua implementação de infraestrutura e pretenda reverter para este estado. Há uma série de limitações e restrições:
 
 - A reimplementação é executada exatamente como foi anteriormente executada com os mesmos parâmetros. Não é possível alterar os parâmetros.
 - A implementação anterior for executada utilizando o [modo de conclusão](./deployment-modes.md#complete-mode). São eliminados todos os recursos não incluídos na implementação anterior e quaisquer configurações de recursos são definidas para o seu estado anterior. Certifique-se de que compreende totalmente o [modos de implementação](./deployment-modes.md).

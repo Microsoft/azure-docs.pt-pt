@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 511333342371e18f75b48b60486705571353ee13
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852037"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735056"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementar um modelo como um serviço web num FPGA com o serviço Azure Machine Learning
 
@@ -33,7 +33,7 @@ FPGAs estão disponíveis nestas regiões do Azure:
   - EUA Leste
   - Sudeste Asiático
   - Europa Ocidental
-  - E.U.A. Oeste 2
+  - EUA Oeste 2
 
 > [!IMPORTANT]
 > Para otimizar o débito e latência, o cliente a enviar dados para o modelo FPGA deve ser de uma das regiões acima (aquele que implementou o modelo para).
@@ -304,7 +304,7 @@ Se desejar usar a servir de TensorFlow, pode [transferir um cliente de exemplo](
 
 ```python
 # Using the grpc client in Azure ML Accelerated Models SDK package
-from azureml.accel.client import PredictionClient
+from azureml.accel import PredictionClient
 
 address = aks_service.scoring_uri
 ssl_enabled = address.startswith("https")

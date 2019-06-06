@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 365f017fe7d71500c17d0a9ccd9c5a0a26a78b75
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989506"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472798"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de aplicações e o PingAccess
 
@@ -115,7 +115,7 @@ Em seguida, certifique-se de seu redirecionamento de que URL está definida como
 
 1. Partir do **Centro de administração do Azure Active Directory** barra lateral, selecione **Azure Active Directory** > **registos das aplicações**. É apresentada uma lista de aplicativos.
 
-   ![Registos das aplicações](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+   ![Registos de aplicações](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 2. Selecione a aplicação.
 3. Selecione a ligação junto a **URIs de redirecionamento**, que mostra o número de URIs definida para públicos clientes web e de redirecionamento. O  **\<nome da aplicação >-autenticação** é apresentada a página.
 4. Verifique se o URL externo que atribuiu à anteriormente a sua aplicação está a **URIs de redirecionamento** lista. Se não estiver, adicione o URL externo agora, usando um tipo URI de redirecionamento de **Web**e selecione **guardar**.
@@ -124,11 +124,11 @@ Por fim, defina a sua aplicação no local, para que os utilizadores têm acesso
 
 1. Do **registos de aplicações** barra lateral para a sua aplicação, selecione **permissões de API** > **adicionar uma permissão**  >   **APIs da Microsoft** > **Microsoft Graph**. O **permissões de pedido de API** página **Microsoft Graph** for apresentada, que contém as APIs para o Windows Azure Active Directory.
 
-   ![Pedir permissões de API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+   ![Permissões de pedido de API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 2. Selecione **permissões delegadas** > **utilizador** > **User.Read**.
 3. Selecione **permissões de aplicação** > **aplicativo** > **Application.ReadWrite.All**.
 4. Selecione **adicionar permissões**.
-5. Na **permissões de API** página, selecione **conceder autorização de administrador para \<seu nome de diretório >**.
+5. Na **permissões de API** página, selecione **conceder autorização de administrador para \<seu nome de diretório >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Recolher informações para obter os passos do PingAccess
 
@@ -158,9 +158,9 @@ Para recolher estas informações:
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>Atualizar Graph para enviar os campos personalizados (opcional)
 
-Para obter uma lista de tokens de segurança do Azure AD envia para a autenticação, consulte [tokens de ID de plataforma de identidade do Microsoft](../develop/id-tokens.md). Se precisar de uma declaração personalizada que envia outros tokens, definir o `acceptMappedClaims` campo de aplicativo para `True`. Pode utilizar o Explorador do gráfico ou manifesto da aplicação do portal do Azure AD para fazer esta alteração.
+Se precisar de uma declaração personalizada que envia outros tokens dentro do access_token consumidos por PingAccess, defina o `acceptMappedClaims` campo de aplicativo para `True`. Pode utilizar o Explorador do gráfico ou manifesto da aplicação do portal do Azure AD para fazer esta alteração.
 
-Este exemplo utiliza a API do Graph:
+**Este exemplo utiliza a API do Graph:**
 
 ```
 PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
@@ -170,7 +170,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 
-Este exemplo utiliza a [portal do Azure Active Directory](https://aad.portal.azure.com/) para atualizar o `acceptMappedClaims` campo:
+**Este exemplo utiliza a [portal do Azure Active Directory](https://aad.portal.azure.com/) para atualizar o `acceptMappedClaims` campo:**
 
 1. Inicie sessão para o [portal do Azure Active Directory](https://aad.portal.azure.com/) como um administrador da aplicação.
 2. Selecione **do Azure Active Directory** > **registos das aplicações**. É apresentada uma lista de aplicativos.
@@ -179,7 +179,28 @@ Este exemplo utiliza a [portal do Azure Active Directory](https://aad.portal.azu
 5. Procure o `acceptMappedClaims` campo e altere o valor para `True`.
 6. Selecione **Guardar**.
 
-### <a name="use-a-custom-claim-optional"></a>Utilizar uma declaração personalizada (opcional)
+
+### <a name="use-of-optional-claims-optional"></a>Utilização de afirmações opcionais (opcionais)
+Afirmações opcionais permite-lhe adicionar declarações standard-but-not-included-by-default que cada usuário e o inquilino tem. Pode configurar afirmações opcionais para a sua aplicação ao modificar o manifesto do aplicativo. Para obter mais informações, consulte o [Noções básicas sobre o artigo de manifesto de aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
+
+Exemplo para incluir o endereço de e-mail para o access_token que PingAccess irá consumir:
+```
+    "optionalClaims": {
+        "idToken": [],
+        "accessToken": [
+            {
+                "name": "email",
+                "source": null,
+                "essential": false,
+                "additionalProperties": []
+            }
+        ],
+        "saml2Token": []
+    },
+```
+
+### <a name="use-of-claims-mapping-policy-optional"></a>Utilização de declarações de mapeamento de política (opcional)
+[Mapeamento de política (pré-visualização) de afirmações](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) para atributos que não existem no AzureAD. Mapeamento de afirmações permite-lhe migrar aplicações antigas do local para a cloud ao adicionar declarações personalizadas adicionais que são apoiadas por seus objetos de AD FS ou o utilizador
 
 Para tornar a sua aplicação utilizar uma declaração personalizada e incluir campos adicionais, não se esqueça de que também [criou uma política de mapeamento de afirmações personalizadas e Atribuímos à aplicação](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -187,6 +208,16 @@ Para tornar a sua aplicação utilizar uma declaração personalizada e incluir 
 > Para utilizar uma declaração personalizada, também tem de ter uma política personalizada definida e atribuída à aplicação. Esta política deve incluir todos os atributos personalizados necessários.
 >
 > Pode fazer a definição de política e a atribuição através do PowerShell, o Azure AD Graph Explorer ou o Microsoft Graph. Se estiver fazendo-os no PowerShell, poderá ter de utilizar pela primeira vez `New-AzureADPolicy` e, em seguida, atribua-o para a aplicação com `Add-AzureADServicePrincipalPolicy`. Para obter mais informações, consulte [atribuição de política de mapeamento de afirmações](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+Exemplo:
+```powershell
+$pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
+
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+```
+
+### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>Ativar o PingAccess utilizar afirmações personalizadas (opcional mas obrigatório se esperar que o aplicativo consuma afirmações adicionais)
+Quando irá configurar o PingAccess no passo seguinte, a sessão de Web, irá criar (definições -> acesso -> Web sessões) tem de ter **perfil pedido** desmarcada e **atualizar atributos de utilizador** definido como **não**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>Transfira o PingAccess e configurar a sua aplicação
 

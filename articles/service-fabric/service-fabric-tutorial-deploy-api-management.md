@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306803"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428064"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar a gestão de API com o Service Fabric no Azure
 
@@ -43,7 +43,7 @@ Antes de começar:
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instale [do Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [da CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) num grupo de segurança de rede.
-* Se implementar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2017](https://www.visualstudio.com) e as cargas de trabalho **desenvolvimento no Azure**, **desenvolvimento em ASP.NET e na Web** e **desenvolvimento em várias plataformas .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
+* Se implementar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale [Visual Studio 2019](https://www.visualstudio.com) e o **desenvolvimento do Azure**, **desenvolvimento na web e ASP.NET**, e **desenvolvimento de Multiplataforma do .NET Core**cargas de trabalho.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 
 ## <a name="network-topology"></a>Topologia da rede
 
@@ -88,7 +88,7 @@ Inicie o Visual Studio como Administrador e crie um serviço ASP.NET Core:
     </Resources>
     ```
 
-    Remover a porta permite ao Service Fabric especificar uma porta dinamicamente a partir do intervalo de portas da aplicação, aberta través do Grupo de Segurança de Rede no modelo do Resource Manager do cluster, o que possibilita que o tráfego flua para a mesma a partir da Gestão de API.
+    A porta a remover permite ao Service Fabric especificar uma porta dinamicamente a partir do intervalo de porta da aplicação, aberta través do grupo de segurança de rede no modelo do Resource Manager de Cluster, a permitir o tráfego flua para a mesma da gestão de API.
 
  6. Prima F5 no Visual Studio para verificar se a API Web está disponível localmente.
 

@@ -2,20 +2,20 @@
 title: Introdução às políticas personalizadas - Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba como começar a utilizar com políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f4ecc01f42d491f5d9d967b9983e773c1df22298
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2929c033b4744ea89f8e3d711a5e2e0df6301c14
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65986818"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730013"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -71,7 +71,7 @@ O Azure AD B2C requere que registe duas aplicações que são utilizadas para in
 ### <a name="register-the-identityexperienceframework-application"></a>Registar a aplicação de IdentityExperienceFramework
 
 1. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure Active Directory**.
-2. No menu, selecione **registos de aplicações (Legado)**.
+2. No menu, selecione **registos de aplicações (Legado)** .
 3. Selecione **Novo registo de aplicação**.
 4. Para **Name**, introduza `IdentityExperienceFramework`.
 5. Para **tipo de aplicação**, escolha **aplicação/API Web**.
@@ -80,10 +80,10 @@ O Azure AD B2C requere que registe duas aplicações que são utilizadas para in
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Registar a aplicação de ProxyIdentityExperienceFramework
 
-1. Na **registos de aplicações (Legado)**, selecione **novo registo de aplicação**.
+1. Na **registos de aplicações (Legado)** , selecione **novo registo de aplicação**.
 2. Para **Name**, introduza `ProxyIdentityExperienceFramework`.
 3. Para **tipo de aplicação**, escolha **nativo**.
-4. Para **URI de redirecionamento**, introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, onde `yourtenant` é o seu inquilino do Azure AD B2C.
+4. Para **URI de redirecionamento**, introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, onde `your-tenant-name` é o seu inquilino do Azure AD B2C.
 5. Clique em **Criar**. Depois de criado, copie o ID da aplicação e guardá-lo para utilizar mais tarde.
 6. Na página Definições, selecione **permissões obrigatórias**e, em seguida, selecione **Add**.
 7. Escolher **selecionar uma API**, procure e selecione **IdentityExperienceFramework**e, em seguida, clique em **selecionar**.

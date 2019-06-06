@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a0ff97eb17dcf2625e1bb75dabf3e4a9686b5b85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725711"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427849"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Comece com certificados do Key Vault
 Os cenários seguintes realçam vários das utilizações de principal de serviço de gestão de certificados do Key Vault incluindo os passos adicionais necessários para criar seu primeiro certificado no seu Cofre de chaves.
@@ -39,8 +39,7 @@ Certificados são compostas por três recursos inter-relacionados ligados em con
 -   Introdução como o administrador de TI, o administrador de PKI ou como qualquer pessoa, gerenciamento de contas com o ACS, para uma determinada empresa (ex. A Contoso) é um pré-requisito para utilizar certificados do Key Vault.  
     As ACs seguintes estão os provedores têm uma parceria atuais com o Key Vault:  
     -   DigiCert - Key Vault oferece OV SSL certificados com a DigiCert.  
-    -   GlobalSign - Key Vault oferece OV SSL certificados com GlobalSign  
-    -   WoSign - Key Vault oferece OV SSL ou certificados SSL de EV com WoSign baseia-se a definição configurada pelo cliente na respetiva conta WoSign no portal do WoSign.  
+    -   Globaltrust - Key Vault oferece OV SSL certificados com Globaltrust.  
 
 **Passo 2** -um administrador de conta para um fornecedor de AC cria as credenciais para ser utilizado pelo Key Vault para se inscrever, renovar e utilizar certificados SSL através do Key Vault.
 

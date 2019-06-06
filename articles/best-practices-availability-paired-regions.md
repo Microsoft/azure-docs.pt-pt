@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918976"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427111"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Negócios continuidade e recuperação após desastre (BCDR): Regiões emparelhadas do Azure
 
@@ -35,7 +35,7 @@ Figura 1 – pares regionais do Azure
 | Canadá |Canadá Central |Leste do Canadá |
 | China |China Norte |Leste da China|
 | China |Norte da China 2 |Leste da China 2|
-| Europa |Europa do Norte |Europa Ocidental |
+| Europa |Europa do Norte (Irlanda) |Europa Ocidental (Países Baixos) |
 | França |França Central|Sul de França|
 | Alemanha |Alemanha Central |Alemanha Nordeste |
 | Índia |Índia Central |Sul da Índia |
@@ -48,7 +48,7 @@ Figura 1 – pares regionais do Azure
 | América do Norte |EUA Oeste 2 |EUA Centro-Oeste 
 | África do Sul | África do Sul, Norte | África do Sul, Oeste
 | RU |Reino Unido Oeste |Reino Unido Sul |
-| Emirados Árabes Unidos | Norte dos EAU | Emirados Árabes Unidos Centro
+| Emirados Árabes Unidos | Norte dos EAU | EAU Central
 | Departamento de Defesa dos E.U.A. |US DoD Leste |US DoD Centro |
 | Governo dos Estados Unidos da América |Gov (US) - Arizona |Gov (US) - Texas |
 | Governo dos Estados Unidos da América |US Gov - Iowa |Gov (US) - Virginia |

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e476f27e2a1945135bd90435078d5bcd47c4b3de
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073141"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743114"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente recursos de banco de dados com o tempo de inatividade mínimo
 
@@ -55,6 +55,9 @@ Todos os três tipos de base de dados do Azure SQL oferecem alguma possibilidade
 - Com um [base de dados individual](sql-database-single-database-scale.md), pode utilizar tanto [DTU](sql-database-dtu-resource-limits-single-databases.md) ou [vCore](sql-database-vcore-resource-limits-single-databases.md) modelos para definir a quantidade máxima de recursos que serão atribuídos a cada base de dados.
 - R [instância gerida](sql-database-managed-instance.md) utiliza [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) modo e permite-lhe definir o máximo de núcleos de CPU e máximo de armazenamento atribuído à sua instância. Todas as bases de dados dentro da instância irão partilhar os recursos alocados à instância.
 - [Conjuntos elásticos](sql-database-elastic-pool-scale.md) permitem-lhe definir o limite máximo de recursos por grupo de bases de dados no conjunto.
+
+> [!NOTE]
+> Pode esperar uma quebra de ligação abreviada quando a escala de segurança/dimensionamento processo estiver concluída. Se tiver implementado [lógica nos erros transitórios padrão de repetição](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), não verá a ativação pós-falha.
 
 ## <a name="alternative-scale-methods"></a>Métodos de dimensionamento alternativo
 

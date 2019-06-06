@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6140a8aea3fe0fe0a8f1c01cd1c97404c41f7a69
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5248b9546ffe931b72123778d0d23574e5238405
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805985"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742418"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-that-send-notifications"></a>Expandir o Azure IoT Central com regras personalizadas que enviam notificações
 
@@ -40,10 +40,10 @@ Criar uma aplicação do Centro de IoT desde o [do Azure IoT Central - meus apli
 
 | Definição | Value |
 | ------- | ----- |
-| Plano de pagamento | Pay As You Go |
-| Modelo de aplicação | Amostra Contoso |
+| Plano de pagamento | "Pay As You Go" |
+| Modelo de aplicação | Exemplo da Contoso |
 | Nome da aplicação | Aceite a predefinição ou escolha seu próprio nome de |
-| URL | Aceite a predefinição ou escolha seu próprio prefixo de URL exclusivo |
+| do IdP | Aceite a predefinição ou escolha seu próprio prefixo de URL exclusivo |
 | Diretório | Inquilino do Azure Active Directory |
 | Subscrição do Azure | A sua subscrição do Azure |
 | Região | EUA Leste |
@@ -61,7 +61,7 @@ Utilize o [portal do Azure para criar um espaço de nomes de Hubs de eventos](ht
 | Definição | Valor |
 | ------- | ----- |
 | Name    | Escolha o seu espaço de nomes |
-| Escalão de preço | Básico |
+| Escalão de preço | Básica |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
 | Location | EUA Leste |
@@ -77,10 +77,10 @@ Utilize o [portal do Azure para criar uma tarefa do Stream Analytics](https://po
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
 | Location | EUA Leste |
-| Ambiente de Alojamento | Cloud |
+| Ambiente de alojamento | Nuvem |
 | Unidades de transmissão em fluxo | 3 |
 
-### <a name="function-app"></a>Function App
+### <a name="function-app"></a>Function app
 
 Utilize o [portal do Azure para criar uma aplicação de funções](https://portal.azure.com/#create/Microsoft.FunctionApp) com as seguintes definições:
 
@@ -90,9 +90,9 @@ Utilize o [portal do Azure para criar uma aplicação de funções](https://port
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
 | SO | Windows |
-| Plano de Alojamento | Plano de Consumo |
+| Plano de alojamento | Plano de Consumo |
 | Location | EUA Leste |
-| Pilha de Tempo de Execução | .NET |
+| Pilha de Runtime | .NET |
 | Armazenamento | Criar novo |
 
 ### <a name="sendgrid-account"></a>Conta de SendGrid
@@ -106,7 +106,7 @@ Utilize o [portal do Azure para criar uma conta do SendGrid](https://portal.azur
 | Subscrição | A sua subscrição |
 | Grupo de recursos | DetectStoppedDevices |
 | Escalão de preço | F1 Gratuito |
-| Informação de contacto | Preencher as informações necessárias |
+| Informações de contacto | Preencher as informações necessárias |
 
 Depois de criar todos os recursos necessários, sua **DetectStoppedDevices** grupo de recursos é semelhante a captura de ecrã seguinte:
 
@@ -244,7 +244,7 @@ Esta solução utiliza uma consulta do Stream Analytics para detectar quando um 
     | ------- | ----- |
     | Alias de entrada | centraltelemetry |
     | Subscrição | A sua subscrição |
-    | Espaço de nomes do Hub de Eventos | O espaço de nomes do Hub de eventos |
+    | Espaço de nomes do hub de eventos | O espaço de nomes do Hub de eventos |
     | O nome do hub de eventos | Utilizar existente - **centralexport** |
 
 1. Sob **topologia de tarefas**, selecione **saídas**, escolha **+ adicionar**e, em seguida, selecione **função do Azure**.
@@ -254,7 +254,7 @@ Esta solução utiliza uma consulta do Stream Analytics para detectar quando um 
     | ------- | ----- |
     | Alias de saída | EmailNotification |
     | Subscrição | A sua subscrição |
-    | Function App | A aplicação de funções |
+    | Function app | A aplicação de funções |
     | Função  | HttpTrigger1 |
 
 1. Sob **topologia de tarefas**, selecione **consulta** e substitua a consulta existente com o SQL seguinte:
@@ -312,13 +312,13 @@ Navegue para o [aplicação IoT Central](https://aka.ms/iotcentral) criada a par
 
     | Definição | Value |
     | ------- | ----- |
-    | Nome a apresentar | Exportar para os Hubs de Eventos |
-    | Enabled | Ativa |
+    | Nome a apresentar | Exportar para os Hubs de eventos |
+    | Enabled | Ativado |
     | Espaço de nomes dos Event Hubs | O nome do espaço de nomes de Hubs de eventos |
     | Hub de eventos | centralexport |
-    | Medições | Ativa |
-    | Dispositivos | Desativada |
-    | Modelos de Dispositivos | Desativada |
+    | Medições | Ativado |
+    | Dispositivos | Desativado |
+    | Modelos de dispositivos | Desativado |
 
 ![Configuração da exportação contínua de dados](media/howto-create-custom-rules/cde-configuration.png)
 
@@ -353,4 +353,4 @@ Este guia de procedimentos, ficou a saber como:
 * Crie uma consulta do Stream Analytics que Deteta quando um dispositivo parou de envio de dados.
 * Envie uma notificação por e-mail com as funções do Azure e os serviços do SendGrid.
 
-Agora que sabe como criar regras personalizadas e notificações, o passo seguinte sugerido é saber como [Visualize e analise os dados do Azure IoT Central no dashboard do Power BI](howto-connect-powerbi.md).
+Agora que sabe como criar regras personalizadas e notificações, o passo seguinte sugerido é saber como [expandir o Azure IoT Central com a análise personalizada](howto-create-custom-analytics.md).

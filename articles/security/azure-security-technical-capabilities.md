@@ -1,6 +1,6 @@
 ---
-title: Capacidades técnicas de segurança do Azure | Documentos da Microsoft
-description: Saiba mais sobre serviços informáticos com base na cloud que incluem uma ampla seleção de instâncias de computação e serviços que podem aumenta e reduz automaticamente para satisfazer as necessidades do seu aplicativo ou a empresa.
+title: Capacidades técnicas de segurança no Azure - Microsoft Azure
+description: Introdução aos serviços de segurança no Azure que o ajudam a proteger dados, recursos e aplicações na cloud.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: c904d8306c145bad57ca7d77b139a2ad6d216b0b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2dad1caeba8a0417b7ac16ebaa45f4f291f54495
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121560"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480787"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
-
-Para ajudá-lo do Azure atual e potencial clientes compreenderem e usar os recursos relacionados à segurança vários disponíveis no e que envolvem a plataforma Azure, a Microsoft desenvolveu uma série de White Papers, visões gerais de segurança, práticas recomendadas, e Listas de verificação. Os tópicos vão em termos de amplitude e profundidade e são atualizados periodicamente. Este documento é parte dessa série, conforme resumido na secção Abstrata abaixo. Obter mais informações sobre esta série de segurança do Azure podem ser encontradas em (URL).
+Este artigo fornece uma introdução à segurança serviços do Azure que o ajudam a proteger dados, recursos e aplicações na cloud em satisfazer as necessidades de segurança da sua empresa.
 
 ## <a name="azure-platform"></a>Plataforma Azure
 
@@ -41,29 +40,19 @@ Com o Microsoft Azure, pode:
 
 - Proteger seus negócios.
 
-## <a name="scope"></a>Âmbito
+## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>Capacidades técnicas de segurança para satisfazer a sua responsabilidade
 
-O ponto focal deste White Paper diz respeito a recursos de segurança e a funcionalidade que suporta componentes de principais do Microsoft Azure, ou seja [armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [base de dados do Microsoft Azure SQL](https://docs.microsoft.com/azure/sql-database/), [ Modelo de máquina virtual do Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/)e as ferramentas e a infraestrutura que gerir tudo. Esse foco de documento no Microsoft Azure capacidades técnicas disponíveis para, como os clientes a cumprir as respetivas funções na proteção da segurança e privacidade dos seus dados.
-
-A importância de compreender esse modelo de responsabilidade partilhada é essencial para os clientes que estão a ser movidos para a cloud. Os fornecedores de cloud oferecem vantagens consideráveis para os esforços de segurança e conformidade, mas essas vantagens não absolve o cliente de proteção de seus usuários, aplicativos e ofertas de serviço.
-
-Para soluções de IaaS, o cliente é responsável, ou tem uma responsabilidade partilhada para proteger e gerenciar o sistema operativo, configuração de rede, aplicativos, identidade, os clientes e dados.  Compilação de soluções de PaaS em implementações de IaaS, o cliente ainda é responsável, ou tem uma responsabilidade partilhada para proteger e gerenciar aplicativos, identidade, os clientes e dados. Para soluções de SaaS, Nonetheless, o cliente continua a ser responsáveis. Eles tem de garantir que dados são classificados corretamente e que partilham uma responsabilidade para gerir os seus utilizadores e dispositivos de ponto de extremidade.
-
-Este documento não fornece uma abordagem detalhada de qualquer um dos componentes de plataforma Microsoft Azure relacionados, como Web Sites do Azure, Azure Active Directory, HDInsight, serviços de multimédia e outros serviços que são colocados em camadas sobre os componentes principais. Embora, é fornecido um nível mínimo de informações gerais, os leitores devem familiarizados com conceitos básicos do Azure, conforme descrito em outras referências fornecida pela Microsoft e incluídos nas ligações fornecidas neste white paper.
-
-## <a name="available-security-technical-capabilities-to-fulfil-user-customer-responsibility---big-picture"></a>Capacidades técnicas de segurança disponíveis para cumprir a responsabilidade do usuário (cliente) - uma visão geral
-
-O Microsoft Azure fornece serviços que podem ajudar os clientes a satisfazer as necessidades de segurança, privacidade e conformidade. A imagem seguinte ajuda a explicar vários serviços do Azure disponíveis para os utilizadores criar uma infraestrutura de aplicação segura e em conformidade com base nas normas da indústria.
+O Microsoft Azure fornece serviços que ajudam a atender às suas necessidades de segurança, privacidade e conformidade. A imagem seguinte ajuda a explicar vários serviços do Azure disponíveis criar uma infra-estrutura de aplicativo seguro e em conformidade com base nas normas da indústria.
 
 ![Imagem de grande de capacidades técnicas de segurança disponíveis](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig1.png)
 
-## <a name="manage-and-control-identity-and-user-access-protect"></a>Gerir e controlar o acesso de utilizador e de identidade (proteger)
+## <a name="manage-and-control-identity-and-user-access"></a>Gerir e controlar o acesso de utilizador e de identidades
 
 Azure ajuda a proteger a empresa e informações pessoais, permitindo-lhe gerir identidades de utilizador e as credenciais e controlar o acesso.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Microsoft identidades e acessos gestão soluções ajudar a TI a proteger o acesso aos recursos e aplicações em todo o datacenter Corporativo e para a cloud, permitindo níveis adicionais de validação, como a autenticação multifator e acesso condicional políticas. A monitorização de atividades suspeitas através de relatórios de segurança avançada, de auditorias e de alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fornece início de sessão único a milhares de cloud aplicações (SaaS) e acesso a aplicações web que são executadas no local.
+Microsoft identidades e acessos gestão soluções ajudar a TI a proteger o acesso aos recursos e aplicações em todo o datacenter Corporativo e para a cloud, permitindo níveis adicionais de validação, como a autenticação multifator e acesso condicional políticas. A monitorização de atividades suspeitas através de relatórios de segurança avançada, de auditorias e de alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) fornece início de sessão único a milhares de aplicações na cloud e acesso a aplicações web que são executadas no local.
 
 Benefícios de segurança do Azure Active Directory (Azure AD) incluem a capacidade de:
 
@@ -75,7 +64,7 @@ Benefícios de segurança do Azure Active Directory (Azure AD) incluem a capacid
 
 - Aprovisionar o acesso remoto seguro a aplicativos da web no local através do Proxy de aplicações do Azure AD.
 
-O [portal do Azure Active Directory](https://aad.portal.azure.com/) está disponível uma parte do portal do Azure. Neste dashboard, pode obter uma descrição geral do Estado da sua organização e aprofundar facilmente gerir o diretório, os usuários ou acesso à aplicação.
+O [portal do Azure Active Directory](https://aad.portal.azure.com/) está disponível como parte do portal do Azure. Neste dashboard, pode obter uma descrição geral do Estado da sua organização e gerir facilmente o diretório, usuários ou acesso à aplicação.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -99,7 +88,7 @@ Seguem-se as capacidades de gestão de identidade do Azure core:
 
 [Início de sessão único (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) significa que pode aceder a todas as aplicações e recursos de que precisa para fazer negócios, ao iniciar sessão apenas uma vez com uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todos os aplicativos necessários sem ser necessária para autenticar (por exemplo, escreva uma palavra-passe) uma segunda vez.
 
-Muitas organizações contam com software como um aplicativo de serviço (SaaS), como o Office 365, a caixa e Salesforce para produtividade do utilizador final. Historicamente, a equipe de TI necessários para individualmente criar e atualizar as contas de utilizador em cada aplicação SaaS, e os utilizadores tinham de memorizar uma palavra-passe para cada aplicação SaaS.
+Muitas organizações contam com software como um aplicativo de serviço (SaaS), como o Office 365, a caixa e o Salesforce para produtividade do utilizador final. Historicamente, a equipe de TI necessários para individualmente criar e atualizar as contas de utilizador em cada aplicação SaaS, e os utilizadores tinham de memorizar uma palavra-passe para cada aplicação SaaS.
 
 [O Azure AD estende o Active Directory no local para a cloud](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis), permitindo que os utilizadores utilizem suas contas institucionais primária não só para iniciam sessão para os seus dispositivos associados a domínios e recursos da empresa, mas também todos os web e aplicações SaaS necessários para seu trabalho.
 
@@ -117,11 +106,11 @@ No portal do Azure ou através da [portal do Azure Active Directory](https://aad
 
 - Relatórios de anomalias – contém eventos que Descobrimos ser anómala de início de sessão. Nosso objetivo é conscientizá-lo de tal atividade e permitem que poderá decidir sobre se um evento está suspeito.
 
-- Relatórios de aplicação integrados – fornecem informações sobre como as aplicações na cloud estão a ser utilizadas na sua organização. Azure Active Directory oferece integração com milhares de aplicações na cloud.
+- Relatórios de aplicação integrada – fornecem informações sobre como as aplicações na cloud estão a ser utilizadas na sua organização. Azure Active Directory oferece integração com milhares de aplicações na cloud.
 
 - Relatórios de erros – indicam erros que possam ocorrer quando o aprovisionamento de contas em aplicativos externos.
 
-- Relatórios de utilizador específico – apresentar dispositivos/início de sessão nos dados de atividade para um utilizador específico.
+- Relatórios de utilizador específico – dispositivo de exibição e inicie sessão nos dados de atividade para um utilizador específico.
 
 - Registos de atividade – conter um registo de todos os eventos auditados dentro as últimas 24 horas, últimos 7 dias, ou últimos 30 dias e as alterações de atividade de grupo e atividade de registo e reposição de palavra-passe.
 
@@ -159,7 +148,7 @@ O Azure AD Privileged Identity Management permite-lhe:
 
 [O Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) é um serviço de segurança que fornece uma vista consolidada de eventos de risco e potenciais vulnerabilidades que afetam as identidades da sua organização. Identity Protection utiliza capacidades de deteção de anomalias existente do Azure do Active Directory (disponíveis por meio de relatórios de atividade anómala do Azure AD) e introduz novos tipos de eventos de risco que podem detetar anomalias em tempo real.
 
-## <a name="secured-resource-access-in-azure"></a>Acesso a recursos protegidos no Azure
+## <a name="secure-resource-access"></a>Proteger o acesso a recursos
 
 Controlo de acesso no Azure inicia uma perspetiva de faturação. O proprietário de uma conta do Azure, acedido ao visitar a [Centro de contas do Azure](https://account.windowsazure.com/subscriptions), é o administrador de conta (AA). As subscrições são contentores para faturação, mas também agir como um limite de segurança: cada subscrição tem um serviço de administrador (SA) que pode adicionar, remover e modificar recursos do Azure dessa subscrição com o portal do Azure. O padrão SA de uma nova subscrição é AA, mas o AA pode alterar o SA no Centro de contas do Azure.
 
@@ -175,7 +164,7 @@ Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a qu
 
 ![Acesso a recursos protegidos no Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
-## <a name="azure-data-security-and-encryption-protect"></a>Criptografia e segurança de dados do Azure (proteger)
+## <a name="data-security-and-encryption"></a>Segurança e encriptação de dados
 
 Uma das chaves para proteção de dados na cloud é gestão de contas para os Estados possíveis em que os dados podem ocorrer e quais controles estão disponíveis para esse Estado. Para práticas de melhor segurança e encriptação de dados do Azure, as recomendações de ser em torno de Estados dos seguintes dados.
 
@@ -199,9 +188,9 @@ Oferecer suporte a, pelo menos, um dos modelos de criptografia recomendados deta
 
 **Identificar as localizações de todos os seus dados de arquivos**
 
-O objetivo de encriptação em repouso é encriptar todos os dados. Se o fizer, elimina a possibilidade de perder dados importantes ou todas as localizações persistentes. Enumere todos os dados armazenados pela sua aplicação. 
+O objetivo de encriptação em repouso é encriptar todos os dados. Se o fizer, elimina a possibilidade de perder dados importantes ou todas as localizações persistentes. Enumere todos os dados armazenados pela sua aplicação.
 
-> [!Note] 
+> [!Note]
 > Não apenas "dados de aplicação" ou "PII' mas nenhum dado relacionado à aplicação, incluindo conta metadados (subscrição mapeamentos de informações do contrato, PII).
 
 Considere quais arquivos estão a utilizar para armazenar dados. Por exemplo:
@@ -214,7 +203,7 @@ Considere quais arquivos estão a utilizar para armazenar dados. Por exemplo:
 
 ### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>A encriptação existentes no suporte de rest no Azure
 
-Para cada loja que utilizar, tirar partido da encriptação existente no suporte de Rest.
+Para cada loja que utilizar, tirar partido da encriptação existente no suporte de rest.
 
 - Armazenamento do Azure: Ver [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/storage-service-encryption),
 
@@ -288,10 +277,10 @@ As organizações que estão fracas no [classificação de dados](https://downlo
 > [!Note]
 > Pode saber mais sobre o Azure RMS ao ler o artigo [introdução ao Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
 
-## <a name="secure-your-application-protect"></a>Proteger a sua aplicação (proteger)
+## <a name="secure-your-application"></a>Proteger a sua aplicação
 Embora o Azure é responsável por proteger a infraestrutura e plataforma que seu aplicativo é executado, é sua responsabilidade para proteger a sua aplicação em si. Em outras palavras, precisa desenvolver, implementar e gerir o seu código da aplicação e conteúdo de forma segura. Sem isso, seu código do aplicativo ou conteúdo ainda pode ser vulnerável a ameaças.
 
-### <a name="web-application-firewall-waf"></a>Firewall de aplicações Web (WAF)
+### <a name="web-application-firewall"></a>Firewall de aplicação Web
 [Firewall de aplicações Web (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) é uma funcionalidade do [Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) que fornece proteção centralizada das suas aplicações web de exploits e vulnerabilidades comuns.
 
 A firewall de aplicações Web baseia-se nas regras dos [conjuntos de regras de núcleo OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em várias camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
@@ -343,7 +332,7 @@ Azure também fornece vários recursos de fácil utilização para o ajudar a pr
 
 Serviço de aplicações do Azure utiliza a mesma solução de Antimalware utilizada por máquinas virtuais e serviços Cloud do Azure. Para saber mais sobre isso consulte nossos [documentação de Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
 
-## <a name="secure-your-network-protect"></a>Proteja a sua rede (proteger)
+## <a name="secure-your-network"></a>Proteja a sua rede
 Microsoft Azure inclui uma infraestrutura de rede robusta para suportar a sua aplicação e os requisitos de conectividade do serviço. Conectividade de rede é possível entre recursos localizados no Azure, entre no local e recursos, alojados no Azure e de e para a Internet e o Azure.
 
 O [infraestrutura de rede do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) permite-lhe ligar em segurança recursos do Azure entre si com [redes virtuais (VNets)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). Uma VNet é uma representação da sua própria rede na cloud. Uma VNet é um isolamento lógico da rede na cloud do Azure dedicado à sua subscrição. Pode ligar VNets para as suas redes no local.
@@ -358,7 +347,7 @@ Redes do Azure suportam a capacidade de personalizar o comportamento de encaminh
 
 O Azure suporta dedicado a conectividade da ligação WAN para sua rede no local e uma rede Virtual do Azure com [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). A ligação entre o Azure e o seu site utiliza uma ligação dedicada que não passa pela Internet pública. Se a aplicação do Azure está em execução em vários datacenters, pode utilizar [Gestor de tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) para encaminhar os pedidos dos utilizadores de forma inteligente entre instâncias da aplicação. Também pode encaminhar o tráfego para serviços não está em execução no Azure se podem ser acedidos a partir da Internet.
 
-## <a name="virtual-machine-security-protect"></a>Segurança de máquinas virtuais (proteger)
+## <a name="virtual-machine-security"></a>Segurança de máquinas virtuais
 
 [Máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/) permite-lhe implementar uma vasta gama de soluções de computação de forma ágil. Com suporte do Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Serviços BizTalk do Azure, pode implementar qualquer carga de trabalho, qualquer linguagem, em praticamente qualquer sistema operativo.
 
@@ -370,7 +359,7 @@ O Microsoft Antimalware para serviços Cloud do Azure e máquinas virtuais é um
 
 [O Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) ajuda a orquestrar a replicação, ativação pós-falha e recuperação de cargas de trabalho e aplicações para que eles estejam disponíveis de uma localização secundária se a sua localização principal ficar inativo.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Certifique-se de conformidade: Serviços devido a lista de verificação de cuidado em nuvem (proteger)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>Certifique-se de conformidade: Serviços cloud devido a lista de verificação de cuidado
 
 Microsoft desenvolvida [o Cloud Services devida diligência lista de verificação de](https://aka.ms/cloudchecklist.download) para ajudar as organizações exercer devida diligência ao considerar mover para a cloud. Ele fornece uma estrutura para uma organização de qualquer tamanho e tipo — empresas privadas e organizações do setor público, incluindo Governo em todos os níveis e organizações sem fins lucrativos — para identificar o seu próprio desempenho, serviço, gestão de dados e os objetivos de governação e requisitos. Isto permite-los e comparar as ofertas de fornecedores de serviços cloud diferentes, em última análise, que formam a base para um contrato de serviço cloud.
 
@@ -390,7 +379,7 @@ Além disso, a lista de verificação:
 
 - Fornece um conjunto consistente de perguntas, com os mesmos termos, definições, métricas e resultados finais para cada fornecedor, para simplificar o processo de comparação de ofertas de fornecedores de serviços cloud diferentes.
 
-## <a name="azure-infrastructure-and-application-security-validation-detect"></a>Azure validação de segurança de infra-estrutura e de aplicativos (detetar)
+## <a name="azure-infrastructure-and-application-security-validation"></a>Azure validação de segurança de infra-estrutura e de aplicativos
 
 [Segurança operacional Azure](https://docs.microsoft.com/azure/security/azure-operational-security) refere-se a serviços, controles e recursos disponíveis aos utilizadores para proteger seus dados, aplicações e outros ativos no Microsoft Azure.
 
@@ -398,7 +387,7 @@ Além disso, a lista de verificação:
 
 Segurança operacional do Azure baseia-se uma estrutura que incorpore os dados recolhidos através de um vários recursos que são exclusivos da Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa de centro de resposta de segurança Microsoft e o conhecimento profundo do campo das ameaças de cibersegurança.
 
-### <a name="microsoft-azure-monitor"></a>Monitor do Microsoft Azure
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
 [O Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é a solução de gestão de TI para a cloud híbrida. Usada sozinha ou para expandir a sua implementação existente do System Center, os registos de Monitor do Azure dá-lhe a máxima flexibilidade e o controle para a gestão baseada na nuvem da sua infraestrutura.
 

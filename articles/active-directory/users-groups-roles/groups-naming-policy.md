@@ -1,6 +1,6 @@
 ---
 title: Impor a política de nomes de grupo nos grupos do Office 365 - Azure Active Directory | Documentos da Microsoft
-description: Como configurar a política de nomenclatura para grupos do Office 365 no Azure Active Directory (pré-visualização)
+description: Como configurar a política de nomenclatura para grupos do Office 365 no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0c13b95028975c5463217455c940bb84c3867899
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605546"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734792"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomes em grupos do Office 365 no Azure Active Directory
 
@@ -49,7 +49,7 @@ Os prefixos e sufixos podem conter carateres especiais que são suportadas no no
 
 Pode usar cadeias de caracteres para facilitar a análise e a distinguir a grupos na lista de endereços global e nas ligações de navegação à esquerda das cargas de trabalho de grupo. Alguns dos prefixos de comuns são palavras-chave como "Grp\_Name', '\#nome ','\_nome"
 
-#### <a name="user-attributes"></a>Atributos do utilizador
+#### <a name="user-attributes"></a>Atributos de utilizador
 
 Pode usar os atributos que podem ajudá-lo e os seus utilizadores identificam quais departamento, o office ou a região geográfica para a qual o grupo foi criado. Por exemplo, se definir a política de nomenclatura como `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, e `User’s department = Engineering`, em seguida, um nome do grupo de imposto pode ser "GRP My Group Engineering." Suporte do Azure AD atributos são \[departamento\], \[empresa\], \[Office\], \[StateOrProvince\], \[CountryOrRegion \], \[Title\]. Atributos de utilizador não suportados são tratados como cadeias de caracteres fixas; Por exemplo, "\[postalCode\]". Atributos de extensão e os atributos personalizados não são suportados.
 
@@ -70,18 +70,18 @@ Regras da lista de palavra bloqueada:
 
 Os administradores selecionados podem ser dispensados destas políticas, em todas as cargas de trabalho de grupo e os pontos finais, para que podem criar grupos com palavras bloqueadas e com suas próprias convenções de nomenclatura. Seguem-se a lista de funções de administrador excluídos do grupo de política de atribuição de nomes.
 
-- Administrador Global
+- Administrador global
 - Parceiro de suporte de escalão 1
 - Parceiro de suporte de camada 2
 - Administrador de utilizadores
-- Escritores em diretórios
+- Gravadores de diretórios
 
-## <a name="configure-naming-policy-in-azure-portal-preview"></a>Configurar política de nomes no portal do Azure (pré-visualização)
+## <a name="configure-naming-policy-in-azure-portal"></a>Configurar política de nomes no portal do Azure
 
 1. Inicie sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta de administrador.
 1. Selecione **grupos**, em seguida, selecione **política de nomenclatura** para abrir a página de política de nomenclatura.
 
-    ![Abra a página de política de nomenclatura no Centro de administração](./media/groups-naming-policy/policy-preview.png)
+    ![Abra a página de política de nomenclatura no Centro de administração](./media/groups-naming-policy/policy.png)
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Ver ou editar a política de nomenclatura de sufixo de prefixo
 
@@ -94,7 +94,7 @@ Os administradores selecionados podem ser dispensados destas políticas, em toda
 
 1. Sobre o **política de atribuição de nomes** página, selecione **bloqueado palavras**.
 
-    ![editar e carregar a lista de palavras bloqueadas para atribuir nomes a política](./media/groups-naming-policy/blockedwords-preview.png)
+    ![editar e carregar a lista de palavras bloqueadas para atribuir nomes a política](./media/groups-naming-policy/blockedwords.png)
 
 1. Visualizar ou editar a lista atual de palavras bloqueadas personalizadas selecionando **transferir**.
 1. Carregar a nova lista de palavras bloqueadas personalizadas ao selecionar o ícone de ficheiro.
@@ -198,7 +198,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Remover a política de nomes
 
-### <a name="remove-the-naming-policy-using-azure-portal-preview"></a>Remover a política de nomes com o portal do Azure (pré-visualização)
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Remover a política de nomes através do portal do Azure
 
 1. Sobre o **política de atribuição de nomes** página, selecione **Eliminar política**.
 1. Depois de confirmar a eliminação, a política de nomes for removida, incluindo todos os de sufixo de prefixo de nomenclatura de política e quaisquer palavras bloqueadas personalizadas.
@@ -230,7 +230,7 @@ Depois de definir uma política de nomes de grupo no Azure AD, quando um utiliza
 - A pré-visualização do nome, de acordo com a política de nomes (com prefixos e sufixos) logo que o usuário digita no nome do grupo
 - Se o usuário inserir palavras bloqueadas, verá uma mensagem de erro, de modo que podem remover as palavras bloqueadas.
 
-Carga de Trabalho | Conformidade
+Carga de trabalho | Conformidade
 ----------- | -------------------------------
 Portais de Active Directory do Azure | Portal do Azure AD e portal do painel de acesso mostrarem o nome de política imposta nomenclatura quando o usuário digita um nome de grupo ao criar ou editar um grupo. Quando um usuário insere uma palavra bloqueada personalizada, é apresentada uma mensagem de erro com a palavra bloqueada para que o utilizador pode removê-lo.
 Outlook Web Access (OWA) | Outlook Web Access mostra a política de nomes impostas nome quando o usuário digita um nome de grupo ou o alias de grupo. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada na interface do Usuário, juntamente com a palavra bloqueada, para que o utilizador pode removê-lo.

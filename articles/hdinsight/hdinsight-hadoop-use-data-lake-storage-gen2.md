@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f381090e663923ec9f45fba03d0688c9879ab173
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707312"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427403"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -22,18 +22,18 @@ Geração de armazenamento 2 do Azure Data Lake é um serviço de armazenamento 
 
 Geração 2 de armazenamento do Data Lake está disponível como uma opção de armazenamento para quase todos os tipos de cluster do Azure HDInsight como um padrão e uma conta de armazenamento adicional. No entanto, o HBase, pode ter apenas uma conta de geração 2 de armazenamento do Data Lake.
 
-> [!Note] 
+> [!Note]  
 > Depois de selecionar geração 2 de armazenamento do Data Lake como sua **tipo de armazenamento primário**, não é possível selecionar uma conta de geração 1 de armazenamento do Data Lake como armazenamento adicional.
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-portal"></a>Criar um cluster com geração 2 de armazenamento do Data Lake através do portal do Azure
 
 Para criar um cluster do HDInsight que utiliza a geração 2 de armazenamento do Data Lake para o armazenamento, siga estes passos para configurar uma conta de geração 2 de armazenamento do Data Lake.
 
-### <a name="create-a-user-managed-identity"></a>Criar uma identidade de utilizador gerido
+### <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
 
 Crie uma identidade gerida atribuído ao utilizador, se ainda não tiver uma. Ver [Create, lista, delete ou o atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). Para obter mais informações sobre como geridos de identidades de trabalho no Azure HDInsight, consulte [geridos identidades no Azure HDInsight](hdinsight-managed-identities.md).
 
-![Criar uma identidade gerida atribuída pelo utilizador](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+![Criar uma identidade gerida atribuída pelo utilizador](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
 ### <a name="create-a-data-lake-storage-gen2-account"></a>Criar uma conta de geração 2 de armazenamento do Data Lake
 
@@ -41,7 +41,7 @@ Crie uma conta de armazenamento de geração 2 de armazenamento do Azure Data La
 
 ![Captura de ecrã que mostra a criação da conta de armazenamento no portal do Azure](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
-### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurar permissões para a identidade gerida na conta de geração 2 de armazenamento do Data Lake
+### <a name="set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurar permissões para a identidade gerida na conta de geração 2 de armazenamento do Data Lake
 
 Atribuir a identidade gerida para o **proprietário de dados de Blob de armazenamento** função na conta de armazenamento. Para obter mais informações, consulte [gerir direitos de acesso aos dados de Blobs do Azure e a fila com o RBAC (pré-visualização)](../storage/common/storage-auth-aad-rbac.md).
 

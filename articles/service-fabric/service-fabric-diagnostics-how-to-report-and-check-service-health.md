@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0db341a9e36d61761321821de5631a564adea050
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322053"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428166"
 ---
 # <a name="report-and-check-service-health"></a>Comunicar e verificar o estado de funcionamento dos serviços
 Quando os serviços de encontram problemas, sua capacidade de responder a e corrigir incidentes e interrupções depende da sua capacidade de detetar os problemas rapidamente. Se as reportar problemas e falhas para o Gestor de estado de funcionamento do Azure Service Fabric a partir do código de serviço, pode usar ferramentas que o Service Fabric fornece para verificar o estado de funcionamento de monitoramento de integridade padrão.
@@ -37,7 +37,7 @@ Este artigo orienta-o num exemplo que reporte o estado de funcionamento do códi
 ## <a name="prerequisites"></a>Pré-requisitos
 Tem de ter o seguinte instalado:
 
-* Visual Studio 2015 ou Visual Studio 2017
+* Visual Studio 2015 ou Visual Studio 2019
 * SDK do Service Fabric
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Para criar um cluster de desenvolvimento seguro local
@@ -65,7 +65,7 @@ Tem de ter o seguinte instalado:
 Os modelos de projeto do Service Fabric no Visual Studio contêm código de exemplo. Os passos seguintes mostram como pode comunicar os eventos de estado de funcionamento personalizados a partir do código de serviço. Esses relatórios aparecem automaticamente nas ferramentas padrão para monitorização de estado de funcionamento que o Service Fabric fornece, como o Service Fabric Explorer, a vista de estado de funcionamento de portal do Azure e PowerShell.
 
 1. Reabrir a aplicação que criou anteriormente no Visual Studio ou criar uma nova aplicação com o **serviço com estado** modelo do Visual Studio.
-1. Abra o ficheiro de Stateful1.cs e encontre a `myDictionary.TryGetValueAsync` chamar o `RunAsync` método. Pode ver que esse método retorna um `result` que contém o valor atual do contador de uma vez que a lógica de chave nesse aplicativo é manter uma contagem em execução. Se este fosse um aplicativo real, e se a falta de resultado representado uma falha, desejaria sinalizar que o evento.
+1. Abra o ficheiro de Stateful1.cs e encontre a `myDictionary.TryGetValueAsync` chamar o `RunAsync` método. Pode ver que esse método retorna um `result` que contém o valor atual do contador de uma vez que a lógica de chave nesse aplicativo é manter uma contagem em execução. Se esta aplicação foi um aplicativo real, e se a falta de resultado representado uma falha, desejaria sinalizar que o evento.
 1. Para reportar um evento de estado de funcionamento quando a falta de resultado representa uma falha, adicione os seguintes passos.
    
     a. Adicionar o `System.Fabric.Health` espaço de nomes para o ficheiro de Stateful1.cs.
@@ -124,7 +124,7 @@ Os modelos de projeto do Service Fabric no Visual Studio contêm código de exem
     }
     ```
    Este código dispara o relatório de estado de funcionamento de cada vez `RunAsync` é executado. Depois de efetuar a alteração, prima **F5** para executar a aplicação.
-1. Depois da aplicação está em execução, abra o Service Fabric Explorer para verificar o estado de funcionamento da aplicação. Desta vez, Service Fabric Explorer mostra que a aplicação está danificada. Isso é devido ao erro que foi relatado do código que adicionamos anteriormente.
+1. Depois da aplicação está em execução, abra o Service Fabric Explorer para verificar o estado de funcionamento da aplicação. Desta vez, Service Fabric Explorer mostra que a aplicação está danificada. A aplicação mostra como mau estado de funcionamento porque o erro foi comunicado a partir do código que adicionamos anteriormente.
    
     ![Aplicação de mau estado de funcionamento no Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 1. Se selecionar a réplica primária na vista de árvore do Service Fabric Explorer, verá que **estado de funcionamento** indica um erro, demasiado. Service Fabric Explorer também apresenta os detalhes do relatório de estado de funcionamento que foram adicionados para a `HealthInformation` parâmetro no código. Pode ver os relatórios de estado de funcionamento mesmo no PowerShell e o portal do Azure.

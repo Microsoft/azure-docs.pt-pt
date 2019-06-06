@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: d00899e0ca358b4e2970caa8c63c98e375ea970c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728018"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428473"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -111,7 +111,7 @@ A verificação de conectividade é validada ao ligar a uma lista de URLs.
 --- | --- | ---
 *.portal.azure.com | Aplicável para o Azure Global. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
 *.portal.azure.us | Aplicável apenas para o Azure Government. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Utilizado para transferir o módulo do PowerShell vCenter PowerCLI. | É necessário o acesso aos URLs.<br/><br/> Verificação de pré-requisitos não falhará.<br/><br/> Instalação do módulo automática na VM do Recoletor irá falhar. Terá de instalar o módulo manualmente numa máquina que tenha conectividade à internet e, em seguida, copie os módulos para a aplicação. [Saiba mais indo para o passo n. º 4 neste guia de resolução de problemas](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | Utilizado para transferir o módulo do PowerShell vCenter PowerCLI. | É necessário o acesso aos URLs.<br/><br/> Verificação de pré-requisitos não falhará.<br/><br/> Instalação do módulo automática na VM do Recoletor irá falhar. Terá de instalar o módulo manualmente numa máquina que tenha conectividade à internet e, em seguida, copie os módulos para a aplicação. [Saiba mais indo para o passo n. º 4 neste guia de resolução de problemas](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Instalar manualmente o módulo de VMware PowerCLI
@@ -184,7 +184,7 @@ A lista completa dos contadores de VMware recolhidos pelo Azure Migrate está di
 
 **Categoria** |  **metadados** | **ponto de dados do vCenter**
 --- | --- | ---
-Detalhes da máquina | ID da VM | vm.Config.InstanceUuid
+Detalhes da máquina | ID DA VM | vm.Config.InstanceUuid
 Detalhes da máquina | o nome da VM | vm.Config.Name
 Detalhes da máquina | ID do servidor do vCenter | VMwareClient.InstanceUuid
 Detalhes da máquina |  Descrição da VM |  vm.Summary.Config.Annotation

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 68f62a6945f3b651781414e3194104b6d2e6295c
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356415"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455805"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para importar dados para armazenamento de Blobs do Azure
 
@@ -58,7 +58,7 @@ Execute os seguintes passos para preparar as unidades.
 6.  Para preparar o disco, execute o seguinte comando. **Dependendo do tamanho de dados, isto pode demorar várias horas a dias.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite /enablecontentmd5 
     ```
     É criado um ficheiro de diário na mesma pasta onde executou a ferramenta. Também são criados dois outros arquivos - um *. XML* ficheiro (em que executou a ferramenta de pasta) e um *unidade-manifest. XML* ficheiro (a pasta onde residem a dados).
     
@@ -72,6 +72,7 @@ Execute os seguintes passos para preparar as unidades.
     |/bk:     |A chave do BitLocker para a unidade. A palavra-passe numérica da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra de unidade de disco para ser enviado seguido `:\`. Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contentor de destino no armazenamento do Azure.         |
+    |/blobtype:     |Esta opção especifica o tipo de que pretende importar os dados de blobs. Para blobs de blocos, trata-se `BlockBlob` e para os blobs de páginas, é `PagaBlob`.         |
     |/skipwrite:     |É a opção que especifica que não existe nenhum novos dados devem ser copiados e dados existentes no disco para estar preparado.          |
     |/enablecontentmd5:     |A opção quando ativado, garante que o MD5 é calculado durante o carregamento de blobs de blocos para o Azure.          |
 7. Repita o passo anterior para cada disco que precisa para ser enviado. É criado um ficheiro de diário com o nome fornecido para cada execução da linha de comandos.

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7cb3f7baa38305215a8b8383d25132327327d182
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918518"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472964"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para o ciclo de vida da identidade híbrida
 A identidade é um dos alicerces da sua estratégia de acesso de mobilidade e a aplicação da empresa. Se está a iniciar sessão seu dispositivo móvel ou a aplicação SaaS, a sua identidade é a chave para ganhar acesso a tudo. Em seu nível mais elevado, uma solução de gestão de identidades abrange unificar e sincronização entre seus repositórios de identidades, que inclui automação e centralizar o processo de aprovisionamento de recursos. A solução de identidade deve ser centralizado de identidades no local e na cloud e também utilizar alguma forma de Federação de identidades para manter a autenticação centralizada e com segurança partilhar e colaborar com utilizadores externos e as empresas. Recursos variam de sistemas operacionais e aplicativos para pessoas ou afiliado, uma organização. Estrutura organizacional pode ser alterada para acomodar as políticas e procedimentos de aprovisionamento.
@@ -48,22 +48,23 @@ Ao definir esses requisitos, certifique-se de que, pelo menos, as seguintes perg
   
   * Faz a gestão de licenças de identificadores de solução de identidade de híbrida?
     * Se Sim, que capacidades estão disponíveis?
-* A solução de lidar com a gestão de licenças com base em grupo? 
+  * A solução de lidar com a gestão de licenças com base em grupo? 
   
-      - Se Sim, é possível atribuir um grupo de segurança para o mesmo? 
-       - Se Sim, o diretório em nuvem atribuirá automaticamente licenças para todos os membros do grupo? 
-        - O que acontece se um utilizador, em seguida, é adicionado ou removido do grupo, será uma licença automaticamente atribuída ou removida, conforme adequada? 
+    * Se Sim, é possível atribuir um grupo de segurança para o mesmo? 
+    * Se Sim, o diretório em nuvem atribuirá automaticamente licenças para todos os membros do grupo? 
+    * O que acontece se um utilizador, em seguida, é adicionado ou removido do grupo, será uma licença automaticamente atribuída ou removida, conforme adequada? 
 * Integração com outros fornecedores de identidade de terceiros:
-* Esta solução híbrida pode ser integrada com fornecedores de identidade de terceiros para implementar o início de sessão único?
-* É possível unificar todos os fornecedores de identidade diferente num sistema de identidade coesa?
-* Se Sim, como e quais são eles e que capacidades estão disponíveis?
+  * Esta solução híbrida pode ser integrada com fornecedores de identidade de terceiros para implementar o início de sessão único?
+  * É possível unificar todos os fornecedores de identidade diferente num sistema de identidade coesa?
+  * Se Sim, como e quais são eles e que capacidades estão disponíveis?
 
 ## <a name="synchronization-management"></a>Gestão de sincronização
 Um dos objetivos de um Gerenciador de identidades, para poder colocar todos os fornecedores de identidade e mantê-las sincronizadas. Para manter os dados sincronizados com base num fornecedor de identidade mestre autoritativa. Num cenário de identidade híbrida, com um modelo de gestão sincronizados, gerir identidades de todos os utilizadores e dispositivos num servidor no local e sincronizar as contas e, opcionalmente, palavras-passe para a cloud. O usuário insere a mesma palavra-passe no local, como fazem na cloud e no início de sessão, a palavra-passe é verificada pela solução de identidade. Este modelo utiliza uma ferramenta de sincronização de diretórios.
 
-![sincronização de diretórios](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) ao design adequada a sincronização da sua solução de identidade híbrida Certifique-se de que as seguintes perguntas serão respondidas: • quais são as soluções de sincronização disponíveis para a solução de identidade híbrida?
-• O que são o início de sessão único capacidades disponíveis?
-• Quais são as opções para a Federação de identidade entre B2B e B2C?
+![sincronização de diretórios](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) ao design adequada a sincronização da sua solução de identidade híbrida Certifique-se de que as seguintes perguntas serão respondidas:
+*    Quais são as soluções de sincronização disponíveis para a solução de identidade híbrida?
+*    O que são o início de sessão único capacidades disponíveis?
+*    Quais são as opções para a Federação de identidade entre B2B e B2C?
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Determinar a estratégia de adoção de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)

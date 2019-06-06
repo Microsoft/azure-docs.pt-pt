@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826584"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515925"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Resolver problemas relacionados com o Azure Stream Analytics, utilizando os registos de diagnóstico
 
@@ -46,7 +46,7 @@ Registos de atividades estão ativados por predefinição e atribuir informaçõ
 
    ![Operação de registo de atividade de análise resumida de Stream](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Desloque para baixo para o **propriedades** secção do JSON, que fornece os detalhes do erro que causou a operação falhada. Neste exemplo, a falha foi devido a um erro de tempo de execução from out of valores de latitude vinculado.
+4. Desloque para baixo para o **propriedades** secção do JSON, que fornece os detalhes do erro que causou a operação falhada. Neste exemplo, a falha foi devido a um erro de tempo de execução from out of valores de latitude vinculado. Discrepância dos dados que é processado por uma tarefa do Stream Analytics faz com que um erro de dados. Pode aprender sobre diferentes [erros de entrada e saída de dados e por que eles ocorrem](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
    ![Detalhes do erro JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -103,7 +103,7 @@ hora | Timestamp (em UTC) do registo.
 resourceId | ID do recurso que a operação ocorreu, em maiúsculas. Ele inclui o ID de subscrição, o grupo de recursos e o nome da tarefa. Por exemplo,   **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 categoria | Inicie sessão categoria, optar por **execução** ou **criação**.
 operationName | Nome da operação que é registado. Por exemplo, **enviar eventos: Falha de escrita de saída SQL para mysqloutput**.
-estado | Estado da operação. Por exemplo, **falhada** ou **Succeeded**.
+status | Estado da operação. Por exemplo, **falhada** ou **Succeeded**.
 nível | Nível de registo. Por exemplo, **erro**, **aviso**, ou **informativo**.
 propriedades | Detalhes de entrada específico do registo, serializado como uma cadeia de caracteres do JSON. Para obter mais informações, consulte as seguintes secções neste artigo.
 

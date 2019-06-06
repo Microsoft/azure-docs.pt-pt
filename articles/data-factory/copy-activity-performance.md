@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 47b9ede2d529f78b14c21f53c6cd18ed691a3df3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81a5f99b0babd79af0034f684c45bfcf1bb25bd8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60768182"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425617"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o guia de Otimização e desempenho de atividade
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Pontos a serem observados:
 
 ## <a name="data-integration-units"></a>Unidades de integração de dados
 
-R **unidade de integração de dados (DIU)** (anteriormente conhecido como unidade de movimento de dados na Cloud ou DMU) é uma medida que representa o poder (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade no Data Factory. **DIU só se aplica a [Runtime de integração do Azure](concepts-integration-runtime.md#azure-integration-runtime)**, mas não [Integration Runtime autoalojado](concepts-integration-runtime.md#self-hosted-integration-runtime).
+R **unidade de integração de dados (DIU)** (anteriormente conhecido como unidade de movimento de dados na Cloud ou DMU) é uma medida que representa o poder (uma combinação de CPU, memória e alocação de recursos de rede) de uma única unidade no Data Factory. **DIU só se aplica a [Runtime de integração do Azure](concepts-integration-runtime.md#azure-integration-runtime)** , mas não [Integration Runtime autoalojado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
 **As unidades de integração de dados mínimo para capacitar a execução de atividade de cópia é dois.** Se não for especificado, a tabela seguinte lista os DIUs padrão usados em cenários de cópia diferentes:
 
@@ -93,7 +93,7 @@ Para substituir esta predefinição, especifique um valor para o **dataIntegrati
 Pode ver as unidades de integração de dados, na verdade, utilizado para cada executada da atividade de cópia de saída ao monitorizar uma execução de atividade de cópia. Conheça os detalhes da [copiar a monitorização da atividade](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Definição de DIUs **superior a 4** atualmente funciona apenas quando **copiar vários ficheiros de armazenamento de BLOBs/Data Lake armazenamento/Amazon S3/nuvem FTP/nuvem SFTP para quaisquer outros dados de cloud armazena.**.
+> Definição de DIUs **superior a 4** atualmente aplica-se apenas quando **copiar vários ficheiros de Azure armazenamento/Data Lake armazenamento/Amazon S3/Google Cloud Storage/nuvem FTP/nuvem SFTP para qualquer outros cloud arquivos de dados**.
 >
 
 **Exemplo:**

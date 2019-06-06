@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90989a9105405f1784b3be9ab59f55cd3433feaf
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709337"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479220"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Camada de negócio críticos - base de dados do Azure SQL
 
@@ -49,6 +49,7 @@ Camada de serviços críticos de negócios foi concebida para as aplicações qu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- Encontrar recursos características (número de memória de núcleos, e/s,) da camada de negócios críticos no [instância gerida](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)única base de dados no [modelo de vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) ou [modelo DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), ou elástica agrupamento na [modelo de vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) e [modelo DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Saiba mais sobre [fins gerais](sql-database-service-tier-general-purpose.md) e [Hiperescala](sql-database-service-tier-hyperscale.md) escalões.
 - Saiba mais sobre [do Service Fabric](../service-fabric/service-fabric-overview.md).
 - Para obter mais opções para alta disponibilidade e recuperação após desastre, veja [continuidade do negócio](sql-database-business-continuity.md).

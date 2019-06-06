@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 054aaf6f607bba216f979665a0b0672ec253ba7f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236627"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475979"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos 
 
@@ -31,22 +31,22 @@ Neste artigo, irá aprender a utilizar vários destinos de computação para a p
 
 
 >[!NOTE]
-> Código neste artigo foi testado com o Azure Machine Learning SDK versão 1.0.6.
+> Código neste artigo foi testado com o Azure Machine Learning SDK versão 1.0.39.
 
 ## <a name="compute-targets-for-training"></a>Destinos de computação para formação
 
 O serviço do Azure Machine Learning tem suporte variado em destinos de computação diferentes. Inicia um ciclo de vida de desenvolvimento do modelo típico com dev/experimentação numa pequena quantidade de dados. Nesta fase, recomendamos que utilize um ambiente local. Por exemplo, seu computador local ou uma VM com base na cloud. À medida que aumentar verticalmente o seu treinamento em conjuntos de dados maiores ou fazer o treinamento distribuído, recomendamos que utilize a computação do Azure Machine Learning para criar um cluster único ou vários node que é dimensionado automaticamente sempre que submete uma execução. Também pode anexar seus próprios recursos de computação, embora o suporte para vários cenários podem variar como detalhadas abaixo:
 
 
-|Destino de treinamento de computação| Aceleração por GPU | Automatizada<br/> a otimização de hiper-parâmetros | Automatizada<br/> machine learning | O Azure Machine Learning Pipelines |
+|Treinamento &nbsp;destinos| Suporte GPU |ML automatizada | Pipelines de ML | Interface visual
 |----|:----:|:----:|:----:|:----:|
-|[Computador local](#local)| Talvez | &nbsp; | ✓ | &nbsp; |
-|[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
-|[VM remota](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[O Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Computador local](#local)| Talvez | sim | &nbsp; | &nbsp; |
+|[Computação do Azure Machine Learning](#amlcompute)| sim | Sim & <br/>hyperparameter&nbsp;tuning | sim | sim |
+|[VM remota](#vm) |sim | Sim & <br/>a otimização de hiper-parâmetros | sim | &nbsp; |
+|[Azure&nbsp;Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | sim | sim | &nbsp; |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | sim | &nbsp; |
+|[O Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | sim | &nbsp; |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | sim | &nbsp; |
 
 **Todos os computação destinos podem ser reutilizados para várias tarefas de formação**. Por exemplo, depois de anexar uma VM remota à área de trabalho, pode reutilizá-lo para várias tarefas.
 
@@ -164,7 +164,7 @@ Pode utilizar um ambiente de sistema criado conda, um ambiente de Python já exi
 
 Utilize a Máquina Virtual de ciência de dados do Azure (DSVM) como VM do Azure à escolha para este cenário. Esta VM é um ambiente de desenvolvimento de IA do Azure e de ciência de dados pré-configurados. A VM oferece uma opção organizada de ferramentas e estruturas para o ciclo de vida completo de machine learning de desenvolvimento. Para obter mais informações sobre como utilizar a DSVM com o Azure Machine Learning, consulte [configurar um ambiente de desenvolvimento](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **criar**: Crie uma DSVM antes de o utilizar para preparar o seu modelo. Para criar este recurso, veja [aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Criar**: Crie uma DSVM antes de o utilizar para preparar o seu modelo. Para criar este recurso, veja [aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > O Azure Machine Learning suporta apenas máquinas virtuais que executar o Ubuntu. Quando criar uma VM ou escolha uma VM existente, tem de selecionar uma VM que utiliza o Ubuntu.
@@ -207,7 +207,7 @@ Agora que já anexados a computação e configurado a sua execução, a próxima
 
 O Azure HDInsight é uma plataforma popular para análise de macrodados. A plataforma fornece Apache Spark, que pode ser utilizado para preparar o seu modelo.
 
-1. **criar**:  Crie o cluster do HDInsight, antes de o utilizar para preparar o seu modelo. Para criar Spark num cluster do HDInsight, veja [criar um Cluster do Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
+1. **Criar**:  Crie o cluster do HDInsight, antes de o utilizar para preparar o seu modelo. Para criar Spark num cluster do HDInsight, veja [criar um Cluster do Spark no HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
     Quando criar o cluster, tem de especificar um nome de utilizador SSH e a palavra-passe. Tome nota destes valores, sempre que precisar para utilizar o HDInsight como um destino de computação.
     

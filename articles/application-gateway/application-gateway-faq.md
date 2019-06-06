@@ -6,18 +6,20 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 4/30/2019
+ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947075"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430877"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas freqüentes sobre o Gateway de aplicação
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Seguem-se comuns perguntas mais frequentes sobre o Gateway de aplicação do Azure.
 
 ## <a name="general"></a>Geral
 
@@ -187,13 +189,18 @@ Ver [ordem das regras de processamento](https://docs.microsoft.com/azure/applica
 
 O campo Host Especifica o nome para enviar a sonda para quando configurar múltiplos sites no Gateway de aplicação. Caso contrário, utilize "127.0.0.1". Este valor é diferente do nome de anfitrião da máquina virtual. Seu formato é \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\>.
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>Posso lista de permissões de acesso de Gateway de aplicação para apenas poucos IPs de origem?
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Pode permitir acesso de Gateway de aplicação apenas endereços de IP de origem alguns?
 
-Sim. Ver [restringir o acesso a IPs de origem específico](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips).
+Sim. Ver [restringir o acesso a IPs de origem específico](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Pode utilizar a mesma porta para as escutas de destinado ao público e privado com acesso à?
 
 Não.
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Há diretrizes disponíveis para migrar de SKU do v1 para o SKU do v2?
+
+Sim. Para obter detalhes, veja [migrar Gateway de aplicação do Azure e de Firewall de aplicações Web do v1 para v2](migrate-v1-v2.md).
+
 
 ## <a name="configuration---ssl"></a>Configuração - SSL
 
@@ -312,6 +319,10 @@ Para obter mais informações, consulte [vulnerabilidades do OWASP top 10](https
 ### <a name="does-waf-support-ddos-protection"></a>O WAF suporta a proteção contra DDoS?
 
 Sim. Pode ativar a proteção contra DDoS na rede virtual em que o gateway de aplicação é implementado. Esta definição garante que o serviço Azure DDoS Protection também protege o IP de virtual de gateway de aplicação (VIP).
+
+### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Há diretrizes disponíveis para migrar de SKU do v1 para o SKU do v2?
+
+Sim. Para obter detalhes, veja [migrar Gateway de aplicação do Azure e de Firewall de aplicações Web do v1 para v2](migrate-v1-v2.md).
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registos
 

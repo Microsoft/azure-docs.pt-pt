@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5773924e98b7ea13c180979dba1325eb8919ff3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c9b07e7524488d0336a55af6e1d5f36af59a870
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60469900"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729830"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 Este artigo contém instruções para utilizar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar os grupos. Este conteúdo aplica-se apenas a grupos do Office 365 (por vezes denominados grupos unificados). 
@@ -34,12 +34,7 @@ Definições de grupos do Office 365 são configuradas com um objeto de definiç
 
 Os cmdlets são parte do módulo Azure Active Directory PowerShell V2. Para obter instruções sobre como transferir e instalar o módulo no seu computador, consulte o artigo [do Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/azuread/). Pode instalar o lançamento da versão 2 do módulo partir [da galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="retrieve-a-specific-settings-value"></a>Recuperar um valor de definições específicas
-Se souber o nome da definição que pretende recuperar, pode utilizar o cmdlet para obter o valor atual de definições abaixo. Neste exemplo, recuperando o valor para uma definição denominada "UsageGuidelinesUrl." Pode ler que mais sobre as definições de diretório e os respetivos nomes mais adiante neste artigo.
 
-```powershell
-(Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
-```
 
 ## <a name="create-settings-at-the-directory-level"></a>Criar definições ao nível do diretório
 Estes passos criam definições ao nível do diretório, que se aplicam a todos os grupos do Office 365 no diretório. O cmdlet Get-AzureADDirectorySettingTemplate está disponível apenas na [módulo de pré-visualização do Azure AD PowerShell para Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
@@ -74,42 +69,83 @@ Estes passos criam definições ao nível do diretório, que se aplicam a todos 
 4. Em seguida, atualize o valor de orientação de utilização:
   
    ```powershell
-   $setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
    ```  
-5. Por fim, aplique as definições:
+5. Em seguida, aplica a definição:
   
    ```powershell
-   New-AzureADDirectorySetting -DirectorySetting $setting
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-
-Após a conclusão bem-sucedida, o cmdlet retorna a ID do novo objeto de definições:
+6. Pode ler os valores usando:
 
   ```powershell
-  Id                                   DisplayName TemplateId                           Values
-  --                                   ----------- ----------                           ------
-  c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
-  ```
+   $Setting.Values
+   ```  
+## <a name="update-settings-at-the-directory-level"></a>Atualizar as definições ao nível do diretório
+Para atualizar o valor para UsageGuideLinesUrl no modelo de definição, simplesmente edite o URL com o passo 4 acima, em seguida, executar o passo 5 para definir o novo valor.
+
+Para remover o valor de UsageGuideLinesUrl, edite o URL para ser uma cadeia vazia com o passo 4 acima:
+
+ ```powershell
+   $Setting["UsageGuidelinesUrl"] = ""
+   ```  
+Em seguida, execute o passo 5 para definir o novo valor.
 
 ## <a name="template-settings"></a>Definições do modelo
 Seguem-se as configurações definidas no Group.Unified SettingsTemplate. A menos que indicado de outra forma, estas funcionalidades requerem uma licença do Azure Active Directory Premium P1. 
 
 | **Definição** | **Descrição** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Escreva: Boolean<li>Predefinição: Verdadeiro |O sinalizador que indica se a criação do grupo do Office 365 é permitida no diretório por usuários não-administradores. Esta definição não requer uma licença do Azure Active Directory Premium P1.|
+|  <ul><li>EnableGroupCreation<li>Escreva: Boolean<li>predefinição: Verdadeiro |O sinalizador que indica se a criação do grupo do Office 365 é permitida no diretório por usuários não-administradores. Esta definição não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Escreva: String<li>Predefinição: "" |GUID do grupo de segurança para os quais os membros têm permissão para criar grupos do Office 365, mesmo quando EnableGroupCreation = = false. |
 |  <ul><li>UsageGuidelinesUrl<li>Escreva: String<li>Predefinição: "" |Uma ligação para as diretrizes de utilização do grupo. |
 |  <ul><li>ClassificationDescriptions<li>Escreva: String<li>Predefinição: "" | Uma lista delimitada por vírgulas de descrições de classificação. O valor de ClassificationDescriptions só é válido no seguinte formato:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>onde classificação corresponde a cadeias de caracteres no ClassificationList.|
 |  <ul><li>DefaultClassification<li>Escreva: String<li>Predefinição: "" | A classificação que está a ser utilizado como a classificação predefinida para um grupo se foi especificado nenhum.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Escreva: String<li>Predefinição: "" | A cadeia de caracteres de um comprimento máximo de 64 carateres, que define a Convenção de nomenclatura configurada para grupos do Office 365. Para obter mais informações, consulte [impor uma política de nomes para grupos do Office 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Escreva: String<li>Predefinição: "" | Cadeia separada por vírgulas das expressões que os utilizadores não terão permissão para utilizar em nomes de grupo ou aliases. Para obter mais informações, consulte [impor uma política de nomes para grupos do Office 365](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Escreva: Boolean<li>Predefinição: "False" | Não utilize
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Escreva: Boolean<li>Predefinição: Falso | Valor booleano que indica se é ou não um utilizador convidado pode ser um proprietário de grupos. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Escreva: Boolean<li>Predefinição: Verdadeiro | Valor booleano que indica se é ou não um utilizador convidado pode ter acesso ao conteúdo de grupos do Office 365.  Esta definição não requer uma licença do Azure Active Directory Premium P1.|
+| <ul><li>EnableMSStandardBlockedWords<li>Escreva: Boolean<li>predefinição: "False" | Não utilize
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Escreva: Boolean<li>predefinição: Falso | Valor booleano que indica se é ou não um utilizador convidado pode ser um proprietário de grupos. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Escreva: Boolean<li>predefinição: Verdadeiro | Valor booleano que indica se é ou não um utilizador convidado pode ter acesso ao conteúdo de grupos do Office 365.  Esta definição não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Escreva: String<li>Predefinição: "" | O url de uma ligação para as diretrizes de utilização do convidado. |
-|  <ul><li>AllowToAddGuests<li>Escreva: Boolean<li>Predefinição: Verdadeiro | Um booleano que indica se é ou não tem permissão para adicionar convidados para este diretório.|
+|  <ul><li>AllowToAddGuests<li>Escreva: Boolean<li>predefinição: Verdadeiro | Um booleano que indica se é ou não tem permissão para adicionar convidados para este diretório.|
 |  <ul><li>ClassificationList<li>Escreva: String<li>Predefinição: "" |Uma lista delimitada por vírgulas de valores de classificação válido que podem ser aplicadas a grupos do Office 365. |
 
+## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exemplo: Configurar a política de convidado para grupos ao nível do diretório
+1. Obter todos os modelos de definição:
+  ```powershell
+   Get-AzureADDirectorySettingTemplate
+   ```
+2. Para definir a política de convidado para grupos ao nível do diretório, terá de modelo de Group.Unified
+   ```powershell
+   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   ```
+3. Em seguida, crie um novo objeto de definições baseado nesse modelo:
+  
+   ```powershell
+   $Setting = $template.CreateDirectorySetting()
+   ```  
+4. Em seguida, atualize a definição de AllowToAddGuests
+   ```powershell
+   $Setting["AllowToAddGuests"] = $False
+   ```  
+5. Em seguida, aplica a definição:
+  
+   ```powershell
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
+6. Pode ler os valores usando:
+
+  ```powershell
+   $Setting.Values
+   ```   
+
 ## <a name="read-settings-at-the-directory-level"></a>Ler definições ao nível do diretório
+
+Se souber o nome da definição que pretende recuperar, pode utilizar o cmdlet para obter o valor atual de definições abaixo. Neste exemplo, recuperando o valor para uma definição denominada "UsageGuidelinesUrl." 
+
+  ```powershell
+  (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+  ```
 Estes passos ler as configurações ao nível do diretório, que se aplicam a todos os grupos do Office no diretório.
 
 1. Ler todas as definições do diretório existente:
@@ -128,7 +164,7 @@ Estes passos ler as configurações ao nível do diretório, que se aplicam a to
    Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
    ```
 
-3. Ler todos os valores de definições de diretório de um objeto de definições de diretório específico, usando o GUID de Id de definições:
+3. Ler todos os valores de definições de diretório de um objeto de definições de diretório específico, usando o GUID de ID de definições:
    ```powershell
    (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
    ```
@@ -150,6 +186,12 @@ Estes passos ler as configurações ao nível do diretório, que se aplicam a to
    EnableGroupCreation           True
    ```
 
+## <a name="remove-settings-at-the-directory-level"></a>Remova as definições ao nível do diretório
+Este passo remove as definições ao nível do diretório, que se aplicam a todos os grupos do Office no diretório.
+  ```powershell
+  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
+  ```
+
 ## <a name="update-settings-for-a-specific-group"></a>Atualizar as definições para um grupo específico
 
 1. Procure o modelo de configurações com o nome "Groups.Unified.Guest"
@@ -166,50 +208,25 @@ Estes passos ler as configurações ao nível do diretório, que se aplicam a to
    ```
 2. Recuperar o objeto de modelo para o modelo de Groups.Unified.Guest:
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
    ```
 3. Crie um novo objeto de definições do modelo:
    ```powershell
-   $Setting = $Template.CreateDirectorySetting()
+   $SettingCopy = $Template1.CreateDirectorySetting()
    ```
 
 4. Defina a definição para o valor necessário:
    ```powershell
-   $Setting["AllowToAddGuests"]=$False
+   $SettingCopy["AllowToAddGuests"]=$False
    ```
 5. Crie a nova definição para o grupo de necessário no diretório:
    ```powershell
-   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $Setting
-  
-   Id                                   DisplayName TemplateId                           Values
-   --                                   ----------- ----------                           ------
-   25651479-a26e-4181-afce-ce24111b2cb5             08d542b9-071f-4e16-94b0-74abb372e3d9 {class SettingValue {...
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $SettingCopy
    ```
-
-## <a name="update-settings-at-the-directory-level"></a>Atualizar as definições ao nível do diretório
-
-Estes passos atualizam as definições ao nível do diretório, que se aplicam a todos os grupos do Office 365 no diretório. Estes exemplos partem do princípio de que já existe um objeto de definições no seu diretório.
-
-1. Encontre o objeto de definições existente:
+6. Para verificar as definições, execute este comando:
    ```powershell
-   $setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups | fl Values
    ```
-2. Atualize o valor:
-  
-   ```powershell
-   $Setting["AllowToAddGuests"] = "false"
-   ```
-3. Atualize a definição:
-  
-   ```powershell
-   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
-   ```
-
-## <a name="remove-settings-at-the-directory-level"></a>Remova as definições ao nível do diretório
-Este passo remove as definições ao nível do diretório, que se aplicam a todos os grupos do Office no diretório.
-  ```powershell
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
-  ```
 
 ## <a name="cmdlet-syntax-reference"></a>Referência de sintaxe do cmdlet
 Pode encontrar mais documentação do Azure Active Directory PowerShell em [Cmdlets do Azure Active Directory](/powershell/azure/install-adv2?view=azureadps-2.0).

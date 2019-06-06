@@ -1,24 +1,24 @@
 ---
-title: 'Início rápido: Ingerir Blobs do Azure no Explorador de dados do Azure'
-description: Neste início rápido, ficará a saber como enviar dados de conta de armazenamento para o Explorador de dados do Azure a utilizar uma subscrição do Event Grid.
+title: Ingerir Blobs do Azure no Explorador de dados do Azure
+description: Neste artigo, saiba como enviar dados de conta de armazenamento para o Explorador de dados do Azure a utilizar uma subscrição do Event Grid.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/30/2019
-ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446453"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494749"
 ---
-# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Início rápido: Ingerir blobs no Explorador de dados do Azure através da subscrição de notificações do Event Grid
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Explorador de dados do Azure através da subscrição de notificações do Event Grid
 
 Explorador de dados do Azure é um serviço de exploração de dados rápida e dimensionável para dados de telemetria e de registo. Ele oferece ingestão contínua (carregamento de dados) de blobs escritos para contentores de Blobs. 
 
-Neste guia de introdução, saiba como configurar uma [Azure Event Grid](/azure/event-grid/overview) subscrição e encaminhar eventos para o Explorador de dados do Azure através de um hub de eventos. Para começar, deve ter uma conta de armazenamento com uma subscrição do event grid que envia notificações para os Hubs de eventos do Azure. Em seguida, irá criar uma ligação de dados do Event Grid e ver os dados de fluxo no sistema.
+Neste artigo, saiba como configurar uma [Azure Event Grid](/azure/event-grid/overview) subscrição e encaminhar eventos para o Explorador de dados do Azure através de um hub de eventos. Para começar, deve ter uma conta de armazenamento com uma subscrição do event grid que envia notificações para os Hubs de eventos do Azure. Em seguida, irá criar uma ligação de dados do Event Grid e ver os dados de fluxo no sistema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,18 +39,18 @@ Neste guia de introdução, saiba como configurar uma [Azure Event Grid](/azure/
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Name | *test-grid-connection* | O nome do event grid que pretende criar.|
-    | Esquema de Eventos | *Esquema de grelha de eventos* | O esquema que deve ser utilizado para o event grid. |
-    | Tipo de Tópico | *Conta de armazenamento* | O tipo de tópico do event grid. |
-    | Recurso do Tópico | *gridteststorage* | O nome da conta de armazenamento. |
+    | Esquema de eventos | *Esquema de grelha de eventos* | O esquema que deve ser utilizado para o event grid. |
+    | Tipo de tópico | *Conta de armazenamento* | O tipo de tópico do event grid. |
+    | Recursos de tópico | *gridteststorage* | O nome da conta de armazenamento. |
     | Subscrever todos os tipos de eventos | *clear* | Não seja notificado sobre todos os eventos. |
-    | Tipos de Eventos Definidos | *Criado pelo blob* | Os eventos específicos para obter notificações de. |
-    | Tipo de Ponto Final | *Hubs de eventos* | O tipo de ponto final ao qual irá enviar eventos. |
+    | Tipos de eventos definidos | *Criado pelo blob* | Os eventos específicos para obter notificações de. |
+    | Tipo de ponto final | *Hubs de eventos* | O tipo de ponto final ao qual irá enviar eventos. |
     | Ponto Final | *test-hub* | O hub de eventos que criou. |
     | | |
 
 1. Selecione o **funcionalidades adicionais** separador se pretender controlar ficheiros a partir de um contentor específico. Defina os filtros para as notificações da seguinte forma:
     * **Começa com o assunto** campo é o *literal* prefixo do contentor de Blobs. Como é o padrão aplicado *startswith*, podendo abranger vários contentores. Não existem carateres universais são permitidas.
-     Ele *tem* ser definida da seguinte forma: *`/blobServices/default/containers/`*[prefixo do contentor]
+     Ele *tem* ser definida da seguinte forma: *`/blobServices/default/containers/`* [prefixo do contentor]
     * **Termina com o assunto** campo é o *literal* sufixo do blob. Não existem carateres universais são permitidas.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Criar uma tabela de destino no Azure Data Explorer
@@ -100,7 +100,7 @@ Agora ligar para o event grid partir do Explorador de dados do Azure, para que o
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome da ligação de dados | *test-hub-connection* | O nome da ligação que pretende criar no Explorador de dados do Azure.|
-    | Subscrição de conta de armazenamento | O ID de subscrição | O ID de subscrição onde reside a sua conta de armazenamento.|
+    | Subscrição da conta de armazenamento | O ID de subscrição | O ID de subscrição onde reside a sua conta de armazenamento.|
     | Conta de armazenamento | *gridteststorage* | O nome da conta de armazenamento que criou anteriormente.|
     | Event Grid | *test-grid-connection* | O nome do event grid que criou. |
     | O nome do hub de eventos | *test-hub* | O hub de eventos que criou. Este campo é preenchido automaticamente quando escolhe uma grelha de eventos. |
@@ -157,7 +157,7 @@ Guarde os dados num ficheiro e carregá-lo com este script:
 > [!NOTE]
 > O Explorador de dados do Azure tem uma política de agregação (criação de batches) para ingestão de dados concebida para otimizar o processo de ingestão.
 Por predefinição, a política está configurada para 5 minutos.
-Será capaz de alterar a política mais tarde, se necessário. Neste início rápido, pode esperar uma latência de alguns minutos.
+Será capaz de alterar a política mais tarde, se necessário. Neste artigo, pode esperar uma latência de alguns minutos.
 
 1. No portal do Azure, na sua grelha de eventos, pode ver o pico na atividade enquanto a aplicação está em execução.
 
@@ -196,5 +196,4 @@ Se não planeja usar sua grelha de eventos novamente, limpar **test-hub-rg**, pa
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Quickstart: Consultar dados no Explorador de dados do Azure](web-query-data.md)
+* [Consultar dados no Explorador de dados do Azure](web-query-data.md)

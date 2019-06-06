@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrar de Federação para autenticação pass-through do Azure Active Directory | Documentos da Microsoft'
+title: 'Azure AD Connect: Migrar da Federação para o PTA para o Azure AD'
 description: Este artigo tem informações sobre como mover o seu ambiente de identidade híbrida da Federação para autenticação pass-through.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382783"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473375"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar de Federação para autenticação pass-through do Azure Active Directory
 
@@ -48,7 +48,7 @@ Para a maioria dos clientes, os agentes de autenticação de dois ou três são 
 
 Pode escolher entre dois métodos para migrar do gerenciamento de identidades federadas para autenticação pass-through e totalmente integrada início de sessão único (SSO). O método utilizado depende da forma como a sua instância do AD FS foi originalmente configurada.
 
-* **Do Azure AD Connect**. Se configurou originalmente do AD FS com o Azure AD Connect, *tem* alterar para a autenticação pass-through com o Assistente do Azure AD Connect.
+* **Azure AD Connect**. Se configurou originalmente do AD FS com o Azure AD Connect, *tem* alterar para a autenticação pass-through com o Assistente do Azure AD Connect.
 
    O Azure AD Connect executa automaticamente o **MsolDomainAuthentication conjunto** cmdlet quando altera o método de início de sessão do utilizador. O Azure AD Connect unfederates automaticamente todos os domínios federados verificados no seu inquilino do Azure AD.
 
@@ -75,7 +75,7 @@ Para compreender qual método deve usar, conclua os passos nas secções seguint
 2. Sobre o **tarefas adicionais** página, selecione **ver configuração atual**e, em seguida, selecione **seguinte**.<br />
  
    ![Captura de ecrã da opção vista da configuração atual na página tarefas adicionais](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. Sobre o **rever a sua solução** página, desloque-se para **serviços de Federação do Active Directory (AD FS)**.<br />
+3. Sobre o **rever a sua solução** página, desloque-se para **serviços de Federação do Active Directory (AD FS)** .<br />
 
    * Se a configuração do AD FS for apresentada nesta seção, pode presumir com segurança do AD FS foi originalmente configurado com o Azure AD Connect. Pode converter seus domínios de identidades federadas para identidade gerida através da utilização do Azure AD Connect **alterar utilizador inicie sessão** opção. Para obter mais informações sobre o processo, consulte a secção **opção 1: Configurar a autenticação pass-through com o Azure AD Connect**.
    * Se o AD FS não está listado nas configurações atuais, tem manualmente de converter seus domínios de identidades federadas para identidade gerida com o PowerShell. Para obter mais informações sobre este processo, consulte a secção **opção 2: Mudar da Federação para autenticação pass-through com o Azure AD Connect e PowerShell**.
@@ -124,7 +124,7 @@ Esta secção descreve as considerações de implantação e os detalhes sobre c
 
 Antes de converter de identidades federadas para identidade gerida, examine de perto como a utilizar atualmente o AD FS para o Azure AD, o Office 365 e outros aplicativos (confianças de entidade confiadora). Especificamente, considere os cenários descritos na tabela a seguir:
 
-| IF | em seguida |
+| Se | em seguida |
 |-|-|
 | Planeia continuar a utilizar o AD FS com outros aplicativos (que não o Azure AD e o Office 365). | Depois de converter os domínios, irá utilizar o AD FS e o Azure AD. Considere a experiência do usuário. Em alguns cenários, os utilizadores poderão ser necessárias para se autenticar duas vezes: uma vez para o Azure AD (em que um utilizador obtém acesso SSO para outros aplicativos, como o Office 365) e, novamente, para todos os aplicativos que ainda estão vinculados ao AD FS, como uma fidedignidade de entidade confiadora. |
 | A instância do AD FS altamente personalizada e depende de definições de personalização específicos no ficheiro onload.js (por exemplo, se tiver alterado a experiência de início de sessão para que os utilizadores utilizam apenas um **SamAccountName** formato para o respetivo nome de utilizador em vez de um utilizador (UPN) do nome do Principal ou a sua organização tem muito com a marca a experiência de início de sessão). O ficheiro de onload.js não pode ser duplicado no Azure AD. | Antes de continuar, certifique-se de que o Azure AD pode satisfazer as suas necessidades de personalização atual. Para obter mais informações e para obter orientações, veja as secções em uma marca para AD FS e personalização do AD FS.|
@@ -156,7 +156,7 @@ Para contas de computador do Windows 8 e Windows 7, associação ao híbrido uti
 
 Para obter mais informações, consulte [híbrido do Azure configurar dispositivos associados ao AD](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
-#### <a name="branding"></a>Personalização
+#### <a name="branding"></a>Imagem corporativa
 
 Se sua organização [personalizadas as páginas de início de sessão do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) para apresentar informações que são mais pertinentes para a organização, considere fazer semelhante [personalizações para a página de início de sessão do Azure AD](https://docs.microsoft.com/azure/active-directory/customize-branding).
 

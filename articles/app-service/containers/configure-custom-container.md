@@ -1,5 +1,5 @@
 ---
-title: Configurar os contentores de cliente - serviço de aplicações do Azure | Documentos da Microsoft
+title: Configurar o contentor personalizado - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como configurar aplicações node. js a funcionar no serviço de aplicações do Azure
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919703"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430923"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar um contentor personalizado do Linux para o serviço de aplicações do Azure
 
@@ -28,7 +28,7 @@ Este guia fornece os conceitos chave e instruções para contentores de aplicaç
 
 ## <a name="configure-port-number"></a>Configurar o número de porta
 
-O servidor web na sua imagem personalizada, pode utilizar uma porta diferente da 80. Indicar ao Auzre sobre a porta que utiliza o seu personalizado utilizando o `WEBSITES_PORT` definição de aplicação. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_. Pode configurá-lo, executando [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell. Por exemplo:
+O servidor web na sua imagem personalizada, pode utilizar uma porta diferente da 80. Dizer ao Azure a porta que utiliza o seu contentor personalizado utilizando o `WEBSITES_PORT` definição de aplicação. A página do GitHub para o [exemplo de Python neste tutorial](https://github.com/Azure-Samples/docker-django-webapp-linux) mostra que tem de definir `WEBSITES_PORT` como _8000_. Pode configurá-lo, executando [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) comando no Cloud Shell. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -137,8 +137,8 @@ wordpress:
 
 Com vários contentores estão atualmente em pré-visualização. As seguintes funcionalidades de plataforma do serviço de aplicações não são suportadas:
 
-- Autenticação/Autorização
-- Identidades Geridas
+- Autenticação / autorização
+- Identidades geridas
 
 ### <a name="docker-compose-options"></a>Opções do docker Compose
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 63630f5c4799e9272601f431671abc78ec86a238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622425"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428228"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Alojar uma aplicação Node.js no Azure Service Fabric
 
@@ -27,7 +27,7 @@ Este início rápido ajuda-o a implementar uma aplicação já existente (Node.j
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que [configurou o seu ambiente de desenvolvimento](service-fabric-get-started.md). A configuração inclui instalar o Service Fabric SDK e o Visual Studio 2017 ou 2015.
+Antes de começar, certifique-se de que [configurou o seu ambiente de desenvolvimento](service-fabric-get-started.md). A configuração inclui instalar o SDK do Service Fabric e o Visual Studio 2019 ou 2015.
 
 Também precisa de uma aplicação Node.js já existente para implementação. Este início rápido utiliza um Web site Node.js simples, que pode ser transferido [aqui][download-sample]. Extraia este ficheiro para a pasta `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` depois de criar o projeto no passo seguinte.
 
@@ -66,7 +66,7 @@ Prima **OK**.
 
 O Visual Studio cria o projeto de aplicação e o projeto de serviço de ator e apresenta-os no Explorador de Soluções.
 
-O projeto de aplicação (**MyGuestApp**) não contém nenhum código diretamente. Em vez disso, referencia um conjunto de projetos de serviço. Além disso, contém outros três tipos de conteúdo:
+O projeto de aplicativo (**MyGuestApp**) não contém nenhum código diretamente. O projeto faz referência a um conjunto de projetos de serviço. Além disso, ela contém três outros tipos de conteúdo:
 
 * **Perfis de publicação**  
 Preferências de ferramentas para diferentes ambientes.
@@ -98,9 +98,9 @@ Abra o ficheiro **ServiceManifest.xml** no projeto. Na parte inferior do manifes
 
 ## <a name="deploy-to-azure"></a>Implementar no Azure
 
-Se premir **F5** e executar o projeto, este é implementado no cluster local. No entanto, vamos implementar no Azure.
+Se pressionar **F5** e executar o projeto, ele é implementado no cluster local. No entanto, vamos implementar no Azure.
 
-Clique com o botão direito do rato no projeto e escolha **Publicar...**, o que abre uma caixa de diálogo para publicar no Azure.
+Clique com o botão direito do rato no projeto e escolha **Publicar...** , o que abre uma caixa de diálogo para publicar no Azure.
 
 ![Caixa de diálogo Publicar no Azure para um serviço do Service Fabric][publish]
 
@@ -108,13 +108,13 @@ Selecione o perfil de destino **PublishProfiles\Cloud.xml**.
 
 Se ainda não o tiver feito, escolha uma conta do Azure na qual implementar. Se ainda não tiver uma, [inscreva-se numa][create-account].
 
-Em **Ponto Final da Ligação**, selecione o cluster do Service Fabric no qual implementar. Se não tiver um cluster, selecione **&lt;Criar Novo Cluster...&gt;**, o que abre uma janela do browser para o portal do Azure. Para obter mais informações, veja [Create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) (Crair um cluster no portal). 
+Em **Ponto Final da Ligação**, selecione o cluster do Service Fabric no qual implementar. Se não tiver uma, selecione **&lt;criar novo Cluster... &gt;** que abre uma janela do browser para o portal do Azure. Para obter mais informações, veja [Create a cluster in the portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) (Crair um cluster no portal). 
 
 Quando criar o cluster do Service Fabric, confirme que define a definição **Pontos finais personalizados** como **80**.
 
 ![Configuração de tipo de nó do Service Fabric com ponto final personalizado][custom-endpoint]
 
-A criação de um cluster do Service Fabric novo demora algum tempo a ser concluída. Quando tiver sido criada, regresse à caixa de diálogo e selecione **&lt;Atualizar&gt;**. O cluster novo é apresentado na caixa pendente; selecione-o.
+A criação de um cluster do Service Fabric novo demora algum tempo a ser concluída. Quando tiver sido criada, regresse à caixa de diálogo e selecione **&lt;Atualizar&gt;** . O cluster novo é apresentado na caixa pendente; selecione-o.
 
 Prima **publicar** e aguarde pela conclusão da implementação.
 
@@ -130,11 +130,11 @@ Verifique o painel de descrição geral do endereço do serviço. Utilize o nome
 
 ![Painel de descrição geral do Service Fabric no portal do Azure][overview]
 
-Navegue para este endereço, onde vai ver a resposta `HELLO WORLD`.
+Navegue para este endereço onde verá o `HELLO WORLD` resposta.
 
 ## <a name="delete-the-cluster"></a>Eliminar o cluster
 
-Não se esqueça de eliminar todos os recursos que criou para este início rápido, uma vez que lhe são cobrados.
+Não se esqueça de eliminar todos os recursos que criou neste início rápido, uma vez que lhe é cobrada para esses recursos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Leia mais sobre os [executáveis convidados](service-fabric-guest-executables-introduction.md).

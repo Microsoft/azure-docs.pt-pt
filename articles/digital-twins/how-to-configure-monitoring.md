@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 3c35633c9b25eafdb738ed591c7c7022fbd8149a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967817"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730330"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar a monitorização no duplos Digital do Azure
 
@@ -40,17 +40,17 @@ Registo de atividade duplos Digital do Azure está ativado por predefinição e 
 1. Selecionar a instância de duplos Digital do Azure.
 1. Escolher **registo de atividades** para abrir o painel de exibição:
 
-    ![Registo de atividades][1]
+    [![Registo de atividades](media/how-to-configure-monitoring/activity-log.png)](media/how-to-configure-monitoring/activity-log.png#lightbox)
 
 Para o registo de atividade avançadas:
 
 1. Selecione o **Logs** opção para apresentar o **descrição geral da análise de registo de atividade**:
 
-    ![Seleção][2]
+    [![Seleção](media/how-to-configure-monitoring/activity-log-select.png)](media/how-to-configure-monitoring/activity-log-select.png#lightbox)
 
 1. O **descrição geral da análise de registo de atividade** resume os dados de registo de atividade essencial:
 
-    ![Descrição geral da análise de registo de atividade][3]
+    [![Descrição geral da análise de registo de atividade]( media/how-to-configure-monitoring/log-analytics-overview.png)]( media/how-to-configure-monitoring/log-analytics-overview.png#lightbox)
 
 >[!TIP]
 >Uso **registos de atividades** para as informações rápidas sobre os eventos de nível de assinatura.
@@ -70,12 +70,12 @@ Para ativar os registos de diagnóstico para uma instância:
 1. Abra o recurso no portal do Azure.
 1. Clique em **das definições de diagnóstico**:
 
-    ![Definições de diagnóstico um][4]
+    [![Definições de diagnóstico um](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
 1. Clique em **ativar os diagnósticos** para recolher dados (se ainda não ativada).
 1. Preencha os campos de pedido e selecione como e onde os dados serão guardados:
 
-    ![Duas definições de diagnóstico][5]
+    [![Duas definições de diagnóstico](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
 
     Os registos de diagnóstico são, muitas vezes, salvo usando [File Storage do Azure](../storage/files/storage-files-deployment-guide.md) e partilhado com [registos do Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Ambas as opções podem ser selecionadas.
 
@@ -99,24 +99,24 @@ Consultar o registo completo é fornecido através de [registos do Azure Monitor
 1. Procure **do Log Analytics** no portal do Azure.
 1. Verá sua disponíveis **área de trabalho do Log Analytics** instâncias. Escolha uma e selecione **registos** a consulta:
 
-    ![Log analytics][6]
+    [![O log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
 1. Se ainda não tiver uma **área de trabalho do Log Analytics** instância, pode criar uma área de trabalho ao clicar o **Add** botão:
 
-    ![Criar o OMS][7]
+    [![Criar o OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
 Uma vez sua **área de trabalho do Log Analytics** instância é aprovisionada, pode utilizar consultas eficientes para encontrar entradas nos registos de múltiplos ou a procura utilizando critérios específicos usando **gestão de registos**:
 
-   ![Gestão de registos][8]
+   [![Gestão de registos](media/how-to-configure-monitoring/log-analytics-management.png)](media/how-to-configure-monitoring/log-analytics-management.png#lightbox)
 
 Para obter mais informações sobre as operações de consulta poderosa, consulte [introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Poderá haver um atraso de 5 minutos, ao enviar eventos para **área de trabalho do Log Analytics** pela primeira vez.
 
-Registos de Monitor do Azure também fornece o erro poderosas e serviços de notificação de alerta, que podem ser visualizados clicando **diagnosticar e resolver problemas**:
+Registos de Monitor do Azure também fornecem erro poderosas e serviços de notificação de alerta, que podem ser visualizados clicando **diagnosticar e resolver problemas**:
 
-   ![Notificações de alerta e de erro][9]
+   [![Notificações de alerta e de erro](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
 >[!TIP]
 >Uso **área de trabalho do Log Analytics** para históricos de log de consulta para as várias funcionalidades de aplicação, subscrições ou serviços.
@@ -132,14 +132,3 @@ Duplos Digital do Azure também suporta o registo específico de aplicação e a
 - Aprofunde-se em definições de diagnóstico do Azure, lendo um [descrição geral dos registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 - Leia mais sobre [registos do Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
-
-<!-- Images -->
-[1]: media/how-to-configure-monitoring/activity-log.png
-[2]: media/how-to-configure-monitoring/activity-log-select.png
-[3]: media/how-to-configure-monitoring/log-analytics-overview.png
-[4]: media/how-to-configure-monitoring/diagnostic-settings-one.png
-[5]: media/how-to-configure-monitoring/diagnostic-settings-two.png
-[6]: media/how-to-configure-monitoring/log-analytics.png
-[7]: media/how-to-configure-monitoring/log-analytics-oms.png
-[8]: media/how-to-configure-monitoring/log-analytics-management.png
-[9]: media/how-to-configure-monitoring/log-analytics-notifications.png

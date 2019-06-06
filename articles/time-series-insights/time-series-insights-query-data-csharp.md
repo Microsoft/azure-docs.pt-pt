@@ -10,18 +10,18 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244099"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728953"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consultar dados a partir do ambiente de disponibilidade geral do Azure Time Series Insights utilizandoC#
 
-Isso C# exemplo demonstra como consultar dados a partir do ambiente de disponibilidade geral do Azure Time Series Insights. 
+Isso C# exemplo demonstra como consultar dados a partir do ambiente de disponibilidade geral do Azure Time Series Insights.
 
 Este exemplo mostra vários exemplos básicos de utilização da API de Consulta:
 
@@ -31,7 +31,7 @@ Este exemplo mostra vários exemplos básicos de utilização da API de Consulta
 1. Como um exemplo do pedido de socket Web, o evento agrega dados necessários para o ambiente de interesse. Os dados são necessários para o intervalo de tempo de toda a disponibilidade.
 
 > [!NOTE]
-> O código de exemplo está disponível em [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> O código de exemplo está disponível em [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dependências do projeto
 

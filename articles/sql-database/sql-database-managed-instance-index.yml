@@ -69,7 +69,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '(Pré-visualização) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Fuso de horário de configurar</a> durante a criação de instância.'
+          - html: '<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configurar o fuso horário</a> durante a criação de instância.'
           - html: 'Criar instâncias com <a href="https://aka.ms/managed-instance-collation">agrupamento ao nível do servidor da sua preferência</a>.'
           - html: 'Funcionalidade de restauro geográfico permite-lhe <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar a base de dados para outro Datacenter com o PowerShell</a>.'
           - html: '(Pré-visualização) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Voltar a criar remover bases de dados com o PowerShell</a>'
@@ -96,7 +96,7 @@ sections:
             title: PowerShell
           - image:
               src: media/index/logo_arm.svg
-            title: Modelo do Azure Resource Manager
+            title: Modelo Azure Resource Manager
         rows:
           - title: Criar uma nova instância
             values:

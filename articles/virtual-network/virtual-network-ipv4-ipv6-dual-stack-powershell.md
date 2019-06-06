@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 5ef051f42f3d092cc1d88008eaa8af981684ac6c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001001"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730047"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Implementar uma aplicação de pilha dupla de IPv6 no Azure - PowerShell (pré-visualização)
 
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como implementar uma aplicação de pilha dupla (IPv4 + I
 > [!Important]
 > Suporte de IPv6 para a rede Virtual do Azure está atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o Azure PowerShell versão do módulo 6.9.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
@@ -149,7 +149,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Criar balanceador de carga
+### <a name="create-load-balancer"></a>Criar um balanceador de carga
 
 Criar o Balanceador de carga básico com [novo AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um básica Balanceador de carga público com o nome *myLoadBalancer* usando o IP de front-end IPv4 e IPv6 configurações, conjuntos de back-end e regras de balanceamento de carga que criou nos passos anteriores:
 

@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 05/30/2019
+ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
+ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159288"
+ms.lasthandoff: 06/01/2019
+ms.locfileid: "66455612"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de Stream como entrada para o Stream Analytics
 
 Stream Analytics tem integração de classe empresarial com fluxos de dados do Azure como entradas dentre três tipos de recursos:
+
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) 
 - [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
@@ -26,22 +26,26 @@ Stream Analytics tem integração de classe empresarial com fluxos de dados do A
 Estes recursos de entrada podem residir na mesma subscrição do Azure que a tarefa de Stream Analytics ou numa subscrição diferente.
 
 ### <a name="compression"></a>Compressão
-Stream Analytics suporta a compressão em origens de entrada todos os dados stream. Os tipos de compressão atualmente suportados são: Nenhum, GZip e Deflate compressão. Suporte para compressão não está disponível para os dados de referência. Se o formato de entrada é dados Avro são compactados, ele é tratado de forma transparente. Não tem de especificar o tipo de compactação com a serialização do Avro. 
+
+Stream Analytics suporta a compressão em origens de entrada todos os dados stream. Os tipos de compressão suportados são: Nenhum, GZip e Deflate compressão. Suporte para compressão não está disponível para os dados de referência. Se o formato de entrada é dados Avro são compactados, ele é tratado de forma transparente. Não tem de especificar o tipo de compactação com a serialização do Avro. 
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou entradas de teste
-Pode utilizar o [portal do Azure](https://portal.azure.com) ao [criar novas entradas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input) e ver ou editar entradas existentes na sua tarefa de transmissão em fluxo. Também pode testar ligações de entrada e [testar consultas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) de dados de exemplo. Quando escreve uma consulta, apresentará uma lista de entrada na cláusula FROM. Pode obter a lista de entradas de disponíveis dos **consulta** página no portal. Se pretender utilizar várias entradas, pode `JOIN` -los ou escrever várias `SELECT` consultas.
+
+Pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), e [Visual Studio Code](quick-create-vs-code.md) para adicionar e ver ou editar entradas existentes na sua tarefa de transmissão em fluxo. Também pode testar ligações de entrada e [testar consultas](stream-analytics-manage-job.md#test-your-query) de dados de exemplo do portal do Azure [Visual Studio](stream-analytics-vs-tools-local-run.md), e [Visual Studio Code](vscode-local-run.md). Quando escreve uma consulta, lista a entrada na cláusula FROM. Pode obter a lista de entradas de disponíveis dos **consulta** página no portal. Se pretender utilizar várias entradas, pode `JOIN` -los ou escrever várias `SELECT` consultas.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Transmitir dados a partir dos Hubs de Eventos
 
-Os Hubs de eventos do Azure fornece altamente dimensionável ingestors de eventos de publicação-subscrição. Um hub de eventos pode recolher milhões de eventos por segundo, para que possa processar e analisar enormes quantidades de dados produzidos pelos seus dispositivos e aplicações ligados. Juntos, os Hubs de eventos e Stream Analytics proporcionam uma solução de ponto-a-ponto para análise em tempo real. Os Hubs de eventos permite-lhe o feed de eventos para o Azure em tempo real, e as tarefas do Stream Analytics podem processar esses eventos em tempo real. Por exemplo, pode enviar cliques da web, as leituras dos sensores ou online de registo de eventos para Hubs de eventos. Em seguida, pode criar tarefas do Stream Analytics para utilizar os Hubs de eventos como os fluxos de dados de entrada para em tempo real filtrar, Agregar e correlação.
+Os Hubs de eventos do Azure fornece altamente dimensionável ingestors de eventos de publicação-subscrição. Um hub de eventos pode recolher milhões de eventos por segundo para que possa processar e analisar enormes quantidades de dados produzidos pelos seus dispositivos e aplicações ligados. Juntos, os Hubs de eventos e Stream Analytics proporcionam uma solução de ponto-a-ponto para análise em tempo real. Os Hubs de eventos permite-lhe o feed de eventos para o Azure em tempo real, e as tarefas do Stream Analytics podem processar esses eventos em tempo real. Por exemplo, pode enviar cliques da web, as leituras dos sensores ou online de registo de eventos para Hubs de eventos. Em seguida, pode criar tarefas do Stream Analytics para utilizar os Hubs de eventos como os fluxos de dados de entrada para em tempo real filtrar, Agregar e correlação.
 
 `EventEnqueuedUtcTime` é o carimbo de hora da chegada de um evento num hub de eventos e o carimbo de hora padrão de eventos provenientes dos Hubs de eventos para o Stream Analytics. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) palavra-chave.
 
-### <a name="consumer-groups"></a>Grupos de consumidores
-Deve configurar cada hub de eventos do Stream Analytics para ter seu próprio grupo de consumidores de entrada. Quando uma tarefa contém uma associação automática ou tem várias entradas, algumas entradas pode ser lidos por mais do que um leitor de downstream. Esta situação afeta o número de leitores num grupo de consumidor. Para evitar exceder o limite de Hubs de eventos de cinco de leitores por grupo de consumidor por partição, é recomendável designar um grupo de consumidores para cada tarefa do Stream Analytics. Também existe um limite de 20 grupos de consumidores do hub de eventos. Para obter mais informações, consulte [entradas de resolver problemas relacionados com o Azure Stream Analytics](stream-analytics-troubleshoot-input.md).
+### <a name="event-hubs-consumer-groups"></a>Grupos de consumidores de Hubs de eventos
 
-### <a name="stream-data-from-event-hubs"></a>Transmitir dados a partir dos Hubs de Eventos
+Deve configurar cada hub de eventos do Stream Analytics para ter seu próprio grupo de consumidores de entrada. Quando uma tarefa contém uma associação automática ou tem várias entradas, algumas entradas pode ser lidos por mais do que um leitor de downstream. Esta situação afeta o número de leitores num grupo de consumidor. Para evitar exceder o limite de Hubs de eventos de cinco de leitores por grupo de consumidor por partição, é recomendável designar um grupo de consumidores para cada tarefa do Stream Analytics. Também existe um limite de 20 grupos de consumidores para um hub de eventos do escalão Standard. Para obter mais informações, consulte [entradas de resolver problemas relacionados com o Azure Stream Analytics](stream-analytics-troubleshoot-input.md).
+
+### <a name="create-an-input-from-event-hubs"></a>Criar uma entrada a partir dos Hubs de eventos
+
 A tabela seguinte explica cada propriedade no **nova entrada** página no portal do Azure para entrada de dados de fluxo de um hub de eventos:
 
 | Propriedade | Descrição |
@@ -79,14 +83,17 @@ FROM Input
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Dados de Stream do IoT Hub
-O Iot Hub do Azure é altamente escaláveis de publicação-subscrição ingestor de eventos otimizado para cenários de IoT.
+
+O IoT Hub do Azure é altamente escaláveis de publicação-subscrição ingestor de eventos otimizado para cenários de IoT.
 
 O carimbo de hora padrão de eventos provenientes de um IoT Hub no Stream Analytics é o carimbo de hora a que o evento chegou no IoT Hub, que é `EventEnqueuedUtcTime`. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) palavra-chave.
 
-### <a name="consumer-groups"></a>Grupos de consumidores
+### <a name="iot-hub-consumer-groups"></a>Grupos de consumidores do Hub de IOT
+
 Deve configurar cada IoT Hub do Stream Analytics para ter seu próprio grupo de consumidores de entrada. Quando uma tarefa contém uma associação automática, ou quando tem várias entradas, alguma entrada pode ser lidos por mais do que um leitor de downstream. Esta situação afeta o número de leitores num grupo de consumidor. Para evitar exceder o limite do IoT Hub do Azure de cinco de leitores por grupo de consumidor por partição, é recomendável designar um grupo de consumidores para cada tarefa do Stream Analytics.
 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Configurar um IoT Hub como um fluxo de dados de entrada
+
 A tabela seguinte explica cada propriedade no **nova entrada** página no portal do Azure quando configurar um IoT Hub como um fluxo de entrada.
 
 | Propriedade | Descrição |
@@ -124,13 +131,10 @@ Processamento do registo é um cenário usado para usar entradas de armazenament
 
 O carimbo de hora padrão de eventos de armazenamento de BLOBs no Stream Analytics é o período de tempo que o blob foi modificado pela última vez, que é `BlobLastModifiedUtcTime`. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) palavra-chave. Uma tarefa do Stream Analytics extrai dados da entrada de armazenamento de Blobs do Azure cada segundo se o arquivo de Blobs está disponível. Se o ficheiro blob não estiver disponível, há um término exponencial com um atraso de tempo máximo de 90 segundos.
 
-Entradas com formatação CSV *requerem* uma linha de cabeçalho para definir campos para o conjunto de dados e todos os campos de linha de cabeçalho tem de ser exclusiva.
-
-Stream Analytics não suporta atualmente a anular a serialização dos AVRO mensagens geradas pela captura de Hub de eventos ou ponto de extremidade personalizado do contentor de armazenamento do IoT Hub do Azure.
+Entradas com formatação CSV necessitam de uma linha de cabeçalho para definir os campos para o conjunto de dados e todos os campos de linha de cabeçalho tem de ser exclusivos.
 
 > [!NOTE]
 > Stream Analytics não suporta a adição de conteúdo a um arquivo de blob existente. Stream Analytics irão ver apenas uma vez cada arquivo e quaisquer alterações que ocorrem no ficheiro depois da tarefa tem de ler os dados não são processadas. É melhor prática carregar todos os dados para um ficheiro de BLOBs de uma só vez e, em seguida, adicionar outros eventos mais recentes para um arquivo de blob diferente, novo.
-> 
 
 Ao mesmo tempo a carregar um grande número de blobs pode fazer com que o Stream Analytics ignorar a ler alguns blobs em casos raros. Recomenda-se para carregar blobs, pelo menos, 2 segundos, outra para armazenamento de Blobs. Se esta opção não for viável, pode utilizar os Hubs de eventos para grandes volumes de fluxo de eventos. 
 

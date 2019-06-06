@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5701bb534d0fd0e25aab90f9d1035c96bb55c518
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724363"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476097"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Otimizar tarefas do Apache Spark
 
@@ -59,10 +59,10 @@ Quando cria um novo cluster do Spark, terá a opção de selecionar o armazename
 
 | Tipo de Store | Sistema de Ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
-| Armazenamento de Blobs do Azure | **wasb[s]:**//url/ | **Standard** | Sim | Cluster transitório |
-| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Mais rapidamente** | Sim | Cluster transitório |
-| Armazenamento do Azure Data Lake Ger 1| **adl:**//url/ | **Mais rapidamente** | Sim | Cluster transitório |
-| Local HDFS | **hdfs:**//url/ | **Fastest** | Não | Cluster do Interactive 24x7 |
+| Armazenamento de Blobs do Azure | **wasb:** //url/ | **Standard** | Sim | Cluster transitório |
+| Azure Data Lake Storage Gen 2| **abfs[s]:** //url/ | **Mais rapidamente** | Sim | Cluster transitório |
+| Armazenamento do Azure Data Lake Ger 1| **adl:** //url/ | **Mais rapidamente** | Sim | Cluster transitório |
+| Local HDFS | **hdfs:** //url/ | **Fastest** | Não | Cluster do Interactive 24x7 |
 
 ## <a name="use-the-cache"></a>Utilizar a cache
 
