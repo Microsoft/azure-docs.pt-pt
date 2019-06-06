@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: da7fe9310f50d2d2a3c247a410db204903d3412b
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64715879"
@@ -113,7 +113,7 @@ Construa uma chamada POST, como o mostrado aqui com as informações na tabela s
 | grant_type | refresh_token |
 | response_type | id_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| Recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* e *recurso* são os valores que apontou anteriormente como a ID da aplicação. *Refresh_token* é o token que recebeu na chamada de autenticação mencionada anteriormente.

@@ -9,18 +9,18 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 07b86138a95853673b5d54e272b40af41d58f418
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545061"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475956"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Início rápido: Preparar e visualize os dados sem escrever código no Azure Machine Learning
 
-Prepare e visualize os seus dados na interface visual de arrastar e soltar (pré-visualização) para o Azure Machine Learning. Os dados que usará incluem entradas para vários automóveis individuais, incluindo informações como a marca, modelo, as especificações técnicas e preço.  
+Prepare e visualize os seus dados na interface visual de arrastar e soltar (pré-visualização) para o Azure Machine Learning. Os dados que usará incluem entradas para vários automóveis individuais, incluindo informações como a marca, modelo, as especificações técnicas e preço. Depois de concluir este início rápido, estará pronto para utilizar estes dados para prever o preço de um automóvel. 
 
-Neste início rápido irá explorar e preparar dados:
+Antes de preparar um modelo de machine learning, terá de compreender e preparar os dados.  Neste início rápido irá:
 
 - Criar a sua primeira experiência para adicionar e pré-visualizar dados
 - Preparar os dados ao remover valores em falta
@@ -66,7 +66,7 @@ A ferramenta de visual interface fornece um ponto de partida interativo e visual
 
 ## <a name="add-data"></a>Adicionar dados
 
-A primeira coisa que precisa para machine learning é os dados. Existem vários conjuntos de dados exemplo incluídos nesta interface que pode utilizar, ou pode importar dados a partir de várias origens. Neste exemplo, vai utilizar o conjunto de dados de exemplo **dados de preço do automóvel (bruto)**. 
+A primeira coisa que precisa para machine learning é os dados. Existem vários conjuntos de dados exemplo incluídos nesta interface que pode utilizar, ou pode importar dados a partir de várias origens. Neste exemplo, vai utilizar o conjunto de dados de exemplo **dados de preço do automóvel (bruto)** . 
 
 1. À esquerda da tela da experimentação existe uma paleta de conjuntos de dados e módulos. Selecione **conjuntos de dados guardado** , em seguida, selecione **exemplos** para ver os conjuntos de dados de exemplo disponíveis.
 
@@ -131,7 +131,7 @@ Agora que tem de executar a experimentação inicial, pode visualizar os dados p
 
      ![Os dados de pré-visualização](./media/ui-quickstart-run-experiment/preview-data.gif)
 
-1. Clique em cada coluna para saber mais sobre o conjunto de dados.
+1. Clique em cada coluna para saber mais sobre o conjunto de dados e pensar se estas colunas serão úteis para prever o preço de um automóvel.
 
 ## <a name="prepare-data"></a>Preparar dados
 
@@ -176,7 +176,7 @@ Primeiro, remova os **normalized-losses** coluna completamente.
 
 ### <a name="clean-missing-data"></a>Apagar dados em falta
 
-Agora, adicione outro módulo que remove todas as linhas restantes que tenham dados em falta.
+Quando preparar um modelo, terá de fazer algo sobre os dados que estão em falta.  Neste caso, adicionará um módulo para remover todas as linhas restantes que tenham dados em falta.  
 
 1. Tipo **Clean** na caixa de pesquisa para localizar o **Clean Missing Data** módulo.
 
@@ -216,7 +216,7 @@ Uma vez que as alterações que efetuou para os módulos na sua experimentação
 
     Existem agora 193 linhas e colunas de 25.
 
-    Quando clica em **NÚM. de portas** verá que ele ainda tem 2 valores exclusivos, mas agora tem 0 valor em falta.  
+    Quando clica em **NÚM. de portas** verá que ele ainda tem 2 valores exclusivos, mas agora tem 0 valor em falta. Clique no resto das colunas para ver que existem não existem valores em falta no conjunto de dados. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -228,7 +228,7 @@ Neste início rápido, aprendeu a:
 
 - Criar a sua primeira experiência para adicionar e pré-visualizar dados
 - Preparar os dados ao remover valores em falta
-- Visualizar os dados resultantes
+- Visualizar os dados preparados
 
 Avance para o tutorial para utilizar estes dados para prever o preço de um automóvel.
 

@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d7c0f19d6680eef7492faaaab0d45e0c70011f01
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773218"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428072"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início rápido: Implementar uma aplicação de reliable services .NET para o Service Fabric
 
@@ -33,7 +33,7 @@ Este início rápido mostra como implementar a sua primeira aplicação .NET no 
 Com esta aplicação, vai aprender a:
 
 * Criar uma aplicação com .NET e o Service Fabric
-* Utilizar o ASP.NET Core como um front-end da Web
+* Utilizar o ASP.NET core como um front-end da web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
 * Aumentar horizontalmente a aplicação em vários nós
@@ -43,8 +43,8 @@ Com esta aplicação, vai aprender a:
 
 Para concluir este guia de início rápido:
 
-1. [Instale o Visual Studio 2017](https://www.visualstudio.com/) com as cargas de trabalho de **desenvolvimento no Azure** e **desenvolvimento na Web e em ASP.NET**.
-2. [Instale o Git](https://git-scm.com/)
+1. [Instalar o Visual Studio 2019](https://www.visualstudio.com/) com o **desenvolvimento do Azure** e **desenvolvimento na web e ASP.NET** cargas de trabalho.
+2. [Instalar o Git](https://git-scm.com/)
 3. [Instale o SDK do Microsoft Azure Service Fabric](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Execute o comando seguinte para permitir que o Visual Studio implemente no cluster do Service Fabric local:
 
@@ -87,11 +87,11 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="run-the-application-locally"></a>Executar a aplicação localmente
 
-Clique com o botão direito do rato no ícone do Visual Studio, no Menu Iniciar, e escolha **Executar como administrador**. Para ligar o depurador aos seus serviços, tem de executar o Visual Studio como administrador.
+Clique com o botão direito do rato no ícone do Visual Studio, no Menu Iniciar, e escolha **Executar como administrador**. Para anexar o depurador aos seus serviços, terá de executar o Visual Studio como administrador.
 
 Abra a solução **Voting.sln** do Visual Studio no repositório que clonou.
 
-Por predefinição, a aplicação de votação escuta na porta 8080.  A porta da aplicação está definida no ficheiro */VotingWeb/PackageRoot/ServiceManifest.xml*.  Pode atualizar o atributo **Port** do elemento **Endpoint** para alterá-la.  Para implementar e executar a aplicação localmente, a porta da aplicação tem de estar aberta e disponível no seu computador.  Se alterar a porta, substitua o valor da porta nova da aplicação por “8080” ao longo deste artigo.
+Por predefinição, a aplicação de votação escuta na porta 8080.  A porta da aplicação está definida no ficheiro */VotingWeb/PackageRoot/ServiceManifest.xml*.  Pode atualizar o atributo **Port** do elemento **Endpoint** para alterá-la.  Para implementar e executar a aplicação localmente, a porta da aplicação tem de estar aberta e disponível no seu computador.  Se alterar a porta da aplicação, substitua o novo valor de porta de aplicação por "8080" ao longo deste artigo.
 
 Para implementar a aplicação, prima **F5**.
 
@@ -123,7 +123,7 @@ Quando vota na aplicação, ocorrem os seguintes eventos:
 
 ## <a name="debug-in-visual-studio"></a>Depurar no Visual Studio
 
-A aplicação deve estar em execução OK, mas pode utilizar o depurador para ver como as partes das chaves do trabalho de aplicação. Ao depurar a aplicação no Visual Studio, vai utilizar um cluster de desenvolvimento local do Service Fabric. Tem a opção de ajustar a sua experiência de depuração para o seu cenário. Nesta aplicação, os dados são armazenados no serviço de back-end através de um dicionário fiável. O Visual Studio remove a aplicação por predefinição, quando para o depurador. Remover a aplicação faz com que os dados no serviço de back-end sejam também removidos. Para persistir os dados entre as sessões de depuração, pode alterar o **Modo de Depuração da Aplicação** como propriedade no projeto **Voting** no Visual Studio.
+A aplicação deve estar em execução OK, mas pode utilizar o depurador para ver como as partes das chaves do trabalho de aplicação. Ao depurar o aplicativo no Visual Studio, que está a utilizar um cluster de desenvolvimento do Service Fabric local. Pode ajustar a sua experiência de depuração para o seu cenário. Nesta aplicação, os dados são armazenados no serviço de back-end através de um dicionário fiável. O Visual Studio remove a aplicação por predefinição, quando para o depurador. Remover a aplicação faz com que os dados no serviço de back-end sejam também removidos. Para persistir os dados entre as sessões de depuração, pode alterar o **Modo de Depuração da Aplicação** como propriedade no projeto **Voting** no Visual Studio.
 
 Para ver o que acontece no código, conclua os passos seguintes:
 
@@ -132,23 +132,23 @@ Para ver o que acontece no código, conclua os passos seguintes:
 2. Abra o ficheiro **/VotingData/Controllers/VoteDataController.cs** e defina um ponto de interrupção no método **Put** desta API Web (linha 54).
 
 3. Regresse ao browser e clique numa opção de votação ou adicione uma opção nova. Atingiu o primeiro ponto de interrupção no controlador de API do front-end da Web.
-   * É aqui que o JavaScript no browser envia um pedido para o controlador de API Web no serviço do front-end.
+   * Este passo é onde o JavaScript no browser envia um pedido para o controlador da API web no serviço de front-end.
 
      ![Adicionar Serviço de Front-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-   * Primeiro, construa o URL para o ReverseProxy para o nosso serviço de back-end **(1)**.
-   * Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)**.
-   * Por último, devolva a resposta do serviço de back-end para o cliente **(3)**.
+   * Primeiro, construa o URL para o ReverseProxy para o nosso serviço de back-end **(1)** .
+   * Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)** .
+   * Por último, devolva a resposta do serviço de back-end para o cliente **(3)** .
 
 4. Prima **F5** para continuar
    - Se lhe for pedido pelo browser, conceda permissões para o Modo de Depuração de leitura e execução ao grupo ServiceFabricAllowedUsers.
-   - Está agora no ponto de interrupção do serviço de back-end.
+   - Está agora no ponto de interrupção no serviço de back-end.
 
      ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-   - Na primeira linha no método **(1)**, `StateManager` obtém ou adiciona um dicionário fiável chamado `counts`.
+   - Na primeira linha no método **(1)** , `StateManager` obtém ou adiciona um dicionário fiável chamado `counts`.
    - Todas as interações com os valores num dicionário fiável requer uma transação; a utilização da declaração **(2)** cria essa transação.
-   - Na transação, atualize o valor da chave relevante para a opção de votação e consolide a operação **(3)**. Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
+   - Na transação, atualize o valor da chave relevante para a opção de votação e consolide a operação **(3)** . Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
 5. Prima **F5** para continuar
 
 Para parar a sessão de depuração, prima **Shift + F5**.
@@ -188,7 +188,7 @@ Para atualizar a aplicação, faça o seguinte:
 Neste início rápido, aprendeu a:
 
 * Criar uma aplicação com .NET e o Service Fabric
-* Utilizar o ASP.NET Core como um front-end da Web
+* Utilizar o ASP.NET core como um front-end da web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
 * Aumentar horizontalmente a aplicação em vários nós

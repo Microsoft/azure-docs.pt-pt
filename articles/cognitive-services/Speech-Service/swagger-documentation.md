@@ -1,7 +1,7 @@
 ---
 title: Documentação - serviços de voz do swagger
 titleSuffix: Azure Cognitive Services
-description: A documentação de Swagger pode ser utilizada para gerar automaticamente SDks para várias linguagens de programação. Todas as operações no nosso serviço são suportadas pelo Swagger
+description: A documentação de Swagger pode ser utilizada para gerar automaticamente SDKs para várias linguagens de programação. Todas as operações no nosso serviço são suportadas pelo Swagger
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 04/12/2019
 ms.author: erhopf
-ms.openlocfilehash: 29fcbd058651c428b488f5ce1c767105cb7921a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461668"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743210"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
 
@@ -26,7 +26,7 @@ Os serviços de voz oferecem uma especificação do Swagger para interagir com u
 
 ## <a name="generating-code-from-the-swagger-specification"></a>A geração de código a especificação do Swagger
 
-O [especificação do Swager](https://cris.ai/swagger/ui/index) tem opções que permitem que teste rapidamente para vários caminhos. No entanto, às vezes, é desejável para gerar o código para todos os caminhos, criação de uma única biblioteca de chamadas pode basear soluções futuras. Vamos dar uma olhada no processo para gerar uma biblioteca de Python.
+O [especificação do Swagger](https://cris.ai/swagger/ui/index) tem opções que permitem que teste rapidamente para vários caminhos. No entanto, às vezes, é desejável para gerar o código para todos os caminhos, criação de uma única biblioteca de chamadas pode basear soluções futuras. Vamos dar uma olhada no processo para gerar uma biblioteca de Python.
 
 Terá de definir o Swagger para a mesma região que a sua subscrição do serviço de voz. Pode confirmar a sua região no portal do Azure em seu recurso de serviços de voz. Para obter uma lista completa de regiões suportadas, consulte [regiões](regions.md).
 

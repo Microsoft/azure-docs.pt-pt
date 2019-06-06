@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 513d3931c31ca94b4089139992bceb6f679caa98
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 04db0232e14ccac7938d7062d77c36a54526489c
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467707"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730475"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Início rápido: Criar um balanceador de carga Standard com o Azure PowerShell
 
@@ -29,7 +29,7 @@ Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 5.4.1 ou posterior do módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
@@ -129,7 +129,7 @@ $natrule3 = New-AzLoadBalancerInboundNatRuleConfig `
   -BackendPort 3389
 ```
 
-### <a name="create-load-balancer"></a>Criar balanceador de carga
+### <a name="create-load-balancer"></a>Criar um balanceador de carga
 
 Criar o Balanceador de carga Standard com [novo AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um Standard Balanceador de carga público com o nome myLoadBalancer usando a configuração de IP Front-end, conjunto de back-end, a sonda de estado de funcionamento, a regra de balanceamento de carga e regras NAT que criou nos passos anteriores:
 

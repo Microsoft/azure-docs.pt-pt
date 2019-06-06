@@ -38,10 +38,6 @@
       items:
         - name: Enviar notificações push com o Baidu Cloud Push
           href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      items:
-        - name: Enviar notificações push para aplicações do Chrome
-          href: notification-hubs-chrome-push-notifications-get-started.md
     - name: iOS
       items:
         - name: Enviar notificações push para aplicações iOS

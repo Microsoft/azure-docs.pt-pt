@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 14793d7f787780bfc8604e4af11eb05f1ff0d937
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8c82e3d2c978a7980d02bc686346acdcb21dd591
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170532"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425729"
 ---
 |  | **Ponto a Site** | **Site a Site** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Serviços Suportados pelo Azure** |Cloud Services e Virtual Machines |Cloud Services e Virtual Machines |[Lista de serviços](../articles/expressroute/expressroute-faqs.md#supported-services) |
 | **Larguras de banda típicas** |Com base no SKU de gateway |Normalmente, < 1 Gbps agregado |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
-| **Protocolos Suportados** |Secure Sockets Tunneling Protocol (SSTP) e IPsec |IPsec |Ligação direta por VLANs, tecnologias VPN do NSP (MPLS, VPLS,...) |
+| **Protocolos Suportados** |Secure Sockets Tunneling Protocol (SSTP), OpenVPN e IPsec |IPsec |Ligação direta por VLANs, tecnologias VPN do NSP (MPLS, VPLS,...) |
 | **Encaminhamento** |RouteBased (dinâmico) |Suportamos o roteamento PolicyBased (encaminhamento estático) e RouteBased (VPN de encaminhamento dinâmico) |BGP |
 | **Resiliência de ligação** |ativa-passiva |ativa-passiva ou ativa-ativa |ativa-ativa |
 | **Caso de utilização típica** |Criar protótipos, cenários de desenvolvimento/teste/laboratório para serviços em nuvem e máquinas virtuais |Cenários de desenvolvimento/teste/laboratório e cargas de trabalho de produção de pequena escala para serviços em nuvem e máquinas virtuais |Acesso a todos os serviços do Azure (lista validada), Cargas de trabalho de classe empresarial fundamentais, Cópia de segurança, Macrodados, Azure como um site de DR |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa653ecf306f5ac5eefaddd61d98e81f919876d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513311"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734597"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
@@ -65,7 +65,7 @@ A associação do Azure AD híbrido requer que os dispositivos tenham acesso aos
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (Se estiver a utilizar ou planear utilizar o SSO totalmente integrado)
 
-Se sua organização necessita de acesso à Internet através de um proxy de saída, a Microsoft recomenda [implementando Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir que os computadores Windows 10 fazer o registo de dispositivos com o Azure AD. Se tiver problemas com a com a configuração e gestão WPAD, aceda a [a deteção automática de resolução de problemas] (https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10). 
+Se sua organização necessita de acesso à Internet através de um proxy de saída, a Microsoft recomenda [implementando Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir que os computadores Windows 10 fazer o registo de dispositivos com o Azure AD. Se tiver problemas com a com a configuração e gestão WPAD, aceda a [resolução de problemas de deteção automática](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Se não estiver a utilizar o WPAD e tem de configurar as definições de proxy no seu computador, pode fazer por isso, a partir do Windows 10 1709, por [configurar definições de WinHTTP usando um objeto de política de grupo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -158,7 +158,7 @@ Para verificar o estado de registo do dispositivo no seu inquilino do Azure, pod
 
 Ao utilizar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
-- Um objeto com o **id de dispositivo** que corresponde ao id do Windows cliente tem de existir.
+- Um objeto com o **ID de dispositivo** que corresponde ao ID do Windows cliente tem de existir.
 - O valor de **DeviceTrustType** tem de ser **Associados a um domínio**. Isto é equivalente ao estado **Associado ao Azure AD híbrido** na página Dispositivos no portal do Azure AD.
 - O valor de **Ativado** tem de ser **Verdadeiro** e **DeviceTrustLevel** para ser **Gerido** para dispositivos que são utilizados no acesso condicional.
 

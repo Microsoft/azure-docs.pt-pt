@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Desenvolvimento em equipe Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 74ed1981ba6bf62413d7d7bfd51282eb04afd403
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e9f9198f8e086bee6c6b02b67ae7dd9cf523416c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393390"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480372"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Desenvolvimento em equipa no Kubernetes através dos espaços de desenvolvimento do Azure
 
@@ -92,6 +92,8 @@ cd charts/
 helm init --wait
 helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
 ```
+> [!Note]
+> **Se estiver a utilizar um cluster habilitados no RBAC**, certifique-se de que configurar [uma conta de serviço para Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Caso contrário, `helm` comandos irão falhar.
 
 O `helm install` comando pode demorar vários minutos a concluir. O resultado do comando mostra o estado de todos os serviços que ele implementada no cluster quando concluída:
 

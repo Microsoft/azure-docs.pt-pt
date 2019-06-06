@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714280"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688727"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -32,7 +32,7 @@ O Azure Backup fornece estas principais vantagens:
     - Se efetuar uma cópia de segurança inicial offline usando o serviço importar/exportar do Azure para importar grandes quantidades de dados, há um custo associado a dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md).
 - **Manter os dados seguros**: O Azure Backup fornece soluções para proteger os dados em trânsito e em inatividade.
 - **Obter cópias de segurança consistente com a aplicação**: Uma cópia de segurança consistentes com aplicações significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de segurança. O Azure Backup fornece cópias de segurança consistentes com as aplicações, o que garante que não são necessárias correções adicionais para restaurar os dados. Restaurar dados consistentes com as aplicações reduz o tempo de restauro, permitindo-lhe voltar rapidamente a um estado de execução.
-- **Manter os dados de curtos e longo prazo**: Pode utilizar cofres dos serviços de recuperação para a retenção de dados de curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Puderem mantê-lo para o tempo que pretender. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida. [Saiba mais](backup-introduction-to-azure-backup.md#backup-and-retention)sobre como este limite afeta a suas necessidades de cópia de segurança.
+- **Manter os dados de curtos e longo prazo**: Pode utilizar cofres dos serviços de recuperação para a retenção de dados de curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Puderem mantê-lo para o tempo que pretender. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida. 
 - **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com o Azure Backup, não existe nenhum custo para a utilização de dispositivos de armazenamento no local. O Azure Backup atribui automaticamente e gere o armazenamento de cópia de segurança e utiliza um modelo de pay-as que use, para que só paga o armazenamento que consumir. [Saiba mais](https://azure.microsoft.com/pricing/details/backup) sobre os preços.
 - **Várias opções de armazenamento** -cópia de segurança do Azure oferece dois tipos de replicação para manter os seus dados/armazenamento altamente disponíveis.
     - [Armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy-lrs.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num Data Center. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
@@ -109,6 +109,25 @@ Saiba mais sobre [funciona como cópia de segurança](backup-architecture.md#arc
 **Eu quero fazer cópias de segurança de aplicações em execução no local** | Para cópias de segurança de aplicação com suporte para máquinas têm de ser protegidas pelo DPM ou MABS.
 **Quero granulares e flexíveis cópia de segurança e recuperação definições para as VMs do Azure** | Protege VMs do Azure com o MABS/DPM em execução no Azure para flexibilidade adicional de agendamento de cópia de segurança e total flexibilidade para proteger e restaurar ficheiros, pastas, volumes, aplicações e estado do sistema.
 
+## <a name="backup-and-retention"></a>Cópia de segurança e retenção
+
+O Azure Backup tem um limite de 9999 pontos de recuperação, também conhecidos como cópias de segurança ou instantâneos de cópia de segurança, por *nstância protegida*.
+
+- Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho configurados para criar cópias de segurança para o Azure. Uma instância está protegida depois de uma cópia de segurança de dados ter sido guardada.
+- A cópia de segurança de dados é a proteção. Se a origem de dados fosse perdida ou tivesse sido danificada, a cópia de segurança poderia restaurar os dados de origem.
+
+A tabela seguinte mostra a frequência de cópia de segurança máxima de cada componente. A configuração de política de cópia de segurança determina quão rapidamente pode consumir os pontos de recuperação. Por exemplo, se criar um ponto de recuperação por dia, pode manter os pontos de recuperação durante 27 anos antes de os esgotar. Se criar um ponto de recuperação por mês, pode manter os pontos de recuperação durante 833 anos antes de os esgotar. O serviço do Backup não define um limite de tempo de expiração para um ponto de recuperação.
+
+|  | Agente do Backup do Azure | System Center DPM | Servidor do Backup do Azure | Cópia de segurança da VM do IaaS do Azure |
+| --- | --- | --- | --- | --- |
+| Frequência de cópia de segurança<br/> (para o cofre dos Serviços de Recuperação) |Três cópias de segurança por dia |Duas cópias de segurança por dia |Duas cópias de segurança por dia |Uma cópia de segurança por dia |
+| Frequência de cópia de segurança<br/> (para o disco) |Não aplicável |A cada 15 minutos para o SQL Server<br/><br/> A cada hora para outras cargas de trabalho |A cada 15 minutos para o SQL Server<br/><br/> A cada hora para outras cargas de trabalho |Não aplicável |
+| Opções de retenção |Diariamente, semanalmente, mensalmente, anualmente |Diariamente, semanalmente, mensalmente, anualmente |Diariamente, semanalmente, mensalmente, anualmente |Diariamente, semanalmente, mensalmente, anualmente |
+| Número máximo de pontos de recuperação por instância protegida |9999|9999|9999|9999|
+| Período de retenção máximo |Depende da frequência da cópia de segurança |Depende da frequência da cópia de segurança |Depende da frequência da cópia de segurança |Depende da frequência da cópia de segurança |
+| Pontos de recuperação no disco local |Não aplicável | 64 para servidores de ficheiros<br/><br/> 448 para Servidores de Aplicações | 64 para servidores de ficheiros<br/><br/> 448 para Servidores de Aplicações |Não aplicável |
+| Pontos de recuperação em banda |Não aplicável |Ilimitado |Não aplicável |Não aplicável |
+
 ## <a name="how-does-azure-backup-work-with-encryption"></a>Como funciona a cópia de segurança do Azure com a encriptação?
 
 **Encriptação** | **Criar cópias de segurança no local** | **Fazer cópia de segurança de VMs do Azure** | **Criar cópias de segurança SQL em VMs do Azure**
@@ -119,7 +138,7 @@ Encriptação em trânsito<br/> (Encriptação de dados a mover de uma localiza�
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Revisão](backup-architecture.md) a arquitetura e componentes para diferentes cenários de cópia de segurança.
-- [Certifique-se de](backup-support-matrix.md) suportado recursos e configurações para cópia de segurança.
+- [Certifique-se](backup-support-matrix.md) suporte os requisitos e limitações para cópia de segurança e para [cópia de segurança de VM do Azure](backup-support-matrix-iaas.md).
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

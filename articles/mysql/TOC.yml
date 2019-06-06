@@ -81,6 +81,8 @@
           href: concepts-data-access-and-security-threat-protection.md
         - name: VNet
           href: concepts-data-access-and-security-vnet.md
+        - name: Arquitetura de conectividade
+          href: concepts-connectivity-architecture.md
     - name: Continuidade do negócio
       items:
         - name: Descrição geral

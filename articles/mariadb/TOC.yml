@@ -51,6 +51,8 @@
           href: concepts-ssl-connection-security.md
         - name: VNet
           href: concepts-data-access-security-vnet.md
+        - name: Arquitetura de conectividade
+          href: concepts-connectivity-architecture.md
     - name: Continuidade do negócio
       items:
         - name: Descrição geral

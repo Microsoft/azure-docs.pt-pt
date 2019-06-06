@@ -4,16 +4,16 @@ description: Este início rápido mostra como começar ao criar uma tarefa do St
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123618"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493359"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início rápido: Criar uma tarefa de Stream Analytics com o portal do Azure
 
@@ -40,7 +40,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
    |Subscrição  | \<A sua subscrição\> |  Selecione a subscrição do Azure que pretende utilizar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
    |Região  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione uma localização geográfica onde pode alojar o seu IoT Hub. Utilize a localização mais próxima dos seus utilizadores. |
-   |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o seu IoT Hub.   |
+   |Nome do IoT Hub  | MyASAIoTHub  |   Selecione um nome para o seu IoT Hub.   |
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
@@ -82,7 +82,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
 
 2. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.  
 
-3. Selecione **Dados+Analytics** > **Tarefa do Stream Analytics** na lista de resultados.  
+3. Selecione **Analytics** > **tarefa do Stream Analytics** na lista de resultados.  
 
 4. Preencha a página da tarefa do Stream Analytics com as seguintes informações:
 
@@ -93,7 +93,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione o mesmo grupo de recursos como o seu IoT Hub. |
    |Location  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione a localização geográfica onde pode alojar a tarefa do Stream Analytics. Utilize a localização mais próxima dos seus utilizadores para um melhor desempenho e reduzir os custos de transferência de dados. |
    |Unidades de transmissão em fluxo  | 1  |   As unidades de transmissão em fluxo representam os recursos informáticos que são necessários para executar uma tarefa. Por predefinição, este valor está definido como 1. Para saber mais sobre o dimensionamento de unidades de transmissão em fluxo, veja o artigo [Compreender e ajustar as unidades de transmissão em fluxo](stream-analytics-streaming-unit-consumption.md).   |
-   |Ambiente de alojamento  |  Nuvem  |   As tarefas do Stream Analytics podem ser implementadas na cloud ou no Edge. A cloud permite-lhe implementar no Azure Cloud e o Edge permite-lhe implementar num dispositivo do IoT Edge. |
+   |Ambiente de alojamento  |  Nuvem  |   As tarefas do Stream Analytics podem ser implementadas na cloud ou no Edge. Cloud permite-lhe implementar no Azure Cloud e o Edge permite-lhe implementar um dispositivo IoT Edge. |
 
    ![Criar tarefa](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -187,7 +187,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, implementou uma tarefa simples do Stream Analytics com o portal do Azure. Também pode implementar tarefas do Stream Analytics com o [PowerShell](stream-analytics-quick-create-powershell.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
+Neste início rápido, implementou uma tarefa simples do Stream Analytics com o portal do Azure. Também pode implementar tarefas do Stream Analytics usando [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), e [Visual Studio Code](quick-create-vs-code.md).
 
 Para saber mais sobre como configurar outras origens de entrada e efetuar a deteção em tempo real, avance para o seguinte artigo:
 

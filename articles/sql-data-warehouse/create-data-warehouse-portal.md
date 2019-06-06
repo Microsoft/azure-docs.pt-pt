@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar e consultar o Azure SQL Data Warehouse - Portal do Azure | Documentos da Microsoft'
+title: 'Início rápido: Criar e consultar o Azure SQL Data Warehouse - portal do Azure | Documentos da Microsoft'
 description: Criar e consultar um armazém de dados com o Azure SQL Data Warehouse no portal do Azure.
 services: sql-data-warehouse
 author: XiaoyuL-Preview
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: development
-ms.date: 08/02/2018
+ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ee18a78aea67d0270b105f8703259b65c706d2e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.custom: sqlfreshmay19
+ms.openlocfilehash: 9072caf29be0ebf47207266b7313e989034c3a18
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66169264"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428043"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Criar e consultar um armazém de dados SQL do Azure no portal do Azure
 
@@ -81,7 +82,7 @@ Siga estes passos para criar um armazém de dados SQL que contenha os dados de e
 
 8. Clique em **Aplicar**.
 
-9. Agora que concluiu o formulário de armazém de dados SQL, clique em **criar** para aprovisionar a base de dados. O aprovisionamento demora alguns minutos. 
+9. Agora que concluiu o formulário de armazém de dados SQL, clique em **criar** para aprovisionar a base de dados. O aprovisionamento demora alguns minutos.
 
     ![clique em criar](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -91,31 +92,30 @@ Siga estes passos para criar um armazém de dados SQL que contenha os dados de e
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall ao nível do servidor
 
-O serviço SQL Data Warehouse cria uma firewall ao nível do servidor que impede que as aplicações e ferramentas externas estabeleçam uma ligação ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos. Siga estes passos para criar uma [regra de firewall ao nível do servidor](../sql-database/sql-database-firewall-configure.md) para o endereço IP do cliente. 
+O serviço de armazém de dados SQL cria uma firewall ao nível do servidor. Esta firewall impede que aplicações e ferramentas externas estabeleçam uma ligação ao servidor ou a quaisquer bases de dados no servidor. Para permitir a conectividade, pode adicionar regras de firewall que permitem a conectividade para endereços IP específicos. Siga estes passos para criar uma [regra de firewall ao nível do servidor](../sql-database/sql-database-firewall-configure.md) para o endereço IP do cliente.
 
 > [!NOTE]
 > O SQL Data Warehouse comunica através da porta 1433. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
 
-1. Depois de concluída a implementação, clique em **armazéns de dados SQL** no menu do lado esquerdo e clique em **mySampleDatabase** sobre o **armazéns de dados SQL** página. Abre a página de descrição geral da base de dados, que mostra o nome de servidor completamente qualificado (como **mynewserver-20180430.database.windows.net**) e oferece opções para configuração adicional. 
+1. Depois de concluída a implementação, selecione **todos os serviços** no menu esquerdo. Selecione **bases de dados**, selecione a estrela junto a **armazéns de dados SQL** adicionar armazéns de dados SQL aos seus favoritos.
+1. Selecione **armazéns de dados SQL** no menu do lado esquerdo e clique em **mySampleDatabase** sobre o **armazéns de dados SQL** página. Abre a página de descrição geral da base de dados, que mostra o nome de servidor completamente qualificado (como **mynewserver-20180430.database.windows.net**) e oferece opções para configuração adicional.
+1. Copie este nome de servidor completamente qualificado para utilizar para ligar ao seu servidor e respetivas bases de dados neste e noutros inícios rápidos. Para abrir as definições do servidor, clique no nome do servidor.
 
-2. Copie este nome de servidor totalmente qualificado para utilizar para ligar ao seu servidor e às respetivas bases de dados nos seguintes guias de introdução. Para abrir as definições do servidor, clique no nome do servidor.
+   ![localizar nome do servidor](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
-   ![localizar nome do servidor](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+1. Clique em **Mostrar definições da firewall**.
 
-3. Para abrir as definições do servidor, 
-4. clique no nome do servidor.
+   ![definições do servidor](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-   ![definições do servidor](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+1. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL.
 
-5. Clique em **Mostrar definições da firewall**. É aberta a página **Definições da firewall** do servidor da Base de Dados SQL. 
+   ![regra de firewall do servidor](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-   ![regra de firewall do servidor](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+1. Para adicionar o endereço IP atual a uma nova regra de firewall, clique em **Adicionar IP de cliente**. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
 
-4. Para adicionar o endereço IP atual a uma nova regra de firewall, clique em **Adicionar IP de cliente**. Uma regra de firewall consegue abrir a porta 1433 para um único endereço IP ou para um intervalo de endereços IP.
+1. Clique em **Guardar**. É criada uma regra de firewall ao nível do servidor para a sua porta de abertura 1433 do endereço IP atual no servidor lógico.
 
-5. Clique em **Guardar**. É criada uma regra de firewall ao nível do servidor para a sua porta de abertura 1433 do endereço IP atual no servidor lógico.
-
-6. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
+1. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
 
 Agora, pode ligar ao servidor SQL e aos respetivos armazéns de dados com este endereço IP. A ligação funciona a partir do SQL Server Management Studio ou de outra ferramenta à sua escolha. Ao ligar, utilize a conta ServerAdmin que criou anteriormente.
 
@@ -127,8 +127,8 @@ Agora, pode ligar ao servidor SQL e aos respetivos armazéns de dados com este e
 Obtenha o nome de servidor completamente qualificado para o servidor SQL no portal do Azure. Utilizará mais tarde o nome completamente qualificado quando ligar ao servidor.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Selecione **armazéns de dados SQL** partir do menu do lado esquerdo e, do armazém de dados no **datawarehouses do SQL** página. 
-3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome completamente qualificado é mynewserver-20180430.database.windows.net. 
+2. Selecione **armazéns de dados SQL** partir do menu do lado esquerdo e, do armazém de dados no **armazéns de dados SQL** página.
+3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome completamente qualificado é mynewserver-20180430.database.windows.net.
 
     ![informações da ligação](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -145,8 +145,8 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
    | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
    | Nome do servidor | O nome de servidor completamente qualificado | Eis um exemplo: **mynewserver-20180430.database.windows.net**. |
    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
-   | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
-   | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
+   | Iniciar sessão | A conta de administrador do servidor | Conta que especificou quando criou o servidor. |
+   | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Palavra-passe que especificou quando criou o servidor. |
    ||||
 
     ![ligar ao servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -183,12 +183,12 @@ O SQL Data Warehouse utiliza o T-SQL como linguagem de consulta. Para abrir uma 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Estão a ser-lhe cobradas as unidades do armazém de dados e os dados armazenados no mesmo. Estes recursos de computação e armazenamento são faturados em separado. 
+É-lhe a ser cobrado para unidades de armazém de dados e dados armazenados no mesmo. Estes recursos de computação e armazenamento são faturados em separado.
 
-- Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao interromper a computação, apenas lhe será cobrado o armazenamento de dados. Pode retomar a computação quando estiver preparado para trabalhar com os dados.
-- Se quiser remover futuras cobranças, pode eliminar o armazém de dados. 
+- Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao colocar em pausa a computação, é-lhe cobrado apenas para o armazenamento de dados. Pode retomar a computação quando estiver pronto para trabalhar com os dados.
+- Se quiser remover futuras cobranças, pode eliminar o armazém de dados.
 
-Siga estes passos para limpar os recursos conforme quiser.
+Siga estes passos para limpar os recursos que já não precisar.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) e clique no seu armazém de dados.
 
@@ -196,7 +196,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 2. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados está em pausa, verá uma **retomar** botão. Para retomar a computação, clique em **retomar**.
 
-3. Para remover o armazém de dados para não lhe ser cobrada a computação ou o armazenamento, clique em **Eliminar**.
+3. Para remover o armazém de dados para que não é cobrada para a computação ou o armazenamento, clique em **eliminar**.
 
 4. Para remover o servidor SQL que criou, clique em **mynewserver-20180430.database.windows.net** na imagem anterior e, em seguida, clique **eliminar**. Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
 
@@ -204,7 +204,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Criou um armazém de dados e uma regra de firewall, ligou ao armazém de dados e executou algumas consultas. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
+Acabou de criar um armazém de dados, criado uma regra de firewall, ligada ao seu armazém de dados e executar algumas consultas. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
 > [Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

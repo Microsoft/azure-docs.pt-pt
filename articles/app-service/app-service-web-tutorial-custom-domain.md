@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 962955a405d12365f69519b004ea8f95d529a97c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475547"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66742866"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
 
@@ -119,7 +119,7 @@ No exemplo do tutorial, vai adicionar um registo CNAME ao subdomínio `www` (por
 
 #### <a name="create-the-cname-record"></a>Criar o registo CNAME
 
-Adicione um registo CNAME para mapear um subdomínio para o nome de anfitrião predefinido da aplicação (`<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação).
+Adicione um registo CNAME para mapear um subdomínio para o nome de domínio predefinido da aplicação (`<app_name>.azurewebsites.net`, onde `<app_name>` é o nome da sua aplicação).
 
 No exemplo do domínio `www.contoso.com`, adicione um registo CNAME que mapeie o nome `www` para `<app_name>.azurewebsites.net`.
 
@@ -129,13 +129,13 @@ Depois de adicionar o CNAME, a página de registos DNS terá um aspeto semelhant
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Ativar o mapeamento de registos CNAME no Azure
 
-No painel de navegação esquerdo da página da aplicação no portal do Azure, selecione **Domínios personalizados**. 
+No painel de navegação esquerdo da página da aplicação no portal do Azure, selecione **Domínios personalizados**.
 
 ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 N página **Domínios personalizados** da aplicação, adicione o nome DNS personalizado completamente qualificado (`www.contoso.com`) à lista.
 
-Selecione o ícone **+** junto a **Adicionar nome de anfitrião**.
+Selecione o **+** ícone junto a **Adicionar domínio personalizado**.
 
 ![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -143,15 +143,15 @@ Escreva o nome de domínio completamente qualificado ao qual adicionou um regist
 
 Selecione **Validar**.
 
-A página **Adicionar nome do anfitrião** é apresentada. 
+O **Adicionar domínio personalizado** página é mostrada.
 
 Certifique-se de que **tipo de registo de nome de anfitrião** está definida como **CNAME (www\.example.com ou qualquer subdomínio)** .
 
-Selecione **Adicionar nome de anfitrião**.
+Selecione **Adicionar domínio personalizado**.
 
 ![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Poderá demorar algum tempo até que o nome de anfitrião novo seja refletido na página **Domínios personalizados** da aplicação. Experimente atualizar o browser para atualizar os dados.
+Poderá demorar algum tempo para o novo domínio personalizado sejam refletidas da aplicação **domínios personalizados** página. Experimente atualizar o browser para atualizar os dados.
 
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -191,7 +191,7 @@ Na página **Domínios personalizados**, copie o endereço IP da aplicação.
 Para mapear um registo A para uma aplicação, o Serviço de Aplicações requer **dois** registos DNS:
 
 - Um registo **A**, para mapear o endereço IP da aplicação.
-- Um registo **TXT**, para mapear para o nome de anfitrião predefinido da aplicação, `<app_name>.azurewebsites.net`. O Serviço de Aplicações utiliza este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Após a validação e configuração do domínio personalizado no Serviço de Aplicações, pode eliminar este registo TXT.
+- R **TXT** registo para mapear para o nome de domínio predefinido da aplicação `<app_name>.azurewebsites.net`. O Serviço de Aplicações utiliza este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Após a validação e configuração do domínio personalizado no Serviço de Aplicações, pode eliminar este registo TXT.
 
 No exemplo do domínio `contoso.com`, crie os registos A e TXT de acordo com a tabela seguinte (`@` representa, normalmente, o domínio de raiz).
 
@@ -219,23 +219,23 @@ Quando os registos estiverem adicionados, a página de registos DNS terá um asp
 
 Novamente na página **Domínios personalizados** da aplicação, no portal do Azure, adicione o nome DNS personalizado completamente qualificado (por exemplo, `contoso.com`) à lista.
 
-Selecione o ícone **+** junto a **Adicionar nome de anfitrião**.
+Selecione o **+** ícone junto a **Adicionar domínio personalizado**.
 
-![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
+![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Escreva o nome de domínio completamente qualificado para o qual configurou o registo A, como `contoso.com`.
 
 Selecione **Validar**.
 
-A página **Adicionar nome do anfitrião** é apresentada. 
+O **Adicionar domínio personalizado** página é mostrada.
 
 Confirme que o **Tipo de registo de nome de anfitrião** está definido como **Registo A (www.example.com)** .
 
-Selecione **Adicionar nome de anfitrião**.
+Selecione **Adicionar domínio personalizado**.
 
 ![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Poderá demorar algum tempo até que o nome de anfitrião novo seja refletido na página **Domínios personalizados** da aplicação. Experimente atualizar o browser para atualizar os dados.
+Poderá demorar algum tempo para o novo domínio personalizado sejam refletidas da aplicação **domínios personalizados** página. Experimente atualizar o browser para atualizar os dados.
 
 ![Registo A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
@@ -258,7 +258,7 @@ No exemplo do tutorial, vai mapear um [nome DNS com carateres universais](https:
 
 #### <a name="create-the-cname-record"></a>Criar o registo CNAME
 
-Adicione um registo CNAME para mapear um nome com carateres universais para o nome de anfitrião predefinido da aplicação (`<app_name>.azurewebsites.net`).
+Adicione um registo CNAME para mapear um nome com carateres universais para o nome de domínio predefinido da aplicação (`<app_name>.azurewebsites.net`).
 
 No domínio de exemplo `*.contoso.com`, o registo CNAME vai mapear o nome `*` para `<app_name>.azurewebsites.net`.
 
@@ -274,23 +274,23 @@ No painel de navegação esquerdo da página da aplicação no portal do Azure, 
 
 ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Selecione o ícone **+** junto a **Adicionar nome de anfitrião**.
+Selecione o **+** ícone junto a **Adicionar domínio personalizado**.
 
 ![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 Escreva um nome de domínio completamente qualificado que corresponda ao domínio de caráter universal (por exemplo, `sub1.contoso.com`) e, em seguida, selecione **Validar**.
 
-O botão **Adicionar nome de anfitrião** é ativado. 
+O **Adicionar domínio personalizado** botão é ativado.
 
 Certifique-se de que **tipo de registo de nome de anfitrião** está definida como **registo CNAME (www\.example.com ou qualquer subdomínio)** .
 
-Selecione **Adicionar nome de anfitrião**.
+Selecione **Adicionar domínio personalizado**.
 
 ![Adicionar o nome DNS à aplicação](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-Poderá demorar algum tempo até que o nome de anfitrião novo seja refletido na página **Domínios personalizados** da aplicação. Experimente atualizar o browser para atualizar os dados.
+Poderá demorar algum tempo para o novo domínio personalizado sejam refletidas da aplicação **domínios personalizados** página. Experimente atualizar o browser para atualizar os dados.
 
-Selecione novamente o ícone **+** para adicionar outro nome de anfitrião que corresponda ao domínio de caráter universal. Por exemplo, adicione `sub2.contoso.com`.
+Selecione o **+** ícone novamente para adicionar outro domínio personalizado que corresponda ao domínio de caráter universal. Por exemplo, adicione `sub2.contoso.com`.
 
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 

@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0678dc42d8c22c8dcc20137cf70f81a1eb4f61c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289127"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473695"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -41,15 +41,6 @@ PIM essencialmente ajuda a gerenciar o quem, o que, quando, onde e por que motiv
 - Obtenha **notificações** quando são ativadas funções privilegiadas
 - Conduzir **as revisões de acesso** para garantir que os utilizadores ainda têm de funções
 - Baixe **histórico de auditorias** para auditoria interna ou externa
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-Para utilizar o PIM, tem de ter um dos seguintes pagos ou licenças de avaliação. Para obter mais informações, consulte [What is Azure Active Directory? (O que é o Azure Active Directory?)](../fundamentals/active-directory-whatis.md).
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-Para obter informações sobre as licenças para os utilizadores, consulte [os requisitos para utilizar o PIM de licença](subscription-requirements.md).
 
 ## <a name="terminology"></a>Terminologia
 
@@ -104,6 +95,12 @@ PIM suporta os seguintes cenários:
 - Pedir a ativação de uma função que requer aprovação
 - Ver o estado do seu pedido para ativação
 - Completar a sua tarefa no Azure AD se a ativação for aprovada
+
+## <a name="license-requirements"></a>Requisitos de licença
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Para obter informações sobre as licenças para os utilizadores, consulte [os requisitos para utilizar o PIM de licença](subscription-requirements.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

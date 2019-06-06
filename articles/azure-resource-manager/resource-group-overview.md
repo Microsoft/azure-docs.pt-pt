@@ -2,22 +2,18 @@
 title: Descrição geral do Azure Resource Manager | Microsoft Docs
 description: Descreve como utilizar o Azure Resource Manager para a implementação, a gestão e o controlo de acesso de recursos no Azure.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/24/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225908"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514348"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
 
@@ -51,13 +47,15 @@ O Resource Manager oferece várias vantagens:
 * Pode aplicar etiquetas a recursos para organizar logicamente todos os recursos na sua subscrição.
 * Pode clarificar a faturação da sua organização visualizando os custos de um grupo de recursos partilhando a mesma etiqueta.
 
-## <a name="understand-management-scope"></a>Compreender o âmbito de gestão
+## <a name="understand-scope"></a>Compreender o âmbito
 
-O Azure fornece quatro níveis de âmbito de gestão: [grupos de gestão](../governance/management-groups/index.md), subscrições, [grupos de recursos](#resource-groups)e recursos. A imagem seguinte mostra um exemplo destas camadas.
+O Azure fornece quatro níveis de âmbito: [grupos de gestão](../governance/management-groups/index.md), subscrições, [grupos de recursos](#resource-groups)e recursos. A imagem seguinte mostra um exemplo destas camadas.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
 Pode aplicar as definições de gestão em qualquer um destes níveis de âmbito. O nível que selecionar determina o quanto a definição é aplicada. Os níveis inferiores herdam as definições de níveis mais altos. Por exemplo, quando aplica um [política](../governance/policy/overview.md) para a subscrição, a política é aplicada a todos os grupos de recursos e recursos na sua subscrição. Ao aplicar uma política no grupo de recursos, o que a política é aplicada o grupo de recursos e todos os recursos. No entanto, outro grupo de recursos não tem essa atribuição de política.
+
+Pode implementar modelos de grupos de gestão, subscrições ou grupos de recursos.
 
 ## <a name="guidance"></a>Orientação
 
@@ -85,7 +83,7 @@ Existem alguns fatores importantes a considerar ao definir o grupo de recursos:
 
 Ao criar um grupo de recursos, deve fornecer uma localização para esse grupo de recursos. Pode perguntar-se, "Porque é que um grupo de recursos necessita de uma localização? E, se os recursos podem ter diferentes localizações em relação ao grupo de recursos, por que motivo é que a localização do grupo de recursos é sequer relevante?" O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quando especifica uma localização para o grupo de recursos, está a especificar onde esses metadados estão armazenados. Por motivos de conformidade, poderá ter de certificar que os dados estão armazenados numa determinada região.
 
-Se a região do grupo de recursos está temporariamente indisponível, não é possível atualizar recursos no grupo de recursos, porque os metadados não estão disponível. Os recursos noutras regiões continuarão a funcionar conforme esperado, mas não é possível atualizá-los. Para minimizar o risco, localize o seu grupo de recursos e recursos na mesma região.
+Se a região do grupo de recursos está temporariamente indisponível, não é possível atualizar recursos no grupo de recursos, porque os metadados não estão disponível. Os recursos noutras regiões continuarão a funcionar conforme esperado, mas não é possível atualizá-los. Para obter mais informações sobre a criação de aplicativos confiáveis, consulte [conceber confiáveis aplicações do Azure](/azure/architecture/reliability/).
 
 ## <a name="resource-providers"></a>Fornecedores de recursos
 

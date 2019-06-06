@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c43375afe7965475e84793ddcd54a38a2e9bd3cd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073728"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688095"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: Implementar um cluster do Azure Kubernetes Service (AKS) no portal do Azure
 
@@ -31,27 +31,28 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
-No canto superior esquerdo do portal do Azure, selecione **+ criar um recurso** > **serviço Kubernetes**.
+No canto superior esquerdo do portal do Azure, selecione **+ criar um recurso** > **contentores** >  **serviço Kubernetes**.
 
 Para criar um cluster do AKS, execute os passos seguintes:
 
-1. **Detalhes básicos** - configure as seguintes opções:
+1. Sobre o **Noções básicas** página, configure as seguintes opções:
    - *DETALHES DO PROJETO*: Selecione uma subscrição do Azure, em seguida, selecionar ou criar um grupo de recursos do Azure, tal como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
    - *DETALHES DO CLUSTER*: Selecione uma região, a versão do Kubernetes e o prefixo de nome de DNS para o cluster do AKS.
-   - *DIMENSIONAMENTO*: Selecione um tamanho VM para os nós do AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
+   - **CONJUNTO de nós principal**: selecionar um tamanho VM para os nós do AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS. 
        - Selecione o número de nós a implementar no cluster. Neste início rápido, defina **Contagem de nós** como *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
     
      ![Criar cluster do AKS - indique informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Selecione **seguinte: Autenticação** quando terminar.
+     Selecione **seguinte: Dimensionamento** quando terminar.
 
-1. **Autenticação**: Configure as seguintes opções:
-   - Crie um principal de serviço novo ou *configure* para utilizar um existente. Quando utilizar um SPN existente, terá de fornecer o ID de cliente de SPN e o segredo.
-   - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Estes controlos proporcionam um controlo mais detalhado sobre o acesso aos recursos do Kubernetes implementados no cluster do AKS.
+2. Sobre o **dimensionamento** página, mantenha as opções predefinidas. Na parte inferior do ecrã, clique em **próxima: autenticação**.
+3. Sobre o **autenticação** página, configure as seguintes opções:
+   - Criar um novo principal de serviço, deixando os **Principal de serviço** campo com **(novo) principal de serviço padrão**. Ou pode escolher *principal de serviço de configurar* para utilizar um já existente. Se utilizar um já existente, terá de fornecer o cliente SPN ID e segredo.
+   - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Isto irá proporcionar controle mais refinado sobre o acesso aos recursos do Kubernetes implementado no cluster do AKS.
 
-     Por predefinição, *básica* à rede é utilizado e o Monitor do Azure para contentores está ativado. Quando estiver pronto, selecione **Rever + criar** e **Criar**.
+    Por predefinição, *básica* à rede é utilizado e o Monitor do Azure para contentores está ativado. Clique em **rever + criar** e, em seguida **criar** quando a validação é concluída.
 
-O cluster do AKS demora alguns minutos a ser criado e a estar pronto para utilização. Quando concluída, navegue para o grupo de recursos de cluster do AKS, tal como *myResourceGroup*e selecione o recurso do AKS, tal como *myAKSCluster*. É apresentado o dashboard do cluster do AKS, como na captura de ecrã de exemplo abaixo:
+Demora alguns minutos para criar o cluster do AKS. Quando a implementação estiver concluída, clique em **Ir para recurso**, ou navegue até ao grupo de recursos de cluster do AKS, tal como *myResourceGroup*e selecione o recurso do AKS, tais como *myAKSCluster*. É apresentado o dashboard do cluster do AKS, tal como neste exemplo:
 
 ![Exemplo de dashboard do AKS no portal do Azure](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -59,7 +60,7 @@ O cluster do AKS demora alguns minutos a ser criado e a estar pronto para utiliz
 
 Para gerir um cluster de Kubernetes, utilize [kubectl][kubectl], o cliente de linha de comandos do Kubernetes. O cliente `kubectl` está pré-instalado no Azure Cloud Shell.
 
-Abra o Cloud Shell com o botão que se encontra no canto superior direito do portal do Azure.
+Utilizar o Cloud Shell aberto a `>_` botão na parte superior do portal do Azure.
 
 ![Abrir o Azure Cloud Shell no portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 

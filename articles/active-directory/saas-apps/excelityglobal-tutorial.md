@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: bb18aa35c89657f01319512eac6c15096174891f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd4fe4f7b105fd7aa2d2cf7ee568f85a7ad98ecb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279137"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Tutorial: Integração do Active Directory do Azure com ExcelityGlobal
 
@@ -52,7 +52,7 @@ Para configurar a integração do ExcelityGlobal com o Azure AD, terá de adicio
 
 **Para adicionar ExcelityGlobal a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -140,7 +140,7 @@ Para configurar o Azure AD início de sessão único com ExcelityGlobal, execute
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Configurar ExcelityGlobal Single Sign-On
 
-Para configurar o início de sessão único num **ExcelityGlobal** lado, terá de enviar o **valor do Thumbprint** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **ExcelityGlobal** lado, terá de enviar o **valor do Thumbprint** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de ExcelityGlobal](https://www.excelityglobal.com/contact-us). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -195,7 +195,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-excelityglobal-test-user"></a>Criar utilizador de teste ExcelityGlobal
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no ExcelityGlobal. Trabalhar com [equipa de suporte de ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/) para adicionar os utilizadores na plataforma ExcelityGlobal. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no ExcelityGlobal. Trabalhar com [equipa de suporte de ExcelityGlobal](https://www.excelityglobal.com/contact-us) para adicionar os utilizadores na plataforma ExcelityGlobal. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
