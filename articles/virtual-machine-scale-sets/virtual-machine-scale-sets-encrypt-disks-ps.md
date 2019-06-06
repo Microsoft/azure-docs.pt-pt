@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 7ebb88317da45ff496385b72c603a44d628b0202
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a582a4787a4b215d82dcbff60be8853793f92c32
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869067"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66728358"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Encriptar o SO e discos de dados anexados num conjunto de dimensionamento com o Azure PowerShell
 
@@ -33,7 +33,7 @@ Encriptação de disco do Azure é suportada:
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Criar um Azure Key Vault ativado para encriptação de disco
 
@@ -87,7 +87,7 @@ New-AzVmss `
     -Credential $cred
 ```
 
-## <a name="enable-encryption"></a>Ativar encriptação
+## <a name="enable-encryption"></a>Ativar a encriptação
 
 Para encriptar as instâncias de VM num conjunto de dimensionamento, primeiro de obter algumas informações sobre o URI do Cofre de chave e ID de recurso com [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault). Estas variáveis são utilizadas para, em seguida, iniciar o processo de encriptação com [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/Set-AzVmssDiskEncryptionExtension):
 

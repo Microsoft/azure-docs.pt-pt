@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 82e4278a130bb67a1af61ead981259d7bb4e1aa7
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111267"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427430"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar a cópia de segurança de cargas de trabalho no Azure com o System Center DPM
 
@@ -54,6 +54,7 @@ Tipos de ficheiro suportados | Estes tipos de ficheiro podem ser uma cópia de s
 Tipos de ficheiro não suportado | Servidores em sistemas de ficheiros sensíveis a maiúsculas; ligações diretas (ignoradas); (ignorados); de pontos de reanálise encriptados e comprimidos (ignorados); encriptados e dispersos (ignorados); Fluxo comprimido; analisar o fluxo.
 Armazenamento local | Cada máquina que pretende criar cópias de segurança tem de ter armazenamento local livre é de, pelo menos, 5% do tamanho dos dados que estão a cópia de segurança. Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização de rascunho.
 Armazenamento do Cofre | Não há limite para a quantidade de dados, que pode criar cópias de segurança para um cofre de cópia de segurança do Azure, mas o tamanho de uma origem de dados (por exemplo uma máquina virtual ou a base de dados) não deve exceder os 54400 GB.
+Azure ExpressRoute | Se o Azure ExpressRoute estiver configurado com o peering privado ou Microsoft, não pode ser utilizado para fazer backup dos dados para o Azure.<br/><br/> Se o Azure ExpressRoute está configurado com Peering público, ele pode ser usado para fazer backup dos dados para o Azure.<br/><br/> **Nota:** Peering público foi preterido para circuitos de novo.
 Agente do Backup do Azure | Se o DPM está em execução no System Center 2012 SP1, instale o Rollup 2 ou posterior para o DPM SP1. Isto é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implementar a versão mais recente do agente de cópia de segurança do Azure, também conhecido como o agente do serviço de recuperação do Azure (MARS) da Microsoft. Se tiver uma versão anterior implementada, atualize para a versão mais recente para se certificar que cópia de segurança funciona conforme esperado.
 
 Antes de começar, precisa de uma conta do Azure com a funcionalidade de cópia de segurança do Azure ativada. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre [preços de cópia de segurança do Azure](https://azure.microsoft.com/pricing/details/backup/).

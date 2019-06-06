@@ -1,20 +1,18 @@
 ---
-title: Ferramentas do HDInsight do Azure - utilizar o Visual Studio Code para Hive, LLAP ou PySpark | Documentos da Microsoft
+title: Ferramentas do HDInsight do Azure - utilizar o Visual Studio Code para Hive, LLAP ou PySpark
 description: Saiba como utilizar o Azure HDInsight Tools para Visual Studio Code para criar e submeter consultas e scripts.
-Keywords: Visual Studio Code, ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, interativas do Hive, Interactive Query
-documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/30/2019
+ms.openlocfilehash: d114a1e62ae0d28e7d4a3ad453d5d7bd3e1d5b7a
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681754"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427684"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -71,12 +69,12 @@ Antes de pode enviar scripts para clusters do HDInsight a partir do código do V
 
     ![Ferramentas do HDInsight para início de sessão do Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. Siga as instruções de início de sessão no **saída** painel.
+2. Siga os instruções de início de sessão do **saída** painel.
     + Para o ambiente global do Azure, **HDInsight: Início de sessão** comando irá acionar **iniciar sessão no Azure** ação no Explorador do HDInsight e vice-versa.
 
         ![Iniciar sessão nas instruções para o azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
-    + Para outros ambientes, siga as instruções de início de sessão.
+    + Para outros ambientes, siga os instruções de início de sessão.
 
         ![Inicie sessão no instruções para outro ambiente](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
@@ -219,7 +217,7 @@ Com as ferramentas do HDInsight para Visual Studio Code, pode submeter consultas
 
 8. A ferramenta também suporta o **cláusula SQL** consulta.
 
-   ![Submeter o resultado da tarefa de Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) o estado da submissão é apresentada à esquerda do estado na parte inferior da barra quando estiver a executar consultas. Não se submeta outras consultas quando o estado é **Kernel do PySpark (ocupado)**.  
+   ![Submeter o resultado da tarefa de Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) o estado da submissão é apresentada à esquerda do estado na parte inferior da barra quando estiver a executar consultas. Não se submeta outras consultas quando o estado é **Kernel do PySpark (ocupado)** .  
 
 >[!NOTE]  
 >Os clusters podem manter informações de sessão. A variável definida, a função e a valores correspondentes são mantidas na sessão, pelo que pode ser referenciadas em várias chamadas de serviço para o mesmo cluster. 
@@ -306,15 +304,15 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
     **POST /batches**   
     Corpo do Pedido
 
-    | nome | description | tipo | 
+    | name | description | type | 
     | :- | :- | :- | 
-    | ficheiro | Ficheiro que contém o aplicativo para executar | caminho (obrigatório) | 
+    | Ficheiro | Ficheiro que contém o aplicativo para executar | caminho (obrigatório) | 
     | proxyUser | Utilizador representar ao executar a tarefa | string | 
     | className | Classe principal do aplicativo Java/Spark | string |
     | args | Argumentos de linha de comandos para a aplicação | lista de cadeias de caracteres | 
     | jars | jars a ser utilizado nesta sessão | Lista de cadeia de caracteres | 
     | pyFiles | Arquivos de Python a serem usados nesta sessão | Lista de cadeia de caracteres |
-    | ficheiros | arquivos a serem usados nesta sessão | Lista de cadeia de caracteres |
+    | Ficheiros | arquivos a serem usados nesta sessão | Lista de cadeia de caracteres |
     | driverMemory | Quantidade de memória a utilizar para o processo de driver | string |
     | driverCores | Número de núcleos para utilizar para o processo de driver | int |
     | executorMemory | Quantidade de memória a utilizar por processo de executor | string |
@@ -322,19 +320,19 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
     | numExecutors | Número de executores para iniciar a esta sessão | int |
     | arquivos compactados | Arquivos compactados a ser utilizado nesta sessão | Lista de cadeia de caracteres |
     | fila | O nome da fila YARN para o qual submetido | string |
-    | nome | O nome desta sessão | string |
+    | name | O nome desta sessão | string |
     | Conf | Propriedades de configuração de Spark | Mapa de chave = valor |
 
-    Corpo da Resposta   
+    Corpo da resposta   
     O objeto criado do Batch.
 
-    | nome | description | tipo | 
+    | name | description | type | 
     | :- | :- | :- | 
-    | ID | O id de sessão | int | 
+    | id | O id de sessão | int | 
     | appId | O id de aplicação desta sessão |  String |
     | appInfo | As informações detalhadas de aplicação | Mapa de chave = valor |
-    | registo | As linhas de registo | lista de cadeias de caracteres |
-    | state |   O estado de batch | string |
+    | log | As linhas de registo | lista de cadeias de caracteres |
+    | estado |   O estado de batch | string |
 
 >[!NOTE]
 >A configuração do livy atribuído serão apresentados no painel de resultados quando submeta o script.
@@ -353,14 +351,14 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
 
 4. Expanda o cluster para ver o esquema de base de dados e tabela de metadados do hive.
 
-   ![Cluster de Azure HDInsight](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
+   ![Cluster de HDInsight do Azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 
-## <a name="additional-features"></a>Funcionalidades adicionais
+## <a name="additional-features"></a>Recursos adicionais
 
 HDInsight para Visual Studio Code suporta as seguintes funcionalidades:
 
-- **IntelliSense, conclusão automática**. Sugestões pop-up para palavra-chave, métodos, variáveis e assim por diante. Representam os ícones de diferentes tipos de objetos diferentes.
+- **Preenchimento automático de IntelliSense**. Sugestões pop-up para palavra-chave, métodos, variáveis e assim por diante. Representam os ícones de diferentes tipos de objetos diferentes.
 
     ![Ferramentas do HDInsight para tipos de objeto do IntelliSense de código do Visual Studio](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 - **Marcador de erro do IntelliSense**. O serviço de linguagem sublinha os erros de edição para o script do Hive.     
@@ -380,7 +378,7 @@ HDInsight para Visual Studio Code suporta as seguintes funcionalidades:
 
 ## <a name="logout"></a>Terminar sessão  
 
-Na barra de menus, navegue até **View** > **paleta de comandos...** e, em seguida, introduza **HDInsight: Fim de sessão**.  Haverá um pop-up no canto direito da parte inferior que diz **fim de sessão com êxito!**.
+Na barra de menus, navegue até **View** > **paleta de comandos...** e, em seguida, introduza **HDInsight: Fim de sessão**.  Haverá um pop-up no canto direito da parte inferior que diz **fim de sessão com êxito!** .
 
 
 ## <a name="next-steps"></a>Passos Seguintes

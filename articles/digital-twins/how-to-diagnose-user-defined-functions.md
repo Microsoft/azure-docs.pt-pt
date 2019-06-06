@@ -6,40 +6,38 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60924861"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735188"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo utilizador no duplos Digital do Azure
 
-Este artigo resume como diagnosticar e depurar funções definidas pelo utilizador. Em seguida, ele identifica alguns dos cenários mais comuns encontrados quando depurá-los.
+Este artigo resume como diagnosticar e depurar funções definidas pelo utilizador no duplos Digital do Azure. Em seguida, ele identifica alguns dos cenários mais comuns encontrados quando depurá-los.
 
 >[!TIP]
 > Leia [como configurar a monitorização e registo](./how-to-configure-monitoring.md) para saber mais sobre como configurar as ferramentas no gémeos de Digital do Azure através de registos de atividades, registos de diagnóstico e o Azure Monitor de depuração.
 
 ## <a name="debug-issues"></a>Depurar problemas
 
-Saber como diagnosticar quaisquer problemas que possam surgir dentro de sua instância de duplos Digital do Azure auxilia efetivamente identificar o problema, a causa do problema e uma solução.
+Saber como diagnosticar problemas no duplos Digital do Azure permite-lhe analisar problemas com eficiência, identificar as causas de problemas e fornecer soluções adequadas para eles.
 
-### <a name="enable-log-analytics-for-your-instance"></a>Ativar a análise de registo para a sua instância
+Uma variedade de registo, análise e ferramentas de diagnóstico são fornecidos para esse fim.
 
-Os registos e métricas para a sua instância de duplos Digital do Azure são apresentadas no Azure Monitor. Esta documentação pressupõe que criou um [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md) área de trabalho por meio dos [Portal do Azure](../azure-monitor/learn/quick-create-workspace.md), da funcionalidade [da CLI do Azure](../azure-monitor/learn/quick-create-workspace-cli.md), ou através de [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+### <a name="enable-logging-for-your-instance"></a>Ativar o registo para a sua instância
 
-> [!NOTE]
-> Poderá haver um atraso de 5 minutos, ao enviar eventos para os registos do Azure Monitor pela primeira vez.
+Duplos Digital do Azure suporta registo robusto, monitorização e análise. Os desenvolvedores de soluções podem utilizar os registos do Azure Monitor, registos de diagnóstico, registos de atividades e outros serviços para suportar as necessidades complexas de monitorização de uma aplicação IoT. Opções de registo podem ser combinadas para consultar ou apresentar registos em vários serviços e fornecer cobertura de Registro em log granular para muitos serviços.
 
-Para configurar a monitorização e registo de recursos de duplos Digital do Azure, leia [como configurar a monitorização e registo](./how-to-configure-monitoring.md).
+* Para a configuração de registo específica de duplos Digital do Azure, leia [como configurar a monitorização e registo](./how-to-configure-monitoring.md).
+* Consulte o os [do Azure Monitor](../azure-monitor/overview.md) descrição geral para saber mais sobre as definições de registo poderosas ativadas através do Azure Monitor.
+* Consulte o artigo [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para configurar definições de registo de diagnóstico num duplos Digital do Azure através do Portal do Azure, CLI do Azure ou do PowerShell.
 
-Leia o artigo [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para configurar definições de registo de diagnóstico num duplos Digital do Azure através do Portal do Azure, CLI do Azure ou do PowerShell.
-
->[!IMPORTANT]
-> Certifique-se selecionar todas as categorias de registo, métricas e sua área de trabalho do Log Analytics do Azure.
+Uma vez configurado, será capaz de selecionar todas as categorias de registo, métricas, e utilizar poderosas Monitor do Azure log analytics áreas de trabalho para suportar os esforços de depuração.
 
 ### <a name="trace-sensor-telemetry"></a>Telemetria de sensores de rastreio
 
@@ -47,7 +45,7 @@ A telemetria de sensores de rastreio, certifique-se de que as definições de di
 
 Para fazer corresponder uma mensagem de telemetria de sensor para seus respectivos registos, pode especificar um ID de correlação nos dados de evento a ser enviados. Para tal, defina o `x-ms-client-request-id` propriedade para um GUID.
 
-Depois de enviar telemetria, abra o log Analytics para consultar os registos com o conjunto de ID de correlação:
+Depois de enviar telemetria, abra o log analytics para consultar os registos com o conjunto de ID de correlação:
 
 ```Kusto
 AzureDiagnostics
@@ -209,4 +207,6 @@ Se ativar as definições de diagnóstico, pode encontrar essas exceções comun
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Aprenda a ativar [registos e monitorização](../azure-monitor/platform/activity-logs-overview.md) no duplos Digital do Azure.
+- Aprenda a ativar [registos e monitorização](./how-to-configure-monitoring.md) no duplos Digital do Azure.
+
+- Leitura a [registo de atividades de descrição geral do Azure](../azure-monitor/platform/activity-logs-overview.md) artigo para obter opções de registo mais do Azure.

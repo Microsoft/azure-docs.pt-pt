@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: b7240b38e595fdcf9f9d4f995f71643154ee0f9b
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: f758007a0fa0d7fb619873d94d762e7019077e05
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399164"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427444"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor
 

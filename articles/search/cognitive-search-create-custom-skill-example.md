@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: efa85491f4b183a044ec5d9e5e6e3d11eebedbe3
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023616"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428429"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exemplo: Criar uma habilidade personalizada com a API de tradução de texto
 
-Neste exemplo, saiba como criar uma web competências personalizadas de API que aceita texto em qualquer linguagem e o converte para inglês. O exemplo utiliza um [função do Azure](https://azure.microsoft.com/services/functions/) encapsular o [API de tradução de texto](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) para que ele implementa a interface de competências personalizadas.
+Neste exemplo, saiba como criar uma habilidade personalizada da API da web. Essa habilidade aceitará texto em qualquer linguagem e o converte para inglês. O exemplo utiliza um [função do Azure](https://azure.microsoft.com/services/functions/) encapsular o [API de tradução de texto](https://azure.microsoft.com/services/cognitive-services/translator-text-api/) para que ele implementa a interface de competências personalizadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,19 +27,19 @@ Neste exemplo, saiba como criar uma web competências personalizadas de API que 
 
 + [Inscreva-se a API de texto do Translator](../cognitive-services/translator/translator-text-how-to-signup.md)e obtenha uma chave de API de consumi-las.
 
-+ Instale [Visual Studio 2017 versão 15.5](https://www.visualstudio.com/vs/) ou posterior, incluindo a carga de trabalho de desenvolvimento do Azure.
++ Instale [Visual Studio 2019](https://www.visualstudio.com/vs/) ou posterior, incluindo a carga de trabalho de desenvolvimento do Azure.
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
 
-Embora este exemplo utiliza uma função do Azure para alojar uma API web, não é necessário.  Desde que tenha em atenção a [interface requisitos para uma habilidade cognitivo](cognitive-search-custom-skill-interface.md), a abordagem de é irrelevante. As funções do Azure, no entanto, tornam mais fácil criar uma habilidade personalizada.
+Embora este exemplo utiliza uma função do Azure para alojar uma API web, ele não é necessário.  Desde que tenha em atenção a [interface requisitos para uma habilidade cognitivo](cognitive-search-custom-skill-interface.md), a abordagem de é irrelevante. As funções do Azure, no entanto, tornam mais fácil criar uma habilidade personalizada.
 
 ### <a name="create-a-function-app"></a>Criar uma aplicação de função
 
 1. No Visual Studio, selecione **New** > **projeto** no menu File.
 
-1. Na caixa de diálogo novo projeto, selecione **instalada**, expanda **Visual c#** > **Cloud**, selecione **as funções do Azure**, escreva um Dê um nome para o seu projeto e selecione **OK**. O nome da aplicação de funções deve ser válido como um espaço de nomes C#. Portanto, não use sublinhados, hífenes ou outros carateres não alfanuméricos.
+1. Na caixa de diálogo novo projeto, selecione **instalada**, expanda **Visual c#**  > **Cloud**, selecione **as funções do Azure**, escreva um Dê um nome para o seu projeto e selecione **OK**. O nome da aplicação de funções deve ser válido como um espaço de nomes C#. Portanto, não use sublinhados, hífenes ou outros carateres não alfanuméricos.
 
-1. Selecione **v2 das funções do Azure (.NET Core)**. Também pode fazê-lo com a versão 1, mas o código escrito abaixo baseia-se no modelo v2.
+1. Selecione **v2 das funções do Azure (.NET Core)** . Também pode fazê-lo com a versão 1, mas o código escrito abaixo baseia-se no modelo v2.
 
 1. Selecione o tipo a ser **acionador HTTP**
 
@@ -195,7 +195,7 @@ Neste exemplo é um enricher simple que só funciona num registro por vez. Esse 
 
 ## <a name="test-the-function-from-visual-studio"></a>Testar a função a partir do Visual Studio
 
-Prima **F5** para executar os comportamentos de função de programa e teste. Neste caso usaremos a função abaixo para traduzir um texto em espanhol para inglês. Utilize o Postman ou Fiddler para emitir uma chamada como a mostrada abaixo:
+Prima **F5** para executar os comportamentos de função de programa e teste. Neste caso, usaremos a função abaixo para traduzir um texto em espanhol para inglês. Utilize o Postman ou Fiddler para emitir uma chamada como a mostrada abaixo:
 
 ```http
 POST https://localhost:7071/api/Translate
@@ -241,7 +241,7 @@ Quando estiver satisfeito com o comportamento da função, pode publicá-lo.
 
 1. Se ainda não tiver associado o Visual Studio à sua conta do Azure, selecione **adicionar uma conta...**
 
-1. Siga as mensagens no ecrã. É-lhe perguntado para especificar a conta do Azure, o grupo de recursos, o plano de alojamento e a conta de armazenamento que pretende utilizar. Pode criar um novo grupo de recursos, um novo plano de alojamento e uma conta de armazenamento, se ainda não tiver estas. Quando terminar, selecione **Create**
+1. Siga as mensagens no ecrã. For solicitado a especificar a conta do Azure, o grupo de recursos, o plano de alojamento e a conta de armazenamento que pretende utilizar. Pode criar um novo grupo de recursos, um novo plano de alojamento e uma conta de armazenamento, se ainda não tiver estas. Quando terminar, selecione **Create**
 
 1. Depois de concluída a implementação, tenha em atenção o URL do Site. É o endereço da sua aplicação de função no Azure. 
 
@@ -270,7 +270,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 }
 ```
 
-Isso deve produzir um resultado semelhante ao que viu anteriormente ao executar a função no ambiente local.
+Neste exemplo deve produzir um resultado semelhante ao que viu anteriormente ao executar a função no ambiente local.
 
 ## <a name="connect-to-your-pipeline"></a>Ligar ao seu pipeline
 Agora que tem uma habilidade personalizada nova, pode adicioná-lo para o conjunto de capacidades. O exemplo abaixo mostra como chamar a habilidade. Uma vez que a habilidade não lida com lotes, adicione uma instrução para o tamanho máximo do lote ser apenas ```1``` enviar documentos um de cada vez.

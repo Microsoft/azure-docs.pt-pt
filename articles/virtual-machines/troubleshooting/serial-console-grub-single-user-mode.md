@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835029"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735271"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 GRUB é o GRand Unified carregador de inicialização, que é provável que a primeira coisa que verá quando se reinicia uma VM. Uma vez que ele exibe antes do sistema operativo foi iniciado, não está acessível através de SSH. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.
@@ -184,7 +184,7 @@ Acesso GRUB no SLES requer a configuração do carregador de inicialização por
 Se o SLES não conseguem arrancar normalmente será automaticamente colocada numa shell de emergência. Para introduzir manualmente o shell de emergência, utilize as instruções seguintes:
 
 1. Do GRUB, prima "e" para editar sua entrada de arranque (a entrada SLES)
-1. Procure a linha de kernel iniciará com `linux`
+1. Procure a linha de kernel – iniciará com `linux`
 1. Acrescentar `systemd.unit=emergency.target` ao final da linha
 1. Prima Ctrl + X para reiniciar com estas definições e introduza o shell de emergência
    > Tenha em atenção que irá ser deixado no shell de emergência com um _só de leitura_ sistema de ficheiros. Se desejar fazer qualquer edições em todos os ficheiros, terá de voltar a montar o sistema de ficheiros com permissões de leitura / escrita. Para tal, introduza `mount -o remount,rw /` no shell

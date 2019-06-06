@@ -10,14 +10,14 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 683aa2c7112533d9e3c06ddcb238048a26c75db3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 50368175fbe563d5685f17e96dd41251a0494afd
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237619"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66729000"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gerir dados de referência de GA para um ambiente do Azure Time Series Insights utilizandoC#
 
@@ -36,7 +36,7 @@ Conclua os seguintes passos antes de compilar e executar o código de exemplo:
 1. Editar o código de exemplo para substituir as constantes de exemplo, designadas no **DUMMY # #** , perto do início do código.
 
 > [!NOTE]
-> Ver o código de exemplo em GA [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample).
+> Ver o código de exemplo em GA [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dependências do projeto
 

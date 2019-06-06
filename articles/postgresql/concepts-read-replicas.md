@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: 13580289144d798a57e636f15ab5bce629ff3572
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/05/2019
+ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242279"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734654"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de leitura na base de dados do Azure para PostgreSQL - servidor único
 
@@ -60,17 +60,15 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 Na linha de comandos, introduza a palavra-passe da conta de utilizador.
 
 ## <a name="monitor-replication"></a>Monitor de replicação
-Base de dados do Azure para PostgreSQL fornece a **máximo de atraso em réplicas** métricas no Azure Monitor. Esta métrica está disponível no servidor principal apenas. A métrica mostra o desfasamento de bytes entre o modelo global e a réplica de lagging maioria. 
+Base de dados do Azure para PostgreSQL fornece duas métricas para monitorizar a replicação. São duas métricas **máximo de atraso em réplicas** e **desfasamento de réplica**. Para saber como ver estas métricas, veja a **monitorizar uma réplica** secção a [ler o artigo que mostra como réplica](howto-read-replicas-portal.md).
 
-Base de dados do Azure para PostgreSQL também fornece a **desfasamento de réplica** métricas no Azure Monitor. Esta métrica está disponível para apenas as réplicas. 
+O **máximo de atraso em réplicas** métrica mostra o atraso em bytes entre o mestre e a réplica de lagging maioria. Esta métrica está disponível no servidor principal apenas.
 
-A métrica é calculada a partir do `pg_stat_wal_receiver` vista:
+O **desfasamento de réplica** métrica mostra o tempo, uma vez que o último reproduzidos transação. Se não existirem não existem transações ocorridas no servidor principal, a métrica reflete este intervalo de tempo. Esta métrica está disponível para apenas os servidores de réplica. Atraso de réplica é calculado a partir do `pg_stat_wal_receiver` vista:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-A métrica de desfasamento de réplica mostra o tempo desde a última transação repetido. Se não existirem não existem transações ocorridas no servidor principal, a métrica reflete este intervalo de tempo.
 
 Defina um alerta para o informar de quando o atraso de réplica atinge um valor que não é aceitável para a sua carga de trabalho. 
 
