@@ -104,12 +104,12 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | string | Identificador exclusivo para o evento. |
-| dados | objeto | Dados de eventos de barreira geográfica. |
+| id | string | Identificador exclusivo para o evento. |
+| data | objeto | Dados de eventos de barreira geográfica. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
@@ -119,21 +119,21 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | apiCategory | string | Categoria de API do evento. |
 | apiName | string | Nome da API do evento. |
-| Problemas | objeto | Lista problemas durante o processamento. Se todos os problemas são devolvidos, em seguida, não haverá nenhum geometrias devolvidas com a resposta. |
+| issues | objeto | Lista problemas durante o processamento. Se todos os problemas são devolvidos, em seguida, não haverá nenhum geometrias devolvidas com a resposta. |
 | responseCode | número | Código de resposta HTTP |
-| geometrias | objeto | Listas de geometrias cerca que contêm a coordenada posicionam ou se sobrepõem searchBuffer em torno da posição. |
+| geometries | objeto | Listas de geometrias cerca que contêm a coordenada posicionam ou se sobrepõem searchBuffer em torno da posição. |
 
 O objeto de erro é retornado quando ocorre um erro na API de mapas. O objeto de erro tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| erro | ErrorDetails |Este objeto é retornado quando ocorre um erro na API de mapas  |
+| error | ErrorDetails |Este objeto é retornado quando ocorre um erro na API de mapas  |
 
 O objeto de ErrorDetails é retornado quando ocorre um erro na API de mapas. O ErrorDetails ou o objeto tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Código | string | O código de estado HTTP. |
+| code | string | O código de estado HTTP. |
 | message | string | Se estiver disponível, uma descrição legível humana do erro. |
 | innererror | InnerError | Se estiver disponível, um objeto que contém informações de serviços específicos sobre o erro. |
 
@@ -141,14 +141,14 @@ O InnerError é um objeto que contém informações de serviços específicos so
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Código | string | A mensagem de erro. |
+| code | string | A mensagem de erro. |
 
 O objeto de geometrias, apresenta uma lista de IDs dos perímetros geográficos que expiraram em relação ao tempo de utilizador no pedido de geometria. O objeto de geometrias tem itens de geometria com as seguintes propriedades: 
 
 | Propriedade | Tipo | Descrição |
 |:-------- |:---- |:----------- |
-| DeviceID | string | ID do dispositivo. |
-| distância | string | <p>Distância da coordenada até o limite mais próximo do perímetro geográfico. Positivo significa que a coordenada está fora do perímetro geográfico. Se a coordenada está fora do perímetro geográfico, mas mais do que o valor de searchBuffer para fora do limite mais próximo do perímetro geográfico, em seguida, o valor é 999. Negativo significa a coordenada dentro do perímetro geográfico. Se a coordenada é dentro do polígono, mas mais do que o valor de searchBuffer para fora do limite de barreira geográfica mais próximo, em seguida, o valor é -999. Um valor de 999 significa que há muita confiança a coordenada é bem fora do perímetro geográfico. Um valor de meios de-999 que não há muita confiança a coordenada é bem dentro do perímetro geográfico.<p> |
+| deviceid | string | ID do dispositivo. |
+| distance | string | <p>Distância da coordenada até o limite mais próximo do perímetro geográfico. Positivo significa que a coordenada está fora do perímetro geográfico. Se a coordenada está fora do perímetro geográfico, mas mais do que o valor de searchBuffer para fora do limite mais próximo do perímetro geográfico, em seguida, o valor é 999. Negativo significa a coordenada dentro do perímetro geográfico. Se a coordenada é dentro do polígono, mas mais do que o valor de searchBuffer para fora do limite de barreira geográfica mais próximo, em seguida, o valor é -999. Um valor de 999 significa que há muita confiança a coordenada é bem fora do perímetro geográfico. Um valor de meios de-999 que não há muita confiança a coordenada é bem dentro do perímetro geográfico.<p> |
 | geometryid |string | O id exclusivo identifica a geometria de perímetro geográfico. |
 | nearestlat | número | Latitude do ponto mais próximo da geometria. |
 | nearestlon | número | Longitude do ponto mais próximo da geometria. |
@@ -159,7 +159,7 @@ O objeto de dados tem as seguintes propriedades:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | expiredGeofenceGeometryId | string[] | Listas do ID de geometria do perímetro geográfico que expirou em relação ao tempo de utilizador no pedido. |
-| geometrias | geometries[] |Listas de geometrias cerca que contêm a coordenada posicionam ou se sobrepõem searchBuffer em torno da posição. |
+| geometries | geometries[] |Listas de geometrias cerca que contêm a coordenada posicionam ou se sobrepõem searchBuffer em torno da posição. |
 | invalidPeriodGeofenceGeometryId | string[]  | Listas do ID de geometria do perímetro geográfico que está no período inválido em relação ao tempo de utilizador no pedido. |
 | isEventPublished | boolean | VERDADEIRO se pelo menos um evento é publicado para o subscritor de eventos do Azure Maps, FALSO se nenhum evento é publicado para o subscritor de eventos do Azure Maps. |
 
