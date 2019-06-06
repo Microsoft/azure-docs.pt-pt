@@ -163,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-As mensagens enviadas para (e recebidas de) do Service Bus filas são instâncias do [BrokeredMessage] [ BrokeredMessage] classe. [BrokeredMessage] [ BrokeredMessage] objetos têm um conjunto de métodos padrão e propriedades que são utilizadas para armazenar as propriedades específicas da aplicação personalizadas e um corpo de dados arbitrários da aplicação.
+As mensagens enviadas para (e recebidas de) do Service Bus filas são instâncias do [BrokeredMessage][BrokeredMessage] classe. [BrokeredMessage][BrokeredMessage] objetos têm um conjunto de métodos padrão e propriedades que são utilizadas para armazenar as propriedades específicas da aplicação personalizadas e um corpo de dados arbitrários da aplicação.
 
 As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas numa fila, contudo, existe um limite do tamanho total das mensagens contidas numa fila. Este limite superior relativamente ao tamanho da fila é de 5 GB.
 
