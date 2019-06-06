@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: v-pawal
-ms.openlocfilehash: 2c17ef292d6afcf66d9a5aaf2c502751276bb470
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: cb15ae375f412a66b9d7939b6a580ebb95f2f7a8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389578"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515108"
 ---
 # <a name="customize-your-text-translations"></a>Personalize as suas traduções de texto
 

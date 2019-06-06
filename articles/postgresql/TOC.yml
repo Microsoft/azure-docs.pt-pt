@@ -188,6 +188,10 @@
           href: howto-configure-server-parameters-using-portal.md
         - name: CLI do Azure
           href: howto-configure-server-parameters-using-cli.md
+    - name: Aumentar automaticamente o armazenamento
+      items:
+        - name: Portal do Azure
+          href: howto-auto-grow-storage-portal.md
     - name: Aceder a registos do servidor
       items:
         - name: Portal do Azure

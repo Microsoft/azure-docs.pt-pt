@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: reference
-ms.date: 04/30/2019
+ms.date: 05/29/2019
 ms.author: sajagtap
-ms.openlocfilehash: 19144ae40e67127b656cedd61199b732b1c05e86
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f802c64e141e8757f633d82ad577fa50f7d076fc
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236618"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688883"
 ---
-# <a name="content-moderator-api-reference"></a>Referência da API do Content Moderator
+# <a name="content-moderator-api-reference"></a>Referência da API de moderador de conteúdo
 
-Comece com APIs de moderador de conteúdos do Azure das seguintes formas:
+Pode começar a utilizar APIs de moderador de conteúdos do Azure das seguintes formas:
 
 - No portal do Azure, [subscrever a API Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
 - Ver [Experimente o Content Moderator na web](quick-start.md) inscrever-se com o [ferramenta de revisão de moderador de conteúdo](https://contentmoderator.cognitive.microsoft.com/).
@@ -37,7 +37,7 @@ Pode utilizar APIs do Content Moderator seguintes para configurar os fluxos de t
 
 ## <a name="review-apis"></a>APIs de revisão
 
-A API de revisão tem os seguintes componentes:
+As APIs de revisão tem os seguintes componentes:
 
 | Descrição | Referência |
 | -------------------- |-------------|

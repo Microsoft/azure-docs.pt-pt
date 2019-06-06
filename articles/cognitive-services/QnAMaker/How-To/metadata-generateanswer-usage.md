@@ -1,7 +1,7 @@
 ---
 title: Metadados com GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: A ferramenta QnA Maker permite-lhe adicionar metadados, na forma de pares chave/valor, a seus conjuntos de pergunta/resposta. Estas informações podem ser utilizadas para filtrar os resultados de consultas do utilizador e para armazenar informações adicionais que podem ser utilizadas no seguimento conversas.
+description: A ferramenta QnA Maker permite-lhe adicionar metadados, na forma de pares chave/valor, a seus conjuntos de pergunta/resposta. Pode filtrar os resultados de consultas do utilizador e armazenar informações adicionais que podem ser utilizadas em conversas de acompanhamento.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -10,34 +10,34 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: tulasim
-ms.openlocfilehash: 3088d0f161496cfd2e1cb8897cef36365ece9962
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496947"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693238"
 ---
-# <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API de GenerateAnswer e metadados
+# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta com a API de GenerateAnswer e metadados
 
-Para obter a resposta prevista à pergunta de um utilizador, utilize a API de GenerateAnswer. Quando publica uma base de dados de conhecimento, esta informação para utilizar esta API é apresentada na página de publicação. Também pode configurar a API para filtrar com base em etiquetas de metadados de respostas e testar a base de dados de conhecimento a partir do ponto final com o parâmetro de cadeia de caracteres de consulta de teste.
+Para obter a resposta prevista à pergunta de um utilizador, utilize a API de GenerateAnswer. Quando publica uma base de dados de conhecimento, pode ver informações sobre como utilizar esta API em como o **publicar** página. Também pode configurar a API para filtrar com base em etiquetas de metadados de respostas e testar a base de dados de conhecimento a partir do ponto final com o parâmetro de cadeia de caracteres de consulta de teste.
 
-A ferramenta QnA Maker permite-lhe adicionar metadados, na forma de pares de chave e valor, a seus conjuntos de pergunta/resposta. Estas informações podem ser utilizadas para filtrar os resultados de consultas do utilizador e para armazenar informações adicionais que podem ser utilizadas no seguimento conversas. Para obter mais informações, consulte [base de dados de conhecimento](../Concepts/knowledge-base.md).
+A ferramenta QnA Maker permite-lhe adicionar metadados, na forma de pares de chave e valor, a seus conjuntos de perguntas e respostas. Em seguida, pode utilizar estas informações para filtrar os resultados de consultas do utilizador e para armazenar informações adicionais que podem ser utilizadas no seguimento conversas. Para obter mais informações, consulte [base de dados de conhecimento](../Concepts/knowledge-base.md).
 
 <a name="qna-entity"></a>
 
-## <a name="storing-questions-and-answers-with-a-qna-entity"></a>Armazenamento de perguntas e respostas com uma entidade de QnA
+## <a name="store-questions-and-answers-with-a-qna-entity"></a>Store perguntas e respostas com uma entidade de QnA
 
-Em primeiro lugar é importante compreender como o QnA Maker armazena os dados de pergunta/resposta. A ilustração seguinte mostra uma entidade de QnA:
+É importante compreender como o QnA Maker armazena os dados de perguntas e respostas. A ilustração seguinte mostra uma entidade de QnA:
 
-![Entidade de QnA](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
+![Ilustração de uma entidade de QnA](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
 
-Cada entidade do QnA tem um ID exclusivo e persistente. O ID pode ser utilizado para disponibilizar as atualizações para uma entidade específica do QnA.
+Cada entidade do QnA tem um ID exclusivo e persistente. Pode utilizar o ID para disponibilizar as atualizações para uma entidade específica do QnA.
 
 <a name="generateanswer-api"></a>
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obter previsões de resposta com a API de GenerateAnswer
 
-Utilize a API de GenerateAnswer na sua aplicação ou Bot para consultar a base de dados de conhecimento com uma pergunta de utilizador para obter a melhor correspondência dos conjuntos de pergunta/resposta.
+A API de GenerateAnswer no seu bot ou aplicação é utilizada para consultar a base de dados de conhecimento com uma pergunta de utilizador obter a melhor correspondência da pergunta e resposta define.
 
 <a name="generateanswer-endpoint"></a>
 
@@ -47,11 +47,11 @@ Depois de publicar a sua base de dados de conhecimento, a partir do [portal do Q
 
 Para obter os detalhes do seu ponto final:
 1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
-1. Na **meu bases de dados de conhecimento**, clique em **View Code** para sua base de dados de conhecimento.
-    ![meu bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+1. Na **meu bases de dados de conhecimento**, selecione **View Code** para sua base de dados de conhecimento.
+    ![Captura de ecrã da minha bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os detalhes do seu ponto final de GenerateAnswer.
 
-    ![Detalhes do ponto final](../media/qnamaker-how-to-metadata-usage/view-code.png)
+    ![Captura de ecrã de detalhes do ponto final](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
 Também pode obter os detalhes do seu ponto final da **definições** separador da sua base de dados de conhecimento.
 
@@ -70,10 +70,10 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 |Propriedade de pedido HTTP|Name|Type|Objetivo|
 |--|--|--|--|
 |Parâmetro de rota de URL|ID da base de dados de conhecimento|string|O GUID de sua base de dados de conhecimento.|
-|Parâmetro de rota de URL|Anfitrião de ponto final do QnAMaker|string|O nome de anfitrião do ponto final implementado na sua subscrição do Azure. Está disponível na página definições depois de publicar a base de dados de conhecimento. |
+|Parâmetro de rota de URL|Anfitrião de ponto final do QnAMaker|string|O nome de anfitrião do ponto final implementado na sua subscrição do Azure. Isto estará disponível sob o **definições** página depois de publicar a base de dados de conhecimento. |
 |Cabeçalho|Content-Type|string|O tipo de suporte do corpo enviado para a API. Valor predefinido é: '|
 |Cabeçalho|Autorização|string|A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Corpo da mensagem|Objeto JSON|JSON|A pergunta com as definições|
+|Corpo da mensagem|Objeto JSON|JSON|A pergunta com as definições.|
 
 
 O corpo JSON tem várias definições:
@@ -84,7 +84,7 @@ O corpo JSON tem várias definições:
 |`top`|Opcional|inteiro|O número de resultados classificados a incluir na saída. O valor predefinido é 1.|
 |`userId`|Opcional|string|Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.|
 |`scoreThreshold`|Opcional|inteiro|Apenas respostas com pontuação de confiança acima deste limiar vão ser devolvidas. O valor predefinido é 0.|
-|`isTest`|Opcional|boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
+|`isTest`|Opcional|Boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
 |`strictFilters`|Opcional|string|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados. Utilize `none` para indicar a resposta não deve ter nenhum filtro de metadados. |
 |`RankerType`|Opcional|string|Se for especificado como `QuestionOnly`, informa ao QnA Maker para pesquisar apenas a perguntas. Se não for especificado, o QnA Maker pesquisa perguntas e respostas.
 
@@ -147,19 +147,19 @@ Uma resposta com êxito retorna um status de 200 e uma resposta JSON.
 
 <a name="metadata-example"></a>
 
-## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Utilizando os metadados permite-lhe filtrar respostas por etiquetas de metadados personalizados
+## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Usar metadados para filtrar respostas por etiquetas de metadados personalizados
 
-Adicionar metadados permite-lhe filtrar as respostas por estas etiquetas de metadados. Adicionar a coluna de metadados a partir da **opções de visualização** menu. Adicionar metadados a sua base de dados de conhecimento ao clicar nos metadados **+** ícone para adicionar um par de metadados. Esse par consiste numa chave e um valor.
+Adicionar metadados permite-lhe filtrar as respostas por estas etiquetas de metadados. Adicionar a coluna de metadados a partir da **opções de visualização** menu. Adicionar metadados a sua base de dados de conhecimento, selecionando os metadados **+** ícone para adicionar um par de metadados. Esse par consiste numa chave e um valor.
 
-![adicionar metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
+![Captura de ecrã da adição de metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
 <a name="filter-results-with-strictfilters-for-metadata-tags"></a>
 
 ## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrar os resultados com strictFilters para marcas de metadados
 
-Considere a pergunta do utilizador "Quando o feche esta hotel?" em que a intenção é implícito para o restaurante "Paraíso."
+Considere a pergunta do utilizador "Quando o feche esta hotel?", em que a intenção é implícito para o restaurante "Paraíso."
 
-Uma vez que os resultados são necessários apenas para o restaurante "Paraíso", pode definir um filtro na chamada GenerateAnswer nos metadados "Restaurante Name", da seguinte forma.
+Uma vez que os resultados são necessários apenas para o restaurante "Paraíso", pode definir um filtro na chamada GenerateAnswer nos metadados "Restaurante Name". O exemplo seguinte mostra esta:
 
 ```json
 {
@@ -177,7 +177,7 @@ Uma vez que os resultados são necessários apenas para o restaurante "Paraíso"
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Utilize os resultados de perguntas e respostas para manter o contexto de conversação
 
-A resposta para o GenerateAnswer contém as informações de metadados correspondente do conjunto correspondente de pergunta/resposta. Estas informações podem ser utilizadas na sua aplicação de cliente para armazenar o contexto da conversa anterior para utilização posterior conversas. 
+A resposta para o GenerateAnswer contém as informações de metadados correspondente do conjunto de perguntas e respostas correspondente. Pode usar essas informações na sua aplicação de cliente para armazenar o contexto da conversa anterior para utilização posterior conversas. 
 
 ```json
 {
@@ -222,7 +222,7 @@ Pode pesquisar por meio da kb publicado, usando `isTest=false`, ou no teste kb c
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Página de publicação também fornece informações para gerar uma resposta com [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) e [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
+O **Publish** página também fornece informações para gerar uma resposta com [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) e [cURL](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados de conhecimento](./create-knowledge-base.md)

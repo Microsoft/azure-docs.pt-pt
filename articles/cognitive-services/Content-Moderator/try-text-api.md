@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: edf4a3e9d9e9b51ac44f839cababa9d14bc0d17a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.date: 05/29/2019
+ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228062"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688834"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Texto moderado, a partir da consola de API
 
-Utilize o [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Azure Content Moderator para analisar o conteúdo de texto. A operação analisa os seus conteúdos relativamente a profanidades e compara o conteúdo em relação a listas de bloqueios personalizadas e partilhados.
+Utilize o [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Azure Content Moderator para analisar o conteúdo de texto relativamente a profanidades e compará-lo em relação a listas personalizadas e partilhadas.
 
 ## <a name="get-your-api-key"></a>Obtenha a chave de API
 
@@ -49,7 +49,7 @@ Selecione os parâmetros de consulta que pretende utilizar no seu texto na tela.
 >
 > Para **termos de linguagem inapropriada** deteção, utilize o [código ISO 639 3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte demonstrados neste artigo ou deixe-o vazio.
 
-Para **autocorreção**, **PII**, e **classificar (pré-visualização)**, selecione **verdadeiro**. Deixe o **ListId** campo vazio.
+Para **autocorreção**, **PII**, e **classificar (pré-visualização)** , selecione **verdadeiro**. Deixe o **ListId** campo vazio.
 
   ![Texto - parâmetros de consulta da consola de ecrã](images/text-api-console-inputs.PNG)
 
@@ -72,7 +72,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Analisar a resposta
 
-A seguinte resposta mostra as várias informações da API. Ela contém potencial linguagem inapropriada, PII, classificação (pré-visualização) e a versão corrigidas automaticamente.
+A seguinte resposta mostra as várias informações da API. Ela contém potencial linguagem inapropriada, os dados pessoais, classificação (pré-visualização) e a versão corrigidas automaticamente.
 
 > [!NOTE]
 > A funcionalidade de "Classificação" assistida está em pré-visualização e suporta apenas o inglês.

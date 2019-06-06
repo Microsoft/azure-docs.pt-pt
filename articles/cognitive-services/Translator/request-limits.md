@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796895"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514646"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de pedido para o texto do tradutor
 
@@ -38,7 +38,7 @@ As seguintes tabela listas de elemento e o caráter limites da matriz para cada 
 
 ## <a name="character-limits-per-hour"></a>Limites do caractere por hora
 
-O limite de carateres por hora baseia-se a sua camada de subscrição de texto do Translator. A quota de hora a hora deve ser consumida uniformemente em toda a hora. Se chega a superar as estes limites ou enviar demasiado grande de uma parte da quota de num curto período de tempo, provavelmente receberá um fora de resposta de quota. 
+O limite de carateres por hora baseia-se a sua camada de subscrição de texto do Translator. A quota de hora a hora deve ser consumida uniformemente em toda a hora. Se chega a superar as estes limites ou enviar demasiado grande de uma parte da quota de num curto período de tempo, provavelmente receberá um fora de resposta de quota.
 
 | Escalão | Limite de carateres |
 |------|-----------------|
@@ -69,7 +69,7 @@ Ao utilizar o [BreakSentence](https://docs.microsoft.com/azure/cognitive-service
 | Português | pt | 290 |
 | Espanhol | es | 280 |
 | Italiano | it | 280 |
-| Tailandês | º | 258 |
+| Tailandês | TH | 258 |
 
 > [!NOTE]
 > Este limite não se aplica a traduções.
