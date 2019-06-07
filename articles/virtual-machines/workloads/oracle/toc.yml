@@ -1,7 +1,11 @@
 - name: Descrição geral
   items:
-    - name: Considerações relativas a VMs da Oracle
-      href: oracle-considerations.md
+    - name: Descrição geral das soluções Oracle
+      href: oracle-overview.md
+    - name: Soluções sobre as VMs do Azure
+      href: oracle-vm-solutions.md
+    - name: Soluções com o OCI - Pré-visualização
+      href: oracle-oci-overview.md
 - name: Inícios rápidos
   items:
     - name: Criar BD da Oracle
@@ -10,7 +14,7 @@
   items:
     - name: Configurar Oracle ASM
       href: configure-oracle-asm.md
-    - name: Configurar Oracle DataGuard
+    - name: Configurar o Oracle Data Guard
       href: configure-oracle-dataguard.md
     - name: Configurar Oracle GoldenGate para o Azure
       href: configure-oracle-golden-gate.md

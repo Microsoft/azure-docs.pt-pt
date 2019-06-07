@@ -42,6 +42,8 @@
           href: render-coverage.md
         - name: Cobertura de encaminhamento
           href: routing-coverage.md
+        - name: Cobertura de mobilidade
+          href: mobility-coverage.md
     - name: Suporte de localização
       href: supported-languages.md
     - name: Estilos de mapas suportados
@@ -50,6 +52,8 @@
       href: supported-browsers.md
     - name: Níveis de zoom e grelha de mosaico
       href: zoom-levels-and-tile-grid.md
+    - name: Estrutura de dados do Mobility Service
+      href: mobility-service-data-structure.md
 - name: Guias de procedimentos
   items:
     - name: Gerir contas do Maps
@@ -70,6 +74,10 @@
           href: how-to-use-best-practices-for-search.md
         - name: Processar dados personalizados num mapa estático
           href: how-to-render-custom-data.md
+        - name: Pedir rotas de trânsito públicas
+          href: how-to-request-transit-data.md
+        - name: Pedir dados de trânsito públicos em tempo real
+          href: how-to-request-real-time-data.md
     - name: Desenvolver com o SDK Web
       items:
         - name: Controlo de mapa
