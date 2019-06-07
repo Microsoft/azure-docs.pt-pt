@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956387"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497191"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilizar kubenet networking com seus próprios intervalos de endereços IP no Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Este artigo mostra-lhe como utilizar *kubenet* rede a fim de criar e utilizar um
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão 2.0.56 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
+Precisa da versão 2.0.65 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Descrição geral do kubenet com sua própria sub-rede de rede
 
@@ -48,7 +48,7 @@ Com o *Azure CNI*, um problema comum é o intervalo de endereços IP atribuído 
 
 Como um comprometimento, pode criar um cluster do AKS que utiliza *kubenet* e ligar a uma sub-rede de rede virtual existente. Esta abordagem permite que os nós receber endereços IP definidos, sem a necessidade de reservar um grande número de endereços IP com antecedência para todos os pods potenciais que poderiam ser executada no cluster.
 
-Com o *kubenet*, pode utilizar um muito menor do intervalo de endereços IP e conseguir suportar grandes clusters e pedidos de aplicações. Por exemplo, até mesmo com um */27* intervalo de endereços IP, pode executar um cluster de nó de 20 a 25 com espaço suficiente para dimensionar ou atualizar. Este tamanho de cluster deve suportar até *2.200 2,750* pods (com um máximo de padrão de 110 pods por nó).
+Com o *kubenet*, pode utilizar um muito menor do intervalo de endereços IP e conseguir suportar grandes clusters e pedidos de aplicações. Por exemplo, até mesmo com um */27* intervalo de endereços IP, pode executar um cluster de nó de 20 a 25 com espaço suficiente para dimensionar ou atualizar. Este tamanho de cluster deve suportar até *2.200 2,750* pods (com um máximo de padrão de 110 pods por nó). O número máximo de pods por nó que pode ser configurado com *kubenet* no AKS é 250.
 
 Os cálculos de básicos seguintes comparam a diferença nos modelos de rede:
 
@@ -140,15 +140,15 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster do AKS na rede virtual
 
-Acabou de criar uma rede virtual e uma sub-rede e criou e receber permissões para um principal de serviço para usar esses recursos de rede. Agora, criar um cluster do AKS na sua rede virtual e sub-rede a utilizar o [criar az aks] [ az-aks-create] comando. Definir o seu principal de serviço  *\<appId >* e  *\<palavra-passe >*, como mostra a saída do comando anterior para criar o principal de serviço.
+Acabou de criar uma rede virtual e uma sub-rede e criou e receber permissões para um principal de serviço para usar esses recursos de rede. Agora, criar um cluster do AKS na sua rede virtual e sub-rede a utilizar o [criar az aks] [ az-aks-create] comando. Definir o seu principal de serviço  *\<appId >* e  *\<palavra-passe >* , como mostra a saída do comando anterior para criar o principal de serviço.
 
 Os seguintes intervalos de endereços IP também são definidos como parte do cluster Criar processo:
 
-* O *– serviço cidr* é usado para atribuir um endereço IP de serviços internos do cluster do AKS. Este intervalo de endereços IP deve ser um espaço de endereços que não está em utilização em outro lugar no seu ambiente de rede. Isto inclui quaisquer intervalos de rede no local se ligar, ou se planear ligar redes virtuais do Azure com o Expressroute ou ligações de VPN de Site a Site.
+* O *– serviço cidr* é usado para atribuir um endereço IP de serviços internos do cluster do AKS. Este intervalo de endereços IP deve ser um espaço de endereços que não está em utilização em outro lugar no seu ambiente de rede. Este intervalo inclui quaisquer intervalos de rede no local se ligar, ou se planear ligar redes virtuais do Azure com o Express Route ou uma ligação VPN de Site a Site.
 
 * O *-- dns-ip do serviço* endereço deve ser o *.10* endereço do seu intervalo de endereços IP do serviço.
 
-* O *– pod cidr* deve ser um espaço de endereçamento amplo que não está em utilização em outro lugar no seu ambiente de rede. Isto inclui quaisquer intervalos de rede no local se ligar, ou se planear ligar redes virtuais do Azure com o Express Route ou uma ligação VPN de Site a Site.
+* O *– pod cidr* deve ser um espaço de endereçamento amplo que não está em utilização em outro lugar no seu ambiente de rede. Este intervalo inclui quaisquer intervalos de rede no local se ligar, ou se planear ligar redes virtuais do Azure com o Express Route ou uma ligação VPN de Site a Site.
     * Este intervalo de endereços tem de ser suficientemente grande para acomodar o número de nós que pretende dimensionar até. Não é possível alterar este intervalo de endereços assim que o cluster é implementado, se precisar de mais endereços para outros nós.
     * O intervalo de endereços IP de pod é usado para atribuir um */24* espaço para cada nó do cluster de endereços. No exemplo a seguir, o *– pod cidr* dos *192.168.0.0/16* atribui o primeiro nó *192.168.0.0/24*, o segundo nó *192.168.1.0/24*e o nó de terceiro *192.168.2.0/24*.
     * Como as escalas de cluster ou atualizações, a plataforma do Azure continua atribuir um intervalo de endereços IP de pod para cada novo nó.

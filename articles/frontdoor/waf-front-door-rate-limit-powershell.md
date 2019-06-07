@@ -9,22 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2019
+ms.date: 05/31/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 903405c8fada6165b79e780a7828c6de3b95163e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66387342"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478916"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurar uma web application firewall taxa limite regra com o Azure PowerShell
 A regra de limite de taxa na firewall (WAF) de aplicação web do Azure para a porta da frente do Azure controla o número de pedidos permitidos de um IP de cliente único durante um período de um minuto.
 Este artigo mostra como configurar uma regra de limite de taxa de WAF que controla o número de pedidos de permissão de um único cliente para uma aplicação web que contém */promo* no URL com o Azure PowerShell.
-
-> [!IMPORTANT]
-> A funcionalidade de regra de limite de taxa de WAF para a porta da frente do Azure está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

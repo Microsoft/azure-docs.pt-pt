@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d2889af6000e77fba7a91392c0adb227588b5306
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463633"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66430794"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure com o seu inquilino do Azure Active Directory
 
@@ -42,6 +42,7 @@ Antes de poder associar ou adicionar a sua subscrição, tem de efetuar as segui
     - Os utilizadores que foram atribuídos funções utilizando o RBAC perderão o acesso
     - Administrador de serviços e Coadministradores perderão o acesso
     - Se tiver quaisquer cofres de chaves, eles serão inacessíveis e terá que corrigi-los após a associação
+    - Se tiver quaisquer identidades geridas para recursos, tais como máquinas virtuais ou o Logic Apps, terá de voltar a ativar ou recriá-las após a associação
     - Se tiver um registados do Azure Stack, terá de voltar a registar após a associação
 
 1. Inicie sessão com uma conta que:
@@ -76,7 +77,9 @@ Depois de associar uma subscrição para um diretório diferente, pode haver pas
 
 1. Se tiver quaisquer cofres de chaves, tem de alterar o ID de inquilino do Cofre de chaves. Para obter mais informações, consulte [alterar um ID de inquilino do Cofre de chaves após a movimentação de uma subscrição](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Se tiver registado um utilizar esta subscrição do Azure Stack, é necessário registrar novamente. Para obter mais informações, consulte [registar o Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
+2. Se estivesse usando atribuído de sistema de identidades geridas por um para recursos, tem de ativar estes novamente. Se estivesse usando Identidiades atribuídas geridos, tem de recriar esses. Depois de ativar novamente ou recriar as identidades geridas, tem de voltar a estabelecer as permissões atribuídas a essas identidades. Para obter mais informações, consulte [o que há de identidades geridas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
+
+3. Se tiver registado um utilizar esta subscrição do Azure Stack, é necessário registrar novamente. Para obter mais informações, consulte [registar o Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

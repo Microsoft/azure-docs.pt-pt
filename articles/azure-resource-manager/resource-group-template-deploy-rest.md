@@ -1,23 +1,18 @@
 ---
 title: Implementar recursos com a REST API e o modelo | Documentos da Microsoft
 description: Utilize o Azure Resource Manager e API de REST do Resource Manager para implementar recursos no Azure. Os recursos são definidos num modelo do Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15e4a7058dc1e74c726644e86c58381003eee937
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0490cf6837cb413bc2e869424cd430fd4a824dc9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782978"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688879"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementar recursos com modelos do Resource Manager e API REST do Resource Manager
 
@@ -27,11 +22,25 @@ Pode optar por incluir o modelo no corpo do pedido ou ligação para um ficheiro
 
 ## <a name="deployment-scope"></a>Escopo da implantação
 
-Pode direcionar a sua implementação para uma subscrição do Azure ou um grupo de recursos numa subscrição. Na maioria dos casos, será o direcionamento de implementação para um grupo de recursos. Utilize implementações de subscrição para aplicar políticas e as atribuições de funções a subscrição. Também utilizar implementações de subscrição para criar um grupo de recursos e implementar recursos no mesmo. Dependendo do escopo da implantação, é usar comandos diferentes.
+Pode direcionar a sua implementação para um grupo de gestão, uma subscrição do Azure ou um grupo de recursos. Na maioria dos casos, irá direcionar implementações para um grupo de recursos. Utilize implementações de subscrição ou grupo de gestão para aplicar políticas e as atribuições de funções em âmbito especificado. Também utilizar implementações de subscrição para criar um grupo de recursos e implementar recursos no mesmo. Dependendo do escopo da implantação, é usar comandos diferentes.
 
-Para implementar um **grupo de recursos**, utilize [criar implementações -](/rest/api/resources/deployments/createorupdate).
+Para implementar um **grupo de recursos**, utilize [criar implementações -](/rest/api/resources/deployments/createorupdate). O pedido é enviado para:
 
-Para implementar um **subscrição**, utilize [implementações - criar no âmbito da subscrição](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+Para implementar um **subscrição**, utilize [implementações - criar no âmbito da subscrição](/rest/api/resources/deployments/createorupdateatsubscriptionscope). O pedido é enviado para:
+
+```HTTP
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
+
+Para implementar um **grupo de gestão**, utilize [implementações - criar no âmbito do grupo de gestão](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). O pedido é enviado para:
+
+```HTTP
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
+```
 
 Os exemplos neste artigo utilizam implementações do grupo de recursos. Para obter mais informações sobre implementações de subscrição, veja [criar grupos de recursos e recursos ao nível da subscrição](deploy-to-subscription.md).
 
@@ -42,7 +51,7 @@ Os exemplos neste artigo utilizam implementações do grupo de recursos. Para ob
 1. Se não tiver um grupo de recursos existente, crie um grupo de recursos. Forneça o ID da subscrição, o nome do novo grupo de recursos e localização que precisa para a sua solução. Para obter mais informações, consulte [criar um grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2019-05-01
    ```
 
    Com um corpo de pedido, como:
@@ -58,13 +67,13 @@ Os exemplos neste artigo utilizam implementações do grupo de recursos. Para ob
 
 1. Validar implementação antes de executá-lo ao executar o [validar uma implementação de modelo](/rest/api/resources/deployments/validate) operação. Ao testar a implementação, fornece os parâmetros exatamente como faria ao executar a implementação (mostrada na próxima etapa).
 
-1. Crie uma implementação. Forneça o seu ID de subscrição, o nome do grupo de recursos, o nome da implantação e uma ligação ao seu modelo. Para obter informações sobre o ficheiro de modelo, consulte [ficheiro de parâmetros](#parameter-file). Para obter mais informações sobre a API de REST para criar um grupo de recursos, consulte [criar uma implementação de modelo](/rest/api/resources/deployments/createorupdate). Observe que o **modo** está definida como **Incremental**. Para executar uma implantação completa, definida **modo** ao **concluída**. Tenha cuidado ao usar o modo de conclusão, como inadvertidamente pode eliminar recursos que não estão no seu modelo.
+1. Para implementar um modelo, forneça o ID da subscrição, o nome do grupo de recursos, o nome da implementação no URI do pedido. 
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   Com um corpo de pedido, como:
+   No corpo do pedido, forneça uma ligação para o ficheiro de modelo e o parâmetro. Observe que o **modo** está definida como **Incremental**. Para executar uma implantação completa, definida **modo** ao **concluída**. Tenha cuidado ao usar o modo de conclusão, como inadvertidamente pode eliminar recursos que não estão no seu modelo.
 
    ```json
    {
@@ -73,11 +82,11 @@ Os exemplos neste artigo utilizam implementações do grupo de recursos. Para ob
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
-      }
+      },
+      "mode": "Incremental"
     }
    }
    ```
@@ -91,11 +100,11 @@ Os exemplos neste artigo utilizam implementações do grupo de recursos. Para ob
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
         "contentVersion": "1.0.0.0"
       },
-      "mode": "Incremental",
       "parametersLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
         "contentVersion": "1.0.0.0"
       },
+      "mode": "Incremental",
       "debugSetting": {
         "detailLevel": "requestContent, responseContent"
       }
@@ -105,7 +114,7 @@ Os exemplos neste artigo utilizam implementações do grupo de recursos. Para ob
 
     Pode configurar a sua conta de armazenamento para utilizar um token de assinatura (SAS) de acesso partilhado. Para obter mais informações, consulte [delegar acesso com uma assinatura de acesso partilhado](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-1. Em vez de uma ligação para ficheiros de modelo e parâmetros, pode incluí-los no corpo do pedido.
+1. Em vez de uma ligação para ficheiros de modelo e parâmetros, pode incluí-los no corpo do pedido. O exemplo seguinte mostra o corpo do pedido com o modelo e parâmetros inline:
 
    ```json
    {
@@ -168,7 +177,7 @@ Os exemplos neste artigo utilizam implementações do grupo de recursos. Para ob
    }
    ```
 
-1. Obtenha o estado da implementação do modelo. Para obter mais informações, consulte [obter informações sobre uma implementação de modelo](/rest/api/resources/deployments/get).
+1. Para obter o estado da implementação do modelo, utilize [implementações - obter](/rest/api/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -176,7 +185,7 @@ Os exemplos neste artigo utilizam implementações do grupo de recursos. Para ob
 
 ## <a name="redeploy-when-deployment-fails"></a>Implementar novamente quando ocorre uma falha de implementação
 
-Esta funcionalidade também é conhecido como *reversão com o erro*. Quando uma implementação falhar, pode implementar automaticamente novamente uma implementação anterior, com êxito do seu histórico de implementação. Para especificar a nova implementação, utilize o `onErrorDeployment` propriedade no corpo do pedido. Essa funcionalidade é útil se tiver tem um bom estado conhecido para a implementação de infraestrutura e que a ser revertida para o. Há uma série de limitações e restrições:
+Esta funcionalidade também é conhecido como *reversão com o erro*. Quando uma implementação falhar, pode implementar automaticamente novamente uma implementação anterior, com êxito do seu histórico de implementação. Para especificar a nova implementação, utilize o `onErrorDeployment` propriedade no corpo do pedido. Essa funcionalidade é útil se tem um bom estado conhecido para a sua implementação de infraestrutura e pretenda reverter para este estado. Há uma série de limitações e restrições:
 
 - A reimplementação é executada exatamente como foi anteriormente executada com os mesmos parâmetros. Não é possível alterar os parâmetros.
 - A implementação anterior for executada utilizando o [modo de conclusão](./deployment-modes.md#complete-mode). São eliminados todos os recursos não incluídos na implementação anterior e quaisquer configurações de recursos são definidas para o seu estado anterior. Certifique-se de que compreende totalmente o [modos de implementação](./deployment-modes.md).
@@ -268,6 +277,5 @@ Se precisar de fornecer um valor sensível para um parâmetro (por exemplo, uma 
 
 - Para especificar como lidar com recursos de que existem no grupo de recursos, mas não estão definidos no modelo, consulte [modos de implementação Azure Resource Manager](deployment-modes.md).
 - Para saber mais sobre como lidar com operações assíncronas de REST, veja [monitorizar operações assíncronas de Azure](resource-manager-async-operations.md).
-- Para obter um exemplo de implementação de recursos por meio da biblioteca de cliente .NET, consulte [implementar recursos com bibliotecas .NET e um modelo](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Para definir parâmetros no modelo, veja [criação de modelos](resource-group-authoring-templates.md#parameters).
-- Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- Para saber mais sobre modelos, veja [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](resource-group-authoring-templates.md).
+

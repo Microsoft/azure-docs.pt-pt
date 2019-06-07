@@ -2,20 +2,20 @@
 title: Definir um perfil técnico de OAuth2 numa política personalizada no Azure Active Directory B2C | Documentos da Microsoft
 description: Defina um perfil técnico de OAuth2 numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 65634cb6573a0f163f7a0ca07bf26af9512e240b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 80b196b34e8eee99ed77c3c8a914f89fa68d87b8
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683893"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512940"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OAuth2 em políticas personalizadas do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64683893"
 
 O Azure Active Directory (Azure AD) B2C fornece suporte para o fornecedor de identidade de protocolo OAuth2. OAuth2 é o protocolo primário para autorização e autenticação delegada. Para obter mais informações, consulte a [RFC 6749 o OAuth 2.0 autorização Framework](https://tools.ietf.org/html/rfc6749). Com um perfil de técnico de OAuth2, pode federar com um fornecedor de identidade com base do OAuth2, como o Facebook. Federação com um fornecedor de identidade permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O **Name** atributo da **protocolo** elemento tem de ser definido como `OAuth2`. Por exemplo, o protocolo para o **Facebook OAUTH** é o perfil técnico `OAuth2`:
 
@@ -104,7 +104,7 @@ O **CryptographicKeys** elemento contém o atributo seguinte:
 | --------- | -------- | ----------- |
 | client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade. A chave de criptografia é necessária apenas se o **response_types** metadados é definido como `code`. Neste caso, o Azure AD B2C faz outra chamada para o código de autorização para um token de acesso do exchange. Se os metadados é definido como `id_token`, pode omitir a chave criptográfica. |  
 
-## <a name="redirect-uri"></a>URI de Redirecionamento
+## <a name="redirect-uri"></a>URI de redirecionamento
 
 Quando configurar o URL de redirecionamento do seu fornecedor de identidade, introduza `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Certifique-se de substituir **inquilino** com o nome do inquilino (por exemplo, contosob2c.onmicrosoft.com) e **policyId** com o identificador da sua política (por exemplo, b2c_1a_policy). O URI de redirecionamento tem de ser em letras minúsculas.
 

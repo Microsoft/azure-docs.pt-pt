@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 8ed7d144b886cc29592418007b9103b4aa94e8ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b09182ef06c708e9c606173f02b006e7802f29ed
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331082"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477817"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Encriptação de dados transparente para a base de dados SQL e o armazém de dados
 
@@ -33,7 +33,7 @@ SQL Server em execução numa máquina virtual do Azure também pode utilizar um
 
 ## <a name="service-managed-transparent-data-encryption"></a>Encriptação de dados transparente gerida pelo serviço
 
-No Azure, a definição de encriptação de dados transparente predefinida é que a chave de encriptação da base de dados está protegida por um certificado de servidor interno. O certificado de servidor interno é exclusivo para cada servidor. Se uma base de dados está numa relação de replicação geográfica, a base de dados primária e geo-secundária estão protegidas por chave de servidor da base de dados primário principal. Se duas bases de dados estiverem ligados ao mesmo servidor, eles também compartilham o mesmo certificado incorporado. Microsoft gira automaticamente estes certificados em conformidade com a política de segurança interna e a chave de raiz é protegida por um arquivo de segredos interno do Microsoft.
+No Azure, a definição de encriptação de dados transparente predefinida é que a chave de encriptação da base de dados está protegida por um certificado de servidor interno. O certificado de servidor interno é exclusivo para cada servidor. Se uma base de dados está numa relação de replicação geográfica, a base de dados primária e geo-secundária estão protegidas por chave de servidor da base de dados primário principal. Se duas bases de dados estiverem ligados ao mesmo servidor, eles também compartilham o mesmo certificado incorporado. Microsoft gira automaticamente estes certificados em conformidade com a política de segurança interna e a chave de raiz é protegida por um arquivo de segredos interno do Microsoft.  Os clientes podem verificar a conformidade de base de dados SQL com as políticas de segurança interna nos relatórios de auditoria de terceiros independente disponíveis na [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 A Microsoft diretamente move e gerencia as chaves conforme necessário para georreplicação e restaura.
 

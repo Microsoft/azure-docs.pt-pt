@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: b5a203150906758bde33431a1dab717e090f2e28
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418126"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475569"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Pré-visualização - o tráfego de saída de limite de nós de cluster e controlar o acesso a portas necessárias e serviços no Azure Kubernetes Service (AKS)
 
@@ -75,7 +75,7 @@ O seguinte FQDN / regras de aplicações são necessárias:
 
 | FQDN                      | Port      | Utilizar      |
 |---------------------------|-----------|----------|
-| *.azmk8s.io               | HTTPS:443 | Este endereço é o ponto de final do servidor de API. |
+| *.azmk8s.io               | HTTPS:443,22,9000 | Este endereço é o ponto de final do servidor de API. |
 | aksrepos.azurecr.io       | HTTPS:443 | Este endereço é necessário para imagens de acesso no Azure Container Registry (ACR). |
 | *.blob.core.windows.net   | HTTPS:443 | Este endereço é o armazenamento de back-end para imagens armazenadas no ACR. |
 | mcr.microsoft.com         | HTTPS:443 | Este endereço é necessário para acesso de imagens no registo de contentor da Microsoft (MCR). |

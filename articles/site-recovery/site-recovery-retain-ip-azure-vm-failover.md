@@ -6,12 +6,12 @@ ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b7772bad5bb1c5b43a4bcc8d727a22c82547043
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277308"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479955"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Manter os endereços IP durante a ativação pós-falha
 
@@ -43,7 +43,7 @@ Eis a arquitetura antes da ativação pós-falha.
         - Ásia Oriental tem uma VNet (**VNet de origem**) com o endereço espaço 10.1.0.0/16.
         - Este asiático tem cargas de trabalho dividido em três sub-redes na VNet:
             - **Sub-rede 1**: 10.1.1.0/24
-            - **Sub-rede 2**: 10.1.2.0/24,
+            - **Sub-rede 2**: 10.1.2.0/24
             - **Sub-rede 3**: 10.1.3.0/24
     - Região secundária (destino) é o Azure Sudeste asiático
         - Sudeste asiático tem uma recuperação VNet (**VNet de recuperação**) idêntico ao **VNet de origem**.
@@ -131,11 +131,11 @@ Eis o aspeto de arquitetura de rede antes da ativação pós-falha.
 - Ásia Oriental tem uma VNet (**VNet de origem**) com o endereço espaço 10.1.0.0/16.
   - Este asiático tem cargas de trabalho dividido em três sub-redes na **VNet de origem**:
     - **Sub-rede 1**: 10.1.1.0/24
-    - **Sub-rede 2**: 10.1.2.0/24,
-    - **Sub-rede 3**: 10.1.3.0/24utilizing uma rede virtual com endereço espaço 10.1.0.0/16. Esta rede virtual com o nome **VNet de origem**
+    - **Sub-rede 2**: 10.1.2.0/24
+    - **Sub-rede 3**: 10.1.3.0/24, utilizando uma rede virtual com endereço espaço 10.1.0.0/16. Esta rede virtual com o nome **VNet de origem**
       - A região secundária (destino) é o Azure Sudeste asiático:
   - Sudeste asiático tem uma recuperação VNet (**VNet de recuperação**) idêntico ao **VNet de origem**.
-- As VMs na Ásia Oriental estão ligadas a um datacenter no local com o Azure ExpressRoute ou o site para site VPN.
+- As VMs na Ásia Oriental estão ligadas a um datacenter no local com o Azure ExpressRoute ou VPN de site a site.
 - Para reduzir o RTO, a empresa B Aprovisiona gateways de VNet de recuperação no Azure Sudeste asiático antes da ativação pós-falha.
 - Endereços IP de destino de atribui/verifica de empresa B para VMs replicadas. O endereço IP de destino é o mesmo endereço IP de origem para cada VM.
 

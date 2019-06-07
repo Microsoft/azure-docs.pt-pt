@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4baab6e0909144efc613572207e7f24c4b4fe1f
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015255"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66743278"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar dispositivo eventos de ligação do IoT Hub com o Azure Cosmos DB
 
@@ -154,7 +154,7 @@ Primeiro, crie uma aplicação lógica e adicione um acionador do Event Grid que
 
 4. No Estruturador da aplicação lógica, desloque-se à direita até ver acionadores comuns. Sob **modelos**, escolha **aplicação lógica em branco** para que pode criar a sua aplicação do zero.
 
-### <a name="select-a-trigger"></a>Selecione um acionador
+### <a name="select-a-trigger"></a>Selecionar um acionador
 
 Um acionador é um evento específico que inicia a sua aplicação lógica. Neste tutorial, o acionador que desencadeia o fluxo de trabalho está a receber um pedido através de HTTP.
 
@@ -266,13 +266,13 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
 
 4. Preencha **detalhes da subscrição de evento**: Forneça um nome descritivo e selecione **esquema de grelha de eventos**.
 
-5. Preencha os **tipos de evento** campos. Desmarque **subscrever todos os tipos de eventos** e selecione **dispositivo ligado** e **dispositivo desligado** no menu.
+5. Preencha os **tipos de evento** campos. Na lista pendente, selecione apenas **dispositivo ligado** e **dispositivo desligado** no menu. Clique em qualquer outra coisa na tela para fechar a lista e guardar as suas seleções.
 
    ![Definir tipos de eventos para procurar](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. Para **detalhes do ponto final**, selecione o tipo de ponto final como **Hook de Web** e clique no ponto de extremidade selecione e cole o URL que copiou da sua aplicação lógica e confirme a seleção.
 
-   ![Selecione o url de ponto final](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Selecione o url de ponto final](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. O formulário deve agora ter um aspeto semelhante ao seguinte exemplo:
 
@@ -302,11 +302,9 @@ Agora que a sua subscrição de evento é configurada, vamos testar conectando-s
 
    ![ConnectionString para dispositivo](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### <a name="start-raspberry-pi-simulator"></a>Iniciar o simulador de Raspberry Pi
 
-1. Vamos utilizar o simulador web Raspberry Pi para simular a ligação do dispositivo.
+Vamos utilizar o simulador web Raspberry Pi para simular a ligação do dispositivo.
 
 [Iniciar o simulador de Raspberry Pi](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -340,7 +338,7 @@ Em vez de utilizar o [portal do Azure](https://portal.azure.com), pode realizar 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Este tutorial utilizou recursos que incorrem em custos na sua subscrição do Azure. Quando tiver acabado de experimentar o tutorial e de testar os resultados, desative ou elimine os recursos que não quiser manter.
+Este tutorial utilizou recursos que incorrem em custos na sua subscrição do Azure. Quando tiver terminado a experimentar o tutorial e testar os resultados, desativar ou eliminar recursos que não pretende manter.
 
 Se não quiser perder o trabalho realizado na sua aplicação lógica, desative-a em vez de a eliminar.
 

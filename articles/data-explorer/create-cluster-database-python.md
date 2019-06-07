@@ -1,18 +1,18 @@
 ---
-title: 'Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados com o Python'
+title: Criar um cluster do Explorador de dados do Azure e a base de dados com o Python
 description: Saiba como criar um cluster do Explorador de dados do Azure e a base de dados com o Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: caac53aec08e234f320ee4278a5a58bbc62bff68
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861017"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494581"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com o Python
 
@@ -24,7 +24,7 @@ ms.locfileid: "60861017"
 > * [Python](create-cluster-database-python.md)
 >  
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste início rápido, vai criar um cluster e uma base de dados com o Python.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste artigo, vai criar um cluster e uma base de dados com o Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ pip install azure-mgmt-kusto
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|
    | cluster_name | *mykustocluster* | O nome do cluster pretendido.|
-   | sku | *D13_v2* | O SKU que será utilizado para o seu cluster. |
+   | SKU | *D13_v2* | O SKU que será utilizado para o seu cluster. |
    | resource_group_name | *testrg* | O nome do grupo de recursos onde será criado o cluster. |
 
     Existem parâmetros opcionais adicionais que pode utilizar, como a capacidade do cluster.
@@ -119,7 +119,7 @@ Agora tem um cluster e uma base de dados.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-* Se tenciona seguir os nossos inícios rápidos e tutoriais, mantenha os recursos que criou.
+* Se planeja seguir nossos outros artigos, mantenha os recursos que criou.
 * Para limpar os recursos, elimine o cluster. Quando eliminar um cluster, também elimina todos os bancos de dados no mesmo. Utilize o seguinte comando para eliminar o cluster:
 
     ```Python
@@ -128,5 +128,4 @@ Agora tem um cluster e uma base de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Quickstart: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)
+* [Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)

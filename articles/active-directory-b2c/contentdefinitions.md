@@ -2,20 +2,20 @@
 title: ContentDefinitions - Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de ContentDefinitions de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6807ae8d9c8b8458b9ac4552a90119a8f709d330
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d82785a0f833afb6a9c675fc7022ed19e96c7fc0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693362"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511319"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 

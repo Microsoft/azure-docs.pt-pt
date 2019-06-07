@@ -2,20 +2,20 @@
 title: Predicados e PredicateValidations - Azure Active Directory B2C | Documentos da Microsoft
 description: Conta de rede social de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714164"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512967"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 

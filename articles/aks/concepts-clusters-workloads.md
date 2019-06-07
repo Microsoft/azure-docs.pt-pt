@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850537"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514533"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,7 @@ Para executar as suas aplicações e serviços de suporte, terá de Kubernetes *
 
 O tamanho de VM do Azure para os nós define o número de CPUs, quantidade de memória e o tamanho e tipo de armazenamento disponível (por exemplo, SSD de elevado desempenho ou regular HDD). Se prevê a necessidade de aplicativos que exigem grandes quantidades de CPU e memória ou armazenamento de elevado desempenho, planeie o tamanho de nó em conformidade. Também pode aumentar verticalmente o número de nós no cluster do AKS para satisfazer a procura.
 
-No AKS, a imagem de VM para os nós no seu cluster baseia-se atualmente em Ubuntu Linux ou Windows Server 2019. Quando cria um cluster do AKS ou aumentar verticalmente o número de nós, a plataforma do Azure cria o número pedido de VMs e configura-as. Não existe nenhuma configuração manual para executar.
+No AKS, a imagem de VM para os nós no seu cluster baseia-se atualmente em Ubuntu Linux ou Windows Server 2019. Quando cria um cluster do AKS ou aumentar verticalmente o número de nós, a plataforma do Azure cria o número pedido de VMs e configura-as. Não existe nenhuma configuração manual para executar. Os nós de agente são faturados como máquinas virtuais standard, para quaisquer descontos que tenha o tamanho de VM que está a utilizar (incluindo [do Azure reservas][reservation-discounts]) são automaticamente aplicadas.
 
 Se precisar de utilizar um sistema operacional, tempo de execução do contentor, de outro anfitrião ou incluir pacotes personalizados, pode implementar seu próprio cluster do Kubernetes com [mecanismo de aks][aks-engine]. O montante `aks-engine` libera recursos e fornece opções de configuração antes de eles são suportados oficialmente em clusters do AKS. Por exemplo, se pretender utilizar um tempo de execução do contentor que não seja Moby, pode utilizar `aks-engine` para configurar e implementar um cluster do Kubernetes que atenda às suas necessidades atuais.
 
@@ -270,3 +270,4 @@ Este artigo aborda alguns dos componentes principais do Kubernetes e como eles s
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md

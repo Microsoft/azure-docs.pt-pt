@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: b0d12021be5a5dca348ea3ffa3f0b853725812da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51645f4f0c6dcc70d76ed1a20bc40f95db9d9717
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589275"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693356"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de registo entre recursos no Azure Monitor  
 
-Anteriormente com o Azure Monitor, conseguia apenas analisar os dados a partir de área de trabalho atual e limitada a capacidade de consulta em várias áreas de trabalho definidas na sua subscrição.  Além disso, pode pesquisar apenas os itens de telemetria recolhidos a partir da sua aplicação baseada na web com o Application Insights diretamente no Application Insights ou a partir do Visual Studio.  Isso também tornou um desafio para nativamente analisar operacional e os dados das aplicações em conjunto.   
+Anteriormente com o Azure Monitor, conseguia apenas analisar os dados a partir de área de trabalho atual e limitada a capacidade de consulta em várias áreas de trabalho definidas na sua subscrição.  Além disso, pode pesquisar apenas os itens de telemetria recolhidos a partir da sua aplicação baseada na web com o Application Insights diretamente no Application Insights ou a partir do Visual Studio. Isso também tornou um desafio para nativamente analisar operacional e os dados das aplicações em conjunto.   
 
-Agora, pode consultar não apenas em várias áreas de trabalho do Log Analytics, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isso fornece uma vista de todo o sistema dos seus dados.  Só pode realizar estes tipos de consultas [do Log Analytics](portals.md).
+Agora, pode consultar não apenas em várias áreas de trabalho do Log Analytics, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isso fornece uma vista de todo o sistema dos seus dados. Só pode realizar estes tipos de consultas [do Log Analytics](portals.md).
 
 ## <a name="cross-resource-query-limits"></a>Limites de consulta entre recursos 
 
-* O número de recursos do Application Insights que podem ser incluídos numa única consulta está limitado a 100.
+* O número de recursos do Application Insights e áreas de trabalho do Log Analytics que podem ser incluídos numa única consulta está limitado a 100.
 * Entre recursos consulta não é suportada no estruturador de vistas. Pode criar uma consulta do Log Analytics e afixá-la ao dashboard do Azure e [visualizar uma pesquisa de registos](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
 * Consulta de entre recursos nos alertas de registo é suportada no novo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza o [herdados API de alerta do Log Analytics](../platform/api-alerts.md) para a criação de novo log de regras de alerta no portal do Azure, a menos que alternar do [API herdada de alertas de registo](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API se tornará o padrão de novas regras de alerta no portal do Azure e permite-lhe criar regras de alertas do log de consulta de entre recursos. Log de consulta entre recursos pode criar regras de alerta sem fazendo a mudança, utilizando o [modelo ARM para scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, mas esta regra de alerta é gerenciável entanto [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não no portal do Azure.
 

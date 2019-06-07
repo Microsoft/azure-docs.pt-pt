@@ -1,23 +1,18 @@
 ---
 title: Práticas recomendadas de implantação segura entre regiões - Gestor de implementação do Azure
 description: Descreve como implementar um serviço ao longo de várias regiões com o Gestor de implementação do Azure. Ela mostra práticas recomendadas de implantação segura para verificar a estabilidade da sua implementação antes de implementar para todas as regiões.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/13/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
+ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595797"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66431163"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização pública)
 
@@ -25,7 +20,7 @@ Para implementar o seu serviço entre várias regiões e certificar-se de que es
 
 Gestor de implementação é uma funcionalidade do Gestor de recursos. Se expandir as capacidades de durante a implementação. Utilize o Gestor de implementação quando tiver um serviço complexo que precisa para ser implementado em várias regiões. Ao fasear a implementação do serviço, poderá deparar-se com problemas potenciais antes de este ter sido implementado em todas as regiões. Se não precisar das precauções adicionais de uma implementação faseada, utilize a norma [opções de implementação](resource-group-template-deploy-portal.md) para o Resource Manager. Gestor de implementação integram-se perfeitamente com todas as ferramentas de terceiros existentes que oferecem suporte a implementações do Resource Manager, como a integração contínua e ofertas de entrega contínua (CI/CD). 
 
-O Gestor de Implementação do Azure está em pré-visualização privada. Para utilizar o Gestor de implementação do Azure, execute o [formulário de inscrição](https://aka.ms/admsignup). Ajuda a melhorar a funcionalidade fornecendo [comentários](https://aka.ms/admfeedback).
+O Gestor de implementação do Azure está em pré-visualização. Ajude-na melhorar a funcionalidade fornecendo [comentários](https://aka.ms/admfeedback).
 
 Para utilizar o Gestor de implementação, terá de criar quatro arquivos:
 

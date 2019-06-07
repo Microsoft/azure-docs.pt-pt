@@ -2,20 +2,20 @@
 title: Definir um perfil de técnico de transformação de afirmações numa política personalizada no Azure Active Directory B2C | Documentos da Microsoft
 description: Defina um perfil de técnico de transformação de afirmações numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a2904bec34978a33d25534c9e9b32552191ad88
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fd2f77200741c54d1ed10f0a0eec1da76462b0a0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705318"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511621"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil de técnicas de transformação de afirmações em políticas personalizadas do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64705318"
 
 Um perfil de técnicas de transformação de afirmações permite que chame transformações para manipular os valores de afirmações, validar afirmações ou definir os valores predefinidos para um conjunto de afirmações de saída de afirmações de saída.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O **Name** atributo da **protocolo** elemento tem de ser definido como `Proprietary`. O **manipulador** atributo tem de conter o nome completamente qualificado da assemblagem de manipulador de protocolo que é utilizado pelo Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 

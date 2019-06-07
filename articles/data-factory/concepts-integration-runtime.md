@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232422"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427150"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory
 O Integration Runtime (IR) é a infraestrutura de computação que o Azure Data Factory utiliza para proporcionar as seguintes capacidades de integração de dados em diferentes ambientes de rede:
@@ -114,11 +114,11 @@ A localização do runtime de integração define a localização da respetiva c
 ### <a name="azure-ir-location"></a>Localização do IR do Azure
 Pode definir uma determinada localização de um IR do Azure, em cujo caso o movimento de dados ou emissão de atividade ocorrem nessa região específica. 
 
-Se optar por utilizar o RI do Azure de resolução automática, que é a predefinição, 
+Se optar por utilizar o **resolução automática de Runtime de integração** que é o predefinido, 
 
 - Para a atividade de cópia, o ADF vai fazer o melhor esforço para detetar automaticamente o seu sink e arquivo de dados de origem para escolher a melhor localização na mesma região, se disponível, ou a mais próxima na mesma geografia; ou se não for detetável, utilizar a mesma região de fábrica de dados como alternativa.
 
-- Para a execução da atividade de Pesquisa/GetMetadata e envio da atividade de transformação, o ADF vai utilizar o IR na região da fábrica de dados.
+- Para execução de atividade de pesquisa/GetMetadata/eliminar (também conhecidas como atividades de Pipeline), atividade de transformação de emissão (também conhecido como externas atividades) e operações (ligação de teste, lista de pastas de procura e lista de tabelas, pré-visualizar dados), de criação ADF irá utilizar o runtime de integração na região de fábrica de dados.
 
 - Fluxo de dados, ADF irá utilizar o runtime de integração na região de fábrica de dados. 
 

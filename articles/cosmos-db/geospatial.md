@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 2d8d62dd8426b2ab1c60f8e50e8ab0c17a37abfb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d0571608e154915a473145374ce007854aaa57f1
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241056"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480135"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utilizar dados de localização Geoespacial e GeoJSON com a conta do Azure Cosmos DB SQL API
 
@@ -254,7 +254,7 @@ Eis um exemplo de uma consulta LINQ que localiza todos os documentos na coleçã
 **Consulta LINQ para distância**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

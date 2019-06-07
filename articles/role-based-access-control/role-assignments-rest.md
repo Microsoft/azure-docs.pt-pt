@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 3602e4ca83e828270ebef56c688670b896ca58a4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357065"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472745"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gerir o acesso aos recursos do Azure através do RBAC e a API REST
 
@@ -38,7 +38,7 @@ No RBAC, para acesso de lista, lista as atribuições de funções. Para listar 
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de funções.
 
-    | Scope | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -52,9 +52,9 @@ No RBAC, para acesso de lista, lista as atribuições de funções. Para listar 
 
     | Filtro | Descrição |
     | --- | --- |
-    | `$filter=atScope()` | Listar atribuições de funções para apenas o âmbito especificado, não incluindo as atribuições de funções no subscopes. |
-    | `$filter=principalId%20eq%20'{objectId}'` | Listar atribuições de funções para um utilizador especificado, grupo ou principal de serviço. |
-    | `$filter=assignedTo('{objectId}')` | Listar atribuições de funções para um utilizador especificado, incluindo aquelas herdadas de grupos. |
+    | `$filter=atScope()` | Apresenta uma lista de atribuições de funções para apenas o âmbito especificado, não incluindo as atribuições de funções no subscopes. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Apresenta uma lista de atribuições de funções para um utilizador especificado, grupo ou principal de serviço. |
+    | `$filter=assignedTo('{objectId}')` | Apresenta uma lista de atribuições de funções para um utilizador especificado ou o principal de serviço. Se o utilizador for membro de um grupo que tenha uma atribuição de função, essa atribuição de função também está listada. Este filtro é transitivo para grupos que significa que, se o utilizador é membro de um grupo e esse grupo é um membro de outro grupo que tenha uma atribuição de função, essa atribuição de função também está listada. Este filtro só aceita uma id de objeto para um utilizador ou um principal de serviço. Não é possível passar um id de objeto para um grupo. |
 
 ## <a name="grant-access"></a>Conceder acesso
 
@@ -81,7 +81,7 @@ No RBAC, para conceder acesso, crie uma atribuição de função. Para criar uma
     
 1. No URI, substitua *{âmbito}* com o âmbito para a atribuição de função.
 
-    | Scope | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -109,7 +109,7 @@ No RBAC, para remover o acesso, remova uma atribuição de função. Para remove
 
 1. No URI, substitua *{âmbito}* com o âmbito para remover a atribuição de função.
 
-    | Scope | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |

@@ -2,20 +2,20 @@
 title: Sobre a personalização da interface de utilizador no Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba mais sobre como personalizar a interface do usuário para as suas aplicações que utilizam o Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 26dea1b636fce9e7f5defddd5cf4bc4c7d78d5da
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682008"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511182"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Sobre a personalização da interface de utilizador no Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do Usu�
 
 Para fluxos de utilizador do v2, pode escolher um modelo previamente concebido que oferece uma visão melhor a suas páginas padrão e serve como uma boa base para seu próprio personalização.
 
-No menu à esquerda, em **personalizar**, selecione **layouts de página**. Em seguida, selecione **modelo (pré-visualização)**.
+No menu à esquerda, em **personalizar**, selecione **layouts de página**. Em seguida, selecione **modelo (pré-visualização)** .
 
 ![Escolha um modelo de layout de página](media/customize-ui-overview/template.png)
 

@@ -2,20 +2,20 @@
 title: Definir um perfil técnico para um emissor de tokens JWT numa política personalizada no Azure Active Directory B2C | Documentos da Microsoft
 description: Defina um perfil técnico para um emissor de tokens JWT numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33dce27b69d080c57b925562ba83db0046b77ca9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 573463d91fc7a4119bd1bc30182588ff9dfdecb7
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683787"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510709"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de tokens JWT em políticas personalizadas do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64683787"
 
 O Azure Active Directory (Azure AD) B2C emite vários tipos de tokens de segurança à medida que processa cada fluxo de autenticação. Um perfil técnico para um emissor de tokens JWT emite um token JWT, que é devolvido para a aplicação da entidade confiadora de terceiros. Normalmente, este perfil técnico é o último passo de orquestração no percurso do utilizador.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O **Name** atributo da **protocolo** elemento tem de ser definido como `None`. Definir o **OutputTokenFormat** elemento `JWT`.
 
@@ -48,7 +48,7 @@ O **InputClaims**, **OutputClaims**, e **PersistClaims** elementos estão vazios
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Sim | A afirmação que deve ser utilizada como a identidade de usuário solicitadas em códigos de autorização de OAuth2 e tokens de atualização. Por padrão, deve defini-lo como `objectId`, a menos que especifique o tipo de afirmação de um SubjectNamingInfo diferente. | 
 | SendTokenResponseBodyWithJsonNumbers | Não | Sempre definido como `true`. Para o formato herdado em que recebem valores numéricos como cadeias de caracteres em vez de números JSON, definido como `false`. Este atributo é necessário para os clientes que tenham obtido uma dependência numa implementação anterior que devolveu essas propriedades como cadeias de caracteres. | 
-| token_lifetime_secs | Não | Durações de token de acesso. A duração do token de portador OAuth 2.0 utilizado para aceder a um recurso protegido. A predefinição é de 3600 segundos (1 hora). O mínimo (inclusive) é de 300 segundos (5 minutos). O máximo (inclusive) é de 86.400 segundos (24 horas). | 
+| token_lifetime_secs | Não | Durações de token de acesso. A duração do token de portador OAuth 2.0 utilizado para obter acesso a um recurso protegido. A predefinição é de 3600 segundos (1 hora). O mínimo (inclusive) é de 300 segundos (5 minutos). O máximo (inclusive) é de 86.400 segundos (24 horas). | 
 | id_token_lifetime_secs | Não | Durações de token de ID. A predefinição é de 3600 segundos (1 hora). O mínimo (inclusive) é de 300 segundos (5 minutos). O máximo (inclusive) é segundos 86,400 (24 horas). | 
 | refresh_token_lifetime_secs | Não | Durações de token de atualização. O período de tempo máximo antes do qual um token de atualização pode ser utilizado para adquirir um novo token de acesso, se seu aplicativo tenha recebido o âmbito de offline_access. A predefinição é 120,9600 segundos (14 dias). O mínimo (inclusive) é de 86.400 segundos (24 horas). O máximo (inclusive) é 7,776,000 segundos (90 dias). | 
 | rolling_refresh_token_lifetime_secs | Não | Atualize token duração da janela deslizante. Após este período de tempo decorrido o utilizador é forçado a autenticar, independentemente do período de validade mais recente do token atualizado adquirido pela aplicação. Se não pretender impor uma duração de janela deslizante, defina o valor da allow_infinite_rolling_refresh_token para `true`. A predefinição é 7,776,000 segundos (90 dias). O mínimo (inclusive) é de 86.400 segundos (24 horas). O máximo (inclusive) é 31,536,000 segundos (365 dias). | 

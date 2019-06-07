@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 06/04/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cc9d0a951ac6f7ed18ad6558ae9edb2d1f9c8f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 84069fb80ac751cbde53b0febdac451b54cd2b29
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544612"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688748"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao Azure AD
 
@@ -32,9 +32,9 @@ Existem duas representações de aplicações no Azure AD:
 * [Principais de serviço](app-objects-and-service-principals.md#service-principal-object) -pode ser considerado uma instância de um aplicativo. Principais de serviço geralmente fazem referência a um objeto de aplicativo e um objeto de aplicativo pode ser referenciado por várias entidades de segurança do serviço em diretórios.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Quais são os objectos da aplicação e onde eles vêm?
-Pode gerir [objectos da aplicação](app-objects-and-service-principals.md#application-object) no portal do Azure através do [registos das aplicações](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) experiência. Objectos da aplicação descrevem o aplicativo para o Azure AD e podem ser considerados a definição da aplicação, permitindo que o serviço para saber como emitir tokens para a aplicação com base nas suas definições. O objeto de aplicativo só existirá no seu diretório raiz, mesmo se for uma aplicação multi-inquilino que suporta os principais de serviço noutros diretórios. O objeto de aplicativo pode incluir qualquer um dos seguintes procedimentos (como informações adicionais, bem como não mencionadas aqui):
+Pode gerir [objectos da aplicação](app-objects-and-service-principals.md#application-object) no portal do Azure através do [registos das aplicações](https://aka.ms/appregistrations) experiência. Objectos da aplicação descrevem o aplicativo para o Azure AD e podem ser considerados a definição da aplicação, permitindo que o serviço para saber como emitir tokens para a aplicação com base nas suas definições. O objeto de aplicativo só existirá no seu diretório raiz, mesmo se for uma aplicação multi-inquilino que suporta os principais de serviço noutros diretórios. O objeto de aplicativo pode incluir qualquer um dos seguintes procedimentos (como informações adicionais, bem como não mencionadas aqui):
 * Nome, o logótipo e o publicador
-* URLs de Resposta
+* URIs de redirecionamento
 * Segredos (simétricas e/ou assimétricas as chaves utilizadas para autenticar a aplicação)
 * Dependências de API (OAuth)
 * APIs/recursos/âmbitos do publicados (OAuth)
@@ -74,7 +74,7 @@ Como objetos de aplicativo, os principais de serviço também podem ser criados 
   * Quando subscreve o Office 365 ou iniciar uma versão de avaliação, uma ou mais principais de serviço são criados no diretório que representa os vários serviços que são utilizados para fornecer todas as funcionalidades associadas do Office 365.
   * Alguns serviços do Office 365 como o SharePoint criar principais de serviço de forma contínua para permitir a comunicação segura entre componentes, incluindo fluxos de trabalho.
 * Quando um administrador adiciona uma aplicação da Galeria de aplicações (isso também irá criar um objeto de aplicativo subjacente)
-* Adicionar uma aplicação para utilizar o [Proxy de aplicações do Azure AD](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Adicionar uma aplicação para utilizar o [Proxy de aplicações do Azure AD](/azure/active-directory/manage-apps/application-proxy)
 * Ligar uma aplicação para início de sessão único sobre a utilização de SAML ou palavra-passe de início de sessão único (SSO)
 * Através de programação com o Azure AD Graph API ou o PowerShell
 
@@ -101,8 +101,8 @@ Aplicativos que adiciona a próprio (representados como **aplicação (sua)** no
   * Regras de transformação de afirmações
   * Mapeamentos de atributos (aprovisionamento de utilizadores)
 * Para obter informações mais detalhadas sobre o principal de serviço e os objetos de aplicação, consulte a documentação de referência da API de REST do Azure AD Graph:
-  * [Aplicação](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Principal de serviço](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Aplicação](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Principal de serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Por que os aplicativos integram com o Azure AD?
 São adicionadas aplicações ao Azure AD para tirar partido de um ou mais dos serviços que oferece, incluindo:

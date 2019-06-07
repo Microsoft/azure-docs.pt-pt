@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f13e498859986d5ee697cbd67907fd344147ed0c
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575614"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66492843"
 ---
 # <a name="azure-functions-networking-options"></a>Funções do Azure, as opções de redes
 
@@ -61,7 +61,7 @@ Integração da rede virtual fornece o acesso de aplicação de função aos rec
 
 Pode utilizar a integração da rede virtual para ativar o acesso a partir de aplicações para bases de dados e serviços web em execução na sua rede virtual. Com integração da rede virtual, não precisa expor um ponto final público para as aplicações na sua VM. Em vez disso, pode usar os endereços encaminháveis privados e não da internet.
 
-A versão em disponibilidade geral de integração da rede virtual se baseia num gateway de VPN para ligar aplicações de funções a uma rede virtual. Está disponível nas funções alojadas num plano do serviço de aplicações. Para saber como configurar esta funcionalidade, veja [integrar a sua aplicação com uma Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+A versão em disponibilidade geral de integração da rede virtual se baseia num gateway de VPN para ligar aplicações de funções a uma rede virtual. Está disponível nas funções alojadas num plano do serviço de aplicações. Para saber como configurar esta funcionalidade, veja [integrar a sua aplicação com uma Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
 
 ### <a name="preview-version-of-virtual-network-integration"></a>Versão de pré-visualização de integração da rede virtual
 

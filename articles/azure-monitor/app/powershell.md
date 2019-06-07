@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2017
+ms.date: 06/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07d52544b584adb02cc60790b7cb63c8aee1e366
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130930"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514482"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights com o PowerShell
 
@@ -82,7 +82,7 @@ Criar um novo ficheiro. JSON - vamos chamá-lo `template1.json` neste exemplo. C
                     2
                 ],
                 "metadata": {
-                    "description": "1 = Basic, 2 = Enterprise"
+                    "description": "1 = Per GB (Basic), 2 = Per Node (Enterprise)"
                 }
             },
             "dailyQuota": {
@@ -200,8 +200,8 @@ Para criar um recurso de aplicação com o plano de preços do Enterprise, usand
 
 |priceCode|plano|
 |---|---|
-|1|Básico|
-|2|Empresa|
+|1|Básica|
+|2|Empresarial|
 
 * Se apenas quiser utilizar o plano de preços básico predefinido, pode omitir o recurso de CurrentBillingFeatures do modelo.
 * Se quiser alterar o plano de preços depois do recurso do componente tiver sido criado, pode utilizar um modelo que omite o recurso de "microsoft.insights/components". Além disso, omita o `dependsOn` nó do recurso de faturação. 
@@ -452,4 +452,3 @@ Outros artigos de automatização:
 * [Send Azure Diagnostics to Application Insights (Enviar o Diagnóstico do Azure para o Application Insights)](powershell-azure-diagnostics.md)
 * [Implementar no Azure a partir do GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Criar notas de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
-

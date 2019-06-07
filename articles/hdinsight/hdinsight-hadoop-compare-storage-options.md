@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720479"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479156"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare as opções de armazenamento para utilização com clusters do HDInsight do Azure
 
@@ -31,7 +31,7 @@ A tabela seguinte resume os serviços de armazenamento do Azure que são suporta
 |Armazenamento do Azure Data Lake Ger2| Para fins gerais V2 | Hierárquica (sistema de ficheiros) | Blobs | Standard | Armazenamento frequente, esporádica, arquivo | 3.6 + | Todos |
 |Storage do Azure| Para fins gerais V2 | Object | Blobs | Standard | Armazenamento frequente, esporádica, arquivo | 3.6 + | Todos |
 |Storage do Azure| Para fins gerais V1 | Object | Blobs | Standard | N/A | Todos | Todos |
-|Storage do Azure| Blob Storage * * | Object | Blob de Blocos | Standard | Armazenamento frequente, esporádica, arquivo | Todos | Todos |
+|Storage do Azure| Blob Storage * * | Object | Blob de blocos | Standard | Armazenamento frequente, esporádica, arquivo | Todos | Todos |
 |Armazenamento do Azure Data Lake Ger1| N/A | Hierárquica (sistema de ficheiros) | N/A | N/D | N/A | Apenas 3.6 | Tudo, exceto HBase |
 
 * * Para os clusters do HDInsight, apenas as contas de armazenamento secundário podem ser do tipo BlobStorage.
@@ -42,7 +42,7 @@ Para obter mais informações sobre as camadas de acesso de armazenamento do Azu
 
 Pode criar um cluster com diferentes combinações de serviços para armazenamento secundário primário e opcional. A tabela seguinte resume as configurações de armazenamento de cluster que são atualmente suportadas no HDInsight:
 
-| Versão do HDInsight | Armazenamento Primário | Armazenamento secundário | Suportadas |
+| Versão do HDInsight | Armazenamento primário | Armazenamento secundário | Suportadas |
 |---|---|---|---|
 | 3.6 & 4.0 | Fins gerais V1, V2 de fins gerais | Fins gerais V1, V2 de fins gerais, BlobStorage (Blobs de blocos) | Sim |
 | 3.6 & 4.0 | Fins gerais V1, V2 de fins gerais | Armazenamento do Data Lake Ger2 | Não |
@@ -137,7 +137,7 @@ O HDInsight fornece acesso ao sistema de ficheiros distribuído que está ligado
 
 Também pode aceder a dados no armazenamento do Azure através do HDInsight. A sintaxe é o seguinte:
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Ao utilizar uma conta de armazenamento do Azure com clusters do HDInsight, considere os seguintes princípios:
 

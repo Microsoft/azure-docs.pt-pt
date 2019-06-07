@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236449"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66471593"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -116,7 +116,8 @@ Todos os seus recursos, como VMs, discos e transferência de Web sites para o no
 
 ### <a id="no-button"></a> Por que motivo não vejo no botão "Transferir a subscrição"?
 
-Infelizmente, a transferência de subscrição Self-Service não está disponível para a sua oferta. Ver a lista de ofertas de suporte no [suportado ofertas](#supported-offers) seção deste artigo.
+Infelizmente, a transferência de subscrição Self-Service não está disponível para a sua oferta. Ver a lista de ofertas de suporte no [suportado ofertas](#supported-offers) seção deste artigo. Além disso, podemos não bloqueiam a transferência de subscrição para qualquer países. No entanto, cruzada país transferência não é suportada. Para transferir a sua subscrição cruzada país, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Posso transferir a propriedade para uma conta em outro país?
 

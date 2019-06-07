@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure Active Directory Connect: Configurar a localização de dados preferencial para Multi-Geo de recursos no Office 365 | Documentos da Microsoft'
+title: 'Azure AD Connect: Configurar a localização de dados preferencial para os recursos do Office 365'
 description: Descreve como colocar os recursos de utilizador do Office 365 próximo do utilizador com a sincronização do Azure Active Directory Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348250"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473020"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: Configurar a localização de dados preferencial para os recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo de localização de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém o utilizar capacidades de Multi-Geo no Office 365, utilize este atributo para designar a localização geográfica dos dados do utilizador do Office 365. (Os termos *região* e *geo* são utilizados alternadamente.)
@@ -131,13 +131,13 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
     | Sistema ligado | *Escolha o conector do Active Directory no local* |  |
     | Tipo de objeto de sistema ligado | **Utilizador** |  |
     | Tipo de objeto de Metaverso | **Pessoa** |  |
-    | Tipo de Ligação | **Associar** |  |
+    | Tipo de ligação | **Associar** |  |
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
 5. Manter o **Scoping filtro** vazio, para incluir todos os objetos. Poderá ter de otimizar o filtro de âmbito, de acordo com a implementação do Azure AD Connect.
 6. Vá para o **separador de transformação**e implementar a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de destino | Source | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     |Direto | preferredDataLocation | Escolha o atributo de origem | Desmarcada | Atualizar |
 
@@ -160,7 +160,7 @@ A regra de sincronização de saída permite que o valor do atributo para o flux
     | Sistema ligado | *Selecione o conector Azure AD* ||
     | Tipo de objeto de sistema ligado | **Utilizador** ||
     | Tipo de objeto de Metaverso | **Pessoa** ||
-    | Tipo de Ligação | **Associar** ||
+    | Tipo de ligação | **Associar** ||
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
 5. Vá para o **Scoping filtro** separador e adicionar um único grupo de filtro de âmbito com dois cláusulas:
@@ -174,7 +174,7 @@ A regra de sincronização de saída permite que o valor do atributo para o flux
 
 6. Vá para o **transformação** separador e implementar a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de destino | Source | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     | Direto | preferredDataLocation | preferredDataLocation | Desmarcada | Atualizar |
 

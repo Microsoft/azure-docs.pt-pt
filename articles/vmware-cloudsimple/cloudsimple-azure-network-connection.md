@@ -8,22 +8,27 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ea98d6493b824bfa232ef8193388e93b97c506b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f2ab82b6c1b4b373c186019eaf96f9864861b9d9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577004"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497594"
 ---
-# <a name="azure-network-connection-overview"></a>Descrição geral da ligação de rede do Azure
+# <a name="azure-network-connections-overview"></a>Descrição geral das ligações de rede do Azure
 
 Quando cria um serviço de CloudSimple numa região, ele:
 
-* Cria o circuito do ExpressRoute do Azure e liga-o para o serviço nessa região
-* Liga-se a rede de região CloudSimple a rede virtual do Azure ou a sua rede no local utilizam o Azure ExpressRoute
+* Cria um circuito do ExpressRoute do Azure e liga-o para o serviço nessa região
+* Permite a ligação da sua rede de região CloudSimple a rede virtual do Azure ou a sua rede no local utilizam o Azure ExpressRoute
 * Fornece serviços de acesso em execução na sua subscrição do Azure ou a sua rede no local, do seu ambiente de nuvem privada
 
-Esta ligação é a largura de banda alta com baixa latência.
+A ligação é:
+
+* Proteger
+* Privado
+* Largura de banda alta
+* Baixa latência
 
 ## <a name="benefits"></a>Benefícios
 
@@ -33,19 +38,19 @@ Ligação de rede do Azure permite-lhe:
 * Implemente servidores KMS na sua subscrição do Azure para encriptar o seu arquivo de dados de vSAN de nuvem privada.
 * Utilize aplicações híbridas em que a camada web da aplicação é executada na cloud pública, enquanto a aplicação e camadas de base de dados, executar na sua nuvem privada.
 
+## <a name="azure-virtual-network-connection"></a>Ligação de rede virtual do Azure
+
+Nuvens privadas podem ser ligadas aos recursos do Azure através do ExpressRoute.  Pode utilizar esta ligação para aceder a recursos diferentes em execução na sua subscrição do Azure a partir da nuvem privada.  Esta ligação permite-lhe expandir, rede de nuvem privada à sua rede virtual do Azure.
+
+![Ligação do ExpressRoute do Azure para a rede virtual](media/cloudsimple-azure-network-connection.png)
+
 ## <a name="expressroute-connection-to-on-premises-network"></a>Ligação do ExpressRoute para rede no local
 
-Pode ligar o seu circuito do ExpressRoute do Azure existente para sua região CloudSimple. Funcionalidade de alcance Global do ExpressRoute é utilizada para ligar os dois circuitos entre si.  É estabelecida uma ligação entre locais e circuitos do CloudSimple ExpressRoute.
+Pode ligar o seu circuito do ExpressRoute do Azure existente para sua região CloudSimple. Funcionalidade de alcance Global do ExpressRoute é utilizada para ligar os dois circuitos entre si.  É estabelecida uma ligação entre o local e os circuitos do CloudSimple ExpressRoute.  Esta ligação permite-lhe expandir as redes no local para a rede de nuvem privada.
 
-Este método estabelece uma ligação entre os dois ambientes é:
-
-* Proteger
-* Privado
-* Largura de banda alta
-* Baixa latência
-
-Para criar uma ligação do ExpressRoute para uma rede no local, [contacte o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+![Ligação do ExpressRoute no local - alcance Global](media/cloudsimple-global-reach-connection.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Configurar a ligação de rede virtual](https://docs.azure.cloudsimple.com/virtual-network-connection)
+* [Obter informações de peering de rede virtual do Azure para a ligação de CloudSimple](https://docs.azure.cloudsimple.com/virtual-network-connection)
+* [Ligar no local ao CloudSimple através do ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)

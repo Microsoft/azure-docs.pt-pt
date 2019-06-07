@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 8605e614574b7ebd45e9f18c4e5685a9c5450e64
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 63f59d59712d851f9bb7ace27335fe665a598f9f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409906"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477909"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, pode configurar pontos finais de webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar o estas notificações para outros sistemas para ações de pós-processamento ou personalizados. Este artigo mostra o payload para o HTTP POST para um webhook como fica.
@@ -32,7 +32,7 @@ O webhook, opcionalmente, pode utilizar a autorização baseada em tokens para a
 ## <a name="payload-schema"></a>Esquema do payload
 O payload JSON contido na operação POST difere com base no campo de data.context.activityLog.eventSource o payload.
 
-### <a name="common"></a>Comum
+### <a name="common"></a>Common
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -91,36 +91,36 @@ O payload JSON contido na operação POST difere com base no campo de data.conte
 {
     "schemaId": "Microsoft.Insights/activityLogs",
     "data": {
-    "status": "Activated",
-    "context": {
-        "activityLog": {
-        "channels": "Admin",
-        "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
-        "description": "Active: Virtual Machines - Australia East",
-        "eventSource": "ServiceHealth",
-        "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
-        "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
-        "level": "Informational",
-        "operationName": "Microsoft.ServiceHealth/incident/action",
-        "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
-        "properties": {
-            "title": "Virtual Machines - Australia East",
-            "service": "Virtual Machines",
-            "region": "Australia East",
-            "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
-            "incidentType": "Incident",
-            "trackingId": "0NIH-U2O",
-            "impactStartTime": "2017-10-18T02:48:00.0000000Z",
-            "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
-            "defaultLanguageTitle": "Virtual Machines - Australia East",
-            "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
-            "stage": "Active",
-            "communicationId": "636439673646212912",
-            "version": "0.1.1"
-        },
-        "status": "Active",
-        "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
-        "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
+        "status": "Activated",
+        "context": {
+            "activityLog": {
+            "channels": "Admin",
+            "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+            "description": "Active: Virtual Machines - Australia East",
+            "eventSource": "ServiceHealth",
+            "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
+            "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
+            "level": "Informational",
+            "operationName": "Microsoft.ServiceHealth/incident/action",
+            "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+            "properties": {
+                "title": "Virtual Machines - Australia East",
+                "service": "Virtual Machines",
+                "region": "Australia East",
+                "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+                "incidentType": "Incident",
+                "trackingId": "0NIH-U2O",
+                "impactStartTime": "2017-10-18T02:48:00.0000000Z",
+                "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
+                "defaultLanguageTitle": "Virtual Machines - Australia East",
+                "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+                "stage": "Active",
+                "communicationId": "636439673646212912",
+                "version": "0.1.1"
+            },
+            "status": "Active",
+            "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
+            "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
         }
     },
     "properties": {}
@@ -171,7 +171,7 @@ Para obter detalhes de esquema específico em todos os outros alertas de registo
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| estado |Utilizado para alertas de métricas. Sempre definido como "ativado" para os alertas de registo de atividade. |
+| status |Utilizado para alertas de métricas. Sempre definido como "ativado" para os alertas de registo de atividade. |
 | context |Contexto do evento. |
 | resourceProviderName |O fornecedor de recursos do recurso afetado. |
 | conditionType |Sempre "Event". |
@@ -186,7 +186,7 @@ Para obter detalhes de esquema específico em todos os outros alertas de registo
 | event |Elemento que contém metadados sobre o evento. |
 | Autorização |As propriedades de controlo de acesso baseado em funções do evento. Essas propriedades incluem, geralmente, a ação, a função e o âmbito. |
 | category |Categoria do evento. Valores suportados incluem a administração, alerta, segurança, ServiceHealth e recomendação. |
-| chamador |Endereço de e-mail do utilizador que executou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. Pode ser nulo para certas chamadas de sistema. |
+| Autor da chamada |Endereço de e-mail do utilizador que executou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. Pode ser nulo para certas chamadas de sistema. |
 | correlationId |Normalmente, um GUID no formato de cadeia de caracteres. Eventos com correlationId pertencem à mesma ação maior e normalmente partilham uma correlationId. |
 | eventDescription |Descrição de texto estático do evento. |
 | eventDataId |Identificador exclusivo para o evento. |
@@ -196,7 +196,7 @@ Para obter detalhes de esquema específico em todos os outros alertas de registo
 | operationId |Normalmente, um GUID compartilhado entre os eventos correspondentes a única operação. |
 | operationName |Nome da operação. |
 | properties |Propriedades do evento. |
-| estado |cadeia de caracteres. Estado da operação. Os valores comuns incluem a introdução, em curso, com êxito, falha, Active Directory e resolvido. |
+| status |cadeia de caracteres. Estado da operação. Os valores comuns incluem a introdução, em curso, com êxito, falha, Active Directory e resolvido. |
 | subStatus |Normalmente, inclui o código de estado HTTP da chamada REST correspondente. Também pode incluir outras cadeias de caracteres que descrevem um subestado. Os valores de subestado comuns incluem OK (código de estado HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado HTTP: 202), não existe conteúdo (código de estado HTTP: 204), pedido incorreto (código de estado HTTP: 400), não encontrado (código de estado HTTP: 404), conflito (código de estado HTTP: 409), erro de servidor interno (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503) e o tempo limite do Gateway (código de estado HTTP: 504). |
 
 ## <a name="next-steps"></a>Passos Seguintes

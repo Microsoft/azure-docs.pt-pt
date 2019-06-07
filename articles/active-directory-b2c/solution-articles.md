@@ -2,25 +2,25 @@
 title: Soluções e formação para o Azure Active Directory B2C | Documentos da Microsoft
 description: Este artigo fornece ligações para soluções e informações de treinamento que podem ajudá-lo a compreender e utilizar o Azure Active Directory B2C para soluções de end-to-end-business.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
-ms.author: davidmu
+ms.author: marsma
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 7b409cc80d2443b01d3025dd84348af18118d640
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 95002eb73277176d4a8aeaa40deea4d96c39a755
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691966"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512399"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluções e formação para o Azure Active Directory B2C
 
 O Azure Active Directory (Azure AD) B2C permite às organizações implementar as soluções de negócios que os ajudam a ligar-se com os clientes. Os seguintes guias de soluções e treinamento são documentos para download que irão guiá-lo através destas soluções.
 
-| Título | Descrição |
+| Cargo | Descrição |
 | ----- | ----------- |
 | [Gestão de identidades de cliente com o Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | Nesta descrição geral do serviço, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) do Azure AD B2C equipe nos fornece uma visão geral de como funciona o serviço e também mostram como pode rapidamente conectamos B2C a uma aplicação ASP.NET Core. |
 | [Vantagens da utilização do Azure AD B2C](https://aka.ms/b2coverview) | Compreenda os benefícios e cenários comuns do Azure AD B2C e como as aplicações podem tirar partido deste serviço CIAM. |

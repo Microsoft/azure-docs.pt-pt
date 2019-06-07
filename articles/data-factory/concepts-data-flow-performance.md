@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 46be01c57be0e4f5fa74f8e8b0d91db3d78f441c
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297710"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480408"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>E guia de ajuste do desempenho de fluxos de dados de mapeamento
 
@@ -29,15 +29,28 @@ Azure Data Factory mapeamento de fluxos de dados fornecem uma interface de naveg
 
 ![Botão de depuração](media/data-flow/debugb1.png "depurar")
 
+## <a name="monitor-data-flow-performance"></a>Monitor de desempenho de fluxo de dados
+
+Embora estruturar os seus dados de mapeamento de fluxos no navegador, pode teste de unidade cada transformação individual ao clicar no separador de pré-visualização de dados no painel de definições de na parte inferior para cada transformação. A próxima etapa, que deve levar é testar o seu fluxo de dados ponto a ponto no estruturador do pipeline. Adicionar uma atividade de executar o fluxo de dados e utilize o botão de depuração para testar o desempenho do seu fluxo de dados. No painel inferior da janela do pipeline, verá um ícone de eyeglass em "ações":
+
+![Monitor de fluxo de dados](media/data-flow/mon002.png "2 do Monitor de fluxo de dados")
+
+Clicar nesse ícone, verá o plano de execução e o perfil de desempenho subsequentes do seu fluxo de dados. Pode usar essas informações para calcular o desempenho do seu fluxo de dados relativamente a origens de dados de tamanho diferente. Observe que pode assumir 1 minuto de tempo de configuração de execução de tarefa de cluster em seus cálculos de desempenho geral e se estiver a utilizar a predefinição de Runtime de integração do Azure, poderá ter de adicionar a 5 minutos do tempo de cópia de segurança de rotação de cluster também.
+
+![Monitorização de fluxo de dados](media/data-flow/mon003.png "3 do Monitor de fluxo de dados")
+
 ## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Otimizar para base de dados SQL do Azure e o armazém de dados SQL do Azure
 
 ![Parte de origem](media/data-flow/sourcepart2.png "parte de origem")
 
-### <a name="you-can-match-spark-data-partitioning-to-your-source-database-partitioning-based-on-a-database-table-column-key-in-the-source-transformation"></a>Pode corresponder a criação de partições de dados para o particionamento de banco de dados de origem com base numa chave de coluna de tabela de base de dados na transformação de origem do Spark
+### <a name="partition-your-source-data"></a>Particionar os dados de origem
 
 * Vá para "Otimizar" e selecione "Origem". Defina uma coluna de tabela específica ou um tipo numa consulta.
 * Se escolheu "coluna", em seguida, escolha a coluna de partição.
 * Além disso, defina o número máximo de ligações ao seu Azure SQL DB. Pode experimentar uma configuração superior para obter ligações paralelas a sua base de dados. No entanto, alguns casos poderão resultar num desempenho mais rápido com um número limitado de ligações.
+* Não é necessário que as suas tabelas de base de dados de origem ser particionados.
+* A definição de uma consulta em sua transformação de origem que corresponde ao esquema de particionamento da sua tabela de base de dados, permitirá que o motor de base de dados de origem tirar partido de eliminação de partições.
+* Se a sua origem já não for particionada, o ADF continuar a utilizar o ambiente de transformação do Spark com base na chave de que seleciona a transformação de origem de criação de partições de dados.
 
 ### <a name="set-batch-size-and-query-on-source"></a>Definir o tamanho de lote e a consulta na origem
 
@@ -51,7 +64,7 @@ Azure Data Factory mapeamento de fluxos de dados fornecem uma interface de naveg
 
 ![Sink](media/data-flow/sink4.png "Sink")
 
-* Para evitar o processamento de linha por linha de sua floes de dados, defina o "tamanho do lote" nas definições de sink para a BD SQL do Azure. Isso instruirá o que ADF para a base de dados do processo grava em lotes com base no tamanho fornecido.
+* Para evitar o processamento de linha por linha dos seus fluxos de dados, defina o "tamanho do lote" nas definições de sink para a BD SQL do Azure. Isso instruirá o que ADF para a base de dados do processo grava em lotes com base no tamanho fornecido.
 
 ### <a name="set-partitioning-options-on-your-sink"></a>Definir opções de sink de criação de partições
 
@@ -84,7 +97,7 @@ Azure Data Factory mapeamento de fluxos de dados fornecem uma interface de naveg
 
 ### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Usar a transição para carregar dados em massa através do Polybase
 
-* Para evitar o processamento de linha por linha de sua floes de dados, defina a opção de "Transição" nas definições de Sink para que o ADF pode tirar partido do Polybase para evitar inserções de linha por linha no armazém de dados. Isso instruirá o ADF para utilizar o Polybase para que os dados podem ser carregados em massa.
+* Para evitar o processamento de linha por linha dos seus fluxos de dados, defina a opção de "Transição" nas definições de Sink para que o ADF pode tirar partido do Polybase para evitar inserções de linha por linha no armazém de dados. Isso instruirá o ADF para utilizar o Polybase para que os dados podem ser carregados em massa.
 * Quando executa sua atividade de fluxo de dados de um pipeline, com teste ativada, terá de selecionar a localização de armazenamento de BLOBs dos dados do testes para carregamento em massa.
 
 ### <a name="increase-the-size-of-your-azure-sql-dw"></a>Aumentar o tamanho do seu Azure SQL DW
@@ -113,4 +126,4 @@ Veja os artigos fluxo de dados:
 
 - [Descrição geral do fluxo de dados](concepts-data-flow-overview.md)
 - [Atividade de fluxo de dados](control-flow-execute-data-flow-activity.md)
-
+- [Monitorizar o desempenho do fluxo de dados](concepts-data-flow-monitoring.md)

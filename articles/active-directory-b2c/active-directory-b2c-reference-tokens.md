@@ -2,20 +2,20 @@
 title: Descrição geral de tokens - Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba mais sobre os tokens utilizados no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ac3c2132fc28d9813a9322898f79c7cdfffa12d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b0a5eca4823bd6ec7d1197adb205f7fb98f8d67e
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681899"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509083"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Descrição geral de tokens no Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ R [registado aplicação](tutorial-register-applications.md) recebe tokens e com
 
 Tokens de segurança que seu aplicativo receba do Azure AD B2C podem ser provenientes da `/authorize` ou `/token` pontos de extremidade. Quando os tokens de ID são adquiridos do `/authorize` ponto de extremidade, eles são efetuados utilizando o [fluxo implícito](active-directory-b2c-reference-spa.md), que é utilizado frequentemente para os utilizadores a iniciar sessão para aplicativos web baseados em javascript. Quando os tokens de ID são adquiridos do `/token` ponto de extremidade, eles são efetuados utilizando o [fluxo de código confidenciais](active-directory-b2c-reference-oidc.md), que mantém o token ocultado a partir do browser.
 
-## <a name="claims"></a>Afirmações
+## <a name="claims"></a>afirmações
 
 Quando utilizar o Azure AD B2C, terá um controle refinado sobre o conteúdo dos seus tokens. Pode configurar [fluxos de utilizador](active-directory-b2c-reference-policies.md) e [políticas personalizadas](active-directory-b2c-overview-custom.md) para enviar determinados conjuntos de dados de utilizador em afirmações que são necessárias para a sua aplicação. Essas declarações podem incluir propriedades padrão, como **displayName** e **emailAddress**. Seus aplicativos podem usar essas declarações de forma a autenticar os utilizadores e pedidos. 
 
@@ -65,7 +65,7 @@ A tabela seguinte lista as afirmações que pode esperar nos tokens de identidad
 | Referência de classe de contexto de autenticação | `acr` | Não aplicável | Utilizado apenas com as políticas mais antigas. |
 | Política de estrutura de confiança | `tfp` | `b2c_1_signupsignin1` | O nome da política que foi utilizado para adquirir o token de ID. |
 | Tempo de autenticação | `auth_time` | `1438535543` | O tempo em que um usuário inserir, pela última vez, credenciais, representado na hora "Epoch". |
-| Âmbito | `scp` | `Read`| As permissões concedidas para o recurso para um token de acesso. Permissões concedidas múltiplos são separadas por um espaço. |
+| Scope | `scp` | `Read`| As permissões concedidas para o recurso para um token de acesso. Permissões concedidas múltiplos são separadas por um espaço. |
 | Terceiros autorizados | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | O **ID da aplicação** da aplicação cliente que a solicitação. |
 
 ## <a name="configuration"></a>Configuração

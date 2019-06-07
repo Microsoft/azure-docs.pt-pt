@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2019
+ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: d2312fac64515756f5ed2e0feb22fdc6b7205376
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125174"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735222"
 ---
-**Última atualização de documentos**: 14 de Maio de 2019 10 4:00 PST.
+**Última atualização de documentos**: 4 de Junho de 2019 3 18:00 PST.
 
 A divulgação de um [nova classe de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) também conhecida como ataques de canal de lado a execução especulativa resultou em perguntas dos clientes que procuram mais clareza.  
 
@@ -48,8 +48,8 @@ Embora seja uma atualização de SO não é necessário para isolar as aplicaç�
 
 | Oferta | Ação Recomendada  |
 |----------|---------------------|
-| Serviços Cloud do Azure  | Ativar [atualização automática](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) ou certifique-se de que está a executar o SO convidado mais recente. |
-| Máquinas Virtuais do Azure para Linux | Instale atualizações a partir do seu fornecedor do sistema operativo. Para obter mais informações, consulte [Linux](#linux) mais adiante neste documento. |
+| Cloud Services do Azure  | Ativar [atualização automática](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) ou certifique-se de que está a executar o SO convidado mais recente. |
+| Máquinas virtuais do Linux do Azure | Instale atualizações a partir do seu fornecedor do sistema operativo. Para obter mais informações, consulte [Linux](#linux) mais adiante neste documento. |
 | Máquinas virtuais do Windows Azure  | Instale o rollup de segurança mais recente.
 | Outros serviços PaaS do Azure | Não existe nenhuma ação necessária para clientes que utilizam estes serviços. Azure mantém automaticamente as versões de SO atualizado. |
 
@@ -77,7 +77,7 @@ Se estiver a executar o código não confiável, pode habilitar recursos de segu
 O sistema operacional de destino tem de ser atualizado para ativar estas funcionalidades de segurança adicional. Embora inúmeras atenuações de canal de lado a execução especulativa estão ativadas por predefinição, as funcionalidades adicionais descritas aqui devem ser habilitadas manualmente e podem causar um impacto no desempenho. 
 
 
-**Passo 1: Desativar o hyperthreading na VM** - clientes que executam o código não confiável numa VM tem de desativar o hyperthreading ou mover para um tamanho de VM não threading de threading. Para verificar se a VM tem o hyperthreading ativado, consulte o script com a linha de comandos do Windows de dentro da VM abaixo.
+**Passo 1: Desativar o hyper-threading na VM** -clientes que executam o código não confiável numa VM do hyper-thread terá de desativar o hyper-threading ou mover para um tamanho de VM não-hyper-thread. Referência [este documento](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para obter uma lista de tamanhos da VM de hyper-thread (em que proporção de vCPU para núcleo é 2:1). Para verificar se a VM tem o hyperthreading ativado, consulte o script com a linha de comandos do Windows de dentro da VM abaixo.
 
 Tipo de `wmic` para introduzir a interface interativa. Em seguida, escreva abaixo para ver a quantidade de física e lógica processadores na VM.
 
@@ -85,7 +85,7 @@ Tipo de `wmic` para introduzir a interface interativa. Em seguida, escreva abaix
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-Se o número de processadores lógicos for maior do que processadores físicos (núcleos), em seguida, o hyperthreading está ativado.  Se estiver a executar uma VM de threading, [contacte o suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter o hyperthreading desabilitado.  Assim que o hyperthreading estiver desativada, **suporte irá exigir um reinício total da VM**. 
+Se o número de processadores lógicos for maior do que processadores físicos (núcleos), em seguida, o hyper threading está ativado.  Se estiver a executar uma VM de hyper-thread, [contacte o suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter o hyper-threading desativado.  Depois do hyper threading está desabilitado **suporte irá exigir um reinício total da VM**. Consulte a [contagem de núcleos](#core-count) para compreender por que o seu número de núcleos VM diminui.
 
 
 **Passo 2**: Em paralelo para o passo 1, siga as instruções em [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para verificar as proteções estão ativadas utilizando o [SpeculationControl](https://aka.ms/SpeculationControlPS) módulo do PowerShell.
@@ -123,14 +123,14 @@ Se o resultado mostra `MDS mitigation is enabled: False`, inicie [contacte o sup
 <a name="linux"></a>Ativar o conjunto de recursos de segurança adicionais dentro requer que o sistema operacional de destino esteja totalmente atualizada. Algumas mitigações serão ativadas por predefinição. A secção seguinte descreve as funcionalidades que estão desativadas por predefinição e/ou baseia-se no suporte de hardware (ativação do microcódigo). Ativar estas funcionalidades, pode causar um impacto no desempenho. Documentação do seu fornecedor de sistema operativo para obter mais instruções de referência
 
 
-**Passo 1: Desativar o hyperthreading na VM** - clientes que executam o código não confiável numa VM tem de desativar o hyperthreading ou mover para uma VM não threading de threading.  Para verificar se estiver a executar uma VM de threading, execute o `lscpu` comando na VM do Linux. 
+**Passo 1: Desativar o hyper-threading na VM** -clientes que executam o código não confiável numa VM do hyper-thread terá de desativar o hyper-threading ou mover para uma VM não-hyper-thread.  Referência [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obter uma lista de tamanhos da VM de hyper-thread (em que proporção de vCPU para núcleo é 2:1). Para verificar se estiver a executar uma VM de hyper-thread, execute o `lscpu` comando na VM do Linux. 
 
-Se `Thread(s) per core = 2`, em seguida, o hyperthreading tiver sido ativada. 
+Se `Thread(s) per core = 2`, em seguida, o hyper-threading foi ativado. 
 
-Se `Thread(s) per core = 1`, em seguida, o hyperthreading foi desativada. 
+Se `Thread(s) per core = 1`, em seguida, o hyper-threading foi desabilitado. 
 
  
-Exemplo de saída para uma VM com hyperthreading ativado: 
+Saída de exemplo para uma VM com o hyper-threading ativada: 
 
 ```console
 CPU Architecture:      x86_64
@@ -145,7 +145,8 @@ NUMA node(s):          1
 
 ```
 
-Se estiver a executar uma VM de threading, [contacte o suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter o hyperthreading desabilitado.  Assim que o hyperthreading estiver desativada, **suporte irá exigir um reinício total da VM**.
+Se estiver a executar uma VM de hyper-thread, [contacte o suporte Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para obter o hyper-threading desativado.  Depois do hyper threading está desabilitado **suporte irá exigir um reinício total da VM**. Consulte a [contagem de núcleos](#core-count) para compreender por que o seu número de núcleos VM diminui.
+
 
 
 **Passo 2**: Para atenuar os efeitos de qualquer um do abaixo vulnerabilidades side-channel de execução especulativa, consulte a documentação do seu fornecedor de sistema operativo:   
@@ -153,6 +154,11 @@ Se estiver a executar uma VM de threading, [contacte o suporte Azure](https://ak
 - [VM de Redhat e CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### <a name="core-count"></a>Contagem de núcleos
+
+Quando é criada uma VM de hyper-thread, o Azure aloca 2 threads por núcleo - estes são denominados vCPUs. Quando o hyper threading está desativado, o Azure remove um thread e superfícies de núcleos de threads únicos (núcleos físicos). A proporção de vCPU a CPU é 2:1, então, depois que o hyper threading está desabilitado, a contagem de CPU na VM, será apresentada ter diminuído pela metade. Por exemplo, uma VM de D8_v3 é uma VM de hyper-thread em execução em 8 vCPUs (2 threads por núcleos de núcleo x 4).  Quando o hyper threading está desativado, CPUs irão remover a 4 núcleos físicos com 1 thread por núcleo. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

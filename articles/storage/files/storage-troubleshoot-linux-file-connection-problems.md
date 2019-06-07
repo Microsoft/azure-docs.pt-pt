@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0a6b48dbba232c06945b00d5107581d8d0c017b0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987655"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472409"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Resolução de problemas de ficheiros do Azure no Linux
 
@@ -110,14 +110,13 @@ O recurso de criptografia para SMB 3.0 para Linux foi introduzido no kernel do 4
 
 Se o cliente Linux SMB não suporta a encriptação, ficheiros do Azure de montagem, utilizando o SMB 2.1 a partir de uma VM do Linux do Azure que está no mesmo datacenter como a partilha de ficheiros. Certifique-se de que o [transferência segura necessária]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição estiver desativada na conta de armazenamento. 
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erro "Acesso negado" ao navegar para uma partilha de ficheiros do Azure no portal
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erro "Falha de autorização" ao navegar para uma partilha de ficheiros do Azure no portal
 
 Ao navegar para uma partilha de ficheiros do Azure no portal, poderá receber o erro seguinte:
 
-Acesso negado  
-Não tem acesso  
-Parece que não tem acesso a este conteúdo. Para obter acesso, contacte o proprietário.  
+Falha na autorização  
+Não tem acesso
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Fazer com que 1: Sua conta de utilizador não tem acesso à conta de armazenamento
 

@@ -2,20 +2,20 @@
 title: Tutorial - personalizar a interface de experiências de utilizador - Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba como personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C no portal do Azure.
 services: B2C
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2a84bf72ab68937224ac93bd9ffd035e32c603d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702552"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512085"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface de experiências de utilizador no Azure Active Directory B2C
 

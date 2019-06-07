@@ -12,20 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245046"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475662"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar dados do Office 365 no Azure com o Azure Data Factory
 
-O Azure Data Factory permite-lhe reunir a avançada dados organizacionais no seu Office 365 de inquilino para o Azure de uma forma escalável e criem aplicações de análise e extrair informações com base nestes ativos de dados valiosos. Integração com o Privileged Access Management fornece controlo de acesso protegido para os valiosos dados organizados no Office 365.  Para obter mais informações sobre os dados do Microsoft Graph ligar, veja [esta ligação](https://docs.microsoft.com/graph/data-connect-concept-overview).
+O Azure Data Factory se integra [ligar a dados do Microsoft Graph](https://docs.microsoft.com/graph/data-connect-concept-overview), permitindo-lhe colocar a avançada dados organizacionais no seu Office 365 de inquilino para o Azure de uma forma escalável e criem aplicações de análise e extrair informações com base em Estes recursos de dados valiosos. Integração com o Privileged Access Management fornece controlo de acesso protegido para os valiosos dados organizados no Office 365.  Consulte a [esta ligação](https://docs.microsoft.com/graph/data-connect-concept-overview) para uma descrição geral de dados do Microsoft Graph ligar e consultar [esta ligação](https://docs.microsoft.com/graph/data-connect-policies#licensing) para obter informações de licenciamento.
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Office 365. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
+Conector do Office 365 do ADF e dados do Microsoft Graph estabelecer a ligação ativa na ingestão de dimensionamento de diferentes tipos de conjuntos de dados de caixas de correio de E-Mail do Exchange ativada, incluindo contatos do livro de endereços, eventos do calendário, mensagens de e-mail, informações de utilizador, as definições de caixa de correio, e assim por diante.  Consultar [aqui](https://docs.microsoft.com/graph/data-connect-datasets) para ver a lista completa de conjuntos de dados disponíveis.
 
 Por agora, dentro de uma atividade de cópia única só é possível **copiar dados do Office 365 numa [armazenamento de Blobs do Azure](connector-azure-blob-storage.md), [Gen1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md), e [Gen2 de armazenamento do Azure Data Lake ](connector-azure-data-lake-storage.md) no formato JSON** (digite setOfObjects). Se pretender carregar do Office 365 para outros tipos de arquivos de dados ou em outros formatos, pode encadear a primeira atividade de cópia com uma atividade de cópia subsequentes para ainda mais carregar dados para qualquer um da [arquivos de destino do ADF suportados](copy-activity-overview.md#supported-data-stores-and-formats) (consulte" suportado como sink"coluna na tabela"Suporte a arquivos de dados e formatos").
 

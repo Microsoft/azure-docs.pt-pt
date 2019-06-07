@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 25c0fe7a179db484f18c1aca16471e39a739052c
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299174"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494355"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -114,10 +114,10 @@ Suporta ficheiros MP4, que contêm áudio codificado com o empacotamento dinâmi
     * DTS Express (dtse)
     * DTS HD sem perdas (não existem núcleos) (dtsl)
 
-### <a name="hls-support"></a>Suporte HLS
+### <a name="multi-audio-tracks"></a>Várias faixas de áudio
 
-Empacotamento dinâmico compatível com HLS (versão 4 ou superior) para recursos que têm várias faixas de áudio com vários codecs e linguagens.
-
+Quando ativos, que têm várias faixas de áudio com vários codecs e linguagens de transmissão em fluxo, o empacotamento dinâmico suporta múltiplas faixas de áudio para a saída HLS (versão 4 ou superior).
+ 
 ### <a name="not-supported"></a>Não suportado
 
 Empacotamento dinâmico não suporta ficheiros que contêm [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) áudio (AC3) (é um codec herdado).

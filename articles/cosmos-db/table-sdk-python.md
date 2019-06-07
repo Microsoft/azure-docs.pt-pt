@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
-ms.date: 11/20/2017
+ms.date: 11/20/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 257d55fd0c7d843934c4f07a798247c5271d8ed7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a26e69d756c0f5b8bb26d85d2901e686aba50771
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576242"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480169"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>API do SDK para Python de tabela do Azure Cosmos DB: Notas de versão e recursos
 > [!div class="op_single_selector"]

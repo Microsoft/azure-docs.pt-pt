@@ -2,20 +2,20 @@
 title: ClaimsProviders - Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de ClaimsProvider de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ababd7e9f1de33eb8679e583c2db18d2992cfb1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8d2570af6abb34a87ac4c69dd63408c8ec2e8005
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699634"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511512"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -52,7 +52,7 @@ O **ClaimsProvider** elemento contém elementos subordinados:
 | Elemento | Ocorrências | Descrição |
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | Uma cadeia de caracteres que contém o nome de domínio para o fornecedor de afirmações. Por exemplo, se o seu fornecedor de afirmações inclui o perfil técnico do Facebook, o nome de domínio é Facebook.com. Este nome de domínio é utilizado para todos os perfis técnicos definidos no fornecedor de afirmações, a menos que substituído pelo perfil de técnico. O nome de domínio também pode ser referenciado num **domain_hint**. Para obter mais informações, consulte a **redirecionar início de sessão para um fornecedor de redes sociais** secção [configurar direto início de sessão através do Azure Active Directory B2C](direct-signin.md). |
-| Nome a Apresentar | 0:1 | Uma cadeia que contém o nome do fornecedor de afirmações que pode ser apresentado aos utilizadores. |
+| displayName | 0:1 | Uma cadeia que contém o nome do fornecedor de afirmações que pode ser apresentado aos utilizadores. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Um conjunto de perfis técnicos suportado pelo fornecedor de afirmação |
 
 **ClaimsProvider** organiza os seus perfis técnicos a inter-relação entre o fornecedor de afirmações. O exemplo seguinte mostra o fornecedor de afirmações do Azure Active Directory com os perfis de técnicos do Azure Active Directory:

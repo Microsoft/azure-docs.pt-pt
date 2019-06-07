@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cfa94fc1c75bcd1eaa9a076cfe63369f60ce5f1c
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939578"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693078"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -129,6 +129,7 @@ Aprovisionamento e desaprovisionamento durante a criação do grupo de sincroniz
 - Os nomes dos objetos (bases de dados, tabelas e colunas) não podem conter o período de caracteres imprimíveis (.), à esquerda parêntesis Reto ([), ou Reto direito square (]).
 - Não é suportada a autenticação do Azure Active Directory.
 - As tabelas com o mesmo nome, mas um esquema diferente (por exemplo, dbo.customers e sales.customers) não são suportadas.
+- Não são suportadas colunas com tipos de dados definidos pelo utilizador
 
 #### <a name="unsupported-data-types"></a>Tipos de dados não suportado
 

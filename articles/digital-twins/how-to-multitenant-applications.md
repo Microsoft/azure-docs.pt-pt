@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 06/04/2019
 ms.author: mavoge
-ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03b5693fe016cfb11d6f685f9088fe6e94f03b90
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926056"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688608"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Ativar aplicações multi-inquilino duplos Digital do Azure
 

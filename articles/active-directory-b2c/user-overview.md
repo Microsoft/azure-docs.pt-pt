@@ -2,20 +2,20 @@
 title: Descrição geral de utilizador de contas no Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba mais sobre contas de utilizador no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7e9e046ef4fcba81d5a8c330180a6e0831a7dcdd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42a38b47f9e49652b5fe80aa5bbd0047dc7d1e74
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718061"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511967"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Descrição geral das contas de utilizador no Azure Active Directory B2C
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 0e592c03da222e5265ed53aab8ef73f3b477f33a
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955740"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475858"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no serviço de aplicações do Azure
 
@@ -113,7 +113,6 @@ Em alternativa, pode integrar o seu serviço de aplicações com [do Azure Key V
 
 Exceto para o **Isolated** escalão de preço, todos os escalões de executam as suas aplicações na infraestrutura de rede partilhado no serviço de aplicações. Por exemplo, os endereços IP públicos e Balanceadores de carga de front-end são partilhadas com outros inquilinos. O **Isolated** escalão dá-lhe isolamento de rede completa ao executar as suas aplicações dentro de um dedicado [ambiente de serviço de aplicações](environment/intro.md). Um ambiente de serviço de aplicações é executada na sua própria instância do [rede Virtual do Azure](/azure/virtual-network/). Permite-lhe: 
 
-- Restringir o acesso de rede com [grupos de segurança de rede](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Servir as suas aplicações através de um ponto final público dedicado, com dedicado front-ends.
 - Servir aplicação interna com um balanceador de carga interno (ILB), que permite o acesso apenas a partir de dentro da sua rede Virtual do Azure. O ILB tem um endereço IP do seu sub-rede privada, o que proporciona isolamento total das suas aplicações a partir da internet.
 - [Utilizar um ILB por trás de uma firewall de aplicações web (WAF)](environment/integrate-with-application-gateway.md). O WAF proporciona proteção de nível empresarial às suas aplicações de destinado ao público, como proteção contra DDoS, URI filtragem e prevenção de injeção de SQL.

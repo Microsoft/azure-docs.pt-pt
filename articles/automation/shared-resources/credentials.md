@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6465fd069e73a571e0671d528f5d0b4da4602dc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb34c3f04302e6a2b5cc307b98bafe93e09fcf2f
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499467"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734694"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credencial na automatização do Azure
 
@@ -47,11 +47,11 @@ Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir r
 | [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Remove uma credencial da automatização. |
 | [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Define as propriedades de uma credencial da automatização existente. |
 
-## <a name="activities"></a>Atividades
+## <a name="activities"></a>Actividades
 
 As atividades na tabela seguinte são utilizadas para aceder a credenciais num runbook e configurações de DSC.
 
-| Atividades | Descrição |
+| Actividades | Descrição |
 |:--- |:--- |
 | Get-AutomationPSCredential |Obtém uma credencial que deve utilizar num runbook ou configuração DSC. Devolve um [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) objeto. |
 
@@ -112,7 +112,7 @@ $password = $myCredential.GetNetworkCredential().Password
 Também pode utilizar uma credencial para autenticar no Azure com o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Na maioria das circunstâncias, deve usar uma [conta Run As](../manage-runas-account.md) e recuperá-la com [Get-AutomationConnection](../automation-connections.md).
 
 ```azurepowershell
-$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$myCred = Get-AutomationPSCredential -Name 'MyCredential'
 $userName = $myCred.UserName
 $securePassword = $myCred.Password
 $password = $myCred.GetNetworkCredential().Password

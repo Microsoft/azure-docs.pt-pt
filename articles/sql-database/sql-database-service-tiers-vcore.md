@@ -12,70 +12,68 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 520dba611e6791fca990e21173424a914c3d8e14
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235903"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693346"
 ---
-# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Escolha de entre os escalões de serviço de vCore e migrar de escalões de serviço DTU
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Escolha de entre os escalões de serviço de vCore e migrar dos escalões de serviço DTU
 
-O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. Ele também permite-lhe escolher a geração de hardware:
+O núcleo virtual (vCore)-modelo de compra com base permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. Ele também permite que escolha a geração de hardware:
 
-- Gen4 - até 24 CPUs lógicas com base na Intel E5-2673 v3 (Haswell) 2,4 GHz, vCore = 1 PP (núcleos físicos), 7 GB por núcleo, anexado SSD
-- Gen5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1 GB por núcleo, o rápido eNVM SSD
-
+- **Gen4**: Até 24 CPUs lógicas com base no Intel E5-2673 v3 (Haswell) de processadores de 2,4 GHz, vCore = 1 PP (núcleos físicos), 7 GB por núcleo, anexado SSD
+- **Gen5**: Até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, vCore = 1 LP (hyper-thread), 5.1 GB por núcleo, o rápido eNVM SSD
 
 Hardware de Gen4 oferece substancialmente mais memória por vCore. No entanto, o Gen5 hardware permite-lhe aumentar verticalmente os recursos de computação muito superiores.
 
 > [!NOTE]
-> Para obter informações sobre escalões de serviço baseado em DTU, consulte [escalões de serviço baseado em DTU](sql-database-service-tiers-dtu.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-purchase-models.md).
+> Para obter informações sobre os escalões de serviço baseado em DTU, consulte [escalões para o modelo de compra baseado em DTU de serviço](sql-database-service-tiers-dtu.md). Para obter informações sobre as diferenças entre os escalões de serviço para o baseado em DTU e os modelos de compras baseado em vCore, consulte [modelos de compra do Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 
-O modelo de vCore oferece três escalões de serviço para fins gerais, de Hiperescala e críticas para a empresa. Escalões de serviço são diferenciados por uma variedade de tamanhos de computação, design de elevada disponibilidade, isolamento de falhas, tipos e tamanho de armazenamento e o intervalo de e/s. Tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança. No portal do Azure, aceda ao servidor (não a base de dados) > cópias de segurança gerida > configurar a política > ponto no tempo restaurar configuração > 7-35 dias.
+O modelo de compra baseado em vCore oferece três escalões de serviço: para fins gerais, de hiperescala e crítico para a empresa. Estes escalões de serviço são diferenciados por uma variedade de tamanhos de computação, designs de elevada disponibilidade, métodos de isolamento de falhas, tipos e tamanhos de armazenamento e os intervalos de e/s.
 
-A tabela seguinte ajuda-o a compreender as diferenças entre as três camadas:
+Tem de configurar separadamente o período de retenção e armazenamento necessário para cópias de segurança. Para definir o período de retenção de cópia de segurança, abra o portal do Azure, vá para o servidor (não a base de dados) e, em seguida, aceda a **gerir cópias de segurança** > **configurar política**  >   **Ponto no tempo restaurar Configuration** > **7-35 dias**.
+
+A tabela seguinte explica as diferenças entre as três camadas:
 
 ||**Fins gerais**|**Crítico para a empresa**|**Hiperescala**|
 |---|---|---|---|
-|Melhores para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável|
-|Computação|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80<br/>**Computação sem servidor**<br/>Gen5: 0,5 - 4 vCore|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80|
-|Memória|**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore<br/>**Computação sem servidor**<br/>Gen5: 3 GB por vCore|**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore |**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore|
-|Armazenamento|Utiliza o armazenamento remoto:<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Computação sem servidor da base de dados individual**:<br/>5 GB – 1 TB<br/>**Instância gerida**: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Instância gerida**:<br/>32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
-|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo|
-|Armazenamento|Utiliza o armazenamento remoto:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
-|Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com 200 000 IOPS máximos|TBD|
-|Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|réplica de leitura/1 escrita e 0 a 4 [réplicas de escala de leitura](sql-database-read-scale-out.md)|
-|Cópias de segurança|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|com base em instantâneo de cópia de segurança no armazenamento remoto do Azure e restaurações utilizar estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápidos e não um tamanho de operação de dados (a demorar minutos em vez de horas ou dias).|
+|Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento e orientados a, equilibrada e dimensionáveis de computação e opções de armazenamento.|Aplicativos de negócios com requisitos de e/s elevados. Oferece maior resiliência a falhas, com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável.|
+|Computação|**Aprovisionado computação**:<br/>Gen4: 1 a 24 vCores<br/>Gen5: 2 a 80 vCores<br/>**Computação sem servidor**:<br/>Gen5: 0,5 - 4 vCores|**Aprovisionado computação**:<br/>Gen4: 1 a 24 vCores<br/>Gen5: 2 a 80 vCores|**Aprovisionado computação**:<br/>Gen4: 1 a 24 vCores<br/>Gen5: 2 a 80 vCores|
+|Memória|**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore<br/>**Computação sem servidor**:<br/>Gen5: 3 GB por vCore|**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore |**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore|
+|Armazenamento|Utiliza o armazenamento remoto.<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Computação sem servidor da base de dados individual**:<br/>5 GB – 1 TB<br/>**Instância gerida**: 32 GB - 8 TB |Utiliza o armazenamento SSD local.<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Instância gerida**:<br/>32 GB - 4 TB |Flexível o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento. Utiliza o armazenamento SSD local para cache de conjunto de memória intermédia local e o armazenamento de dados local. Utiliza o armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
+|Débito de e/s (aproximado)|**Base de dados individual**: 500 IOPS por vCore com IOPS máximos de 7000.<br/>**Instância gerida**: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por núcleo com 200 000 IOPS máximos|Hiperescala é uma arquitetura de várias camadas com colocação em cache em vários níveis. IOPs eficaz irão depender da carga de trabalho.|
+|Disponibilidade|1 réplica, sem réplicas de escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>com redundância de zona elevada disponibilidade (HA)|1 réplica de leitura / escrita, além de 0 a 4 [réplicas de escala de leitura](sql-database-read-scale-out.md)|
+|Cópias de segurança|[Armazenamento georredundante com acesso de leitura (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|Backups baseados em instantâneo no armazenamento remoto do Azure. Restauros utilizam estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são rápidos e não são uma operação de tamanho de dados (e tirar minutos em vez de horas ou dias).|
 |Dentro da memória|Não suportado|Suportadas|Não suportado|
 |||
 
 > [!NOTE]
-> Pode obter uma base de dados SQL do Azure gratuita na camada de serviço básico em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [criar uma base de dados gerida na cloud com a sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Pode obter uma base de dados SQL do Azure gratuita na camada de serviço básico em conjunto com uma conta gratuita do Azure. Para obter mais informações, consulte [criar uma base de dados gerida na cloud com a sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
 
-- Para obter mais informações, consulte [limites de recursos de vCore na base de dados única](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos de vCore na instância gerida](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Para obter mais informações sobre os escalões de serviço para fins gerais e crítico para a empresa, consulte [escalões de serviço para fins gerais e crítico para a empresa](sql-database-service-tiers-general-purpose-business-critical.md).
-- Para obter detalhes sobre a camada de serviços de Hiperescala no modelo de compra baseado em vCore, consulte [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md).  
+- Para obter mais informações sobre limites de recursos de vCore, consulte [limites de recursos de vCore na base de dados individual](sql-database-vcore-resource-limits-single-databases.md) e [vCore limites de recursos numa instância gerida](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- Para obter mais informações sobre os escalões de críticos de serviço de negócios e fins gerais, veja [escalões de serviço de fins gerais e crítico para a empresa](sql-database-service-tiers-general-purpose-business-critical.md).
+- Para obter mais informações sobre a camada de serviços de hiperescala no modelo de compra baseado em vCore, consulte [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md).  
 
 ## <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-A camada de computadores aprovisionados do modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
+Na camada de computação aprovisionada, de modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL utilizando [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Este benefício do Azure permite-lhe a economizar até 30 por cento na base de dados do Azure SQL, com as suas licenças do SQL Server no local com Software Assurance.
 
-![preços](./media/sql-database-service-tiers/pricing.png)
+![Os preços](./media/sql-database-service-tiers/pricing.png)
 
-Com o benefício híbrido do Azure, pode optar por pagar apenas a infraestrutura do Azure subjacente, usando sua licença existente do SQL Server para o motor de base de dados SQL em si (**BasePrice**) ou pagar pela infraestrutura subjacente e a licença do SQL Server (**LicenseIncluded**).
+Com o Azure Hybrid Benefit, pode optar por pagar apenas pela infraestrutura do Azure subjacente ao utilizar a sua licença existente do SQL Server para o motor de base de dados SQL em si (preços de computação Base) ou pode pagar para a infraestrutura subjacente e o SQL Server licença (licença incluída preços).
 
-
-Pode escolher ou alterar o seu modelo de licenciamento com o portal do Azure ou através de um dos seguintes APIs.
+Pode escolher ou alterar o seu modelo de licenciamento com o portal do Azure ou ao utilizar uma das seguintes APIs:
 
 - Para definir ou atualizar o tipo de licença com o PowerShell:
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
   - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
 
 - Para definir ou atualizar o tipo de licença com a CLI do Azure:
 
@@ -91,47 +89,52 @@ Pode escolher ou alterar o seu modelo de licenciamento com o portal do Azure ou 
   - [Instâncias - geridas criar ou atualizar](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
   - [Instâncias geridas - atualização](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
-## <a name="migration-from-dtu-model-to-vcore-model"></a>Migração do modelo DTU para o modelo de vCore
+## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar do modelo baseado em DTU para o modelo baseado em vCore
 
-### <a name="migration-of-a-database"></a>Migração de uma base de dados
+### <a name="migrate-a-database"></a>Migrar uma base de dados
 
-Migrar uma base de dados do modelo de compra baseado em DTU para o modelo de compra baseado em vCore é semelhante a atualizar ou fazer downgrade entre o modelo de compra baseado em DTU de bases de dados de Standard e Premium.
+Migrar uma base de dados do modelo de compra baseado em DTU para o modelo de compra baseado em vCore é semelhante a atualizar ou fazer downgrade entre os escalões de serviço standard e premium no modelo de compra baseado em DTU.
 
-### <a name="migration-of-databases-with-geo-replication-links"></a>Migração de bases de dados com ligações de georreplicação
+### <a name="migrate-databases-with-geo-replication-links"></a>Migrar bases de dados com ligações de georreplicação
 
-Migrando do modelo baseado em DTU para o modelo baseado em vCore é semelhante a atualizar ou fazer downgrade as relações de georreplicação entre bases de dados Standard e Premium. Não requer a terminar a georreplicação, mas o usuário deve observar as regras de sequenciamento. Ao atualizar, tem de atualizar a base de dados secundária primeiro e, em seguida, atualizar o principal. Ao fazer downgrade, inverter a ordem: tem de mudar para a versão da base de dados principal primeiro e, em seguida, mudar o secundário.
+Migrando do modelo baseado em DTU para o modelo de compra baseado em vCore é semelhante a atualizar ou fazer downgrade as relações de georreplicação entre bases de dados nos escalões de serviço standard e premium. Durante a migração, não tem de parar a replicação geográfica, mas tem de seguir estas regras de sequenciamento:
 
-Ao utilizar a georreplicação entre dois conjuntos elásticos, recomenda-se que designar um conjunto como principal e o outro – como o secundário. Nesse caso, migração de dados elásticas devem utilizar a mesma diretriz.  No entanto, é tecnicamente é possível que um conjunto elástico contém as bases de dados primárias e secundárias. Neste caso migrar corretamente deve tratar o conjunto com a utilização mais alta como "principal" e seguir as regras de sequenciamento em conformidade.  
+- Ao atualizar, tem de atualizar a base de dados secundária primeiro e, em seguida, atualizar o principal.
+- Ao fazer downgrade, inverter a ordem: tem de mudar para a versão da base de dados principal primeiro e, em seguida, mudar o secundário.
 
-A tabela seguinte fornece orientações para os cenários de migração específica:
+Quando estiver a utilizar a georreplicação entre dois conjuntos elásticos, recomendamos que designar um conjunto como principal e o outro como secundário. Nesse caso, quando estiver a migrar os conjuntos elásticos deve utilizar a mesma diretriz de sequenciamento. No entanto, se tiver conjuntos elásticos que contêm bases de dados primárias e secundárias, tratar o conjunto com a utilização mais alta como principal e siga as regras de sequenciamento em conformidade.  
 
-|Escalão de serviço atual|Escalão de serviço de destino|Tipo de migração|Ações de utilizador|
+A tabela seguinte fornece orientações para cenários de migração específica:
+
+|Escalão de serviço atual|Escalão de serviço de destino|Tipo de migração|Ações do usuário|
 |---|---|---|---|
-|Standard|Fins gerais|Lateral|Pode migrar em qualquer ordem, mas certifique-se de um dimensionamento apropriado vCore *|
-|Premium|Crítico para a Empresa|Lateral|Pode migrar em qualquer ordem, mas certifique-se de dimensionamento apropriado vCore *|
-|Standard|Crítico para a Empresa|Actualizar|Deve migrar primeiro secundário|
-|Crítico para a Empresa|Standard|Mudar para uma versão anterior|Deve migrar primeiro primário|
+|Standard|Fins gerais|Lateral|Pode migrar em qualquer ordem, mas certifique-se de dimensionamento apropriado vCore *|
+|Premium|Crítico para a empresa|Lateral|Pode migrar em qualquer ordem, mas certifique-se de dimensionamento apropriado vCore *|
+|Standard|Crítico para a empresa|Atualizar|Deve migrar primeiro secundário|
+|Crítico para a empresa|Standard|Mudar para uma versão anterior|Deve migrar primeiro primário|
 |Premium|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro primário|
-|Fins gerais|Premium|Actualizar|Deve migrar primeiro secundário|
-|Crítico para a Empresa|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro primário|
-|Fins gerais|Crítico para a Empresa|Actualizar|Deve migrar primeiro secundário|
+|Fins gerais|Premium|Atualizar|Deve migrar primeiro secundário|
+|Crítico para a empresa|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro primário|
+|Fins gerais|Crítico para a empresa|Atualizar|Deve migrar primeiro secundário|
 ||||
 
-\* Cada 100 DTUS no escalão Standard requer, pelo menos, 1 vCore e cada 125 DTU no escalão Premium requer, pelo menos, 1 vCore
+\* Cada 100 DTUs no escalão standard requerem, pelo menos, 1 vCore e cada 125 DTUs no escalão premium requerem, pelo menos, 1 vCore.
 
-### <a name="migration-of-failover-groups"></a>Migração de grupos de ativação pós-falha
+### <a name="migrate-failover-groups"></a>Migrar grupos de ativação pós-falha
 
-Migração de grupos de ativação pós-falha com várias bases de dados requer individual migração de bases de dados primárias e secundárias. Durante esse processo, as mesmas considerações e regras de sequenciamento aplicam-se. Depois das bases de dados são convertidos para o modelo baseado em vCore, o grupo de ativação pós-falha permanecerão em vigor com as mesmas definições de política.
+Migração de grupos de ativação pós-falha com várias bases de dados requer individual migração de bases de dados primárias e secundárias. Durante esse processo, as mesmas considerações e regras de sequenciamento aplicam-se. Depois das bases de dados são convertidos para o modelo de compra baseado em vCore, o grupo de ativação pós-falha permanecerão em vigor com as mesmas definições de política.
 
-### <a name="creation-of-a-geo-replication-secondary"></a>Criação de uma secundária de georreplicação
+### <a name="create-a-geo-replication-secondary-database"></a>Criar uma base de dados secundária de georreplicação
 
-Só pode criar usando o mesmo escalão de serviço como principal geo-secundária. Para a base de dados com a taxa de geração de log elevada, recomenda-se que o elemento secundário é criado com o mesmo tamanho de computação como principal. Se estiver a criar geo-secundária do conjunto elástico para um único banco de dados principal, recomenda-se que o conjunto tem o `maxVCore` definição que coincide com o tamanho de computação de base de dados primária. Se estiver a criar geo-secundária do conjunto elástico para um site primário em outro conjunto elástico, recomenda-se que os agrupamentos têm a mesma `maxVCore` definições
+Pode criar uma georreplicação secundária da base de dados (geo-secundária) apenas com a utilização da mesma camada de serviço que tenha utilizado para a base de dados primária. Bases de dados com uma taxa elevada de geração de log, recomendamos que crie geo-secundária com o mesmo tamanho de computação como principal.
 
-### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilizando a cópia da base de dados para converter um banco de dados baseado em DTU para uma base de dados baseado em vCore
+Se estiver a criar geo-secundária do conjunto elástico para um único banco de dados primário, certifique-se a `maxVCore` definição para o conjunto corresponde ao tamanho de computação da base de dados primário. Se estiver a criar geo-secundária para um site primário em outro conjunto elástico, recomendamos que os agrupamentos têm a mesma `maxVCore` definições.
 
-Pode copiar qualquer base de dados com um tamanho de computação baseado em DTU para uma base de dados com um tamanho de computação baseada em vCore sem restrições ou sequenciamento especial, desde que o tamanho de computação de destino suporta o tamanho máximo da base de dados da base de dados de origem. A cópia da base de dados cria um instantâneo dos dados desde a hora de início da operação de cópia e não efetua a sincronização de dados entre a origem e de destino.
+### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilize a cópia de base de dados para converter um banco de dados baseado em DTU para uma base de dados baseado em vCore
+
+Pode copiar qualquer base de dados com um tamanho de computação baseado em DTU para uma base de dados com um tamanho de computação baseada em vCore sem restrições ou sequenciamento especial, desde que o tamanho de computação de destino suporta o tamanho máximo da base de dados da base de dados de origem. A cópia da base de dados cria um instantâneo dos dados desde a hora de início da operação de cópia e não a sincronizar dados entre a origem e de destino.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para a base de dados, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)
-- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para conjuntos elásticos, veja [limites de recursos baseados em vcore da base de dados SQL para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Para os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para bases de dados individuais, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md).
+- Para os tamanhos de computação específicos e as opções de tamanho de armazenamento disponíveis para conjuntos elásticos, veja [limites de recursos baseados em vcore da base de dados SQL para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

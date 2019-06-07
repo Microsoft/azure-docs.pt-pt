@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
-ms.openlocfilehash: 79cf4c713d60fa600bbb80b9c16728502ffc88ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4d8d2fd9a7408bb77939c9a1c8fdd67251282f49
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236838"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479215"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Base de dados SQL do Azure e do SQL Server
 
@@ -96,8 +96,9 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Suporte de dados JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Sim](sql-database-json-features.md) | [Sim](sql-database-json-features.md) |
 | [Elementos de linguagem](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Maioria - Consulte elementos individuais |  Sim - veja [diferenças do T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Servidores ligados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não, consulte [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md) | Apenas ao [do SQL Server e base de dados SQL](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
-| [Envio de log](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a base de dados do Azure SQL](sql-database-business-continuity.md) |[Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a base de dados do Azure SQL](sql-database-business-continuity.md) |
+| [Envio de log](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a base de dados do Azure SQL](sql-database-business-continuity.md) | Nativamente incorporadas como parte do processo de migração de DMS. [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados e não é recomendável usar o envio de Log como alternativa HA. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a base de dados do Azure SQL](sql-database-business-continuity.md) |
 | [Inícios de sessão e utilizadores](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) | Sim, mas `CREATE` e `ALTER` instruções de início de sessão não oferecem todas as opções (não Windows e inícios de sessão ao nível do servidor do Azure Active Directory). `EXECUTE AS LOGIN` está a utilizar não suportado - `EXECUTE AS USER` em vez disso.  | Sim, com algumas [diferenças](sql-database-managed-instance-transact-sql-information.md#logins-and-users). Inícios de sessão do Windows não são suportados e deve ser substituídos com inícios de sessão do Azure Active Directory. |
+| [Retenção de cópia de segurança longa duração - LTR](sql-database-long-term-retention.md) | Sim, manter as cópias de segurança realizadas automaticamente atualizado para os 10 anos. | Ainda não. Uso `COPY_ONLY` [backups manuais](sql-database-managed-instance-transact-sql-information.md#backup) como uma solução temporária. |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Não | Não |
 | [Registo mínimo na importação em massa](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Não | Não |
 | [Modificar os dados de sistema](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | Não | Sim |

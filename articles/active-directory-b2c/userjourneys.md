@@ -2,20 +2,20 @@
 title: UserJourneys | Documentos da Microsoft
 description: Especifique o elemento de UserJourneys de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f5e56d4953eecdb488d5dadd4497b1c42b932f35
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812571"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512036"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ O **UserJourney** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador de um percurso do utilizador que pode ser utilizado para fazer referência a ela partir de outros elementos na política. O **DefaultUserJourney** elemento da [da entidade confiadora política de terceiros](relyingparty.md) aponta para esse atributo. |
+| Id | Sim | Um identificador de um percurso do utilizador que pode ser utilizado para fazer referência a ela partir de outros elementos na política. O **DefaultUserJourney** elemento da [da entidade confiadora política de terceiros](relyingparty.md) aponta para esse atributo. |
 
 O **UserJourney** elemento contém os seguintes elementos:
 
@@ -100,7 +100,7 @@ O **pré-condição** elementos contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Value | 1:n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
-| Acção | 1:1 | A ação que deve ser efetuada se a verificação de pré-condição dentro de um passo de orquestração for verdadeira. Se o valor do `Action` está definido como `SkipThisOrchestrationStep`, associada `OrchestrationStep` não deve ser executado. | 
+| Ação | 1:1 | A ação que deve ser efetuada se a verificação de pré-condição dentro de um passo de orquestração for verdadeira. Se o valor do `Action` está definido como `SkipThisOrchestrationStep`, associada `OrchestrationStep` não deve ser executado. | 
 
 #### <a name="preconditions-examples"></a>Exemplos de pré-condições
 
@@ -224,5 +224,5 @@ O **ClaimsExchange** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador do passo de exchange afirmações. O identificador é utilizado para a troca de afirmações entre uma seleção de fornecedor de afirmações passo na política de referência. | 
+| Id | Sim | Um identificador do passo de exchange afirmações. O identificador é utilizado para a troca de afirmações entre uma seleção de fornecedor de afirmações passo na política de referência. | 
 | TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que está a ser executado. |

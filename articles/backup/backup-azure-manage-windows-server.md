@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61231987"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688908"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -30,7 +30,7 @@ Os pré-requisitos para este artigo são: pelo menos um item de cópia de segura
 
 Para monitorizar alertas, ou ver os dados de gestão sobre um cofre dos serviços de recuperação, abra o cofre.
 
-1. Inicie sessão para o [Portal do Azure](https://portal.azure.com/) com a sua subscrição do Azure.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com a sua subscrição do Azure.
 
 2. No portal, clique em **todos os serviços**.
 
@@ -85,7 +85,7 @@ A lista de alertas de cópia de segurança apresenta as informações selecionad
 
 | Nível de alerta | Eventos que geram alertas |
 | ----------- | ----------- |
-| Crítica | Receber críticas de alertas quando: As tarefas de cópia de segurança falhar, as tarefas de recuperação a falharem, e quando parar a proteção num servidor, mas manter os dados.|
+| Crítico | Receber críticas de alertas quando: As tarefas de cópia de segurança falhar, as tarefas de recuperação a falharem, e quando parar a proteção num servidor, mas manter os dados.|
 | Aviso | Recebe o aviso de alertas quando: Tarefas de cópia de segurança concluída com avisos, por exemplo quando menos de 100 ficheiros não são uma cópia de segurança devido a problemas de Corrupção, ou quando maior que 1 000 000 ficheiros são guardados com êxito). |
 | Informativo | Atualmente, não existem alertas informativos estão em utilização. |
 
@@ -102,7 +102,7 @@ Por predefinição, todos os detalhes, exceto **hora da última ocorrência**, s
 * Servidor protegido
 * Gravidade
 * Duração
-* Hora de Criação
+* Hora de criação
 * Estado
 * Hora da última ocorrência
 
@@ -156,7 +156,7 @@ Escolha a gravidade do alerta (crítico ou de aviso) utilizada para gerar o e-ma
 
 ## <a name="manage-backup-items"></a>Gerir itens de cópia de segurança
 
-Um cofre dos serviços de recuperação contém muitos tipos de dados de cópia de segurança. Para obter uma lista completa dos tipos de cópia de segurança, consulte [que aplicações e cargas de trabalho podem ser copiadas](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Para gerir vários servidores, computadores, bases de dados e cargas de trabalho, clique a **itens de cópia de segurança** mosaico para ver os conteúdos do cofre.
+Um cofre dos serviços de recuperação contém muitos tipos de dados de cópia de segurança. [Saiba mais](backup-overview.md#what-can-i-back-up) sobre o que pode criar cópias de segurança. Para gerir vários servidores, computadores, bases de dados e cargas de trabalho, clique a **itens de cópia de segurança** mosaico para ver os conteúdos do cofre.
 
 ![Mosaico de itens de cópia de segurança](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -226,7 +226,7 @@ Pode ver uma operação ou todas as operações. Não é possível selecionar do
 * Cópia de segurança
 * Restauro
 * Desativar cópia de segurança
-* eliminar dados de cópia de segurança
+* Eliminar dados de cópia de segurança
 
 #### <a name="status"></a>Estado
 
@@ -237,7 +237,7 @@ Pode ver todos os Estados ou um. Não é possível selecionar dois ou três Esta
 * Em curso
 * Com Falhas
 * Cancelado
-* Concluído com avisos
+* Foi concluída com avisos
 
 #### <a name="start-time"></a>Hora de início
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299258"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478417"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 A telemetria está disponível na `customEvents` de tabela no [Application Insights Analytics](analytics.md). Cada linha representa uma chamada para `trackEvent(..)` na sua aplicação.
 
-Se [amostragem](../../azure-monitor/app/sampling.md) estar em funcionamento, a propriedade itemCount mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas de trackevent (), o processo de amostragem apenas transmitida uma delas. Para obter um número correto de eventos personalizados, deve usar, por isso, use um código como `customEvents | summarize sum(itemCount)`.
+Se [amostragem](../../azure-monitor/app/sampling.md) estar em funcionamento, a propriedade itemCount mostra um valor superior a 1. Para o exemplo itemCount = = 10 significa que de 10 chamadas de trackevent (), o processo de amostragem apenas transmitida uma delas. Para obter um número correto de eventos personalizados, deve, portanto, usar código como `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 

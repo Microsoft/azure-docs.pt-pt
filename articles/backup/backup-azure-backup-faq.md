@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551368"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688737"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
 
-## <a name="recovery-services-vault"></a>Cofre de serviços de recuperação
+## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure?
 Sim. Pode criar até 500 cofres de serviços de recuperação por região suportada da cópia de segurança do Azure, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
@@ -100,7 +100,7 @@ Windows 10 64 bit | Enterprise, Pro, Home | Máquinas devem estar a executar os 
 Windows 8.1 de 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 8 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
-Servidor  | |
+Servidor | |
 Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Com as atualizações/mais recentes service packs.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com as atualizações/mais recentes service packs.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com as atualizações/mais recentes service packs.
@@ -182,8 +182,8 @@ A arquitetura de armazenamento do Backup do Azure dá-lhe o melhor dos dois mund
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Existe um limite no número de pontos de recuperação que podem ser criados?
 Pode criar até 9999 pontos de recuperação por instância protegida. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho que cria cópias de segurança para o Azure.
 
-- Saiba mais sobre [cópia de segurança e retenção](./backup-introduction-to-azure-backup.md#backup-and-retention).
-- Saiba mais sobre [instâncias protegidas](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
+- Saiba mais sobre [cópia de segurança e retenção](./backup-overview.md#backup-and-retention).
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Quantas vezes-posso dados de recuperação que é uma cópia de segurança para o Azure?
 Não existe limite no número de recuperações do Backup do Azure.

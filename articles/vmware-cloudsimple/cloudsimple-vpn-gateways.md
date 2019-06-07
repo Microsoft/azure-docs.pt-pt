@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa7730247ddc5f30c3d21a32421a6c55ec4ef72e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 9b2630614e549181f4dd2f4e79871c4594d09201
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872769"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496847"
 ---
 # <a name="vpn-gateways-overview"></a>Descrição geral de gateways VPN
 
@@ -37,6 +37,8 @@ Casos de utilização para VPN de site para site incluem:
 * Conveniente transferência de modelos VM, ISOs e outros arquivos de seus recursos no local para o vCenter de nuvem privada.
 * Acessibilidade de cargas de trabalho em execução na sua nuvem privada a partir da sua rede no local.
 
+![Topologia de ligação de VPN de site a Site](media/cloudsimple-site-to-site-vpn-connection.png)
+
 ### <a name="cryptographic-parameters"></a>Parâmetros criptográficos
 
 Uma ligação de VPN de site a site utiliza os seguintes parâmetros de criptografia predefinido para estabelecer uma ligação segura.  Quando cria uma ligação do dispositivo VPN no local, os parâmetros têm de corresponder.
@@ -52,7 +54,7 @@ Uma ligação de VPN de site a site utiliza os seguintes parâmetros de criptogr
 | Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
 | Diffie Hellman (DH grupo) | 1 | 1 | 1 |
 | Tempo de vida | 28 800 segundos | 28 800 segundos | 28 800 segundos |
-| Tamanho dos Dados | 4GB | 4GB | 4GB |
+| Tamanho dos dados | 4GB | 4GB | 4GB |
 
 
 #### <a name="phase-2-proposals"></a>Propostas de fase 2 
@@ -63,7 +65,7 @@ Uma ligação de VPN de site a site utiliza os seguintes parâmetros de criptogr
 | Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
 | Perfeito Forward Secrecy grupo (grupo PFS) | Nenhuma | Nenhum | Nenhuma |
 | Tempo de vida | segundos de 1.800 | segundos de 1.800 | segundos de 1.800 |
-| Tamanho dos Dados | 4GB | 4GB | 4GB |
+| Tamanho dos dados | 4GB | 4GB | 4GB |
 
 ## <a name="point-to-site-vpn-gateway"></a>Gateway de VPN ponto a site
 

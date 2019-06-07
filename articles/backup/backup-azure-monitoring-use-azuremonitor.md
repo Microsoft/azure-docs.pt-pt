@@ -7,15 +7,15 @@ manager: shivamg
 keywords: O log Analytics; Cópia de segurança do Azure; Alertas; Definições de diagnóstico; Grupos de ação
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190510"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734872"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitorização em escala com o Azure Monitor
 
@@ -46,7 +46,7 @@ Pode selecionar uma área de trabalho LA a partir de outra subscrição como des
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Implementar a solução à área de trabalho do Log Analytics
 
-Quando os dados estiverem no interior da área de trabalho LA [implementar um modelo de github](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) em LA para visualizar os dados. Certifique-se de que fornecer o mesmo grupo de recursos, o nome de área de trabalho e localização da área de trabalho para identificar corretamente a área de trabalho e, em seguida, instale este modelo no mesmo.
+Quando os dados estiverem no interior da área de trabalho LA [implementar um modelo de GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) em LA para visualizar os dados. Certifique-se de que fornecer o mesmo grupo de recursos, o nome de área de trabalho e localização da área de trabalho para identificar corretamente a área de trabalho e, em seguida, instale este modelo no mesmo.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Ver dados de cópia de segurança do Azure com o Log Analytics (LA)
 
@@ -242,13 +242,13 @@ Aplica os filtros mostrados na imagem seguinte para verificar se está a receber
 
 ![Registos de atividades para cópias de segurança de VM do Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-Pode clicar o segmento de "JSON" para obter mais detalhes e visualizá-lo ao copiar-colá-lo num editor de texto. Deverá apresentar os detalhes do cofre e o item que disparou a atividade de registo ou seja, o item de cópia de segurança.
+Clique no nome da operação irá apresentar a operação e os detalhes relevantes.
 
-Em seguida, clique em "Adicionar alerta de registo de atividade" para gerar alertas para todos os tais logs.
+![Nova regra de alerta](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Pode clicar em "Adicionar alerta registo de atividades" mostrada acima, e ele será aberto o ecrã de criação do alerta que é semelhante ao ecrã de criação do alerta [conforme descrito acima](#create-alerts-using-log-analytics).
+Clique em **nova regra de alerta** para abrir o **criar regra** ecrã, aqui pode criar alertas com os passos descritos na [artigo](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-Eis o recurso cofre RS em si e, por conseguinte, terá de repetir a mesma ação para todos os cofres em que pretende que a notificação através de registos de atividades. A condição não terão qualquer limiar, o período, a frequência, uma vez que este é um alerta com base em eventos. Assim que o registo de atividades relevantes for gerado, o alerta é acionado.
+Este recurso é o próprio Cofre de serviço de recuperação e, por conseguinte, terá de repetir a mesma ação para todos os cofres em que pretende que a notificação através de registos de atividades. A condição não terão qualquer limiar, o período, a frequência, uma vez que este é um alerta com base em eventos. Assim que o registo de atividades relevantes for gerado, o alerta é acionado.
 
 ## <a name="recommendation"></a>Recomendação
 

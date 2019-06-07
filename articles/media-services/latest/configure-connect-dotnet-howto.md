@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 464d01b7b818b461024737a83d88c78947453c37
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736144"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428496"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ligar à API de v3 dos serviços de suporte de dados - .NET
 
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como ligar ao SDK do .NET dos serviços de multimédia do
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de que não se esqueça de que o nome do grupo de recursos e o nome da conta dos serviços de multimédia
-- Instale uma ferramenta que gostaria de usar para o desenvolvimento do .NET. Os passos neste artigo mostram como usar [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Pode utilizar o Visual Studio Code, consulte [trabalhar com o C# ](https://code.visualstudio.com/docs/languages/csharp). Em alternativa, pode utilizar um editor de código diferentes.
+- Instale uma ferramenta que gostaria de usar para o desenvolvimento do .NET. Os passos neste artigo mostram como usar [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Pode utilizar o Visual Studio Code, consulte [trabalhar com o C# ](https://code.visualstudio.com/docs/languages/csharp). Em alternativa, pode utilizar um editor de código diferentes.
 
 ## <a name="create-a-console-application"></a>Criar uma aplicação de consola
 

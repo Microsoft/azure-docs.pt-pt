@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/03/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: ead3122d2040a544c6f09e434f27b7970f0d5840
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417861"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496348"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com os registos do Azure Monitor
 
@@ -58,6 +58,9 @@ Custos de análise de registo são adicionados à sua fatura do Azure. Pode ver 
 Pode configurar um máximo diário e limitar a ingestão diária da sua área de trabalho, mas usar cuidados de saúde, como o seu objetivo não deve ser atingir o limite diário.  Caso contrário, perde os dados para o resto do dia, que pode afetar outros serviços do Azure e soluções cuja funcionalidade pode depender de dados atualizados estarem disponíveis na área de trabalho.  Como resultado, a sua capacidade de observar e receber alertas quando as condições de estado de funcionamento de recursos que suportam serviços de TI são afetadas.  O limite diário destina-se para ser utilizado como uma forma de gerir o aumento inesperado no volume de dados a partir de recursos geridos e mantenha-se no seu limite, ou quando pretender limitar Cobranças não planeadas à sua área de trabalho.  
 
 Quando for atingido o limite diário, a coleção de tipos de dados cobrar deixa para o resto do dia. É apresentada uma faixa de aviso na parte superior da página para a área de trabalho do Log Analytics selecionada e um evento de operação é enviado para o *operação* tabela sob **LogManagement** categoria. Recolha de dados retoma após a hora de reposição definidas em *limite diário terá o valor*. É recomendável definir uma regra de alerta com base em eventos esta operação, configurado para ser notificado quando for atingido o limite diário de dados. 
+
+> [!NOTE]
+> O limite diário não parar a recolha de dados do Centro de segurança do Azure.
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados para definir
 
@@ -105,7 +108,7 @@ Os passos seguintes descrevem como configurar o registo quanto dados são mantid
 
 ## <a name="legacy-pricing-tiers"></a>Escalões de preços legado
 
-Os clientes com um Enterprise Agreement assinado antes de 1 de Julho de 2018 ou que já criou uma área de trabalho do Log Analytics numa subscrição, ainda terá acesso para o *gratuito* plano. Se a sua subscrição não está vinculada a uma inscrição EA já existente, o *gratuito* escalão não está disponível quando criar uma área de trabalho numa nova subscrição depois de 2 de Abril de 2018.  Dados estão limitados a retenção de sete dias para o *gratuito* escalão.  Para o legado *autónomo* ou *por nó* escalões, bem como o 2018 único escalão de preço atual, os dados recolhidos, está disponível nos últimos 31 dias. O *gratuito* escalão tem o limite de ingestão de diário de 500 MB e, se encontrar exceder consistentemente as quantidades permitidas volume, pode alterar sua área de trabalho para outro plano para recolher dados que ultrapassam este limite. 
+As subscrições que tinham uma área de trabalho do Log Analytics ou o recurso do Application Insights no mesmo antes de 2 de Abril de 2018, ou que estão ligadas a um contrato Enterprise que iniciaram antes de 1 de Fevereiro de 2019 continuará a ter acesso aos escalões de preços legado: Gratuito, autónomo (por GB) e por nó (OMS).  Áreas de trabalho no escalão de preço gratuito terá a ingestão de dados diária limitada a 500 MB (exceto para tipos de dados de segurança recolhidos pelo centro de segurança do Azure) e a retenção de dados está limitada a 7 dias. O escalão de preço gratuito destina-se apenas para fins de avaliação. Áreas de trabalho a autónoma ou por nó escalões de preço tem acesso a retenção de dados até 2 anos. 
 
 > [!NOTE]
 > Para utilizar a elegibilidade incluída na compra de OMS E1 Suite, OMS E2 Suite ou do suplemento OMS para o System Center, escolha o Log Analytics *por nó* escalão de preço.
@@ -131,7 +134,9 @@ Se pretender mover a sua área de trabalho para o escalão de preço atual, ter�
 
 Se estiver no escalão de preço gratuito herdado e ter enviado a mais de 500 MB de dados num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  O log Analytics cria um evento do tipo operação quando a recolha de dados é iniciada e interrompida. Execute a seguinte consulta na pesquisa para verificar se estiver a atingir o limite diário e dados em falta: 
 
-`Operation | where OperationCategory == 'Data Collection Status'`
+```kusto
+Operation | where OperationCategory == 'Data Collection Status'
+```
 
 Quando parar a recolha de dados, o OperationStatus é **aviso**. Quando inicia a recolha de dados, o OperationStatus é **bem-sucedido**. A tabela seguinte descreve as razões que pára de recolha de dados e uma ação sugerida para retomar a recolha de dados:  
 
@@ -153,51 +158,63 @@ A utilização superior deve-se a um ou a ambos os motivos abaixo:
 
 Para compreender o número de computadores que relatam heartbeats todos os dias no mês passado, utilize
 
-`Heartbeat | where TimeGenerated > startofday(ago(31d))
+```kusto
+Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
-| render timechart`
+| render timechart
+```
 
 Para obter uma lista de computadores que serão faturadas como nós, se a área de trabalho é no herdados por nó do escalão de preço, procure os nós que estão a enviar **faturados os tipos de dados** (alguns tipos de dados são gratuitos). Para tal, utilize o `_IsBillable` [propriedade](log-standard-properties.md#_isbillable) e utilize o campo mais à esquerda do nome de domínio completamente qualificado. Esta ação devolve a lista de computadores com dados de faturação:
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
 
 O número de nós cobrar visto pode ser estimado como: 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| billableNodes=dcount(computerName)`
+| billableNodes=dcount(computerName)
+```
 
 > [!NOTE]
 > Utilize estes `union withsource = tt *` moderadamente, uma consulta como análises em todos os tipos de dados são dispendiosas. Esta consulta substitui o método antigo de consulta de informações por computador com o tipo de dados de utilização.  
 
 É um cálculo mais preciso do que na verdade, será cobrado obter a contagem de computadores por hora, que estão a enviar tipos de dados de faturação. (Para áreas de trabalho no escalão de preço por nó herdado, o Log Analytics calcula o número de nós que precisam de ser cobrado à hora.) 
 
-`union withsource = tt * 
+```kusto
+union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ## <a name="understanding-ingested-data-volume"></a>Volume de dados de conhecimento ingerido
 
 Sobre o **utilização e custos estimados** página, o *ingestão de dados por solução* gráfico mostra o volume total de dados enviados e a quantidade está a ser enviado por cada solução. Isto permite-lhe determinar as tendências, como se a utilização de dados global (ou a utilização por uma solução específica) está a crescer, permanece estável ou diminui. É a consulta usada para gerar este
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 Tenha em atenção que a cláusula "onde IsBillable = true" filtra tipos de dados de algumas soluções para o qual não é cobrado ingestão. 
 
 Pode explorar mais a ver as tendências de dados para tipos de dados específicos, por exemplo, se quiser estudar os dados devido a registos do IIS:
 
-`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+```kusto
+Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+```
 
 ### <a name="data-volume-by-computer"></a>Volume de dados por computador
 

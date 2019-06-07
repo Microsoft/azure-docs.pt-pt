@@ -2,20 +2,20 @@
 title: ClaimsSchema - Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de ClaimsSchema de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721744"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511858"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,10 +50,10 @@ O **ClaimType** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Nome a Apresentar | 0:1 | O título apresentado aos utilizadores nos vários ecrãs. O valor pode ser [localizada](localization.md). |
+| displayName | 0:1 | O título apresentado aos utilizadores nos vários ecrãs. O valor pode ser [localizada](localization.md). |
 | Tipo de dados | 0:1 | O tipo de afirmação. Os tipos de dados de boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection pode ser utilizado. |
 | DefaultPartnerClaimTypes | 0:1 | A predefinição de parceiro de afirmação tipos a utilizar para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado na **InputClaim** ou **OutputClaim** elementos. Utilize este elemento para especificar o nome predefinido para um protocolo.  |
-| Máscara | 0:1 | Uma cadeia de caracteres opcional de máscara de caracteres que podem ser aplicadas ao exibir a afirmação. Por exemplo, o 324-232-4343 número telefone pode ser mascarado como XXX-XXX-4343. |
+| máscara | 0:1 | Uma cadeia de caracteres opcional de máscara de caracteres que podem ser aplicadas ao exibir a afirmação. Por exemplo, o 324-232-4343 número telefone pode ser mascarado como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Uma descrição do tipo de afirmação que pode ser útil para os utilizadores a compreender a sua finalidade. O valor pode ser [localizada](localization.md). |
 | UserInputType | 0:1 | O tipo de controlo de entrada que deve estar disponível para o utilizador ao introduzir manualmente os dados da declaração para o tipo de afirmação. Ver os tipos de entrada de utilizador definidos mais tarde nesta página. |
 | Restrição | 0:1 | As restrições de valor por essa declaração, como uma expressão regular (Regex) ou uma lista de valores aceitáveis. O valor pode ser [localizada](localization.md). |
@@ -65,7 +65,7 @@ O **DefaultPartnerClaimTypes** pode conter o seguinte elemento:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Protocolo | 0:n | Nome do tipo de afirmação de lista de protocolos com o respetivo parceiro de predefinição. |
+| Protocol | 0:n | Nome do tipo de afirmação de lista de protocolos com o respetivo parceiro de predefinição. |
 
 O **protocolo** elemento contém os seguintes atributos:
 
@@ -100,7 +100,7 @@ Como resultado, o token JWT emitido pelo Azure AD B2C, emite a `family_name` em 
 }
 ```
 
-### <a name="mask"></a>Máscara
+### <a name="mask"></a>máscara
 
 O **máscara** elemento contém os seguintes atributos:
 

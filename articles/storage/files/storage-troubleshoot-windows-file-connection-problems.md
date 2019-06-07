@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9658ed46e1a46aa3fc2c7fe251fd73b2ef0a13dd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991370"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480314"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
@@ -28,7 +28,7 @@ Este artigo lista problemas comuns relacionados com ficheiros do Microsoft Azure
 
 Ao tentar montar uma partilha de ficheiros, pode receber o erro seguinte:
 
-- Ocorreu um erro de sistema 5. Acesso negado.
+- Ocorreu o erro de sistema 5. Acesso negado.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Fazer com que 1: Canal de comunicação sem encriptação
 
@@ -54,9 +54,9 @@ Certifique-se de que as regras de rede e de firewall virtual estiverem configura
 
 Ao tentar montar uma partilha de ficheiros no local ou a partir de um centro de dados diferente, pode receber os seguintes erros:
 
-- Ocorreu um erro de sistema 53. O caminho de rede não foi encontrado.
-- Ocorreu um erro de sistema 67. Não é possível localizar o nome da rede.
-- Ocorreu um erro de sistema 87. O parâmetro está incorreto.
+- Ocorreu o erro de sistema 53. Caminho de rede não encontrado.
+- Ocorreu o erro de sistema 67. Nome da rede não encontrado.
+- Ocorreu o erro de sistema 87. Parâmetro incorreto.
 
 ### <a name="cause-1-port-445-is-blocked"></a>Fazer com que 1: A porta 445 está bloqueada
 
@@ -136,14 +136,13 @@ Ocorre um erro 1816 quando atingir o limite superior de identificadores abertos 
 
 Reduzir o número de identificadores abertos em simultâneo por fechar alguns identificadores e tente novamente. Para obter mais informações, consulte [lista de verificação de armazenamento do Microsoft Azure, desempenho e escalabilidade](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erro "Acesso negado" ao navegar para uma partilha de ficheiros do Azure no portal
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erro "Falha de autorização" ao navegar para uma partilha de ficheiros do Azure no portal
 
 Ao navegar para uma partilha de ficheiros do Azure no portal, poderá receber o erro seguinte:
 
-Acesso negado  
-Não tem acesso  
-Parece que não tem acesso a este conteúdo. Para obter acesso, contacte o proprietário.  
+Falha na autorização  
+Não tem acesso 
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Fazer com que 1: Sua conta de utilizador não tem acesso à conta de armazenamento
 

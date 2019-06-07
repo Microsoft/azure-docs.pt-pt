@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure'
-description: Neste início rápido, irá aprender a ingerir (carregar) dados para o Azure Data Explorer a partir do Hub de Eventos.
+title: Ingerir dados de Hub de eventos no Explorador de dados do Azure
+description: Neste artigo, irá aprender a ingerir dados de (carga) no Explorador de dados do Azure do Hub de eventos.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/29/2019
-ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: c68662fbcc73d6c91d3fd40dc67804baa9205e53
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357673"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494819"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure
+# <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados de Hub de eventos no Explorador de dados do Azure
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece ingestão (carregamento de dados) a partir dos Hubs de Eventos, uma plataforma de transmissão de macrodados e um serviço de ingestão de eventos. [Os Hubs de eventos](/azure/event-hubs/event-hubs-about) consegue processar milhões de eventos por segundo quase em tempo real. Neste início rápido, vai criar um hub de eventos, ligar ao mesmo a partir do Azure Data Explorer e ver o fluxo de dados através do sistema.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece ingestão (carregamento de dados) a partir dos Hubs de Eventos, uma plataforma de transmissão de macrodados e um serviço de ingestão de eventos. [Os Hubs de eventos](/azure/event-hubs/event-hubs-about) consegue processar milhões de eventos por segundo quase em tempo real. Neste artigo, crie um hub de eventos, ligar à mesma a partir do Explorador de dados do Azure e ver o fluxo de dados através do sistema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,11 +34,11 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
-Neste início rápido, vai gerar dados de exemplo e enviá-los para um hub de eventos. O primeiro passo é criar um hub de eventos. Pode fazê-lo através de um modelo do Azure Resource Manager no portal do Azure.
+Neste artigo, gerar dados de exemplo e enviá-lo para um hub de eventos. O primeiro passo é criar um hub de eventos. Pode fazê-lo através de um modelo do Azure Resource Manager no portal do Azure.
 
 1. Para criar um hub de eventos, utilize o botão seguinte para iniciar a implementação. Com o botão direito e selecione **abrir numa janela nova**, pelo que pode seguir o resto dos passos neste artigo.
 
-    [![Implementar no Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Implementar no Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstarts-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     O botão **Implementar no Azure** leva-o para o portal do Azure para preencher um formulário de implementação.
 
@@ -58,7 +58,7 @@ Neste início rápido, vai gerar dados de exemplo e enviá-los para um hub de ev
     |---|---|---|
     | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
     | Grupo de recursos | *test-hub-rg* | Crie um novo grupo de recursos. |
-    | Location | *E.U.A. Oeste* | Selecione *E.U.A. Oeste* para este início rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades. Crie o espaço de nomes do hub de eventos na mesma localização que o cluster de Kusto para um melhor desempenho (mais importantes para espaços de nomes de hub de eventos com um débito elevado).
+    | Location | *E.U.A. Oeste* | Selecione *E.U.A. oeste* deste artigo. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades. Crie o espaço de nomes do hub de eventos na mesma localização que o cluster de Kusto para um melhor desempenho (mais importantes para espaços de nomes de hub de eventos com um débito elevado).
     | Nome do espaço de nomes | Um nome de espaço de nomes exclusivo | Escolha um nome exclusivo que identifique o seu espaço de nomes. Por exemplo, *mytestnamespace*. O nome de domínio *servicebus.windows.net* é anexado ao nome que indicar. O nome só pode conter letras, números e hífenes. O nome tem de começar com uma letra e terminar com uma letra ou número. O valor deve ter entre 6 e 50 carateres.
     | Nome do hub de eventos | *test-hub* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. O nome do hub de eventos tem de ser exclusivo no espaço de nomes. |
     | Nome do grupo de consumidores | *test-group* | Os grupos de consumidores permitem que cada aplicação de consumo tenha uma vista separada do fluxo de eventos. |
@@ -205,5 +205,4 @@ Se não planear voltar a utilizar o hub de eventos, limpe **test-hub-rg**, para 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Quickstart: Consultar dados no Explorador de dados do Azure](web-query-data.md)
+* [Consultar dados no Explorador de dados do Azure](web-query-data.md)

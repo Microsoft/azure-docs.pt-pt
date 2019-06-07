@@ -9,19 +9,19 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: 8ee50289083b12b7b2abd3b9ece2c8de345df9fe
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851437"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515297"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerir segredos ao trabalhar com um espaço de desenvolvimento do Azure
 
 Os serviços poderão precisar determinadas palavras-passe, cadeias de ligação e outros segredos, como para bases de dados ou outros serviços do Azure seguros. Ao definir os valores destes segredos nos arquivos de configuração, pode disponibilizá-los em seu código como variáveis de ambiente.  Estes devem ser tratados com cuidado para evitar comprometer a segurança dos segredos.
 
-Espaços de desenvolvimento do Azure fornece duas opções para armazenar segredos de recomendado: no ficheiro de values.dev.yaml e inline, diretamente no azds.yaml. Não é recomendado para armazenar segredos no Values.
- 
+Espaços de desenvolvimento do Azure fornece duas opções de recomendado, otimizadas para armazenar segredos em gráficos Helm gerados pelo cliente do Azure Dev espaços ferramentas: no ficheiro de values.dev.yaml e inline, diretamente no azds.yaml. Não é recomendado para armazenar segredos no Values. Fora as duas abordagens para Helm gráficos gerados pelo cliente de ferramentas definido neste artigo, se criar seu próprio gráfico Helm, pode utilizar o gráfico Helm diretamente para gerir e armazenar segredos.
+
 ## <a name="method-1-valuesdevyaml"></a>Método 1: values.dev.yaml
 1. Abra o VS Code com o seu projeto que está ativado para espaços de desenvolvimento do Azure.
 2. Adicionar um arquivo chamado _values.dev.yaml_ na mesma pasta que existente _azds.yaml_ e definir a chave secreta e valores, como no exemplo seguinte:

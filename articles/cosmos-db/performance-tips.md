@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953795"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688798"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -137,13 +137,21 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
    <a id="tune-page-size"></a>
 1. **Otimizar o tamanho da página para feeds de consultas/leitura para um melhor desempenho**
 
-    Quando efetuar uma massa lidos de documentos com a leitura do feed funcionalidade (por exemplo, ReadDocumentFeedAsync) ou ao emitir uma consulta SQL, os resultados são retornados de uma maneira segmentada se o conjunto de resultados é demasiado grande. Por predefinição, os resultados são devolvidos em blocos de 100 itens ou de 1 MB, consoante o limite for atingida primeiro.
+   Quando efetuar uma massa lidos de documentos com a leitura do feed funcionalidade (por exemplo, ReadDocumentFeedAsync) ou ao emitir uma consulta SQL, os resultados são retornados de uma maneira segmentada se o conjunto de resultados é demasiado grande. Por predefinição, os resultados são devolvidos em blocos de 100 itens ou de 1 MB, consoante o limite for atingida primeiro.
 
-    Para reduzir o número de percursos de ida necessária para obter resultados de todos os aplicáveis e rede, pode aumentar o tamanho de página usando [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) cabeçalho do pedido para até 1000. Em casos em que precisa exibir apenas alguns resultados, por exemplo, se a API de interface ou a aplicação do utilizador devolve apenas 10 resulta de uma hora, também pode diminuir o tamanho da página para 10 para reduzir o débito consumido para leituras e consultas.
+   Para reduzir o número de percursos de ida necessária para obter resultados de todos os aplicáveis e rede, pode aumentar o tamanho de página usando [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) cabeçalho do pedido para até 1000. Em casos em que precisa exibir apenas alguns resultados, por exemplo, se a API de interface ou a aplicação do utilizador devolve apenas 10 resulta de uma hora, também pode diminuir o tamanho da página para 10 para reduzir o débito consumido para leituras e consultas.
 
-    Também pode definir o tamanho da página usando disponíveis SDKs do Azure Cosmos DB.  Por exemplo:
+   > [!NOTE] 
+   > A propriedade maxItemCount não deve ser usada apenas para fins de paginação. Ele é a principal utilização-los para melhorar o desempenho das consultas ao reduzir o número máximo de itens retornados numa única página.  
 
-        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   Também pode definir o tamanho da página usando disponíveis SDKs do Azure Cosmos DB. O [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) propriedade no FeedOptions permite-lhe definir o número máximo de itens a serem retornados na operação enmuration. Quando `maxItemCount` está definido como -1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
+    
+   ```csharp
+    IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+   ```
+    
+   Quando uma consulta for executada, os dados resultantes são enviados dentro de um pacote TCP. Se especificar um valor demasiado baixo para `maxItemCount`, o número de viagens necessário para enviar os dados dentro do pacote TCP é alto, que afeta o desempenho. Portanto, se não tiver a certeza de que valor definir para `maxItemCount` propriedade, é melhor defini-lo como -1 e deixar que o SDK, selecione o valor predefinido. 
+
 10. **Aumentar o número de threads/tarefas**
 
     Ver [aumentar o número de threads/tarefas](#increase-threads) na seção de sistema de rede.

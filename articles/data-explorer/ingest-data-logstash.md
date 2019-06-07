@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: Ingestão de dados do Logstash para o Explorador de dados do Azure'
-description: Neste início rápido, irá aprender a ingerir dados de (carga) no Explorador de dados do Azure do Logstash
+title: Ingestão de dados do Logstash para o Explorador de dados do Azure
+description: Neste artigo, irá aprender a ingerir dados de (carga) no Explorador de dados do Azure do Logstash
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
-ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759372"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494547"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Início rápido: Ingestão de dados do Logstash para o Explorador de dados do Azure
+# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Ingestão de dados do Logstash para o Explorador de dados do Azure
 
-[Logstash](https://www.elastic.co/products/logstash) é uma código-fonte aberto, pipeline de processamento de dados do lado do servidor que ingere dados de várias fontes em simultâneo, transforma os dados e, em seguida, envia os dados para os seus favoritos "stash". Neste início rápido, vai enviar esses dados para o Explorador de dados do Azure, que é um serviço de exploração de dados rápida e altamente escalável para dados de telemetria e de registo. Irá criar inicialmente uma tabela e o mapeamento de dados num cluster de teste e, em seguida, direcionar o Logstash para enviar dados para a tabela e validar os resultados.
+[Logstash](https://www.elastic.co/products/logstash) é uma código-fonte aberto, pipeline de processamento de dados do lado do servidor que ingere dados de várias fontes em simultâneo, transforma os dados e, em seguida, envia os dados para os seus favoritos "stash". Neste artigo, vai enviar esses dados para o Explorador de dados do Azure, que é um serviço de exploração de dados rápida e altamente escalável para dados de telemetria e de registo. Irá criar inicialmente uma tabela e o mapeamento de dados num cluster de teste e, em seguida, direcionar o Logstash para enviar dados para a tabela e validar os resultados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -146,5 +146,4 @@ Execute o seguinte comando na sua base de dados para limpar o `logs` tabela:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Escrever consultas](write-queries.md)
+* [Escrever consultas](write-queries.md)

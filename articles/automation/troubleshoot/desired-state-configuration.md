@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63bb5c6338cf230c2bb47cb0a2c03810053f970a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087273"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514454"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Resolver problemas de Desired State Configuration (DSC)
 
@@ -145,6 +145,25 @@ Já utilizou uma credencial numa configuração, mas não forneceu adequada **Co
 #### <a name="resolution"></a>Resolução
 
 * Certifique-se passar o elemento adequado **ConfigurationData** definir **PSDscAllowPlainTextPassword** como true para cada configuração de nó que é mencionada na configuração. Para obter mais informações, consulte [ativos no DSC de automatização do Azure](../automation-dsc-compile.md#assets).
+
+### <a name="failure-processing-extension"></a>Cenário: Inclusão a partir da extensão dsc, erro "Falha de processamento da extensão"
+
+#### <a name="issue"></a>Problema
+
+Quando ocorre a integração com a extensão de DSC, uma falha que contém o erro:
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
+```
+
+#### <a name="cause"></a>Causa
+
+Este erro ocorre normalmente quando o nó é atribuído um nome de configuração de nó que não existe no serviço.
+
+#### <a name="resolution"></a>Resolução
+
+* Certifique-se de que está a atribuir o nó com um nome de configuração do nó que corresponde exatamente ao nome no serviço.
+* Pode optar por não incluir o nome de configuração do nó, o que resulta na inclusão de nó, mas não atribuir uma configuração do nó
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -2,20 +2,20 @@
 title: Exemplos de transformação de afirmações de cadeia de caracteres para a identidade experiência de estrutura de esquema do Azure Active Directory B2C | Documentos da Microsoft
 description: Cadeia de caracteres de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c6b90cb2b24f6a87504a3a0dbd47f998b67ebc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a06447aaa6579052285e7e2cd93bf40183ed173f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707472"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512594"
 ---
 # <a name="string-claims-transformations"></a>Transformações de afirmações de cadeia de caracteres
 
@@ -280,7 +280,7 @@ Exemplo a seguir gera um valor aleatório de número inteiro entre 0 e 1000. O v
 ### <a name="example"></a>Exemplo
 
 - Parâmetros de entrada:
-    - **randomGeneratorType**: NÚMERO INTEIRO
+    - **randomGeneratorType**: INTEGER
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **base64**: false
@@ -476,7 +476,7 @@ Obtém a parte do domínio de um endereço de e-mail.
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | string | ClaimType que contém o endereço de e-mail. |
-| OutputClaim | domínio | string | O que é produzido depois de esta transformação de afirmações ClaimType ser invocado - o domínio. |
+| OutputClaim | Domínio | string | O que é produzido depois de esta transformação de afirmações ClaimType ser invocado - o domínio. |
 
 Utilize este afirmações de transformação para analisar o nome de domínio após o símbolo do utilizador @. Isso pode ser útil para remover informações de identificação pessoal (PII) de dados de auditoria. A transformação de declarações seguinte demonstra como analisar o nome de domínio de um **e-mail** de afirmação.
 
@@ -582,9 +582,9 @@ Por exemplo, as seguintes afirmações verificações de transformação, se o v
 ### <a name="example"></a>Exemplo
 
 - Afirmações de entrada:
-    - **claimToMatch**: Menor
+    - **claimToMatch**: Pequenas
 - Parâmetros de entrada:
-    - **matchTo**: Menor
+    - **matchTo**: Pequenas
     - **stringComparison**: ordinalIgnoreCase 
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Afirmações de saída:

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 5ce838897370430c388d74c3d356497f16efdc8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245053"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66427891"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -531,7 +531,7 @@ Em alternativa, para os dados com este tipo de colunas grande, pode utilizar o n
 
 **A carregar a coluna Decimal**
 
-Se a sua origem de dados está no formato de texto e contém um valor vazio para ser carregado na coluna do SQL Data Warehouse Decimal, pode atingir o seguinte erro:
+Se a sua origem de dados está em texto formato ou outro compatível de não-PolyBase armazena (utilizando a cópia faseada e o PolyBase) e contém um valor vazio para ser carregado na coluna do SQL Data Warehouse Decimal, pode atingir o seguinte erro:
 
 ```
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....

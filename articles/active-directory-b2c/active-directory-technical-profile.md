@@ -2,20 +2,20 @@
 title: Definir um perfil técnico do Azure Active Directory numa política personalizada no Azure Active Directory B2C | Documentos da Microsoft
 description: Defina um perfil técnico do Azure Active Directory numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b8bbe540d9e296b0f6a0c11a62d3b861e0115d3
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718700"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507433"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory numa política personalizada do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64718700"
 
 O Azure Active Directory (Azure AD) B2C fornece suporte para a gestão de utilizadores do Azure Active Directory. Este artigo descreve as especificações de um perfil técnico da interagir com um fornecedor de afirmações que suporte esse protocolo padronizado.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O **Name** atributo da **protocolo** elemento tem de ser definido como `Proprietary`. O **manipulador** atributo tem de conter o nome completamente qualificado do assembly do manipulador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 

@@ -2,20 +2,20 @@
 title: Adicionar declarações e personalizar com as políticas personalizadas - Azure Active Directory B2C de entrada do usuário | Documentos da Microsoft
 description: Saiba como personalizar a entrada do usuário e adicionar afirmações para a jornada de inscrição ou início de sessão no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768016"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66507564"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar com as políticas personalizadas no Azure Active Directory B2C de intervenção do utilizador
 
@@ -263,7 +263,7 @@ Os elementos seguintes são utilizados para definir a afirmação:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino do Azure AD.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registos das aplicações**.
-4. Selecione **arquitetura de experiências de identidade (pré-visualização)**.
+4. Selecione **arquitetura de experiências de identidade (pré-visualização)** .
 5. Selecione **política personalizada do carregar**e, em seguida, carregue os ficheiros de política de duas que alterou.
 2. Selecione a política de inscrição ou início de sessão que carregou e clique nas **executar agora** botão.
 3. Deverá conseguir inscrever-se através de um endereço de e-mail.

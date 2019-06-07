@@ -11,19 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d536e9d14edfa17e890480c07951eccb70e9eb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228371"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496510"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
-
-## <a name="overview"></a>Descrição geral ##
 
 Ambiente de serviço de aplicações do Azure é uma implementação do serviço de aplicações do Azure numa sub-rede na rede virtual do Azure de um cliente. Ele consiste em:
 
@@ -62,17 +60,14 @@ Para criar uma aplicação num ASE:
 
 1. Selecione o seu SO. 
 
-    * Alojar uma aplicação do Linux num ASE é uma nova funcionalidade de pré-visualização, portanto, sugerimos que não adiciona as aplicações do Linux em ASE está a ser executado cargas de trabalho de produção. 
-    * Adição de uma aplicação do Linux em ASE significa que o ASE também estará no modo de pré-visualização. 
-
 1. Selecione um plano de serviço de aplicações existente no seu ASE, ou criar um novo ao seguir estes passos:
 
     a. Selecione **criar um novo**.
 
     b. Introduza o nome para o seu plano do serviço de aplicações.
 
-    c. Selecione o seu ASE no **localização** na lista pendente. Alojar uma aplicação do Linux num ASE só é ativada em 6 regiões, neste momento: **E.U.A. oeste, E.U.A. leste, oeste Europa, Europa do Norte, Austrália leste, Sudeste asiático.** 
-
+    c. Selecione o seu ASE no **localização** na lista pendente. 
+    
     d. Selecione um **Isolated** escalão de preço. Selecione **selecione**.
 
     e. Selecione **OK**.

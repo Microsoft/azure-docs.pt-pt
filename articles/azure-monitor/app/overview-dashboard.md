@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255647"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497158"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard de descrição geral de informações de aplicações
 
@@ -37,7 +37,7 @@ Seleção do intervalo de tempo foi simplificada para uma interface de um clique
 
 Em geral desempenho tem sido aumentou bastante. Tem acesso de um clique a funcionalidades populares, como **pesquisa** e **Analytics**. Cada padrão dinamicamente a atualizar o mosaico KPI fornece informações sobre os recursos correspondentes do Application Insights. Para saber mais sobre a falha selecione pedidos **falhas** sob a **investigar** cabeçalho:
 
-![Falhas](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+![falhas](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Dashboard de aplicações
 
@@ -60,9 +60,12 @@ Para navegar de volta para a experiência de descrição geral, basta selecionar
 
 ![Botão de descrição geral](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se selecionou **Configure as definições do mosaico** e defina um intervalo de tempo personalizado em excesso de 31 dias, o dashboard não serão apresentadas para além dos 31 dias de dados, mesmo com o período de retenção de dados predefinido de 90 dias. Atualmente não é uma solução para esse comportamento.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Funis](../../azure-monitor/app/usage-funnels.md)
 - [Retenção](../../azure-monitor/app/usage-retention.md)
 - [Fluxos do Utilizador](../../azure-monitor/app/usage-flows.md)
-- [Dashboards](../../azure-monitor/app/app-insights-dashboards.md)

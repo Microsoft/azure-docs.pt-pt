@@ -1,18 +1,18 @@
 ---
-title: 'Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados com o PowerShell'
+title: Criar um cluster do Explorador de dados do Azure e a base de dados com o PowerShell
 description: Saiba como criar um cluster do Explorador de dados do Azure e a base de dados com o PowerShell
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 28785bb99dcdb767a64ae977e8326b80130fb135
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 85c8cc81b3c61e2faf65bf8a06c69ca7f2b906c9
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240198"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497331"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com o PowerShell
 
@@ -24,7 +24,7 @@ ms.locfileid: "66240198"
 > * [Python](create-cluster-database-python.md)
 >  
 
-O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste início rápido, vai criar um cluster e uma base de dados com o Powershell. Pode executar cmdlets do PowerShell e scripts no Windows, Linux, ou num [Azure Cloud Shell](../cloud-shell/overview.md) com [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar clusters do Explorador de dados do Azure e bases de dados.
+O Azure Data Explorer é um serviço de análise de dados rápido e totalmente gerido que permite realizar análises em tempo real em volumes grandes de transmissão de dados a partir de aplicações, sites, dispositivos IoT e muito mais. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste artigo, vai criar um cluster e uma base de dados com o Powershell. Pode executar cmdlets do PowerShell e scripts no Windows, Linux, ou num [Azure Cloud Shell](../cloud-shell/overview.md) com [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) para criar e configurar clusters do Explorador de dados do Azure e bases de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI do Azure localmente, este início rápido requer a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para verificar a sua versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se optar por instalar e utilizar a CLI do Azure localmente, este artigo requer a versão 2.0.4 da CLI do Azure ou posterior. Execute `az --version` para verificar a sua versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-parameters"></a>Configurar parâmetros
 
@@ -107,7 +107,7 @@ Agora tem um cluster e uma base de dados.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-* Se tenciona seguir os nossos inícios rápidos e tutoriais, mantenha os recursos que criou.
+* Se planeja seguir nossos outros artigos, mantenha os recursos que criou.
 * Para limpar os recursos, elimine o cluster. Quando eliminar um cluster, também elimina todos os bancos de dados no mesmo. Utilize o seguinte comando para eliminar o cluster:
 
     ```azurepowershell-interactive
@@ -117,4 +117,4 @@ Agora tem um cluster e uma base de dados.
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Comandos de Az.Kusto adicionais](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
-* [Quickstart: Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)](net-standard-ingest-data.md)
+* [Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)](net-standard-ingest-data.md)

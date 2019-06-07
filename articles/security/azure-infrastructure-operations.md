@@ -1,8 +1,8 @@
 ---
-title: Gerenciamento e operações de produção do Azure
-description: Este artigo fornece uma descrição geral de gerenciamento e operação de rede de produção do Azure.
+title: Gestão de rede de produção do Azure - Microsoft Azure
+description: Este artigo descreve como a Microsoft gere e opera a rede de produção do Azure para proteger dos datacenters do Azure.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -12,16 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515896851c5bf7b9c847416ebadedf1242e0eeb9
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591479"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428260"
 ---
-# <a name="azure-production-operations-and-management"></a>Gerenciamento e operações de produção do Azure    
+# <a name="management-and-operation-of-the-azure-production-network"></a>Gestão e funcionamento da rede de produção do Azure    
+Este artigo descreve como a Microsoft gere e opera a rede de produção do Azure para proteger dos datacenters do Azure.
+
+## <a name="monitor-log-and-report"></a>Monitor, log e relatório
+
 A gestão e o funcionamento da rede de produção do Azure é um esforço coordenado entre as equipes de operações do Azure e base de dados do Azure SQL. O uso de equipes, ferramentas de várias sistema e monitorização de desempenho da aplicação no ambiente. E utilizam as ferramentas apropriadas para monitorizar dispositivos de rede, servidores, serviços e processos da aplicação.
 
 Para garantir a execução segura de serviços em execução no ambiente Azure, as equipes de operações, implemente vários níveis de monitorização, registo e relatórios, incluindo as seguintes ações:

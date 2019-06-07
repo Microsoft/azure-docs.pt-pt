@@ -2,20 +2,20 @@
 title: Tutorial - criar fluxos de utilizador - Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba como criar fluxos de utilizador para as suas aplicações no Azure Active Directory B2C no portal do Azure.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: fd8aefa924b927d9a55d0e91f35f40060097c53b
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601591"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512142"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizador no Azure Active Directory B2C
 

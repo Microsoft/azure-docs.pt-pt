@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
 ms.author: jehollan, glenga, cshoe
-ms.openlocfilehash: 2f2e3db47bbd02ed0351033a694aa826e0e3e9f2
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: b1a6751f0d788c26af60b28eee994dc9b3877f00
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66396710"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693262"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência nas funções do .NET do Azure
 
@@ -69,10 +69,10 @@ namespace MyNamespace
         private readonly IMyService _service;
         private readonly HttpClient _client;
 
-        public HttpTrigger(IMyService service, HttpClient client)
+        public HttpTrigger(IMyService service, IHttpClientFactory httpClientFactory)
         {
             _service = service;
-            _client = client;
+            _client = httpClientFactory.CreateClient();;
         }
 
         [FunctionName("GetPosts")]

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786401"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475624"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
@@ -91,7 +91,7 @@ O `--scope` para um recurso tem de ser um ID de recurso completo, como */subscri
 
 As secções seguintes detalham as delegações comuns que poderá ter de fazer.
 
-### <a name="azure-container-registry"></a>Azure Container Registry
+### <a name="azure-container-registry"></a>Registo de Contentores do Azure
 
 Se utilizar o Azure Container Registry (ACR) como arquivo de imagem de contentor, tem de conceder permissões para o seu cluster do AKS ler e solicitar imagens. O principal de serviço do AKS cluster deve ser delegado a *leitor* função no Registro. Para obter passos detalhados, consulte [acesso AKS de concessão para o ACR][aks-to-acr].
 
@@ -126,7 +126,7 @@ Quando utilizar principais de serviço do AKS e do Microsoft Azure AD, tenha em 
 
 - O principal de serviço para Kubernetes faz parte da configuração do cluster. No entanto, não utilize a identidade para implementar o cluster.
 - Por predefinição, as credenciais do principal de serviço são válidas durante um ano. Pode [atualizar ou rodar as credenciais do principal de serviço] [ update-credentials] em qualquer altura.
-- Cada principal de serviço está associado a uma aplicação do Azure AD. O principal de serviço de um cluster do Kubernetes pode ser associado a qualquer nome de aplicação do Microsoft Azure AD válido (por exemplo: *https://www.contoso.org/example*). O URL para a aplicação não tem de ser um ponto final real.
+- Cada principal de serviço está associado a uma aplicação do Azure AD. O principal de serviço de um cluster do Kubernetes pode ser associado a qualquer nome de aplicação do Microsoft Azure AD válido (por exemplo: *https://www.contoso.org/example* ). O URL para a aplicação não tem de ser um ponto final real.
 - Quando especificar o **ID de Cliente** do principal de serviço, utilize o valor de `appId`.
 - No nó de agente VMs no cluster de Kubernetes, as credenciais do principal de serviço são armazenadas no arquivo. `/etc/kubernetes/azure.json`
 - Quando utilizar o comando [az aks create][az-aks-create] para gerar automaticamente o principal de serviço, as credenciais do principal de serviço são escritas no ficheiro `~/.azure/aksServicePrincipal.json` no computador utilizado para executar o comando.
@@ -136,6 +136,24 @@ Quando utilizar principais de serviço do AKS e do Microsoft Azure AD, tenha em 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>Resolução de problemas
+
+As credenciais do principal de serviço para um cluster do AKS são colocadas em cache pela CLI do Azure. Se estas credenciais tiverem expirado, encontrar erros ao implementar clusters do AKS. A seguinte mensagem de erro quando em execução [criar az aks] [ az-aks-create] pode indicar um problema com as credenciais do principal de serviço em cache:
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+Verifique a idade do arquivo de credenciais com o seguinte comando:
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+A hora de expiração predefinida para as credenciais do principal de serviço é um ano. Se sua *aksServicePrincipal.json* ficheiro é mais antigo do que um ano, elimine o ficheiro e tente implementar novamente um cluster do AKS.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

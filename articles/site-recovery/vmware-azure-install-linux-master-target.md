@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602064"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479999"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 
@@ -46,7 +46,7 @@ Crie o destino principal em conformidade com as seguintes diretrizes de dimensio
 - **Tamanho de disco adicional para a unidade de retenção**: 1 TB
 - **Núcleos de CPU**: 4 núcleos ou mais
 
-São suportados os seguintes kernels suportados do Ubuntu.
+São suportados os seguintes kernels do Ubuntu.
 
 
 |Série de kernel  |Suporta até  |
@@ -67,7 +67,7 @@ Mantenha um ISO de 64 bits mínimo do Ubuntu 16.04.2 na unidade de DVD e iniciar
 
 1.  Selecione **inglês** como sua linguagem preferida e, em seguida, selecione **Enter**.
     
-    ![Selecionar um idioma](./media/vmware-azure-install-linux-master-target/image1.png)
+    ![Selecione uma Linguagem](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Selecione **instalar o servidor Ubuntu**e, em seguida, selecione **Enter**.
 
     ![Select Install Ubuntu Server](./media/vmware-azure-install-linux-master-target/image2.png)

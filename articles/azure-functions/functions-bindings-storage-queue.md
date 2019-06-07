@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2f6b693e11ccbb759b59c949b24690e8a2054f94
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132408"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472290"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -307,7 +307,7 @@ O acionador de fila automaticamente impede que uma função de processamento de 
 
 O [Host. JSON](functions-host-json.md#queues) ficheiro contém as definições que controlam o comportamento de Acionador de fila. Consulte a [definições de Host. JSON](#hostjson-settings) secção para obter detalhes sobre as definições disponíveis.
 
-## <a name="output"></a>Resultado
+## <a name="output"></a>Saída
 
 Utilize a saída de armazenamento de filas do Azure ao escrever as mensagens numa fila de enlace.
 
@@ -535,7 +535,7 @@ Nas funções de JavaScript, utilize `context.bindings.<name>` para aceder a men
 
 | Vínculo |  Referência |
 |---|---|
-| Fila | [Códigos de erro de fila](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
+| Filas | [Códigos de erro de fila](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | BLOB, tabela, fila | [Códigos de erro de armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabela, fila |  [Resolução de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
@@ -566,7 +566,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|O intervalo máximo entre inquéritos de fila de mensagens em fila. Mínimo é 00:00:00.100 (100 ms). |
+|maxPollingInterval|00:00:01|O intervalo máximo entre inquéritos de fila de mensagens em fila. Mínimo é 00:00:00.100 (100 ms) e aumenta até 01: 00:00 (1 min). |
 |visibilityTimeout|00:00:00|O intervalo de tempo entre tentativas durante o processamento de uma mensagem de falha. |
 |batchSize|16|O número de mensagens em fila que o runtime das funções em simultâneo recupera e processa em paralelo. Quando o número a ser processado obtém para o `newBatchThreshold`, o tempo de execução obtém outro lote e começa a processar essas mensagens. Portanto, é o número máximo de mensagens em simultâneo a ser processado por função `batchSize` plus `newBatchThreshold`. Este limite aplica-se em separado para cada função acionada por fila. <br><br>Se quiser evitar a execução paralela para mensagens recebidas numa fila, pode definir `batchSize` como 1. No entanto, esta definição elimina a simultaneidade apenas, desde que a aplicação de função for executada numa única máquina virtual (VM). Se a aplicação de funções aumenta horizontalmente para várias VMs, cada VM pode executar uma instância de cada função acionada por fila.<br><br>O máximo `batchSize` é 32. |
 |maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de passar para a fila não processáveis.|

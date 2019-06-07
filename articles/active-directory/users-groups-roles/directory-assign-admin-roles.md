@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417892"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514582"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -407,7 +407,7 @@ Pode efetuar tarefas de faturação comuns, como atualizar as informações de p
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Office 365. |
 
 ### <a name="desktop-analytics-administrator"></a>Administrador de análise de ambiente de trabalho
-Pode aceder e gerir os serviços incluindo o Intune e de ferramentas de gerenciamento de Desktops.
+Pode gerir a análise de ambiente de trabalho e os serviços de personalização do Office e a política. Para análise de ambiente de trabalho, isso inclui a capacidade de ver o inventário de ativos, criar planos de implantação, ver o estado de implementação e o estado de funcionamento. Para o serviço de personalização do Office e política, esta função concede aos utilizadores gerir as diretivas do Office.
 
   > [!NOTE]
   > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.

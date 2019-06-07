@@ -2,20 +2,20 @@
 title: Políticas personalizadas do Active Directory B2C do Azure | Documentos da Microsoft
 description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ddc77cbcf004ddbd1738e598d5073a11f13e2c5a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2938ae075bbd4c38b686ca6654bede678f876857
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695424"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509803"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 

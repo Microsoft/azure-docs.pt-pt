@@ -2,20 +2,20 @@
 title: Integrar trocas de afirmação de REST API no seu percurso de utilizador do Azure Active Directory B2C | Documentos da Microsoft
 description: Integre trocas de afirmação de REST API no seu percurso do utilizador do Azure AD B2C como validação de entrada do usuário.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e44bb1ed6a7a090b4b1213ca14be2b42642475e4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717287"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510728"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como validação de entrada do usuário
 
@@ -60,7 +60,7 @@ Conclua os passos a [introdução às políticas personalizadas](active-director
 
 1. No Visual Studio, crie um projeto, selecionando **arquivo** > **New** > **projeto**.
 
-2. Na **novo projeto** janela, selecione **Visual c#** > **Web** > **aplicação Web ASP.NET (.NET Framework)**.
+2. Na **novo projeto** janela, selecione **Visual c#**  > **Web** > **aplicação Web ASP.NET (.NET Framework)** .
 
 3. Na **Name** , escreva um nome para a aplicação (por exemplo, *Contoso.AADB2C.API*) e, em seguida, selecione **OK**.
 
@@ -248,13 +248,13 @@ Um fornecedor de afirmações pode ter vários perfis técnicos por vários moti
 
 O seguinte fragmento XML contém um nó de fornecedor de afirmações com dois perfis técnicos:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: Define o seu serviço RESTful.
+* **TechnicalProfile Id="REST-API-SignUp"** : Define o seu serviço RESTful.
   * `Proprietary` é descrita como o protocolo de um fornecedor com base na RESTful.
   * `InputClaims` Define as afirmações que serão enviadas do Azure AD B2C para o serviço REST.
 
     Neste exemplo, o conteúdo da declaração `givenName` envia para o serviço REST como `firstName`, o conteúdo da afirmação `surname` envia para o serviço REST como `lastName`, e `email` envia como está. O `OutputClaims` elemento define as afirmações que são obtidas a partir do serviço RESTful volta para o Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adiciona um perfil de técnicas de validação para um perfil técnico existente (definido na política base). Durante a viagem de inscrição, o perfil técnico de validação invoca o perfil técnico anterior. Se o serviço RESTful retornar um erro HTTP 409 (um erro de conflito), a mensagem de erro é apresentada ao utilizador.
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : Adiciona um perfil de técnicas de validação para um perfil técnico existente (definido na política base). Durante a viagem de inscrição, o perfil técnico de validação invoca o perfil técnico anterior. Se o serviço RESTful retornar um erro HTTP 409 (um erro de conflito), a mensagem de erro é apresentada ao utilizador.
 
 Localize a `<ClaimsProviders>` nó e, em seguida, adicione o seguinte fragmento XML sob o `<ClaimsProviders>` nó:
 

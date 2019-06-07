@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 0d85bad5328c9d28c8690b389fca18731ea17644
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 2bcb8762b94347f4409507fb89a18cb6c9d0dacd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002367"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66494301"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com o SDK .NET dos Media Services
 
-Quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o cliente poderá ter mais flexibilidade do que o que é descrito no arquivo de manifesto do recurso padrão. Serviços de multimédia do Azure permite-lhe definir os filtros de conta e filtros de recurso para o seu conteúdo. Para obter mais informações, consulte [filtros](filters-concept.md) e [manifestos dinâmica](filters-dynamic-manifest-overview.md).
+Quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o cliente poderá ter mais flexibilidade do que o que é descrito no arquivo de manifesto do recurso padrão. Serviços de multimédia do Azure permite-lhe definir os filtros de conta e filtros de recurso para o seu conteúdo. 
+
+Para obter descrição detalhada desta funcionalidade e cenários em que é utilizada, consulte [manifestos dinâmica](filters-dynamic-manifest-overview.md) e [filtros](filters-concept.md).
 
 Este tópico mostra como utilizar o SDK .NET dos Media Services para definir um filtro para ver um vídeo num recurso a pedido e crie [filtros de conta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) e [Asset filtros](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
@@ -112,7 +114,7 @@ A tabela seguinte mostra alguns exemplos de URLs com filtros:
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
+|Transmissão em Fluxo Uniforme|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

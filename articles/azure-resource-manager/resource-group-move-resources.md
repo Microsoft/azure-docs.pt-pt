@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225893"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477248"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -168,6 +168,7 @@ Ainda não são suportados os seguintes cenários:
 * Máquinas virtuais com o certificado armazenadas no Key Vault pode ser movidas para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
 * Não é possível mover a conjuntos de dimensionamento de máquina virtual com o Balanceador de carga de SKU Standard ou IP público de SKU Standard.
 * Máquinas virtuais criadas a partir dos recursos de mercado com planos ligados não pode ser movidas entre grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implemente novamente na subscrição nova.
+* Máquinas virtuais numa rede Virtual existente onde o utilizador não pretender mover todos os recursos na rede Virtual.
 
 Para mover máquinas virtuais configuradas com o Azure Backup, utilize a seguinte solução:
 

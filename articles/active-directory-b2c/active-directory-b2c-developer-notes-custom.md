@@ -2,20 +2,20 @@
 title: Notas do programador para as políticas personalizadas - Azure Active Directory B2C | Documentos da Microsoft
 description: Notas para os desenvolvedores de configuração e manutenção do Azure AD B2C com as políticas personalizadas.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1093f1882328604819d5fbab33d87b26f1af2886
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1d0be4ec2ed8feb308839377e0494ef2f4b78368
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703249"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510204"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do programador para as políticas personalizadas no Azure Active Directory B2C
 

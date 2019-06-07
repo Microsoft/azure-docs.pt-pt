@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518898"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479472"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do Azure HDInsight ao utilizar as ações de script
 
@@ -58,7 +58,7 @@ Uma ação de script é o script de Bash que é executado em nós num cluster do
 
      * Para clusters com ESP:
          
-         * O wasb [s] :// ou http [s] :// os URIs são suportados.
+         * O wasb: / / ou wasbs: / / ou http [s] :// os URIs são suportados.
             
 * Pode ser restringida para serem executadas em apenas determinados tipos de nó. Os exemplos são nós principais ou nós de trabalho.
 
@@ -145,10 +145,10 @@ HDInsight fornece scripts para instalar os seguintes componentes em clusters do 
 
 | Name | Script |
 | --- | --- |
-| Adicionar uma conta de Armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Ver [adicionar mais contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
-| Instalar Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Ver [instalar e utilizar Hue no Hadoop do HDInsight clusters](hdinsight-hadoop-hue-linux.md). |
+| Adicionar uma conta de armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Ver [adicionar mais contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
+| Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Ver [instalar e utilizar Hue no Hadoop do HDInsight clusters](hdinsight-hadoop-hue-linux.md). |
 | Instalar prontamente |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Ver [instalar e utilizar o Presto no HDInsight baseado no Hadoop clusters](hdinsight-hadoop-install-presto.md). |
-| Instalar Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Ver [instalar o Apache Giraph no Hadoop do HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). |
+| Instalar o Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Ver [instalar o Apache Giraph no Hadoop do HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). |
 | Pré-carregar bibliotecas do Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Ver [adicionar bibliotecas de Apache Hive personalizadas, quando criar o cluster do HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Utilize uma ação de script durante a criação do cluster
@@ -173,7 +173,7 @@ Esta secção explica as diferentes formas que pode utilizar ações de script q
 
     | Propriedade | Value |
     | --- | --- |
-    | Selecionar um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
+    | Selecione um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
     | Name |Especifique um nome para a ação de script. |
     | URI do script de bash |Especifique o URI do script. |
     | Head/Worker/Zookeeper |Especifique os nós em que o script é executado: **HEAD**, **Worker**, ou **ZooKeeper**. |
@@ -255,7 +255,7 @@ Vá para o [portal do Azure](https://portal.azure.com):
 
     | Propriedade | Value |
     | --- | --- |
-    | Selecionar um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
+    | Selecione um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
     | Name |Especifique um nome para a ação de script. |
     | URI do script de bash |Especifique o URI do script. |
     | Head/Worker/Zookeeper |Especifique os nós em que o script é executado: **HEAD**, **Worker**, ou **ZooKeeper**. |
@@ -346,7 +346,7 @@ Para obter um exemplo com o SDK .NET para aplicar os scripts a um cluster, consu
 
 4. Apresenta um histórico de scripts para este cluster na secção de ações de script. Estas informações incluem uma lista de scripts persistentes. Captura de ecrã seguinte mostra que o script de Solr foi executado neste cluster. A captura de ecrã não mostra todos os scripts persistentes.
 
-    ![Ações do script](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![Ações de script](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
 5. Selecione um script do histórico para apresentar os **propriedades** secção deste script. Na parte superior do ecrã, pode voltar a executar o script ou promovê-lo.
 

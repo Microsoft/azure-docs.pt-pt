@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 05/31/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457481"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475969"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação de ponto a site do Azure
 
@@ -62,7 +62,7 @@ Para obter mais informações sobre como instalar o certificado de cliente, cons
 
 ### <a name="symptom"></a>Sintoma
 
-Quando tenta e ligar a um gteway de rede virtual do Azure com o IKEv2 no Windows, obterá a seguinte mensagem de erro:
+Quando tenta e ligar a um gateway de rede virtual do Azure com o IKEv2 no Windows, obterá a seguinte mensagem de erro:
 
 **Não foi possível estabelecer a ligação de rede entre o computador e o servidor VPN porque o servidor remoto não está a responder**
 
@@ -305,7 +305,7 @@ Remova a ligação de VPN ponto a site e, em seguida, reinstalar o cliente VPN. 
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, elimine os ficheiros de configuração de cliente VPN antigos partir **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId >**, e, em seguida, volte a executar o instalador do cliente VPN .
+Para resolver o problema, elimine os ficheiros de configuração de cliente VPN antigos partir **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId >** , e, em seguida, volte a executar o instalador do cliente VPN .
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Cliente VPN ponto a site não é possível resolver o FQDN dos recursos no domínio local
 

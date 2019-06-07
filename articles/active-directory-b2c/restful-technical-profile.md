@@ -2,20 +2,20 @@
 title: Definir um perfil técnico RESTful numa política personalizada no Azure Active Directory B2C | Documentos da Microsoft
 description: Defina um perfil técnico RESTful numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705300"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512749"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico RESTful em políticas personalizadas do Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ A política de enviar afirmações de entrada para a API REST. A API REST també
 - **Perfil de técnica de validação** -um perfil de técnicas de validação chama o serviço RESTful. O perfil técnico de validação valida os dados fornecidos pelo usuário antes do percurso do utilizador continua. Com o perfil técnico de validação, uma mensagem de erro é apresentar uma página de declaração própria e devolvido nas afirmações de saída.
 - **Afirmações do exchange** -é feita uma chamada para o serviço RESTful através de um passo de orquestração. Neste cenário, não há nenhuma interface do usuário para processar a mensagem de erro. Se a API REST retornar um erro, o utilizador é redirecionado para a aplicação da entidade confiadora de terceiros com a mensagem de erro.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O **Name** atributo da **protocolo** elemento tem de ser definido como `Proprietary`. O **manipulador** atributo tem de conter o nome completamente qualificado da assemblagem de manipulador de protocolo que é utilizado pelo Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -159,9 +159,9 @@ A API REST poderá ter devolver uma mensagem de erro, como "o utilizador não fo
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| versão | Sim | 1.0.0 | 
+| version | Sim | 1.0.0 | 
 | status | Sim | 409 | 
-| Código | Não | Um código de erro do fornecedor de ponto de extremidade RESTful, que é apresentado quando `DebugMode` está ativada. | 
+| code | Não | Um código de erro do fornecedor de ponto de extremidade RESTful, que é apresentado quando `DebugMode` está ativada. | 
 | requestId | Não | Um identificador de pedido do fornecedor de ponto de extremidade RESTful, que é apresentado quando `DebugMode` está ativada. | 
 | userMessage | Sim | Uma mensagem de erro que é mostrada ao usuário. | 
 | developerMessage | Não | A descrição detalhada do problema e como corrigi-lo, o que é apresentado quando `DebugMode` está ativada. | 

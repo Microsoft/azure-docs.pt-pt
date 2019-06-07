@@ -2,20 +2,20 @@
 title: Exemplos de transformação de afirmações de data para a identidade experiência de estrutura de esquema do Azure Active Directory B2C | Documentos da Microsoft
 description: Data de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 22484adcc709c1d2726d8086ac75300f189bcc41
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ad4c6c78556f98e2905b3583910e498055257c36
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710432"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66511135"
 ---
 # <a name="date-claims-transformations"></a>Transformações de afirmações de data
 

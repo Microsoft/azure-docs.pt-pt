@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f02d2eed2030a5d2f54b3bee85885bbb572ac762
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230070"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476669"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depurar funções do PowerShell do Azure localmente
 
@@ -95,15 +95,28 @@ Com `Wait-Debugger` in-loco, agora pode depurar as funções com o Visual Studio
 
 ## <a name="debug-in-visual-studio-code"></a>Depurar no Visual Studio Code
 
-Para depurar as suas funções do PowerShell no Visual Studio Code, tem de ter as seguintes extensões para Visual Studio Code:
+Para depurar as suas funções do PowerShell no Visual Studio Code, tem de ter o seguinte instalado:
 
-* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
-* [Funções do Azure](functions-create-first-function-vs-code.md)
+* [Extensão de PowerShell para Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
+* [Extensão das Funções do Azure para o Visual Studio Code](functions-create-first-function-vs-code.md)
+* [O PowerShell Core 6.2 ou superior](/powershell/scripting/install/installing-powershell#powershell-core)
 
-Depois de instalar as extensões do PowerShell e as funções do Azure, carregar um projeto de aplicação de função existente. Também pode [criar um projeto de funções](functions-create-first-function-vs-code.md).
+Depois de instalar estas dependências, carregar um projeto de funções do PowerShell existente, ou [criar seu primeiro projeto de funções do PowerShell](functions-create-first-function-powershell.md).
 
 >[!NOTE]
 > O projeto não deve ter os arquivos de configuração necessárias, lhe for pedido para adicioná-los.
+
+### <a name="set-the-powershell-version"></a>Definir a versão do PowerShell
+
+O PowerShell Core instala lado a lado com Windows PowerShell. Defina o PowerShell Core como a versão do PowerShell para utilizar com a extensão de PowerShell para Visual Studio Code.
+
+1. Prima F1 para exibir o palete de comando, em seguida, procure `Session`.
+
+1. Escolha **PowerShell: Mostrar Menu de sessão**.
+
+1. Se sua **sessão atual** não está **PowerShell Core 6**, escolha **mudar para: O PowerShell Core 6**.
+
+Quando tiver um arquivo de PowerShell aberto, verá a versão apresentada a verde na parte inferior direito da janela. Também selecionar este texto apresenta o menu de sessão. Para obter mais informações, consulte a [escolhendo uma versão do PowerShell para utilizar com a extensão](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
 ### <a name="start-the-function-app"></a>Iniciar a aplicação de função
 
@@ -140,7 +153,7 @@ Depois de continua e invoca totalmente o seu script, observará que:
 * A consola do PowerShell que fez a `Invoke-RestMethod` devolveu um resultado
 * A consola do PowerShell integrada no Visual Studio Code está à espera que um script a ser executado
 
-Próximas vezes quando invoca a mesma função, o depurador no PowerShell quebras de extensão correta depois do `Wait-Debugger`.
+Mais tarde quando invoca a mesma função, o depurador na extensão de PowerShell quebra correto depois do `Wait-Debugger`.
 
 ## <a name="debugging-in-a-powershell-console"></a>Depuração numa consola do PowerShell
 

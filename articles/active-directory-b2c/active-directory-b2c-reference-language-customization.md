@@ -2,20 +2,20 @@
 title: Personalização de idioma no Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba mais sobre como personalizar a experiência de idioma.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c319349d721a390562faac0fc6f90a7b471db0f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 48633b195df997f0e9a8f06bd4f5c553ca620e98
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703424"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509399"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização de idioma no Azure Active Directory B2C
 
@@ -177,7 +177,7 @@ A Microsoft fornece o `ui_locales` parâmetro OIDC para inícios de sessão soci
 ### <a name="browser-behavior"></a>Comportamento do navegador
 Chrome e Firefox que ambos do pedido para o seu idioma de conjunto. Se se trata de um idioma suportado, ele é exibido antes que a predefinição. Atualmente, o Microsoft Edge não solicita um idioma e vai diretamente para o idioma predefinido.
 
-### <a name="supported-languages"></a>Linguagens suportadas
+### <a name="supported-languages"></a>Idiomas suportados
 
 | Idioma              | Código do idioma |
 |-----------------------|---------------|
@@ -199,7 +199,7 @@ Chrome e Firefox que ambos do pedido para o seu idioma de conjunto. Se se trata 
 | Canarim               | kN            |
 | Coreano                | ko            |
 | Malayalam             | ml            |
-| Marata               | mr            |
+| Marati               | mr            |
 | Malaio                 | ms            |
 | Norwegian Bokmal      | nb            |
 | Neerlandês                 | nl            |
@@ -213,7 +213,7 @@ Chrome e Firefox que ambos do pedido para o seu idioma de conjunto. Se se trata 
 | Sueco               | sv            |
 | Tamil                 | ta            |
 | Télego                | te            |
-| Tailandês                  | º            |
+| Tailandês                  | TH            |
 | Turco               | tr            |
 | Chinês - simplificado  | zh-hans       |
 | Chinês - tradicional | zh-hant       |

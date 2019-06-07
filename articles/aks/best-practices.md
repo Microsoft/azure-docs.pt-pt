@@ -2,18 +2,17 @@
 title: Melhores práticas para o Azure Kubernetes Service (AKS)
 description: Coleção dos cluster operador e desenvolvedor de melhores práticas para criar e gerir aplicações no Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 12/07/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/07/2018
+ms.author: iainfou
+ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467158"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514565"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Operador de cluster e desenvolvedor de melhores práticas para criar e gerir aplicações no Azure Kubernetes Service (AKS)
 
@@ -27,21 +26,21 @@ Como um operador de cluster, funcionam em conjunto com os proprietários da apli
 
 **Multi-inquilinos**
 
-* [Melhores práticas para isolamento de cluster](operator-best-practices-cluster-isolation.md)
+* [Melhores práticas de isolamento de cluster](operator-best-practices-cluster-isolation.md)
     * Inclui os componentes principais de vários inquilinos e isolamento lógico com espaços de nomes.
-* [Melhores práticas para as funcionalidades básicas do scheduler](operator-best-practices-scheduler.md)
+* [Melhores práticas de funcionalidades básicas do Scheduler](operator-best-practices-scheduler.md)
     * Inclui a utilização de quotas de recursos e os orçamentos de interrupção de pod.
-* [Práticas recomendadas para recursos avançados do agendador](operator-best-practices-advanced-scheduler.md)
+* [Melhores práticas de funcionalidades avançadas do Scheduler](operator-best-practices-advanced-scheduler.md)
     * Inclui a utilização taints e tolerations, seletores de nó e afinidade e afinidade de pod entre e antiafinidade.
-* [Melhores práticas para autenticação e autorização](operator-best-practices-identity.md)
+* [Melhores práticas de autenticação e autorização](operator-best-practices-identity.md)
     * Inclui a integração com o Azure Active Directory, com controlos de acesso baseado em funções (RBAC) e identidades de pod.
 
 **Segurança**
 
-* [Melhores práticas para segurança do cluster e atualizações](operator-best-practices-cluster-security.md)
+* [Melhores práticas para atualizações e segurança do cluster](operator-best-practices-cluster-security.md)
     * Inclui a proteção de acesso para o servidor de API, limitando o acesso ao contentor e gerenciamento de atualizações e reinícios do nó.
 * [Melhores práticas para segurança e gerenciamento de imagens de contentor](operator-best-practices-container-image-management.md)
-    * Inclui a proteção da imagem e tempos de execução, com registos confiáveis e compilações automatizadas no atualizações da imagem base....
+    * Inclui a proteção da imagem e tempos de execução e compilações automatizadas, as atualizações de imagem base.
 * [Práticas recomendadas para segurança de pod](developer-best-practices-pod-security.md)
     * Inclui a proteção de acesso a recursos, limitar a exposição de credenciais e o uso de identidades de pod e cofres de chaves digitais.
 
@@ -61,7 +60,7 @@ Como um operador de cluster, funcionam em conjunto com os proprietários da apli
 
 Como desenvolvedor ou proprietário da aplicação, pode simplificar a sua experiência de desenvolvimento e definir exigem as necessidades de desempenho do aplicativo.
 
-* [Melhores práticas para os desenvolvedores de aplicativos gerir os recursos](developer-best-practices-resource-management.md)
+* [Melhores práticas para os programadores de aplicações gerirem os recursos](developer-best-practices-resource-management.md)
     * Inclui a definição de pedidos de recursos de pod e limites, configuração de ferramentas de desenvolvimento e verificar a existência de problemas de aplicativos.
 * [Práticas recomendadas para segurança de pod](developer-best-practices-pod-security.md)
     * Inclui a proteção de acesso a recursos, limitar a exposição de credenciais e o uso de identidades de pod e cofres de chaves digitais.

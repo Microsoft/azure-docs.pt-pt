@@ -7,13 +7,13 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+manager: philmea
+ms.openlocfilehash: 533327ca1d202f15376e580d20317ddaf0b1d302
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467810"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693183"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
 
@@ -173,7 +173,7 @@ Todas as comunicações de dispositivos com o IoT Hub utiliza as seguintes opç�
 
 A tabela seguinte resume como o mapeamento de funcionalidades do dispositivo Azure IoT Central, para funcionalidades do IoT Hub:
 
-| Azure IoT Central | Hub IoT do Azure |
+| Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
 | Medida: Telemetria | Mensagens do dispositivo para a cloud |
 | Propriedades do dispositivo | Propriedades comunicadas do dispositivo duplo |

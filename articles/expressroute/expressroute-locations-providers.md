@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/28/2019
-ms.author: mialdrid
-ms.openlocfilehash: a86d3f44d3c2177185fa81602f953be4f726badb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.date: 05/31/2019
+ms.author: jaredr80
+ms.openlocfilehash: c443d4705da83a43af10763f633f340b1eab69d3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257886"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66478156"
 ---
-# <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
+# <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
 > [!div class="op_single_selector"]
 > * [Localizações por Fornecedor](expressroute-locations.md)
@@ -86,10 +86,10 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Chennai** | Tata Communications | Sul da Índia | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | Sul da Índia | Airtel |
 | **Chicago** | Equinix | EUA Centro-Norte | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
-| **Dallas** | Equinix | n/d | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Verizon, Zayo|
+| **Dallas** | Equinix | n/d | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | EUA Centro-Oeste | CoreSite, Megaport, Zayo |
 | **Dubai** | UAE Etisalat | Norte dos EAU | UAE Etisalat |
-| **Dubai2** | du datamena | Norte dos EAU | du datamena |
+| **Dubai2** | du datamena | Norte dos EAU | du datamena, Orixcom |
 | **Dublin** | Equinix | Europa do Norte | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | n/d | DE-CIX, Interxion |
 | **RAE de Hong Kong** | Equinix | Ásia Oriental | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
@@ -100,13 +100,13 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **London2** | Telehouse | Reino Unido Sul | Alcance IX, Equinix |
 | **Los Angeles** | CoreSite | n/d | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Marselha** |Interxion | Sul de França | Interxion |
-| **Melbourne** | NextDC | Sudeste da Austrália | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
+| **Melbourne** | NextDC | Sudeste da Austrália | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | Equinix | n/d | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | n/d | Bell Canada, Cologix, Telus, Zayo |
 | **Mumbai** | Tata Communications | Oeste da Índia | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | Oeste da Índia | Airtel, Sify, Vodafone Idea |
 | **Nova Iorque** | Equinix | n/d | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
-| **Newport (País de Gales)** | Next Generation Data | Reino Unido Oeste | British Telecom, comunicações de nível 3, dados da próxima geração |
+| **Newport (País de Gales)** | Next Generation Data | Reino Unido Oeste | British Telecom, Colt, comunicações de nível 3, dados da próxima geração |
 | **Osaca** | Equinix | Oeste do Japão | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** | Interxion | França Central | Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | n/d | Megaport +, NextDC |

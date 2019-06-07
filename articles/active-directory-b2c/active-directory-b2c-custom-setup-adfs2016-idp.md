@@ -2,20 +2,20 @@
 title: Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
 description: Configurar 2016 AD FS com o protocolo SAML e as políticas personalizadas no Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767995"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510437"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C
 
@@ -144,7 +144,7 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
 Para utilizar o ADFS como um fornecedor de identidade no Azure AD B2C, terá de criar um ADFS entidade Confiadora com os metadados SAML do Azure AD B2C. O exemplo seguinte mostra um endereço de URL para os metadados SAML de um perfil técnico do Azure AD B2C:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Substitua os valores seguintes:

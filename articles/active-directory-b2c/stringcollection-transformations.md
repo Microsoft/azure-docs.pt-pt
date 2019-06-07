@@ -2,20 +2,20 @@
 title: Exemplos de transformação de afirmações StringCollection para a identidade experiência de estrutura de esquema do Azure Active Directory B2C | Documentos da Microsoft
 description: StringCollection exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 37102a231f1741b9e488cca101f4a5411f89de44
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 98453daeb34d093b49cdcc636f68c3d7ae017126
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681992"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512441"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformações de afirmações de StringCollection
 
@@ -30,8 +30,8 @@ Adiciona uma afirmação de cadeia de caracteres para uma nova afirmação strin
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | ClaimType sejam adicionados ao afirmações de saída. |
-| InputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de afirmações copia os itens desta coleção e adiciona o item no final do conjunto de afirmações de saída. |
-| OutputClaim | coleção | stringCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. |
+| InputClaim | Coleção | stringCollection | [Opcional] Se especificado, a transformação de afirmações copia os itens desta coleção e adiciona o item no final do conjunto de afirmações de saída. |
+| OutputClaim | Coleção | stringCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. |
 
 Utilize este afirmações de transformação para adicionar uma cadeia de caracteres a um stringCollection novo ou existente. Que é frequentemente utilizada uma **AAD UserWriteUsingAlternativeSecurityId** perfil técnico. Antes da criação de uma nova conta de redes sociais, **CreateOtherMailsFromEmail** transformação de afirmações lê o ClaimType e adiciona o valor para o **otherMails** ClaimType. 
 
@@ -63,9 +63,9 @@ Adiciona um parâmetro de cadeia de caracteres para uma nova afirmação stringC
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | coleção | stringCollection | [Opcional] Se especificado, a transformação de afirmações copia os itens desta coleção e adiciona o item no final do conjunto de afirmações de saída. |
+| InputClaim | Coleção | stringCollection | [Opcional] Se especificado, a transformação de afirmações copia os itens desta coleção e adiciona o item no final do conjunto de afirmações de saída. |
 | InputParameter | item | string | O valor a ser adicionado para a afirmação de saída. |
-| OutputClaim | coleção | stringCollection | Os ClaimTypes que serão produzidos este ClaimsTransformation po vyvolání. |
+| OutputClaim | Coleção | stringCollection | Os ClaimTypes que serão produzidos este ClaimsTransformation po vyvolání. |
 
 Utilize este afirmações de transformação para adicionar um valor de cadeia de caracteres para um stringCollection novo ou existente. O exemplo seguinte adiciona um endereço de e-mail constante (admin@contoso.com) para o **otherMails** de afirmação. 
 
@@ -98,7 +98,7 @@ Obtém o primeiro item da coleção cadeia fornecida.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | coleção | stringCollection | Os ClaimTypes que são utilizados pela transformação de declarações para obter o item. |
+| InputClaim | Coleção | stringCollection | Os ClaimTypes que são utilizados pela transformação de declarações para obter o item. |
 | OutputClaim | extractedItem | string | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. O primeiro item na coleção. |
 
 O exemplo seguinte lê a **otherMails** de afirmação e retornar o primeiro item para o **e-mail** de afirmação. 

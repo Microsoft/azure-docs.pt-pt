@@ -2,20 +2,20 @@
 title: Exemplos de transformação de afirmações de conta de redes sociais para a identidade experiência de estrutura de esquema do Azure Active Directory B2C | Documentos da Microsoft
 description: Conta de rede social de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f6da199beb292f193d97eee309ca40dd74f81f8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c1a718539259a284e1d48fe48a3741a676bd4040
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697728"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512496"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformação de declarações de contas de redes sociais
 
@@ -75,8 +75,8 @@ Adiciona uma `AlternativeSecurityId` para um `alternativeSecurityIdCollection` d
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | ClaimType sejam adicionados ao afirmações de saída. |
-| InputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são utilizados pela transformação de declarações, se disponíveis na política. Se for fornecido, a transformação de declarações adiciona o `item` no final da coleção. |
-| OutputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. A nova coleção que contém tanto os itens de entrada `collection` e `item`. |
+| InputClaim | Coleção | alternativeSecurityIdCollection | Os ClaimTypes que são utilizados pela transformação de declarações, se disponíveis na política. Se for fornecido, a transformação de declarações adiciona o `item` no final da coleção. |
+| OutputClaim | Coleção | alternativeSecurityIdCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. A nova coleção que contém tanto os itens de entrada `collection` e `item`. |
 
 O exemplo seguinte liga a uma nova identidade de redes sociais com uma conta existente. Para ligar uma nova identidade de redes sociais:
 1. Na **AAD UserReadUsingAlternativeSecurityId** e **AAD UserReadUsingObjectId** perfis técnicos, de saída do utilizador **alternativeSecurityIds** de afirmação.
@@ -139,8 +139,8 @@ Remove uma **AlternativeSecurityId** de um **alternativeSecurityIdCollection** d
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | identityProvider | string | ClaimType que contém o nome do fornecedor de identidade a ser removido da coleção. |
-| InputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são utilizados pela transformação de declarações. A transformação de declarações remove o identityProvider da coleção. |
-| OutputClaim | coleção | alternativeSecurityIdCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. A nova coleção, depois do identityProvider removido da coleção. |
+| InputClaim | Coleção | alternativeSecurityIdCollection | Os ClaimTypes que são utilizados pela transformação de declarações. A transformação de declarações remove o identityProvider da coleção. |
+| OutputClaim | Coleção | alternativeSecurityIdCollection | Os ClaimTypes que são produzidos este ClaimsTransformation po vyvolání. A nova coleção, depois do identityProvider removido da coleção. |
 
 O exemplo seguinte ser desvinculada uma identidade de redes sociais com uma conta existente. Para desassociar uma identidade de redes sociais:
 1. Na **AAD UserReadUsingAlternativeSecurityId** e **AAD UserReadUsingObjectId** perfis técnicos, de saída do utilizador **alternativeSecurityIds** de afirmação.

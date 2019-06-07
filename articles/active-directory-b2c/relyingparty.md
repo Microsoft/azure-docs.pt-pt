@@ -2,20 +2,20 @@
 title: RelyingParty - Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de RelyingParty de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2b5e9bfe6eaa9b84e259d941760792635a2994f4
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66253765"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512845"
 ---
 # <a name="relyingparty"></a>RelyingParty
 

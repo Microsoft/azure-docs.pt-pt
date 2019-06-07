@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: cc65d6d3f7e7dcc08ea29ecc8a299b556563135b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236323"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66735019"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -28,7 +28,7 @@ O AzCopy é um utilitário de linha de comandos que pode utilizar para copiar bl
 
 ## <a name="download-azcopy"></a>Baixe o AzCopy
 
-Em primeiro lugar, transfira o ficheiro de executável do AzCopy V10 para qualquer pasta no seu computador. Para sua comodidade, considere a adicionar a localização da pasta AzCopy ao caminho do sistema para facilidade de utilização.
+Em primeiro lugar, transfira o ficheiro de executável do AzCopy V10 para qualquer diretório no seu computador. 
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (destino)
@@ -39,13 +39,15 @@ Em primeiro lugar, transfira o ficheiro de executável do AzCopy V10 para qualqu
 
 ## <a name="run-azcopy"></a>Executar o AzCopy
 
-A partir de uma linha de comandos, navegue para o diretório onde transferiu o ficheiro.
+Para sua comodidade, considere a adicionar a localização do diretório do executável AzCopy ao caminho do sistema para facilidade de utilização. Dessa forma, pode digitar `azcopy` partir de qualquer diretório no seu sistema.
 
-Para ver uma lista de comandos AzCopy, escreva `azCopy`e, em seguida, prima a tecla ENTER.
+Se optar por não adicionar o diretório de AzCopy ao caminho, terá mude de diretório para a localização do seu tipo e o executável do AzCopy `azcopy` ou `.\azcopy` no prompts de comando do Windows PowerShell.
 
-Para saber mais sobre um comando específico, escreva `azCopy` seguido do nome do comando.
+Para ver uma lista de comandos, escreva `azcopy -h` e, em seguida, prima a tecla ENTER.
 
-Por exemplo, para saber mais sobre o `copy` , digite `azcopy copy`e, em seguida, prima a tecla ENTER.
+Para saber mais sobre um comando específico, basta incluir o nome do comando (por exemplo: `azcopy list -h`).
+
+![Ajuda inline](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
 Antes de poder fazer algo significativo com o AzCopy, precisa decidir como irá fornecer credenciais de autorização para o serviço de armazenamento.
 
@@ -81,7 +83,7 @@ Estas funções podem ser atribuídas a sua identidade em qualquer uma nestes â
 
 Para saber como verificar e atribuir funções, veja [conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Não precisa de ter uma destas funções atribuídas a sua identidade, se a sua identidade é adicionada à lista de controlo de acesso (ACL) do contentor de destino ou pasta. Na ACL, sua identidade precisa de permissão de gravação no pasta de destino e permissão de execução no contentor e cada pasta pai.
+Não precisa de ter uma destas funções atribuídas a sua identidade, se a sua identidade é adicionada à lista de controlo de acesso (ACL) do contentor de destino ou diretório. Na ACL, sua identidade precisa de permissão de escrita no diretório de destino e permissão de execução no contentor e cada diretório principal.
 
 Para obter mais informações, consulte [controlo de acesso no Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
@@ -102,7 +104,7 @@ Estas funções podem ser atribuídas a sua identidade em qualquer uma nestes â
 
 Para saber como verificar e atribuir funções, veja [conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Não precisa de ter uma destas funções atribuídas a sua identidade, se a sua identidade é adicionada à lista de controlo de acesso (ACL) do contentor de destino ou pasta. Na ACL, sua identidade precisa de permissão de leitura na pasta de destino e permissão de execução no contentor e cada pasta pai.
+Não precisa de ter uma destas funções atribuídas a sua identidade, se a sua identidade é adicionada à lista de controlo de acesso (ACL) do contentor de destino ou diretório. Na ACL, sua identidade precisa de permissão de leitura no diretório de destino e permissão de execução no contentor e cada diretório principal.
 
 Para obter mais informações, consulte [controlo de acesso no Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 

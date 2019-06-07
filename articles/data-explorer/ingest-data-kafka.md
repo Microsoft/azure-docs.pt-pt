@@ -1,20 +1,20 @@
 ---
-title: 'Início rápido: Ingerir dados do Kafka no Explorador de dados do Azure'
-description: Neste início rápido, irá aprender a ingerir dados de (carga) no Explorador de dados do Azure do Kafka.
+title: Ingerir dados do Kafka no Explorador de dados do Azure
+description: Neste artigo, irá aprender a ingerir dados de (carga) no Explorador de dados do Azure do Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901036"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497269"
 ---
-# <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Início rápido: Ingerir dados do Kafka no Explorador de dados do Azure
+# <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Ingerir dados do Kafka no Explorador de dados do Azure
  
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Explorador de dados do Azure oferece ingestão (carregamento de dados) do Kafka. O Kafka é uma plataforma de transmissão em fluxo distribuída que permite a criação de pipelines em tempo real de dados transmissão em fluxo que fiável mover dados entre sistemas ou aplicativos.
  
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Criar
+#### <a name="build"></a>Compilação
 
 Criar localmente com o Maven para produzir um `.jar` completo com dependências.
 
@@ -57,7 +57,7 @@ Dentro do diretório de raiz *kafka-sink do azure kusto*, execute:
 mvn clean compile assembly:single
 ```
 
-### <a name="deploy"></a>Implementar 
+### <a name="deploy"></a>Implementação 
 
 Carregar o plug-in para o Kafka. Um exemplo de implementação com o docker pode ser encontrado em [kafka-sink do azure kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
@@ -162,5 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Passos Seguintes
  
-> [!div class="nextstepaction"]
-> [Quickstart: Consultar dados no Explorador de dados do Azure](web-query-data.md)
+* [Consultar dados no Explorador de dados do Azure](web-query-data.md)

@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7c896356b67de185c55396e98aa6bb2e61dd004d
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113264"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472913"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com o Azure AD as revisões de acesso
 
@@ -41,7 +41,7 @@ Para obter mais informações, consulte [os utilizadores que têm de ter licenç
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Criar e executar uma revisão de acesso para convidados
 
-Em primeiro lugar, como um administrador global ou administrador de utilizadores, vá para o [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) para garantir que as revisões de acesso está pronto para a sua organização.
+Em primeiro lugar, como um administrador global ou administrador de utilizadores, vá para o [página de governação de identidade](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) para garantir que as revisões de acesso está pronto para a sua organização.
 
 O Azure AD permite vários cenários para rever os utilizadores convidados.
 

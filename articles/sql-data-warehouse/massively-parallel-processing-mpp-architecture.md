@@ -2,20 +2,20 @@
 title: O Azure SQL Data Warehouse - arquitetura MPP | Documentos da Microsoft
 description: Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho.
 services: sql-data-warehouse
-author: happynicolle
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: nicw
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: c3cdd464dffc810e76cf101ac70c2a14bbc4f9ff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 25dc469c9f50dee7d088fccd214020791ff73def
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790721"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515801"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>O Azure SQL Data Warehouse - paralelo em grande escala (MPP) arquitetura de processamento
 Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho. 
@@ -36,7 +36,7 @@ Com armazenamento e computação desacoplados, o SQL Data Warehouse pode:
 * Colocar em pausa a capacidade de computação, mantendo os dados intactos, pelo que paga apenas armazenamento.
 * Retomar a capacidade de computação durante as horas de funcionamento.
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+### <a name="azure-storage"></a>Storage do Azure
 SQL Data Warehouse utiliza o armazenamento do Azure para manter os dados de usuário protegidos.  Uma vez que os seus dados são armazenados e gerenciados pelo armazenamento do Azure, o SQL Data Warehouse cobra em separado para o consumo de armazenamento. Os dados em si são em partição horizontal em **distribuições** para otimizar o desempenho do sistema. Pode escolher qual padrão de fragmentação a utilizar para distribuir os dados ao definir a tabela. SQL Data Warehouse suporta estes padrões de fragmentação:
 
 * Hash

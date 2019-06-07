@@ -2,20 +2,20 @@
 title: Compreender as políticas personalizadas do starter pack no Azure Active Directory B2C | Documentos da Microsoft
 description: Um tópico em políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d128875611c8f7a6c0b65ef46d8f127e3b79efee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b52f1a4cb6837dd779dcf4edac140bb13e06eacb
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703492"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66509568"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Compreender as políticas personalizadas do pacote de iniciante de política personalizada do Azure AD B2C
 

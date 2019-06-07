@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602089"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472584"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar os registos do Azure Monitor para VMs (pré-visualização)
 Monitor do Azure para VMs recolhe o desempenho e métricas de ligação, computador e processar dados de inventário e informações de estado de funcionamento e encaminhá-la para a área de trabalho do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure Monitor. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
@@ -43,7 +43,7 @@ Os campos seguintes e as convenções de aplicam a VMConnection e VMBoundPort:
 
 - Computador: Nome de domínio completamente qualificado da máquina de geração de relatórios 
 - AgentID: O identificador exclusivo para uma máquina com o agente do Log Analytics  
-- Computador: Nome do recurso do Azure Resource Manager para a máquina exposta pelo ServiceMap. Ele é o formato *m-{GUID}* , onde *GUID* é o mesmo GUID como AgentID  
+- Máquina: Nome do recurso do Azure Resource Manager para a máquina exposta pelo ServiceMap. Ele é o formato *m-{GUID}* , onde *GUID* é o mesmo GUID como AgentID  
 - Processo: Nome do recurso do Azure Resource Manager para o processo de expostos pelo ServiceMap. Ele é o formato *p-{cadeia hexadecimal}* . Processo é exclusivo no âmbito do computador e para gerar um ID de processo exclusivo entre máquinas, combinar campos de máquina e de processo. 
 - ProcessName: Nome do executável do processo de geração de relatórios.
 - Todos os endereços IP são cadeias de caracteres no formato canónico do IPv4, por exemplo *13.107.3.160* 
@@ -69,7 +69,7 @@ Para levar em conta o impacto de agrupamento, são fornecidas informações sobr
 |LinksFailed |O número de ligações de rede física que falharam durante a janela de tempo de criação de relatórios. Estas informações estão atualmente disponíveis apenas para ligações de saída. |
 |LinksLive |O número de ligações de rede física que foram abertas no final da janela de tempo de criação de relatórios|
 
-#### <a name="metrics"></a>Métrica
+#### <a name="metrics"></a>Métricas
 
 Para além das métricas de contagem de ligação, informações sobre o volume de dados enviados e receberam numa determinada ligação lógica ou a porta de rede também inclui as seguintes propriedades do registo:
 
@@ -125,13 +125,6 @@ Cada propriedade RemoteIp *VMConnection* tabela é comparada com um conjunto de 
 ### <a name="ports"></a>Portas 
 Portas numa máquina que ativamente aceitam o tráfego de entrada ou potencialmente podem aceitar o tráfego, mas estão inativos durante a janela de tempo de criação de relatórios, são escritas para a tabela de VMBoundPort.  
 
->[!NOTE]
->Monitor do Azure para VMs não suporta a recolher e gravar dados de porta numa área de trabalho do Log Analytics nas seguintes regiões:  
->- EUA Leste  
->- Europa Ocidental
->
-> Recolha destes dados está ativado no outro [regiões suportadas](vminsights-enable-overview.md#log-analytics) para o Azure Monitor para as VMs. 
-
 Cada registro em VMBoundPort é identificado pelos seguintes campos: 
 
 | Propriedade | Descrição |
@@ -143,7 +136,7 @@ Cada registro em VMBoundPort é identificado pelos seguintes campos:
  
 A identidade de uma porta é derivada de cinco campos acima e é armazenada na propriedade PortId. Esta propriedade pode ser utilizada para encontrar rapidamente os registos para uma porta específica para sempre. 
 
-#### <a name="metrics"></a>Métrica 
+#### <a name="metrics"></a>Métricas 
 Registos de porta incluem métricas que representa as ligações associadas a eles. Atualmente, as métricas seguintes são comunicadas (os detalhes para cada métrica são descritos na secção anterior): 
 
 - BytesSent e BytesReceived 
@@ -162,7 +155,7 @@ Registos com um tipo de *ServiceMapComputer_CL* tiver dados de inventário para 
 
 | Propriedade | Descrição |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
+| Tipo | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para o computador da área de trabalho |
 | ResourceName_s | O identificador exclusivo para o computador da área de trabalho |
@@ -187,7 +180,7 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 
 | Propriedade | Descrição |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
+| Tipo | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um processo dentro da área de trabalho |
 | ResourceName_s | O identificador exclusivo para um processo na máquina em que está em execução|

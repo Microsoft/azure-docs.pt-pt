@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 46fa1c5a4874508cf8e2d288a99c908744347b69
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388345"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480076"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -272,7 +272,8 @@ Se utilizar grupos de segurança de rede, tem de permitir o tráfego dos serviç
     | ---- | ---- | ---- | ---- | ----- |
     | Ásia | Ásia Oriental | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
     | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
-    | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
+    | Austrália | Austrália Central | 20.36.36.33</br>20.36.36.196 | \*:443 | Entrada |
+    | &nbsp; | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
     | &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
     | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
     | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |

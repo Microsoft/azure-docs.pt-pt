@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4cbc0b399bddbaebd4cb951dcd116e090c2e0c09
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 363cd9319db0477e9b5ba2d2dd03a7e995a26fef
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938016"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515621"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Soluções integradas no Azure Marketplace e AppSource
 
@@ -30,6 +30,15 @@ Vantagens de uma abordagem integrada são:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode descobrir soluções integradas e ligar com estas prezados parceiros visitando a seção de serviços de consultoria da [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+Pode descobrir soluções integradas e ligar com estas prezados parceiros visitando suas listagens aqui:
+
+* [Cliente 360 com tecnologia Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [Comércio rápido](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [Análise de crédito](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [Pilha de segurança de Cloud de cuidados de saúde](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [Motor de aceleração de DevOps](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Windows Server fim do suporte](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+
+e também visitando a seção dos serviços de consultoria [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
 
 ---

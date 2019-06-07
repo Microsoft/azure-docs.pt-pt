@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969389"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497550"
 ---
 # <a name="monitor-site-recovery"></a>Recuperação de sites do monitor
 
@@ -37,9 +37,9 @@ A secção de itens replicados mostra o estado de funcionamento de todos os comp
 
 **Estado** | **Detalhes**
 --- | ---
-Bom Estado de Funcionamento | Replicação está em curso normalmente. Não existem sintomas de aviso ou erro são detetados.
+Bom estado de funcionamento | Replicação está em curso normalmente. Não existem sintomas de aviso ou erro são detetados.
 Aviso | Um ou mais sintomas de aviso que podem afetar a replicação são detetados.
-Crítica | Foram detetados um ou mais sintomas de erro de replicação crítica.<br/><br/> Esses sintomas de erro, normalmente, são indicadores de que a replicação bloqueada ou não evoluiu tão rapidamente como taxa de alteração de dados.
+Crítico | Foram detetados um ou mais sintomas de erro de replicação crítica.<br/><br/> Esses sintomas de erro, normalmente, são indicadores de que a replicação bloqueada ou não evoluiu tão rapidamente como taxa de alteração de dados.
 Não aplicável | Servidores que não são atualmente esperados para ser a replicar. Isso pode incluir máquinas que têm falhadas.
 
 ## <a name="monitor-test-failovers"></a>Ativações pós-falha de teste do monitor
@@ -52,7 +52,7 @@ Pode ver o estado de ativação pós-falha de teste para máquinas no cofre.
 **Estado** | **Detalhes**
 --- | ---
 Teste recomendado | Máquinas que ainda não tinham uma ativação pós-falha de teste, uma vez que a proteção foi ativada.
-Executado com êxito | As máquinas com ou ativações pós-falha de teste mais bem-sucedida.
+Executada com êxito | As máquinas com ou ativações pós-falha de teste mais bem-sucedida.
 Não aplicável | Máquinas que não são atualmente elegíveis para uma ativação pós-falha de teste. Por exemplo, máquinas com ativação pós-falha, tem a ativação pós-falha de replicação inicial/teste/ativação pós-falha em curso.
 
 ## <a name="monitor-configuration-issues"></a>Problemas de configuração de monitor
@@ -97,7 +97,7 @@ O **vista de infraestrutura** mostra os componentes da infra-estrutura envolvido
 
     **Cenário** | **Estado**  | **O modo de exibição disponível?**
     --- |--- | ---
-    **Replicação entre sites no local** | Todos os estados | Não 
+    **Replicação entre sites no local** | Todos os Estados | Não 
     **Replicação de VM do Azure entre regiões do Azure**  | Replicação ativada/inicial de replicação em curso | Sim
     **Replicação de VM do Azure entre regiões do Azure** | A ativação pós-falha / reativação pós-falha | Não   
     **Replicação de VMware para o Azure** | Replicação ativada/inicial de replicação em curso | Sim     
@@ -190,8 +190,8 @@ Pode subscrever para receber notificações por e-mail para esses eventos críti
 
 Inscreva-se da seguinte forma:
 
-No cofre > **monitorização e relatórios** secção, clique em **eventos de recuperação de Site**.
+No cofre > **monitorização** secção, clique em **eventos de recuperação de Site**.
 1. Clique em **notificações por E-Mail**.
 1. Na **notificação por E-Mail**, ativar notificações e especificar a quem enviar para. Pode enviar de todos os administradores da subscrição ser enviadas notificações e endereços de e-mail, opcionalmente, específico.
 
-    ![Notificações de e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)
+    ![Notificações por e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)

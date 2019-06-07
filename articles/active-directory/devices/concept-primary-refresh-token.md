@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ecf6d04056a91f1f9dd62a5238f60177d2bf59
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420592"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473391"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um primário atualizar Token?
 
@@ -111,8 +111,11 @@ Quando um usuário inicia uma interação de navegador, o browser (ou a extensã
 Um PRT pode obter uma afirmação de autenticação multifator (MFA) em cenários específicos. Quando um PRT baseado em MFA é utilizado para pedir tokens para aplicativos, a afirmação MFA é transferida para os tokens de aplicação. Esta funcionalidade fornece uma experiência perfeita para os usuários, impedindo a submissão da MFA para qualquer aplicativo que precise dela. Um PRT pode obter uma afirmação de MFA das seguintes formas:
 
 * **Inicie sessão com o Windows Hello para empresas**: Windows Hello para empresas substitui as palavras-passe e utiliza as chaves criptográficas para fornecer autenticação de dois fatores forte. Windows Hello para empresas é específico para um utilizador num dispositivo, e por si só exige o MFA para aprovisionar. Quando um utilizador inicia sessão com a Windows Hello para empresas, PRT o utilizador obtém uma afirmação de MFA. Este cenário aplica-se também aos utilizadores iniciar sessão com smart cards, se a autenticação de smart card produz uma afirmação de MFA de AD FS.
+   * Como o Windows Hello para empresas é considerado autenticação multifator, a afirmação MFA é atualizada quando PRT em si é atualizada, para que a duração MFA continuamente irá expandir quando os utilizadores iniciam sessão com o WIndows Hello para empresas
 * **MFA durante o início de sessão interativo do WAM no**: Durante um pedido de token através do WAM, se um utilizador é necessário para fazer a MFA a aceder à aplicação, PRT que é renovado durante esta interação é imprinted com uma afirmação de MFA.
+   * Neste caso, a afirmação do MFA não é atualizada continuamente, por isso, a duração MFA baseia-se o tempo de vida definido no diretório.
 * **MFA durante o registo de dispositivo**: Se um administrador tiver configurado as definições de dispositivo no Azure AD [exigir a MFA registar dispositivos](device-management-azure-portal.md#configure-device-settings), o utilizador precisa para fazer a MFA para concluir o registo. Durante este processo, PRT emitida para o utilizador tem a afirmação MFA obtida durante o registo. Esta funcionalidade aplica-se apenas para o utilizador que realizou a operação de associação, não a outros utilizadores que iniciem sessão nesse dispositivo.
+   * Assim como o início de sessão interativo no WAM, a afirmação do MFA não é atualizada continuamente, para que a duração MFA baseia-se o tempo de vida definido no diretório.
 
 Windows 10 mantém uma lista particionada de PRTs para cada credencial. Então, há um PRT para cada um dos Windows Hello para empresas, palavra-passe ou smart card. Essa divisão garante que MFA afirmações estão isoladas com base na credencial utilizada e não misture durante os pedidos de token.
 

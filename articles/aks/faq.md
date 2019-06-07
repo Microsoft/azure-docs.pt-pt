@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 6bfcd11dd6bfd31583fb2d0cd3f4229d3dd70065
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65887356"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66514494"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o Azure Kubernetes Service (AKS)
 
@@ -66,7 +66,7 @@ Se criar recursos para utilizar com o seu cluster do AKS, como contas de armazen
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Pode fornecer meu próprio nome para o grupo de recursos de infraestrutura do AKS?
 
-Sim. Por predefinição, o fornecedor de recursos do AKS cria automaticamente um grupo de recursos secundários (como *MC_myResourceGroup_myAKSCluster_eastus*) durante a implementação. Para estar em conformidade com a política empresarial, pode fornecer seu próprio nome para este cluster gerido (*MC_*) grupo de recursos.
+Sim. Por predefinição, o fornecedor de recursos do AKS cria automaticamente um grupo de recursos secundários (como *MC_myResourceGroup_myAKSCluster_eastus*) durante a implementação. Para estar em conformidade com a política empresarial, pode fornecer seu próprio nome para este cluster gerido (*MC_* ) grupo de recursos.
 
 Para especificar o seu próprio nome de grupo de recursos, instalar o [pré-visualização do aks] [ aks-preview-cli] versão da extensão da CLI do Azure *0.3.2* ou posterior. Quando cria um cluster do AKS com o [criar az aks] [ az-aks-create] comando, utilize o *– grupo de recursos de nó* parâmetro e especifique um nome para o grupo de recursos. Se [utilizar um modelo Azure Resource Manager] [ aks-rm-template] para implementar um cluster do AKS, pode definir o nome do grupo de recursos, utilizando o *nodeResourceGroup* propriedade.
 
@@ -129,6 +129,10 @@ Como o AKS é um serviço gerido, podemos implementar e gerir suplementos e pods
 
 Os utilizadores não é possível substituir o mínimo `maxPods` validação.
 
+## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Posso aplicar o desconto de reserva do Azure para meus nós de agente do AKS?
+
+Nós de agente do AKS são faturados como máquinas virtuais do Azure standard, por isso, se tiver comprado [reservas do Azure] [ reservation-discounts] para o tamanho da VM que está a utilizar no AKS, são automaticamente aplicados esses descontos.
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability
@@ -145,6 +149,7 @@ Os utilizadores não é possível substituir o mínimo `maxPods` validação.
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
+[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 
 <!-- LINKS - external -->
 

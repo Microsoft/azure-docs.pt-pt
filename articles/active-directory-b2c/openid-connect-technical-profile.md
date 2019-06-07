@@ -2,20 +2,20 @@
 title: Definir um perfil técnico OpenId Connect numa política personalizada no Azure Active Directory B2C | Documentos da Microsoft
 description: Defina um perfil técnico OpenId Connect numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9ec323d4596c866da33c4a8ff5499bf2ad92a8bd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710324"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512920"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico OpenId Connect em políticas personalizadas do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64710324"
 
 O Azure Active Directory (Azure AD) B2C fornece suporte para o [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) fornecedor de identidade do protocolo. OpenID Connect 1.0 define uma camada de identidade com base no OAuth 2.0 e representa a Estado da última palavra em protocolos de autenticação moderna. Com um perfil técnico OpenId Connect, pode federar com um fornecedor de OpenId Connect de identidade com base, como o Azure AD. Federação com um fornecedor de identidade permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O **Name** atributo da **protocolo** elemento tem de ser definido como `OpenIdConnect`. Por exemplo, o protocolo para o **MSA OIDC** é o perfil técnico `OpenIdConnect`:
 

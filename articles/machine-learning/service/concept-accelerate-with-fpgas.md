@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 9204b0d8513d4adbb9c93be94284d7d46de41e06
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65851016"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479573"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Quais são as matrizes de porta de campos programáveis (FPGA)
 
@@ -80,7 +80,7 @@ Para começar a implementação de modelos DNN treinados para FPGAs na cloud do 
 
 Veja estes vídeos e blogs:
 
-+ [Hardware de Hiperescala: ML, à escala com base no Azure + FPGA: Compilação de 2018 (vídeo)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
++ [Hardware de Hiperescala: ML, à escala com base no Azure + FPGA: Compilação de 2018 (vídeo)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Dentro do Microsoft cloud configurável baseada em FPGA (vídeo)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

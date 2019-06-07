@@ -1,25 +1,25 @@
 ---
-title: Administração da IU da Web local do Microsoft Azure Data Box | Microsoft Docs em dados
-description: Descreve como utilizar a IU da Web local para administrar o dispositivo do Azure Data Box
+title: Web local de administração de interface do Usuário para o Azure Data Box, pesadas de caixa de dados do Azure | Documentos da Microsoft
+description: Descreve como utilizar a IU da web local para administrar os seus dispositivos Data Box e dados de caixa pesadas
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-ms.date: 02/01/2019
+ms.topic: article
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327362"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496251"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Utilizar a IU da Web local para administrar o seu Azure Data Box
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilizar a IU da web local para administrar o Data Box e dados de caixa pesadas
 
-Este artigo descreve algumas das tarefas de configuração e gestão que podem ser executadas no Azure Data Box. Pode gerir o Azure Data Box através da IU do portal do Azure e da IU de Web local do dispositivo. Este artigo aborda em especial as tarefas que pode efetuar com a IU de Web local.
+Este artigo descreve algumas das tarefas de configuração e gestão que podem ser executadas nos dispositivos Data Box e dados de caixa pesada. Pode gerir o Data Box e dados de caixa pesada os dispositivos através do portal do Azure da interface do Usuário e da web local da interface do Usuário para o dispositivo. Este artigo aborda em especial as tarefas que pode efetuar com a IU de Web local.
 
-A IU de Web local do Azure Data Box é utilizada para a configuração inicial do dispositivo. Também pode utilizar a IU de Web local para encerrar ou reiniciar o Data Box, executar testes de diagnóstico, atualizar software, ver registos de cópia e gerar um pacote de registo para o Suporte da Microsoft.
+Web local da interface do Usuário para o Data Box e pesadas de caixa de dados é utilizada para a configuração inicial do dispositivo. Também pode utilizar a IU da web local para encerrar ou reiniciar o dispositivo, execute testes de diagnóstico, atualização de software, ver registos de cópia e gerar um pacote de registo para Support da Microsoft. Num dispositivo dados caixa pesada com dois nós independentes, pode acessar duas interfaces de usuário web local separado correspondente a cada nó do dispositivo.
 
 Este artigo inclui os seguintes tutoriais:
 
@@ -27,11 +27,11 @@ Este artigo inclui os seguintes tutoriais:
 - Encerrar ou reiniciar o dispositivo
 - Baixe o BOM ou os arquivos de manifesto
 - Ver a capacidade disponível do dispositivo
-- Ignorar a validação da soma de verificação 
+- Ignorar a validação da soma de verificação
 
 ## <a name="generate-support-package"></a>Gerar Pacote de suporte
 
-Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a partir dos registos do sistema. A equipa de Suporte da Microsoft utiliza este pacote para resolver o problema. Para gerar um Pacote de suporte, execute os passos seguintes:
+Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a partir dos registos do sistema. A equipa de Suporte da Microsoft utiliza este pacote para resolver o problema. Para gerar um pacote de suporte, siga os passos seguintes:
 
 1. Na IU de Web local, aceda a **Contactar o Suporte** e clique em **Criar Pacote de suporte**.
 
@@ -52,9 +52,9 @@ Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a
 
 ## <a name="shut-down-or-restart-your-device"></a>Encerrar ou reiniciar o dispositivo
 
-Pode encerrar ou reiniciar o Data Box com a IU de Web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Isto minimiza qualquer possibilidade de danos em dados. Certifique-se de que a cópia de dados não está em curso quando encerra o dispositivo.
+Pode encerrar ou reiniciar o dispositivo através da IU da web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Isto minimiza qualquer possibilidade de danos em dados. Certifique-se de que a cópia de dados não está em curso quando encerra o dispositivo.
 
-Para encerrar o Data Box, execute os passos seguintes.
+Para encerrar o dispositivo, siga os passos seguintes.
 
 1. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
 2. Clique em **Encerrar**.
@@ -80,11 +80,11 @@ Para reiniciar o Data Box, execute os passos seguintes.
 
 ## <a name="download-bom-or-manifest-files"></a>Baixe o BOM ou os arquivos de manifesto
 
-A fatura de materiais (LM) ou os arquivos de manifesto contém a lista dos arquivos que são copiados para o Data Box. Estes ficheiros são gerados quando preparar o Data Box para envio.
+A fatura de materiais (LM) ou os arquivos de manifesto contém a lista dos arquivos que são copiados para o Data Box ou pesadas de caixa de dados. Estes ficheiros são gerados quando preparar o dispositivo para enviar.
 
-Antes de começar, certifique-se de que o Data Box foi concluída **preparação para envio** passo. Siga estes passos para transferir o BOM ou os arquivos de manifesto:
+Antes de começar, certifique-se de que o seu dispositivo foi concluída **preparação para envio** passo. Siga estes passos para transferir o BOM ou os arquivos de manifesto:
 
-1. Vá para a IU da web local para o Data Box. Verá que o Data Box foi concluída a preparação para envio. Quando a preparação do dispositivo estiver concluída, o estado do dispositivo é apresentado como **pronto para enviar**.
+1. Aceda à IU da web local para o seu dispositivo. Verá que o dispositivo foi concluída a preparação para envio. Quando a preparação do dispositivo estiver concluída, o estado do dispositivo é apresentado como **pronto para enviar**.
 
     ![Dispositivo pronto para enviar](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -109,6 +109,9 @@ Antes de começar, certifique-se de que o Data Box foi concluída **preparação
     |mydbmdrg2_MDisk-BOM.txt     |Disco gerido         |SMB/NFS         |
 
 Utilize esta lista para verificar os ficheiros carregados para a conta de armazenamento do Azure, após o Data Box devolve para o datacenter do Azure. Um arquivo de manifesto de exemplo é mostrado abaixo.
+
+> [!NOTE]
+> No pesado de caixa de uma Data, dois conjuntos de lista de arquivos (BOM arquivos), estão presentes correspondente para os dois nós no dispositivo.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -150,25 +153,24 @@ Utilize esta lista para verificar os ficheiros carregados para a conta de armaze
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Este ficheiro contém a lista de todos os ficheiros que foram copiados no Data Box. Nesse arquivo, *crc64* se relaciona com o valor para a soma de verificação gerada para o ficheiro correspondente.
+Este ficheiro contém a lista de todos os arquivos que foram copiados a caixa de dados ou dados caixa pesadas. Nesse arquivo, *crc64* se relaciona com o valor para a soma de verificação gerada para o ficheiro correspondente.
 
 ## <a name="view-available-capacity-of-the-device"></a>Ver a capacidade disponível do dispositivo
 
-Pode utilizar o dashboard do dispositivo para ver a capacidade disponível e a utilizada do dispositivo. 
+Pode utilizar o dashboard do dispositivo para ver a capacidade disponível e a utilizada do dispositivo.
 
 1. Na IU de Web local, aceda a **Ver o dashboard**.
 2. Em **Ligar e copiar**, é mostrado o espaço livre e utilizado no dispositivo.
 
     ![Ver capacidade disponível](media/data-box-local-web-ui-admin/verify-used-space-dashboard.png)
 
-
 ## <a name="skip-checksum-validation"></a>Ignorar a validação da soma de verificação
 
-As somas de verificação são geradas para os seus dados por predefinição, quando a preparação para envio. Em certos casos raros, dependendo do tipo de dados (tamanhos de ficheiro pequeno), o desempenho pode ser lento. Nesses casos, pode ignorar a soma de verificação. 
+As somas de verificação são geradas para os seus dados por predefinição, quando a preparação para envio. Em certos casos raros, dependendo do tipo de dados (tamanhos de ficheiro pequeno), o desempenho pode ser lento. Nesses casos, pode ignorar a soma de verificação.
 
 Recomendamos vivamente que não desative a soma de verificação, a não ser que o desempenho tenha sido bastante afetado.
 
-1. No canto superior direito da web local da interface do Usuário do seu dispositivo, aceda às definições.
+1. No canto superior direito da web local da interface do Usuário do seu dispositivo, aceda a **definições**.
 
     ![Desativar a soma de verificação](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -177,5 +179,5 @@ Recomendamos vivamente que não desative a soma de verificação, a não ser que
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Aprenda como [Gerir o Data Box através do portal do Azure](data-box-portal-admin.md).
+- Saiba como [gerir o Data Box e dados de caixa pesada através do portal do Azure](data-box-portal-admin.md).
 

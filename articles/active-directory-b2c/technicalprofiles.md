@@ -2,20 +2,20 @@
 title: TechnicalProfiles | Microsoft Docs
 description: Especifique o elemento os TechnicalProfiles de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: da769093794a559e4b856f7ae4f211c3900632c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f712634c83fa290ab24d5e8437a82d5f93af0b7f
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711042"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512288"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -83,9 +83,9 @@ O **TechnicalProfile** contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | O nome de domínio para o perfil técnico. Por exemplo, se o perfil técnico Especifica o fornecedor de identidade do Facebook, o nome de domínio é Facebook.com. |
-| Nome a Apresentar | 0:1 | O nome do perfil técnico que pode ser apresentado aos utilizadores. |
+| displayName | 0:1 | O nome do perfil técnico que pode ser apresentado aos utilizadores. |
 | Descrição | 0:1 | A descrição do perfil técnico que pode ser apresentado aos utilizadores. |
-| Protocolo | 0:1 | O protocolo utilizado para a comunicação com a outra entidade. |
+| Protocol | 0:1 | O protocolo utilizado para a comunicação com a outra entidade. |
 | Metadados | 0:1 | Uma coleção de pares chave/valor que são utilizados pelo protocolo de comunicação com o ponto final no decorrer de uma transação. |
 | InputTokenFormat | 0:1 | O formato do token de entrada. Valores possíveis: `JSON`, `JWT`, `SAML11`, ou `SAML2`. O `JWT` valor representa um JSON Web Token de acordo com a especificação IETF. O `SAML11` valor representa um token de segurança de SAML 1.1 de acordo com a especificação OASIS.  O `SAML2` valor representa um token de segurança de acordo com a especificação OASIS SAML 2.0. |
 | OutputTokenFormat | 0:1 | O formato do token de saída. Valores possíveis: `JSON`, `JWT`, `SAML11`, ou `SAML2`. |
@@ -102,7 +102,7 @@ O **TechnicalProfile** contém os seguintes elementos:
 | UseTechnicalProfileForSessionManagement | 0:1 | Um perfil de técnico diferente para ser utilizado para gestão de sessão. |
 |EnabledForUserJourneys| 0:1 |Controla se o perfil técnico é executado num percurso do utilizador.  |
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 O **protocolo** elemento contém os seguintes atributos:
 

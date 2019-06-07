@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128707"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66497263"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever o Kubernetes no Azure Kubernetes Service (AKS) de registos de nó principal
 
@@ -26,15 +26,14 @@ Este artigo requer a um cluster do AKS existente em execução na sua conta do A
 
 Para ajudar a recolher e analisar dados de várias origens, os registos do Azure Monitor fornece um mecanismo de análise e linguagem de consulta que fornece informações para o seu ambiente. Uma área de trabalho é utilizada para agrupar e analisar os dados e pode ser integrado com outros serviços do Azure como o Application Insights e o Centro de segurança. Utilizar uma plataforma diferente para analisar os registos, em vez disso, pode optar por enviar registos de diagnóstico para um hub de evento ou a conta de armazenamento do Azure. Para obter mais informações, consulte [o que é o Azure Monitor registos?] [log-analytics-overview].
 
-Registos de Monitor do Azure está ativada e gerida no portal do Azure. Para ativar a recolha de registos para os componentes de mestres de Kubernetes no seu cluster do AKS, abra o portal do Azure num navegador da web e conclua os seguintes passos:
+Registos de Monitor do Azure são ativados e geridos no portal do Azure. Para ativar a recolha de registos para os componentes de mestres de Kubernetes no seu cluster do AKS, abra o portal do Azure num navegador da web e conclua os seguintes passos:
 
 1. Selecione o grupo de recursos para o seu cluster do AKS, como *myResourceGroup*. Não selecione o grupo de recursos que contém os recursos de cluster do AKS individuais, como *MC_myResourceGroup_myAKSCluster_eastus*.
 1. No lado esquerdo, selecione **das definições de diagnóstico**.
-1. Selecione o seu cluster do AKS, como *myAKSCluster*, em seguida, optar por **ativar diagnósticos**.
-1. Introduza um nome, tal como *myAKSClusterLogs*, em seguida, selecione a opção de **enviar para área de trabalho do Log Analytics**.
-    * Optar por *configurar* área de trabalho do Log Analytics, em seguida, selecione uma área de trabalho existente ou **criar nova área de trabalho**.
-    * Se precisar de criar uma área de trabalho, forneça um nome, um grupo de recursos e uma localização.
-1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Por predefinição, o *kube apiserver*, *Gestor de controladores de kube*, e *kube scheduler* registos estão ativados. Pode ativar os registos adicionais, como *kube auditoria* e *dimensionamento automático do cluster*. Pode regressar e alterar os registos recolhidos depois de ativar espaços de trabalho do Log Analytics.
+1. Selecione o seu cluster do AKS, como *myAKSCluster*, em seguida, optar por **Adicionar definição de diagnóstico**.
+1. Introduza um nome, tal como *myAKSClusterLogs*, em seguida, selecione a opção de **enviar para o Log Analytics**.
+1. Selecione uma área de trabalho existente ou crie um novo. Se criar uma área de trabalho, forneça um nome de área de trabalho, um grupo de recursos e uma localização.
+1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Os registos de comuns incluem a *kube apiserver*, *Gestor de controladores de kube*, e *kube-scheduler*. Pode ativar os registos adicionais, como *kube auditoria* e *dimensionamento automático do cluster*. Pode regressar e alterar os registos recolhidos depois de ativar espaços de trabalho do Log Analytics.
 1. Quando estiver pronto, selecione **guardar** para ativar a recolha dos registos selecionados.
 
 > [!NOTE]
@@ -50,7 +49,7 @@ Registos de Monitor do Azure está ativada e gerida no portal do Azure. Para ati
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-O portal de captura de ecrã de exemplo seguinte mostra os *as definições de diagnóstico* janela e, em seguida, a opção para criar uma área de trabalho do Log Analytics:
+O portal de captura de ecrã de exemplo seguinte mostra os *as definições de diagnóstico* janela:
 
 ![Ativar a área de trabalho do Log Analytics para registos do Azure Monitor de cluster do AKS](media/view-master-logs/enable-oms-log-analytics.png)
 

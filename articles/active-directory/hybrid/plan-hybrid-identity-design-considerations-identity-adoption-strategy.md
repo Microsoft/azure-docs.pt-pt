@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c55dc0cbc175542d0b208bbe72566a0adb55a371
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919108"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496730"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, vai definir a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida satisfazer os requisitos empresariais que foram abordados em:
@@ -63,7 +63,7 @@ A estratégia que utilizar imponha a experiência de início de sessão do utili
 
 **Aplicativos de rede associados a um domínio e privadas**:
 
-|  | Identidades sincronizadas | Identidade federada |
+|  | Identidades sincronizadas | Identidades federadas |
 | --- | --- | --- |
 | Navegadores da Web |Autenticação baseada em formulários |início de sessão único, por vezes, deve fornecer o ID da organização |
 | Outlook |Pedir credenciais |Pedir credenciais |
@@ -73,7 +73,7 @@ A estratégia que utilizar imponha a experiência de início de sessão do utili
 
 **Origens externas ou não fidedignas**:
 
-|  | Identidades sincronizadas | Identidade federada |
+|  | Identidades sincronizadas | Identidades federadas |
 | --- | --- | --- |
 | Navegadores da Web |Autenticação baseada em formulários |Autenticação baseada em formulários |
 | Outlook, Skype para empresas (Lync), OneDrive para empresas, a subscrição do Office |Pedir credenciais |Pedir credenciais |
@@ -199,8 +199,7 @@ Embora pode definir uma solução para a sua estratégia, ainda tem de utilizar 
 | AD no local |Servidor Multi-Factor Authentication |
 
 > [!NOTE]
-> Também deve garantir que a opção de design de autenticação multifator que selecionou suporta as funcionalidades que são necessárias para seu design.  Para obter mais informações, leia [escolher a solução de segurança multifator para si](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> Também deve garantir que a opção de design de autenticação multifator que selecionou suporta as funcionalidades que são necessárias para seu design.  Para obter mais informações, leia [escolher a solução de segurança multifator para si](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Fornecedor do multi-factor Auth

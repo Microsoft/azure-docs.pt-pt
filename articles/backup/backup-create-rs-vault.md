@@ -9,14 +9,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
-ms.openlocfilehash: b345f5e7f6f32d7fbb76d4f0227c8f4f925ff884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400300"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66477580"
 ---
-# <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+# <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 Um cofre dos serviços de recuperação é uma entidade que armazena as cópias de segurança e os pontos de recuperação criados ao longo do tempo. O Cofre dos serviços de recuperação também contém as políticas de cópia de segurança que estão associadas a máquinas virtuais protegidas.
 
@@ -76,7 +76,7 @@ Armazenamento para o Cofre lida automaticamente com o Azure Backup. Tem de espec
    - Saiba mais sobre [geo](../storage/common/storage-redundancy-grs.md) e [local](../storage/common/storage-redundancy-lrs.md) redundância.
 
 > [!NOTE]
-> Assim que escolher o **tipo de replicação de armazenamento** partir **georredundante** para **localmente redundante**, não é possível reverter novamente.
+> A alteração **tipo de replicação de armazenamento** (localmente redundante / georredundante) para o Cofre de serviços de uma recuperação precisa ser feito antes de configurar cópias de segurança no cofre. Depois de configurar a cópia de segurança, a opção para modificar está desativada e não é possível alterar o **tipo de replicação de armazenamento**. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

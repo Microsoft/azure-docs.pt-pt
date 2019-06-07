@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978886"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475234"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de aplicações do Azure
 
@@ -41,7 +41,7 @@ Para concluir este tutorial:
 
 Para utilizar domínios personalizados do App Service do Azure, a aplicação [plano do App Service](https://azure.microsoft.com/pricing/details/app-service/) tem de ser um escalão pago (**partilhado**, **básica**, **padrão**, ou  **Premium**). Neste passo, certifique-se de que a aplicação é suportado no escalão de preço.
 
-### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Abra ao [portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 
@@ -55,7 +55,7 @@ Será apresentada a página de gestão da aplicação do Serviço de Aplicaçõe
 
 ### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
 
-No painel de navegação esquerdo da página da aplicação, desloque-se para a secção **Definições** e selecione **Aumentar verticalmente (plano do Serviço de Aplicações)**.
+No painel de navegação esquerdo da página da aplicação, desloque-se para a secção **Definições** e selecione **Aumentar verticalmente (plano do Serviço de Aplicações)** .
 
 ![Menu de aumento vertical](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -82,7 +82,7 @@ Quando vir a notificação seguinte, significa que a operação de dimensionamen
 ### <a name="pricing-information"></a>Informações sobre Preços
 Para obter informações sobre domínios do serviço de aplicações do Azure de preços, visite o [página de preços do App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) e desloque-se para baixo até o domínio do serviço de aplicações.
 
-### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Abra ao [portal do Azure](https://portal.azure.com/) e inicie sessão com a sua conta do Azure.
 
 ### <a name="launch-buy-domains"></a>Iniciar comprar domínios
@@ -138,13 +138,17 @@ De volta a **domínio do serviço de aplicações** página, clique em **OK**. E
 
 ### <a name="test-the-hostnames"></a>Testar os nomes de anfitrião
 
-Se tiver atribuído nomes de anfitrião predefinidos à sua aplicação, verá também uma notificação de sucesso para cada nome de anfitrião selecionado. 
+Se tiver atribuído nomes de anfitrião predefinidos à sua aplicação, verá também uma notificação de sucesso para cada nome de anfitrião selecionado.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Também pode ver os nomes de anfitriões selecionados no **domínios personalizados** página, além do **nomes de anfitrião personalizado** secção. 
+Também pode ver os nomes de anfitriões selecionados no **domínios personalizados** página, além do **nomes de anfitrião personalizado** secção.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> R **nota Secure** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para configurar o enlace SSL, consulte [comprar e configurar um certificado SSL para o serviço de aplicações do Azure](web-sites-purchase-ssl-web-site.md).
+>
 
 Para testar os nomes de anfitrião, navegue para os nomes de anfitrião listadas no browser. No exemplo da captura de ecrã anterior, tentar navegar até _kontoso.net_ e _www\.kontoso.net_.
 

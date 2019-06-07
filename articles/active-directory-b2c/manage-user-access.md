@@ -2,20 +2,20 @@
 title: Gerir o acesso de utilizador no Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba como identificar os menores, recolher a data de nascimento e país/região de dados e obter aceitação dos termos de utilização na sua aplicação com o Azure AD B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 6aead01ec0084eb75ea385a67f7c85ea185b017a
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956945"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66510559"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso de utilizador no Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Segue-se um exemplo de um fluxo de utilizador para a coleta de consentimento dos
 
 2. O aplicativo processa o token JSON e mostra um ecrã para o menor, notificando-los de que é necessário o consentimento dos pais e solicitar o consentimento de um encarregado de educação online. 
 
-3. O Azure AD B2C mostra uma jornada de início de sessão que o utilizador pode iniciar sessão normalmente para e emite um token para a aplicação que está definida para incluir **legalAgeGroupClassification = "minorWithParentalConsent"**. A aplicação recolhe o endereço de e-mail do principal e verifica se o elemento principal é um adulto. Para fazer isso, ele usa uma origem fidedigna, como um nacional ID office, verificação de licença ou prova de cartão de crédito. Se a verificação for bem sucedida, a aplicação pede-lhe o menor para iniciar sessão com o fluxo de utilizador do Azure AD B2C. Se o consentimento é negado (por exemplo, se **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C devolve um token JSON (não um início de sessão) para o aplicativo reinicie o processo de consentimento. É possível que, opcionalmente personalizar o fluxo de utilizador para que o menor ou um adulto pode recuperar o acesso à conta do menor através do envio de um código de registo para o endereço de e-mail do menor ou endereço de e-mail a adulto no registo.
+3. O Azure AD B2C mostra uma jornada de início de sessão que o utilizador pode iniciar sessão normalmente para e emite um token para a aplicação que está definida para incluir **legalAgeGroupClassification = "minorWithParentalConsent"** . A aplicação recolhe o endereço de e-mail do principal e verifica se o elemento principal é um adulto. Para fazer isso, ele usa uma origem fidedigna, como um nacional ID office, verificação de licença ou prova de cartão de crédito. Se a verificação for bem sucedida, a aplicação pede-lhe o menor para iniciar sessão com o fluxo de utilizador do Azure AD B2C. Se o consentimento é negado (por exemplo, se **legalAgeGroupClassification = "minorWithoutParentalConsent"** ), Azure AD B2C devolve um token JSON (não um início de sessão) para o aplicativo reinicie o processo de consentimento. É possível que, opcionalmente personalizar o fluxo de utilizador para que o menor ou um adulto pode recuperar o acesso à conta do menor através do envio de um código de registo para o endereço de e-mail do menor ou endereço de e-mail a adulto no registo.
 
 4. O aplicativo oferece uma opção para o menor para revogar a autorização.
 

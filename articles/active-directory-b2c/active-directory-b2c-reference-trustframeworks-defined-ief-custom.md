@@ -2,20 +2,20 @@
 title: Referência - estruturas de confiança no Azure Active Directory B2C | Documentos da Microsoft
 description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C e o Framework de experiência de identidade.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20767c8903cd6617db4d37b756c3d8ae95cfb6ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701215"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66508809"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir as estruturas de confiança com o Framework de experiência de identidade do Azure AD B2C
 
@@ -54,7 +54,7 @@ TFs são linchpins do modelo de estrutura de confiança de Exchange aberto de id
 - **As políticas de técnicas para a produção e o consumo de informações de identidade digital e, portanto, para medir LOA e LOP. Estas políticas escritas incluem, geralmente, as seguintes categorias de políticas:**
     - Identidade protegendo contra políticas, por exemplo: *Até que ponto são informações de identidade de uma pessoa examinadas?*
     - Políticas de segurança, por exemplo: *Até que ponto são informações de integridade e a confidencialidade protegidos?*
-    - Políticas de privacidade, por exemplo: *Qual o controle um utilizador tem sobre informações de identificação pessoas (PII)*?
+    - Políticas de privacidade, por exemplo: *Qual o controle um utilizador tem sobre informações de identificação pessoas (PII)* ?
     - Políticas de persistência, por exemplo: *Se um fornecedor deixará de operações, como funciona a continuidade e a proteção da função PII?*
 
 - **Os perfis técnicos para a produção e o consumo de informações de identidade digital. Estes perfis incluem:**

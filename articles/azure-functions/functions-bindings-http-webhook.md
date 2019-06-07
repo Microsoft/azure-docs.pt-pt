@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fb219316afa798dfda777c4d0d406d5b8cabf7f9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104374"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472360"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -666,7 +666,7 @@ Se estiver a utilizar a aplicação de funções [aplicação serviço de autent
 
 Também é possível ler essas informações de vinculação de dados. Esta funcionalidade só está disponível para o runtime 2.x de funções. Também está atualmente apenas disponível para linguagens .NET.
 
-Em linguagens .NET, esta informação está disponível como um [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). A ClaimsPrincipal está disponível como parte do contexto do pedido, conforme mostrado no exemplo a seguir:
+Em linguagens .NET, esta informação está disponível como um [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). A ClaimsPrincipal está disponível como parte do contexto do pedido, conforme mostrado no exemplo a seguir:
 
 ```csharp
 using System.Net;

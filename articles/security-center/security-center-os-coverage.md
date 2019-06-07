@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/27/2019
+ms.date: 6/03/2019
 ms.author: monhaber
-ms.openlocfilehash: 807bde76bb6bb50490ee599768273a59c49d5e45
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258692"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480532"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e funcionalidades suportadas pelo centro de segurança do Azure
 
@@ -59,7 +59,7 @@ São suportados os seguintes sistemas operativos Linux:
 * Oracle Linux 6 e 7
 * Red Hat Enterprise Linux Server 6 e 7
 * Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
+* Ubuntu Linux 14.04 LTS e 16.04 LTS e 18.04 LTS
 * SUSE Linux Enterprise Server 12
 
 32 bits
@@ -93,7 +93,7 @@ VMs que são executadas num serviço cloud também são suportadas. Apenas funç
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Avaliação de encriptação de disco|✔|✔|X|✔|✔|X|Livre|
 |Implantação de terceiros|✔|X|X|✔|X|X|Livre|
-|Avaliação de NSGs|✔|✔|X|✔|✔|X|Livre|
+|Avaliação de NSG|✔|✔|X|✔|✔|X|Livre|
 |Deteção de ameaças fileless|✔|✔|✔|X|X|X|Standard|
 |Mapa de rede|✔|✔|X|✔|✔|X|Standard|
 |Controlos de rede adaptável|✔|✔|X|✔|✔|X|Standard|
@@ -129,7 +129,7 @@ Para obter informações sobre o quando as recomendações são geradas para cad
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|O Azure Blob storage contas *|✔| ✔|
+|Contas de armazenamento de Blobs do Azure|✔| ✔|
 |Serviços aplicacionais|✔| ✔|
 |Serviços Cloud|✔| X|
 |VNets|✔| N/D|
@@ -137,7 +137,6 @@ Para obter informações sobre o quando as recomendações são geradas para cad
 |NICs|✔| N/D|
 |NSGs|✔| N/D|
 |Subscrição|✔ **| ✔|
-|Serviço de aplicações|✔| N/D|
 |Batch|✔| N/D|
 |Service fabric|✔| N/D|
 |Conta de automatização|✔| N/D|
@@ -147,14 +146,9 @@ Para obter informações sobre o quando as recomendações são geradas para cad
 |Stream Analytics|✔| N/D|
 |Hub de eventos|✔| N/D|
 |Aplicações lógicas|✔| N/D|
-|Subrede|✔| N/D|
-|Vnet|✔| N/D|
 |Conta de armazenamento|✔| N/D|
 |Redis|✔| N/D|
-|SQL|✔| N/D|
 |O Data lake analytics|✔| N/D|
-|Conta de armazenamento|✔| N/D|
-|Subscrição|✔| N/D|
 |Key Vault|✔| N/D|
 
 

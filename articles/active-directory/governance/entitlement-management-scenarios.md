@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96442a9d49581da6841fa7acb8329354ec727f60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a50f4a8a63022668dac68c974f8c828c72777c9
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918481"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473116"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management-preview"></a>Cenários comuns de gestão de direitos do Azure AD (pré-visualização)
 
@@ -48,16 +48,16 @@ Existem várias formas que pode configurar a gestão de direitos para a sua orga
 > | --- | --- |
 > | **1.** [Criar um novo pacote de acesso num catálogo](entitlement-management-access-package-create.md#start-new-access-package) | ![Criar um pacote de acesso](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [Adicionar funções de recursos para acessar o pacote](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Grupos</li><li>Aplicações</li><li>Sites do SharePoint</li></ul> | ![Adicionar funções de recursos](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Adicionar uma política](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>Para os utilizadores no seu diretório</li><li>Exigir aprovação</li><li>Definições de expiração</li></ul> | ![Adicionar política](./media/entitlement-management-scenarios/policy.png) |
+> | **3.** [Adicionar uma política](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>Para os utilizadores no seu diretório</li><li>Exigir a aprovação</li><li>Definições de expiração</li></ul> | ![Adicionar política](./media/entitlement-management-scenarios/policy.png) |
 
-### <a name="i-want-to-allow-users-from-my-business-partners-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Eu quero permitir que os utilizadores da minha parceiros de negócios (incluindo utilizadores ainda não no meu diretório) para solicitar acesso a grupos, aplicações ou sites do SharePoint
+### <a name="i-want-to-allow-users-from-my-business-partners-directory-including-users-not-yet-in-my-directory-to-request-access-to-groups-applications-or-sharepoint-sites"></a>Eu quero permitir que os utilizadores do meu diretório de parceiros de negócios (incluindo utilizadores ainda não no meu diretório) para solicitar acesso a grupos, aplicações ou sites do SharePoint
 
 > [!div class="mx-tableFixed"]
 > | Passos | Exemplo |
 > | --- | --- |
 > | **1.** [Criar um novo pacote de acesso num catálogo](entitlement-management-access-package-create.md#start-new-access-package) | ![Criar um pacote de acesso](./media/entitlement-management-scenarios/access-package.png) |
 > | **2.** [Adicionar funções de recursos para acessar o pacote](entitlement-management-access-package-edit.md#add-resource-roles) | ![Adicionar funções de recursos](./media/entitlement-management-scenarios/resource-roles.png) |
-> | **3.** [Adicionar uma política para utilizadores externos](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>Para os utilizadores não no seu diretório</li><li>Exigir aprovação</li><li>Definições de expiração</li></ul> | ![Adicionar política para utilizadores externos](./media/entitlement-management-scenarios/policy-external.png) |
+> | **3.** [Adicionar uma política para utilizadores externos](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>Para os utilizadores não no seu diretório</li><li>Exigir a aprovação</li><li>Definições de expiração</li></ul> | ![Adicionar política para utilizadores externos](./media/entitlement-management-scenarios/policy-external.png) |
 > | **4.** [Envie a ligação do portal de acesso My para pedir o pacote de acesso para o seu parceiro comercial](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>Parceiro de negócios pode partilhar a ligação com os seus utilizadores</li></ul> |  |
 
 ### <a name="i-want-to-change-the-groups-applications-or-sharepoint-sites-in-an-access-package"></a>Quero alterar os grupos, aplicações ou sites do SharePoint num pacote de acesso
@@ -91,7 +91,7 @@ Existem várias formas que pode configurar a gestão de direitos para a sua orga
 > | Passos | Exemplo |
 > | --- | --- |
 > | **1.** [Pedido aberto no portal de acesso My](entitlement-management-request-approve.md#open-request) | [![Meu ícone do portal de acesso](./media/entitlement-management-scenarios/my-access-portal.png)](./media/entitlement-management-scenarios/my-access-portal-expanded.png#lightbox) |
-> | **2.** [Aprovar pedido de acesso](entitlement-management-request-approve.md#approve-or-deny-request) | ![Aprovar acesso](./media/entitlement-management-scenarios/approve-access.png) |
+> | **2.** [Aprovar pedido de acesso](entitlement-management-request-approve.md#approve-or-deny-request) | ![Aprovar o acesso](./media/entitlement-management-scenarios/approve-access.png) |
 
 ## <a name="requestors"></a>Requerentes
 

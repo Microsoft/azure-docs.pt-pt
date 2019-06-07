@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: a160591ef0a47eed097ce8db373878f32965de9b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 18dc3e224df18c900653e4549badcdd93f0df6ec
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247128"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66688017"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e resolver problemas relacionados com o AzCopy
 
@@ -52,7 +52,7 @@ Utilize o `azcopy env` para verificar o valor atual da variável.  Se o valor es
 
 ## <a name="change-the-location-of-the-log-files"></a>Alterar a localização dos ficheiros de registo
 
-Por predefinição, os ficheiros de registo estão localizados no `%USERPROFILE\\.azcopy` pasta no Windows ou no `$HOME\\.azcopy` pasta em Mac e Linux. Pode alterar esta localização se for necessário, utilizando estes comandos.
+Por predefinição, os ficheiros de registo estão localizados no `%USERPROFILE\\.azcopy` diretório no Windows ou no `$HOME\\.azcopy` diretório em Mac e Linux. Pode alterar esta localização se for necessário, utilizando estes comandos.
 
 | Sistema operativo | Comando  |
 |--------|-----------|
@@ -74,7 +74,7 @@ O AzCopy cria ficheiros de registo e o plano para cada tarefa. Pode utilizar os 
 
 Os registos irão conter o estado de falha (`UPLOADFAILED`, `COPYFAILED`, e `DOWNLOADFAILED`), o caminho completo e o motivo da falha.
 
-Por predefinição, os ficheiros de registo e de plano estão localizados no `%USERPROFILE\\.azcopy` pasta no Windows ou `$HOME\\.azcopy` pasta em Mac e Linux.
+Por predefinição, os ficheiros de registo e de plano estão localizados no `%USERPROFILE\\.azcopy` em Windows ou `$HOME\\.azcopy` diretório em Mac e Linux.
 
 > [!IMPORTANT]
 > Ao submeter um pedido para Support da Microsoft (ou resolver o problema que envolvem qualquer terceiro), partilhar a versão eliminada do comando que deseja executar. Isto garante que a SAS acidentalmente não serem partilhada com qualquer pessoa. Pode encontrar a versão eliminada no início do ficheiro de registo.

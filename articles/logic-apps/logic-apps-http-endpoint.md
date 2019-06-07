@@ -1,29 +1,25 @@
 ---
-title: Chamar, acionar ou aninhar fluxos de trabalho com pontos de extremidade HTTP - Azure Logic Apps | Documentos da Microsoft
+title: Chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP - Azure Logic Apps
 description: Configurar pontos finais HTTP para chamar, acionar, ou aninhar fluxos de trabalho para o Azure Logic Apps
 services: logic-apps
-keywords: fluxos de trabalho, pontos de extremidade HTTP
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: integration
+author: ecfan
+ms.author: klam; LADocs
+ms.reviewer: jehollan, klam, LADocs
+manager: carmonm
+ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
+ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: klam; LADocs
-ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304279"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66495044"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP no logic apps
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP no Azure Logic Apps
 
 Nativamente podem expor pontos de extremidade HTTP síncronos como disparadores sobre as aplicações lógicas, para que possa acionar ou chamar as aplicações lógicas através de um URL. Também pode aninhar fluxos de trabalho nas suas aplicações lógicas através de um padrão de pontos finais disponíveis.
 
@@ -249,7 +245,7 @@ As respostas têm estas propriedades:
 | --- | --- |
 | statusCode |Especifica o código de estado HTTP para responder à solicitação de entrada. Esse código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, os códigos de estado de 3xx não são permitidos. |
 | Cabeçalhos |Define a qualquer número de cabeçalhos para incluir na resposta. |
-| corpo |Especifica um objeto de corpo que pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo binário conteúdo referenciado a partir de um passo anterior. |
+| Corpo |Especifica um objeto de corpo que pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo binário conteúdo referenciado a partir de um passo anterior. |
 
 Eis o que o esquema JSON aparência agora para o **resposta** ação:
 

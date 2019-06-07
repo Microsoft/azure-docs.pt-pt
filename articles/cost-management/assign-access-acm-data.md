@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785859"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66493761"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados de gestão de custos
 
@@ -170,6 +170,13 @@ Acesso a um grupo de recursos requer, pelo menos, a permissão do leitor de gest
 7. Sob **atribuir acesso aos**, selecione **utilizador do Azure AD, grupo ou aplicação**.
 8. Para atribuir acesso, procure e, em seguida, selecione o utilizador.
 9. Clique em **Guardar**.
+
+## <a name="cross-tenant-authentication-issues"></a>Problemas de autenticação entre inquilinos
+
+Atualmente, a gestão de custos do Azure tem suporte limitado para a autenticação entre inquilinos. Em algumas circunstâncias ao tentar autenticar em inquilinos, poderá receber um **acesso negado** erro na análise de custos. Este problema poderá ocorrer se configurar o controlo de acesso baseado em funções (RBAC) para a subscrição de outro inquilino e, em seguida, tente ver os dados de custo.
+
+*Para contornar o problema*: Depois de configurar o RBAC entre inquilinos, aguarde uma hora. Em seguida, tente ver os custos em análise de custo ou conceder acesso de gestão de custos para os usuários em ambos os inquilinos.  
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -3,7 +3,7 @@ title: Monitorizar a identidade e o acesso no Centro de Segurança do Azure | Mi
 description: Saiba como utilizar a capacidade de identidade e acesso no Centro de Segurança do Azure para monitorizar a atividade de acesso dos seus utilizadores e os problemas relacionados com identidades.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 05/30/2018
+ms.author: monhaber
+ms.openlocfilehash: 16548ae75567fa3ba6f8c9135d61945bd28d2db8
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389476"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428414"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorizar a identidade e acesso no Centro de segurança do Azure (pré-visualização)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
@@ -42,7 +42,6 @@ Através da monitorização das atividades de identidade, poderá levar a cabo a
 > [!NOTE]
 > Se a sua subscrição tiver mais de 600 contas, o Centro de segurança não consegue executar as recomendações de identidade na sua subscrição. Recomendações que são executadas não estão listadas na "avaliações indisponíveis" que é abordada abaixo.
 Centro de segurança não consegue executar as recomendações de identidade em agentes de administrador de um parceiro de fornecedor de soluções Cloud (CSP).
->
 >
 
 Ver [recomendações](security-center-identity-access.md#recommendations) para obter uma lista das recomendações de acesso e identidades fornecidas pelo centro de segurança.
@@ -111,23 +110,20 @@ Utilize a tabela abaixo como referência para ajudar a compreender as recomenda�
 
 |Tipo de recurso|Classificação de segurança|Recomendação|Descrição|
 |----|----|----|----|
-|Subscrição|50|Ativar a MFA para contas de aplicação de gestão do Azure com permissões de proprietário na sua subscrição|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de administrador para evitar falhas de segurança de contas ou recursos.|
-|Subscrição|50|Ativar o Centro de segurança nas suas subscrições |Ativar o Centro de segurança em todas as suas subscrições para deteção de ameaças avançada, JIT, permissões de aplicação e recomendações avançadas |
-|Subscrição|50|Ativar o escalão standard do Centro de segurança nas suas subscrições |Ative o Centro de segurança escalão Standard em todas as suas subscrições para deteção de ameaças avançada, JIT, permissões de aplicação e recomendações avançadas.|
-|Subscrição|40|Ativar a MFA para contas de aplicação de gestão do Azure com permissões de escrita na sua subscrição|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de escrita para evitar uma violação de contas ou recursos.|
-|Subscrição|30|Remover contas externas com permissões de proprietário da sua subscrição|Remova contas externas com permissões de proprietário da sua subscrição para impedir o acesso não monitorizado. |
-|Subscrição|30|Ativar a MFA para contas de aplicação de gestão do Azure com permissões de leitura na sua subscrição|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de leitura para evitar uma violação de contas ou recursos.|
-|Subscrição|25|Remover contas externas com permissões de escrita da sua subscrição|Remova contas externas com permissões de escrita da sua subscrição para impedir o acesso não monitorizado. |
-|Subscrição|20|Remover contas preteridas com permissões de proprietário da sua subscrição|Remova contas preteridas com permissões de proprietário a partir das subscrições. As contas preteridas são as contas cujo início de sessão foi bloqueado no Azure AD.|
-|Subscrição|5|Remover contas preteridas da sua subscrição|Remova contas preteridas das suas subscrições para permitir o acesso aos utilizadores apenas atuais. As contas preteridas são as contas cujo início de sessão foi bloqueado no Azure AD.|
-|Subscrição|5|Designar mais do que um proprietário na sua subscrição|Designe mais do que um proprietário da subscrição para ter a redundância de acesso de administrador.|
-|Subscrição|5|Designar até 3 proprietários na sua subscrição|Designe menos de 3 proprietários de subscrições para reduzir a possibilidade de violação por um proprietário comprometido.|
-|Key Vault|5|Ativar registos de diagnóstico no Cofre de chaves|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
-|Subscrição|15|Remover contas externas com permissões de leitura da sua subscrição|Remova contas externas com privilégios de leitura da sua subscrição para impedir o acesso não monitorizado.|
-|Subscrição|1|Disponibilizar detalhes de contacto de segurança|Fornece informações de contacto de segurança para cada uma das suas subscrições. Informações de contacto são um e-mail endereço e número de telefone. As informações são utilizadas para contactá-lo se a nossa equipa de segurança Descubra que os recursos estão comprometidos|
+|Subscrição|50|MFA deve ser ativada em contas com permissões de proprietário na sua subscrição|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de administrador para evitar falhas de segurança de contas ou recursos.|
+|Subscrição|40|MFA deve ser ativada em suas contas de subscrição com permissões de escrita|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de escrita para evitar uma violação de contas ou recursos.|
+|Subscrição|30|As contas externas com permissões de proprietário devem ser removidas da sua subscrição|Remova contas externas com permissões de proprietário da sua subscrição para impedir o acesso não monitorizado.|
+|Subscrição|30|MFA deve ser ativada em suas contas de subscrição com permissões de leitura|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de leitura para evitar uma violação de contas ou recursos.|
+|Subscrição|25|Contas externas com escrita permissões devem ser removidas da sua subscrição|Remova contas externas com permissões de escrita da sua subscrição para impedir o acesso não monitorizado. |
+|Subscrição|20|As contas preteridas com permissões de proprietário devem ser removidas da sua subscrição|Remova contas preteridas com permissões de proprietário a partir das subscrições.|
+|Subscrição|5|As contas preteridas devem ser removidas da sua subscrição|Remova contas preteridas das suas subscrições para permitir o acesso aos utilizadores apenas atuais. |
+|Subscrição|5|Deve haver mais do que um proprietário atribuído à sua subscrição|Designe mais do que um proprietário da subscrição para ter a redundância de acesso de administrador.|
+|Subscrição|5|Um máximo de 3 proprietários deve ser designado para a sua subscrição|Designe menos de 3 proprietários de subscrições para reduzir a possibilidade de violação por um proprietário comprometido.|
+|Key Vault|5|Os registos de diagnóstico no Cofre de chaves devem estar ativados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|Subscrição|15|As contas externas com permissões de leitura devem ser removidas da sua subscrição|Remova contas externas com privilégios de leitura da sua subscrição para impedir o acesso não monitorizado.| 
 
-> ! [NOTA] Se tiver criado uma política de acesso condicional que exige o MFA, mas tem as exclusões definidas, a avaliação de recomendação do MFA do Centro de segurança considera a política de conformidade, porque ela permite que alguns usuários iniciar sessão no Azure sem MFA.
->
+> [!NOTE]
+> Se tiver criado uma política de acesso condicional que exige o MFA, mas tem as exclusões definidas, a avaliação de recomendação do MFA do Centro de segurança considera a política de conformidade, porque ela permite que alguns usuários iniciar sessão no Azure sem MFA.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:

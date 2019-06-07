@@ -2,20 +2,20 @@
 title: Configurar o comportamento de sessão - Azure Active Directory B2C | Documentos da Microsoft
 description: Configure o comportamento da sessão no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7bfa34f44ca8ba53b89e4218303a7cd77cd0add9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3167a63be46e0d777fbec0c6a3301684fb7636bd
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700990"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66512555"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -51,10 +51,10 @@ Os seguintes casos de utilização estão ativados com estas propriedades:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino do Azure AD B2C.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Selecione **fluxos de utilizador (diretivas)**.
+4. Selecione **fluxos de utilizador (diretivas)** .
 5. Abra o fluxo de utilizador que criou anteriormente. 
 6. Selecione **propriedades**.
-7. Configurar **aplicação Web duração da sessão (minutos)**, **tempo limite de sessão de aplicação Web**, **configuração de início de sessão único**, e **necessitam de ID de Token em pedidos de fim de sessão**  conforme necessário.
+7. Configurar **aplicação Web duração da sessão (minutos)** , **tempo limite de sessão de aplicação Web**, **configuração de início de sessão único**, e **necessitam de ID de Token em pedidos de fim de sessão**  conforme necessário.
 
     ![Configurar o comportamento da sessão](./media/session-behavior/session-behavior.png)
     

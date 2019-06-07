@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 3/26/2019
+ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 65ed28c967164be4d239cd4d59b6b36f06caeced
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 592e1973344b231693077f8286a41dfd67a8d188
+ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238400"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66689105"
 ---
 | Resource | Limite de máximo/predefinido | Nota |
 | --- | --- | --- |
@@ -37,5 +37,6 @@ ms.locfileid: "66238400"
 | Tamanho máximo do ficheiro de carregamento, Standard |2 GB | |
 | WAF de tamanho de carregamento de ficheiro máximo |Médias gateways do WAF, 100 MB<br>Grandes gateways do WAF, 500 MB| |
 | Limite de tamanho de corpo do WAF, sem ficheiros|128 KB||
+|Máximas regras personalizadas de WAF|100||
 
 <sup>1</sup> em caso de SKUs de WAF ativada, recomendamos que limite o número de recursos para 40 para um desempenho ideal.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736977"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66475281"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos de HTTP X-EC-Debug para o motor de regras de CDN do Azure
 O cabeçalho de pedido de cache de depuração, `X-EC-Debug`, fornece informações adicionais sobre a política de cache que é aplicada ao elemento de pedido. Esses cabeçalhos são específicos **CDN do Azure Premium da Verizon** produtos.
@@ -27,7 +27,7 @@ O cabeçalho de pedido de cache de depuração, `X-EC-Debug`, fornece informaç�
 ## <a name="usage"></a>Utilização
 A resposta enviada de servidores POP para um usuário inclui o `X-EC-Debug` cabeçalho apenas quando as seguintes condições são cumpridas:
 
-- O [funcionalidade de cabeçalhos de resposta de Cache depurar](cdn-rules-engine-reference-features.md#debug-cache-response-headers) foi ativada no motor de regras para o pedido especificado.
+- O [funcionalidade de cabeçalhos de resposta de Cache depurar](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) foi ativada no motor de regras para o pedido especificado.
 - O pedido especificado define o conjunto de cabeçalhos de resposta de cache de depuração que será incluído na resposta.
 
 ## <a name="requesting-debug-cache-information"></a>Pedir informações de depuração na cache
@@ -118,7 +118,7 @@ O cabeçalho de resposta de exemplo seguinte indica se o conteúdo solicitado fo
 ## <a name="cache-key-response-header"></a>Cabeçalho de resposta de chave de cache
 O `X-EC-Debug: x-ec-cache-key` cabeçalho de resposta indica a cache-chave física associada com os conteúdos solicitados. Uma chave de cache física consiste num caminho que identifica um recurso para fins de colocação em cache. Em outras palavras, os servidores irão verificar para uma versão em cache de um ativo, de acordo com seu caminho, conforme definido pela respetiva chave de cache.
 
-Esta chave de cache físico começa com uma barra dupla (/ /) seguido do protocolo utilizado para pedir o conteúdo (HTTP ou HTTPS). Esse protocolo é seguido o caminho relativo para o elemento solicitado, que começa com o ponto de acesso ao conteúdo (por exemplo, _/000001/_).
+Esta chave de cache físico começa com uma barra dupla (/ /) seguido do protocolo utilizado para pedir o conteúdo (HTTP ou HTTPS). Esse protocolo é seguido o caminho relativo para o elemento solicitado, que começa com o ponto de acesso ao conteúdo (por exemplo, _/000001/_ ).
 
 Por predefinição, as plataformas HTTP são configuradas para utilizar *standard – cache*, que significa que cadeias de consulta são ignoradas do mecanismo de colocação em cache. Este tipo de configuração impede que a chave de cache incluindo dados de cadeia de caracteres de consulta.
 

@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149236"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66515731"
 ---
-# <a name="streaming-endpoints-origin"></a>Pontos finais de transmissão em fluxo (origem)
+# <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo 
 
 Nos serviços de multimédia do Microsoft Azure, um [ponto final de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um dinâmico (just-in-time) empacotamento e a origem do serviço que pode distribuir os seus conteúdos em direto e a pedido diretamente a uma aplicação de leitor de cliente, utilizando um do transmissão em fluxo multimédia protocolos comuns (HLS ou DASH). Além disso, o **ponto final de transmissão em fluxo** fornece a encriptação dinâmica (just-in-time) para DRMs de líder da indústria.
 
@@ -41,7 +41,7 @@ Existem dois tipos de **Ponto Final de Transmissão em Fluxo**: **Standard** (pr
 
 A tabela descreve os tipos:  
 
-|Type|Unidades de escala|Descrição|
+|Tipo|Unidades de escala|Descrição|
 |--------|--------|--------|  
 |**Standard**|0|A predefinição é o ponto final de transmissão em fluxo uma **padrão** escreva, pode ser alterado para o tipo de Premium, ao ajustar `scaleUnits`.|
 |**Premium**|>0|**Premium** pontos finais de transmissão em fluxo são adequados para cargas de trabalho avançadas, fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits` (unidades de transmissão em fluxo). `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium**, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |

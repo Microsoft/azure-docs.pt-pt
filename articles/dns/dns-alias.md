@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: b34baa6f1ba91935fc6307dbb1617393786043b9
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596713"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692846"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
@@ -32,7 +32,7 @@ Um conjunto de registos de alias é suportado para os seguintes tipos de registo
 - **Ponto para um recurso IP público a partir de um conjunto de registos de A/AAAA de DNS.** Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso IP público. O conjunto de registos de DNS é automaticamente se o endereço IP público é alterado ou é eliminada. Os registos que apontam para endereços IP incorretos dangling DNS são evitados.
 
 - **Ponto para um perfil do Gestor de tráfego a partir de um conjunto de registos DNS A/AAAA/CNAME.** Pode criar um A/AAAA ou registo CNAME defina e utilize registos de alias para apontar para um perfil do Gestor de tráfego. É especialmente útil quando precisa encaminhar o tráfego no apex de zona, como os registos CNAME tradicionais não são suportados para um vértice da zona. Por exemplo, digamos que seu perfil do Gestor de tráfego é myprofile.trafficmanager.net e sua zona DNS da empresa for contoso.com. Pode criar um conjunto de registos de alias do tipo A/AAAA para contoso.com (o vértice da zona) e aponte para myprofile.trafficmanager.net.
-- **Aponte para um ponto de extremidade de rede de entrega conteúdo (CDN)**. Isto é útil quando criar os Web sites estáticos com o armazenamento do Azure e CDN do Azure.
+- **Aponte para um ponto de extremidade de rede de entrega conteúdo (CDN)** . Isto é útil quando criar os Web sites estáticos com o armazenamento do Azure e CDN do Azure.
 - **Aponte para outro conjunto de registos de DNS na mesma zona.** Os registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, um conjunto de registos CNAME de DNS pode ser um alias para outro conjunto de registos CNAME. Essa disposição é útil se desejar alguns conjuntos de registos para ser aliases e alguns não aliases.
 
 ## <a name="scenarios"></a>Cenários
@@ -67,6 +67,9 @@ Tal como um perfil do Gestor de tráfego, também pode utilizar os registos de a
 Por exemplo, se o seu Web site estático com o nome www.contoso.com, os utilizadores podem aceder a seu site usando o contoso.com sem que seja necessário preceder www para o nome DNS.
 
 Conforme descrito anteriormente, os registos CNAME não são suportados no vértice da zona. Assim, não é possível utilizar um registo CNAME para apontar o contoso.com para o ponto final da CDN. Em vez disso, pode utilizar um registo de alias para apontar diretamente o vértice da zona para um ponto final da CDN.
+
+> [!NOTE]
+> Apontar um vértice da zona para pontos finais da CDN para a CDN do Azure da Akamai não é atualmente suportada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

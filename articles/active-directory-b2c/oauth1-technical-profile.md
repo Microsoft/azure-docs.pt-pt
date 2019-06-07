@@ -2,20 +2,20 @@
 title: Definir um perfil técnico de OAuth1 numa política personalizada no Azure Active Directory B2C | Documentos da Microsoft
 description: Defina um perfil técnico de OAuth1 numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 993fc8b2e318b59775f61de391ac75fa765485f0
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699832"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513118"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de OAuth1 em políticas personalizadas do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "64699832"
 
 O Azure Active Directory (Azure AD) B2C fornece suporte para o [protocolo OAuth 1.0](https://tools.ietf.org/html/rfc5849) fornecedor de identidade. Este artigo descreve as especificações de um perfil técnico da interagir com um fornecedor de afirmações que suporte esse protocolo padronizado. Com um perfil de técnico de OAuth1, pode federar com um fornecedor de identidade com base de OAuth1, como o Twitter. Federação com o fornecedor de identidade permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O **Name** atributo da **protocolo** elemento tem de ser definido como `OAuth1`. Por exemplo, o protocolo para o **Twitter OAUTH1** é o perfil técnico `OAuth1`.
 
@@ -85,7 +85,7 @@ O **CryptographicKeys** elemento contém o atributo seguinte:
 | --------- | -------- | ----------- |
 | client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade.   | 
 
-## <a name="redirect-uri"></a>URI de Redirecionamento
+## <a name="redirect-uri"></a>URI de redirecionamento
 
 Quando configurar o URL de redirecionamento do seu fornecedor de identidade, introduza `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Certifique-se de substituir **inquilino** pelo nome do seu inquilino (por exemplo, contosob2c.onmicrosoft.com) e **policyId** com o identificador da sua política (por exemplo, b2c_1a_policy). O URI de redirecionamento tem de ser em letras minúsculas. Adicione um URL de redirecionamento para todas as políticas que utilizam o início de sessão do fornecedor de identidade. 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0fc3722ee440b6f50b86f916afef7ddc5876eef
+ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451077"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66693411"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementar o módulo duplo de OPC e as dependências do zero
 
@@ -33,69 +33,71 @@ Todos os módulos são implementados através de um manifesto de implantação. 
 
 ```json
 {
-  "modulesContent": {
-    "$edgeAgent": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "runtime": {
-          "type": "docker",
-          "settings": {
-            "minDockerVersion": "v1.25",
-            "loggingOptions": "",
-            "registryCredentials": {}
-          }
-        },
-        "systemModules": {
-          "edgeAgent": {
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "runtime": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-              "createOptions": ""
+              "minDockerVersion": "v1.25",
+              "loggingOptions": "",
+              "registryCredentials": {}
             }
           },
-          "edgeHub": {
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "always",
-            "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}], \"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
-            }
-          }
-        },
-        "modules": {
-          "opctwin": {
-            "version": "1.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "never",
-            "settings": {
-              "image": "mcr.microsoft.com/iotedge/opc-twin:latest",
-              "createOptions": "{\"HostConfig\": { \"NetworkMode\": \"host\", \"CapAdd\": [\"NET_ADMIN\"] } }"
+          "systemModules": {
+            "edgeAgent": {
+              "type": "docker",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "createOptions": ""
+              }
+            },
+            "edgeHub": {
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}], \"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+              }
             }
           },
-          "opcpublisher": {
-            "version": "2.0",
-            "type": "docker",
-            "status": "running",
-            "restartPolicy": "never",
-            "settings": {
-              "image": "mcr.microsoft.com/iotedge/opc-publisher:latest",
-              "createOptions": "{\"Hostname\": \"publisher\", \"Cmd\": [ \"publisher\", \"--pf=./pn.json\", \"--di=60\", \"--to\", \"--aa\", \"--si=0\", \"--ms=0\" ], \"ExposedPorts\": { \"62222/tcp\": {} }, \"HostConfig\": { \"PortBindings\": { \"62222/tcp\": [{ \"HostPort\": \"62222\" }] } } }"
+          "modules": {
+            "opctwin": {
+              "version": "1.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/iotedge/opc-twin:latest",
+                "createOptions": "{\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"CapAdd\":[\"NET_ADMIN\"]}}"
+              }
+            },
+            "opcpublisher": {
+              "version": "2.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/iotedge/opc-publisher:latest",
+                "createOptions": "{\"Hostname\":\"publisher\",\"Cmd\":[\"publisher\",\"--pf=./pn.json\",\"--di=60\",\"--to\",\"--aa\",\"--si=0\",\"--ms=0\"],\"ExposedPorts\":{\"62222/tcp\":{}},\"NetworkingConfig\":{\"EndpointsConfig\":{\"host\":{}}},\"HostConfig\":{\"NetworkMode\":\"host\",\"PortBindings\":{\"62222/tcp\":[{\"HostPort\":\"62222\"}]}}}"
+              }
             }
           }
         }
-      }
-    },
-    "$edgeHub": {
-      "properties.desired": {
-        "schemaVersion": "1.0",
-        "routes": {
-          "opctwinToIoTHub": "FROM /messages/modules/opctwin/outputs/* INTO $upstream",
-          "opcpublisherToIoTHub": "FROM /messages/modules/opcpublisher/outputs/* INTO $upstream"
-        },
-        "storeAndForwardConfiguration": {
-          "timeToLiveSecs": 7200
+      },
+      "$edgeHub": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "routes": {
+            "opctwinToIoTHub": "FROM /messages/modules/opctwin/* INTO $upstream",
+            "opcpublisherToIoTHub": "FROM /messages/modules/opcpublisher/* INTO $upstream"
+          },
+          "storeAndForwardConfiguration": {
+            "timeToLiveSecs": 7200
+          }
         }
       }
     }
@@ -220,7 +222,7 @@ Para problemas de resolução e depurá-la são útil para executar os módulos 
    ```
 
 > [!NOTE]
-> Instale `iotedgehubdev` para **raiz** em Linux/macOS (*não utilize "– utilizador" opção no comando 'instalação do pip'*).
+> Instale `iotedgehubdev` para **raiz** em Linux/macOS (*não utilize "– utilizador" opção no comando 'instalação do pip'* ).
 > Certifique-se de que não existe nenhum tempo de execução do Azure IoT Edge em execução na mesma máquina com iotedgehubdev, já que exigem que as mesmas portas.
 
 ### <a name="quickstart"></a>Início Rápido

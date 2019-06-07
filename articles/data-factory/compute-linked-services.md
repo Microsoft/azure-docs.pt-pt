@@ -11,19 +11,19 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66155252"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66480428"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica os diferentes ambientes de computação que pode utilizar para processar ou transformar dados. Ele também fornece detalhes sobre as configurações diferentes (sob demanda versus traga seu próprio) suportados pelo Data Factory, quando configurar os serviços ligados de ligação estes ambientes de uma fábrica de dados do Azure de computação.
 
 A tabela seguinte fornece uma lista dos ambientes de computação suportados pela fábrica de dados e as atividades que podem ser executadas nos mesmos. 
 
-| Ambiente de computação                                          | atividades                                                   |
+| Ambiente de computação                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster de HDInsight a pedido](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster do HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop Streaming](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personalizado](transform-data-using-dotnet-custom-activity.md)     |
@@ -98,7 +98,7 @@ O seguinte JSON define um serviço de ligado de HDInsight a pedido baseado em Li
 ### <a name="properties"></a>Propriedades
 | Propriedade                     | Descrição                              | Necessário |
 | ---------------------------- | ---------------------------------------- | -------- |
-| tipo                         | A propriedade de tipo deve ser definida como **HDInsightOnDemand**. | Sim      |
+| type                         | A propriedade de tipo deve ser definida como **HDInsightOnDemand**. | Sim      |
 | clusterSize                  | Número de nós de trabalho/dados no cluster. O cluster do HDInsight é criado com 2 nós principais, juntamente com o número de nós de trabalho que especificou para esta propriedade. Os nós são do tamanho Standard_D3 com 4 núcleos, para que um cluster de nó de 4 trabalho usa 24 núcleos (4\*4 = 16 núcleos para nós de trabalho, além de 2\*4 = 8 núcleos para nós principais). Ver [configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes. | Sim      |
 | linkedServiceName            | Serviço ligado do armazenamento do Azure a ser utilizado pelo cluster sob demanda para armazenar e processar dados. O cluster do HDInsight é criado na mesma região que esta conta de armazenamento do Azure. O Azure HDInsight tem limitação do número total de núcleos que pode utilizar em cada região do Azure que suporta. Certifique-se de que tem suficiente de quotas de núcleo nessa região do Azure para satisfazer o clusterSize necessária. Para obter detalhes, consulte [configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Atualmente, não é possível criar um cluster do HDInsight a pedido que utiliza um Store do Azure Data Lake como o armazenamento. Se pretende armazenar os dados de resultado do processamento num Store do Azure Data Lake do HDInsight, utilize uma atividade de cópia para copiar os dados do armazenamento de Blobs do Azure para o Store do Azure Data Lake. </p> | Sim      |
 | clusterResourceGroup         | O cluster do HDInsight é criado neste grupo de recursos. | Sim      |
@@ -240,7 +240,7 @@ Se quiser criar D4 em tamanho normal de nós principais e nós de trabalho, espe
 "dataNodeSize": "Standard_D4",
 ```
 
-Se especificar um valor incorreto para a essas propriedades, poderá receber o seguinte **erro:** Falha ao criar o cluster. Exceção: Não foi possível concluir a criação do cluster operação. A operação falhou com o código "400". À esquerda por trás do Estado do cluster: "Error". Mensagem: 'PreClusterCreationValidationFailure'. Quando receber este erro, certifique-se de que está a utilizar o **CMDLET e APIS** nome da tabela no [tamanhos de máquinas virtuais](../virtual-machines/linux/sizes.md) artigo.        
+Se especificar um valor incorreto para a essas propriedades, poderá receber o seguinte **erro:** Falha ao criar o cluster. Exceção: Não foi possível concluir a criação do cluster operação. A operação falhou com o código "400". À esquerda por trás do Estado do cluster: "Error". mensagem: 'PreClusterCreationValidationFailure'. Quando receber este erro, certifique-se de que está a utilizar o **CMDLET e APIS** nome da tabela no [tamanhos de máquinas virtuais](../virtual-machines/linux/sizes.md) artigo.        
 
 ## <a name="bring-your-own-compute-environment"></a>Traga seu próprio ambiente de computação
 Este tipo de configuração, os utilizadores podem registar um ambiente de computação já existente como um serviço ligado no Data Factory. O ambiente de computação é gerido pelo utilizador e o serviço Data Factory utiliza para executar as atividades.
@@ -286,7 +286,7 @@ Pode criar um serviço ligado de HDInsight de Azure para registar o seu próprio
 ### <a name="properties"></a>Propriedades
 | Propriedade          | Descrição                                                  | Necessário |
 | ----------------- | ------------------------------------------------------------ | -------- |
-| tipo              | A propriedade de tipo deve ser definida como **HDInsight**.            | Sim      |
+| type              | A propriedade de tipo deve ser definida como **HDInsight**.            | Sim      |
 | clusterUri        | O URI do HDInsight cluster.                            | Sim      |
 | username          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
 | password          | Especifique a palavra-passe da conta de utilizador.                       | Sim      |
@@ -346,7 +346,7 @@ Consulte o seguinte tópicos, se estiver familiarizado com o serviço Azure Batc
 ### <a name="properties"></a>Propriedades
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| tipo              | A propriedade de tipo deve ser definida como **AzureBatch**. | Sim      |
+| type              | A propriedade de tipo deve ser definida como **AzureBatch**. | Sim      |
 | nomeConta       | Nome da conta do Azure Batch.         | Sim      |
 | accessKey         | Chave de acesso para a conta do Azure Batch.  | Sim      |
 | batchUri          | URL para a sua conta do Azure Batch, no formato https://*batchaccountname.region*. batch.azure.com. | Sim      |
@@ -425,7 +425,7 @@ Criar uma **do Azure Data Lake Analytics** serviço para uma fábrica de dados d
 
 | Propriedade             | Descrição                              | Necessário                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| tipo                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
+| type                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
 | nomeConta          | Nome da conta do Azure Data Lake Analytics.  | Sim                                      |
 | dataLakeAnalyticsUri | URI do Azure Data Lake Analytics.           | Não                                       |
 | subscriptionId       | Id de subscrição do Azure                    | Não                                       |
@@ -486,14 +486,15 @@ Pode criar **serviço ligado do Azure Databricks** para registar a área de trab
 | Propriedade             | Descrição                              | Necessário                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | Nome do serviço ligado               | Sim   |
-| tipo                 | A propriedade de tipo deve ser definida como: **AzureDatabricks**. | Sim                                      |
-| domínio               | Especifica a região do Azure em conformidade com base na região da área de trabalho do Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
+| type                 | A propriedade de tipo deve ser definida como: **AzureDatabricks**. | Sim                                      |
+| Domínio               | Especifica a região do Azure em conformidade com base na região da área de trabalho do Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
 | accessToken          | Token de acesso é necessário para o Data Factory autenticar para o Azure Databricks. Token de acesso tem de ser gerado a partir da área de trabalho do databricks. Obter mais passos para encontrar o token de acesso pode ser encontrado [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Sim                                       |
 | existingClusterId    | ID de cluster de um cluster existente para executar todas as tarefas sobre isso. Deve ser um Cluster do Interactive já criado. Terá de reiniciar manualmente o cluster se ele deixa de responder. Databricks sugerir tarefas em execução em clusters de novo para maior fiabilidade. Pode encontrar o ID de Cluster de um Cluster do Interactive no Databricks -> a área de trabalho Clusters -> nome do Cluster interativo -> configuração -> etiquetas. [Obter mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
 | newClusterVersion    | A versão de Spark do cluster. Ele criará um cluster de trabalhos no databricks. | Não  |
 | newClusterNumOfWorker| Número de nós de trabalho que deve ter este cluster. Um cluster tem um controlador do Spark e num_workers executores para um total de num_workers + 1 nós de Spark. Uma cadeia de caracteres formatada Int32, como "1" significa numOfWorker é 1 ou "1:10" significa que o dimensionamento automático de 1 como min e 10 como máx.  | Não                |
 | newClusterNodeType   | Este campo codifica, por meio de um valor único, os recursos disponíveis para cada um de nós neste cluster Spark. Por exemplo, o Spark nós podem ser aprovisionados e otimizados para memória ou de computação cargas de trabalho intensivas este campo é obrigatório para o novo cluster                | Não               |
 | newClusterSparkConf  | um conjunto de opcionais, especificado pelo utilizador pares de chave-valor de configuração de Spark. Os utilizadores também podem passar uma cadeia de caracteres de opções de JVM Extras para o driver e os executores via spark.driver.extraJavaOptions e spark.executor.extraJavaOptions, respetivamente. | Não  |
+| newClusterInitScripts| um conjunto de scripts de inicialização opcional, definidas pelo utilizador para o novo cluster. Especificando o caminho DBFS para os scripts de inicialização. | Não  |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Serviço ligado da Base de Dados SQL do Azure

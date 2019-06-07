@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
+ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463500"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66513656"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro de relatório de atividades de início de sessão 
 
@@ -181,6 +181,8 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |500121| Falha na autenticação durante o pedido de autenticação forte.|
 |500133| A declaração não está dentro do seu intervalo de tempo válida. Certifique-se de que o token de acesso não expirou antes de o utilizar para a asserção de utilizador ou pedir um novo token.|
 |530021|Aplicação não cumpre os requisitos de aplicação de acesso condicional aprovado.|
+|7000218|O corpo do pedido tem de conter o seguinte parâmetro: 'client_assertion' ou 'client_secret'.|
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
