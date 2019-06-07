@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e26f9d344a4c11c335d1ea34998c848cbe3598a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793746"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753761"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover VMs do Azure para zonas de disponibilidade
-As zonas de disponibilidade no Azure ajudam a proteger as suas aplicações e dados de falhas de datacenter. Cada Zona de Disponibilidade é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região ajuda a proteger aplicações e dados contra falhas de datacenter. Com as zonas de disponibilidade, o Azure oferece um contrato de nível de serviço (SLA) de 99,99% de tempo de atividade de máquinas virtuais (VMs). As zonas de disponibilidade são suportadas em determinadas regiões, conforme mencionado na [quais são as zonas de disponibilidade no Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
+As zonas de disponibilidade no Azure ajudam a proteger as suas aplicações e dados de falhas de datacenter. Cada Zona de Disponibilidade é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região ajuda a proteger aplicações e dados contra falhas de datacenter. Com as zonas de disponibilidade, o Azure oferece um contrato de nível de serviço (SLA) de 99,99% de tempo de atividade de máquinas virtuais (VMs). As zonas de disponibilidade são suportadas em determinadas regiões, conforme mencionado na [quais são as zonas de disponibilidade no Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
 
 Num cenário em que as suas VMs são implementadas como *única instância* numa região específica e deseja melhorar a disponibilidade ao mover estas VMs para uma zona de disponibilidade, pode fazê-lo com o Azure Site Recovery. Esta ação ainda mais pode ser categorizada em:
 
@@ -28,7 +28,7 @@ Num cenário em que as suas VMs são implementadas como *única instância* numa
 
 ## <a name="check-prerequisites"></a>Verificar os pré-requisitos
 
-- Verificar se a região de destino tem [suporte para zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). Verifique se sua escolha de [combinação de região de destino/região de origem é suportada](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Tome uma decisão informada sobre a região de destino.
+- Verificar se a região de destino tem [suporte para zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region). Verifique se sua escolha de [combinação de região de destino/região de origem é suportada](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Tome uma decisão informada sobre a região de destino.
 - Certifique-se de que compreende a [arquitetura e os componentes do cenário](azure-to-azure-architecture.md).
 - Veja os [requisitos e limitações de suporte](azure-to-azure-support-matrix.md).
 - Verifique as permissões de conta. Se acabou de criar sua conta gratuita do Azure, é o administrador da sua subscrição. Se não o administrador de subscrição, trabalhe com o administrador para atribuir as permissões que necessárias. Para ativar a replicação para uma VM e, eventualmente, copiar dados para o destino com o Azure Site Recovery, tem de ter:
@@ -78,7 +78,7 @@ Num cenário em que as suas VMs são implementadas como *única instância* numa
 
 4. Manualmente [criar uma rede de não produção](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) na região de destino se pretender testar a configuração antes de transitar para a região de destino. Recomendamos que essa abordagem porque faz com um mínimo interferência com o ambiente de produção.
 
-## <a name="enable-replication"></a>Ativar replicação
+## <a name="enable-replication"></a>Ativar a replicação
 Os seguintes passos irão guiá-lo ao utilizar o Azure Site Recovery para ativar a replicação de dados para a região de destino, antes de prosseguir, eventualmente, em zonas de disponibilidade.
 
 > [!NOTE]
@@ -86,7 +86,7 @@ Os seguintes passos irão guiá-lo ao utilizar o Azure Site Recovery para ativar
 
 1. No portal do Azure, selecione **máquinas virtuais**e selecione a VM que pretende mover para zonas de disponibilidade.
 2. Na **Operations**, selecione **recuperação após desastre**.
-3. Na **configurar a recuperação após desastre** > **região de destino**, selecione a região de destino ao qual irá replicar. Certifique-se nesta região [suporta](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) zonas de disponibilidade.
+3. Na **configurar a recuperação após desastre** > **região de destino**, selecione a região de destino ao qual irá replicar. Certifique-se nesta região [suporta](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region) zonas de disponibilidade.
 
     ![Seleção da região de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
 

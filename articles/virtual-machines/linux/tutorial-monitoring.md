@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169485"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754368"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Linux no Azure
 
@@ -50,7 +50,7 @@ Para ver os diagnósticos e as métricas em ação, precisa de uma VM. Primeiro,
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/*:
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). O exemplo seguinte cria uma VM com o nome *myVM* e gera chaves SSH caso estas ainda não existam em *~/.ssh/* :
 
 ```azurecli-interactive
 az vm create \
@@ -201,28 +201,27 @@ Depois de **Gestão de atualizações** ser ativada, o ecrã **Gestão de atuali
 
 Para instalar atualizações, agende uma implementação que siga o seu agendamento e o período de administração da versão. Pode escolher quais os tipos de atualização a incluir na implementação. Por exemplo, pode incluir atualizações de segurança ou críticas e excluir update rollups.
 
-Para agendar uma nova Implementação de Atualização para a VM, selecione **Agendar implementação da atualização** na parte superior do ecrã **Gestão de atualizações**. No ecrã **Nova implementação de atualização**, especifique as seguintes informações:
+Para agendar uma nova Implementação de Atualização para a VM, clique em **Agendar a implementação da atualização** na parte superior do ecrã **Gestão de atualizações**. No ecrã **Nova implementação de atualização**, especifique as seguintes informações:
 
-* **Nome** - Indique um nome exclusivo para identificar a implementação de atualizações.
-* **Classificação da atualização** - Selecione os tipos de software que a implementação da atualização incluiu na implementação. Os tipos de classificação são:
-  * Atualizações críticas e de segurança
-  * Outras atualizações
-* **Atualizações a Excluir** - pode indicar uma lista de nomes de pacotes que devem ser ignorados durante a implementação da atualização. Nomes dos pacotes suportam carateres universais (como, por exemplo \*kernel\*).
+Para criar uma nova implementação de atualização, selecione **agendar a implementação da atualização**. O **nova implementação de atualização** é aberta a página. Introduza valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **criar**:
 
-  ![Ecrã de Definições de Agendamento de Atualizações](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
+| Propriedade | Descrição |
+| --- | --- |
+| Name |O nome exclusivo para identificar a implementação de atualizações. |
+|Sistema operativo| Linux ou Windows|
+| Grupos de atualização |Para máquinas do Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. </br></br>Para as máquinas não Azure, selecione um existente já guardado pesquisa para selecionar um grupo de computadores não pertencentes ao Azure para incluir na implementação. </br></br>Para obter mais informações, consulte [grupos dinâmicos](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos registos do Azure Monitor, consulte o artigo [grupos de computadores nos registos do Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
+|Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
+|Incluir/excluir atualizações|Esta ação abre o **incluir/excluir** página. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é processada, consulte [comportamento de inclusão](../../automation/automation-update-management.md#inclusion-behavior) |
+|Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|
+| Pré- scripts de + pós-scripts|Selecione os scripts sejam executados antes e após a implementação|
+| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos e não mais de 6 horas |
+| Controlo de reinício| Determina como devem ser tratadas reinicializações. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
-* **Definições da agenda** - Pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual, ou especificar uma hora diferente.
-  Também pode especificar se a implementação ocorre uma vez ou configurar um agendamento periódico. Selecione a opção Periódico, em Periodicidade, para configurar um agendamento periódico.
+Também é possível criar implementações de atualizações por meio de programação. Para saber como criar uma implementação de atualização com a API REST, veja [as configurações de atualização de Software - criar](/rest/api/automation/softwareupdateconfigurations/create). Também existe um runbook de exemplo que pode ser utilizado para criar uma implementação de atualização semanal. Para saber mais sobre este runbook, consulte [criar uma implementação de atualização semanal para uma ou mais VMs num grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
-  ![Ecrã de Definições de Agendamento de Atualizações](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
-
-* **Janela de manutenção (minutos)** - Especifique o período de tempo no qual pretende que a implementação da atualização ocorra. Isto ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
-
-Depois de concluir a configuração do agendamento, selecione o botão **Criar** e regressará ao dashboard de estado.
+Depois de concluir a configuração do agendamento, clique no botão **Criar** e regressará ao dashboard de estado.
 Tenha em atenção que a tabela **Agendada** mostra o agendamento da implementação que criou.
-
-> [!WARNING]
-> Quanto a atualizações que requerem reinício, a VM é reiniciada automaticamente.
 
 ### <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 
@@ -294,7 +293,7 @@ Pode fazer mais avançadas de monitorização da sua VM, com uma solução como 
 
 Do espaço de trabalho do Log Analytics a VM está ligada, também pode obter, consolidar e analisar os dados recolhidos com o [linguagem de consulta avançada](../../azure-monitor/log-query/log-query-overview.md). 
 
-![Área de trabalho do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Área de trabalho do log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

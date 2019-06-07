@@ -61,19 +61,18 @@
       href: security-center-policies-overview.md
     - name: Comparar linhas de base com a Monitorização da Integridade de Ficheiros
       href: security-center-file-integrity-monitoring-baselines.md
-      items:
-        - name: Recolha de dados
-          href: security-center-enable-data-collection.md
-        - name: Políticas de segurança incorporadas
-          href: security-center-policy-definitions.md
-        - name: Notificações por e-mail
-          href: security-center-provide-security-contact-details.md
-        - name: Escalão de preço
-          href: security-center-pricing.md
-        - name: Configurações de segurança
-          href: security-center-customize-os-security-config.md
-        - name: Visibilidade ao nível do inquilino
-          href: security-center-management-groups.md
+    - name: Recolha de dados
+      href: security-center-enable-data-collection.md
+    - name: Políticas de segurança incorporadas
+      href: security-center-policy-definitions.md
+    - name: Notificações por e-mail
+      href: security-center-provide-security-contact-details.md
+    - name: Escalão de preço
+      href: security-center-pricing.md
+    - name: Configurações de segurança
+      href: security-center-customize-os-security-config.md
+    - name: Visibilidade ao nível do inquilino
+      href: security-center-management-groups.md
     - name: Implementar recomendações de segurança
       href: security-center-recommendations.md
       items:

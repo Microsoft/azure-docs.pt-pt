@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0411e1ab76d010eae26142d681dc157a1eb776a8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481160"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752457"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Tutorial: Integrar Otsuka Shokai com o Azure Active Directory
 
@@ -79,14 +79,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, execute os seguintes passos:
-
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/S000000100`
-
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.otsuka-shokai.co.jp/ResponseOffice365`
-
-    > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de cliente de Shokai Otsuka](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+1. Sobre o **definir a segurança de início de sessão único com o SAML** página, a aplicação está pré-configurada e os URLs necessários já estão previamente preenchidos com o Azure. O utilizador tem de guardar a configuração ao clicar o **guardar** botão.
 
 1. Aplicação Otsuka Shokai espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Aplicação Otsuka Shokai espera **nameidentifier** seja mapeado com **user.objectid**, por isso terá de editar o mapeamento do atributo clicando no **editar**  ícone e altere o mapeamento do atributo.
 
@@ -139,7 +132,7 @@ Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Sim
 1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Na **utilizador** propriedades, siga estes passos:
    1. No campo **Nome**, introduza `B. Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
+   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
    1. Clique em **Criar**.
 
@@ -163,7 +156,7 @@ Nesta secção, irá ativar a Simon B. utilizar o Azure início de sessão únic
 
 ### <a name="create-otsuka-shokai-test-user"></a>Criar utilizador de teste Otsuka Shokai
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Otsuka Shokai. Trabalhar com [equipa de suporte de Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) para adicionar os utilizadores na plataforma Otsuka Shokai. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado B.Simon no Otsuka Shokai. Trabalhar com [equipa de suporte de Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) para adicionar os utilizadores na plataforma Otsuka Shokai. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-sso"></a>Teste SSO
 
