@@ -236,12 +236,12 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | string | Identificador exclusivo para o evento. |
-| dados | objeto | Dados de eventos do grupo de recursos. |
+| id | string | Identificador exclusivo para o evento. |
+| data | objeto | Dados de eventos do grupo de recursos. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
@@ -249,8 +249,8 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Autorização | objeto | O pedido de autorização para a operação. |
-| afirmações | objeto | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| authorization | objeto | O pedido de autorização para a operação. |
+| claims | objeto | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | Um ID de operação para resolução de problemas. |
 | httpRequest | objeto | Os detalhes da operação. Este objeto só é incluído ao atualizar um recurso existente ou eliminar um recurso. |
 | resourceProvider | string | O fornecedor de recursos para a operação. |
