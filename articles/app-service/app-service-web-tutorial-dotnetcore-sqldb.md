@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c83e14d65b30775f0dad54ab9ade1a7bed5ac821
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad211eef673731a856c4db99fe0b4712217b23e5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66139468"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808494"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Criar uma aplicação ASP.NET Core e base de dados SQL no serviço de aplicações do Azure
 
@@ -148,7 +148,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 
 ### <a name="create-connection-string"></a>Criar uma cadeia de ligação
 
-Substitua a string seguinte pelo *\<server_name>*, *\<db_username>* e *\<db_password>* utilizados anteriormente.
+Substitua a string seguinte pelo *\<server_name>* , *\<db_username>* e *\<db_password>* utilizados anteriormente.
 
 ```
 Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
@@ -174,7 +174,7 @@ Neste passo, vai implementar a aplicação .NET Core ligada à Base de Dados SQL
 
 ### <a name="configure-an-environment-variable"></a>Configurar uma variável de ambiente
 
-Para definir cadeias de ligação para a sua aplicação do Azure, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. No comando seguinte, substitua *\<app name>*, bem como o parâmetro *\<connection_string>* pela cadeia de ligação que criou anteriormente.
+Para definir cadeias de ligação para a sua aplicação do Azure, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. No comando seguinte, substitua *\<app name>* , bem como o parâmetro *\<connection_string>* pela cadeia de ligação que criou anteriormente.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -182,7 +182,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Em seguida, configure a definição da aplicação `ASPNETCORE_ENVIRONMENT` como _Produção_. Esta definição permite-lhe saber se está em execução no Azure, uma vez que utiliza o SQLite para o seu ambiente de desenvolvimento local e a Base de Dados SQL para o seu ambiente do Azure.
 
-O exemplo seguinte configura um `ASPNETCORE_ENVIRONMENT` definição de aplicação na sua aplicação do Azure. Substitua o marcador de posição *\<app_name>*.
+O exemplo seguinte configura um `ASPNETCORE_ENVIRONMENT` definição de aplicação na sua aplicação do Azure. Substitua o marcador de posição *\<app_name>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -371,7 +371,7 @@ Todos os itens a fazer existentes continuam a ser apresentados. Quando voltar a 
 
 Enquanto executa a aplicação ASP.NET Core no serviço de aplicações do Azure, pode obter os registos de consola direcionados para o Cloud Shell. Dessa forma, pode obter as mesmas mensagens de diagnóstico para ajudar a depurar erros de aplicações.
 
-O projeto de exemplo já segue as instruções em [registo de núcleo ASP.NET no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) com duas alterações de configuração:
+O projeto de exemplo já segue as instruções em [registo de núcleo ASP.NET no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) com duas alterações de configuração:
 
 - Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` no *DotNetCoreSqlDb.csproj*.
 - Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` no *Startup.cs*.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 9bb721221f8f90a39b1c84bcdd66429bbd628494
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65912657"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808449"
 ---
 # <a name="ship-an-application"></a>Enviar uma aplicação
 
@@ -30,8 +30,8 @@ O SDK de voz dos serviços cognitivos é testado no Windows 10 e no Windows Serv
 
 O SDK de voz dos serviços cognitivos requer o [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) no sistema. Pode baixar os programas de instalação para a versão mais recente do `Microsoft Visual C++ Redistributable for Visual Studio 2019` aqui:
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 Se o aplicativo usar código gerenciado, o `.NET Framework 4.6.1` ou posterior é necessário no computador de destino.
 

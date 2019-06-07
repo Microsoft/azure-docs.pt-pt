@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/28/2018
+ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94858a147dc0383376a54bc94685d855d37e12d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a23ca469aab582fed4b4e72f48bc2dd0b9dafe0
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60784899"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807802"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Criar e gerir VMs do Windows com o Azure PowerShell
 
@@ -181,13 +181,13 @@ O tamanho da VM determina a quantidade de recursos de computação, como CPU, me
 
 A tabela seguinte categoriza tamanhos em casos de utilização.  
 
-| Type                     | Tamanhos comuns           |    Descrição       |
+| Tipo                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Fins gerais](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
-| [Com otimização de computação](sizes-compute.md)   | Fsv2, Fs, F             | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
+| [Com otimização de computação](sizes-compute.md)   | Fsv2            | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
 | [Com otimização de memória](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
-| [Com otimização de armazenamento](sizes-storage.md)      | Ls                | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
+| [Com otimização de armazenamento](sizes-storage.md)      | Lsv2, Ls                | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, NDv2, ND   | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
 | [Elevado desempenho](sizes-hpc.md) | H        | As nossas mais poderosas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. |
 
 ### <a name="find-available-vm-sizes"></a>Encontrar todos os tamanhos de VM disponíveis
@@ -242,7 +242,7 @@ Start-AzVM `
 Uma VM do Azure pode ter um de vários estados de energia. 
 
 
-| Estado de Energia | Descrição
+| Estado de energia | Descrição
 |----|----|
 | A iniciar | A máquina virtual está a ser iniciada. |
 | A executar | A máquina virtual está em execução. |

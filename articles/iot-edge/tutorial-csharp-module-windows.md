@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7678415b7ce505da7678a00a4bcf2d933e260530
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303938"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808771"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um C# módulo do IoT Edge para dispositivos Windows
 
@@ -78,7 +78,7 @@ As ferramentas do Azure IoT Edge fornece modelos de projeto para o IoT Edge de s
 
    | Campo | Value |
    | ----- | ----- |
-   | Seleccionar um modelo | Selecione  **C# módulo**. | 
+   | Selecione um modelo | Selecione  **C# módulo**. | 
    | Nome do projeto de módulo | Atribua o nome **CSharpModule** ao módulo. | 
    | Repositório de imagens do docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida com aceder a partir do valor de nome de projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome do registo\>.azurecr.io/csharpmodule. |
 
@@ -104,16 +104,17 @@ O manifesto de implantação compartilha as credenciais para o seu registo de co
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. Guarde o ficheiro de deployment.template.json. 
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+O código do módulo de predefinição recebe mensagens numa fila de entrada e transmite-los por meio de uma fila de saída. Vamos adicionar alguns códigos adicionais para que o módulo processa as mensagens na periferia antes do reencaminhamento-los para o IoT Hub. Atualize o módulo para que analisa os dados de temperatura em cada mensagem e só envia a mensagem para o IoT Hub, se a temperatura for superior a um determinado limiar. 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. No Visual Studio, abra **CSharpModule** > **Program.cs**.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. Na parte superior do espaço de nomes **CSharpModule**, adicione três declarações **em utilização** para os tipos que são utilizados mais tarde:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

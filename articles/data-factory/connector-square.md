@@ -111,7 +111,7 @@ Para copiar dados do quadrado, defina o tipo de origem na atividade de cópia pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SquareSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
