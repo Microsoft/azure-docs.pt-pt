@@ -150,12 +150,12 @@ Todos os eventos contêm os mesmos dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| ID | string | Identificador exclusivo para o evento. |
-| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| Assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| id | string | Identificador exclusivo para o evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| Dados | objeto | Dados de eventos do IoT Hub.  |
+| data | objeto | Dados de eventos do IoT Hub.  |
 | dataVersion | string | A versão de esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão de esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
@@ -188,7 +188,7 @@ Para **dispositivo criado** e **dispositivo eliminado** eventos do IoT Hub, o ob
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| duplo | objeto | Informações sobre o dispositivo duplo, que é a representação de cloud de metadados de dispositivo do aplicativo. | 
+| twin | objeto | Informações sobre o dispositivo duplo, que é a representação de cloud de metadados de dispositivo do aplicativo. | 
 | deviceID | string | O identificador exclusivo do dispositivo duplo. | 
 | etag | string | Um validador para garantir a consistência das atualizações para um dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. |  
 | deviceEtag| string | Um validador para garantir a consistência das atualizações para um registo do dispositivo. Cada deviceEtag é a garantia de ser exclusivo por registo de dispositivo. |
@@ -202,8 +202,8 @@ Para **dispositivo criado** e **dispositivo eliminado** eventos do IoT Hub, o ob
 | primaryThumbprint | string | Thumbprint primário para o x509 certificado. |
 | secondaryThumbprint | string | Thumbprint secundário para o x509 certificado. | 
 | version | inteiro | Um número inteiro que é incrementado em um cada vez que o dispositivo duplo é atualizado. |
-| pretendido | objeto | Uma parte das propriedades que podem ser gravados apenas pelo back-end da aplicação e ler pelo dispositivo. | 
-| comunicado | objeto | Uma parte das propriedades que pode ser escrito apenas pelo dispositivo e ler o back-end da aplicação. |
+| desired | objeto | Uma parte das propriedades que podem ser gravados apenas pelo back-end da aplicação e ler pelo dispositivo. | 
+| reported | objeto | Uma parte das propriedades que pode ser escrito apenas pelo dispositivo e ler o back-end da aplicação. |
 | lastUpdated | string | Atualizar o carimbo de hora ISO8601 da última propriedade de twin do dispositivo. | 
 
 ## <a name="next-steps"></a>Passos Seguintes
