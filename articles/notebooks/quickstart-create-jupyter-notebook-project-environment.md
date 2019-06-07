@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240632"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754025"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Início rápido: Criar um projeto com um ambiente personalizado
 
@@ -43,7 +43,7 @@ Um projeto em blocos de notas do Azure é uma coleção de arquivos, como blocos
     - **Projeto público**: (limpo)
     - **Criar um README.md**: (limpo)
 
-1. Após alguns instantes, o Azure blocos de notas navega para o novo projeto. Adicionar um bloco de notas para o projeto, selecionando o **+ novo** pendente (que podem aparecer apenas como **+**), em seguida, selecionar **bloco de notas**.
+1. Após alguns instantes, o Azure blocos de notas navega para o novo projeto. Adicionar um bloco de notas para o projeto, selecionando o **+ novo** pendente (que podem aparecer apenas como **+** ), em seguida, selecionar **bloco de notas**.
 
 1. Dê um nome semelhante ao bloco de notas *personalizado environment.ipynb*, selecione **Python 3.6** para o idioma, selecione **New**.
 

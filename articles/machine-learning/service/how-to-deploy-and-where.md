@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1be9d11db9a1c614614e0a4023f84b15588ba5f0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742951"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753086"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -92,14 +92,7 @@ Para obter mais informações, consulte a documentação de referência para o [
 
 Os seguintes destinos, de computação ou recursos de computação, podem ser utilizadas para alojar a sua implementação do serviço web. 
 
-| Destino de computação | Utilização | Descrição |
-| ----- | ----- | ----- |
-| [Serviço local web](#local) | Teste/depuração | Vale a limitado de teste e resolução de problemas.
-| [Serviço Kubernetes do Azure (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
-| [Azure Container Instances (ACI)](#aci) | Testes | Vale a pequena escala, com base na CPU a cargas de trabalho. |
-| [Computação do Azure Machine Learning](how-to-run-batch-predictions.md) | Inferência de tipos do batch | Execute a inferência de tipos de batch de computação sem servidor. Suporta VMs normais e de baixa prioridade. |
-| [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implementar e servir os modelos de ML em dispositivos IoT. |
-
+[!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
 ## <a name="prepare-to-deploy"></a>Preparar para implementar
 

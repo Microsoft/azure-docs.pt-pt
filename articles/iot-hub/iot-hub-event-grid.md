@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f08845dbf4168627d0198e81d2092a1fe56c6c89
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 73a9aebfd0c5338f63927860ce3f6c57b20428a4
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733872"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754770"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir a eventos do IoT Hub com o Event Grid para realizar ações
 
@@ -25,7 +25,7 @@ O IoT Hub do Azure integra-se com o Azure Event Grid para que possa enviar notif
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A integração do Event Grid está disponível para os hubs IoT localizados em regiões onde o Event Grid é suportada. Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo estão geralmente disponíveis. Eventos de telemetria do dispositivo está em pré-visualização pública e está disponível em todas as regiões, exceto E.U.A. leste, E.U.A. oeste, Europa Ocidental, [do Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china/china-welcome), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/). Para obter a lista mais recente de regiões, consulte [uma introdução ao Azure Event Grid](../event-grid/overview.md).
+A integração do Event Grid está disponível para os hubs IoT localizados em regiões onde o Event Grid é suportada. Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo estão geralmente disponíveis. Eventos de telemetria do dispositivo está em pré-visualização pública e está disponível em todas as regiões, exceto E.U.A. leste, E.U.A. oeste, Europa Ocidental, [do Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/). Para obter a lista mais recente de regiões, consulte [uma introdução ao Azure Event Grid](../event-grid/overview.md).
 
 ## <a name="event-types"></a>Tipos de eventos
 

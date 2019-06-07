@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 5ee9970a255928bca9d08111229be6298f20d7b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7df64c3fb70bdf3e7689787ec558bfe0e4942352
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235600"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754005"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Início rápido: Migrar um bloco de notas Jupyter local
 

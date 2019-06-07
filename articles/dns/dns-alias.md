@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: b34baa6f1ba91935fc6307dbb1617393786043b9
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692846"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754226"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
@@ -41,11 +41,11 @@ Existem alguns cenários comuns para os registos de Alias.
 
 ### <a name="prevent-dangling-dns-records"></a>Impedir dangling registos DNS
 
-Um problema comum com registos DNS tradicionais é dangling registos. Por exemplo, registos DNS que não foram atualizados para refletir as alterações para endereços IP. O problema ocorre especialmente com A/AAAA ou CNAME tipos de registos.
+Um problema comum com registos DNS tradicionais é dangling registos. Por exemplo, registos DNS que não tenham sido atualizados para refletir as alterações para endereços IP. O problema ocorre especialmente com A/AAAA ou CNAME tipos de registos.
 
 Com um registo de zona DNS tradicional, se o IP de destino ou CNAME já não existir, o registo DNS associado ao mesmo têm de ser manualmente atualizado. Em algumas organizações, uma atualização manual não poderá ocorrer no tempo devido a problemas de processo ou a separação de funções e níveis de permissão associada. Por exemplo, uma função pode ter a autoridade para eliminar um CNAME ou endereço IP que pertence a uma aplicação. Mas não tem autoridade suficiente para atualizar o registo DNS que aponta para esses destinos. Um atraso na atualização do registo DNS pode potencialmente causar uma falha para os utilizadores.
 
-Registos de alias impedem dangling referências com a União totalmente o ciclo de vida de um registo DNS com um recurso do Azure. Por exemplo, considere um registo DNS que é qualificado como um registo de alias para apontar para um endereço IP público ou um perfil do Gestor de tráfego. Se esses recursos subjacentes forem excluídos, o registo de alias DNS é removido ao mesmo tempo.
+Registos de alias impedem dangling referências com a União totalmente o ciclo de vida de um registo DNS com um recurso do Azure. Por exemplo, considere um registo DNS que é qualificado como um registo de alias para apontar para um endereço IP público ou um perfil do Gestor de tráfego. Se eliminar esses recursos subjacentes, o registo de alias DNS se torna um conjunto de registos vazio. Já não referencia o recurso foi eliminado.
 
 ### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Atualizar o conjunto de registos DNS automaticamente quando são alterados endereços IP da aplicação
 
@@ -56,7 +56,7 @@ Este cenário é semelhante ao anterior. Talvez um aplicativo é movido, ou a m�
 O protocolo DNS impede a atribuição de registos CNAME no vértice da zona. Por exemplo, se o seu domínio é contoso.com; Pode criar registos CNAME para somelable.contoso.com; mas não é possível criar o CNAME para contoso.com em si.
 Esta restrição apresenta um problema para os proprietários da aplicação que tenham aplicações com balanceamento de carga por trás [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md). Uma vez que a utilização de um perfil do Gestor de tráfego requer a criação de um registo CNAME, não é possível apontar para o perfil do Gestor de tráfego do vértice da zona.
 
-Esse problema pode ser resolvido utilizando registos de alias. Ao contrário de registos CNAME, os registos de alias podem ser criados no vértice da zona e proprietários de aplicativos podem utilizá-lo para apontar o respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Os proprietários de aplicativos podem apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS.
+Esse problema foi resolvido com registos de alias. Ao contrário de registos CNAME, os registos de alias são criados no vértice da zona e proprietários de aplicativos podem utilizá-lo para apontar o respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Os proprietários dos aplicativos de apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS.
 
 Por exemplo, contoso.com e www\.contoso.com pode apontar para o mesmo perfil de Gestor de tráfego. Para saber mais sobre como utilizar os registos de alias com perfis do Gestor de tráfego do Azure, veja a secção de passos seguinte.
 
@@ -66,7 +66,7 @@ Tal como um perfil do Gestor de tráfego, também pode utilizar os registos de a
 
 Por exemplo, se o seu Web site estático com o nome www.contoso.com, os utilizadores podem aceder a seu site usando o contoso.com sem que seja necessário preceder www para o nome DNS.
 
-Conforme descrito anteriormente, os registos CNAME não são suportados no vértice da zona. Assim, não é possível utilizar um registo CNAME para apontar o contoso.com para o ponto final da CDN. Em vez disso, pode utilizar um registo de alias para apontar diretamente o vértice da zona para um ponto final da CDN.
+Conforme descrito anteriormente, não são suportados registos CNAME no vértice da zona. Assim, não é possível utilizar um registo CNAME para apontar o contoso.com para o ponto final da CDN. Em vez disso, pode utilizar um registo de alias para apontar diretamente o vértice da zona para um ponto final da CDN.
 
 > [!NOTE]
 > Apontar um vértice da zona para pontos finais da CDN para a CDN do Azure da Akamai não é atualmente suportada.

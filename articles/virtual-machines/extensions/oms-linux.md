@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2019
+ms.date: 06/06/2019
 ms.author: roiyz
-ms.openlocfilehash: 538eb492829c8ad171d1d27b51405725f53f352a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b24af016349db0fcfb4106a1e69da395e3d0150
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743603"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755150"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Azure Monitor para Linux
 
@@ -53,11 +53,27 @@ A extensão de agente do Log Analytics pode ser executada nessas distribuições
 >OpenSSL inferior à versão 1.x não é suportado em qualquer plataforma e versão 1.10 só é suportado em plataformas de x86_64 (64 bits).  
 >
 
+### <a name="agent-prerequisites"></a>Pré-requisitos do agente
+
+A tabela seguinte realça os pacotes necessários para as distribuições suportadas de Linux que o agente será instalado no.
+
+|Pacote necessário |Descrição |Versão mínima |
+|-----------------|------------|----------------|
+|Glibc |    Biblioteca de C do GNU | 2.5-12 
+|OpenSSL    | Bibliotecas de OpenSSL | 1.0.x ou 1.1.x |
+|Curl | cliente de web de cURL | 7.15.5 |
+|Ctypes de Python | | 
+|PAM | Módulos de autenticação conectável | | 
+
+>[!NOTE]
+>Rsyslog ou syslog-ng são necessárias para recolher as mensagens syslog. O daemon de syslog padrão na versão 5 da versão do Oracle Linux, CentOS e Red Hat Enterprise Linux (sysklog) não é suportado para a recolha de eventos do syslog. Para recolher dados de syslog a partir desta versão nessas distribuições, o daemon de rsyslog deve ser instalado e configurado para substituir sysklog.
+
 ### <a name="agent-and-vm-extension-version"></a>Versão de agente e a extensão de VM
 A tabela seguinte fornece um mapeamento da versão da extensão de VM do Azure Monitor e pacote de agente do Log Analytics para cada versão. Uma ligação para as notas de versão para a versão de pacote de agente do Log Analytics está incluída. Notas de versão incluem detalhes sobre correções de bugs e novos recursos disponíveis para uma versão de determinado agente.  
 
 | Versão de extensão de VM do Linux de Monitor do Azure | Versão do pacote de agente de análise de registo | 
 |--------------------------------|--------------------------|
+|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 

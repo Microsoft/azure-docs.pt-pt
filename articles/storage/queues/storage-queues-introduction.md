@@ -5,20 +5,20 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: overview
-ms.date: 02/06/2019
+ms.date: 06/07/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 544ff9d2c624ef62bf8041afd818153c1c4bfcc8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bc3045e3d3b6977555818fcdb3dcaf3246ebd200
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142502"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754804"
 ---
 # <a name="what-are-azure-queues"></a>O que são as Filas do Azure?
 
-O Armazenamento de Filas do Azure é um serviço para armazenar um grande número de mensagens que podem ser acedidas a partir de qualquer local no mundo através de chamadas autenticadas com HTTP ou HTTPS. Uma mensagem de fila única pode ter até 64 KB e uma fila pode conter milhões de mensagens, até ao limite da capacidade total de uma conta de armazenamento.
+Armazenamento de filas do Azure é um serviço para armazenar grandes quantidades de mensagens. Acessar as mensagens de qualquer lugar no mundo através de chamadas autenticadas, utilizando HTTP ou HTTPS. Uma mensagem de fila pode ser até 64 KB de tamanho. Uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento.
 
 ## <a name="common-uses"></a>Utilizações comuns
 
@@ -33,8 +33,9 @@ O serviço Fila contém os seguintes componentes:
 
 ![Conceitos de fila](./media/storage-queues-introduction/queue1.png)
 
-* **Formato de URL:** Ficheiros são endereçáveis através do formato de URL seguinte:   
-    https://`<storage account>`.queue.core.windows.net/`<queue>` 
+* **Formato de URL:** Ficheiros são endereçáveis através do formato de URL seguinte:
+
+    `https://<storage account>.queue.core.windows.net/<queue>`
   
     O seguinte URL endereça uma fila no diagrama:  
   
@@ -42,9 +43,9 @@ O serviço Fila contém os seguintes componentes:
 
 * **Conta de armazenamento:** Todos os acessos ao armazenamento do Azure é feito através de uma conta de armazenamento. Veja [Metas de Desempenho e Escalabilidade do Storage do Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) para obter detalhes acerca da capacidade das contas de armazenamento.
 
-* **Fila:** Uma fila contém um conjunto de mensagens. Todas as mensagens têm de estar numa fila. Tenha em atenção que o nome da fila tem de estar todo em minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Fila:** Uma fila contém um conjunto de mensagens. O nome da fila **tem** estar todo em minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **mensagem:** Uma mensagem, em qualquer formato, de até 64 KB. O tempo máximo que uma mensagem pode permanecer na fila é de sete dias.
+* **mensagem:** Uma mensagem, em qualquer formato, de até 64 KB. Antes da versão 07-29 de 2017, o tempo de vida máximo permitido é de sete dias. Para a versão 2017-07-29 ou posterior, o máximo tempo de vida pode ser qualquer número positivo ou -1 que indica que a mensagem não expire. Se este parâmetro for omitido, a predefinição time-to-live é de sete dias.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

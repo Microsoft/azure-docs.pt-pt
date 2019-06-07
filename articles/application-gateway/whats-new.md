@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: cdf2a1a730be657b41c7a4b2daf2f178661394b4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 2a494b924107baeabbcf412af7e1bbdb1db0f753
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947115"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752015"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>O que há de novo no Gateway de aplicação do Azure?
 
@@ -27,6 +27,7 @@ O Gateway de aplicação do Azure é atualizado de forma contínua. Para se mant
 
 |Funcionalidade  |Descrição  |Data de adição  |
 |---------|---------|---------|
+|Regras personalizadas de WAF |Applicaiton Gateway WAF_v2 agora suporta a criação de regras personalizadas. Ver [regras personalizadas do Gateway de aplicação](custom-waf-rules-overview.md). |Junho de 2019 |
 |Dimensionamento automático, redundância de zona, o suporte de VIP estático GA |Disponibilidade geral para o SKU de v2, que suporta o dimensionamento automático, redundância de zona, aprimorar o desempenho, VIPs estáticos, o Cofre de chaves, reescrever de cabeçalho. Ver [documentação do Gateway de aplicação de dimensionamento automático](application-gateway-autoscaling-zone-redundant.md). |Abril de 2019 |
 |Integração do Cofre de chaves |Gateway de aplicação suporta agora a integração com o Key Vault (em pré-visualização pública) para certificados de servidor que estão anexados a serviços de escuta HTTPS ativado. Ver [terminação de SSL com certificados do Key Vault](key-vault-certs.md). |Abril de 2019 |
 |Cabeçalho CRUD/Reescritas     |Agora pode reescrever cabeçalhos HTTP. Consulte [Tutorial: Criar um gateway de aplicação e volte a escrever cabeçalhos HTTP](tutorial-http-header-rewrite-powershell.md) para obter mais informações.|Dezembro de 2018|

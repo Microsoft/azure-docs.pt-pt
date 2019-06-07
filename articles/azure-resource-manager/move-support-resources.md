@@ -4,14 +4,14 @@ description: Lista os tipos de recursos do Azure que podem ser movidos para um n
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/17/2019
+ms.date: 6/6/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872562"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752347"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 Este artigo lista se um tipo de recurso do Azure suporta a operação de movimentação. Embora um tipo de recurso suporta a operação de movimentação, poderá haver condições que impedem que o recurso a ser movido. Para obter detalhes sobre as condições que afetem as operações de movimentação, consulte [mover recursos para um novo grupo de recursos ou subscrição](resource-group-move-resources.md).
@@ -36,7 +36,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -92,8 +92,8 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | ------------- | ----------- | ---------- |
 | Clusters | Não | Não |
 | fileservers | Não | Não |
-| tarefas | Não | Não |
-| áreas de trabalho | Não | Não |
+| Tarefas | Não | Não |
+| Áreas de trabalho | Não | Não |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -157,13 +157,13 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
 | availabilitysets | Sim | Sim |
-| discos | Sim | Sim |
+| Discos | Sim | Sim |
 | galerias | Não | Não |
 | galleries/images | Não | Não |
 | galleries/images/versions | Não | Não |
@@ -174,7 +174,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | restorepointcollections | Não | Não |
 | sharedvmimages | Não | Não |
 | sharedvmimages/versions | Não | Não |
-| instantâneos | Sim | Sim |
+| Instantâneos | Sim | Sim |
 | virtualmachines | Sim | Sim |
 | virtualmachines/extensions | Sim | Sim |
 | virtualmachinescalesets | Sim | Sim |
@@ -213,12 +213,12 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Não | Não |
+| accounts | Não | Não |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| conectores | Sim | Sim |
+| empresariais | Sim | Sim |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -228,7 +228,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| tarefas | Não | Não |
+| Tarefas | Não | Não |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -238,7 +238,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| áreas de trabalho | Não | Não |
+| Áreas de trabalho | Não | Não |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -254,7 +254,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| pacotes | Não | Não |
+| Pacotes | Não | Não |
 | Planos | Não | Não |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
@@ -271,12 +271,12 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -288,18 +288,18 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
 | servergroups | Não | Não |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 | serversv2 | Sim | Sim |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
@@ -378,7 +378,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Não | Não |
+| accounts | Não | Não |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -398,7 +398,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| computadores | Não | Não |
+| máquinas | Não | Não |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -408,12 +408,12 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| tarefas | Sim | Sim |
+| Tarefas | Sim | Sim |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Não | Não |
+| accounts | Não | Não |
 | actiongroups | Sim | Sim |
 | activitylogalerts | Não | Não |
 | alertrules | Sim | Sim |
@@ -423,7 +423,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | metricalerts | Não | Não |
 | notificationgroups | Não | Não |
 | notificationrules | Não | Não |
-| scheduledqueryrules | Não | Não |
+| scheduledqueryrules | Sim | Sim |
 | testes Web | Sim | Sim |
 | pastas de trabalho | Sim | Sim |
 
@@ -436,7 +436,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
 | checknameavailability | Sim | Sim |
-| gráfico | Sim | Sim |
+| graph | Sim | Sim |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -457,12 +457,12 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Não | Não |
+| accounts | Não | Não |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -478,7 +478,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | ------------- | ----------- | ---------- |
 | commitmentplans | Sim | Sim |
 | webservices | Sim | Não |
-| áreas de trabalho | Sim | Sim |
+| Áreas de trabalho | Sim | Sim |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -488,7 +488,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Não | Não |
+| accounts | Não | Não |
 | accounts/workspaces | Não | Não |
 | accounts/workspaces/projects | Não | Não |
 | teamaccounts | Não | Não |
@@ -498,7 +498,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftmachinelearningoperationalization"></a>Microsoft.MachineLearningOperationalization
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -508,7 +508,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| áreas de trabalho | Não | Não |
+| Áreas de trabalho | Não | Não |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -518,7 +518,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -556,7 +556,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | applicationsecuritygroups | Sim | Sim |
 | azurefirewalls | Sim | Sim |
 | bastionhosts | Não | Não |
-| ligações | Sim | Sim |
+| Ligações | Sim | Sim |
 | ddoscustompolicies | Sim | Sim |
 | ddosprotectionplans | Não | Não |
 | dnszones | Sim | Sim |
@@ -607,14 +607,14 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| áreas de trabalho | Sim | Sim |
+| Áreas de trabalho | Sim | Sim |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
 | managementconfigurations | Sim | Sim |
 | soluções | Sim | Sim |
-| visualizações | Sim | Sim |
+| Modos de exibição | Sim | Sim |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -644,7 +644,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| contas | Não | Não |
+| accounts | Não | Não |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -707,7 +707,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | containergroups | Não | Não |
 | gateways | Sim | Sim |
 | Redes | Sim | Sim |
-| segredos | Sim | Sim |
+| Segredos | Sim | Sim |
 | volumes | Sim | Sim |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
@@ -735,7 +735,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | instancepools | Sim | Sim |
 | managedinstances | Sim | Sim |
 | managedinstances/databases | Sim | Sim |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 | servers/databases | Sim | Sim |
 | servers/elasticpools | Sim | Sim |
 | virtualclusters | Sim | Sim |
@@ -799,7 +799,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
 | providerregistrations | Não | Não |
-| recursos | Não | Não |
+| Recursos | Não | Não |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo de recurso | Grupo de recursos | Subscrição |
@@ -835,9 +835,9 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo de recurso | Grupo de recursos | Subscrição |
 | ------------- | ----------- | ---------- |
-| certificados | Não | Sim |
+| Certificados | Não | Sim |
 | connectiongateways | Sim | Sim |
-| ligações | Sim | Sim |
+| Ligações | Sim | Sim |
 | customapis | Sim | Sim |
 | hostingenvironments | Não | Não |
 | serverfarms | Sim | Sim |
@@ -855,7 +855,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | ------------- | ----------- | ---------- |
 | applicationgroups | Não | Não |
 | hostpools | Não | Não |
-| áreas de trabalho | Não | Não |
+| Áreas de trabalho | Não | Não |
 
 ## <a name="third-party-services"></a>Serviços de terceiros
 

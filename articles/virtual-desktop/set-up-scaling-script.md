@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410575"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755126"
 ---
 # <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente os hosts de sessão
 
@@ -26,7 +26,7 @@ O ambiente em que executar o script tem de ter os seguintes procedimentos:
 
 - Um inquilino de área de Trabalho Virtual do Windows e a conta ou um principal de serviço com permissões para consultar esse inquilino (por exemplo, o colaborador de RDS).
 - As VMs do conjunto de host de sessão configurados e registado com o serviço de área de Trabalho Virtual do Windows.
-- Uma máquina virtual adicional que executa a tarefa agendada por meio do agendador de tarefas e tem acesso à rede para hosts de sessão. Este será reffered para posteriormente no documento como parte do scaler VM.
+- Uma máquina virtual adicional que executa a tarefa agendada por meio do agendador de tarefas e tem acesso à rede para hosts de sessão. Isto irá ser referido posteriormente no documento como parte do scaler VM.
 - O [módulo do Microsoft Azure Resource Manager PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instalado na VM em execução a tarefa agendada.
 - O [módulo do Windows PowerShell de ambiente de Trabalho Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) instalado na VM em execução a tarefa agendada.
 

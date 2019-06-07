@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522842"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753995"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Como o índice do Cosmos DB com um indexador de Azure Search
 
@@ -282,6 +282,8 @@ Assim que tiver sido criado a origem de dados e índice, está pronto para criar
 Este indexador é executado a cada duas horas (intervalo de agendamento está definido para "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O mais curto intervalo suportado é de 5 minutos. A agenda é opcional - se for omitido, um indexador é executado apenas uma vez, quando é criado. No entanto, pode executar uma indexador sob demanda em qualquer altura.   
 
 Para obter mais detalhes sobre a API de indexador criar, confira [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Para obter mais informações sobre como definir agendas de indexador, consulte [como agendar indexadores para o Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="use-net"></a>Utilizar .NET
 

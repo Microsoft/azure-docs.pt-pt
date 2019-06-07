@@ -5,14 +5,14 @@ services: container-service
 author: tylermsft
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/06/2019
 ms.author: twhitney
-ms.openlocfilehash: 5f727cb5c56c31e769edcb365f6d571253174567
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: cdcc1b985c570d1af4bbb33ac29a37e63b1dfa90
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305291"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752384"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Pré-visualizar - criar um contentor do Windows Server num cluster do Azure Kubernetes Service (AKS) utilizando a CLI do Azure
 
@@ -86,7 +86,6 @@ Enquanto esta funcionalidade está em pré-visualização, aplicam-se as seguint
 * O cluster do AKS pode ter um máximo de oito conjuntos de nós.
 * O cluster do AKS pode ter um máximo de 400 nós entre esses conjuntos de oito nós.
 * O nome de agrupamento do Windows Server nó tem um limite de 6 carateres.
-* Conjuntos de nós do Windows Server não estão disponíveis nas regiões do Canadá neste momento.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

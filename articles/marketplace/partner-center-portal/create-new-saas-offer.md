@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9c8b8a6ad8a10a65a05b46bf433d00b4e3ecb402
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2019
-ms.locfileid: "66455694"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751891"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -74,7 +74,7 @@ Para listar o Software como serviço (SaaS) oferece com o Marketplace comercial 
 
 - A oferta tem de ser compatível com os clientes do Azure. (Muitas vezes, aplicações SaaS também estão alojadas no Azure para o melhor desempenho e compatibilidade, mas não se trata de um requisito.) 
 - A oferta tem de utilizar [do Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) para gestão de identidades e autenticação.
-- A oferta tem de utilizar [APIs de preenchimento de SaaS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2) para integrar com o Azure Marketplace.
+- A oferta tem de utilizar [APIs de preenchimento de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) para integrar com o Azure Marketplace.
 
 #### <a name="billing-infrastructure-costs"></a>Custos de infraestrutura de faturação
 Para ofertas de SaaS,, como o publicador, deve levar em conta as tarifas de utilização da infraestrutura do Azure e taxas de licenciamento de software como um item único custo. Esse custo é representado como uma taxa mensal fixa para o cliente. Utilização da infraestrutura do Azure é gerenciada e faturada para si, o parceiro diretamente. As tarifas de utilização da infraestrutura real não são vistas pelo cliente. Os publicadores, normalmente, optar por agrupar as tarifas de utilização da infraestrutura do Azure nos respetivos preços de licença de software. 

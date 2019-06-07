@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8c95b2981933764bc8d6dcf8bf57e9ab40ef53b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831066"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752070"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar o suporte de rede Virtual para uma Cache do Azure Premium para Redis
 A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de tamanho de cache e funcionalidades, incluindo as funcionalidades do escalão Premium, tais como clustering, persistência e suporte de rede virtual. Uma VNet é uma rede privada na cloud. Quando uma Cache do Azure para a instância de Redis está configurada com uma VNet, não é publicamente endereçável e só pode ser acedida a partir de máquinas virtuais e aplicações dentro da VNet. Este artigo descreve como configurar o suporte de rede virtual para uma Cache do Azure de premium para a instância de Redis.
@@ -113,7 +113,7 @@ Existem sete requisitos de porta de saída.
 | Porta (s) | Direction | Protocolo de transporte | Objetivo | Local IP | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Saída |TCP |Redis dependências no Azure armazenamento/PKI (Internet) | (Redis sub-rede) |* |
-| 53 |Saída |TCP/UDP |Redis dependências no DNS (Internet/VNet) | (Redis sub-rede) |* |
+| 53 |Saída |TCP/UDP |Redis dependências no DNS (Internet/VNet) | (Redis sub-rede) | 168.63.129.16 e 169.254.169.254 <sup>1</sup> e em qualquer servidor DNS personalizado para a sub-rede <sup>3</sup> |
 | 8443 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) | (Redis sub-rede) |
 | 10221-10231 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) | (Redis sub-rede) |
 | 20226 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |
@@ -121,6 +121,9 @@ Existem sete requisitos de porta de saída.
 | 15000-15999 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |
 | 6379-6380 |Saída |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |
 
+<sup>1</sup> estes endereços IP pertencentes à Microsoft são utilizados para resolver a VM de anfitrião que serve o DNS do Azure.
+
+<sup>3</sup> não necessária para sub-redes com nenhum servidor DNS personalizado, ou mais recente de redis caches ignorar DNS personalizado.
 
 #### <a name="inbound-port-requirements"></a>Requisitos de porta de entrada
 

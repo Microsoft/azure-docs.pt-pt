@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916368"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751975"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recolher dados de registo com o agente do Log Analytics do Azure
 
@@ -59,7 +59,8 @@ A partir do versões lançadas em Agosto de 2018, estamos a efetuar as seguintes
 * Novas versões de AMI não são suportadas.  
 * Apenas as versões que executam o SSL 1.x por predefinição são suportados.
 
-Se estiver a utilizar pela distro ou uma versão que não é atualmente suportada e não se alinham com o nosso modelo de suporte, recomendamos que bifurcar deste repositório, ter consciência de que o suporte da Microsoft não irá fornecer assistência com o agente bifurcado versões.
+>[!NOTE]
+>Se estiver a utilizar pela distro ou uma versão que não é atualmente suportada e não se alinham com o nosso modelo de suporte, recomendamos que bifurcar deste repositório, ter consciência de que o suporte da Microsoft não irá fornecer assistência com o agente bifurcado versões.
 
 * Amazon Linux 2017.09 (x64)
 * Linux centOS 6 (x86/x64) e 7 (x64)  
@@ -72,6 +73,21 @@ Se estiver a utilizar pela distro ou uma versão que não é atualmente suportad
 >[!NOTE]
 >OpenSSL 1.1.0 só é suportado em plataformas com x86_x64 (64-bit) e OpenSSL anteriormente 1.x não é suportada em qualquer plataforma.
 >
+
+### <a name="agent-prerequisites"></a>Pré-requisitos do agente
+
+A tabela seguinte realça os pacotes necessários para as distribuições suportadas de Linux que o agente será instalado no.
+
+|Pacote necessário |Descrição |Versão mínima |
+|-----------------|------------|----------------|
+|Glibc |    Biblioteca de C do GNU | 2.5-12 
+|OpenSSL    | Bibliotecas de OpenSSL | 1.0.x ou 1.1.x |
+|Curl | cliente de web de cURL | 7.15.5 |
+|Ctypes de Python | | 
+|PAM | Módulos de autenticação conectável | | 
+
+>[!NOTE]
+>Rsyslog ou syslog-ng são necessárias para recolher as mensagens syslog. O daemon de syslog padrão na versão 5 da versão do Oracle Linux, CentOS e Red Hat Enterprise Linux (sysklog) não é suportado para a recolha de eventos do syslog. Para recolher dados de syslog a partir desta versão nessas distribuições, o daemon de rsyslog deve ser instalado e configurado para substituir sysklog.
 
 ## <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 Para garantir a segurança dos dados em trânsito para registos do Azure Monitor, recomendamos que configure o agente para utilizar, pelo menos, Transport Layer Security (TLS) 1.2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**.  Para obter mais informações, consulte [enviar dados de forma segura através de TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 

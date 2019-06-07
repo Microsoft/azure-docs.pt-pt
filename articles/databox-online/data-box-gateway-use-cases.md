@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: cdc1b07b93386c0225c1e6c5f570ea1247e450b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924400"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754173"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de utilização para o Gateway de caixa de dados do Azure
 
@@ -50,7 +50,7 @@ Antes de começar, certifique-se de que tem um dispositivo de Gateway de caixa d
 - Depois dos dados serem carregados, será necessário movê-lo para a camada de arquivo. Pode definir a camada de blob de duas formas: Script do Azure PowerShell ou uma política de gestão de ciclo de vida de armazenamento do Azure.  
     - Se utilizar o Azure PowerShell, siga estes [passos](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) para mover os dados para a camada de arquivo.
     - Se utilizar a gestão de ciclo de vida do Azure, siga estes passos para mover os dados para a camada de arquivo.
-        - [Registar](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) na pré-visualização do serviço de gestão do ciclo de vida do Blob para utilizar o arquivo do escalão.
+        - [Registar](/azure/storage/common/storage-lifecycle-management-concepts) na pré-visualização do serviço de gestão do ciclo de vida do Blob para utilizar o arquivo do escalão.
         - Utilize a seguinte política para [ingerir dados de arquivo no](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - Assim que os blobs são marcados como arquivo, eles já não podem ser modificados pelo gateway, a menos que são movidas para a camada frequente ou esporádica. Se o ficheiro estiver no armazenamento local, qualquer alteração feita a cópia local (incluindo eliminações) não é carregadas para o escalão de arquivo.
 - Para ler dados no armazenamento de arquivo, tem de ser reativado ao alterar o escalão de blob para frequente ou esporádica. [Atualizar a partilha](data-box-gateway-manage-shares.md#refresh-shares) no gateway não reidratação de Blobs.

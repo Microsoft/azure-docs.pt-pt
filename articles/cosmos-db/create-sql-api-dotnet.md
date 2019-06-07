@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/20/2019
-ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 06/06/2019
+ms.openlocfilehash: e39440a46228d82b0722f7d9d349d11fb2417b42
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954550"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754655"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de web do .NET com a conta de API de SQL no Azure Cosmos DB
 
@@ -52,33 +52,32 @@ Uma subscrição do Azure ou a conta de avaliação gratuita do Azure Cosmos DB
 
 Pode utilizar o Data Explorer no portal do Azure para criar uma base de dados e uma coleção. 
 
-1.  Selecione **Data Explorer** no painel de navegação esquerda no seu Azure Cosmos DB a página de conta e, em seguida, selecione **nova coleção**. 
+1.  Selecione **Data Explorer** no painel de navegação esquerda no seu Azure Cosmos DB a página de conta e, em seguida, selecione **novo contentor**. 
     
-    Poderá ter de se deslocar para a direita para vê a **adicionar coleção** área.
+    Poderá ter de se deslocar para a direita para vê a **adicionar contentor** janela.
     
     ![O portal do Azure Data Explorer, no painel Adicionar coleção](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  Na página **Adicionar coleção**, introduza as definições para a nova coleção.
+1.  Na **adicionar contentor** painel, introduza as definições para a nova coleção.
     
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**ID da Base de Dados**|ToDoList|Introduza *ToDoList* como o nome para a nova base de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita.|
-    |**ID da Coleção**|Itens|Denomine a nova coleção como *Itens*. Os IDs das coleções têm os mesmos requisitos como nomes de base de dados.|
-    |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */category* como a chave de partição.|
+    |**ID da Base de Dados**|ToDoList|Introduza *ToDoList* como o nome para a nova base de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita. Verifique os **débito de base de dados de aprovisionamento** opção, permite-lhe partilhar o débito aprovisionado para a base de dados em todos os contentores na base de dados. Esta opção também ajuda a com redução de custos. |
     |**Débito**|400|Deixe o débito com 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
+    |**ID de contentor**|Itens|Denomine a nova coleção como *Itens*. Os IDs das coleções têm os mesmos requisitos como nomes de base de dados.|
+    |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */category* como a chave de partição.|
+
     
     Não adicione **chaves exclusivas** para este exemplo. Chaves exclusivas permitem-lhe adicionar uma camada de integridade dos dados na base de dados ao garantir a exclusividade de um ou mais valores por chave de partição. Para obter mais informações, consulte [chaves exclusivas no Azure Cosmos DB](unique-keys.md).
     
-1.  Selecione **OK**. 
-    O Data Explorer mostra a base de dados e a coleção novas.
+1.  Selecione **OK**. O Data Explorer mostra a nova base de dados e o contentor que criou.
     
-    ![O Data Explorer do portal do Azure a mostrar a base de dados e a coleção novas](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ## <a name="add-data-to-your-database"></a>Adicionar dados à sua base de dados
 
 Adicione dados à sua nova base de dados com o Data Explorer.
 
-1. Na **Data Explorer**, a base de dados nova aparece no **coleções** painel. Expanda a **ToDoList** bases de dados, expanda o **itens** coleção, selecione **documentos**e, em seguida, selecione **novo documento**. 
+1. Na **Data Explorer**, expanda o **ToDoList** da base de dados e expanda o **itens** contentor. Em seguida, selecione **itens**e, em seguida, selecione **Novo Item**. 
    
    ![Criar documentos novos no Data Explorer no portal do Azure](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
@@ -108,7 +107,7 @@ Adicione dados à sua nova base de dados com o Data Explorer.
 
 Para ver como é fácil trabalhar programaticamente com os seus dados do Azure Cosmos DB, clone a aplicação de web de .NET API de SQL de exemplo do GitHub, atualizar a cadeia de ligação e executar a aplicação para atualizar os seus dados. 
 
-Também é possível criar a base de dados e a coleção com o código de exemplo do .NET. Para obter mais informações, consulte [reveja o código .NET](#review-the-net-code).
+Também é possível criar a base de dados e o contentor com o código de exemplo do .NET. Para obter mais informações, consulte [reveja o código .NET](#review-the-net-code).
 
 ### <a name="clone-the-sample-app"></a>Clonar a aplicação de exemplo
 
@@ -148,7 +147,7 @@ Em primeiro lugar, clone um C# [aplicação da SQL API](https://github.com/Azure
       `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
        
-1. Certificar-se de que os valores da base de dados e coleção da *Web. config* correspondem aos nomes que criou anteriormente. 
+1. Certifique-se a base de dados e valores de coleção (também chamada de contentor) na *Web. config* correspondem aos nomes que criou anteriormente. 
 
    ```csharp
    <add key="database" value="ToDoList"/>
@@ -163,7 +162,7 @@ Em primeiro lugar, clone um C# [aplicação da SQL API](https://github.com/Azure
 
 1. Na caixa **Procurar** do NuGet, escreva *DocumentDB*.
 
-1. Nos resultados, instale o **Microsoft.Azure.DocumentDB** biblioteca se ainda não estiver instalado. Esta ação instala o [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) pacote e todas as dependências.
+1. Nos resultados, instale o **2.2.3 versão** dos **Microsoft.Azure.DocumentDB** biblioteca se ainda não estiver instalado. Esta ação instala o [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) pacote e todas as dependências.
    
    Se o Gestor de pacotes de NuGet exibe uma mensagem que faltam alguns pacotes da solução, selecione **restaurar** instalá-los a partir de origens internas. 
 
@@ -177,7 +176,7 @@ Pode voltar ao Data Explorer no portal do Azure para ver, consultar, modificar e
 
 ## <a name="review-the-net-code"></a>Rever o código do .NET
 
-Este passo é opcional. Neste início rápido, criou uma base de dados e uma coleção no portal do Azure e adicionar dados de exemplo utilizando o exemplo de .NET. No entanto, também pode criar a base de dados e a coleção utilizando o exemplo de .NET. Reveja os seguintes fragmentos se estiver interessado em como os recursos de base de dados são criados no código. Os fragmentos são obtidos a partir do *DocumentDBRepository.cs* do ficheiro no **todo** projeto.
+Este passo é opcional. Neste início rápido, criou uma base de dados e um contentor no portal do Azure e adicionar dados de exemplo utilizando o exemplo de .NET. No entanto, também pode criar a base de dados e o contentor utilizando o exemplo de .NET. Reveja os seguintes fragmentos se estiver interessado em como os recursos de base de dados são criados no código. Os fragmentos são obtidos a partir do *DocumentDBRepository.cs* do ficheiro no **todo** projeto.
 
 * Esse código inicializa o `DocumentClient`: 
 
@@ -230,7 +229,7 @@ Este passo é opcional. Neste início rápido, criou uma base de dados e uma col
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB, criar uma base de dados e uma coleção com o Data Explorer e executar uma aplicação web do .NET para atualizar os seus dados. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
+Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB, criar uma base de dados e um contentor com o Data Explorer e executar uma aplicação web do .NET para atualizar os seus dados. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

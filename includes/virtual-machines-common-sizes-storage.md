@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
+ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420785"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66755643"
 ---
 Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  Os exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento local débito e de rede da largura de banda para cada tamanho otimizada.
 
@@ -57,7 +57,7 @@ Cache de armazenamento Premium: Não suportado
 - SLES 12 SP2 ou posterior
 - Versão RHEL ou CentOS 6.7 até 6.10, com o pacote LIS disponibilizadas pela Microsoft 4.3.1 (ou posterior) instalado
 - Versão RHEL ou CentOS 7.3, com o pacote de disponibilizadas pela Microsoft LIS 4.2.1 (ou posterior) instalado
-- Versão RHEL ou CentOS 7.4 ou posterior
+- Versão RHEL ou CentOS 7.6 ou posterior
 - Oracle Linux com UEK4 ou posterior
 - Debian 9 com o kernel de backports, Debian, 10 ou posterior
 - CoreOS com um kernel 4.14 ou posterior

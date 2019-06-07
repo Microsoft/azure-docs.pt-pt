@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024789"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755079"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Armazenamento de tabelas do índice do Azure com o Azure Search
 Este artigo mostra como utilizar o Azure Search para dados de índice armazenados no armazenamento de tabelas do Azure.
@@ -114,6 +114,8 @@ Depois do índice e a origem de dados são criados, está pronto para criar o in
 Este indexador é executado a cada duas horas. (O intervalo de agendamento está definido como "PT2H".) Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O mais curto intervalo suportado é de cinco minutos. A agenda é opcional; Se for omitido, um indexador é executado apenas uma vez, quando é criado. No entanto, pode executar um indexador a pedido em qualquer altura.   
 
 Para obter mais informações sobre a API para criar indexador, consulte [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+Para obter mais informações sobre como definir agendas de indexador, consulte [como agendar indexadores para o Azure Search](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Lidar com os nomes de campos diferentes
 Às vezes, os nomes de campos no seu índice existente são diferentes dos nomes de propriedade na sua tabela. Pode usar os mapeamentos de campo para mapear os nomes das propriedades da tabela para os nomes de campos no seu índice de pesquisa. Para saber mais sobre os mapeamentos de campo, veja [mapeamentos de campo do indexador de Azure Search preenchem as diferenças entre os índices de pesquisa e origens de dados](search-indexer-field-mappings.md).

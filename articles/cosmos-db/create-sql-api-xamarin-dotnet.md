@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: a17461a90a19d775b8c7cac86d0bc6e9a18856bd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860889"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754719"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar uma aplicação de tarefas com Xamarin com a conta do Azure Cosmos DB SQL API
 
@@ -48,7 +48,7 @@ Se estiver a utilizar um Mac, pode transferir o [Visual Studio para Mac](https:/
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Adicionar uma coleção
+## <a name="add-a-container"></a>Adicionar um contentor
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -184,7 +184,7 @@ Agora, vamos ver como é que a aplicação comunica com o Azure Cosmos DB.
     }
     ```
 
-    Aqui, é necessário um URI novo para identificar exclusivamente o documento que vai ser substituído e que é obtido através de `UriFactory.CreateDocumentUri` e ao transmitir-lhe os nomes da base de dados e da coleção e o id do documento.
+    Aqui um novo URI é necessária para identificar exclusivamente o documento a substituir e é obtida usando `UriFactory.CreateDocumentUri` e passando-lhe os nomes de base de dados e coleção e o ID do documento.
 
     `DocumentClient.ReplaceDocumentAsync` substitui o documento identificado pelo URI pelo que foi especificado como parâmetro.
 
@@ -245,7 +245,7 @@ Os seguintes passos demonstram como executar a aplicação com o depurador do Vi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e criar e implementar uma aplicação Xamarin. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB.
+Neste início rápido, aprendeu a criar uma conta do Cosmos do Azure, criar um contentor com o Data Explorer e criar e implementar uma aplicação Xamarin. Agora, pode importar dados adicionais à sua conta do Cosmos do Azure.
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

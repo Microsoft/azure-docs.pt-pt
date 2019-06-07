@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239875"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751792"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Início rápido: Criar e partilhar um bloco de notas
 
@@ -41,11 +41,11 @@ ms.locfileid: "60239875"
 
      ![Novo projeto pop-up com detalhes preenchidas](media/quickstarts/new-project-popup.png)
 
-1. Após alguns instantes, o Azure blocos de notas navega para o novo projeto. Adicionar um bloco de notas para o projeto, selecionando o **+ novo** pendente (que podem aparecer apenas como **+**), em seguida, selecionar **bloco de notas**:
+1. Após alguns instantes, o Azure blocos de notas navega para o novo projeto. Adicionar um bloco de notas para o projeto, selecionando o **+ novo** pendente (que podem aparecer apenas como **+** ), em seguida, selecionar **bloco de notas**:
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "Um novo, vazio do projeto e adicionar o comando de bloco de notas")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. Na **criar novo bloco de notas** pop-up apresentado, introduza um nome de ficheiro para o bloco de notas, tal como *HelloWorldInPython.ipynb* (*.ipynb* significa que o bloco de notas do IronPython (Jupyter) ) e selecione **Python 3.6** para o idioma (também conhecido como o *kernel*):
+1. Na **criar novo bloco de notas** pop-up apresentado, introduza um nome de ficheiro para o bloco de notas, tal como *HelloWorldInPython.ipynb* ( *.ipynb* significa que o bloco de notas do IronPython (Jupyter) ) e selecione **Python 3.6** para o idioma (também conhecido como o *kernel*):
 
     ![O pop-up de criar um novo Notebook](media/quickstarts/new-notebook-popup.png)
 

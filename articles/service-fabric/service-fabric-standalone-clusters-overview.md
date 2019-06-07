@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: b4b7759d1dc23c1a1b3a9b5aeb2a181923e14d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5997526098980220014d9bb2d47efe6c9aedee3d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543741"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752331"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Descrição geral de clusters autónomos do Service Fabric
 
@@ -68,6 +68,7 @@ Para obter mais informações, leia [atualizar clusters autónomos](service-fabr
 
 * Windows Server 2012 R2
 * Windows Server 2016 
+* Windows Server 2019
 
 ## <a name="next-steps"></a>Passos Seguintes
 Leia mais sobre [protegendo](service-fabric-cluster-security.md), [dimensionamento](service-fabric-cluster-scaling-standalone.md), e [atualizar](service-fabric-cluster-upgrade-standalone.md) clusters autónomos.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a3cb6e1b20e405cedddae8684a4b91fcb8a5514a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f25840c21ec64ca8d8e9e17eb39637cff7524c76
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695352"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755253"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -47,7 +47,7 @@ Ao criar uma máquina virtual utilizando o portal do Azure, o portal cria uma in
 2. Selecione **+ adicionar** sob **interfaces de rede**.
 3. Introduza, ou selecione os valores para as seguintes definições e selecione **criar**:
 
-    |Definição|Necessário?|Detalhes|
+    |Definição|Obrigatório?|Detalhes|
     |---|---|---|
     |Name|Sim|O nome tem de ser exclusivo no grupo de recursos que selecionar. Ao longo do tempo, provavelmente, terá várias interfaces de rede na sua subscrição do Azure. Para obter sugestões durante a criação de uma convenção de nomenclatura facilitar o gerenciamento de várias interfaces de rede mais fácil, consulte [convenções de nomenclatura](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). O nome não pode ser alterado depois de criar a interface de rede.|
     |Rede virtual|Sim|Selecione a rede virtual para a interface de rede. Só pode atribuir uma interface de rede a uma rede virtual que exista na mesma subscrição e localização como a interface de rede. Depois de criar uma interface de rede, não é possível alterar a rede virtual que está atribuída a. A máquina virtual que é adicionar a interface de rede também tem de existir na mesma localização e subscrição como a interface de rede.|
@@ -111,6 +111,8 @@ O servidor DNS é atribuído pelo servidor DHCP do Azure para a interface de red
 4. Selecione:
    - **Herdar da rede virtual**: Escolha esta opção para herdar a configuração de servidor DNS definida para a rede virtual, que a interface de rede é atribuída a. Ao nível da rede virtual, é definido um servidor DNS personalizado ou o servidor DNS fornecida pelo Azure. O servidor DNS fornecida pelo Azure pode resolver os nomes de anfitrião para recursos atribuídos à mesma rede virtual. FQDN deve ser utilizado para resolver para recursos atribuídos a redes virtuais diferentes.
    - **Custom**: Pode configurar o seu próprio servidor DNS para resolver nomes em várias redes virtuais. Introduza o endereço IP do servidor que pretende utilizar como um servidor DNS. O endereço do servidor DNS especificado é atribuído apenas a esta interface de rede e substitui qualquer definição de DNS para a rede virtual, que a interface de rede é atribuída a.
+     >[!Note]
+     >Se a VM utiliza uma NIC que faz parte de um conjunto de disponibilidade, todos os servidores DNS que são especificados para cada uma das VMs de todos os NICs que fazem parte do conjunto de disponibilidade serão herdados.
 5. Selecione **Guardar**.
 
 **Comandos**
@@ -254,7 +256,7 @@ Para executar tarefas em interfaces de rede, deve ser atribuída a sua conta par
 | Microsoft.Network/networkInterfaces/read                                   | Obter a interface de rede                                     |
 | Microsoft.Network/networkInterfaces/write                                  | Criar ou atualizar a interface de rede                        |
 | Microsoft.Network/networkInterfaces/join/action                            | Anexar uma interface de rede a uma máquina virtual           |
-| Microsoft.Network/networkInterfaces/delete                                 | Eliminar interface de rede                                  |
+| Microsoft.Network/networkInterfaces/delete                                 | Eliminar a interface de rede                                  |
 | Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Junte-se a um recurso para uma interface de rede através de um servi...     |
 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Obter a tabela de rotas efetivas de interface de rede               |
 | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Obter grupos de segurança efetivas de interface de rede           |

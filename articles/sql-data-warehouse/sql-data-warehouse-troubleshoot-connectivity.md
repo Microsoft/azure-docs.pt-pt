@@ -10,12 +10,12 @@ ms.component: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ddae39b7a2c76b5bb3f7caff1c0d5a8165c9d93a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3f25d2ab5b2b988725d8f4fdf942854746f404d1
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873837"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754841"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Resolução de problemas de conectividade
 
@@ -57,7 +57,7 @@ Caso contrário, contacte o administrador de TI para verificar que esta manuten�
 
 ## <a name="check-your-firewall-settings"></a>Verifique as definições de firewall
 
-O SQL Data Warehouse comunica através da porta 1433.   Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Nesse caso, não é possível ligar ao seu servidor de base de dados do Azure SQL, a menos que o departamento de TI abra a porta 1433. Pode encontrar informações adicionais sobre as configurações de firewall [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json#manage-ip-firewall-rules-using-the-azure-portal).
+O SQL Data Warehouse comunica através da porta 1433.   Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 1433 poderá não ser permitido pela firewall da rede. Nesse caso, não é possível ligar ao seu servidor de base de dados do Azure SQL, a menos que o departamento de TI abra a porta 1433. Pode encontrar informações adicionais sobre as configurações de firewall [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verifique as definições de ponto final de serviço/VNet
 

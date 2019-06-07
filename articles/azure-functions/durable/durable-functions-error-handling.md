@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f3d7f916d31a03d7b868749026f541dd646459f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 79af90d1c2c5b698ee7394f7fb20486b3069038c
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732523"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751954"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Tratamento de erros nas funções durável (funções do Azure)
 
-Duráveis orquestrações de função são implementadas no código e podem utilizar as capacidades de manipulação de erros de linguagem de programação. Com isso em mente, existem não são realmente quaisquer novos conceitos que precisa saber sobre o quando incorporar o tratamento de erros e de compensação em suas orquestrações. No entanto, existem alguns comportamentos que deve estar atento.
+Duráveis orquestrações de função são implementadas no código e podem utilizar as capacidades de manipulação de erros de linguagem de programação. Com isso em mente, existem não são realmente quaisquer novos conceitos que precisa para saber mais sobre a incorporação de compensação e manipulação de erro em suas orquestrações. No entanto, existem alguns comportamentos que deve estar atento.
 
 ## <a name="errors-in-activity-functions"></a>Erros nas funções de atividade
 

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236747"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754998"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -62,7 +62,11 @@ Embora as contas para fins gerais v2 são recomendadas na maioria dos casos, con
 
 ### <a name="block-blob-storage-accounts"></a>Contas de armazenamento de BLOBs de bloco
 
-Uma conta de armazenamento de BLOBs de bloco é uma conta de armazenamento especializada para armazenar dados de objetos não estruturados como blobs de blocos ou blobs de acréscimo. Contas de armazenamento de BLOBs de bloco oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [camadas de acesso para o bloco de dados de BLOBs](#access-tiers-for-block-blob-data).
+Uma conta de armazenamento de BLOBs de bloco é uma conta de armazenamento especializada para armazenar dados de objetos não estruturados como blobs de blocos. Esta conta de armazenamento escreva suporta blobs de blocos e blobs, mas não os blobs de páginas, tabelas ou filas de acréscimo.
+
+Contas de armazenamento de BLOBs de bloco em comparação com para fins gerais v2 e contas de armazenamento de BLOBs, fornecem latência baixa e consistente e taxas de transação mais elevadas.
+
+Contas de armazenamento de BLOBs de bloco não suportam atualmente a disposição em camadas para frequente, esporádico ou arquivo de acesso.
 
 ### <a name="filestorage-preview-storage-accounts"></a>Contas de armazenamento FileStorage (pré-visualização)
 
@@ -75,12 +79,16 @@ Para atribuir um nome à sua conta de armazenamento, mantenha estas regras em me
 - Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
 - O nome da sua conta do Storage tem de ser exclusivo no Azure. Duas contas de armazenamento não podem ter o mesmo nome.
 
-## <a name="general-purpose-performance-tiers"></a>Escalões de desempenho para fins gerais
+## <a name="performance-tiers"></a>Escalões de desempenho
 
 Contas de armazenamento para fins gerais podem ser configuradas para qualquer um dos seguintes escalões de desempenho:
 
 * Um escalão de desempenho standard para armazenar blobs, ficheiros, tabelas, filas e discos de máquina virtual do Azure.
 * Um escalão de desempenho premium para armazenar apenas os discos de máquinas de virtuais não geridos.
+
+Contas de armazenamento de BLOBs de bloco fornecem um escalão de desempenho premium para o armazenamento de blobs de blocos e blobs de acréscimo.
+
+As contas de armazenamento de FileStorage (pré-visualização) fornecem uma camada de desempenho premium para partilhas de ficheiros do Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Escalões de acesso para os dados de BLOBs de bloco
 
@@ -88,9 +96,9 @@ Armazenamento do Azure oferece opções diferentes para aceder aos dados de blob
 
 Os escalões de acesso disponíveis são:
 
-* O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são maiores. Novas contas de armazenamento são criadas de acesso frequente escalão por predefinição.
+* O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são maiores. Novas contas de armazenamento são criadas no escalão de acesso frequente, por predefinição.
 * O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser mais dispendioso do que a aceder aos dados na camada frequente.
-* O **arquivo** escalão, o que está disponível apenas para blobs de blocos individuais. A camada de arquivo é otimizada para dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias. A camada de arquivo é a opção mais económica para armazenar dados, mas o acesso aos dados é mais caro que acedem aos dados na escalões de acesso esporádicas ou frequente.
+* O **arquivo** escalão, o que está disponível apenas para blobs de blocos individuais. A camada de arquivo é otimizada para dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias. A camada de arquivo é a opção mais económica para armazenar dados, mas o acesso aos dados é mais caro que acedem aos dados nos escalões de acesso frequentes ou esporádico.
 
 Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estas camadas de acesso em qualquer altura. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: frequente, esporádico e de arquivo acesso](../blobs/storage-blob-storage-tiers.md).
 
@@ -119,7 +127,7 @@ Por exemplo, se a sua conta de armazenamento para fins gerais com o nome *mystor
 * Os ficheiros do Azure: http://*mystorageaccount*. file.core.windows.net
 
 > [!NOTE]
-> Conta do Blob storage expõe apenas o Blob ponto final de serviço.
+> Blob de blocos e contas de armazenamento de BLOBs expõem apenas BLOBs ponto final do serviço.
 
 O URL para aceder a um objeto numa conta de armazenamento é construído ao acrescentar a localização do objeto na conta de armazenamento para o ponto final. Por exemplo, um endereço de blob pode ter este formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
@@ -165,7 +173,7 @@ Para obter mais informações sobre a API de REST de armazenamento do Azure, con
 > [!IMPORTANT]
 > Os blobs encriptados através de encriptação do lado do cliente armazenam os metadados relacionados com a encriptação com o blob. Se copiar um blob com encriptação do lado do cliente, certifique-se de que a operação de cópia preserva os metadados do blob e, especialmente, os metadados relacionados com a encriptação. Se copiar um blob sem os metadados de encriptação, não poderá obter novamente o conteúdo do mesmo. Para obter mais informações acerca dos metadados relacionados com a encriptação, veja [Encriptação do Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Serviço Importar/Exportar do Azure
+### <a name="azure-importexport-service"></a>Serviço importar/exportar do Azure
 
 Se tiver uma grande quantidade de dados a importar para a sua conta de armazenamento, considere o serviço importar/exportar do Azure. O serviço importar/exportar é utilizado para importar com segurança grandes quantidades de dados para o armazenamento de Blobs do Azure e ficheiros do Azure ao envio de unidades de disco num Datacenter do Azure. 
 
@@ -177,5 +185,6 @@ O serviço importar/exportar também pode ser utilizado para transferir dados do
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber como criar uma conta de armazenamento do Azure, veja [criar uma conta de armazenamento](storage-quickstart-create-account.md).
+* Para saber como criar uma conta de armazenamento do Azure para fins gerais, veja [criar uma conta de armazenamento](storage-quickstart-create-account.md).
+* Para saber como criar uma conta de armazenamento de BLOBs de bloco, veja [criar uma conta de armazenamento de BLOBs de bloco](../blobs/storage-blob-create-account-block-blob.md).
 * Para gerir ou eliminar uma conta de armazenamento existente, consulte [gerir as contas de armazenamento](storage-account-manage.md).

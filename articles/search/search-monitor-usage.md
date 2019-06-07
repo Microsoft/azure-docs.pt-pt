@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797382"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755073"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorizar a atividade de consulta e consumo de recursos no Azure Search
 
@@ -69,7 +69,7 @@ Registos do Azure Monitor e o armazenamento de BLOBs estão disponíveis como se
 
 A secção seguinte explica os passos para ativar e utilizar o armazenamento de Blobs do Azure para recolher e aceder aos dados de log criados por operações de pesquisa do Azure.
 
-## <a name="enable-logging"></a>Ativar o registo
+## <a name="enable-logging"></a>Ativar registo
 
 Para cargas de trabalho de indexação e consulta o registo está desativada por predefinição e depende de soluções de suplemento para a infra-estrutura de log e de armazenamento externo de longo prazo. Por si só, os únicos dados persistentes no Azure Search os objetos são criados e gerenciados, para que os registos devem ser armazenados em outro lugar.
 
@@ -175,7 +175,7 @@ A API de REST do Azure Search e o SDK do .NET fornecem acesso programático às 
 * [Contagem de documentos](/rest/api/searchservice/count-documents)
 * [Obter estado do indexador](/rest/api/searchservice/get-indexer-status)
 
-Para ativar a utilizar o PowerShell ou a CLI do Azure, consulte a documentação [aqui](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+Para ativar a utilizar o PowerShell ou a CLI do Azure, consulte a documentação [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

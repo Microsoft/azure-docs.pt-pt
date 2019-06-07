@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 05335cb6949928244e10641ebe82008275830e67
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713781"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754062"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade no local através de gateways de VPN
 
@@ -36,7 +36,7 @@ Pretende configurar uma ligação site a site entre o Azure e no local utilizand
 
 1. Gateway de rede virtual - o Gateway de VPN no Azure
 1. Gateway de rede local - a [Gateway de VPN (FortiGate) no local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) representação na cloud do Azure
-1. Ligação de site a site (com base em rota) - [ligação entre o Gateway de VPN e o router no local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#createconnection)
+1. Ligação de site a site (com base em rota) - [ligação entre o Gateway de VPN e o router no local](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#CreateConnection)
 1. [Configurar FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 Orientações passo a passo detalhadas para configurar uma configuração Site a Site podem ser encontradas ao visitar: [Criar uma VNet com uma ligação Site a Site com o portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).

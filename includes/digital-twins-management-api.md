@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 1bd878460f9910f2ed9c7af8e80f349815ab9ed4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: bdb6ba0b4aa2f0014fc2189bdd3605a72a30d757
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66157819"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754486"
 ---
 Nos exemplos abaixo, `YOUR_MANAGEMENT_API_URL` refere-se para o URI de APIs de duplos Digital:
 
 ```plaintext
-https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0
 ```
 
 | Name | Substituir |

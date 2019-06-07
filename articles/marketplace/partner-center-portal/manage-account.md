@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
-ms.openlocfilehash: 935d2e1c96705506636c2883113a64bb70c39336
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806195"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752847"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a sua conta do Marketplace comercial no Centro de parceiros 
 
@@ -63,7 +63,7 @@ Na secção de detalhes de conta, pode ver informações básicas, como o seu **
 
 Na secção de IDs de publicador, pode ver seus **ID do vendedor**, **MPN ID**, e **ID de publicador**. Estes valores são atribuídos pela Microsoft para identificar exclusivamente a sua conta de desenvolvedor e não podem ser editados.
 
-### <a name="contact-info"></a>Informação de contacto
+### <a name="contact-info"></a>Informações de contacto
 
 Na secção de informações de contacto, pode ver seus **nome a apresentar do publicador**, **informações de contacto do vendedor** (o nome de contato, e-mail, número de telefone e endereço para o vendedor de empresa) e o **empresa aprovador** (o nome, e-mail e número de telefone do indivíduo com autoridade para aprovar decisões para a empresa). 
 
@@ -149,7 +149,7 @@ Para obter mais informações, consulte a [utilização do cliente de controlo d
 
 Tira partido do Centro de parceiros [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) para a gestão e acesso de conta de multiutilizador. Da sua organização do Azure AD é associado automaticamente a sua conta do Centro de parceiros como parte do processo de inscrição. 
 
-## <a name="manage-users"></a>Gerir Utilizadores
+## <a name="manage-users"></a>Gerir utilizadores
 
 O **usuários** secção do Centro de parceiros (sob **definições de conta**) vamos utilizar o Azure AD para gerir os utilizadores, grupos e aplicações do Azure AD que têm acesso à sua conta do Centro de parceiros. Tenha em atenção que para Gerenciar usuários, precisa estar conectado com seu [conta profissional](./company-work-accounts.md) (inquilino do Azure AD associado). Para gerir utilizadores dentro de uma conta de trabalho diferentes / inquilino, terá de terminar e, em seguida, inicie sessão novamente como um utilizador com **Manager** que as permissões de conta profissional / inquilino. 
 
@@ -223,7 +223,7 @@ Se um dos seus utilizadores tem de alterar a palavra-passe, ela poderá fazer is
 3.  Aparecerá uma página de confirmação que mostra as informações de início de sessão do utilizador, incluindo uma palavra-passe temporária. Não se esqueça de imprimir ou copiar estas informações e fornecê-lo ao usuário, pois não será possível aceder a palavra-passe temporária, depois de sair desta página.
 
 
-## <a name="manage-groups"></a>Gerir Grupos
+## <a name="manage-groups"></a>Gerir grupos
 
 Os grupos permitem-lhe controlar várias funções de utilizador e permissões em conjunto.
 
@@ -279,7 +279,7 @@ Se quiser conceder acesso de centro de parceiros para um Azure totalmente nova c
 1.  Do **usuários** página (sob **definições da conta**), selecione **adicionar aplicações do Azure AD**.
 2.  Na página seguinte, selecione **do Azure AD de nova aplicação**.
 3.  Introduza o **URL de resposta** para a nova aplicação do Azure AD. Este é o URL em que os utilizadores podem iniciar sessão e utilizar a aplicação do Azure AD (por vezes, também conhecido como o URL da aplicação ou um URL de início de sessão). O **URL de resposta** não pode ter mais de 256 carateres e tem de ser exclusivo no diretório.
-4.  Introduza o **URI de ID de aplicação** para a nova aplicação do Azure AD. Este é um identificador lógico para a aplicação do Azure AD que é apresentada quando é enviado um pedido de início de início de sessão único para o Azure AD. Tenha em atenção que o **URI de ID de aplicação** tem de ser exclusivo para cada aplicação do Azure AD no seu diretório. Este ID não pode ter mais de 256 carateres. Para mais informações sobre o URI de ID de aplicação, veja [integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+4.  Introduza o **URI de ID de aplicação** para a nova aplicação do Azure AD. Este é um identificador lógico para a aplicação do Azure AD que é apresentada quando é enviado um pedido de início de início de sessão único para o Azure AD. Tenha em atenção que o **URI de ID de aplicação** tem de ser exclusivo para cada aplicação do Azure AD no seu diretório. Este ID não pode ter mais de 256 carateres. Para mais informações sobre o URI de ID de aplicação, veja [integrar aplicações com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.  Na **funções** secção, especifique as funções ou permissões personalizadas para a aplicação do Azure AD.
 6.  Selecione **Guardar**.
 
@@ -313,7 +313,7 @@ Tenha em atenção de que as funções de inquilino do Azure Active Directory (A
 |      |• Criar pedidos de suporte para o Centro de parceiros
 ||• Contratos de exibição, listas de preços e ofertas
 ||• Ver, criar e gerir utilizadores parceiros|
-|Gestor|• Podem aceder a todas as funcionalidades de conta Microsoft, exceto as definições de imposto e dividendos
+|Manager|• Podem aceder a todas as funcionalidades de conta Microsoft, exceto as definições de imposto e dividendos
 |      |• Podem gerir utilizadores, funções e trabalhar contas (inquilinos)|
 |Programador|• Pode carregar pacotes, submeter aplicações e suplementos e ver o relatório de utilização para obter detalhes de telemetria
 |      |• Não é possível aceder a definições de conta ou informações financeiras|

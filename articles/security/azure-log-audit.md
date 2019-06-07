@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 6ab6ec6a88dbba066be9ecf9919be876090cfdff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: edadb369461bb3865dd6894c3329e7079fa9d13f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121506"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752565"
 ---
 # <a name="azure-logging-and-auditing"></a>Registo e auditoria do Azure
 
@@ -114,7 +114,7 @@ Registos de diagnóstico do Azure oferecem várias opções de configuração, c
 |Azure Batch|[Registos de diagnóstico do Azure Batch](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
 |Automatização do Azure|[Registos de Monitor do Azure para a automatização do Azure](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Azure Event Hubs|[Registos de diagnóstico de Hubs de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
-|Azure Stream Analytics|[Registos de diagnóstico da tarefa](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|Execução<br>Criação|
+|Azure Stream Analytics|[Registos de diagnóstico da tarefa](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|Execução<br>Criação de conteúdos|
 |Service Bus do Azure|[Registos de diagnósticos do Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Relatórios do Azure Active Directory
@@ -182,7 +182,7 @@ Análise de armazenamento tem um limite de 20 terabytes (TB) na quantidade de da
 
 Análise de armazenamento regista os seguintes tipos de pedidos de autenticado e anônimos:
 
-| Autenticados  | Anónimo|
+| Autenticado  | Anónimo|
 | :------------- | :-------------|
 | Pedidos com êxito | Pedidos com êxito |
 |Pedidos falhados, incluindo o tempo limite, limitação, rede, autorização e outros erros | Pedidos com uma assinatura de acesso partilhado, incluindo pedidos de falhadas e bem-sucedidas |
@@ -218,7 +218,7 @@ As mesmas políticas de retenção que forem vistas num outros registos aplicam-
 
 Eventos periódicos e espontânea são criados pelos recursos de rede e com sessão iniciados em contas de armazenamento e enviados para um hub de eventos ou de registos do Azure Monitor. Os registos de fornecem informações sobre o estado de funcionamento de um recurso. Elas podem ser exibidas em ferramentas como o Power BI e o Azure Monitor registos. Para saber como ver os registos de diagnóstico, veja [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
-![Registos de diagnósticos](./media/azure-log-audit/azure-log-audit-fig5.png)
+![Registos de diagnóstico](./media/azure-log-audit/azure-log-audit-fig5.png)
 
 Estão disponíveis para os registos de diagnóstico [Balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), rotas, e [Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
@@ -279,7 +279,7 @@ A tabela seguinte apresenta uma lista e descreve os cenários de integração:
 |[Mapa da aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Os componentes da sua aplicação, com as principais métricas e alertas.|
 |[Por exemplo pesquisa nos diagnósticos dados](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Procure e filtre eventos como pedidos, exceções, chamadas de dependências, rastreios de registo e visualizações de página.|
 |[Explorador de métricas para dados agregados](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas.|
-|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa.|
+|[Dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa.|
 |[Stream de métricas em direto](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado.|
 |[Análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas.|
 |[Alertas automáticas e manuais](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Alertas automáticos se adaptar a padrões normais da sua aplicação de telemetria e são acionadas se ocorrer algo fora do padrão habitual. Também pode definir alertas em níveis específicos de métricas personalizadas ou padrão.|
@@ -330,7 +330,7 @@ Existem quatro formas de [recolher registos e métricas para serviços do Azure]
 
 | Serviço | Tipo de recurso | Registos | Métricas | Solução |
 | :------ | :------------ | :--- | :------ | :------- |
-|Gateway de Aplicação do Azure| Microsoft.Network/<br>applicationGateways|  Diagnóstico|Diagnóstico|    [Aplicação do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [análise do Gateway](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Gateway de Aplicação do Azure| Microsoft.Network/<br>applicationGateways|  Diagnóstico|Diagnóstico|    [Aplicação do Azure](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics) [análise do Gateway](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||     Conector|  Conector|  [O Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [conector (pré-visualização)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Contas de automatização do Azure| Microsoft.Automation/<br>AutomationAccounts|    Diagnóstico||       [Mais informações](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Contas de Batch do Azure|  Microsoft.Batch/<br>batchAccounts|  Diagnóstico|    Diagnóstico||
@@ -344,7 +344,7 @@ Existem quatro formas de [recolher registos e métricas para serviços do Azure]
 |Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnóstico|||
 |Azure Logic Apps|  Microsoft.Logic/<br>Fluxos de trabalho|  Diagnóstico|    Diagnóstico||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Grupos de Segurança de Rede|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Análise do grupo de segurança de rede do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Grupos de Segurança de Rede|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Análise do grupo de segurança de rede do Azure](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |Cofres de recuperação|   Microsoft.RecoveryServices/<br>cofres|||[Análise (pré-visualização) de serviços de recuperação do Azure](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Procurar serviços|   Microsoft.Search/<br>searchServices|    Diagnóstico|    Diagnóstico||
 |Espaço de nomes do Service Bus| Microsoft.ServiceBus/<br>namespaces|    Diagnóstico|Diagnóstico|    [Análise do Service Bus (pré-visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|

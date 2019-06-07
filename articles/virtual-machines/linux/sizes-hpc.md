@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 32b0f467f11cf8cb0a04657006cb5a86b11e27e9
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704668"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755206"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de computação de elevado desempenho
 
@@ -33,38 +33,55 @@ ms.locfileid: "64704668"
 
 ### <a name="mpi"></a>MPI 
 
-Apenas o Intel MPI 5.x versões são suportadas.
+O SR-IOV ativados tamanhos de VM no Azure permitem que praticamente qualquer tipo de MPI a ser utilizado.
+Em VMs de ativado não SR-IOV, são suportadas apenas versões de 5.x do Intel MPI. Versões posteriores (2017, 2018) de tempo de execução do Intel MPI biblioteca pode ou não ser compatível com os controladores de RDMA do Linux do Azure.
 
-> [!NOTE]
-> Versões posteriores (2017, 2018) de tempo de execução do Intel MPI biblioteca pode ou não ser compatível com os controladores de RDMA do Linux do Azure.
 
-### <a name="distributions"></a>Distribuições
+### <a name="supported-os-images"></a>Imagens de SO suportadas
  
-Implemente uma VM de computação intensiva de uma das imagens no Azure Marketplace que suporta a conetividade RDMA:
+O Azure Marketplace tem muitas distribuições de Linux que suportam a conetividade RDMA:
   
-* **Ubuntu** - Ubuntu Server 16.04 LTS. Configurar controladores RDMA na VM e registar com o Intel para transferir a MPI Intel:
+* **Baseada em centOS HPC** – para não-SR-IOV ativado VMs, a versão baseada em CentOS 6.5 HPC ou uma versão posterior, até 7.5 são adequadas. Para VMs de série H, recomenda-se as versões 7.1 para 7.5. Drivers RDMA e Intel MPI 5.1 são instalados na VM.
+  Para VMs de SR-IOV, CentOS HPC a 7,6 vem otimizado e pré-carregados com os controladores RDMA e vários pacotes de MPI instalados.
+  Outras imagens de VM RHEL/CentOS, adicione a extensão de InfiniBandLinux para ativar InfiniBand. Esta extensão de VM do Linux instala controladores de Mellanox OFED (em VMs de SR-IOV) para conetividade RDMA. O cmdlet PowerShell seguinte instala a versão mais recente (versão 1.0) da extensão InfiniBandDriverLinux numa VM existente com capacidade RDMA. A VM com capacidade RDMA *myVM* e é implementada no grupo de recursos com o nome *myResourceGroup* no *E.U.A. oeste* região da seguinte forma:
 
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+  ```powershell
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  ```
+  Em alternativa, as extensões de VM podem ser incluídas nos modelos do Azure Resource Manager para facilitar a implementação com o seguinte elemento JSON:
+  ```json
+  "properties":{
+  "publisher": "Microsoft.HpcCompute",
+  "type": "InfiniBandDriverLinux",
+  "typeHandlerVersion": "1.0",
+  } 
+  ```
+ 
+  > [!NOTE]
+  > Nas imagens de HPC baseada em CentOS, as atualizações de kernel estão desativadas no **yum** ficheiro de configuração. Isso ocorre porque os drivers de RDMA do Linux são distribuídos como um pacote RPM e atualizações de controladores poderão não funcionar se o kernel é atualizado.
+  >
+  
 
-* **SUSE Linux Enterprise Server** -SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium). Controladores de RDMA são instalados e os pacotes de Intel MPI são distribuídos na VM. Instale o MPI executando o seguinte comando:
+* **SUSE Linux Enterprise Server** -SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium), SLES 12 SP4 e SLES 15. Controladores de RDMA são instalados e os pacotes de Intel MPI são distribuídos na VM. Instale o MPI executando o seguinte comando:
 
   ```bash
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
-    
-* **Baseada em centOS HPC** -baseada em CentOS 6.5 HPC ou uma versão posterior (para a série H, versão 7.1 ou posterior é recomendado). Drivers RDMA e Intel MPI 5.1 são instalados na VM.  
- 
-  > [!NOTE]
-  > Nas imagens de HPC baseada em CentOS, as atualizações de kernel estão desativadas no **yum** ficheiro de configuração. Isso ocorre porque os drivers de RDMA do Linux são distribuídos como um pacote RPM e atualizações de controladores poderão não funcionar se o kernel é atualizado.
-  > 
- 
+  
+* **Ubuntu** - Ubuntu Server 16.04 LTS, 18.04 LTS. Configurar controladores RDMA na VM e registar com o Intel para transferir a MPI Intel:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
+
+  Para obter mais detalhes sobre como ativar o InfiniBand, configuração de MPI, consulte [InfiniBand ativar](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+
+
 ### <a name="cluster-configuration-options"></a>Opções de configuração de cluster
 
 O Azure fornece várias opções para criar clusters HPC de VMs do Linux que podem se comunicar com a rede RDMA, incluindo: 
 
 * **Máquinas virtuais** -implementar as VMs de HPC com capacidade RDMA no mesmo conjunto (ao utilizar o modelo de implementação Azure Resource Manager) de disponibilidade. Se utilizar o modelo de implementação clássica, implemente as VMs no mesmo serviço cloud. 
 
-* **Conjuntos de dimensionamento de máquinas virtuais** - numa escala VM definir, certifique-se de que limite a implementação para um único grupo de colocação. Por exemplo, num modelo do Resource Manager, defina o `singlePlacementGroup` propriedade `true`. 
+* **Os conjuntos de dimensionamento de máquinas virtuais** - In de dimensionamento de máquinas virtuais do conjunto, certifique-se de que limite a implementação para um único grupo de colocação. Por exemplo, num modelo do Resource Manager, defina o `singlePlacementGroup` propriedade `true`. 
 
 * **Azure CycleCloud** -crie um cluster HPC no [Azure CycleCloud](/azure/cyclecloud/) para executar trabalhos de MPI em nós do Linux.
 
@@ -72,14 +89,12 @@ O Azure fornece várias opções para criar clusters HPC de VMs do Linux que pod
 
 * **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) suporta várias distribuições do Linux para serem executadas em nós de computação implementados em VMs do Azure com capacidade RDMA, gerido por um nó principal do Windows Server. Para um exemplo de implementação, consulte [criar HPC Pack RDMA Cluster do Linux no Azure](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
-Dependendo de sua escolha de ferramenta de gerenciamento de cluster, a configuração de sistema adicionais pode ser necessários para executar trabalhos de MPI. Por exemplo, num cluster de VMs, se pretender estabelecer confiança entre os nós de cluster por gerar chaves SSH ou através do estabelecimento de confiança passe de SSH.
 
-### <a name="network-topology-considerations"></a>Considerações de topologia de rede
-* Em VMs capacidade RDMA do Linux no Azure, Eth1 está reservado para o tráfego de rede RDMA. Não altere as definições de Eth1 ou todas as informações no ficheiro de configuração que faça referência a esta rede. Eth0 está reservado para regular tráfego de rede do Azure.
-
-* A rede RDMA no Azure reserva-se o endereço espaço 172.16.0.0/16. 
-
-
+### <a name="network-considerations"></a>Considerações de rede
+* Não-SR-iov, com RDMA ativado VMs do Linux no Azure, eth1 está reservada para o tráfego de rede RDMA. Não altere as definições de eth1 ou todas as informações no ficheiro de configuração que faça referência a esta rede.
+* No SR-IOV ativado VMs (HB e HC série), ib0 está reservado para o tráfego de rede RDMA.
+* A rede RDMA no Azure reserva-se o endereço espaço 172.16.0.0/16. Para executar aplicações MPI em instâncias implementadas numa rede virtual do Azure, certifique-se de que o espaço de endereços de rede virtual não se sobreponha a rede RDMA.
+* Dependendo de sua escolha de ferramenta de gerenciamento de cluster, a configuração de sistema adicionais pode ser necessários para executar trabalhos de MPI. Por exemplo, num cluster de VMs, se pretender estabelecer confiança entre os nós de cluster por gerar chaves SSH ou através do estabelecimento de passe inícios de sessão SSH.
 
 
 ## <a name="other-sizes"></a>Outros tamanhos
@@ -92,8 +107,5 @@ Dependendo de sua escolha de ferramenta de gerenciamento de cluster, a configura
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- Saiba mais sobre como configurar, otimizar e dimensionar [cargas de trabalho HPC](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) no Azure.
 - Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.
-
-
-
-

@@ -8,36 +8,31 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: dech
 ms.custom: include file
-ms.openlocfilehash: c3cbfda674abaeea1adf35c3ee0d2b5ddf6b2f84
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 331886f01345aba576cd8f96f95077f9bbdae704
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153755"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754352"
 ---
-Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados e uma coleção. 
+Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados e um contentor. 
 
-1. Clique em **Explorador de Dados** > **Nova Coleção**. 
+1. Clique em **o Data Explorer** > **novo contentor**. 
     
-    A área **Adicionar Coleção** é apresentada na extremidade direita, pelo que poderá ter de se deslocar para a direita para vê-la.
+    O **adicionar contentor** área é apresentada na extremidade direita, poderá ter de se deslocar para a direita para vê-lo.
 
-    ![O painel Data Explorer no portal do Azure, Adicionar Coleção](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection-preview.png)
+    ![O portal do Azure Data Explorer, no painel Adicionar contentor](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection-preview.png)
 
-2. Na página **Adicionar coleção**, introduza as definições para a nova coleção.
+2. Na **adicionar contentor** página, introduza as definições para o novo contentor.
 
-    Definição|Valor sugerido|Descrição
-    ---|---|---
-    Id da base de dados|*Tarefas*|Designe a nova base de dados como *Tarefas*. Os nomes das bases de dados devem conter de 1 a 255 carateres e não podem conter /, \\, #, ?, ou um espaço à direita.
-    ID da coleção|*itens*|Denomine a nova coleção como *Itens*. Os IDs das coleções têm os mesmos requisitos em termos de carateres do que os nomes das bases de dados.
-    Aprovisionar débito de base de dados|Deixar em branco|O Azure Cosmos DB pode aprovisionar o débito no nível de base de dados (todas as coleções numa base de dados partilham o mesmo débito) ou ao nível da coleção. Deixe em branco para aprovisionar a taxa de transferência ao nível da coleção para esta coleção específica.
-    Capacidade de armazenamento|*Ilimitado*|Escolha a capacidade de armazenamento **ilimitado**. 
-    Chave de partição|*/category*|Introduza "/ categoria" como a chave de partição. Definir uma chave de partição permite que o Azure Cosmos DB para dimensionar a sua coleção para satisfazer as necessidades de armazenamento e débito da sua aplicação. Em geral, uma boa opção de chave de partição é aquele que tem uma vasta gama de valores distintos e os resultados numa distribuição uniforme de volume de armazenamento e a pedido em sua carga de trabalho. [Saiba mais sobre a criação de partições.](../articles/cosmos-db/partitioning-overview.md)
-    Débito|*400 RU/s*|Altere o débito para 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde. 
+    |Definição|Valor sugerido|Descrição
+    |---|---|---|
+    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas*. Os nomes das bases de dados devem conter de 1 a 255 carateres e não podem conter /, \\, #, ?, ou um espaço à direita. Verifique os **débito de base de dados de aprovisionamento** opção, permite-lhe partilhar o débito aprovisionado para a base de dados em todos os contentores na base de dados. Esta opção também ajuda a com redução de custos. |
+    |**Débito**|400|Deixe o débito com 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
+    |**ID de contentor**|Itens|Introduza *itens* como o nome para o novo contentor. IDs de contentor têm os mesmos requisitos como nomes de base de dados.|
+    |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */category* como a chave de partição. Definir uma chave de partição permite que o Azure Cosmos DB para dimensionar a sua coleção para satisfazer as necessidades de armazenamento e débito da sua aplicação. Em geral, uma boa opção de chave de partição é aquele que tem uma vasta gama de valores distintos e os resultados numa distribuição uniforme de volume de armazenamento e a pedido em sua carga de trabalho. [Saiba mais sobre a criação de partições.](../articles/cosmos-db/partitioning-overview.md)|
     
-    Além das definições anteriores, pode adicionar opcionalmente **Chaves exclusivas** para a coleção. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política de chaves exclusivas durante a criação de uma coleção, está a assegurar a exclusividade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
+    Além das configurações anteriores, pode adicionar opcionalmente **chaves exclusivas** do contentor. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política de chaves exclusivas durante a criação de um contentor, garantir a exclusividade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
     
-    Clique em **OK**.
+    Selecione **OK**. O Data Explorer mostra a nova base de dados e o contentor.
 
-    O Data Explorer mostra a base de dados e a coleção novas.
-
-    ![O Data Explorer do portal do Azure a mostrar a base de dados e a coleção novas](./media/cosmos-db-create-collection/azure-cosmos-db-data-explorer-preview.png)

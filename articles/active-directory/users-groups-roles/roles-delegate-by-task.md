@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e65f7ca0a01e0ceee6448ea49e1d6d6da696cf6
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417071"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752231"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador pela tarefa de administração no Azure Active Directory
 
@@ -56,6 +56,9 @@ Criar, ler, atualizar e eliminar os atributos de utilizador | Administrador Glob
 Criar, ler, atualizar e eliminar utilizadores | Administrador global ([consulte a documentação](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
 Leia toda a configuração | Administrador Global | 
 Registos de auditoria de B2C de leitura | Administrador global ([consulte a documentação](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+
+> [!NOTE]
+> Administradores de globais do Azure AD B2C não tem as mesmas permissões que os administradores globais do Azure AD. Se tiver privilégios de administrador global do Azure AD B2C, certifique-se de que está num diretório do Azure AD B2C e não um diretório do Azure AD.
 
 ## <a name="company-branding"></a>Imagem corporativa da empresa
 

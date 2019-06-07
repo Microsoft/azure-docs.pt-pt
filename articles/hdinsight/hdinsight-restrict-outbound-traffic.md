@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 0e3a35c2ceed5f3bb08b2d332f05bbaf416c94b2
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 4ce3ca31163c286f54b9630e5d4779e2e47a032f
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743253"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754596"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurar o tráfego de rede de saída para clusters do HDInsight do Azure através do Firewall (pré-visualização)
 
@@ -162,7 +162,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Integrar o Firewall do Azure com os registos do Azure Monitor é útil ao primeiro obter uma aplicação a funcionar quando não estiver ciente de todas as dependências de aplicativo. Pode saber mais sobre os registos do Azure Monitor de [analisar dados de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 ## <a name="access-to-the-cluster"></a>Acesso ao cluster
-Depois de ter a configuração de firewall com êxito, pode utilizar o ponto final interno (https://<clustername>-int.azurehdinsight.net) para acessar o Ambari de dentro da VNET. Para utilizar o ponto final público (https://<clustername>. azurehdinsight.net) ou ssh ponto final (<clustername>-ssh.azurehdinsight.net), certifique-se de que tem as rotas direita na tabela de rotas e regras NSG de configuração para evitar o problema de encaminhamento da asymetric explicado [aqui](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Depois de ter a configuração de firewall com êxito, pode utilizar o ponto final interno (`https://<clustername>-int.azurehdinsight.net`) para acessar o Ambari de dentro da VNET. Para utilizar o ponto final público (`https://<clustername>.azurehdinsight.net`) ou ssh ponto final (`<clustername>-ssh.azurehdinsight.net`), certifique-se de que tem as rotas direita na tabela de rotas e regras NSG de configuração para evitar o problema de encaminhamento de asymetric explicado [aqui](https://docs.microsoft.com/azure/firewall/integrate-lb).
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configure outra aplicação de rede virtual
 

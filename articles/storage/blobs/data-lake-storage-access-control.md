@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243598"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751648"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso na geração 2 de armazenamento do Azure Data Lake
 
@@ -53,7 +53,7 @@ Pode associar uma entidade de segurança com um nível de acesso de arquivos e d
 
 Se atribuído uma função a uma entidade de segurança ao nível armazenamento de conta, pode utilizar listas de controlo de acesso para conceder que esse principal de segurança elevados acesso a ficheiros específicos e diretórios.
 
-Não é possível utilizar listas de controlo de acesso para fornecer um nível de acesso que é inferior um nível concedido por uma atribuição de função. Por exemplo, se atribuir o [contribuinte de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) apresenta uma lista de função para uma entidade, não pode utilizar o controlo de acesso de segurança para impedir que esse principal de segurança de escrever para um diretório.
+Não é possível utilizar listas de controlo de acesso para fornecer um nível de acesso que é inferior um nível concedido por uma atribuição de função. Por exemplo, se atribuir o [contribuinte de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) apresenta uma lista de função para uma entidade, não pode utilizar o controlo de acesso de segurança para impedir que esse principal de segurança de escrever para um diretório.
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Conjunto de arquivos e diretórios permissões ao nível através de listas de controlo de acesso
 

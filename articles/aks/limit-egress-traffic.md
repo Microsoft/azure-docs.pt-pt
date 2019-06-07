@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: b5a203150906758bde33431a1dab717e090f2e28
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475569"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752192"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Pré-visualização - o tráfego de saída de limite de nós de cluster e controlar o acesso a portas necessárias e serviços no Azure Kubernetes Service (AKS)
 
-Por predefinição, os clusters do AKS têm irrestrito acesso à internet de saída (saída). Este nível de acesso à rede permite que nós e os serviços que executar para aceder a recursos externos, conforme necessário. Se pretender restringir o tráfego de saída, um número limitado de portas e endereços tem de ser acessível para manter as tarefas de manutenção de bom estado de funcionamento do cluster. O cluster, em seguida, está configurado para utilizar apenas imagens de contentor do sistema de base do registo de contentor da Microsoft (MCR) ou Azure Container Registry (ACR), não externos repositórios públicos.
+Por predefinição, os clusters do AKS têm irrestrito acesso à internet de saída (saída). Este nível de acesso à rede permite que nós e os serviços que executar para aceder a recursos externos, conforme necessário. Se pretender restringir o tráfego de saída, um número limitado de portas e endereços tem de ser acessível para manter as tarefas de manutenção de bom estado de funcionamento do cluster. O cluster, em seguida, está configurado para utilizar apenas imagens de contentor do sistema de base do registo de contentor da Microsoft (MCR) ou Azure Container Registry (ACR), não externos repositórios públicos. Tem de configurar as regras de firewall e segurança preferenciais para permitir que estes endereços e portas necessárias.
 
 Este artigo detalha quais portas de rede e os nomes de domínio completamente qualificado (FQDN) são obrigatórios e opcionais se restringir o tráfego de saída num cluster do AKS.  Esta funcionalidade encontra-se em pré-visualização.
 
@@ -28,7 +28,7 @@ Este artigo detalha quais portas de rede e os nomes de domínio completamente qu
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão 2.0.61 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
+Precisa da versão 2.0.66 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 Para criar um cluster do AKS que pode limitar o tráfego de saída, ative primeiro um sinalizador de funcionalidade na sua subscrição. Esse registro de recurso configura quaisquer clusters do AKS que criar para utilizar imagens de contentor do sistema de base de MCR ou ACR. Para registar o *AKSLockingDownEgressPreview* sinalizador de funcionalidade, utilize o [Registre-se de funcionalidade de az] [ az-feature-register] comando conforme mostrado no exemplo a seguir:
 
@@ -54,7 +54,7 @@ Para fins operacionais e de gestão, nós num cluster do AKS têm de aceder a de
 
 Para aumentar a segurança do cluster do AKS, pode pretender restringir o tráfego de saída. O cluster está configurado para solicitar imagens de contentor do MCR ou ACR de base do sistema. Se bloquear o tráfego de saída dessa maneira, deve definir portas específicas e FQDNs para permitir que os nós do AKS comunicar corretamente com serviços externos necessários. Sem essas portas autorizadas e FQDNs, os nós do AKS não é possível comunicar com o servidor de API ou instalar os componentes principais.
 
-Pode usar [Firewall do Azure] [ azure-firewall] ou uma aplicação de firewall de terceiros 3rd para proteger o tráfego de saída e defini-los necessárias portas e endereços.
+Pode usar [Firewall do Azure] [ azure-firewall] ou uma aplicação de firewall de terceiros 3rd para proteger o tráfego de saída e defini-los necessárias portas e endereços. AKS não cria automaticamente estas regras. As seguintes portas e endereços são para referência à medida que cria as regras adequadas na sua firewall de rede.
 
 No AKS, existem dois conjuntos de endereços e portas:
 
@@ -70,23 +70,26 @@ As seguintes portas de saída / regras de rede são necessárias para um cluster
 
 * A porta TCP *443*
 * A porta TCP *9000* e a porta TCP *22* para o pod frontal de túnel comunicar com o fim do túnel no servidor de API.
+    * Para obter mais específicas, consulte o * *.hcp.\< localização\>. azmk8s.io* e * *. tun.\< localização\>. azmk8s.io* endereços na tabela seguinte.
 
 O seguinte FQDN / regras de aplicações são necessárias:
 
-| FQDN                      | Port      | Utilizar      |
-|---------------------------|-----------|----------|
-| *.azmk8s.io               | HTTPS:443,22,9000 | Este endereço é o ponto de final do servidor de API. |
-| aksrepos.azurecr.io       | HTTPS:443 | Este endereço é necessário para imagens de acesso no Azure Container Registry (ACR). |
-| *.blob.core.windows.net   | HTTPS:443 | Este endereço é o armazenamento de back-end para imagens armazenadas no ACR. |
-| mcr.microsoft.com         | HTTPS:443 | Este endereço é necessário para acesso de imagens no registo de contentor da Microsoft (MCR). |
-| management.azure.com      | HTTPS:443 | Este endereço é necessário para operações do Kubernetes GET/PUT. |
-| login.microsoftonline.com | HTTPS:443 | Este endereço é necessário para a autenticação do Azure Active Directory. |
+| FQDN                       | Port      | Utilizar      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Este endereço é o ponto de final do servidor de API. Substitua *\<localização\>* com a região em que o seu cluster do AKS é implementada. |
+| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | Este endereço é o ponto de final do servidor de API. Substitua *\<localização\>* com a região em que o seu cluster do AKS é implementada. |
+| aksrepos.azurecr.io        | HTTPS:443 | Este endereço é necessário para imagens de acesso no Azure Container Registry (ACR). |
+| *.blob.core.windows.net    | HTTPS:443 | Este endereço é o armazenamento de back-end para imagens armazenadas no ACR. |
+| mcr.microsoft.com          | HTTPS:443 | Este endereço é necessário para acesso de imagens no registo de contentor da Microsoft (MCR). |
+| *.cdn.mscr.io              | HTTPS:443 | Este endereço é necessário para armazenamento MCR suportado através da rede de entrega de conteúdos do Azure (CDN). |
+| management.azure.com       | HTTPS:443 | Este endereço é necessário para operações do Kubernetes GET/PUT. |
+| login.microsoftonline.com  | HTTPS:443 | Este endereço é necessário para a autenticação do Azure Active Directory. |
+| api.snapcraft.io           | HTTPS:443, HTTP:80 | Este endereço é necessário para instalar os pacotes de Snap em nós do Linux. |
+| ntp.ubuntu.com             | UDP:123   | Este endereço é necessário para sincronização de hora NTP em nós do Linux. |
+| *. docker.io                | HTTPS:443 | Este endereço é necessária para solicitar imagens de contentor necessária para a frente de túnel. |
 
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Opcional recomendado endereços e portas para os clusters do AKS
 
-As seguintes portas de saída / regras de rede não são necessárias para clusters do AKS funcionar corretamente, mas são recomendadas:
-
-* A porta UDP *123* para sincronização de hora NTP
 * A porta UDP *53* para DNS
 
 O seguinte FQDN / regras de aplicações são recomendadas para clusters do AKS funcionar corretamente:

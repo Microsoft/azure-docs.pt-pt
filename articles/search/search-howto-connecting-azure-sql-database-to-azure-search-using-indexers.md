@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025345"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755093"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ligar a e indexar o conteúdo de indexadores do Azure Search a utilizar o Azure SQL Database
 
@@ -158,23 +158,7 @@ Também é possível providenciar o indexador para executar periodicamente com b
 
 O **intervalo** é necessário o parâmetro. O intervalo de refere-se para o tempo entre o início de duas execuções de indexador consecutivos. O intervalo menor permitido é de 5 minutos; há mais tempo é um dia. Tem de ser formatado como um valor de "dayTimeDuration" XSD (um subconjunto restrito de um [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) valor). O padrão para isto é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
-O opcional **startTime** indica quando as execuções agendadas devem começar. Se for omitido, é utilizada a hora UTC atual. Desta vez pode ser no passado – nesse caso a primeira execução está agendado como se estiver a ser executado o indexador continuamente desde a startTime.  
-
-Pode executar apenas uma execução de um indexador de cada vez. Se um indexador está em execução quando sua execução estiver agendada, a execução será adiada até que a próxima hora de agendada.
-
-Vamos considerar um exemplo para tornar isso mais concreto. Suponha que estamos a agenda de hora a hora seguinte configurada:
-
-    "schedule" : { "interval" : "PT1H", "startTime" : "2015-03-01T00:00:00Z" }
-
-Eis o que acontece:
-
-1. A primeira execução do indexador começa em ou em qualquer parte 1 de Março de 2015 12 horas UTC.
-2. Assumir que esta execução demora 20 minutos (ou em qualquer altura inferior a 1 hora).
-3. A segunda execução começa em ou em qualquer parte 1 de Março de 2015 às 1:00
-4. Agora suponha que esta execução demora mais de uma hora – por exemplo, 70 minutos, para que o processo estar concluído aproximadamente 2: 10h
-5. É agora o tempo de 2 horas para a execução de terceiro iniciar. No entanto, uma vez que a segunda execução de 1H ainda está em execução, a execução de terceiro foi ignorada. A execução de terceiro começa às 3 horas da manhã
-
-Pode adicionar, alterar ou eliminar um agendamento para um indexador existente com uma **PUT indexador** pedido.
+Para obter mais informações sobre como definir agendas de indexador, consulte [como agendar indexadores para o Azure Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 

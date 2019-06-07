@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ead81dfec5c98e810abfe4b88accb9aa9092fc90
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472715"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751909"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
@@ -58,7 +58,7 @@ O **aplicação API no Microsoft Graph** está atualmente em pré-visualização
 
 ### <a name="msal-libraries"></a>Bibliotecas MSAL
 
-Pode utilizar a biblioteca MSAL para criar aplicativos que autenticar todas as identidades da Microsoft. As bibliotecas MSAL no .NET estão geralmente disponíveis. As bibliotecas MSAL para JavaScript, iOS e Android estão em pré-visualização e adequadas para utilização num ambiente de produção. Fornecemos o mesmo suporte de nível de produção para bibliotecas MSAL em pré-visualização, como fazemos para versões de MSAL e ADAL que estão disponíveis em geral.
+Pode utilizar a biblioteca MSAL para criar aplicativos que autenticar todas as identidades da Microsoft. As bibliotecas MSAL em .NET e JavaScript estão geralmente disponíveis. As bibliotecas MSAL para iOS e Android estão em pré-visualização e adequadas para utilização num ambiente de produção. Fornecemos o mesmo suporte de nível de produção para bibliotecas MSAL em pré-visualização, como fazemos para versões de MSAL e ADAL que estão disponíveis em geral.
 
 Também pode utilizar as bibliotecas MSAL para integrar a aplicação com o Azure AD B2C.
 

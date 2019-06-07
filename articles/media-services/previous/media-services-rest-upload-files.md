@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7583a0fda2fca0d8ff80879389b824a7b352a84
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817699"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66752886"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta de serviços de multimédia com REST  
 > [!div class="op_single_selector"]
@@ -176,7 +176,7 @@ Agora que tem o URL de carregamento, terá de escrever alguns códigos utilizand
 
 - [Utilizar o REST API de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [COLOCAR o Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Carregar blobs no armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Carregar blobs no armazenamento de BLOBs](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Carregar um ficheiro com o Postman
 
@@ -185,7 +185,7 @@ Por exemplo, vamos utilizar o Postman para carregar um ficheiro. mp4 pequeno. Po
 O pedido de carregamento não é parte dos **AzureMedia** coleção. 
 
 Criar e configurar um novo pedido:
-1. Prima **+**, para criar um novo separador do pedido.
+1. Prima **+** , para criar um novo separador do pedido.
 2. Selecione **colocar** operação e colar **{{UploadURL}}** no URL.
 2. Deixe **autorização** separador como está (não defini-lo o **Token de portador**).
 3. Na **cabeçalhos** separador, especifique: **Chave**: "x-ms-BLOBs-type" e **valor**: "BlockBlob".

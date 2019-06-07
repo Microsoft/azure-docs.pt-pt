@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 6/5/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b1763e7c24ea75a698c3718ab5e205dcc3e0c8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 4b33174b20cdf42e29cdb5b4786122513d2c6080
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495790"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753732"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -62,7 +62,7 @@ Todos os endereços IP de tráfego de rede virtual de saída são convertidos no
 
 ### <a name="inbound-dnat-support"></a>Suporte DNAT de entrada
 
-O tráfego de rede de entrada para o seu endereço IP público do firewall é traduzido (Tradução de Endereços de Rede de Destino) e filtrado para os endereços IP privados nas suas redes virtuais. 
+O tráfego de rede de entrada para o seu endereço IP público do firewall é traduzido (Tradução de Endereços de Rede de Destino) e filtrado para os endereços IP privados nas suas redes virtuais.
 
 ### <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
@@ -82,8 +82,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Intervalo de portas nas regras de rede e da aplicação|As portas estão limitadas a 64.000 como portas de elevada estão reservadas para gestão e o estado de funcionamento sondas. |Estamos a trabalhar para reduzir esta limitação.|
 |Podem obter mascarados alertas de inteligência de ameaças|Alertas de inteligência quando configurado para o modo só de alerta de ameaças de regras de rede com o destino 80/443 para máscaras de filtragem de saída.|Crie a filtragem de saída para 80/443 usando regras de aplicações. Em alternativa, altere o modo de inteligência de ameaças **alertar e negar**.|
 |Firewall do Azure utiliza o DNS do Azure apenas para resolução de nomes|Firewall do Azure resolve FQDNs apenas a utilizar o DNS do Azure. Um servidor DNS personalizado não é suportado. Não existe nenhum impacto na resolução DNS em outras sub-redes.|Estamos a trabalhar para reduzir esta limitação.|
-|SNAT/DNAT de Firewall do Azure não funciona para destinos de IP privados|Suporte de Firewall SNAT/DNAT do Azure está limitado a entrada/saída de Internet. SNAT/DNAT atualmente não funciona para destinos de IP privados. Por exemplo, spoke para and-spoke.|Isso é que está sendo investigado.
-
+|SNAT/DNAT de Firewall do Azure não funciona para destinos de IP privados|Suporte de Firewall SNAT/DNAT do Azure está limitado a entrada/saída de Internet. SNAT/DNAT atualmente não funciona para destinos de IP privados. Por exemplo, spoke para and-spoke.|Trata-se do mapa da estrada para uma atualização futura.
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Tutorial: Implementar e configurar a Firewall do Azure no portal do Azure](tutorial-firewall-deploy-portal.md)

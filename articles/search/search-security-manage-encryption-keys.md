@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 567f32cba76aaf2d1657b2476c4d11596d44dec5
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523100"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753920"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação de pesquisa do Azure com chaves geridas pelo cliente no Azure Key Vault
 
@@ -227,7 +227,7 @@ Para criar uma aplicação do AAD no portal do:
 
 1. [Crie uma aplicação no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Obter a chave de autenticação e o ID de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) como esses serão necessários para criar um índice encriptado. Terá de fornecer os valores incluem **ID da aplicação** e **chave de autenticação**.
+1. [Obter a chave de autenticação e o ID de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) como esses serão necessários para criar um índice encriptado. Terá de fornecer os valores incluem **ID da aplicação** e **chave de autenticação**.
 
 >[!Important]
 > Ao decidir utilizar uma aplicação do AAD de autenticação em vez de uma identidade gerida, considere o fato de que o Azure Search não está autorizado a gerir a sua aplicação do AAD em seu nome, e cabe-lhe gerir a sua aplicação do AAD, por exemplo, rotação periódica de a chave de autenticação da aplicação.

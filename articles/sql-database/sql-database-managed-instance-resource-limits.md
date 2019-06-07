@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 05/22/2019
-ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ef431754db222554c6543e12e4cb6cf0431f7b51
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303202"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66755041"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Descrição geral do Azure SQL Database managed limites de recursos de instância
 
@@ -38,8 +38,8 @@ A instância gerida de base de dados SQL do Azure pode ser implementada em duas 
 | --- | --- | --- |
 | Hardware | V3 Intel E5-2673 processadores de 2,4 GHz (Haswell), anexado SSD vCore = 1 PP (núcleos físicos) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, vCore = 1 LP (hyper-thread) |
 | vCores | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
-| Memória | 7 GB por vCore | 5.1 GB por vCore |
-| Memória de OLTP máximo em memória | 3 GB por vCore | 2.6 GB por vCore |
+| Memória (memória/núcleo) | 7 GB por vCore | 5.1 GB por vCore |
+| Memória de OLTP máximo em memória | Limite da instância: 3 GB por vCore<br/>Limites de base de dados:<br/> -8 núcleos: 8GB por base de dados<br/> -16 núcleos: 20GB por base de dados<br/> -24-core: 36GB por base de dados | Limite da instância: 2,5 GB por vCore<br/>Limites de base de dados:<br/> -8 núcleos: 13GB por base de dados<br/> -16 núcleos: 32GB por base de dados |
 | Armazenamento de instância de máximo (fins gerais) |  8 TB | 8 TB |
 | Armazenamento de instância de máximo (crítico para a empresa) | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
@@ -50,14 +50,14 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | **Funcionalidade** | **Fins gerais** | **Crítico para a empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memória | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
+| Memória (memória/núcleo) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
 | Tamanho máximo de armazenamento de instância | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
 | IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 K (1375/vCore) |
 | Taxa de transferência do registo | 3 MB/s por vCore<br/>Máx. de 22 MB/s por instância | 4 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
-| Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
+| Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | Latência de e/s (aproximada) | 5-10 ms | 1-2 ms |
 | Tamanho máximo de tempDB | 192 - 1,920 GB (24 GB por vCore) | Sem restrições - limitadas pelo tamanho de armazenamento máximo da instância |
 | Número máximo de sessões | 30000 | 30000 |

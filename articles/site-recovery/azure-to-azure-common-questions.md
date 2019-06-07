@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
-ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925675"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66753768"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas mais comuns: Recuperação após desastre do Azure para o Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: Recuperação após desastre de Azure para o Azure
 
 Este artigo fornece respostas a perguntas comuns sobre a recuperação após desastre de VMs do Azure para outra região do Azure, utilizando [recuperação de Site](site-recovery-overview.md). 
 
@@ -137,13 +137,13 @@ O primeiro ponto de recuperação que é gerado tem a cópia completa. Pontos de
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Aumentar o período de retenção de pontos de recuperação aumenta o custo de armazenamento?
 Sim. Se aumentar o período de retenção de 24 horas para 72 horas, o Site Recovery irá guardar os pontos de recuperação para um adicional de 48 horas. O tempo extra incorre em custos de armazenamento. Por exemplo, se um ponto de recuperação de único tem alterações de delta de 10 GB e o custo por GB é de US $0.16 por mês, os encargos adicionais seria US $1.6 * 48 por mês.
 
-## <a name="multi-vm-consistency"></a>Consistência de multi-VMs
+## <a name="multi-vm-consistency"></a>Consistência de multi-VMS
 
 ### <a name="what-is-multi-vm-consistency"></a>O que é a consistência multi-VM?
 Isso significa certificar-se de que o ponto de recuperação é consistente em todas as máquinas virtuais replicadas.
 Recuperação de sites fornece uma opção de "Consistência multi-VM," que, quando selecioná-lo, cria um grupo de replicação para replicar todas as máquinas em conjunto, que fazem parte do grupo.
 Todas as máquinas virtuais irão partilhar pontos de recuperação consistentes com falhas e consistente com a aplicação quando são efetuadas a ativação pós-falha.
-Avance para o tutorial para [ativar a consistência multi-VM](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Avance para o tutorial para [ativar a consistência multi-VM](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Posso ativação pós-falha única máquina virtual dentro de um grupo de replicação de consistência de multi-VMS?
 Ao selecionar a opção "Consistência de multi-VMS", estão a indicar que a aplicação tem uma dependência em todas as máquinas virtuais dentro de um grupo. Por conseguinte, a ativação pós-falha da máquina virtual individual não é permitida.
