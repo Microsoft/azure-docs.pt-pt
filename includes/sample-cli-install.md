@@ -1,16 +1,16 @@
 ---
 author: sptramer
-ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 05/31/2019
 ms.author: sttramer
-ms.openlocfilehash: ebdfadcb70cc9788a3d18fa99261412506889764
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c4bc5a6befaf684cd07fb3b6799ba00099627132
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66110338"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66814764"
 ---
-Para executar este exemplo, confirme que tem instalada a versão mais recente da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para começar, execute `az login` para criar uma ligação ao Azure.
+Para executar este exemplo, instale a versão mais recente dos [CLI do Azure](/cli/azure/install-azure-cli). Para começar, execute `az login` para criar uma ligação ao Azure.
 
-Este exemplo funciona numa shell do Bash. Para obter as opções de execução de scripts da CLI do Azure num cliente Windows, veja [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows).
+Exemplos da CLI do Azure são escritos para o `bash` shell. Para executar este exemplo no Windows PowerShell ou da linha de comandos, terá de alterar os elementos do script.
+
