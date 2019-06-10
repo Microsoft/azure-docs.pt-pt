@@ -35,8 +35,8 @@ O nome de subscrição de evento tem de ter 3 e 64 carateres de comprimento e s�
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Destino | objeto | O objeto que define o ponto final. |
-| filtro | objeto | Um campo opcional para filtrar os tipos de eventos. |
+| destination | objeto | O objeto que define o ponto final. |
+| filter | objeto | Um campo opcional para filtrar os tipos de eventos. |
 
 ### <a name="destination-object"></a>objeto de destino
 
