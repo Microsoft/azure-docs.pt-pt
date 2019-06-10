@@ -85,12 +85,12 @@ Todos os eventos possuem os mesmos dados de nível superior seguintes:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| Assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | string | Identificador exclusivo para o evento. |
-| Dados | objeto | Dados de eventos específicos para o fornecedor de recursos. |
+| id | string | Identificador exclusivo para o evento. |
+| data | objeto | Dados de eventos específicos para o fornecedor de recursos. |
 | dataVersion | string | A versão de esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão de esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
