@@ -306,22 +306,22 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
 
     | name | description | type | 
     | :- | :- | :- | 
-    | Ficheiro | Ficheiro que contém o aplicativo para executar | caminho (obrigatório) | 
+    | file | Ficheiro que contém o aplicativo para executar | caminho (obrigatório) | 
     | proxyUser | Utilizador representar ao executar a tarefa | string | 
     | className | Classe principal do aplicativo Java/Spark | string |
     | args | Argumentos de linha de comandos para a aplicação | lista de cadeias de caracteres | 
     | jars | jars a ser utilizado nesta sessão | Lista de cadeia de caracteres | 
     | pyFiles | Arquivos de Python a serem usados nesta sessão | Lista de cadeia de caracteres |
-    | Ficheiros | arquivos a serem usados nesta sessão | Lista de cadeia de caracteres |
+    | files | arquivos a serem usados nesta sessão | Lista de cadeia de caracteres |
     | driverMemory | Quantidade de memória a utilizar para o processo de driver | string |
     | driverCores | Número de núcleos para utilizar para o processo de driver | int |
     | executorMemory | Quantidade de memória a utilizar por processo de executor | string |
     | executorCores | Número de núcleos para utilizar para cada executor | int |
     | numExecutors | Número de executores para iniciar a esta sessão | int |
-    | arquivos compactados | Arquivos compactados a ser utilizado nesta sessão | Lista de cadeia de caracteres |
-    | fila | O nome da fila YARN para o qual submetido | string |
+    | archives | Arquivos compactados a ser utilizado nesta sessão | Lista de cadeia de caracteres |
+    | queue | O nome da fila YARN para o qual submetido | string |
     | name | O nome desta sessão | string |
-    | Conf | Propriedades de configuração de Spark | Mapa de chave = valor |
+    | conf | Propriedades de configuração de Spark | Mapa de chave = valor |
 
     Corpo da resposta   
     O objeto criado do Batch.
@@ -332,7 +332,7 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
     | appId | O id de aplicação desta sessão |  String |
     | appInfo | As informações detalhadas de aplicação | Mapa de chave = valor |
     | log | As linhas de registo | lista de cadeias de caracteres |
-    | estado |   O estado de batch | string |
+    | state |   O estado de batch | string |
 
 >[!NOTE]
 >A configuração do livy atribuído serão apresentados no painel de resultados quando submeta o script.
