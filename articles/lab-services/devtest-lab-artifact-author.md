@@ -56,7 +56,7 @@ O exemplo seguinte mostra as secções que compõem a estrutura básica de um fi
 | Nome do elemento | Obrigatório? | Descrição |
 | --- | --- | --- |
 | $schema |Não |Localização do ficheiro de esquema JSON. O ficheiro de esquema JSON pode ajudar a testar a validade do arquivo de definição. |
-| título |Sim |Nome do artefacto apresentado no laboratório. |
+| title |Sim |Nome do artefacto apresentado no laboratório. |
 | description |Sim |Descrição do artefacto apresentado no laboratório. |
 | iconUri |Não |URI do ícone apresentado no laboratório. |
 | targetOsType |Sim |Sistema operativo da VM onde está instalado o artefacto. Opções suportadas são Windows e Linux. |
