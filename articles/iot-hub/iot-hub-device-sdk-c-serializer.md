@@ -69,16 +69,16 @@ São suportados os seguintes tipos de dados na criação de modelos criadas com 
 | double |Double precisão número de vírgula flutuante |
 | int |número inteiro de 32 bits |
 | float |número de ponto flutuante de precisão única |
-| longa |número inteiro longo |
+| long |número inteiro longo |
 | int8\_t |número inteiro de 8 bits |
 | int16\_t |número inteiro de 16 bits |
 | int32\_t |número inteiro de 32 bits |
 | int64\_t |número inteiro de 64 bits |
-| booleano |boolean |
+| bool |boolean |
 | ascii\_char\_ptr |Cadeia de caracteres ASCII |
-| EDM\_DATA\_TEMPO\_DE DESLOCAMENTO |compensação de tempo de data |
+| EDM\_DATE\_TIME\_OFFSET |compensação de tempo de data |
 | EDM\_GUID |GUID |
-| EDM\_BINÁRIO |binary |
+| EDM\_BINARY |binary |
 | DECLARE\_STRUCT |Tipo de dados complexos |
 
 Vamos começar com o último tipo de dados. O **DECLARE\_STRUCT** permite-lhe definir os tipos de dados complexos, que consistem em agrupamentos de outros tipos primitivos. Esses agrupamentos permitem-nos definir um modelo que tem esta aparência:
