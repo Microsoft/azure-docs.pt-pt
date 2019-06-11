@@ -191,10 +191,10 @@ Abra sua definição da aplicação lógica na vista de código, vá para o **HT
 | Elemento | Necessário | Descrição | 
 | ------- | -------- | ----------- | 
 | tenant | Sim | O GUID para o inquilino do Azure AD | 
-| Público-alvo | Sim | O GUID para o recurso de destino que pretende aceder, que é o ID de cliente desde a identidade da aplicação para a sua aplicação web ou a aplicação API | 
+| audience | Sim | O GUID para o recurso de destino que pretende aceder, que é o ID de cliente desde a identidade da aplicação para a sua aplicação web ou a aplicação API | 
 | clientId | Sim | O GUID para o cliente pedir o acesso, o que é o ID de cliente desde a identidade da aplicação para a aplicação lógica | 
-| segredo | Sim | A chave ou palavra-passe desde a identidade da aplicação para o cliente que está a pedir o token de acesso | 
-| tipo | Sim | O tipo de autenticação. Para a autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| secret | Sim | A chave ou palavra-passe desde a identidade da aplicação para o cliente que está a pedir o token de acesso | 
+| type | Sim | O tipo de autenticação. Para a autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
 Por exemplo:
@@ -236,7 +236,7 @@ Na **autorização** secção, incluir esta linha:
 
 | Elemento | Necessário | Descrição | 
 | ------- | -------- | ----------- | 
-| tipo | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor tem de ser `ClientCertificate`. | 
+| type | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor tem de ser `ClientCertificate`. | 
 | password | Sim | A palavra-passe para aceder ao certificado de cliente (arquivo PFX) | 
 | pfx | Sim | O conteúdo codificado em base64 do certificado de cliente (arquivo PFX) | 
 |||| 
@@ -253,7 +253,7 @@ Na **autorização** secção, incluir esta linha:
 
 | Elemento | Necessário | Descrição | 
 | ------- | -------- | ----------- | 
-| tipo | Sim | O tipo de autenticação que pretende utilizar. Para a autenticação básica, o valor tem de ser `Basic`. | 
+| type | Sim | O tipo de autenticação que pretende utilizar. Para a autenticação básica, o valor tem de ser `Basic`. | 
 | username | Sim | O nome de utilizador que pretende utilizar para autenticação | 
 | password | Sim | A palavra-passe que pretende utilizar para autenticação | 
 |||| 
