@@ -59,7 +59,7 @@ Este artigo fornece código personalizado que podem ser usadas nas camadas de fo
 | Propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | sourceType |   | Tipo de origem de execução. Valores permitidos são **Microsoft.Logic/workflows** e **personalizado**. (Obrigatório) |
-| Origem |   | Se o tipo de origem for **Microsoft.Logic/workflows**, as informações de origem tem de cumprir esse esquema. Se o tipo de origem for **personalizado**, o esquema é um JToken. (Obrigatório) |
+| source |   | Se o tipo de origem for **Microsoft.Logic/workflows**, as informações de origem tem de cumprir esse esquema. Se o tipo de origem for **personalizado**, o esquema é um JToken. (Obrigatório) |
 | systemId | String | ID de sistema da aplicação lógica. (Obrigatório) |
 | runId | String | ID de execução da aplicação lógica (Obrigatório) |
 | operationName | String | Nome da operação (por exemplo, ação ou acionador). (Obrigatório) |
@@ -71,7 +71,7 @@ Este artigo fornece código personalizado que podem ser usadas nas camadas de fo
 | eventLevel |   | Nível do evento. (Obrigatório) |
 | eventTime |   | Hora do evento, no formato AAAA-MM-DDTHH:MM:SS.00000Z da UTC. (Obrigatório) |
 | recordType |   | Tipo de registro de rastreamento. Permitido é de valor **personalizado**. (Obrigatório) |
-| registo |   | Tipo de registo personalizado. O formato permitido é JToken. (Obrigatório) |
+| record |   | Tipo de registo personalizado. O formato permitido é JToken. (Obrigatório) |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de controlo de protocolo de B2B
