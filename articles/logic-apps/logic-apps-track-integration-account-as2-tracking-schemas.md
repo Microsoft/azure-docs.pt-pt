@@ -63,7 +63,7 @@ Para ajudar a monitorizar o êxito, erros e as propriedades da mensagem para tra
 | as2To | String | Nome do destinatário de mensagem AS2, dos cabeçalhos da mensagem AS2. (Obrigatório) |
 | as2From | String | Nome do remetente da mensagem AS2, dos cabeçalhos da mensagem AS2. (Obrigatório) |
 | agreementName | String | Nome do contrato de AS2 ao qual as mensagens são resolvidas. (Opcional) |
-| direção | String | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| direction | String | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | messageId | String | ID da mensagem AS2, dos cabeçalhos da mensagem AS2 (opcional) |
 | dispositionType |String | Valor de tipo de disposição de notificação de disposição (MDN) de mensagem. (Opcional) |
 | fileName | String | Nome de ficheiro, do cabeçalho da mensagem AS2. (Opcional) |
@@ -116,7 +116,7 @@ Para ajudar a monitorizar o êxito, erros e as propriedades da mensagem para tra
 | as2To | String | Nome do parceiro que recebe a mensagem AS2. (Obrigatório) |
 | as2From | String | Nome do parceiro que envia a mensagem AS2. (Obrigatório) |
 | agreementName | String | Nome do contrato de AS2 ao qual as mensagens são resolvidas. (Opcional) |
-| direção |String | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| direction |String | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | messageId | String | ID da mensagem AS2. (Opcional) |
 | originalMessageId |String | AS2 original ID da mensagem. (Opcional) |
 | dispositionType | String | Valor de tipo de disposição de MDN. (Opcional) |
