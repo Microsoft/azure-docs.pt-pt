@@ -75,7 +75,7 @@ Em alternativa, pode especificar manualmente a política de repetição no `inpu
 |-------|------|-------------|
 | <*retry-policy-type*> | String | O tipo de política de repetição que pretende utilizar: `default`, `none`, `fixed`, ou `exponential` | 
 | <*retry-interval*> | String | O intervalo entre tentativas em que o valor tem de utilizar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D`. Quando utiliza a política de intervalo exponencial, pode especificar diferentes valores mínimos e máximos. | 
-| <*retry-attempts*> | Número inteiro | O número de tentativas de repetição, o que deve ser entre 1 e 90 | 
+| <*retry-attempts*> | Integer | O número de tentativas de repetição, o que deve ser entre 1 e 90 | 
 ||||
 
 *Opcional*
