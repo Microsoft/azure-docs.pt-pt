@@ -1,0 +1,30 @@
+- name: Documentação de Computação de Alto Desempenho
+  items:
+    - name: Descrição geral
+      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+    - name: Configuração
+      items:
+        - name: Otimização para Linux
+          href: configure.md
+        - name: Ativar Infiniband
+          href: enable-infiniband.md
+    - name: Configurar a MPI
+      href: setup-mpi.md
+    - name: Dimensionamento de aplicações
+      href: compiling-scaling-applications.md
+    - name: Máquinas virtuais
+      items:
+        - name: Série HB
+          items:
+            - name: Descrição geral
+              href: hb-series-overview.md
+            - name: Desempenho
+              href: hb-series-performance.md
+        - name: Série HC
+          items:
+            - name: Descrição geral
+              href: hc-series-overview.md
+            - name: Desempenho
+              href: hc-series-performance.md
+        - name: Problemas conhecidos relacionados com a série HB e as VMs da série HC
+          href: hb-hc-known-issues.md

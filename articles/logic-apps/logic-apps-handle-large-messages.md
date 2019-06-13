@@ -57,7 +57,7 @@ Se um ponto final tiver ativado a segmentação para downloads ou carregamentos,
 
 Além disso, se uma ação de HTTP já não habilitar a segmentação, tem também de configurar divisão na ação `runTimeConfiguration` propriedade. Pode definir esta propriedade dentro da ação, diretamente no editor de vista de código, conforme descrito mais tarde ou no estruturador de aplicações lógicas, conforme descrito aqui:
 
-1. No canto superior direito da ação de HTTP, selecione o botão de reticências (**...** ) e, em seguida, escolha **definições**.
+1. No canto superior direito da ação de HTTP, selecione o botão de reticências ( **...** ) e, em seguida, escolha **definições**.
 
    ![Em ação, abra o menu de definições](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -128,7 +128,7 @@ Estes passos descrevem o processo detalhado que Logic Apps utiliza para carregar
    | Campo de cabeçalho de resposta do ponto final | Type | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Não | O tamanho do segmento sugerido em bytes |
-   | **Location** | String | Não | A localização de URL para onde enviar as mensagens HTTP PATCH |
+   | **Localização** | String | Não | A localização de URL para onde enviar as mensagens HTTP PATCH |
    ||||
 
 3. A aplicação lógica cria e envia mensagens de HTTP PATCH seguimento - cada um com estas informações:

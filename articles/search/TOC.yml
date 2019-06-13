@@ -163,25 +163,29 @@
       items:
         - name: Descrição geral de indexadores
           href: search-indexer-overview.md
-        - name: Indexador do armazenamento de Blobs
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Indexador do armazenamento de Tabelas
+        - name: Indexador do Armazenamento de Tabelas do Azure
           href: search-howto-indexing-azure-tables.md
-        - name: Indexador de BD SQL
+        - name: Indexador de BD SQL do Azure
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Indexador do Cosmos DB
+        - name: Indexador do Azure Cosmos DB
           href: search-howto-index-cosmosdb.md
-        - name: Indexação de blobs um-para-muitos
-          href: search-howto-index-one-to-many-blobs.md
-        - name: Indexação de blob CSV
-          href: search-howto-index-csv-blobs.md
-        - name: Indexação de blob JSON
-          href: search-howto-index-json-blobs.md
+        - name: Indexador do Armazenamento de Blobs do Azure
+          items:
+            - name: Configurar um indexador de blobs
+              href: search-howto-indexing-azure-blob-storage.md
+            - name: Indexar blobs de um-para-muitos
+              href: search-howto-index-one-to-many-blobs.md
+            - name: Blobs CSV de Indexação
+              href: search-howto-index-csv-blobs.md
+            - name: Blobs JSON de Indexação
+              href: search-howto-index-json-blobs.md
+        - name: Indexadores de agenda
+          href: search-howto-schedule-indexers.md
+        - name: Campos de mapa
+          href: search-indexer-field-mappings.md
         - name: Ligar a VMs do SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-        - name: Mapeamentos de campo
-          href: search-indexer-field-mappings.md
-        - name: Resolução de problemas comuns
+        - name: Resolver problemas comuns
           href: search-indexer-troubleshooting.md
     - name: Melhorar com a IA
       items:

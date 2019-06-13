@@ -533,8 +533,8 @@
           href: how-to-sql-subquery.md
     - name: Feed de Alterações
       items:
-        - name: Registos de acionador do Azure Cosmos DB
-          href: how-to-configure-cosmos-db-trigger-logs.md
+        - name: Política de ligação do Azure Cosmos DB Trigger
+          href: how-to-configure-cosmos-db-trigger-connection-policy.md
         - name: Vários Acionadores do Azure Cosmos DB
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Resolver problemas do acionador do Azure Cosmos BD
