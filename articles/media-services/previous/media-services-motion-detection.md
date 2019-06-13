@@ -95,17 +95,17 @@ A tabela seguinte descreve os elementos do ficheiro de saída JSON.
 | Elemento | Descrição |
 | --- | --- |
 | Version |Refere-se para a versão da API de vídeo. A versão atual é 2. |
-| Timescale |"Ticks" por segundo do vídeo. |
+| Escala temporal |"Ticks" por segundo do vídeo. |
 | Offset |O desvio de tempo para os carimbos de data / no "ticks". Na versão 1.0 de APIs de vídeo, ela sempre será 0. No futuro cenários que suportamos, pode alterar este valor. |
 | Framerate |Fotogramas por segundo do vídeo. |
 | Width, Height |Refere-se para a largura e altura do vídeo em pixéis. |
-| Start |O carimbo de hora de início em "ticks". |
-| Duration |O comprimento do evento, em "ticks". |
+| Iniciar |O carimbo de hora de início em "ticks". |
+| Duração |O comprimento do evento, em "ticks". |
 | Interval |O intervalo de cada entrada no evento, em "ticks". |
 | Events |Cada fragmento de evento contém o motion detetado dentro desse período de tempo. |
 | Type |Na versão atual, isso é sempre "2" para o movimento genérico. Isto dá a etiqueta as APIs de vídeo a flexibilidade para categorizar o motion em futuras versões. |
 | RegionID |Tal como explicado anteriormente, isso será sempre 0 nesta versão. Esta etiqueta proporciona a flexibilidade para localizar o movimento em várias regiões em futuras versões de API de vídeo. |
-| Regions |Refere-se para a área no seu vídeo em que se preocupa motion. <br/><br/>-o "id" representa a área de região – nesta versão existe apenas um, ID de 0. <br/>-"tipo" representa a forma da região que mais lhe interessa para movimento. Atualmente, são suportados "retângulo" e "polígono".<br/> Se tiver especificado "retângulo", a região tem dimensões no X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY esquerdas superiores da região numa escala normalizada de 0,0 a 1,0. A largura e altura representam o tamanho da região numa escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixa em 0, 0 e 1, 1. <br/>Se tiver especificado "polígono", a região tem dimensões em pontos. <br/> |
+| Regiões |Refere-se para a área no seu vídeo em que se preocupa motion. <br/><br/>-o "id" representa a área de região – nesta versão existe apenas um, ID de 0. <br/>-"tipo" representa a forma da região que mais lhe interessa para movimento. Atualmente, são suportados "retângulo" e "polígono".<br/> Se tiver especificado "retângulo", a região tem dimensões no X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY esquerdas superiores da região numa escala normalizada de 0,0 a 1,0. A largura e altura representam o tamanho da região numa escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixa em 0, 0 e 1, 1. <br/>Se tiver especificado "polígono", a região tem dimensões em pontos. <br/> |
 | Fragments |Os metadados é segmentado cópias em diferentes segmentos chamados fragmentos. Cada fragmento contém um início, duração, número de intervalos e evento(s). Um fragmento com nenhum evento significa que não foi detetado o movimento de durante essa hora de início e a duração. |
 | Brackets [] |Cada Reto de fecho representa um intervalo no evento. Vazio Retos para esse intervalo significa que não foi detetado o movimento de. |
 | locations |Essa nova entrada em eventos de lista a localização onde o movimento ocorreu. Isso é mais específico do que as zonas de deteção. |
