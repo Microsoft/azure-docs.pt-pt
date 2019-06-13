@@ -67,15 +67,15 @@ O JSON seguinte mostra o esquema para a extensão de estado de funcionamento do 
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publicador | `Microsoft.ManagedServices` | string |
-| tipo | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Definições
 
 | Name | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ----
-| protocolo | `http` ou `tcp` | string |
-| porta | Opcional quando o protocolo é `http`obrigatório quando o protocolo é `tcp` | int |
+| protocol | `http` ou `tcp` | string |
+| port | Opcional quando o protocolo é `http`obrigatório quando o protocolo é `tcp` | int |
 | requestPath | Obrigatório quando o protocolo é `http`, não permitido quando o protocolo é `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implementar a extensão de estado de funcionamento da aplicação
