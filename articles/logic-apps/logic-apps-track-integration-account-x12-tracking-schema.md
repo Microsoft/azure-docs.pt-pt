@@ -66,7 +66,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | receiverQualifier | String | Receba o qualificador de parceiro. (Obrigatório) |
 | receiverIdentifier | String | Recebe o identificador de parceiro. (Obrigatório) |
 | agreementName | String | Nome de X12 contrato para o qual as mensagens são resolvidas. (Opcional) |
-| direção | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| direction | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | interchangeControlNumber | String | Número de controlo de intercâmbio. (Opcional) |
 | functionalGroupControlNumber | String | Número de controle funcional. (Opcional) |
 | transactionSetControlNumber | String | Número de controlo do conjunto de transações. (Opcional) |
@@ -76,7 +76,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada no X12 contrato. (Obrigatório) |
 | isFunctionalAcknowledgmentExpected | Boolean | Se a confirmação funcional é configurada no X12 contrato. (Obrigatório) |
 | needAk2LoopForValidMessages | Boolean | Se o loop de ciclo AK2 é necessário para uma mensagem válida. (Obrigatório) |
-| segmentsCount | Número inteiro | Número de segmentos numa X12 conjunto de transações. (Opcional) |
+| segmentsCount | Integer | Número de segmentos numa X12 conjunto de transações. (Opcional) |
 ||||
 
 ## <a name="x12-transaction-set-acknowledgement-tracking-schema"></a>X12 confirmação esquemas de controlo do conjunto de transações
@@ -122,7 +122,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | receiverQualifier | String | Receba o qualificador de parceiro. (Obrigatório) |
 | receiverIdentifier | String | Recebe o identificador de parceiro. (Obrigatório) |
 | agreementName | String | Nome de X12 contrato para o qual as mensagens são resolvidas. (Opcional) |
-| direção | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| direction | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | interchangeControlNumber | String | Intercâmbio de número de controlo da confirmação funcional. Povoa o valor apenas para o lado de envio onde funcional confirmação é recebida para as mensagens enviadas para o parceiro. (Opcional) |
 | functionalGroupControlNumber | String | Número de controlo do grupo funcional da confirmação funcional. Povoa o valor apenas para o lado de envio onde funcional confirmação é recebida para as mensagens enviadas para o parceiro. (Opcional) |
 | isaSegment | String | Segmento ISA da mensagem. Povoa o valor apenas para o lado de envio onde funcional confirmação é recebida para as mensagens enviadas para o parceiro. (Opcional) |
@@ -180,7 +180,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | receiverQualifier | String | Receba o qualificador de parceiro. (Obrigatório) |
 | receiverIdentifier | String | Recebe o identificador de parceiro. (Obrigatório) |
 | agreementName | String | Nome de X12 contrato para o qual as mensagens são resolvidas. (Opcional) |
-| direção | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| direction | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | interchangeControlNumber | String | Número de controlo de intercâmbio. (Opcional) |
 | isaSegment | String | Segmento ISA de mensagem. (Opcional) |
 | isTechnicalAcknowledgmentExpected | Boolean | Se a confirmação técnica está configurada no X12 contrato. (Obrigatório) |
@@ -231,7 +231,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | receiverQualifier | String | Receba o qualificador de parceiro. (Obrigatório) |
 | receiverIdentifier | String | Recebe o identificador de parceiro. (Obrigatório) |
 | agreementName | String | Nome de X12 contrato para o qual as mensagens são resolvidas. (Opcional) |
-| direção | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| direction | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | interchangeControlNumber | String | Número de controlo da confirmação técnica recebidos de parceiros de intercâmbio. (Opcional) |
 | isaSegment | String | Segmento ISA para a confirmação de técnica de parceiros é recebido. (Opcional) |
 | respondingInterchangeControlNumber |String | Número de controlo para a confirmação técnica recebidos de parceiros de intercâmbio. (Opcional) |
@@ -284,7 +284,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | receiverQualifier | String | Receba o qualificador de parceiro. (Obrigatório) |
 | receiverIdentifier | String | Recebe o identificador de parceiro. (Obrigatório) |
 | agreementName | String | Nome de X12 contrato para o qual as mensagens são resolvidas. (Opcional) |
-| direção | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| direction | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | interchangeControlNumber | String | Número de controlo de intercâmbio. (Opcional) |
 | functionalGroupControlNumber | String | Número de controle funcional. (Opcional) |
 | gsSegment | String | Segmento de mensagem GS. (Opcional) |
@@ -340,7 +340,7 @@ Para ajudá-lo a êxito do monitor, erros e as propriedades da mensagem para as 
 | receiverQualifier | String | Receba o qualificador de parceiro. (Obrigatório) |
 | receiverIdentifier | String | Recebe o identificador de parceiro. (Obrigatório) |
 | agreementName | String | Nome de X12 contrato para o qual as mensagens são resolvidas. (Opcional) |
-| direção | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
+| direction | Enum | Direção do fluxo da mensagem, receber ou enviar. (Obrigatório) |
 | interchangeControlNumber | String | Número de controlo do intercâmbio, que preenche para o lado de envio, quando uma técnica confirmação é recebida de parceiros. (Opcional) |
 | functionalGroupControlNumber | String | Número de controlo do grupo funcional da confirmação técnico, que preenche para o lado de envio, quando uma técnica confirmação é recebida de parceiros. (Opcional) |
 | isaSegment | String | Mesmo que o intercâmbio de controlar o número, mas preenchida apenas em casos específicos. (Opcional) |
