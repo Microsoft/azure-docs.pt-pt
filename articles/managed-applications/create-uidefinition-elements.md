@@ -40,13 +40,13 @@ O esquema para a maioria dos elementos é o seguinte:
 
 | Propriedade | Necessário | Descrição |
 | -------- | -------- | ----------- |
-| nome | Sim | Um identificador interno para fazer referência a uma instância específica de um elemento. O uso mais comum do nome do elemento está no `outputs`, onde os valores de saída dos elementos especificados estão mapeados para os parâmetros do modelo. Também pode ser usada para vincular o valor de saída de um elemento para a `defaultValue` de outro elemento. |
-| tipo | Sim | O controle de interface do Usuário para processar para o elemento. Para obter uma lista dos tipos suportados, consulte [elementos](#elements). |
+| name | Sim | Um identificador interno para fazer referência a uma instância específica de um elemento. O uso mais comum do nome do elemento está no `outputs`, onde os valores de saída dos elementos especificados estão mapeados para os parâmetros do modelo. Também pode ser usada para vincular o valor de saída de um elemento para a `defaultValue` de outro elemento. |
+| type | Sim | O controle de interface do Usuário para processar para o elemento. Para obter uma lista dos tipos suportados, consulte [elementos](#elements). |
 | label | Sim | O texto de exibição do elemento. Alguns tipos de elemento contenham várias etiquetas, para que o valor pode ser um objeto que contém várias cadeias de caracteres. |
 | defaultValue | Não | O valor predefinido do elemento. Alguns tipos de elemento suportam valores predefinidos complexos, para que o valor pode ser um objeto. |
 | toolTip | Não | O texto a apresentar na dica de ferramenta do elemento. Semelhante à `label`, alguns elementos de suportam várias cadeias de caracteres de dica de ferramenta. Ligações inline podem ser incorporadas usando sintaxe de Markdown.
-| Restrições | Não | Uma ou mais propriedades que são utilizadas para personalizar o comportamento de validação do elemento. As propriedades suportadas para restrições variam consoante o tipo de elemento. Alguns tipos de elemento não suporta a personalização do comportamento de validação e, portanto, não ter nenhuma propriedade de restrições. |
-| opções | Não | Propriedades adicionais que personalizar o comportamento do elemento. Semelhante à `constraints`, as propriedades suportadas variam consoante o tipo de elemento. |
+| constraints | Não | Uma ou mais propriedades que são utilizadas para personalizar o comportamento de validação do elemento. As propriedades suportadas para restrições variam consoante o tipo de elemento. Alguns tipos de elemento não suporta a personalização do comportamento de validação e, portanto, não ter nenhuma propriedade de restrições. |
+| options | Não | Propriedades adicionais que personalizar o comportamento do elemento. Semelhante à `constraints`, as propriedades suportadas variam consoante o tipo de elemento. |
 | visible | Não | Indica se o elemento é apresentado. Se `true`, o elemento e elementos filho aplicáveis são apresentados. O valor predefinido é `true`. Uso [funções lógicas](create-uidefinition-functions.md#logical-functions) para controlar dinamicamente o valor desta propriedade.
 
 ## <a name="elements"></a>Elementos
