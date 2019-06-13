@@ -28,26 +28,26 @@ Criar, eliminar e gerir aplicações e tipos de aplicativos.
 
 |Comando|Descrição|
 | --- | --- |
-| criar | Cria uma aplicação de Service Fabric com a descrição especificada. |
+| create | Cria uma aplicação de Service Fabric com a descrição especificada. |
 | delete | Elimina uma aplicação de Service Fabric existente. |
-| implementado | Obtém as informações sobre uma aplicação implementada num nó do Service Fabric. |
+| deployed | Obtém as informações sobre uma aplicação implementada num nó do Service Fabric. |
 | deployed-health | Obtém as informações sobre o estado de funcionamento de um aplicativo implantado num nó do Service Fabric. |
-| lista implementado | Obtém a lista de aplicativos implantados num nó do Service Fabric. |
-| saúde | Obtém o estado de funcionamento da aplicação do service fabric. |
-| informações | Obtém informações sobre uma aplicação do Service Fabric. |
+| deployed-list | Obtém a lista de aplicativos implantados num nó do Service Fabric. |
+| health | Obtém o estado de funcionamento da aplicação do service fabric. |
+| info | Obtém informações sobre uma aplicação do Service Fabric. |
 | list | Obtém a lista de aplicativos criados no cluster do Service Fabric que correspondem aos filtros especificados. |
-| carregar | Obtém informações sobre uma aplicação do Service Fabric de carga. |
-| Manifesto | Obtém o manifesto que descreve um tipo de aplicação. |
-| Aprovisionar | Provisiona ou registros de tipo de aplicação do Service Fabric com o cluster utilizando o pacote. sfpkg no arquivo externo ou utilizando o pacote de aplicação no arquivo de imagem. |
+| load | Obtém informações sobre uma aplicação do Service Fabric de carga. |
+| manifesto | Obtém o manifesto que descreve um tipo de aplicação. |
+| provision | Provisiona ou registros de tipo de aplicação do Service Fabric com o cluster utilizando o pacote. sfpkg no arquivo externo ou utilizando o pacote de aplicação no arquivo de imagem. |
 | report-health | Envia um relatório de estado de funcionamento sobre a aplicação do Service Fabric. |
-| tipo | Obtém a lista de tipos de aplicação no cluster do Service Fabric que corresponde exatamente ao nome especificado. |
+| type | Obtém a lista de tipos de aplicação no cluster do Service Fabric que corresponde exatamente ao nome especificado. |
 | type-list | Obtém a lista de tipos de aplicação no cluster do Service Fabric. |
-| não aprovisionamento | Remove ou anula o registo de um tipo de aplicação do Service Fabric do cluster. |
-| Atualizar | Começa a atualizar uma aplicação no cluster do Service Fabric. |
+| unprovision | Remove ou anula o registo de um tipo de aplicação do Service Fabric do cluster. |
+| upgrade | Começa a atualizar uma aplicação no cluster do Service Fabric. |
 | upgrade-resume | Retoma a atualizar uma aplicação no cluster do Service Fabric. |
-| reversão de atualização | Inicia a reverter a atualização de atualmente em curso de uma aplicação no cluster do Service Fabric. |
+| upgrade-rollback | Inicia a reverter a atualização de atualmente em curso de uma aplicação no cluster do Service Fabric. |
 | upgrade-status | Obtém os detalhes para a atualização mais recente efetuada nesta aplicação. |
-| carregar | Copie um pacote de aplicação do Service Fabric para o armazenamento de imagens. |
+| upload | Copie um pacote de aplicação do Service Fabric para o armazenamento de imagens. |
 
 ## <a name="sfctl-application-create"></a>Criar aplicação de sfctl
 Cria uma aplicação de Service Fabric com a descrição especificada.
