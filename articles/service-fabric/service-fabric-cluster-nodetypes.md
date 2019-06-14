@@ -76,8 +76,8 @@ Seguem-se as descrições de propriedade:
 
 | **Nome** | **Valores permitidos** | ** --- ** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-| nome | string | --- | nome exclusivo para a extensão |
-| tipo | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Identifica recursos de infraestrutura de serviço de sistema operacional é de inicialização para |
+| name | string | --- | nome exclusivo para a extensão |
+| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Identifica recursos de infraestrutura de serviço de sistema operacional é de inicialização para |
 | autoUpgradeMinorVersion | VERDADEIRO ou FALSO | --- | Ativar atualização automática do Runtime de SF a versões secundárias |
 | publicador | Microsoft.Azure.ServiceFabric | --- | nome do publicador da extensão de recursos de infraestrutura do serviço |
 | clusterEndpont | string | --- | URI:Port para o ponto final de gestão |
