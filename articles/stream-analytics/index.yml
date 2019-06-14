@@ -64,7 +64,7 @@ sections:
         className: cardsD
         items:
           - title: Pré-visualizações
-            html: '<p><a href="stream-analytics-previews#public-previews">Pré-visualizações públicas</a></p><p><a href="stream-analytics-previews#private-previews">Pré-visualizações privadas</a></p>'
+            html: '<p><a href="stream-analytics-previews#public-previews">Pré-visualizações públicas</a></p><p><a href="stream-analytics-previews#other-previews">Pré-visualizações privadas</a></p>'
           - title: Linha de comandos
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.streamanalytics/#stream_analytics">Azure PowerShell</a></p>'
           - title: Linguagens
