@@ -56,6 +56,8 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Conectividade entre redes
       href: cross-network-connectivity.md
+    - name: Atributos de segurança comuns do Azure
+      href: expressroute-security-attributes.md
 - name: Guias de procedimentos
   items:
     - name: Criar e modificar um circuito

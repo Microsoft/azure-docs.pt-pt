@@ -7,10 +7,10 @@ ms.date: 06/21/2018
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 87010b3256fb8eef6871d76f80db2999760386b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587500"
 ---
 # <a name="azure-functions-and-serverless-platform-security"></a>As funções do Azure e de segurança da plataforma sem servidor
