@@ -128,7 +128,7 @@ Estes passos descrevem o processo detalhado que Logic Apps utiliza para carregar
    | Campo de cabeçalho de resposta do ponto final | Type | Necessário | Descrição |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Não | O tamanho do segmento sugerido em bytes |
-   | **Localização** | String | Não | A localização de URL para onde enviar as mensagens HTTP PATCH |
+   | **Location** | String | Não | A localização de URL para onde enviar as mensagens HTTP PATCH |
    ||||
 
 3. A aplicação lógica cria e envia mensagens de HTTP PATCH seguimento - cada um com estas informações:
