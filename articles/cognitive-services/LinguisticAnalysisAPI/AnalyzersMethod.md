@@ -12,10 +12,10 @@ ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60404728"
 ---
 # <a name="analyzers-method"></a>Método dos analisadores
@@ -36,7 +36,7 @@ Nenhuma
 Name | Tipo | Descrição
 -----|------|--------------
 Idiomas | lista de cadeias de caracteres | lista de dois códigos de idioma do ISO letra para o qual este analyzer pode ser utilizado.
-ID   | string | ID exclusivo para este analyzer
+id   | string | ID exclusivo para este analyzer
 tipo | string | o tipo de amplo do analyzer aqui
 Especificação | string | o nome da especificação utilizado para este analyzer
 Implementação | string | Descrição do modelo de e/ou do algoritmo por trás deste analyzer

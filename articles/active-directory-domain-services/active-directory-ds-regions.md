@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: ergreenl
 ms.openlocfilehash: 30448ecdcce8ccd8929a35ed69cc36675c627c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60416641"
 ---
 # <a name="azure-ad-domain-services---supported-regions"></a>Serviços de domínio do Azure AD - regiões suportadas

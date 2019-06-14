@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 60f2edf0adbfd740ce552449125ae69ab50a8586
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409735"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051084"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar o SQL Server Management Studio para se ligar e consultar uma base de dados SQL do Azure
 
@@ -87,7 +87,7 @@ No SMSS, ligue ao seu servidor de base de dados do Azure SQL.
 
 5. Para ver os objetos da base de dados, expanda **bases de dados** e, em seguida, expanda **mySampleDatabase**.
 
-   ![ver os objetos de base de dados](./media/sql-database-connect-query-ssms/connected.png)  
+   ![objetos de mySampleDatabase](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Consultar dados
 
@@ -106,7 +106,7 @@ Executar isso [SELECIONE](https://msdn.microsoft.com/library/ms189499.aspx) cód
 
 3. Na barra de ferramentas, selecione **Execute** para obter dados a partir do `Product` e `ProductCategory` tabelas.
 
-    ![consulta para recuperar dados de duas tabelas](./media/sql-database-connect-query-ssms/query2.png)
+    ![consulta para obter dados da tabela de produto e ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Inserir dados
 
@@ -133,7 +133,7 @@ Executar isso [inserir](https://msdn.microsoft.com/library/ms174335.aspx) códig
            ,GETDATE() );
    ```
 
-2. Selecione **Execute** para inserir uma nova linha no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)**.
+2. Selecione **Execute** para inserir uma nova linha no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)** .
 
 ## <a name="view-the-result"></a>Ver o resultado
 
@@ -146,7 +146,7 @@ Executar isso [inserir](https://msdn.microsoft.com/library/ms174335.aspx) códig
 
 2. Selecione **Executar**. O resultado seguinte é apresentada.
 
-   ![Resultado](./media/sql-database-connect-query-ssms/result.png)
+   ![resultado da consulta de tabela do produto](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Atualizar dados
 
@@ -160,7 +160,7 @@ Executar isso [ATUALIZAÇÃO](https://msdn.microsoft.com/library/ms177523.aspx) 
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **Execute** para atualizar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)**.
+2. Selecione **Execute** para atualizar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)** .
 
 ## <a name="delete-data"></a>Eliminar dados
 
@@ -173,7 +173,7 @@ Executar isso [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) códi
    WHERE Name = 'myNewProduct';
    ```
 
-2. Selecione **Execute** para eliminar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)**.
+2. Selecione **Execute** para eliminar a linha especificada no `Product` tabela. O **mensagens** painel apresenta **(1 linhas afetadas)** .
 
 ## <a name="next-steps"></a>Passos Seguintes
 

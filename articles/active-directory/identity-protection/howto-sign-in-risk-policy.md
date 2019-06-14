@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60294671"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Como: Configurar a política de início de sessão de risco
@@ -53,7 +53,7 @@ Ao configurar a política de risco de início de sessão, tem de definir:
 
 - O nível de risco de início de sessão que aciona a política:
 
-    ![Nível de risco do início de sessão](./media/howto-sign-in-risk-policy/12.png)
+    ![Nível de risco de início de sessão](./media/howto-sign-in-risk-policy/12.png)
 
 - O tipo de acesso que pretende ser imposta quando tiver sido cumprido o seu nível de risco de início de sessão:  
 

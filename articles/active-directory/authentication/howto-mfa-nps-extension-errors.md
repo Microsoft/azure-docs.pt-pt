@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414941"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS para multi-factor Authentication do Azure
@@ -96,7 +96,7 @@ Se tiver um desses erros, recomendamos que [contacte o suporte](#contact-microso
 
 Se os utilizadores estiverem [dificuldades com verificação de dois passos](../user-help/multi-factor-authentication-end-user-troubleshoot.md), ajudar a problemas de auto-diagnosticá-los.
 
-### <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
+### <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
 
 Se precisar de mais ajuda, entre em contato com um analista de suporte por meio [suporte de servidor do Azure multi-factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando contactar-nos, é útil se pode incluir o máximo de informações sobre o seu problema quanto possível. Pode fornecer as informações incluem a página em que viu o erro, o código de erro específico, o ID de sessão específico, o ID do utilizador que viu o erro e registos de depuração.
 

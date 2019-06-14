@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: erikre
 ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370990"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Reveja a utilização de recursos do Azure com a API REST
@@ -46,7 +46,7 @@ Os seguintes cabeçalhos são necessários:
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
 |*Content-Type:*| Necessário. Definido como `application/json`. |  
-|*Autorização:*| Necessário. Definido como válido `Bearer` token. |
+|*Authorization:*| Necessário. Definido como válido `Bearer` token. |
 
 Configure os parâmetros do relatório no corpo do pedido HTTP. No exemplo abaixo, o relatório está definido para gerar todos os dias, quando é um ficheiro CSV escrito para um contentor de BLOBs de armazenamento do Azure Active Directory e contém informações de custo para todos os recursos no grupo de recursos de hora a hora `westus`.
 
@@ -89,7 +89,7 @@ Configure os parâmetros do relatório no corpo do pedido HTTP. No exemplo abaix
 }
 ```
 
-o
+O
 
 ## <a name="filtering-reports"></a>Filtragem de relatórios
 

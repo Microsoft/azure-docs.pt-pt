@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60462593"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de v7 pré-visualização do URL do projeto
@@ -73,7 +73,7 @@ Seguem-se os cabeçalhos que podem incluir uma solicitação e resposta.
 ## <a name="query-parameters"></a>Parâmetros de consulta
 O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para parâmetros obrigatórios. Tem o URL de codificar os parâmetros de consulta. A consulta tem de ser um URL absoluto com um esquema de http ou https; Não é suportada URLs relativas ou outros esquemas, como ftp: / /
 
-|Name|Value|Type|Necessário|
+|Name|Value|Tipo|Necessário|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pré-visualização do URL atualmente suporta apenas geografia dos EUA e do idioma inglês.<br /><br />|String|Sim|
 |<a name="query" />q|O URL para a pré-visualização|String|Sim|
@@ -90,7 +90,7 @@ O esquema de resposta é qualquer um de uma [página Web] ou byl vrácen Prvek, 
 ### <a name="error"></a>Erro
 Define o erro ocorrido.
 
-|Elemento|Descrição|Type|
+|Elemento|Descrição|Tipo|
 |-------------|-----------------|----------|
 |<a name="error-code" />Código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [códigos de erro](#error-codes).|String|
 |<a name="error-message" />mensagem|Uma descrição do erro.|String|
@@ -102,7 +102,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse
 O objeto de nível superior que a resposta inclui quando o pedido falhar.
 
-|Name|Value|Type|
+|Name|Value|Tipo|
 |----------|-----------|----------|
 |_type|Dica de tipo.|String|
 |<a name="errors" />Erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Error](#error)[]|
@@ -110,24 +110,24 @@ O objeto de nível superior que a resposta inclui quando o pedido falhar.
 ### <a name="webpage"></a>Página Web
 Define as informações sobre uma página da Web em pré-visualização.
 
-|Name|Value|Type|
+|Name|Value|Tipo|
 |----------|-----------|----------|
-|nome|O título da página, não necessariamente o título do HTML|String|
+|name|O título da página, não necessariamente o título do HTML|String|
 |url|O URL que, na verdade, foi pesquisado (pedido pode seguiu redirecionamentos)|String|
 |description|Breve descrição da página e conteúdo|String|
 |isFamilyFriendly|Mais precisos para itens no índice web; buscas em tempo real fazer esta deteção com base apenas no URL e não o conteúdo da página|boolean|
 |primaryImageOfPage/contentUrl|O URL para uma imagem representativo para incluir na pré-visualização|String|
 
 ### <a name="identifiable"></a>Identificação
-|Name|Value|Type|
+|Name|Value|Tipo|
 |-------------|-----------------|----------|
-|ID|Um identificador de recurso|String|
+|id|Um identificador de recurso|String|
 
 ## <a name="error-codes"></a>Códigos de erro
 
 Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
 
-|Código de Estado|Descrição|
+|Código de estado|Descrição|
 |-----------------|-----------------|
 |200|Êxito.|
 |400|Um dos parâmetros de consulta está em falta ou não é válido.|
@@ -172,7 +172,7 @@ Seguem-se os valores de código de erro secundárias e de código de erro possí
 
 |Código|SubCode|Descrição
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NãoImplementado|Código de estado HTTP é 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Código de estado HTTP é 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing devolve InvalidRequest sempre que qualquer parte do pedido não é válido. Por exemplo, um parâmetro necessário está em falta ou um valor de parâmetro não é válido.<br/><br/>Se o erro é ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se utilizar o protocolo HTTP em vez de HTTPS, o Bing devolve HttpNotAllowed e o código de estado HTTP é 410.
 |RateLimitExceeded|Sem códigos secundárias|O Bing devolve RateLimitExceeded sempre que excedem suas consultas por segundo (QPS) ou consultas por quota do mês (QPM).<br/><br/>Se ultrapassar QPS, o Bing devolve o código de estado HTTP 429 e, se exceder QPM, o Bing devolve 403.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing devolve InvalidAuthorization ao Bing não é possível autenticar o chamador. Por exemplo, o `Ocp-Apim-Subscription-Key` cabeçalho está em falta ou a chave de subscrição não é válida.<br/><br/>Redundância ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de estado HTTP é 401.

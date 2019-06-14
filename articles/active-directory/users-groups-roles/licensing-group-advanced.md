@@ -16,10 +16,10 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24bf8e7cf103d583cf6604e0c529ad4ea267ce84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60471901"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos, utilizar grupos para gerir o licenciamento no Azure Active Directory
@@ -188,7 +188,7 @@ Quando altera uma licença num grupo, do Azure AD começará a aplicar as altera
    > ```
 
 3. Para ver o registo completo para como um grupo foi processado, incluindo todas as alterações de utilizador, defina os seguintes filtros:
-   - **Iniciado por (Ator)**: "Microsoft Azure AD com base em grupo licenciamento"
+   - **Iniciado por (Ator)** : "Microsoft Azure AD com base em grupo licenciamento"
    - **Intervalo de datas** (opcional): intervalo personalizado para quando sabe que um grupo específico iniciado e termina o processamento
 
 Esta saída de exemplo mostra o início do processamento, todas as alterações de usuário resultante e a conclusão do processamento.

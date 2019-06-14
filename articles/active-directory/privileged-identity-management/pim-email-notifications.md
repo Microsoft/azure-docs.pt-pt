@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289188"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por e-mail no PIM
@@ -50,7 +50,7 @@ Quem receberá estes e-mails para funções do Azure AD depende de sua função,
 
 | Utilizador | Ativação de função está com aprovação pendente | Conclusão do pedido de ativação de função | PIM está ativada |
 | --- | --- | --- | --- |
-| Administrador com Função Privilegiada</br>(Ativado/elegíveis) | Sim</br>(apenas se nenhum aprovadores explícitos são especificados) | Sim* | Sim |
+| Administrador com função privilegiada</br>(Ativado/elegíveis) | Sim</br>(apenas se nenhum aprovadores explícitos são especificados) | Sim* | Sim |
 | Administrador de Segurança</br>(Ativado/elegíveis) | Não | Sim* | Sim |
 | Administrador Global</br>(Ativado/elegíveis) | Não | Sim* | Sim |
 
@@ -68,7 +68,7 @@ Um e-mail de resumo de semanal PIM para funções do Azure AD é enviado para os
 
 O e-mail inclui quatro mosaicos:
 
-| Dispor em Mosaico | Descrição |
+| mosaico | Descrição |
 | --- | --- |
 | **Utilizadores ativados** | Número de vezes que os utilizadores ativado a respetiva função elegível dentro do inquilino. |
 | **Tornar-se permanentes de usuários** | Número de vezes que os utilizadores com uma atribuição elegível é tornar-se permanentes. |

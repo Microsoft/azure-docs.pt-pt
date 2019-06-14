@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322238"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>O Azure Event Grid esquemas para eventos de serviços de multimédia
@@ -620,9 +620,9 @@ O objeto de dados tem as seguintes propriedades:
 | overlapCount | inteiro | Número de segmentos de dados tinha overlapped carimbos de data / no último 20 segundos. |
 | discontinuityCount | inteiro | Número de discontinuities observados nos últimos 20 segundos. |
 | nonIncreasingCount | inteiro | Número de segmentos de dados carimbos de data no passado foram recebido nos últimos 20 segundos. |
-| unexpectedBitrate | booleano | Se forem diferentes velocidades de transmissão de expected e actual ao limite permitido mais do que em última 20 segundos. É verdadeiro se e apenas se, incomingBitrate > = 2 * velocidade de transmissão ou incomingBitrate < = IncomingBitrate ou de velocidade de transmissão/2 = 0. |
+| unexpectedBitrate | bool | Se forem diferentes velocidades de transmissão de expected e actual ao limite permitido mais do que em última 20 segundos. É verdadeiro se e apenas se, incomingBitrate > = 2 * velocidade de transmissão ou incomingBitrate < = IncomingBitrate ou de velocidade de transmissão/2 = 0. |
 | state | string | Estado do evento em direto. |
-| bom estado de funcionamento | booleano | Indica se ingerir é bom estado de funcionamento com base nas contagens e sinalizadores. Bom estado de funcionamento é verdadeiro se overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
+| Bom estado de funcionamento | bool | Indica se ingerir é bom estado de funcionamento com base nas contagens e sinalizadores. Bom estado de funcionamento é verdadeiro se overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -669,12 +669,12 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | string | O tópico de EventGrid. Esta propriedade tem o ID de recurso para a conta de Media Services. |
-| assunto | string | O caminho de recurso para o canal de serviços de multimédia sob a conta de Media Services. Concatenar dão o tópico e o assunto é o recurso de ID da tarefa. |
+| topic | string | O tópico de EventGrid. Esta propriedade tem o ID de recurso para a conta de Media Services. |
+| subject | string | O caminho de recurso para o canal de serviços de multimédia sob a conta de Media Services. Concatenar dão o tópico e o assunto é o recurso de ID da tarefa. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. Por exemplo, "Microsoft.Media.JobStateChange". |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | string | Identificador exclusivo para o evento. |
-| dados | objeto | Dados de eventos de serviços de multimédia. |
+| id | string | Identificador exclusivo para o evento. |
+| data | objeto | Dados de eventos de serviços de multimédia. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 

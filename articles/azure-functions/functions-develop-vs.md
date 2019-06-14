@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864534"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050716"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -89,7 +89,7 @@ Para obter mais informações, consulte [projeto de biblioteca de classes de fun
 
 ## <a name="configure-the-project-for-local-development"></a>Configurar o projeto de desenvolvimento local
 
-O runtime das funções utiliza uma conta de armazenamento do Azure internamente. Para acionam todos os tipos diferentes de HTTP e webhooks, tem de definir o **Values.AzureWebJobsStorage** chave para uma cadeia de ligação de conta de armazenamento do Azure válida. A aplicação de função também pode utilizar o [emulador de armazenamento do Azure](../storage/common/storage-use-emulator.md) para o **AzureWebJobsStorage** ligação definir isto é necessário para o projeto. Para utilizar o emulador, defina o valor de **AzureWebJobsStorage** para `UseDevelopmentStorage=true`. Tem de alterar esta definição para uma ligação de armazenamento real antes da implantação.
+O runtime das funções utiliza uma conta de armazenamento do Azure internamente. Para acionam todos os tipos diferentes de HTTP e webhooks, tem de definir o **Values.AzureWebJobsStorage** chave para uma cadeia de ligação de conta de armazenamento do Azure válida. A aplicação de função também pode utilizar o [emulador de armazenamento do Azure](../storage/common/storage-use-emulator.md) para o **AzureWebJobsStorage** ligação definir isto é necessário para o projeto. Para utilizar o emulador, defina o valor de **AzureWebJobsStorage** para `UseDevelopmentStorage=true`. Altere esta definição para uma ligação de armazenamento real antes da implantação.
 
 Para definir a cadeia de ligação de conta de armazenamento:
 
@@ -185,7 +185,11 @@ Para saber mais sobre como utilizar as ferramentas de núcleo de funções do Az
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Definições da aplicação de funções
+### <a name="deployment-technology"></a>Tecnologia de implantação
+
+Ao publicar a partir do Visual Studio, uma das duas tecnologias é utilizada para executar a implantação: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) e [Zip implementar com a execução do pacote ativado (recomendado)](functions-deployment-technologies.md#zip-deploy).
+
+## <a name="function-app-settings"></a>Definições da Aplicação de funções
 
 Quaisquer configurações adicionadas no Settings tem de ser adicionadas também para a aplicação de funções no Azure. Estas definições não são carregadas automaticamente quando publica o projeto.
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ab30dfeccc4ae1c7b09a8f48846ffb9e71cfc23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439174"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para aceder ao Azure Active Directory reporting API
@@ -41,7 +41,7 @@ Para preparar o acesso para a API de relatórios, terá de:
 
 Para obter acesso aos dados dos relatórios por meio da API, tem de ter uma das seguintes funções atribuídas:
 
-- Leitor de Segurança
+- Leitor de segurança
 
 - Administrador de Segurança
 
@@ -227,7 +227,7 @@ Nós não suportam atualmente o ponto de final do Microsoft Graph v2 - Certifiqu
 
 Poderá receber esta mensagem de erro ao tentar aceder a inícios de sessão com o Explorador do gráfico. Certifique-se de que tem sessão iniciada sua conta com ambos os botões de início de sessão na IU do Explorador do gráfico, como mostrado na imagem seguinte. 
 
-![API do Graph](./media/troubleshoot-graph-api/graph-explorer.png)
+![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
 
 ### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Erro: Falha ao fazer a verificação de licença de premium partir do AD Graph 
 

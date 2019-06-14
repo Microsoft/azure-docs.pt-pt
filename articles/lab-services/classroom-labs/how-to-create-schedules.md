@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60696043"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerenciar cronogramas para laboratórios de sala de aula no Azure Lab Services 
@@ -32,10 +32,10 @@ Agendas permitem-lhe configurar um laboratório de sala de aula, de modo a que a
 
     ![Adicionar botão de agenda na página de agendas](../media/how-to-create-schedules/add-schedule-button.png)
 2. Sobre o **adicionar agenda** página, confirme se **uma vez** opção está selecionada na parte superior. Se não estiver, selecione **uma vez**. 
-3. Para **agendar data (obrigatória)**, introduza a data ou selecione o ícone de calendário para selecionar uma data. 
+3. Para **agendar data (obrigatória)** , introduza a data ou selecione o ícone de calendário para selecionar uma data. 
 4. Para **hora de início**, selecione a hora em que pretende que as VMs para ser iniciado. A hora de início é necessária se a hora de paragem não está definida. Selecione **remover Iniciar evento** se pretender especificar a hora de paragem. Se o **hora de início** é desativada, selecione **evento de início de adicionar** junto à lista pendente para ativá-la. 
 5. Para **hora de paragem**, selecione a hora em que pretende que as VMs sejam encerradas. A hora de paragem é necessária se a hora de início não está definida. Selecione **evento stop do Remove** se pretender especificar a hora de início. Se o **hora de paragem** é desativada, selecione **evento stop do Add** junto à lista pendente para ativá-la.
-6. Para **fuso de horário (obrigatório)**, selecione o fuso horário para o início e parar de vezes especificado. 
+6. Para **fuso de horário (obrigatório)** , selecione o fuso horário para o início e parar de vezes especificado. 
 7. Para **notas**, introduza qualquer descrição ou notas para a agenda. 
 8. Selecione **Guardar**. 
 
@@ -47,12 +47,12 @@ Agendas permitem-lhe configurar um laboratório de sala de aula, de modo a que a
 
     ![Adicionar botão de agenda na página de agendas](../media/how-to-create-schedules/add-schedule-button.png)
 2. Sobre o **adicionar agenda** página, mude para **semanal** na parte superior. 
-3. Para **agendar dias (obrigatório)**, selecione os dias em que pretende que a agenda para entrar em vigor. No exemplo a seguir, de segunda a sexta-feira está selecionada. 
+3. Para **agendar dias (obrigatório)** , selecione os dias em que pretende que a agenda para entrar em vigor. No exemplo a seguir, de segunda a sexta-feira está selecionada. 
 4. Para o **partir** , insira o **agendar a data de início** ou escolher uma data, selecionando o **calendário** botão. Este campo é obrigatório. 
 5. Para **data de fim da agenda**, introduza ou selecione uma data de término no qual as VMs devem ser encerradas. 
 6. Para **hora de início**, selecione a hora em que pretende que as VMs para ser iniciado. A hora de início é necessária se a hora de paragem não está definida. Selecione **remover Iniciar evento** se pretender especificar a hora de paragem. Se o **hora de início** é desativada, selecione **evento de início de adicionar** junto à lista pendente para ativá-la. 
 7. Para **hora de paragem**, selecione a hora em que pretende que as VMs sejam encerradas. A hora de paragem é necessária se a hora de início não está definida. Selecione **evento stop do Remove** se pretender especificar a hora de início. Se o **hora de paragem** é desativada, selecione **evento stop do Add** junto à lista pendente para ativá-la.
-8. Para **fuso de horário (obrigatório)**, selecione o fuso horário para o início e parar de vezes especificado.  
+8. Para **fuso de horário (obrigatório)** , selecione o fuso horário para o início e parar de vezes especificado.  
 9. Para **notas**, introduza qualquer descrição ou notas para a agenda. 
 10. Selecione **Guardar**. 
 

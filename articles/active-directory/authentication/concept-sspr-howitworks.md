@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60415638"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Reposição personalizada de palavra-passe do Azure AD
@@ -62,7 +62,7 @@ Página de reposição de leitura, os seguintes passos para saber mais sobre a l
 Se estiver ativada a SSPR, tem de selecionar pelo menos uma das seguintes opções para os métodos de autenticação. Às vezes ouvir essas opções referidas como "gates." É altamente recomendável que **escolher métodos de autenticação de dois ou mais** para que os utilizadores têm mais flexibilidade, caso sejam não é possível acessar um quando precisarem. Detalhes adicionais sobre os métodos listados abaixo podem ser encontradas no artigo [quais são os métodos de autenticação?](concept-authentication-methods.md).
 
 * Notificação de aplicação móvel (pré-visualização)
-* Código da aplicação móvel (pré-visualização)
+* Código de aplicação móvel (pré-visualização)
 * Email
 * Número de telemóvel
 * Telefone do escritório
@@ -93,7 +93,7 @@ Quando utiliza uma aplicação móvel, como a aplicação Microsoft Authenticato
 * Quando os administradores necessitam de um método a ser utilizado para repor uma palavra-passe, o código de verificação é a única opção disponível.
 * Quando os administradores necessitam de dois métodos a ser utilizado para repor uma palavra-passe, os utilizadores conseguem utilizar **EITHER** notificação **ou** ativada de código de verificação, além de quaisquer outros métodos.
 
-| Número de métodos necessários para a reposição | Um | Dois |
+| Número de métodos necessários para repor | Um | Dois |
 | :---: | :---: | :---: |
 | Funcionalidades de aplicações móveis disponíveis | Código | Código ou de notificação |
 

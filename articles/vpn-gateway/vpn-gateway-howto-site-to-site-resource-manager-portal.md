@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
 ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407750"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma ligação Site a Site no portal do Azure
@@ -54,7 +54,7 @@ Os exemplos neste artigo utilizam os seguintes valores. Pode utilizar estes valo
 * **Nome do Gateway de rede virtual:** VNet1GW
 * **IP público:** VNet1GWIP
 * **Tipo de VPN:** Baseado na rota
-* **Tipo de ligação:** Site a site (IPsec)
+* **Tipo de ligação:** Site-site (IPsec)
 * **Tipo de gateway:** VPN
 * **Nome do Gateway de rede local:** Site1
 * **Nome da ligação:** VNet1toSite1

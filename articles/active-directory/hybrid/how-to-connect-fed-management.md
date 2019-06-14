@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353793"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os serviços de Federação do Active Directory com o Azure AD Connect
@@ -106,13 +106,13 @@ Configurar o ID de início de sessão alternativo para o AD FS consiste em dois 
 
 4. O Azure AD Connect solicita a palavra-passe do ficheiro PFX que forneceu ao configurar o seu novo farm do AD FS com o Azure AD Connect. Clique em **introduza a palavra-passe** para fornecer a palavra-passe para o ficheiro PFX.
 
-   ![Palavra-passe de certificado](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
+   ![Palavra-passe do certificado](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Especificar certificado SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Especifique o certificado SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. Sobre o **servidores do AD FS** página, introduza o nome do servidor ou endereço IP a ser adicionado ao farm do AD FS.
 
-   ![Servidores AD FS](./media/how-to-connect-fed-management/AddNewADFSServer6.PNG)
+   ![Servidores do AD FS](./media/how-to-connect-fed-management/AddNewADFSServer6.PNG)
 
 6. Clique em **próxima**e siga o último **configurar** página. Após terminar o Azure AD Connect ao adicionar os servidores ao farm do AD FS, terá a opção de verificar a conectividade.
 
@@ -136,7 +136,7 @@ Configurar o ID de início de sessão alternativo para o AD FS consiste em dois 
 3. Sobre o **certificado SSL especificar** , indique a palavra-passe para o ficheiro PFX que indicou quando configurou o farm do AD FS com o Azure AD Connect.
    ![Palavra-passe do certificado](./media/how-to-connect-fed-management/WapServer3.PNG)
 
-    ![Especificar certificado SSL](./media/how-to-connect-fed-management/WapServer4.PNG)
+    ![Especifique o certificado SSL](./media/how-to-connect-fed-management/WapServer4.PNG)
 
 4. Adicione o servidor para ser adicionado como um servidor do WAP. Uma vez que o servidor do WAP não pode estar associado ao domínio, o assistente solicita credenciais administrativas para o servidor que está a ser adicionado.
 

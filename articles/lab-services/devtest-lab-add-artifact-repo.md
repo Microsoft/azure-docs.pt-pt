@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311735"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicionar um repositório de Git para armazenar artefactos personalizados e modelos do Resource Manager
@@ -54,7 +54,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtenha o clone de repositórios do Azure, URL e o token de acesso pessoal
 
-1. Vá para a home page de sua coleção de equipe (por exemplo, https://contoso-web-team.visualstudio.com)e, em seguida, selecione seu projeto.
+1. Vá para a home page de sua coleção de equipe (por exemplo, https://contoso-web-team.visualstudio.com) e, em seguida, selecione seu projeto.
 2. Na home page do projeto, selecione **código**.
 3. Para ver o URL do clone, no projeto **código** página, selecione **Clone**.
 4. Guarde o URL. Utilize o URL mais tarde.
@@ -74,7 +74,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** na lista de serviços.
 3. Na lista de laboratórios, selecione o seu laboratório. 
-4. Selecione **Konfigurace a zásady** > **repositórios** > **+ adicionar**.
+4. Selecione **Konfigurace a zásady** > **repositórios** >  **+ adicionar**.
 
     ![Botão de repositório de adicionar](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. No segundo **repositórios** , especifique as seguintes informações:

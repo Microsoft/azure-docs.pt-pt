@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db7e2588b03807a42f82fd0fcd4e71855e55c1d
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 8babf2a6a4f4a15c6d2979ea0d5ce558dfb0cd6a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66426337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052144"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar manualmente o híbrida do Azure Active Directory associados a um dispositivos
 
@@ -139,7 +139,7 @@ O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Utiliza o módulo do PowerShell do Active Directory e as ferramentas do Azure Active Directory Domain Services (Azure AD DS). Essas ferramentas confiam em serviços da Web do Active Directory em execução num controlador de domínio. Os Serviços Web do Active Directory são suportados em controladores de domínio em execução no Windows Server 2008 R2 e posterior.
 * Só é suportada a versão 1.1.166.0 do módulo do PowerShell do MSOnline. Para transferir este módulo, utilize [esta ligação](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Se não estiverem instaladas as ferramentas do Azure AD DS, `Initialize-ADSyncDomainJoinedComputerSync` irá falhar. Pode instalar as ferramentas do Azure AD DS através do Gestor de servidor em **funcionalidades** > **ferramentas de administração remota do servidor** > **ferramentas de administração de função** .
+* Se não estiverem instaladas as ferramentas do AD DS, `Initialize-ADSyncDomainJoinedComputerSync` irá falhar. Pode instalar as ferramentas do AD DS através do Gestor de servidor em **funcionalidades** > **ferramentas de administração remota do servidor** > **deferramentasdeadministraçãodefunções**.
 
 Para controladores de domínio a executar o Windows Server 2008 ou versões anteriores, utilize o seguinte script para criar o ponto de ligação de serviço. Numa configuração de várias floresta, utilize o seguinte script para criar o ponto de ligação de serviço em cada floresta onde existem computadores.
 

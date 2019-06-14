@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295796"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Como: Configurar políticas de risco na proteção de identidade do Azure Active Directory (atualizada)
@@ -60,7 +60,7 @@ Ao configurar a política de risco de início de sessão, tem de definir:
 
 - O nível de risco de início de sessão que aciona a política:
 
-    ![Nível de risco do início de sessão](./media/howto-configure-risk-policies/12.png)
+    ![Nível de risco de início de sessão](./media/howto-configure-risk-policies/12.png)
 
 - O tipo de acesso que pretende ser imposta quando tiver sido cumprido o seu nível de risco de início de sessão:  
 
@@ -127,7 +127,7 @@ A política de risco do utilizador é uma resposta automática, que pode configu
    
 A política de risco do utilizador está no **configurar** secção sobre o [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Política de risco de utilizador](./media/howto-configure-risk-policies/11014.png)
+![Política de risco do utilizador](./media/howto-configure-risk-policies/11014.png)
 
 
 
@@ -141,7 +141,7 @@ Ao configurar a política de risco do utilizador, tem de definir:
 
 - O nível de risco de início de sessão que aciona a política:
 
-    ![O utilizador tem um nível de risco elevado](./media/howto-configure-risk-policies/112.png)
+    ![Nível de risco do utilizador](./media/howto-configure-risk-policies/112.png)
 
 - O tipo de acesso que pretende ser imposta quando tiver sido cumprido o seu nível de risco de início de sessão:  
 
@@ -159,7 +159,7 @@ A caixa de diálogo de configuração de política fornece uma opção para calc
 
 Pode definir uma política de segurança de risco do utilizador para impedir que os utilizadores após o início de sessão dependendo do nível de risco.
 
-![Bloqueio](./media/howto-configure-risk-policies/116.png)
+![Bloquear](./media/howto-configure-risk-policies/116.png)
 
 
 Bloquear um início de sessão:

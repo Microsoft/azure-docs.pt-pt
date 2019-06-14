@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75f55f1058537da255a2611f544239f693615678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60354796"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir que os dispositivos geridos para aceder à aplicação de cloud com o acesso condicional
@@ -85,7 +85,7 @@ Esta definição aplica-se apenas ao Windows 10 ou dispositivos de nível inferi
 O que torna um Azure AD híbrido associado a um dispositivo um dispositivo gerido?  Para dispositivos que estão associados a uma local do AD, é assumido que o controle sobre esses dispositivos é aplicado com soluções de gestão, como **System Center Configuration Manager (SCCM)** ou **(GP)depolíticadegrupo** geri-los. Porque não existe nenhum método para o Azure AD determinar se qualquer um destes métodos foi aplicada a um dispositivo, que requerem um dispositivo associado ao Azure AD híbrido é um mecanismo relativamente fraco para exigir um dispositivo gerido. Cabe a como administrador para avaliar se os métodos que são aplicados para o seu local associados a um domínio dispositivos estão fortes o suficiente para que constitua um dispositivo gerido se tais um dispositivo também é um dispositivo associado ao Azure AD híbrido.
 
 
-## <a name="require-device-to-be-marked-as-compliant"></a>Pedir que o dispositivo seja marcado como compatível
+## <a name="require-device-to-be-marked-as-compliant"></a>Exigir dispositivo seja marcado como compatível
 
 A opção para *requer um dispositivo ser marcado como compatível* é a maneira mais forte para pedir um dispositivo gerido.
 

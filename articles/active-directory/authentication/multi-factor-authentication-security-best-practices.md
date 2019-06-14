@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60357971"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Orientações de segurança para o Azure multi-factor Authentication com contas do Azure AD
@@ -85,7 +85,7 @@ O portal de utilizador permite capacidades self-service e fornece um conjunto co
 * Instalar e registar o ASP.NET v2.0.507207
 * Certifique-se de que este servidor de pode ser implementado numa rede de perímetro
 
-### <a name="app-passwords"></a>Palavras-passe de Aplicação
+### <a name="app-passwords"></a>Palavras-passe de aplicação
 
 Se sua organização estiver federada para SSO com o Azure AD e vai estar a utilizar o MFA do Azure, em seguida, tenha em atenção os seguintes detalhes:
 

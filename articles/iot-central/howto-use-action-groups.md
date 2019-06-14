@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
 ms.openlocfilehash: 857d747fa691d1ec2b386d5931a7edea08b7e609
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60517250"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Várias ações para executar a partir de uma ou mais regras de grupo
@@ -37,7 +37,7 @@ Um grupo de ação pode:
 
 Captura de ecrã seguinte mostra um grupo de ação que envia o e-mail e notificações por SMS e chama um webhook:
 
-![Grupo de ações](media/howto-use-action-groups/actiongroup.png)
+![grupo de ação](media/howto-use-action-groups/actiongroup.png)
 
 Para utilizar um grupo de ação numa regra de IoT Central, o grupo de ação tem de ser na mesma subscrição do Azure como o aplicativo de IoT Central.
 

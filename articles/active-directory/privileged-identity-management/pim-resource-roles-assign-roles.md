@@ -16,20 +16,20 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610aeec9e4c40d0aad0c28f02697e2cf01edbe4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60438766"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Atribuir funções de recursos do Azure no PIM
 
 O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pode gerir as funções de recursos do Azure incorporadas, bem como funções personalizadas, incluindo (mas não limitado a):
 
-- Proprietário
+- Owner
 - Administrador de Acesso de Utilizador
 - Contribuinte
-- Administrador de Segurança
+- Administrador de segurança
 - Gestor de segurança e muito mais
 
 > [!NOTE]

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
 ms.openlocfilehash: df189e405dcd5277c1ccbd94e9d5d302660be79b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359865"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Ativar o secure LDAP (LDAPS) para um domínio gerido do Azure AD Domain Services
@@ -31,7 +31,7 @@ Completa [tarefa 2 - exportar o certificado de secure LDAP para um. Ficheiro PFX
 ## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>Tarefa 3: Ativar o LDAP seguro para o domínio gerido com o portal do Azure
 Para ativar o LDAP seguro, execute os seguintes passos de configuração:
 
-1. Navegue para o  **[portal do Azure](https://portal.azure.com)**.
+1. Navegue para o  **[portal do Azure](https://portal.azure.com)** .
 
 2. Procure 'Serviços de domínio' na **pesquisar recursos** caixa de pesquisa. Selecione **Azure AD Domain Services** do resultado da pesquisa. O **Azure AD Domain Services** página apresenta uma lista de seu domínio gerido.
 

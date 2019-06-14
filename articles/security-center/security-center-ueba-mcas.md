@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332402"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA para utilizadores e recursos do Azure 
 
-Parceiros do Centro de segurança do Azure com o Microsoft Cloud App Security para lhe oferecer alertas com base no utilizador e a análise comportamental de entidade (UEBA) para os seus recursos do Azure e os utilizadores (atividade do Azure). Estes alertas detetar anomalias no comportamento do utilizador e são baseados no utilizador e a análise comportamental de entidade e de machine learning (ML) para que imediatamente, pode executar a deteção de ameaças avançada em atividades das suas subscrições. Porque eles são ativados automaticamente, novas deteções de anomalias fornecem resultados imediatos, fornecendo deteções de imediato, direcionamento anomalias comportamentais vários entre os utilizadores e os recursos associados à sua subscrição. Além disso, estes alertas tirar partido dos dados adicionais que já existe no motor de deteção do Microsoft Cloud App Security, para ajudar a acelerar o processo de investigação e contêm as ameaças permanentes. 
+Parceiros do Centro de segurança do Azure com o Microsoft Cloud App Security para lhe oferecer alertas com base no utilizador e a análise comportamental de entidade (UEBA) para os seus recursos do Azure e os utilizadores (atividade do Azure). Estes alertas detetam anomalias no comportamento dos utilizadores e baseiam-se na análise comportamental de utilizadores e entidades e na aprendizagem automática (ML) para que possa executar de imediato a deteção de ameaças avançada nas atividades das suas subscrições. Uma vez que são ativadas automaticamente, as novas deteções de anomalias fornecem resultados imediatos ao disponibilizar deteções imediatas, ao segmentarem diversas anomalias comportamentais nos utilizadores e nos recursos associados à sua subscrição. Além disso, estes alertas tiram partido de dados adicionais que já existem no motor de deteção da Microsoft Cloud App Security, para o ajudar a acelerar o processo de investigação e a conter as ameaças permanentes. 
 
 > [!NOTE]
 > Centro de segurança do Azure, que pode armazenar uma cópia dos dados relacionados com a segurança dos clientes, recolhidos a partir de ou associado um recurso de cliente (por exemplo, a máquina virtual ou a Azure Active Directory inquilino): (a) na mesma geografia que esse recurso, exceto nessas áreas geográficas onde Microsoft ainda não foi que implementar o Centro de segurança do Azure, caso uma cópia de tais dados será armazenado nos Estados Unidos; e (b) em que o Centro de segurança do Azure utiliza o outro serviço Online da Microsoft para processar esses dados, pode armazenar esses dados em conformidade com as regras de localização geográfica de outros serviços Online.

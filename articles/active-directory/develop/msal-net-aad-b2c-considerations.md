@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8240a487bdb01cdbe9017ddc7cb95ce4fc0e1503
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544064"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052360"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utilizar MSAL.NET para iniciar sessão dos utilizadores com identidades sociais
 
@@ -177,7 +177,7 @@ A solução alternativa sugerida é usar o [colocação em cache por política](
 Em alternativa, pode utilizar o `tid` de afirmação, se estiver a utilizar o [as políticas personalizadas do B2C](https://aka.ms/ief), porque fornece a capacidade para devolver afirmações adicionais para a aplicação. Para saber mais sobre [transformação de declarações](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Atenuação para "Em falta da resposta token"
-Uma opção é usar a afirmação de "nome" como o nome de utilizador preferencial. O processo é mencionado nisso [B2C doc](/azure/active-directory-b2c/active-directory-b2c-reference-policies#frequently-asked-questions) -> "da coluna de declaração de retorno, escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de uma experiência de edição de perfis com êxito. Por exemplo, selecione nome a apresentar, Código Postal."
+Uma opção é usar a afirmação de "nome" como o nome de utilizador preferencial. O processo é mencionado nisso [B2C doc](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> "da coluna de declaração de retorno, escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de uma experiência de edição de perfis com êxito. Por exemplo, selecione nome a apresentar, Código Postal."
 
 ## <a name="next-steps"></a>Passos Seguintes 
 

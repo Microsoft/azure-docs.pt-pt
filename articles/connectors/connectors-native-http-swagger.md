@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60448653"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chamar pontos finais REST com HTTP + Swagger connector no Azure Logic Apps
@@ -92,23 +92,23 @@ O HTTP + Swagger connector vem com uma ação possível. Segue-se informações 
 Faça uma solicitação de saída HTTP com o auxílio de metadados Swagger.
 Um asterisco (*) significa que um campo obrigatório.
 
-| Nome a apresentar | Nome da propriedade | Descrição |
+| Display name | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| Método * |método |Verbo HTTP para utilizar. |
+| Método * |method |Verbo HTTP para utilizar. |
 | URI* |uri |URI do pedido HTTP. |
 | Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos HTTP para incluir. |
-| Corpo |corpo |O corpo do pedido HTTP. |
+| Corpo |Corpo |O corpo do pedido HTTP. |
 | Autenticação |autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte a [conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 
 Resposta HTTP
 
-| Nome da Propriedade | Tipo de dados | Descrição |
+| Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
-| Código de Estado |int |Código de estado de HTTP |
+| Código de estado |int |Código de estado de HTTP |
 
 ### <a name="http-responses"></a>Respostas HTTP
 Ao fazer chamadas para várias ações, poderá obter respostas de determinados. Segue-se uma tabela que descreve as respostas correspondentes e descrições.
@@ -120,8 +120,8 @@ Ao fazer chamadas para várias ações, poderá obter respostas de determinados.
 | 400 |Pedido incorreto |
 | 401 |Não autorizado |
 | 403 |Proibido |
-| 404 |Não Encontrado |
-| 500 |Erro interno de servidor. Ocorreu um erro desconhecido. |
+| 404 |Não foi encontrado |
+| 500 |Erro de servidor interno. Ocorreu um erro desconhecido. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60440650"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar o Azure AD Privileged Identity Management (PIM)
@@ -153,7 +153,7 @@ Para automatizar passos 3 e 4, pode utilizar a função de revisão de acesso no
 
 ![Criar uma revisão de acesso](./media/pim-deployment-plan/create-access-review.png)
 
-Deve definir os revisores **membros (auto)**. Isto irá enviar um e-mail a todos os membros na função para obtê-los para confirmar se precisarem de acesso. Também deve ativar **exigir razão na aprovação** nas definições avançadas para que os utilizadores podem indicar por que precisam da função. Com base nessas informações, será capaz de remover os utilizadores a funções desnecessárias e delegar funções de administrador mais granulares no caso dos administradores globais.
+Deve definir os revisores **membros (auto)** . Isto irá enviar um e-mail a todos os membros na função para obtê-los para confirmar se precisarem de acesso. Também deve ativar **exigir razão na aprovação** nas definições avançadas para que os utilizadores podem indicar por que precisam da função. Com base nessas informações, será capaz de remover os utilizadores a funções desnecessárias e delegar funções de administrador mais granulares no caso dos administradores globais.
 
 As revisões de acesso contam com mensagens de e-mail para notificar os utilizadores para rever o acesso às funções. Se tem privilegiado contas que não têm e-mails ligados, certifique-se de que preencher o campo de e-mail secundário essas contas. Para obter mais informações, consulte [atributo proxyAddresses do Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
@@ -186,7 +186,7 @@ Escolher quais funções para proteger com o PIM podem ser difícil e serão dif
 1. Leitor de segurança
 1. Administrador de serviço
 1. Administrador de faturação
-1. Administrador do Skype para Empresas
+1. Skype para o administrador da empresa
 
 > [!TIP]
 > :heavy_check_mark: **A Microsoft recomenda** gerir todos os seus administradores globais e administradores de segurança com o PIM como primeiro passo, pois são aqueles que podem fazer mais danos quando comprometido.
@@ -240,19 +240,19 @@ Antes de implementar sua solução PIM, é boa prática para esboçar as defini�
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>Definições do PIM para funções do Azure AD
 
-| Função | Requerer MFA | Notificação | Pedido de incidente | Exigir aprovação | Aprovador | Duração da ativação | Administrador permanente |
+| Função | Requerer MFA | Notificação | Pedido de incidente | Exigir a aprovação | Aprovador | Duração da ativação | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrador Global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros administradores globais | Uma Hora | Contas de acesso de emergência |
 | Administrador do Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhuma | 2 horas | Nenhuma |
-| Administrador de Suporte Técnico | :x: | :x: | :heavy_check_mark: | :x: | Nenhuma | 8 horas | Nenhuma |
+| Administrador de suporte técnico | :x: | :x: | :heavy_check_mark: | :x: | Nenhuma | 8 horas | Nenhuma |
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>Definições do PIM para funções de recursos do Azure
 
-| Função | Requerer MFA | Notificação | Exigir aprovação | Aprovador | Duração da ativação | Administração do Active Directory | Expiração do Active Directory | Expiração elegível |
+| Função | Requerer MFA | Notificação | Exigir a aprovação | Aprovador | Duração da ativação | Administração do Active Directory | Expiração do Active Directory | Expiração elegível |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Proprietário de subscrições críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da subscrição | Uma Hora | Nenhuma | n/d | 3 meses |
 | Administrador de acesso de utilizador de subscrições menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhuma | Uma Hora | Nenhuma | n/d | 3 meses |
-| Contribuinte de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhuma | Duração de 3 horas | Nenhuma | n/d | 6 meses |
+| Contribuinte de máquina virtual | :x: | :heavy_check_mark: | :x: | Nenhuma | Duração de 3 horas | Nenhuma | n/d | 6 meses |
 
 A tabela seguinte descreve cada uma das definições.
 
@@ -262,7 +262,7 @@ A tabela seguinte descreve cada uma das definições.
 | Requerer MFA | Se o utilizador elegível tem de executar a MFA antes de ativar a função.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** impor o MFA para todas as funções de administrador, especialmente se as funções têm utilizadores convidados. |
 | Notificação | Se definido como true, o Administrador Global, administrador com função privilegiada e o administrador de segurança da organização irão receber uma notificação por e-mail quando um utilizador elegível ativa a função.<br/><br/>**Nota:** Algumas organizações não tem um endereço de e-mail associado para suas contas de administrador, para receber estas notificações de e-mail, deve definir um endereço de e-mail alternativo, para que os administradores irão receber estes e-mails. |
 | Pedido de incidente | Se o utilizador elegível precisar gravar um número de pedido de incidente ao ativar a respetiva função. Esta definição ajuda uma organização, identificar cada ativação com um número de incidente interno para atenuar ativações indesejadas.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** tirar partido de números de incidentes do pedido de suporte para associar o PIM com o seu sistema interno. Isso é particularmente útil para os aprovadores que precisam de contexto para a ativação. |
-| Exigir aprovação | Se o utilizador elegível tem de obter aprovação para ativar a função.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** configurar a aprovação para funções com mais permissão. Com base nos padrões de utilização de todos os clientes do PIM, o Administrador Global, administrador de utilizadores, administrador do Exchange, administrador de segurança e palavra-passe de administrador são as funções mais comuns com a configuração de aprovação. |
+| Exigir a aprovação | Se o utilizador elegível tem de obter aprovação para ativar a função.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** configurar a aprovação para funções com mais permissão. Com base nos padrões de utilização de todos os clientes do PIM, o Administrador Global, administrador de utilizadores, administrador do Exchange, administrador de segurança e palavra-passe de administrador são as funções mais comuns com a configuração de aprovação. |
 | Aprovador | Se é necessária para ativar a função elegível, listar as pessoas que devem aprovar o pedido de aprovação. Por predefinição, o PIM define o aprovador para ser todos os utilizadores que são um administrador com função privilegiada, quer sejam permanentes ou elegíveis.<br/><br/>**Nota:** Se um utilizador é elegível para uma função do Azure AD e um aprovador da função, não poderão aprovar propriamente ditas.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** que escolha os aprovadores ser aqueles que são mais bem informadas sobre a função específica e seus usuários frequentes, em vez de um Administrador Global. |
 | Duração da ativação | O período de tempo que um utilizador será ativado na função antes que ele irá expirar. |
 | Administrador permanente | Lista de utilizadores que será um administrador permanente para a função (nunca terá de ativar).<br/><br/> :heavy_check_mark: **A Microsoft recomenda** tem zero administrador permanente para todas as funções, exceto para os administradores globais. Leia mais sobre isso no que deve ser feita elegível e que deve ser ativa permanentemente secção deste plano. |
@@ -270,7 +270,7 @@ A tabela seguinte descreve cada uma das definições.
 | Expiração do Active Directory | Uma atribuição de função ativa para funções de recursos do Azure expirar após este período de tempo. Pode escolher entre 15 dias, 1 mês, 3 meses, 6 meses, 1 ano ou ativa permanentemente. |
 | Expiração elegível | Uma atribuição de função elegível para funções de recursos do Azure expirar após este período de tempo. Pode escolher entre 15 dias, 1 mês, 3 meses, 6 meses, 1 ano ou permanentemente elegível. |
 
-## <a name="step-3-implement-your-solution"></a>Passo 3. Implementar a sua solução
+## <a name="step-3-implement-your-solution"></a>Passo 3: Implementar a sua solução
 
 A base de planejamento apropriado é a base sobre a qual pode implementar uma aplicação com êxito com o Azure Active Directory.  Ele fornece segurança inteligente e integração que simplifica a integração, reduzindo o tempo para Implantações bem-sucedidas.  Esta combinação garante que seu aplicativo é integrado com facilidade ainda mitigando período de indisponibilidade para os utilizadores finais.
 
@@ -353,7 +353,7 @@ Se tiver falhado PIM funcionar como pretendido no ambiente de produção, os seg
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Open **do Azure AD Privileged Identity Management**.
 1. Clique em **funções do Azure AD** e, em seguida, clique em **funções**.
-1. Para cada função que tenha configurado, clique nas reticências (**...** ) para todos os utilizadores com uma atribuição elegível.
+1. Para cada função que tenha configurado, clique nas reticências ( **...** ) para todos os utilizadores com uma atribuição elegível.
 1. Clique nas **tornar permanente** opção para tornar a atribuição de função permanentes.
 
 #### <a name="azure-resource-roles"></a>Funções de recursos do Azure
@@ -362,10 +362,10 @@ Se tiver falhado PIM funcionar como pretendido no ambiente de produção, os seg
 1. Open **do Azure AD Privileged Identity Management**.
 1. Clique em **recursos do Azure** e, em seguida, clique numa subscrição ou recurso que pretende reverter.
 1. Clique em **funções**.
-1. Para cada função que tenha configurado, clique nas reticências (**...** ) para todos os utilizadores com uma atribuição elegível.
+1. Para cada função que tenha configurado, clique nas reticências ( **...** ) para todos os utilizadores com uma atribuição elegível.
 1. Clique nas **tornar permanente** opção para tornar a atribuição de função permanentes.
 
-## <a name="step-4-next-steps-after-deploying-pim"></a>Passo 4. Passos seguintes depois de implementar o PIM
+## <a name="step-4-next-steps-after-deploying-pim"></a>Passo 4: Passos seguintes depois de implementar o PIM
 
 Implementação com êxito o PIM na produção é um avanço significativo em termos de proteger a sua organização do privilegiado identidades. Com a implantação do PIM vem funcionalidades adicionais do PIM que deve usar para segurança e conformidade.
 

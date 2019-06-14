@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437671"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o pacote de conteúdos do Azure Active Directory Power BI
@@ -57,7 +57,7 @@ Também pode filtrar os resultados ao selecionar uma data ou localização espec
 
 **Inícios de sessão de dispositivo**: Este relatório ajuda-o a compreender os vários perfis de dispositivo utilizados na sua organização e determinar políticas de dispositivos com base na utilização. Ele fornece dados sobre o tipo de SO e os browsers utilizados para início de sessão para aplicações, juntamente com informações detalhadas sobre os utilizadores, incluindo:
 
-- Nome de Utilizador
+- Nome de utilizador
 - Endereço IP
 - Location 
 - Estado de início de sessão 
@@ -112,7 +112,7 @@ Ao trabalhar com o pacote de conteúdos, é possível que se deparar com os segu
 
 Para obter ajuda geral com o Power BI, veja estes [artigos de ajuda](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 
-### <a name="refresh-failed"></a>A atualização falhou 
+### <a name="refresh-failed"></a>Falha na atualização 
  
 **Como este erro aparece**: E-mail do Power BI ou no histórico de atualização do status de falha. 
 

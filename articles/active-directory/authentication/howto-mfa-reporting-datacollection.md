@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2b8d68cc348ce8e157c7d58424eaebb06940335
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60359046"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Recolha de dados de utilizador multi-factor Authentication do Azure
@@ -32,17 +32,17 @@ Tentativas de autenticação (que é utilizadas para relatórios e resolução d
 
 - Carimbo de data/hora
 - Nome de utilizador
-- Nome Próprio
+- Nome próprio
 - Apelido
 - Endereço de E-mail
-- Grupo de Utilizadores
+- Grupo de utilizadores
 - Método de autenticação (chamada telefónica, texto mensagem, aplicação móvel, OATH Token)
 - Modo de chamada telefónica (padrão, PIN)
 - Direção de mensagem de texto (unidirecional, bidirecional)
 - Modo de mensagem de texto (OTP, OTP + PIN)
 - Modo de aplicação móvel (padrão, PIN)
 - Modo de Token OATH (padrão, PIN)
-- Tipo de Autenticação
+- Tipo de autenticação
 - Nome da Aplicação
 - Indicativo de país de chamada primário
 - Número de telefone principal chamada
@@ -57,7 +57,7 @@ Tentativas de autenticação (que é utilizadas para relatórios e resolução d
 - Em geral autenticado
 - Resultado geral
 - Resultados
-- Autenticados
+- Autenticado
 - Resultado
 - Iniciar o endereço IP
 - Dispositivos
@@ -86,32 +86,32 @@ Blocos (utilizado para determinar o estado de bloqueado e por comunicarem as):
 - Bloquear Timestamp
 - Bloco por nome de utilizador
 - Nome de utilizador
-- Código do País
-- Número de Telefone
+- Indicativo de país
+- Número de telefone
 - Número de telefone formatado
 - Extensão
 - Limpar a extensão
 - Bloqueado
-- Motivo do Bloqueio
+- Motivo do bloqueio
 - Timestamp de conclusão
 - Motivo de conclusão
 - Bloqueio de Conta
-- Alerta de Fraude
+- Alerta de fraude
 - Alerta de fraude não bloqueada
 - Idioma
 
 Omissões (utilizadas para os relatórios):
 
 - Timestamp omissão
-- Segundos de Omissão
+- Segundos de omissão
 - Ignorar por nome de utilizador
 - Nome de utilizador
-- Código do País
-- Número de Telefone
+- Indicativo de país
+- Número de telefone
 - Número de telefone formatado
 - Extensão
 - Limpar a extensão
-- Motivo da Omissão
+- Motivo da omissão
 - Timestamp de conclusão
 - Motivo de conclusão
 - Ignorar utilizado
@@ -120,16 +120,16 @@ Alterações (usadas para sincronizar as alterações do utilizador para o servi
 
 - Alterar Timestamp
 - Nome de utilizador
-- Novo Código de País
-- Novo Número de Telefone
-- Nova Extensão
+- Novo código de país
+- Novo número de telefone
+- Nova extensão
 - Novo código de país alternativo
 - Novo número de telefone alternativo
 - Nova extensão de cópia de segurança
 - Novo PIN
-- Exigir Alteração do PIN
+- Alteração do PIN
 - Token de dispositivo antigo
-- Novo Token de Dispositivo
+- Novo Token de dispositivo
 
 ## <a name="gather-data-from-mfa-server"></a>Recolher dados a partir do servidor de MFA
 

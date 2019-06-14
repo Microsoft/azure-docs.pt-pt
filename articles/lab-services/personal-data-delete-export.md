@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394987"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou eliminar os dados pessoais do Azure DevTest Labs
@@ -39,10 +39,10 @@ DevTest Labs utiliza o endereço de e-mail do utilizador para enviar notificaç�
 ### <a name="user-object-id"></a>ID de objeto do utilizador
 DevTest Labs utiliza o ID de objeto de utilizador para mostrar as tendências de custo de mês ano-mês e o custo por informações de recursos para os administradores de laboratório. Ele permite que-los controlar os custos e gerir limiares para o laboratório. 
 
-**Tendência de custo estimado para o mês de calendário atual:**
+**Tendência de custo estimado para o mês de calendário atual:** 
 ![tendência de custo estimado para o mês de calendário atual](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Mês até à data custo estimado de por recurso:**
+**Mês até à data custo estimado de por recurso:** 
 ![mês até à data custo estimado de por recurso](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
@@ -69,7 +69,7 @@ Como um utilizador de laboratório, pode solicitar uma exportação nos dados pe
     ![Selecione o mosaico de Blobs](./media/personal-data-delete-export/select-blobs-tile.png)
 5. Selecione o contentor com o nome **labresourceusage** na lista de contentores.
 
-    ![Selecionar contentor de blob](./media/personal-data-delete-export/select-blob-container.png)
+    ![Selecione o contentor de BLOBs](./media/personal-data-delete-export/select-blob-container.png)
 6. Selecione o **pasta** o nome de seu laboratório. Encontrará **csv** ficheiros para **discos** e **máquinas virtuais** em seu laboratório nesta pasta. Pode transferir estes ficheiros csv, filtrar o conteúdo para o utilizador de laboratório pedir um acesso e partilhá-lo com os mesmos.
 
     ![Transferir o ficheiro CSV](./media/personal-data-delete-export/download-csv-file.png)

@@ -15,10 +15,10 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60349986"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e resolver erros de sincronização de atributo duplicado
@@ -69,9 +69,9 @@ No portal do Azure, tome algumas providências para identificar cenários de fix
 
 | Estado | O que significa? |
 | ------------------ | -----------------|
-| Não Iniciado | Ainda não visitou este processo de diagnóstico. Consoante o resultado de diagnóstico, há uma possível maneira de corrigir o erro de sincronização diretamente no portal. |
-| Correção Manual Obrigatória | O erro não se ajusta os critérios de correções disponíveis no portal. Qualquer um dos tipos de objeto em conflito não são usuários, ou que já utilizou os passos de diagnóstico, e nenhuma resolução de correção estava disponível no portal. No último caso, uma correção do lado no local ainda é uma das soluções. [Leia mais sobre locais correções](https://support.microsoft.com/help/2647098). | 
-| Sincronização Pendente | Foi aplicada uma correção. O portal está a aguardar o próximo ciclo de sincronização limpar o erro. |
+| Não foi iniciada | Ainda não visitou este processo de diagnóstico. Consoante o resultado de diagnóstico, há uma possível maneira de corrigir o erro de sincronização diretamente no portal. |
+| Correção manual obrigatória | O erro não se ajusta os critérios de correções disponíveis no portal. Qualquer um dos tipos de objeto em conflito não são usuários, ou que já utilizou os passos de diagnóstico, e nenhuma resolução de correção estava disponível no portal. No último caso, uma correção do lado no local ainda é uma das soluções. [Leia mais sobre locais correções](https://support.microsoft.com/help/2647098). | 
+| Sincronização pendente | Foi aplicada uma correção. O portal está a aguardar o próximo ciclo de sincronização limpar o erro. |
 
   >[!IMPORTANT]
   > A coluna de estado de diagnóstico irá repor após cada ciclo de sincronização. 
@@ -107,8 +107,8 @@ Para o **cenário de objeto órfão**, apenas o utilizador único **Joe Johnson*
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Ambas estas contas pertencem ao mesmo utilizador?
 Essa pergunta verifica um utilizador em conflito de entrada e o objeto de utilizador existente no Azure AD para ver se eles pertencem ao mesmo utilizador.  
 1. O objeto em conflito recentemente está sincronizado com o Azure Active Directory. Compare os atributos de objectos:  
-   - Nome a Apresentar
-   - Nome Principal de Utilizador
+   - Nome a apresentar
+   - Nome do Principal de Utilizador
    - ID de objeto
 2. Se não for compará-los do Azure AD, verifique se o Active Directory tem objetos com o fornecido **UserPrincipalNames**. Resposta **não** se encontrar ambos.
 

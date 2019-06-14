@@ -13,10 +13,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311670"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados através da execução de um bloco de notas do Databricks
@@ -59,9 +59,9 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 |Propriedade|Descrição|Necessário|
 |---|---|---|
-|nome|Nome da atividade no pipeline.|Sim|
+|name|Nome da atividade no pipeline.|Sim|
 |description|Texto que descreve o que faz a atividade.|Não|
-|tipo|Para a atividade do Databricks Notebook, o tipo de atividade é DatabricksNotebook.|Sim|
+|type|Para a atividade do Databricks Notebook, o tipo de atividade é DatabricksNotebook.|Sim|
 |linkedServiceName|Nome do serviço ligado do Databricks em que é executado o bloco de notas do Databricks. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
 |notebookPath|O caminho absoluto do bloco de notas para ser executado na área de trabalho do Databricks. Este caminho tem de começar com uma barra.|Sim|
 |baseParameters|Uma matriz de pares chave-valor. Parâmetros bases podem ser utilizados para cada execução de atividade. Se o bloco de notas assume um parâmetro que não for especificado, será utilizado o valor predefinido do bloco de notas. Encontrar mais informações sobre parâmetros na [blocos de notas do Databricks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Não|

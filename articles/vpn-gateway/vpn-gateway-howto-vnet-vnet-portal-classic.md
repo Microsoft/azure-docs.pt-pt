@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407989"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurar uma ligação de VNet a VNet (clássico)
@@ -80,7 +80,7 @@ A tabela seguinte mostra um exemplo de como definir as suas VNets. Utilize os in
 
 **Exemplo**
 
-| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
+| Rede virtual | Espaço de endereços | Região | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |EUA Leste |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |EUA Oeste |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -142,7 +142,7 @@ Por exemplo, o TestVNet1 liga a um site de rede local que criar com o nome 'VNet
 
 O site local para cada VNet é a outra VNet. Os seguintes valores de exemplo são utilizados para nossa configuração:
 
-| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
+| Rede virtual | Espaço de endereços | Região | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |EUA Leste |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |EUA Oeste |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -241,7 +241,7 @@ Nos passos seguintes, vai ligar à sua conta do Azure e transferir e ver o fiche
    ```powershell
    Add-AzureAccount
    ```
-3. Exportar e ver o ficheiro de configuração de rede. Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Neste exemplo, o ficheiro de configuração de rede é exportado para o **c:\azurenet.**.
+3. Exportar e ver o ficheiro de configuração de rede. Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Neste exemplo, o ficheiro de configuração de rede é exportado para o **c:\azurenet.** .
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml

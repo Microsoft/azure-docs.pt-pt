@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: d96444984c503da68ccbda3aef9fea0ede5c7ff9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "67049031"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler três para aprovisionamento automático de utilizadores
 
@@ -125,7 +125,7 @@ Esta secção orienta-o através dos passos para configurar o Azure AD do servi�
 
 11. Rever os atributos de utilizador que são sincronizados a partir do Azure AD Zscaler três para o **mapeamentos de atributos** secção. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Zscaler três para operações de atualização. Selecione **guardar** para consolidar as alterações.
 
-    ![Mapeamentos de Atributos](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
+    ![Mapeamentos de atributos](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Na **mapeamentos** secção, selecione **sincronizar grupos do Azure Active Directory para ZscalerThree**:
 
@@ -133,13 +133,13 @@ Esta secção orienta-o através dos passos para configurar o Azure AD do servi�
 
 13. Rever os atributos de grupo que são sincronizados a partir do Azure AD Zscaler três para o **mapeamentos de atributos** secção. Os atributos selecionados como **correspondência** propriedades são usadas para fazer corresponder os grupos no Zscaler três para operações de atualização. Selecione **guardar** para consolidar as alterações.
 
-    ![Mapeamentos de Atributos](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
+    ![Mapeamentos de atributos](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Para configurar filtros de âmbito, consulte as instruções no [tutorial de filtro de Scoping](./../active-directory-saas-scoping-filters.md).
 
 15. Para ativar o Azure AD para Zscaler três do serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção:
 
-    ![Estado do Aprovisionamento](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
+    ![Estado de aprovisionamento](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
 
 16. Definir a utilizadores e/ou grupos que pretende fazer o aprovisionamento Zscaler três escolhendo os valores pretendidos sob **âmbito** no **definições** secção:
 

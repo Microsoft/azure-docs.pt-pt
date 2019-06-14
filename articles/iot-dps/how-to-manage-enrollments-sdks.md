@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627274"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerir inscrições de dispositivos com SDKs serviço de aprovisionamento do dispositivo do Azure
@@ -21,7 +21,7 @@ R *inscrição de dispositivos* cria um registo de um único dispositivo ou um g
 ## <a name="prerequisites"></a>Pré-requisitos
 * Obter a cadeia de ligação da sua instância do serviço aprovisionamento de dispositivos.
 * Obter o dispositivo artefactos de segurança para o [mecanismo de atestado](concepts-security.md#attestation-mechanism) utilizado:
-    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Trusted Platform Module (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Inscrição individual: ID de registo e a chave de endossamento de TPM de um dispositivo físico ou de simulador de TPM.
         * Grupo de inscrição não é aplicável a atestado de TPM.
     * [**X.509**](/azure/iot-dps/concepts-security):

@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: a13d1f843604025ee0f843c0770b3d11b53dd837
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fc3b1cdfee76bbee7676170fa69a1c53a495dc53
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762867"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051136"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: Criar uma base de dados relacional numa base de dados na base de dados do SQL Azure com o SSMS
 
@@ -29,7 +29,7 @@ Base de dados SQL do Azure é um relacional da base de dados-como-serviço (DBaa
 > - Carregar dados em massa com o BCP
 > - Consultar dados com o SSMS
 
-* Se não tiver uma subscrição do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+\* Se não tiver uma subscrição do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!NOTE]
 > Para efeitos deste tutorial, estamos a utilizar uma base de dados. Também poderia usar um banco de dados agrupado num conjunto elástico ou uma base de dados de instância numa instância gerida. Conectividade a uma instância gerida, veja estes guias de introdução de instância gerida: [Quickstart: Configurar a VM do Azure para ligar a um Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) e [início rápido: Configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local](sql-database-managed-instance-configure-p2s.md).
@@ -117,7 +117,7 @@ Agora pode transmitir o seu endereço IP através da firewall do IP. Pode agora 
 > [!IMPORTANT]
 > Por predefinição, o acesso através da firewall do IP de base de dados SQL está ativado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desativar todos os serviços do Azure.
 
-## <a name="connect-to-the-database"></a>Ligar à base de dados
+## <a name="connect-to-the-database"></a>Ligue-se à base de dados
 
 Uso [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para estabelecer uma ligação à base de dados única.
 
@@ -227,10 +227,10 @@ O diagrama seguinte mostra como estas tabelas estão relacionadas entre si. Algu
 4. Execute os seguintes comandos para inserir dados de exemplo nas tabelas ao substituir os valores para *servidor*, *base de dados*, *utilizador*, e *depalavra-passe* com os valores para o seu ambiente.
 
    ```cmd
-   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 Carregou dados de exemplo para as tabelas que criou anteriormente.

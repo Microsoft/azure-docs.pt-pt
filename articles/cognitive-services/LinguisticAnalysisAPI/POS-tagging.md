@@ -11,10 +11,10 @@ ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0269397b0f8da66d2bafecfb427ba705fdfff001
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394494"
 ---
 # <a name="part-of-speech-tagging"></a>Identificação de parte da voz
@@ -30,18 +30,18 @@ Estes incluem categorias, como *substantivo* (etc. em geral, que representa as p
 
 ## <a name="list-of-part-of-speech-tags"></a>Lista de etiquetas de parte da voz
 
-| Etiqueta | Descrição | Palavras de exemplo |
+| Tag | Descrição | Palavras de exemplo |
 |-----|-------------|---------------|
 | $ | Dólar | $ |
 | \`\` | aspas de abertura | \` \`\` |
 | '' | fechar as aspas | ' '' |
 | ( | Parêntese de abertura | ( [ { |
 | ) | parêntesis de fecho | ) ] } |
-| ,  | comma | ,  |
+| , | comma | , |
 | -- | dash | -- |
 | . | terminador de frase | . ! ? |
 | : | dois pontos ou o botão de reticências | : ; ... |
-| Cc | conjunto, coordenação | e mas ou ainda|
+| CC | conjunto, coordenação | e mas ou ainda|
 | CD | romano, cardinal | nine 20 1980 '96 |
 | DT | determiner |um a um todos os dois nenhum|
 | POR EXEMPLO | existencial daí | daí |

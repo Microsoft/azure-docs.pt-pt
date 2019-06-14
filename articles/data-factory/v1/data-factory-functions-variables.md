@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486520"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de dados do Azure - funções e variáveis de sistema
@@ -30,10 +30,10 @@ Este artigo fornece informações sobre as funções e variáveis suportadas pel
 
 | Nome da variável | Descrição | Âmbito de objeto | Âmbito JSON e casos de utilização |
 | --- | --- | --- | --- |
-| WindowStart |Início do intervalo de tempo para a janela de execução da atividade atual |atividade |<ol><li>Especifique as consultas de seleção de dados. Veja os artigos de conector referenciados no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo.</li> |
-| WindowEnd |Fim do intervalo de tempo para a janela de execução da atividade atual |atividade |mesmo que WindowStart. |
-| SliceStart |Início do intervalo de tempo para o setor de dados a ser produzido |atividade<br/>Conjunto de dados |<ol><li>Especifique os caminhos de pasta dinâmico e nomes de ficheiros durante o trabalho com [BLOBs do Azure](data-factory-azure-blob-connector.md) e [conjuntos de dados do sistema de ficheiros](data-factory-onprem-file-system-connector.md).</li><li>Especifica dependências de entrada com as funções de fábrica de dados na coleção de entradas de atividade.</li></ol> |
-| SliceEnd |Fim do intervalo de tempo para o setor de dados atual. |atividade<br/>Conjunto de dados |mesmo que SliceStart. |
+| WindowStart |Início do intervalo de tempo para a janela de execução da atividade atual |Atividade |<ol><li>Especifique as consultas de seleção de dados. Veja os artigos de conector referenciados no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo.</li> |
+| WindowEnd |Fim do intervalo de tempo para a janela de execução da atividade atual |Atividade |mesmo que WindowStart. |
+| SliceStart |Início do intervalo de tempo para o setor de dados a ser produzido |Atividade<br/>Conjunto de dados |<ol><li>Especifique os caminhos de pasta dinâmico e nomes de ficheiros durante o trabalho com [BLOBs do Azure](data-factory-azure-blob-connector.md) e [conjuntos de dados do sistema de ficheiros](data-factory-onprem-file-system-connector.md).</li><li>Especifica dependências de entrada com as funções de fábrica de dados na coleção de entradas de atividade.</li></ol> |
+| SliceEnd |Fim do intervalo de tempo para o setor de dados atual. |Atividade<br/>Conjunto de dados |mesmo que SliceStart. |
 
 > [!NOTE]
 > Atualmente a fábrica de dados requer que o cronograma especificado na atividade exatamente corresponde à agenda especificada na disponibilidade do conjunto de dados de saída. Por conseguinte, WindowStart, WindowEnd e SliceStart e SliceEnd sempre mapeiam para o mesmo período de tempo e um setor de saída individual.

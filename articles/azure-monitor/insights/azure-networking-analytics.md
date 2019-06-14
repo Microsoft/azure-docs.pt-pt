@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: bwren
-ms.openlocfilehash: 244df90a9db2a2b0d5f6ca6e1874bce94fc7f5bf
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 13908706f8dcec0eb2d1773bcef2ee622b4ebcc1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506403"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048634"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Monitorização de soluções no Azure Monitor da rede do Azure
 
@@ -32,7 +32,7 @@ Monitor do Azure oferece as seguintes soluções para monitorização de suas re
     * Métricas de Gateway de aplicação do Azure
 * Soluções para monitorizar e auditar a atividade na sua rede de nuvem de rede
     * [Análise de tráfego](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
-    * Análise do Grupo de Segurança de Rede do Azure
+    * Análise do grupo de segurança de rede do Azure
 
 ## <a name="network-performance-monitor-npm"></a>Monitor de desempenho de rede (NPM)
 
@@ -221,8 +221,8 @@ Para utilizar as soluções atualizadas:
 
      | Em vez de: | Utilização: |
      | --- | --- |
-     | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
-     | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+     | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+     | NetworkApplicationgateways &#124; onde OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayPerformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Para qualquer campo que tem um sufixo de \_s, \_1!d, ou \_g o nome, altere o primeiro caráter em minúsculas

@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.openlocfilehash: c32592ce539eeb2dec71792e4a6eb31e7d904eff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312512"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Cópia do delta de um banco de dados com uma tabela de controle
@@ -102,13 +102,13 @@ O modelo define cinco parâmetros:
 
 7. Selecione **Utilize este modelo**.
 
-     ![Utilizar este modelo](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
+     ![Utilize este modelo](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. Verá o pipeline disponível, conforme mostrado no exemplo a seguir:
 
      ![Reveja o pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-9. Selecione **procedimento armazenado**. Para **nome do procedimento armazenado**, escolha **[update_watermark]**. Selecione **importar parâmetro**e, em seguida, selecione **adicionar conteúdo dinâmico**.  
+9. Selecione **procedimento armazenado**. Para **nome do procedimento armazenado**, escolha **[update_watermark]** . Selecione **importar parâmetro**e, em seguida, selecione **adicionar conteúdo dinâmico**.  
 
      ![Defina a atividade de procedimento armazenado](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
 

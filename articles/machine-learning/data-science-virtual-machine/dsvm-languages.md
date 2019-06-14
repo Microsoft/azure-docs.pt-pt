@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
 ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502258"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Idiomas suportados na máquina de Virtual de ciência de dados 
@@ -234,12 +234,12 @@ A Leonor localização predefinida é um ambiente global legível por todos os u
 
 ## <a name="other-languages"></a>Outros idiomas
 
-**C#**: Disponível no Windows e acessível através da edição de Comunidade do Visual Studio ou num `Developer Command Prompt for Visual Studio` onde pode executar apenas `csc` comando. 
+**C#** : Disponível no Windows e acessível através da edição de Comunidade do Visual Studio ou num `Developer Command Prompt for Visual Studio` onde pode executar apenas `csc` comando. 
 
 **Java**: OpenJDK está disponível na edição de Linux e Windows da DSVM e conjunto no caminho. Pode digitar `javac` ou `java` comando no prompt de comando no Windows ou no shell de bash no Linux utilizar o Java. 
 
 **NODE. js**: node. js está disponível na edição de Linux e Windows da DSVM e conjunto no caminho. Pode digitar `node` ou `npm` comando no prompt de comando no Windows ou no shell de bash no Linux para acessar o node. js. No Windows, as ferramentas do node. js para a extensão do Visual Studio está instalado para fornecer um IDE gráfico para desenvolver a sua aplicação node. js. 
 
-**F#**: Disponível no Windows e acessível através da edição de Comunidade do Visual Studio ou num `Developer Command Prompt for Visual Studio` onde pode executar apenas `fsc` comando. 
+**F#** : Disponível no Windows e acessível através da edição de Comunidade do Visual Studio ou num `Developer Command Prompt for Visual Studio` onde pode executar apenas `fsc` comando. 
 
 

@@ -12,10 +12,10 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60398643"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de funcionalidades em ciência de dados
@@ -25,7 +25,7 @@ Esta tarefa é um passo na [Team Data Science Process (TDSP)](https://docs.micro
 
 Tentativas de engenharia para aumentar a capacidade de previsão de algoritmos de aprendizagem através da criação de recursos de dados não processados que ajudam a facilitar o processo de aprendizado de recursos. A engenharia e a seleção de funcionalidades é parte integrante do TDSP descrito no [o que é o ciclo de vida do processo de ciência de dados de equipa?](overview.md) Engenharia de funcionalidades e seleção são partes do **desenvolver funcionalidades** passo do TDSP. 
 
-* **"Feature Engineering"**: Este processo tenta para criar as funcionalidades relevantes adicionais dos recursos existentes não processados nos dados e para aumentar o poder de previsão do algoritmo de aprendizagem.
+* **"Feature Engineering"** : Este processo tenta para criar as funcionalidades relevantes adicionais dos recursos existentes não processados nos dados e para aumentar o poder de previsão do algoritmo de aprendizagem.
 * **seleção de funcionalidades**: Este processo seleciona o subconjunto de chave dos recursos de dados original numa tentativa de reduzir a dimensionalidade do problema de treinamento.
 
 Normalmente **com engenharia** é aplicada primeiro para gerar recursos adicionais e, em seguida, o **seleção de funcionalidades** passo é realizado para eliminar recursos irrelevantes, redundantes ou altamente correlacionados.

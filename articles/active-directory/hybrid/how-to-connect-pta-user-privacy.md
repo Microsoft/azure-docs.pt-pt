@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242383"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Autenticação de pass-through do Active Directory do Azure e de privacidade do utilizador
@@ -98,7 +98,7 @@ Para agendar este script para executar cada 48 horas, siga estes passos:
 6.  Selecione "**diária**" para o **acionador de tarefa** e clique em **seguinte**.
 7.  Defina a periodicidade para dois dias e clique em **seguinte**.
 8.  Selecione "**iniciar um programa**" como a ação e clique em **próxima**.
-9.  Tipo de "**PowerShell**"na caixa para o programa/script e na caixa de com o nome"**Adicione argumentos (opcional)**", introduza o caminho completo para o script que criou anteriormente, em seguida, clique em **próxima**.
+9.  Tipo de "**PowerShell**"na caixa para o programa/script e na caixa de com o nome"**Adicione argumentos (opcional)** ", introduza o caminho completo para o script que criou anteriormente, em seguida, clique em **próxima**.
 10. O ecrã seguinte mostra um resumo da tarefa que está prestes a criar. Verifique os valores e clique em **concluir** para criar a tarefa:
  
 ### <a name="note-about-domain-controller-logs"></a>Tenha em atenção sobre os registos de controlador de domínio

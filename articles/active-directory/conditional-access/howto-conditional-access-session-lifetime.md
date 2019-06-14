@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: 25bf4653db2008559c1fe3f13b30c5c82a202ffd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052449"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessão de autenticação com o acesso condicional
 
@@ -53,7 +53,7 @@ A predefinição do Azure AD para a persistência da sessão de browser permite 
 Acesso condicional é um recurso do Azure AD Premium e requer uma licença premium. Se gostaria de saber mais sobre o acesso condicional, consulte o artigo [o que é o acesso condicional no Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Se estiver a utilizar o [duração do token configurável](../develop/active-directory-configurable-token-lifetimes.md) funcionalidade atualmente em pré-visualização pública, tenha em atenção que não é suportado criar duas políticas diferentes para a mesma combinação de utilizador ou aplicação: um com esta funcionalidade e outro com funcionalidade de duração do token configuráveis. A Microsoft planeja extinguir a funcionalidade de duração do token configurável no dia 15 de Outubro e substituí-lo com a funcionalidade de gestão de sessão de autenticação de acesso condicional.  
+> Se estiver a utilizar o [duração do token configurável](../develop/active-directory-configurable-token-lifetimes.md) funcionalidade atualmente em pré-visualização pública, tenha em atenção que não é suportado criar duas políticas diferentes para a mesma combinação de utilizador ou aplicação: um com esta funcionalidade e outro com funcionalidade de duração do token configuráveis. A Microsoft planeja extinguir a funcionalidade de duração do token configurável em 1º de Novembro e substituí-lo com a funcionalidade de gestão de sessão de autenticação de acesso condicional.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política de 1: Frequência de início de sessão de controlo
 

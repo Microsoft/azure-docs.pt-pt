@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60502353"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure
@@ -143,7 +143,7 @@ Para ativar o ambiente de conda Python 2.7, execute o seguinte comando a partir 
 
     source /anaconda/bin/activate root
 
-Python 2.7 é instalado em *bin/anaconda/*.
+Python 2.7 é instalado em *bin/anaconda/* .
 
 Para ativar o ambiente de conda Python 3.5, execute o seguinte a partir da shell:
 

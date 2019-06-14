@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48d2ef0de9ae59e63cd9957200c46c788e2d785f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387323"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portas e Protocolos Necessários para a Identidade Híbrida
@@ -31,7 +31,7 @@ O documento seguinte é uma referência técnica sobre as portas e protocolos ne
 ## <a name="table-1---azure-ad-connect-and-on-premises-ad"></a>Ligue-se a tabela 1 - Azure AD e AD no local
 Esta tabela descreve as portas e protocolos que são necessários para a comunicação entre o servidor do Azure AD Connect e AD no local.
 
-| Protocolo | Portas | Descrição |
+| Protocol | Portas | Descrição |
 | --- | --- | --- |
 | DNS |53 (TCP/UDP) |Pesquisas de DNS na floresta de destino. |
 | Kerberos |88 (TCP/UDP) |Autenticação Kerberos para a floresta do AD. |
@@ -44,7 +44,7 @@ Esta tabela descreve as portas e protocolos que são necessários para a comunic
 ## <a name="table-2---azure-ad-connect-and-azure-ad"></a>Tabela 2 - Azure AD Connect e o Azure AD
 A tabela seguinte descreve as portas e protocolos que são necessários para a comunicação entre o servidor do Azure AD Connect e o Azure AD.
 
-| Protocolo | Portas | Descrição |
+| Protocol | Portas | Descrição |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Utilizado para transferir CRLs (certificado de listas de revogação) para verificar os certificados SSL. |
 | HTTPS |443(TCP/UDP) |Usada para sincronizar com o Azure AD. |
@@ -54,7 +54,7 @@ Para obter uma lista de URLs e IP endereços tem de abrir na firewall, consulte 
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Tabela 3 – Azure AD Connect e de servidores/WAP do AD FS Federação
 A tabela seguinte descreve as portas e protocolos que são necessários para a comunicação entre os servidores de Federação/WAP do AD FS e o servidor do Azure AD Connect.  
 
-| Protocolo | Portas | Descrição |
+| Protocol | Portas | Descrição |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Utilizado para transferir CRLs (certificado de listas de revogação) para verificar os certificados SSL. |
 | HTTPS |443(TCP/UDP) |Usada para sincronizar com o Azure AD. |
@@ -63,14 +63,14 @@ A tabela seguinte descreve as portas e protocolos que são necessários para a c
 ## <a name="table-4---wap-and-federation-servers"></a>Tabela 4 - WAP e servidores de Federação
 A tabela seguinte descreve as portas e protocolos que são necessários para a comunicação entre os servidores de Federação e os servidores WAP.
 
-| Protocolo | Portas | Descrição |
+| Protocol | Portas | Descrição |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Utilizado para autenticação. |
 
 ## <a name="table-5---wap-and-users"></a>Tabela 5 - WAP e utilizadores
 A tabela seguinte descreve as portas e protocolos necessários para comunicação entre os utilizadores e os servidores WAP.
 
-| Protocolo | Portas | Descrição |
+| Protocol | Portas | Descrição |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Utilizado para autenticação do dispositivo. |
 | TCP |49443 (TCP) |Utilizado para autenticação de certificado. |
@@ -79,7 +79,7 @@ A tabela seguinte descreve as portas e protocolos necessários para comunicaçã
 As tabelas seguintes descrevem as portas e protocolos que são necessários para a comunicação entre o Azure AD Connect e o Azure AD.
 
 ### <a name="table-6a---pass-through-authentication-with-sso"></a>Tabela 6a - autenticação pass-through com o SSO
-|Protocolo|Número de porta|Descrição
+|Protocol|Número de porta|Descrição
 | --- | --- | ---
 |HTTP|80|Ative o tráfego de saída HTTP para a validação de segurança, tais como o SSL. Também é necessário para a capacidade de atualização automática do conector a funcionar corretamente.
 |HTTPS|443| Ative o tráfego HTTPS de saída para operações como a ativação e desativação da funcionalidade, registar conectores, transferência das atualizações do conector e lidar com todos os pedidos de início de sessão do utilizador.
@@ -88,7 +88,7 @@ Além disso, o Azure AD Connect tem de conseguir efetuar ligações diretas de I
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tabela 6b - sincronização de Hash de palavra-passe com o SSO
 
-|Protocolo|Número de porta|Descrição
+|Protocol|Número de porta|Descrição
 | --- | --- | ---
 |HTTPS|443| Ative o registo SSO (necessário apenas para o processo de registo SSO).
 
@@ -100,7 +100,7 @@ As tabelas seguintes descrevem os pontos de extremidade, portas e protocolos que
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tabela 7a - portas e protocolos para o agente do Azure AD Connect Health para (AD FS/sincronização) e o Azure AD
 A tabela seguinte descreve as seguintes portas de saída e os protocolos que são necessários para a comunicação entre os agentes do Azure AD Connect Health e o Azure AD.  
 
-| Protocolo | Portas | Descrição |
+| Protocol | Portas | Descrição |
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Saída |
 | Service Bus do Azure |5671 (TCP/UDP) |Saída |

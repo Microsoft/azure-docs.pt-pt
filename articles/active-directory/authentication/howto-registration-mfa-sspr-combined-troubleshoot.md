@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60414631"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Resolução de problemas combinados o registo de informações de segurança (pré-visualização)
@@ -35,7 +35,7 @@ Os eventos registados para o registo combinado são na categoria de métodos de 
 
 A tabela seguinte apresenta uma lista de todos os eventos de auditoria gerados pelo registo combinado:
 
-| Atividade | Estado | Razão | Descrição |
+| Atividade | Estado | Reason | Descrição |
 | --- | --- | --- | --- |
 | Utilizador registado todas as informações de segurança necessárias | Êxito | Utilizador registado todas as informações de segurança necessário. | Este evento ocorre quando um utilizador foi concluída com êxito o registo.|
 | Utilizador registado todas as informações de segurança necessárias | Falha | O utilizador cancelou o registo de informações de segurança. | Este evento ocorre quando um utilizador cancelar o Registro do modo de interrupção.|

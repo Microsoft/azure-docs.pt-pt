@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288544"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurar alertas de segurança para funções do Azure AD no PIM
@@ -80,7 +80,7 @@ Esta secção lista todos os alertas de segurança para funções do Azure AD, a
 
 | | |
 | --- | --- |
-| **Gravidade** | Elevado |
+| **Gravidade** | Alta |
 | **Por que motivo recebo este alerta?** | Atribuições de funções privilegiadas efetuadas fora do PIM não são monitorizadas corretamente e podem indicar um ataque de Active Directory. |
 | **Como corrigir?** | Rever os utilizadores na lista e removê-los a partir de funções com privilégios atribuídas fora do PIM. |
 | **Prevenção** | Investigar em que os utilizadores estão a ser atribuídos funções com privilégios fora do PIM e proibir futuras atribuições a partir daí. |
@@ -126,7 +126,7 @@ Pode personalizar algumas dos alertas de segurança no PIM para trabalhar com o 
 
 1. Clique num nome de alerta para configurar a definição para esse alerta.
 
-    ![Definições do alerta de segurança](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Definições de alerta de segurança](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

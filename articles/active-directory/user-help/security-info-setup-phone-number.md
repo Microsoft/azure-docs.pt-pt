@@ -13,10 +13,10 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60474998"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Definir informações de segurança (pré-visualização) para utilizar chamadas telefónicas
@@ -86,11 +86,11 @@ Se pretender que as chamadas de telefone para ser o método predefinido utilizad
 
     ![Alterar ligação para o método de início de sessão predefinido](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecione **Phone - chamada (*_your_phone_number_*)** na lista pendente de métodos disponíveis e, em seguida, selecione **confirmar**.
+2. Selecione **Phone - chamada ( *_your_phone_number_* )** na lista pendente de métodos disponíveis e, em seguida, selecione **confirmar**.
 
     ![Escolha o método predefinido para início de sessão](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    O método predefinido utilizado para alterações de início de sessão para **Phone - chamada (*_your_phone_number_*)**.
+    O método predefinido utilizado para alterações de início de sessão para **Phone - chamada ( *_your_phone_number_* )** .
 
 ## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
 Tem opções adicionais para como os contactos de organização para verificar a sua identidade, com base no que é que está tentando fazer. As opções incluem:

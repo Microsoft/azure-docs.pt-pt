@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455789"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Privacidade do utilizador e do Azure AD Connect 
@@ -68,7 +68,7 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 Utilize os seguintes passos para agendar o script seja executado a cada 48 horas.
 
 1.  Guarde o script num arquivo com a extensão  **&#46;PS1**, em seguida, abra o painel de controlo e clique em **sistemas e segurança**.
-    ![Sistema](./media/reference-connect-user-privacy/gdpr2.png)
+    ![System](./media/reference-connect-user-privacy/gdpr2.png)
 
 2.  Sob o cabeçalho de ferramentas administrativas, clique em **agendamento de tarefas**.
     ![Tarefa](./media/reference-connect-user-privacy/gdpr3.png)
@@ -77,7 +77,7 @@ Utilize os seguintes passos para agendar o script seja executado a cada 48 horas
 5.  Selecione **diária** para o acionador de tarefa e clique em **próxima**.
 6.  Definir periodicidade **2 dias** e clique em **próxima**.
 7.  Selecione **iniciar um programa** como a ação e clique em **próxima**.
-8.  Tipo **PowerShell** na caixa para o programa/script e, na caixa com a etiqueta **Adicione argumentos (opcional)**, introduza o caminho completo para o script que criou anteriormente, em seguida, clique em **próxima**.
+8.  Tipo **PowerShell** na caixa para o programa/script e, na caixa com a etiqueta **Adicione argumentos (opcional)** , introduza o caminho completo para o script que criou anteriormente, em seguida, clique em **próxima**.
 9.  O ecrã seguinte mostra um resumo da tarefa que está prestes a criar. Verifique os valores e clique em **concluir** para criar a tarefa.
 
 

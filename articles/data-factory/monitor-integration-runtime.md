@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122625"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
@@ -98,7 +98,7 @@ A tabela seguinte fornece os Estados possíveis de um nó do runtime de integra�
 | Offline | O nó está offline. |
 | A atualizar | O nó está a ser atualizados automaticamente. |
 | Limitado | Devido a um problema de conectividade. Pode ser devido a problema de 8050 porta HTTP, problema de conectividade de barramento de serviço ou um problema de sincronização de credenciais. |
-| Inativa | O nó está numa configuração diferente da configuração dos outros nós da maioria. |
+| Inativo | O nó está numa configuração diferente da configuração dos outros nós da maioria. |
 
 Um nó pode ficar inativo, quando ele não é possível ligar a outros nós.
 
@@ -173,9 +173,9 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | CatalogAdminPassword | A palavra-passe do administrador do seu servidor existente do Azure SQL da base de dados/instância gerida. |
 | CatalogPricingTier | O escalão de preço de SSISDB alojado pelo seu servidor de base de dados do Azure SQL existente.  Não é aplicável ao Azure SQL Database Managed Instance alojar SSISDB. |
 | VNetId | O rede virtual ID de recurso para o runtime de integração Azure-SSIS para associar. |
-| Sub-rede | O nome da sub-rede para o runtime de integração Azure-SSIS associar. |
+| Subrede | O nome da sub-rede para o runtime de integração Azure-SSIS associar. |
 | ID | O ID de recurso do Azure-SSIS integration runtime. |
-| Type | O tipo (gerida/Self-Hosted) do Azure-SSIS integration runtime. |
+| Tipo | O tipo (gerida/Self-Hosted) do Azure-SSIS integration runtime. |
 | ResourceGroupName | O nome do seu grupo de recursos do Azure, em que foram criados sua fábrica de dados e o runtime de integração Azure-SSIS. |
 | DataFactoryName | O nome da sua fábrica de dados do Azure. |
 | Name | O nome do Azure-SSIS integration runtime. |
@@ -189,7 +189,7 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | A iniciar | Este nó está a ser preparado. |
 | Disponível | Este nó está pronto para implementar/executar pacotes SSIS. |
 | Reciclagem | Este nó está a ser reparado/reiniciar. |
-| Indisponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que pode resolver. |
+| Não disponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que pode resolver. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Estado (runtime de integração Azure-SSIS geral)
 
@@ -199,7 +199,7 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | A iniciar | Os nós do Azure-SSIS integration runtime estão a ser atribuída/preparado e faturação foi iniciado. |
 | Iniciado | Os nós do Azure-SSIS integration runtime foram alocados/preparado e eles estão prontos para que possa implementar/executar pacotes do SSIS. |
 | A parar  | Os nós do Azure-SSIS integration runtime estão a ser lançados. |
-| Parado | Os nós do Azure-SSIS integration runtime foram lançados e faturação parou. |
+| Parada | Os nós do Azure-SSIS integration runtime foram lançados e faturação parou. |
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorizar o runtime de integração de SSIS do Azure no portal do Azure
 

@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60294426"
 ---
 # <a name="how-to-unblock-users"></a>Como: Desbloquear utilizadores
@@ -36,7 +36,7 @@ Pode obter o tipo de política que bloqueou a um utilizador a partir do cabeçal
 
 | Política | Caixa de diálogo de utilizador |
 | --- | --- |
-| Risco de início de sessão |![O início de sessão bloqueado](./media/howto-unblock-user/02.png) |
+| Início de sessão de risco |![O início de sessão bloqueado](./media/howto-unblock-user/02.png) |
 | Risco de utilizador |![Conta bloqueada](./media/howto-unblock-user/104.png) |
 
 Um utilizador que está bloqueado por:

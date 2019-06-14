@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60288415"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurar as definições de função de recursos do Azure no PIM
@@ -79,13 +79,13 @@ E, pode escolher um destes **Active Directory** opções de duração de atribui
 
 PIM fornece opcional imposição de multi-factor Authentication (MFA) do Azure para dois cenários distintos.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>Requerer autenticação multifator aquando da atribuição ativa
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Exigir autenticação Multifator aquando da atribuição ativa
 
 Em alguns casos, pode querer atribuir um membro a uma função durante um breve período (um dia, por exemplo). Neste caso, não precisam de membros atribuídos para pedir a ativação. Neste cenário, PIM não é possível impor a MFA quando o membro utiliza a respetiva atribuição de função, uma vez que eles já estão ativos na função desde o momento que são atribuídas.
 
 Para garantir que o administrador de recursos cumprindo a atribuição é que eles dizem que eles são, pode impor o MFA aquando da atribuição ativa, verificando a **exigir a autenticação Multifator aquando da atribuição ativa** caixa.
 
-### <a name="require-multi-factor-authentication-on-activation"></a>Exigir Multi-Factor Authentication
+### <a name="require-multi-factor-authentication-on-activation"></a>Exigir multi-factor Authentication na ativação
 
 Pode exigir elegíveis membros de uma função executar a MFA para que poderem ativar. Este processo garante que o utilizador que está a pedir a ativação é realmente quem afirma são com certeza razoável. Impor esta opção protege os recursos críticos em situações, quando a conta de utilizador pode ter sido comprometida.
 
@@ -109,7 +109,7 @@ Se quiser exigir aprovação para ativar uma função, siga estes passos.
 
 1. Clique em **selecionar aprovadores** para abrir um painel de membro ou grupo de Select.
 
-    ![Selecionar um membro ou grupo](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Selecione um membro ou um grupo](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Selecione pelo menos um membro ou grupo e, em seguida, clique em **selecione**. Pode adicionar qualquer combinação de membros e grupos. Tem de selecionar pelo menos um aprovador. Não há nenhum aprovadores de predefinição.
 

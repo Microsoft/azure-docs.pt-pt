@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60384191"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Azure AD Connect sincronização o Service Manager
@@ -42,7 +42,7 @@ O separador conectores é utilizado para gerir todos os sistemas, que o motor de
 | Conector de exportação |Não utilize. |
 | Conector de importação |Não utilize. |
 | Atualizar conector |Não utilize. |
-| Actualizar Esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
+| Atualizar esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
 | [Procurar espaço conector](#search-connector-space) |Utilizado para localizar objetos e a seguir um objeto e os respetivos dados através do sistema. |
 
 ### <a name="delete"></a>Eliminar

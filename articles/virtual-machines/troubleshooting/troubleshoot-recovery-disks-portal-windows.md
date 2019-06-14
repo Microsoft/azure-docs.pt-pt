@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
 ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320928"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolver problemas de uma VM do Windows ao anexar o disco do SO a uma VM de recuperação com o portal do Azure
@@ -105,7 +105,7 @@ Para os passos seguintes, utilize outra VM para fins de resolução de problemas
 
     ![Selecione o ficheiro e serviços de armazenamento no Gestor de servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. O disco de dados é automaticamente detectado e ligado. Para ver uma lista dos discos ligados, selecione **discos**. Pode selecionar o disco de dados para ver informações de volume, incluindo a letra de unidade. O exemplo seguinte mostra o disco de dados anexados e usando **f:**:
+3. O disco de dados é automaticamente detectado e ligado. Para ver uma lista dos discos ligados, selecione **discos**. Pode selecionar o disco de dados para ver informações de volume, incluindo a letra de unidade. O exemplo seguinte mostra o disco de dados anexados e usando **f:** :
 
     ![Disco ligado e as informações de volume no Gestor de servidores](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 

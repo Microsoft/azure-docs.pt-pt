@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326159"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
@@ -140,7 +140,7 @@ As regras de balanceamento de carga configurar como o Balanceador de carga encam
    | **Nome** |Um nome de texto que representa a regras de balanceamento de carga. Por exemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
    | **Porta** |*1433* |
-   | **Porta de back-end** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (devolução direta do servidor)**. |
+   | **Porta de back-end** |*1433*. Este valor é ignorado porque esta regra utiliza **IP flutuante (devolução direta do servidor)** . |
    | **Sonda** |Utilize o nome da sonda que criou para este Balanceador de carga. |
    | **Persistência da sessão** |**Nenhum** |
    | **Tempo limite de inatividade (minutos)** |*4* |
@@ -226,7 +226,7 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
    |**Nome** |Um nome para identificar a sonda.
    |**Protocolo** |TCP
    |**Porta** |Uma porta não utilizada TCP, que tem de estar disponível em todas as máquinas virtuais. Ele não pode ser usado para qualquer outra finalidade. Não existem dois serviços de escuta podem utilizar a mesma porta de sonda. 
-   |**Intervalo** |O período de tempo entre tentativas da sonda. Utilize a predefinição (5).
+   |**Intervalo** |A quantidade de tempo entre tentativas da sonda. Utilize a predefinição (5).
    |**Limiar de mau estado de funcionamento** |O número de limiares consecutivas que devem falhar antes de uma máquina virtual é considerada em mau estado de funcionamento.
 
 8. Clique em **OK** para guardar a sonda. 

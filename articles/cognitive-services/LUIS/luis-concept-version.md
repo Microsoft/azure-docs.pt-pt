@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
 ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60509692"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Compreender como e quando utilizar uma versão de LUIS
@@ -59,7 +59,7 @@ Pode eliminar todas as versões, exceto a versão do Active Directory na lista d
 ## <a name="version-availability-at-the-endpoint"></a>Disponibilidade de versão no ponto final
 Não são automaticamente disponíveis na sua aplicação versões treinadas [ponto final](luis-glossary.md#endpoint). Deve [publicar](luis-how-to-publish-app.md) ou voltar a publicar uma versão para que ele esteja disponível no seu ponto final de aplicação. Pode publicar **transição** e **produção**, dando-lhe até duas versões da aplicação disponível no ponto final. Se precisar de mais versões da aplicação disponível num ponto de extremidade, deve exportar a versão e importe novamente para uma nova aplicação. A nova aplicação tem um ID de aplicação diferente.
 
-## <a name="collaborators"></a>Funcionários
+## <a name="collaborators"></a>Colaboradores
 O proprietário e todos os [colaboradores](luis-how-to-collaborate.md) têm acesso total a todas as versões da aplicação.
 
 ## <a name="next-steps"></a>Passos Seguintes

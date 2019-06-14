@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60473194"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Eliminar um diretório no Azure Active Directory
@@ -101,7 +101,7 @@ Para o que esperar quando uma subscrição de avaliação do Office 365 expira (
 Estado do produto | Dados | Acesso a dados
 ------------- | ---- | --------------
 Active Directory (30 dias para avaliação) | Dados acessíveis a todos | Os utilizadores têm acesso normal para o produto de inscrição self-service, ficheiros ou aplicações<br>Os administradores têm acesso normal para o Centro de administração do Microsoft 365 e recursos
-Eliminada | Dados eliminados | Os utilizadores não é possível aceder a aplicações, ficheiros ou produto de inscrição self-service<br>Os administradores podem acessar o Centro de administração do Microsoft 365 para comprar e gerir outras subscrições
+Eliminado | Dados eliminados | Os utilizadores não é possível aceder a aplicações, ficheiros ou produto de inscrição self-service<br>Os administradores podem acessar o Centro de administração do Microsoft 365 para comprar e gerir outras subscrições
 
 ## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Como posso excluir um produto de inscrição self-service no portal do Azure?
 

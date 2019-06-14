@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60402688"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Microsoft Azure Service Bus: operações baseados no pedido-resposta
@@ -118,8 +118,8 @@ Entidades do Service Bus devem ser resolvidas da seguinte forma:
   
 |Tipo de entidade|Endereço|Exemplo|  
 |-----------------|-------------|-------------|  
-|fila|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
-|tópico|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
+|queue|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
+|topic|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
 |subscrição|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>Operações de mensagem  
@@ -134,7 +134,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:renew-lock`|  
+|Operação|string|Sim|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
  O corpo da mensagem de pedido deve ser composto por uma seção de amqp-valor que contém um mapa com as seguintes entradas:  
@@ -172,14 +172,14 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:peek-message`|  
+|Operação|string|Sim|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|longa|Sim|Número de sequência da qual pretende iniciar a pré-visualização.|  
+|`from-sequence-number`|long|Sim|Número de sequência da qual pretende iniciar a pré-visualização.|  
 |`message-count`|int|Sim|Número máximo de mensagens de olhar.|  
   
 #### <a name="response"></a>Resposta  
@@ -213,7 +213,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:schedule-message`|  
+|Operação|string|Sim|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -257,7 +257,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:cancel-scheduled-message`|  
+|Operação|string|Sim|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -293,7 +293,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:renew-session-lock`|  
+|Operação|string|Sim|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -327,14 +327,14 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:peek-message`|  
+|Operação|string|Sim|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|from-sequence-number|longa|Sim|Número de sequência da qual pretende iniciar a pré-visualização.|  
+|from-sequence-number|long|Sim|Número de sequência da qual pretende iniciar a pré-visualização.|  
 |Contagem de mensagens|int|Sim|Número máximo de mensagens de olhar.|  
 |id de sessão|string|Sim|ID de sessão.|  
   
@@ -369,7 +369,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:set-session-state`|  
+|Operação|string|Sim|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -398,7 +398,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:get-session-state`|  
+|Operação|string|Sim|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -432,7 +432,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:get-message-sessions`|  
+|Operação|string|Sim|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -440,7 +440,7 @@ O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção qu
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |last-updated-time|timestamp|Sim|Filtre para incluir apenas as sessões atualizadas após um determinado momento.|  
-|ignorar|int|Sim|Ignore um número de sessões.|  
+|Ignorar|int|Sim|Ignore um número de sessões.|  
 |parte superior|int|Sim|Número máximo de sessões.|  
   
 #### <a name="response"></a>Resposta  
@@ -456,12 +456,12 @@ O corpo da mensagem de resposta deve consistir numa **valor de amqp** secção q
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|ignorar|int|Sim|Número de sessões ignoradas se o código de estado é 200.|  
+|Ignorar|int|Sim|Número de sessões ignoradas se o código de estado é 200.|  
 |ids de sessões|matriz de cadeias de caracteres|Sim|Matriz de IDs, se o código de estado é 200 de sessão.|  
   
 ## <a name="rule-operations"></a>Operações de regra  
   
-### <a name="add-rule"></a>Adicionar Regra  
+### <a name="add-rule"></a>Adicionar regra  
   
 #### <a name="request"></a>Pedir  
 
@@ -469,7 +469,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:add-rule`|  
+|Operação|string|Sim|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -522,7 +522,7 @@ A mensagem de resposta deve incluir as seguintes propriedades da aplicação:
 |statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito, caso contrário falha|  
 |statusDescription|string|Não|Descrição do Estado.|  
   
-### <a name="remove-rule"></a>Remover Regra  
+### <a name="remove-rule"></a>Remover regra  
   
 #### <a name="request"></a>Pedir  
 
@@ -530,7 +530,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:remove-rule`|  
+|Operação|string|Sim|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -556,7 +556,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
 
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:enumerate-rules`|  
+|Operação|string|Sim|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
 
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -564,7 +564,7 @@ O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção qu
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |parte superior|int|Sim|O número de regras para buscar na página.|  
-|ignorar|int|Sim|O número de regras para ignorar. Define o índice de início (+ 1) na lista de regras. | 
+|Ignorar|int|Sim|O número de regras para ignorar. Define o índice de início (+ 1) na lista de regras. | 
 
 #### <a name="response"></a>Resposta
 
@@ -609,12 +609,12 @@ Cada entrada de mapa na matriz inclui as seguintes propriedades:
 |Índice (se existir)|Tipo de valor|Conteúdo de valor|  
 |---------|----------------|--------------|
 | 0 | string | ID de Correlação |
-| 1 | string | ID da Mensagem |
+| 1 | string | ID da mensagem |
 | 2 | string | Para |
-| 3 | string | Responder A |
-| 4 | string | Label |
+| 3 | string | Responder a |
+| 4 | string | Etiqueta |
 | 5 | string | ID de sessão |
-| 6 | string | Responder a ID da Sessão|
+| 6 | string | Responda à ID de sessão|
 | 7 | string | Tipo de Conteúdo |
 | 8 | Mapa | Mapa da aplicação definir propriedades |
 
@@ -639,7 +639,7 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:receive-by-sequence-number`|  
+|Operação|string|Sim|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
@@ -681,14 +681,14 @@ A mensagem de pedido tem de incluir as seguintes propriedades da aplicação:
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|operação|string|Sim|`com.microsoft:update-disposition`|  
+|Operação|string|Sim|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Não|Operação tempo limite do servidor em milissegundos.|  
   
 O corpo da mensagem de pedido deve ser composto um **valor de amqp** secção que contém um **mapa** com as seguintes entradas:  
   
 |Chave|Tipo de valor|Necessário|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|disposition-status|string|Sim|completed<br /><br /> abandonada<br /><br /> Suspenso|  
+|disposition-status|string|Sim|Concluída<br /><br /> abandonada<br /><br /> Suspenso|  
 |tokens de bloqueio|matriz de uuid|Sim|Tokens de bloqueio da mensagem para atualizar o estado de disposição.|  
 |deadletter-reason|string|Não|Pode ser definido se o estado de disposição está definido como **suspenso**.|  
 |deadletter-description|string|Não|Pode ser definido se o estado de disposição está definido como **suspenso**.|  

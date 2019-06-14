@@ -10,10 +10,10 @@ ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.topic: article
 ms.date: 08/25/2018
 ms.openlocfilehash: bf27739bd42106550c18e3bbc27a1ff8b3770747
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447163"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrar logic apps para a versão mais recente do esquema
@@ -27,7 +27,7 @@ Para mover as logic apps existentes para o esquema mais recente, siga estes pass
    > [!NOTE]
    > Quando escolhe **atualizar esquema**, Azure Logic Apps automaticamente executa os passos de migração e fornece o código de saída para. Pode utilizar esta saída para atualizar a definição da aplicação lógica. No entanto, certifique-se de seguir as melhores práticas, tal como descrito a seguir **melhores práticas** secção.
 
-   ![Atualizar Esquema](./media/connectors-schema-migration/update-schema.png)
+   ![Atualizar esquema](./media/connectors-schema-migration/update-schema.png)
 
    A página atualizar esquema aparece e apresenta uma ligação para um documento que descreve os aperfeiçoamentos no novo esquema.
 

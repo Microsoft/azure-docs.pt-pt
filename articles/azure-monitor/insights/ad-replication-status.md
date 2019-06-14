@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60495174"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorizar o estado de replicação do Active Directory com o Azure Monitor
@@ -52,7 +52,7 @@ Se não pretender ligar-se a qualquer um dos seus controladores de domínio dire
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de recolha de dados de estado de replicação do AD
 A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o estado de replicação do AD.
 
-| Plataforma | Agente Direto | Agente do SCOM | Storage do Azure | SCOM necessário? | Dados de agente do SCOM enviados através do grupo de gestão | Frequência de recolha |
+| Plataforma | Agente direto | Agente do SCOM | Storage do Azure | SCOM necessário? | Dados de agente do SCOM enviados através do grupo de gestão | Frequência de recolha |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |cada cinco dias |
 
@@ -106,7 +106,7 @@ Como observado anteriormente, o mosaico do dashboard, para a solução de estado
 >
 
 ### <a name="ad-replication-status-details"></a>Detalhes de estado de replicação do AD
-Quando clicar em qualquer item em uma das listas, verá detalhes adicionais sobre o mesmo usando uma consulta de registo. Os resultados são filtrados para mostrar apenas os erros relacionados com esse item. Por exemplo, se clicar no primeiro controlador de domínio listados na **estado do servidor de destino (ADDC02)**, verá os resultados da consulta filtrados para mostrar erros com esse controlador de domínio listado como o servidor de destino:
+Quando clicar em qualquer item em uma das listas, verá detalhes adicionais sobre o mesmo usando uma consulta de registo. Os resultados são filtrados para mostrar apenas os erros relacionados com esse item. Por exemplo, se clicar no primeiro controlador de domínio listados na **estado do servidor de destino (ADDC02)** , verá os resultados da consulta filtrados para mostrar erros com esse controlador de domínio listado como o servidor de destino:
 
 ![Erros de estado de replicação de AD nos resultados de consulta](./media/ad-replication-status/oms-ad-replication-search-details.png)
 

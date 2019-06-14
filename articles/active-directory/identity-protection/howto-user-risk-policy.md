@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b94e9b7267c956c07f4171f8cce46c6159affd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60459786"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Como: Configurar a política de utilizador de risco
@@ -46,7 +46,7 @@ A política de risco do utilizador é uma resposta automática, que pode configu
    
 A política de risco de início de sessão está no **configurar** secção sobre o [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Política de risco de utilizador](./media/howto-user-risk-policy/1014.png)
+![Política de risco do utilizador](./media/howto-user-risk-policy/1014.png)
 
 
 
@@ -60,7 +60,7 @@ Ao configurar a política de risco de início de sessão, tem de definir:
 
 - O nível de risco de início de sessão que aciona a política:
 
-    ![O utilizador tem um nível de risco elevado](./media/howto-user-risk-policy/12.png)
+    ![Nível de risco do utilizador](./media/howto-user-risk-policy/12.png)
 
 - O tipo de acesso que pretende ser imposta quando tiver sido cumprido o seu nível de risco de início de sessão:  
 
@@ -78,7 +78,7 @@ A caixa de diálogo de configuração de política fornece uma opção para calc
 
 Pode definir uma política de segurança de risco do utilizador para impedir que os utilizadores após o início de sessão dependendo do nível de risco.
 
-![Bloqueio](./media/howto-user-risk-policy/16.png)
+![Bloquear](./media/howto-user-risk-policy/16.png)
 
 
 Bloquear um início de sessão:

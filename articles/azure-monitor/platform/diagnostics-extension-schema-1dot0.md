@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237847"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuração de diagnósticos do Azure 1.0
@@ -101,9 +101,9 @@ O elemento de nível superior do ficheiro de configuração de diagnósticos.
 
 Atributos:
 
-|Atributo  |Type   |Necessário| Predefinição | Descrição|  
+|Atributo  |Tipo   |Necessário| Predefinição | Descrição|  
 |-----------|-------|--------|---------|------------|  
-|**configurationChangePollInterval**|duração|Opcional | PT1M| Especifica o intervalo a que consulta o monitor de diagnóstico para alterações de configuração de diagnóstico.|  
+|**configurationChangePollInterval**|Duração|Opcional | PT1M| Especifica o intervalo a que consulta o monitor de diagnóstico para alterações de configuração de diagnóstico.|  
 |**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Se fornecer um valor, não deve exceder este montante |A quantidade total de armazenamento alocado para todos os buffers de log do sistema de ficheiros.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>Elemento de DiagnosticInfrastructureLogs  
@@ -117,7 +117,7 @@ Atributos:
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
-|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
+|**scheduledTransferPeriod**|Duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 
 ## <a name="logs-element"></a>Elemento de registos  
  Define a configuração de memória intermédia para registos do Azure básicas.
@@ -130,7 +130,7 @@ Atributos:
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
-|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
+|**scheduledTransferPeriod**|Duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 
 ## <a name="directories-element"></a>Elemento de diretórios  
 Define a configuração de memória intermédia para os registos baseados em ficheiros, que pode definir.
@@ -143,7 +143,7 @@ Atributos:
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
+|**scheduledTransferPeriod**|Duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 
 ## <a name="crashdumps-element"></a>Elemento de CrashDumps  
  Define o diretório de despejos de falhas.
@@ -233,7 +233,7 @@ Atributos:
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
-|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
+|**scheduledTransferPeriod**|Duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 
 ## <a name="performancecounterconfiguration-element"></a>Elemento de PerformanceCounterConfiguration  
  Define o contador de desempenho a recolher.
@@ -245,7 +245,7 @@ Atributos:
 |Atributo|Type|Descrição|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|Necessário. O caminho para o contador de desempenho a recolher.|  
-|**sampleRate**|duração|Necessário. A taxa em que o contador de desempenho deve ser recolhido.|  
+|**sampleRate**|Duração|Necessário. A taxa em que o contador de desempenho deve ser recolhido.|  
 
 ## <a name="windowseventlog-element"></a>Elemento de WindowsEventLog  
  Define os registos de eventos a monitorizar.
@@ -258,7 +258,7 @@ Atributos:
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento de sistema de ficheiros que está disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
 |**scheduledTransferLogLevelFilter**|string|Opcional. Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**. Outros valores possíveis são **verboso**, **informações**, **aviso**, **erro**, e **crítico**.|  
-|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
+|**scheduledTransferPeriod**|Duração|Opcional. Especifica o intervalo entre agendada transferências de dados, arredondados para o minuto mais próximo.<br /><br /> A predefinição é PT0S.|  
 
 ## <a name="datasource-element"></a>Elemento de origem de dados  
  Define o registo de eventos a monitorizar.

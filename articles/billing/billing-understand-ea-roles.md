@@ -14,19 +14,19 @@ ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
 ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370718"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do contrato Enterprise do Azure no Azure
 
 Para ajudar a gerir a utilização da sua organização e gastos do Azure os clientes com um contrato Enterprise (EA) podem atribuir cinco funções distintas de administrativas:
 
-- Administrador de Empresa
+- Administrador de empresa
 - Administrador de empresa (só de leitura)
-- Administrador de Departamento
+- Administrador do departamento
 - Administrador do departamento (só de leitura)
 - Proprietário da Conta
  
@@ -38,9 +38,9 @@ As secções seguintes descrevem as limitações e as capacidades de cada funç�
 
 |Função| Limite de utilizadores|
 |---|---|
-|Administrador de Empresa|Ilimitado|
+|Administrador de empresa|Ilimitado|
 |Administrador de empresa (só de leitura)|Ilimitado|
-|Administrador de Departamento|Ilimitado|
+|Administrador do departamento|Ilimitado|
 |Administrador do departamento (só de leitura)|Ilimitado|
 |Proprietário da Conta|1 por conta<sup>1</sup>|
 
@@ -48,7 +48,7 @@ As secções seguintes descrevem as limitações e as capacidades de cada funç�
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Estrutura da organização e as permissões por função
 
-|Tarefas| Administrador de Empresa|Administrador de empresa (só de leitura)|Administrador de Departamento|Administrador do departamento (só de leitura)|Proprietário da Conta|
+|Tarefas| Administrador de empresa|Administrador de empresa (só de leitura)|Administrador do departamento|Administrador do departamento (só de leitura)|Proprietário da Conta|
 |---|---|---|---|---|---|
 |Ver administradores da empresa|✔|✔|✘|✘|✘|
 |Adicionar ou remover administradores da empresa|✔|✘|✘|✘|✘|
@@ -67,7 +67,7 @@ As secções seguintes descrevem as limitações e as capacidades de cada funç�
 
 ## <a name="usage-and-costs-access-by-role"></a>Acesso de utilização e os custos por função
 
-|Tarefas| Administrador de Empresa|Administrador de empresa (só de leitura)|Administrador de Departamento|Administrador do departamento (só de leitura) |Proprietário da Conta|
+|Tarefas| Administrador de empresa|Administrador de empresa (só de leitura)|Administrador do departamento|Administrador do departamento (só de leitura) |Proprietário da Conta|
 |---|---|---|---|---|---|
 |Saldo de crédito de vista incluindo alocação monetária|✔|✔|✘|✘|✘|
 |As quotas de gastos do departamento de vista|✔|✔|✘|✘|✘|
@@ -93,11 +93,11 @@ A tabela seguinte mostra a relação entre as funções de administrador do Ente
 
 |Função de administrador do contrato Enterprise|Ver a política de custos para a função|Função RBAC|Ver preços|
 |---|---|---|---|
-|Proprietário da conta ou administrador do departamento|✔ Ativada|Proprietário|Preços de EA da organização|
-|Proprietário da conta ou administrador do departamento|✘ Desativado|Proprietário|Preço de revenda|
-|Proprietário da conta ou administrador do departamento|✔ Ativada |nenhum|Sem preço|
-|Proprietário da conta ou administrador do departamento|✘ Desativado |nenhum|Sem preço|
-|Nenhuma|Não aplicável |Proprietário|Preço de revenda|
+|Proprietário da conta ou administrador do departamento|✔ Ativada|Owner|Preços de EA da organização|
+|Proprietário da conta ou administrador do departamento|✘ Desativado|Owner|Preço de revenda|
+|Proprietário da conta ou administrador do departamento|✔ Ativada |Nenhum|Sem preço|
+|Proprietário da conta ou administrador do departamento|✘ Desativado |Nenhum|Sem preço|
+|Nenhuma|Não aplicável |Owner|Preço de revenda|
 
 Define a função de administrador de empresa e ver os custos de políticas no portal da empresa. A função RBAC pode ser atualizada no portal do Azure. Para obter mais informações, consulte [gerir o acesso com RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 

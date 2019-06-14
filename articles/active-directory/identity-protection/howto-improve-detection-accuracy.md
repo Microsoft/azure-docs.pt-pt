@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453298"
 ---
 # <a name="how-to-improve-the-detection-accuracy"></a>Como: Melhorar a exatidão da deteção 
@@ -49,7 +49,7 @@ Existem três formas de aumentar a exatidão da deteção: Confirme comprometido
 Seus comentários é processado pelo Azure AD para melhorar a precisão dos resultados da deteção. Normalmente, fornecer comentários como parte de um risco de utilizador ou a investigação de risco de início de sessão. Para obter mais informações, consulte [como investigar a utilizadores de risco e inícios de sessão](howto-investigate-risky-users-signins.md).
 
 
-## <a name="confirm-compromised"></a>Confirmar comprometido
+## <a name="confirm-compromised"></a>Confirmar comprometida
 
 Confirmar um evento de início de sessão como comprometido sinaliza para o Azure AD, que o início de sessão não foi autorizado pelo proprietário de identidade. Ao selecionar "Confirmar comprometido", do Azure AD irá
 

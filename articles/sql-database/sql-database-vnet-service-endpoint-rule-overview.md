@@ -13,10 +13,10 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331418"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utilizar pontos finais de serviço de rede virtual e regras para servidores de base de dados
@@ -52,7 +52,7 @@ Uma regra de rede virtual informa ao seu servidor de base de dados SQL para acei
 
 Até que o faça, as VMs nas suas sub-redes não consegue comunicar com a base de dados SQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A lógica para escolher a abordagem de regra de VNet requer uma discussão de comparação e contraste que envolvem as opções de segurança concorrentes oferecidas pelo firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>R. Permitir acesso aos serviços do Azure
+### <a name="a-allow-access-to-azure-services"></a>R. Permitir o acesso aos serviços do Azure
 
 O painel de firewall tem um **ON/OFF** botão assinalada como **permitir o acesso aos serviços do Azure**. O **ON** definição permite comunicações a partir de todos os endereços IP do Azure e todas as sub-redes do Azure. Estes IPs do Azure ou a sub-redes não podem ser propriedade por si. Isso **ON** definição é provavelmente mais aberta que pretende que a base de dados do SQL ser. O recurso de regra de rede virtual oferece muito controle mais granular.
 
@@ -209,7 +209,7 @@ Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data War
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
     
-   1. Criar credencial com âmbito de base de dados com **IDENTITY = "Identidade do serviço gerido"**:
+   1. Criar credencial com âmbito de base de dados com **IDENTITY = "Identidade do serviço gerido"** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -248,7 +248,7 @@ Erro de ligação 40914 está relacionado à *regras de rede virtual*, conforme 
 
 ### <a name="error-40914"></a>Erro 40914
 
-*Texto da mensagem:* Não é possível abrir o servidor de '*[nome do servidor]*"pedida pelo início de sessão. Cliente não tem permissão para aceder ao servidor.
+*Texto da mensagem:* Não é possível abrir o servidor de ' *[nome do servidor]* "pedida pelo início de sessão. Cliente não tem permissão para aceder ao servidor.
 
 *Descrição do erro:* O cliente está numa sub-rede que tem pontos finais do servidor de rede virtual. Mas o servidor de base de dados do Azure SQL não tem nenhuma regra de rede virtual que concede à sub-rede à direita para comunicar com a base de dados SQL.
 

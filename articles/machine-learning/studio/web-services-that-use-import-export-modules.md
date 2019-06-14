@@ -16,10 +16,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345146"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web Azure Machine Learning Studio que utilizam módulos importar dados e exportação de dados
@@ -67,7 +67,7 @@ Para ler os dados da tabela SQL do Azure:
 ## <a name="create-the-predictive-experiment"></a>Criar a experimentação preditiva
 Em seguida, configure a experimentação preditiva a partir do qual implementar o serviço web.
 
-1. Na parte inferior da tela de experimentação, clique em **segurança de serviço Web** e selecione **preditiva Web Service [Recomendado]**.
+1. Na parte inferior da tela de experimentação, clique em **segurança de serviço Web** e selecione **preditiva Web Service [Recomendado]** .
 2. Remover os *entrada de serviço Web* e *módulos de saída de serviço da Web* da experimentação preditiva.
 3. Na caixa de pesquisa de componentes, tipo de exportação.
 4. A partir da lista de resultados, adicione uma *exportar dados* módulo para a tela da experimentação.
@@ -100,10 +100,10 @@ Pode implementar um clássico ou um novo serviço web.
 Para implementar como um serviço Web clássico e criar uma aplicação de consumi-las:
 
 1. Na parte inferior da tela de experimentação, clique em executar.
-2. Quando a execução for concluída, clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]**.
+2. Quando a execução for concluída, clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]** .
 3. No dashboard do serviço web, localize a chave de API. Copie e guarde-o para utilizar mais tarde.
 4. Na **ponto final predefinido** da tabela, clique no **execução de lotes** link para abrir a página de ajuda da API.
-5. No Visual Studio, crie um C# aplicação de consola: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)**.
+5. No Visual Studio, crie um C# aplicação de consola: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)** .
 6. A página Ajuda da API, encontrará a **código de exemplo** seção na parte inferior da página.
 7. Copie e cole o C# código de exemplo para o ficheiro Program.cs e remover todas as referências para o armazenamento de Blobs.
 8. Atualize o valor do *apiKey* variável com a chave de API que guardou anteriormente.
@@ -128,11 +128,11 @@ Após a conclusão da execução, uma nova tabela é adicionada à base de dados
 Para implementar como um novo serviço Web e criar uma aplicação de consumi-las:
 
 1. Na parte inferior da tela de experimentação, clique em **executar**.
-2. Quando a execução for concluída, clique em **implementar serviço Web** e selecione **implementar o Web Service [novo]**.
+2. Quando a execução for concluída, clique em **implementar serviço Web** e selecione **implementar o Web Service [novo]** .
 3. Na página de experimentação de implementar, introduza um nome para o seu serviço web e selecione um plano de preços, em seguida, clique em **Deploy**.
 4. Sobre o **início rápido** página, clique em **Consume**.
 5. Na **código de exemplo** secção, clique em **Batch**.
-6. No Visual Studio, crie um C# aplicação de consola: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)**.
+6. No Visual Studio, crie um C# aplicação de consola: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)** .
 7. Copie e cole o C# código de exemplo para o ficheiro Program.cs.
 8. Atualize o valor do *apiKey* variável com o **chave primária** localizado no **informações de consumo básica** secção.
 9. Localize a *scoreRequest* declaração e atualizar os valores dos parâmetros do serviço Web que são transmitidos para o *importar dados* e *exportar dados* módulos. Neste caso, usa a consulta original, mas define um novo nome de tabela.

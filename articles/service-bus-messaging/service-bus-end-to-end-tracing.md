@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311017"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreio distribuído e correlação por meio de mensagens do Service Bus
@@ -30,7 +30,7 @@ Quando um produtor envia uma mensagem através de uma fila, ele ocorre normalmen
 Mensagens do Service Bus do Microsoft Azure tem definido as propriedades de payload que produtores e consumidores, devem utilizar para passar esse contexto de rastreio.
 O protocolo se baseia a [protocolo HTTP correlação](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome da Propriedade        | Descrição                                                 |
+| Nome da propriedade        | Descrição                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Id de diagnóstico       | Identificador exclusivo de uma chamada externa de produtor para a fila. Consulte a [Request-ID indicado no protocolo HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) para a lógica, considerações e formato |
 |  Contexto de correlação | Contexto de operação, que é propagado em todos os serviços envolvidos na operação em processamento. Para obter mais informações, consulte [correlação-contexto no protocolo HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
@@ -139,7 +139,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 Neste exemplo, o serviço de escuta registra a duração, o resultado, o identificador exclusivo e a hora de início para cada operação do Service Bus.
 
-#### <a name="events"></a>Eventos
+#### <a name="events"></a>Events
 
 Para cada operação, são enviados por dois eventos: 'Iniciar' e 'Stop'. Muito provavelmente, só estiver interessado em eventos 'Stop'. Eles fornecem o resultado da operação, bem como hora de início e duração como propriedades de uma atividade.
 
@@ -153,7 +153,7 @@ Cada evento 'Stop' tem `Status` propriedade com o `TaskStatus` operação assín
 
 Eis a lista completa das operações instrumentadas:
 
-| Nome da Operação | API controlada | Propriedades de Payload específico|
+| Nome da operação | API controlada | Propriedades de Payload específico|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Lista de mensagens sendo enviadas |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -Mensagem a ser processado<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Deslocamento de mensagem agendada<br/>`long SequenceNumber` -Número de sequência de mensagem agendada ('Stop' payload do evento) |

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243509"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: Configurar a filtragem
@@ -218,7 +218,7 @@ Filtragem de entrada, vai utilizar o poder da **âmbito** para determinar quais 
 
 Vamos examinar um exemplo:  
 ![Âmbito](./media/how-to-connect-sync-configure-filtering/scope.png)  
-Isso deve ser lida como **(departamento = IT) ou (departamento = Vendas e c = US)**.
+Isso deve ser lida como **(departamento = IT) ou (departamento = Vendas e c = US)** .
 
 Nos seguintes exemplos e passos, utilize o objeto de utilizador como um exemplo, mas pode utilizá-la para todos os tipos de objeto.
 

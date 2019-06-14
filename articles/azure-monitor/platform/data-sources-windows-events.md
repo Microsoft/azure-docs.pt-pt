@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236924"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origens de dados de registo de eventos Windows no Azure Monitor
@@ -28,7 +28,7 @@ Registos de eventos do Windows são uma das mais comuns [origens de dados](agent
 ## <a name="configuring-windows-event-logs"></a>Os logs de eventos do Windows configuração
 Configurar registos de eventos do Windows a partir da [menu de dados nas definições avançadas](agent-data-sources.md#configuring-data-sources).
 
-O Azure Monitor apenas recolhe os eventos dos logs de eventos Windows que são especificados nas definições.  Pode adicionar um registo de eventos ao escrever o nome do registo e clicar em **+**.  Para cada registo, apenas os eventos com as gravidades selecionados são recolhidos.  Verifique as gravidades para o log específico que pretende recolher.  Não pode fornecer qualquer critérios adicionais para filtrar eventos.
+O Azure Monitor apenas recolhe os eventos dos logs de eventos Windows que são especificados nas definições.  Pode adicionar um registo de eventos ao escrever o nome do registo e clicar em **+** .  Para cada registo, apenas os eventos com as gravidades selecionados são recolhidos.  Verifique as gravidades para o log específico que pretende recolher.  Não pode fornecer qualquer critérios adicionais para filtrar eventos.
 
 À medida que escreve o nome de um registo de eventos, o Azure Monitor fornece sugestões de nomes de registo de eventos comuns. Se o registo que pretende adicionar não aparecer na lista, ainda pode adicioná-lo ao escrever o nome completo do registo. Pode encontrar o nome completo do registo utilizando o Visualizador de eventos. No Visualizador de eventos, abra a *propriedades* página para o log e copie a cadeia a partir do *nome completo* campo.
 
@@ -56,10 +56,10 @@ Registos de eventos do Windows têm um tipo de **evento** e ter as propriedades 
 | ParameterXml |Valores de parâmetros de evento no formato XML. |
 | ManagementGroupName |Nome do grupo de gestão para agentes do System Center Operations Manager.  Para outros agentes, este valor é `AOI-<workspace ID>` |
 | RenderedDescription |Descrição do evento com valores de parâmetros |
-| Origem |Origem do evento. |
+| source |Origem do evento. |
 | SourceSystem |Tipo do evento foi recolhido a partir do agente. <br> Ligar OpsManager – agente de Windows, direta ou gerido do Operations Manager <br> Linux – todos os agentes do Linux  <br> AzureStorage – diagnósticos do Azure |
 | TimeGenerated |Data e hora que do evento foi criado no Windows. |
-| Nome de Utilizador |Nome de utilizador da conta que registou o evento. |
+| UserName |Nome de utilizador da conta que registou o evento. |
 
 ## <a name="log-queries-with-windows-events"></a>Consultas de registo com eventos do Windows
 A tabela seguinte fornece exemplos diferentes de consultas de registo que obter registos de eventos do Windows.

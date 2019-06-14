@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66135539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048710"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -155,8 +155,7 @@ Azure gera o registo de atividades, por predefinição. Os registos são mantido
 
 ### <a name="access-log"></a>Registo de acesso
 
-O registo de acesso é gerado apenas se tiver habilitado em cada instância de Gateway de aplicação, conforme especificado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Cada acesso de Gateway de aplicação é registado no formato JSON, conforme mostrado no exemplo a seguir:
-
+O registo de acesso é gerado apenas se tiver habilitado em cada instância de Gateway de aplicação, conforme especificado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Cada acesso de Gateway de aplicação é registado no formato JSON, conforme mostrado no exemplo a seguir para a v1:
 
 |Value  |Descrição  |
 |---------|---------|
@@ -196,6 +195,58 @@ O registo de acesso é gerado apenas se tiver habilitado em cada instância de G
     }
 }
 ```
+Para e v2 de WAF do Gateway de aplicação, os registos mostram mais algumas informações:
+
+|Value  |Descrição  |
+|---------|---------|
+|instanceId     | Instância de Gateway de aplicação que serviu o pedido.        |
+|clientIP     | IP de origem para o pedido.        |
+|clientPort     | Porta de origem para o pedido.       |
+|httpMethod     | Método HTTP usado pelo pedido.       |
+|requestUri     | URI do pedido recebido.        |
+|RequestQuery     | **Encaminhado por servidor**: Instância de conjunto de back-end que foi enviada o pedido.</br>**X-AzureApplicationGateway-LOG-ID**: ID de correlação utilizado para o pedido. Ele pode ser usado para resolver problemas de tráfego nos servidores de back-end. </br>**SERVER-STATUS**: Código de resposta HTTP que o Gateway de aplicação recebido do back-end.       |
+|UserAgent     | Agente de utilizador do cabeçalho de pedido HTTP.        |
+|httpStatus     | Código de estado HTTP devolvido para o cliente do Gateway de aplicação.       |
+|httpVersion     | Versão HTTP do pedido.        |
+|receivedBytes     | Tamanho do pacote recebido, em bytes.        |
+|sentBytes| Tamanho do pacote enviado, em bytes.|
+|timeTaken| Período de tempo (em milissegundos) que leva um pedido para serem processados e a sua resposta seja enviado. Isso é calculado como o intervalo de tempo quando o Gateway de aplicação recebe o primeiro byte de um pedido HTTP para o tempo quando a resposta enviar a conclusão da operação. É importante observar que o campo Time-Taken normalmente inclui o tempo que os pacotes de solicitação e resposta são em trânsito através da rede. |
+|sslEnabled| Se a comunicação com os conjuntos de back-end utilizados SSL. Valores válidos são e desativar.|
+|sslCipher| Conjunto de codificação a ser utilizado para comunicação SSL (se o SSL esteja ativado).|
+|sslProtocol| Protocolo SSL a ser utilizado (se o SSL esteja ativado).|
+|serverRouted| O servidor de back-end que o gateway de aplicação encaminha o pedido para.|
+|serverStatus| Código de estado HTTP do servidor back-end.|
+|serverResponseLatency| Latência da resposta do servidor de back-end.|
+|host| Endereço listado no cabeçalho de anfitrião do pedido.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
+    }
+}
+```
 
 ### <a name="performance-log"></a>Registo de desempenho
 
@@ -208,7 +259,7 @@ O registo de desempenho é gerado apenas se está ativado em cada instância de 
 |healthyHostCount     | Número de anfitriões em bom estado no conjunto de back-end.        |
 |unHealthyHostCount     | Número de anfitriões de mau estado de funcionamento no conjunto de back-end.        |
 |requestCount     | Número de pedidos servidos.        |
-|latência | Latência média (em milissegundos) de pedidos da instância para o back-end que serve os pedidos. |
+|Latência | Latência média (em milissegundos) de pedidos da instância para o back-end que serve os pedidos. |
 |failedRequestCount| Número de pedidos falhados.|
 |throughput| Débito médio desde o último log, medido em bytes por segundo.|
 
@@ -251,7 +302,7 @@ O log do firewall é gerado apenas se está ativado para cada gateway de aplica�
 |message     | Obter mensagem amigável para o evento acionadora. São fornecidos mais detalhes na secção de detalhes.        |
 |action     |  Ação executada na solicitação. Valores disponíveis são bloqueado e permitidos.      |
 |site     | Site para o qual o registo foi gerado. Atualmente, apenas Global está listado porque as regras são globais.|
-|detalhes     | Detalhes do evento acionadora.        |
+|Detalhes     | Detalhes do evento acionadora.        |
 |details.message     | Descrição da regra.        |
 |details.data     | Dados específicos encontrados no pedido que correspondem a regra.         |
 |details.file     | Ficheiro de configuração que continha a regra.        |
@@ -307,7 +358,7 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 Publicamos um modelo do Resource Manager que instala e executa o popular [GoAccess](https://goaccess.io/) log analyzer para aceder aos registos do Gateway de aplicação. GoAccess fornece valiosas estatísticas de tráfego HTTP, como visitantes exclusivos, arquivos de pedido, anfitriões, sistemas operacionais, navegadores, códigos de estado de HTTP e muito mais. Para obter mais detalhes, consulte a [ficheiro Leia-me na pasta de modelo do Resource Manager no GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="metrics"></a>Métrica
+## <a name="metrics"></a>Métricas
 
 As métricas são uma funcionalidade para determinados recursos do Azure, onde pode ver contadores de desempenho no portal. Para o Gateway de aplicação, as métricas seguintes estão disponíveis:
 
