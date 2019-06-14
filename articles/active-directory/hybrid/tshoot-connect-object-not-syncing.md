@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60455235"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Resolver problemas de um objeto que não está a sincronizar com o Azure Active Directory
@@ -91,7 +91,7 @@ Comece por selecionar a cadeia de erro. (Na figura anterior, a cadeia de erro é
 
 Com o botão direito a **chamar informações de pilha** , clique em **Selecionar tudo**e, em seguida, selecione **cópia**. Em seguida, copie a pilha e examinar o erro no seu editor favorito, como o bloco de notas.
 
-Se o erro é partir **SyncRulesEngine**, as informações da pilha de chamada primeiro apresenta uma lista de todos os atributos no objeto. Desloque para baixo até ver o rumo **InnerException = >**.  
+Se o erro é partir **SyncRulesEngine**, as informações da pilha de chamada primeiro apresenta uma lista de todos os atributos no objeto. Desloque para baixo até ver o rumo **InnerException = >** .  
 
   ![Captura de ecrã do Synchronization Service Manager, que mostra informações de erro sob o cabeçalho InnerException = >](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   

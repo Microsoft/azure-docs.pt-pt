@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381150"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: Referência das Funções
@@ -82,7 +82,7 @@ As funções com os tipos **mvbin**, **mvstr**, e **mvref** funciona somente em 
 | **Fluxo do programa** | | | | |
 | [Error](#error) |[IIF](#iif) |[Selecionar](#select) |[Comutador](#switch) | |
 | [Where](#where) |[With](#with) | | | |
-| **Text** (Texto) | | | | |
+| **Texto** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [À esquerda](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
 | [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[substituir](#replace) | |
@@ -363,7 +363,7 @@ A função de CGuid converte a representação de cadeia de caracteres de um GUI
 * Uma cadeia de caracteres formatada neste padrão: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 - - -
-### <a name="contains"></a>Contains
+### <a name="contains"></a>Contém
 **Descrição:**  
 A função de Contains localiza uma cadeia de caracteres dentro de um atributo com múltiplos valor
 
@@ -402,7 +402,7 @@ A função de ConvertFromBase64 converte o valor codificado em base64 especifica
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
 `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-Ambos os exemplos podem devolver "*Olá, mundo!*"
+Ambos os exemplos podem devolver "*Olá, mundo!* "
 
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
@@ -420,7 +420,7 @@ Este formato é utilizado pelo Azure Active Directory como DN.
 
 **Exemplo:**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
-Devolve "*Olá, mundo!*"
+Devolve "*Olá, mundo!* "
 
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -846,7 +846,7 @@ A função de ItemOrNull é útil em conjunto com a função de Contains, uma ve
 Se o índice está fora dos limites, em seguida, devolve um valor nulo.
 
 - - -
-### <a name="join"></a>Associar
+### <a name="join"></a>Aderir
 **Descrição:**  
 A função de associação usa uma cadeia de caracteres com múltiplos valor e devolve uma cadeia de valor único com separador especificado inserido entre cada item.
 
@@ -877,7 +877,7 @@ A função de LCase converte todos os caracteres numa cadeia de caracteres em mi
 Devolve "teste".
 
 - - -
-### <a name="left"></a>Esquerda
+### <a name="left"></a>À esquerda
 **Descrição:**  
 A função à esquerda devolve um número especificado de carateres da esquerda de uma cadeia de caracteres.
 
@@ -956,7 +956,7 @@ Devolve "hn fazer".
 Devolve "Doe"
 
 - - -
-### <a name="now"></a>Agora
+### <a name="now"></a>agora
 **Descrição:**  
 A função agora devolve um valor de DateTime especificando a data e hora atuais, de acordo com a data do sistema e a hora do seu computador.
 
@@ -1246,7 +1246,7 @@ Valor também pode ser a função de erro, que irá devolver uma string personal
 Devolve o idioma falado em algumas cidades principais, caso contrário, devolve um erro.
 
 - - -
-### <a name="trim"></a>Recortar
+### <a name="trim"></a>Cortar
 **Descrição:**  
 A função de compactação remove e à direita de uma cadeia contém espaços em branco.
 
@@ -1295,7 +1295,7 @@ Devolve os valores de certificado userCertificate o atributo com múltiplos valo
 **Descrição:**  
 A função de With fornece uma forma de simplificar uma expressão complexa, utilizando uma variável para representar um subexpressão, que é apresentado um ou mais vezes na expressão complexa.
 
-**Sintaxe:**
+**Sintaxe:** 
 `With(var variable, exp subExpression, exp complexExpression)`  
 * variável: Representa a subexpressão.
 * subexpressão: subexpressão representado pela variável.

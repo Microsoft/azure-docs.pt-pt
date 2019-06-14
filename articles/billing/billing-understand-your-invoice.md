@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60369965"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreender os termos na sua fatura do Microsoft Azure
@@ -100,8 +100,8 @@ A tabela seguinte descreve os cabeçalhos de coluna utilização de custos na su
 | Termo |Descrição |
 | --- | --- |
 | Name |Identifica o serviço de nível superior para a utilização |
-| Type |Define o tipo de serviço do Azure que pode afetar a tarifa |
-| Recurso |Identifica a unidade de medida para o medidor de consumo |
+| Tipo |Define o tipo de serviço do Azure que pode afetar a tarifa |
+| Resource |Identifica a unidade de medida para o medidor de consumo |
 | Região |Identifica a localização do datacenter para determinados serviços cujo preço é definido com base na localização do datacenter |
 | Consumido |A quantidade de medidor utilizado durante o período de faturação |
 | Incluída |A quantidade do medidor de que está incluída sem custos no período de faturação atual |

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60416009"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação do Azure Active Directory com base em certificado em dispositivos iOS
@@ -39,7 +39,7 @@ Esta funcionalidade está disponível em pré-visualização nos planos do Offic
 | Portal da empresa do Intune |![Marca de verificação que significa suporte para esta aplicação][1] |
 | Microsoft Teams |![Marca de verificação que significa suporte para esta aplicação][1] |
 | OneNote |![Marca de verificação que significa suporte para esta aplicação][1] |
-| OneDrive |![Marca de verificação que significa suporte para esta aplicação][1] |
+| OneDrive para Empresas |![Marca de verificação que significa suporte para esta aplicação][1] |
 | Outlook |![Marca de verificação que significa suporte para esta aplicação][1] |
 | Power BI |![Marca de verificação que significa suporte para esta aplicação][1] |
 | Skype para Empresas |![Marca de verificação que significa suporte para esta aplicação][1] |

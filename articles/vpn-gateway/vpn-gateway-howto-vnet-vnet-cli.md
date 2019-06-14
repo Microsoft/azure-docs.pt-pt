@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60411836"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com a CLI do Azure
@@ -98,7 +98,7 @@ Utilizamos os seguintes valores nos exemplos:
 **Valores da TestVNet1:**
 
 * Nome da VNet: TestVNet1
-* Grupo de Recursos: TestRG1
+* Grupo de recursos: TestRG1
 * Localização: EUA Leste
 * TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
@@ -117,7 +117,7 @@ Utilizamos os seguintes valores nos exemplos:
 * FrontEnd: 10.41.0.0/24
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
-* Grupo de Recursos: TestRG4
+* Grupo de recursos: TestRG4
 * Localização: EUA Oeste
 * GatewayName: VNet4GW
 * IP público: VNet4GWIP
@@ -285,7 +285,7 @@ Ao criar ligações adicionais, é importante garantir que o espaço de endereç
 **Valores da TestVNet5:**
 
 * Nome da VNet: TestVNet5
-* Grupo de Recursos: TestRG5
+* Grupo de recursos: TestRG5
 * Localização: Leste do Japão
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
@@ -338,7 +338,7 @@ Este passo tem de ser realizado no contexto da subscrição nova, a Subscrição
 
 ### <a name="connections5"></a>Passo 8 - Criar as ligações
 
-Este passo foi dividido em duas sessões da CLI marcadas como **[Subscription 1]** e **[Subscription 5]**, porque os gateways estão nestas duas subscrições diferentes. Para alternar entre subscrições, utilize `az account list --all` para listar as subscrições disponíveis para a sua conta, em seguida, utilize `az account set --subscription <subscriptionID>` para mudar para a subscrição que pretende utilizar.
+Este passo foi dividido em duas sessões da CLI marcadas como **[Subscription 1]** e **[Subscription 5]** , porque os gateways estão nestas duas subscrições diferentes. Para alternar entre subscrições, utilize `az account list --all` para listar as subscrições disponíveis para a sua conta, em seguida, utilize `az account set --subscription <subscriptionID>` para mudar para a subscrição que pretende utilizar.
 
 1. **[Subscrição 1]** Inicie sessão e ligue-se a Subscrição 1. Execute o comando seguinte para obter o nome e o ID do Gateway a partir da saída:
 

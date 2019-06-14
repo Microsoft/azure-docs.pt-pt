@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487081"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para movimento de dados
@@ -127,7 +127,7 @@ Rede virtual é uma representação lógica da sua rede na cloud. Pode ligar uma
 
 A tabela seguinte resume as recomendações de configuração de rede e um gateway com base em diferentes combinações de localizações de origem e destino para movimento de dados híbrida.
 
-| Origem | Destino | Configuração da rede | Configuração do gateway |
+| source | Destino | Configuração da rede | Configuração do gateway |
 | ------ | ----------- | --------------------- | ------------- | 
 | Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | VPN IPSec (point-to-site ou site a site) | Gateway pode ser instalado no local ou numa Azure virtual machine (VM) na VNet | 
 | Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | ExpressRoute (Peering privado) | Gateway pode ser instalado no local ou numa VM do Azure na VNet | 
@@ -183,7 +183,7 @@ Os seguintes arquivos de dados de nuvem necessitam de listas de permissões do e
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 **Pergunta:** O Gateway pode ser compartilhado entre as fábricas de dados diferentes?
-**Resposta:** Podemos ainda não suporta esta funcionalidade. Estamos a trabalhar ativamente no mesmo.
+**Resposta:** Podemos ainda não suporta esta funcionalidade. Estamos a trabalhar ativamente para esse fim.
 
 **Pergunta:** Quais são os requisitos de porta para o gateway funcionar?
 **Resposta:** Gateway faz conexões baseadas em HTTP para a internet aberta. O **portas de saída 443 e 80** tem de ser aberto para o gateway de fazer essa conexão. Open **8050 de porta de entrada** apenas ao nível da máquina (não ao nível do firewall Corporativo) para a aplicação do Gestor de credenciais. Se a base de dados do Azure SQL ou armazém de dados SQL do Azure é utilizado como origem / destino, em seguida, precisa abrir **1433** porta também. Para obter mais informações, consulte [endereços IP da lista de permissões e configurações de Firewall](#firewall-configurations-and-whitelisting-ip-address-of gateway) secção. 

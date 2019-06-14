@@ -10,10 +10,10 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60509345"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utilizar do Azure Data Lake Tools para Visual Studio Code
@@ -170,7 +170,7 @@ Uma forma mais conveniente para acionar o **ADL: Registar o Assembly** comando �
 
 **Para se registar através do ADL: Registar o comando de assemblagem (avançado)**
 1.  Selecione Ctrl + Shift + P para abrir a paleta de comandos.
-2.  Introduza **ADL: Registar o Assembly (avançado)**. 
+2.  Introduza **ADL: Registar o Assembly (avançado)** . 
 3.  Especifique o caminho local do assembly. 
 4.  O ficheiro JSON é apresentado. Rever e editar os parâmetros de recurso e as dependências do assembly, se necessário. As instruções são apresentadas no **saída** janela. Para avançar para o registo de assemblagem, guarde, por exemplo, o ficheiro JSON (Ctrl + S).
 
@@ -366,10 +366,10 @@ Pode [monitorizar o estado de carregamento](#check-storage-tasks-status).
 
 
 ### <a name="download-a-file"></a>Transferir um ficheiro 
-Pode transferir um ficheiro com o comando **ADL: Transferir o ficheiro** ou **ADL: Transferir ficheiro (avançado)**.
+Pode transferir um ficheiro com o comando **ADL: Transferir o ficheiro** ou **ADL: Transferir ficheiro (avançado)** .
 
 **Para transferir um ficheiro através do ADL: Baixe o comando de ficheiro (avançado)**
-1. O editor de scripts com o botão direito e, em seguida, selecione **baixar o arquivo (avançado)**.
+1. O editor de scripts com o botão direito e, em seguida, selecione **baixar o arquivo (avançado)** .
 2. VS Code mostra um ficheiro JSON. Pode introduzir os caminhos de ficheiro e baixar vários ficheiros ao mesmo tempo. As instruções são apresentadas no **saída** janela. Para continuar para transferir o ficheiro ou ficheiros, guarde, por exemplo, o ficheiro JSON (Ctrl + S).
 
     ![Ficheiro JSON com caminhos de download do arquivo](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -460,7 +460,7 @@ Navegar para o armazenamento de BLOBs:
 
 Ferramentas do Data Lake abre o caminho de armazenamento do Azure no portal do Azure. Pode encontrar o caminho e o arquivo da web de pré-visualização.
 
-## <a name="additional-features"></a>Funcionalidades adicionais
+## <a name="additional-features"></a>Recursos adicionais
 
 Data Lake Tools para o VS Code suporta as seguintes funcionalidades:
 

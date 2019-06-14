@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60437078"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria do Azure AD no Azure Monitor (pré-visualização)
@@ -172,7 +172,7 @@ Este artigo descreve o esquema de registo de auditoria do Azure Active Directory
 | AuditEventCategory | O tipo de evento de auditoria. Pode ser *gestão de utilizadores*, *gestão de aplicações*, ou outro tipo.|
 | Tipo de identidade | O tipo pode ser *aplicativo* ou *utilizador*. |
 | Tipo de Operação | O tipo pode ser *Add*, *Update*, *eliminar*. ou *outros*. |
-| Tipo de Recurso de Destino | Especifica o tipo de recurso de destino que a operação foi efetuada. O tipo pode ser *aplicativo*, *utilizador*, *função*, *política* | 
+| Tipo de recurso de destino | Especifica o tipo de recurso de destino que a operação foi efetuada. O tipo pode ser *aplicativo*, *utilizador*, *função*, *política* | 
 | Nome do recurso de destino | O nome do recurso de destino. Pode ser um nome de aplicação, um nome de função, um nome principal de utilizador ou um nome principal de serviço. |
 | additionalTargets | Lista as propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e novos valores estão listados na *targetUpdatedProperties*. | 
 

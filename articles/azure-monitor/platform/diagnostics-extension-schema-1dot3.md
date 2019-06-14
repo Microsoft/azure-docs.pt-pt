@@ -10,13 +10,13 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238058"
 ---
-# <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1.3 de diagnóstico do Azure e o esquema de configuração posterior
+# <a name="azure-diagnostics-13-and-later-configuration-schema"></a>1\.3 de diagnóstico do Azure e o esquema de configuração posterior
 > [!NOTE]
 > A extensão de diagnóstico do Azure é o componente utilizado para recolher contadores de desempenho e outras estatísticas de:
 > - Máquinas Virtuais do Azure
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Permite-lhe gerar uma tabela de contador de desempenho otimizado para consultas rápidas. Cada contador de desempenho que está definido no **PerformanceCounters** elemento é armazenado na tabela de métricas para além da tabela de contador de desempenho.  
 
- O **resourceId** atributo é necessário.  O ID de recurso da Máquina Virtual ou o conjunto de dimensionamento de Máquina Virtual que está a implementar o diagnóstico do Azure para. Obter o **resourceID** partir do [portal do Azure](https://portal.azure.com). Selecione **navegue** -> **grupos de recursos** -> **< nome\>**. Clique no **propriedades** mosaico e copie o valor a partir do **ID** campo.  
+ O **resourceId** atributo é necessário.  O ID de recurso da Máquina Virtual ou o conjunto de dimensionamento de Máquina Virtual que está a implementar o diagnóstico do Azure para. Obter o **resourceID** partir do [portal do Azure](https://portal.azure.com). Selecione **navegue** -> **grupos de recursos** ->  **< nome\>** . Clique no **propriedades** mosaico e copie o valor a partir do **ID** campo.  
 
 |Elementos subordinados|Descrição|  
 |--------------------|-----------------|  
@@ -646,7 +646,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |---------------|----------|-----------------|  
 |**name**|string|Uma cadeia de identificação a sinkname.|  
 
-|Elemento|Type|Descrição|  
+|Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Utilizado apenas quando enviar dados para o Application Insights. Contém a chave de instrumentação para uma conta ativa do Application Insights tem acesso.|  
 |**canais**|string|Um para cada adicional de filtragem que do stream|  
@@ -658,7 +658,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define os filtros para fluxos de dados de registo, passando por meio de um sink.  
 
-|Elemento|Type|Descrição|  
+|Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
 |**Canal**|string|Ver descrição noutro local nesta página.|  
 
@@ -669,7 +669,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define as localizações para enviar dados de diagnóstico. Por exemplo, o serviço Application Insights.  
 
-|Atributos|Type|Descrição|  
+|Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Especifica o nível de gravidade mínimo para entradas de registo que são transferidos. O valor predefinido é **indefinido**, que transfere todos os registos. Outros valores possíveis (na ordem da maioria às informações do menor) são **verboso**, **informações**, **aviso**, **erro**e o **Críticos**.|  
 |**name**|**string**|Um nome exclusivo do canal para fazer referência a|  

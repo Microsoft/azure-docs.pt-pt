@@ -16,10 +16,10 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60439731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Tutorial: Integração do Active Directory do Azure com vídeo 23
@@ -60,7 +60,7 @@ Para configurar a integração de 23 de vídeo com o Azure AD, terá de adiciona
 
 **Para adicionar 23 de vídeo a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -132,7 +132,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/23video-tutorial/tutorial_23video_configure.png) 
 
-7. Para configurar o início de sessão único num **vídeo 23** lado, terá de enviar o transferido **certificado (Base64)**, **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço**para [a equipa de suporte de vídeo 23](mailto:support@23company.com). 
+7. Para configurar o início de sessão único num **vídeo 23** lado, terá de enviar o transferido **certificado (Base64)** , **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço**para [a equipa de suporte de vídeo 23](mailto:support@23company.com). 
 
 
 > [!TIP]

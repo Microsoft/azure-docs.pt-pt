@@ -9,15 +9,15 @@ ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-origin.date: 03/12/2018
-ms.date: 09/03/2018
-ms.author: v-junlch
+ms.date: 03/12/2018
+ms.author: ghogen
 ms.custom: aaddev, vs-azure
+ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bbbef3f48eb55c863fdd286113297d79f9b9e02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296848"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Introdução ao Azure Active Directory (projetos de MVC do ASP.NET)
@@ -87,5 +87,3 @@ Para adicionar os controles de início de sessão/fim de sessão à sua exibiç�
 
 - [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
 - [Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v1-aspnet-webapp.md)
-
-<!-- Update_Description: link update -->

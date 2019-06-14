@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452689"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>FAQ e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory
@@ -32,7 +32,7 @@ ms.locfileid: "60452689"
 **Dispensar o risco de utilizador** clássica Identity Protection define o ator no histórico de risco do utilizador no Identity Protection (atualizadas) para **do Azure AD**.
 
 
-**Dispensar o risco de utilizador** Identity Protection (atualizadas) define o ator no histórico de risco do utilizador no Identity Protection (atualizadas) para **\<nome do administrador com um hiperlink que aponta para o painel do utilizador\>**.
+**Dispensar o risco de utilizador** Identity Protection (atualizadas) define o ator no histórico de risco do utilizador no Identity Protection (atualizadas) para **\<nome do administrador com um hiperlink que aponta para o painel do utilizador\>** .
 
 Existe um problema conhecido atual, fazendo com que latências no fluxo de exoneração do risco de utilizador. Se tiver uma "política de risco do utilizador", esta política irá deixar de aplicar-se aos utilizadores ignorados dentro de minutos de clicar em "Dispensar o risco de utilizador". No entanto, são conhecidos atrasos com a experiência do Usuário atualizando o "Estado de risco" de utilizadores ignorados. Como solução, atualize a página no nível do navegador para ver o utilizador mais recente "Estado de risco".
 
@@ -43,7 +43,7 @@ Consulta a **nome de utilizador** campo diferenciam maiúsculas de minúsculas, 
 
 Alternar **Mostrar datas como** oculta a **última ATUALIZAÇÃO do risco** coluna. Para readd a coluna, clique em **colunas** na parte superior do painel de utilizadores de risco.
 
-**Dispensar todos os eventos** clássica Identity Protection define o estado dos eventos de risco para **fechado (resolvido)**.
+**Dispensar todos os eventos** clássica Identity Protection define o estado dos eventos de risco para **fechado (resolvido)** .
 
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Relatório de inícios de sessão arriscados problemas conhecidos
@@ -76,7 +76,7 @@ Mapeamento de localização geográfica IP é um desafio de toda a indústria. S
 
 **Confirmar seguro** (num início de sessão) – informa o Azure AD Identity Protection, que o início de sessão foi realizado pelo proprietário de identidade e não indica um comprometimento.
 
-- Após receber seus comentários, foi possível mover o início de sessão (e não pelo usuário) o estado para o risco **Confirmed safe** e o nível de risco para **-**.
+- Após receber seus comentários, foi possível mover o início de sessão (e não pelo usuário) o estado para o risco **Confirmed safe** e o nível de risco para **-** .
 
 - Além disso, fornecemos as informações para nossos sistemas para futuras melhorias na avaliação de riscos de aprendizagem automática.
 

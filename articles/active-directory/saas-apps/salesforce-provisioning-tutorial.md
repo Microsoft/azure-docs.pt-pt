@@ -16,10 +16,10 @@ ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 712cc5ce62225987f8cc3ea13b5e4fd10a7d5eaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515806"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce para o aprovisionamento automático de utilizadores
@@ -72,7 +72,7 @@ O objetivo desta seção é descrever como ativar o aprovisionamento de utilizad
 
 4. Definir o **modo de aprovisionamento** ao **automática**.
 
-    ![a aprovisionar](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![Aprovisionamento](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Sob o **credenciais de administrador** secção, forneça as seguintes definições de configuração:
 

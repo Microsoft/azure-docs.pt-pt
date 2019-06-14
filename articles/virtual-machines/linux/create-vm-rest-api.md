@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391366"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que utiliza autenticação SSH com a API REST
@@ -55,7 +55,7 @@ Os seguintes cabeçalhos são necessários:
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
 | *Content-Type:*  | Necessário. Definido como `application/json`. |
-| *Autorização:* | Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Para obter informações gerais sobre como trabalhar com pedidos de REST API, consulte [componentes de uma REST API de solicitação/resposta](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -66,7 +66,7 @@ As seguintes definições comuns são utilizadas para criar um corpo de pedido:
 | Name                       | Necessário | Tipo                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | localização                   | Verdadeiro     | string                                                                              | Localização do recurso. |
-| nome                       |          | string                                                                              | Nome da máquina virtual. |
+| name                       |          | string                                                                              | Nome da máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as definições de hardware para a máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as definições de armazenamento para os discos da máquina virtual. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as definições de sistema operativo da máquina virtual. |
@@ -133,7 +133,7 @@ Para obter uma lista completa das definições de disponíveis no corpo do pedid
 
 Pode utilizar o cliente de sua preferência para enviar este pedido HTTP. Também pode utilizar um [no browser ferramenta](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) clicando a **experimente** botão.
 
-### <a name="responses"></a>Respostas
+### <a name="responses"></a>Responses
 
 Existem duas respostas com êxito para a operação criar ou atualizar uma máquina virtual:
 

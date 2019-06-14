@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60382136"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>População UserPrincipalName do Azure AD
@@ -27,7 +27,7 @@ A seguinte terminologia é usada neste artigo:
 
 |Termo|Descrição|
 |-----|-----|
-|Domínio Inicial|O domínio predefinido (onmicrosoft.com) no inquilino do Azure AD. Por exemplo, contoso.onmicrosoft.com.|
+|Domínio inicial|O domínio predefinido (onmicrosoft.com) no inquilino do Azure AD. Por exemplo, contoso.onmicrosoft.com.|
 |Microsoft Online encaminhamento endereço de E-Mail (MOERA)|O Azure AD calcula MOERA do atributo MailNickName do Azure AD e o domínio inicial do Azure AD como &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.|
 |Atributo de mailNickName no local|Um atributo no Active Directory, o valor que representa o alias de um utilizador numa organização do Exchange.|
 |Atributo de correio no local|Um atributo no Active Directory, o valor que representa o endereço de e-mail de um utilizador|

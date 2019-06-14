@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6b27b27fedf622908fa5c06bd2562d9049a4366b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052052"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas para a Cache do Azure para Redis.
@@ -165,10 +165,10 @@ Cache do Azure para obter preços de Redis está [aqui](https://azure.microsoft.
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Pode utilizar a Cache do Azure para Redis com o Azure Government Cloud, Azure China Cloud ou Microsoft Azure Alemanha?
 Sim, a Cache de Redis do Azure está disponível na Cloud do Azure Government, Azure China 21Vianet Cloud e Microsoft Azure Alemanha. Os URLs para aceder e gerir a Cache do Azure para Redis são diferentes nessas nuvens em comparação com a Cloud pública do Azure.
 
-| Cloud   | Sufixo DNS para Redis            |
+| Nuvem   | Sufixo DNS para Redis            |
 |---------|---------------------------------|
 | Público  | *.redis.cache.windows.net       |
-| US Gov  | *.redis.cache.usgovcloudapi.net |
+| Governo dos EUA  | *.redis.cache.usgovcloudapi.net |
 | Alemanha | *.redis.cache.cloudapi.de       |
 | China   | *.redis.cache.chinacloudapi.cn  |
 
@@ -251,7 +251,7 @@ Pode utilizar qualquer um dos comandos listados na [comandos da Redis](https://r
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> As ferramentas de linha de comandos da Redis não funcionam com a porta SSL, mas pode usar um utilitário como `stunnel` para ligar em segurança as ferramentas para a porta SSL, seguindo as instruções no [apresentamos o ASP.NET sessão do fornecedor de estado para Redis pré-visualização Versão](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) postagem de blog.
+> As ferramentas de linha de comandos da Redis não funcionam com a porta SSL, mas pode usar um utilitário como `stunnel` para ligar em segurança as ferramentas para a porta SSL, seguindo as instruções no [como utilizar a ferramenta de linha de comandos da Redis cache do Azure para Redis ](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) artigo.
 >
 >
 
@@ -403,7 +403,7 @@ void Application_Start(object sender, EventArgs e)
 ```
 
   > [!NOTE]
-  > O valor especificado por este método é uma configuração global, afetar todo o AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e defina *minWorkerThreads* e *minIoThreads* para 50 por CPU durante o tempo de execução, usaria **ThreadPool.SetMinThreads (200, 200)**.
+  > O valor especificado por este método é uma configuração global, afetar todo o AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e defina *minWorkerThreads* e *minIoThreads* para 50 por CPU durante o tempo de execução, usaria **ThreadPool.SetMinThreads (200, 200)** .
 
 * Também é possível especificar os threads mínimos, definição de utilizando o [ *minIoThreads* ou *minWorkerThreads* definição de configuração](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) sob o `<processModel>` elemento de configuração no `Machine.config`, geralmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Definir o número de threads mínimos desta forma, geralmente, não é recomendada, porque se trata de uma definição de todo o sistema.**
 

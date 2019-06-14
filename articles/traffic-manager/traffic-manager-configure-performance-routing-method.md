@@ -2,21 +2,22 @@
 title: Configurar o método de encaminhamento de tráfego de desempenho com o Gestor de tráfego do Azure | Documentos da Microsoft
 description: Este artigo explica como configurar o Gestor de tráfego para encaminhar o tráfego para o ponto final com latência mais baixa
 services: traffic-manager
+manager: twooley
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048470"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurar o método de encaminhamento de tráfego de desempenho
 
@@ -31,7 +32,7 @@ O método de encaminhamento de tráfego de desempenho permite-lhe direcionar o t
     1. Para **definições do método de encaminhamento de tráfego**, para **método de encaminhamento** selecionar **desempenho**.
     2. Definir o **definições do monitor de ponto final** idêntica para todas as cada ponto final dentro deste perfil da seguinte forma:
         1. Selecione o adequado **protocolo**e especifique a **porta** número. 
-        2. Para **caminho** escreva uma barra */*. Para monitorizar os pontos finais, tem de especificar um caminho e nome de ficheiro. A reencaminhar barra "/" é uma entrada válida para o caminho relativo e indica que o ficheiro está no diretório de raiz (predefinição).
+        2. Para **caminho** escreva uma barra */* . Para monitorizar os pontos finais, tem de especificar um caminho e nome de ficheiro. A reencaminhar barra "/" é uma entrada válida para o caminho relativo e indica que o ficheiro está no diretório de raiz (predefinição).
         3. Na parte superior da página, clique em **guardar**.
 5.  Teste as alterações na configuração da seguinte forma:
     1.  Na barra de pesquisa do portal, procure o nome de perfil do Gestor de tráfego e clique no perfil do Gestor de tráfego nos resultados que apresentados.

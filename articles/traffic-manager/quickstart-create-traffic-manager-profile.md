@@ -2,7 +2,8 @@
 title: Início Rápido - Criar um perfil do Gestor de Tráfego para elevada disponibilidade de aplicações através do portal do Azure
 description: Este artigo de início rápido descreve como criar um perfil do Gestor de Tráfego para compilar aplicações Web de elevada disponibilidade.
 services: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: kumud
-ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: d9b1d0624aa94884c269eb33131f8b61671e99ee
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60885813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051010"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início rápido: Criar um perfil do Gestor de tráfego no portal do Azure
 
@@ -100,7 +101,7 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
 
     | Definição | Value |
     | ------- | ------|
-    | Type | Selecione **ponto final do Azure**. |
+    | Tipo | Selecione **ponto final do Azure**. |
     | Name | Introduza *myPrimaryEndpoint*. |
     | Tipo de recurso de destino | Selecione **serviço de aplicações**. |
     | Recurso de destino | Selecione **escolher um serviço de aplicações** > **E.U.A. Leste**. |
@@ -113,7 +114,7 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
 
     | Definição | Value |
     | ------- | ------|
-    | Type | Selecione **ponto final do Azure**. |
+    | Tipo | Selecione **ponto final do Azure**. |
     | Name | Introduza *myFailoverEndpoint*. |
     | Tipo de recurso de destino | Selecione **serviço de aplicações**. |
     | Recurso de destino | Selecione **escolher um serviço de aplicações** > **Europa Ocidental**. |

@@ -16,10 +16,10 @@ ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334438"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o Azure multi-factor Authentication
@@ -70,7 +70,7 @@ Se utilizar a aplicação Microsoft Authenticator para obter códigos de verific
 1. Inicie sessão para uma aplicação ou serviço como o Office 365 com o seu nome de utilizador e palavra-passe.
 2. Microsoft pede-lhe um código de verificação.
 
-   ![Introduzir código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![Introduza o código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Abra a aplicação Microsoft Authenticator no seu telemóvel e introduza o código na caixa de onde estiver a iniciar sessão.
 

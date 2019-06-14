@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487217"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de Utilização - Criação de Perfis de Cliente
@@ -52,7 +52,7 @@ Tudo o que precisa para aceder e experimentar este caso de utilização simples 
 
     ![Painel Data Factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="solution-overview"></a>Descrição Geral da Solução
+## <a name="solution-overview"></a>Descrição geral da solução
 Este caso de utilização simples pode ser utilizado como um exemplo de como pode utilizar o Azure Data Factory para ingerir, preparar, transformar, analisar e publicar os dados.
 
 ![Fluxo de trabalho ponto a ponto](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)

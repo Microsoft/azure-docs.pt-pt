@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60488948"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de gestão de dados - elevada disponibilidade e escalabilidade (pré-visualização)
@@ -165,7 +165,7 @@ Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as c
 - Cada nó do integration runtime têm de confiar este certificado, bem como a máquina de cliente que está a executar a aplicação do Gestor de credenciais. 
   > [!NOTE]
   > Aplicação do Gestor de credencial é utilizada ao definir com segurança credencial a partir do Assistente de cópia / Portal do Azure. E isso pode ser acionada a partir de qualquer máquina dentro da mesma rede como no local / privada arquivo de dados.
-- Os certificados de caráter universal são suportados. Se o nome FQDN for **node1.domain.contoso.com**, pode utilizar ***. domain.contoso.com** como nome do requerente do certificado.
+- Os certificados de caráter universal são suportados. Se o nome FQDN for **node1.domain.contoso.com**, pode utilizar * **. domain.contoso.com** como nome do requerente do certificado.
 - Certificados SAN não são recomendados uma vez que será utilizado apenas o último item dos nomes alternativos do requerente e todos os outros serão ignorados devido a limitação atual. Por exemplo, tem um certificado SAN é cujo SAN **node1.domain.contoso.com** e **node2.domain.contoso.com**, só pode utilizar este certificado no computador cujo FQDN for **node2.domain.contoso.com**.
 - Suporta qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados SSL.
 - Usando a CNG de certificado não são suportadas chaves.
@@ -207,7 +207,7 @@ Online | O nó ligado ao serviço Data Factory.
 Offline | O nó está offline.
 A atualizar | O nó está a ser atualizados automaticamente.
 Limitado | Devido a problema de conectividade. Pode ser devido a problema de 8050 de porta HTTP, o problema de conectividade de barramento de serviço ou o problema de sincronização de credenciais. 
-Inativa | O nó está numa configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo, quando ele não é possível ligar a outros nós. 
+Inativo | O nó está numa configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo, quando ele não é possível ligar a outros nós. 
 
 
 A tabela seguinte fornece os Estados possíveis de uma **gateway lógico**. O estado do gateway depende de Estados de nós de gateway. 

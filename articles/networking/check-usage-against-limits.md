@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
 ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60425419"
 ---
 # <a name="check-resource-usage-against-limits"></a>Verificar a utilização de recursos em relação a limites

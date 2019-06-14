@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400631"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de disco de caixa de dados do Azure
@@ -71,8 +71,8 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-
 
 | Tipo de objeto do Azure | Limite predefinido                                             |
 |-------------------|-----------------------------------------------------------|
-| Blob de Blocos        | ~ 4.75 TiB                                                 |
-| Blob de Página         | 8 TiB <br> (Todos os ficheiros carregados no formato de Blob de páginas tem de ser 512 bytes alinhados, caso contrário o carregamento falha. <br> O VHD e VHDX são alinhadas de 512 bytes.) |
+| Blob de blocos        | ~ 4.75 TiB                                                 |
+| BLOBs de páginas         | 8 TiB <br> (Todos os ficheiros carregados no formato de Blob de páginas tem de ser 512 bytes alinhados, caso contrário o carregamento falha. <br> O VHD e VHDX são alinhadas de 512 bytes.) |
 |Ficheiros do Azure        | 1 TiB <br> Um máximo de tamanho da partilha de é de 5 TiB     |
 | Managed disks     |4 TiB <br> Para obter mais informações sobre o tamanho e limites, consulte: <li>[Destinos de escalabilidade para discos geridos](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 

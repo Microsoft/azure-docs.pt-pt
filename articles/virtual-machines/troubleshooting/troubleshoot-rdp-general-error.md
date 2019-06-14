@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60319518"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Resolver problemas relacionados com um erro geral do RDP na VM do Azure
@@ -63,11 +63,11 @@ O serviço de escuta RDP está configurado incorretamente.
 
 Para resolver este problema, [cópia de segurança de disco do sistema operativo](../windows/snapshot-copy-managed-disk.md), e [anexar o disco do sistema operativo para uma VM de resgate](troubleshoot-recovery-disks-portal-windows.md)e, em seguida, siga os passos.
 
-### <a name="serial-console"></a>Consola de série
+### <a name="serial-console"></a>Consola de Série
 
 #### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passo 1: Instância CMD aberta na consola de série
 
-1. Acesso a [consola de série](serial-console-windows.md) ao selecionar **suporte e resolução de problemas** > **consola de série (pré-visualização)**. Se a funcionalidade está ativada na VM, pode ligar a VM com êxito.
+1. Acesso a [consola de série](serial-console-windows.md) ao selecionar **suporte e resolução de problemas** > **consola de série (pré-visualização)** . Se a funcionalidade está ativada na VM, pode ligar a VM com êxito.
 
 2. Crie um novo canal para uma instância CMD. Tipo **CMD** para iniciar o canal para obter o nome do canal.
 
@@ -242,6 +242,6 @@ Para obter mais informações, consulte [dos serviços de ambiente de trabalho r
 
 Para obter mais informações, consulte [área de trabalho remota se desliga com frequência na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

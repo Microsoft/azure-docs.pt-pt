@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60452828"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário do Azure Active Directory Identity Protection
@@ -46,7 +46,7 @@ Um registo de uma atividade no Azure Active Directory.
 ### <a name="false-positive-risk-event"></a>FALSO-positivos (evento de risco)
 Um Estado do evento de risco definir manualmente por um utilizador de proteção de identidade, indicando que o evento de risco foi investigou e incorretamente foi sinalizado como um evento de risco.
 
-### <a name="identity"></a>Identidade
+### <a name="identity"></a>identidade
 Uma pessoa ou entidade que deve ser verificada por meio de autenticação, com base em critérios como palavra-passe ou um certificado.
 
 ### <a name="identity-risk-event"></a>Evento de risco de identidade
@@ -76,7 +76,7 @@ A deteção de anomalias e edição de avaliação do risco de um evento, como t
 ### <a name="policy-condition"></a>Condição de política
 Uma parte de uma política de segurança, que define as entidades (grupos, os utilizadores, aplicações, plataformas de dispositivos, Estados de dispositivo, intervalos de IP, tipos de cliente) incluídas na política ou excluídos do mesmo.
 
-### <a name="policy-rule"></a>Regra de política
+### <a name="policy-rule"></a>regra de política
 A parte de uma política de segurança que descreve as circunstâncias que acionam a política e as ações executadas quando a política é acionada.
 
 ### <a name="prevention"></a>Prevenção
@@ -142,7 +142,7 @@ Um evento de risco acionada após um início de sessão-in concluída com êxito
 ### <a name="sign-in-from-unfamiliar-location"></a>Iniciar sessão a partir da localização desconhecida
 Um evento de risco acionado quando um utilizador com êxito inicia sessão a partir de uma nova localização (IP, Latitude/Longitude e ASN).
 
-### <a name="sign-in-risk"></a>Risco de início de sessão
+### <a name="sign-in-risk"></a>Início de sessão de risco
 Consulte o risco nível (início de sessão)
 
 ### <a name="sign-in-risk-policy"></a>Política de risco de início de sessão
@@ -154,7 +154,7 @@ Consulte o risco nível (compromisso do utilizador)
 ### <a name="user-risk"></a>Risco de utilizador
 Consulte o risco nível (compromisso do utilizador).
 
-### <a name="user-risk-policy"></a>Política de risco de utilizador
+### <a name="user-risk-policy"></a>Política de risco do utilizador
 Uma política de acesso condicional que considera o início de sessão e aplica-se mitigações com base em regras e condições predefinidas.
 
 ### <a name="users-flagged-for-risk"></a>Utilizadores marcados em risco

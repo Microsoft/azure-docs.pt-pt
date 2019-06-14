@@ -13,10 +13,10 @@ ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60295382"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
@@ -29,7 +29,7 @@ O Azure AD Connect sincroniza o seu Active Directory para o Azure AD. Esse servi
 | Escala| O número de objetos, como os utilizadores, grupos e UOs, para serem geridos pelo Azure AD Connect. |
 | Hardware| O hardware (físico ou virtual) para o Azure AD Connect e a capacidade de desempenho dependentes de cada componente de hardware, incluindo a CPU, memória, rede e configuração de disco rígido. |
 | Configuração| Como o Azure AD Connect processos os diretórios e informações. |
-| Carregar| Frequência de alterações de objetos. As cargas podem variar durante uma hora, dia ou semana. Dependendo do componente, poderá ter de criar para o pico de carga ou a carga média. |
+| Carregamento| Frequência de alterações de objetos. As cargas podem variar durante uma hora, dia ou semana. Dependendo do componente, poderá ter de criar para o pico de carga ou a carga média. |
 
 O objetivo deste documento é descrever os fatores influenciar o desempenho do Azure AD Connect mecanismo de provisionamento. As organizações de grandes ou complexas (organizações mais de 100 000 objetos de aprovisionamento) podem utilizar as recomendações para otimizar a sua implementação do Azure AD Connect, se se deparar com problemas de desempenho descritos aqui. Os outros componentes do Azure AD Connect, tal como [do Azure AD Connect health](how-to-connect-health-agent-install.md) e agentes não são abordados aqui.
 
