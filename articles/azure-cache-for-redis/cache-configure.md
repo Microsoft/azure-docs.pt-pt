@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60554698"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar a Cache do Azure para Redis
@@ -38,7 +38,7 @@ A Cache do Azure para as definições do Redis são exibidas e configurado no **
 
 Pode ver e configurar as seguintes definições utilizando a **Menu de recursos**.
 
-* [Descrição geral](#overview)
+* [Descrição Geral](#overview)
 * [Registo de atividades](#activity-log)
 * [Controlo de acesso (IAM)](#access-control-iam)
 * [Etiquetas](#tags)
@@ -82,7 +82,7 @@ Clique em **registo de atividades** para ver as ações executadas no seu cache.
 
 O **controlo de acesso (IAM)** secção fornece suporte para o controlo de acesso baseado em funções (RBAC) no portal do Azure. Esta configuração ajuda as organizações a cumprir os respetivos requisitos de gestão de acesso simples e com precisão. Para obter mais informações, consulte [controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Etiquetas
+### <a name="tags"></a>Tags
 
 O **etiquetas** secção ajuda-o a organizar os recursos. Para obter mais informações, consulte [utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -124,7 +124,7 @@ As seguintes definições são configuradas no **definições avançadas** paine
 * [Políticas de memória](#memory-policies)
 * [Notificações Keyspace (definições avançadas)](#keyspace-notifications-advanced-settings)
 
-#### <a name="access-ports"></a>Portas de Acesso
+#### <a name="access-ports"></a>Portas de acesso
 Por predefinição, o acesso não SSL está desativado para as novas caches. Para ativar a porta não SSL, clique em **não** para **permitir acesso apenas via SSL** sobre o **definições avançadas** painel e clique em **guardar**.
 
 > [!NOTE]
@@ -196,7 +196,7 @@ Cada escalão de preço tem limites diferentes para ligações de cliente, memó
 | Utilização de largura de banda de rede |[Desempenho de cache - largura de banda disponível](cache-faq.md#cache-performance) |
 | Clientes ligados |[Configuração do servidor predefinido Redis - maxclients](#maxclients) |
 | Carga do servidor |[Gráficos de utilização - carga do servidor Redis](cache-how-to-monitor.md#usage-charts) |
-| Utilização de memória |[Desempenho de cache - tamanho](cache-faq.md#cache-performance) |
+| Utilização da memória |[Desempenho de cache - tamanho](cache-faq.md#cache-performance) |
 
 Para atualizar a cache, clique em **atualizar agora** para alterar o escalão de preço e [dimensionamento](#scale) seu cache. Para obter mais informações sobre como escolher um escalão de preço, consulte [que a Cache do Azure para o tamanho e oferta de Redis devo utilizar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -263,7 +263,7 @@ O **georreplicação** painel fornece um mecanismo para ligar duas escalão Prem
 > 
 > 
 
-### <a name="virtual-network"></a>Rede Virtual
+### <a name="virtual-network"></a>Rede virtual
 O **rede Virtual** secção permite-lhe configurar as definições de rede virtual para a sua cache. Para obter informações sobre como criar uma cache premium com VNET suporte e atualizar as definições, consulte [como configurar o suporte de rede Virtual para uma Cache do Azure Premium para Redis](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -294,7 +294,7 @@ Clique em **propriedades** para ver informações sobre a cache, incluindo o pon
 ### <a name="locks"></a>Bloqueios
 O **bloqueia** secção permite-lhe bloquear uma subscrição, grupo de recursos ou recursos para impedir que outros utilizadores na sua organização acidentalmente eliminem ou modifiquem recursos críticos. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
-### <a name="automation-script"></a>Script de automatização
+### <a name="automation-script"></a>Script de automação
 
 Clique em **script de automação** para criar e exportar um modelo de seus recursos implementados para as futuras Implantações. Para obter mais informações sobre como trabalhar com modelos, consulte [implementar recursos com modelos Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -347,7 +347,7 @@ O **monitorização** secção permite-lhe configurar o diagnóstico e monitoriz
 * [Regras de alerta](#alert-rules)
 * [Diagnóstico](#diagnostics)
 
-### <a name="redis-metrics"></a>Métricas de Redis
+### <a name="redis-metrics"></a>Métricas de redis
 Clique em **métricas de Redis** ao [ver métricas](cache-how-to-monitor.md#view-cache-metrics) para a sua cache.
 
 ### <a name="alert-rules"></a>Regras de alerta
@@ -366,7 +366,7 @@ Por predefinição, são métricas de cache no Azure Monitor [armazenadas durant
 ## <a name="support--troubleshooting-settings"></a>Suporte e as definições de resolução de problemas
 As definições no **suporte + resolução de problemas** secção fornecer-lhe opções para resolver problemas com a cache.
 
-![Suporte e resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Suporte + resolução de problemas](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Estado de funcionamento do recurso](#resource-health)
 * [Novo pedido de suporte](#new-support-request)
@@ -404,7 +404,7 @@ Nova Cache do Azure para instâncias de Redis estão configurados com os seguint
 | `maxclients` |Depende do escalão de preço<sup>2</sup> |Este valor é o número máximo de clientes ligados permitido ao mesmo tempo. Assim que o limite for atingido o Redis fecha todas as ligações novas, devolver um erro de "atingido o número máximo de clientes". |
 | `maxmemory-policy` |`volatile-lru` |Política de Maxmemory destina-se a definição de como o Redis seleciona o que deve remover quando `maxmemory` (o tamanho da cache que selecionou quando criou o cache da oferta) for atingido. Com a Cache de Redis do Azure é a predefinição `volatile-lru`, que remove as chaves com uma conjunto com um algoritmo LRU de expiração. Esta definição pode ser configurada no portal do Azure. Para obter mais informações, consulte [políticas de memória](#memory-policies). |
 | `maxmemory-samples` |3 |Para poupar memória, LRU e algoritmos TTL mínimo são aproximados algoritmos em vez de algoritmos precisos. Por predefinição de Redis verificações de três chaves e escolhe aquele que foi utilizado menos recentemente. |
-| `lua-time-limit` |5.000 |Tempo de execução máximo de um script de Lua em milissegundos. Se o tempo de execução máximo for atingido, Redis e registos de que um script ainda está em execução após o tempo máximo permitido é iniciado responder a consultas com um erro. |
+| `lua-time-limit` |5,000 |Tempo de execução máximo de um script de Lua em milissegundos. Se o tempo de execução máximo for atingido, Redis e registos de que um script ainda está em execução após o tempo máximo permitido é iniciado responder a consultas com um erro. |
 | `lua-event-limit` |500 |Tamanho máximo da fila de eventos de script. |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites de memória intermédia de saída do cliente podem ser utilizados para forçar a desativação de clientes que não são leitura de dados do servidor rápido o suficiente por algum motivo (uma razão comum é que um cliente de Pub/Sub não é possível consumir mensagens o mais rápidas, como o publicador pode produzi-los). Para mais informações, consulte [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 

@@ -12,10 +12,10 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306229"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modelagem estágio do ciclo de vida do processo de ciência de dados de equipa
@@ -41,7 +41,7 @@ Esta é uma representação visual de ciclo de vida do TDSP:
 ## <a name="how-to-do-it"></a>Como fazê-lo
 Existem três tarefas principais abordadas neste estágio:
 
-  * **"Feature Engineering"**: Crie recursos de dados dos dados brutos para facilitar a preparação de modelos.
+  * **"Feature Engineering"** : Crie recursos de dados dos dados brutos para facilitar a preparação de modelos.
   * **Treinamento de modelo**: Encontre o modelo que responde a pergunta com mais precisão ao comparar as suas métricas de sucesso.
   * Determinar se o seu modelo fica **adequado para produção.**
 

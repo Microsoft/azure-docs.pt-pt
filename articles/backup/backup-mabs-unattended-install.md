@@ -2,18 +2,17 @@
 title: Instalação silenciosa do V2 de servidor de cópia de segurança do Azure
 description: Utilize um script do PowerShell para instalar automaticamente a V2 de servidor de cópia de segurança do Azure. Este tipo de instalação também é chamado uma instalação autónoma.
 services: backup
-author: lingliw
-manager: digimobile
+author: rayne-wiselman
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-origin.date: 11/13/2018
-ms.date: 11/26/2018
-ms.author: v-lingwu
+ms.date: 11/13/2018
+ms.author: raynew
 ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253844"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação autónoma do Azure Backup Server
@@ -58,7 +57,7 @@ Estes passos não se aplicam se estiver a instalar o Azure Backup Server V1.
 Pode utilizar estes sinalizadores para a instalação:</br>
 **/f**: caminho do ficheiro. ini</br>
 **/l**: Caminho do registo</br>
-**/i**: Caminho da instalação</br>
+**/i**: Caminho de instalação</br>
 **/x**: Desinstalar o caminho</br>
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -68,5 +67,3 @@ Depois de instalar o servidor de cópia de segurança, saiba como preparar o ser
 - [Utilizar o servidor de cópia de segurança para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md)
 - [Utilizar o servidor de cópia de segurança para criar cópias de segurança do SQL Server](backup-azure-sql-mabs.md)
 - [Adicionar armazenamento de cópia de segurança moderno ao servidor de cópia de segurança](backup-mabs-add-storage.md)
-
-<!-- Update_Description: link update -->

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60607489"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderado imagens a partir da consola de API
 

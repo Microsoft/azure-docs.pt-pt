@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
 ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589732"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para separando aplicativos em relação do Service Bus interrupções e desastres
@@ -27,7 +27,7 @@ Após um desastre é definido como a perda permanente de uma unidade de escala d
 ## <a name="protecting-against-outages-and-disasters---service-bus-premium"></a>Proteger contra interrupções e desastres - Premium do Service Bus
 Conceitos de disponibilidade e recuperação após desastre alta são criados diretamente no escalão Premium do Azure Service Bus, tanto de dentro da mesma região (através de zonas de disponibilidade) e em diferentes regiões (por meio de recuperação após desastre geográfico).
 
-### <a name="geo-disaster-recovery"></a>Recuperação Após Desastre Geográfico
+### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfico
 
 Premium do Service Bus suporta a recuperação após desastre geográfico, ao nível do espaço de nomes. Para obter mais informações, consulte [recuperação de desastre geográfico de Azure Service Bus](service-bus-geo-dr.md). O recurso de recuperação após desastre, disponível para o [Premium SKU](service-bus-premium-messaging.md) apenas, implementa a recuperação após desastre de metadados e se baseia nos espaços de nomes de recuperação de desastres primário e secundário.
 

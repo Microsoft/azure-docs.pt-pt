@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/13/2017
-ms.date: 04/09/2019
+ms.date: 03/13/2017
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60383265"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
@@ -361,7 +360,7 @@ A coluna de estado pode ter os seguintes valores:
 | TargetNotExportedToDirectory |O objeto no espaço conector do Azure AD ainda não foram exportado. |
 | MigratedCheckDetailsForMoreInfo |Entrada de registo foi criada antes da compilação 1.0.9125.0 e é apresentada no respetivo estado herdado. |
 | Erro |Serviço devolveu um erro desconhecido. |
-| Desconhecidos |Ocorreu um erro ao tentar processar um lote de hashes de palavra-passe.  |
+| Desconhecido |Ocorreu um erro ao tentar processar um lote de hashes de palavra-passe.  |
 | MissingAttribute |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelo Azure AD Domain Services não estão disponíveis. |
 | RetryRequestedByTarget |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelo Azure AD Domain Services não estavam disponíveis anteriormente. É efetuada uma tentativa para ressincronizar o hash de palavra-passe do utilizador. |
 
@@ -372,7 +371,7 @@ A coluna de estado pode ter os seguintes valores:
 ```powershell
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Azure Active Directory (Microsoft)"}
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
 $adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
 if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
@@ -448,5 +447,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 * [Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](how-to-connect-password-hash-synchronization.md)
 * [Sincronização do Azure AD Connect: Personalizando opções de sincronização](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
-
-<!-- Update_Description: wording update -->

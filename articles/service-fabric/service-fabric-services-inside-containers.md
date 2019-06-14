@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: caed77234646654d151b64d2c80b7231342f6d8c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050472"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar num contentor do Service Fabric Reliable Services e Reliable Actors no Windows
 
@@ -119,6 +119,16 @@ Este documento fornece orientações para o serviço em execução num contentor
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> Por predefinição, as aplicações do Service Fabric têm acesso ao runtime do Service Fabric, na forma de um ponto de extremidade aceitando pedidos específicos de aplicativo. Considere desativar este acesso, quando a aplicação aloja o código não confiável. Para obter mais informações, consulte [melhores práticas de segurança no Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Para desativar o acesso ao runtime do Service Fabric, adicione a seguinte definição na secção de políticas de manifesto do aplicativo correspondente para o manifesto de serviço importado, da seguinte forma:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Para testar esta aplicação, terá de implementá-la a um cluster que esteja executando a versão 5.7 ou superior. Para versões de tempo de execução 6.1 ou inferiores, terá de editar e atualizar as definições de cluster para ativar esta funcionalidade de pré-visualização. Siga os passos desta [artigo](service-fabric-cluster-fabric-settings.md) para adicionar a definição mostrada a seguir.
     ```

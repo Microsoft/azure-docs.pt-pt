@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348101"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>O Azure Active Directory pass-through Authentication detalhada da segurança
@@ -186,7 +186,7 @@ Para renovar a confiança de um agente de autenticação com o Azure AD:
 
 O aplicativo de Atualizador atualiza automaticamente o agente de autenticação quando for lançada uma nova versão (com correções de erros ou melhorias de desempenho). A aplicação de Atualizador não processar as solicitações de validação da palavra-passe para o seu inquilino.
 
-Azure AD aloja a nova versão do software como um assinado **pacote do Windows Installer (MSI)**. O MSI está assinado usando [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) com SHA256 como o algoritmo de texto implícita. 
+Azure AD aloja a nova versão do software como um assinado **pacote do Windows Installer (MSI)** . O MSI está assinado usando [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) com SHA256 como o algoritmo de texto implícita. 
 
 ![Atualização automática](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 

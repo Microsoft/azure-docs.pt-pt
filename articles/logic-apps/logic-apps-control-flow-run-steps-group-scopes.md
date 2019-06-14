@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685559"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo com âmbitos no Azure Logic Apps
@@ -165,7 +165,7 @@ Em seguida, adicione um âmbito para que possa agrupar ações específicas e av
 1. Adicione um âmbito na localização de fluxo de trabalho que pretende. Por exemplo, para adicionar um âmbito entre passos existentes no fluxo de trabalho de aplicação lógica, siga estes passos: 
 
    1. Mova o ponteiro do mouse sobre a seta para onde pretende adicionar o âmbito. 
-   Escolha o **sinal** (**+**) > **adicionar uma ação**.
+   Escolha o **sinal** ( **+** ) > **adicionar uma ação**.
 
       ![Adicionar âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 

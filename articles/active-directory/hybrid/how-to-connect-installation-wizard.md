@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60348455"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: Executar o assistente de instalação pela segunda vez
@@ -81,7 +81,7 @@ A opção mostra se o teste está atualmente ativado ou desativado:
 Para alterar o estado, selecione esta opção e selecione ou desmarque a caixa de verificação.  
 ![Opção que também está a mostrar o estado atual do modo de teste](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Alterar início de sessão do utilizador
+## <a name="change-user-sign-in"></a>Alterar a sessão do utilizador
 Esta opção permite-lhe alterar o método de início de sessão do utilizador de e para sincronização de hash de palavra-passe, autenticação pass-through ou Federação. Não é possível alterar para **não configure**.
 
 Para obter mais informações sobre esta opção, consulte [sessão do utilizador](plan-connect-user-signin.md#changing-the-user-sign-in-method).

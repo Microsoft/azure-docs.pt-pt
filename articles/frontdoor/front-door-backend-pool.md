@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193718"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Conjuntos de back-ends e back-end no serviço de porta de entrada do Azure
@@ -71,7 +71,7 @@ Serviço de porta de entrada envia pedidos periódicos de sonda HTTP/HTTPS para 
 
 - **Protocolo**. Define se pretende enviar os pedidos de sonda de estado de funcionamento do serviço de porta de entrada para o seu back-ends com o protocolo HTTP ou HTTPS.
 
-- **Intervalo (segundos)**. Define a frequência de sondas de estado de funcionamento para o seu back-ends ou intervalos em que cada um dos ambientes de porta de entrada envia uma sonda.
+- **Intervalo (segundos)** . Define a frequência de sondas de estado de funcionamento para o seu back-ends ou intervalos em que cada um dos ambientes de porta de entrada envia uma sonda.
 
     >[!NOTE]
     >Para as ativações pós-falha mais rápidas, defina o intervalo para um valor inferior. Quanto mais baixo for o valor, o maior volume de sonda de estado de funcionamento recebem os back-ends. Por exemplo, se o intervalo está definido para 30 segundos com 90 ambientes de porta de entrada ou POPs globalmente, cada back-end irá receber sobre pedidos de sonda de 3 a 5 por segundo.
@@ -85,7 +85,7 @@ Definições de balanceamento de carga para o conjunto de back-end definem como 
 
 - **Tamanho da amostra bem-sucedida**. Define o tamanho da amostra conforme mencionado anteriormente, o número de amostras com êxito necessários para chamar o back-end em bom estado de funcionamento. Por exemplo, suponha que um intervalo de sonda de estado de funcionamento de porta de entrada é de 30 segundos, tamanho da amostra é 5 e 3 de é de tamanho de exemplo com êxito. Sondas de cada vez Avaliamos o estado de funcionamento para o back-end, vamos ver os últimos cinco exemplos mais de 150 segundos (5 x 30). Sondas com êxito, pelo menos, três são necessários para declarar o back-end como bom estado de funcionamento.
 
-- **A sensibilidade de latência (latência adicional)**. Define se pretende que a porta de entrada para enviar o pedido para o back-ends dentro do intervalo de sensibilidade de medição de latência ou reencaminhar o pedido para o back-end mais próximo.
+- **A sensibilidade de latência (latência adicional)** . Define se pretende que a porta de entrada para enviar o pedido para o back-ends dentro do intervalo de sensibilidade de medição de latência ou reencaminhar o pedido para o back-end mais próximo.
 
 Para obter mais informações, consulte [latência, pelo menos, com base em método de encaminhamento](front-door-routing-methods.md#latency).
 

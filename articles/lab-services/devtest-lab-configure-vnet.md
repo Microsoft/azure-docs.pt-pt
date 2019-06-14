@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 8fb3b4ac748fcae2e3aad5b3bfb2a893340dc61a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60694817"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configurar uma rede virtual no Azure DevTest Labs
@@ -39,7 +39,7 @@ Os seguintes passos guiá-lo por meio de adicionar uma rede virtual existente (e
 1. Selecione **+ Adicionar**.
    
     ![Adicionar uma rede virtual existente para o laboratório](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
-1. Sobre o **rede Virtual** painel, selecione **[selecione a rede virtual]**.
+1. Sobre o **rede Virtual** painel, selecione **[selecione a rede virtual]** .
    
     ![Selecione uma rede virtual existente](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 1. Sobre o **escolher rede virtual** painel, selecione a rede virtual pretendida. É apresentada uma lista que mostra todas as redes virtuais que estão na mesma região na subscrição que o laboratório.

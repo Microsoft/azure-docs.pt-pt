@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
 ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240138"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros a partir de cópia de segurança da máquina virtual do Azure
@@ -196,7 +196,7 @@ A tabela seguinte mostra a compatibilidade entre sistemas de operativos de servi
 
 No Linux, o sistema operativo do computador utilizado para restaurar os ficheiros têm de suportar o sistema de ficheiros da máquina virtual protegida. Ao selecionar um computador para executar o script, certifique-se de que o computador tem um sistema operacional compatível e utiliza uma das versões identificadas na tabela a seguir:
 
-|SO Linux | Versões  |
+|Linux OS | Versões  |
 | --------------- | ---- |
 | Ubuntu | 12.04 e acima |
 | CentOS | 6.5 e acima  |

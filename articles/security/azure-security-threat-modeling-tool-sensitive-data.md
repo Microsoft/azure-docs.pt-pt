@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610574"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados confidenciais | Atenuações 
@@ -38,7 +38,7 @@ ms.locfileid: "60610574"
 
 ## <a id="binaries-info"></a>Certifique-se de que os binários são oculto se contiverem informações confidenciais
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -49,7 +49,7 @@ ms.locfileid: "60610574"
 
 ## <a id="efs-user"></a>Considere utilizar o sistema de ficheiros encriptados (EFS) é utilizado para proteger dados confidenciais de utilizadores específicos
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Compilação |  
@@ -60,7 +60,7 @@ ms.locfileid: "60610574"
 
 ## <a id="filesystem"></a>Certifique-se de que os dados confidenciais armazenados pelo aplicativo no sistema de ficheiros estão encriptados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -71,7 +71,7 @@ ms.locfileid: "60610574"
 
 ## <a id="cache-browser"></a>Certifique-se de que o conteúdo confidencial não está em cache no navegador
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -124,7 +124,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>Encriptar secções dos arquivos de configuração da aplicação Web que contêm dados confidenciais
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -135,7 +135,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="autocomplete-input"></a>Desativar explicitamente o atributo de autocompletar HTML em formulários confidenciais e de entradas
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -154,7 +154,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="data-mask"></a>Certifique-se de que os dados confidenciais apresentados no ecrã de utilizador está oculto
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -165,7 +165,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="dynamic-users"></a>Máscara de dados dinâmica de implementar para limitar os utilizadores de exposição não privilegiado de dados confidenciais
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -176,7 +176,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="salted-hash"></a>Certifique-se de que as senhas são armazenadas no formato de hash de Salt
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -187,7 +187,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="db-encrypted"></a>Certifique-se de que os dados confidenciais nas colunas de base de dados são encriptados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -198,7 +198,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="tde-enabled"></a>Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -209,7 +209,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="backup"></a>Certifique-se de que as cópias de segurança da base de dados são encriptadas
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -220,7 +220,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="api-browser"></a>Certifique-se de que os dados confidenciais relevantes para a Web API não são armazenados no armazenamento do navegador
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -244,7 +244,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>Encriptar dados confidenciais armazenados no Cosmos DB
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -255,7 +255,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="disk-vm"></a>Utilizar o Azure Disk Encryption para encriptar discos utilizados por máquinas virtuais
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade da VM IaaS do Azure | 
 | **Fase do SDL**               | Implementação |  
@@ -266,7 +266,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="fabric-apps"></a>Encriptar os segredos em aplicações do Service Fabric
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Service Fabric | 
 | **Fase do SDL**               | Compilação |  
@@ -277,7 +277,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="modeling-teams"></a>Execute a Modelagem de segurança e utilizar unidades de negócios ou várias onde for necessário
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -288,7 +288,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="entities"></a>Minimizar o acesso para partilhar recursos em entidades críticas
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Implementação |  
@@ -299,7 +299,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="good-practices"></a>Treinar os usuários sobre os riscos associados a funcionalidade de partilha do Dynamics CRM e boas práticas de segurança
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Implementação |  
@@ -310,7 +310,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="exception-mgmt"></a>Incluir uma regra de padrões de desenvolvimento proscribing que mostra os detalhes de configuração na gestão de exceções
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Implementação |  
@@ -321,7 +321,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="sse-preview"></a>Utilizar a encriptação do serviço de armazenamento do Azure (SSE) para dados Inativos (pré-visualização)
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -332,7 +332,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="client-storage"></a>Utilize a encriptação do lado do cliente para armazenar dados confidenciais no armazenamento do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -343,7 +343,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="pii-phones"></a>Encriptar sensível ou dados PII escritos para o armazenamento local de telemóveis
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Compilação |  
@@ -393,7 +393,7 @@ Se a aplicação não é uma aplicação empresarial, em seguida, utilizar keyst
 
 ## <a id="binaries-end"></a>Oculte binários gerados antes de distribuir aos utilizadores finais
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Compilação |  
@@ -404,7 +404,7 @@ Se a aplicação não é uma aplicação empresarial, em seguida, utilizar keyst
 
 ## <a id="cert"></a>Definir clientCredentialType para o certificado ou do Windows
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -423,7 +423,7 @@ Definir clientCredentialType para o certificado ou Windows.
 
 ## <a id="security"></a>Modo de segurança do WCF não está ativado
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  

@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 2c674f77ef0f779c9764771e2e0ae7a4aea47548
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60622112"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
@@ -63,7 +63,7 @@ Ver [atividades de utilização Machine Learning](transform-data-using-machine-l
 ## <a name="stored-procedure-activity"></a>Atividade de procedimento armazenado
 Pode utilizar a atividade Stored Procedure do SQL Server num pipeline do Data Factory para invocar um procedimento armazenado em um dos arquivos de dados seguintes: SQL Database do Azure, Azure SQL Data Warehouse, base de dados do SQL Server na sua empresa ou uma VM do Azure. Ver [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) artigo para obter detalhes.  
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Atividade U-SQL do Data Lake Analytics
+## <a name="data-lake-analytics-u-sql-activity"></a>Atividade do Data Lake Analytics U-SQL
 Atividade do Data Lake Analytics U-SQL executa um script de U-SQL num cluster do Azure Data Lake Analytics. Ver [atividade de U-SQL de análise de dados](transform-data-using-data-lake-analytics.md) artigo para obter detalhes. 
 
 ## <a name="databricks-notebook-activity"></a>Atividade Databricks Notebook

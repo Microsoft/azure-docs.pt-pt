@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60240864"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Origens de dados do syslog no Azure Monitor
@@ -54,7 +54,7 @@ O agente do Log Analytics para Linux apenas à recolha de eventos com as instala
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurar o Syslog no portal do Azure
 Configurar o Syslog do [menu de dados nas definições avançadas](agent-data-sources.md#configuring-data-sources). Esta configuração é entregue ao arquivo de configuração em cada agente do Linux.
 
-Pode adicionar um novo recurso, escrevendo em seu nome e clicar **+**. Para cada recurso, apenas as mensagens com as gravidades selecionadas serão recolhidas.  Verifique as gravidades do recurso específico que pretende recolher. Não é possível fornecer quaisquer critérios adicionais para filtrar mensagens.
+Pode adicionar um novo recurso, escrevendo em seu nome e clicar **+** . Para cada recurso, apenas as mensagens com as gravidades selecionadas serão recolhidas.  Verifique as gravidades do recurso específico que pretende recolher. Não é possível fornecer quaisquer critérios adicionais para filtrar mensagens.
 
 ![Configurar o Syslog](media/data-sources-syslog/configure.png)
 

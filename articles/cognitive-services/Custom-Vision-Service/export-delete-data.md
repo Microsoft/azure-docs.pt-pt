@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: e662e61a9df45cf3d57d5698337a26b7b8fc55a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60605465"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exportar ou eliminar dados de utilizador na visão personalizada
@@ -25,7 +25,7 @@ Visão personalizada recolhe dados de utilizador para operar o serviço, mas os 
 
 Para saber como exportar e eliminar dados de utilizador na visão personalizada, consulte a tabela seguinte.
 
-| Dados | Operação de exportação | Operação de Eliminação |
+| Dados | Operação de exportação | Operação de eliminação |
 | ---- | ---------------- | ---------------- |
 | Informações da conta (chaves de subscrição) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Elimine através do portal do Azure (subscrições do Azure). Ou com o botão "Eliminar a sua conta" na página de definições de CustomVision.ai (subscrições de conta da Microsoft) | 
 | Detalhes de iteração | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |

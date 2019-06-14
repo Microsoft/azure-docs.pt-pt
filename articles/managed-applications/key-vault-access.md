@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588299"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segredo do Key Vault acesso ao implementar aplicações geridas do Azure
@@ -40,7 +40,7 @@ Este artigo descreve como configurar o Cofre de chaves para trabalhar com aplica
 
 ## <a name="add-service-as-contributor"></a>Adicionar o serviço como contribuinte
 
-1. Selecione **Controlo de acesso (IAM)**.
+1. Selecione **controlo de acesso (IAM)** .
 
    ![Selecione o controlo de acesso](./media/key-vault-access/access-control.png)
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
 ms.openlocfilehash: cf1dc352068747ab2f77beec8802407d15699d17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60607152"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Suporte de idiomas para a Content Moderator API
@@ -33,7 +33,7 @@ ms.locfileid: "60607152"
 | Buginese | Árabe | Checo                     | Português | |
 | Buhid | Arménio | Dinamarquês                     | Finlandês | |
 | Carian | Assamês | Neerlandês                     | Francês | |
-| Chinês (Simplificado) | Azerbaijão | Português  | Grego (moderno) | |
+| Chinês (Simplificado) | Azerbaijanês | Português  | Grego (moderno) | |
 | Chinês (Tradicional) | Bangla - Bangladeche | Finlandês  | Italiano | |
 | Church (Slavic) | Bangla - Índia | Francês     | Coreano | |
 | Coptic | Basco (Basco) | Alemão                      | Norueguês | |
@@ -63,29 +63,29 @@ ms.locfileid: "60607152"
 | Mycenaean (Grego) | Alemão | | | |
 | Nko | Grego | | | |
 | Norueguês (Bokmal) | Guzarate | | | |
-| Norueguês (Nynorsk) |  Haúça | | | |
+| Norueguês (Nynorsk) |  Hausa | | | |
 | Velha (Persa) | Hebraico | | | |
-| Pastó | Hindi | | | |
+| Pashto | Hindi | | | |
 | Polaco | Húngaro | | | |
 | Português | Islandês | | | |
 | Punjabi | Igbo | | | |
 | Rejang | Indonésio | | | |
 | Russo | Inuktitut | | | |
 | Santali | Irlandês | | | |
-| Sasak | Xosa | | | |
+| Sasak | isiXhosa | | | |
 | Saurashtra | isiZulu | | | |
 | Sérvio (Cirílico) | Italiano | | | |
 | Sérvio (Latim) | Japonês | | | |
 | Sinhala | Canarim | | | |
-| Esloveno | Cazaquistanês | | | |
+| Esloveno | Cazaque | | | |
 | Espanhol | Khmer | | | |
 | Sueco | K'iche | | | |
 | Sylheti | Kinyarwanda | | | |
 | Siríaco | Suaíli | | | |
 | Tagbanwa | Concani | | | |
 | Tai (Nua) | Coreano | | | |
-| Tamashek | Quirguize | | | |
-| Turco | Laociano | | | |
+| Tamashek | Kyrgyz | | | |
+| Turco | Laosiano | | | |
 | Ugaritic | Letão | | | |
 | Usbeque (Cirílico) | Lituano | | | |
 | Usbeque (Latim) | Luxemburguês | | | |
@@ -94,13 +94,13 @@ ms.locfileid: "60607152"
 | Zhuang, Chuang | Malayalam | | | |
 | | Maltês | | | |
 | | Maori | | | |
-| | Marata | | | |
-| | Mongol | | | |
-| | Nepalês | | | |
+| | Marati | | | |
+| | Mongolian | | | |
+| | Nepali | | | |
 | | Norueguês (Bokmål) | | | |
 | | Norueguês (Nynorsk) | | | |
 | | Odia | | | |
-| | Pastó | | | |
+| | Pashto | | | |
 | | Persa | | | |
 | | Polaco | | | |
 | | Português (Brasil) | | | |
@@ -116,7 +116,7 @@ ms.locfileid: "60607152"
 | | Sérvio (Cirílico, Bósnia e Herzegovina) | | | |
 | | Sérvio (Latim) | | | |
 | | Sesotho | | | |
-| | Sesotho sa Leboa | | | |
+| | Sesoto | | | |
 | | Setswana | | | |
 | | Sindhi | | | |
 | | Sinhala | | | |
@@ -124,20 +124,20 @@ ms.locfileid: "60607152"
 | | Esloveno | | | |
 | | Espanhol | | | |
 | | Sueco | | | |
-| | Tajique | | | |
+| | Tajik | | | |
 | | Tamil | | | |
 | | Tatar | | | |
 | | Télego | | | |
 | | Tailandês | | | |
-| | Tigrínia | | | |
+| | Tigrinya | | | |
 | | Turco | | | |
-| | Turcomano | | | |
+| | Turcomeno | | | |
 | | Ucraniano | | | |
 | | Urdu | | | |
-| | Uigur | | | |
-| | Usbeque | | | |
+| | Uyghur | | | |
+| | Uzbek | | | |
 | | Valenciano | | | |
 | | Vietnamita | | | |
 | | Galês | | | |
-| | Uólofe | | | |
-| | Ioruba | | | |
+| | Wolof | | | |
+| | Yoruba | | | |

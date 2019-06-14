@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243572"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação pass-through do Azure Active Directory: Início rápido
@@ -83,7 +83,7 @@ Se estiver a instalar o Azure AD Connect pela primeira vez, escolha o [caminho d
 
 Se já tiver instalado o Azure AD Connect utilizando as [instalação rápida](how-to-connect-install-express.md) ou o [instalação personalizada](how-to-connect-install-custom.md) caminho, selecione o **alterar utilizador inicie sessão** tarefas no Azure AD Ligar e, em seguida, selecione **seguinte**. Em seguida, selecione **autenticação pass-through** como o método de início de sessão. A conclusão com êxito, um agente de autenticação pass-through é instalado no mesmo servidor do Azure AD Connect e a funcionalidade está ativada no seu inquilino.
 
-![Azure AD Connect: Alterar início de sessão do utilizador](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+![Azure AD Connect: Alterar a sessão do utilizador](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
 >Autenticação pass-through é um recurso de nível de inquilino. Ativá-la afeta o início de sessão para os utilizadores em todas _todos os_ os domínios geridos no seu inquilino. Se estiver a mudar de serviços de Federação do Active Directory (AD FS) para autenticação pass-through, deve esperar, pelo menos, 12 horas antes de encerrar a sua infraestrutura do AD FS. Este tempo de espera é garantir que os utilizadores podem manter início de sessão no Exchange ActiveSync durante a transição. Para obter mais ajuda sobre a migração do AD FS para autenticação pass-through, confira o nosso plano de implementação detalhados publicado [aqui](https://aka.ms/adfstoptadpdownload).
@@ -140,7 +140,7 @@ Em primeiro lugar, pode fazê-lo interativamente apenas executar o agente de aut
 Em segundo lugar, pode criar e executar um script de implementação automática. Isto é útil quando pretender implementar vários agentes de autenticação de uma só vez ou instalar agentes de autenticação nos servidores de Windows que não têm a interface de utilizador ativado ou que não pode acessar com o ambiente de trabalho remoto. Aqui estão as instruções sobre como usar essa abordagem:
 
 1. Execute o seguinte comando para instalar um agente de autenticação: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Pode registrar o agente de autenticação com o serviço com o Windows PowerShell. Criar um objeto de credenciais de PowerShell `$cred` que contém um nome de utilizador de administrador global e a palavra-passe para o seu inquilino. Execute o seguinte comando, substituindo *\<nome de utilizador\>* e  *\<palavra-passe\>*:
+2. Pode registrar o agente de autenticação com o serviço com o Windows PowerShell. Criar um objeto de credenciais de PowerShell `$cred` que contém um nome de utilizador de administrador global e a palavra-passe para o seu inquilino. Execute o seguinte comando, substituindo *\<nome de utilizador\>* e  *\<palavra-passe\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'

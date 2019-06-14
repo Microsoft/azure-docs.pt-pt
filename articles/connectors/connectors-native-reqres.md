@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
 ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538151"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Comece com os componentes de solicitação e resposta
@@ -86,7 +86,7 @@ As tabelas seguintes descrevem os campos de entrada para o acionador e ação e 
 #### <a name="request-trigger"></a>Acionador de pedido
 Segue-se um campo de entrada para o acionador de pedidos HTTP de entrada.
 
-| Nome a apresentar | Nome da propriedade | Descrição |
+| Display name | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Esquema JSON |schema |O esquema JSON do corpo do pedido HTTP |
 
@@ -104,11 +104,11 @@ Seguem-se detalhes de saída para o pedido.
 #### <a name="response-action"></a>Ação de resposta
 Seguem-se os campos de entrada para a ação de resposta de HTTP. A * significa que é um campo obrigatório.
 
-| Nome a apresentar | Nome da propriedade | Descrição |
+| Display name | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Código de estado * |statusCode |O código de estado HTTP |
 | Cabeçalhos |Cabeçalhos |Um objeto JSON de qualquer cabeçalho de resposta para incluir |
-| Corpo |corpo |O corpo da resposta |
+| Corpo |Corpo |O corpo da resposta |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis no logic apps examinando nossos [lista APIs](apis-list.md).

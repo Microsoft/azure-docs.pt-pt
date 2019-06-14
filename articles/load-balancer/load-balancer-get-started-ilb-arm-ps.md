@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 521f8f29e2f8475ab7308f5646b94c6fc0f6a01f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60398813"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno com o módulo do Azure PowerShell
@@ -163,7 +163,7 @@ $NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location
 
 ## <a name="create-the-network-interfaces"></a>Criar as interfaces de rede
 
-Depois de criar o balanceador de carga interno, defina as interfaces de rede (NICs) que vão receber o tráfego de rede de entrada com balanceamento de carga, as regras NAT e a sonda. Cada interface de rede é configurada individualmente e pode ser atribuída a uma máquina virtual mais tarde. 
+Depois de criar o balanceador de carga interno, defina as interfaces de rede (NICs) que vão receber o tráfego de rede de entrada com balanceamento de carga, as regras NAT e a sonda. Cada interface de rede é configurada individualmente e pode ser atribuída a uma máquina virtual mais tarde.
 
 ### <a name="step-1-create-the-first-network-interface"></a>Passo 1: Criar a primeira interface de rede
 

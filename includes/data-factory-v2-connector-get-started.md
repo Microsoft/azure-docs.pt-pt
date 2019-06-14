@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 74ae5cab5430c508f31a5ba4ad7fbdefe89abdd8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7ee269651662496e211e1861bf4a80f6ba4d27d1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048558"
 ---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.

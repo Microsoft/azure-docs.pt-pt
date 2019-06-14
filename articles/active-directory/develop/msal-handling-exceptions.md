@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f1972a870ac15e1ca8dde963eef6cf7f1caf3039
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: 9a1b8cf0fe74554c78f2d06d601231ed2740172a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052351"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Manipulação de exceções e erros com MSAL
 Exceções no Microsoft Authentication Library (MSAL) destinam-se para os programadores de aplicações resolver problemas e não para apresentar aos utilizadores finais. Mensagens de exceção não estão localizadas.
@@ -29,9 +29,9 @@ Exceções no Microsoft Authentication Library (MSAL) destinam-se para os progra
 Durante o processamento de exceções e erros, pode utilizar o próprio tipo de exceção e o código de erro para distinguir entre exceções.  Para obter uma lista de códigos de erro, consulte [códigos de erro de autenticação e autorização](reference-aadsts-error-codes.md).
 
 ## <a name="net-exceptions"></a>Exceções de .NET
-Durante o processamento de exceções, pode usar o próprio tipo de exceção e o `ErrorCode` membro para distinguir entre exceções. Os valores dos `ErrorCode` são constantes de tipo [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet#fields).
+Durante o processamento de exceções, pode usar o próprio tipo de exceção e o `ErrorCode` membro para distinguir entre exceções. Os valores dos `ErrorCode` são constantes de tipo [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
-Também pode ter os campos de examinar [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet#fields), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet#fields).
+Também pode ter os campos de examinar [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet).
 
 Se [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) é gerada, o erro código pode conter um código que pode encontrar no [códigos de erro de autenticação e autorização](reference-aadsts-error-codes.md).
 
@@ -42,8 +42,8 @@ Aqui estão as exceções comuns que podem ser geradas e alguns possíveis mitig
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: O utilizador ou o administrador não permitiu utilizar a aplicação com o ID '{appId}' com o nome "{appName}". Envie um pedido de autorização interativo para este utilizador e o recurso.| Tem de obter o consentimento do utilizador primeiro. Se não estiver a utilizar o .NET Core (que não tem qualquer interface do Usuário da Web), ligue para (uma vez apenas) `AcquireTokeninteractive`. Se estiver a utilizar o .NET core ou não desejar usar uma `AcquireTokenInteractive`, o usuário pode navegar para um URL para dar consentimento: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read . Para chamar `AcquireTokenInteractive`: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: É pedido ao utilizador para utilizar a autenticação multifator.| Não existe nenhuma forma de atenuar - se a MFA está configurado para o seu inquilino e AAD decide para impor a ele, terá de contingência para um fluxo de interativo como `AcquireTokenInteractive` ou `AcquireTokenByDeviceCode`.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) |AADSTS90010: O tipo de concessão não é suportado através da */comuns* ou */consumers* pontos de extremidade. Utilize o */organizations* ou ponto de extremidade específico de inquilino. Utilizou */comuns*.| Conforme explicado na mensagem do Azure AD, a autoridade tem de ter um inquilino ou caso contrário */organizations*.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) | AADSTS70002: O corpo do pedido tem de conter o seguinte parâmetro: "client_secret ou client_assertion'.| Isto pode acontecer se a aplicação não foi registada como um aplicativo de cliente público no Azure AD. No portal do Azure, editar o manifesto da sua aplicação e o conjunto a `allowPublicClient` para `true`. |
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: O tipo de concessão não é suportado através da */comuns* ou */consumers* pontos de extremidade. Utilize o */organizations* ou ponto de extremidade específico de inquilino. Utilizou */comuns*.| Conforme explicado na mensagem do Azure AD, a autoridade tem de ter um inquilino ou caso contrário */organizations*.|
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: O corpo do pedido tem de conter o seguinte parâmetro: "client_secret ou client_assertion'.| Isto pode acontecer se a aplicação não foi registada como um aplicativo de cliente público no Azure AD. No portal do Azure, editar o manifesto da sua aplicação e o conjunto a `allowPublicClient` para `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user mensagem: Não foi possível identificar o utilizador com sessão iniciada| A biblioteca não foi possível consultar o atual Windows utilizador com sessão iniciada ou este utilizador não é AD ou AAD associado (utilizadores de associado ao local de trabalho não são suportados). Atenuação 1: no UWP, verifique que a aplicação tem as seguintes capacidades: Autenticação empresarial, redes privadas (cliente e servidor), as informações de conta de utilizador. Atenuação 2: Implementar sua própria lógica para obter o nome de utilizador (por exemplo, john@contoso.com) e utilizar o `AcquireTokenByIntegratedWindowsAuth` formulário que usa o nome de utilizador.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Este método se baseia num protocolo exposto pelo Active Directory (AD). Se um utilizador foi criado no Azure Active Directory sem AD de segurança (usuário "gerenciado"), este método irá falhar. Os utilizadores criados no AD e apoiado pelo AAD ("federados" utilizadores) podem se beneficiar este método não interativo de autenticação. Atenuação: Utilize a autenticação interativa.|
 

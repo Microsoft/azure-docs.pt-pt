@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60562597"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas de Azure DevTest Labs
@@ -44,7 +44,7 @@ Os seguintes passos guiá-lo pelo processo de criação de uma fórmula de uma i
 
 3. Na lista de laboratórios, selecione o laboratório pretendido.  
 
-4. Na página do laboratório, selecione **fórmulas (reutilizáveis bases)**.
+4. Na página do laboratório, selecione **fórmulas (reutilizáveis bases)** .
    
     ![Menu de fórmulas](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
@@ -88,7 +88,7 @@ Os seguintes passos guiá-lo pelo processo de criação de uma fórmula com base
 4. O laboratório **descrição geral** página, selecione a VM a partir do qual pretende criar a fórmula.
    
     ![VMs de laboratórios](./media/devtest-lab-create-formulas/my-vms.png)
-5. Na página da VM, selecione **criar fórmula (base reutilizável)**.
+5. Na página da VM, selecione **criar fórmula (base reutilizável)** .
    
     ![Criar a fórmula](./media/devtest-lab-create-formulas/create-formula-menu.png)
 6. Na **criar fórmula** página, introduza um **nome** e **Descrição** para sua nova fórmula.
@@ -102,7 +102,7 @@ Para modificar uma fórmula, siga estes passos:
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 3. Na lista de laboratórios, selecione o laboratório pretendido.  
-4. Na página do laboratório, selecione **fórmulas (reutilizáveis bases)**.
+4. Na página do laboratório, selecione **fórmulas (reutilizáveis bases)** .
    
     ![Menu de fórmulas](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Sobre o **fórmulas de laboratório** , selecione a fórmula que pretende modificar.

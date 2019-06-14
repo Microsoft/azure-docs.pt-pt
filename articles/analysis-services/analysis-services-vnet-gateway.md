@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e97bd50e3d37218e0f88f722387fd1a53167e27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60534170"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Utilizar o gateway para origens de dados numa rede Virtual do Azure (VNet)
@@ -28,7 +28,7 @@ Se as origens de dados são acedidas através de uma VNet, tem de ligar o servid
 
 ## <a name="configure-alwaysusegateway-property"></a>Configurar a propriedade AlwaysUseGateway
 
-1. No SSMS > servidor > **propriedades** > **geral**, selecione **propriedades Mostrar avançadas (todos)**.
+1. No SSMS > servidor > **propriedades** > **geral**, selecione **propriedades Mostrar avançadas (todos)** .
 2. Na **ASPaaS\AlwaysUseGateway**, selecione **verdadeiro**.
 
     ![Utilize sempre a propriedade de gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)

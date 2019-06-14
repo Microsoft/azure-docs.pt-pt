@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 06/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 79718b14210bfdf139bca76db91c57c38a791434
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052241"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Plataforma de identidade da Microsoft e o fluxo de código de dispositivo do OAuth 2.0
 
@@ -31,9 +31,11 @@ ms.locfileid: "65544925"
 O suporte de plataforma de identidade do Microsoft da [concessão do código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), que permite aos utilizadores iniciar sessão dispositivos de restrição de entrada, como uma smart TV, o dispositivo de IoT ou impressora.  Para ativar este fluxo, o dispositivo tem a visita de utilizador uma página Web no browser noutro dispositivo para iniciar sessão.  Assim que o utilizador inicia sessão, o dispositivo é capaz de obter os tokens de acesso e tokens de atualização, conforme necessário.  
 
 > [!IMPORTANT]
-> Neste momento, o ponto de extremidade de plataforma do Microsoft identity só suporta o fluxo de dispositivo para inquilinos do Azure AD, mas as contas pessoais não.  Isso significa que tem de utilizar um ponto final definido como um inquilino, ou o `organizations` ponto final.  
+> Neste momento, o ponto de extremidade de plataforma do Microsoft identity só suporta o fluxo de dispositivo para inquilinos do Azure AD, mas as contas pessoais não.  Isso significa que tem de utilizar um ponto final definido como um inquilino, ou o `organizations` ponto final.  Esse suporte será ativado brevemente. 
 >
 > Contas pessoais que estão convidadas a um inquilino do Azure AD será capazes de usar a concessão de fluxo de dispositivo, mas somente no contexto do inquilino.
+>
+> Como uma observação adicional, o `verification_uri_complete` campo de resposta não é incluído ou suportado neste momento.  
 
 > [!NOTE]
 > O ponto de extremidade de plataforma de identidade Microsoft não suporta todos os cenários do Azure Active Directory e funcionalidades. Para determinar se deve utilizar o ponto de extremidade de plataforma do Microsoft identity, leia sobre [limitações de plataforma de identidade do Microsoft](active-directory-v2-limitations.md).
@@ -42,7 +44,7 @@ O suporte de plataforma de identidade do Microsoft da [concessão do código de 
 
 O fluxo de código de dispositivo inteiro é semelhante ao seguinte diagrama. Nós descrevemos, cada um dos passos neste artigo.
 
-![Fluxo de código do dispositivo](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
+![Fluxo de código de dispositivo](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Pedido de autorização de dispositivo
 
@@ -78,7 +80,6 @@ Uma resposta com êxito será um objeto JSON que contém as informações necess
 |`device_code`     | String | Uma cadeia longa utilizada para verificar a sessão entre o cliente e o servidor de autorização. O cliente utiliza este parâmetro para pedir o token de acesso do servidor de autorização. |
 |`user_code`       | String | Uma cadeia de caracteres curta mostrada ao usuário que é utilizado para identificar a sessão num dispositivo secundário.|
 |`verification_uri`| URI | O URI que o utilizador deve ir para com o `user_code` para iniciar sessão. |
-|`verification_uri_complete`| URI | Um URI que combina os `user_code` e o `verification_uri`, utilizado para transmissão não textual ao usuário (por exemplo, via Bluetooth para um dispositivo ou por meio de um código QR).  |
 |`expires_in`      | int | O número de segundos antes do `device_code` e `user_code` expirar. |
 |`interval`        | int | O número de segundos que o cliente deve aguardar entre as solicitações de sondagem. |
 | `message`        | String | Uma cadeia de caracteres legível por humanos com instruções para o utilizador. Este texto pode ser localizado, incluindo uma **parâmetro de consulta** no pedido do formulário `?mkt=xx-XX`, preenchendo o código de cultura do idioma apropriado. |

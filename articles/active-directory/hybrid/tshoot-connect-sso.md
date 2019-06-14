@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381893"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas relacionados com o Azure Active Directory totalmente integrada início de sessão único
@@ -91,7 +91,7 @@ Utilize a lista de verificação seguinte para resolver problemas de SSO totalme
 
 ### <a name="domain-controller-logs"></a>Registos de controlador de domínio
 
-Se ativar a auditoria de êxito no seu controlador de domínio, em seguida, sempre que um utilizador inicia sessão através do SSO totalmente integrado, uma entrada de segurança é registrada no log de eventos. Pode localizar esses eventos de segurança utilizando a seguinte consulta. (Procure o evento **4769** associadas com a conta de computador **AzureADSSOAcc$**.)
+Se ativar a auditoria de êxito no seu controlador de domínio, em seguida, sempre que um utilizador inicia sessão através do SSO totalmente integrado, uma entrada de segurança é registrada no log de eventos. Pode localizar esses eventos de segurança utilizando a seguinte consulta. (Procure o evento **4769** associadas com a conta de computador **AzureADSSOAcc$** .)
 
 ```
     <QueryList>
@@ -135,6 +135,6 @@ Se a resolução de problemas não o ajudaram, pode repor manualmente a funciona
 
 2. Repita o passo anterior para cada floresta do Active Directory onde pretende configurar a funcionalidade.
 
-### <a name="step-5-enable-the-feature-on-your-tenant"></a>Passo 5. Ativar a funcionalidade no seu inquilino
+### <a name="step-5-enable-the-feature-on-your-tenant"></a>Passo 5: Ativar a funcionalidade no seu inquilino
 
 Para ativar a funcionalidade no seu inquilino, chame `Enable-AzureADSSO -Enable $true`.

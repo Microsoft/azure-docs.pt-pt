@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 607d538a2a2636e17265e95195000a777f162dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60263387"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configurar Jive para aprovisionamento automático de utilizadores
@@ -68,7 +68,7 @@ Como parte deste procedimento, é necessário para fornecer um token de seguran�
 
 1. Definir o **modo de aprovisionamento** ao **automática**. 
 
-    ![a aprovisionar](./media/jive-provisioning-tutorial/provisioning.png)
+    ![Aprovisionamento](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. Sob o **credenciais de administrador** secção, forneça as seguintes definições de configuração:
    

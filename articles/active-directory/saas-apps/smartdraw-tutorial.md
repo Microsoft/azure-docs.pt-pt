@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a2322636aab2e0f38e29063d958cb670b5e062f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744709"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050408"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Tutorial: Integração do Active Directory do Azure com SmartDraw
 
@@ -55,7 +55,7 @@ Para configurar a integração do SmartDraw com o Azure AD, terá de adicionar S
 
 **Para adicionar SmartDraw a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD início de sessão único com SmartDraw, execute os s
     > [!NOTE]
     > O valor de URL de início de sessão não é real. Atualizar o valor de URL de início de sessão com o início de sessão no URL real, que é explicado mais tarde no tutorial. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-6. Aplicação de SmartDraw espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+6. Aplicação de SmartDraw espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos de utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD início de sessão único com SmartDraw, execute os s
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Correio Electrónico | user.mail |
+    | Email | user.mail |
     | Grupos | user.groups |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -175,13 +175,13 @@ Para configurar o Azure AD início de sessão único com SmartDraw, execute os s
 
     a. Na **seu domínio (como acme.com)** caixa de texto, escreva o seu domínio.
 
-    b. Copiar o **Url de início de sessão iniciada de SP será** para a sua instância e cole-a na caixa de texto do URL de início de sessão na **configuração básica de SAML** no portal do Azure.
+    b. Copiar o **Url de início de sessão iniciada de SP será** para a sua instância e cole-a na caixa de texto do URL de início de sessão na **configuração básica de SAML** no portal do Azure.
     
     c. Na **grupos de segurança para permitir o acesso de SmartDraw** caixa de texto, tipo **todas as pessoas**.
 
     d. Na **seu Url de emissor de SAML** caixa de texto, cole o valor de **do Azure AD identificador** que copiou do portal do Azure.
 
-    e. No bloco de notas, abra o ficheiro de metadados XML que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **Your metadados de SAML** caixa.
+    e. No bloco de notas, abra o ficheiro de metadados XML que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **Your metadados de SAML** caixa.
 
     f. Clique em **Guardar configuração** 
 
@@ -240,7 +240,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na SmartDraw. SmartDraw suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no SmartDraw, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

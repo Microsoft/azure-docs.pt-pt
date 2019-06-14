@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: a6f2cf1dcee6a85376c8d767e57c504b6b246e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580464"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia do catálogo de dados do Azure
@@ -73,7 +73,7 @@ Cada um desses perspetivas é inerentemente valiosa, e no catálogo de dados do 
 
 Um especialista é um utilizador que foi identificado como tendo uma perspectiva de "especializada" informada para um recurso de dados. Qualquer utilizador pode adicionar os próprios ou a outro utilizador como um especialista para um recurso. A ser listado como um especialista não transmite qualquer privilégios adicionais no catálogo de dados do Azure; ele permite que os usuários localizar facilmente essas perspectivas que têm mais probabilidades de ser útil ao revisar os metadados descritivos de um recurso.
 
-## <a name="owner"></a>Proprietário
+## <a name="owner"></a>Owner
 
 Um proprietário é um utilizador que tem privilégios adicionais para gerir um recurso de dados no catálogo de dados do Azure. Os utilizadores podem assumir a propriedade dos recursos de dados registados e os proprietários podem adicionar outros utilizadores como coproprietários. Para obter mais informações, consulte [como gerir recursos de dados](data-catalog-how-to-manage.md)  
 

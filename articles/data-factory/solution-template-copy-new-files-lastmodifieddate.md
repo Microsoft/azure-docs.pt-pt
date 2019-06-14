@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
 ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312818"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar ficheiros novos e alterados por LastModifiedDate com o Azure Data Factory
@@ -53,19 +53,19 @@ O modelo define quatro parâmetros:
 
 4. Selecione **Utilize este modelo**.
 
-    ![Utilizar este modelo](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
+    ![Utilize este modelo](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
 5. Verá o pipeline disponível no painel, conforme mostrado no exemplo a seguir:
 
     ![Mostrar o pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
 6. Selecione **depurar**, escreva o valor para o **parâmetros** e selecione **concluir**.  A figura a seguir, definimos os parâmetros como o seguinte.
-   - **FolderPath_Source** = **/source/**
-   - **FolderPath_Destination** = **/destination/**
+   - **FolderPath_Source** =  **/source/**
+   - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
-     O exemplo é que indica os arquivos que foram modificados pela última vez no período de tempo entre *2019-02-01T00:00:00Z* e *2019-03-01T00:00:00Z* serão copiados a partir de uma pasta */source/*  para uma pasta */destination/*.  Pode substitui-los com os seus parâmetros.
+     O exemplo é que indica os arquivos que foram modificados pela última vez no período de tempo entre *2019-02-01T00:00:00Z* e *2019-03-01T00:00:00Z* serão copiados a partir de uma pasta */source/*  para uma pasta */destination/* .  Pode substitui-los com os seus parâmetros.
     
      ![Executar o pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
@@ -86,10 +86,10 @@ O modelo define quatro parâmetros:
     ![Criar acionador](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
 11. Escrever o valor para o **parâmetros da execução do acionador** como a seguir e selecione **concluir**.
-    - **FolderPath_Source** = **/source/**.  Pode substituir com sua pasta no arquivo de dados de origem.
-    - **FolderPath_Destination** = **/destination/**.  Pode substituir com sua pasta no arquivo de dados de destino.
-    - **LastModified_From** =  **@trigger().outputs.windowStartTime**.  É uma variável do sistema de Acionador que determina o tempo quando o pipeline foi acionado a última vez.
-    - **LastModified_To** = **@trigger().outputs.windowEndTime**.  É uma variável do sistema de Acionador que determina o tempo quando o pipeline é acionado neste momento.
+    - **FolderPath_Source** =  **/source/** .  Pode substituir com sua pasta no arquivo de dados de origem.
+    - **FolderPath_Destination** =  **/destination/** .  Pode substituir com sua pasta no arquivo de dados de destino.
+    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  É uma variável do sistema de Acionador que determina o tempo quando o pipeline foi acionado a última vez.
+    - **LastModified_To** =  **@trigger().outputs.windowEndTime**.  É uma variável do sistema de Acionador que determina o tempo quando o pipeline é acionado neste momento.
     
     ![Parâmetros de entrada](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

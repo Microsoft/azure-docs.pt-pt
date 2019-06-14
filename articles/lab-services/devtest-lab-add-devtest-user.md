@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60311424"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar proprietários e utilizadores no Azure DevTest Labs
@@ -31,8 +31,8 @@ Acesso no Azure DevTest Labs é controlado pelas [controlo de acesso de controlo
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Ações que podem ser executadas em cada função
 Existem três funções principais que pode atribuir um utilizador:
 
-* Proprietário
-* Utilizador do DevTest Labs
+* Owner
+* Utilizador de DevTest Labs
 * Contribuinte
 
 A tabela seguinte ilustra as ações que podem ser realizadas por utilizadores em cada uma dessas funções:

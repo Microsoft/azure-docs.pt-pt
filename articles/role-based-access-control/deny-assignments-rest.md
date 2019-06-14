@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60194672"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lista de atribuições para recursos do Azure com a API REST de negação
@@ -45,11 +45,11 @@ Para obter informações sobre uma atribuição de negar, tem de ter:
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de negação.
 
-    | Âmbito | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{id de atribuição de negar}* com o identificador de atribuição de negar que pretende recuperar.
 
@@ -69,11 +69,11 @@ Para obter informações sobre uma atribuição de negar, tem de ter:
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de negação.
 
-    | Âmbito | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{filtro}* com a condição que pretende aplicar para filtrar a lista de atribuição de negação.
 

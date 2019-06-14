@@ -16,10 +16,10 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596684"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar funções personalizadas para recursos do Azure com a API REST
@@ -54,11 +54,11 @@ Para listar as funções personalizadas a um âmbito, utilize o [definições de
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as funções.
 
-    | Âmbito | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{filtro}* com o tipo de função.
 
@@ -78,11 +78,11 @@ Para obter informações sobre uma função personalizada pelo respetivo nome de
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as funções.
 
-    | Âmbito | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{filtro}* com o nome a apresentar para a função.
 
@@ -104,11 +104,11 @@ Para obter informações sobre uma função personalizada pelo respetivo Identif
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as funções.
 
-    | Âmbito | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{roleDefinitionId}* com o identificador GUID de definição de função.
 
@@ -152,11 +152,11 @@ Para criar uma função personalizada, utilize o [definições de funções – 
 
 1. No URI, substitua *{âmbito}* com o primeiro `assignableScopes` da função personalizada.
 
-    | Âmbito | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{roleDefinitionId}* com o identificador GUID de função personalizada.
 
@@ -217,11 +217,11 @@ Para atualizar uma função personalizada, utilize o [definições de funções 
 
 1. No URI, substitua *{âmbito}* com o primeiro `assignableScopes` da função personalizada.
 
-    | Âmbito | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{roleDefinitionId}* com o identificador GUID de função personalizada.
 
@@ -301,11 +301,11 @@ Para eliminar uma função personalizada, utilize o [definições de funções �
 
 1. No URI, substitua *{âmbito}* com o âmbito de que pretende eliminar a função personalizada.
 
-    | Âmbito | Type |
+    | Scope | Tipo |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Substitua *{roleDefinitionId}* com o identificador GUID de função personalizada.
 

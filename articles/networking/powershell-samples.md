@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: georgewallace
 ms.openlocfilehash: 5bd0b4e33b5bef4d293e0475880692c72bf1504c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564677"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Exemplos do Azure PowerShell para funcionamento em rede

@@ -10,10 +10,10 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66162141"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerir atribuições de funções no duplos Digital do Azure
@@ -44,7 +44,7 @@ A tabela abaixo descreve cada atributo:
 | roleId | Identificador de definição de função | Sim | String | O ID exclusivo da atribuição de função desejada. Encontre as definições de função e seu identificador consultando a API de sistema ou consultar a tabela abaixo. |
 | objectId | Identificador de objeto | Sim | String | Um ID de diretório do Azure Active Directory, o ID de objeto do principal de serviço ou o nome de domínio. O que, ou quem a atribuição de função é atribuída a. A atribuição de função têm de ser formatada vzhledem KE svému typu associado. Para o `DomainName` objectIdType, objectId tem de começar com o `“@”` caráter. |
 | objectIdType | Tipo de identificador de objeto | Sim | String | O tipo de identificador de objeto utilizado. Ver **suportado ObjectIdTypes** abaixo. |
-| path | Caminho de espaço | Sim | String | O caminho de acesso total para o `Space` objeto. Um exemplo é `/{Guid}/{Guid}`. Se precisar de um identificador a atribuição de função para todo o gráfico, especifique `"/"`. Este caráter designa a raiz, mas a sua utilização não é recomendada. Seguem sempre o princípio do menor privilégio. |
+| caminho | Caminho de espaço | Sim | String | O caminho de acesso total para o `Space` objeto. Um exemplo é `/{Guid}/{Guid}`. Se precisar de um identificador a atribuição de função para todo o gráfico, especifique `"/"`. Este caráter designa a raiz, mas a sua utilização não é recomendada. Seguem sempre o princípio do menor privilégio. |
 | tenantId | Identificador do inquilino | Varia | String | Na maioria dos casos, um inquilino do Azure Active Directory ID. Não são permitidas para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o DomainName ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores da definição de função suportadas

@@ -10,10 +10,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550207"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um conjunto do Batch do Azure numa rede virtual

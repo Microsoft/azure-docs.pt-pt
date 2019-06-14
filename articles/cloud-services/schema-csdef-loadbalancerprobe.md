@@ -1,9 +1,8 @@
 ---
 title: Def de serviços Cloud do Azure LoadBalancerProbe Schema | Microsoft Docs
 ms.custom: ''
-origin.date: 04/14/2015
-ms.date: 11/06/2017
-ms.prod: azure
+ms.date: 04/14/2015
+services: cloud-services
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -11,14 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: thraka
-ms.author: v-yiso
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613867"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema de LoadBalancerProbe de definição dos serviços Cloud do Azure

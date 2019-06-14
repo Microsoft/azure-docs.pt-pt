@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d9bf155f24c947f8a27a38af01aedcf0b041b94
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: d0d0c3683d8855418bdafa204325525c4cd3943c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050781"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Aumentar verticalmente a máquina de virtual de Linux do Azure com a automatização do Azure
 Dimensionamento vertical é o processo de aumentar ou diminuir os recursos de uma máquina em resposta à carga de trabalho. No Azure pode fazê-lo ao alterar o tamanho da Máquina Virtual. Isto pode ajudar a nos seguintes cenários
@@ -83,6 +83,7 @@ A estrutura de tópicos para obter os passos realizar isso é como abaixo
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configurar a automatização do Azure para aceder às suas máquinas virtuais
 A primeira coisa que precisa fazer é criar uma conta de automatização do Azure que irá alojar os runbooks utilizados para dimensionar as instâncias de conjunto de dimensionamento de VM. Recentemente, o serviço de automatização introduziu a funcionalidade de "Conta Run As" que torna a definição de cópia de segurança Principal de serviço para executar automaticamente os runbooks em nome do usuário muito fácil. Pode ler mais sobre isso no artigo abaixo:

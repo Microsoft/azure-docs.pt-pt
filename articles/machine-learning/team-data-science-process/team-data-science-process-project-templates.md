@@ -12,10 +12,10 @@ ms.date: 11/27/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253009"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planejamento do projeto do processo de ciência de dados de equipa

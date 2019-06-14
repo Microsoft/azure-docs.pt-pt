@@ -18,10 +18,10 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296049"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Como: Investigar utilizadores e inícios de sessão de risco 
@@ -30,7 +30,7 @@ ms.locfileid: "60296049"
 Utilizar os relatórios de inícios de sessão de risco e utilizadores de risco pode investigar e obtenha uma perceção de risco no seu ambiente. Com a capacidade de filtrar e ordenar os inícios de sessão de risco e usuários, possa entender melhor intrusões potenciais na sua organização. 
 
 
-## <a name="risky-users-report"></a>Relatório dos utilizadores de risco
+## <a name="risky-users-report"></a>Relatório de utilizadores de risco
 
 Com as informações fornecidas pelo relatório de utilizadores de risco, pode encontrar respostas a perguntas como:
 
@@ -41,7 +41,7 @@ Com as informações fornecidas pelo relatório de utilizadores de risco, pode e
 
 O primeiro ponto de entrada para este relatório é o **investigar** secção na página de segurança.
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/01.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/01.png)
 
 
 O relatório de utilizadores de risco tem uma vista predefinida que mostra:
@@ -52,36 +52,36 @@ O relatório de utilizadores de risco tem uma vista predefinida que mostra:
 
 - Nível de risco
 
-- Detalhe de risco
+- Detalhes de risco
 
 - Última atualizado de risco
 
-- Type
+- Tipo
 
 - Estado
  
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/03.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/03.png)
 
 
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/04.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/04.png)
 
 A caixa de diálogo colunas permite-lhe apresentar campos adicionais ou remover campos que já são apresentados.
 
 Ao clicar num item na vista de lista, obtém todos os detalhes disponíveis sobre o mesmo numa vista horizontal.
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/05.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/05.png)
 
 
 Os detalhes ver mostra:
 
 - Informações básicas
 
-- Inícios de sessão arriscados recentes
+- Recentes risco inícios de sessão
 
-- Eventos de risco que não estão ligados a um início de sessão
+- Não associados a um início de sessão de eventos de risco
 
 - Histórico de risco
 
@@ -89,7 +89,7 @@ Os detalhes ver mostra:
 
 Além disso, pode:
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/08.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/08.png)
 
 - Ver todos os inícios de sessão atalho para ver o relatório de inícios de sessão desse utilizador.
 
@@ -113,11 +113,11 @@ Para limitar os dados comunicados para um nível que funcione para si, pode filt
 
 - Nível de risco
 
-- Type
+- Tipo
 
 - Estado
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/06.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/06.png)
 
 
 
@@ -127,13 +127,13 @@ O **nome** filtro permite-lhe especificar o nome ou o nome principal de utilizad
 O **corre o risco de estado** filtro permite-lhe selecionar:
 
 - Em risco
-- Remediados
-- Eliminado
+- Corrigido
+- Dispensado
 
 
 O **nível de risco** filtro permite-lhe selecionar:
 
-- Elevado
+- Alta
 - Médio
 - Baixa
 
@@ -145,7 +145,7 @@ O **tipo** filtro permite-lhe selecionar:
 
 O **estado** filtro permite-lhe selecionar:
 
-- Eliminada
+- Eliminado
 - Ativa
 
 
@@ -153,7 +153,7 @@ O **estado** filtro permite-lhe selecionar:
 
 Pode transferir os dados de utilizadores de risco, se quiser trabalhar com eles fora do portal do Azure. Clicar no Download cria um ficheiro CSV, os registos de 2.500 mais recente. 
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/07.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/07.png)
 
 
 Pode personalizar a vista de lista ao clicar em colunas na barra de ferramentas.
@@ -209,13 +209,13 @@ O relatório de inícios de sessão arriscados tem uma vista predefinida que mos
 
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/11.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/11.png)
 
 A caixa de diálogo colunas permite-lhe apresentar campos adicionais ou remover campos que já são apresentados.
 
 Ao clicar num item na vista de lista, obtém todos os detalhes disponíveis sobre o mesmo numa vista horizontal.
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/12.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/12.png)
 
 
 Os detalhes ver mostra:
@@ -226,7 +226,7 @@ Os detalhes ver mostra:
 
 - Informações de risco
 
-- Informações da MFA
+- Informações MFA
 
 - Acesso condicional
 
@@ -236,9 +236,9 @@ Os detalhes ver mostra:
 
 Além disso, pode:
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/13.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/13.png)
 
-- Confirmar comprometido 
+- Confirmar comprometida 
 
 - Confirmar seguro
 
@@ -279,21 +279,21 @@ O filtro **Estado do início de sessão** permite-lhe selecionar:
 O **corre o risco de estado** filtro permite-lhe selecionar:
 
 - Em risco
-- Confirmar comprometido
-- Confirmado (seguro)
-- Eliminado
-- Remediados
+- Confirmar comprometida
+- Confirmar seguro
+- Dispensado
+- Corrigido
 
 
 O **(agregar) de nível de risco** filtro permite-lhe selecionar:
 
-- Elevado
+- Alta
 - Médio
 - Baixa
 
 O **(em tempo real) de nível de risco** filtro permite-lhe selecionar:
 
-- Elevado
+- Alta
 - Médio
 - Baixa
 
@@ -309,7 +309,7 @@ O **acesso condicional** filtro permite-lhe selecionar:
 O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.
 Os valores possíveis são:
 
-- Último mês
+- Último 1 mês
 - Últimos 7 dias
 - Últimas 24 horas
 - Intervalo de tempo personalizado
@@ -322,7 +322,7 @@ Os valores possíveis são:
 
 Pode transferir os dados de inícios de sessão arriscados se quiser trabalhar com eles fora do portal do Azure. Clicar no Download cria um ficheiro CSV, os registos de 2.500 mais recente. 
 
-![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/15.png)
+![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/15.png)
 
 
 

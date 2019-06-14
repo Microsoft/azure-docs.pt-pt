@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 06/05/2019
 ms.author: danlep
-ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb6dec606169eb0bf2bfbeff042700cff441560b
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202826"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808915"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Estabelecer uma ligação remota a um cluster Kubernetes, DC/OS ou Docker Swarm
 Depois de criar um cluster do Azure Container Service, tem de ligar ao mesmo para implementar e gerir cargas de trabalho. Este artigo descreve como ligar à VM principal do cluster a partir de um computador remoto. 
@@ -32,7 +32,7 @@ Siga estes passos para instalar e configurar `kubectl` no seu computador.
 > 
 
 ### <a name="install-kubectl"></a>Instalar o kubectl
-Uma forma de instalar esta ferramenta é utilizar o `az acs kubernetes install-cli` comando da CLI do Azure. Para executar este comando, certifique-se de que [instalados](/cli/azure/install-az-cli2) a versão mais recente da CLI do Azure e a sessão iniciada numa conta do Azure (`az login`).
+Uma forma de instalar esta ferramenta é utilizar o `az acs kubernetes install-cli` comando da CLI do Azure. Para executar este comando, [instalar a CLI do Azure](/cli/azure/install-azure-cli) e inicie sessão na conta do Azure com `az login`.
 
 ```azurecli
 # Linux or macOS
@@ -78,7 +78,7 @@ kubectl proxy
 
 A IU do Kubernetes está agora disponível em `http://localhost:8001/ui`.
 
-Para obter mais informações, veja o [início rápido do Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
+Para obter mais informações, consulte a [início rápido do Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/).
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>Ligar a um cluster de DC/OS ou do Swarm
 

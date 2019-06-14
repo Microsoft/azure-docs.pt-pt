@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: bwren
 ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519895"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transição de pesquisa de registos do Log Analytics para registos do Azure Monitor
@@ -70,7 +70,7 @@ Na pesquisa de registos, pode [iniciar um runbook](take-action.md) de um resulta
 
 Nos registos do Azure Monitor, [criar um alerta a partir da consulta de registo](../platform/alerts-log.md). Configure um grupo de ação com uma ou mais ações que serão executados em resposta ao alerta.
 
-![Grupo de ações](media/log-search-transition/action-group.png)
+![grupo de ação](media/log-search-transition/action-group.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

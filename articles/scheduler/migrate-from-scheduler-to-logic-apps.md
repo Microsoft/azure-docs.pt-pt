@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
 ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531472"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar os trabalhos do programador do Azure para o Azure Logic Apps
@@ -102,7 +102,7 @@ Para executar ou acionar uma única tarefa manualmente, envie uma chamada para o
 
 Por exemplo, utilizar a aplicação Postman, pode criar um pedido POST semelhante ao seguinte exemplo com as definições e, em seguida, escolha **enviar** para fazer o pedido.
 
-| Método do pedido | do IdP | Corpo | Cabeçalhos |
+| Método de pedido | do IdP | Corpo | Cabeçalhos |
 |----------------|-----|------|---------| 
 | **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Na **brutos** , introduza o payload de que pretende enviar no pedido. <p>**Nota**: Automaticamente esta definição configura a **cabeçalhos** valores. | **chave**: Content-Type <br>**Valor**: aplicação/json
  |||| 
@@ -159,7 +159,7 @@ Aqui estão outras formas de personalizar os trabalhos.
 
 Para controlar a forma que uma ação tenta voltar a executar na sua aplicação lógica quando ocorrem falhas intermitentes, pode definir o [política de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies) nas definições de cada ação, por exemplo:
 
-1. Abra a ação (**...** ) e, selecione **definições**.
+1. Abra a ação ( **...** ) e, selecione **definições**.
 
    ![Abra as definições de ação](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -179,7 +179,7 @@ No agendador do Azure, se a ação padrão não conseguir executar, pode executa
 
    ![Adicionar ação paralela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. Na ação alternativa, abra o (**...** ) e, selecione **configurar execução posterior**.
+1. Na ação alternativa, abra o ( **...** ) e, selecione **configurar execução posterior**.
 
    ![Configurar a execução posterior](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 

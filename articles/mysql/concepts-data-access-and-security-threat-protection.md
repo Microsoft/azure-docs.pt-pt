@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60526008"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Base de dados do Azure para MySQL proteção avançada contra ameaças

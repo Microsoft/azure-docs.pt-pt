@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586292"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure Security and Compliance Blueprint: Análise para FedRAMP
@@ -90,7 +90,7 @@ Cada um dos NSGs têm portas específicas e protocolos abrir para que a soluçã
 A arquitetura protege os dados em descanso através da encriptação, a auditoria de base de dados e outras medidas.
 
 **Replicação de dados** do Azure Government tem duas opções para [replicação de dados](https://docs.microsoft.com/azure/storage/common/storage-redundancy):
- - A configuração padrão para a replicação de dados está **armazenamento Georredundante (GRS)**, modo assíncrono que armazena os dados do cliente num Datacenter separado fora da região primária. Isto garante a recuperação de dados num evento de perda total para o Datacenter primário.
+ - A configuração padrão para a replicação de dados está **armazenamento Georredundante (GRS)** , modo assíncrono que armazena os dados do cliente num Datacenter separado fora da região primária. Isto garante a recuperação de dados num evento de perda total para o Datacenter primário.
  - **Armazenamento localmente redundante (LRS)** em alternativa pode ser configurada a conta de armazenamento do Azure. Replica os dados dentro de uma unidade de escala de armazenamento, o que está alojado na mesma região em que o cliente cria a respetiva conta de LRS. Todos os dados são replicados em simultâneo, garantindo que não existem dados de cópia de segurança são perdidos numa falha de unidade de escala de armazenamento primário.
 
 **O armazenamento do Azure** para atender aos dados criptografados em requisitos de rest, todos os serviços implementados neste aproveitamento de arquitetura de referência [armazenamento do Azure](https://azure.microsoft.com/services/storage/), que armazena os dados com [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).

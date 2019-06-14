@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60409894"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
@@ -42,7 +42,7 @@ Siga estas diretrizes quando planear a infraestrutura de rede Avere vFXT do seu 
 
 * O modelo de criação do cluster pode criar a maioria dos recursos de infraestrutura necessários para o cluster, incluindo grupos de recursos, redes virtuais, sub-redes e contas de armazenamento. Se pretende utilizar recursos já existentes, certifique-se de que cumpram os requisitos nesta tabela. 
 
-  | Recurso | Utilizar existente? | Requisitos |
+  | Resource | Utilizar existente? | Requisitos |
   |----------|-----------|----------|
   | Grupo de recursos | Sim, se estiver vazia | Tem de estar vazio| 
   | Conta de armazenamento | Sim se ligar um existente contentor de Blob a após a criação de cluster <br/>  Não se for criar um novo contentor de Blob durante a criação do cluster | Contentor de Blob existente tem de estar vazio <br/> &nbsp; |

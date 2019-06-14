@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588546"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Descrição geral da funcionalidade de ferramenta de modelagem de ameaças
@@ -46,7 +46,7 @@ A experiência é semelhante a outros produtos da Microsoft. Vamos rever os iten
 
 ![Itens de menu](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
-| Label                               | Detalhes      |
+| Etiqueta                               | Detalhes      |
 | --------------------------------------- | ------------ |
 | **Ficheiro** | <ul><li>Abrir, guardar e fechar arquivos</li><li>Inicie sessão e terminar sessão em contas do OneDrive.</li><li>Partilhar ligações (ver e editar).</li><li>Ver informações de ficheiro.</li><li>Aplica um novo modelo para modelos existentes.</li></ul> |
 | **Editar** | Desfazer e Refazer ações, bem como copiar, cola e eliminar. |
@@ -157,9 +157,9 @@ Pode ligar-se de elementos de duas formas:
 
 ![Antes](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>Após
+#### <a name="after"></a>Depois
 
-![Após](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
+![Depois](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Mensagens
 

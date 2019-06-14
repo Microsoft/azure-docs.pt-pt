@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60358046"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementar sem a necessidade de registo do utilizador final de reposição de palavra-passe
@@ -43,7 +43,7 @@ Se utilizar as predefinições no Azure AD Connect, os seguintes mapeamentos sã
 
 Quando o utilizador verifica o número de telemóvel, no campo de telefone em informações de contacto de autenticação no Azure AD também será preenchido com esse número.
 
-## <a name="authentication-contact-info"></a>Informação de contacto de autenticação
+## <a name="authentication-contact-info"></a>Informações de contacto de autenticação
 
 Um Administrador Global pode definir manualmente as informações de contacto de autenticação para um utilizador, tal como apresentado na seguinte captura de ecrã.
 

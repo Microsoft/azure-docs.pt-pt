@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684805"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Criar instruções condicionais que controlam ações de fluxo de trabalho no Azure Logic Apps
@@ -39,7 +39,7 @@ Por exemplo, suponha que tem uma aplicação lógica que envia e-mails demasiado
 
 1. Adicione uma condição na localização que pretende. 
 
-   Para adicionar uma condição entre etapas, mova o ponteiro sobre a seta para onde pretende adicionar a condição. Escolha o **sinal** (**+**) que aparece, em seguida, escolha **adicionar uma ação**. Por exemplo:
+   Para adicionar uma condição entre etapas, mova o ponteiro sobre a seta para onde pretende adicionar a condição. Escolha o **sinal** ( **+** ) que aparece, em seguida, escolha **adicionar uma ação**. Por exemplo:
 
    ![Adicionar ação entre passos](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 

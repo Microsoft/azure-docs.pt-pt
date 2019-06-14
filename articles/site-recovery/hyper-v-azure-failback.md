@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60552421"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar uma reativação pós-falha para VMs de Hyper-V
@@ -29,11 +29,11 @@ Após a ativação pós-falha dos principais para a localização secundária, m
 1. Selecione **planos de recuperação** > *recoveryplan_name*. Clique em **ativação pós-falha** > **ativação pós-falha planeada**.
 2. Sobre o **confirmar a ativação de pós-falha planeadas** página, selecione as localizações de origem e de destino. Tenha em atenção a direção de ativação pós-falha. Se a ativação pós-falha do primário funcionou como esperado e todas as máquinas virtuais estão na localização secundária, que isso é apenas para informação.
 3. Se estiver a efetuar a ativação pós-falha do Azure, selecione as definições no **sincronização de dados**:
-    - **Sincronizar os dados antes da ativação pós-falha (sincronizar apenas o alterações de delta)**— esta opção minimiza o tempo de inatividade para as máquinas virtuais como sincronizá-lo sem encerrá-los. Ele faz as seguintes etapas:
+    - **Sincronizar os dados antes da ativação pós-falha (sincronizar apenas o alterações de delta)** — esta opção minimiza o tempo de inatividade para as máquinas virtuais como sincronizá-lo sem encerrá-los. Ele faz as seguintes etapas:
         - Fase 1: Tira o instantâneo da máquina virtual no Azure e copia-o para o anfitrião de Hyper-V no local. A máquina continua em execução no Azure.
         - Fase 2: Encerra a máquina virtual no Azure, para que não existem novas alterações ocorrem aqui. O conjunto final das alterações delta é transferido para o servidor no local e a máquina de virtual no local é iniciada.
 
-    - **Sincronizar os dados durante a ativação pós-falha apenas (transferência completa)**— esta opção é mais rápida.
+    - **Sincronizar os dados durante a ativação pós-falha apenas (transferência completa)** — esta opção é mais rápida.
         - Esta opção é mais rápida porque podemos esperar que a maioria do disco foi alterado e não queremos passar um tempo no cálculo da soma de verificação. Ele executa uma transferência do disco. Também é útil quando a máquina de virtual no local foi eliminada.
         - Recomendamos que utilize esta opção se esteve executando Azure há algum tempo (um mês ou mais) ou a máquina de virtual no local foi eliminada. Esta opção não realiza quaisquer cálculos de soma de verificação.
 

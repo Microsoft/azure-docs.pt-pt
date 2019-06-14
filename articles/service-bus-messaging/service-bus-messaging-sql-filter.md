@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591797"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe de SQLFilter
@@ -193,7 +193,7 @@ Booleanos constantes são representados por palavras-chave **TRUE** ou **falso**
 
 Constantes de cadeia de caracteres colocados entre aspas e incluam quaisquer carateres Unicode válidos. Um único ponto de exclamação incorporado numa constante de cadeia de caracteres é representado por dois único entre aspas duplas.  
   
-## <a name="function"></a>função  
+## <a name="function"></a>Função  
   
 ```  
 <function> :=  

@@ -9,10 +9,10 @@ ms.date: 03/18/2019
 ms.topic: conceptual
 manager: peterpr
 ms.openlocfilehash: ec7033719316bb186408ea78f6dabac43c383491
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60519284"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar uma tarefa no seu aplicativo de Central de IoT do Azure
@@ -41,7 +41,7 @@ Esta secção mostra-lhe como criar e executar uma tarefa. Ele mostra como aumen
 
 1. Depois de selecionar os seus dispositivos, escolha **execute** ou **guardar**. A tarefa é agora apresentado no principal **tarefas** página. Nesta vista, pode ver a tarefa em execução e o histórico de qualquer anteriormente executar tarefas. Seu trabalho em execução sempre é exibido na parte superior da lista. Seu trabalho guardado pode ser aberto novamente em qualquer altura para continuar a editar ou para executar.
 
-    ![Ver Tarefa](./media/howto-run-a-job/viewjob.png)
+    ![Ver tarefa](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > Pode ver o histórico das suas tarefas de execução anterior até 30 dias.

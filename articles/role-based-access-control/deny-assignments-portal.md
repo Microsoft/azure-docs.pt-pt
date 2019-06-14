@@ -15,10 +15,10 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60194368"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Vista de negar atribuições para recursos do Azure no portal do Azure
@@ -34,7 +34,7 @@ Para obter informações sobre uma atribuição de negar, tem de ter:
 
 - `Microsoft.Authorization/denyAssignments/read` permissão, o que está incluído na maioria [funções incorporadas para recursos do Azure](built-in-roles.md).
 
-## <a name="view-deny-assignments"></a>Ver atribuições de negação
+## <a name="view-deny-assignments"></a>Vista de negar atribuições
 
 Siga estes passos para ver negar atribuições no âmbito de grupo de subscrição ou gestão.
 
@@ -42,7 +42,7 @@ Siga estes passos para ver negar atribuições no âmbito de grupo de subscriç�
 
 1. Clique no grupo de gestão ou a subscrição que pretende ver.
 
-1. Clique em **controlo de acesso (IAM)**.
+1. Clique em **controlo de acesso (IAM)** .
 
 1. Clique nas **negar atribuições** separador (ou clique no **vista** botão na exibição negar atribuições de mosaico).
 

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238116"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de destino

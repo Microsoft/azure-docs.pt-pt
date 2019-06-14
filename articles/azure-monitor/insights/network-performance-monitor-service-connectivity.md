@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
-ms.openlocfilehash: 5b1c0212205575f1d40f320fb959d98e55d87fb9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65963586"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052083"
 ---
-# <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
+# <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
 Pode utilizar a capacidade de Monitor de conectividade do serviço no [Monitor de desempenho de rede](network-performance-monitor.md) para monitorizar a conectividade de rede para qualquer ponto final que tem uma porta TCP aberta. Esses pontos de extremidade incluem Web sites, aplicações SaaS, PaaS aplicações e bases de dados SQL. 
 
@@ -33,7 +33,7 @@ Pode executar as seguintes funções com o Monitor de conectividade do serviço:
 - Identifica pontos de acesso na rede que podem estar provocando o desempenho da aplicação insatisfatório visualizando a latência contribuída cada salto num mapa de topologia.
 
 
-![Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
+![Monitor de Conectividade do Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
@@ -129,7 +129,7 @@ Se observar um abnormality, siga estes passos:
 * Se a aplicação está em execução lenta, determine se o desempenho da aplicação insatisfatório é devido à rede ou um problema no final do fornecedor de aplicações.
 
 ## <a name="gcc-office-urls-for-us-government-customers"></a>GCC URLs do Office para os clientes do Governo dos EUA
-Para a região do US Government Virginia, apenas os URLs do DOD são NPM incorporada. Clientes que utilizam o GCC URLs tem de criar testes personalizados e adicionar cada inidividually de URL.
+Para a região do US Government Virginia, apenas os URLs do DOD são NPM incorporada. Clientes que utilizam o GCC URLs tem de criar testes personalizados e adicionar cada URL individualmente.
 
 | Campo | GCC |
 |:---   |:--- |

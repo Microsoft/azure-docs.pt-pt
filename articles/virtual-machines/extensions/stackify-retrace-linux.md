@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
 ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620605"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>O stackify Retrace extensão de agente do Linux
@@ -192,7 +192,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 40 | Erro de instalação | é necessário o activationKey |
 | 51 | Erro de instalação | Distribuição de SO não suportada |
 | 60 | Erro de instalação | é necessário o ambiente |
-| 70 | Erro de instalação | Desconhecidos |
+| 70 | Erro de instalação | Desconhecido |
 | 80 | Ativar erro | Falha na configuração de serviço |
 | 90 | Ativar erro | Arranque do serviço falhou |
 | 100 | Desativar erros | Parar serviço falhou |

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400617"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
@@ -37,7 +37,7 @@ Pode conceder [permissões](#iot-hub-permissions) das seguintes formas:
 
 * **Políticas de acesso de partilhado ao nível do IoT hub**. Políticas de acesso partilhado podem conceder a qualquer combinação dos [permissões](#iot-hub-permissions). Pode definir políticas no [portal do Azure](https://portal.azure.com), por meio de programação, utilizando o [APIs de REST de recursos do IoT Hub](/rest/api/iothub/iothubresource), ou utilizando o [política do az iot hub](/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI. Um IoT hub recentemente criado tem as seguintes políticas padrão:
   
-  | Política de Acesso Partilhado | Permissões |
+  | Política de acesso partilhado | Permissões |
   | -------------------- | ----------- |
   | iothubowner | Todas as permissões |
   | serviço | **ServiceConnect** permissões |
@@ -108,7 +108,7 @@ Ao utilizar o SASL simples com AMQP, um cliente estabelecer ligação a um hub I
 
 ## <a name="scope-iot-hub-level-credentials"></a>Credenciais de ao nível do hub de IoT de âmbito
 
-Pode definir o âmbito políticas de segurança ao nível do hub IoT através da criação de tokens com um URI do recurso restrito. Por exemplo, o ponto final para enviar mensagens de dispositivo para a cloud a partir de um dispositivo é **/devices/ {deviceId} / mensagens/eventos**. Também pode utilizar uma política de acesso partilhado de ao nível do hub IoT com **DeviceConnect** permissões para assinar um token é cujo resourceURI **/devices/ {deviceId}**. Essa abordagem cria um token que só pode ser utilizado para enviar mensagens em nome do dispositivo **deviceId**.
+Pode definir o âmbito políticas de segurança ao nível do hub IoT através da criação de tokens com um URI do recurso restrito. Por exemplo, o ponto final para enviar mensagens de dispositivo para a cloud a partir de um dispositivo é **/devices/ {deviceId} / mensagens/eventos**. Também pode utilizar uma política de acesso partilhado de ao nível do hub IoT com **DeviceConnect** permissões para assinar um token é cujo resourceURI **/devices/ {deviceId}** . Essa abordagem cria um token que só pode ser utilizado para enviar mensagens em nome do dispositivo **deviceId**.
 
 Esse mecanismo é semelhante para o [política do publicador de Hubs de eventos](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)e permite-lhe implementar métodos de autenticação personalizados.
 

@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61387945"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66808390"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -65,27 +65,27 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 ## <a name="install-app-insights-plugin"></a>Instalar o Plug-in do Application Insights
 
-1. Inicie o **Eclipse** > Clique em **Help (Ajuda)** > Selecione **Install New Software (Instalar Software Novo)**.
+1. Inicie o **Eclipse** > Clique em **Help (Ajuda)** > Selecione **Install New Software (Instalar Software Novo)** .
 
    ![Formulário de recurso novo do App Insights](./media/java-quick-start/000-j.png)
 
 2. Copie ```https://dl.microsoft.com/eclipse``` para o campo "Work With" > Marque **Azure Toolkit for Java** > Selecione **Application Insights Plugin for Java** > **Desmarque** "Contact all update sites during install to find required software" (Contactar todos os sites de atualizações durante a instalação para localizar o software necessário).
 
-3. Assim que a instalação estiver concluída, ser-lhe-á pedido para **Restart Eclipse (Reiniciar o Eclipse)**.
+3. Assim que a instalação estiver concluída, ser-lhe-á pedido para **Restart Eclipse (Reiniciar o Eclipse)** .
 
 ## <a name="configure-app-insights-plugin"></a>Configurar o Plug-in do Application Insights
 
-1. Inicie o **Eclipse** > Abra o seu **Projeto** > Clique com o botão direito do rato no nome do projeto no **Project Explorer (Explorador de Projetos)** > Selecione **Azure** > Clique em **Sign In (Iniciar Sessão)**.
+1. Inicie o **Eclipse** > Abra o seu **Projeto** > Clique com o botão direito do rato no nome do projeto no **Project Explorer (Explorador de Projetos)** > Selecione **Azure** > Clique em **Sign In (Iniciar Sessão)** .
 
 2. Selecione o Método de Autenticação **Interactive (Interativo)** > Clique em **Sign In (Iniciar Sessão)** > Quando lhe for pedido, introduza as suas **credenciais do Azure** > Selecione a sua **Subscrição do Azure**.
 
-3. Clique com o botão direito do rato no nome do projeto no **Project Explorer (Explorador de Projetos)** > Selecione **Azure** > Clique em **Configure Application Insights (Configurar o Application Insights)**.
+3. Clique com o botão direito do rato no nome do projeto no **Project Explorer (Explorador de Projetos)** > Selecione **Azure** > Clique em **Configure Application Insights (Configurar o Application Insights)** .
 
 4. Marque **Enable telemetry with Application Insights (Ativar telemetria com o Application Insights)** > Selecione o recurso do App Insights e a **Chave de instrumentação** associada que pretende ligar à sua aplicação Java.
 
    ![Menu de Configuração do Azure no Eclipse](./media/java-quick-start/0007-j.png)
 
-5. Depois de configurar o plug-in do Application Insights terá [publicar/voltar a publicá](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure) seu aplicativo novamente, antes ele poderá começar a enviar telemetria.
+5. Depois de configurar o plug-in do Application Insights terá [publicar/voltar a publicá](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#deploy-the-app) seu aplicativo novamente, antes ele poderá começar a enviar telemetria.
 
 > [!NOTE]
 > O Application Insights SDK para Java é capaz de capturar e visualizar métricas dinâmicas, mas, quando ativa primeiro a recolha de dados telemétricos, pode demorar alguns minutos até que os dados comecem a aparecer no portal. Se esta aplicação for uma aplicação de teste de tráfego reduzido, tenha em atenção que a maioria das métricas só é capturada quando existem operações ou pedidos ativos.

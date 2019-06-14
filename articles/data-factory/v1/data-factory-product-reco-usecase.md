@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60605685"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de Utilização - Recomendações do Produto
@@ -39,7 +39,7 @@ Em terceiro lugar, as recomendações tem de ser imediatamente resultado final p
 
 Por fim, os varejistas precisam medir a eficácia da sua abordagem ao controlar geral superior e êxitos de vendas de conversão de clique de cross-selling e ajustar às suas recomendações futuras.
 
-## <a name="solution-overview"></a>Descrição Geral da Solução
+## <a name="solution-overview"></a>Descrição geral da solução
 Este caso de utilização de exemplo foi resolvido e implementado por utilizadores reais do Azure com o Azure Data Factory e outros serviços de componentes do Cortana Intelligence, incluindo [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/).
 
 O varejista online usa um armazenamento de Blobs do Azure, um servidor SQL no local, BD SQL do Azure e um data mart relacional como suas opções de armazenamento de dados em todo o fluxo de trabalho.  O armazenamento de blob contém informações de clientes, dados de comportamento do cliente e dados de informações do produto. Os dados de informações do produto incluem informações de marca de produto e armazenados no local num SQL data warehouse do catálogo de um produto. 

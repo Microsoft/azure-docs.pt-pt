@@ -3,20 +3,20 @@ title: Contentores do Docker
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: O contentor de LUIS carrega a aplicação publicada ou preparada para um contentor do docker e fornece acesso para as previsões de consulta de pontos finais da API do contentor.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 02ac7b91622a3c8fe877ea9bcbc7224a67eb0ae5
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 68ff6a156e0d159816b184452f1f945cbce65216
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052020"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -109,7 +109,7 @@ O diretório de montagem de entrada pode conter os **produção**, **teste**, e 
 |Tipo de pacote|API de ponto final da consulta|Disponibilidade de consulta|Formato de nome de ficheiro de pacote|
 |--|--|--|--|
 |Preparado|GET, Post|Contentor apenas|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Testes|GET, Post|Azure e contentores|`{APPLICATION_ID}_STAGING.gz`|
+|Teste|GET, Post|Azure e contentores|`{APPLICATION_ID}_STAGING.gz`|
 |Produção|GET, Post|Azure e contentores|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -277,7 +277,7 @@ Usar o host, `https://localhost:5000`, para o contentor APIs.
 
 Configurar os parâmetros de consulta como e o que é devolvido na resposta da consulta:
 
-|Parâmetro de consulta|Type|Objetivo|
+|Parâmetro de consulta|Tipo|Objetivo|
 |--|--|--|
 |`q`|string|Expressão do utilizador.|
 |`timezoneOffset`|número|O timezoneOffset permite-lhe [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilizado pelo datetimeV2 a entidade pré-criados.|

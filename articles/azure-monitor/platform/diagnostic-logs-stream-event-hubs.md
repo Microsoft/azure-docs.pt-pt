@@ -9,10 +9,10 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237743"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Registos de diagnóstico do Azure Stream para um hub de eventos
@@ -24,7 +24,7 @@ Seguem-se apenas algumas maneiras, pode utilizar a capacidade de transmissão em
 * **Stream registos para sistemas 3º de Registro em log e telemetria de terceiros** – pode transmitir todos os seus registos de diagnóstico para um hub de eventos único para dados de registo de pipe para uma ferramenta de análise de terceiros SIEM ou do registo.
 * **Ver o estado de funcionamento do serviço através da transmissão em fluxo de dados de "hot path" para o Power BI** – utilizar os Hubs de eventos, o Stream Analytics e o Power BI, pode transformar facilmente seus dados de diagnóstico para uma quase informações em tempo real nos seus serviços do Azure. [Este artigo de documentação fornece uma excelente descrição geral de como configurar os Hubs de eventos, processar dados com o Stream Analytics e utilizar o Power BI como uma saída](../../stream-analytics/stream-analytics-power-bi-dashboard.md). Aqui estão algumas dicas para obter configurado com os registos de diagnóstico:
 
-  * Um hub de eventos para uma categoria de registos de diagnóstico é criado automaticamente quando marcar a opção no portal ou ativá-la através do PowerShell, pelo que deve selecionar o hub de eventos no espaço de nomes com o nome que começa com **insights -**.
+  * Um hub de eventos para uma categoria de registos de diagnóstico é criado automaticamente quando marcar a opção no portal ou ativá-la através do PowerShell, pelo que deve selecionar o hub de eventos no espaço de nomes com o nome que começa com **insights -** .
   * O seguinte código SQL é uma consulta do Stream Analytics de exemplo que pode utilizar para analisar todos os dados de registo na uma tabela do Power BI:
 
     ```sql

@@ -3,8 +3,8 @@ title: Exemplo do script da CLI do Azure - encaminhar o tráfego de elevada disp
 description: Exemplo do script da CLI do Azure - encaminhar o tráfego de elevada disponibilidade de aplicações
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: jeconnoc
+author: asudbring
+manager: twooley
 editor: tysonn
 tags: azure-infrastructure
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: kumud
-ms.openlocfilehash: 6c610a1cddb0854878d4c2bd5531f88a1cf2ec51
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 2bf993dad3b9452424c5d3b450bf3908b38983c2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884228"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050983"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Encaminhar o tráfego de elevada disponibilidade de aplicações através da CLI do Azure
 

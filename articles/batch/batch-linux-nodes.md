@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24576a46b47b22ef447793b4105730ed2755701d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050627"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionar nós de computação do Linux em conjuntos do Batch
 
@@ -45,7 +45,7 @@ Quando configurar uma referência de imagem de máquina virtual, especifica as p
 
 | **Propriedades de referência da imagem** | **Exemplo** |
 | --- | --- |
-| Publicador |Canónico |
+| Fabricante |Canónico |
 | Oferta |UbuntuServer |
 | SKU |14.04.4-LTS |
 | Version |mais recente |
@@ -91,8 +91,8 @@ node_count = 1
 
 # Initialize the Batch client
 creds = batchauth.SharedKeyCredentials(account, key)
-config = batch.BatchServiceClientConfiguration(creds, base_url = batch_url)
-client = batch.BatchServiceClient(config)
+config = batch.BatchServiceClientConfiguration(creds, batch_url)
+client = batch.BatchServiceClient(creds, batch_url)
 
 # Create the unbound pool
 new_pool = batchmodels.PoolAddParameter(id = pool_id, vm_size = vm_size)

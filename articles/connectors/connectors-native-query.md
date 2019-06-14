@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
 ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538248"
 ---
 # <a name="get-started-with-the-query-action"></a>Comece com a ação de consulta
@@ -58,23 +58,23 @@ Aqui estão os detalhes para a ação que este conector suporta. O conector tem 
 
 | Ação | Descrição |
 | --- | --- |
-| Filtrar matriz |Avalia uma condição para cada item numa matriz e retorna os resultados |
+| Matriz de filtro |Avalia uma condição para cada item numa matriz e retorna os resultados |
 
 ## <a name="action-details"></a>Detalhes da ação
 A ação de consulta vem com uma ação possível. As tabelas seguintes descrevem os campos de entrada necessários e opcionais para a ação e os detalhes de resultado correspondente, que estão associados com a ação.
 
-### <a name="filter-array"></a>Filtrar matriz
+### <a name="filter-array"></a>Matriz de filtro
 Seguem-se os campos de entrada para a ação, o que faz uma solicitação de saída de HTTP.
 A * significa que é um campo obrigatório.
 
-| Nome a apresentar | Nome da propriedade | Descrição |
+| Display name | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| De * |de |A matriz a filtrar |
+| De * |from |A matriz a filtrar |
 | Condição * |onde |A condição para avaliar para cada item |
 
 <br>
 
-### <a name="output-details"></a>Detalhes da saída
+### <a name="output-details"></a>Detalhes de saída
 Seguem-se detalhes de saída para a resposta HTTP.
 
 | Nome da propriedade | Tipo de dados | Descrição |

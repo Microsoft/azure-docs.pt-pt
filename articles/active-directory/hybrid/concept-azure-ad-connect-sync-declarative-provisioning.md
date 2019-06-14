@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246362"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: Compreender o Aprovisionamento Declarativo
@@ -42,13 +42,13 @@ O pipeline tem vários módulos diferentes. Cada um deles é responsável por um
 * [Precedência](#precedence), resolve em conflito contribuições de atributo
 * Destino, o objeto de destino
 
-## <a name="scope"></a>Âmbito
+## <a name="scope"></a>Scope
 O módulo de âmbito está a avaliar um objeto e determina as regras que estão no âmbito e devem ser incluídas no processamento. Dependendo dos valores de atributos no objeto, as regras de sincronização diferentes são avaliadas no âmbito. Por exemplo, um utilizador desativado com nenhuma caixa de correio do Exchange tem regras diferentes do que um utilizador ativado com uma caixa de correio.  
-![Âmbito](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 O âmbito é definido como grupos e as cláusulas. As cláusulas estão dentro de um grupo. Um lógico e é utilizado entre todas as cláusulas num grupo. Por exemplo, (departamento = TI e país = Dinamarca). OU é utilizada entre grupos.
 
-![Âmbito](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
 O âmbito nesta imagem deve ser lida como (departamento = TI e país = Dinamarca) ou (país = Suécia). Se o grupo 1 ou 2 do grupo é avaliado como true, em seguida, a regra está no âmbito.
 
 O módulo de âmbito suporta as seguintes operações.
@@ -66,7 +66,7 @@ O módulo de âmbito suporta as seguintes operações.
 | ISBITSET, ISNOTBITSET |Avalia se um bit particular está definido. Por exemplo, pode ser utilizado para avaliar o bits na userAccountControl para ver se um utilizador está ativado ou desativado. |
 | ISMEMBEROF, ISNOTMEMBEROF |O valor deve conter um DN a um grupo no espaço conector. Se o objeto for um membro do grupo especificado, a regra está no âmbito. |
 
-## <a name="join"></a>Associar
+## <a name="join"></a>Aderir
 O módulo de associação no pipeline de sincronização é responsável pela localização a relação entre o objeto na origem e um objeto no destino. Numa regra de entrada, esta relação seria um objeto num espaço conector encontrar uma relação a um objeto no metaverso.  
 ![Junte-se entre cs e mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
 O objetivo é ver que se existe um objeto já no metaverso, criado por outro conector, deve ser associado com. Por exemplo, numa floresta de recursos da conta de utilizador da floresta de contas deve ser associado com o utilizador da floresta de recursos.

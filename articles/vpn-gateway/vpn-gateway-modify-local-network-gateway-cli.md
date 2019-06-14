@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
 ms.openlocfilehash: 20e8269f0ee7463dcff9a5f66e46ebd81cb3df84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60652859"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Modificar as definições de gateway de rede local com a CLI do Azure

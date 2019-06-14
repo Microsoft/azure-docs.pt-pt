@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60290046"
 ---
 # <a name="start-using-pim"></a>Comece a utilizar o PIM
@@ -60,7 +60,7 @@ Para começar a utilizar o PIM no seu diretório, primeiro tem de ativar o PIM.
 
 1. Clique em **verificar a minha identidade** para verificar a sua identidade com a MFA do Azure. Será solicitado a escolher uma conta.
 
-    ![Selecione uma conta](./media/pim-getting-started/pick-account.png)
+    ![Escolha uma conta](./media/pim-getting-started/pick-account.png)
 
 1. Se necessário para a verificação de obter mais informações, irá ser orientado ao longo do processo. Para obter mais informações, consulte [obter ajuda com verificação de dois passos](https://go.microsoft.com/fwlink/p/?LinkId=708614).
 
@@ -125,7 +125,7 @@ Para facilitar abrir o PIM, deve adicionar um mosaico PIM ao dashboard do portal
 
 1. Verifique **afixar painel ao dashboard** para afixar o painel de início rápido do PIM ao dashboard.
 
-    ![Afixar o painel ao dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Afixar painel ao dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     No dashboard do Azure, verá um mosaico como este:
 

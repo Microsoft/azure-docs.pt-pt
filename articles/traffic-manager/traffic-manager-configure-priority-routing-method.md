@@ -3,20 +3,21 @@ title: Configurar o método de encaminhamento de tráfego de prioridade com o Ge
 description: Este artigo explica como configurar o método de encaminhamento de tráfego de prioridade no Gestor de tráfego
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048480"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configurar método de encaminhamento de tráfego de prioridade no Gestor de tráfego
 
@@ -33,7 +34,7 @@ Independentemente do modo do site, Web sites do Azure já fornece funcionalidade
     1. Para **definições do método de encaminhamento de tráfego**, certifique-se de que o método de encaminhamento de tráfego é **prioridade**. Se não estiver, clique em **prioridade** na lista pendente.
     2. Definir o **definições do monitor de ponto final** idêntica para todas as cada ponto final dentro deste perfil da seguinte forma:
         1. Selecione o adequado **protocolo**e especifique a **porta** número. 
-        2. Para **caminho** escreva uma barra */*. Para monitorizar os pontos finais, tem de especificar um caminho e nome de ficheiro. A reencaminhar barra "/" é uma entrada válida para o caminho relativo e indica que o ficheiro está no diretório de raiz (predefinição).
+        2. Para **caminho** escreva uma barra */* . Para monitorizar os pontos finais, tem de especificar um caminho e nome de ficheiro. A reencaminhar barra "/" é uma entrada válida para o caminho relativo e indica que o ficheiro está no diretório de raiz (predefinição).
         3. Na parte superior da página, clique em **guardar**.
 5. Na **configurações** secção, clique em **pontos de extremidade**.
 6. Na **pontos de extremidade** painel, reveja a ordem de prioridade para os pontos finais. Quando seleciona a **prioridade** método de encaminhamento de tráfego, a ordem das questões de pontos finais selecionados. Certifique-se a ordem de prioridade de pontos de extremidade.  O ponto final primário é na parte superior. Verifique novamente em ordem que é apresentado. todos os pedidos serão encaminhados para o primeiro ponto final e se o Gestor de tráfego detetar ser mau estado de funcionamento, o tráfego automaticamente efetua a ativação pós-falha para o próximo ponto de extremidade. 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b849e63b758dca777df2be682b28bc4e10e58330
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 7dd225d9830a5bb94799b005700d28a2f5c5198f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054893"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integrar ExpenseIn com o Azure Active Directory
 
@@ -57,15 +57,15 @@ Para configurar a integração do ExpenseIn com o Azure AD, terá de adicionar E
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Configurar e testar o SSO do Azure AD com ExpenseIn com um utilizador de teste **B. Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no ExpenseIn.
+Configurar e testar o SSO do Azure AD com ExpenseIn com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no ExpenseIn.
 
 Para configurar e testar o SSO do Azure AD com ExpenseIn, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
 2. **[Configurar ExpenseIn](#configure-expensein)**  para configurar as definições de SSO no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Simon B.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Simon B. utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste ExpenseIn](#create-expensein-test-user)**  para ter um equivalente de Simon B. no ExpenseIn que está ligado à representação de utilizador do Azure AD.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com B.Simon.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar B.Simon utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste ExpenseIn](#create-expensein-test-user)**  para ter um equivalente de B.Simon no ExpenseIn que está ligado à representação de utilizador do Azure AD.
 6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -101,41 +101,51 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
 ### <a name="configure-expensein"></a>Configurar ExpenseIn
 
-1. Numa janela do browser web diferente, inicie sessão no ExpenseIn como um administrador.
+1. Para automatizar a configuração no ExpenseIn, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
 
-2. Clique em **administrador** no topo da página, em seguida, navegue até **Single Sign-On** e clique em **Adicionar fornecedor**.
+    ![Extensão My apps](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão para o navegador, clique em **ExpenseIn configuração** irá direcioná-lo para o aplicativo ExpenseIn. A partir daí, forneça as credenciais de administrador a iniciar sessão em ExpenseIn. A extensão de navegador automaticamente irá configurar o aplicativo para e automatizar passos 3 a 5.
+
+    ![Configuração do programa de configuração](common/setup-sso.png)
+
+3. Se desejar configurar manualmente o ExpenseIn, abra uma nova janela de browser e inicie sessão no site da sua empresa ExpenseIn como administrador e execute os seguintes passos:
+
+4. Clique em **administrador** no topo da página, em seguida, navegue até **Single Sign-On** e clique em **Adicionar fornecedor**.
 
      ![Configuração de ExpenseIn](./media/expenseIn-tutorial/config01.png)
 
-3. Sobre o **novo fornecedor de identidade** pop-up, execute os seguintes passos:
+5. Sobre o **novo fornecedor de identidade** pop-up, execute os seguintes passos:
 
     ![Configuração de ExpenseIn](./media/expenseIn-tutorial/config02.png)
 
     a. Na **nome do fornecedor** texto, escreva o nome, como por exemplo: Azure.
 
-    b. Na **Url de destino** texto caixa, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    b. Selecione **Sim** como **permitir fornecedor Intitated logon**.
 
-    c. Na **emissor** texto caixa, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
+    c. Na **Url de destino** texto caixa, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
 
-    d. Abra o certificado (Base64) no bloco de notas, copie o seu conteúdo e cole-na **certificado** caixa de texto.
+    d. Na **emissor** texto caixa, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
 
-    e. Clique em **Criar**.
+    e. Abra o certificado (Base64) no bloco de notas, copie o seu conteúdo e cole-na **certificado** caixa de texto.
+
+    f. Clique em **Criar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Simon B.
+Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
 
 1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Na **utilizador** propriedades, siga estes passos:
-   1. No campo **Nome**, introduza `B. Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
    1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, irá ativar a Simon B. utilizar o Azure início de sessão único ao conceder acesso para ExpenseIn.
+Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único ao conceder acesso para ExpenseIn.
 
 1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
 1. Na lista de aplicações, selecione **ExpenseIn**.
@@ -147,7 +157,7 @@ Nesta secção, irá ativar a Simon B. utilizar o Azure início de sessão únic
 
     ![A ligação de adicionar utilizador](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B. Simon** a partir da lista de utilizadores, em seguida, clique no **selecione** na parte inferior do ecrã.
+1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
 1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
 1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
 
@@ -171,7 +181,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no ExpenseIn, tem de ser 
 
     b. Na **sobrenome** texto, digite o apelido do utilizador, como **Simon**.
 
-    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como `B. Simon@contoso.com`.
+    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como `B.Simon@contoso.com`.
 
     d. Clique em **Criar**.
 

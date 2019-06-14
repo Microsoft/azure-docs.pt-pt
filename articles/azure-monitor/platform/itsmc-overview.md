@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395870"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
@@ -89,7 +89,7 @@ Dependendo do produto ITSM que está a ligar, utilize os seguintes passos:
 
 Depois de ter preparado suas ferramentas ITSM, siga os passos abaixo para criar uma ligação:
 
-1. Aceda a **todos os recursos**, procure **ServiceDesk(YourWorkspaceName)**.
+1. Aceda a **todos os recursos**, procure **ServiceDesk(YourWorkspaceName)** .
 2. Sob **ORIGENS de dados de área de trabalho** no painel esquerdo, clique em **ligações de ITSM**.
    ![Ligações de ITSM](media/itsmc-overview/itsm-connections.png)
 
@@ -161,7 +161,7 @@ Se estiver a utilizar a solução mapa de serviço, pode ver os itens de suporte
 
 ![Ecrã do log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.md)
+Obter mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Informações adicionais
@@ -186,19 +186,19 @@ ServiceDeskWorkItemType_s="Incident"
 - Urgência
 - Impacto
 - Prioridade
-- Escalamento
-- Criado Por
+- Escalonamento
+- Criado por
 - Resolvido por
 - Fechado por
-- Origem
+- source
 - Atribuído a
 - Category
-- Título
+- Cargo
 - Descrição
-- Data de Criação
+- Data de criação
 - Data de fecho
-- Data de Resolução
-- Data da Última Modificação
+- Data de resolução
+- Data da última modificação
 - Computador
 
 
@@ -209,24 +209,24 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 **Campos**
 - ServiceDeskConnectionName
 - ID do Service Desk
-- Criado Por
+- Criado por
 - Fechado por
-- Origem
+- source
 - Atribuído a
-- Título
-- Type
+- Cargo
+- Tipo
 - Category
 - Estado
-- Escalamento
+- Escalonamento
 - Estado de conflito
 - Urgência
 - Prioridade
 - Risco
 - Impacto
 - Atribuído a
-- Data de Criação
+- Data de criação
 - Data de fecho
-- Data da Última Modificação
+- Data da última modificação
 - Data solicitada
 - Data de início planeada
 - Data de fim de planeada
@@ -252,7 +252,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s | Category |
 | Title_s|  Breve descrição |
 | Description_s|  Notas |
-| CreatedDate_t|  Aberturas |
+| CreatedDate_t|  Aberto |
 | ClosedDate_t| Fechado|
 | ResolvedDate_t|Resolvido|
 | Computador  | Item de configuração |
@@ -262,11 +262,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics | Campo do ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| CreatedBy_s | Pedido por |
+| CreatedBy_s | Requerido por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Breve descrição |
-| Type_s|  Type |
+| Type_s|  Tipo |
 | Category_s|  Category |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |

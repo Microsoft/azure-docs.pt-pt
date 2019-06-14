@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60354384"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Quais são as dependências do serviço de acesso condicional do Azure Active Directory? 
@@ -56,23 +56,23 @@ Como melhor prática, deve definir políticas comuns em aplicações relacionada
 
 A tabela a seguir apresenta uma lista de dependências de serviço adicionais, onde tem de cumprir as aplicações de cliente  
 
-| Aplicações do cliente         | Serviço Downstream                          | Imposição |
+| Aplicações de cliente         | Serviço Downstream                          | Imposição |
 | :--                 | :--                                         | ---         | 
 | Azure Data Lake     | Gestão do Microsoft Azure (portal e a API) | Antecipadas |
-| Microsoft Classroom | Troca                                    | Antecipadas |
+| Microsoft Classroom | Exchange                                    | Antecipadas |
 |                     | SharePoint                                  | Antecipadas  |
-| Microsoft Teams     | Troca                                    | Antecipadas |
+| Microsoft Teams     | Exchange                                    | Antecipadas |
 |                     | Planeador de implementações do MS                                  | Ligação tardia  |
 |                     | SharePoint                                  | Antecipadas |
 |                     | Skype para Empresas Online                   | Antecipadas |
-| Portal do Office       | Troca                                    | Ligação tardia  |
+| Portal do Office       | Exchange                                    | Ligação tardia  |
 |                     | SharePoint                                  | Ligação tardia  |
-| Grupos do Outlook      | Troca                                    | Antecipadas |
+| Grupos do Outlook      | Exchange                                    | Antecipadas |
 |                     | SharePoint                                  | Antecipadas |
 | PowerApps           | Gestão do Microsoft Azure (portal e a API) | Antecipadas |
 |                     | Windows Azure Active Directory              | Antecipadas |
 | Project             | Dynamics CRM                                | Antecipadas |
-| Skype para Empresas  | Troca                                    | Antecipadas |
+| Skype para Empresas  | Exchange                                    | Antecipadas |
 | Visual Studio       | Gestão do Microsoft Azure (portal e a API) | Antecipadas |
 
 

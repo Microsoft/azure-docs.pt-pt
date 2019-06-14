@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60557074"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utilizar o restauro geográfico para recuperar uma aplicação SaaS multi-inquilino de cópias de segurança da base de dados
@@ -80,7 +80,7 @@ Os scripts de DR utilizados neste tutorial estão disponíveis no [Wingtip Ticke
 ## <a name="review-the-healthy-state-of-the-application"></a>Reveja o estado de funcionamento da aplicação
 Antes de começar o processo de recuperação, reveja o estado de bom estado de funcionamento normal do aplicativo.
 
-1. No seu navegador da web, abra o hub de eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt; usuário&gt;. trafficmanager.net, substitua &lt;utilizador&gt; com valor de utilizador da sua implementação).
+1. No seu navegador da web, abra o hub de eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt ; usuário&gt;. trafficmanager.net, substitua &lt; utilizador&gt; com valor de utilizador da sua implementação).
     
    Desloque-se para a parte inferior da página e tenha em atenção o nome do servidor de catálogo e o local no rodapé. A localização é a região em que implementou a aplicação.    
 
@@ -200,7 +200,7 @@ Embora o ponto final da aplicação está desabilitado no Gestor de tráfego, o 
  
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Se abrir a página de eventos de um inquilino diretamente enquanto o inquilino estiver offline, a página é apresentada uma notificação offline do inquilino. Por exemplo, se a Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt; utilizador&gt;.trafficmanager.net/contosoconcerthall.
+  * Se abrir a página de eventos de um inquilino diretamente enquanto o inquilino estiver offline, a página é apresentada uma notificação offline do inquilino. Por exemplo, se a Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt ; utilizador&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +266,7 @@ Nesta tarefa, atualizar uma das bases de dados inquilinas restaurada. As cópias
 
 3. Para executar o script, selecione F5.
 
-4. Atualize a página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt; utilizador&gt;.trafficmanager.net/contosoconcerthall) e tenha em atenção que o evento seriamente Strauss está em falta.
+4. Atualize a página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt ; utilizador&gt;.trafficmanager.net/contosoconcerthall) e tenha em atenção que o evento seriamente Strauss está em falta.
 
 Neste momento no tutorial, tiver recuperado o aplicativo, que está agora em execução na região de recuperação. Ter aprovisionado um novo inquilino na região de recuperação e modificar dados de um dos inquilinos restaurados.  
 
@@ -330,7 +330,7 @@ Se seguiu o tutorial, o script reativa imediatamente Fabrikam Jazz Club e Dogwoo
 
     Para executar o script de recuperação numa nova janela do PowerShell, selecione F5. Repatriation demora vários minutos e pode ser monitorado na janela do PowerShell.
 
-3. Enquanto estiver a executar o script, atualize a página de hub de eventos (http://events.wingtip-dpt.&lt; utilizador&gt;. trafficmanager.net).
+3. Enquanto estiver a executar o script, atualize a página de hub de eventos (http://events.wingtip-dpt.&lt ; utilizador&gt;. trafficmanager.net).
 
     Tenha em atenção que todos os inquilinos estão online e acessíveis ao longo deste processo.
 

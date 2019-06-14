@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 06/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 6b8870f0a6f14536fdf3a1ff675f2fbe3ce8aeec
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: MT
+ms.openlocfilehash: 89970802ff21a254fae0604e50ea2b8b5901f95a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052002"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Ativar o Azure Monitor para VMs (pré-visualização) para um ambiente híbrido
 
@@ -35,7 +35,7 @@ Antes de obter iniciado, não se esqueça de rever o [pré-requisitos](vminsight
 
 As tarefas para concluir esta tarefa são resumidas da seguinte forma:
 
-1. Instale o agente do Log Analytics para Windows ou Linux.
+1. Instale o agente do Log Analytics para Windows ou Linux. Antes de instalar o agente, consulte a [descrição geral do agente do Log Analytics](../platform/log-analytics-agent.md) artigo para compreender os pré-requisitos do sistema e métodos de implantação.  
 
 2. Transfira e instale o Azure Monitor para agente de dependência de mapa de VMs para [Windows](https://aka.ms/dependencyagentwindows) ou [Linux](https://aka.ms/dependencyagentlinux).
 

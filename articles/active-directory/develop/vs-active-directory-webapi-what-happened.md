@@ -14,10 +14,10 @@ ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353283"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto WebAPI (serviço ligado do Visual Studio do Azure Active Directory)
@@ -34,7 +34,7 @@ Para obter informações sobre como trabalhar com o serviço ligado, consulte [i
 
 Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referências de NuGet).
 
-| Type | Referência |
+| Tipo | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -47,7 +47,7 @@ Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referên
 
 Referências adicionais, se tiver selecionado o **ler dados do diretório** opção:
 
-| Type | Referência |
+| Tipo | Referência |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (Visual Studio 2015 apenas) |
@@ -61,7 +61,7 @@ Referências adicionais, se tiver selecionado o **ler dados do diretório** opç
 
 As seguintes referências são removidas (ASP.NET 4 projetos apenas, como no Visual Studio 2015):
 
-| Type | Referência |
+| Tipo | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

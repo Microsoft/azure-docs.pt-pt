@@ -15,10 +15,10 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595768"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um ficheiro de solução de gestão no Azure (pré-visualização)
@@ -70,7 +70,7 @@ A tabela seguinte descreve os atributos de um parâmetro.
 
 | Atributo | Descrição |
 |:--- |:--- |
-| tipo |Tipo de dados para o parâmetro. O controlo de entrada apresentado para o utilizador depende do tipo de dados.<br><br>bool - caixa pendente<br>cadeia de caracteres - caixa de texto<br>Int - caixa de texto<br>SecureString - campo palavra-passe<br> |
+| type |Tipo de dados para o parâmetro. O controlo de entrada apresentado para o utilizador depende do tipo de dados.<br><br>bool - caixa pendente<br>cadeia de caracteres - caixa de texto<br>Int - caixa de texto<br>SecureString - campo palavra-passe<br> |
 | category |Categoria opcional para o parâmetro.  Parâmetros da mesma categoria são agrupados em conjunto. |
 | Controlo |Funcionalidades adicionais para os parâmetros de cadeia de caracteres.<br><br>DateTime - controle de Datetime é apresentado.<br>GUID - valor Guid é gerado automaticamente e o parâmetro não é apresentado. |
 | description |Descrição opcional para o parâmetro.  Apresentado num balão de informações junto do parâmetro. |
@@ -83,7 +83,7 @@ A tabela seguinte lista os parâmetros padrão para todas as soluções de gest�
 >
 >
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 |:--- |:--- |:--- |
 | nomeConta |string |Nome da conta de automatização do Azure. |
 | pricingTier |string |Escalão de preço da área de trabalho do Log Analytics e a conta de automatização do Azure. |
@@ -129,7 +129,7 @@ Segue-se a estrutura dos parâmetros padrão que pode copiar e colar no seu arqu
     }
 
 
-Consulte a valores de parâmetro em outros elementos da solução com a sintaxe **parâmetros ('nome do parâmetro')**.  Por exemplo, para acessar o nome de área de trabalho, usaria **parameters('workspaceName')**
+Consulte a valores de parâmetro em outros elementos da solução com a sintaxe **parâmetros ('nome do parâmetro')** .  Por exemplo, para acessar o nome de área de trabalho, usaria **parameters('workspaceName')**
 
 ## <a name="variables"></a>Variáveis
 [Variáveis](../../azure-resource-manager/resource-group-authoring-templates.md#variables) são valores que irá utilizar no restante da solução de gestão.  Estes valores não são expostos ao utilizador instalar a solução.  Eles têm a finalidade de fornecer o autor com uma única localização onde é possível gerenciar os valores que podem ser utilizadas várias vezes em toda a solução. Deve colocar todos os valores específicos à sua solução em variáveis em vez de pré-programá-la-os na **recursos** elemento.  Isso torna o código mais legível e permite-lhe facilmente alterar estes valores nas versões posteriores.
@@ -144,7 +144,7 @@ Segue-se um exemplo de um **variáveis** elemento com parâmetros comuns utiliza
         "AutomationApiVersion": "2015-10-31"
     },
 
-Consulte os valores das variáveis através da solução com a sintaxe **variáveis ("nome da variável")**.  Por exemplo, para aceder à variável SolutionName, usaria **variables('SolutionName')**.
+Consulte os valores das variáveis através da solução com a sintaxe **variáveis ("nome da variável")** .  Por exemplo, para aceder à variável SolutionName, usaria **variables('SolutionName')** .
 
 Também pode definir variáveis de complexo esse múltiplo de conjuntos de valores.  Estes são particularmente úteis em soluções de gestão onde está a definir várias propriedades para diferentes tipos de recursos.  Por exemplo, pode reestruturar as variáveis de solução mostradas acima para o seguinte.
 
@@ -213,7 +213,7 @@ O recurso de solução tem as propriedades na tabela seguinte.  Isto inclui os r
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| workspaceResourceId |ID da área de trabalho do Log Analytics no formulário  *\<ID do grupo de recursos > /providers/Microsoft.OperationalInsights/workspaces/\<nome da área de trabalho\>*. |
+| workspaceResourceId |ID da área de trabalho do Log Analytics no formulário  *\<ID do grupo de recursos > /providers/Microsoft.OperationalInsights/workspaces/\<nome da área de trabalho\>* . |
 | referencedResources |Lista de recursos na solução que não devem ser removidos quando a solução é removida. |
 | containedResources |Lista de recursos na solução que devem ser removidos quando a solução é removida. |
 
@@ -224,9 +224,9 @@ O **plano** entidade do recurso de solução tem as propriedades na tabela segui
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| nome |Nome da solução. |
-| versão |Versão da solução conforme determinado pelo autor. |
-| produto |Cadeia de caracteres exclusiva para identificar a solução. |
+| name |Nome da solução. |
+| version |Versão da solução conforme determinado pelo autor. |
+| Produto |Cadeia de caracteres exclusiva para identificar a solução. |
 | publicador |Editor da solução. |
 
 

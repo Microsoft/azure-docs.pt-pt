@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 3d324c54d10433520a73f2bd836c26bd79f1b3bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615262"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configurar um certificado de encriptação e encriptar os segredos em clusters do Windows

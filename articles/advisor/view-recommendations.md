@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: 9f599a63fd5f52420f1b79e769d4f7bca9683b32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60467911"
 ---
 # <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Ver recomendações do Assistente do Azure é que são importantes para si

@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25e67a5a6c3abebbac2e0489ff636ca1457b62ea
+ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476273"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66807725"
 ---
 Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual (VM), pode desligá-lo facilmente. Quando desligar um disco da VM, o disco não é removido do armazenamento. Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá-lo à mesma VM ou a outra.  
 
@@ -19,7 +19,7 @@ Quando já não precisar de um disco de dados que esteja ligado a uma máquina v
 ## <a name="find-the-disk"></a>Localizar o disco
 Para poder desligar um disco de uma VM, precisa de saber o número do LUN, que é um identificador para o disco que vai ser ligado. Para tal, siga estes passos:
 
-1. Abra a CLI do Azure e [ligue-se à sua subscrição do Azure](/cli/azure/authenticate-azure-cli). Confirme que está no modo Gestão de Serviço do Azure (`azure config mode asm`).
+1. Abra a CLI do Azure e [ligar à sua subscrição do Azure](/cli/azure/authenticate-azure-cli). Confirme que está no modo Gestão de Serviço do Azure (`azure config mode asm`).
 2. Descubra que discos estão ligados à sua VM. O exemplo seguinte lista os discos para a VM com o nome `myVM`:
 
     ```azurecli

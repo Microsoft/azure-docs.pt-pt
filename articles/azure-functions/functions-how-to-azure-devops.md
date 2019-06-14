@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: 27b5dc9ccee8647d4fbb617063865df18b80bc5d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050695"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Entrega contínua através do Azure DevOps
 
@@ -36,9 +36,7 @@ Cada linguagem tenha passos de compilação específica para criar um artefacto 
 Pode utilizar o exemplo a seguir para criar o seu ficheiro YAML para criar seu aplicativo .NET.
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: 'VS2017-Win2016'
 steps:
 - script: |
@@ -69,9 +67,7 @@ steps:
 Pode utilizar o exemplo a seguir para criar o seu ficheiro YAML para criar a sua aplicação do JavaScript:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04 # Use 'VS2017-Win2016' if you have Windows native +Node modules
 steps:
 - bash: |
@@ -99,9 +95,7 @@ steps:
 Pode utilizar o exemplo a seguir para criar o seu ficheiro YAML para criar a sua aplicação de Python, Python só é suportado para as funções do Azure do Linux:
 
 ```yaml
-jobs:
-  - job: Build
-    pool:
+pool:
       vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
@@ -118,6 +112,25 @@ steps:
     source worker_venv/bin/activate
     pip3.6 install setuptools
     pip3.6 install -r requirements.txt
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    name: 'drop'
+```
+#### <a name="powershell"></a>PowerShell
+
+Pode utilizar o exemplo a seguir para criar o seu ficheiro YAML para empacotar a aplicação do PowerShell, PowerShell só é suportado para as funções do Azure do Windows:
+
+```yaml
+pool:
+      vmImage: 'VS2017-Win2016'
+steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -175,6 +188,10 @@ Depois de configurar a origem do seu código, procure as funções do Azure, mod
 
 ![As funções do Azure, criar modelos](media/functions-how-to-azure-devops/build-templates.png)
 
+Em alguns casos, os artefactos de compilação têm uma estrutura de pasta específica e poderá ter de verificar a **Prepend nome da pasta raiz para arquivar caminhos** opção.
+
+![Preceder a pasta raiz](media/functions-how-to-azure-devops/prepend-root-folder.png)
+
 #### <a name="javascript-apps"></a>Aplicações de JavaScript
 
 Se a aplicação do JavaScript possui uma dependência em módulos nativos do Windows, terá de atualizar:
@@ -182,10 +199,6 @@ Se a aplicação do JavaScript possui uma dependência em módulos nativos do Wi
 - A versão do conjunto de agentes para **Hosted VS2017**
 
   ![Alterar agente de compilação de SO](media/functions-how-to-azure-devops/change-agent.png)
-
-- O script na **criar extensões** passo no modelo `IF EXIST *.csproj dotnet build extensions.csproj --output ./bin`
-
-  ![Script de alteração](media/functions-how-to-azure-devops/change-script.png)
 
 ### <a name="deploy-your-app"></a>Implementar a sua aplicação
 
@@ -206,7 +219,7 @@ Pré-requisitos para este comando dependem da localização do seu código:
 
     - Tem permissão para criar um GitHub Token de acesso pessoal com permissões suficientes. [Requisitos de permissão de PAT do GitHub.](https://aka.ms/azure-devops-source-repos)
 
-    - Tem permissão para consolidar para o ramo principal no repositório do GitHub para consolidar o ficheiro YAML gerado automaticamente.
+    - Tem permissão para consolidar para o ramo principal no repositório do GitHub para consolidar o ficheiro YAML de gerado automaticamente.
 
 - Se seu código em repositórios do Azure:
 

@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 20236dd2b5d2e21ca0490065ca6f26101dee3244
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0386482d7b46eb93c867b019abbf02231de1ddfe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051968"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Como utilizar a API de REST do QnA Maker com Python
 <a name="HOLTop"></a>

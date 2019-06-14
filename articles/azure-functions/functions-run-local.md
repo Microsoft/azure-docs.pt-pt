@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241165"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050576"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -173,7 +173,7 @@ Para obter mais informações, consulte [acionadores de funções do Azure e con
 
 ## <a name="local-settings-file"></a>Ficheiro de definições locais
 
-O ficheiro Settings armazena as definições da aplicação, as cadeias de ligação e as definições para as ferramentas de núcleo de funções do Azure. Definições no arquivo Settings só são utilizadas pelas ferramentas de funções ao executar localmente. Por predefinição, estas definições não são migradas automaticamente quando o projeto é publicado para o Azure. Utilize o `--publish-local-settings` mude [ao publicar](#publish) para se certificar de que estas definições são adicionadas à aplicação de funções no Azure. Tenha em atenção que os valores na **ConnectionStrings** nunca são publicados. O ficheiro tem a seguinte estrutura:
+O ficheiro Settings armazena as definições da aplicação, as cadeias de ligação e as definições para as ferramentas de núcleo de funções do Azure. Definições no arquivo Settings só são utilizadas pelas ferramentas de funções ao executar localmente. Por predefinição, estas definições não são migradas automaticamente quando o projeto é publicado para o Azure. Utilize o `--publish-local-settings` mude [ao publicar](#publish) para se certificar de que estas definições são adicionadas à aplicação de funções no Azure. Os valores na **ConnectionStrings** nunca são publicados. O ficheiro tem a seguinte estrutura:
 
 ```json
 {
@@ -419,43 +419,37 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Publicar no Azure
 
-Ferramentas de núcleo suporta dois tipos de implantação, implantação de arquivos de projeto de função diretamente para a aplicação de funções e implementar um contentor do Linux personalizado, que é suportado apenas na versão 2.x. Tem de ter já [criou uma aplicação de funções na sua subscrição do Azure](functions-cli-samples.md#create).
+As ferramentas de núcleo de funções do Azure suporta dois tipos de implementação: implementar os ficheiros de projeto de função diretamente à sua aplicação de função através de [Zip implementar](functions-deployment-technologies.md#zip-deploy) e [implementar um contentor de Docker personalizado](functions-deployment-technologies.md#docker-container). Tem de ter já [criou uma aplicação de funções na sua subscrição do Azure](functions-cli-samples.md#create), nos quais irá implementar seu código. Projetos que requerem a compilação devem ser criados para que os binários podem ser implementados.
 
-Na versão 2.x, tem de ter [registado suas extensões](#register-extensions) no seu projeto antes da publicação. Projetos que requerem a compilação devem ser criados para que os binários podem ser implementados.
+### <a name="project-file-deployment"></a>Implementação (arquivos de projeto)
 
-### <a name="project-file-deployment"></a>Implementação de ficheiros de projeto
-
-O método de implementação mais comum envolve o uso de ferramentas de núcleo para seu projeto de aplicação de função, binários e dependências de pacote e implantar o pacote para a sua aplicação de função. Pode opcionalmente [executar as suas funções diretamente a partir do pacote de implementação](run-functions-from-deployment-package.md).
-
-Para publicar um projeto de funções para uma aplicação de funções no Azure, utilize o `publish` comando:
+Para publicar o seu código local para uma aplicação de funções no Azure, utilize o `publish` comando:
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-Este comando publica uma aplicação de função existente no Azure. Ocorre um erro quando o `<FunctionAppName>` não existe na sua subscrição. Para saber como criar uma aplicação de funções a partir da linha de comandos ou janela de terminal com a CLI do Azure, veja [criar uma aplicação de funções para execução sem servidor](./scripts/functions-cli-create-serverless.md).
-
-O `publish` comando carrega o conteúdo do diretório do projeto de funções. Se eliminar ficheiros localmente, o `publish` comando não exclui-los do Azure. Pode eliminar ficheiros no Azure com o [ferramenta de Kudu](functions-how-to-use-azure-function-app-settings.md#kudu) no [portal do Azure].
+Este comando publica uma aplicação de função existente no Azure. Obterá um erro se tentar publicar para um `<FunctionAppName>` que não existe na sua subscrição. Para saber como criar uma aplicação de funções a partir da linha de comandos ou janela de terminal com a CLI do Azure, veja [criar uma aplicação de funções para execução sem servidor](./scripts/functions-cli-create-serverless.md). Por predefinição, este comando irá ativar a aplicação seja executada [execução do pacote](run-functions-from-deployment-package.md) modo.
 
 >[!IMPORTANT]
 > Quando cria uma aplicação de funções no portal do Azure, utiliza a versão 2.x do runtime de função, por predefinição. Para tornar a função aplicação utilizar a versão 1.x do runtime, siga as instruções em [é executado na versão 1.x](functions-versions.md#creating-1x-apps).
 > Não é possível alterar a versão de runtime para uma aplicação de função que tenha a funções existentes.
 
-Opções de publicar o projeto seguinte aplicam-se para as versões, 1.x e 2.x:
+As seguintes opções de publicação aplicam-se para as versões, 1.x e 2.x:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Definições de publicação no Settings para o Azure, pedir para substituir se a definição já existe. Se estiver a utilizar o emulador de armazenamento, altere a definição de aplicação para um [ligação de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprimir a linha de comandos para substituir as definições da aplicação quando `--publish-local-settings -i` é utilizado.|
 
-Opções de publicar o projeto seguinte só são suportadas na versão 2.x:
+As seguintes opções de publicação só são suportadas na versão 2.x:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  Apenas as definições de publicação e a ignorar o conteúdo. A predefinição é a linha de comandos. |
 |**`--list-ignored-files`** | Apresenta uma lista de ficheiros que são ignorados durante a publicação, o que se baseia no arquivo .funcignore. |
 | **`--list-included-files`** | Apresenta uma lista de ficheiros que são publicados, que se baseia no arquivo .funcignore. |
-| **`--nozip`** | Ativa a predefinição `Run-From-Zip` modo desativado. |
+| **`--nozip`** | Ativa a predefinição `Run-From-Package` modo desativado. |
 | **`--build-native-deps`** | Aplicações de funções de ignora a geração .wheels pasta durante a publicação de python. |
 | **`--additional-packages`** | Lista de pacotes a serem instalados durante a criação de dependências nativas. Por exemplo: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore a verificação de pré-publicação em determinados cenários. |
@@ -463,9 +457,9 @@ Opções de publicar o projeto seguinte só são suportadas na versão 2.x:
 | **`--no-build`** | Ignorar a criação de funções do dotnet. |
 | **`--dotnet-cli-params`** | Quando a publicação compilado (arquivo. csproj) funções c#, as ferramentas de núcleo chama "compilação dotnet - saída bin/publicar". Todos os parâmetros transmitidos para isso serão anexados à linha de comandos. |
 
-### <a name="custom-container-deployment"></a>Implementação do contentor personalizado
+### <a name="deployment-custom-container"></a>Implementação (contentor personalizado)
 
-As funções permite-lhe implementar o projeto de função num contentor do Linux personalizado. Para obter mais informações, consulte [criar uma função no Linux com uma imagem personalizada](functions-create-function-linux-custom-image.md). Versão 2.x de ferramentas de núcleo suporta a implementação de um contentor personalizado. Contentores personalizados tem de ter um Dockerfile. Utilize a opção – dockerfile no `func init`.
+As funções do Azure permite-lhe implementar o projeto de função numa [contentor de Docker personalizado](functions-deployment-technologies.md#docker-container). Para obter mais informações, consulte [criar uma função no Linux com uma imagem personalizada](functions-create-function-linux-custom-image.md). Contentores personalizados tem de ter um Dockerfile. Para criar uma aplicação com um Dockerfile, utilize a opção – dockerfile no `func init`.
 
 ```bash
 func deploy

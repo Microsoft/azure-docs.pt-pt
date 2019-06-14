@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60245202"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect com a base de dados ADSync existente
@@ -98,7 +98,7 @@ Utilize a tabela abaixo para verificar quaisquer passos adicionais que são nece
 
 |Funcionalidade|Passos|
 |-----|-----|
-|Sincronização de Hash de Palavra-passe| as definições de repetição de escrita de palavra-passe e sincronização de Hash de palavra-passe são totalmente restauradas para versões do Azure AD Connect a partir do 1.2.65.0.  Se restaurar com uma versão mais antiga do Azure AD Connect, reveja as definições da opção de sincronização para estas funcionalidades para se certificar de que corresponde ao seu servidor de sincronização do Active Directory.  Não existem outros passos de configuração devem ser necessários.|
+|Sincronização de Hash de palavra-passe| as definições de repetição de escrita de palavra-passe e sincronização de Hash de palavra-passe são totalmente restauradas para versões do Azure AD Connect a partir do 1.2.65.0.  Se restaurar com uma versão mais antiga do Azure AD Connect, reveja as definições da opção de sincronização para estas funcionalidades para se certificar de que corresponde ao seu servidor de sincronização do Active Directory.  Não existem outros passos de configuração devem ser necessários.|
 |Federação com o AD FS|Autenticações do Azure irão continuar a utilizar a política do AD FS configurada para o seu servidor de sincronização do Active Directory.  Se utilizar o Azure AD Connect para gerir o farm do AD FS, opcionalmente, pode alterar o método de início de sessão para a Federação do AD FS em preparação para o servidor em espera, tornando-se a instância de sincronização do Active Directory.   Se as opções de dispositivo estão ativadas no servidor de sincronização do Active Directory, configure essas opções neste servidor ao executar a tarefa "Configurar opções de dispositivo".|
 |Autenticação pass-through e ambiente de trabalho Single Sign-On|Atualize o método de início de sessão para corresponderem à configuração no seu servidor de sincronização do Active Directory.  Se não for seguida antes de promover o servidor para autenticação primária, pass-through, juntamente com o início de sessão único totalmente integrado no será desativada e o seu inquilino pode ser bloqueado se não tiver sincronização de hash de palavra-passe como cópia de segurança de sessão de opção. Tenha também em atenção que ao ativar a autenticação pass-through no modo de teste, um novo agente de autenticação será instalado, registado e será executado como um agente de elevada disponibilidade que irá aceitar pedidos de início de sessão.|
 |Federação com o PingFederate|Autenticações do Azure irão continuar a utilizar a política de PingFederate configurada para o seu servidor de sincronização do Active Directory.  Opcionalmente, pode alterar o método de início de sessão para PingFederate em preparação para o servidor em espera, tornando-se a instância de sincronização do Active Directory.  Este passo pode ser adiado até que é necessário federar domínios adicionais com PingFederate.|

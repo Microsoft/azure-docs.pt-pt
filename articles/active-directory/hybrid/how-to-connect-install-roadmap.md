@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60243708"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
@@ -160,7 +160,7 @@ O portal do Azure AD Connect Health mostra vistas de alertas, monitorização de
 ![Portal do Azure AD Connect Health](./media/whatis-hybrid-identity-health/portalsidebar.png)
 
 * **Início Rápido**: Quando seleciona esta opção, o **início rápido** é aberto o painel. Pode transferir o Agente do Azure AD Connect Health, selecionando **Obter ferramentas**. Também pode aceder à documentação e fornecer comentários.
-* **O Azure Active Directory Connect (sincronização)**: Esta opção mostra os servidores do Azure AD Connect que o Azure AD Connect Health está atualmente a monitorizar. A entrada **Erros de sincronização** irá mostrar erros de sincronização básicos do primeiro serviço de sincronização integrado por categorias. Quando seleciona a entrada **Serviços de sincronização**, o painel que aparece mostra informações sobre os servidores do Azure AD Connect. Saiba mais acerca das capacidades em [Utilizar o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md).
+* **O Azure Active Directory Connect (sincronização)** : Esta opção mostra os servidores do Azure AD Connect que o Azure AD Connect Health está atualmente a monitorizar. A entrada **Erros de sincronização** irá mostrar erros de sincronização básicos do primeiro serviço de sincronização integrado por categorias. Quando seleciona a entrada **Serviços de sincronização**, o painel que aparece mostra informações sobre os servidores do Azure AD Connect. Saiba mais acerca das capacidades em [Utilizar o Azure AD Connect Health para sincronização](how-to-connect-health-sync.md).
 * **Serviços de Federação do Active Directory**: Esta opção mostra todos os serviços do AD FS que o Azure AD Connect Health está atualmente a monitorizar. Quando seleciona uma instância, o painel que aparece mostra informações sobre essa instância de serviço. Estas informações incluem uma descrição geral, as propriedades, os alertas, a monitorização e a análise da utilização. Saiba mais acerca das capacidades em [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md).
 * **Serviços de domínio do Active Directory**: Esta opção mostra todas as florestas do AD DS que o Azure AD Connect Health está atualmente a monitorizar. Quando seleciona uma floresta, o painel que aparece mostra informações sobre essa floresta. Estas informações incluem uma descrição geral de informações essenciais, o dashboard de Controladores de Domínio, o dashboard de Estado de Replicação, alertas e monitorização. Saiba mais acerca das capacidades em [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
 * **Configurar**: Esta secção inclui opções para ativar ou desativar o seguinte:

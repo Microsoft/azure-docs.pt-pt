@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
 ms.openlocfilehash: a4aaf440856746895a31914aeee2bddec2ce23f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544998"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Compreender as recomendações de recursos do Centro de segurança do Azure
@@ -47,29 +47,29 @@ Utilize a tabela abaixo como referência para ajudar a compreender a computaçã
 | Recomendação | Descrição |
 | --- | --- |
 | Serviço de aplicações só devem estar acessível através de HTTPS | Recomenda-se de que limite o acesso do serviço de aplicações através de HTTPS apenas. |
-| Os Sockets Web devem estar desativados para a Aplicação Web| Recomenda-se de que examinar cuidadosamente a utilização de Web Sockets nas aplicações web.  O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança. |
+| Web Sockets devem ser desativados para a aplicação Web| Recomenda-se de que examinar cuidadosamente a utilização de Web Sockets nas aplicações web.  O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança. |
 | Utilizar domínios personalizados para a sua aplicação Web | Recomenda o uso de domínios personalizados para proteger uma aplicação web de ataques comuns, como o phishing e outros ataques relacionados com DNS. |
-| Configurar restrições de IP para a Aplicação Web | Recomenda-se de que definir uma lista de endereços IP que têm permissão para aceder à sua aplicação.  Utilização de restrições de IP de protege as aplicações web contra ataques comuns. |
-| Não permitir que todos os ('* ') recursos para aceder à sua aplicação | Recomenda que não definir o parâmetro WEBSITE_LOAD_CERTIFICATES '*'. Definição do parâmetro '*"significa que todos os certificados serão carregados para o arquivo de certificados pessoais de aplicações web.  Isto pode levar ao abuso do princípio de privilégio mínimo porque é improvável que o site necessita de acesso a todos os certificados no tempo de execução. |
+| Configurar restrições de IP para a aplicação Web | Recomenda-se de que definir uma lista de endereços IP que têm permissão para aceder à sua aplicação.  Utilização de restrições de IP de protege as aplicações web contra ataques comuns. |
+| Não permitir que todos os ('* ') recursos para aceder à sua aplicação | Recomenda que não definir o parâmetro WEBSITE_LOAD_CERTIFICATES ' *'. Definição do parâmetro '* "significa que todos os certificados serão carregados para o arquivo de certificados pessoais de aplicações web.  Isto pode levar ao abuso do princípio de privilégio mínimo porque é improvável que o site necessita de acesso a todos os certificados no tempo de execução. |
 | CORS não deve permitir que todos os recursos aceder à sua aplicação | Recomenda-se de que permite que apenas necessários domínios interagir com a sua aplicação web. Entre os recursos de origens (CORS) de partilha não deve permitir que todos os domínios acedam à sua aplicação web. |
-| Utilizar a versão mais recente do .NET Framework suportada para a Aplicação Web | Recomenda-se de que use a versão mais recente do .NET Framework para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável. |
-| Utilizar a versão mais recente de Java suportada para a Aplicação Web | Recomenda-se de que use a versão mais recente do Java para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável. |
-| Utilizar a versão mais recente de PHP suportada para a Aplicação Web | Recomenda-se de que use a versão mais recente do PHP para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável. |
+| Utilize a versão mais recente do .NET Framework suportada para a aplicação Web | Recomenda-se de que use a versão mais recente do .NET Framework para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável. |
+| Utilizar a versão de Java mais recente suportada para a aplicação Web | Recomenda-se de que use a versão mais recente do Java para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável. |
+| Utilizar a versão PHP mais recente suportada para a aplicação Web | Recomenda-se de que use a versão mais recente do PHP para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável. |
 | [Adicionar uma firewall de aplicação Web](security-center-add-web-application-firewall.md) |Recomenda-se de que implante uma firewall de aplicações web (WAF) para pontos finais de web. Uma recomendação de WAF é apresentada para qualquer IP destinado ao público (IP de nível de instância ou IP com balanceamento de carga) que tenha um grupo de segurança de rede associado com portas de web de entrada aberta (80,443).</br></br>Centro de segurança recomenda que Aprovisiona uma WAF para ajudar na defesa contra ataques que visam as suas aplicações web em máquinas virtuais e no ambiente de serviço de aplicações. Um ambiente de serviço de aplicações (ASE) é uma [Premium](https://azure.microsoft.com/pricing/details/app-service/) service opção do plano do serviço de aplicações do Azure que fornece um ambiente totalmente isolado e dedicado para uma execução segura de aplicações do App Service do Azure. Para saber mais sobre o ASE, veja a [documentação do ambiente de serviço de aplicações](../app-service/environment/intro.md).</br></br>Pode proteger várias aplicações web no Centro de segurança com a adição desses aplicativos para as implementações existentes do WAF. |
 | [Finalizar a proteção das aplicações](security-center-add-web-application-firewall.md#finalize-application-protection) |Para concluir a configuração de uma WAF, tráfego deve ser reencaminhado para a aplicação do WAF. Seguir essa recomendação conclui as alterações de configuração necessários. |
-| Utilizar a versão mais recente de Node.js suportada para a Aplicação Web | Recomenda-se de que use a versão mais recente do node. js para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável. |
-| O CORS não deve permitir a todos os recursos o acesso à sua Function App | Recomenda-se de que permite que apenas necessários domínios interagir com a sua aplicação web. Entre os recursos de origens (CORS) de partilha não deve permitir que todos os domínios acedam à sua aplicação de função. |
-| Utilizar domínios personalizados para a Function App | Recomenda o uso de domínios personalizados para proteger uma aplicação de funções de ataques comuns, como o phishing e outros ataques relacionados com DNS. |
-| Configurar restrições de IP para a Function App | Recomenda-se de que definir uma lista de endereços IP que têm permissão para aceder à sua aplicação. Utilização de restrições de IP protege uma aplicação de funções de ataques comuns. |
-| A Function App deve ser acessível apenas através de HTTPS | Recomenda-se de que limite o acesso de aplicações de funções através de HTTPS apenas. |
-| A depuração remota deve estar desativada para a Function App | Recomenda-se de que desativa a depuração para a aplicação de função se já não precisar de utilizá-lo. Depuração remota necessita de portas de entrada estar abertas na aplicação de funções. |
-| Os Sockets Web devem estar desativados para a Function App | Recomenda-se de que examinar cuidadosamente a utilização de Sockets Web nas aplicações de função. O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança. |
+| Utilizar a versão de node. js mais recente suportada para a aplicação Web | Recomenda-se de que use a versão mais recente do node. js para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável. |
+| CORS não deve permitir que todos os recursos de aceder à sua aplicação de função | Recomenda-se de que permite que apenas necessários domínios interagir com a sua aplicação web. Entre os recursos de origens (CORS) de partilha não deve permitir que todos os domínios acedam à sua aplicação de função. |
+| Utilizar domínios personalizados para a aplicação de funções | Recomenda o uso de domínios personalizados para proteger uma aplicação de funções de ataques comuns, como o phishing e outros ataques relacionados com DNS. |
+| Configurar restrições de IP para a aplicação de função | Recomenda-se de que definir uma lista de endereços IP que têm permissão para aceder à sua aplicação. Utilização de restrições de IP protege uma aplicação de funções de ataques comuns. |
+| Função de aplicação só deve estar acessível através de HTTPS | Recomenda-se de que limite o acesso de aplicações de funções através de HTTPS apenas. |
+| Depuração remota deve ser desativada para a aplicação de funções | Recomenda-se de que desativa a depuração para a aplicação de função se já não precisar de utilizá-lo. Depuração remota necessita de portas de entrada estar abertas na aplicação de funções. |
+| Web Sockets devem ser desativados para a aplicação de função | Recomenda-se de que examinar cuidadosamente a utilização de Sockets Web nas aplicações de função. O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
-* [Monitor identity and access in Azure Security Center](security-center-identity-access.md) (Monitorizar a identidade e o acesso no Centro de Segurança do Azure)
+* [Monitorizar a identidade e acesso no Centro de segurança do Azure](security-center-identity-access.md)
 * [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 * [Proteger o seu serviço do SQL do Azure no Centro de segurança do Azure](security-center-sql-service-recommendations.md)
 

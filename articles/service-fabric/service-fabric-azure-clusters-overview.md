@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310935"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Descrição geral do Service Fabric clusters no Azure
@@ -31,9 +31,9 @@ Um cluster do Service Fabric no Azure é um recurso do Azure que utiliza e inter
 * VMs e placas de rede virtual
 * conjuntos de dimensionamento de máquinas virtuais
 * redes virtuais
-* balanceadores de carga
-* contas de armazenamento
-* endereços IP públicos
+* Balanceadores de carga
+* Contas de armazenamento
+* Endereços IP públicos
 
 ![Cluster do Service Fabric][Image]
 
@@ -55,7 +55,7 @@ Pode utilizar os conjuntos de dimensionamento para implementar e gerir uma cole�
 Para obter mais informações, leia [conjuntos de dimensionamento de máquina virtual e tipos de nó do Service Fabric](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Instâncias de VM estão associadas por trás de um [Balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e etiqueta de DNS.  Se aprovisionar um cluster com  *&lt;clustername&gt;*, o nome DNS  *&lt;clustername&gt;.&lt; localização&gt;. cloudapp.azure.com* é a etiqueta DNS associada ao balanceador de carga à frente do conjunto de dimensionamento.
+Instâncias de VM estão associadas por trás de um [Balanceador de carga do Azure](/azure/load-balancer/load-balancer-overview), que está associado um [endereço IP público](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) e etiqueta de DNS.  Se aprovisionar um cluster com  *&lt;clustername&gt;* , o nome DNS  *&lt;clustername&gt;.&lt; localização&gt;. cloudapp.azure.com* é a etiqueta DNS associada ao balanceador de carga à frente do conjunto de dimensionamento.
 
 As VMs num cluster tem apenas [endereços IP privados](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Tráfego de gestão e o tráfego de serviço são encaminhados através do Balanceador de carga destinado ao público.  Tráfego de rede é encaminhado para estas máquinas por meio de regras NAT (os clientes ligam-se a nós/instâncias específicas) ou regras de balanceamento de carga (o tráfego segue para VMs round robin).  Um balanceador de carga tem um IP público associado com um nome DNS no formato:  *&lt;clustername&gt;.&lt; localização&gt;. cloudapp.azure.com*.  Um IP público é outro recurso do Azure no grupo de recursos.  Se definir vários tipos de nó num cluster, é criado um balanceador de carga para cada conjunto de dimensionamento/tipo de nó. Em alternativa, pode configurar um balanceador de carga individual para vários tipos de nó.  O tipo de nó principal tem a etiqueta DNS  *&lt;clustername&gt;.&lt; localização&gt;. cloudapp.azure.com*, outros tipos de nó tem a etiqueta DNS  *&lt;clustername&gt;-&lt;nodetype&gt;.&lt; localização&gt;. cloudapp.azure.com*.
 

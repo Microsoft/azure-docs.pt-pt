@@ -1,19 +1,19 @@
 ---
 title: Início Rápido - Direcionar tráfego da Web com o Gateway de Aplicação do Azure - Azure PowerShell | Microsoft Docs
-description: Saiba como utilizar o Azure PowerShell para criar um Gateway de Aplicação do Azure que direciona o tráfego da Web para máquinas virtuais num conjunto de back-end.
+description: Saiba como utilizar o Azure PowerShell para criar um Gateway de aplicação do Azure que direciona o tráfego da web para máquinas virtuais num conjunto de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/11/2019
+ms.date: 06/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6c472c30514e6acd3b21822e31f2cefc0da5bc98
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c0e80b1354302f227cb448391c7a92100049cc3a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729660"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053349"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - Azure PowerShell
 
@@ -36,7 +36,7 @@ Se optar por instalar e utilizar o Azure PowerShell localmente, este tutorial re
 
 ### <a name="resource-group"></a>Grupo de recursos
 
-No Azure, alocar recursos relacionados a um grupo de recursos. Pode utilizar um grupo de recursos existente ou crie um novo. Neste exemplo, iremos criar um novo grupo de recursos, utilizando o [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) cmdlet da seguinte forma: 
+No Azure, alocar recursos relacionados a um grupo de recursos. Pode utilizar um grupo de recursos existente ou crie um novo. Neste exemplo, criará um novo grupo de recursos, utilizando o [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup) cmdlet da seguinte forma: 
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -44,7 +44,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ### <a name="required-network-resources"></a>Recursos de rede necessários
 
-Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virtual.  A sub-rede do gateway de aplicação pode conter apenas os gateways de aplicação. Não existem outros recursos são permitidos.  Pode criar uma nova sub-rede de Gateway de aplicação ou utilize um já existente. Neste exemplo, vai criar duas sub-redes, neste exemplo: um para o gateway de aplicação e outro para os servidores de back-end. Pode configurar o IP de front-end do Gateway de aplicação para ser públicas ou privadas, de acordo com o seu caso de utilização. Neste exemplo, vamos escolher um IP público de front-end.
+Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virtual.  A sub-rede do gateway de aplicação pode conter apenas os gateways de aplicação. Não existem outros recursos são permitidos.  Pode criar uma nova sub-rede de Gateway de aplicação ou utilize um já existente. Neste exemplo, vai criar duas sub-redes, neste exemplo: um para o gateway de aplicação e outro para os servidores de back-end. Pode configurar o IP de front-end do Gateway de aplicação para ser públicas ou privadas, de acordo com o seu caso de utilização. Neste exemplo, que vai escolher um IP público de front-end.
 
 1. Criar as configurações de sub-rede chamando [New-AzVirtualNetworkSubnetConfig](/powershell/module/Az.network/new-Azvirtualnetworksubnetconfig).
 2. Criar a rede virtual com as configurações de sub-rede chamando [New-AzVirtualNetwork](/powershell/module/Az.network/new-Azvirtualnetwork). 
@@ -109,7 +109,7 @@ for ($i=1; $i -le 2; $i++)
   Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzVMBootDiagnostics `
+  Set-AzVMBootDiagnostic `
     -VM $vm `
     -Disable
   New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
@@ -219,7 +219,7 @@ New-AzApplicationGateway `
 Embora o IIS não é necessário para criar o gateway de aplicação, a instalou neste início rápido para verificar se o Azure criada com êxito o gateway de aplicação. Utilize o IIS para testar o gateway de aplicação:
 
 1. Execute [Get-AzPublicIPAddress](/powershell/module/Az.network/get-Azpublicipaddress) para obter o endereço IP público do gateway de aplicação. 
-2. Copie e cole o endereço IP público na barra de endereço do seu browser. Quando atualizar o navegador, deverá ver o nome da máquina virtual. Uma resposta válida verifica se o gateway de aplicação foi criado com êxito e é capaz de ligar com êxito com o back-end.
+2. Copie e cole o endereço IP público na barra de endereço do seu browser. Quando atualizar o navegador, deverá ver o nome da máquina virtual. Uma resposta válida verifica se o gateway de aplicação foi criado com êxito e que consegue ligar com êxito com o back-end.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

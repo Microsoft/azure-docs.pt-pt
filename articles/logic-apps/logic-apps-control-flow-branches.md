@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685159"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Criar ou adicionar ramos paralelos para ações de fluxo de trabalho no Azure Logic Apps
@@ -44,7 +44,7 @@ A aplicação lógica aguarda todos os ramos concluir antes de continuar o fluxo
 
 1. Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, abra a aplicação lógica no Estruturador da aplicação lógica.
 
-1. Mova o ponteiro do mouse sobre a seta para os passos acima onde pretende adicionar ramos paralelos. Escolha o **plus** início de sessão (**+**) que é apresentada e, em seguida, escolha **adicionar um ramo paralelo**. 
+1. Mova o ponteiro do mouse sobre a seta para os passos acima onde pretende adicionar ramos paralelos. Escolha o **plus** início de sessão ( **+** ) que é apresentada e, em seguida, escolha **adicionar um ramo paralelo**. 
 
    ![Adicionar ramo paralelo](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -56,7 +56,7 @@ A aplicação lógica aguarda todos os ramos concluir antes de continuar o fluxo
 
    ![Localize e selecione a ação que pretende](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Agora, em cada ramo paralelo, adicione os passos que pretender. Para adicionar outra ação para um ramo, mova o ponteiro sob a ação em que pretende adicionar uma ação seqüencial. Escolha o **plus** (**+**) início de sessão que aparece e, em seguida, selecione **adicionar uma ação**.
+1. Agora, em cada ramo paralelo, adicione os passos que pretender. Para adicionar outra ação para um ramo, mova o ponteiro sob a ação em que pretende adicionar uma ação seqüencial. Escolha o **plus** ( **+** ) início de sessão que aparece e, em seguida, selecione **adicionar uma ação**.
 
    ![Adicionar ação seqüencial ao ramo paralelo](media/logic-apps-control-flow-branches/add-sequential-action.png)
 

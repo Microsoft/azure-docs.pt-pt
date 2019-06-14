@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 132711249ffde4a9c49bc997d8c4ebe4d9c74948
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052795"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início rápido: Definir e obter um segredo no Azure Key Vault ao utilizar uma aplicação web .NET
 
@@ -174,7 +174,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 Agora quando executar a aplicação, deverá ver o seu valor secreto obtido. No comando anterior, estará oferecendo a identidade da aplicação permissões de serviço para o fazer **Obtenha** e **lista** operações no seu Cofre de chaves.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não precisar, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a VM e selecione **eliminar**.
+Quando já não precisar, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para o Cofre de chaves e selecione **eliminar**.
 
 Eliminar o Cofre de chaves com o [az keyvault eliminar](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) comando:
 

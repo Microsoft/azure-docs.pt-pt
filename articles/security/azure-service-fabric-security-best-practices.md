@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611527"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>O Azure Service Fabric melhores práticas de segurança
@@ -139,10 +139,10 @@ O certificado tem de cumprir os seguintes requisitos para certificados SSL no Az
 -   Nome do requerente do certificado tem de corresponder ao nome de domínio que é utilizado para aceder ao seu serviço cloud.
 
     - Adquira um nome de domínio personalizado para utilizar para aceder ao seu serviço cloud.
-    - Pedir um certificado a partir de uma AC com um nome de requerente que corresponde ao nome de domínio personalizado do seu serviço. Por exemplo, se o nome de domínio personalizado for __contoso__**.com**, o certificado da AC deve ter o nome do requerente **. contoso.com** ou __www__ **. contoso.com**.
+    - Pedir um certificado a partir de uma AC com um nome de requerente que corresponde ao nome de domínio personalizado do seu serviço. Por exemplo, se o nome de domínio personalizado for __contoso__ **.com**, o certificado da AC deve ter o nome do requerente **. contoso.com** ou __www__ **. contoso.com**.
 
     >[!NOTE]
-    >Não é possível obter um certificado SSL a partir de uma AC para o __cloudapp__**.net** domínio.
+    >Não é possível obter um certificado SSL a partir de uma AC para o __cloudapp__ **.net** domínio.
 
 -   O certificado tem de utilizar um mínimo de encriptação 2.048 bits.
 

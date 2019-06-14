@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: danlep
 ms.openlocfilehash: 98a72123a05fa7d8dc16be7ddb787f2a2cf7e4d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563125"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Monte um volume de emptyDir no Azure Container Instances

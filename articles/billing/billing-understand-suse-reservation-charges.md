@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/12/2019
 ms.author: banders
 ms.openlocfilehash: bcbf5ab48f3476a911fc4ade1eb0c395fb335d43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370244"
 ---
 # <a name="azure-software-plan-discount"></a>Desconto de plano de software do Azure
@@ -71,7 +71,7 @@ Nome do marketplace de portal do Azure:
 
 - SLES 12 SP3 para HPC (prioridade)
 
-|VM DE SUSE | Id do Medidor| Proporção| Tamanho da VM de exemplo|
+|VM DE SUSE | MeterId| Proporção| Tamanho da VM de exemplo|
 | -------| ------------------------| --- |--- |
 |SLES para HPC 1-2 vCPUs|e275a668-ce79-44e2-a659-f43443265e98|1|D2s_v3|
 |SLES para HPC 3 a 4 vCPUs|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
@@ -83,7 +83,7 @@ Nome do marketplace de portal do Azure:
 
 - SP3 de 12 do SLES para HPC
 
-|VM DE SUSE | Id do Medidor | Proporção|Tamanho da VM de exemplo|
+|VM DE SUSE | MeterId | Proporção|Tamanho da VM de exemplo|
 | ------- | --- | ------------------------| --- |
 |SLES para HPC 1-2 vCPUs |8c94ad45-b93b-4772-aab1-ff92fcec6610|1|D2s_v3|
 |SLES para HPC 3 a 4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
@@ -97,7 +97,7 @@ Nomes de mercado de portal do Azure:
 - SLES para SAP 12 SP3 (prioridade)
 - SLES para SAP 12 SP2 (prioridade)
 
-|VM DE SUSE | Id do Medidor | Proporção|Tamanho da VM de exemplo|
+|VM DE SUSE | MeterId | Proporção|Tamanho da VM de exemplo|
 | ------- |------------------------| --- | --- |
 |SLES para SAP prioridade 1 ou 2 vCPUs|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
 |SLES para SAP prioridade 3 a 4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
@@ -111,7 +111,7 @@ Nomes de mercado de portal do Azure:
 - SLES 12 SP3 (prioridade)
 - SLES 11 SP4 (prioridade)
 
-|VM DE SUSE | Id do Medidor | Proporção|Tamanho da VM de exemplo|
+|VM DE SUSE | MeterId | Proporção|Tamanho da VM de exemplo|
 | ------- |------------------------| --- |--- |
 |SLES 1 vCPU|462cd632-ec6b-4663-b79f-39715f4e8b38|1|B1ms|
 |SLES 2 a 4 vCPUs |924bee71-5eb8-424f-83ed-a58823c33908|2|D4s_v3|
@@ -137,7 +137,7 @@ Nomes de mercado de portal do Azure:
 - SLES 15 (padrão)
 - SLES 12 SP3 (Standard)
 
-|VM DE SUSE | Id do Medidor | Proporção|Tamanho da VM de exemplo|
+|VM DE SUSE | MeterId | Proporção|Tamanho da VM de exemplo|
 | ------- |------------------------| --- |--- |
 |SLES 1-2 núcleos vCPUs |4b2fecfc-b110-4312-8f9d-807db1cb79ae|1|D2s_v3|
 |SLES 3 a 4 núcleos vCPUs |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|

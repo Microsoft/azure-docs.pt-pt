@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60296456"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções do Azure AD Connect utilizador início de sessão
@@ -128,7 +128,7 @@ Página de início de sessão do Azure AD lista os sufixos do UPN que são defin
 
 | Estado | Descrição | Ação necessária |
 |:--- |:--- |:--- |
-| Verificado |O Azure AD Connect foi encontrada que uma correspondência de domínio verificado no Azure AD. Todos os utilizadores para este domínio podem iniciar sessão através das respetivas credenciais no local. |Não é necessária nenhuma ação. |
+| Verificado |O Azure AD Connect foi encontrada que uma correspondência de domínio verificado no Azure AD. Todos os utilizadores para este domínio podem iniciar sessão através das respetivas credenciais no local. |É necessária nenhuma ação. |
 | Não verificado |O Azure AD Connect foi encontrado um domínio personalizado correspondente no Azure AD, mas não é verificado. O sufixo UPN dos utilizadores deste domínio será alterado para a predefinição. sufixo onmicrosoft.com após a sincronização, se o domínio não está verificado. | [Verifique se o domínio personalizado no Azure AD.](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
 | Não adicionado |O Azure AD Connect não foram encontradas num domínio personalizado que correspondessem ao sufixo UPN. O sufixo UPN dos utilizadores deste domínio será alterado para a predefinição. sufixo onmicrosoft.com se o domínio não estiver adicionado e verificado no Azure. | [Adicionar e verificar um domínio personalizado que corresponda ao sufixo de UPN.](../fundamentals/add-custom-domain.md) |
 
@@ -175,7 +175,7 @@ Se tiver selecionado a opção de início de sessão de utilizador **federação
 ## <a name="changing-the-user-sign-in-method"></a>Alterar o método de início de sessão do utilizador
 Pode alterar o método de início de sessão do utilizador de Federação, a sincronização de hash de palavra-passe ou a autenticação pass-through utilizando as tarefas que estão disponíveis no Azure AD Connect após a configuração inicial do Azure AD Connect com o assistente. Execute novamente o Assistente do Azure AD Connect, e verá uma lista de tarefas que pode realizar. Selecione **alterar utilizador inicie sessão** na lista de tarefas.
 
-![Alterar início de sessão do utilizador](./media/plan-connect-user-signin/changeusersignin.png)
+![Alterar a sessão do utilizador](./media/plan-connect-user-signin/changeusersignin.png)
 
 Na página seguinte, são-lhe pedido para fornecer as credenciais para o Azure AD.
 

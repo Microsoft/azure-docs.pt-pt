@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
 ms.openlocfilehash: 7bb8e4f53dd07a613ab4b9ff05600a22f76a4ba7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617861"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Evitar ser cobrado na sua conta gratuita do Azure

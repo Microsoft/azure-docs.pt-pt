@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: d0a7199ff0e9cb17c3fbc179a9b37a6620f521f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60544675"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
@@ -28,12 +28,12 @@ Gerir as réplicas que pertencem a partições de serviço.
 
 |Comando|Descrição|
 | --- | --- |
-| implementado | Obtém os detalhes da réplica implementado num nó do Service Fabric. |
-| lista implementado | Obtém a lista de réplicas implementadas num nó do Service Fabric. |
-| saúde | Obtém o estado de funcionamento de uma instância de serviço sem estado ou a réplica de serviço com estado do Service Fabric. |
-| informações | Obtém as informações sobre uma réplica de uma partição do Service Fabric. |
+| deployed | Obtém os detalhes da réplica implementado num nó do Service Fabric. |
+| deployed-list | Obtém a lista de réplicas implementadas num nó do Service Fabric. |
+| health | Obtém o estado de funcionamento de uma instância de serviço sem estado ou a réplica de serviço com estado do Service Fabric. |
+| info | Obtém as informações sobre uma réplica de uma partição do Service Fabric. |
 | list | Obtém as informações acerca de réplicas de uma partição de serviço do Service Fabric. |
-| remover | Remove uma réplica de serviço em execução num nó. |
+| remove | Remove uma réplica de serviço em execução num nó. |
 | report-health | Envia um relatório de estado de funcionamento da réplica do Service Fabric. |
 | restart | Reinicia uma réplica de serviço de um serviço persistente em execução num nó. |
 

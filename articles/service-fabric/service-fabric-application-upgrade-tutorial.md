@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615202"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Tutorial de atualização de aplicação de Service Fabric com o Visual Studio
@@ -43,12 +43,12 @@ Selecionando **Publish** abre um pop-up, e pode definir o **perfil de destino** 
 
 Agora, pode clicar em **publicar** na caixa de diálogo. Pode usar [Service Fabric Explorer para ver o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo de objetos visuais tem um serviço web que pode aceder à, escrevendo [ http://localhost:8081/visualobjects/ ](http://localhost:8081/visualobjects/) na barra de endereço do seu navegador.  Verá 10 objetos visuais flutuantes movimentar na tela.
 
-**NOTA:** Se a implementar `Cloud.xml` perfil (do Azure Service Fabric), a aplicação, em seguida, deve estar disponível em **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/**. Certifique-se de que tem `8081/TCP` configurado no balanceador de carga (localizar o Balanceador de carga no mesmo grupo de recursos que a instância do Service Fabric).
+**NOTA:** Se a implementar `Cloud.xml` perfil (do Azure Service Fabric), a aplicação, em seguida, deve estar disponível em **http://{ServiceFabricName}. { Region}.cloudapp.Azure.com:8081/visualobjects/** . Certifique-se de que tem `8081/TCP` configurado no balanceador de carga (localizar o Balanceador de carga no mesmo grupo de recursos que a instância do Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passo 2: Atualização do exemplo de objetos visuais
 Pode observar que com a versão que foi implementada no passo 1, os objetos visual não gire. Vamos atualizar esta aplicação a uma em que os objetos visual também girar.
 
-Selecione o projeto de VisualObjects.ActorService dentro da solução de VisualObjects e abra o **VisualObjectActor.cs** ficheiro. Dentro desse arquivo, vá para o método `MoveObject`, comente `visualObject.Move(false)`e anule os comentários `visualObject.Move(true)`. Esta alteração de código gira os objetos depois do serviço é atualizado.  **Agora pode criar a solução (não reconstrução)**, que cria os projetos modificados. Se selecionou *recriar todas*, é necessário atualizar as versões para todos os projetos.
+Selecione o projeto de VisualObjects.ActorService dentro da solução de VisualObjects e abra o **VisualObjectActor.cs** ficheiro. Dentro desse arquivo, vá para o método `MoveObject`, comente `visualObject.Move(false)`e anule os comentários `visualObject.Move(true)`. Esta alteração de código gira os objetos depois do serviço é atualizado.  **Agora pode criar a solução (não reconstrução)** , que cria os projetos modificados. Se selecionou *recriar todas*, é necessário atualizar as versões para todos os projetos.
 
 Também precisamos versão nosso aplicativo. Para fazer as alterações de versão, depois faça duplo clique no **VisualObjects** projeto, pode usar o Visual Studio **Editar versões do manifesto** opção. A seleção desta opção abre a caixa de diálogo para versões de edição da seguinte forma:
 

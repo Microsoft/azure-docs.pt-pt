@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60370361"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Compreender a utilização de reserva do Azure para a sua subscrição pay as you go
@@ -44,7 +44,7 @@ A parte de hardware da VM é abrangida porque a VM implementada corresponde aos 
 
 ### <a name="statement-section-of-csv-file-for-vms"></a>Secção de instrução do ficheiro CSV para VMs
 
-Esta secção do ficheiro CSV mostra a utilização total para a sua reserva. Aplique o filtro no **subcategoria do medidor** campo que contém **"Reserva-"**. Verá algo semelhante a captura de ecrã seguinte:
+Esta secção do ficheiro CSV mostra a utilização total para a sua reserva. Aplique o filtro no **subcategoria do medidor** campo que contém **"Reserva-"** . Verá algo semelhante a captura de ecrã seguinte:
 
 ![Captura de ecrã de detalhes de utilização de reserva filtrado e custos](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 

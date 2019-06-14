@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
 ms.openlocfilehash: 2ba94963238cd5ee96df5c178a072addc5ddd75e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60620692"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger cópias de segurança híbridas que utilizam o Azure Backup
-Preocupações sobre problemas de segurança, como software maligno, ransomware e intrusões, estão a aumentar. Esses problemas de segurança podem ser caras, em termos de dinheiro e dados. Para proteger contra esses ataques, a cópia de segurança do Azure agora fornece as funcionalidades de segurança para ajudar a proteger cópias de segurança híbridas. Este artigo aborda como ativar e utilizar estas funcionalidades, utilizando um agente de serviços de recuperação do Azure e o servidor de cópia de segurança do Azure. Estas funcionalidades incluem:
+Preocupações sobre problemas de segurança, como software maligno, ransomware e intrusões, estão a aumentar. Esses problemas de segurança podem ser caras, em termos de dinheiro e dados. Para proteger contra esses ataques, a cópia de segurança do Azure agora fornece as funcionalidades de segurança para ajudar a proteger cópias de segurança híbridas. Este artigo aborda como ativar e utilizar estas funcionalidades, utilizando um agente de serviços de recuperação do Azure e o servidor de cópia de segurança do Azure. As funcionalidades incluem:
 
 - **Prevenção**. Uma camada adicional de autenticação é adicionada sempre que uma operação crítica, como alterar uma frase de acesso é executada. É esta validação para garantir que essas operações podem ser executadas apenas por utilizadores com credenciais do Azure válidas.
 - **Alertas**. Uma notificação por e-mail é enviada para o administrador de subscrição, sempre que uma operação crítica, como a eliminação de dados de cópia de segurança é executada. Este e-mail garante que o utilizador é notificado de rapidamente sobre tais ações.
@@ -50,7 +50,7 @@ Se estiver a criar um cofre dos serviços de recuperação, pode utilizar todas 
     ![Propriedades do Cofre de serviços de captura de ecrã de recuperação](./media/backup-azure-security-feature/security-settings-update.png)
 
     Link de atualização abre o **definições de segurança** painel, que fornece um resumo dos recursos e permite-lhe ativá-los.
-5. Na lista pendente **ter que configurou o multi-factor Authentication?**, selecione um valor para confirmar se ativou [multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Se estiver ativada, é-lhe perguntado para autenticar a partir de outro dispositivo (por exemplo, um telemóvel) ao iniciar sessão no portal do Azure.
+5. Na lista pendente **ter que configurou o multi-factor Authentication?** , selecione um valor para confirmar se ativou [multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Se estiver ativada, é-lhe perguntado para autenticar a partir de outro dispositivo (por exemplo, um telemóvel) ao iniciar sessão no portal do Azure.
 
    Quando efetua operações críticas na cópia de segurança, terá de introduzir uma PIN, disponível no portal do Azure de segurança. Ativar a multi-factor Authentication adiciona uma camada de segurança. Apenas os utilizadores com credenciais do Azure válidas autorizados e autenticados a partir de um segundo dispositivo, pode aceder ao portal do Azure.
 6. Para guardar as definições de segurança, selecione **habilitar** e clique em **guardar**. Pode selecionar **ativar** apenas depois de selecionar um valor a partir do **ter que configurou o multi-factor Authentication?** lista no passo anterior.

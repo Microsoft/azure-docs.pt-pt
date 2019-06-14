@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 709fb3be37850be37d6378652921ce26f4ff15fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242216"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>O Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
@@ -142,7 +142,7 @@ Se tiver desativado SSO totalmente integrado com o Azure AD Connect, siga tarefa
 4. Execute o PowerShell como administrador. No PowerShell, chamar `New-AzureADSSOAuthenticationContext`. Este comando deverá dar-lhe um pop-up para introduzir as credenciais de Administrador Global do seu inquilino.
 5. Chamar `Get-AzureADSSOStatus | ConvertFrom-Json`. Este comando apresenta a lista de florestas do AD (consulte a lista de "Domínios") em que esta funcionalidade foi ativada.
 
-### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passo 3. Elimine manualmente o `AZUREADSSOACCT` conta de computador de cada floresta do AD que vê listados.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Passo 3: Elimine manualmente o `AZUREADSSOACCT` conta de computador de cada floresta do AD que vê listados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

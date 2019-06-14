@@ -2,19 +2,17 @@
 title: Modelo de dados para cópia de segurança do Azure
 description: Este artigo fala sobre detalhes de modelo de dados do Power BI para relatórios de cópia de segurança do Azure.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-origin.date: 06/26/2017
-ms.date: 08/08/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
+ms.date: 06/26/2017
+ms.author: adigan
 ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60337583"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de dados para relatórios do Azure Backup
@@ -191,8 +189,5 @@ Esta tabela fornece campos básicos e agregações ao longo de vários campos re
 ## <a name="next-steps"></a>Passos Seguintes
 Depois de rever o modelo de dados para a criação de relatórios do Azure Backup, consulte os artigos seguintes para obter mais detalhes sobre como criar e visualizar relatórios no Power BI.
 
-- [Criar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-- [Filtragem de relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-
-
-<!-- Update_Description: update metedata properties -->
+* [Criar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Filtragem de relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

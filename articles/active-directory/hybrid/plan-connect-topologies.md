@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b1c0d33a7d920f76bcbea6d8d6babc7390003bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60383888"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
@@ -165,7 +165,7 @@ Esta topologia tem as seguintes restrições no caso contrário, suporte a cená
 * Dispositivos Windows 10 podem ser associados com apenas um inquilino do Azure AD.
 * A única início de sessão (SSO) opção para a autenticação de sincronização e a passagem do hash de palavra-passe pode ser utilizada com apenas um inquilino do Azure AD.
 
-O requisito para um conjunto mutuamente exclusivo de objetos também se aplica a repetição de escrita. Algumas funcionalidades de repetição de escrita não são suportadas com esta topologia porque partem do princípio de uma única configuração no local. Estas funcionalidades incluem:
+O requisito para um conjunto mutuamente exclusivo de objetos também se aplica a repetição de escrita. Algumas funcionalidades de repetição de escrita não são suportadas com esta topologia porque partem do princípio de uma única configuração no local. As funcionalidades incluem:
 
 * Repetição de escrita grupo com a configuração predefinida.
 * Repetição de escrita do dispositivo.

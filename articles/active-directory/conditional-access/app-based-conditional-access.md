@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12bfd70336c01e5595a086f360ce176df190a20e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60356651"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aplicações aprovadas do cliente para o acesso de aplicação de cloud com o acesso condicional 
@@ -121,7 +121,7 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
     ![Acesso condicional](./media/app-based-conditional-access/03.png)
 
-    b. Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e aplicações de ambiente de trabalho** e **clientes de autenticação moderna**.
+    b. Como **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e aplicações de ambiente de trabalho** e **clientes de autenticação moderna**.
 
     ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
@@ -145,9 +145,9 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente (pré-visualização)**. 
+4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente (pré-visualização)** . 
 
-    a. Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
+    a. Como **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
     ![Acesso condicional](./media/app-based-conditional-access/92.png)
 
@@ -202,7 +202,7 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
     ![Acesso condicional](./media/app-based-conditional-access/03.png)
 
-    b. Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes de autenticação moderna**.
+    b. Como **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes de autenticação moderna**.
 
     ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
@@ -229,7 +229,7 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente**:
 
-    a. Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
+    a. Como **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
     ![Acesso condicional](./media/app-based-conditional-access/92.png)
 
@@ -286,7 +286,7 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
     ![Acesso condicional](./media/app-based-conditional-access/03.png)
 
-    b. Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes de autenticação moderna**.
+    b. Como **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes de autenticação moderna**.
 
     ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
@@ -318,7 +318,7 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente**. 
 
-    Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
+    Como **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
     ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
@@ -382,7 +382,7 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
     ![Acesso condicional](./media/app-based-conditional-access/03.png)
 
-    b. Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e aplicações de ambiente de trabalho** e **clientes de autenticação moderna**.
+    b. Como **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e aplicações de ambiente de trabalho** e **clientes de autenticação moderna**.
 
     ![Acesso condicional](./media/app-based-conditional-access/91.png)
 
@@ -412,9 +412,9 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
     ![Acesso condicional](./media/app-based-conditional-access/07.png)
 
-4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente (pré-visualização)**. 
+4. **Condições:** Como **condições**, terá de configurar **aplicações de cliente (pré-visualização)** . 
 
-    Como **aplicações de cliente (pré-visualização)**, selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
+    Como **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
     ![Acesso condicional](./media/app-based-conditional-access/92.png)
 

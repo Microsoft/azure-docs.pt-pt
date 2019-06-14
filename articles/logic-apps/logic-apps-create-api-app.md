@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
 ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60681872"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas, pode chamar a partir do Azure Logic Apps
@@ -167,8 +167,8 @@ Aqui estão algumas etapas específicas para um acionador de consulta, descrito 
 
 | Foram encontrados novos dados ou eventos?  | Resposta da API | 
 | ------------------------- | ------------ |
-| Localizado | Devolver um HTTP `200 OK` Estado com o payload de resposta (entrada para o passo seguinte). <br/>Esta resposta cria uma instância da aplicação lógica e inicia o fluxo de trabalho. | 
-| Não encontrado | Devolver um HTTP `202 ACCEPTED` Estado com um `location` cabeçalho e uma `retry-after` cabeçalho. <br/>Para acionadores, o `location` cabeçalho deve conter também uma `triggerState` parâmetro de consulta, que é normalmente um "timestamp". A API pode utilizar este identificador para controlar a última vez que a aplicação lógica foi acionada. | 
+| Foi encontrado | Devolver um HTTP `200 OK` Estado com o payload de resposta (entrada para o passo seguinte). <br/>Esta resposta cria uma instância da aplicação lógica e inicia o fluxo de trabalho. | 
+| Não foi encontrado | Devolver um HTTP `202 ACCEPTED` Estado com um `location` cabeçalho e uma `retry-after` cabeçalho. <br/>Para acionadores, o `location` cabeçalho deve conter também uma `triggerState` parâmetro de consulta, que é normalmente um "timestamp". A API pode utilizar este identificador para controlar a última vez que a aplicação lógica foi acionada. | 
 ||| 
 
 Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, talvez queira criar um acionador de consulta com esses comportamentos:
@@ -183,7 +183,7 @@ Por exemplo, para verificar periodicamente o seu serviço para novos ficheiros, 
 | --------------------- | -------------| 
 | Ficheiro único | Devolver um HTTP `200 OK` atualizar o estado e o payload de conteúdo `triggerState` para o `DateTime` para o ficheiro retornado e o conjunto `retry-after` intervalo para 15 segundos. | 
 | Vários ficheiros | Voltar um arquivo num período de tempo e um HTTP `200 OK` Estado, a atualização `triggerState`e defina o `retry-after` intervalo de 0 segundos. </br>Estes passos permitem que o mecanismo de saber que estão disponíveis mais dados e que o motor imediatamente deve solicitar os dados de URL no `location` cabeçalho. | 
-| Nenhum ficheiro | Devolver um HTTP `202 ACCEPTED` Estado, não altere `triggerState`e defina o `retry-after` intervalo para 15 segundos. | 
+| Não existem ficheiros | Devolver um HTTP `202 ACCEPTED` Estado, não altere `triggerState`e defina o `retry-after` intervalo para 15 segundos. | 
 ||| 
 
 > [!TIP]

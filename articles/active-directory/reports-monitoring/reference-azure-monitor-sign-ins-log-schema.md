@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285201"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de início de sessão de registos do Azure AD no Azure Monitor
@@ -157,7 +157,7 @@ Este artigo descreve o esquema de início de sessão no registo do Azure Active 
 | DurationMs |  Este valor é não mapeado, e pode ignorar este campo.|
 | CallerIpAddress | O endereço IP do cliente que efetuou o pedido. | 
 | CorrelationId | O GUID opcional que é transmitido pelo cliente. Este valor pode ajudar a correlacionar operações do lado do cliente com as operações do lado do servidor e é útil quando está a controlar os registos que abrangem serviços. |
-| Identidade | A identidade do token que foi apresentado quando efetuou o pedido. Pode ser uma conta de utilizador, a conta de sistema ou o principal de serviço. |
+| identidade | A identidade do token que foi apresentado quando efetuou o pedido. Pode ser uma conta de utilizador, a conta de sistema ou o principal de serviço. |
 | Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |
 | Location | Disponibiliza a localização da atividade de início de sessão. |
 | Propriedades | Apresenta uma lista de todas as propriedades que estão associadas a inícios de sessão. Para obter mais informações, consulte [referência da API do Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Esse esquema utiliza os mesmos nomes de atributo que o recurso de início de sessão, para facilitar a leitura.

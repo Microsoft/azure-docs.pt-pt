@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60441138"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
@@ -98,7 +98,7 @@ O **serviço** filtro permite-lhe selecionar a partir de uma lista suspensa dos 
 - B2C
 - Acesso Condicional
 - Diretório do Núcleo
-- Gestão de Direitos
+- Gestão de direitos
 - Identity Protection
 - Utilizadores Convidados
 - PIM
@@ -127,7 +127,7 @@ O **categoria** filtro permite-lhe selecionar um dos seguintes filtros:
 
 O **atividade** filtro baseia-se a seleção de tipo de recurso categoria e a atividade que fizer. Pode selecionar uma atividade específica que queira ver ou selecionar todas. 
 
-Pode obter a lista de todas as Atividades de Auditoria com a Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, em que $tenantdomain é o nome do seu domínio, ou ver o artigo [Audit report events](reference-audit-activities.md) (Eventos de relatórios de auditoria).
+Pode obter a lista de todas as Atividades de Auditoria com a Graph API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta, em que $tenantdomain é o nome do seu domínio, ou ver o artigo [Audit report events](reference-audit-activities.md) (Eventos de relatórios de auditoria).
 
 O **estado** filtro permite-lhe filtrar com base no estado de uma operação de auditoria. O estado pode ser um dos seguintes:
 

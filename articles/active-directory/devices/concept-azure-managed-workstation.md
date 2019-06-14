@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e9ca9fa26e9744eb0a9bfafe692a096825b0b5
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.openlocfilehash: f3e33e483bdc9440ced1a2bc8aec6f21272eb797
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052169"
 ---
 # <a name="building-secure-workstations"></a>Criação de estações de trabalho seguras
 
 Estações de trabalho isoladas seguras são extremamente importantes para garantir a segurança de funções confidenciais, como administradores, desenvolvedores e operadores de serviços críticos. Muitos outros controlos de segurança e garantias irão falhar ou não têm qualquer efeito se a segurança de estação de trabalho de cliente subjacente foi comprometida.
 
 Este documento explica o que é necessário para criar uma estação de trabalho de cliente seguras com instruções passo a passo detalhadas, incluindo como configurar a partir de controlos de segurança. Este tipo de estações de trabalho às vezes é chamado de uma estação de trabalho acesso privilegiado (PAW), que esta referência é utilizada e construída. No entanto, a documentação de orientação é a tecnologia baseada na nuvem para gerir o serviço e apresenta os recursos de segurança introduzidos a partir de Windows 10RS5, o Microsoft Defender ATP, o Azure Active Directory e o Intune.
+
+> [!NOTE]
+> Este artigo explica o conceito de estação de trabalho segura e sua importância. Se já estiver familiarizado com o conceito e gostaria de ignorar a implementação, leia [como implementar uma estação de trabalho seguro](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
 
 ## <a name="why-securing-workstation-access-is-important"></a>Por que é importante proteger o acesso de estação de trabalho
 

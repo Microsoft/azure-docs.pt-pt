@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587925"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
@@ -131,7 +131,7 @@ O exemplo seguinte devolve `"FOOBAR"`:
 ## <a name="collection-functions"></a>Funções de coleção
 Estas funções podem ser utilizadas com coleções, como cadeias de caracteres do JSON, matrizes e objetos.
 
-### <a name="contains"></a>contém
+### <a name="contains"></a>Contém
 Devolve `true` se uma cadeia de caracteres contém a subcadeia especificada, uma matriz contém o valor especificado ou um objeto contém a chave especificada.
 
 #### <a name="example-1-string"></a>Exemplo 1: cadeia
@@ -164,7 +164,7 @@ O exemplo seguinte devolve `true`:
 "[contains(steps('foo').element1, 'key1')]"
 ```
 
-### <a name="length"></a>Comprimento
+### <a name="length"></a>length
 Devolve o número de carateres numa cadeia de caracteres, o número de valores numa matriz ou o número de chaves num objeto.
 
 #### <a name="example-1-string"></a>Exemplo 1: cadeia
@@ -197,7 +197,7 @@ O exemplo seguinte devolve `2`:
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>Vazio
+### <a name="empty"></a>vazio
 Devolve `true` se a cadeia de caracteres, uma matriz ou um objeto é nulo ou está vazio.
 
 #### <a name="example-1-string"></a>Exemplo 1: cadeia
@@ -335,7 +335,7 @@ O exemplo seguinte devolve `{"key1": "foobar"}`:
 "[take(steps('foo').element1, 1)]"
 ```
 
-### <a name="skip"></a>ignorar
+### <a name="skip"></a>Ignorar
 Ignora um número especificado de elementos numa coleção e, em seguida, devolve os elementos restantes.
 
 #### <a name="example-1-string"></a>Exemplo 1: cadeia
@@ -553,7 +553,7 @@ O exemplo seguinte devolve `"{"foo":"bar"}"`:
 "[string({\"foo\":\"bar\"})]"
 ```
 
-### <a name="bool"></a>booleano
+### <a name="bool"></a>bool
 Converte o parâmetro para um valor booleano. Esta função oferece suporte a parâmetros de tipo, cadeia de caracteres e booleanos. Assim como booleanos em JavaScript, qualquer valor, exceto `0` ou `'false'` devolve `true`.
 
 O exemplo seguinte devolve `true`:
@@ -704,7 +704,7 @@ O exemplo seguinte devolve `1`:
 "[min(1, 2)]"
 ```
 
-### <a name="max"></a>máx.
+### <a name="max"></a>max
 Devolve o maior entre os dois números.
 
 O exemplo seguinte devolve `2`:

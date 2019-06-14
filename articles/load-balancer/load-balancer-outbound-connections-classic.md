@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
 ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60595051"
 ---
 # <a name="outbound-connections-classic"></a>Ligações de saída (clássicas)
@@ -49,7 +49,7 @@ Implementações diferentes no modelo clássico têm diferentes funcionalidades:
 
 | Implementação clássica | Funcionalidade disponível | 
 | --- | --- |
-| Máquina Virtual | cenário [1](#ilpip), [2](#publiclbendpoint), ou [3](#defaultsnat) |
+| Máquina virtual | cenário [1](#ilpip), [2](#publiclbendpoint), ou [3](#defaultsnat) |
 | Função de trabalho Web | apenas o cenário [2](#publiclbendpoint), [3](#defaultsnat) | 
 
 [Estratégias de atenuação](#snatexhaust) também têm as diferenças do mesmo.
@@ -108,7 +108,7 @@ Azure preallocates SNAT portas quando uma instância for implementada com base n
 
 A tabela seguinte mostra os preallocations de porta SNAT para os escalões de tamanhos de conjuntos de back-end:
 
-| Instâncias | Portas SNAT pré-alocado por instância |
+| instâncias | Portas SNAT pré-alocado por instância |
 | --- | --- |
 | 1-50 | 1,024 |
 | 51-100 | 512 |

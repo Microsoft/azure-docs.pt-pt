@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: 4b4b680657ba8575333f598d3a34c4f4b5f2ebd7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050161"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Active Directory do Azure com o Zoom
 
@@ -53,7 +53,7 @@ Para configurar a integração de Zoom para o Azure AD, terá de adicionar Zoom 
 
 **Para adicionar o Zoom da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -112,20 +112,20 @@ Para configurar o Azure AD início de sessão único com Zoom, execute os seguin
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente de Zoom](https://support.zoom.us/hc/en-us) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. Aplicação de zoom espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+5. Aplicação de zoom espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos de utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 
 6. Além disso, para acima, a aplicação de Zoom espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
     
-    | Name | Espaço de nomes  |  Atributo de origem|
+    | Name | Espaço de Nomes  |  Atributo de origem|
     | ---------------| --------------- | --------- |
-    | Endereço de correio eletrónico  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+    | Endereço de e-mail  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
     | Nome próprio  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
     | Apelido  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
-    | Número de telemóvel  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
+    | Número de telefone  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
     | Departamento  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
-    | função |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
+    | role |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
     > [!NOTE]
     > Clique [aqui](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) saber como configurar a função no Azure AD
@@ -278,7 +278,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão para aplicar Zoom, te
 > [!NOTE]
 > Pode utilizar quaisquer outras Zoom utilizador conta criação ferramentas ou APIs fornecidas pelo Zoom para aprovisionar o Azure Active Directory, contas de utilizador.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

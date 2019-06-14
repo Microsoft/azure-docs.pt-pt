@@ -12,10 +12,10 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400088"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciência de dados dimensionável com o Azure Data Lake: Uma passo a passo-a-ponto
@@ -148,7 +148,7 @@ Para executar o U-SQL, abra o Visual Studio, clique em **ficheiro--> New--> Proj
 
 ### <a name="ingest"></a>Ingestão de dados: Leitura de dados de blob público
 
-A localização dos dados no blob do Azure é referenciada como **wasb://container\_name\@blob\_armazenamento\_conta\_name.blob.core.windows.net/blob_name**e pode ser extraído usando **Extractors.Csv()**. Substitua o seu nome de contentor e o nome de conta de armazenamento em scripts seguintes para o contentor\_name\@blob\_armazenamento\_conta\_nome o endereço de wasb. Uma vez que os nomes dos ficheiros estão no mesmo formato, é possível usar **viagem\_dados\_\{\*\}. csv** ler em todos os arquivos de 12 de viagem.
+A localização dos dados no blob do Azure é referenciada como **wasb://container\_name\@blob\_armazenamento\_conta\_name.blob.core.windows.net/blob_name**e pode ser extraído usando **Extractors.Csv()** . Substitua o seu nome de contentor e o nome de conta de armazenamento em scripts seguintes para o contentor\_name\@blob\_armazenamento\_conta\_nome o endereço de wasb. Uma vez que os nomes dos ficheiros estão no mesmo formato, é possível usar **viagem\_dados\_\{\*\}. csv** ler em todos os arquivos de 12 de viagem.
 
     ///Read in Trip data
     @trip0 =

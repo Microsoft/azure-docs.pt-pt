@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60244336"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração predefinida
@@ -71,7 +71,7 @@ O [agendador](how-to-connect-sync-feature-scheduler.md) é executado a cada 30 m
    ![Regra de filtro de âmbito de entrada](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Esta secção é usada para definir a quais objetos deve aplicar a regra. Se for deixado vazio, a regra seria aplicada a todos os objetos de utilizador. No entanto, que incluem salas de conferência, contas de serviço e outros objetos de utilizador não pessoas.
 4. Sobre o **associar regras** página, deixar o campo vazio.
-5. Sobre o **transformações** página, alterar **FlowType** para **expressão**. Para **atributo Target**, selecione **givenName**. E para **origem**, introduza **PCase([givenName])**.
+5. Sobre o **transformações** página, alterar **FlowType** para **expressão**. Para **atributo Target**, selecione **givenName**. E para **origem**, introduza **PCase([givenName])** .
    ![Transformações de regra de entrada](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    O motor de sincronização diferencia maiúsculas de minúsculas para o nome da função e o nome do atributo. Se digitar algo errado, verá um aviso ao adicionar a regra. Pode guardar e continuar, mas precisa para reabrir e corrija a regra.
 6. Clique em **adicionar** para guardar a regra.
@@ -273,7 +273,7 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
     | Sistema ligado | *Escolha os locais conector AD* |  |
     | Tipo de objeto de sistema ligado | **Utilizador** |  |
     | Tipo de objeto de Metaverso | **Pessoa** |  |
-    | Tipo de Ligação | **Associar** |  |
+    | Tipo de ligação | **Associar** |  |
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
 5. Vá para o **filtro Scoping** separador e adicione um **único grupo de filtro de âmbito** com a cláusula seguinte:
@@ -286,15 +286,15 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
 
 6. Vá para o **transformação** separador e implementar a regra de transformação pretendida. Por exemplo, se tiver designado um não utilizado no local atributo de AD (por exemplo, extensionAttribute1) como o atributo de origem para o UserType, pode implementar um fluxo de atributos direto:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de destino | source | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     | Direto | UserType | extensionAttribute1 | Desmarcada | Atualizar |
 
     Noutro exemplo, pretende derivar o valor para o atributo UserType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como convidado se suas instalações atributo userPrincipalName do AD acaba com parte do domínio <em>@partners.fabrikam123.org</em>. Pode implementar uma expressão como esta:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de destino | source | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
-    | Expressão | UserType | IIf(IsPresent([userPrincipalName]),IIF(CBool(Instr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Membro", "Convidado"), erro ("UserPrincipalName não está presente para determinar o UserType")) | Desmarcada | Atualizar |
+    | expressão | UserType | IIf(IsPresent([userPrincipalName]),IIF(CBool(Instr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Membro", "Convidado"), erro ("UserPrincipalName não está presente para determinar o UserType")) | Desmarcada | Atualizar |
 
 7. Clique em **adicionar** para criar a regra de entrada.
 
@@ -315,7 +315,7 @@ A regra de sincronização de saída permite que o valor do atributo a ser envia
     | Sistema ligado | *Seleccione o conector AAD* ||
     | Tipo de objeto de sistema ligado | **Utilizador** ||
     | Tipo de objeto de Metaverso | **Pessoa** ||
-    | Tipo de Ligação | **Associar** ||
+    | Tipo de ligação | **Associar** ||
     | Precedência | *Escolha um número entre 1 a 99* | 1 a 99 está reservado para regras de sincronização personalizados. Não escolha um valor que é utilizado por outra regra de sincronização. |
 
 5. Vá para o **filtro Scoping** separador e adicione um **único grupo de filtro de âmbito** com dois cláusulas:
@@ -329,7 +329,7 @@ A regra de sincronização de saída permite que o valor do atributo a ser envia
 
 6. Vá para o **transformação** separador e implementar a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de destino | source | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     | Direto | UserType | UserType | Desmarcada | Atualizar |
 

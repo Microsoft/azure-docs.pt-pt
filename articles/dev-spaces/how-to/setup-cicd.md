@@ -11,10 +11,10 @@ manager: yuvalm
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
 ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60687372"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utilizar o CI/CD com espaços de desenvolvimento do Azure
@@ -43,7 +43,7 @@ Criar um novo espaço chamado _dev_ usando o `azds space select` comando. O _dev
 azds space select -n dev
 ```
 
-Quando lhe for pedido para selecionar um espaço de desenvolvimento principal, selecione  _\<none\>_.
+Quando lhe for pedido para selecionar um espaço de desenvolvimento principal, selecione  _\<none\>_ .
 
 Depois de ter sido criado o seu espaço de desenvolvimento, precisa determinar o sufixo de anfitrião. Utilize o `azds show-context` comando para mostrar o sufixo de anfitrião do controlador de entrada do Azure Dev espaços.
 

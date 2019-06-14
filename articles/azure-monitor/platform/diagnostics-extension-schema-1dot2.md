@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237842"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração de diagnóstico 1.2 do Azure
@@ -112,7 +112,7 @@ Define as configurações para os dados de telemetria recolha. A tabela seguinte
 |**DiagnosticInfrastructureLogs**|Ative a recolha de registos gerados pelo diagnóstico do Azure. Os registos de diagnóstico de infraestrutura são úteis para resolver o próprio sistema de diagnóstico. Atributos opcionais são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -configura o nível de gravidade mínimo dos registos recolhidos.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**Diretórios**|Permite a recolha do conteúdo de um diretório, o IIS não conseguiu aceder aos registos de pedido e/ou registos do IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|Configura a recolha de eventos do ETW do EventSource de e/ou o manifesto do ETW com base em provedores.|  
-|**Métricas**|Esse elemento permite-lhe gerar uma tabela de contador de desempenho otimizado para consultas rápidas. Cada contador de desempenho que está definido no **PerformanceCounters** elemento é armazenado na tabela de métricas para além da tabela de contador de desempenho. Atributo necessário:<br /><br /> **resourceId** -este é o ID de recurso da Máquina Virtual está a implementar o diagnóstico do Azure para. Obter o **resourceID** partir do [portal do Azure](https://portal.azure.com). Selecione **navegue** -> **grupos de recursos** -> **< nome\>**. Clique no **propriedades** mosaico e copie o valor a partir do **ID** campo.|  
+|**Métricas**|Esse elemento permite-lhe gerar uma tabela de contador de desempenho otimizado para consultas rápidas. Cada contador de desempenho que está definido no **PerformanceCounters** elemento é armazenado na tabela de métricas para além da tabela de contador de desempenho. Atributo necessário:<br /><br /> **resourceId** -este é o ID de recurso da Máquina Virtual está a implementar o diagnóstico do Azure para. Obter o **resourceID** partir do [portal do Azure](https://portal.azure.com). Selecione **navegue** -> **grupos de recursos** ->  **< nome\>** . Clique no **propriedades** mosaico e copie o valor a partir do **ID** campo.|  
 |**PerformanceCounters**|Permite a recolha de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**WindowsEventLog**|Permite a recolha de registos de eventos do Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 

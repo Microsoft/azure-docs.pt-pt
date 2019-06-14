@@ -14,13 +14,13 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b74049833b055caa112c346b74798893f2c0febf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60476675"
 ---
-# <a name="get-help-with-two-step-verification"></a>Obter ajuda para a verificação de dois passos
+# <a name="get-help-with-two-step-verification"></a>Obtenha ajuda com verificação de dois passos
 
 Verificação de dois passos é uma funcionalidade de segurança a que sua organização está a utilizar para proteger as suas contas. A verificação de dois passos é mais segura do que utilizar apenas uma palavra-passe, porque depende de duas formas de autenticação: algo que os utilizadores sabem e algo que têm com eles. Algo que conhece é a palavra-passe, enquanto a algo que tem com é o seu telemóvel ou num dispositivo. Utilizar a verificação pode ajudar a parar os hackers mal-intencionados de iniciar sessão como, mesmo que eles recebem a palavra-passe.
 

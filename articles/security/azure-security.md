@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610541"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
@@ -140,7 +140,7 @@ Pode ativar ou desativar os seguintes tipos de registos:
 
 -   Web Server registo - informações sobre transações de HTTP utilizando o formato de ficheiro de registo expandido de W3C. Isto é útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
 
-#### <a name="application-diagnostics"></a>Application diagnostics
+#### <a name="application-diagnostics"></a>Diagnóstico de aplicação
 [Diagnóstico de aplicação](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) permite-lhe capturar informações produzidas por um aplicativo web. As aplicações ASP.NET podem utilizar o [Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) classe para registar informações no registo de diagnóstico de aplicação. No Application Diagnostics, existem dois tipos principais de eventos, os relacionados com desempenho de aplicações e os relacionados com erros e falhas da aplicação. As falhas e os erros podem ser divididos em problemas de conectividade, segurança e de falha mais detalhes. Problemas de falha estão normalmente relacionados com um problema com o código do aplicativo.
 
 No Application Diagnostics, pode ver eventos agrupados nas seguintes formas:
@@ -345,7 +345,7 @@ Atualizações de patch fornecem a base para encontrar e corrigir problemas pote
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 O Centro de Segurança ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 Proteger sistemas, aplicativos e dados começa com controlos de acesso com base na identidade. As funcionalidades de gestão de acessos e identidades incorporadas no serviços e produtos comerciais da Microsoft ajudam a proteger as suas informações pessoais e organizacionais contra acesso não autorizado ao mesmo tempo, tornando-a legítimos utilizadores onde e quando quiserem eles precisa dela.
 

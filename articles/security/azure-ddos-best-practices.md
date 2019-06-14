@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
 ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60588165"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Proteção contra DDoS do Azure: Melhores práticas e arquiteturas de referência
@@ -182,7 +182,7 @@ Cibersegurança requer constante inovação em defesa. A proteção padrão DDoS
 
 Um ataque de DDoS que tenha como destino de recursos do Azure, normalmente, requer intervenção mínima de um ponto de vista do utilizador. Ainda assim, incorporando DDoS atenuação como parte de uma estratégia de resposta a incidentes ajuda a minimizar o impacto para a continuidade do negócio.
 
-### <a name="microsoft-threat-intelligence"></a>Informação de ameaças da Microsoft
+### <a name="microsoft-threat-intelligence"></a>Informações de ameaças da Microsoft
 
 A Microsoft tem uma rede de inteligência de ameaças extensa. Esta rede utiliza o conhecimento coletivo de uma Comunidade de segurança expandida que oferece suporte a serviços online da Microsoft, parceiros da Microsoft e relações na Comunidade de segurança de internet. 
 

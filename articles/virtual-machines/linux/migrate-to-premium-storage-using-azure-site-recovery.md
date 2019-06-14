@@ -11,10 +11,10 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543688"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o armazenamento Premium com o Azure Site Recovery
@@ -74,10 +74,10 @@ Estes são os requisitos do Azure para este cenário de migração:
 
 Pode utilizar o Site Recovery para migrar VMs IaaS do Azure entre regiões ou dentro da mesma região. As instruções seguintes são adaptadas para este cenário de migração do artigo [replicar VMs de VMware ou servidores físicos para o Azure](../../site-recovery/vmware-walkthrough-overview.md). Siga as ligações para obter passos detalhados, além das instruções neste artigo.
 
-### <a name="step-1-create-a-recovery-services-vault"></a>Passo 1: Criar um cofre dos Serviços de Recuperação 
+### <a name="step-1-create-a-recovery-services-vault"></a>Passo 1: Criar um cofre dos Serviços de Recuperação
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
-2. Selecione **criar um recurso** > **gestão** > **cópia de segurança** e **Site Recovery (OMS)**. Em alternativa, pode selecionar **navegue** > **cofre dos Recovery Services** > **adicionar**. 
+2. Selecione **criar um recurso** > **gestão** > **cópia de segurança** e **Site Recovery (OMS)** . Em alternativa, pode selecionar **navegue** > **cofre dos Recovery Services** > **adicionar**. 
 3. Especifique uma região que as VMs serão replicadas. Para fins de migração na mesma região, selecione a região onde estão as VMs de origem e as contas de armazenamento de origem. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Passo 2: Escolha os seus objetivos de proteção 
@@ -142,7 +142,7 @@ Para verificar se o seu servidor de configuração está com êxito associado à
 ### <a name="step-6-plan-capacity"></a>Passo 6: Planear a capacidade
 
 1. Utilize o [Planeador de capacidade](../../site-recovery/site-recovery-capacity-planner.md) calcular com precisão a largura de banda de rede, armazenamento e outros requisitos para satisfazer a replicação precisa. 
-2. Quando tiver terminado, selecione **Sim, já o fiz** na **concluiu o planeamento de capacidade?**.
+2. Quando tiver terminado, selecione **Sim, já o fiz** na **concluiu o planeamento de capacidade?** .
 
    ![Caixa para confirmar que concluiu o planeamento de capacidade][11]
 

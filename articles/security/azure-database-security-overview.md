@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587653"
 ---
 # <a name="azure-database-security-overview"></a>Descrição geral da segurança da base de dados do Azure
@@ -214,7 +214,7 @@ O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/serv
 
 Centro de segurança suporta o acesso baseado em funções.
 
-## <a name="sql-information-protection"></a>Proteção das Informações SQL
+## <a name="sql-information-protection"></a>Proteção de informações de SQL
 
 [Proteção de informações de SQL](../sql-database/sql-database-data-discovery-and-classification.md) automaticamente Deteta e classifica os dados potencialmente confidenciais, fornece um mecanismo de etiquetagem de forma permanente marcar dados confidenciais com atributos de classificação e fornece uma apresentação do dashboard detalhado o estado de classificação da base de dados.  
 

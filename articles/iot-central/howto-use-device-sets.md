@@ -3,17 +3,17 @@ title: Conjuntos de dispositivos de utilização na sua aplicação do Azure IoT
 description: Como um operador, como utilizar o dispositivo define na sua aplicação do Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 02/05/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60517368"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052936"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilize conjuntos de dispositivo na aplicação do Azure IoT Central
 
@@ -50,7 +50,7 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
 
 1. Selecione o seu conjunto de dispositivos.
 
-1. Selecione o separador **Dashboard**.
+1. Selecione o separador **Dashboard** .
 
 1. Selecione **Editar**.
 

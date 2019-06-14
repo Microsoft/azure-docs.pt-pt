@@ -2,20 +2,19 @@
 title: Saiba mais sobre operações de armazém de dados SQL do Azure | Documentos da Microsoft
 description: 'A elasticidade do SQL Data Warehouse permite aumentar, reduzir ou colocar em pausa a capacidade de computação, utilizando uma escala móvel de unidades do Data Warehouse (DWUs). Este artigo explica as métricas do armazém de dados e como se relacionam com as DWUs. '
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: kevinvngo
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-origin.date: 04/17/2018
-ms.date: 11/12/2018
-ms.author: v-jay
+ms.subservice: design
+ms.date: 04/17/2018
+ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531182"
 ---
 # <a name="data-warehouse-workload"></a>Carga de trabalho do armazém de dados

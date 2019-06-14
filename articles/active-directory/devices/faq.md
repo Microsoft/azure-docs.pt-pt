@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af10596fb1ddf4a4f9eba2b8265eb77221a19f4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353130"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/22/2018
 ms.author: aschhab
 ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332351"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Descrição geral do processamento de transações do Service Bus
@@ -37,8 +37,8 @@ O Service Bus suporta operações de agrupamento em relação a uma entidade de 
 
 As operações que podem ser executadas dentro de um âmbito de transação são os seguintes:
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)** : Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** : Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
 Receber operações não são incluídas, porque se presume que o aplicativo adquire mensagens utilizando o [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) loop de recebimento de modo, dentro de alguns ou com um [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) retorno de chamada, e só que, em seguida, abre-se um escopo de transação para o processamento da mensagem.
 

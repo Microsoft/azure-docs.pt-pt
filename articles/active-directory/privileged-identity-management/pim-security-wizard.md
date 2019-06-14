@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60286970"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Assistente de segurança do AD funções do Azure no PIM
@@ -53,7 +53,7 @@ A segunda etapa do assistente fornece uma oportunidade para alterar as atribuiç
 
 1. Clique em **seguinte** para selecionar os membros que pretende tornar elegíveis.
 
-    ![Converter membros para elegíveis](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Converter os membros para elegíveis](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Assim que tiver selecionado os membros, clique em **seguinte**.
 

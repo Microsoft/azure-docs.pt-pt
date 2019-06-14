@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60498530"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução de análise do Cofre de chaves do Azure no Azure Monitor
@@ -105,7 +105,7 @@ A solução de Cofre de chaves do Azure analisa os registos que tenham um tipo d
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
+| Tipo |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
 | CallerIpAddress |Endereço IP do cliente que efetuou o pedido |
 | Category | *AuditEvent* |
@@ -117,7 +117,7 @@ A solução de Cofre de chaves do Azure analisa os registos que tenham um tipo d
 | OperationName |Nome da operação, conforme documentado no [registo do Cofre de chaves do Azure](../../key-vault/key-vault-logging.md) |
 | OperationVersion |Versão de REST API solicitada pelo cliente (por exemplo *2015-06-01*) |
 | requestUri_s |URI do pedido |
-| Recurso |Nome do Cofre de chaves |
+| Resource |Nome do Cofre de chaves |
 | ResourceGroup |Grupo de recursos do Cofre de chaves |
 | ResourceId |ID do Recurso do Azure Resource Manager Para registos do Cofre de chaves, este é o ID de recurso do Key Vault. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |

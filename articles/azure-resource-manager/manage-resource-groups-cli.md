@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 9245d4c01816d26e262b1c8bd35015e2a6a9558c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550551"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerir grupos de recursos do Azure Resource Manager com CLI do Azure
@@ -47,7 +47,7 @@ read location &&
 az group create --name $resourceGroupName --location $location
 ```
 
-## <a name="list-resource-groups"></a>Listar grupos de recursos
+## <a name="list-resource-groups"></a>Lista de grupos de recursos
 
 O script da CLI seguinte lista os grupos de recursos na sua subscrição.
 

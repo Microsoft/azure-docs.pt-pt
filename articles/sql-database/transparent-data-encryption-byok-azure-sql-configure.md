@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60330878"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente do Azure Key Vault
@@ -77,7 +77,7 @@ Utilize o [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyv
    -PermissionsToKeys get, wrapKey, unwrapKey
    ```
 
-## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Passo 3. Adicione a chave do Key Vault para o servidor e defina o Protetor de TDE
+## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Passo 3: Adicione a chave do Key Vault para o servidor e defina o Protetor de TDE
 
 - Utilize o [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet para adicionar a chave a partir do Key Vault para o servidor.
 - Utilize o [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet para definir a chave como o protetor de TDE para todos os recursos de servidor.
@@ -111,7 +111,7 @@ Utilize o [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyv
    -ServerName <LogicalServerName> 
    ```
 
-## <a name="step-4-turn-on-tde"></a>Passo 4. Ativar o TDE 
+## <a name="step-4-turn-on-tde"></a>Passo 4: Ativar o TDE 
 
 Utilize o [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet para ativar a TDE.
 
@@ -125,7 +125,7 @@ Utilize o [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql
 
 Agora o armazém de dados ou base de dados tem o TDE ativado com uma chave de encriptação no Key Vault.
 
-## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Passo 5. Verifique o estado de encriptação e a atividade de encriptação
+## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Passo 5: Verifique o estado de encriptação e a atividade de encriptação
 
 Utilize o [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) para obter o estado de encriptação e o [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) para verificar o progresso de criptografia para uma base de dados ou armazém de dados.
 
@@ -233,7 +233,7 @@ Verifique o seguinte se ocorrer um problema:
 >
  
        
-## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Passo 3. Adicione a chave do Key Vault para o servidor e defina o Protetor de TDE
+## <a name="step-3-add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Passo 3: Adicione a chave do Key Vault para o servidor e defina o Protetor de TDE
   
      cli
      # add server key and update encryption protector
@@ -246,7 +246,7 @@ Verifique o seguinte se ocorrer um problema:
 > 
 
   
-## <a name="step-4-turn-on-tde"></a>Passo 4. Ativar o TDE 
+## <a name="step-4-turn-on-tde"></a>Passo 4: Ativar o TDE 
       cli
       # enable encryption
       az sql db tde set --database <dbname> --server <servername> --resource-group <rgname> --status Enabled 
@@ -254,7 +254,7 @@ Verifique o seguinte se ocorrer um problema:
 
 Agora o armazém de dados ou base de dados tem o TDE ativado com uma chave de encriptação gerida pelo cliente no Azure Key Vault.
 
-## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Passo 5. Verifique o estado de encriptação e a atividade de encriptação
+## <a name="step-5-check-the-encryption-state-and-encryption-activity"></a>Passo 5: Verifique o estado de encriptação e a atividade de encriptação
 
      cli
       # get encryption scan progress

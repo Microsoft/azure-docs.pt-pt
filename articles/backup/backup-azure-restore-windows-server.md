@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
 ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60238400"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar ficheiros para Windows, utilizando o modelo de implementação Azure Resource Manager
@@ -44,7 +44,7 @@ Se um ficheiro eliminado acidentalmente e pretende restaurá-lo na mesma máquin
 
     ![Captura de ecrã do Backup do Azure, com dados de recuperar realçado](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Sobre o **introdução** página, para restaurar os dados no mesmo servidor ou computador, selecione **neste servidor (`<server name>`)** > **seguinte**.
+3. Sobre o **introdução** página, para restaurar os dados no mesmo servidor ou computador, selecione **neste servidor (`<server name>`)**  > **seguinte**.
 
     ![Captura de ecrã de recuperar dados Assistente página Introdução](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 

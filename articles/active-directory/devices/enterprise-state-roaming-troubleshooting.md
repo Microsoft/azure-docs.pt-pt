@@ -20,10 +20,10 @@ ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60353181"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
@@ -87,7 +87,7 @@ Sob determinadas condições, Roaming de estado empresarial pode não conseguir 
 
 **Problema em potencial**: Sincronização pode falhar se o administrador configura a política de acesso condicional de autenticação do multi-factor dos serviços de Federação do Active Directory e o token de acesso do dispositivo expira. Certifique-se de que iniciar sessão e termine com o Microsoft Passport para o PIN de trabalho ou concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
 
-### <a name="event-viewer"></a>Visualizador de Eventos
+### <a name="event-viewer"></a>Visualizador de eventos
 
 Para resolução de problemas avançada, o Visualizador de eventos pode ser utilizado para localizar erros específicos. Estas estão documentadas na tabela abaixo. Os eventos podem ser encontrados no Visualizador de eventos > registos de serviços e aplicações > **Microsoft** > **Windows** > **SettingSync Azure** e para problemas relacionados com a identidade com o sync **Microsoft** > **Windows** > **AAD**.
 

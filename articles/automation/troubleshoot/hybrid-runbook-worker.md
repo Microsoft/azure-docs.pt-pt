@@ -10,10 +10,10 @@ ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ea6599152d3cbf1f50132f5b207c19148401f798
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60564264"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Resolver problemas relacionados com os Runbook Workers híbridos
@@ -56,7 +56,7 @@ Computadores que executam a função de trabalho de Runbook híbrida devem satis
 
 Certifique-se o computador que executará a funcionalidade do Runbook Worker híbrido cumpre os requisitos mínimos de hardware. Se assim for, monitor de CPU e memória utilizam para determinar qualquer correlação entre o desempenho de processos de trabalho de Runbook híbrida e Windows. Se existir memória ou pressão de CPU, isto pode indicar a necessidade de recursos de atualização. Também pode selecionar um recurso de computação diferentes que pode suportar os requisitos mínimos e dimensionamento quando a carga de trabalho demandas indicarem que um aumento é necessário.
 
-Verifique os **Microsoft SMA** registo de eventos para um evento correspondente com descrição *Win32 processo saiu com o código [4294967295]*. A causa deste erro é que ainda não tiver configurado a autenticação nos runbooks ou especificadas as credenciais Run As para o grupo de trabalho híbrida. Revisão [permissões do Runbook](../automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que configurou corretamente a autenticação para os runbooks.
+Verifique os **Microsoft SMA** registo de eventos para um evento correspondente com descrição *Win32 processo saiu com o código [4294967295]* . A causa deste erro é que ainda não tiver configurado a autenticação nos runbooks ou especificadas as credenciais Run As para o grupo de trabalho híbrida. Revisão [permissões do Runbook](../automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que configurou corretamente a autenticação para os runbooks.
 
 ### <a name="no-cert-found"></a>Cenário: Foi encontrado nenhum certificado no arquivo de certificados no trabalho de Runbook híbrida
 

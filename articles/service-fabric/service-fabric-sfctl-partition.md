@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: f7c9bcc51757100cb1fc957dee12213bc8bf2eec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556612"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -30,10 +30,10 @@ Consultar e gerir partições de qualquer serviço.
 | --- | --- |
 | perda de dados | Esta API irá induza perda de dados para a partição especificada. |
 | data-loss-status | Obtém o progresso de uma operação de perda de dados de partição a utilizar com a API de StartDataLoss. |
-| saúde | Obtém o estado de funcionamento a partição especificada do Service Fabric. |
-| informações | Obtém as informações sobre uma partição do Service Fabric. |
+| health | Obtém o estado de funcionamento a partição especificada do Service Fabric. |
+| info | Obtém as informações sobre uma partição do Service Fabric. |
 | list | Obtém a lista de partições de um serviço do Service Fabric. |
-| carregar | Obtém as informações de carga da partição do Service Fabric especificada. |
+| load | Obtém as informações de carga da partição do Service Fabric especificada. |
 | a reposição de carga | Repõe a carga atual de uma partição do Service Fabric. |
 | quorum-loss | Induces perda de quórum para uma partição de determinado serviço com estado. |
 | quorum-loss-status | Obtém o progresso de uma operação de perda de quórum numa partição a utilizar com a API de StartQuorumLoss. |

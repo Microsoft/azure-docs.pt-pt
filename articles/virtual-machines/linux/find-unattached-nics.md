@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
 ms.openlocfilehash: d3fd807dcd920a951dcc5083022d4d264b5bdab7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60649405"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Como encontrar e eliminar a interface de rede desanexada (NICs) pode ser feito para VMs do Azure

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60242243"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>O Azure Active Directory totalmente integrada início de sessão único
@@ -33,7 +33,7 @@ O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO 
 
 SSO totalmente integrado pode ser combinada com ambos os [sincronização de Hash de palavra-passe](how-to-connect-password-hash-synchronization.md) ou [autenticação pass-through](how-to-connect-pta.md) métodos de início de sessão. É o SSO totalmente integrado _não_ aplicável ao Active Directory Federation Services (ADFS).
 
-![Início de Sessão Único Totalmente Integrado](./media/how-to-connect-sso/sso1.png)
+![Totalmente integrado início de sessão único](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
 >Tem de SSO totalmente integrado no dispositivo do utilizador seja **associados a um domínio**, mas não precisa do dispositivo ser [do Azure AD associado](../active-directory-azureadjoin-overview.md).

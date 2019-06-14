@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e68b522d5a0fe7c359d83fc436aa7a1fd2159198
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048586"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para instância gerida da base de dados SQL do Azure com o Azure Data Factory
 
@@ -29,7 +29,7 @@ Pode copiar dados de instância gerida da base de dados SQL do Azure para qualqu
 
 Especificamente, este conector de instância gerida da base de dados SQL do Azure suporta:
 
-- Copiar dados utilizando a autenticação de SQL ou o Windows.
+- Copiar dados utilizando a autenticação de SQL.
 - Como uma origem, obter dados utilizando uma consulta SQL ou o procedimento armazenado.
 - Como um sink, acrescentando dados a uma tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
 
@@ -37,9 +37,9 @@ SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-database
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar dados de cópia de um Azure SQL Database Managed Instance que esteja localizado numa rede virtual, configure um runtime de integração autoalojado que pode acessar o banco de dados. Para obter mais informações, consulte [integration runtime autoalojado](create-self-hosted-integration-runtime.md).
+Para acessar a instância gerida da base de dados SQL do Azure  **[ponto final público](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)** , pode utilizar o Azure de ADF gerido IR. Certifique-se de que não apenas ativar o ponto final público, mas também permite o tráfego de ponto final público no grupo de segurança de rede para tornar o ADF conseguir estabelecer ligação à base de dados, ao seguir [esta orientação](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
-Se aprovisionar o runtime de integração autoalojado na mesma rede virtual que sua instância gerida, certifique-se de que sua máquina de runtime de integração não está numa sub-rede diferente, a sua instância gerida. Se aprovisionar o runtime de integração autoalojado numa rede virtual diferente do que a sua instância gerida, pode utilizar um peering de rede virtual ou uma rede virtual para a ligação de rede virtual. Para obter mais informações, consulte [ligar a sua aplicação para a instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connect-app.md).
+Para acessar a instância gerida da base de dados SQL do Azure **ponto final privado**, configure a um [integration runtime autoalojado](create-self-hosted-integration-runtime.md) que pode aceder à base de dados. Se aprovisionar o runtime de integração autoalojado na mesma rede virtual que sua instância gerida, certifique-se de que sua máquina de runtime de integração não está numa sub-rede diferente, a sua instância gerida. Se aprovisionar o runtime de integração autoalojado numa rede virtual diferente do que a sua instância gerida, pode utilizar um peering de rede virtual ou uma rede virtual para a ligação de rede virtual. Para obter mais informações, consulte [ligar a sua aplicação para a instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## <a name="get-started"></a>Introdução
 
@@ -54,13 +54,8 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo deve ser definida como **SqlServer**. | Sim. |
-| connectionString |Esta propriedade especifica as informações de connectionString, que é necessário para ligar à instância gerida utilizando a autenticação SQL ou autenticação do Windows. Para obter mais informações, consulte os exemplos seguintes. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault, e se se trata de solicitação de autenticação de SQL a `password` configuração fora de cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. |Sim. |
-| userName |Esta propriedade especifica um nome de utilizador, se utilizar a autenticação do Windows. Um exemplo é **domainname\\nome de utilizador**. |Não. |
-| password |Esta propriedade especifica uma palavra-passe da conta de utilizador que especificou para o nome de utilizador. Selecione **SecureString** armazenar as informações de connectionString em segurança na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não. |
-| connectVia | Isso [runtime de integração](concepts-integration-runtime.md) é utilizada para ligar ao arquivo de dados. Aprovisione o runtime de integração autoalojado na mesma rede virtual que sua instância gerida. |Sim. |
-
->[!TIP]
->Poderá ver o código de erro, como "UserErrorFailedToConnectToSqlServer" com uma mensagem "o limite de sessão para a base de dados é XXX e foi atingido." Se este erro ocorrer, adicionar `Pooling=false` para sua cadeia de ligação e tente novamente.
+| connectionString |Esta propriedade especifica as informações de connectionString, que é necessário para ligar à instância gerida utilizando a autenticação de SQL. Para obter mais informações, consulte os exemplos seguintes. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault, e se se trata de solicitação de autenticação de SQL a `password` configuração fora de cadeia de ligação. Veja o exemplo JSON abaixo da tabela e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. |Sim. |
+| connectVia | Isso [runtime de integração](concepts-integration-runtime.md) é utilizada para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se a sua instância gerida tem o ponto final público e permitir que o ADF aceder a). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Sim. |
 
 **Exemplo 1: Utilizar a autenticação SQL**
 
@@ -72,7 +67,7 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
+                "value": "Data Source=<servername:port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
             }
         },
         "connectVia": {
@@ -102,32 +97,6 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName>" 
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-**Exemplo 3: Utilizar a autenticação do Windows**
-
-```json
-{
-    "name": "AzureSqlMILinkedService",
-    "properties": {
-        "type": "SqlServer",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
-            },
-            "userName": "<domain\\username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
             }
         },
         "connectVia": {
@@ -278,6 +247,9 @@ GO
 
 ### <a name="azure-sql-database-managed-instance-as-a-sink"></a>O Azure SQL Database Managed Instance como sink
 
+> [!TIP]
+> Saiba mais sobre os comportamentos de escrita suportados, configurações e melhor prática de [melhor prática para carregar dados para a instância gerida da base de dados SQL do Azure](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
+
 Para copiar dados para a instância gerida da base de dados SQL do Azure, defina o tipo de sink na atividade de cópia para **SqlSink**. As seguintes propriedades são suportadas na secção de sink de atividade de cópia:
 
 | Propriedade | Descrição | Necessário |
@@ -286,14 +258,11 @@ Para copiar dados para a instância gerida da base de dados SQL do Azure, defina
 | writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são números inteiros para o número de linhas. Por predefinição, o Data Factory determinar dinamicamente o tamanho do lote apropriado com base no tamanho de linha.  |Não |
 | writeBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite.<br/>Valores permitidos são para o intervalo de tempo. Um exemplo é "00: 30:00," que é 30 minutos. |Não. |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados para a instância gerida. Ele é invocado apenas uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados pré-carregado. |Não. |
-| sqlWriterStoredProcedureName |Este nome é o procedimento armazenado que define como aplicar dados de origem para a tabela de destino. São exemplos de procedimentos para fazer a upserts ou transformações com sua própria lógica de negócios. <br/><br/>Este procedimento armazenado está *invocado por lote*. Para fazer uma operação que é executado apenas uma vez e não tem nada a com dados de origem, por exemplo, delete ou truncate, use o `preCopyScript` propriedade. |Não. |
+| sqlWriterStoredProcedureName |Este nome é o procedimento armazenado que define como aplicar dados de origem para a tabela de destino. <br/>Este procedimento armazenado está *invocado por lote*. Para fazer uma operação que é executado apenas uma vez e não tem nada a com dados de origem, por exemplo, delete ou truncate, use o `preCopyScript` propriedade. |Não. |
 | storedProcedureParameters |Esses parâmetros são utilizados para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Os nomes e as letras maiúsculas e minúsculas os parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não. |
 | sqlWriterTableType |Esta propriedade especifica um nome de tipo de tabela a ser utilizado no procedimento armazenado. A atividade de cópia torna os dados que está a ser movidos disponíveis numa tabela temporária com este tipo de tabela. Código do procedimento armazenado pode então mesclar os dados que estão a ser copiados com os dados existentes. |Não. |
 
-> [!TIP]
-> Quando os dados são copiados para a instância gerida da base de dados SQL do Azure, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Para efetuar uma upsert ou lógica de negócios adicionais, utilize o procedimento armazenado no SqlSink. Para obter mais informações, consulte [invocar um procedimento armazenado a partir de um sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
-
-**Exemplo 1: Anexar dados**
+**Exemplo 1: anexar dados**
 
 ```json
 "activities":[
@@ -325,9 +294,9 @@ Para copiar dados para a instância gerida da base de dados SQL do Azure, defina
 ]
 ```
 
-**Exemplo 2: Invocar um procedimento armazenado durante a cópia para upsert**
+**Exemplo 2: invocar um procedimento armazenado durante a cópia**
 
-Saiba mais detalhes a partir [invocar um procedimento armazenado a partir de um sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
+Saiba mais detalhes a partir [invocar um procedimento armazenado a partir de um sink SQL](#invoking-stored-procedure-for-sql-sink).
 
 ```json
 "activities":[
@@ -364,80 +333,69 @@ Saiba mais detalhes a partir [invocar um procedimento armazenado a partir de um 
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Colunas de identidade na base de dados de destino
+## <a name="best-practice-for-loading-data-into-azure-sql-database-managed-instance"></a>Prática recomendada para carregar dados para a instância gerida da base de dados SQL do Azure
 
-O exemplo seguinte copia dados de uma tabela de origem com não existe nenhuma coluna de identidade para uma tabela de destino com uma coluna de identidade.
+Quando copia dados para a instância gerida da base de dados SQL do Azure, pode necessitar de comportamento de escrita diferentes:
 
-**Tabela de origem**
+- **[Acrescentar](#append-data)** : meus dados de origem tem apenas novos registros;
+- **[Upsert](#upsert-data)** : meus dados de origem têm inserções e atualizações,
+- **[Substituir](#overwrite-entire-table)** : Quero recarregar a tabela de toda a dimensão sempre;
+- **[Escrever com lógica personalizada](#write-data-with-custom-logic)** : Preciso de um processamento extra antes da última inserção na tabela de destino.
+
+Consulte as secções respectivamente sobre como configurar no ADF e as práticas recomendadas.
+
+### <a name="append-data"></a>Anexar dados
+
+Este é o comportamento predefinido deste conector de sink de instância gerida da base de dados SQL do Azure e fazer do ADF **inserção em massa** para gravação eficiente à sua tabela. Além disso, pode simplesmente configurar a origem e sink em conformidade na atividade de cópia.
+
+### <a name="upsert-data"></a>Fazer upsert de dados
+
+**Opção eu** (sugeridas, especialmente quando tem dados de grande dimensão para copiar): a **abordagem de alto desempenho a maioria dos** fazer upsert é o seguinte: 
+
+- Em primeiro lugar, tirar partido de uma [tabela temporária](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) para carregamento em massa com a atividade de cópia de todos os registos. Que as operações em tabelas temporárias não são registadas, pode carregar milhões de registos em segundos.
+- Executar uma atividade de procedimento armazenado no ADF para aplicar uma [intercalar](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (ou de inserção/ATUALIZAÇÃO) declaração e uso o temp tabela como origem para executar todas as atualizações ou insere como uma única transação, reduzindo a quantidade de idas e voltas e operações de registo. No fim da atividade de procedimento armazenado, possível truncar a tabela temporária para estar preparado para o próximo ciclo de upsert. 
+
+Por exemplo, no Azure Data Factory, pode criar um pipeline com uma **atividade de cópia** em cadeia com um **atividade Stored Procedure** com êxito. O primeiro copia dados de seu arquivo de origem para uma tabela temporária, digamos " **##UpsertTempTable**" como nome de tabela no conjunto de dados, em seguida, o último invoca um procedimento armazenado para intercalar dados de origem da tabela temporária numa tabela de destino e limpar tabela temporária.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+A base de dados, defina um procedimento armazenado com a lógica de intercalação, semelhante ao seguinte, que é apontada da atividade Stored Procedure acima. Partindo do princípio de destino **Marketing** tabela com três colunas: **ProfileID**, **estado**, e **categoria**, e fazer o upsert com base no **ProfileID** coluna.
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**Tabela de destino**
+**Opção II:** em alternativa, pode optar por [invocar um procedimento armazenado numa atividade de cópia](#invoking-stored-procedure-for-sql-sink), ao mesmo tempo nota essa abordagem é executada para cada linha na tabela de origem em vez de tirar partido em massa Inserir como a abordagem de predefinição na atividade de cópia, portanto, não se encaixa para upsert de grande escala.
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>Substituir tabela inteira
 
-Tenha em atenção que a tabela de destino tem uma coluna de identidade.
+Pode configurar **preCopyScript** sink de propriedade na atividade de cópia, caso em que para cada atividade de cópia executar, ADF executa o script em primeiro lugar, em seguida, execute a cópia para inserir os dados. Por exemplo, para substituir a tabela inteira com os dados mais recentes, pode especificar um script para eliminar primeiro todos os registos antes dos novos dados da origem de carregamento em massa.
 
-**Definição de JSON do conjunto de dados de origem**
+### <a name="write-data-with-custom-logic"></a>Escrever dados com lógica personalizada
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
+Semelhante, conforme descrito em [Upsert dados](#upsert-data) secção, quando precisar de aplicar um processamento extra antes da inserção de final de origem de dados na tabela de destino, pode uma) para um dimensionamento de grande escala, carregar para uma tabela temporária, em seguida, invocar um armazenado procedimento ou b) invocar um procedimento armazenado durante a cópia.
 
-**Definição de JSON do conjunto de dados de destino**
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Invocar um procedimento armazenado a partir de um sink SQL
 
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
+Quando copia dados para a instância gerida da base de dados SQL do Azure, também pode configurar e invocar um procedimento armazenado especificado pelo utilizador com parâmetros adicionais.
 
-Observe que a sua tabela de origem e destino têm esquema diferente. A tabela de destino tem uma coluna de identidade. Neste cenário, especifique a propriedade de "estrutura" na definição de conjunto de dados de destino, que não inclui a coluna de identidade.
+> [!TIP]
+> Invocação de procedimento armazenado processa a dados linha por linha em vez de operação em massa, que não é sugerida para cópia de grande escala. Saiba mais a partir da [melhor prática para carregar dados para a instância gerida da base de dados SQL do Azure](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invocar um procedimento armazenado a partir de um sink SQL
-
-Quando os dados são copiados para a instância gerida da base de dados SQL do Azure, um procedimento armazenado pode ser configurado e invocado com parâmetros adicionais que especificar.
-
-Pode usar um procedimento armazenado quando os mecanismos de cópia interna não atendem a finalidade. É normalmente utilizado quando um upsert (atualização + insert) ou um processamento extra deve ser feito antes da última inserção de dados de origem na tabela de destino. Processamento extra pode incluir tarefas como a intercalação de colunas, procurar valores adicionais e a inserção em várias tabelas.
+Pode usar um procedimento armazenado quando os mecanismos de cópia interna não atendem a finalidade, por exemplo, aplicar um processamento extra antes da inserção de final de origem de dados na tabela de destino. Alguns exemplos de processamento extra são colunas de intercalação, procura de valores adicionais e a inserção em mais de uma tabela.
 
 O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert numa tabela na base de dados do SQL Server. Partem do princípio de que dados de entrada e o sink **Marketing** cada tabela têm três colunas: **ProfileID**, **estado**, e **categoria**. Fazer o upsert com base na **ProfileID** coluna e aplicá-la apenas para uma categoria específica.
 
@@ -526,7 +484,7 @@ Quando os dados são copiados de e para instância gerida da base de dados SQL d
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérico |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -534,12 +492,12 @@ Quando os dados são copiados de e para instância gerida da base de dados SQL d
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| texto |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 

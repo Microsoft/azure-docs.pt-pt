@@ -12,10 +12,10 @@ ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5f6145e581393d874871d214515a660f987d1d7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253441"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
@@ -1410,7 +1410,7 @@ Utilize `unpersist()` eliminar objetos em cache na memória.
 
 PythonRDD [122] em RDD em PythonRDD.scala: 43
 
-* * Caminho de printout para arquivos de modelo devem ser usados no bloco de notas de consumo. * * Para consumir e classificar um conjunto de dados independente, terá de copiar e colar esses nomes de ficheiro no "consumo bloco de notas".
+\* * Caminho de printout para arquivos de modelo devem ser usados no bloco de notas de consumo. \* * Para consumir e classificar um conjunto de dados independente, terá de copiar e colar esses nomes de ficheiro no "consumo bloco de notas".
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
 ms.openlocfilehash: 6aeba722a0661979664f8d61efdb9b2bf47ad801
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618507"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Compreender a que VMS do conjunto de IDs de instância para o dimensionamento de VM do Azure

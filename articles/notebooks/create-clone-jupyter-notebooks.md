@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60237555"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
@@ -42,7 +42,7 @@ O que pode fazer no dashboard depende se iniciou sessão com a conta que possui 
 | **Eliminar** | Proprietário | Elimina o projeto selecionado. Esta operação não pode ser anulada. |
 | **Terminal** | Proprietário | Inicia o servidor de projeto, em seguida, abre-se de uma nova janela do browser com o bash para esse servidor de terminal. |
 | **+ Novo projeto** | Proprietário | Cria um novo projeto. Ver [criar um novo projeto](#create-a-new-project). |
-| **Carregar o repositório do GitHub** | Proprietário | Importa um projeto do GitHub. [Importar um projeto do GitHub](#import-a-project-from-github). |
+| **Carregar o repositório do GitHub** | Owner | Importa um projeto do GitHub. [Importar um projeto do GitHub](#import-a-project-from-github). |
 | **Clone** | Qualquer pessoa | Copia um projeto selecionado para a sua própria conta. Pede-lhe para iniciar sessão em se não o tiver feito. Ver [clonar um projeto](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Obter um destaque de lançamento
@@ -78,11 +78,11 @@ As seguintes palavras reservadas não podem servir-se por si só como projeto de
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| acerca | conta | Administração | api | Blog | classroom |
-| conteúdo | dashboard | Explorar | faq | ajuda | html |
-| home page | Importar | biblioteca | móveis | novo | notebook |
-| Blocos de notas | pdf | pré-visualização | preços | perfil | procurar |
-| status | suporte | test | | | |
+| sobre | conta | Administração | api | Blog | classroom |
+| conteúdo | dashboard | Explorar | faq | Obter ajuda | html |
+| página inicial | Importar | biblioteca | móveis | novo | notebook |
+| Blocos de notas | pdf | pré-visualização | Os preços | Perfil | Pesquisa |
+| status | Suporte | test | | | |
 
 Se tentar usar um dessas palavras como um ID de projeto, o **criar novo projeto** e **configurações de projeto** indicam de pop-ups, "id da biblioteca é um identificador reservado".
 

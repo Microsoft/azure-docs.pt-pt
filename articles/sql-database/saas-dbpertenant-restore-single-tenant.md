@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326369"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurar um único inquilino com uma aplicação SaaS de base de dados por inquilino
@@ -76,7 +76,7 @@ Para demonstrar esses cenários de recuperação, primeiro "" excluir acidentalm
 
 1. No ISE do PowerShell, abra... \\Módulos de aprendizagem\\continuidade do negócio e recuperação após desastre\\RestoreTenant\\*demonstração RestoreTenant.ps1*e defina o valor seguinte:
 
-   * **$DemoScenario** = **1**, *último evento de eliminação (com nenhuma vendas de bilhetes)*.
+   * **$DemoScenario** = **1**, *último evento de eliminação (com nenhuma vendas de bilhetes)* .
 2. Prima F5 para executar o script e eliminar o último evento. É apresentada a seguinte mensagem de confirmação:
 
    ```Console

@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60550099"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utilizar modelos de projeto do Visual Studio para o pontapé inicial em soluções do Batch
@@ -89,7 +89,7 @@ Para adicionar um Gestor de trabalhos para a solução que criou anteriormente, 
 
 1. Abra a solução existente no Visual Studio.
 2. No Solution Explorer, clique com botão direito a solução, clique em **Add** > **novo projeto**.
-3. Sob **em Visual C#**, clique em **Cloud**e, em seguida, clique em **Gestor de tarefas do Azure Batch com a tarefa de Splitter**.
+3. Sob **em Visual C#** , clique em **Cloud**e, em seguida, clique em **Gestor de tarefas do Azure Batch com a tarefa de Splitter**.
 4. Escreva um nome que descreve o seu aplicativo e identifica este projeto como o Gerenciador de trabalhos (por exemplo "LitwareJobManager").
 5. Para criar o projeto, clique em **OK**.
 6. Por fim, compile o projeto para forçar o Visual Studio para carregar todos os pacotes de NuGet referenciados e certifique-se de que o projeto é válido antes de começar a modificá-la.
@@ -258,7 +258,7 @@ Para adicionar um processador de tarefas para a solução que criou anteriorment
 
 1. Abra a solução existente no Visual Studio.
 2. No Solution Explorer, clique com botão direito a solução, clique em **Add**e, em seguida, clique em **novo projeto**.
-3. Sob **em Visual C#**, clique em **Cloud**e, em seguida, clique em **processador de tarefa do Azure Batch**.
+3. Sob **em Visual C#** , clique em **Cloud**e, em seguida, clique em **processador de tarefa do Azure Batch**.
 4. Escreva um nome que descreve o seu aplicativo e identifica este projeto como o processador de tarefa (por exemplo "LitwareTaskProcessor").
 5. Para criar o projeto, clique em **OK**.
 6. Por fim, compile o projeto para forçar o Visual Studio para carregar todos os pacotes de NuGet referenciados e certifique-se de que o projeto é válido antes de começar a modificá-la.

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60326301"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Orientações gerais para trabalhar com Wingtip Tickets aplicações SaaS de exemplo
@@ -90,7 +90,7 @@ Para garantir uma ligação de demonstração com êxito, todos os servidores t�
     - **Aplicação autónoma:** servidores de inquilinos individuais (ex. *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **Base de dados por inquilino:** *tenants1-dpt -&lt;utilizador&gt;. database.windows.net*
     - **Base de dados do multi-inquilino:** *tenants1-mt -&lt;utilizador&gt;. database.windows.net* 
-2. Clique em **Ligar** > **Motor de Base de Dados...**:
+2. Clique em **Ligar** > **Motor de Base de Dados...** :
 
    ![servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 

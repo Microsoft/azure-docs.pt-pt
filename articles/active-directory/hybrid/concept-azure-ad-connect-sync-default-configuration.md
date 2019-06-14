@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60246047"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: Entender a configuração predefinida
@@ -137,7 +137,7 @@ O SRE é uma ferramenta de kit de recursos e ele é instalado com a sincronizaç
 
 Neste painel, verá todas as regras de sincronização criado para a sua configuração. Cada linha na tabela é uma regra de sincronização. Para a esquerda em tipos de regras, estão listados os dois tipos diferentes: Entrada e saída. Entrada e saída é na vista de metaverso. Principalmente vai se concentrar nas regras de entrada nesta visão geral. A verdadeira lista de regras de sincronização depende o esquema detetado no AD. Na imagem acima, a floresta de conta (fabrikamonline.com) não tem quaisquer serviços, como o Exchange e Lync, e não há regras de sincronização foram criadas para estes serviços. No entanto, na floresta de recursos (res.fabrikamonline.com) localize as regras de sincronização para estes serviços. O conteúdo das regras é diferente consoante a versão detetada. Por exemplo, numa implementação com o Exchange 2013 há mais fluxos de atributos configurados que no Exchange 2010/2007.
 
-### <a name="synchronization-rule"></a>Regra de Sincronização
+### <a name="synchronization-rule"></a>Regra de sincronização
 Uma regra de sincronização é um objeto de configuração com um conjunto de atributos que flui quando uma condição é satisfeita. Ele também é usado para descrever como um objeto num espaço conector está relacionado a um objeto no metaverse, conhecido como **associação** ou **corresponde ao**. As regras de sincronização de ter um valor de precedência que indica como se relacionam entre si. Uma regra de sincronização com um valor numérico inferior tem uma precedência superior e num conflito de fluxo de atributo, a precedência superior wins a resolução de conflito.
 
 Por exemplo, examine a regra de sincronização **do AD – utilizador AccountEnabled**. Marcar esta linha no SRE e selecione **editar**.

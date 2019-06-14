@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60381591"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Testar o servidor e a recuperação após desastre
@@ -65,9 +65,9 @@ Se fez alterações personalizadas para o servidor primário e deseja comparar a
 
 #### <a name="import-and-synchronize"></a>Importar e sincronizar
 1. Selecione **conectores**e selecione o primeiro conector com o tipo **serviços de domínio do Active Directory**. Clique em **execute**, selecione **importação completa**, e **OK**. Efetue estes passos para todos os conectores deste tipo.
-2. Seleccione o conector com o tipo **do Azure Active Directory (Microsoft)**. Clique em **execute**, selecione **importação completa**, e **OK**.
+2. Seleccione o conector com o tipo **do Azure Active Directory (Microsoft)** . Clique em **execute**, selecione **importação completa**, e **OK**.
 3. Certifique-se de que o separador conectores ainda está selecionado. Para cada conector com o tipo **serviços de domínio do Active Directory**, clique em **execute**, selecione **sincronização Delta**, e **OK**.
-4. Seleccione o conector com o tipo **do Azure Active Directory (Microsoft)**. Clique em **execute**, selecione **sincronização Delta**, e **OK**.
+4. Seleccione o conector com o tipo **do Azure Active Directory (Microsoft)** . Clique em **execute**, selecione **sincronização Delta**, e **OK**.
 
 Agora tem testado exportação muda para o Azure AD e AD no local (se estiver a utilizar a implementação híbrida do Exchange). Os passos seguintes permitem-lhe inspecionar o que está prestes a mudar antes de começar, na verdade, a exportação para os diretórios.
 

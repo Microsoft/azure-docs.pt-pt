@@ -11,10 +11,10 @@ ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60599522"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Registo de erros para o logic apps e manipulação de exceção
@@ -407,7 +407,7 @@ Para ver os erros, pode criar uma aplicação web MVC para apresentar os registo
 Seguem-se exemplos de nossa detalhes da aplicação MVC criados com a abordagem descrita anteriormente.
 
 #### <a name="error-management-list"></a>Lista de gestão de erros
-![Lista de Erros](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
+![Lista de erros](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
 #### <a name="error-management-detail-view"></a>Vista de detalhes do erro gestão
 ![Detalhes do Erro](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)

@@ -16,10 +16,10 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4917720af2396b68ccd36cc0410c9acbbba2d9b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60304592"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configurar identidades geridas para recursos do Azure em conjuntos de dimensionamento de máquina virtual com o PowerShell
@@ -36,7 +36,7 @@ Neste artigo, com o PowerShell, aprenderá a efetuar as identidades geridas para
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema-atribuído e gerido pelo utilizador de identidade atribuída](overview.md#how-does-it-work)**.
+- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre um sistema-atribuído e gerido pelo utilizador de identidade atribuída](overview.md#how-does-it-work)** .
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de controlo de acesso baseado em funções do Azure seguintes:
 
@@ -102,7 +102,7 @@ Se tiver um conjunto de dimensionamento de máquina virtual que já não precisa
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 ```
 
-## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
+## <a name="user-assigned-managed-identity"></a>Atribuído ao utilizador a identidade gerida
 
 Nesta secção, saiba como adicionar e remover uma identidade gerida atribuído ao utilizador a partir de um conjunto de dimensionamento com o Azure PowerShell.
 

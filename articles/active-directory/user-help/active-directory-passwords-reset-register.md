@@ -14,10 +14,10 @@ ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f113c42ff45811f31eb77a92873fb187dd51ea6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60530901"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registar-se na reposição personalizada de palavra-passe

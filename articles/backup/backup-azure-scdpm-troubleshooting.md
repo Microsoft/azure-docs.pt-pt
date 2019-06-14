@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236203"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Resolver Problemas do System Center Data Protection Manager
@@ -42,7 +42,7 @@ Para resolver este problema, execute as seguintes ações:
 - Certifique-se de que o disco está em bom estado e que existe espaço suficiente para a réplica.
 - Certifique-se de que não há nenhuma tarefa de cópia de segurança duplicada que está em execução em simultâneo.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Erro: Falha na criação de ponto de recuperação online
+## <a name="error-online-recovery-point-creation-failed"></a>Erro: Falha na criação do ponto de recuperação online
 
 Para resolver este problema, execute as seguintes ações:
 - Certifique-se de que está a utilizar a versão mais recente do agente do Backup do Azure.

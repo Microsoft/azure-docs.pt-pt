@@ -13,10 +13,10 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331133"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
@@ -105,7 +105,7 @@ A tabela seguinte mostra alguns resultados de testes ad hoc. Os testes de efetua
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure para o Azure (mesmo datacenter)**:
+**Azure para o Azure (mesmo datacenter)** :
 
 | Operações | Não existem transações (ms) | Transações (ms) |
 | --- | --- | --- |

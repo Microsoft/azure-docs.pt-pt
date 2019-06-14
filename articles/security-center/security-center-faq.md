@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: de652f508f6946219627b3a3d51b148cbee58dbf
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 300d96a792663a32a326d5d01f281b77ccf9c4bf
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65966858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050502"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -126,8 +126,10 @@ Para obter mais informações, consulte [aprovisionamento automático em casos d
 
 ### E se eu tinha um agente de monitorização da Microsoft está instalado diretamente na máquina, mas não como uma extensão (agente direto)?<a name="directagentinstalled"></a>
 Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança irá instalar a extensão do Microsoft Monitoring Agent e pode atualizar o Microsoft Monitoring agent para a versão mais recente.
-O agente instalado continuará a reportar para suas áreas de trabalho já configurada e, além disso, irá reportar à área de trabalho configurada no Centro de segurança (multi-homing é suportado).
+O agente instalado continuará a reportar para suas áreas de trabalho já configurada e, além disso, irá reportar à área de trabalho configurada no Centro de segurança (multi-homing é suportada em máquinas do Windows).
 Se a área de trabalho configurada é uma área de trabalho do utilizador (não área de trabalho do Centro de segurança predefinida), terá de instalar o "segurança / solução de"SecurityCenterFree"no mesmo centro de segurança iniciar o processamento de eventos a partir de VMs e computadores do relatório para que área de trabalho.
+
+Para máquinas do Linux, multi-homing do agente não é ainda suportado - por conseguinte, se for detetada uma instalação existente do agente, aprovisionamento automático não ocorrerá e a configuração da máquina não será alterada.
 
 Para máquinas existentes em subscrições integrado ao centro de segurança antes de 2019-03-17, será detetado, quando um agente existente, a extensão do Microsoft Monitoring Agent não será instalada e a máquina não será afetada. Para que esses computadores, consulte a recomendação de "Resolver problemas nas suas máquinas de estado de funcionamento do agente de monitorização" para resolver os problemas de instalação do agente nessas máquinas
 
@@ -303,7 +305,7 @@ Centro de segurança do Azure monitoriza os seguintes recursos do Azure:
 
 Além disso, os computadores não Azure (incluindo no local) também podem ser monitorizados pelo centro de segurança do Azure (ambos [computadores Windows](./quick-onboard-windows-computer.md) e [computadores Linux](./quick-onboard-linux-computer.md) são suportados)
 
-## <a name="virtual-machines"></a>Máquinas Virtuais
+## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Que tipos de máquinas virtuais são suportados?
 Monitorização e recomendações estão disponíveis para máquinas virtuais (VMs) criadas com ambos os [clássico e modelos de implementação do Resource Manager](../azure-classic-rm.md).
 

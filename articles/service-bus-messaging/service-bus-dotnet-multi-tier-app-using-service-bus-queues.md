@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60403377"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
@@ -72,7 +72,7 @@ Em seguida, adicione o código que submete itens para a fila do Service Bus e mo
 1. Com os privilégios de administrador, inicie o Visual Studio: clique com o botão direito no ícone do programa **Visual Studio** e, em seguida, clique em **Executar como administrador**. O emulador de computação do Azure, abordado posteriormente neste artigo, necessita que o Visual Studio seja iniciado com privilégios de administrador.
    
    No Visual Studio, no menu **Ficheiro**, clique em **Novo** e, de seguida, em **Projeto**.
-2. A partir de **Modelos Instalados**, em **Visual C#**, clique em **Nuvem** e, de seguida, em **Serviço em Nuvem do Azure**. Atribua o nome **MultiTierApp** ao projeto. Em seguida, clique em **OK**.
+2. A partir de **Modelos Instalados**, em **Visual C#** , clique em **Nuvem** e, de seguida, em **Serviço em Nuvem do Azure**. Atribua o nome **MultiTierApp** ao projeto. Em seguida, clique em **OK**.
    
    ![][9]
 3. No painel **Funções**, faça duplo clique em **Função da Web ASP.NET**.

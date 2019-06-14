@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60354333"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>O que é o que, se a ferramenta no acesso condicional do Azure Active Directory?
@@ -86,18 +86,18 @@ O endereço IP é um único endereço IPv4 para imitar a [condição de localiza
 
 ### <a name="device-platforms"></a>Plataformas de dispositivos
 
-Esta definição imita a [condição de plataformas de dispositivos](conditions.md#device-platforms) e representa o equivalente **todas as plataformas (incluindo as não suportadas)**. 
-### <a name="client-apps"></a>Aplicações do cliente
+Esta definição imita a [condição de plataformas de dispositivos](conditions.md#device-platforms) e representa o equivalente **todas as plataformas (incluindo as não suportadas)** . 
+### <a name="client-apps"></a>Aplicações de cliente
 
 Esta definição imita a [condição de aplicações de cliente](conditions.md#client-apps).
-Por predefinição, esta definição faz com que uma edição de avaliação de todas as políticas ter **Browser** ou **aplicações móveis e clientes de ambiente de trabalho** seja individualmente ou em ambos selecionado. Também Deteta as políticas que impõem **Exchange ActiveSync (EAS)**. Pode reduzir esta definição ao selecionar:
+Por predefinição, esta definição faz com que uma edição de avaliação de todas as políticas ter **Browser** ou **aplicações móveis e clientes de ambiente de trabalho** seja individualmente ou em ambos selecionado. Também Deteta as políticas que impõem **Exchange ActiveSync (EAS)** . Pode reduzir esta definição ao selecionar:
 
 - **Browser** para avaliar todas as políticas de ter pelo menos **Browser** selecionado. 
 
 - **Aplicações móveis e clientes de ambiente de trabalho** para avaliar todas as políticas de ter pelo menos **aplicações móveis e clientes de ambiente de trabalho** selecionado. 
 
 
-### <a name="sign-in-risk"></a>Risco de início de sessão
+### <a name="sign-in-risk"></a>Início de sessão de risco
 
 Esta definição imita a [condição de início de sessão de risco](conditions.md#sign-in-risk).   
 

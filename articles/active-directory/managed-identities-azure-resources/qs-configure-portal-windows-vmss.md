@@ -16,10 +16,10 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57f0ec91bd5c72b593d9b28f7d47f691181a6a0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60290656"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurar identidades geridas para recursos do Azure num conjunto de dimensionamento no portal do Azure
@@ -73,7 +73,7 @@ Se tiver um conjunto de dimensionamento de máquina virtual que já não necessi
 
    ![Captura de ecrã de página de configuração](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
-## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
+## <a name="user-assigned-managed-identity"></a>Atribuído ao utilizador a identidade gerida
 
 Nesta secção, saiba como adicionar e remover uma identidade gerida atribuído ao utilizador a partir de um conjunto de dimensionamento no portal do Azure.
 

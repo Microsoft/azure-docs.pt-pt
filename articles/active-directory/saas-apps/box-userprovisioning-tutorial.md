@@ -16,10 +16,10 @@ ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60431761"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar a caixa para aprovisionamento automático de utilizadores
@@ -95,7 +95,7 @@ Se o aprovisionamento automático está ativado, em seguida, os utilizadores atr
 
 4. Definir o **modo de aprovisionamento** ao **automática**. 
 
-    ![a aprovisionar](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Aprovisionamento](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Sob o **credenciais de administrador** secção, clique em **autorizar** para abrir uma caixa de diálogo de início de sessão de caixa numa nova janela do browser.
 

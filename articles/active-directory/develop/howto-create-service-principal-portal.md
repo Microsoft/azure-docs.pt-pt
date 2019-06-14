@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 33ef65f09a4e7513738a6cc6b277d06cd4cb4da8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052400"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação do Azure AD e principal de serviço que pode aceder aos recursos
 
@@ -98,7 +98,7 @@ Quando iniciar sessão programaticamente, tem de passar o ID do inquilino com o 
    ![ID de Cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>Certificados e segredos
-Aplicações de deamon podem utilizar duas formas de credenciais para autenticar com o Azure AD: certificados e segredos da aplicação.  Recomendamos que utilize um certificado, mas também pode criar um novo segredo de aplicação.
+Aplicações daemon podem utilizar duas formas de credenciais para autenticar com o Azure AD: certificados e segredos da aplicação.  Recomendamos que utilize um certificado, mas também pode criar um novo segredo de aplicação.
 
 ### <a name="upload-a-certificate"></a>Carregar um certificado
 

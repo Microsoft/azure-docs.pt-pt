@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60467617"
 ---
 # <a name="permissions-in-azure-advisor"></a>Permissões no Assistente do Azure
@@ -30,7 +30,7 @@ A tabela seguinte define as funções e o acesso que têm no assistente:
 |Proprietário do grupo de recursos|**X**|--|--|**X**|**X**|
 |Contribuinte do grupo de recursos|**X**|--|--|**X**|**X**|
 |Leitor do grupo de recursos|**X**|--|--|--|--|
-|Proprietário do Recurso|**X**|--|--|--|**X**|
+|Proprietário do recurso|**X**|--|--|--|**X**|
 |Contribuinte de recursos|**X**|--|--|--|**X**|
 |Leitor de recursos|**X**|--|--|--|--|
 

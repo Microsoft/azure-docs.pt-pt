@@ -11,10 +11,10 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684095"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetir ações de fluxo de trabalho ou processam matrizes no Azure Logic Apps
@@ -54,7 +54,7 @@ Esta aplicação de lógica de exemplo envia um resumo diário para um feed RSS 
 2. Entre o RSS acionar e enviar a ação de e-mail, adicionar um loop "Foreach". 
 
    1. Para adicionar um ciclo entre etapas, mova o ponteiro do mouse por cima da seta entre esses passos. 
-   Escolha o **sinal** (**+**) que aparece, em seguida, selecione **adicionar uma ação**.
+   Escolha o **sinal** ( **+** ) que aparece, em seguida, selecione **adicionar uma ação**.
 
       ![Selecione "Adicionar uma ação"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -126,7 +126,7 @@ Se estiver a trabalhar na vista de código para a aplicação lógica, pode defi
 
 Por predefinição, os ciclos num loop "Foreach" são executadas em paralelo. Para cada ciclo são executados sequencialmente, defina o loop **Sequential** opção. Loops "Foreach" tem de executar sequencialmente quando aninha ciclos ou variáveis em ciclos em que esperar resultados previsíveis. 
 
-1. No canto direito superior do ciclo, escolha **reticências** (**...** ) > **Definições**.
+1. No canto direito superior do ciclo, escolha **reticências** ( **...** ) > **Definições**.
 
    ![No loop "Foreach", escolha "..." > "Definições"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -196,7 +196,7 @@ Começando pelo 8:00, todos os dias, esta aplicação de lógica de exemplo incr
    | Propriedade | Value | Descrição |
    | -------- | ----- | ----------- |
    | **Nome** | Limite | Nome da variável | 
-   | **Tipo** | Número inteiro | Tipo de dados da variável | 
+   | **Tipo** | Integer | Tipo de dados da variável | 
    | **Valor** | 0 | A variável do valor inicial | 
    |||| 
 

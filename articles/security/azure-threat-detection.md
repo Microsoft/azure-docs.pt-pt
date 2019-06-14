@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611023"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção de ameaças avançada do Azure
@@ -95,7 +95,7 @@ O dashboard de segurança de análise de registo e auditoria está organizado em
 
 -   **Problemas relevantes**: Permite-lhe identificar rapidamente o número de problemas ativos e a gravidade dos problemas.
 
--   **Deteções (pré-visualização)**: Permite-lhe identificar padrões de ataque ao apresentar alertas de segurança à medida que ocorrem em relação aos recursos.
+-   **Deteções (pré-visualização)** : Permite-lhe identificar padrões de ataque ao apresentar alertas de segurança à medida que ocorrem em relação aos recursos.
 
 -   **Informações sobre ameaças**: Permite-lhe identificar padrões de ataque ao apresentar o número total de servidores com tráfego IP malicioso de saída, o tipo malicioso da ameaça e um mapa das localizações de IPs.
 
@@ -343,9 +343,9 @@ Com ferramentas para ajudar a desvendar Shadow IT, avaliar o risco, aplicar pol�
 |---|---|
 | Descobrir | Desvende shadow IT com o Cloud App Security. Obtenha visibilidade ao detetar aplicações, atividades, utilizadores, dados e ficheiros no seu ambiente de cloud. Detete as aplicações de terceiros que estão ligadas à sua cloud.|
 |Investigar | Investigue as suas aplicações na cloud, utilizando ferramentas forenses de nuvem para aprofundada das aplicações arriscadas, utilizadores específicos e ficheiros na sua rede. Detetar padrões nos dados recolhidos a partir da nuvem. Gere relatórios para monitorizar a sua cloud. |
-| Controlo | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de nuvem. Utilize o Cloud App Security para migrar os seus utilizadores para alternativas de aplicação na cloud seguras e aprovadas. |
-| Proteger | Utilizar o Cloud App Security para aprovar ou proíbem as aplicações, aplicar prevenção de perda de dados, controlar permissões e partilhas e gerar relatórios e alertas personalizados. |
-| Controlo | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de nuvem. Utilize o Cloud App Security para migrar os seus utilizadores para alternativas de aplicação na cloud seguras e aprovadas. |
+| Controlar | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de nuvem. Utilize o Cloud App Security para migrar os seus utilizadores para alternativas de aplicação na cloud seguras e aprovadas. |
+| proteger | Utilizar o Cloud App Security para aprovar ou proíbem as aplicações, aplicar prevenção de perda de dados, controlar permissões e partilhas e gerar relatórios e alertas personalizados. |
+| Controlar | Reduza o risco através da definição de políticas e alertas para obter o máximo controlo sobre o tráfego de rede de nuvem. Utilize o Cloud App Security para migrar os seus utilizadores para alternativas de aplicação na cloud seguras e aprovadas. |
 | | |
 
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60285479"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
@@ -66,10 +66,10 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Revisões de Acesso|Atualizar Revisão de Acesso|
 |Revisões de Acesso|Atualizar estado da inclusão de revisões de acesso do Azure AD|
 |Revisões de Acesso|Atualizar definições de notificação de correio da revisão de acesso|
-|Revisões de Acesso|Atualizar a definição de contagem de periodicidade de revisões de acesso|
-|Revisões de Acesso|Atualizar a definição de duração em dias de periodicidade de revisões de acesso|
-|Revisões de Acesso|Atualizar a definição de tipo de fim de periodicidade de revisões de acesso|
-|Revisões de Acesso|Atualizar definição de tipo de periodicidade de revisões de acesso|
+|Revisões de Acesso|Atualização acesso rever contagem da periodicidade definição|
+|Revisões de Acesso|Atualizar duração recorrência da revisão de acesso nos dias de definição|
+|Revisões de Acesso|Atualizar acesso revisão periodicidade final definição do tipo|
+|Revisões de Acesso|Atualizar acesso revisão periodicidade definição do tipo|
 |Revisões de Acesso|Atualizar definições de lembrete da revisão de acesso|
 |Revisões de Acesso|Atualizar programa|
 |Revisões de Acesso|Atualizar aprovação de pedidos|
@@ -103,9 +103,9 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Diretórios|Remover OAuth2PermissionGrant|
 |Gestão de Diretórios|Remover atribuição de função de aplicação do principal de serviço|
 |Gestão de Diretórios|Remover proprietário da aplicação|
-|Recurso|Remover proprietário do principal de serviço|
-|Recurso|Remover política do principal de serviço|
-|Recurso|Remover principal de serviço|
+|Resource|Remover proprietário do principal de serviço|
+|Resource|Remover política do principal de serviço|
+|Resource|Remover principal de serviço|
 
 
 ## <a name="automated-password-rollover"></a>Reversão de palavras-passe automatizada
@@ -269,79 +269,79 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Chave|Diretório eliminado|
 |Outros|Diretório eliminado definitivamente|
 |Outros|Diretório agendado para eliminação|
-|Recurso|Promover empresa a parceiro|
-|Recurso|Purgar propriedades de gestão de direitos|
-|Recurso|Remover parceiro da empresa|
-|Recurso|Remover domínio não verificado|
-|Recurso|Remover domínio verificado|
-|Recurso|Definir Informações da Empresa|
-|Recurso|Definir funcionalidade Dirsync|
-|Recurso|Definir o sinalizador Dirsyncenabled|
-|Recurso|Definir Parceria|
-|Recurso|Definir limiar de eliminação acidental|
-|Recurso|Definir localização dos dados permitida da empresa|
-|Recurso|Definir funcionalidade multinacional da empresa ativada|
-|Recurso|Definir funcionalidade de diretório no inquilino|
-|Recurso|Definir autenticação de domínio|
-|Recurso|Configurar definições de federação em domínio|
-|Recurso|Definir política de palavras-passe|
-|Recurso|Definir propriedades de gestão de direitos|
-|Recurso|Atualizar empresa|
-|Recurso|Atualizar definições da empresa|
-|Recurso|Atualizar domínio|
-|Recurso|Verificar domínio|
-|Recurso|Verificar domínio verificado por e-mail|
-|Recurso|Inclusão|
-|Recurso|Atualizar definições de alerta|
-|Recurso|Atualizar definições de resumo semanal|
-|Recurso|Desativar a repetição de escrita de palavras-passe no diretório|
-|Recurso|Ativar a repetição de escrita de palavras-passe no diretório|
-|Recurso|Adicionar atribuição de função de aplicação ao grupo|
-|Recurso|Adicionar grupo|
-|Recurso|Adicionar membro ao grupo|
-|Recurso|Adicionar proprietário ao grupo|
-|Recurso|Criar definições de grupo|
-|Recurso|Eliminar grupo|
-|Recurso|Eliminar definições do grupo|
-|Recurso|Concluir a aplicação de licença baseada em grupo aos utilizadores|
-|Recurso|Eliminação completa do grupo|
-|Recurso|Remover atribuição de função de aplicação do grupo|
-|Recurso|Remover membro do grupo|
-|Recurso|Remover proprietário de grupo|
-|Recurso|Restaurar Grupo|
-|Recurso|Definir licença de grupo|
-|Recurso|Definir grupo para ser gerido pelo utilizador|
-|Recurso|Começar a aplicar licença baseada em grupo aos utilizadores|
-|Recurso|Acionar recálculo de licença de grupo|
-|Recurso|Atualizar grupo|
-|Recurso|Atualizar definições de grupo|
-|Recurso|Adicionar Membro|
-|Recurso|Criar Grupo|
-|Recurso|Eliminar Grupo|
-|Recurso|Remover Membro|
-|Recurso|Atualizar Grupo|
-|Recurso|Aprovar um pedido pendente para aderir a um grupo|
-|Recurso|Cancelar um pedido pendente para aderir a um grupo|
-|Recurso|Criar política de gestão de ciclo de vida|
-|Recurso|Eliminar um pedido pendente para aderir a um grupo|
-|Recurso|Rejeitar um pedido pendente para aderir a um grupo|
-|Recurso|Renovar grupo|
-|Recurso|Pedido para aderir a um grupo|
-|Recurso|Definir propriedades de grupo dinâmicas|
-|Recurso|Atualizar política de gestão de ciclo de vida|
-|Recurso|Adicionar uma chave com base no segredo ASCII a um contentor de chaves CPIM|
-|Recurso|Adicionar uma chave a um contentor de chaves CPIM|
-|Recurso|Eliminar um contentor de chaves CPIM|
-|Recurso|Eliminar contentor de chaves|
-|Recurso|Obter metadados de chaves ativas do contentor de chaves em JWK|
-|Recurso|Obter metadados do contentor de chaves|
-|Recurso|Obtém um contentor de chaves CPIM no formato jwk|
-|Recurso|Obtém a lista de contentores de chaves no inquilino|
-|Recurso|Restaurar uma cópia de segurança do contentor de chaves CPIM|
-|Recurso|Guardar o contentor de chaves|
-|Recurso|Carregar uma chave encriptada CPIM|
-|Recurso|Emitir um código de autorização para a aplicação|
-|Recurso|Emitir um token de acesso id_token para a aplicação|
+|Resource|Promover empresa a parceiro|
+|Resource|Purgar propriedades de gestão de direitos|
+|Resource|Remover parceiro da empresa|
+|Resource|Remover domínio não verificado|
+|Resource|Remover domínio verificado|
+|Resource|Definir Informações da Empresa|
+|Resource|Definir funcionalidade Dirsync|
+|Resource|Definir o sinalizador Dirsyncenabled|
+|Resource|Definir Parceria|
+|Resource|Definir limiar de eliminação acidental|
+|Resource|Definir localização dos dados permitida da empresa|
+|Resource|Definir funcionalidade multinacional da empresa ativada|
+|Resource|Definir funcionalidade de diretório no inquilino|
+|Resource|Definir autenticação de domínio|
+|Resource|Configurar definições de federação em domínio|
+|Resource|Definir política de palavras-passe|
+|Resource|Definir propriedades de gestão de direitos|
+|Resource|Atualizar empresa|
+|Resource|Atualizar definições da empresa|
+|Resource|Atualizar domínio|
+|Resource|Verificar domínio|
+|Resource|Verificar domínio verificado por e-mail|
+|Resource|Inclusão|
+|Resource|Atualizar definições de alerta|
+|Resource|Atualizar definições de resumo semanal|
+|Resource|Desativar a repetição de escrita de palavras-passe no diretório|
+|Resource|Ativar a repetição de escrita de palavras-passe no diretório|
+|Resource|Adicionar atribuição de função de aplicação ao grupo|
+|Resource|Adicionar grupo|
+|Resource|Adicionar membro ao grupo|
+|Resource|Adicionar proprietário ao grupo|
+|Resource|Criar definições de grupo|
+|Resource|Eliminar grupo|
+|Resource|Eliminar definições do grupo|
+|Resource|Concluir a aplicação de licença baseada em grupo aos utilizadores|
+|Resource|Eliminação completa do grupo|
+|Resource|Remover atribuição de função de aplicação do grupo|
+|Resource|Remover membro do grupo|
+|Resource|Remover proprietário de grupo|
+|Resource|Restaurar Grupo|
+|Resource|Definir licença de grupo|
+|Resource|Definir grupo para ser gerido pelo utilizador|
+|Resource|Começar a aplicar licença baseada em grupo aos utilizadores|
+|Resource|Acionar recálculo de licença de grupo|
+|Resource|Atualizar grupo|
+|Resource|Atualizar definições de grupo|
+|Resource|Adicionar Membro|
+|Resource|Create Group|
+|Resource|Eliminar grupo|
+|Resource|Remover Membro|
+|Resource|Atualizar Grupo|
+|Resource|Aprovar um pedido pendente para aderir a um grupo|
+|Resource|Cancelar um pedido pendente para aderir a um grupo|
+|Resource|Criar política de gestão de ciclo de vida|
+|Resource|Eliminar um pedido pendente para aderir a um grupo|
+|Resource|Rejeitar um pedido pendente para aderir a um grupo|
+|Resource|Renovar grupo|
+|Resource|Pedido para aderir a um grupo|
+|Resource|Definir propriedades de grupo dinâmicas|
+|Resource|Atualizar política de gestão de ciclo de vida|
+|Resource|Adicionar uma chave com base no segredo ASCII a um contentor de chaves CPIM|
+|Resource|Adicionar uma chave a um contentor de chaves CPIM|
+|Resource|Eliminar um contentor de chaves CPIM|
+|Resource|Eliminar contentor de chaves|
+|Resource|Obter metadados de chaves ativas do contentor de chaves em JWK|
+|Resource|Obter metadados do contentor de chaves|
+|Resource|Obtém um contentor de chaves CPIM no formato jwk|
+|Resource|Obtém a lista de contentores de chaves no inquilino|
+|Resource|Restaurar uma cópia de segurança do contentor de chaves CPIM|
+|Resource|Guardar o contentor de chaves|
+|Resource|Carregar uma chave encriptada CPIM|
+|Resource|Emitir um código de autorização para a aplicação|
+|Resource|Emitir um token de acesso id_token para a aplicação|
 
 
 ## <a name="core-directory"></a>Diretório principal
@@ -432,18 +432,18 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Políticas|GetIEFPolicies|
 |Gestão de Políticas|GetIdentityProviders|
 |Gestão de Políticas|GetTrustFrameworkPolicy|
-|Recurso|MigrateTenantMetadata|
-|Recurso|Mover recursos|
-|Recurso|Corrigir IdentityProvider|
-|Recurso|PutTrustFrameworkPolicy|
-|Recurso|PutTrustFrameworkpolicy|
-|Recurso|Remover um percurso do utilizador|
-|Recurso|Atualizar o IDP Personalizado|
-|Recurso|Atualizar IDP|
-|Recurso|Atualizar IDP Local|
-|Recurso|Atualizar um recurso de diretório B2C|
-|Recurso|Atualizar política|
-|Recurso|Atualizar estado da subscrição|
+|Resource|MigrateTenantMetadata|
+|Resource|Mover recursos|
+|Resource|Corrigir IdentityProvider|
+|Resource|PutTrustFrameworkPolicy|
+|Resource|PutTrustFrameworkpolicy|
+|Resource|Remover um percurso do utilizador|
+|Resource|Atualizar o IDP Personalizado|
+|Resource|Atualizar IDP|
+|Resource|Atualizar IDP Local|
+|Resource|Atualizar um recurso de diretório B2C|
+|Resource|Atualizar política|
+|Resource|Atualizar estado da subscrição|
 |Gestão de Funções|Atualizar atributo de utilizador|
 |Gestão de Funções|Validar movimentação de recursos|
 |Gestão de Funções|Adicionar dispositivo|
@@ -518,10 +518,10 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Grupos|Rever pedido de aprovação de pedidos|
 |Gestão de Grupos|Atualizar Revisão de Acesso|
 |Gestão de Grupos|Atualizar definições de notificação de correio da revisão de acesso|
-|Gestão de Grupos|Atualizar a definição de contagem de periodicidade de revisões de acesso|
-|Gestão de Grupos|Atualizar a definição de duração em dias de periodicidade de revisões de acesso|
-|Gestão de Utilizadores|Atualizar a definição de tipo de fim de periodicidade de revisões de acesso|
-|Gestão de Utilizadores|Atualizar definição de tipo de periodicidade de revisões de acesso|
+|Gestão de Grupos|Atualização acesso rever contagem da periodicidade definição|
+|Gestão de Grupos|Atualizar duração recorrência da revisão de acesso nos dias de definição|
+|Gestão de Utilizadores|Atualizar acesso revisão periodicidade final definição do tipo|
+|Gestão de Utilizadores|Atualizar acesso revisão periodicidade definição do tipo|
 
 
 

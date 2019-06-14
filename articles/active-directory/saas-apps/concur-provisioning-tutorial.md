@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60280438"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configurar o Concur para aprovisionamento automático de utilizadores
@@ -101,7 +101,7 @@ Pelos seguintes motivos, esta ação não deve ser feita com o perfil que utiliz
 
 9. Definir o **modo de aprovisionamento** ao **automática**. 
  
-    ![a aprovisionar](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Aprovisionamento](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Sob o **credenciais de administrador** , digite o **nome de utilizador** e o **palavra-passe** do seu administrador de Concur.
 

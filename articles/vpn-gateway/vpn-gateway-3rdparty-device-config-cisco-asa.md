@@ -2,17 +2,16 @@
 title: Configuração de exemplo para ligar dispositivos de ASA da Cisco para gateways de VPN do Azure | Documentos da Microsoft
 description: Este artigo fornece uma configuração de exemplo para ligar dispositivos de ASA da Cisco para gateways de VPN do Azure.
 services: vpn-gateway
-author: WenJason
+author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 10/19/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 10/19/2018
+ms.author: yushwang
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648760"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Configuração de exemplo: Dispositivo Cisco ASA (IKEv2/não BGP)
@@ -303,4 +302,3 @@ Utilize os seguintes comandos do ASA para fins de depuração:
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para configurar ligações de VNet a VNet e de ativo-ativo em vários locais, consulte [configurar gateways VPN ativos-ativos](vpn-gateway-activeactive-rm-powershell.md).
-<!--Update_Description: wording update -->

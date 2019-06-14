@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123552"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilizar o Gestor de tráfego do Microsoft Azure para gerir a quota de ponto final através de chaves
@@ -308,7 +308,7 @@ Criar o principal de perfil do Traffic Manager e ligar dois perfis de Gestor de 
     Uma resposta com êxito é a mesma resposta como passo 3.
 
 ### <a name="powershell-variables"></a>Variáveis do PowerShell
-Nas seções anteriores, foram criadas três variáveis do PowerShell: `$eastprofile`, `$westprofile`, `$parentprofile`. Estas variáveis são utilizadas em direção ao final da configuração do Gestor de tráfego. Se optar por não criar as variáveis, se esqueceu de ou janela do PowerShell exceder o tempo limite, pode utilizar o cmdlet do PowerShell  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, para obter novamente o perfil e atribuí-la para um variável. 
+Nas seções anteriores, foram criadas três variáveis do PowerShell: `$eastprofile`, `$westprofile`, `$parentprofile`. Estas variáveis são utilizadas em direção ao final da configuração do Gestor de tráfego. Se optar por não criar as variáveis, se esqueceu de ou janela do PowerShell exceder o tempo limite, pode utilizar o cmdlet do PowerShell  **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)** , para obter novamente o perfil e atribuí-la para um variável. 
 
 Substitua os itens de colchetes angulares, `<>`, com os valores corretos para cada um dos três perfis que precisa. 
 

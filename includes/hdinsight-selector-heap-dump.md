@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: feef430fd65714016a51d52fee2cf80b1bc2510e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165687"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67059550"
 ---
 > [!div class="op_single_selector"]
 > * [Linux](../articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux.md)

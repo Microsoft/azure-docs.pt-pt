@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: 3c78aed2f30ea85f5bc16a8c0fb270bb1c761be8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586037"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure Security and Compliance Blueprint: Armazém de dados para a automatização de FedRAMP
@@ -53,7 +53,7 @@ Conjuntos de Disponibilidade
 -   (1) controladores de domínio o active Directory
 -   (1) nós de cluster do SQL e testemunho
 
-Rede Virtual
+Rede virtual
 -   (4) sub-redes
 -   (4) grupos de segurança de rede
 

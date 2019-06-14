@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e0454d0124efba04434884fbac9056c5e324710d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556377"
 ---
 # <a name="sfctl-service"></a>sfctl service
@@ -30,16 +30,16 @@ Criar, eliminar e gerir o serviço, os tipos de serviço e pacotes de serviço.
 | --- | --- |
 | app-name | Obtém o nome da aplicação do Service Fabric para um serviço. |
 | code-package-list | Obtém a lista de pacotes de código implementado num nó do Service Fabric. |
-| criar | Cria o serviço do Service Fabric especificado. |
+| create | Cria o serviço do Service Fabric especificado. |
 | delete | Elimina um serviço do Service Fabric existente. |
 | tipo de implementação | Obtém as informações sobre um tipo de serviço especificado da aplicação implementada num nó no cluster do Service Fabric. |
 | deployed-type-list | Obtém a lista que contém as informações sobre os tipos de serviço a partir dos aplicativos implantados num nó no cluster do Service Fabric. |
 | description | Obtém a descrição de um serviço do Service Fabric existente. |
 | get-container-logs | Obtém os registos de contentor para contentor implementado num nó do Service Fabric. |
-| saúde | Obtém o estado de funcionamento do serviço especificado do Service Fabric. |
-| informações | Obtém as informações sobre o serviço específico a que pertencem à aplicação do Service Fabric. |
+| health | Obtém o estado de funcionamento do serviço especificado do Service Fabric. |
+| info | Obtém as informações sobre o serviço específico a que pertencem à aplicação do Service Fabric. |
 | list | Obtém as informações sobre todos os serviços que pertencem à aplicação especificada pelo ID de aplicação. |
-| Manifesto | Obtém o manifesto que descreve um tipo de serviço. |
+| manifesto | Obtém o manifesto que descreve um tipo de serviço. |
 | package-deploy | Transfere os pacotes associados à manifesto de serviço especificado para a cache de imagem no nó especificado. |
 | package-health | Obtém as informações sobre o estado de funcionamento de um pacote de serviço para uma aplicação específica implementada para um nó do Service Fabric e a aplicação. |
 | package-info | Obtém a lista de pacotes de serviços implementados num nó do Service Fabric que corresponde exatamente ao nome especificado. |

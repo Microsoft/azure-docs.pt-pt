@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/26/2019
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 39ec68beaa1550b955c4605947896b48bd6565ed
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ad00076c9cb5ef1c3d21677adabbb167b05a6228
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65884660"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051612"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Início rápido: Enviar uma consulta para o Local Business API de pesquisa Bing emC#
 

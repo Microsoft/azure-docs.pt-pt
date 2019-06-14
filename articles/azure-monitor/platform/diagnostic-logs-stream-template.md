@@ -9,10 +9,10 @@ ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60236043"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente as definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager

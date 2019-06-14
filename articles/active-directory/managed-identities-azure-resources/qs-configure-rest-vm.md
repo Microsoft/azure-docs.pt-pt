@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18350337ba44d969173d518a4bc8dfe40185de21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66112707"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurar identidades gerida para recursos do Azure numa VM do Azure através de chamadas à REST API
@@ -35,7 +35,7 @@ Neste artigo, com o CURL para fazer chamadas para o ponto de extremidade REST do
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)**.
+- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)** .
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Se estiver a utilizar o Windows, instale o [subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilizar o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
 - [Instalar a consola local da CLI do Azure](/cli/azure/install-azure-cli), se usar o [subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou uma [SO de distribuição de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
@@ -297,7 +297,7 @@ Para desativar a identidade gerida atribuído de sistema numa VM, a conta tem do
 
    Para remover o sistema atribuído a identidade gerida de uma máquina virtual que tenha atribuído ao utilizador identidades geridas, remova `SystemAssigned` partir a `{"identity":{"type:" "}}` valor ao manter o `UserAssigned` valor e o `userAssignedIdentities` dicionário de valores se estiver a utilizar **2018-01 06 de versão de API**. Se estiver a utilizar **API versão 2017-12-01** ou anterior, mantenha o `identityIds` matriz.
 
-## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
+## <a name="user-assigned-managed-identity"></a>Atribuído ao utilizador a identidade gerida
 
 Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao utilizador na VM do Azure com o CURL para fazer chamadas para o ponto de extremidade REST do Azure Resource Manager.
 

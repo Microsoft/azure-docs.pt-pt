@@ -14,14 +14,14 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309211"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-salesforce-connector.md)
 > * [Versão 2 (versão atual)](../connector-salesforce.md)
 
@@ -286,24 +286,24 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 
 | Tipo de Salesforce | . Tipo de NET |
 | --- | --- |
-| Número de automática |String |
-| Caixa de verificação |Boolean |
+| Auto Number |String |
+| Checkbox |Boolean |
 | Moeda |Decimal |
 | Date |DateTime |
 | Data/Hora |DateTime |
 | Email |String |
 | Id |String |
-| Relação de referência |String |
-| Lista de opções de seleção múltipla |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
 | Percentagem |Decimal |
 | Telefone |String |
-| Lista de opções |String |
+| Picklist |String |
 | Text |String |
-| Área de texto |String |
-| Área de texto (longa) |String |
-| Área de texto (avançado) |String |
-| Texto (encriptado) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | do IdP |String |
 
 > [!NOTE]

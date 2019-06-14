@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 4d2e8b442f70ee791fe65a32402e5272eda3f209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589047"
 ---
 # <a name="deploy-service-catalog-app-through-azure-portal"></a>Implementar o serviço catálogo de aplicações através do portal do Azure
@@ -58,7 +58,7 @@ Depois de implementar a aplicação do catálogo de serviço, tem dois novos gru
 
 1. Ver o grupo de recursos com o nome **applicationGroup** para ver a aplicação do catálogo de serviço.
 
-   ![Aplicação de vista](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![Ver a aplicação](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
 1. Ver o grupo de recursos com o nome **applicationGroup {carateres de hash}** para ver os recursos para a aplicação do catálogo de serviço.
 

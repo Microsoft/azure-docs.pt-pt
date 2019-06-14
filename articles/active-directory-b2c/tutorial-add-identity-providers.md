@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e12dc6bf9bcb50dc58e7730f3a08dd6a9d4440
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ceae908b37c825721a42c49db4503382eb35c71c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66512201"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055094"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Adicionar fornecedores de identidade às suas aplicações no Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Para ativar o início de sessão para utilizadores do Azure AD, terá de regista
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino do Azure AD.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registos das aplicações**.
+3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registos das aplicações (Legado)** .
 4. Selecione **Novo registo de aplicação**.
 5. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
 6. Para o **tipo de aplicação**, selecione `Web app / API`.
@@ -106,7 +106,7 @@ Depois de criar a aplicação para o fornecedor de identidade que pretende adici
     Por exemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
 8. Para **ID de cliente**, introduza o ID da aplicação que registou anteriormente e para **segredo do cliente**, introduza o valor da chave que registou anteriormente.
-9. Opcionalmente, introduza um valor para **Domain_hint**. Por exemplo, `ContosoAD`. 
+9. Opcionalmente, introduza um valor para **Domain_hint**. Por exemplo, `ContosoAD`. Sugestões de domínio (https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) são diretivas que estão incluídas no pedido de autenticação a partir de uma aplicação. Eles podem ser usados para acelerar o utilizador para a federado IdP início de sessão na página. Ou eles podem ser usados por uma aplicação multi-inquilino para acelerar o utilizador diretamente para o com marca página início de sessão do Azure AD para o respetivo inquilino.
 10. Clique em **OK**.
 11. Selecione **mapear declarações do fornecedor de identidade** e defina as seguintes declarações:
     

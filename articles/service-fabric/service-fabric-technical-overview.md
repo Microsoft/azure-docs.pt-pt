@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
 ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543211"
 ---
 # <a name="service-fabric-terminology-overview"></a>Descrição geral da terminologia do Service Fabric
@@ -146,7 +146,7 @@ Também pode executar seus aplicativos existentes no Service Fabric:
 
 Leitura a [escolher um modelo de programação para o seu serviço](service-fabric-choose-framework.md) artigo para obter mais informações.
 
-### <a name="docker-compose"></a>Docker Compose 
+### <a name="docker-compose"></a>O docker Compose 
 [Docker Compose](https://docs.docker.com/compose/) faz parte do projeto Docker. O Service Fabric fornece suporte limitado para [implantando aplicativos usando o modelo de Docker Compose](service-fabric-docker-compose.md).
 
 ## <a name="environments"></a>Ambientes

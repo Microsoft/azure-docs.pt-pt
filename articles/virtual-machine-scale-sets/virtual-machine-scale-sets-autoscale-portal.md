@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60618883"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionar automaticamente um conjunto de dimensionamento no portal do Azure
@@ -76,7 +76,7 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
     
     | Parâmetro              | Explicação                                                                                                          | Value          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menos do que   |
+    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menor que   |
     | *Limiar*            | A percentagem que faz com que a regra de dimensionamento automático acionar uma ação.                                                 | 30             |
     | *Operação*            | Define se o conjunto de dimensionamento deve aumentar ou diminuir quando se aplica a regra e em que o incremento                         | Diminuir percentagem em |
     | *Contagem de instâncias*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                             | 20             |

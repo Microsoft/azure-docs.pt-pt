@@ -14,10 +14,10 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60289467"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Atribuir funções do Azure AD no PIM
@@ -48,11 +48,11 @@ Siga estes passos para tornar um utilizador elegível para uma função de admin
 
 1. Clique em **selecionar uma função**, clique numa função que pretende gerir e, em seguida, clique em **selecione**.
 
-    ![Selecionar uma função](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Selecione uma função](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Clique em **selecionar membros**, selecione os utilizadores que pretende atribuir à função e, em seguida, clique em **selecione**.
 
-    ![Selecionar uma função](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selecione uma função](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Em Adicionar membros geridos, clique em **OK** para adicionar o utilizador à função.
 
@@ -126,7 +126,7 @@ Siga estes passos para atribuir a função de administrador de acesso de utiliza
 
 1. Escolha a sua subscrição.
 
-1. Escolha **Controlo de acesso (IAM)**.
+1. Escolha **Controlo de acesso (IAM)** .
 
 1. Escolher **atribuições de funções** para ver a lista atual de atribuições de funções no âmbito da subscrição.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60363602"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados do teste para replicação de Hyper-V para um site secundário
@@ -135,7 +135,7 @@ Os resultados mostram claramente que o Site Recovery, juntamente com a réplica 
 | --- | --- | --- | --- | --- | --- |
 | Servidor de Ficheiros |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Todos os 100% aleatório |
 | SQL Server (volume 1) do SQL Server (volume 2) |864 |100%100% |70%0% |88 |% de 100% random100 sequencial |
-| Troca |32 |100% |67% |8 |100% aleatório |
+| Exchange |32 |100% |67% |8 |100% aleatório |
 | Estação de trabalho/VDI |464 |66%34% |70%95% |11 |Ambos os 100% aleatório |
 | Servidor de ficheiros do Web |4864 |33%34%33% |95%95%95% |888 |Todos os 75% aleatório |
 
@@ -148,7 +148,7 @@ Os resultados mostram claramente que o Site Recovery, juntamente com a réplica 
 | Carga de trabalho | # VMs | Quantidade mínima de RAM (GB) | RAM máxima (GB) | Tamanho de disco lógico (GB) por VM | IOPS máximo |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
-| Servidor do Exchange |71 |1 |4 |552 |10 |
+| Exchange Server |71 |1 |4 |552 |10 |
 | Servidor de Ficheiros |50 |1 |2 |552 |22 |
 | VDI |149 |.5 |1 |80 |6 |
 | Servidor Web |149 |.5 |1 |80 |6 |

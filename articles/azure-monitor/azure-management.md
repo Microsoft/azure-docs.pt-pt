@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
 ms.openlocfilehash: b56993b9ad03f2ab50fe3954ab5e8855d0d8bc0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371656"
 ---
 # <a name="azure-management---monitoring"></a>Gestão do Azure - Monitorização
@@ -46,7 +46,7 @@ A governação fornece mecanismos e processos para manter o controlo sobre os re
 Gerir a segurança dos seus recursos, aplicações e dados passa por combinar a avaliação de ameaças, a recolha e análise de dados de segurança e garantir que os seus recursos e aplicações são concebidos e configurados com toda a segurança.  A monitorização da segurança e a análise de ameaças são fornecidas pelo [Centro de Segurança do Azure](../security-center/security-center-intro.md), o que inclui gestão de segurança unificada e proteção avançada contra ameaças entre cargas de trabalho na cloud híbrida.  Também deve ver a [Introdução à Segurança do Azure](../security/azure-security.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar recursos do Azure com segurança.
 
 
-## <a name="protect"></a>Proteger
+## <a name="protect"></a>proteger
 Proteção passa por se certificar de que os seus dados e aplicações estão sempre disponíveis, mesmo em caso de falhas que estejam para além do seu controlo.  A proteção no Azure é fornecida por dois serviços.  O [Azure Backup](../backup/backup-introduction-to-azure-backup.md) garante a cópia de segurança e a recuperação dos seus dados, seja na cloud ou no local.    O [Azure Site Recovery](../site-recovery/site-recovery-overview.md) garante a elevada disponibilidade da sua aplicação ao assegurar a continuidade do negócio e a recuperação imediata em caso de desastre.
 
 ## <a name="migrate"></a>Migrar 

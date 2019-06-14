@@ -1,18 +1,18 @@
 ---
 title: Recursos avançados do Explorador de métricas do Azure
 description: Saiba mais sobre funcionalidades avançadas do Explorador de métricas do Azure Monitor
-author: lingliw
+author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 01/22/2019
+ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60256807"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Explorador de métricas do Azure
@@ -77,7 +77,7 @@ Pode aplicar filtros para os gráficos que mostram as métricas com dimensões. 
 
 Pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da comparação de métrica em relação a si e identificar os segmentos afastados de uma dimensão.
 
-### <a name="apply-splitting"></a>Aplicar divisão
+### <a name="apply-splitting"></a>Aplicam-se de que a divisão
 
 1. Clique em **aplicam-se de que a divisão** acima do gráfico.
  
@@ -149,3 +149,4 @@ Veja esta [artigo](alerts-metric.md) para saber mais sobre como configurar alert
 ## <a name="next-steps"></a>Passos Seguintes
 
   Leia [criar dashboards de KPI personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) para saber mais sobre as melhores práticas para a criação de dashboards passíveis de ação com a métrica.
+

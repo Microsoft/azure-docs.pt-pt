@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611695"
 ---
 # <a name="security-frame-session-management"></a>Quadro de segurança: Gerenciamento de sessões
@@ -34,7 +34,7 @@ ms.locfileid: "60611695"
 
 ## <a id="logout-adal"></a>Implementar a fim de sessão adequado usando métodos da ADAL, quando utilizar o Azure AD
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase do SDL**               | Compilação |  
@@ -69,7 +69,7 @@ Ele também deve destruir o sessão do utilizador chamando o método Session.Aba
 
 ## <a id="finite-tokens"></a>Utilizar os tempos de vida finitos para tokens de SaS gerados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -80,7 +80,7 @@ Ele também deve destruir o sessão do utilizador chamando o método Session.Aba
 
 ## <a id="resource-tokens"></a>Utilize o mínimo durações de token para tokens de recurso gerados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -91,7 +91,7 @@ Ele também deve destruir o sessão do utilizador chamando o método Session.Aba
 
 ## <a id="wsfederation-logout"></a>Implementar a fim de sessão adequada através de métodos de WsFederation ao utilizar o ADFS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | ADFS | 
 | **Fase do SDL**               | Compilação |  
@@ -140,7 +140,7 @@ Ele também deve destruir o sessão do utilizador chamando o método Session.Aba
 
 ## <a id="proper-logout"></a>Implementar a fim de sessão adequada ao utilizar o servidor de identidades
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidades | 
 | **Fase do SDL**               | Compilação |  
@@ -151,7 +151,7 @@ Ele também deve destruir o sessão do utilizador chamando o método Session.Aba
 
 ## <a id="https-secure-cookies"></a>Aplicações disponíveis através de HTTPS tem de utilizar cookies seguros
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -170,7 +170,7 @@ Ele também deve destruir o sessão do utilizador chamando o método Session.Aba
 ```
 A definição é imposta, mesmo que o HTTP é utilizado para aceder à aplicação. Se o HTTP é utilizado para aceder à aplicação, a definição divide o aplicativo, porque os cookies são definidos com o atributo seguro e o navegador não envia-os para a aplicação.
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -192,7 +192,7 @@ A definição é imposta, mesmo que o HTTP é utilizado para aceder à aplicaç�
 
 ## <a id="cookie-definition"></a>Todas as aplicações de http com base devem especificar http apenas para a definição de cookie
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -213,7 +213,7 @@ Todos os aplicativos baseados em HTTP que utilize cookies devem especificar Http
 </system.web>
 ```
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -230,7 +230,7 @@ O exemplo de código seguinte define o atributo de requireSSL no arquivo Web. co
 </authentication>
 ```
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -255,7 +255,7 @@ Configuração seguinte mostra a configuração correta:
 
 ## <a id="csrf-asp"></a>Mitigar contra ataques de falsificação de pedidos entre sites (CSRF) em páginas da web ASP.NET
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -264,7 +264,7 @@ Configuração seguinte mostra a configuração correta:
 | **Referências**              | N/A  |
 | **Passos** | Falsificação de solicitação (CSRF ou XSRF) é um tipo de ataque no qual um invasor pode executar ações no contexto de segurança de sessão estabelecida de um utilizador diferente num site. O objetivo é modificar ou eliminar o conteúdo, se o web site de destino depende exclusivamente de cookies de sessão para autenticar recebeu o pedido. Um invasor poderia explorar essa vulnerabilidade, obtendo o navegador de um utilizador diferente ao carregar um URL com um comando a partir de um site vulnerável em que o usuário já está conectado no. Existem várias formas de um atacante fazer isso, como, por que aloja um web site diferentes, que carrega um recurso do servidor vulnerável ou obter o utilizador clica numa hiperligação. O ataque pode ser impedido de se o servidor envia um token adicional para o cliente, exige que o cliente incluir esse token em todas as solicitações futuras e verifica que todas as solicitações futuras incluem um token que diz respeito à sessão atual, tal como através da utilização do ASP.NET AntiForgeryToken ou ViewState. |
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -350,7 +350,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 }
 ```
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -370,7 +370,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="inactivity-lifetime"></a>Configurar a sessão para a duração de inatividade
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -390,7 +390,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="threat-detection"></a>Ativar a deteção de ameaças em SQL do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -405,7 +405,7 @@ void Page_Init (object sender, EventArgs e) {
 </forms>
 ```
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -440,7 +440,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="proper-app-logout"></a>Implementar a fim de sessão correto da aplicação
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -451,7 +451,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ## <a id="csrf-api"></a>Mitigar contra ataques de falsificação de pedidos entre sites (CSRF) com as APIs de Web do ASP.NET
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -460,7 +460,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Referências**              | N/A  |
 | **Passos** | Falsificação de solicitação (CSRF ou XSRF) é um tipo de ataque no qual um invasor pode executar ações no contexto de segurança de sessão estabelecida de um utilizador diferente num site. O objetivo é modificar ou eliminar o conteúdo, se o web site de destino depende exclusivamente de cookies de sessão para autenticar recebeu o pedido. Um invasor poderia explorar essa vulnerabilidade, obtendo o navegador de um utilizador diferente ao carregar um URL com um comando a partir de um site vulnerável em que o usuário já está conectado no. Existem várias formas de um atacante fazer isso, como, por que aloja um web site diferentes, que carrega um recurso do servidor vulnerável ou obter o utilizador clica numa hiperligação. O ataque pode ser impedido de se o servidor envia um token adicional para o cliente, exige que o cliente incluir esse token em todas as solicitações futuras e verifica que todas as solicitações futuras incluem um token que diz respeito à sessão atual, tal como através da utilização do ASP.NET AntiForgeryToken ou ViewState. |
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -547,7 +547,7 @@ Filtro de autorização que verifica se:
 * O pedido recebido tem um `Request.Form` entrada chamada __RequestVerificationToken
 * Estes cookies e `Request.Form` hodnoty se shodují supondo que todas as é bem, a solicitação passa por normalmente. Mas, se não for, em seguida, uma falha de autorização com a mensagem "um token antifalsificação necessário não foi fornecido ou era inválido".
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  

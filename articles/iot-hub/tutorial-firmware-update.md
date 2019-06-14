@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 57ec4990447070d1889f7476b89abb742296c056
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 58605df0e4122a878bf1413ff7a9cfd555cf54dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597517"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051157"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
@@ -95,8 +95,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 ```
 
 > [!TIP]
-> Se executar estes comandos numa linha de comandos do Windows ou do Powershell, veja a página [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
-) para obter informações sobre como citar cadeias JSON.
+> Se executar estes comandos numa linha de comandos do Windows ou do Powershell, veja a página [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips) para obter informações sobre como citar cadeias JSON.
 
 ## <a name="start-the-firmware-update"></a>Iniciar a atualização de firmware
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636814"
 ---
 # <a name="how-caching-works"></a>Como funciona a colocação em cache
@@ -120,14 +120,14 @@ Nem todos os recursos podem ser colocadas em cache. A tabela seguinte mostra que
 
 Para **CDN Standard do Microsoft Azure** colocação em cache para trabalhar num recurso, o servidor de origem tem de suportar qualquer HEAD e solicitações GET HTTP e os valores de conteúdo-comprimento tem de ser igual para todas as respostas de cabeça e GET HTTP para o elemento. Para um pedido HEAD, o servidor de origem tem de suportar o pedido HEAD e deverá responder com os mesmos cabeçalhos como se ele recebeu um pedido GET.
 
-## <a name="default-caching-behavior"></a>Comportamento de colocação em cache predefinido
+## <a name="default-caching-behavior"></a>Comportamento de colocação em cache predefinida
 
 A tabela seguinte descreve o comportamento para os produtos do CDN do Azure e suas otimizações de cache padrão.
 
-|    | Microsoft: Entrega geral Web | Verizon: Entrega geral Web | Verizon: DSA | Akamai: Entrega geral Web | Akamai: DSA | Akamai: Transferência de ficheiro grande | Akamai: geral ou VOD suporte de dados de transmissão em fluxo |
+|    | Microsoft: Entrega geral web | Verizon: Entrega geral web | Verizon: DSA | Akamai: Entrega geral web | Akamai: DSA | Akamai: Transferência de ficheiros grandes | Akamai: geral ou VOD suporte de dados de transmissão em fluxo |
 |------------------------|--------|-------|------|--------|------|-------|--------|
 | **Origem de honor**       | Sim    | Sim   | Não   | Sim    | Não   | Sim   | Sim    |
-| **Duração da cache CDN** | 2 dias |7 dias | Nenhuma | 7 dias | Nenhuma | 1 dia | um ano |
+| **Duração da cache CDN** | 2 dias |7 dias | Nenhuma | 7 dias | Nenhuma | 1 dia | 1 ano |
 
 **Respeite origem**: Especifica se deve respeitar os cabeçalhos de diretivas de cache suportados, caso existam na resposta HTTP do servidor de origem.
 

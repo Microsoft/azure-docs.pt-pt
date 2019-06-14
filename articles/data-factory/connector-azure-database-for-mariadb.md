@@ -3,21 +3,20 @@ title: Copiar dados da base de dados do Azure para MariaDB com o Azure Data Fact
 description: Saiba como copiar dados da base de dados do Azure para MariaDB armazenamentos de dados de sink suportado com uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 02/01/2019
+ms.author: jingwang
 ms.openlocfilehash: cd46e99b89b4081dcf0d67509edaabf168da4ba0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60387889"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Copiar dados da base de dados do Azure para MariaDB com o Azure Data Factory 
@@ -56,7 +55,7 @@ As seguintes propriedades são suportadas para a base de dados do Azure para Mar
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server={your_server}.mariadb.database.azure.cn; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
+                "value": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
             }
         },
         "connectVia": {
@@ -77,7 +76,7 @@ As seguintes propriedades são suportadas para a base de dados do Azure para Mar
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value": "Server={your_server}.mariadb.database.azure.cn; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;"
+                 "value": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;"
             },
             "pwd": { 
                 "type": "AzureKeyVaultSecret", 

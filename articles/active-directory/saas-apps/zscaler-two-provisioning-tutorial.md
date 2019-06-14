@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ms.openlocfilehash: 837014fde6962f64d7da023a001a4c41089a0097
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578277"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "67049482"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zscaler duas para aprovisionamento automático de utilizadores
 
@@ -125,7 +125,7 @@ Esta secção orienta-o através dos passos para configurar o Azure AD do servi�
 
 11. Reveja os atributos de utilizador que são sincronizados a partir do Azure AD para Zscaler dois do **mapeamentos de atributos** secção. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Zscaler duas para operações de atualização. Selecione **guardar** para consolidar as alterações.
 
-    ![Mapeamentos de Atributos](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
+    ![Mapeamentos de atributos](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Na **mapeamentos** secção, selecione **sincronizar grupos do Azure Active Directory para ZscalerTwo**:
 
@@ -133,13 +133,13 @@ Esta secção orienta-o através dos passos para configurar o Azure AD do servi�
 
 13. Reveja os atributos de grupo que são sincronizados a partir do Azure AD para Zscaler dois do **mapeamentos de atributos** secção. Os atributos selecionados como **correspondência** propriedades são usadas para fazer corresponder os grupos no Zscaler duas para operações de atualização. Selecione **guardar** para consolidar as alterações.
 
-    ![Mapeamentos de Atributos](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
+    ![Mapeamentos de atributos](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Para configurar filtros de âmbito, consulte as instruções no [tutorial de filtro de Scoping](./../active-directory-saas-scoping-filters.md).
 
 15. Para ativar o Azure AD Zscaler dois para o serviço de aprovisionamento, altere a **estado de aprovisionamento** para **no** no **definições** secção:
 
-    ![Estado do Aprovisionamento](./media/zscaler-two-provisioning-tutorial/provisioning-status.png)
+    ![Estado de aprovisionamento](./media/zscaler-two-provisioning-tutorial/provisioning-status.png)
 
 16. Definir a utilizadores e/ou grupos que pretende fazer o aprovisionamento Zscaler dois escolhendo os valores pretendidos sob **âmbito** no **definições** secção:
 

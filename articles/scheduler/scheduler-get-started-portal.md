@@ -11,10 +11,10 @@ ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531862"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Criar e agendar a primeira tarefa com o Microsoft Azure Scheduler – portal do Azure
@@ -49,7 +49,7 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
    | Propriedade | Valor de exemplo | Descrição |
    |----------|---------------|-------------| 
-   | **Ação** | **Http** | O tipo de ação a executar | 
+   | **ação** | **Http** | O tipo de ação a executar | 
    | **Método** | **Get** | O método a chamar | 
    | **URL** | **https://www.microsoft.com** | O URL de destino | 
    |||| 

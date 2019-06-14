@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60382288"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
@@ -175,7 +175,7 @@ Suponha que tiver implementado o Azure AD Connect com a funcionalidade de Consis
 
 ![Adição de novos diretórios a implementação existente](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 
-## <a name="azure-ad-sign-in"></a>Início de sessão no Azure AD
+## <a name="azure-ad-sign-in"></a>O Azure AD início de sessão
 Ao integrar o seu diretório no local com o Azure AD, é importante compreender como as definições de sincronização podem afetar o usuário de forma autentica. Azure AD utiliza userPrincipalName (UPN) para autenticar o utilizador. No entanto, ao sincronizar os seus utilizadores, tem de escolher o atributo a ser utilizado para o valor de userPrincipalName cuidadosamente.
 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Escolha o atributo de userPrincipalName

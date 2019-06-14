@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610748"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados do Teradata com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-onprem-teradata-connector.md)
 > * [Versão 2 (versão atual)](../connector-teradata.md)
 
@@ -67,7 +67,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | type |A propriedade de tipo tem de ser definida como: **OnPremisesTeradata** |Sim |
 | server |Nome do servidor de Teradata. |Sim |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados Teradata. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
-| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
+| o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do Teradata no local. |Sim |
 
@@ -286,8 +286,8 @@ Ao mover dados para Teradata, os seguintes mapeamentos de servem de Teradata tip
 | Tipo de base de dados Teradata | Tipo de .NET framework |
 | --- | --- |
 | char |String |
-| CLOB |String |
-| Gráfico |String |
+| Clob |String |
+| Graphic |String |
 | VarChar |String |
 | VarGraphic |String |
 | Blobs |Byte[] |
@@ -302,27 +302,27 @@ Ao mover dados para Teradata, os seguintes mapeamentos de servem de Teradata tip
 | SmallInt |Int16 |
 | Date |DateTime |
 | Hora |TimeSpan |
-| Hora com fuso horário |String |
+| Time With Time Zone |String |
 | Carimbo de data/hora |DateTime |
-| Timestamp com o fuso horário |DateTimeOffset |
-| Dia do intervalo |TimeSpan |
-| Dia de intervalo para a hora |TimeSpan |
-| Dia de intervalo de minuto |TimeSpan |
-| Dia do intervalo como segundo |TimeSpan |
-| Hora do intervalo |TimeSpan |
-| Intervalo de hora para minuto |TimeSpan |
-| Hora do intervalo como segundo |TimeSpan |
-| Minuto do intervalo |TimeSpan |
-| Intervalo de minuto para segundo |TimeSpan |
-| Intervalo de segundo |TimeSpan |
-| Ano de intervalo |String |
-| Intervalo de ano para mês |String |
-| Mês de intervalo |String |
+| Timestamp With Time Zone |DateTimeOffset |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Interval Month |String |
 | Period(Date) |String |
 | Period(Time) |String |
-| Período (hora com fuso horário) |String |
+| Period(Time With Time Zone) |String |
 | Period(Timestamp) |String |
-| Período (Timestamp com o fuso horário) |String |
+| Period(Timestamp With Time Zone) |String |
 | Xml |String |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink

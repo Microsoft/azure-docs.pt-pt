@@ -3,20 +3,21 @@ title: Configurar o método de encaminhamento de tráfego de valores múltiplos 
 description: Este artigo explica como configurar o Gestor de tráfego para encaminhar o tráfego para pontos finais de A/AAAA.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: kumud
-ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: allensu
+ms.openlocfilehash: 5db8e2932a43a2d6c6cb8a99c4f32b37a4a5a3f8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094808"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67050876"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de encaminhamento de valores múltiplos no Gestor de tráfego
 
@@ -46,7 +47,7 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizadores, e
     | Método de encaminhamento          | Selecione o **Multivalue** método de encaminhamento.                                       |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Select *myResourceGroupTM1*. |
-    | Localização                | Esta definição refere-se à localização do grupo de recursos e não tem qualquer impacto no perfil do Gestor de Tráfego que vai ser implementado globalmente.                              |
+    | Location                | Esta definição refere-se à localização do grupo de recursos e não tem qualquer impacto no perfil do Gestor de Tráfego que vai ser implementado globalmente.                              |
    |        |           | 
   
    ![Criar um perfil do Gestor de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
@@ -61,7 +62,7 @@ Adicione dois endereços IP como pontos finais externos para o perfil do Gestor 
 
     | Definição                 | Value                                              |
     | ---                     | ---                                                |
-    | Type                    | Ponto final externo                                   |
+    | Tipo                    | Ponto final externo                                   |
     | Name           | myEndpoint1                                        |
     | Nome de domínio completamente qualificado (FQDN) ou IP           | Escreva o endereço IP público do ponto final que pretende adicionar a este perfil do Gestor de tráfego                         |
     |        |           |

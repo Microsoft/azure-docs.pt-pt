@@ -17,10 +17,10 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65738054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integração do Active Directory do Azure com várias contas do Amazon Web Services (AWS)
@@ -77,7 +77,7 @@ Para configurar a integração do Amazon Web Services (AWS) para o Azure AD, ter
 
 **Para adicionar Amazon Web Services (AWS) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -89,7 +89,7 @@ Para configurar a integração do Amazon Web Services (AWS) para o Azure AD, ter
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Amazon Web Services (AWS)**, selecione **Amazon Web Services (AWS)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Amazon Web Services (AWS)** , selecione **Amazon Web Services (AWS)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
      ![Amazon Web Services (AWS) na lista de resultados](common/search-new-app.png)
 
@@ -139,7 +139,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Name  | Atributo de origem  | Espaço de nomes |
+    | Name  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Função            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -347,7 +347,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!Note]
     > Tenha em atenção que terá de atualizar a sua sessão no portal do Azure para ver novas funções.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

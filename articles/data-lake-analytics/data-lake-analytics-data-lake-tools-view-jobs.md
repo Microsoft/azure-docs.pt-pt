@@ -10,10 +10,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 905100f8a1444f6f6ee18d3bf9e9eab2ede8c805
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60616235"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Utilizar o Browser de trabalho e a vista de tarefas para o Azure Data Lake Analytics
@@ -50,7 +50,7 @@ Vista de tarefas contém:
     * A finalizar: A tarefa está a concluir (por exemplo, a finalizar o arquivo).
       
       A tarefa pode falhar em todas as fases. Por exemplo, erros de compilação na fase de preparando, erros de tempo limite na fase de em fila e erros de execução na fase de execução, etc.
-  * Informação Básica
+  * Informações básicas
     
       Mostram as informações de trabalho básico na parte inferior do painel de resumo da tarefa.
     
@@ -136,7 +136,7 @@ Vista de tarefas contém:
     Pode realizar algumas operações de metadados no seu script de U-SQL, tais como criar uma base de dados, remover uma tabela, etc. Estas operações são mostradas na operação de metadados após a compilação. Pode encontrar as asserções, criar entidades, largar entidades aqui.
   
     ![Operações de metadados de vista de tarefas do Data Lake Analytics do Azure](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
-* Histórico de Estado
+* Histórico de estado
   
     O histórico de estado também é visualizado no resumo da tarefa, mas pode obter mais detalhes aqui. Pode encontrar as informações detalhadas, como quando a tarefa é preparada, colocados em fila, execução de introdução, terminou. Também é possível encontrar o número de vezes que a tarefa tiver sido compilada (o CcsAttempts: 1), quando é a tarefa despachada para o cluster, na verdade, (o detalhe: Expedição de tarefa ao cluster), etc.
   

@@ -11,10 +11,10 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.openlocfilehash: a8bd260db7a141ce845ce7fb5b7e10f642907b82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60310370"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
@@ -205,7 +205,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 4. Selecione **pontos de restauro automático** ou **pontos de restauro definidas pelo utilizador**.
 
-    ![Pontos de Restauro Automático](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+    ![Pontos de restauro automático](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 
 5. Para pontos de restauração de definidas pelo utilizador, **selecione um ponto de restauro** ou **criar um novo ponto de restauro definidas pelo utilizador**. Escolha que um servidor numa geração 2 suportada região geográfica. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 07bff578b27df13c65eb912a64b6a44b97175d37
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051662"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -42,7 +42,7 @@ Redes virtuais do Azure têm registos de fluxo NSG, o que lhe fornecem informaç
 
 ## <a name="key-components"></a>Componentes principais
 
-- **O grupo de segurança de rede (NSG)**: Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a uma rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou a interfaces de rede individuais (NIC) ligadas a VMs (Resource Manager). Para obter mais informações, consulte [descrição geral de grupo de segurança de rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **O grupo de segurança de rede (NSG)** : Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a uma rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou a interfaces de rede individuais (NIC) ligadas a VMs (Resource Manager). Para obter mais informações, consulte [descrição geral de grupo de segurança de rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Registos de fluxo de grupo (NSG) de segurança de rede**: Permitem-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Fluxo NSG registos são escritos no formato json e mostram os fluxos de saída e entrados numa base por regra, que a NIC, o fluxo de mensagens em fila aplica-se a informações de cinco cadeias de identificação sobre o fluxo (endereço IP de origem/destino, porta de origem/destino e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os registos de fluxo do NSG, consulte [registos de fluxo NSG](network-watcher-nsg-flow-logging-overview.md).
 - **Log Analytics**: Um serviço do Azure que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Monitorização de aplicações, tais como análise de tráfego e o monitor de desempenho de rede é criada usando logs de Monitor do Azure como uma base. Para obter mais informações, consulte [registos do Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Área de trabalho de análise de registo**: Uma instância de registos do Azure Monitor, onde os dados relativos a uma conta do Azure, são armazenados. Para obter mais informações sobre áreas de trabalho do Log Analytics, consulte [criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
@@ -87,12 +87,19 @@ Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes reg
 A área de trabalho do Log Analytics têm de existir nas seguintes regiões:
 * Canadá Central
 * EUA Centro-Oeste
-* EUA Oeste 2
 * EUA Leste
+* EUA Leste 2
+* EUA Centro-Sul
+* E.U.A. Oeste
+* EUA Oeste 2
+* EUA Central
 * França Central
+* Europa do Norte
 * Europa Ocidental
 * Reino Unido Sul
+* Leste da Austrália
 * Sudeste da Austrália
+* Ásia Oriental
 * Sudeste Asiático
 * Coreia do Sul Central
 * Índia Central
@@ -107,10 +114,10 @@ Sua conta tem de ser um membro de um do Azure seguinte [funções incorporadas](
 
 |Modelo de implementação   | Função                   |
 |---------          |---------               |
-|Resource Manager   | Proprietário                  |
+|Resource Manager   | Owner                  |
 |                   | Contribuinte            |
 |                   | Leitor                 |
-|                   | Contribuinte de Rede    |
+|                   | Contribuinte de rede    |
 
 Se a sua conta não está atribuída a uma das funções incorporadas, tem de ser atribuído a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) atribuída as seguintes ações, ao nível da subscrição:
 

@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-origin.date: 07/31/2017
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 07/31/2017
+ms.author: yegu
 ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60542346"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importar e exportar os dados na Cache do Azure de Redis
@@ -50,7 +49,7 @@ Importação pode ser utilizada para juntar o ficheiros RDB compatíveis de Redi
     ![Importar dados][cache-import-data]
 2. Clique em **blob (s) Escolha** e selecione a conta de armazenamento que contém os dados a importar.
 
-    ![Escolher conta de armazenamento][cache-import-choose-storage-account]
+    ![Escolha a conta de armazenamento][cache-import-choose-storage-account]
 3. Clique no contentor que contém os dados a importar.
 
     ![Escolher contentor][cache-import-choose-container]
@@ -100,16 +99,16 @@ Exportação permite-lhe exportar os dados armazenados na Cache do Azure para fi
 ## <a name="importexport-faq"></a>FAQ de importação/exportação
 Esta secção contém perguntas freqüentes sobre a funcionalidade de importação/exportação.
 
-- [Os preços camadas podem utilizar a importação/exportação?](#what-pricing-tiers-can-use-importexport)
-- [Pode importar dados de qualquer servidor Redis?](#can-i-import-data-from-any-redis-server)
-- [Que versões RDB pode importar?](#what-rdb-versions-can-i-import)
-- [Minha cache está disponível durante uma operação de importação/exportação?](#is-my-cache-available-during-an-importexport-operation)
-- [Pode utilizar para importar/exportar com o cluster de Redis?](#can-i-use-importexport-with-redis-cluster)
-- [Como funciona com uma definição de bancos de dados personalizados de importação/exportação?](#how-does-importexport-work-with-a-custom-databases-setting)
-- [Como importar/exportar é diferente da persistência de Redis?](#how-is-importexport-different-from-redis-persistence)
-- [Pode automatizar com o PowerShell, CLI ou outros clientes de gestão de importação/exportação?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
-- [Recebi um erro de tempo limite durante minha operação de importação/exportação. O que significa?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
-- [Recebi um erro ao exportar os meus dados para armazenamento de Blobs do Azure. O que aconteceu?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
+* [Os preços camadas podem utilizar a importação/exportação?](#what-pricing-tiers-can-use-importexport)
+* [Pode importar dados de qualquer servidor Redis?](#can-i-import-data-from-any-redis-server)
+* [Que versões RDB pode importar?](#what-rdb-versions-can-i-import)
+* [Minha cache está disponível durante uma operação de importação/exportação?](#is-my-cache-available-during-an-importexport-operation)
+* [Pode utilizar para importar/exportar com o cluster de Redis?](#can-i-use-importexport-with-redis-cluster)
+* [Como funciona com uma definição de bancos de dados personalizados de importação/exportação?](#how-does-importexport-work-with-a-custom-databases-setting)
+* [Como importar/exportar é diferente da persistência de Redis?](#how-is-importexport-different-from-redis-persistence)
+* [Pode automatizar com o PowerShell, CLI ou outros clientes de gestão de importação/exportação?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
+* [Recebi um erro de tempo limite durante minha operação de importação/exportação. O que significa?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
+* [Recebi um erro ao exportar os meus dados para armazenamento de Blobs do Azure. O que aconteceu?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>Os preços camadas podem utilizar a importação/exportação?
 Importar/exportar está disponível apenas no escalão de preços premium.
@@ -127,8 +126,8 @@ Sim, além de importar dados exportados a partir do Cache do Azure para instânc
 A Cache de Redis do Azure suporta a importação da RDB da cópia de segurança por meio da RDB da versão 7.
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>Minha cache está disponível durante uma operação de importação/exportação?
-- **Exportar** - Caches continuam disponíveis e pode continuar a utilizar a sua cache durante uma operação de exportação.
-- **Importar** - Caches fiquem indisponíveis quando uma operação de importação é iniciado e se tornar disponível para utilização quando a operação de importação for concluída.
+* **Exportar** - Caches continuam disponíveis e pode continuar a utilizar a sua cache durante uma operação de exportação.
+* **Importar** - Caches fiquem indisponíveis quando uma operação de importação é iniciado e se tornar disponível para utilização quando a operação de importação for concluída.
 
 ### <a name="can-i-use-importexport-with-redis-cluster"></a>Pode utilizar para importar/exportar com o cluster de Redis?
 Sim, e pode importar/exportar entre um cache em cluster e uma cache não-clusterizados. Desde o cluster de Redis [só suporta a base de dados 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), todos os dados em bancos de dados diferente de 0 não estão a ser importados. Quando os dados em cache em cluster são importados, as chaves são redistribuídas entre as partições horizontais do cluster.
@@ -136,10 +135,10 @@ Sim, e pode importar/exportar entre um cache em cluster e uma cache não-cluster
 ### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>Como funciona com uma definição de bancos de dados personalizados de importação/exportação?
 Alguns escalões de preço possuem diferentes [limites de bases de dados](cache-configure.md#databases), por isso, existem algumas considerações ao importar se tiver configurado um valor personalizado para o `databases` definir durante a criação da cache.
 
-- Ao importar para um escalão de preço com um menor `databases` limite que o escalão a partir do qual exportou:
-  - Se estiver a utilizar o número predefinido de `databases`, que é 16 para todos os escalões de preço, nenhum dado seja perdido.
-  - Se estiver a utilizar um número personalizado de `databases` esse cai dentro dos limites para a camada a que estiver a importar, nenhum dado seja perdido.
-  - Se os dados exportados continha dados numa base de dados que exceda os limites da nova camada, os dados desses bancos de dados superior não são importados.
+* Ao importar para um escalão de preço com um menor `databases` limite que o escalão a partir do qual exportou:
+  * Se estiver a utilizar o número predefinido de `databases`, que é 16 para todos os escalões de preço, nenhum dado seja perdido.
+  * Se estiver a utilizar um número personalizado de `databases` esse cai dentro dos limites para a camada a que estiver a importar, nenhum dado seja perdido.
+  * Se os dados exportados continha dados numa base de dados que exceda os limites da nova camada, os dados desses bancos de dados superior não são importados.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>Como importar/exportar é diferente da persistência de Redis?
 A Cache do Azure para a persistência de Redis permite-lhe manter os dados armazenados no Redis ao armazenamento do Azure. Quando a persistência é configurada, a Cache de Redis do Azure mantém um instantâneo da Cache do Azure para Redis num formato binário do Redis para o disco com base numa frequência de cópia de segurança configurável. Se um evento catastrófico ocorrer que desativa a cache principal e de réplica, os dados de cache são restaurados automaticamente usando o instantâneo mais recente. Para obter mais informações, consulte [como configurar a persistência de dados para uma Cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
@@ -162,7 +161,7 @@ Exportação funciona apenas com os ficheiros RDB armazenados como blobs de pág
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba como utilizar as funcionalidades de cache premium mais.
 
-- [Introdução à Cache do Azure para o escalão Premium da Redis](cache-premium-tier-intro.md)    
+* [Introdução à Cache do Azure para o escalão Premium da Redis](cache-premium-tier-intro.md)    
 
 <!-- IMAGES -->
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png
@@ -177,6 +176,3 @@ Saiba como utilizar as funcionalidades de cache premium mais.
 [cache-import-choose-blobs]: ./media/cache-how-to-import-export-data/cache-import-choose-blobs.png
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
-
-
-<!-- Update_Description: update metedata properties -->
