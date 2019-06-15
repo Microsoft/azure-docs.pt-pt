@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432641"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080765"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço em nuvem e como empacotá-lo?
-Um serviço em nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)*, a configuração de serviço *(. cscfg)* e um pacote de serviço *(. cspkg)*. Ambas as **servicedefinition. Csdef** e **ServiceConfig.cscfg** ficheiros são baseados em XML e descrever a estrutura de serviço em nuvem e de configuração; coletivamente chamados o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **servicedefinition. Csdef** e entre outras coisas, contém todos os com base em binário dependências necessárias. O Azure cria um serviço em nuvem, tanto o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
+Um serviço em nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)* , a configuração de serviço *(. cscfg)* e um pacote de serviço *(. cspkg)* . Ambas as **servicedefinition. Csdef** e **ServiceConfig.cscfg** ficheiros são baseados em XML e descrever a estrutura de serviço em nuvem e de configuração; coletivamente chamados o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **servicedefinition. Csdef** e entre outras coisas, contém todos os com base em binário dependências necessárias. O Azure cria um serviço em nuvem, tanto o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
 
 Quando o serviço em nuvem está em execução no Azure, pode reconfigurá-lo através da **ServiceConfig.cscfg** ficheiro, mas não é possível alterar a definição.
 
@@ -186,7 +186,7 @@ O exemplo a seguir mostra a configuração de uma função da web com uma aplica
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" hostHeader="mail.mysite.cloudapp.net" />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">

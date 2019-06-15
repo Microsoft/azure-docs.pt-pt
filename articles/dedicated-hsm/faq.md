@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: barclayn
 ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467727"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
@@ -75,7 +75,7 @@ A partir do final de Março de 2019, HSM dedicados está disponível em 14 regi�
 * Europa do Norte
 * Europa Ocidental
 * Reino Unido Sul
-* Oeste do R.U.
+* Reino Unido Oeste
 * Canadá Central
 * Leste do Canadá
 * Leste da Austrália
@@ -201,7 +201,7 @@ Não.
 
 16 membros de um grupo HA tem em foram, Acelerador completo de teste com resultados excelentes.
 
-## <a name="support"></a>Apoio ao cliente
+## <a name="support"></a>Suporte
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>P. O que é o SLA para o serviço HSM dedicados?
 

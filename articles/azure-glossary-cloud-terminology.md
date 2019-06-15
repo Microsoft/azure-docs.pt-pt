@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325430"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: Um dicionário de terminologia de cloud na plataforma do Azure
@@ -39,7 +39,7 @@ Outro nome para o [aplicação de serviço de aplicações](#app-service-app).
 ## <a name="app-service-app"></a>Aplicação do Serviço de Aplicações
 Os recursos de computação que [App Service do Azure](app-service/overview.md) fornece para alojar uma site ou aplicação web, web API, ou [back-end de aplicação móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicações de serviço de aplicações são também denominadas *dos serviços de aplicações*, *aplicações web*, *aplicações API*, e *aplicações móveis*.
 
-## <a name="availability-set"></a>conjunto de disponibilidade
+## <a name="availability-set"></a>Conjunto de disponibilidade
 Uma coleção de máquinas virtuais que são geridos em conjunto para fornecer redundância de aplicativos e a confiabilidade. A utilização de um conjunto de disponibilidade garante que, durante um evento de manutenção planeada ou, pelo menos uma máquina virtual está disponível.  
 Ver [gerir a disponibilidade das máquinas de virtuais do Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [gerir a disponibilidade das máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -77,10 +77,10 @@ Consulte [navegar e selecionadas imagens de máquinas virtuais do Windows no Azu
 O número de recursos que podem ser criados ou o parâmetro de comparação de desempenho que pode ser alcançado. Limites são normalmente associadas a subscrições, serviços e ofertas.  
 Consulte [subscrição do Azure e limites do serviço, quotas e restrições](azure-subscription-service-limits.md)
 
-## <a name="load-balancer"></a>balanceador de carga
+## <a name="load-balancer"></a>Balanceador de carga
 Um recurso que distribui o tráfego de entrada entre computadores numa rede. No Azure, um balanceador de carga distribui o tráfego para as máquinas virtuais definidas num conjunto de Balanceador de carga. R [Balanceador de carga](load-balancer/load-balancer-overview.md) pode ser o acesso à internet ou pode ser interno.  
 
-## <a name="mobile-app"></a>aplicação móvel
+## <a name="mobile-app"></a>Aplicação móvel
 Outro nome para o [aplicação serviço de aplicações](#app-service-app).
 
 ## <a name="offer"></a>oferta
@@ -94,7 +94,7 @@ O portal web seguro utilizado para implementar e gerir serviços do Azure.
 Uma área dentro de uma geo que não fronteiras nacionais não cruzado e contém um ou mais datacenters. Preços, serviços regionais e tipos de oferta são expostos ao nível da região. Uma região normalmente é emparelhada com outra região, o que pode ser até centenas de quilômetros distância. Pares regionais podem ser utilizados como um mecanismo de recuperação após desastre e cenários de elevada disponibilidade. Também conhecido como *localização*.  
 Consulte [regiões do Azure](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>Recurso
+## <a name="resource"></a>resource
 Um item que faz parte de sua solução do Azure. Cada serviço do Azure permite-lhe implementar os diferentes tipos de recursos, como bases de dados ou máquinas virtuais.   
 Consulte [descrição geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
@@ -110,7 +110,7 @@ Consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-tem
 Um serviço que fornece os recursos que pode implementar e gerir através do Resource Manager. Cada fornecedor de recursos oferece operações para trabalhar com os recursos implementados. Fornecedores de recursos podem ser acedidos através do portal do Azure, Azure PowerShell e vários SDKs de programação.  
 Consulte [descrição geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>função
+## <a name="role"></a>role
 Um meio para controlar o acesso que pode ser atribuído a utilizadores, grupos e serviços. As funções são capazes de realizar ações, como criar, gerir e ler em recursos do Azure.  
 Consulte [RBAC: Funções incorporadas](role-based-access-control/built-in-roles.md)
 
@@ -129,7 +129,7 @@ Consulte [sobre as contas de armazenamento](storage/common/storage-create-storag
 Um contrato de cliente com a Microsoft permite-lhes obter serviços do Azure. O preço da subscrição e os termos relacionados são regidos pela oferta escolhida para a subscrição.
 Ver [contrato de subscrição Online da Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/) e [subscrições do Azure como estão associadas com o Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-## <a name="tag"></a>etiqueta
+## <a name="tag"></a>tag
 Um termo de indexação que lhe permite categorizar os recursos de acordo com os requisitos de gestão ou faturação. Quando tem uma coleção complexa de recursos, pode utilizar etiquetas de visualizar esses elementos da forma que faz mais sentido. Por exemplo, pode etiquetar recursos que desempenham uma função semelhante na sua organização ou pertencem ao mesmo departamento.  
 Consulte [utilizar etiquetas para organizar os recursos do Azure](resource-group-using-tags.md)
 

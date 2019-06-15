@@ -12,10 +12,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 05/22/2019
 ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66016381"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusos horários na instância gerida da base de dados SQL do Azure
@@ -47,7 +47,7 @@ Ao introduzir parâmetros para uma nova instância, selecione um fuso horário n
   
 ![Definir um fuso horário durante a criação de instância](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
-### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
+### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
 Especifica a propriedade timezoneId em sua [modelo do Resource Manager](https://aka.ms/sql-mi-create-arm-posh) para definir o fuso horário durante a criação de instância.
 
@@ -100,144 +100,144 @@ Utilizar o mesmo fuso horário entre uma instância primária e secundária de u
 
 | **ID do fuso horário** | **Nome a apresentar do fuso horário** |
 | --- | --- |
-| Hora Padrão da Linha de Data | (UTC-12:00) Oeste da Linha de Data Internacional |
-| UTC-11 | (UTC-11:00) Hora Universal Coordenada -11 |
-| Fuso Horário das Ilhas Aleutas | (UTC-10:00) Ilhas Aleutian |
-| Hora Padrão do Havai | (UTC-10:00) Havai |
-| Fuso Horário das Ilhas Marquesas | (UTC-09:30) Ilhas Marquesas |
-| Hora Padrão do Alasca | (UTC-09:00) Alasca |
+| Hora padrão | (UTC-12:00) Oeste da Linha de Data Internacional |
+| UTC-11 | (UTC-11:00) Hora Universal Coordenada-11 |
+| Ilhas Aleutas | (UTC-10:00) Ilhas Aleutas |
+| Hora padrão do Havai | (UTC-10:00) Havai |
+| Marquesas Standard Time | (UTC-09:30) Ilhas Marquesas |
+| Alaskan Standard Time | (UTC-09:00) Alasca |
 | UTC-09 | (UTC-09:00) Hora Universal Coordenada-09 |
-| Hora Padrão do Pacífico (México) | (UTC-08:00) Baja California |
+| Hora padrão do Pacífico (México) | (UTC-08:00) Baja California |
 | UTC-08 | (UTC-08:00) Hora Universal Coordenada-08 |
-| Hora Padrão do Pacífico | (UTC-08:00) Hora do Pacífico (E.U.A. e Canadá) |
-| Hora Padrão das Regiões Montanhosas dos E.U.A. | (UTC-07:00) Arizona |
-| Hora Padrão das Regiões Montanhosas (México) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
-| Hora Padrão das Montanhosas | (UTC-07:00) Hora das Regiões Montanhosas (E.U.A. e Canadá) |
-| Hora Padrão da América Central | (UTC-06:00) América Central |
-| Hora Padrão Central | (UTC-06:00) Hora Central (E.U.A. e Canadá) |
-| Fuso Horário da Ilha de Páscoa | (UTC-06:00) Ilha da Páscoa |
-| Hora Padrão Central (México) | (UTC-06:00) Guadalajara, Cidade do México, Monterrey |
-| Hora Padrão do Canadá Central | (UTC-06:00) Saskatchewan |
-| Hora Padrão da AS - Pacífico | (UTC-05:00) Bogotá, Lima, Quito, Rio Branco |
-| Hora Padrão do Leste (México) | (UTC-05:00) Chetumal |
-| Hora Padrão do Leste | (UTC-05:00) Hora do Leste (E.U.A. e Canadá) |
-| Fuso Horário de Haiti | (UTC-05:00) Haiti |
-| Fuso Horário de Cuba | (UTC-05:00) Havana |
-| Hora Padrão do Leste dos E.U.A | (UTC-05:00) Indiana (Leste) |
+| Hora padrão do Pacífico | (UTC-08:00) Hora do Pacífico (E.U.A. e Canadá) |
+| Padrão das montanhosas dos E.U.A. | (UTC-07:00) Arizona |
+| Padrão das montanhosas (México) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
+| Hora padrão das Montanhas | (UTC-07:00) Hora das Regiões Montanhosas (E.U.A. e Canadá) |
+| Hora padrão da América Central | (UTC-06:00) América Central |
+| Hora padrão central | (UTC-06:00) Hora Central (E.U.A. e Canadá) |
+| Fuso horário da ilha da Páscoa | (UTC-06:00) Ilha da Páscoa |
+| Hora padrão do central (México) | (UTC-06:00) Guadalajara, Cidade do México, Monterrey |
+| Hora padrão do Canadá Central | (UTC-06:00) Saskatchewan |
+| Hora padrão das-Pacífico | (UTC-05:00) Bogotá, Lima, Quito, Rio Branco |
+| Hora padrão do Leste (México) | (UTC-05:00) Chetumal |
+| Hora padrão do leste | (UTC-05:00) Hora do Leste (U.S.A. e Canadá) |
+| Fuso horário de Haiti | (UTC-05:00) Haiti |
+| Fuso horário de cuba | (UTC-05:00) Havana |
+| Hora de padrão do Leste dos EUA | (UTC-05:00) Indiana (Leste) |
 | Ilhas Turcas e Caicos fuso horário | (UTC-05:00) Ilhas Turcas e Caicos |
-| Hora Padrão do Paraguai | (UTC-04:00) Assunção |
-| Hora Padrão do Atlântico | (UTC-04:00) Hora do Atlântico (Canadá) |
-| Hora Padrão da Venezuela | (UTC-04:00) Caracas |
-| Hora Padrão do Brasil Central | (UTC-04:00) Cuiabá |
-| Hora Padrão do Oeste da AS | (UTC-04:00) Georgetown, La Paz, Manaus, São João |
-| Hora Padrão do Pacífico da AS | (UTC-04:00) Santiago |
+| Hora padrão do Paraguai | (UTC-04:00) Assunção |
+| Hora padrão do Atlântico | (UTC-04:00) Hora do Atlântico (Canadá) |
+| Venezuela Standard Time | (UTC-04:00) Caracas |
+| Hora padrão do Brasil Central | (UTC-04:00) Cuiabá |
+| Hora padrão do oeste | (UTC-04:00) Georgetown, La Paz, Manaus, São João |
+| Fuso horário do Pacífico das | (UTC-04:00) Santiago |
 | Hora padrão da Terra Nova | (UTC-03:30) Terra Nova |
-| Fuso Horário de Tocantins | (UTC-03:00) Araguaina |
+| Fuso horário de Tocantins | (UTC-03:00) Araguaína |
 | E. Hora padrão da América do Sul | (UTC-03:00) Brasília |
-| Hora Padrão do Leste da AS | (UTC-03:00) Caiena, Fortaleza |
-| Hora Padrão da Argentina | (UTC-03:00) Cidade de Buenos Aires |
-| Hora Padrão da Gronelândia | (UTC-03:00) Gronelândia |
-| Hora Padrão de Montevideu | (UTC-03:00) Montevidéu |
-| Hora Padrão de Magallanes | (UTC-03:00) Punta Arenas |
-| Fuso Horário de Saint Pierre | (UTC-03:00) São Pedro e Miquelão |
-| Hora Padrão da Baía | (UTC-03:00) Salvador |
-| UTC-02 | (UTC-02:00) Hora Universal Coordenada -02 |
-| Hora Padrão do Atlântico Central | (UTC-02:00) Atlântico Central - Antigo |
-| Hora Padrão dos Açores | (UTC-01:00) Açores |
-| Cape Verde Standard Time | (UTC-01:00) Cabo Verde |
+| Hora padrão do SA leste | (UTC-03:00) Caiena, Fortaleza |
+| Hora padrão da Argentina | (UTC-03:00) Cidade de Buenos Aires |
+| Hora padrão da Gronelândia | (UTC-03:00) Gronelândia |
+| Hora padrão de Montevideu | (UTC-03:00) Montevidéu |
+| Hora padrão de Magallanes | (UTC-03:00) Punta Arenas |
+| Hora padrão de São Pedro | (UTC-03:00) São Pedro e Miquelão |
+| Hora padrão da Baía | (UTC-03:00) Salvador |
+| UTC-02 | (UTC-02:00) Hora Universal Coordenada-02 |
+| Hora padrão do Atlântico | (UTC-02:00) Atlântico Central - Antigo |
+| Hora padrão dos Açores | (UTC-01:00) Açores |
+| Cape Verde Standard Time | (UTC-01:00) Ilhas de Cabo Verde |
 | UTC | (UTC) Hora Universal Coordenada |
-| Hora Padrão de GMT | (UTC+00:00) Dublin, Edimburgo, Lisboa, Londres |
-| Hora Padrão de Greenwich | (UTC+00:00) Monróvia, Reiquiavique |
+| Hora padrão de GMT | (UTC+00:00) Dublim, Edimburgo, Lisboa, Londres |
+| Greenwich Standard Time | (UTC+00:00) Monróvia, Reiquiavique |
 | W. Hora padrão da Europa | (UTC+01:00) Amesterdão, Berlim, Berna, Roma, Estocolmo, Viena |
-| Hora Padrão da Europa Central | (UTC+01:00) Belgrado, Bratislava, Budapeste, Liubliana, Praga |
-| Hora Padrão de Romance | (UTC+01:00) Bruxelas, Copenhaga, Madrid, Paris |
-| Hora Padrão de Marrocos | (UTC+01:00) Casablanca |
-| Hora Padrão de São Tomé | (UTC+01:00) São Tomé |
-| Hora Padrão da Europa Central | (UTC+01:00) Sarajevo, Skopje, Varsóvia, Zagreb |
-| W. Hora padrão da África Central | (UTC+01:00) África Centro Oeste |
-| Hora Padrão da Jordânia | (UTC+02:00) Amã |
-| Hora Padrão GT | (UTC+02:00) Atenas, Bucareste |
-| Hora Padrão do Médio Oriente | (UTC+02:00) Beirute |
-| Hora Padrão do Egipto | (UTC+02:00) Cairo |
+| Hora padrão da Europa Central | (UTC+01:00) Belgrado, Bratislava, Budapeste, Liubliana, Praga |
+| Hora padrão de Romance | (UTC+01:00) Bruxelas, Copenhaga, Madrid, Paris |
+| Hora padrão de Marrocos | (UTC + 01:00) Casablanca |
+| Hora padrão de São Tomé | (UTC + 01:00) São Tomé |
+| Hora padrão da Europa Central | (UTC+01:00) Sarajevo, Skopje, Varsóvia, Zagreb |
+| W. Hora padrão da África Central | (UTC+01:00) África Central Ocidental |
+| Jordan Standard Time | (UTC+02:00) Amã |
+| Hora padrão gt | (UTC+02:00) Atenas, Bucareste |
+| Hora padrão do Médio Oriente | (UTC+02:00) Beirute |
+| Hora padrão do Egipto | (UTC+02:00) Cairo |
 | E. Hora padrão da Europa | (UTC+02:00) Chisinau |
-| Hora Padrão da Síria | (UTC+02:00) Damasco |
-| Hora padrão do Oeste bancária | (UTC+02:00) Gaza, Hebron |
-| Hora Padrão da África do Sul | (UTC+02:00) Harare, Pretória |
-| Hora Padrão da Finlândia | (UTC+02:00) Helsínquia, Kiev, Riga, Sófia, Tallin, Vilnius |
+| Hora padrão da Síria | (UTC+02:00) Damasco |
+| Hora padrão do Oeste bancária | (UTC+02:00) Gaza, Hebrom |
+| Hora padrão da África do Sul | (UTC+02:00) Harare, Pretória |
+| Hora padrão da Finlândia | (UTC+02:00) Helsínquia, Kiev, Riga, Sófia, Tallin, Vilnius |
 | Israel Standard Time | (UTC+02:00) Jerusalém |
 | Hora padrão de Kaliningrado | (UTC+02:00) Kaliningrado |
-| Hora Standard do Sudão | (UTC+02:00) Cartum |
-| Hora Padrão da Líbia | (UTC+02:00) Trípoli |
-| Hora Padrão da Namíbia | (UTC+02:00) Windhoek |
-| Hora Padrão Árabe | (UTC+03:00) Bagdade |
-| Hora Padrão da Turquia | (UTC+03:00) Istambul |
-| Hora Padrão da Arábia Saudita | (UTC+03:00) Kuwait, Riade |
-| Hora Padrão da Bielorrússia | (UTC+03:00) Minsk |
-| Hora padrão da Rússia | (UTC+03:00) Moscovo, São Petersburgo |
+| Hora Standard do Sudão | (UTC + UTC+02:00) Cartum |
+| Hora padrão da Líbia | (UTC+02:00) Trípoli |
+| Hora padrão da Namíbia | (UTC+02:00) Windhoek |
+| Hora padrão Árabe | (UTC+03:00) Bagdade |
+| Hora padrão da Turquia | (UTC + GMT+03:00) Istambul |
+| Hora padrão da Arábia Saudita | (UTC+03:00) Kuwait, Riade |
+| Hora padrão da Bielorrússia | (UTC+03:00) Minsk |
+| Hora padrão da Rússia | (UTC + GMT+03:00) Moscovo, são Petersburgo |
 | E. Hora padrão da África | (UTC+03:00) Nairobi |
-| Hora Padrão do Irão | (UTC+03:30) Teerão |
-| Hora Padrão de Abu Dhabi | (UTC+04:00) Abu Dhabi, Mascate |
-| Fuso Horário de Astracã | (UTC+04:00) Astrakhan, Ulyanovsk |
-| Hora Padrão do Azerbaijão | (UTC+04:00) Baku |
+| Hora padrão do irão | (UTC+03:30) Teerão |
+| Hora padrão de Abu Dhabi | (UTC+04:00) Abu Dhabi, Mascate |
+| Astrakhan Standard Time | (UTC+04:00) Astrakhan, Ulianovsk |
+| Hora padrão do Azerbaijão | (UTC+04:00) Baku |
 | Fuso horário Rússia 3 | (UTC+04:00) Izhevsk, Samara |
-| Hora Padrão da Maurícia | (UTC+04:00) Port Louis |
-| Hora Padrão de Saratov | (UTC + 04:00) Saratov |
-| Hora Padrão da Geórgia | (UTC+04:00) Tbilisi |
-| Hora de Volgogrado | (UTC+04:00) Volgogrado |
-| Hora Padrão do Cáucaso | (UTC+04:00) Erevan |
-| Hora Padrão do Afeganistão | (UTC+04:30) Cabul |
-| Hora Padrão da Ásia Oeste | (UTC+05:00) Achgabat, Tashkent |
+| Hora padrão da Maurícia | (UTC+04:00) Port Louis |
+| Hora padrão de Saratov | (UTC+04:00) Saratov |
+| Hora padrão da Geórgia | (UTC+04:00) Tbilisi |
+| Hora padrão da Volgogrado | (UTC+04:00) Volgograd |
+| Caucasus Standard Time | (UTC+04:00) Erevan |
+| Hora padrão do Afeganistão | (UTC+04:30) Cabul |
+| Hora padrão da Ásia Oeste | (UTC+05:00) Achgabat, Tashkent |
 | Hora padrão de Ecaterimburgo | (UTC+05:00) Ecaterimburgo |
-| Hora Padrão do Paquistão | (UTC+05:00) Islamabade, Carachi |
-| Hora Padrão da Índia | (UTC+05:30) Chennai, Kolkata (Calcutá), Mumbai, Nova Deli |
-| Hora Padrão do Sri Lanka | (UTC+05:30) Sri Jayawardenepura |
-| Hora Padrão do Nepal | (UTC+05:45) Catmandu |
-| Hora Padrão da Ásia Central | (UTC+06:00) Astana |
-| Hora Padrão do Bangladeche | (UTC+06:00) Daca |
-| Fuso Horário de Omsk | (UTC + 06:00) Omsk |
-| Hora Padrão de Myanmar | (UTC+06:30) Yangon (Rangum) |
-| Hora Padrão do Sudeste Asiático | (UTC+07:00) Banguecoque, Hanói, Jacarta |
-| Fuso Horário de Altai | (UTC+07:00) Barnaul, Gorno-Altaysk |
-| W. Fuso horário da Mongólia | (UTC+07:00) Hovd­ |
+| Hora padrão do Paquistão | (UTC+05:00) Islamabade, Carachi |
+| Hora padrão da Índia | (UTC+05:30) Chennai, Calcutá, Mumbai, Nova Deli |
+| Sri Lanka Standard Time | (UTC+05:30) Sri Jayawardenepura |
+| Hora padrão do Nepal | (UTC+05:45) Catmandu |
+| Hora padrão da Ásia Central | (UTC+06:00) Astana |
+| Bangladesh Standard Time | (UTC+06:00) Daca |
+| Fuso horário de Omsk | (UTC+06:00) Omsk |
+| Myanmar Standard Time | (UTC+06:30) Yangon (Rangum) |
+| Hora padrão do Sudeste asiático | (UTC+07:00) Banguecoque, Hanói, Jacarta |
+| De Altai | (UTC+07:00) Barnaul, Gorno-Altaysk |
+| W. Fuso horário da Mongólia | (UTC+07:00) Hovd |
 | Hora padrão do Nordeste da Ásia | (UTC+07:00) Krasnoyarsk |
-| N. Hora Padrão da Ásia Central | (UTC+07:00) Novosibirsk |
-| Fuso Horário de Tomsk | (UTC+07:00) Tomsk |
-| Hora Padrão da China | (UTC+08:00) Pequim, Chongqing, Hong Kong, Urumqi |
+| N. Hora padrão da Ásia Central | (UTC+07:00) Novosibirsk |
+| Fuso horário de Tomsk | (UTC+07:00) Tomsk |
+| Hora padrão da China | (UTC+08:00) Pequim, Chongqing, Hong Kong, Urumqi |
 | Hora padrão do Nordeste da Ásia | (UTC+08:00) Irkutsk |
 | Hora padrão de Singapura | (UTC+08:00) Kuala Lumpur, Singapura |
 | W. Hora padrão da Austrália | (UTC+08:00) Perth |
-| Hora Padrão de Taipé | (UTC+08:00) Taipé |
-| Hora Padrão de Ulan Bator | (UTC+08:00) Ulan Bator |
-| Fuso Horário do Centro-Oeste da Austrália | (UTC+08:45) Eucla |
-| Fuso Horário de Transbaikal | (UTC+09:00) Chita |
-| Hora Padrão de Tóquio | (UTC+09:00) Osaca, Sapporo, Tóquio |
-| Hora Padrão da Coreia do Norte | (UTC+09:00) Pyongyang |
-| Hora Padrão da Coreia | (UTC+09:00) Seul |
+| Hora padrão de Taipé | (UTC+08:00) Taipé |
+| Hora padrão de Ulan | (UTC+08:00) Ulan Bator |
+| Austrália Central w. Hora padrão | (UTC+08:45) Eucla |
+| De Transbaikal | (UTC+09:00) Chita |
+| Hora padrão de Tóquio | (UTC+09:00) Osaka, Sapporo, Tóquio |
+| Hora padrão da Coreia do Norte | (UTC + UTC+09:00) Pyongyang |
+| Hora padrão da Coreia | (UTC+09:00) Seul |
 | Hora padrão de Yakutsk | (UTC+09:00) Yakutsk |
 | CEN. Hora padrão da Austrália | (UTC+09:30) Adelaide |
 | Hora padrão da Austrália Central | (UTC+09:30) Darwin |
 | E. Hora padrão da Austrália | (UTC+10:00) Brisbane |
-| Hora Padrão da Austrália Oriental | (UTC+10:00) Camberra, Melbourne, Sydney |
-| Hora Padrão do Pacífico Oeste | (UTC+10:00) Guame, Port Moresby |
-| Hora Padrão da Tasmânia | (UTC+10:00) Hobart |
-| Hora padrão de Vladivostoque | (UTC+10:00) Vladivostok |
-| Fuso Horário da Ilha de Lord Howe | (UTC+10:30) Ilha de Lord Howe |
-| Fuso Horário de Bougainville | (UTC+11:00) Ilha de Bougainville |
+| AUS hora | (UTC+10:00) Camberra, Melbourne, Sydney |
+| Hora de padrão do Pacífico Oeste | (UTC+10:00) Guame, Port Moresby |
+| Hora padrão da Tasmânia | (UTC+10:00) Hobart |
+| Hora padrão de Vladivostoque | (UTC+10:00) Vladivostoque |
+| Hora padrão da ilha de Lord Howe | (UTC+10:30) Ilha de Lord Howe |
+| Fuso horário de Bougainville | (UTC+11:00) Ilha de Bougainville |
 | Fuso horário Rússia 10 | (UTC+11:00) Chokurdakh |
-| Hora Padrão de Magadã | (UTC+11:00) Magadã |
-| Fuso Horário de Norfolk | (UTC+11:00) Ilha de Norfolk |
-| Fuso Horário de Sacalina | (UTC+11:00) Sacalina |
-| Hora Padrão do Pacífico Central | (UTC+11:00) Ilhas Salomão, Nova Caledónia |
+| Hora padrão de Magadã | (UTC+11:00) Magadã |
+| Fuso horário de Norfolk | (UTC+11:00) Ilha Norfolk |
+| Fuso horário de Sacalina | (UTC+11:00) Sakhalin |
+| Hora de padrão do Pacífico Central | (UTC+11:00) Ilhas Salomão, Nova Caledónia |
 | Fuso horário Rússia 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |
-| Hora Padrão da Nova Zelândia | (UTC+12:00) Auckland, Wellington |
-| UTC+12 | (UTC+12:00) Hora Universal Coordenada +12 |
-| Hora Padrão das Fiji | (UTC+12:00) Fiji |
-| Hora Padrão de Kamchatka | (UTC+12:00) Petropavlovsk-Kamchatsky - Antigo |
-| Fuso Horário das Ilhas Chatham | (UTC+12:45) Ilhas Chatham |
-| UTC+13 | (UTC + 13:00) Hora Universal Coordenada+13 |
-| Hora Padrão de Tonga | (UTC+13:00) Nuku'alofa |
-| Hora Padrão de Samoa | (UTC+13:00) Samoa |
-| Hora Padrão Ilhas Espórades Equatoriais | (UTC+14:00) Ilha de Kiritimati |
+| Hora padrão da Nova Zelândia | (UTC+12:00) Auckland, Wellington |
+| UTC+12 | (UTC+12:00) Hora Universal Coordenada+12 |
+| Hora padrão das Fiji | (UTC+12:00) Fiji |
+| Kamchatka Standard Time | (UTC+12:00) Petropavlovsk-Kamchatsky - Antigo |
+| Fuso horário das Ilhas Chatham | (UTC+12:45) Ilhas Chatham |
+| UTC+13 | (UTC + 13:00) Coordenada Universal tempo + 13 |
+| Hora padrão de Tonga | (UTC+13:00) Nucualofa |
+| Hora padrão de Samoa | (UTC+13:00) Samoa |
+| Hora padrão de ilhas Espórades Equatoriais | (UTC+14:00) Ilha de Kiritimati |
 
 ## <a name="see-also"></a>Consulte também 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951954"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
@@ -310,7 +310,7 @@ Cria o NodeAgentNTService [reparar tarefas](https://docs.microsoft.com/dotnet/ap
 
      [![Imagem de estado de operação de atualização do Windows](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
 
-### <a name="diagnostic-logs"></a>Registos de diagnóstico
+### <a name="diagnostic-logs"></a>Registos de diagnósticos
 
 Registos de aplicações de orquestração do patch são recolhidos como parte dos registos de tempo de execução do Service Fabric.
 
@@ -442,7 +442,7 @@ Uma atualização do Windows com falhas pode prejudicar o estado de funcionament
 
 Um administrador deve intervir e determinar por que a aplicação ou o cluster se tornou mau estado de funcionamento devido a atualização do Windows.
 
-## <a name="release-notes"></a>Notas de versão
+## <a name="release-notes"></a>Notas de Versão
 
 >[!NOTE]
 > A partir da versão 1.4.0, notas de versão e versões podem ser encontradas na versão do GitHub [página](https://github.com/microsoft/Service-Fabric-POA/releases/).

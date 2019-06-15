@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
 ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519658"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
@@ -33,7 +33,7 @@ Saiba como criar, alterar ou eliminar um peering de rede virtual. Peering de red
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 - Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se utilizar o portal, abra https://portal.azure.come inicie sessão com uma conta que tenha o [as permissões necessárias](#permissions) para trabalhar com peerings.
+- Se utilizar o portal, abra https://portal.azure.com e inicie sessão com uma conta que tenha o [as permissões necessárias](#permissions) para trabalhar com peerings.
 - Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver executando o PowerShell localmente, terá também de ser executado `Connect-AzAccount` com uma conta que tenha o [as permissões necessárias](#permissions) para trabalhar com o peering, para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a versão 2.0.31 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de ser executado `az login` com uma conta que tenha o [as permissões necessárias](#permissions) para trabalhar com o peering, para criar uma ligação com o Azure.
 
@@ -142,7 +142,7 @@ As contas de que usar para trabalhar com o peering de rede virtual devem ser atr
 
 Se a sua conta não está atribuída a uma das funções do anteriores, tem de ser atribuído a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações necessárias a partir da seguinte tabela:
 
-| Acção                                                          | Name |
+| Ação                                                          | Name |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necessário para criar um peering de rede virtual A rede virtual B. virtuais uma de rede tem de ser uma rede virtual (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necessário para criar um peering da rede virtual B (Resource Manager) para a rede virtual A                                                       |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: daec6e169805c193b48781dfecbabd9349bdc59b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd4eab2d8e877cac468097c0a6ed6aa3cfb750b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102457"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Tutorial: Integração do Active Directory do Azure com Five9 adaptador Plus (CTI, contacte o Centro de agentes)
 
@@ -53,7 +53,7 @@ Para configurar a integração do Five9 adaptador Plus (CTI, agentes do Centro d
 
 **Para adicionar Five9 adaptador Plus (CTI, contacte o Centro de agentes) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar a integração do Five9 adaptador Plus (CTI, agentes do Centro d
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Five9 adaptador Plus (CTI, contacte o Centro de agentes)**, selecione **Five9 adaptador Plus (CTI, contacte o Centro de agentes)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Five9 adaptador Plus (CTI, contacte o Centro de agentes)** , selecione **Five9 adaptador Plus (CTI, contacte o Centro de agentes)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
      ![Five9 Plus adaptador (CTI, contacte o Centro de agentes) na lista de resultados](common/search-new-app.png)
 
@@ -173,11 +173,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a Five9 adaptador Plus (CTI, contacte o Centro de agentes).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Five9 adaptador Plus (CTI, contacte o Centro de agentes)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Five9 adaptador Plus (CTI, contacte o Centro de agentes)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Five9 adaptador Plus (CTI, contacte o Centro de agentes)**.
+2. Na lista de aplicações, selecione **Five9 adaptador Plus (CTI, contacte o Centro de agentes)** .
 
     ![A ligação de Five9 adaptador Plus (CTI, contacte o Centro de agentes) na lista de aplicações](common/all-applications.png)
 

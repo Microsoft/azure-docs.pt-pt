@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109321"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar a estratégia de adoção de ciclo de vida de identidade híbrida
 Nesta tarefa, vai definir a estratégia de gestão de identidade para a sua solução de identidade híbrida cumprir os requisitos de negócios que definiu nas [determinar as tarefas de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -36,7 +36,7 @@ Controlo de acesso é uma função fundamental de um sistema de provisionamento 
 
 Contas de empresas de TI sofisticados incluem centenas de parâmetros que definem as autoridades e esses detalhes podem ser controlados pelo seu sistema de provisionamento. Novos utilizadores podem ser identificados com os dados que fornece a partir da origem autoritativa. A capacidade de aprovação do pedido de acesso inicia os processos que aprovem (ou rejeitarem) aprovisionamento para os mesmos de recursos.
 
-| Fase de gestão do ciclo de vida | No local | Cloud | Híbrido |
+| Fase de gestão do ciclo de vida | No local | Nuvem | Híbrido |
 | --- | --- | --- | --- |
 | Aprovisionamento e gestão de conta |Ao utilizar a função de servidor Serviços de domínio do Active Directory® (AD DS), pode criar uma infraestrutura escalável, segura e gerível para a gestão de recursos e de utilizador e fornecer suporte para aplicações com diretório ativado como o Microsoft® Exchange Server. <br><br> [Pode provisionar grupos no AD DS através de um Gestor de identidade](https://technet.microsoft.com/library/ff686261.aspx) <br>[Pode aprovisionar utilizadores no AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Os administradores podem utilizar o controlo de acesso para gerir o acesso de utilizador para recursos partilhados por motivos de segurança. No Active Directory, o controlo de acesso é administrado ao nível do objeto por definir diferentes níveis de acesso ou permissões, para objetos, como o controlo total, escrita, acesso de leitura ou não. Controlo de acesso no Active Directory define como diferentes usuários pode usar objetos do Active Directory. Por predefinição, as permissões em objetos no Active Directory estão definidas para a definição mais segura. |Tem de criar uma conta para cada utilizador que irá aceder a um serviço cloud da Microsoft. Também pode alterar contas de utilizador ou eliminá-los quando já não forem necessários. Por predefinição, os utilizadores não têm permissões de administrador, mas, opcionalmente, pode atribuí-las. <br><br> No Azure Active Directory, um dos principais recursos é a capacidade para gerir o acesso aos recursos. Estes recursos podem fazer parte do diretório, como no caso de permissões para gerir objetos através de funções no diretório, ou dos recursos externos ao diretório, como aplicações SaaS, serviços do Azure e sites SharePoint ou recursos no local. <br><br> Em acesso de center do Azure Active Directory da solução de gestão é o grupo de segurança. O proprietário do recurso (ou o administrador do diretório), pode atribuir um grupo para fornecer um determinado direito de acesso aos recursos que possui. Os membros do grupo serão fornecidos o acesso e o proprietário do recurso pode delegar o direito de gerir a lista de membros de um grupo para alguém – como um Gestor de departamento ou um administrador de suporte técnico<br> <br> Os grupos de gerenciamento na secção do Azure AD, fornece mais informações sobre como gerir o acesso por meio dos grupos. |Amplie as identidades do Active Directory para a cloud através de sincronização e a Federação |
 
@@ -80,13 +80,13 @@ O Azure Active Directory fornece início de sessão único em e a segurança de 
 A integração dos diretórios no local com o Azure AD torna os utilizadores mais produtivos, ao fornecer-lhes uma identidade comum para acederem a recursos na nuvem e no local. Com esta integração, utilizadores e as organizações podem aproveitar o seguinte:
 
 * As organizações podem fornecer aos utilizadores com uma identidade híbrida comum em serviços baseados na cloud, tirar partido do Windows Server Active Directory e, em seguida, ligar ao Azure Active Directory ou no local.
-* Os administradores possam fornecer acesso condicional com base no recurso de aplicação, dispositivos e identidade de utilizador, localização de rede e autenticação multifator.
+* Os administradores possam fornecer que acesso condicional com base no recurso de aplicação, dispositivos e identidade de utilizador, localização de rede e autenticação multifator.
 * Os utilizadores podem tirar partido sua identidade comum através de contas no Azure AD para o Office 365, Intune, aplicações SaaS e aplicações de terceiros.
 * Os programadores podem criar aplicações que tiram partido do modelo de identidade comum, integrando aplicativos do Active Directory no local ou do Azure para aplicações baseadas na nuvem
 
 A figura a seguir tem um exemplo de uma visão geral do processo de sincronização de identidade.
 
-![Sincronizar](./media/plan-hybrid-identity-design-considerations/identitysync.png)
+![Sync](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
 Processo de sincronização de identidade
 

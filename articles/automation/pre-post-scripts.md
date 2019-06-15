@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a11602919a8b68a078b0b2690411358b4b5f814
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65913869"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063490"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gerir scripts de pré e post
 
@@ -68,7 +68,7 @@ Além dos parâmetros do runbook padrão, é fornecido um parâmetro adicional. 
 
 ## <a name="stopping-a-deployment"></a>A parar uma implementação
 
-Se pretender parar uma implementação com base num script de pré tem [lançar](automation-runbook-execution.md#throw) uma exceção. Se não lance uma exceção, a implementação e o script de mensagem ainda serão executado. O [runbook de exemplo](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) na Galeria mostra como pode fazer isso. Segue-se um trecho de código a partir desse runbook.
+Se pretender parar uma implementação baseada num script anterior, deve [lançar](automation-runbook-execution.md#throw) uma exceção. Se não lance uma exceção, a implementação e o script de mensagem ainda serão executado. O [runbook de exemplo](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) na Galeria mostra como pode fazer isso. Segue-se um trecho de código a partir desse runbook.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -210,7 +210,7 @@ Executam tarefas de pré e post como um runbook na conta de automatização e n�
 
 ### <a name="interacting-with-azure-machines"></a>Interagir com as máquinas do Azure
 
-Tarefas de pré e post são eram executados como runbooks e não são executados nativamente nas suas VMs do Azure na sua implementação. Para interagir com as VMs do Azure, tem de ter os seguintes itens:
+Tarefas de pré e post são executadas como runbooks e nativamente não são executados nas suas VMs do Azure na sua implementação. Para interagir com as VMs do Azure, tem de ter os seguintes itens:
 
 * Uma conta Run As
 * Um runbook que pretende executar
@@ -239,9 +239,10 @@ if (<My custom error logic>)
     throw "There was an error, abort deployment"
 }
 ```
+
 ## <a name="known-issues"></a>Problemas conhecidos
 
-* Não é possível passar objetos ou matrizes para parâmetros ao utilizar scripts de pré e post. O runbook irá falhar.
+* Não é possível passar um valor booleano, objetos ou matrizes para parâmetros ao utilizar scripts de pré e post. O runbook irá falhar. Para obter uma lista completa dos tipos suportados, consulte [parâmetros](#passing-parameters).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

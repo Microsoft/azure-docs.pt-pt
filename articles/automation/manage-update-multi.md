@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 024a2dbbd46fa2ab60da0f9682dbe298eaf73e86
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61300098"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055577"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -85,7 +85,7 @@ Computadores que tenham sido ativadas recentemente para gerenciamento de atualiz
 
 - **Não compatível**: Computadores que estão em falta, pelo menos, uma crítica ou de atualização de segurança.
 
-- **Não avaliado**: Os dados da avaliação de atualização ainda não foram recebidos do computador dentr do período de tempo esperado. Para computadores Linux, o período de tempo esperada é nas últimas 3 horas. Para computadores Windows, o período de tempo esperado é nas últimas 12 horas.
+- **Não avaliado**: Os dados da avaliação de atualização ainda não foram recebidos do computador dentr do período de tempo esperado. Para computadores Linux, o período de tempo esperada é na última hora. Para computadores Windows, o período de tempo esperado é nas últimas 12 horas.
 
 Para ver o estado do agente, selecione a ligação na **preparação do agente de ATUALIZAÇÃO** coluna. A seleção desta opção abre o **função de trabalho híbrida** painel e mostra o estado da função de trabalho híbrida. A imagem seguinte mostra um exemplo de um agente que ainda não foi ligado ao gerenciamento de atualizações por um longo período de tempo:
 
@@ -116,7 +116,7 @@ Depois de um computador realiza uma análise de conformidade de atualização, o
 
 Além do agendamento da análise, a análise da compatibilidade de atualização é iniciada dentro de 15 minutos do MMA ser reiniciado, antes da instalação da atualização e após a instalação de atualização.
 
-Para um computador Linux, a análise de conformidade é realizada em três horas por predefinição. Se o agente MMA ser reiniciado, é iniciada uma análise de conformidade em 15 minutos.
+Para um computador Linux, a análise de conformidade é realizada por hora por predefinição. Se o agente MMA ser reiniciado, é iniciada uma análise de conformidade em 15 minutos.
 
 Pode demorar entre 30 minutos e 6 horas para o dashboard apresentar os dados atualizados dos computadores gerenciados.
 
@@ -130,7 +130,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 
 - **Nome**: Introduza um nome exclusivo para identificar a implementação de atualização.
 - **Sistema operativo**: Selecione **Windows** ou **Linux**.
-- **Grupos de atualização (pré-visualização)**: Defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [Grupos Dinâmicos](automation-update-management.md#using-dynamic-groups)
+- **Grupos de atualização (pré-visualização)** : Defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [Grupos Dinâmicos](automation-update-management.md#using-dynamic-groups)
 - **Computadores a atualizar**: Selecione uma pesquisa guardada, grupo importada, ou máquinas, para as máquinas que pretende atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos registos do Azure Monitor, consulte o artigo [grupos de computadores nos registos do Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Novo painel de implementação de atualização](./media/manage-update-multi/update-select-computers.png)
@@ -154,7 +154,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
    ![Caixa de diálogo Definições de Agendamento](./media/manage-update-multi/update-set-schedule.png)
 
 - **Pré- scripts de + pós-scripts de**: Selecione os scripts sejam executados antes e após a sua implementação. Para saber mais, veja [Gerir Scripts prévios e posteriores](pre-post-scripts.md).
-- **Janela de manutenção (minutos)**: Especifique o período de tempo que pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
+- **Janela de manutenção (minutos)** : Especifique o período de tempo que pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
 
 - **Controlo de reinício** -esta definição determina a forma como os reinícios são processados para a implementação da atualização.
 

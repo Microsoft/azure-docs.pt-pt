@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: fb55840a3423f32d2d6d6d2531628ae4361a0cc3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956658"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088214"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Active Directory do Azure com Uberflip
 
@@ -152,7 +152,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Simon B. no portal d
 
     1. Na **Name** , introduza **BSimon**.
   
-    1. Na **nome de utilizador** , introduza **BSimon\@\<yourcompanydomain >.\< extensão >**. Por exemplo, **BSimon\@contoso.com**.
+    1. Na **nome de utilizador** , introduza **BSimon\@\<yourcompanydomain >.\< extensão >** . Por exemplo, **BSimon\@contoso.com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
@@ -191,7 +191,7 @@ Um usuário chamado Simon B. agora é criado no Uberflip. Não tem de fazer nada
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, entre em contato com o [equipa de suporte de Uberflip](mailto:support@uberflip.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal as minhas aplicações.
 

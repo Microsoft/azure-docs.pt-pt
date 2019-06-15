@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105957"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)
@@ -72,13 +72,13 @@ Quando cria uma rede virtual para utilizar numa ligação de S2S, tem de certifi
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 
 1. Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e, se necessário, inicie sessão com a sua conta do Azure.
-2. Clique em **+**. No campo **Procurar no Marketplace**, escreva "Rede Virtual". Localize a **Rede Virtual** na lista devolvida e clique para abrir a página **Rede Virtual**.
+2. Clique em **+** . No campo **Procurar no Marketplace**, escreva "Rede Virtual". Localize a **Rede Virtual** na lista devolvida e clique para abrir a página **Rede Virtual**.
 
    ![Página Procurar rede virtual](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. Junto à parte inferior da janela Rede Virtual, na lista pendente **Selecionar um modelo de implementação**, selecione **Clássica** e clique em **Criar**.
 
    ![Selecionar modelo de implementação](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
-4. Na página **Criar rede virtual (clássica)**, configure as definições da VNet. Nesta página, deve adicionar o seu primeiro espaço de endereços e um único intervalo de endereços de sub-rede. Uma vez concluída a criação da VNet, pode voltar atrás e adicionar sub-redes e espaços de endereços adicionais.
+4. Na página **Criar rede virtual (clássica)** , configure as definições da VNet. Nesta página, deve adicionar o seu primeiro espaço de endereços e um único intervalo de endereços de sub-rede. Uma vez concluída a criação da VNet, pode voltar atrás e adicionar sub-redes e espaços de endereços adicionais.
 
    ![Página Criar rede virtual](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Página Criar rede virtual")
 5. Verifique se a **Subscrição** está correta. Pode utilizar o menu pendente para mudar de subscrição.

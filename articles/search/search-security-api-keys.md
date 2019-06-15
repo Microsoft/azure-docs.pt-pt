@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: f12d7f1a7dfcaf80df9a71a0bfc598d72db63a2e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024421"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerir as chaves de api para um serviço Azure Search
@@ -33,7 +33,7 @@ Dois tipos de chaves são utilizados para aceder ao seu serviço de pesquisa: ad
 
 |Chave|Descrição|Limits|  
 |---------|-----------------|------------|  
-|Administração|Concede todos os direitos para todas as operações, incluindo a capacidade para gerir o serviço, criar e eliminar índices, indexadores e origens de dados.<br /><br /> Duas chaves de administração, conhecido como *primário* e *secundário* chaves no portal, são gerados quando o serviço é criado e pode ser regenerado individualmente a pedido. Ter duas chaves permite-lhe fazer o rollover de uma chave ao utilizar a segunda chave de acesso contínuo ao serviço.<br /><br /> Chaves de administração só são especificadas nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave de api de administração num URL.|Máximo de 2 por serviço|  
+|administrador|Concede todos os direitos para todas as operações, incluindo a capacidade para gerir o serviço, criar e eliminar índices, indexadores e origens de dados.<br /><br /> Duas chaves de administração, conhecido como *primário* e *secundário* chaves no portal, são gerados quando o serviço é criado e pode ser regenerado individualmente a pedido. Ter duas chaves permite-lhe fazer o rollover de uma chave ao utilizar a segunda chave de acesso contínuo ao serviço.<br /><br /> Chaves de administração só são especificadas nos cabeçalhos de pedido HTTP. Não é possível colocar uma chave de api de administração num URL.|Máximo de 2 por serviço|  
 |Consulta|Concede acesso só de leitura aos índices e documentos e normalmente são distribuídas por aplicações cliente que emitem pedidos de pesquisa.<br /><br /> Chaves de consulta são criadas a pedido. Pode criá-las manualmente no portal ou através de programação através de [API REST da gestão](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Chaves de consulta podem ser especificadas no cabeçalho de pedido HTTP para pesquisa, sugestões ou operação de pesquisa. Em alternativa, pode transmitir uma chave de consulta como um parâmetro numa URL. Dependendo de como a aplicação cliente formulates o pedido, poderá ser mais fácil passar a chave como um parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|50 por serviço|  
 
  Visualmente, não há nenhuma distinção entre uma chave de administrador ou a chave de consulta. Ambas as chaves são cadeias de caracteres compostas 32 aleatoriamente geradas carateres alfanuméricos. Se perder o controle de que tipo de chave é especificado na sua aplicação, pode [Verifique os valores de chave no portal](https://portal.azure.com) ou utilizar o [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) para devolver o valor e o tipo de chave.  

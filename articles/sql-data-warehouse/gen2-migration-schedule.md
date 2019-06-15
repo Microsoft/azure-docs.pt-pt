@@ -11,10 +11,10 @@ ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596108"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
@@ -22,7 +22,7 @@ ms.locfileid: "65596108"
 Microsoft está ajudando a reduzir o custo ao nível da entrada de executar um armazém de dados.  Mais baixo de computação escalões capazes de processar exigentes consultas estão agora disponíveis para o Azure SQL Data Warehouse. Leia o anúncio completo [inferior computação suporte de camada para Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). A nova oferta está disponível nas regiões indicados na tabela abaixo. Regiões suportadas, armazéns de dados de geração 1 existentes podem ser atualizados para ger2 através de um:
 
 - **O processo de atualização automática:** As atualizações automáticas de não começam assim que o serviço está disponível numa região.  Quando as atualizações automáticas de iniciar uma região específica, as atualizações individuais do armazém de dados terá lugar durante a sua agenda de manutenção selecionado.
-- [**Self-Atualize para ger2:**](#self-upgrade-to-gen2) Pode controlar quando atualizar, fazendo uma atualização automática para a geração 2. Se a sua região ainda não é suportado, pode restaurar a partir de um ponto de restauro diretamente a uma instância de geração 2 numa região suportada.
+- [**Self-Atualize para ger2:** ](#self-upgrade-to-gen2) Pode controlar quando atualizar, fazendo uma atualização automática para a geração 2. Se a sua região ainda não é suportado, pode restaurar a partir de um ponto de restauro diretamente a uma instância de geração 2 numa região suportada.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Agenda automatizada e tabela de disponibilidade de região
 
@@ -40,7 +40,7 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 | EUA Central |Disponível |1 de Junho de 2019 |
 | Leste da China |\* |\* |
 | Leste da China 2 |\* |Geração 2 apenas |
-| Norte da China |\* |\* |
+| China Norte |\* |\* |
 | Norte da China 2 |Disponível |Geração 2 apenas |
 | Ásia Oriental |Disponível |1 de Junho de 2019 |
 | EUA Leste |Disponível |1 de Junho de 2019 |
@@ -53,17 +53,17 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 | Leste do Japão |Disponível |1 de Junho de 2019 |
 | Oeste do Japão |Disponível |1 de Maio de 2019 |
 | Coreia do Sul Central |Disponível |1 de Junho de 2019 |
-| Sul da Coreia do Sul |Disponível |1 de Maio de 2019 |
+| Coreia do Sul |Disponível |1 de Maio de 2019 |
 | EUA Centro-Norte |Disponível |1 de Maio de 2019 |
 | Europa do Norte |Disponível |1 de Junho de 2019 |
 | EUA Centro-Sul |Disponível |1 de Junho de 2019 |
 | Sudeste Asiático |Disponível |1 de Junho de 2019 |
 | Reino Unido Sul |Disponível, 2019 |1 de Junho de 2019 |
-| Oeste do R.U. |\*|\* |
+| Reino Unido Oeste |\*|\* |
 | EUA Centro-Oeste |2 de Setembro de 2019 |2 de Janeiro de 2020|
 | Europa Ocidental |Disponível |1 de Junho de 2019 |
 | EUA Oeste |Disponível |1 de Junho de 2019 |
-| E.U.A. Oeste 2 |Disponível |1 de Junho de 2019 |
+| EUA Oeste 2 |Disponível |1 de Junho de 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 

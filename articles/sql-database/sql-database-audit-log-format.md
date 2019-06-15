@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417393"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato de registo de auditoria de base de dados SQL
@@ -70,12 +70,12 @@ Eventos de auditoria são gravados a área de trabalho do Log Analytics definida
 | response_rows | response_rows_d | Número de linhas devolvidas no conjunto de resultados | bigint | int |
 | schema_name | schema_name_s | O contexto de esquema no qual a ação ocorreu. NULL para ocorrer fora de um esquema de auditorias | sysname | string |
 | N/A | securable_class_type_s | Objeto com capacidade de segurança que mapeia para o class_type estão sendo auditados | N/A | string |
-| sequence_group_id | sequence_group_id_g | Identificador exclusivo | Varbinary | GUID |
+| sequence_group_id | sequence_group_id_g | Identificador exclusivo | varbinary | GUID |
 | sequence_number | sequence_number_d | Controla a sequência de registos num registo de auditoria único que era demasiado extensa para caber na memória intermédia de escrita para auditorias de | int | int |
 | server_instance_name | server_instance_name_s | Nome da instância de servidor em que ocorreu a auditoria | sysname | string |
 | server_principal_id | server_principal_id_d | ID do contexto de início de sessão em que a ação é realizada | int | int |
 | server_principal_name | server_principal_name_s | Início de sessão atual | sysname | string |
-| server_principal_sid | server_principal_sid_s | Início de sessão atual do SID | Varbinary | string |
+| server_principal_sid | server_principal_sid_s | Início de sessão atual do SID | varbinary | string |
 | session_id | session_id_d | ID da sessão em que ocorreu o evento | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Principal do servidor para a sessão | sysname | string |
 | Instrução | statement_s | Instrução de T-SQL que foi executada (se houver) | nvarchar(4000) | string |
@@ -84,7 +84,7 @@ Eventos de auditoria são gravados a área de trabalho do Log Analytics definida
 | target_database_principal_name | target_database_principal_name_s | Utilizador de destino da ação. NULO se não aplicável | string | string |
 | target_server_principal_id | target_server_principal_id_d | Principal do servidor que a operação de GRANT/DENY/REVOKE é efetuada. Devolve 0 se não for aplicável | int | int |
 | target_server_principal_name | target_server_principal_name_s | Início de sessão de destino da ação. NULO se não aplicável | sysname | string |
-| target_server_principal_sid | target_server_principal_sid_s | SID de início de sessão de destino. NULO se não aplicável | Varbinary | string |
+| target_server_principal_sid | target_server_principal_sid_s | SID de início de sessão de destino. NULO se não aplicável | varbinary | string |
 | transaction_id | transaction_id_d | Apenas SQL Server (a partir de 2016) - 0 para a BD SQL do Azure | bigint | int |
 | user_defined_event_id | user_defined_event_id_d | Id de evento transmitido como argumento para sp_audit_write definido pelo utilizador. NULO para eventos do sistema (predefinição) e diferente de zero para evento definido pelo utilizador. Para obter mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | As informações passadas como um argumento ao sp_audit_write definido pelo utilizador. NULO para eventos do sistema (predefinição) e diferente de zero para evento definido pelo utilizador. Para obter mais informações, consulte [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |

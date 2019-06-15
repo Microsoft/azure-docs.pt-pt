@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce1d2aaed85f61e2e18f696d749219a1b951c862
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a68e5a12333e1ee9e920b69599796164534e3c25
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110538"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Resolução de problemas híbrida do Azure Active Directory dispositivos associados a um nível inferior 
 
@@ -38,7 +38,7 @@ Para Windows 10 ou Windows Server 2016, veja [híbrido de resolução de problem
 
 Este artigo pressupõe que tenha [dispositivos associados ao configurado híbrida do Azure Active Directory](hybrid-azuread-join-plan.md) para suportar os cenários seguintes:
 
-- Acesso condicional baseado no dispositivo
+- Acesso condicional com base no dispositivo
 
 
 Este artigo fornece orientações sobre como resolver problemas potenciais de resolução de problemas.  

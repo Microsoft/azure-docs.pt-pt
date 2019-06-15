@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/22/2019
-ms.openlocfilehash: 1229ff3221deb49601dec3cd40b556ea367fc4c9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/14/2019
+ms.openlocfilehash: 4e45251147561f2376ac4b044ebdf3a599092dcf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240708"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126091"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para uma instância gerida da base de dados do Azure SQL online com o DMS
 
@@ -72,6 +72,10 @@ Para concluir este tutorial, precisa de:
 * Confirme que a conta de serviço em execução na instância do SQL Server de origem tem privilégios de escrita na partilha de rede que criou e que a conta do computador do servidor de origem tem acesso de leitura/escrita à mesma partilha.
 * Tome nota de um utilizador do Windows (e da palavra-passe) que tenha privilégio de controlo total na partilha de rede que criou anteriormente. O Azure Database Migration Service representa a credencial do utilizador para carregar os ficheiros de cópia de segurança para o contentor de armazenamento do Azure, para a operação de restauro.
 * Crie um Azure Active Directory ID de aplicação que gera a chave de ID da aplicação que pode utilizar o serviço DMS para ligar à instância de base de dados do Azure geridos de destino e o contentor de armazenamento do Azure. Para obter mais informações, veja o artigo [Utilizar o portal para criar uma aplicação e um principal de serviço do Azure Active Directory que possam aceder aos recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+
+  > [!NOTE]
+  > O DMS requer a permissão de contribuinte na subscrição para o ID da aplicação especificada. Estamos a trabalhar ativamente para reduzir esses requisitos de permissões.
+
 * Crie ou anote o **escalão de Desempenho Standard**, a Conta de Armazenamento do Azure, que permite ao serviço DMS carregar os ficheiros de cópia de segurança para a base de dados e utilizá-la para a migração de bases de dados.  Certifique-se de que cria a Conta de Armazenamento do Azure na mesma região do serviço DMS criado.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
@@ -179,15 +183,15 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 4. Selecione **Guardar**.
 
-## <a name="select-source-databases"></a>Selecionar bases de dados de origem
+## <a name="select-source-databases"></a>Selecionar as bases de dados de origem
 
 1. No ecrã **Selecionar as base de dados de origem**, selecione a base de dados de origem que quer migrar.
 
-    ![Selecionar bases de dados de origem](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
+    ![Selecionar as bases de dados de origem](media/tutorial-sql-server-to-managed-instance-online/dms-select-source-databases2.png)
 
 2. Selecione **Guardar**.
 
-## <a name="configure-migration-settings"></a>Configurar definições de migração
+## <a name="configure-migration-settings"></a>Configurar as definições da migração
 
 1. No ecrã **Configurar as definições da migração**, indique os detalhes seguintes:
 

@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2907b5be7f8d5fda3d510484179e80b065ab64b0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074899"
 ---
 # <a name="live-event-states-and-billing"></a>Estados de evento em direto e de faturação
 
 Nos serviços de multimédia do Azure, um evento Live começa assim que o seu estado faz a transição para de faturação **em execução**. Para parar o evento em direto de faturação, terá de parar o evento em direto.
 
-Quando **LiveEventEncodingType** no seu [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) está definida como Standard, os serviços de multimédia automática seja fechado desativar qualquer evento em direto que ainda está na **em execução** estado 12 horas após o feed de entrada é perdido e há nenhuma **Live saída**em execução. No entanto, será serão cobrados a hora do evento em direto foi no **em execução** estado.
+Quando **LiveEventEncodingType** no seu [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) está definida como Standard ou Premium1080p, serviços de multimédia automática seja fechado desativar qualquer evento em direto que ainda está na **executar** 12 de estado horas após a transmissão de entrada é perdida e existem sem **Live saída**em execução. No entanto, será serão cobrados a hora do evento em direto foi no **em execução** estado.
 
 ## <a name="states"></a>Estados
 

@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61222060"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implementação contínua para o Azure IoT Edge
@@ -47,7 +47,7 @@ Nesta secção, vai criar um novo pipeline de compilação. Configure o pipeline
 >
 >Para obter mais informações, consulte [criar um pipeline de compilação](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Inicie sessão na sua organização de DevOps do Azure (**https:\//dev.azure.com/{your organização} /**) e abra o projeto que contém o seu repositório de solução de IoT Edge.
+1. Inicie sessão na sua organização de DevOps do Azure (**https:\//dev.azure.com/{your organização} /** ) e abra o projeto que contém o seu repositório de solução de IoT Edge.
 
    Neste artigo, criamos um repositório chamado **IoTEdgeRepo**. Esse repositório contém **IoTEdgeSolution** que tem o código para um módulo com o nome **filtermodule**. 
 
@@ -77,7 +77,7 @@ Nesta secção, vai criar um novo pipeline de compilação. Configure o pipeline
     
      ![Configurar o conjunto de agentes de compilação](./media/how-to-ci-cd/configure-env.png)
 
-5. O pipeline vem pré-configurada com uma tarefa denominada **tarefa de agente 1**. Selecione o sinal (**+**) para adicionar três tarefas da tarefa: **O Azure IoT Edge** duas vezes, e **publicar artefactos de compilação** depois. (Passe o rato sobre o nome de cada tarefa para ver os **adicionar** botão.)
+5. O pipeline vem pré-configurada com uma tarefa denominada **tarefa de agente 1**. Selecione o sinal ( **+** ) para adicionar três tarefas da tarefa: **O Azure IoT Edge** duas vezes, e **publicar artefactos de compilação** depois. (Passe o rato sobre o nome de cada tarefa para ver os **adicionar** botão.)
 
    ![Adicionar tarefa do Azure IoT Edge](./media/how-to-ci-cd/add-iot-edge-task.png)
 
@@ -89,7 +89,7 @@ Nesta secção, vai criar um novo pipeline de compilação. Configure o pipeline
 
    * **Nome a apresentar**: Aceite a predefinição **do Azure IoT Edge - imagens de módulo de compilação**.
    * **Ação**: Aceite a predefinição **criar imagens de módulo**. 
-   * **. ficheiro Template JSON**: Selecione as reticências (**...** ) e navegue para o **deployment.template.json** ficheiros no repositório que contém a sua solução de IoT Edge. 
+   * **. ficheiro Template JSON**: Selecione as reticências ( **...** ) e navegue para o **deployment.template.json** ficheiros no repositório que contém a sua solução de IoT Edge. 
    * **Plataforma padrão**: Selecione a plataforma adequada para seus módulos com base no seu dispositivo IoT Edge de destino. 
    * **Variáveis de saída**: As variáveis de saída incluem um nome de referência que pode utilizar para configurar o caminho do ficheiro onde o ficheiro de deployment.json será gerado. Defina o nome de referência algo fácil de memorizar como **edge**. 
 
@@ -98,7 +98,7 @@ Nesta secção, vai criar um novo pipeline de compilação. Configure o pipeline
    * **Nome a apresentar**: O nome a apresentar é atualizado automaticamente quando o campo de ação é alterado. 
    * **Ação**: Utilize a lista pendente para selecionar **enviar imagens de módulo**. 
    * **O tipo de registo de contentor**: Selecione o tipo de registo de contentor que utiliza para armazenar as imagens de módulo. Consoante o tipo de registo que escolher, as alterações de formulário. Se escolher **Azure Container Registry**, utilize as listas pendentes para selecionar a subscrição do Azure e o nome do seu registo de contentor. Se escolher **genérico Container Registry**, selecione **New** para criar uma ligação de serviço de registo. 
-   * **. ficheiro Template JSON**: Selecione as reticências (**...** ) e navegue para o **deployment.template.json** ficheiros no repositório que contém a sua solução de IoT Edge. 
+   * **. ficheiro Template JSON**: Selecione as reticências ( **...** ) e navegue para o **deployment.template.json** ficheiros no repositório que contém a sua solução de IoT Edge. 
    * **Plataforma padrão**: Selecione a mesma plataforma as suas imagens de módulo criados.
 
    Se tiver vários registos de contentores para alojar as suas imagens de módulo, precisa duplicar esta tarefa, selecione o registo de contentor diferente e utilizar **ignorar módulos** nas definições avançadas para ignorar as imagens que não são para isso Registro específicos.
@@ -152,7 +152,7 @@ Criar um novo pipeline e configure o seu primeiro estágio para implementações
 
 8. Na fase de controle de qualidade, deverá ver uma predefinição **tarefa de agente**. Pode configurar os detalhes sobre a tarefa de agente, mas a tarefa de implementação é plataforma de minúsculas, pelo que pode utilizar qualquer um **Hosted VS2017** ou **alojados 1604 de Ubuntu** no **conjunto de agentes**(ou qualquer outro agente gerido por si mesmo). 
 
-9. Selecione o sinal (**+**) para adicionar uma tarefa. Procure e adicione **do Azure IoT Edge**. 
+9. Selecione o sinal ( **+** ) para adicionar uma tarefa. Procure e adicione **do Azure IoT Edge**. 
 
     ![Adicionar tarefas para controle de qualidade](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -210,7 +210,7 @@ Para acionar uma tarefa de compilação, pode emitir uma confirmação para o re
 
 3. Selecione a tarefa de compilação para ver o progresso. Se o pipeline de compilação for concluído com êxito, aciona uma versão **controle de qualidade** estágio. 
 
-    ![Os registos de compilação](./media/how-to-ci-cd/build-logs.png)
+    ![Criar registos](./media/how-to-ci-cd/build-logs.png)
 
 4. A implementação bem-sucedida **controle de qualidade** estágio aciona uma notificação para o aprovador. Certifique-se de que os módulos implementado com êxito no dispositivo ou dispositivos visados com o estágio de controle de qualidade. Em seguida, navegue para o pipeline de versões e dê a aprovação para a versão Ir para a fase de produção, selecionando o **PROD** botão e, em seguida, selecionando **aprovar**. 
 

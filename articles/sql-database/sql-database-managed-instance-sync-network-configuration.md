@@ -7,17 +7,16 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: digimobile
-origin.date: 12/13/2018
-ms.date: 04/29/2019
+manager: craigg
+ms.date: 12/13/2018
 ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61314725"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Sincronizar a configuração de rede para o plano de alojamento de App Service do Azure
@@ -30,7 +29,7 @@ Para tal, siga estes passos:
 
 1. Aceda às suas aplicações web plano do serviço de aplicações.
 
-   ![plano do Serviço de Aplicações](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
+   ![plano do serviço de aplicações](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Clique em **Networking** e, em seguida, clique em **clique aqui para gerir**.
 

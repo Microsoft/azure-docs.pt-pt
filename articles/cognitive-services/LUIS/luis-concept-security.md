@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: b52b0fffe9c32ab14600a3e296852faa626d794d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058527"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Criação e o ponto final de acesso de utilizador
-Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores. Para uma aplicação pública, acesso de ponto final está disponível para todos os utilizadores que tem sua própria conta de LUIS tem o ID de. a aplicação pública 
+Acesso de criação está disponível para os proprietários e colaboradores. Para uma aplicação privada, o acesso de ponto final está disponível para os proprietários e colaboradores. Para uma aplicação pública, o acesso de ponto final está disponível para todos os utilizadores que tem seu próprio Azure [serviço cognitivo](../cognitive-services-apis-create-account.md) ou [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) recurso, e tem o ID de. a aplicação pública 
 
 ## <a name="access-to-authoring"></a>Acesso a criação
 Acesso para a aplicação a partir da [LUIS](luis-reference-regions.md#luis-website) Web site ou o [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087) é controlado pelo proprietário da aplicação. 

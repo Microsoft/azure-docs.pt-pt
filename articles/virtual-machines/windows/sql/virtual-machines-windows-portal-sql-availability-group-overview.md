@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60325824"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução ao SQL Server Always On grupos de disponibilidade em máquinas virtuais do Azure #
@@ -34,7 +34,7 @@ O diagrama ilustra as partes de um grupo de disponibilidade de servidor de SQL c
 
 A principal diferença para um grupo de disponibilidade em máquinas de virtuais do Azure é que as máquinas virtuais do Azure, exigir um [Balanceador de carga](../../../load-balancer/load-balancer-overview.md). O Balanceador de carga contém os endereços IP para o serviço de escuta do grupo de disponibilidade. Se tiver mais de um grupo de disponibilidade cada grupo requer um serviço de escuta. Um balanceador de carga pode oferecer suporte a vários serviços de escuta.
 
-Além disso, num cluster de ativação pós-falha de convidado de VM de IaaS do Azure, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. Redes do Azure tem redundância física que torna desnecessário NICs e sub-redes adicionais num cluster de convidados de VM de IaaS do Azure. Embora o relatório de validação de cluster irá emitir um aviso de que os nós só são acessíveis numa única rede, este aviso pode ser ignorado com segurança em clusters de ativação pós-falha de convidado de VM de IaaS do Azure. 
+Além disso, num cluster de ativação pós-falha de convidado de VM de IaaS do Azure, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. As redes do Azure têm redundância físicas, as quais tornam desnecessários NICs e sub-redes adicionais num cluster convidado da VM IaaS do Azure. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure. 
 
 |  | Versão do Windows Server | Versão do SQL Server | SQL Server Edition | Configuração de quórum do WSFC | DR com várias regiões | Suporte com várias sub-redes | Suporte para um AD existente | DR com várias zona mesma região | Suporte de DIST AG com nenhum domínio do AD | Suporte de DIST AG com nenhum cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
 ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731605"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configurar DPDK numa máquina virtual do Linux
@@ -33,14 +33,14 @@ DPDK podem ser executados em máquinas virtuais do Azure que estiver dando supor
 
 ## <a name="benefit"></a>Vantagem
 
-**Superior pacotes por segundo (PPS)**: Ignorar o kernel e ter o controle de pacotes no espaço do usuário reduz a contagem de ciclo, eliminando Alternâncias de contexto. Ele também melhora a taxa de pacotes que são processados por segundo em máquinas virtuais do Linux do Azure.
+**Superior pacotes por segundo (PPS)** : Ignorar o kernel e ter o controle de pacotes no espaço do usuário reduz a contagem de ciclo, eliminando Alternâncias de contexto. Ele também melhora a taxa de pacotes que são processados por segundo em máquinas virtuais do Linux do Azure.
 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
 São suportadas as seguintes distribuições da galeria do Azure:
 
-| SO Linux     | Versão de kernel        |
+| Linux OS     | Versão de kernel        |
 |--------------|----------------       |
 | Ubuntu 16.04 | 4.15.0-1015-azure     |
 | Ubuntu 18.04 | 4.15.0-1015-azure     |

@@ -12,10 +12,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61419617"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Segurança de dados avançados para a base de dados do Azure SQL
@@ -58,7 +58,7 @@ Clique nas **dados de deteção e classificação** recomendado de cartão para 
 
 Para ver e gerir definições de anúncios, navegue para **segurança de dados avançada** sob a **segurança** do cabeçalho para o seu servidor de base de dados SQL ou a instância gerida. Nesta página, pode ativar ou desativar anúncios e modificar a vulnerabilidade de avaliação e as definições de proteção avançada contra ameaças para o seu servidor de base de dados SQL completo ou a instância gerida.
 
-![Definições do servidor](./media/sql-advanced-protection/server_settings.png) 
+![definições do servidor](./media/sql-advanced-protection/server_settings.png) 
 
 ## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Gerir definições de anúncios de uma base de dados SQL
 

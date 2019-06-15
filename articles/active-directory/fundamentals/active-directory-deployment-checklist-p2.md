@@ -1,5 +1,5 @@
 ---
-title: Lista de verificação de implementação do Azure AD
+title: Lista de verificação de Implementação do Azure AD
 description: O Azure Active Directory funcionalidade implementação lista de verificação
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e668a5238859d8cd8c2a7797200a12197ce72be9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110463"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de recursos do Azure Active Directory
 

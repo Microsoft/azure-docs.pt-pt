@@ -3,19 +3,19 @@ title: Suporte de contentor
 titleSuffix: Azure Cognitive Services
 description: Saiba como contentores do Docker podem obter o mais perto dos serviços cognitivos aos seus dados.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 3d09ee542b98e1c365aceaf86b051d706c7882d4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 8faa524d7d88f09835d26439b772b8d57c84cc73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304270"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122244"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte para contentores nos serviços cognitivos do Azure
 
@@ -73,7 +73,7 @@ Contentores de serviços cognitivos do Azure fornecem o seguinte conjunto de con
 Além disso, alguns contentores são suportadas nos serviços cognitivos [ **tudo-em-um oferta** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) as chaves do recurso. Pode criar um único recurso de tudo-em-um dos serviços cognitivos e usar a mesma chave de faturação em todos os serviços suportados para os seguintes serviços:
 
 * Imagem Digitalizada
-* Face
+* Rostos
 * LUIS
 * Análise de Texto
 
@@ -82,7 +82,7 @@ Além disso, alguns contentores são suportadas nos serviços cognitivos [ **tud
 Contentores de serviços cognitivos do Azure estão publicamente disponíveis através da sua subscrição do Azure e imagens de contentor do Docker podem ser extraídas do registo de contentor da Microsoft ou o Docker Hub. Pode utilizar o [solicitação docker](https://docs.docker.com/engine/reference/commandline/pull/) comando para transferir uma imagem de contentor do registo adequado.
 
 > [!IMPORTANT]
-> Atualmente, tem de concluir um processo de inscrição para aceder aos seguintes contentores, em que preencha e submeta um questionário com perguntas sobre si, sua empresa e o caso de utilização para o qual pretende implementar os contentores. Assim que estiver concedido o acesso e fornecidas credenciais, em seguida, pode tirar as imagens de contentor para os contentores de rostos e reconhecer texto de registo de contentor privado alojado pelo Azure Container Registry.
+> Atualmente, tem de concluir um processo de inscrição para aceder aos seguintes contentores, em que preencha e submeta um questionário com perguntas sobre si, sua empresa e o caso de utilização para o qual pretende implementar os contentores. Assim que estiver concedido o acesso e fornecidas credenciais, pode então puxar as imagens de contentor a partir de um registo de contentor privado alojado pelo Azure Container Registry.
 > * [Dectector de anomalias](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Face](Face/face-how-to-install-containers.md)
 > * [Formulário reconhecedor](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)

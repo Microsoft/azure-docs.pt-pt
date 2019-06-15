@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825493"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Como ativar aplicações de cliente nativo interagir com aplicativos de proxy
@@ -54,7 +54,7 @@ Agora tem de registar a sua aplicação no Azure AD, da seguinte forma:
    - Para filtrar apenas as contas que são internas para a sua organização, selecione **contas neste diretório organizacional apenas**.
    - Para filtrar apenas os negócios ou os clientes de instituições de ensino, selecione **contas em qualquer diretório organizacional**.
    - Para filtrar o conjunto mais ampla de identidades da Microsoft, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
-7. Na **URI de redirecionamento** cabeçalho, selecione **cliente público (móvel e ambiente de trabalho)**, e, em seguida, escreva o URI de redirecionamento para a sua aplicação.
+7. Na **URI de redirecionamento** cabeçalho, selecione **cliente público (móvel e ambiente de trabalho)** , e, em seguida, escreva o URI de redirecionamento para a sua aplicação.
 8. Selecione e leia os **políticas de plataforma da Microsoft**e, em seguida, selecione **registar**. Uma página de descrição geral para o novo registo de aplicação é criada e apresentada.
 
 Para obter mais informações sobre como criar um novo registo de aplicação, consulte [integrar aplicações com o Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).

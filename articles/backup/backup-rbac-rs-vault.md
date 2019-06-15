@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: trinadhk
 ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60253734"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilizar o controlo de acesso baseado em funções para gerir pontos de recuperação de cópia de segurança do Azure
@@ -37,27 +37,27 @@ A tabela seguinte mostra as ações de gestão de cópia de segurança e corresp
 | Operação de gestão | Função RBAC mínima necessária | Âmbito necessário |
 | --- | --- | --- |
 | Criar cofre dos Serviços de Recuperação | Contribuinte | Grupo de recursos com o Cofre |
-| Ativar cópia de segurança de VMs do Azure | Operador de Cópia de Segurança | Grupo de recursos com o Cofre |
-| | Contribuinte de Máquina Virtual | Recurso de VM |
-| Cópia de segurança a pedido da VM | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
-| Restaurar VM | Operador de Cópia de Segurança | Cofre dos Serviços de Recuperação |
+| Ativar cópia de segurança de VMs do Azure | Operador de cópia de segurança | Grupo de recursos com o Cofre |
+| | Contribuinte de máquina virtual | Recurso de VM |
+| Cópia de segurança a pedido da VM | Operador de cópia de segurança | Recurso do Cofre de recuperação |
+| Restaurar VM | Operador de cópia de segurança | Cofre dos Serviços de Recuperação |
 | | Contribuinte | Grupo de recursos em que a VM irá ser implementada |
-| | Contribuinte de Máquina Virtual | Origem de VM da qual foi feita uma cópia de segurança |
-| Restaurar cópia de segurança VM de discos não geridos | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
-| | Contribuinte de Máquina Virtual | Origem de VM da qual foi feita uma cópia de segurança |
-| | Contribuinte de Conta de Armazenamento | Recurso de conta de armazenamento onde for possível restaurar discos |
-| Restaurar discos geridos a partir de cópia de segurança VM | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
-| | Contribuinte de Máquina Virtual | Origem de VM da qual foi feita uma cópia de segurança |
-| | Contribuinte de Conta de Armazenamento | Conta de armazenamento temporária selecionada como parte do restauro para armazenar os dados do cofre antes de convertê-los para discos geridos |
+| | Contribuinte de máquina virtual | Origem de VM da qual foi feita uma cópia de segurança |
+| Restaurar cópia de segurança VM de discos não geridos | Operador de cópia de segurança | Recurso do Cofre de recuperação |
+| | Contribuinte de máquina virtual | Origem de VM da qual foi feita uma cópia de segurança |
+| | Contribuinte de conta de armazenamento | Recurso de conta de armazenamento onde for possível restaurar discos |
+| Restaurar discos geridos a partir de cópia de segurança VM | Operador de cópia de segurança | Recurso do Cofre de recuperação |
+| | Contribuinte de máquina virtual | Origem de VM da qual foi feita uma cópia de segurança |
+| | Contribuinte de conta de armazenamento | Conta de armazenamento temporária selecionada como parte do restauro para armazenar os dados do cofre antes de convertê-los para discos geridos |
 | | Contribuinte | Grupo de recursos para o qual vão ser restaurados discos geridos |
-| Restaurar ficheiros individuais a partir de cópia de segurança VM | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
-| | Contribuinte de Máquina Virtual | Origem de VM da qual foi feita uma cópia de segurança |
-| Criar política de cópia de segurança para cópia de segurança de VM do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
-| Modificar a política de cópia de segurança da cópia de segurança de VM do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
-| Eliminar política de cópia de segurança da cópia de segurança de VM do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
-| Parar cópia de segurança (mantendo os dados ou eliminar dados) na cópia de segurança VM | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
-| Registre-se no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
-| Eliminar registados no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
+| Restaurar ficheiros individuais a partir de cópia de segurança VM | Operador de cópia de segurança | Recurso do Cofre de recuperação |
+| | Contribuinte de máquina virtual | Origem de VM da qual foi feita uma cópia de segurança |
+| Criar política de cópia de segurança para cópia de segurança de VM do Azure | Contribuidor de cópia de segurança | Recurso do Cofre de recuperação |
+| Modificar a política de cópia de segurança da cópia de segurança de VM do Azure | Contribuidor de cópia de segurança | Recurso do Cofre de recuperação |
+| Eliminar política de cópia de segurança da cópia de segurança de VM do Azure | Contribuidor de cópia de segurança | Recurso do Cofre de recuperação |
+| Parar cópia de segurança (mantendo os dados ou eliminar dados) na cópia de segurança VM | Contribuidor de cópia de segurança | Recurso do Cofre de recuperação |
+| Registre-se no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Operador de cópia de segurança | Recurso do Cofre de recuperação |
+| Eliminar registados no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Contribuidor de cópia de segurança | Recurso do Cofre de recuperação |
 
 > [!IMPORTANT]
 > Se especifica Contribuidor de VM com um âmbito de recursos VM e clique em cópia de segurança como parte das definições de VM, abrirá a tela "Ativar cópia de segurança", mesmo que a VM já foi efetuada como a chamada para verificar o estado cópia de segurança funciona apenas no nível de subscrição. Para evitar isto, ou aceda ao Cofre e abrir a vista de item de cópia de segurança da VM ou especificar a função de Contribuidor de VM ao nível da subscrição.
@@ -67,16 +67,16 @@ A tabela seguinte mostra as ações de gestão de cópia de segurança e a funç
 
 | Operação de gestão | Função necessária | Recursos |
 | --- | --- | --- |
-| Ativar cópia de segurança de partilhas de ficheiros do Azure | Contribuidor de Cópia de Segurança | Cofre dos Serviços de Recuperação |
+| Ativar cópia de segurança de partilhas de ficheiros do Azure | Contribuidor de cópia de segurança | Cofre dos Serviços de Recuperação |
 | | Conta de Armazenamento | Recurso de conta de armazenamento do contribuinte |
-| Cópia de segurança a pedido da VM | Operador de Cópia de Segurança | Cofre dos Serviços de Recuperação |
-| Restaurar a partilha de ficheiros | Operador de Cópia de Segurança | Cofre dos Serviços de Recuperação |
-| | Contribuinte de Conta de Armazenamento | Recursos de conta de armazenamento em que a origem de restauro e partilhas de ficheiros de destino estão presentes |
-| Restaurar ficheiros individuais | Operador de Cópia de Segurança | Cofre dos Serviços de Recuperação |
-| | Contribuinte de Conta de Armazenamento |   Recursos de conta de armazenamento em que a origem de restauro e partilhas de ficheiros de destino estão presentes |
-| Parar proteção | Contribuidor de Cópia de Segurança | Cofre dos Serviços de Recuperação |      
-| Anular o registo de conta de armazenamento de cofre |   Contribuidor de Cópia de Segurança | Cofre dos Serviços de Recuperação |
-| | Contribuinte de Conta de Armazenamento | Recurso de conta de armazenamento|
+| Cópia de segurança a pedido da VM | Operador de cópia de segurança | Cofre dos Serviços de Recuperação |
+| Restaurar a partilha de ficheiros | Operador de cópia de segurança | Cofre dos Serviços de Recuperação |
+| | Contribuinte de conta de armazenamento | Recursos de conta de armazenamento em que a origem de restauro e partilhas de ficheiros de destino estão presentes |
+| Restaurar ficheiros individuais | Operador de cópia de segurança | Cofre dos Serviços de Recuperação |
+| | Contribuinte de conta de armazenamento |   Recursos de conta de armazenamento em que a origem de restauro e partilhas de ficheiros de destino estão presentes |
+| Parar proteção | Contribuidor de cópia de segurança | Cofre dos Serviços de Recuperação |      
+| Anular o registo de conta de armazenamento de cofre |   Contribuidor de cópia de segurança | Cofre dos Serviços de Recuperação |
+| | Contribuinte de conta de armazenamento | Recurso de conta de armazenamento|
 
 
 ## <a name="next-steps"></a>Passos Seguintes

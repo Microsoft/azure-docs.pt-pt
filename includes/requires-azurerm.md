@@ -2,19 +2,23 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/11/2018
+ms.date: 06/05/2019
 ms.topic: include
-ms.openlocfilehash: a956cd1e029371fa7031d262206b0ce10aa8dbff
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 550ace93479278df2a592a87ee34d10f8763d2f6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117109"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133741"
 ---
 > [!IMPORTANT]
 >
-> Ao utilizar esta funcionalidade do Azure a partir do PowerShell requer que tenha o `AzureRM` módulo instalado. Este é um módulo mais antigo, apenas disponível para o PowerShell de Windows 5.x que recebe críticos de atualizações, mas já não obtém novas funcionalidades. Se tiver o `Az` módulo instalado, precisará instalar `AzureRM` também. Para instalar `AzureRM`:
-> 
-> 1. Desativar AzureRM aliases na `Az` (se ativada) com `Disable-AzAlias`. Executar este comando sem `Az` instalados ou com aliases desativadas é inofensivo.
-> 2. Siga os [instruções para AzureRM de instalação de mais recente](/powershell/azure/install-az-ps). Mesmo que tenha `AzureRM` instalado, atualize para a versão mais recente.
+> Ao utilizar esta funcionalidade do Azure a partir do PowerShell requer o `AzureRM` módulo instalado. Este é um módulo anterior apenas disponível para Windows PowerShell 5.1 que deixará de receber novos recursos.
+> O `Az` e `AzureRM` módulos são __não__ compatível com quando instalados para as mesmas versões do PowerShell.
+> Se precisar de ambas as versões:
+>
+> 1. [Desinstalar o módulo de Az](/powershell/azure/uninstall-az-ps) a partir de uma sessão do PowerShell 5.1.
+> 2. [Instalar o módulo de AzureRM](/powershell/azure/azurerm/install-azurerm-ps) a partir de uma sessão do PowerShell 5.1.
+> 3. [Baixe e instale o PowerShell Core 6.x ou posterior](/powershell/scripting/install/installing-powershell-core-on-windows).
+> 4. [Instalar o módulo de Az](/powershell/azure/install-az-ps) numa sessão do PowerShell Core.
 

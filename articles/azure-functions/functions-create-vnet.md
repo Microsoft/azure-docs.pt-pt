@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 07c7d7fb682708bf813820440d9c790c28b1f3e5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834624"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063272"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrar funções com uma rede virtual do Azure
 
@@ -113,7 +113,7 @@ Com um site WordPress em execução numa VM numa rede virtual, pode agora ligar 
 
     ![Estado para a configuração de um recurso de rede](./media/functions-create-vnet/Networking-1.png)
 
-1. Na página de integração de rede virtual, selecione **VNet adicionar (pré-visualização)**.
+1. Na página de integração de rede virtual, selecione **VNet adicionar (pré-visualização)** .
 
     ![Adicionar a pré-visualização de integração de VNet](./media/functions-create-vnet/networking-2.png)
 
@@ -124,7 +124,7 @@ Com um site WordPress em execução numa VM numa rede virtual, pode agora ligar 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
     | **Rede Virtual** | MyResourceGroup-vnet | Esta rede virtual é aquela que criou anteriormente. |
-    | **Sub-rede** | Criar Nova Sub-rede | Crie uma sub-rede na rede virtual para a sua aplicação de função a utilizar. Integração VNet tem de ser configurada para utilizar uma sub-rede vazia. Não importa que as suas funções utilizam uma sub-rede diferente do que a VM. A rede virtual encaminha automaticamente o tráfego entre as duas sub-redes. |
+    | **Sub-rede** | Criar nova sub-rede | Crie uma sub-rede na rede virtual para a sua aplicação de função a utilizar. Integração VNet tem de ser configurada para utilizar uma sub-rede vazia. Não importa que as suas funções utilizam uma sub-rede diferente do que a VM. A rede virtual encaminha automaticamente o tráfego entre as duas sub-redes. |
     | **Nome da sub-rede** | Função-Net | Nome da nova sub-rede. |
     | **Bloco de endereços de rede virtual** | 10.10.0.0/16 | Escolha o mesmo bloco de endereços utilizado pelo WordPress site. Deverá ter apenas um bloco de endereços definido. |
     | **Intervalo de endereços** | 10.10.2.0/24   | O tamanho da sub-rede restringe o número total de instâncias que a aplicação de funções de plano Premium pode aumentar horizontalmente para. Este exemplo utiliza um `/24` sub-rede com 254 endereços de anfitriões disponíveis. Esta sub-rede é provisionados em excesso, mas o mais fácil calcular. |
@@ -137,7 +137,7 @@ A aplicação de função agora pode acessar a rede virtual onde está a executa
 
 Com a integração de VNet ativada, pode criar um proxy na sua aplicação de função para reencaminhar solicitações para a VM em execução na rede virtual.
 
-1. Na sua aplicação function app, selecione **Proxies** > **+**, em seguida, utilize as definições de proxy na tabela abaixo da imagem:
+1. Na sua aplicação function app, selecione **Proxies** >  **+** , em seguida, utilize as definições de proxy na tabela abaixo da imagem:
 
     ![Definir as definições de proxy](./media/functions-create-vnet/create-proxy.png)
 
@@ -170,4 +170,4 @@ As funções em execução num plano Premium partilham a mesma infra-estrutura s
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as opções de funcionamento em rede nas funções](./functions-networking-options.md)
 
-[Plano premium]: functions-scale.md#premium-plan-public-preview
+[Plano premium]: functions-scale.md#premium-plan

@@ -9,10 +9,10 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787314"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilizar ações de dimensionamento automático para enviar e-mail e webhook notificações de alertas no Azure Monitor
@@ -62,7 +62,7 @@ Ao utilizar o modelo de REST API ou do Resource Manager, inclua o elemento de no
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| operação |sim |o valor tem de ser "Dimensionamento" |
+| Operação |sim |o valor tem de ser "Dimensionamento" |
 | sendToSubscriptionAdministrator |sim |valor tem de ser "verdadeiro" ou "false" |
 | sendToSubscriptionCoAdministrators |sim |valor tem de ser "verdadeiro" ou "false" |
 | customEmails |sim |valor pode ser [null] ou matriz de cadeia de caracteres de mensagens de e-mail |
@@ -106,15 +106,15 @@ Quando a notificação de dimensionamento automático é gerada, os seguintes me
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | status |sim |O estado que indica que uma ação de dimensionamento automático foi gerada |
-| operação |sim |Para um aumento do número de instâncias, é "Aumentar horizontalmente" e para uma diminuição nas instâncias, será "Escala em" |
+| Operação |sim |Para um aumento do número de instâncias, é "Aumentar horizontalmente" e para uma diminuição nas instâncias, será "Escala em" |
 | context |sim |O contexto de ação de dimensionamento automático |
 | timestamp |sim |Carimbo de hora quando a ação de dimensionamento automático foi acionada |
-| ID |Sim |Gestor de recursos do ID de definição de dimensionamento automático |
-| nome |Sim |O nome da definição de dimensionamento automático |
-| detalhes |Sim |Explicação da ação que demorou o serviço de dimensionamento automático e a alteração na contagem de instâncias |
+| id |Sim |Gestor de recursos do ID de definição de dimensionamento automático |
+| name |Sim |O nome da definição de dimensionamento automático |
+| Detalhes |Sim |Explicação da ação que demorou o serviço de dimensionamento automático e a alteração na contagem de instâncias |
 | subscriptionId |Sim |ID de subscrição do recurso de destino que está a ser ajustado |
 | resourceGroupName |Sim |Nome do grupo de recursos do recurso de destino que está a ser ajustado |
-| nomeRecurso |Sim |Nome do recurso de destino que está a ser ajustado |
+| resourceName |Sim |Nome do recurso de destino que está a ser ajustado |
 | resourceType |Sim |Os três valores de suportados: "microsoft.classiccompute/domainnames/slots/roles" - funções do serviço em nuvem, "Compute/virtualmachinescalesets" - conjuntos de dimensionamento de máquinas virtuais e "Microsoft.Web/serverfarms" - aplicação Web |
 | resourceId |Sim |ID de Gestor de recursos do recurso de destino que está a ser ajustado |
 | portalLink |Sim |Hiperligação do portal do Azure para a página de resumida do recurso de destino |

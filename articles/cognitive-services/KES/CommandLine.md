@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
 ms.openlocfilehash: 018552982a8ece3bbbaea2d60e2a6e64f681f822
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815137"
 ---
 # <a name="command-line-interface"></a>Interface de Linha de Comandos
@@ -80,9 +80,9 @@ O **host_service** comando aloja uma instância do serviço KES na máquina loca
 |-----------------|----------------------------|
 | `<grammarFile>` | Caminho de entrada binární gramatika Je         |
 | `<indexFile>`   | Caminho de entrada de índice binário           |
-| `--port <port>` | Número de porta local.  Predefinição: 8000 |
+| `--port <port>` | Número de porta local.  predefinição: 8000 |
 
-Estes ficheiros podem ser especificados por caminhos de ficheiro local ou de URL para blobs do Azure.  Um serviço web será alojado no http://localhost:&lt; porta&gt;/.  Ver [Web APIs](WebAPI.md) para obter uma lista de operações com suporte.
+Estes ficheiros podem ser especificados por caminhos de ficheiro local ou de URL para blobs do Azure.  Um serviço web será alojado no http://localhost:&lt ; porta&gt; /.  Ver [Web APIs](WebAPI.md) para obter uma lista de operações com suporte.
 
 Fora do Azure o ambiente, localmente serviços alojados estão limitados a indexar ficheiros até 1 MB de tamanho, 10 pedidos por segundo e total de chamadas de 1000.  Para superar essas limitações, execute **host_service** dentro de uma VM do Azure, ou implementar um serviço cloud do Azure a utilizar **deploy_service**.
 

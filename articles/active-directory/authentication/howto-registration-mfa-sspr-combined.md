@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d006bd36cc8f8c84fb13bae43702a3e472f8876a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119387"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113298"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registo de informações de segurança para ativar combinado (pré-visualização)
 
@@ -53,7 +53,7 @@ Se tiver configurado o Site para a lista de atribuições de zona do Internet Ex
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Políticas de acesso condicional para o registo combinado
 
-Proteger quando e como registar-se os utilizadores do Azure multi-factor Authentication e reposição de palavra-passe self-service agora é possível com ações do usuário em política de acesso condicional. Esta funcionalidade de pré-visualização está disponível para organizações que tem ativado o [combinados pré-visualização do registo](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações em que eles querem que os utilizadores para se registar para SSPR a partir de uma localização central como uma localização de rede fidedigna e o Azure multi-factor Authentication durante a integração de RH. Para obter mais informações sobre a criação de locais confiáveis no acesso condicional, consulte o artigo [o que é a condição de localização no acesso condicional do Azure Active Directory?](../conditional-access/location-condition.md#named-locations)
+Proteger quando e como registar-se os utilizadores do Azure multi-factor Authentication e reposição de palavra-passe self-service agora é possível com ações do usuário em política de acesso condicional. Esta funcionalidade de pré-visualização está disponível para organizações que tem ativado o [combinados pré-visualização do registo](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações em que eles querem que os utilizadores para se registar para SSPR a partir de uma localização central como uma localização de rede fidedigna e o Azure multi-factor Authentication durante a integração de RH. Para obter mais informações sobre a criação de locais confiáveis no acesso condicional, consulte o artigo [o que é a condição de localização no Azure Active Directory condicional acesso?](../conditional-access/location-condition.md#named-locations)
 
 ### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Criar uma política para exigir o registo a partir de um local confiável
 
@@ -92,4 +92,4 @@ A seguinte política se aplica a todos os utilizadores selecionados, o que tenta
 
 [Resolução de problemas de combinar o registo de informações de segurança](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[O que é a condição de localização no acesso condicional do Azure Active Directory?](../conditional-access/location-condition.md)
+[O que é a condição de localização no Azure Active Directory condicional acesso?](../conditional-access/location-condition.md)

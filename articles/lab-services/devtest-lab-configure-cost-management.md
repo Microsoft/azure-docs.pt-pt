@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
 ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60868288"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Controlar os custos associados a um laboratório no Azure DevTest Labs
@@ -91,7 +91,7 @@ A funcionalidade de tendência de custo mensal no labs permite-lhe ver o quanto 
 4. Selecione **Konfigurace a zásady** no menu da esquerda.
 5. Selecione **de custos por recurso** no **controlo de custos** secção no menu da esquerda. Ver os custos associados a cada recurso associado a um laboratório. 
 
-    ![Custo por recurso](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
+    ![Custos por recurso](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
 
 Esta funcionalidade ajuda-o a identificar facilmente os recursos que custam mais, para que pode tomar medidas para reduzir os gastos de laboratório. Por exemplo, o custo de uma VM baseia-se no tamanho da VM. Quanto maior for o tamanho da VM, mais é o custo. Pode encontrar facilmente o tamanho de uma VM e o proprietário, para que pode se comunicar com o proprietário da VM para compreender por que motivo esse tamanho VM é necessária e se existe uma chance para reduzir o tamanho.
 

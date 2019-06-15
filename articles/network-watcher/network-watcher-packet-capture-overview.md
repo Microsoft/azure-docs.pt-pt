@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4cfbfc4bed5438ed901fca86d8c2939d3860c68e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061587"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introdução à captura de pacote variável no observador de rede do Azure
 
-Captura de pacote variável do observador de rede permite-lhe criar sessões de captura de pacotes para controlar o tráfego de e para uma máquina virtual. Ajuda de captura de pacotes para diagnosticar anomalias rede de forma reativa e proactivity. Outras utilizações incluem a recolha de estatísticas de rede, obter informações sobre a invasões de rede, para depurar as comunicações cliente-servidor e muito mais.
+Captura de pacote variável do observador de rede permite-lhe criar sessões de captura de pacotes para controlar o tráfego de e para uma máquina virtual. Captura de pacotes ajuda a diagnosticar anomalias de rede, de forma reativa e de forma pró-ativa. Outras utilizações incluem a recolha de estatísticas de rede, obter informações sobre a invasões de rede, para depurar as comunicações cliente-servidor e muito mais.
 
 Captura de pacotes é uma extensão de máquina virtual que é iniciada remotamente através do observador de rede. Esta capacidade alivia a carga da execução manual de uma captura de pacotes na máquina virtual pretendida, que economiza um valioso tempo. Captura de pacotes pode ser acionada através do portal, o PowerShell, a CLI ou a REST API. É um exemplo de como a captura de pacotes pode ser acionada com alertas de Máquina Virtual. Filtros são fornecidos para a sessão de captura garantir a que capturar o tráfego que pretende monitorizar. Filtros baseiam-se em 5 cadeias de identificação (protocolo, endereço IP local, endereço IP remoto, porta local e remota porta) informações. Os dados capturados são armazenados no disco local ou um blob de armazenamento. Existe um limite de 10 sessões de captura de pacotes por região por subscrição. Este limite aplica-se apenas para as sessões e não se aplica aos arquivos de captura de pacotes guardado localmente na VM ou numa conta de armazenamento.
 

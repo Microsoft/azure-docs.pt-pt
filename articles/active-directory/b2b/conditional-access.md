@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812815"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113164"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para utilizadores de colaboração B2B
 
@@ -89,7 +89,7 @@ Portanto, a recomendação para a MFA para utilizadores B2B é sempre exigir a M
 
 ### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso condicional com base no dispositivo, com base na localização e com base no risco para utilizadores B2B
 
-Quando Contoso permite que as políticas de acesso condicional com base no dispositivo para os seus dados empresariais, o acesso é impedido de dispositivos que não são geridos pelo Contoso e não em conformidade com as políticas de dispositivos da Contoso.
+Quando Contoso permite que as políticas de acesso condicional com base no dispositivo para os seus dados empresariais, o acesso é impedido de dispositivos que não são geridos pela Contoso e não em conformidade com as políticas de dispositivos da Contoso.
 
 Se o dispositivo do utilizador B2B não é gerido pelo Contoso, acesso de utilizadores B2B das organizações de parceiro é bloqueado no qualquer contexto que estas políticas são impostas. No entanto, a Contoso pode criar listas de exclusão que contém utilizadores de parceiros específicos para os excluir da política de acesso condicional com base no dispositivo.
 

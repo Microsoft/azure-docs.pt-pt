@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406601"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107667"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como utilizar as pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory
 
@@ -74,9 +74,9 @@ Este livro mostra as tendências de início de sessão seguintes:
 
 - Todos os inícios de sessão
 
-- Com êxito
+- Êxito
 
-- Ação de utilizador pendente
+- Ação do utilizador pendente
 
 - Falha
 
@@ -111,7 +111,7 @@ Este livro mostra as tendências de início de sessão seguintes:
 
 - Todos os inícios de sessão
 
-- Com êxito
+- Êxito
 
 
 Pode filtrar cada tendência por categorias a seguir:
@@ -146,12 +146,12 @@ Este livro mostra as tendências de inícios de sessão desativados. Pode filtra
 
 - Utilizadores
 
-![Inícios de sessão através do acesso condicional](./media/howto-use-azure-monitor-workbooks/49.png)
+![Inícios de Sessão com Acesso Condicional](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
 Para inícios de sessão desativados, receberá uma divisão pelo Estado de acesso condicional.
 
-![Estado do acesso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Estado de acesso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 
@@ -168,7 +168,7 @@ Este livro mostra as seguintes desativadas início de sessão tendências:
 
 - Requerer MFA
  
-- Exigir a termos de utilização
+- Pedir os termos de utilização
 
 - Exigir a declaração de privacidade
 
@@ -199,7 +199,7 @@ Utilize o **análise de falhas de inícios de sessão** livro para resolver prob
 
 - Inícios de sessão
 - Políticas de acesso condicional
-- Autenticação legada 
+- Autenticação de legado 
 
 
 Para aceder os inícios de sessão por dados de acesso condicional, o **resolução de problemas** secção, selecione **inícios de sessão através da autenticação de legado**. 
@@ -208,7 +208,7 @@ Este livro mostra as tendências de início de sessão seguintes:
 
 - Todos os inícios de sessão
 
-- Com êxito
+- Êxito
 
 - Ação pendente
 

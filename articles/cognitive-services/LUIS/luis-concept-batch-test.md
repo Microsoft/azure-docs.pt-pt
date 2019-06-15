@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: diberry
 ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813319"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com expressões de 1000 no portal do LUIS
@@ -32,10 +32,10 @@ Submeter um arquivo em lotes de expressões, conhecido como um *conjunto de dado
 
 |**Regras**|
 |--|
-|* Nenhuma expressões com duplicado|
+|\* Nenhuma expressões com duplicado|
 |expressões de 1000 ou menos|
 
-* Duplicatas são consideradas correspondências de cadeia exacta, não as correspondências são indexadas pela primeira vez. 
+\* Duplicatas são consideradas correspondências de cadeia exacta, não as correspondências são indexadas pela primeira vez. 
 
 ## <a name="entities-allowed-in-batch-tests"></a>Entidades permitidas em testes de batch
 

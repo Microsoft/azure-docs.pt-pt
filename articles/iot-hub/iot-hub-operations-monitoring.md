@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345725"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Operações do IoT Hub monitorização (preterido)
@@ -29,7 +29,7 @@ IoT Hub monitoriza seis categorias de eventos:
 * Mensagens da cloud para dispositivo
 * Ligações
 * Carrega o ficheiro
-* Encaminhamento de mensagens
+* Roteamento de mensagens
 
 > [!IMPORTANT]
 > Monitorização de operações do IoT Hub não garante a entrega fiável ou ordenada de eventos. Dependendo da infraestrutura subjacente do IoT Hub, alguns eventos podem ser perdidos ou entregues fora de ordem. Utilize operações de monitorização para gerar alertas com base em sinais de erro, como as tentativas de ligação com falhas ou interrupções de ligação de elevada frequência para dispositivos específicos. Não deverá confiar nas operações de monitorização de eventos para criar um armazenamento consistente para o estado do dispositivo, por exemplo, um arquivo de controle ligado ou desligado o estado de um dispositivo. 
@@ -96,7 +96,7 @@ A categoria de telemetria do dispositivo rastreia erros ocorridos no IoT hub e e
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Comandos de cloud para dispositivo
+### <a name="cloud-to-device-commands"></a>Comandos do cloud-para-dispositivo
 
 A categoria de comandos do cloud-para-dispositivo rastreia erros ocorridos no IoT hub e estão relacionadas com o pipeline de mensagens da cloud para o dispositivo. Esta categoria inclui erros que ocorrem quando enviar mensagens da cloud para o dispositivo (por exemplo, o remetente não autenticado), receber mensagens da cloud para o dispositivo (por exemplo, a contagem de entrega excedida) e receber comentários de mensagem de cloud-para-dispositivo (como comentários expiraram). Esta categoria não detectar erros de um dispositivo que trata incorretamente uma mensagem de cloud para o dispositivo se a mensagem de cloud para o dispositivo foi entregue com êxito.
 
@@ -169,7 +169,7 @@ Esta categoria não pode detetar erros que ocorram diretamente enquanto o dispos
 }
 ```
 
-### <a name="message-routing"></a>Encaminhamento de mensagens
+### <a name="message-routing"></a>Roteamento de mensagens
 
 A categoria de roteamento de mensagem rastreia erros que ocorrem durante a avaliação de rota de mensagem e o estado de funcionamento do ponto de extremidade como percebido pelo IoT Hub. Esta categoria inclui eventos, como quando uma regra avalia como "undefined", quando o IoT Hub marca um ponto de extremidade como morto e outros erros recebidos de um ponto de extremidade. Esta categoria não inclui erros específicos sobre as mensagens propriamente ditos (por exemplo, o dispositivo erros de limitação), que são apresentadas na categoria "telemetria do dispositivo".
 

@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65961442"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
@@ -90,7 +90,7 @@ Estas tabelas descrevem as portas na sua rede virtual que utiliza o ISE e onde s
 | Gestão de API - ponto final de gestão | Entrada | 3443 | APIManagement  | VirtualNetwork | |
 | Dependência do registo para a política do Hub de eventos e o agente de monitorização | Saída | 5672 | VirtualNetwork  | EventHub | |
 | Aceder a Cache do Azure para instâncias de Redis entre instâncias de função | Entrada <br>Saída | 6379-6383 | VirtualNetwork  | VirtualNetwork | Além disso, para ISE trabalhar com o Azure Cache de Redis, tem de abrir estes [descritas no Redis perguntas frequentes sobre a Cache do Azure a portas de saída e entradas](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Balanceador de Carga do Azure | Entrada | * | AzureLoadBalancer | VirtualNetwork |  |
+| Azure Load Balancer | Entrada | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
 
 <a name="create-environment"></a>
@@ -117,7 +117,7 @@ Na caixa de pesquisa, introduza "ambiente de serviço de integração" como o fi
    | **Subscrição** | Sim | <*Azure-subscription-name*> | A subscrição do Azure a utilizar para o seu ambiente |
    | **Grupo de recursos** | Sim | <*Azure-resource-group-name*> | O grupo de recursos do Azure onde pretende criar o seu ambiente |
    | **Nome do ambiente de serviço de integração** | Sim | <*environment-name*> | O nome para dar o seu ambiente |
-   | **Localização** | Sim | <*Azure-datacenter-region*> | A região do datacenter do Azure onde pretende implementar o seu ambiente |
+   | **Location** | Sim | <*Azure-datacenter-region*> | A região do datacenter do Azure onde pretende implementar o seu ambiente |
    | **Capacidade adicional** | Sim | 0 a 10 | O número de unidades de processamento adicional para utilizar para este recurso ISE. Para adicionar capacidade após a criação, consulte [capacidade de adicionar ISE](#add-capacity). |
    | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure em que deseja injetar o seu ambiente para que aplicações lógicas nesse ambiente podem acessar a rede virtual. Se não tiver uma rede, [primeiro, criar uma Azure virtual network](../virtual-network/quick-create-portal.md). <p>**Importante**: Pode *apenas* realizar este injeção quando cria seu ISE. |
    | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro *vazio* sub-redes para a criação de recursos no seu ambiente. Para criar cada sub-rede [siga os passos nesta tabela](#create-subnet).  |
@@ -156,7 +156,7 @@ Na caixa de pesquisa, introduza "ambiente de serviço de integração" como o fi
 
    1. Sobre o **sub-redes** painel, escolha **sub-rede**.
 
-      ![Adicionar sub-rede ](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Adicionar sub-rede](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
 
    1. Sobre o **adicionar sub-rede** painel, indique estas informações.
 
@@ -183,7 +183,7 @@ Na caixa de pesquisa, introduza "ambiente de serviço de integração" como o fi
 
    Se a conclusão da implementação, o Azure mostra esta notificação:
 
-   ![Implementação efetuada com êxito](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Implementação concluída com êxito](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
    Caso contrário, siga as instruções do portal do Azure para resolução de problemas de implementação.
 

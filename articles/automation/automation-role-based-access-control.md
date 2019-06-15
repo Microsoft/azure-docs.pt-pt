@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738838"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
@@ -27,23 +27,23 @@ Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC ade
 
 | **Função** | **Descrição** |
 |:--- |:--- |
-| Proprietário |A função de proprietário permite o acesso a todos os recursos e ações dentro de uma conta de automatização, incluindo fornecer acesso a outros utilizadores, grupos e aplicações para gerir a conta de automatização. |
+| Owner |A função de proprietário permite o acesso a todos os recursos e ações dentro de uma conta de automatização, incluindo fornecer acesso a outros utilizadores, grupos e aplicações para gerir a conta de automatização. |
 | Contribuinte |A função de Contribuidor permite-lhe gerir tudo, exceto modificar as permissões de acesso de outro utilizador para uma conta de Automatização. |
 | Leitor |A função de Leitor permite-lhe ver todos os recursos numa conta de Automatização, mas não permite efetuar quaisquer alterações. |
 | Operador de Automatização |A função de operador de automatização permite-lhe ver o nome do runbook e as propriedades e criar e gerir tarefas de todos os runbooks numa conta de automatização. Esta função é útil se pretender proteger os seus recursos da Conta de Automatização como recursos de credenciais e runbooks contra a visualização ou modificação, mas ainda permite que os membros da sua organização executem estes runbooks. |
-|Operador de Tarefas de Automatização|A função de operador de tarefas de automatização permite-lhe criar e gerir tarefas de todos os runbooks numa conta de automatização.|
-|Operador de Runbook de Automatização|A função de operador de Runbook de automatização permite-lhe ver o nome e propriedades de um runbook.|
+|Operador de tarefas de automatização|A função de operador de tarefas de automatização permite-lhe criar e gerir tarefas de todos os runbooks numa conta de automatização.|
+|Operador de Runbook de automatização|A função de operador de Runbook de automatização permite-lhe ver o nome e propriedades de um runbook.|
 | Contribuidor do Log Analytics | A função de Contribuidor do Log Analytics permite-lhe ler todos os dados de monitorização e editar as definições de monitorização. Editar definições de monitorização inclui adicionar a extensão VM para VMs, ler as chaves de conta de armazenamento para poder configurar a recolha de registos a partir do armazenamento do Azure, criar e configurar contas de automatização, adicionar soluções e configurar os diagnósticos do Azure em todos os recursos do Azure.|
 | Leitor do Log Analytics | A função de leitor do Log Analytics permite-lhe ver e procurar todas as monitorização dados, bem como ver definições de monitorização. Isto inclui a visualização da configuração dos diagnósticos do Azure em todos os recursos do Azure. |
-| Contribuidor de Monitorização | A função de Contribuidor de monitorização permite-lhe ler todos os dados de monitorização e atualização de definições de monitorização.|
-| Leitor de Monitorização | A função de leitor de monitorização permite-lhe ler todos os dados de monitorização. |
+| Contribuidor de monitorização | A função de Contribuidor de monitorização permite-lhe ler todos os dados de monitorização e atualização de definições de monitorização.|
+| Leitor de monitorização | A função de leitor de monitorização permite-lhe ler todos os dados de monitorização. |
 | Administrador de Acesso de Utilizador |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
 
-## <a name="role-permissions"></a>Permissões de funções
+## <a name="role-permissions"></a>Permissões de função
 
 As tabelas seguintes descrevem as permissões específicas para cada função. Isto pode incluir ações, que concede permissões, e NotActions, que restringi-los.
 
-### <a name="owner"></a>Proprietário
+### <a name="owner"></a>Owner
 
 Um proprietário pode gerir tudo, incluindo o acesso. A tabela seguinte mostra as permissões concedidas para a função:
 
@@ -98,7 +98,7 @@ Um operador de automatização é capaz de criar e gerir tarefas e leia os nomes
 |Microsoft.Insights/alertRules/*      | Criar e gerir regras de alerta.        |
 |Microsoft.Support/* |Criar e gerir pedidos de suporte.|
 
-### <a name="automation-job-operator"></a>Operador de Tarefas de Automatização
+### <a name="automation-job-operator"></a>Operador de tarefas de automatização
 
 Uma função de operador de tarefas de automatização é concedida no âmbito da conta de automatização. Isso permite que as permissões de operador para criar e gerir tarefas de todos os runbooks na conta. A tabela seguinte mostra as permissões concedidas para a função:
 
@@ -116,7 +116,7 @@ Uma função de operador de tarefas de automatização é concedida no âmbito d
 |Microsoft.Insights/alertRules/*      | Criar e gerir regras de alerta.        |
 |Microsoft.Support/* |Criar e gerir pedidos de suporte.|
 
-### <a name="automation-runbook-operator"></a>Operador de Runbook de Automatização
+### <a name="automation-runbook-operator"></a>Operador de Runbook de automatização
 
 Uma função de operador de Runbook de automatização é concedida no âmbito do Runbook. Um operador de Runbook de automatização pode ver o nome e as propriedades do runbook.  Esta função combinada com a função "Operador de tarefas de automatização" permite que o operador para também criar e gerir tarefas do runbook. A tabela seguinte mostra as permissões concedidas para a função:
 
@@ -135,7 +135,7 @@ Contribuidor do Log Analytics pode ler todos os dados de monitorização e edita
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
+|\* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
 |Microsoft.Automation/automationAccounts/*|Gerir contas de automatização.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|Criar e gerir extensões de máquina virtual.|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|Listar chaves de conta de armazenamento clássicas.|
@@ -155,20 +155,20 @@ Um leitor do Log Analytics pode ver e procurar todos os dados de monitorização
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
+|\* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Gerir consultas nos registos do Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/search/action|Procure dados de registo do Azure Monitor.|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte.|
 |**Ações de não**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Não é possível ler as chaves de acesso partilhado.|
 
-### <a name="monitoring-contributor"></a>Contribuidor de Monitorização
+### <a name="monitoring-contributor"></a>Contribuidor de monitorização
 
 Contribuidor de monitorização pode ler todos os dados de monitorização e atualizar as definições de monitorização. A tabela seguinte mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
+|\* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
 |Microsoft.AlertsManagement/alerts/*|Gerir alertas.|
 |Microsoft.AlertsManagement/alertsSummary/*|Gerir o dashboard de alerta.|
 |Microsoft.Insights/AlertRules/*|Gerir regras de alerta.|
@@ -188,13 +188,13 @@ Contribuidor de monitorização pode ler todos os dados de monitorização e atu
 |Microsoft.Support/*|Criar e gerir pedidos de suporte.|
 |Microsoft.WorkloadMonitor/workloads/*|Gerir cargas de trabalho.|
 
-### <a name="monitoring-reader"></a>Leitor de Monitorização
+### <a name="monitoring-reader"></a>Leitor de monitorização
 
 Um leitor de monitorização pode ler todos os dados de monitorização. A tabela seguinte mostra as permissões concedidas para a função:
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
+|\* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
 |Microsoft.OperationalInsights/workspaces/search/action|Procure áreas de trabalho do Log Analytics.|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte|
 
@@ -204,7 +204,7 @@ Um administrador de acesso de utilizador pode gerir o acesso dos utilizadores ao
 
 |**Ações**  |**Descrição**  |
 |---------|---------|
-|* / leitura|Ler todos os recursos|
+|\* / leitura|Ler todos os recursos|
 |Microsoft.Authorization/*|Gerir a autorização|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte|
 
@@ -214,7 +214,7 @@ As tabelas seguintes mostram as permissões necessárias mínimo necessárias pa
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Inclusão de uma máquina virtual
 
-|**Ação**  |**Permissão**  |**Âmbito mínimo**  |
+|**ação**  |**Permissão**  |**Âmbito mínimo**  |
 |---------|---------|---------|
 |Escrever a nova implementação      | Microsoft.Resources/deployments/*          |Subscrição          |
 |Escrever o novo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscrição          |
@@ -222,14 +222,14 @@ As tabelas seguintes mostram as permissões necessárias mínimo necessárias pa
 |Criar nova conta      |  Microsoft.Automation/automationAccounts/write        |Grupo de recursos         |
 |Área de trabalho de ligação e a conta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabalho</br>Conta de automatização
 |Criar solução      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Grupo de recursos          |
-|Criar a extensão do MMA      | Microsoft.Compute/virtualMachines/write         | Máquina Virtual         |
+|Criar a extensão do MMA      | Microsoft.Compute/virtualMachines/write         | Máquina virtual         |
 |Criar pesquisa guardada      | Microsoft.OperationalInsights/workspaces/write          | Área de trabalho         |
 |Criar configuração de âmbito      | Microsoft.OperationalInsights/workspaces/write          | Área de trabalho         |
 |Solução de ligação à configuração de âmbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
 |Verifique o estado de carregamento - área de trabalho de leitura      | Microsoft.OperationalInsights/workspaces/read         | Área de trabalho         |
 |Verificação do Estado de inclusão - leitura ligada a propriedade de área de trabalho da conta     | Microsoft.Automation/automationAccounts/read      | Conta de automatização        |
 |Verifique o estado de carregamento - solução de leitura      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solução         |
-|Verificação de estado de inclusão - VM de leitura      | Microsoft.Compute/virtualMachines/read         | Máquina Virtual         |
+|Verificação de estado de inclusão - VM de leitura      | Microsoft.Compute/virtualMachines/read         | Máquina virtual         |
 |Verifique o estado de carregamento - conta de leitura      | Microsoft.Automation/automationAccounts/read  |  Conta de automatização   |
 | Verificação de área de trabalho de integração para a VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscrição         |
 
@@ -237,10 +237,10 @@ As tabelas seguintes mostram as permissões necessárias mínimo necessárias pa
 
 ### <a name="onboarding-from-automation-account"></a>Integração da conta de automatização
 
-|**Ação**  |**Permissão** |**Âmbito mínimo**  |
+|**ação**  |**Permissão** |**Âmbito mínimo**  |
 |---------|---------|---------|
 |Criar nova implementação     | Microsoft.Resources/deployments/*        | Subscrição         |
-|Criar um novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscrição        |
+|Criar novo grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscrição        |
 |Painel AutomationOnboarding - criar nova área de trabalho     |Microsoft.OperationalInsights/workspaces/write           | Grupo de recursos        |
 |Painel de AutomationOnboarding - ler a área de trabalho ligada     | Microsoft.Automation/automationAccounts/read        | Conta de automatização       |
 |Painel de AutomationOnboarding - solução de leitura     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solução        |
@@ -252,7 +252,7 @@ As tabelas seguintes mostram as permissões necessárias mínimo necessárias pa
 |Criar/Editar configuração de âmbito     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
 |Solução de ligação à configuração de âmbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
 |**Passo 2 - carregar várias VMs**     |         |         |
-|Painel VMOnboarding - extensão MMA criar     | Microsoft.Compute/virtualMachines/write           | Máquina Virtual        |
+|Painel VMOnboarding - extensão MMA criar     | Microsoft.Compute/virtualMachines/write           | Máquina virtual        |
 |Criar / editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write           | Área de trabalho        |
 |Criar / Editar configuração de âmbito  | Microsoft.OperationalInsights/workspaces/write   | Área de trabalho|
 
@@ -263,11 +263,11 @@ Gestão de atualizações atinge em vários serviços para fornecer o respetivo 
 |**Recurso**  |**Função**  |**Âmbito**  |
 |---------|---------|---------|
 |Conta de automatização     | Contribuidor do Log Analytics       | Conta de automatização        |
-|Conta de automatização    | Contribuinte de Máquina Virtual        | Grupo de recursos para a conta        |
-|Área de trabalho do Log Analytics     | Contribuidor do Log Analytics| Área de trabalho do Log Analytics        |
-|Área de trabalho do Log Analytics |Leitor do Log Analytics| Subscrição|
+|Conta de automatização    | Contribuinte de máquina virtual        | Grupo de recursos para a conta        |
+|Área de trabalho do log Analytics     | Contribuidor do Log Analytics| Área de trabalho do log Analytics        |
+|Área de trabalho do log Analytics |Leitor do Log Analytics| Subscrição|
 |Solução     |Contribuidor do Log Analytics         | Solução|
-|Máquina Virtual     | Contribuinte de Máquina Virtual        | Máquina Virtual        |
+|Máquina virtual     | Contribuinte de máquina virtual        | Máquina virtual        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Configurar o RBAC para a sua conta de automatização
 

@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65471784"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas de diagnóstico do Azure
 Este artigo descreve as informações de resolução de problemas que são relevantes para a utilização de diagnóstico do Azure. Para obter mais informações sobre o diagnóstico do Azure, consulte [descrição geral de diagnóstico do Azure](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Componentes lógicos
-**Iniciador de plug-in de diagnóstico (DiagnosticsPluginLauncher.exe)**: Inicia a extensão de diagnóstico do Azure. Serve como a entrada do ponto de processo.
+**Iniciador de plug-in de diagnóstico (DiagnosticsPluginLauncher.exe)** : Inicia a extensão de diagnóstico do Azure. Serve como a entrada do ponto de processo.
 
-**Plug-in de diagnóstico (DiagnosticsPlugin.exe)**: Configura, inicia e gere a vida útil do agente de monitorização. É o processo principal que é iniciado quando o iniciador.
+**Plug-in de diagnóstico (DiagnosticsPlugin.exe)** : Configura, inicia e gere a vida útil do agente de monitorização. É o processo principal que é iniciado quando o iniciador.
 
-**Agente de monitorização (MonAgent\*.exe processos)**: Monitoriza, recolhe e transfere os dados de diagnóstico.  
+**Agente de monitorização (MonAgent\*.exe processos)** : Monitoriza, recolhe e transfere os dados de diagnóstico.  
 
 ## <a name="logartifact-paths"></a>Caminhos de registo/artefacto
 Seguem-se os caminhos para alguns registos de importantes e artefactos. Fazemos referência a essas informações em todo o resto do documento.
 
-### <a name="azure-cloud-services"></a>Serviços Cloud do Azure
-| Artefacto | `Path` |
+### <a name="azure-cloud-services"></a>Cloud Services do Azure
+| Artefacto | Caminho |
 | --- | --- |
 | **Ficheiro de configuração de diagnósticos do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Ficheiros de registo** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ Seguem-se os caminhos para alguns registos de importantes e artefactos. Fazemos 
 | **Ficheiro de registo de MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-| Artefacto | `Path` |
+| Artefacto | Caminho |
 | --- | --- |
 | **Ficheiro de configuração de diagnósticos do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Ficheiros de registo** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -96,7 +96,7 @@ Se encontrar um **negativo** código de saída, consulte a [tabela de códigos d
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Dados de diagnóstico não estão conectados ao armazenamento do Azure
 Determine se nenhum dos dados é apresentada ou alguns dos dados é apresentada.
 
-### <a name="diagnostics-infrastructure-logs"></a>Registos de infraestruturas de diagnósticos
+### <a name="diagnostics-infrastructure-logs"></a>Registos de infraestrutura de diagnóstico
 Registos do diagnóstico todos os erros nos logs de infraestrutura de diagnósticos. Certifique-se de que ativou a [registos de captura da infraestrutura de diagnósticos na sua configuração](#how-to-check-diagnostics-extension-configuration). Em seguida, pode procurar rapidamente para quaisquer erros relevantes que são apresentados no `DiagnosticInfrastructureLogsTable` tabela na sua conta de armazenamento configurado.
 
 ### <a name="no-data-is-appearing"></a>Não existem dados é apresentada

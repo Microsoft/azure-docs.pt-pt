@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce35c2ed61e2c55383de8b7ee491526796438418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5aded5e6435be1fd4b2794a3a2ce0918bcbc1164
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862993"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104217"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: Integração do Active Directory do Azure com DigiCert
 
@@ -53,7 +53,7 @@ Para configurar a integração da DigiCert com o Azure AD, terá de adicionar Di
 
 **Para adicionar DigiCert a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -213,7 +213,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no DigiCert. Trabalhar com [equipa de suporte da DigiCert](mailto:support@digicert.com) para adicionar os utilizadores na plataforma DigiCert. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

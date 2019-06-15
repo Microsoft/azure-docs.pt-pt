@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
 ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519006"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de registo do Azure Monitor
@@ -108,7 +108,7 @@ SecurityEvent
 
 Ao escrever as condições de filtro, pode usar as expressões seguintes:
 
-| Expressão | Descrição | Exemplo |
+| expressão | Descrição | Exemplo |
 |:---|:---|:---|
 | == | Verificação de igualdade<br>(diferencia maiúsculas de minúsculas) | `Level == 8` |
 | =~ | Verificação de igualdade<br>(maiúsculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -138,7 +138,7 @@ SecurityEvent
 ### <a name="time-picker"></a>Selecionador de hora
 O selecionador de hora é junto ao botão de execução e indica que estiver a consultar apenas os registos das últimas 24 horas. Este é o intervalo de tempo predefinido aplicado a todas as consultas. Para obter apenas os registos de última hora, selecione _última hora_ e execute a consulta novamente.
 
-![Seletor de Intervalo de Tempo](media/get-started-queries/timepicker.png)
+![Selecionador de hora](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro de tempo na consulta

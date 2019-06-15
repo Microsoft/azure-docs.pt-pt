@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 0fe098bd644762fb291eb623a7b41cd987c7fa26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779179"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070136"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Camada de serviços de Hiperescala para até 100 TB
 
@@ -111,7 +111,7 @@ Com a capacidade de rapidamente acelerar/desacelerar nós de computação adicio
 
 Uma base de dados de grande escala pode ser criada com o [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Bases de dados de grande dimensão estão disponíveis apenas usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-O seguinte comando do T-SQL cria uma base de dados de grande escala. Tem de especificar o objetivo do edition e o serviço no `CREATE DATABASE` instrução.
+O seguinte comando do T-SQL cria uma base de dados de grande escala. Tem de especificar o objetivo do edition e o serviço no `CREATE DATABASE` instrução. Consulte a [limites de recursos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier) para obter uma lista dos objetivos de serviço válido.
 
 ```sql
 -- Create a HyperScale Database
@@ -146,8 +146,8 @@ Se tiver de restaurar uma BD SQL da base de dados de Hiperescala do Azure para u
 1. Crie um servidor de base de dados SQL na região de destino, se ainda não tiver um servidor apropriado.  Este servidor deverá pertencer à mesma subscrição que o servidor (origem) original.
 2. Siga as instruções no [georrestauro](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) tópico da página sobre como restaurar bases de dados do Azure SQL a partir de cópias de segurança automáticas.
 
-#### <a name="notes-on-geo-restores-of-a-hyperscale-database"></a>Notas sobre geo-restaurações de uma base de dados de grande escala
-Uma vez que a origem e de destino estiverem em regiões separadas, a base de dados não é possível partilhar o armazenamento de instantâneos com a base de dados de origem como no não geo restauros, que é extremamente rápida conclusão.  No caso de um georrestauro de uma base de dados de grande escala, é uma operação de tamanho de dados, mesmo que o destino está na região associada do armazenamento georreplicado.  Isso significa que a fazer um georrestauro levará tempo proporcional ao tamanho da base de dados a ser restaurada.  Se o destino for na região associada, a cópia será dentro de um Data Center, que irá ser significativamente mais rápido do que uma cópia de longa distância através da internet, mas ainda irá copiar todos os bits.
+> [!NOTE]
+> Uma vez que a origem e de destino estiverem em regiões separadas, a base de dados não é possível partilhar o armazenamento de instantâneos com a base de dados de origem como no não geo restauros, que é extremamente rápida conclusão.  No caso de um georrestauro de uma base de dados de grande escala, é uma operação de tamanho de dados, mesmo que o destino está na região associada do armazenamento georreplicado.  Isso significa que a fazer um georrestauro levará tempo proporcional ao tamanho da base de dados a ser restaurada.  Se o destino for na região associada, a cópia será dentro de um Data Center, que irá ser significativamente mais rápido do que uma cópia de longa distância através da internet, mas ainda irá copiar todos os bits.
 
 ## <a name=regions></a>Regiões disponíveis
 
@@ -167,17 +167,17 @@ O escalão de Hiperescala de base de dados do SQL Azure está atualmente dispon�
 - Leste do Japão
 - Oeste do Japão
 - Coreia do Sul Central
-- Sul da Coreia do Sul
+- Coreia do Sul
 - EUA Centro-Norte
 - Europa do Norte
-- Norte da África do Sul
+- África do Sul, Norte
 - EUA Centro-Sul
 - Sudeste Asiático
 - Reino Unido Sul
-- Oeste do R.U.
+- Reino Unido Oeste
 - Europa Ocidental
 - EUA Oeste
-- E.U.A. Oeste 2
+- EUA Oeste 2
 
 Se quiser criar a base de dados de Hiperescala numa região que não esteja listado como suportado, pode enviar um pedido de integração através do portal do Azure. Estamos a trabalhar para expandir a lista de regiões suportadas pelo que deve regresse para ver mais recente lista de região.
 
@@ -225,7 +225,7 @@ Estas são as limitações atuais para a camada de serviços de Hiperescala a pa
 
 | Problema | Descrição |
 | :---- | :--------- |
-| O painel de gerir cópias de segurança para um servidor lógico não mostra os bancos de dados de grande dimensão serão filtrados do SQL server ->  | Hiperescala tem um método separado para a gestão de cópias de segurança, e assim a retenção de longo prazo e o ponto em definições de retenção de cópia de segurança de tempo não se aplicam / são também invalidados. Da mesma forma, bases de dados de Hiperescala não aparecem no painel de gerir a cópia de segurança. |
+| O painel de gerir cópias de segurança de um servidor lógico não mostra os bancos de dados de grande dimensão serão filtrados do SQL server  | Hiperescala tem um método separado para a gestão de cópias de segurança, e assim a retenção de longo prazo e o ponto em definições de retenção de cópia de segurança de tempo não se aplicam / são também invalidados. Da mesma forma, bases de dados de Hiperescala não aparecem no painel de gerir a cópia de segurança. |
 | Restauro para um ponto anterior no tempo | Depois de uma base de dados é migrado para a camada de serviços de Hiperescala, restauro para um ponto anterior no tempo antes da migração não é suportado.|
 | Restauro de não - Hiperescala DB Hypserscale e vice versa | Não é possível restaurar uma base de dados de Hiperescala numa base de dados não Hiperescala, nem é possível restaurar uma base de dados não Hiperescala numa Hiperescala base de dados.|
 | Se um ficheiro de base de dados aumenta durante a migração devido a uma carga de trabalho do Active Directory e ultrapassar 1 TB por limite de ficheiro, a migração falhará | Atenuações: <br> -Se possível, migre a base de dados quando não existe nenhuma carga de trabalho de atualização em execução.<br> -Tente novamente a migração, será bem sucedida, desde que o limite de 1 TB não é cruzado durante a migração.|

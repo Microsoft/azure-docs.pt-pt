@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121328"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança da comunicação | Atenuações 
@@ -40,7 +40,7 @@ ms.locfileid: "62121328"
 
 ## <a id="comm-ssltls"></a>Proteger a comunicação para um Hub de eventos com SSL/TLS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -51,7 +51,7 @@ ms.locfileid: "62121328"
 
 ## <a id="priv-aspnet"></a>Verifique os privilégios de conta de serviço e verificar que os serviços ou páginas ASP.NET personalizadas respeitam a segurança do CRM
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -62,7 +62,7 @@ ms.locfileid: "62121328"
 
 ## <a id="sqlserver-factory"></a>Utilizar o gateway de gestão de dados ao ligar o SQL Server no local ao Azure Data Factory
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure Data Factory | 
 | **Fase do SDL**               | Implementação |  
@@ -73,7 +73,7 @@ ms.locfileid: "62121328"
 
 ## <a id="identity-https"></a>Certifique-se de que todo o tráfego para o servidor de identidades é através de ligação HTTPS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidades | 
 | **Fase do SDL**               | Implementação |  
@@ -84,7 +84,7 @@ ms.locfileid: "62121328"
 
 ## <a id="x509-ssltls"></a>Certifique-se de X.509 certificados utilizados para autenticar as ligações SSL, TLS e DTLS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -95,7 +95,7 @@ ms.locfileid: "62121328"
 
 ## <a id="ssl-appservice"></a>Configurar certificado SSL para o domínio personalizado no App Service do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -106,7 +106,7 @@ ms.locfileid: "62121328"
 
 ## <a id="appservice-https"></a>Forçar todo o tráfego para o serviço de aplicações do Azure através de ligação HTTPS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -139,7 +139,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="http-hsts"></a>Ativar a segurança de transporte Strict do HTTP (HSTS)
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -150,7 +150,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="sqlserver-validation"></a>Certifique-se o SQL server certificado de encriptação e validação da ligação
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -161,7 +161,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="encrypted-sqlserver"></a>Forçar a comunicação encriptado para o SQL server
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -172,7 +172,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="comm-storage"></a>Certifique-se de que a comunicação para armazenamento do Azure é através de HTTPS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Implementação |  
@@ -183,7 +183,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="md5-https"></a>Validar o MD5 hash depois de transferir o blob caso não é possível ativar o HTTPS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -194,7 +194,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="smb-shares"></a>Utilizar o cliente compatível SMB 3.0 para garantir que a encriptação de dados em trânsito para partilhas de ficheiros do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Compilação |  
@@ -205,7 +205,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="cert-pinning"></a>Implementar a afixação de certificado
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -282,7 +282,7 @@ namespace CertificatePinningExample
 
 ## <a id="https-transport"></a>Ativar o HTTPS - proteger o canal de transporte
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -293,7 +293,7 @@ namespace CertificatePinningExample
 
 ## <a id="message-protection"></a>WCF: Definir o nível de proteção de segurança de mensagem para EncryptAndSign
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -322,7 +322,7 @@ string GetData(int value);
 
 ## <a id="least-account-wcf"></a>WCF: Utilizar uma conta com privilégios mínimos para executar seu serviço do WCF
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -333,7 +333,7 @@ string GetData(int value);
 
 ## <a id="webapi-https"></a>Forçar todo o tráfego para as APIs da Web através de ligação HTTPS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -374,7 +374,7 @@ public class ValuesController : ApiController
  
 ## <a id="redis-ssl"></a>Certifique-se de que a comunicação para a Cache do Azure para o Redis é através de SSL
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cache do Azure para Redis | 
 | **Fase do SDL**               | Compilação |  
@@ -387,7 +387,7 @@ Tenha em atenção que o Redis é projetado para ser acessado por clientes fided
 
 ## <a id="device-field"></a>Proteger o dispositivo para a comunicação de Gateway de campo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -398,7 +398,7 @@ Tenha em atenção que o Redis é projetado para ser acessado por clientes fided
 
 ## <a id="device-cloud"></a>Proteger o dispositivo para a comunicação de Gateway de nuvem utilizando o SSL/TLS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
 | **Fase do SDL**               | Compilação |  

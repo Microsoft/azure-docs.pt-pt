@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952854"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
@@ -74,7 +74,7 @@ Poderá demorar alguns minutos para que a ação de participação ativa entrem 
 2.  No painel de navegação, selecione **do Azure Active Directory**.
 3.  Sob **Manage**, selecione **organizacionais relações**.
 4.  Selecione **definições**.
-5.  Sob **ativar E-Mail uso único código de acesso para convidados (pré-visualização)**, selecione **Sim**.
+5.  Sob **ativar E-Mail uso único código de acesso para convidados (pré-visualização)** , selecione **Sim**.
  
 ### <a name="to-opt-in-using-powershell"></a>Para optar ativamente por participar com o PowerShell
 
@@ -141,7 +141,7 @@ Pode demorar alguns minutos para que a ação de recusa entrem em vigor. Se desa
 2.  No painel de navegação, selecione **do Azure Active Directory**.
 3.  Sob **Manage**, selecione **organizacionais relações**.
 4.  Selecione **definições**.
-5.  Sob **ativar E-Mail uso único código de acesso para convidados (pré-visualização)**, selecione **não**.
+5.  Sob **ativar E-Mail uso único código de acesso para convidados (pré-visualização)** , selecione **não**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desativar a pré-visualização com o PowerShell
 Instalar o módulo do AzureADPreview mais recente, se não o tiver feito (consulte [pré-requisitos: Instalar o módulo mais recente do AzureADPreview](#prerequisite-install-the-latest-azureadpreview-module) acima). Em seguida, certifique-se de que a política de pré-visualização do código de acesso único atualmente existe executando o seguinte:

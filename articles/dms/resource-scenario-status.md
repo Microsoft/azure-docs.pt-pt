@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: 4159b2e7af83030f46d5aca150ef99a1380e711f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473013"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de cenários de migração suportados pelo Azure Database Migration Service
@@ -39,7 +39,7 @@ As tabelas seguintes mostram quais cenários de migração são suportados quand
 ### <a name="offline-one-time-migration-support"></a>Suporte de migração (única) offline
 A tabela seguinte mostra o suporte de serviço de migração de base de dados do Azure para migrações offline.
 
-| Destino  | Origem | Suporte | Estado |
+| Destino  | source | Suporte | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | RDS SQL |  |  |
@@ -58,7 +58,7 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 ### <a name="online-continuous-sync-migration-support"></a>Suporte de migração online (sincronização contínua)
 A tabela seguinte mostra o suporte de serviço de migração de base de dados do Azure para migrações online.
 
-| Destino  | Origem | Suporte | Estado |
+| Destino  | source | Suporte | Estado |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |

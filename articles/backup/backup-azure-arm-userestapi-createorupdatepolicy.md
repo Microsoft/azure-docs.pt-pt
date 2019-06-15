@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60648810"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de cópia de segurança de serviços de recuperação do Azure com a REST API
@@ -53,7 +53,7 @@ Por exemplo, para criar uma política de cópia de segurança de VM do Azure, se
 |Name  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |properties     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
-|etiquetas     |         | Object        |  Etiquetas de recursos       |
+|tags     |         | Object        |  Etiquetas de recursos       |
 
 Para obter a lista completa das definições no corpo do pedido, consulte a [documento da REST API de política de cópia de segurança](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -152,7 +152,7 @@ A política diz:
 > [!IMPORTANT]
 > Os formatos de hora para agendamento e retenção suportam apenas DateTime. Eles não suportam o formato de hora sozinho.
 
-## <a name="responses"></a>Respostas
+## <a name="responses"></a>Responses
 
 A criação/atualização da política de cópia de segurança é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que esta operação cria outra operação que tem de ser registados em separado.
 

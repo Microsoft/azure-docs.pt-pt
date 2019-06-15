@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869366"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094431"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Tutorial: Integração do Active Directory do Azure com Pingboard
 
@@ -55,7 +55,7 @@ Para configurar a integração do Pingboard com o Azure AD, terá de adicionar P
 
 **Para adicionar Pingboard a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -224,7 +224,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Pingbo
 
     a. Na **FullName** caixa de texto, como o tipo o nome completo do utilizador **Eduarda Almeida**.
 
-    b. Na **E-Mail** caixa de texto, como o tipo de endereço de e-mail do utilizador **brittasimon@contoso.com**.
+    b. Na **E-Mail** caixa de texto, como o tipo de endereço de e-mail do utilizador **brittasimon@contoso.com** .
 
     c. Na **cargo** caixa de texto, escreva o cargo da Eduarda Almeida.
 
@@ -239,7 +239,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Pingbo
     > [!NOTE]
     > O titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40ae634897361219c39e60d2161d3576cc44a400
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077533"
 ---
-Para criar rapidamente uma VNet, pode clicar em "Tentá-lo" neste artigo para abrir a consola do PowerShell. Ajuste os valores e copie e cole os comandos na janela da consola. Para saber mais sobre o novo módulo Az e AzureRM compatibilidade, veja [apresentando o novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). Para instruções de instalação do módulo de Az, consulte [instalar o Azure PowerShell](/powershell/azure/install-az-ps).
+Para criar rapidamente uma VNet, pode clicar em "Tentá-lo" neste artigo para abrir a consola do PowerShell no Azure Cloud Shell. Ajuste os valores e copie e cole os comandos na janela da consola. 
 
 Verifique que o espaço de endereços da VNet que criar não se sobrepõe a nenhum dos intervalos de endereços de outras VNets às quais pretenda ligar nem a nenhum dos espaços de endereços da sua rede no local.
 

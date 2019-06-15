@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
 ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776529"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilizar o RDMA ou GPU instâncias em conjuntos do Batch
@@ -43,7 +43,7 @@ As capacidades RDMA ou GPU de tamanhos de computação intensiva no Batch são s
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Conjuntos de Linux - configuração de Máquina Virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>Baseada em centOS HPC<br/>(O azure Marketplace) | Intel MPI 5<br/><br/>Controladores de RDMA do Linux | Ativar a comunicação entre nós, desabilite a execução de tarefa em simultâneo |
 | [NC, a NCv2, NCv3, NDv2 série](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia por série) | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3 ou 7.4<br/>(O azure Marketplace) | Controladores de NVIDIA CUDA ou CUDA Toolkit | N/A | 
@@ -53,7 +53,7 @@ As capacidades RDMA ou GPU de tamanhos de computação intensiva no Batch são s
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Agrupamentos do Windows - configuração de Máquina Virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (do azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Controladores de RDMA do Windows | Ativar a comunicação entre nós, desabilite a execução de tarefa em simultâneo |
 | [NC, a NCv2, a NCv3, ND, NDv2 série](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia por série) | Windows Server 2016 ou <br/>2012 R2 (do Azure Marketplace) | Controladores de NVIDIA CUDA ou CUDA Toolkit| N/A | 
@@ -67,7 +67,7 @@ As capacidades RDMA ou GPU de tamanhos de computação intensiva no Batch são s
 > Tamanhos de série N não são suportados em conjuntos do Batch com a configuração de serviço em nuvem.
 >
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
+| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012, ou<br/>2008 R2 (família de SO convidado) | Microsoft MPI 2012 R2 ou posterior, ou<br/>Intel MPI 5<br/><br/>Controladores de RDMA do Windows | Ativar a comunicação entre nós,<br/> desabilite a execução de tarefa em simultâneo |
 

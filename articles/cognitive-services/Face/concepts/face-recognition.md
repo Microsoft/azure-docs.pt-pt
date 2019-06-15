@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: fa38c492530cb8938e49bc15e13fdd39ed5b6f1c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65890875"
 ---
 # <a name="face-recognition-concepts"></a>Conceitos de reconhecimento de rostos
@@ -37,7 +37,7 @@ As operações de reconhecimento utilizam principalmente as seguinte estruturas 
 
 Esta secção fornece detalhes sobre como as quatro operações de reconhecimento usam as estruturas de dados descritas anteriormente. Para obter uma descrição geral de cada operação de reconhecimento, consulte [descrição geral](../Overview.md).
 
-### <a name="verify"></a>Validar
+### <a name="verify"></a>Verificar
 
 O [Verifique se](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) operação utiliza uma identificação de face de DetectedFace ou PersistedFace e outro face ID ou um objeto Person e determina se a que pertencem à mesma pessoa. Se passar um objeto Person, pode, opcionalmente, passar um PersonGroup a que essa pessoa pertence, para melhorar o desempenho.
 
@@ -45,7 +45,7 @@ O [Verifique se](https://westus.dev.cognitive.microsoft.com/docs/services/563879
 
 O [encontrar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operação utiliza uma identificação de face de DetectedFace ou PersistedFace e um FaceList ou uma matriz de outros IDs de rostos. Com um FaceList, ele retorna um FaceList menor de faces semelhantes para o rosto. Com uma matriz de IDs de rosto, da mesma forma devolve uma matriz de menor.
 
-### <a name="group"></a>Agrupar
+### <a name="group"></a>Grupo
 
 O [grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) operação pega uma matriz de IDs de face variado de DetectedFace ou PersistedFace e retorna os mesmos IDs agrupadas em várias matrizes menores. Cada matriz de "grupos" contém face IDs que ter um aspeto semelhante. Uma matriz de "messyGroup" única contém IDs de rostos para que não existem semelhanças foram encontradas.
 

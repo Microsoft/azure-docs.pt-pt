@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 843a4ef36d633b8b72453ba5eb2b969af4649531
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 674e2178ad5e9f58bbe691fd92f643750e0b91e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>Tutorial: Integração do Active Directory do Azure com Templafy
 
@@ -55,7 +55,7 @@ Para configurar a integração do Templafy com o Azure AD, terá de adicionar Te
 
 **Para adicionar Templafy a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD início de sessão único com Templafy, execute os se
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Name | Atributo de origem| Espaço de nomes  |
+    | Name | Atributo de origem| Espaço de Nomes  |
     | ---------------| --------------- | --------- |
     | givenName | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | Apelido | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
@@ -216,7 +216,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Templafy. Templafy suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Templafy, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -4,16 +4,15 @@ description: Este início rápido mostra como começar ao criar uma tarefa do St
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 12/20/2018
+ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: bd27495266918063c65bf4648b3453e25767e293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303003"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076208"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Início rápido: Criar uma tarefa de Stream Analytics, utilizando as ferramentas do Azure Stream Analytics para Visual Studio
 
@@ -113,7 +112,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
    |---------|---------|---------|
    |Alias de Entrada  |  Input   |  Introduza um nome para identificar a entrada da tarefa.   |
    |Tipo de Fonte   |  Fluxo de Dados |  Escolha a origem de entrada apropriada: Stream de dados ou dados de referência.   |
-   |Source  |  IoT Hub |  Escolha a origem de entrada adequada.   |
+   |source  |  IoT Hub |  Escolha a origem de entrada adequada.   |
    |Resource  | Escolha a origem de dados na conta atual | Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
    |Subscrição  |  \<A sua subscrição\>   | Selecione a subscrição do Azure com o IoT Hub que criou.   |
    |IoT Hub  |  MyASAIoTHub   |  Selecione ou introduza o nome do IoT Hub. Os nomes do IoT Hub são detetados automaticamente se forem criados na mesma subscrição.   |

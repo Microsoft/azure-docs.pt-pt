@@ -6,17 +6,16 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: danimir
+ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
+manager: craigg
+ms.date: 01/25/2019
 ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584833"
 ---
 # <a name="monitor-and-improve-performance"></a>Monitorizar e melhorar o desempenho
@@ -41,10 +40,10 @@ Esta vista fornece um resumo de desempenho da sua base de dados e ajuda-o com o 
 
 ![Desempenho](./media/sql-database-performance/performance.png)
 
-* O **recomendações** mosaico fornece uma repartição da otimização de recomendações para a sua base de dados (recomendações de três principais são apresentadas se existem mais). Clicar neste mosaico leva-o para  **[recomendações de desempenho](#performance-recommendations)**. 
+* O **recomendações** mosaico fornece uma repartição da otimização de recomendações para a sua base de dados (recomendações de três principais são apresentadas se existem mais). Clicar neste mosaico leva-o para  **[recomendações de desempenho](#performance-recommendations)** . 
 * O **atividade da otimização** mosaico fornece um resumo em curso e concluídas, ajuste as ações de sua base de dados, dando-lhe uma vista rápida sobre o histórico de atividade da otimização. Clicar neste mosaico leva-o para a vista de histórico de ajuste completa da base de dados.
 * O **Auto-ajuste** mosaico mostra o [auto-ajuste da configuração](sql-database-automatic-tuning-enable.md) da base de dados (Ajuste as opções que são aplicadas automaticamente à base de dados). Clicar neste mosaico abre a caixa de diálogo de configuração de automatização.
-* O **consultas de base de dados** mosaico mostra o resumo de desempenho da consulta da base de dados (geral DTU utilização e de cima recurso consultas de consumo). Clicar neste mosaico leva-o para  **[Query Performance Insight](#query-performance-insight)**.
+* O **consultas de base de dados** mosaico mostra o resumo de desempenho da consulta da base de dados (geral DTU utilização e de cima recurso consultas de consumo). Clicar neste mosaico leva-o para  **[Query Performance Insight](#query-performance-insight)** .
 
 ## <a name="performance-recommendations"></a>Recomendações de desempenho
 
@@ -74,7 +73,7 @@ Bases de dados SQL do Azure automaticamente podem otimizar o desempenho da base 
 
   ![dashboard de desempenho](./media/sql-database-query-performance/performance.png)
 
-Encontrar mais informações sobre esta página no artigo  **[como utilizar o Query Performance Insight](sql-database-query-performance.md)**.
+Encontrar mais informações sobre esta página no artigo  **[como utilizar o Query Performance Insight](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

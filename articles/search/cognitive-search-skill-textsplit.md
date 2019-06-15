@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: c7f5fda405ca0e5ba9cf1dd0ed44c47cd3ee74b1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949854"
 ---
 #   <a name="text-split-cognitive-skill"></a>Texto a dividir competências cognitivas
@@ -43,7 +43,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro       | Descrição      |
 |----------------------|------------------|
-| text  | O texto a dividir em subcadeia. |
+| texto  | O texto a dividir em subcadeia. |
 | languageCode  | (Opcional) Código de idioma para o documento.  |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades 

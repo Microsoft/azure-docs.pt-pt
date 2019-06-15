@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 199f531485a6a6c9ea234b35a7dbb88b66b3067c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: Integração do Active Directory do Azure com o diretor de gastar SciQuest
 
@@ -54,7 +54,7 @@ Para configurar a integração do diretor de gastar SciQuest com o Azure AD, ter
 
 **Para adicionar o diretor de gastar SciQuest partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -195,7 +195,7 @@ Se o aprovisionamento de just-in-time estiver ativado, os utilizadores são cria
 
 Para obter just-in-time aprovisionamento ativada, terá de contactar o seu [equipa de suporte de diretor de gastar SciQuest](https://www.jaggaer.com/contact-us/).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

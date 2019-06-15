@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067397"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Registos do servidor na base de dados do Azure para PostgreSQL - servidor único
@@ -40,7 +40,7 @@ A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final
 | TenantId | O ID de inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de hora quando o registo foi registado em UTC |
-| Type | Tipo do registo. Sempre `AzureDiagnostics` |
+| Tipo | Tipo do registo. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID da subscrição que o servidor pertence a |
 | ResourceGroup | Nome do grupo de recursos do servidor pertence a |
 | ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
@@ -50,7 +50,7 @@ A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Exemplo de nível de registo: LOG, ERROR, NOTICE |
-| Mensagem | Mensagem do registo principal | 
+| Message | Mensagem do registo principal | 
 | Domain | Versão do servidor, por exemplo: postgres 10 |
 | Detalhe | Mensagem do registo secundário (se aplicável) |
 | ColumnName | Nome da coluna (se aplicável) |

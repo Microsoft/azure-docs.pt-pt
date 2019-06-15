@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9c9a4b41dbb9b9acc2982ae2af1f3a611f9d3beb
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65228268"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copiar dados do Google Cloud Storage com o Azure Data Factory
@@ -38,7 +38,7 @@ Especificamente, este conector do Google Cloud Storage oferece suporte a cópia 
 
 Para copiar dados do Google Cloud Storage, certifique-se de que lhe foram concedidas as permissões seguintes:
 
-- **Para a execução de atividade de cópia:**: `s3:GetObject` e `s3:GetObjectVersion` para operações do objeto.
+- **Para a execução de atividade de cópia:** : `s3:GetObject` e `s3:GetObjectVersion` para operações do objeto.
 - **Para a criação de GUI da fábrica de dados**: `s3:ListAllMyBuckets` e `s3:ListBucket` / `s3:GetBucketLocation` para operações de Bucket são necessárias permissões de adicionalmente para operações como ligação de teste e procurar/navegue caminhos de ficheiros. Se não pretender conceder essas permissões, ignore a ligação de teste na página de criação do serviço ligado e especifique o caminho diretamente nas definições do conjunto de dados.
 
 ## <a name="getting-started"></a>Introdução
@@ -56,7 +56,7 @@ As seguintes propriedades são suportadas para o serviço ligado de armazenament
 | type | A propriedade de tipo deve ser definida como **AmazonS3**. | Sim |
 | accessKeyId | ID da chave de acesso a segredos. Para localizar a chave de acesso e o segredo, aceda a **Google Cloud Storage** > **definições** > **interoperabilidade**. |Sim |
 | secretAccessKey | A chave de acesso a segredos em si. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| serviceUrl | Especifique o ponto de final de S3 personalizado como **`https://storage.googleapis.com`**. | Sim |
+| serviceUrl | Especifique o ponto de final de S3 personalizado como **`https://storage.googleapis.com`** . | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 Segue-se um exemplo:

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 45d575488db8d740069fba961203842899024747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807191"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
 
@@ -267,11 +267,13 @@ Quando implementa \<parceiro > software, a Microsoft é capaz de identificar a i
 
 ## <a name="get-support"></a>Obter suporte
 
-Se encontrar algum problema com o relatório ou iniciar sessão no Centro de parceiros, crie um pedido de suporte com a equipa de suporte do Centro de parceiros: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+Existem dois canais de suporte, consoante os problemas que está a enfrentar.
+
+Se tiver quaisquer problemas no Centro de parceiros, como a ver o relatório de atribuição de utilização do cliente ou ao iniciar sessão, crie um pedido de suporte com a equipa de suporte do Centro de parceiros: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
-Se precisar de assistência de integração do Marketplace e/ou atribuição de utilização do cliente, siga estes passos.
+Se precisar de assistência para atribuição de utilização de integração do Marketplace e/ou dos clientes em geral, por exemplo, como configurar a atribuição de utilização do cliente, siga os passos abaixo:
 
 1. Vá para o [página de suporte](https://go.microsoft.com/fwlink/?linkid=844975).
 

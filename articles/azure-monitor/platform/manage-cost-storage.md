@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 8eeb29b2d1fe17ae5581dab81c34d5c2c635a6c2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061045"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com os registos do Azure Monitor
 
@@ -108,10 +108,12 @@ Os passos seguintes descrevem como configurar o registo quanto dados são mantid
 
 ## <a name="legacy-pricing-tiers"></a>Escalões de preços legado
 
-As subscrições que tinham uma área de trabalho do Log Analytics ou o recurso do Application Insights no mesmo antes de 2 de Abril de 2018, ou que estão ligadas a um contrato Enterprise que iniciaram antes de 1 de Fevereiro de 2019 continuará a ter acesso aos escalões de preços legado: Gratuito, autónomo (por GB) e por nó (OMS).  Áreas de trabalho no escalão de preço gratuito terá a ingestão de dados diária limitada a 500 MB (exceto para tipos de dados de segurança recolhidos pelo centro de segurança do Azure) e a retenção de dados está limitada a 7 dias. O escalão de preço gratuito destina-se apenas para fins de avaliação. Áreas de trabalho a autónoma ou por nó escalões de preço tem acesso a retenção de dados até 2 anos. 
+As subscrições que tinham uma área de trabalho do Log Analytics ou o recurso do Application Insights no mesmo antes de 2 de Abril de 2018, ou que estão ligadas a um contrato Enterprise que iniciaram antes de 1 de Fevereiro de 2019 continuará a ter acesso aos escalões de preços legado: **Livre**, **autónomo (por GB)** e **por nó (OMS)** .  Áreas de trabalho no escalão de preço gratuito terá a ingestão de dados diária limitada a 500 MB (exceto para tipos de dados de segurança recolhidos pelo centro de segurança do Azure) e a retenção de dados está limitada a 7 dias. O escalão de preço gratuito destina-se apenas para fins de avaliação. Áreas de trabalho a autónoma ou por nó escalões de preço tem retenção configurável pelo utilizador de até dois anos. 
 
 > [!NOTE]
 > Para utilizar a elegibilidade incluída na compra de OMS E1 Suite, OMS E2 Suite ou do suplemento OMS para o System Center, escolha o Log Analytics *por nó* escalão de preço.
+
+Os adotantes mais antigo do Log Analytics também tem acesso aos escalões de preço originais **padrão** e **Premium**, que corrigir a retenção de dados de 30 a 365 dias, respetivamente. 
 
 ## <a name="changing-pricing-tier"></a>Alterar o escalão de preço
 
@@ -410,6 +412,11 @@ Quando criar o alerta para a segunda consulta – quando se previr que vai haver
 Especifique um existente ou crie um novo [Grupo de Ação](action-groups.md), para que quando o alerta de registo corresponda aos critérios, seja notificado.
 
 Quando receber um alerta, utilize os passos da secção seguinte para resolver o motivo pelo qual a utilização é superior ao esperado.
+
+## <a name="limits-summary"></a>Resumo de limites
+
+Existem alguns limites adicionais do Log Analytics, algumas das quais dependem do escalão de preço do Log Analytics. Estas estão documentadas [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

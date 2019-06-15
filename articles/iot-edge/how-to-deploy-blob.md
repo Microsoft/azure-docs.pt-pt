@@ -10,10 +10,10 @@ ms.custom: seodec18
 ms.reviewer: arduppal
 manager: philmea
 ms.openlocfilehash: d844e81de9cfb556e91ab5c0d5a8074c822cce0a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990476"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Implementar o armazenamento de Blobs do Azure no módulo do IoT Edge no seu dispositivo
@@ -157,7 +157,7 @@ O Azure IoT Edge fornece modelos no Visual Studio Code para ajudar a desenvolver
    | ----- | ----- |
    | Selecionar pasta | Escolha a localização no computador de desenvolvimento para o Visual Studio Code criar os arquivos da solução. |
    | Indicar um nome para a solução | Introduza um nome descritivo para a sua solução ou aceite a predefinição **EdgeSolution**. |
-   | Selecionar modelo de módulo | Escolher **módulo existente (URL de imagem completa de Enter)**. |
+   | Selecionar modelo de módulo | Escolher **módulo existente (URL de imagem completa de Enter)** . |
    | Indicar um nome para o módulo | Introduza um nome em minúsculas para seu módulo, como **azureblobstorage**.<br /><br />É importante utilizar um nome em minúsculas para o armazenamento de Blobs do Azure no módulo do IoT Edge. IoT Edge diferencia maiúsculas de minúsculas quando nos Referimos aos módulos e o SDK de armazenamento por predefinição em minúsculas. |
    | Forneça a imagem do Docker para o módulo | Forneça o URI da imagem: **mcr.microsoft.com/azure-blob-storage:latest** |
 

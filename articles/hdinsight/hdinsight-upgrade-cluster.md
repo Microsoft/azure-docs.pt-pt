@@ -7,12 +7,12 @@ ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: b5048266fe17bc16fba8228f7cc17d0ee9f3bc0b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4d391c095495a3d0e34a2111d7b4564e6f4f2b8d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071997"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Atualizar o cluster do HDInsight para uma versão mais recente
 Para tirar partido das funcionalidades mais recentes do HDInsight, é recomendável que os clusters do HDInsight ser atualizados para a versão mais recente. Siga as diretrizes para atualizar seu HDInsight abaixo as versões de cluster.
@@ -27,9 +27,8 @@ Segue-se o fluxo de trabalho para atualizar o Cluster do HDInsight.
 
 1. Leia cada secção deste documento para compreender as alterações que possam ser necessárias ao atualizar o seu cluster do HDInsight.
 2. Crie um cluster como um ambiente de garantia de qualidade/teste. Para obter mais informações sobre como criar um cluster, consulte [Saiba como criar clusters do HDInsight baseado em Linux](hdinsight-hadoop-provision-linux-clusters.md)
-3. Copie as tarefas existentes e Coletores de origens de dados para o novo ambiente. Ver [copiar dados para ambiente de teste](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) para obter mais detalhes.
+3. Copie as tarefas existentes e Coletores de origens de dados para o novo ambiente.
 4. Execute os testes de validação para se certificar de que as tarefas funcionam conforme esperado no novo cluster.
-
 
 Assim que tiver verificado que tudo funciona conforme esperado, agende o período de indisponibilidade para a migração. Durante este período de indisponibilidade, efetue as seguintes ações:
 

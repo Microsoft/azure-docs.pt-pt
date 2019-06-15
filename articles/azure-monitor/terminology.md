@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2019
 ms.author: bwren
 ms.openlocfilehash: 8f645f7d569546a8362d0149806a2b4636567fd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61086753"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Alterações do Azure de nomenclatura e terminologia de Monitor
@@ -30,7 +30,7 @@ Azure monitorizar registo de dados ainda são armazenado numa área de trabalho 
 
 O termo _do log analytics_ agora aplica-se sobretudo para a página no portal do Azure utilizada para escrever e executar consultas e analisar dados de registo. É o equivalente funcional [Explorador de métricas](platform/metrics-charts.md), que é a página no portal do Azure utilizado para analisar dados de métrica.
 
-### <a name="log-analytics-workspaces"></a>Áreas de trabalho do Log Analytics
+### <a name="log-analytics-workspaces"></a>Áreas de trabalho do log Analytics
 [Áreas de trabalho](platform/manage-access.md) que contêm dados de registo no Azure Monitor ainda são referidos como áreas de trabalho do Log Analytics. O **do Log Analytics** menu no portal do Azure foi renomeada para **áreas de trabalho do Log Analytics** e é onde [criar novas áreas de trabalho](learn/quick-create-workspace.md) e configurar origens de dados. Analisar os registos e outros dados de monitorização no **do Azure Monitor** e configure a sua área de trabalho **áreas de trabalho do Log Analytics**.
 
 ### <a name="management-solutions"></a>Soluções de gestão

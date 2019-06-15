@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111259"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com um modelo Azure Resource Manager
@@ -169,7 +169,7 @@ Para implementar os recursos com o Azure PowerShell, mude para a pasta onde guar
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Utilizar a CLI do Azure para implementar o modelo
 
-### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 1. Execute o seguinte comando para iniciar sessão no Azure:
 

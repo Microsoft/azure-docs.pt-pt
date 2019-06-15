@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
 ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411573"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Transfira o Azure SDK para PHP
@@ -28,9 +28,9 @@ ms.locfileid: "65411573"
 O Azure SDK para PHP inclui componentes que permitem desenvolver, implementar e gerir aplicações do PHP para o Azure. Especificamente, o Azure SDK para PHP inclui o seguinte:
 
 * **As bibliotecas de cliente PHP para Azure**. Estas bibliotecas de classe fornecem uma interface para aceder a funcionalidades do Azure, como os serviços de gestão de dados e serviços em nuvem.
-* **A Interface de linha de comandos do Azure para Mac, Linux e Windows (CLI do Azure)**. Este é um conjunto de comandos para implementar e gerir serviços do Azure, como Web sites do Azure e máquinas virtuais do Azure. O trabalho de CLI do Azure em qualquer plataforma, incluindo a Mac, Linux e Windows.
-* **O Azure PowerShell (apenas Windows)**. Este é um conjunto de cmdlets do PowerShell para implementar e gerir serviços do Azure, como serviços Cloud e máquinas virtuais.
-* **Os emuladores do Azure (apenas Windows)**. Os emuladores de computação e armazenamento são emuladores locais de serviços cloud e serviços de gestão de dados que lhe permitem testar uma aplicação localmente. Os emuladores do Azure executados apenas no Windows.
+* **A Interface de linha de comandos do Azure para Mac, Linux e Windows (CLI do Azure)** . Este é um conjunto de comandos para implementar e gerir serviços do Azure, como Web sites do Azure e máquinas virtuais do Azure. O trabalho de CLI do Azure em qualquer plataforma, incluindo a Mac, Linux e Windows.
+* **O Azure PowerShell (apenas Windows)** . Este é um conjunto de cmdlets do PowerShell para implementar e gerir serviços do Azure, como serviços Cloud e máquinas virtuais.
+* **Os emuladores do Azure (apenas Windows)** . Os emuladores de computação e armazenamento são emuladores locais de serviços cloud e serviços de gestão de dados que lhe permitem testar uma aplicação localmente. Os emuladores do Azure executados apenas no Windows.
 
 As secções abaixo descrevem como transferir e instalar os componentes descritos acima.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99cc3ea94422ea76a7fb71330fa234a4003f9467
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d6bd02bcd52808af43c2254304c56fee76903c73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Integração do Active Directory do Azure com a humanidade
 
@@ -53,7 +53,7 @@ Para configurar a integração de humanidade com o Azure AD, terá de adicionar 
 
 **Para adicionar humanidade a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -235,7 +235,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão na humanidade, tem de
 > [!NOTE]
 > Pode utilizar quaisquer outras humanidade utilizador conta criação ferramentas ou APIs fornecidas pela Humanidade para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

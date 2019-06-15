@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a66aefec69a0551f85b11a380c90d1915bd776
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: f57b0189708f48d1dc403ce778f5f9693b6dc702
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474200"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110384"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -339,7 +339,7 @@ Para obter mais informações, consulte [resolver problemas de erros durante a s
 
 ---
 
-### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Maior segurança através da política de acesso condicional com base em proteção de aplicações no Azure AD (pré-visualização pública)
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>Maior segurança usando a política de acesso condicional com base na proteção da aplicação no Azure AD (pré-visualização pública)
 
 **Tipo:** Novo recurso  
 **Categoria de serviço:** Acesso Condicional  
@@ -357,13 +357,13 @@ Para obter mais informações, consulte [como requerer a política de proteção
 
 ---
 
-### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Novo suporte para acesso do Azure AD único início de sessão e condicional no Microsoft Edge (pré-visualização pública)
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>Novo suporte para o Azure AD início de sessão único e acesso condicional no Microsoft Edge (pré-visualização pública)
 
 **Tipo:** Novo recurso  
 **Categoria de serviço:** Acesso Condicional  
 **Capacidade de produto:** Identidade segurança e proteção
 
-Melhorámos o nosso suporte do Azure AD para o Microsoft Edge, inclusive fornecendo o novo suporte para acesso de início de sessão e condicional único no Azure AD. Se tiver utilizado anteriormente o Microsoft Intune Managed Browser, pode agora utilizar a Microsoft Edge em vez disso.
+Melhorámos o nosso suporte do Azure AD para o Microsoft Edge, inclusive fornecendo o novo suporte para o Azure AD início de sessão único e acesso condicional. Se tiver utilizado anteriormente o Microsoft Intune Managed Browser, pode agora utilizar a Microsoft Edge em vez disso.
 
 Para obter mais informações sobre como configurar e gerir os seus dispositivos e aplicações através do acesso condicional, consulte [exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) e [necessitam de aplicações de cliente para a cloud aprovadas acesso de aplicação com acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Para obter mais informações sobre como gerir o acesso com o Microsoft Edge com políticas do Microsoft Intune, consulte [acesso à Internet de gerir através de um browser do Microsoft Intune protegido por política](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
@@ -477,7 +477,7 @@ Para obter mais informações sobre a nova **registos de auditoria** página, co
 **Categoria de serviço:** Acesso Condicional  
 **Capacidade de produto:** Identidade segurança e proteção
 
-Para ajudar a impedir que os administradores bloqueiem acidentalmente a próprios fora de seus próprios inquilinos através de políticas de acesso condicional configuradas incorretamente, nós criamos novos avisos e orientações atualizadas no portal do Azure. Para obter mais informações sobre as novas diretrizes, consulte [quais são as dependências do serviço de acesso condicional do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+Para ajudar a impedir que os administradores bloqueiem acidentalmente a próprios fora de seus próprios inquilinos através de políticas de acesso condicional configuradas incorretamente, nós criamos novos avisos e orientações atualizadas no portal do Azure. Para obter mais informações sobre as novas diretrizes, consulte [quais são as dependências do serviço no Azure Active Directory condicional acesso](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 

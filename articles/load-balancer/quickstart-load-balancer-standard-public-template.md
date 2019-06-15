@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 0e47560ca43b23f4779da701f3e6f11f53a6b1ce
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: c418041c5de343d7210dbd153ebe6cea0af95c42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066801"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>Início rápido: Criar um Standard Balanceador de carga para balancear carga de VMs com o modelo Azure Resource Manager
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Nesta secção, vai criar um balanceador de carga Standard que ajuda a máquinas virtuais de balanceamento de carga. O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Quando cria um Balanceador de Carga Standard, também tem de criar um endereço IP Público Standard novo que seja configurado como o front-end (denominado *LoadBalancerFrontend* por predefinição) para o mesmo. Existem vários métodos que podem ser utilizados para criar um balanceador de carga standard. Neste início rápido, vai utilizar do Azure PowerShell para implementar um [modelo do Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-load-balancer-standard-create/azuredeploy.json). Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão de suas soluções do Azure, veja [documentação do Azure Resource Manager](/azure/azure-resource-manager/). Para obter mais modelo relacionado do Balanceador de carga do Azure, veja [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
-Para implementar o modelo, selecione **experimente** para abrir o Azure Cloud shell e, em seguida, cole o seguinte script do PowerShell para a janela do shell. Colar o código, com o botão direito da janela do shell e, em seguida, selecione **colar**.
+Para implementar o modelo, selecione **experimente** para abrir o Azure Cloud shell e, em seguida, cole o seguinte script do PowerShell para a janela do shell. Colar o código, com o botão direito da janela do shell e, em seguida, selecione **colar**. Para obter uma lista de regiões que suportam a zona de disponibilidade para máquinas virtuais do Azure, consulte [aqui](../availability-zones/az-overview.md).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
@@ -45,9 +45,13 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -location $location -adminUsername $adminUsername -adminPassword $adminPassword
+
+Write-Host "Press [ENTER] to continue."
+
 ```
 
-Observe que o nome do grupo de recursos é o nome do projeto com **rg** anexado. Tem o nome do grupo de recursos na secção seguinte.  Demora alguns minutos para criar os recursos.
+ >[!NOTE]
+ >O nome de grupo de recursos é o nome do projeto com **rg** anexado. Tem o nome do grupo de recursos na secção seguinte.  Demora alguns minutos para criar os recursos.
 
 ## <a name="test-the-load-balancer"></a>Testar o Balanceador de carga
 

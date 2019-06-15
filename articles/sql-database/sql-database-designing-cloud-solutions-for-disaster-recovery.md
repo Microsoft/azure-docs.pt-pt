@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61488187"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Criando serviços globalmente disponíveis com a base de dados do Azure SQL
@@ -153,7 +153,7 @@ No entanto, existem algumas **compensações**:
 
 Sua estratégia de recuperação de desastres de cloud específico pode combinar ou expandir estes padrões de design para melhor satisfazer as necessidades da sua aplicação.  Como mencionado anteriormente, a estratégia que escolher baseia-se no SLA que pretende para oferecer aos seus clientes e a topologia de implementação de aplicação. Para ajudar a orientar a sua decisão, a tabela seguinte compara as opções com base no objetivo de ponto de recuperação (RPO) e a hora da recuperação estimada (ERT).
 
-| Padrão | RPO: | ERT |
+| Padrão | RPO | ERT |
 |:--- |:--- |:--- |
 | Implementação ativa-passiva para recuperação após desastre com acesso de base de dados localizadas conjuntamente |Acesso de leitura-escrita < 5 s |Hora da deteção de falha + TTL de DNS |
 | Implementação de ativo-ativo para o balanceamento de carga do aplicativo |Acesso de leitura-escrita < 5 s |Hora da deteção de falha + TTL de DNS |

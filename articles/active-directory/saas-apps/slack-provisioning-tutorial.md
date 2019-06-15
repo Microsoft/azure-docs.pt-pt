@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964388"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar o Slack para aprovisionamento automático de utilizadores
@@ -116,7 +116,7 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
   * Suporta carateres não ingleses, espaços, uso. 
   
-  * Permitido pontuação inclui pontos finais, carateres de sublinhado, hífenes, apóstrofos, parênteses Retos (por exemplo, **([{}])**) e os separadores (por exemplo, **, /;**).
+  * Permitido pontuação inclui pontos finais, carateres de sublinhado, hífenes, apóstrofos, parênteses Retos (por exemplo, **([{}])** ) e os separadores (por exemplo, **, /;** ).
   
   * Apenas atualiza se estas duas definições estão configuradas na área de trabalho/organização do Slack - **perfil a sincronização está ativada** e **os utilizadores não é possível alterar o nome a apresentar**.
   

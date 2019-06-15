@@ -11,10 +11,10 @@ ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
 ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922251"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP através do SSH e o Azure Logic Apps
@@ -99,7 +99,7 @@ Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conect
    Abaixo da lista de ações, selecione a ação que pretende.
 
    Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
 1. Forneça os detalhes necessários para a sua ligação.
 
@@ -138,7 +138,7 @@ Quando um acionador localiza um novo ficheiro, o acionador verifica que o novo f
 
 Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros maiores do que 15 MB. Para obter ficheiros maiores do que 15 MB, siga este padrão: 
 
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
 
 * Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -154,7 +154,7 @@ Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando um
 
 Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros maiores do que 15 MB. Para obter ficheiros maiores do que 15 MB, siga este padrão: 
 
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
 
 * Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -166,7 +166,7 @@ Esta ação obtém o conteúdo de um arquivo num servidor SFTP. Por exemplo, pod
 
 Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros maiores do que 15 MB. Para obter ficheiros maiores do que 15 MB, siga este padrão: 
 
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
 
 * Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
 

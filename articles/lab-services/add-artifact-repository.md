@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: c1e74efa9cf99e8510ea17aedc840ce3b0731c3b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7ff036fbdf3ae9360bed8d728b9bec3a1937b70a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808244"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefactos para seu laboratório no DevTest Labs
-DevTest Labs permite-lhe especificar um artefacto a ser adicionados a uma VM no momento da criação da VM ou após a VM é criada. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar na VM. Artefactos são definidos num ficheiro JSON carregado de um repositório do GitHub ou o Git do VSTS. 
+DevTest Labs permite-lhe especificar um artefacto a ser adicionados a uma VM no momento da criação da VM ou após a VM é criada. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar na VM. Artefactos são definidos num ficheiro JSON carregado de um repositório do GitHub ou o Git de DevOps do Azure. 
 
 O [repositório público de artefactos](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), mantidos pelo DevTest Labs, fornece várias ferramentas comuns para Windows e Linux. Uma ligação para este repositório é automaticamente adicionada ao seu laboratório. Pode criar seu próprio repositório de artefactos com ferramentas específicas que não estão disponíveis no repositório público de artefactos. Para saber mais sobre como criar artefactos personalizados, veja [criar artefactos personalizados](devtest-lab-artifact-author.md).
 
@@ -46,7 +46,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 10. Feche o GitHub.   
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtenha o clone de repositórios do Azure, URL e o token de acesso pessoal
-1. Vá para a home page de sua coleção de equipe (por exemplo, https://contoso-web-team.visualstudio.com)e, em seguida, selecione seu projeto.
+1. Vá para a home page de sua coleção de equipe (por exemplo, https://contoso-web-team.visualstudio.com) e, em seguida, selecione seu projeto.
 2. Na home page do projeto, selecione **código**.
 3. Para ver o URL do clone, no projeto **código** página, selecione **Clone**.
 4. Guarde o URL. Utilize o URL mais tarde.

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
 ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701381"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Interfaces de rede para adicionar ou remover interfaces de rede de máquinas virtuais
@@ -35,7 +35,7 @@ Se precisa para adicionar, alterar ou remover endereços IP para uma interface d
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 - Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
+- Se utilizar o portal, abra https://portal.azure.com e inicie sessão com a sua conta do Azure.
 - Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a versão 2.0.26 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
@@ -56,7 +56,7 @@ Antes de criar a VM, criar uma interface de rede, utilizando os passos em [criar
 
 1. Inicie sessão no Portal do Azure.
 2. Na caixa de pesquisa na parte superior do portal, escreva o nome da VM à qual pretende adicionar a interface de rede ou navegue para a VM selecionando **todos os serviços**e, em seguida **máquinas virtuais**. Depois de encontrar a VM, selecione-o. A VM tem de suportar o número de interfaces de rede que pretende adicionar. Para obter informações sobre cada tamanho de VM do interfaces de rede quantos suporta, consulte [tamanhos de máquinas de virtuais do Linux no Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [máquinas de virtuais de tamanhos para Windows no Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Selecione **descrição geral**, em **definições**. Selecione **parar**e, em seguida, aguarde até a **estado** da VM é alterado para **parada (desalocada)**.
+3. Selecione **descrição geral**, em **definições**. Selecione **parar**e, em seguida, aguarde até a **estado** da VM é alterado para **parada (desalocada)** .
 4. Selecione **Networking**, em **definições**.
 5. Selecione **interface de rede Attach**. Na lista de interfaces de rede que não estão atualmente anexadas à outra VM, selecione aquela que pretende anexar.
 
@@ -95,7 +95,7 @@ Pode ver as interfaces de rede atualmente anexadas a uma VM para saber mais sobr
 
 1. Inicie sessão no Portal do Azure.
 2. Na caixa de pesquisa na parte superior do portal, procure o nome da VM que pretende remover (desligar) a interface de rede da ou navegue para a VM selecionando **todos os serviços**e, em seguida **máquinas virtuais**. Depois de encontrar a VM, selecione-o.
-3. Selecione **descrição geral**, em **definições**e, em seguida **parar**. Aguarde até que o **Status** da VM é alterado para **parada (desalocada)**.
+3. Selecione **descrição geral**, em **definições**e, em seguida **parar**. Aguarde até que o **Status** da VM é alterado para **parada (desalocada)** .
 4. Selecione **Networking**, em **definições**.
 5. Selecione **interface de rede de anulação de exposições**. Na lista de interfaces de rede atualmente anexadas à máquina virtual, selecione a interface de rede que pretende desligar.
 

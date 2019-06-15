@@ -12,12 +12,12 @@ ms.date: 09/19/2018
 ms.author: mimart
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12370d54500dbc1fcd6f812206fdfea3e5298112
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b39704b25c26998e16ca8080c4e44dd1adf6965c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826085"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108222"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para a migração de aplicativos para o Azure Active Directory
 
@@ -32,6 +32,6 @@ Recursos para ajudar a migrar o acesso à aplicação e a autenticação para o 
 | [Plano de implantação: Migrar do AD FS para autenticação pass-through](https://aka.ms/ADFSTOPTADPDownload)|Autenticação pass-through do Azure AD ajuda os utilizadores que inicie sessão no local e aplicações baseadas na cloud com a mesma palavra-passe. Esta funcionalidade fornece os seus utilizadores com uma melhor experiência, uma vez que eles têm um menos palavra-passe para se lembrar. Também reduz os custos de suporte técnico de TI vez que os usuários têm menos probabilidade de esquecer como iniciar sessão, quando apenas precisarem de Lembre-se de uma palavra-passe. Quando as pessoas iniciam sessão com o Azure AD, esta funcionalidade valida as respetivas palavras-passe diretamente no seu Active Directory no local.|
 | [Plano de implantação: Ativar o início de sessão único para uma aplicação SaaS com o Azure AD](https://aka.ms/SSODPDownload) | Única início de sessão (SSO) ajuda a que aceder a todas as aplicações e recursos de que precisa para fazer negócio, ao iniciar sessão apenas uma vez, com uma conta de utilizador único. Por exemplo, após um utilizador tem sessão iniciada, o utilizador pode mover da Microsoft Office, ao SalesForce, a caixa sem autenticação (por exemplo, escrever uma palavra-passe) uma segunda vez. 
 | [Plano de implantação: Alargamento das aplicações para o Azure AD com o Proxy de aplicações](https://aka.ms/AppProxyDPDownload)| Fornecer acesso a partir de computadores portáteis de funcionários e outros dispositivos para locais aplicativos sempre envolveu redes privadas virtuais (VPNs) ou desmilitarizada zonas (DMZs). Estas soluções não só são complexas e difíceis de proteger, como também são caras em termos de configuração e gestão. Proxy de aplicações do Azure AD torna mais fácil para aceder a aplicações no local. |
-| [Planos de implantação](../fundamentals/active-directory-deployment-plans.md) | Encontre mais planos de implementação para a implementação de recursos, como a autenticação Multifator, acesso condicional, aprovisionamento de utilizadores, totalmente integrada SSO, reposição de palavra-passe self-service e muito mais! |
+| [Planos de implantação](../fundamentals/active-directory-deployment-plans.md) | Encontre mais planos de implementação para a implementação de recursos, como a autenticação Multifator, acesso condicional, aprovisionamento de utilizadores, SSO totalmente integrado, reposição de palavra-passe self-service e muito mais! |
 
 

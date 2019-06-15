@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61280676"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Resolver problemas com o agente do Azure Site Recovery
@@ -22,35 +22,35 @@ Este artigo fornece passos de resolução de problemas que podem ajudar a resolv
 ## <a name="azure-site-recovery-extension-time-out"></a>Limite de tempo de extensão do Azure Site Recovery  
 
 Mensagem de erro: "A execução da tarefa foi excedido durante o controlo de operação de extensão ser iniciado"<br>
-Código do erro: "151076"
+Código de erro: "151076"
 
  O Azure Site Recovery instalar uma extensão na máquina virtual como parte da tarefa de proteção de ativação. Qualquer uma das seguintes condições poderá impedir a proteção de acionamento e a tarefa a falhar. Conclua os seguintes passos de resolução de problemas e, em seguida, repita a operação:
 
-**Fazer com que 1: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Fazer com que 1: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [A extensão do Site Recovery não consegue atualizar ou de carga](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 Mensagem de erro: "A operação de extensão de recuperação de sites anterior está a demorar mais tempo do que o esperado."<br>
-Código do erro: "150066"<br>
+Código de erro: "150066"<br>
 
-**Fazer com que 1: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Fazer com que 1: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 3: [O estado da extensão Site Recovery está incorreto](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>A proteção falha porque o agente da VM não está a responder
 
 Mensagem de erro: "A execução da tarefa foi excedido durante o controlo de operação de extensão de ser iniciadas."<br>
-Código do erro: "151099"<br>
+Código de erro: "151099"<br>
 
 Este erro pode ocorrer se o agente convidado do Azure na máquina virtual não está no estado pronto.
 Pode verificar o estado do agente convidado do Azure no [portal do Azure](https://portal.azure.com/). Vá para a máquina virtual está a tentar proteger e verificar o estado em "VM > Definições > propriedades > Estado do agente". Na maioria das vezes o estado do agente fique pronto após reiniciar a máquina virtual. No entanto, se o reinício não é uma opção viável ou que ainda está enfrentando o problema, em seguida, conclua os seguintes passos de resolução de problemas.
 
-**Fazer com que 1: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Fazer com que 1: [O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Causa 2: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
 Mensagem de erro: "A execução da tarefa foi excedido durante o controlo de operação de extensão de ser iniciadas."<br>
-Código do erro: "151095"<br>
+Código de erro: "151095"<br>
 
 Esta situação ocorrer quando a versão do agente na máquina Linux é antiga. Conclua o passo seguinte de resolução de problemas.<br>
   **Fazer com que 1: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  

@@ -8,10 +8,10 @@ ms.date: 1/16/2019
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: d01ff17966d2e6b9aeaaf3c1f69817dbc84c3a6f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "57792638"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Alojamento de vários sites do Gateway de Aplicação

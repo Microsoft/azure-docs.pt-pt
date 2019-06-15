@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b9bc3ef0cf5dd54802d32058afb904800c364c19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869882"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64725242"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a versão 2 do Azure Custom Script extensão com máquinas virtuais do Linux
 A versão 2 do Custom Script extensão transfere e executa scripts em máquinas virtuais do Azure. Esta extensão é útil para configuração de pós-implementação, instalação de software ou qualquer outra tarefa de gestão de configuração /. Pode baixar scripts a partir do armazenamento do Azure ou noutra localização acessível da internet ou pode fornecê-los para o tempo de execução de extensão. 
@@ -37,7 +37,7 @@ Existem duas extensões de Script de personalizada de Linux:
 Mude as implementações novas e existentes para utilizar a nova versão 2 em vez disso. A nova versão se destina a ser uma substituição completa. Portanto, a migração é tão fácil como alterar o nome e versão, não é necessário alterar a configuração de extensão.
 
 
-### <a name="operating-system"></a>Sistema Operativo
+### <a name="operating-system"></a>Sistema operativo
 
 A extensão de Script personalizado para Linux será executado na extensão de extensão suportada do sistema operacional, para obter mais informações, veja isso [artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
@@ -111,11 +111,11 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute.Extensions | string |
-| tipo | CustomScript | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (por exemplo) | python MyPythonScript.py <my-param1> | string |
-| Script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| commandToExecute (por exemplo) | Python MyPythonScript.py \<my param1 > | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (por exemplo) | false | boolean |
 | Timestamp (por exemplo) | 123456789 | número inteiro de 32 bits |
 | storageAccountName (por exemplo) | examplestorageacct | string |

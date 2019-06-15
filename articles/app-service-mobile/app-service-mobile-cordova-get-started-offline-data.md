@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110990"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Permitir sincronização offline para a sua aplicação móvel do Cordova
@@ -128,7 +128,7 @@ Tem de adicionar o código de sincronização offline à aplicação. Sincroniza
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    Decidir quando enviar alterações para o back-end de aplicação móvel chamando **syncContext.push()**. Por exemplo, poderia chamar **syncBackend** num manipulador de eventos de botão vinculado a um botão de sincronização.
+    Decidir quando enviar alterações para o back-end de aplicação móvel chamando **syncContext.push()** . Por exemplo, poderia chamar **syncBackend** num manipulador de eventos de botão vinculado a um botão de sincronização.
 
 ## <a name="offline-sync-considerations"></a>Considerações sobre a sincronização offline
 

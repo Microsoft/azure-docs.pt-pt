@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
 ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609303"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence em Máquinas Virtuais do Azure
@@ -113,7 +113,7 @@ A tabela seguinte resume os recursos de Business Intelligence instalados nas ima
 ## <a name="example-deployment-topologies"></a>Topologias de implementação de exemplo
 Seguem-se as implementações de exemplo que utilizam as máquinas virtuais do Microsoft Azure. As topologias nesses diagramas são apenas algumas das topologias possíveis que pode utilizar com os recursos de BI do SQL Server e máquinas virtuais do Microsoft Azure.
 
-### <a name="single-virtual-machine"></a>Máquina Virtual Única
+### <a name="single-virtual-machine"></a>Máquina Virtual única
 Analysis Services, Reporting Services, o motor de base de dados do SQL Server e origens de dados numa única máquina virtual.
 
 ![cenário de BI iass com 1 máquina virtual](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
@@ -317,7 +317,7 @@ Esta secção resume os pontos finais de Máquina Virtual do Microsoft Azure par
   * Crie pontos finais da máquina virtual para as portas indicadas (*).
 * Se a máquina virtual estiver associada a um domínio através de um túnel VPN, tais como o sistema de rede Virtual do Azure, os pontos finais não são necessários. No entanto, abra as portas na firewall na VM.
   
-  | Porta | Type | Descrição |
+  | Port | Tipo | Descrição |
   | --- | --- | --- |
   | **80** |TCP |Servidor de relatórios de acesso remoto (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |

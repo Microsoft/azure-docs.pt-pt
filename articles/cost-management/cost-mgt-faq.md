@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002015"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Perguntas mais frequentes sobre Cloudyn
@@ -118,7 +118,7 @@ Para adicionar mais contas CSP a uma entidade, selecione **acesso MSP** em vez d
 
 Pode ter várias contas do Azure através de moedas diferentes. No entanto, os relatórios de custos no Cloudyn não mostrar mais de um tipo de moeda por cada relatório.
 
-Se tiver várias subscrições com moedas diferentes, uma entidade pai e moedas de entidade seu filho são apresentadas em dólares americanos **$**. Nosso sugerida melhor prática é evitar o uso de moedas diferentes na mesma hierarquia de entidades. Em outras palavras, todas as suas subscrições organizadas numa estrutura de entidade devem utilizar a mesma moeda.
+Se tiver várias subscrições com moedas diferentes, uma entidade pai e moedas de entidade seu filho são apresentadas em dólares americanos **$** . Nosso sugerida melhor prática é evitar o uso de moedas diferentes na mesma hierarquia de entidades. Em outras palavras, todas as suas subscrições organizadas numa estrutura de entidade devem utilizar a mesma moeda.
 
 Cloudyn automaticamente detecta a moeda de subscrição do Enterprise Agreement e apresenta corretamente em relatórios.  No entanto, o Cloudyn exibe apenas USD **$** para contas do Azure do web direct e CSP.
 

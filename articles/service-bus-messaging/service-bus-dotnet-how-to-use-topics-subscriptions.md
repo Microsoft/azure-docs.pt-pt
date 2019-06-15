@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991781"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Service Bus
@@ -47,7 +47,7 @@ Para enviar mensagens para o tópico, grave uma aplicação de consola C# com o 
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplicação de Consola (.NET Core))**.
+Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplicação de Consola (.NET Core))** .
 
 ### <a name="add-the-service-bus-nuget-package"></a>Adicionar o pacote NuGet do Service Bus
 

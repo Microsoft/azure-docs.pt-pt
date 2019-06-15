@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39c5efee0958fdfc8fa647f5acaf929f559f7bf7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038612"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065657"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Como configurar a base de dados do Azure para a replicação de dados de MariaDB
 
-Neste artigo, aprenderá como configurar a replicação de dados na base de dados do Azure para MariaDB serviço ao configurar os servidores mestre e de réplica. Replicação de dados-in permite-lhe sincronizar dados a partir de um servidor MariaDB mestre em execução no local, nas máquinas virtuais ou serviços de base de dados hospedados por outros fornecedores de cloud para uma réplica da base de dados do Azure para MariaDB serviço. 
+Neste artigo, aprenderá como configurar a replicação de dados na base de dados do Azure para MariaDB serviço ao configurar os servidores mestre e de réplica. Replicação de dados-in permite-lhe sincronizar dados a partir de um servidor MariaDB mestre em execução no local, nas máquinas virtuais ou serviços de base de dados hospedados por outros fornecedores de cloud para uma réplica da base de dados do Azure para MariaDB serviço. Podemos recommanded, configurar a replicação de dados com [ID de transação Global](https://mariadb.com/kb/en/library/gtid/) quando a versão do seu servidor mestre é 10.2 ou superior.
 
 Este artigo pressupõe que tem pelo menos alguma experiência anterior com MariaDB servidores e bases de dados.
 
@@ -116,7 +116,16 @@ Os seguintes passos prepararem e configurar a MariaDB server alojado no local, u
    Os resultados devem ser como se segue. Lembre-se de que tome nota do nome de ficheiro binário que será utilizada em passos posteriores.
 
    ![Resultados de estado do mestre](./media/howto-data-in-replication/masterstatus.png)
+   
+6. Obter a posição de GTID (opcional, necessário para replicação com GTID)
+
+   Para executar a função [ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/) comando para obter a posição de GTID para o nome de ficheiro de binlog correspond e o desvio.
+  
+    ```sql
+    select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
+    ```
  
+
 ## <a name="dump-and-restore-master-server"></a>Cópia de segurança e restaurar o servidor mestre
 
 1. Despeja todas as bases de dados do servidor mestre
@@ -142,10 +151,16 @@ Os seguintes passos prepararem e configurar a MariaDB server alojado no local, u
 
    Todas as funções de replicação de dados-in são efetuadas pelo procedimentos armazenados. Pode encontrar todos os procedimentos em [dados na replicação procedimentos armazenados](reference-data-in-stored-procedures.md). Os procedimentos armazenados podem ser executados no shell do MySQL ou o MySQL Workbench.
 
-   Para ligar os dois servidores e iniciar a replicação, inicie sessão no servidor de réplica de destino no DB do Azure para MariaDB serviço e definir a instância externa como o servidor mestre. Isso é feito usando o `mysql.az_replication_change_master` procedimento armazenado no banco de dados do Azure para MariaDB server.
+   Para ligar os dois servidores e iniciar a replicação, inicie sessão no servidor de réplica de destino no DB do Azure para MariaDB serviço e definir a instância externa como o servidor mestre. Isso é feito utilizando o `mysql.az_replication_change_master` ou `mysql.az_replication_change_master_with_gtid` procedimento armazenado no banco de dados do Azure para MariaDB server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   ```
+   
+   ou
+   
+   ```sql
+   CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
    - master_host: nome de anfitrião do servidor mestre
@@ -153,6 +168,7 @@ Os seguintes passos prepararem e configurar a MariaDB server alojado no local, u
    - master_password: palavra-passe para o servidor mestre
    - master_log_file: nome de ficheiro de registo binário a execução `show master status`
    - master_log_pos: posição do registo binário a execução `show master status`
+   - master_gtid_pos: Posição de GTID a execução `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
    - master_ssl_ca: Contexto de certificado de AC. Se não utilizar SSL, passe na cadeia de caracteres vazia.
        - Recomenda-se para transmitir este parâmetro no como uma variável. Veja os exemplos seguintes para obter mais informações.
 
@@ -199,9 +215,13 @@ Os seguintes passos prepararem e configurar a MariaDB server alojado no local, u
 
    Se o estado dos `Slave_IO_Running` e `Slave_SQL_Running` são "Sim" e o valor de `Seconds_Behind_Master` é "0", a replicação está a funcionar bem. `Seconds_Behind_Master` Indica a réplica como tardia é. Se o valor não é "0", significa que a réplica está a processar atualizações. 
 
+4. Atualização correspondem variáveis de servidor para tornar os dados na replicação mais segura (apenas necessária para a replicação sem GTID)
+    
+    Devido à limitação de replicação nativo MariaDB, terá de configuração [ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) e [ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variáveis em replicação sem o cenário de GTID. Podemos recommand verificar o seu servidor de subordinado `sync_master_info` e `sync_relay_log_info` variáveis e alterá-los utras `1` se pretender certificar-se de que a replicação de dados-in esteja estável.
+    
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 
-### <a name="stop-replication"></a>Parar replicação
+### <a name="stop-replication"></a>Parar a replicação
 
 Para parar a replicação entre o servidor mestre e de réplica, utilize o seguinte procedimento armazenado:
 

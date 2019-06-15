@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a064fc67bf94ba6aa443e429fe83179d84cada84
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602568"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Expandir ou renovar as atribuições de funções de recursos do Azure no PIM
@@ -96,7 +96,7 @@ Para expandir um membro da função, navegue para a vista de função ou membro 
 
 Embora conceitualmente semelhante ao processo para pedir uma extensão, o processo de renovar uma atribuição de função expirada é diferente. Utilizar os seguintes passos, membros e administradores podem renovar acesso a funções expiradas quando necessário.
 
-### <a name="member-renew"></a>Renovação do membro
+### <a name="member-renew"></a>Membro de renovação
 
 Os membros que já não podem aceder a recursos podem acessar até 30 dias do histórico de atribuição expirada. Para tal, navegue até **minhas funções** no painel esquerdo e, em seguida, selecione a **expirado funções** separador na secção de funções de recursos do Azure.
 

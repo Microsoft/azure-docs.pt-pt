@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: f286c02e0eb6e801f62d4f2e16f1197a1e9d44ce
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304556"
 ---
 # <a name="virtual-wan-partners"></a>Parceiros WAN virtual

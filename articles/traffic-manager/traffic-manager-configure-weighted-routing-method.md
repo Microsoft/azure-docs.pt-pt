@@ -3,20 +3,21 @@ title: Configurar o método de encaminhamento de tráfego de round robin pondera
 description: Este artigo explica como balancear carga de tráfego através de um método de round robin no Gestor de tráfego
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: allensu
+ms.openlocfilehash: 4ca43bf958606a71911bf5d35f31e4fe0b342601
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113292"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071291"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurar o método de encaminhamento de tráfego de ponderado no Gestor de tráfego
 
@@ -34,7 +35,7 @@ ms.locfileid: "62113292"
     1. Para **definições do método de encaminhamento de tráfego**, certifique-se de que o método de encaminhamento de tráfego é **ponderado**. Se não estiver, clique em **ponderado** na lista pendente.
     2. Definir o **definições do monitor de ponto final** idêntica para todas as cada ponto final dentro deste perfil da seguinte forma:
         1. Selecione o adequado **protocolo**e especifique a **porta** número. 
-        2. Para **caminho** escreva uma barra */*. Para monitorizar os pontos finais, tem de especificar um caminho e nome de ficheiro. A reencaminhar barra "/" é uma entrada válida para o caminho relativo e indica que o ficheiro está no diretório de raiz (predefinição).
+        2. Para **caminho** escreva uma barra */* . Para monitorizar os pontos finais, tem de especificar um caminho e nome de ficheiro. A reencaminhar barra "/" é uma entrada válida para o caminho relativo e indica que o ficheiro está no diretório de raiz (predefinição).
         3. Na parte superior da página, clique em **guardar**.
 5. Teste as alterações na configuração da seguinte forma:
     1.  Na barra de pesquisa do portal, procure o nome de perfil do Gestor de tráfego e clique no perfil do Gestor de tráfego nos resultados que apresentados.

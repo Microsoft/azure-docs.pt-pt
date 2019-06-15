@@ -2,7 +2,7 @@
 title: Como requerer a autenticação multifator (MFA) para acesso a partir de redes não fidedignas com acesso condicional do Azure Active Directory (Azure AD) | Documentos da Microsoft
 description: Saiba como configurar uma política de acesso condicional no Azure Active Directory (Azure AD) para tentativas de acesso a partir de redes não confiáveis.
 services: active-directory
-keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
+keywords: Acesso condicional para aplicações, acesso condicional com o Azure AD, proteger o acesso aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 12/10/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf8cb1c3b49975356389c7c9444aff319326f74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: fa9760c44df13c33687c279478935600325dd085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60301128"
+ms.locfileid: "67111872"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: Exigir a MFA para acesso a partir de redes não fidedignas com acesso condicional   
 
@@ -73,11 +73,11 @@ Em vez de tentar definir o que todos os locais são que não são confiáveis, p
 
 - Incluir qualquer localização 
 
-    ![Acesso condicional](./media/untrusted-networks/02.png)
+    ![Acesso Condicional](./media/untrusted-networks/02.png)
 
 - Excluir todas as localizações fidedignas 
 
-    ![Acesso condicional](./media/untrusted-networks/01.png)
+    ![Acesso Condicional](./media/untrusted-networks/01.png)
 
 
 

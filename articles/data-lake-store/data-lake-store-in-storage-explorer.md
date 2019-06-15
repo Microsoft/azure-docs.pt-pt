@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
 ms.openlocfilehash: 18ef1f182611a9c8fbf24cd08026633f5449bbe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60613336"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gerir recursos de geração 1 de armazenamento do Azure Data Lake com o Explorador de armazenamento
@@ -142,14 +142,14 @@ Os itens seguintes mostram como gerir os recursos dentro de uma conta de geraç�
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Transferir pastas ou ficheiros para o computador local
 
 1. Selecione as pastas ou os ficheiros que pretende transferir.
-2. Na barra de ferramentas do painel principal, selecione **Download (Transferir)**.
+2. Na barra de ferramentas do painel principal, selecione **Download (Transferir)** .
 3. Na caixa de diálogo **Selecionar uma pasta na qual guardar os ficheiros transferidos**, especifique a localização e o nome.
 4. Selecione **Guardar**.
 
 ### <a name="open-a-folder-or-file-from-your-local-computer"></a>Abrir o ficheiro ou pasta do computador local
 
 1. Selecione a pasta ou o ficheiro que pretende abrir.
-2. Na barra de ferramentas do painel principal, selecione **Open (Abrir)**. Ou clique com botão direito do rato na pasta ou no ficheiro e, em seguida, selecione **Abrir** no menu de atalho.
+2. Na barra de ferramentas do painel principal, selecione **Open (Abrir)** . Ou clique com botão direito do rato na pasta ou no ficheiro e, em seguida, selecione **Abrir** no menu de atalho.
 
 O ficheiro é transferido e aberto com a aplicação associada ao respetivo tipo de ficheiro subjacente. Ou a pasta é aberta no painel principal.
 
@@ -158,7 +158,7 @@ O ficheiro é transferido e aberto com a aplicação associada ao respetivo tipo
 ### <a name="copy-folders-or-files-to-the-clipboard"></a>Copiar pastas ou ficheiros para a área de transferência
 
 1. Selecione as pastas ou os ficheiros que pretende copiar.
-2. Na barra de ferramentas do painel principal, selecione **Copy (Copiar)**. Ou clique com botão direito do rato na pasta ou no ficheiro e, em seguida, selecione **Copiar** no menu de atalho.
+2. Na barra de ferramentas do painel principal, selecione **Copy (Copiar)** . Ou clique com botão direito do rato na pasta ou no ficheiro e, em seguida, selecione **Copiar** no menu de atalho.
 3. No painel esquerdo, navegue para outra conta de geração 1 de armazenamento do Data Lake e faça duplo clique para vê-la no painel principal.
 4. Na barra de ferramentas do painel principal, selecione **Colar** para criar uma cópia do ficheiro. Ou selecione **Colar** no menu de atalho de destino.
 
@@ -172,7 +172,7 @@ O ficheiro é transferido e aberto com a aplicação associada ao respetivo tipo
 ### <a name="delete-folders-or-files"></a>Eliminar pastas ou ficheiros
 
 1. Selecione as pastas ou os ficheiros que pretende eliminar.
-2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)**. Ou clique com botão direito do rato na pasta ou no ficheiro e, em seguida, selecione **Eliminar** no menu de atalho.
+2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)** . Ou clique com botão direito do rato na pasta ou no ficheiro e, em seguida, selecione **Eliminar** no menu de atalho.
 3. Selecione **Sim** na caixa de diálogo de confirmação.
 
 ![Seleções para eliminar uma pasta](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)

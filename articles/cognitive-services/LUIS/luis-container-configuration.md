@@ -3,20 +3,20 @@ title: Definições de contentor do docker
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: O ambiente de tempo de execução de contentores do LUIS é configurado usando o `docker run` argumentos de comando. LUIS tem várias definições necessárias, juntamente com algumas configurações opcionais.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: diberry
-ms.openlocfilehash: afd29c1689d6d467a42a7c3c60f9a1dccd1a66f0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 4a9f7762b7960c74acad8203f70bc1e7c7cbd90f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063230"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar os contentores do Docker de compreensão de idiomas 
 

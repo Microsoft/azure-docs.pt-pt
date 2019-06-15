@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955704"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de aplicações do Azure
@@ -50,11 +50,11 @@ Utilize a tabela seguinte para ajudar a configurar o certificado. Quando termina
 | Definição | Descrição |
 |-|-|
 | Name | Um nome amigável para o seu certificado de serviço de aplicações. |
-| Nome do Anfitrião do Domínio sem "www" | Se especificar o domínio raiz aqui, obtém um certificado que protege *ambos* o domínio de raiz e o `www` subdomínio. Para proteger qualquer subdomínio apenas, especifique o nome de domínio completamente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com`). |
+| Nome de anfitrião de domínio sem "www" | Se especificar o domínio raiz aqui, obtém um certificado que protege *ambos* o domínio de raiz e o `www` subdomínio. Para proteger qualquer subdomínio apenas, especifique o nome de domínio completamente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com`). |
 | Subscrição | O centro de dados onde o a aplicação Web está alojada. |
 | Grupo de recursos | O grupo de recursos que contém o certificado. Pode utilizar um grupo de recursos ou selecione o mesmo grupo de recursos que a sua aplicação de serviço de aplicações, por exemplo. |
-| SKU do Certificado | Determina o tipo de certificado para criar, se um certificado padrão ou uma [certificado de caráter universal](https://wikipedia.org/wiki/Wildcard_certificate). |
-| Termos Legais | Clique para confirmar que aceita os termos legais. Os certificados são obtidos a partir da GoDaddy. |
+| SKU do certificado | Determina o tipo de certificado para criar, se um certificado padrão ou uma [certificado de caráter universal](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Termos legais | Clique para confirmar que aceita os termos legais. Os certificados são obtidos a partir da GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Store no Cofre de chaves do Azure
 
@@ -75,7 +75,7 @@ Na **estado do Key Vault** página, clique em **repositório do Key Vault** para
 | Location | Selecione a mesma localização que a sua aplicação de serviço de aplicações. |
 | Escalão de preço | Para obter informações, consulte [os detalhes dos preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define as aplicações e de ter permissão para aceder aos recursos do cofre. Pode configurá-lo mais tarde, seguindo os passos indicados em [conceder acesso de aplicações de vários para um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Acesso de Rede Virtual | Restringir o acesso do cofre para determinadas redes virtuais do Azure. Pode configurá-lo mais tarde, seguindo os passos indicados em [configurar o Azure Key Vault Firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
+| Acesso à rede virtual | Restringir o acesso do cofre para determinadas redes virtuais do Azure. Pode configurá-lo mais tarde, seguindo os passos indicados em [configurar o Azure Key Vault Firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
 
 Depois de selecionar o cofre, feche o **repositório do Key Vault** página. O **Store** opção deve mostrar uma marca de verificação verde para o sucesso. Mantenha a página aberta para a próxima etapa.
 
@@ -97,7 +97,7 @@ Selecione **verificação de serviço de aplicações**. Uma vez que já mapeou 
 
 ## <a name="bind-certificate-to-app"></a>Vincular o certificado à aplicação
 
-Na  **[portal do Azure](https://portal.azure.com/)**, no menu à esquerda, selecione **serviços de aplicação** >  **\<your_ aplicação >** .
+Na  **[portal do Azure](https://portal.azure.com/)** , no menu à esquerda, selecione **serviços de aplicação** >  **\<your_ aplicação >** .
 
 No painel de navegação à esquerda da sua aplicação, selecione **definições de SSL** > **certificados privados (. pfx)**  > **importar certificado do serviço de aplicações**.
 
@@ -113,8 +113,8 @@ Utilize a seguinte tabela para o ajudar a configurar o enlace na **enlaces SSL**
 
 | Definição | Descrição |
 |-|-|
-| Nome do Anfitrião | Adicionar enlace de SSL para o nome de domínio. |
-| Thumbprint do Certificado Privado | O certificado para o enlace. |
+| Nome de anfitrião | Adicionar enlace de SSL para o nome de domínio. |
+| Thumbprint do certificado privado | O certificado para o enlace. |
 | Tipo de SSL | <ul><li>**SNI SSL** -enlaces SSL baseado em SNI várias podem ser adicionados. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).</li><li>**SSL baseado em IP** - só pode ser adicionado um enlace SSL baseado em IP. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Depois de configurar o enlace, siga os passos em [remapear um registo a para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Verificar o acesso HTTPS

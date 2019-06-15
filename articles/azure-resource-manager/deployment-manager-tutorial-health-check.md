@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d43a0e7c48db9dd42c7cf3b52e5d4072a4827898
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ae44872f209550b1387a5c7e99ee4e0a07c558a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061034"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Utilizar a verificação de estado de funcionamento no Azure Deployment Manager (pré-visualização pública)
 
@@ -41,7 +41,10 @@ Este tutorial abrange as seguintes tarefas:
 > * Verificar a implementação de implementação
 > * Limpar recursos
 
-A referência de API de REST do Gestor de implementação do Azure pode ser encontrada [aqui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Recursos adicionais:
+
+- O [referência da API de REST do Gestor de implementação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Um exemplo de Gestor de implementação do Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

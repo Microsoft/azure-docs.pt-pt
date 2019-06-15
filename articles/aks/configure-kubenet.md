@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: cde7d692e8bb37e874c6e55e5584d96e3b13af31
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 94a6ce87cf313fe283631e594a63f210c775c7a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808568"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilizar kubenet networking com seus próprios intervalos de endereços IP no Azure Kubernetes Service (AKS)
 
@@ -62,7 +62,7 @@ Os cálculos de básicos seguintes comparam a diferença nos modelos de rede:
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Peering de rede virtual e ligações do ExpressRoute
 
-Para fornecer conectividade no local, ambos *kubenet* e *Azure CNI* podem utilizar as abordagens de rede [peering de rede virtual do Azure] [ vnet-peering]ou [as ligações ExpressRoute][express-route]. Planear os intervalos de endereços IP com cuidado para evitar a sobreposição e encaminhamento de tráfego incorreto. Por exemplo, muitas redes no local se utilizar um *10.0.0.0/8* intervalo que tenha sido anunciado através da ligação de ExpressRoute de endereços. É recomendado para criar os seus clusters do AKS em sub-redes da rede virtual do Azure fora deste intervalo de endereços, tal como *172.26.0.0/16*.
+Para fornecer conectividade no local, ambos *kubenet* e *Azure CNI* podem utilizar as abordagens de rede [peering de rede virtual do Azure] [ vnet-peering]ou [as ligações ExpressRoute][express-route]. Planear os intervalos de endereços IP com cuidado para evitar a sobreposição e encaminhamento de tráfego incorreto. Por exemplo, muitas redes no local se utilizar um *10.0.0.0/8* intervalo que tenha sido anunciado através da ligação de ExpressRoute de endereços. É recomendado para criar os seus clusters do AKS em sub-redes da rede virtual do Azure fora deste intervalo de endereços, tal como *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Escolha um modelo de rede para utilizar
 
@@ -92,15 +92,15 @@ Para começar a utilizar com o uso *kubenet* e a sua própria sub-rede da rede v
 az group create --name myResourceGroup --location eastus
 ```
 
-Se não tiver uma rede virtual existente e a sub-rede a utilizar, criar estes recursos de rede com o [criar a vnet de rede de az] [ az-network-vnet-create] comando. No exemplo seguinte, a rede virtual é denominada *myVnet* com o prefixo de endereço *10.0.0.0/8*. Uma sub-rede é criada com o nome *myAKSSubnet* com o prefixo de endereço *10.240.0.0/16*.
+Se não tiver uma rede virtual existente e a sub-rede a utilizar, criar estes recursos de rede com o [criar a vnet de rede de az] [ az-network-vnet-create] comando. No exemplo seguinte, a rede virtual é denominada *myVnet* com o prefixo de endereço *192.168.0.0/16*. Uma sub-rede é criada com o nome *myAKSSubnet* com o prefixo de endereço *192.168.1.0/24*.
 
 ```azurecli-interactive
 az network vnet create \
     --resource-group myResourceGroup \
     --name myAKSVnet \
-    --address-prefixes 10.0.0.0/8 \
+    --address-prefixes 192.168.0.0/16 \
     --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
+    --subnet-prefix 192.168.1.0/24
 ```
 
 ## <a name="create-a-service-principal-and-assign-permissions"></a>Criar um principal de serviço e atribuir permissões
@@ -150,7 +150,7 @@ Os seguintes intervalos de endereços IP também são definidos como parte do cl
 
 * O *– pod cidr* deve ser um espaço de endereçamento amplo que não está em utilização em outro lugar no seu ambiente de rede. Este intervalo inclui quaisquer intervalos de rede no local se ligar, ou se planear ligar redes virtuais do Azure com o Express Route ou uma ligação VPN de Site a Site.
     * Este intervalo de endereços tem de ser suficientemente grande para acomodar o número de nós que pretende dimensionar até. Não é possível alterar este intervalo de endereços assim que o cluster é implementado, se precisar de mais endereços para outros nós.
-    * O intervalo de endereços IP de pod é usado para atribuir um */24* espaço para cada nó do cluster de endereços. No exemplo a seguir, o *– pod cidr* dos *192.168.0.0/16* atribui o primeiro nó *192.168.0.0/24*, o segundo nó *192.168.1.0/24*e o nó de terceiro *192.168.2.0/24*.
+    * O intervalo de endereços IP de pod é usado para atribuir um */24* espaço para cada nó do cluster de endereços. No exemplo a seguir, o *– pod cidr* dos *10.244.0.0/16* atribui o primeiro nó *10.244.0.0/24*, o segundo nó *10.244.1.0/24*e o nó de terceiro *10.244.2.0/24*.
     * Como as escalas de cluster ou atualizações, a plataforma do Azure continua atribuir um intervalo de endereços IP de pod para cada novo nó.
     
 * O *– o endereço de bridge do docker* permite que os nós do AKS comunicarem com a plataforma de gestão subjacente. Este endereço IP não tem de estar no intervalo de endereços IP de rede virtual do cluster e não deve se sobrepõe a outros intervalos de endereços em utilização na sua rede.
@@ -163,7 +163,7 @@ az aks create \
     --network-plugin kubenet \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
-    --pod-cidr 192.168.0.0/16 \
+    --pod-cidr 10.244.0.0/16 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal <appId> \

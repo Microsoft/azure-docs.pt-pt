@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a1acde81baa596e71b7e39763b0464c8de2fb86
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 929d5d7a8e2b45aeb4ef71e4599cfcf23be83088
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Tutorial: Integração do Active Directory do Azure com NetDocuments
 
@@ -224,7 +224,7 @@ No caso de NetDocuments, o aprovisionamento é uma tarefa manual.
     >[!NOTE]
     >O titular da conta do Azure Active Directory irá receber uma mensagem de e-mail que inclui uma ligação para confirmar a conta até se tornar Active Directory. Pode utilizar quaisquer outras NetDocuments utilizador conta criação ferramentas ou APIs fornecidas pelo NetDocuments para aprovisionar o Azure Active Directory contas de utilizador.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

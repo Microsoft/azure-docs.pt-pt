@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: b09182ef06c708e9c606173f02b006e7802f29ed
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061381"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Encriptação de dados transparente para a base de dados SQL e o armazém de dados
 
-Encriptação de dados transparente (TDE) ajuda a proteger a base de dados do Azure SQL, a instância gerida do SQL do Azure e o armazém de dados do Azure contra ameaças de atividades maliciosas. Ele executa criptografia em tempo real e a descriptografia da base de dados, cópias de segurança associadas e ficheiros de registo de transação em repouso sem a necessidade de alterações à aplicação. Por predefinição, a TDE está ativada para todos os recentemente implementados bases de dados do SQL do Azure. TDE não pode ser utilizado para encriptar lógico **mestre** base de dados na base de dados SQL.  O **mestre** base de dados contém objetos que são necessárias para executar as operações de TDE nas bases de dados do utilizador.
+Encriptação de dados transparente (TDE) ajuda a proteger a base de dados do Azure SQL, a instância gerida do SQL do Azure e o armazém de dados do Azure contra ameaças de atividades maliciosas de offline ao encriptar dados inativos. Ele executa criptografia em tempo real e a descriptografia da base de dados, cópias de segurança associadas e ficheiros de registo de transação em repouso sem a necessidade de alterações à aplicação. Por predefinição, a TDE está ativada para todos os recentemente implementados bases de dados do SQL do Azure. TDE não pode ser utilizado para encriptar lógico **mestre** base de dados na base de dados SQL.  O **mestre** base de dados contém objetos que são necessárias para executar as operações de TDE nas bases de dados do utilizador.
 
 TDE precisa ser habilitada manualmente para a instância de gerida de SQL no Azure, bases de dados mais antigos da base de dados do Azure SQL ou o Azure SQL Data Warehouse.  
 

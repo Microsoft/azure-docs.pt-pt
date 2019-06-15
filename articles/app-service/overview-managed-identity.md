@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66136992"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o serviço de aplicações e funções do Azure
@@ -287,9 +287,9 @@ O **MSI_ENDPOINT** é um URL local a partir do qual a aplicação pode pedir tok
 
 > |Nome do parâmetro|Em|Descrição|
 > |-----|-----|-----|
-> |Recurso|Consulta|O URI do recurso do recurso do AAD para que deve ser obtido de um token. Isto pode ser um da [que o suporte do Azure AD a autenticação dos serviços Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.|
+> |resource|Consulta|O URI do recurso do recurso do AAD para que deve ser obtido de um token. Isto pode ser um da [que o suporte do Azure AD a autenticação dos serviços Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.|
 > |versão de API|Consulta|A versão da API do token a ser utilizado. "2017-09-01" está atualmente a única versão suportada.|
-> |segredo|Cabeçalho|O valor da variável de ambiente MSI_SECRET. Este cabeçalho é usado para ajudar a mitigar os ataques de falsificação (SSRF) de pedido do lado do servidor.|
+> |secret|Cabeçalho|O valor da variável de ambiente MSI_SECRET. Este cabeçalho é usado para ajudar a mitigar os ataques de falsificação (SSRF) de pedido do lado do servidor.|
 > |ID de cliente|Consulta|(Opcional) O ID da identidade atribuído ao utilizador a ser utilizado. Se for omitido, é utilizada a identidade atribuída de sistema.|
 
 Uma resposta 200 OK bem-sucedida inclui um corpo JSON com as seguintes propriedades:
@@ -298,7 +298,7 @@ Uma resposta 200 OK bem-sucedida inclui um corpo JSON com as seguintes proprieda
 > |-------------|----------|
 > |access_token|O token de acesso solicitado. O serviço de web chamada pode utilizar este token para autenticar para o serviço web de recebimento.|
 > |expires_on|O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache.|
-> |Recurso|O URI de ID de aplicação do serviço web do recetor.|
+> |resource|O URI de ID de aplicação do serviço web do recetor.|
 > |token_type|Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador. Para obter mais informações sobre os tokens de portador, consulte [o Framework de autorização de OAuth 2.0: Utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 Esta resposta é igual a [resposta para o pedido de token de acesso de serviço para serviço AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

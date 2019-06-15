@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122778"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerir inscrições de dispositivos com o Portal do Azure
@@ -29,8 +29,8 @@ Existem duas formas, pode inscrever os seus dispositivos com o serviço de aprov
     Pode criar um grupo de inscrição no portal para um grupo de dispositivos através dos seguintes passos:
 
   1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu esquerdo.  
-  2. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.  
-  3. No seu serviço de aprovisionamento:  
+  1. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.  
+  1. No seu serviço de aprovisionamento:  
      a. Clique em **gerir inscrições**, em seguida, selecione a **grupos de inscrição** separador.  
      b. Clique no botão **+ Adicionar**, na parte superior.  
      c. Quando for apresentado o painel "Adicionar grupo de inscrição", introduza as informações para a entrada da lista de inscrição.  **Nome do grupo** é necessária. Também selecionar "AC ou intermediário" para **tipo de certificado**e carregar a raiz **certificado primário** para o grupo de dispositivos.  

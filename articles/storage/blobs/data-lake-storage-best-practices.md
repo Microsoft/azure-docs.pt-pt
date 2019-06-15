@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939473"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061323"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para utilizar a geração 2 de armazenamento do Azure Data Lake
 
@@ -26,7 +26,7 @@ Geração de armazenamento 2 do Azure Data Lake oferece controlos de acesso POSI
 
 ### <a name="use-security-groups-versus-individual-users"></a>Utilizar grupos de segurança em comparação com utilizadores individuais
 
-WWhen trabalhar com macrodados na geração 2 de armazenamento do Data Lake, é provável que um principal de serviço é utilizado para permitir que os serviços, como o Azure HDInsight para trabalhar com os dados. No entanto, pode haver casos em que usuários individuais têm acesso aos dados também. Em todos os casos, considerar a utilização do Azure Active Directory [grupos de segurança](../common/storage-auth-aad.md) em vez de atribuir utilizadores individuais para diretórios e arquivos.
+Ao trabalhar com macrodados na geração 2 de armazenamento do Data Lake, é provável que um principal de serviço é utilizado para permitir que os serviços, como o Azure HDInsight para trabalhar com os dados. No entanto, pode haver casos em que usuários individuais têm acesso aos dados também. Em todos os casos, considerar a utilização do Azure Active Directory [grupos de segurança](../common/storage-auth-aad.md) em vez de atribuir utilizadores individuais para diretórios e arquivos.
 
 Depois de um grupo de segurança é atribuído permissões, adicionar ou remover os utilizadores do grupo não necessita de atualizações de geração 2 de armazenamento do Data Lake. Isto também ajuda a assegurar a que não exceder o número máximo de entradas de controlo de acesso por lista de controlo de acesso (ACL). Atualmente, o número é 32, (incluindo as ACLs de estilo POSIX quatro que sempre estão associadas a cada ficheiro e de diretório): o utilizador proprietário, o grupo proprietário, a máscara e outras. Cada diretório pode ter dois tipos de ACL, o ACL de acesso e a predefinição ACL, num total de 64 entradas de controlo de acesso. Para obter mais informações sobre estas ACLs, consulte [controlo de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -40,7 +40,7 @@ Principais de serviço do Azure Active Directory são normalmente utilizados por
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Ativar a firewall de geração 2 de armazenamento do Data Lake com acesso de serviço do Azure
 
-Geração 2 de armazenamento do Data Lake suporta a opção de ativar um firewall e limitar o acesso apenas aos serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. Firewall pode ser ativada numa conta de armazenamento no portal do Azure através da **Firewall** > **ativar Firewall (ON)** > **permitir o acesso aos serviços do Azure** opções.
+Geração 2 de armazenamento do Data Lake suporta a opção de ativar um firewall e limitar o acesso apenas aos serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. Firewall pode ser ativada numa conta de armazenamento no portal do Azure através da **Firewall** > **ativar Firewall (ON)**  > **permitir o acesso aos serviços do Azure** opções.
 
 Adicionar um clusters do Azure Databricks para uma rede virtual que poderá ter permissão para aceder através da Firewall de armazenamento requer a utilização de uma funcionalidade de pré-visualização do Databricks. Para ativar esta funcionalidade, coloque um pedido de suporte.
 

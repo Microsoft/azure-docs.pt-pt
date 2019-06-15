@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: a8a50db5ece242bc00a28e66e21c863388950d6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61437641"
 ---
 # <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Otimização de geração 1 de armazenamento do Azure Data Lake para o desempenho
@@ -47,7 +47,7 @@ A conectividade de rede entre a origem de dados e a geração 1 de armazenamento
 
 Depois de ter resolvido o hardware de origem e acima de afunilamentos de conectividade de rede, está pronto para configurar as suas ferramentas de ingestão. A tabela seguinte resume as definições da chave para várias ferramentas populares de ingestão e fornece desempenho aprofundadas ajuste artigos para os mesmos.  Para saber mais sobre qual ferramenta para utilizar para o seu cenário, visite [artigo](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
-| Ferramenta               | Definições     | Mais Detalhes                                                                 |
+| Ferramenta               | Definições     | Obter mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
 | AdlCopy    | Unidades do Azure Data Lake Analytics  |   [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |

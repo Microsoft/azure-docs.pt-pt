@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 491f1704cf08bd31a1b089d178afb3c281d636e6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 126bb05109e624fb1198ea16b07cd7836103f9e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898296"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure com HR2day por Merces
 
@@ -53,7 +53,7 @@ Para configurar a integração do HR2day por Merces com o Azure AD, terá de adi
 
 **Para adicionar HR2day por Merces a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -163,7 +163,7 @@ Para configurar o Azure AD início de sessão único com HR2day por Merces, exec
 Para configurar o início de sessão único num **HR2day por Merces** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [HR2day pelo suporte de Merces equipe](mailto:servicedesk@merces.nl). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!NOTE]
-> Mencionar para a equipe de Merces que esta integração precisa o ID de entidade a ser definido com o padrão **https://hr2day.force.com/INSTANCENAME**.
+> Mencionar para a equipe de Merces que esta integração precisa o ID de entidade a ser definido com o padrão **https://hr2day.force.com/INSTANCENAME** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -223,7 +223,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no HR2day por Merc
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, entre em contato com o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

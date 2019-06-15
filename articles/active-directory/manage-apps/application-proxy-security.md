@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7bb07fa00babb00d1b2af03f89ae6857cb79f5f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108396"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD
 
@@ -43,13 +43,13 @@ Proxy de aplicações do Azure AD depende do serviço de token de segurança (ST
 
 Se escolher o pass-through como seu método de pré-autenticação, não obtém este benefício. 
 
-### <a name="conditional-access"></a>Acesso condicional
+### <a name="conditional-access"></a>Acesso Condicional
 
 Aplica controlos de política mais sofisticados para que são estabelecidas ligações a sua rede.
 
 Com o [acesso condicional](../conditional-access/overview.md), pode definir restrições no qual o tráfego tem permissão para aceder às suas aplicações de back-end. Pode criar políticas que restringem o inícios de sessão com base na localização, força da autenticação e perfil de risco do utilizador.
 
-Também pode utilizar o acesso condicional para configurar políticas de multi-factor Authentication, adicionando outra camada de segurança ao seu autenticações de utilizador. Além disso, seus aplicativos também podem ser roteados para a Microsoft Cloud App Security através do acesso condicional do Azure AD para fornecer monitorização em tempo real e controles, via [acesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e [sessão](https://docs.microsoft.com/cloud-app-security/session-policy-aad) políticas
+Também pode utilizar o acesso condicional para configurar políticas de multi-factor Authentication, adicionando outra camada de segurança ao seu autenticações de utilizador. Além disso, os seus aplicativos também podem ser encaminhados para o Microsoft Cloud App Security através do acesso condicional do Azure AD para fornecer monitorização em tempo real e controles, por meio [acesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e [sessão](https://docs.microsoft.com/cloud-app-security/session-policy-aad) políticas
 
 ### <a name="traffic-termination"></a>Terminação de tráfego
 

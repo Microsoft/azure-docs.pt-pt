@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002097"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utilizar alertas de custo para monitorizar a utilização e gastos
@@ -39,7 +39,7 @@ Alertas de quota de gastos departamento notificá-lo quando gastos do departamen
 
 Suporte para tipos de alertas depende do tipo de conta do Azure que tem (Microsoft oferecem). A tabela seguinte mostra as funcionalidades de alertas que são suportadas por várias ofertas da Microsoft. Pode ver a lista completa de ofertas da Microsoft em [dados de compreender a gestão de custos](understand-cost-mgt-data.md).
 
-| Tipo de alerta | Enterprise Agreement | Contrato de Cliente Microsoft | Web direct/Pay-As-You-Go |
+| Tipo de alerta | Contrato Enterprise | Contrato de Cliente Microsoft | Web direct/Pay-As-You-Go |
 |---|---|---|---|
 | Orçamento | ✔ | ✔ | ✔ |
 | Crédito | ✔ |✘ | ✘ |

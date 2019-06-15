@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60531000"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Atualizar notas de versão 1.2 do seu dispositivo da série StorSimple 8000
@@ -34,7 +34,7 @@ A tabela seguinte lista as versões de software de dispositivo correspondente à
 | Se executar a atualização... | Esta é a sua versão de software do dispositivo. |
 | --- | --- |
 | Atualização 1.2 |6.3.9600.17584 |
-| Atualizar 1.1 |6.3.9600.17521 |
+| Atualização 1.1 |6.3.9600.17521 |
 | Atualização 1.0 |6.3.9600.17491 |
 
 Reveja as informações contidas nas notas de versão antes de implementar a atualização na sua solução StorSimple. Para obter mais informações, consulte como [instalar atualização 1.2 no dispositivo StorSimple](storsimple-install-update-1.md). 
@@ -67,7 +67,7 @@ A tabela seguinte fornece um resumo dos problemas que foram corrigidas em atuali
 | Não. | Funcionalidade | Problema | Corrigido na atualização | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell para StorSimple |Quando um utilizador aceder remotamente o dispositivo StorSimple com o Windows PowerShell para StorSimple e, em seguida, iniciar o Assistente de configuração, uma falha ocorreu logo que dados 0 IP foi introduzido. Esse bug agora é corrigido em atualização 1. |Atualização 1 |Sim |Sim |
-| 2 |Reposição de fábrica |Em alguns casos, quando efetuar uma reposição de fábrica, o dispositivo StorSimple tornou-se com dificuldades e apresentada esta mensagem: **Reposição de fábrica está em curso (fase 8)**. Isto aconteceu se premir CTRL + C, enquanto o cmdlet estava em curso. Esse bug agora é corrigido. |Atualização 1 |Sim |Não |
+| 2 |Reposição de fábrica |Em alguns casos, quando efetuar uma reposição de fábrica, o dispositivo StorSimple tornou-se com dificuldades e apresentada esta mensagem: **Reposição de fábrica está em curso (fase 8)** . Isto aconteceu se premir CTRL + C, enquanto o cmdlet estava em curso. Esse bug agora é corrigido. |Atualização 1 |Sim |Não |
 | 3 |Reposição de fábrica |Depois de repor um alocador de controlador dupla com falha, eram permitidos para continuar o registo do dispositivo. Isso resultou numa configuração de sistema não suportado. Na atualização 1, é apresentada uma mensagem de erro e registo é bloqueado num dispositivo que tem uma falha na reposição de fábrica. |Atualização 1 |Sim |Não |
 | 4 |Reposição de fábrica |Em alguns casos, foram geradas alertas de erro de correspondência de positivo FALSO. Já não serão gerados alertas de erro de correspondência incorreto em dispositivos com o Update 1. |Atualização 1 |Sim |Não |
 | 5 |Reposição de fábrica |Se uma reposição de fábrica foi interrompida antes da conclusão, o dispositivo introduziu o modo de recuperação e não permitia que acesse Windows PowerShell para StorSimple. Esse bug agora é corrigido. |Atualização 1 |Sim |Não |
@@ -75,7 +75,7 @@ A tabela seguinte fornece um resumo dos problemas que foram corrigidas em atuali
 | 7 |LEDs de monitorização |Em determinadas circunstâncias, LEDs de monitorização remissivo da aplicação não havia indicação Estado correto. O LED azul foi desativada. DATA 0 e LEDs de 1 de dados foram piscar, mesmo quando estas interfaces não foram configuradas. Foi corrigido o problema e LEDs de monitorização agora indicam o estado correto. |Atualização 1 |Sim |Não |
 | 8 |LEDs de monitorização |Em certos casos, depois de aplicar a atualização 1, a luz azul no controlador ativo desativada, deste modo, dificultando identificar o controlador ativo. Este problema foi corrigido nesta versão de patch. |Atualização 1.2 |Sim |Não |
 | 9 |Interfaces de rede |Nas versões anteriores, um dispositivo StorSimple configurado com um gateway não encaminháveis internos pode ficar offline. Nesta versão, a métrica de encaminhamento para Data 0 tiver sido feitas as mais baixas; Por conseguinte, mesmo que outras interfaces de rede são a capacidade de cloud, todo o tráfego de nuvem do dispositivo será encaminhado através de dados 0. |Atualização 1 |Sim |Sim |
-| 10 |Cópias de segurança |Foi corrigido um erro no Update 1, o que causou a falhar após 24 dias cópias de segurança na versão de patch 1.1 de atualização. |Atualizar 1.1 |Sim |Sim |
+| 10 |Cópias de segurança |Foi corrigido um erro no Update 1, o que causou a falhar após 24 dias cópias de segurança na versão de patch 1.1 de atualização. |Atualização 1.1 |Sim |Sim |
 | 11 |Cópias de segurança |Um bug em versões anteriores resultou num fraco desempenho para instantâneos de cloud com taxas de baixa alteração. Esse bug foi corrigido nesta versão de patch. |Atualização 1.2 |Sim |Sim |
 | 12 |Atualizações |Foi corrigido um erro no Update 1, que comunicou uma atualização falhada e causado os controladores entrar no modo de recuperação, nesta versão de patch. |Atualização 1.2 |Sim |Sim |
 

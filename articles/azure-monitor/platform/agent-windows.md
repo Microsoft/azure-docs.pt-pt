@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: magoedte
 ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952480"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Ligar computadores Windows para o Azure Monitor

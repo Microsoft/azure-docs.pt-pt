@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111544"
 ---
 1. Inicie sessão no [Portal do Azure][Azure portal].
@@ -18,7 +18,7 @@ ms.locfileid: "66111544"
 5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.  
 6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
    
-    ![Criar espaço de nomes][create-namespace]
+    ![Create namespace][create-namespace]
 7. Selecione **Criar**. O sistema cria o seu espaço de nomes e ativa o mesmo. Após alguns minutos, o sistema aprovisiona recursos para a sua conta.
 
 ### <a name="get-management-credentials"></a>Obter credenciais de gestão

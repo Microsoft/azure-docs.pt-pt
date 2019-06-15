@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935783"
 ---
 <a name="retrieve-operations"></a>Obter operações
@@ -34,7 +34,7 @@ Obtém todas as operações na oferta de ou para obter uma determinada operaçã
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
 |  publisherId       |  Identificador do publicador, por exemplo `Contoso`                                                                   |  String       |
-|  IDoferta           |  Identificador da oferta                                                                                              |  String       |
+|  offerId           |  Identificador da oferta                                                                                              |  String       |
 |  operationId       |  GUID que identifica exclusivamente a operação sobre a oferta. OperationId poderá ser recuperada por meio desta API e também é devolvido no cabeçalho de HTTP de resposta para qualquer operação de longa execução, tais como o [publicar oferta](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
 |  filteredStatus    | Parâmetro de consulta opcional utilizado para filtrar por Estado (por exemplo `running`) na coleção devolvida por esta API.  |   String |
 |  versão de API       | Versão mais recente da API                                                                                           |    Date      |
@@ -178,12 +178,12 @@ Obtém todas as operações na oferta de ou para obter uma determinada operaçã
 
 |  **Nome**                    |  **Descrição**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
-|  ID                          | GUID que identifica exclusivamente a operação                                                       |
+|  id                          | GUID que identifica exclusivamente a operação                                                       |
 |  submissionType              | Identifica o tipo de operação a ser comunicado para a oferta, por exemplo `Publish/GGoLive`      |
 |  createdDateTime             | Datetime UTC em que a operação foi criada                                                       |
 |  lastActionDateTime          | Datetime UTC quando a última atualização foi realizada na operação                                       |
 |  status                      | Estado da operação, qualquer um dos `not started` \| `running` \| `failed` \| `completed`. Apenas uma operação pode ter estado `running` cada vez. |
-|  erro                       | Mensagem de erro para operações com falhas                                                               |
+|  error                       | Mensagem de erro para operações com falhas                                                               |
 |  |  |
 
 

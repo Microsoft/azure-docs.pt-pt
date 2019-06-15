@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: crdun
 ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60859397"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como utilizar o SDK de aplicações móveis do Azure para Android
@@ -152,7 +152,7 @@ public class AzureServiceAdapter {
 
 Pode chamar `AzureServiceAdapter.Initialize(this);` no `onCreate()` método de sua atividade principal.  Outros métodos de que precisam de acesso para a utilização do cliente `AzureServiceAdapter.getInstance();` para obter uma referência para o adaptador de serviço.
 
-## <a name="data-operations"></a>Operações de Dados
+## <a name="data-operations"></a>Operações de dados
 
 É o núcleo do SDK de aplicações móveis do Azure fornecer acesso aos dados armazenados no SQL Azure no back-end da aplicação móvel.  Pode acessar esses dados usando as classes com rigidez de tipos (preferidas) ou sem tipos de consultas (não recomendadas).  A maior parte desta secção lida com o uso de classes com rigidez de tipos.
 
@@ -160,7 +160,7 @@ Pode chamar `AzureServiceAdapter.Initialize(this);` no `onCreate()` método de s
 
 Para acessar dados de tabelas do SQL Azure, defina as classes de dados de cliente que correspondem para as tabelas no back-end da aplicação móvel. Exemplos neste tópico partem do princípio de uma tabela chamada **MyDataTable**, que tem as seguintes colunas:
 
-* ID
+* id
 * texto
 * Concluir
 
@@ -1112,7 +1112,7 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sess
     * Substitua **INSERT-autoridade-HERE** com o nome do inquilino que aprovisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com.
     * Substitua **INSERT-RESOURCE-ID-HERE** com o ID de cliente para o back-end de aplicação móvel. Pode obter o ID de cliente do **avançadas** separador sob **definições de diretório do Azure Active Directory** no portal.
     * Substitua **INSERT-CLIENT-ID-HERE** com o ID de cliente que copiou da aplicação cliente nativa.
-    * Substitua **INSERT-REDIRECIONAMENTO-URI-HERE** com o seu site */.auth/login/done* ponto de extremidade, usando o esquema HTTPS. Este valor deve ser semelhante à *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Substitua **INSERT-REDIRECIONAMENTO-URI-HERE** com o seu site */.auth/login/done* ponto de extremidade, usando o esquema HTTPS. Este valor deve ser semelhante à *https://contoso.azurewebsites.net/.auth/login/done* .
 
 ```java
 private AuthenticationContext mContext;

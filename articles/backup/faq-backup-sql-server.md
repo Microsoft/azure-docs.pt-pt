@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: sachdevaswati
 ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700174"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server em execução numa cópia de segurança de VM do Azure
@@ -37,7 +37,7 @@ Em algumas circunstâncias, o serviço de cópia de segurança do Azure aciona c
 Auto-tratá-lo como um recurso está ativado para todos os utilizadores por padrão. No entanto no caso de optar por sair do mesmo, em seguida, execute o abaixo:
 
   * Na instância do SQL Server, na *C:\Program c:\programas\azure carga de trabalho Backup\bin* pasta, criar ou editar a **ExtensionSettingsOverrides.json** ficheiro.
-  * Na **ExtensionSettingsOverrides.json**, defina *{"EnableAutoHealer": false}*.
+  * Na **ExtensionSettingsOverrides.json**, defina *{"EnableAutoHealer": false}* .
   * Guardar as alterações e feche o ficheiro.
   * Na instância do SQL Server, abra **gerir tarefas** e, em seguida, reinicie o **AzureWLBackupCoordinatorSvc** serviço.  
 

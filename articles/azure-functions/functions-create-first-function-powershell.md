@@ -10,12 +10,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: 24640c9013f7a5b81cd5b1b6f45de49c5baad0e6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 1fc541f1236d17e1c2ffbf64ddb0340dcf5c0b9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063476"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>Criar a sua primeira função do PowerShell no Azure (pré-visualização)
 
@@ -36,7 +36,7 @@ Os seguintes passos são suportados em macOS, Windows e sistemas operacionais ba
 
 Para concluir este guia de início rápido:
 
-* Instalar [o PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)
+* Instalar [o PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 * Instale o [Visual Studio Code](https://code.visualstudio.com/) numa das [plataformas suportadas](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 

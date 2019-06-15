@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551877"
 ---
 # <a name="manage-alert-instances"></a>Gerir instâncias de alertas
@@ -36,7 +36,7 @@ Com o [experiência de alertas unificada](https://aka.ms/azure-alerts-overview) 
  
 1. Será direcionado para o **todos os alertas** página, onde poderá ver todas as instâncias de alerta em todo o Azure listado. Se estiver vindo para o portal de uma notificação de alerta, pode utilizar os filtros disponíveis para restringir essa instância de alerta específica. (**Nota**: se veio até a página clicando em qualquer uma das bandas de gravidade, a lista será previamente filtrada para esse gravidade quando é apresentado). Para além dos filtros disponíveis na página anterior, agora também pode filtrar com base no monitor de serviço (por exemplo, a plataforma para métricas), condição do monitor (disparado ou resolvidos), gravidade, estado de alerta (novo/confirmados/fechado) ou o ID do grupo inteligente.
 
-   ![Todos os Alertas](media/alerts-managing-alert-instances/all-alerts.jpg)
+   ![Todos os alertas](media/alerts-managing-alert-instances/all-alerts.jpg)
 
    > [!NOTE]
    >  Se veio para a página clicando em qualquer uma das bandas de gravidade, a lista será previamente filtrada para esse gravidade, quando é apresentado nesta página.

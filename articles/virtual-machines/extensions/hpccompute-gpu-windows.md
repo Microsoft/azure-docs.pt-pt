@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60388680"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de controladores de NVIDIA GPU para Windows
@@ -75,7 +75,7 @@ O JSON seguinte mostra o esquema para a extensão.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
-| tipo | NvidiaGpuDriverWindows | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -161,8 +161,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 | Código de Erro | Significado | Ação possível |
 | :---: | --- | --- |
-| 0 | Operação bem-sucedida |
-| 1 | Operação concluída com êxito. Reinício requerido. |
+| 0 | Operação concluída com êxito |
+| 1 | Operação concluída com êxito. É necessário reiniciar. |
 | 100 | Operação não suportada ou não foi possível concluir. | Causas possíveis: Versão do PowerShell não suportada, o tamanho da VM não é uma VM de série N, falha de transferência de dados. Verifique os ficheiros de registo para determinar a causa do erro. |
 | 240, 840 | Tempo limite da operação. | Repita a operação. |
 | -1 | Ocorreu uma exceção. | Verifique os ficheiros de registo para determinar a causa de exceção. |

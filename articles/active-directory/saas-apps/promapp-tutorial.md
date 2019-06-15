@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: e91351d4571eaa084865c5a179ed05e6c773b952
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2ddb8777a6470c0e739545e71867a694022d1723
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Active Directory do Azure com Promapp
 
@@ -95,7 +95,7 @@ Para configurar o Azure AD início de sessão único com Promapp, siga estes pas
 
 2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Selecione um método de início de sessão único](common/select-saml-option.png)
+    ![Selecionar um método de início de sessão único](common/select-saml-option.png)
 
 3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
@@ -227,7 +227,7 @@ Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure início de sessã
 
 Promapp suporta o aprovisionamento de utilizador de just-in-time. Esta funcionalidade está ativada por predefinição. Se um utilizador já não existir no Promapp, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
 ms.openlocfilehash: 9dd473aadd7123cafc27209f5c34322fdbcffb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60816445"
 ---
 # <a name="migrate-to-the-30-api"></a>Migrar para o 3.0 API
@@ -30,14 +30,14 @@ Este guia irá mostrar como atualizar seus projetos para trabalhar com a nova ve
 
 ## <a name="use-the-updated-prediction-api"></a>Utilizar a API de predição atualizada
 
-2.x APIs utilizada a mesma chamada de predição para classificadores de imagem e projetos de detetor de objeto. Ambos os tipos de projeto foram aceitáveis para o **PredictImage** e **PredictImageUrl** chamadas. A partir do 3.0, podemos ter dividir esta API para que precisa fazer corresponder o tipo de projeto para a chamada:
+2\.x APIs utilizada a mesma chamada de predição para classificadores de imagem e projetos de detetor de objeto. Ambos os tipos de projeto foram aceitáveis para o **PredictImage** e **PredictImageUrl** chamadas. A partir do 3.0, podemos ter dividir esta API para que precisa fazer corresponder o tipo de projeto para a chamada:
 
 * Uso **[ClassifyImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)** e **[ClassifyImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c14)** para obter previsões de indisponibilidade para projetos de classificação de imagem.
 * Uso **[DetectImage](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c19)** e **[DetectImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c18)** para obter previsões de indisponibilidade para projetos de deteção de objeto.
 
 ## <a name="use-the-new-iteration-publishing-workflow"></a>Usar o novo fluxo de publicação de iteração
 
-2.x APIs utilizada a iteração de predefinição ou um ID de iteração especificado para escolher a iteração a utilizar para predição. A partir de 3.0, já ADOTARAM o um fluxo de publicação no qual primeiro publicar uma iteração num nome especificado na API de treinamento. Em seguida, passe o nome para os métodos de predição para especificar quais as iterações para utilizar.
+2\.x APIs utilizada a iteração de predefinição ou um ID de iteração especificado para escolher a iteração a utilizar para predição. A partir de 3.0, já ADOTARAM o um fluxo de publicação no qual primeiro publicar uma iteração num nome especificado na API de treinamento. Em seguida, passe o nome para os métodos de predição para especificar quais as iterações para utilizar.
 
 > [!IMPORTANT]
 > O 3.0 APIs não utilize a funcionalidade de iteração do padrão. Até que substituímos as APIs mais antigas, pode continuar a utilizar o 2.x APIs para ativar/desativar uma iteração como predefinição. Essas APIs serão mantidas durante um período de tempo, e pode chamar o **[UpdateIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b818)** método para marcar uma iteração como predefinição.

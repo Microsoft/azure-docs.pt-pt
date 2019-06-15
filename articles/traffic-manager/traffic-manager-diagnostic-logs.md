@@ -2,7 +2,7 @@
 title: Ativar o registo de diagnóstico no Gestor de tráfego do Azure
 description: Saiba como ativar o registo de diagnóstico para o seu perfil do Gestor de tráfego e aceder os ficheiros de registo que são criados como resultado.
 services: traffic-manager
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
-ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: b2ebeb41e69b7edfd43c38cc3b828069a1b3401a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60204066"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071235"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Ativar o registo de diagnóstico no Gestor de tráfego do Azure
 

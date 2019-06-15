@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935152"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gestão de utilizadores no portal de parceiros da cloud
@@ -32,7 +32,7 @@ Para **adicionar utilizadores e atribuir funções** para publicação da oferta
 
 ![Selecione adicionar utilizador](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
-<a name="step-3-type-email-address-and-select-a-role-assignment"></a>Passo 3. Escreva o endereço de e-mail e selecione uma atribuição de função.
+<a name="step-3-type-email-address-and-select-a-role-assignment"></a>Passo 3: Escreva o endereço de e-mail e selecione uma atribuição de função.
 --------------------------------------------------------
 
 É possível adicionar o novo utilizador como "proprietário" ou "contribuinte".
@@ -50,7 +50,7 @@ o Certifique-se de que o e-mail IDs fornecidos no Portal do parceiro de Cloud s�
 
 Atualmente, apenas os proprietários podem acessar os separadores dividendos do Azure e de cliente do Azure no Insights.
 
-<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Passo 4. Selecione o nome do publicador que pretende adicionar ao novo utilizador, em seguida, clique em Adicionar para concluir a adição de utilizador.
+<a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Passo 4: Selecione o nome do publicador que pretende adicionar ao novo utilizador, em seguida, clique em Adicionar para concluir a adição de utilizador.
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]

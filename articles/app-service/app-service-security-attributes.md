@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
 ms.openlocfilehash: e38e1479c1e094f691e8f22f0a48f9342cae5cf3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475090"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Atributos de segurança para o serviço de aplicações do Azure

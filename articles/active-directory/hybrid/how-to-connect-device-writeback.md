@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785720"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109505"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Ativar a repetição de escrita do dispositivo
 > [!NOTE]
@@ -125,7 +125,7 @@ Verificar a configuração no Active Directory:
 
 ![Resolver problemas, verifique as permissões no Configuration de registo do dispositivo](./media/how-to-connect-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Informações Adicionais
+## <a name="additional-information"></a>Informação Adicional
 * [Gestão de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Configuração de acesso condicional no local com o registo de dispositivos do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 

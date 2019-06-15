@@ -12,10 +12,10 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
 ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119426"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorizar grupos de recursos com o Azure Monitor (pré-visualização)
@@ -99,7 +99,7 @@ Isso revela a consulta do log subjacente que está a orientar a visualização d
 
 É possível modificar a consulta diretamente. Ou pode usá-la como uma referência e emprestam ao conceber a sua própria pasta de trabalho parametrizada personalizada.
 
-### <a name="investigate-performance"></a>Investigar o desempenho
+### <a name="investigate-performance"></a>Investigue o desempenho
 
 Desempenho oferece sua própria Galeria de pastas de trabalho. Serviço de aplicações, a pasta de trabalho de desempenho de aplicações pré-criadas oferece a vista seguinte:
 

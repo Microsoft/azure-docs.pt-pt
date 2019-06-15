@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0b8dbb3992808bdcb94291d876192431c72f6c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integração do Active Directory do Azure com regular de Data3Sixty Infogix
 
@@ -54,7 +54,7 @@ Para configurar a integração do regular de Data3Sixty Infogix com o Azure AD, 
 
 **Para adicionar a regular de Data3Sixty Infogix partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -129,7 +129,7 @@ Para configurar o Azure AD início de sessão único com regular de Data3Sixty I
     | -----------| -------------- |
     | FirstName  | user.givenname |
     | Apelido   | user.surname |
-    | o nome de utilizador   | user.mail    |
+    | username   | user.mail    |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 

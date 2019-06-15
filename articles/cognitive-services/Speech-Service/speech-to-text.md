@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7596670e794c090b04f81cf6b235a4bc54c1f3c4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fcb09720d188150736dbe7da0c925f5762ff6a10
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072324"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
 Conversão de voz em texto dos serviços de voz do Azure, também conhecido como conversão de voz em texto, permite transcrição em tempo real dos fluxos de áudio em texto que podem consumir os seus aplicativos, ferramentas ou dispositivos, apresentar e tomar medidas em como entrada de comando. Este serviço utiliza a tecnologia da mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos da Cortana e o Office e funciona de forma totalmente integrada com a tradução e voz.  Para obter uma lista completa de idiomas de voz em texto disponíveis, consulte [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Por predefinição, o serviço de voz em texto utiliza o modelo de idioma Universal. Este modelo foi treinado a utilizar os dados pertencentes à Microsoft e é implementado na cloud. É ideal para conversação e cenários de ditado. Se estiver usando a voz em texto para o reconhecimento e transcrição de num ambiente exclusivo, pode criar e formar modelos acústicos, idioma e pronúncia personalizados para o ruído do endereço ou específicos da indústria vocabulário. 
+Por predefinição, o serviço de voz em texto utiliza o modelo de idioma Universal. Esse modelo foi treinado a utilizar os dados pertencentes à Microsoft e é implementado na cloud. É ideal para conversação e cenários de ditado. Se estiver usando a voz em texto para o reconhecimento e transcrição de num ambiente exclusivo, pode criar e formar modelos acústicos, idioma e pronúncia personalizados para o ruído do endereço ou específicos da indústria vocabulário. 
 
 Pode facilmente capturar áudio de um microfone, ler a partir de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de voz e REST APIs. O SDK de voz suporta WAV/PCM 16 bits, 16 kHz/8 kHz, áudio de canal único para o reconhecimento de fala. Formatos de áudio adicionais são suportados com o [ponto final REST de voz em texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [transcrição serviço batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
@@ -57,7 +57,7 @@ Oferecemos inícios rápidos em linguagens de programação mais populares, cada
 | [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Procurar](https://aka.ms/csspeech/cppref)|
 | [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Procurar](https://aka.ms/csspeech/cppref) |
 | [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Procurar](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Procurar](https://aka.ms/csspeech/javaref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/javaref) |
 | [JavaScript, Browser](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Procurar](https://aka.ms/AA434tv) |
 | [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Procurar](https://aka.ms/AA434tv) |
 | [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Procurar](https://aka.ms/csspeech/objectivecref) |

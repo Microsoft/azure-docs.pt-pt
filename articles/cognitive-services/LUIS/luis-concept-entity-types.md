@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080044"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -98,7 +98,7 @@ Assim que a entidade é extraída, os dados da entidade podem ser representados 
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composição**](#composite-entity)|Agrupamento de entidades, independentemente do tipo de entidade.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lista de itens e seus sinónimos extraídos com correspondência exata de texto.|
-|Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entidade em que é difícil determinar o fim da entidade.|
+|Misto||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entidade em que é difícil determinar o fim da entidade.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Já preparado extrair os vários tipos de dados.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Expressão regular**](#regular-expression-entity)|Usa a expressão regular para corresponder ao texto.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contém um único conceito na palavra ou frase.|
@@ -108,6 +108,30 @@ Apenas as entidades aprendidas por máquina tem de ser marcado como nas express�
 Pattern.any entidades precisam ser marcadas no [padrão](luis-how-to-model-intent-pattern.md) exemplos de modelo, não os exemplos da intenção do utilizador. 
 
 Entidades mistas usar uma combinação de métodos de deteção de entidade.
+
+## <a name="machine-learned-entities-use-context"></a>Contexto de uso de entidades aprendidas de máquina
+
+Saiba mais entidades aprendidas de máquina do contexto em que a expressão. Desta forma, variação de colocação em expressões de exemplo significativo. 
+
+## <a name="non-machine-learned-entities-dont-use-context"></a>Não-machine-aprendidas entidades não utilizam o contexto
+
+A seguinte não-máquina, ficou a saber entidades não têm o contexto de expressão em conta quando a correspondência de entidades: 
+
+* [Entidades pré-concebidas](#prebuilt-entity)
+* [Entidades de RegEx](#regular-expression-entity)
+* [Lista de entidades](#list-entity) 
+
+Estas entidades não necessitam de etiquetagem ou o modelo de formação. Depois de adicionar ou configurar a entidade, as entidades são extraídas. A desvantagem é que estas entidades podem ser overmatched, onde se contexto foi levado em conta, a correspondência seria não foram efetuada. 
+
+Isso acontece com as entidades de lista em novos modelos com frequência. Criar e testar o seu modelo com uma entidade de lista, mas quando publicar o seu modelo e recebe consultas a partir do ponto final, percebe que seu modelo é overmatching devido à falta de contexto. 
+
+Se quiser fazer corresponder palavras ou frases e levar o contexto em conta, tem duas opções. A primeira é usar uma entidade emparelhada com uma lista de frase. A lista de expressão não será utilizada para efetuar a correspondência, mas em vez disso, ajudará a palavras relativamente semelhante de sinal (lista intercambiável). Se tem de ter uma correspondência exata, em vez de variações de uma lista de frase, utilize uma entidade de lista com uma função, descrita abaixo.
+
+### <a name="context-with-non-machine-learned-entities"></a>Contexto com entidades não aprendidas máquina
+
+Se pretender que o contexto da expressão para são importantes para entidades de aprendidas não máquina, deve usar [funções](luis-concept-roles.md).
+
+Se tem uma entidade não aprendidas máquina, tal como [entidades pré-concebidas](#prebuilt-entity), [regex](#regular-expression-entity) entidades ou [lista](#list-entity) entidades, que é a correspondência além a instância que pretende, considere criar uma entidade com duas funções. Uma função capturará o que está procurando e uma função capturará o que não está procurando. Ambas as versões tem de ser o nome em expressões de exemplo.  
 
 ## <a name="composite-entity"></a>entidade composta
 
@@ -133,8 +157,9 @@ Lista de entidades representam um conjunto de palavras relacionadas, juntamente 
 A entidade é uma boa ajustar quando os dados de texto:
 
 * São um conjunto conhecido.
+* Não são alterados frequentemente. Se precisar de alterar a lista, muitas vezes, ou que a lista de Self-expandir, uma entidade aumentada com uma lista de frase é uma opção melhor. 
 * O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para este tipo de entidade.
-* O texto na expressão é uma correspondência exata com um sinónimo ou o nome canónico. LUIS não usa a lista para além de correspondências de texto exato. Lematização plurais e outras variações não estão resolvidas com uma entidade de lista. Para gerir variações, considere a utilização de um [padrão](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
+* O texto na expressão é uma correspondência exata com um sinónimo ou o nome canónico. LUIS não usa a lista para além de correspondências de texto exato. Correspondência difusa, case-insensitivity, Lematização, plurais e outras variações não estão resolvidas com uma entidade de lista. Para gerir variações, considere a utilização de um [padrão](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
 
 ![entidade de lista](./media/luis-concept-entities/list-entity.png)
 
@@ -158,10 +183,11 @@ Na tabela a seguir, cada linha tem duas versões da expressão. A expressão sup
 
 |Expressão|
 |--|
-|"Foi o homem que identificou seu esposa um Hat e outras histórias clínica, escrito por um American deste ano?<br>Foi **o homem que identificou seu esposa um Hat e outras histórias Clinical** escrito por um American deste ano?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
-|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
+|O homem quem identificou seu esposa um Hat e outras histórias Clinical foi escrita por um American deste ano?<br><br>Foi **o homem que identificou seu esposa um Hat e outras histórias Clinical** escrito por um American deste ano?|
+|Foi metade em modo de suspensão de Pijama Frog escrito por um American deste ano?<br><br>Foi **metade em modo de suspensão de Pijama Frog** escrito por um American deste ano?|
+|Foi a tristeza específica de bolo de Lemon: Uma nova escrita por um American deste ano?<br><br>Foi **a tristeza específica de bolo de Lemon: Uma nova** escrito por um American deste ano?|
+|Foi que há um Wocket no meu bolso! escrito por um American deste ano?<br><br>Foi **há um Wocket no meu bolso!** escrito por um American deste ano?|
+||
 
 ## <a name="prebuilt-entity"></a>Entidade pré-criados
 
@@ -225,6 +251,18 @@ A entidade é uma boa ajustar quando:
 
 [Tutorial](luis-quickstart-intents-regex-entity.md)<br>
 [Resposta JSON de exemplo para a entidade](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+Expressões regulares podem corresponder ao mais do que o esperado corresponder. Um exemplo disso é como a correspondência de palavras de numérico `one` e `two`. Um exemplo é o regex seguinte, que corresponde ao número `one` juntamente com outros números:
+
+```javascript
+(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
+``` 
+
+Esta expressão regex também corresponde a quaisquer palavras que terminam com esses números, como `phone`. Para corrigir problemas como esse, certifique-se de que RegEx corresponde ao leva em limites das palavras de conta. O regex para utilizar limites das palavras para este exemplo é utilizado no regex seguinte:
+
+```javascript
+\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
+```
 
 ## <a name="simple-entity"></a>Entidade simples 
 

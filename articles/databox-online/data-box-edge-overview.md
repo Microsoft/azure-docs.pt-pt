@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/12/2019
+ms.date: 06/11/2019
 ms.author: alkohli
-ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6e1870093dc89856e093267172418e9c7330c479
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755513"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080570"
 ---
 # <a name="what-is-azure-data-box-edge"></a>O que é o Azure Data Box Edge? 
 
@@ -34,7 +34,7 @@ O Azure Data Box Edge é um dispositivo de computação de ponta ativado por IA 
     - Dividir os dados em subconjuntos e transferir os dados necessários para análises mais profundas na cloud.
     - Analisar e reagir a eventos de IoT. 
 
-- **Inferir o Azure Machine Learning** - com o Data Box Edge, pode executar modelos de Machine Learning (ML) para obter resultados rápidos que podem ser analisados antes de os dados serem enviados para a cloud. O conjunto de dados completo é transferido para continuar a preparar novamente e melhorar os seus modelos de ML.
+- **Inferir o Azure Machine Learning** - com o Data Box Edge, pode executar modelos de Machine Learning (ML) para obter resultados rápidos que podem ser analisados antes de os dados serem enviados para a cloud. O conjunto completo de dados podem ser transferido para continuar para voltar a preparar e melhorar os seus modelos de ML. Para obter mais informações sobre como utilizar o hardware do Azure ML acelerados modelos num dispositivo de limite do Data Box, consulte [modelos com aceleração por hardware de implementar o Azure ML no limite do Data Box](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Transferir dados através de rede para o Azure** - utilize o Data Box Edge para transferir dados fácil e rapidamente para o Azure, para permitir mais computação e análise ou para arquivo. 
 
@@ -52,7 +52,7 @@ O Data Box Edge possui os benefícios seguintes:
 
 O Data Box Edge possui as seguintes funções:
 
-|Capacidade |Descrição  |
+|Funcionalidade |Descrição  |
 |---------|---------|
 |Elevado desempenho     | Transferência de dados e largura de banda totalmente automatizadas e altamente otimizadas.|
 |Protocolos suportados     | Suporte para protocolos SMB e NFS standard de ingestão de dados. <br> Para obter mais informações sobre as versões suportadas, aceda a [Requisitos de sistema do Data Box Edge](https://aka.ms/dbe-docs).|

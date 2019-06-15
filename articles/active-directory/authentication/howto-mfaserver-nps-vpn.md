@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acbf27ca6f5b58d5c3cebb28698304c130381a7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ad2b3075ae9d5ccd7e32f039fbbbc8583cde73c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414924"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055969"
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Cenários avançados com multi-factor Authentication e soluções VPN de terceiros
 
 Azure multi-factor Authentication pode ser utilizado para ligar de forma totalmente integrada com várias soluções VPN de terceiros. Este artigo se concentra na aplicação de VPN do Cisco® ASA, a aplicação Citrix NetScaler SSL VPN e Juniper redes proteger o acesso/Pulse Secure ligar seguro SSL aplicação VPN. Criamos guias de configuração para resolver estas três aplicações comuns. Também pode integrar o servidor multi-factor Authentication com mais outros sistemas que usam o RADIUS, LDAP, IIS ou autenticação baseada em afirmações do AD FS. Pode encontrar mais detalhes [as configurações de servidor de MFA](howto-mfaserver-deploy.md#next-steps).
+
+> [!IMPORTANT]
+> A partir de 1 de Julho de 2019 Microsoft já não irá oferecer servidor MFA para novas implementações. Novos clientes que gostariam de exigir a autenticação multifator de seus usuários devem utilizar com base na cloud do Azure multi-factor Authentication. Os clientes existentes que tenham ativado o servidor de MFA antes de 1 de Julho poderão transferir a versão mais recente, as atualizações futuras e gerar credenciais de ativação como de costume.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Aplicação de VPN de ASA da Cisco e multi-factor Authentication do Azure
 Autenticação Multifator do Azure integra-se a sua aplicação de VPN do Cisco® ASA para fornecer segurança adicional para inícios de sessão de VPN do Cisco AnyConnect® e o acesso ao portal.  Pode utilizar o protocolo de LDAP ou RADIUS.  Selecione um dos seguintes procedimentos para transferir os guias de configuração passo a passo detalhada.

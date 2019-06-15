@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723504"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: Erros de ligação de base de dados e outros problemas
@@ -216,7 +216,7 @@ Os seguintes erros se encontra em qualquer categorias anteriores.
 | 40652 |16 |Não é possível mover ou criar o servidor. Subscrição (id de subscrição) irá exceder a quota do servidor. |
 | 40671 |17 |Falha na comunicação entre o gateway e o serviço de gestão. Tente novamente mais tarde. |
 | 40852 |16 |Não é possível abrir a base de dados ' %. \*dos ls no servidor "%. \*ls solicitada pelo início de sessão. Acesso à base de dados só é permitido através de uma cadeia de ligação com segurança ativada. Para aceder a esta base de dados, modifique as cadeias de ligação para conter "seguro" no servidor FQDN - "name server".database.windows .net deve ser modificado para .database "name server". `secure`. windows.net. |
-| 40914 | 16 | Não é possível abrir o servidor de '*[nome do servidor]*"pedida pelo início de sessão. Cliente não tem permissão para aceder ao servidor.<br /><br />Para corrigir o problema, considere adicionar uma [regra de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md). |
+| 40914 | 16 | Não é possível abrir o servidor de ' *[nome do servidor]* "pedida pelo início de sessão. Cliente não tem permissão para aceder ao servidor.<br /><br />Para corrigir o problema, considere adicionar uma [regra de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |O sistema do SQL Azure está sob carga e é colocar um limite superior em operações CRUD de DB simultâneas para um único servidor de base de dados SQL (por exemplo, criar base de dados). O servidor especificado na mensagem de erro foi excedido o número máximo de ligações simultâneas. Tente novamente mais tarde. |
 | 45169 |16 |O sistema SQL do azure está sob carga e é colocar um limite superior no número de operações de CRUD do servidor em simultâneo para uma única subscrição (por exemplo, criar servidor). A subscrição especificada na mensagem de erro foi excedido o número máximo de ligações simultâneas e o pedido foi negado. Tente novamente mais tarde. |
 

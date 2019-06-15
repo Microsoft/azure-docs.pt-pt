@@ -11,10 +11,10 @@ ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: d4b1f65daf271de88ce7167da6866e1890602fd4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510328"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta Microsoft com as políticas personalizadas no Azure Active Directory B2C

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 11ba7cd9be59f13081bdc5a543c52ca5f9d66e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 279f6970c34acbfea645366f7e965c830873fdbf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60339334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Tutorial: Integração do Active Directory do Azure com a tarefa no
 
@@ -53,7 +53,7 @@ Para configurar a integração de tarefa para o Azure AD, terá de adicionar a t
 
 **Para adicionar a tarefa no partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

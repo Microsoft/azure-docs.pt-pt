@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 271161dd29bc1b31989775f3223bc30840346aed
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c5bcd0401e1806b958ad47297dccfe26093cf461
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Tutorial: Integração do Active Directory do Azure com Hornbill
 
@@ -54,7 +54,7 @@ Para configurar a integração do Hornbill com o Azure AD, terá de adicionar Ho
 
 **Para adicionar Hornbill a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -213,7 +213,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Hornbill. Hornb
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente Hornbill](https://www.hornbill.com/support/?request/).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

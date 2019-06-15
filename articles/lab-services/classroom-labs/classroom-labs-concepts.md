@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 82f9d7090d7283e0b00b36e0928fffb3395ca4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bbb486b0dbf1a5e25f5ee4d1f8e5e01b999a8ba
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679091"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067380"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos Laboratórios de Sala de Aula
 A lista seguinte contém os principais conceitos do Lab Services e definições:
 
 ## <a name="quota"></a>Quota
-Quota é o limite de tempo (em horas), que pode definir um professor de estudante utilizar um laboratório de VM. Ele pode ser definido como 0, ilimitado, ou um número específico de horas. Se a quota é definida como 0, um estudante só pode utilizar a máquina virtual quando uma agenda está em execução ou quando um professor ativa manualmente a máquina virtual para o aluno.
+Quota é o limite de tempo (em horas), que pode definir um professor de estudante utilizar um laboratório de VM. Ele pode ser definido como 0 ou um número específico de horas. Se a quota é definida como 0, um estudante só pode utilizar a máquina virtual quando uma agenda está em execução ou quando um professor ativa manualmente a máquina virtual para o aluno.
  
 ## <a name="schedules"></a>Agendas
 Agendas são os blocos de tempo (uma vez ou periodicamente) que um professor pode criar para a classe. Todas as máquinas virtuais no laboratório são iniciadas automaticamente no início para a agenda e são parados no final da agenda. Horas de quota não são utilizadas quando uma agenda está em execução.

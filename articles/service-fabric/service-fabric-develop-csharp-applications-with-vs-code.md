@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393797"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolva C# aplicações do Service Fabric com o Visual Studio Code
@@ -66,7 +66,7 @@ A aplicação deverá agora aparecer na sua área de trabalho do VS Code.
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Implementar a aplicação no cluster local
 Depois de criar a aplicação, pode implementá-la no cluster local. 
 
-1. Partir do **paleta de comandos**, selecione o **Service Fabric: Implementar o comando de aplicação (Localhost)**. O resultado do processo de instalação é enviado para o terminal integrado.
+1. Partir do **paleta de comandos**, selecione o **Service Fabric: Implementar o comando de aplicação (Localhost)** . O resultado do processo de instalação é enviado para o terminal integrado.
 
    ![Implementar o comando de aplicação no VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 

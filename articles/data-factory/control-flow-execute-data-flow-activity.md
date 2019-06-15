@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235869"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077330"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Executar a atividade de fluxo de dados no Azure Data Factory
 Utilize a atividade de fluxo de dados de execução para executar o fluxo de dados do ADF nas execuções do pipeline debug (área de segurança) e nas execuções de pipeline acionada.
@@ -72,7 +72,7 @@ Tem controlo sobre o ambiente de execução do Spark para suas atividades de flu
 
 ### <a name="staging-area"></a>Área de transição
 
-Se sair está afundando até os dados no armazém de dados do Azure, tem de escolher uma localização de transição para a sua carga de batch do Polybase.
+Se sair está afundando até os dados no armazém de dados do Azure, tem de escolher uma localização de transição para a sua carga de batch do Polybase. A definição de teste apenas é aplicável a cargas de trabalho do armazém de dados do Azure.
 
 ## <a name="parameterized-datasets"></a>Conjuntos de dados parametrizados
 

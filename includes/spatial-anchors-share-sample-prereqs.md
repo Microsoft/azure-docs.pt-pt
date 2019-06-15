@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: bd7db1dd5d5fd6e19584e66a9af1523567d593bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681403"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67135364"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

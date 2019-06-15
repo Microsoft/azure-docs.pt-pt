@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c43a38a456eb0fce3f46409bd256f0fc42e8ade
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 70f4b900a1ccc2769e397c32b452ef939da00099
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899981"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-security-fabric"></a>Tutorial: Integração do Active Directory do Azure com recursos de infraestrutura de segurança de Cloud
 
@@ -54,7 +54,7 @@ Para configurar a integração de recursos de infraestrutura de segurança de Cl
 
 **Para adicionar recursos de infraestrutura de segurança de Cloud a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -195,7 +195,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida nos recursos de infraestrutura de segurança de Cloud. Trabalhar com [equipa de suporte de recursos de infraestrutura de segurança de Cloud](mailto:support@cloudlock.com) para adicionar os utilizadores da plataforma de recursos de infraestrutura de segurança de Cloud. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

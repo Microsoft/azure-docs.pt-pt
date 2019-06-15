@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2bc5602011ed64b11b1b8c96b7e69a8d5ee9bf32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133595"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
@@ -45,7 +45,7 @@ Para os SSDs padrão, cada operação e/s inferior ou igual a 256 KiB de débito
 
 ## <a name="standard-hdd"></a>HDD Standard
 
-HDDs de padrão do Azure fornecem suporte de disco fiável e económica para as VMs executar cargas de trabalho insensível à latência. Com o armazenamento standard, os dados são armazenados em unidades de disco rígido (HDDs). Discos de latência, IOPS e débito de HDD padrão podem variar amplamente em comparação com discos baseados em SSD. Ao trabalhar com VMs, pode utilizar os discos standard de HDD para cenários de desenvolvimento/teste e menos cargas de trabalho críticas. Standard HDDs estão disponíveis em todas as regiões do Azure e podem ser utilizados com todas as VMs do Azure.
+HDDs de padrão do Azure fornecem suporte de disco fiável e económica para as VMs executar cargas de trabalho insensível à latência. Com o armazenamento standard, os dados são armazenados em unidades de disco rígido (HDDs). Discos de latência, IOPS e débito de HDD padrão podem variar amplamente em comparação com discos baseados em SSD. Os discos Standard HDD foram concebidos para fornecer latências de escrita em 10 MS e ler latências em 20 MS na maioria das operações de e/s, no entanto, o desempenho real pode variar consoante o padrão de tamanho e a carga de trabalho de e/s. Ao trabalhar com VMs, pode utilizar os discos standard de HDD para cenários de desenvolvimento/teste e menos cargas de trabalho críticas. Standard HDDs estão disponíveis em todas as regiões do Azure e podem ser utilizados com todas as VMs do Azure.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

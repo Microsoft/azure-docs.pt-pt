@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: cba13012bf165a097bd1382da8ef9897b0584d28
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066880"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Gerir grupos de aplicações para Windows Virtual Desktop pré-visualização
 
@@ -73,7 +73,7 @@ Antes de começar, [transferir e importar o módulo do Windows PowerShell de amb
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu a criar grupos de aplicações, preenchê-lo com RemoteApps e atribuir utilizadores ao grupo de aplicações. Para saber mais sobre como iniciar sessão área de Trabalho Virtual do Windows, avance para ligar ao Windows procedimentos de ambiente de Trabalho Virtual.
+Neste tutorial, aprendeu a criar grupos de aplicações, preenchê-lo com RemoteApps e atribuir utilizadores ao grupo de aplicações. Para saber como criar um conjunto de anfitrião de validação, o que permite-lhe monitorizar atualizações de serviço antes de distribuí-las ao seu ambiente de produção, consulte Criar um conjunto de anfitrião para validar o tutorial de atualizações de serviço.
 
-- [Ligar para o cliente de ambiente de trabalho remoto no Windows 7 e Windows 10](connect-windows-7-and-10.md)
-- [Ligar para o cliente de web do Windows Virtual Desktop pré-visualização](connect-web.md)
+> [!div class="nextstepaction"]
+> [Criar um conjunto de anfitrião para validar o tutorial de atualizações de serviço](./create-validation-host-pool.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814486"
 ---
 # <a name="semantic-interpretation"></a>Interpretação semântica
@@ -33,7 +33,7 @@ Uma variável é especificada com um identificador de nome que começa com uma l
 
 Segue-se uma lista de tipos de dados atualmente suportados:
 
-|Type|Descrição|Exemplos|
+|Tipo|Descrição|Exemplos|
 |----|----|----|
 |String|Sequência de 0 ou mais carateres|"Hello World!"<br/>""|
 |Booleano|Valor booleano|true<br/>false|
