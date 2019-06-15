@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
 ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371177"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos de software não incluídos com instâncias de VM reservadas do Azure
@@ -27,7 +27,7 @@ Se não tiver um benefício híbrido do Azure nas suas instâncias de máquina v
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Medidores de software do Windows não incluídos no custo de reserva
 
-| Id do Medidor | MeterName no ficheiro de utilização | Utilizado por VM |
+| MeterId | MeterName no ficheiro de utilização | Utilizado por VM |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Períodos de rajada de instâncias reservadas do Windows de reserva Server (1 núcleo) | Série B |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Períodos de rajada de instâncias reservadas do Windows de reserva Server (2 núcleos) | Série B |
@@ -52,7 +52,7 @@ Se não tiver um benefício híbrido do Azure nas suas instâncias de máquina v
 
 ## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Os medidores de software não incluídos no custo de reserva serviços em nuvem
 
-| Id do Medidor | MeterName no ficheiro de utilização |
+| MeterId | MeterName no ficheiro de utilização |
 | ------- | ------------------------|
 |ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Cloud Services 1 vCPU licença|
 |e0434559-19ee-4132-9c46-05ad4044f3f7|Cloud Services 2 vCPU licença|

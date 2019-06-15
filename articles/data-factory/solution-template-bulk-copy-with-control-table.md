@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.openlocfilehash: c4224693642e8c9f76deedc0c8ad8586e122cc23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60635450"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de uma base de dados com uma tabela de controle
@@ -78,7 +78,7 @@ O modelo define cinco parâmetros:
 
 5. Selecione **Utilize este modelo**.
 
-    ![Utilizar este modelo](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
+    ![Utilize este modelo](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
     
 6. Verá o pipeline, conforme mostrado no exemplo a seguir:
 

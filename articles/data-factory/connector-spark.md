@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60322877"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar dados de Spark com o Azure Data Factory 
@@ -48,7 +48,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Spark:
 | thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **Binary**, **SASL**, **HTTP** | Não |
 | authenticationType | O método de autenticação utilizado para aceder ao servidor do Spark. <br/>Valores permitidos são: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | o nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor do Spark.  | Não |
-| palavra-passe | A palavra-passe correspondente ao utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| password | A palavra-passe correspondente ao utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | httpPath | O URL de parcial correspondente para o servidor de Spark.  | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
 | trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna para verificar o servidor ao ligar-se através de SSL. Esta propriedade só pode ser definida ao utilizar o SSL em Ir autoalojado. O valor predefinido é o arquivo de cacerts.pem instalado com o IR.  | Não |
@@ -116,7 +116,7 @@ Para copiar dados de Spark, definir o tipo de origem na atividade de cópia para
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SparkSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 

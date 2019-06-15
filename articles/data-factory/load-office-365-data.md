@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60548294"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 com o Azure Data Factory
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como utilizar o Data Factory _carregar dados do Office 36
       
    ![Página Nova fábrica de dados](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Nome**: Introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadFromOffice365Demo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**LoadFromOffice365Demo**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Nome**: Introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadFromOffice365Demo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_ **LoadFromOffice365Demo**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: Selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
     * **Grupo de recursos**: Selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versão**: Selecione **V2**.
@@ -137,7 +137,7 @@ Para ver as execuções de atividade associadas à execução do pipeline, selec
 
 Se esta for a primeira vez que está a solicitar dados para este contexto (uma combinação de quais dados tabela está a ser acesso, o destino conta é os dados a ser carregados para, e que identidade de utilizador está a tornar os dados de pedido de acesso), verá que a atividade de cópia Estado como "**em curso**", e apenas quando clicar na ligação de "Detalhes" em ações irão ver o estado como "**RequesetingConsent**".  Um membro do grupo de aprovador de acesso de dados tem de aprovar o pedido de Privileged Access Management antes de pode continuar a extração de dados.
 
-_Estado como pedir consentimento:_
+_Estado como pedir consentimento:_ 
 ![detalhes de execução de atividade - pedido de consentimento](./media/load-office-365-data/activity-details-request-consent.png) 
 
 _Estado como a extração de dados:_

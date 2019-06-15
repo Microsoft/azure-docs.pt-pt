@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564330"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704443"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Erro ao processar em políticas de gestão de API
 
@@ -77,13 +77,13 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
 
  Quando ocorre um erro e controle salta para o `on-error` secção de política, o erro é armazenado no [contexto. LastError](api-management-policy-expressions.md#ContextVariables) propriedade, que pode ser acessada por políticas no `on-error` secção. LastError tem as seguintes propriedades.  
   
-| Name     | Tipo   | Descrição                                                                                               | Necessário |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source   | string | Nomes do elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline interno.     | Sim      |
-| Reason   | string | Código de erro de máquina amigável, que poderia ser usado no tratamento de erros.                                       | Não       |
-| Message  | string | Descrição do erro legível por humanos.                                                                         | Sim      |
-| Scope    | string | Nome do âmbito em que o erro ocorreu e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
-| Section  | string | Nome de secção onde ocorreu o erro. Valores possíveis: "entrada", "backend", "saída" ou "em erro".       | Não       |
+| Name       | Tipo   | Descrição                                                                                               | Necessário |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | string | Nomes do elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline interno.     | Sim      |
+| `Reason`   | string | Código de erro de máquina amigável, que poderia ser usado no tratamento de erros.                                       | Não       |
+| `Message`  | string | Descrição do erro legível por humanos.                                                                         | Sim      |
+| `Scope`    | string | Nome do âmbito em que o erro ocorreu e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
+| `Section`  | string | Nome de secção onde ocorreu o erro. Valores possíveis: "entrada", "backend", "saída" ou "em erro".       | Não       |
 | `Path`     | string | Especifica a política de aninhadas, por exemplo "Escolha [3] / quando [2]".                                                        | Não       |
 | `PolicyId` | string | Valor da `id` de atributo, se for especificado pelo cliente, na política de onde ocorreu o erro             | Não       |
 
@@ -99,8 +99,8 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
 | Source        | Condição                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | configuração | URI não corresponde a qualquer API ou a operação | OperationNotFound       | Não é possível comparar a solicitação de entrada para uma operação de mensagens em fila.                                                                      |
-| Autorização | Chave de subscrição não fornecida             | SubscriptionKeyNotFound | Acesso negado devido à falta de chave de subscrição. Certifique-se incluir a chave de subscrição quando são efetuados pedidos para esta API. |
-| Autorização | Valor de chave de subscrição é inválido         | SubscriptionKeyInvalid  | Acesso negado devido a chave de subscrição inválido. Certifique-se fornecer uma chave válida para uma subscrição ativa.            |
+| authorization | Chave de subscrição não fornecida             | SubscriptionKeyNotFound | Acesso negado devido à falta de chave de subscrição. Certifique-se incluir a chave de subscrição quando são efetuados pedidos para esta API. |
+| authorization | Valor de chave de subscrição é inválido         | SubscriptionKeyInvalid  | Acesso negado devido a chave de subscrição inválido. Certifique-se fornecer uma chave válida para uma subscrição ativa.            |
   
 ## <a name="predefined-errors-for-policies"></a>Erros predefinidos para as políticas  
  Os seguintes erros estão predefinidos para condições de erro que podem ocorrer durante a avaliação da política.  
@@ -108,7 +108,7 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
 | Source       | Condição                                                       | Reason                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | limite de taxa   | Limite de taxa foi excedido                                             | RateLimitExceeded         | Limite de taxa foi excedido                                                                                                               |
-| quota        | Quota excedida                                                  | QuotaExceeded             | Volume de chamadas fora da quota. Quota será seja reposta no xx:xx:xx. - ou - fora da quota de largura de banda. Quota será seja reposta no xx:xx:xx. |
+| quota        | Quota excedida                                                  | QuotaExceeded             | Volume de chamadas fora da quota. Quota será seja reposta no xx:xx:xx. \- ou - fora da quota de largura de banda. Quota será seja reposta no xx:xx:xx. |
 | jsonp        | O valor de parâmetro de retorno de chamada é inválido (contém caracteres errados) | CallbackParameterInvalid  | Valor do parâmetro de retorno de chamada {nome de parâmetro de retorno de chamada} não é um identificador de JavaScript válido.                                          |
 | ip-filter    | Falha ao analisar o IP de chamador do pedido                          | FailedToParseCallerIP     | Falha ao estabelecer o endereço IP para o chamador. Acesso negado.                                                                        |
 | ip-filter    | Autor da chamada IP não se encontrar no lista de permitidos                                | CallerIpNotAllowed        | O endereço IP de chamador {endereço ip} não é permitido. Acesso negado.                                                                        |

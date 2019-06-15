@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/18/2018
 ms.author: aljo
 ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394052"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
@@ -247,7 +247,7 @@ Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lh
 
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 
-3. Em **Nós**, clique no nó que localizou no passo anterior e selecione **Desativar (reiniciar)**, no menu Ações. Esta ação reinicia o nó em execução na réplica do principal de serviço e força uma ativação pós-falha numa das réplicas secundárias em execução noutro nó.  Essa réplica secundária é promovida a principal, outra réplica secundária é criada num nó diferente e a réplica primária começa a executar operações de leitura/escrita. Á medida que o nó reinicia, observe a saída do cliente de teste e repare que o contador continua a aumentar, apesar da ativação pós-falha.
+3. Em **Nós**, clique no nó que localizou no passo anterior e selecione **Desativar (reiniciar)** , no menu Ações. Esta ação reinicia o nó em execução na réplica do principal de serviço e força uma ativação pós-falha numa das réplicas secundárias em execução noutro nó.  Essa réplica secundária é promovida a principal, outra réplica secundária é criada num nó diferente e a réplica primária começa a executar operações de leitura/escrita. Á medida que o nó reinicia, observe a saída do cliente de teste e repare que o contador continua a aumentar, apesar da ativação pós-falha.
 
 ## <a name="remove-the-application"></a>Remover a aplicação
 Utilize o script de desinstalação fornecido no modelo para eliminar a instância da aplicação, anular o registo do pacote de aplicação e remover o pacote de aplicação do arquivo de imagens do cluster.

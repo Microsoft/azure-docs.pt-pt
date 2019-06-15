@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567219"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados para e do Azure Cosmos DB com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-azure-documentdb-connector.md)
 > * [Versão 2 (versão atual)](../connector-azure-cosmos-db.md)
 
@@ -124,7 +124,7 @@ Em caso de atividade de cópia quando a origem é do tipo **DocumentDbCollection
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| query |Especifique a consulta para ler os dados. |Suportado pelo Azure Cosmos DB de cadeia de consulta. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução SQL que é executada: `select <columns defined in structure> from mycollection` |
+| consulta |Especifique a consulta para ler os dados. |Suportado pelo Azure Cosmos DB de cadeia de consulta. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução SQL que é executada: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caráter especial para indicar que o documento está aninhado |Qualquer caráter. <br/><br/>O Azure Cosmos DB é um arquivo de NoSQL para documentos JSON, onde as estruturas aninhadas são permitidas. O Azure Data Factory permite que o utilizador denotar hierarquia via nestingSeparator, que é "." nos exemplos acima. Com o separador, a atividade de cópia irá gerar o objeto "Nome" com elementos de três filhos em primeiro lugar, média e por último, a fim de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição da tabela. |Não |
 
 **DocumentDbCollectionSink** suporta as seguintes propriedades:

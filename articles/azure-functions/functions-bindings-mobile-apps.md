@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61438130"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de aplicações móveis para as funções do Azure 
@@ -142,8 +142,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo**|| Tem de ser definido como "mobileTable"|
-| **direção**||Tem de ser definido para "in"|
+| **type**|| Tem de ser definido como "mobileTable"|
+| **direction**||Tem de ser definido para "in"|
 | **name**|| Nome do parâmetro de entrada na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados da aplicação móvel|
 | **id**| **Id** | O identificador do registo a obter. Pode ser estático ou com base no acionador que invoca a função. Por exemplo, se utilizar um acionador de fila para a função e, em seguida, `"id": "{queueTrigger}"` utiliza o valor de cadeia de caracteres da mensagem de fila como o ID de registo a obter.|
@@ -300,8 +300,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-| **tipo**|| Tem de ser definido como "mobileTable"|
-| **direção**||Tem de ser definido para "Sair"|
+| **type**|| Tem de ser definido como "mobileTable"|
+| **direction**||Tem de ser definido para "Sair"|
 | **name**|| Nome do parâmetro de saída na assinatura de função.|
 |**tableName** |**TableName**|Nome da tabela de dados da aplicação móvel|
 |**ligação**|**MobileAppUriSetting**|O nome de uma definição de aplicação que tenha o URL da aplicação móvel. A função utiliza este URL para construir as operações necessárias de REST em relação a sua aplicação móvel. Criar uma definição de aplicação na sua aplicação de função que contém o URL da aplicação móvel, em seguida, especifique o nome da definição de aplicação no `connection` propriedade no enlace de entrada. O URL é semelhante a `http://<appname>.azurewebsites.net`.

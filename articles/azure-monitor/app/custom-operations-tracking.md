@@ -13,10 +13,10 @@ ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900894"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o .NET SDK do Application Insights
@@ -170,7 +170,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Processo
+#### <a name="process"></a>Process
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -229,8 +229,8 @@ Uma vez que as filas de armazenamento suportam a API de HTTP, todas as operaçõ
 
 Este exemplo mostra como controlar o `Enqueue` operação. Pode:
 
- - **Correlacionar as repetições (se houver)**: Todos eles têm um comum principal que tem o `Enqueue` operação. Caso contrário, estão registados como filhos do pedido a receber. Se existirem várias solicitações de lógicas para a fila, poderá ser difícil encontrar qual invocação resultou nas repetições.
- - **Correlacionar os registos de armazenamento (se sejam e quando necessário)**: Eles estão correlacionados com telemetria do Application Insights.
+ - **Correlacionar as repetições (se houver)** : Todos eles têm um comum principal que tem o `Enqueue` operação. Caso contrário, estão registados como filhos do pedido a receber. Se existirem várias solicitações de lógicas para a fila, poderá ser difícil encontrar qual invocação resultou nas repetições.
+ - **Correlacionar os registos de armazenamento (se sejam e quando necessário)** : Eles estão correlacionados com telemetria do Application Insights.
 
 O `Enqueue` operação é o filho de uma operação de principal (por exemplo, uma solicitação HTTP recebida). A chamada de dependência HTTP é o filho do `Enqueue` operação e grandchild do pedido a receber:
 
@@ -335,7 +335,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Processo
+#### <a name="process"></a>Process
 
 No exemplo a seguir, uma mensagem de entrada é controlada-se da mesma forma de forma a solicitação HTTP recebida:
 

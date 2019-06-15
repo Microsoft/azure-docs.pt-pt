@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60342240"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar a sincronização de dados do SQL entre a base de dados do Azure SQL e SQL Server no local
@@ -148,7 +148,7 @@ Na **base de dados do membro** secção, opcionalmente, adicione um servidor de 
 > [!NOTE]
 > Para ligar a sincronização de dados SQL e o agente local, adicione o seu nome de utilizador à função *DataSync_Executor*. Sincronização de dados cria esta função na instância do SQL Server.
 
-## <a name="configure-sync-group"></a>Configurar grupo de sincronização
+## <a name="configure-sync-group"></a>Configurar o grupo de sincronização
 
 Depois dos novos membros do grupo de sincronização são criados e implementados, **configurar o grupo de sincronização (etapa 3)** está realçado na **novo grupo de sincronização** página.
 
@@ -172,16 +172,16 @@ A duração mínima entre as sincronizações é de cinco minutos.
 
 **Sincronização de dados SQL totalmente criar tabelas?**
 
-Se tabelas do esquema de sincronização estão em falta na base de dados de destino, a sincronização de dados SQL cria-as com as colunas que selecionou. No entanto, isso não é um esquema de fidelidade total pelos seguintes motivos:
+Se existirem tabelas do esquema de sincronização em falta na base de dados de destino, a Sincronização de Dados SQL cria-as com as colunas que selecionou. No entanto, isso não é um esquema de fidelidade total pelos seguintes motivos:
 
-- Apenas as colunas que selecionar são criadas na tabela de destino. Colunas não selecionadas serão ignoradas.
-- Apenas os índices de colunas selecionadas são criados na tabela de destino. Para colunas não selecionadas, esses índices são ignorados.
+- Apenas as colunas que selecionar são criadas na tabela de destino. As colunas não selecionadas são ignoradas.
+- Apenas os índices de colunas selecionadas são criados na tabela de destino. Para as colunas não selecionadas, esses índices são ignorados.
 - Índices em colunas de tipo XML não são criados.
 - Restrições de verificação não são criadas.
 - Os acionadores em tabelas de origem não são criados.
 - As vistas e procedimentos armazenados não são criados.
 
-Devido a essas limitações, recomendamos os seguintes procedimentos:
+Devido a estas limitações, recomendamos os seguintes procedimentos:
 
 - Para ambientes de produção, crie o esquema de fidelidade total por conta própria.
 - Ao experimentar com o serviço, utilize a funcionalidade de aprovisionamento automático.

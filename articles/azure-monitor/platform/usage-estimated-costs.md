@@ -10,10 +10,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60453829"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorizar a utilização e custos estimados no Azure Monitor
@@ -68,7 +68,7 @@ A página também mostra um conjunto diferente de medidores que correspondem ao 
 
 O novo modelo de preços não tem as alocações de dados incluídos com base no nó. Por conseguinte, estes medidores de ingestão de dados são combinados num novo medidor de ingestão dados comuns denominado **partilhados ingestão de Services\Data**. 
 
-Há outra alteração aos dados ingeridos no Log Analytics ou o Application Insights nas regiões com custos superiores. Dados para estas regiões de alto custo serão mostrados com os novos medidores regionais. Um exemplo é **ingestão de dados (e.u.a. Centro-Oeste)**.
+Há outra alteração aos dados ingeridos no Log Analytics ou o Application Insights nas regiões com custos superiores. Dados para estas regiões de alto custo serão mostrados com os novos medidores regionais. Um exemplo é **ingestão de dados (e.u.a. Centro-Oeste)** .
 
 > [!NOTE]
 > O por subscrição estimado custos não fatorar em nível da conta por elegibilidades de nó da subscrição do Operations Management Suite (OMS). Neste caso, consulte seu representante de conta para uma discussão mais aprofundada sobre o novo modelo de preços.

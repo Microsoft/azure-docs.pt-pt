@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
 ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827277"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagens de contentor no Azure Container Registry
@@ -34,12 +34,12 @@ Para cenários que requerem a garantia de alta disponibilidade ainda mais, consi
 
 A tabela seguinte descreve os limites de armazenamento e de imagem de contentor num local de registos de contentores do Azure.
 
-| Recurso | Limite |
+| Resource | Limite |
 | -------- | :---- |
 | Repositórios | Sem limite |
 | Imagens | Sem limite |
 | Camadas | Sem limite |
-| Etiquetas | Sem limite|
+| Tags | Sem limite|
 | Armazenamento | 5 TB |
 
 Muito elevado número de repositórios e as etiquetas pode afetar o desempenho do seu registo. Elimine repositórios não utilizados, marcas e imagens periodicamente como parte da sua rotina de manutenção do registo. Eliminar recursos de registo como repositórios, imagens e etiquetas *não é possível* ser recuperado após a eliminação. Para obter mais informações sobre como eliminar os recursos de registo, consulte [eliminar imagens de contentor no Azure Container Registry](container-registry-delete.md).

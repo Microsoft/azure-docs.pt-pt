@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60769113"
 ---
 # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externo
@@ -78,7 +78,7 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 
 5. Selecione o plano de serviço de aplicações e, em seguida, selecione **criar novo**. Aplicações web do Linux e aplicações de web do Windows não podem estar no mesmo plano serviço de aplicações, mas podem ser no mesmo ambiente de serviço de aplicações. 
 
-    ![Novo plano do Serviço de Aplicações][2]
+    ![Novo plano do serviço de aplicações][2]
 
 6. Na **localização** na lista pendente, selecione a região onde pretende criar o ASE. Se selecionar um ASE existente, não é criado um novo ASE. O plano do serviço de aplicações é criado no ASE que selecionou. 
 
@@ -114,7 +114,7 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 
 1. Selecione o plano de serviço de aplicações e, em seguida, selecione **criar novo**. Aplicações web do Linux e aplicações de web do Windows não podem estar no mesmo plano serviço de aplicações, mas podem ser no mesmo ambiente de serviço de aplicações. 
 
-    ![Novo plano do Serviço de Aplicações][8]
+    ![Novo plano do serviço de aplicações][8]
 
 1. Na **localização** na lista pendente, selecione a região onde pretende criar o ASE. Se selecionar um ASE existente, não é criado um novo ASE. O plano do serviço de aplicações é criado no ASE que selecionou. 
 

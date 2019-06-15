@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61436499"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisitos de armazenamento de BLOBs de caixa de dados do Azure
@@ -57,7 +57,7 @@ Para armazenamento de BLOBs de caixa de dados, existem requisitos de sufixo de p
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    Pacote de Nuget:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>Versão do GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    app.config file                 |
 |    Java                |    7.0.0                                           |    Pacote maven:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Configuração de cadeia de ligação         |
-|    Node.js             |    2.8.3                                           |    Ligação do NPM:   https://www.npmjs.com/package/azure-storage   (Run: `npm install azure-storage@2.7.0`)   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Declaração de instância de serviço    |
+|    Node.js             |    2.8.3                                           |    Ligação do NPM:   https://www.npmjs.com/package/azure-storage   (Run: `npm install azure-storage@2.7.0` )   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Declaração de instância de serviço    |
 |    C++                 |    5.2.0                                           |    Pacote de Nuget:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Versão do GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Configuração de cadeia de ligação         |
 |    PHP                 |    1.2.0                                           |    Versão do GitHub:<br>Comuns: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Instalar através do compositor (para obter mais informações, consulte os detalhes abaixo.)                                                                                                             |    Configuração de cadeia de ligação         |
 |    Python              |    1.1.0                                           |    Versão do GitHub:<br>Comuns:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Declaração de instância de serviço    |

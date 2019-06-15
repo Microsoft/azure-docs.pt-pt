@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
 ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697338"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
@@ -35,7 +35,7 @@ O escalão standard do IoT Hub permite que todas as funcionalidades e é necess�
 
 Apenas um tipo de [edition](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de uma camada pode ser selecionado por IoT Hub. Por exemplo, pode criar um IoT Hub com múltiplas unidades de S1, mas não com uma mistura de unidades de edições diferentes, por exemplo, S1 e B3, ou S1 e S2.
 
-| Capacidade | Escalão Basic | Escalão gratuito/Standard |
+| Funcionalidade | Escalão Basic | Escalão gratuito/Standard |
 | ---------- | ---------- | ------------- |
 | [Telemetria do dispositivo para a cloud](iot-hub-devguide-messaging.md) | Sim | Sim |
 | [Identidade por dispositivo](iot-hub-devguide-identity-registry.md) | Sim | Sim |

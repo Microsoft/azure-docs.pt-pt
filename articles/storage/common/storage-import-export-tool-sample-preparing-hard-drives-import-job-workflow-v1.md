@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320589"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Fluxo de trabalho de amostra para preparar unidades de disco rígido para uma tarefa de importação
@@ -29,7 +29,7 @@ Neste exemplo importa os seguintes dados para uma conta de armazenamento do Wind
   
 A tarefa de importação importa estes dados para os seguintes destinos na conta de armazenamento:  
   
-|Origem|Diretório virtual de destino ou de BLOBs|  
+|source|Diretório virtual de destino ou de BLOBs|  
 |------------|-------------------------------------------|  
 |H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  

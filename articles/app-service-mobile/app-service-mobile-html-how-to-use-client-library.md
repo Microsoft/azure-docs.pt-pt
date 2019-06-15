@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106749"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de cliente JavaScript para aplicações móveis do Azure

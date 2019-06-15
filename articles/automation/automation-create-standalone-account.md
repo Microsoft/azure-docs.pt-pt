@@ -10,10 +10,10 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61076824"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
@@ -89,7 +89,7 @@ Para criar uma conta de automatização do Azure no portal do Azure, conclua os 
 
 Quando a conta de Automatização é criada com sucesso, são criados vários recursos automaticamente para si. Após a criação, estes runbooks pode ser eliminados com segurança se não pretender mantê-los. As contas Run as, pode ser utilizado para autenticar a sua conta de um runbook e deve ser deixado, a menos que crie outro ou não requerem-los. A tabela seguinte resume os recursos para a conta Run As.
 
-| Recurso | Descrição |
+| Resource | Descrição |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Um runbook gráfico de exemplo que demonstra como a autenticação com a conta Run As. O runbook obtém todos os recursos do Resource Manager. |
 | AzureAutomationTutorialScript Runbook |Um runbook do PowerShell de exemplo que demonstra como a autenticação com a conta Run As. O runbook obtém todos os recursos do Resource Manager. |
@@ -99,7 +99,7 @@ Quando a conta de Automatização é criada com sucesso, são criados vários re
 
 A tabela seguinte resume os recursos da conta Run As clássica.
 
-| Recurso | Descrição |
+| Resource | Descrição |
 | --- | --- |
 | AzureClassicAutomationTutorial Runbook |Um runbook gráfico de exemplo. O runbook obtém todas as VMs clássicas numa subscrição utilizando a ser executado como conta clássica (certificado). Em seguida, ele exibe os nomes VM e o estado. |
 | AzureClassicAutomationTutorial Script Runbook |Um runbook do PowerShell de exemplo. O runbook obtém todas as VMs clássicas numa subscrição utilizando a ser executado como conta clássica (certificado). Em seguida, ele exibe os nomes VM e o estado. |

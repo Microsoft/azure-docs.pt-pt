@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 7d378c2f72035c3584e1f5cd3c1f0fb9a5d5c2ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372302"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Análise de utilizadores, sessões e eventos no Application Insights
@@ -44,7 +44,7 @@ Três dos painéis de utilização utilizam a mesma ferramenta para examinar tel
 
 Explore os diferentes grupos de utilizadores ao ajustar as opções de consulta na parte superior da ferramenta utilizadores:
 
-* Mostrar: Escolha uma coorte de utilizadores para analisar.
+* Mostra: Escolha uma coorte de utilizadores para analisar.
 * Quem utilizou: Escolha os eventos personalizados e vistas de página.
 * Durante a: Escolha um intervalo de tempo.
 * Por: Escolha como registo de dados, por um período de tempo ou por outra propriedade, como o navegador ou cidade.
@@ -58,7 +58,7 @@ Para partilhar uma ligação a um relatório de utilizadores, sessões ou evento
 
 Para partilhar uma cópia dos dados num relatório de utilizadores, sessões ou eventos; Clique em **partilha** na barra de ferramentas, clique nas **ícone do Word** para criar um documento do Word com os dados. Em alternativa, clique nas **ícone de Word** acima do gráfico principal.
 
-## <a name="meet-your-users"></a>Conheça os seus utilizadores
+## <a name="meet-your-users"></a>Cumprir os seus utilizadores
 
 O **satisfazer os seus utilizadores** seção mostra informações de cerca de cinco utilizadores de exemplo correspondidos por consulta atual. Considerando e explorar os comportamentos de indivíduos, além de agregados, podem fornecer informações sobre como as pessoas utilizam, na verdade, a sua aplicação.
 

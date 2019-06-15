@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723872"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Cópia de segurança e restaurar Reliable Services e Reliable Actors

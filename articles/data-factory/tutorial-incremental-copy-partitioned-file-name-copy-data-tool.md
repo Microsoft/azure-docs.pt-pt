@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61099081"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar novos ficheiros com base no nome de ficheiro particionada de tempo com a ferramenta copiar dados de forma incremental
@@ -48,7 +48,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
     ![Carregar ficheiros](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
-    > Ajuste o nome da pasta com o seu fuso horário UTC.  Por exemplo, se a hora UTC atual é 2 às 18:03 26 de Fevereiro de 2019, pode criar o caminho da pasta como **origem/2019/02/26/14/** pela regra de **origem / {ano} / {Month} / {Day} / {Hour} /**.
+    > Ajuste o nome da pasta com o seu fuso horário UTC.  Por exemplo, se a hora UTC atual é 2 às 18:03 26 de Fevereiro de 2019, pode criar o caminho da pasta como **origem/2019/02/26/14/** pela regra de **origem / {ano} / {Month} / {Day} / {Hour} /** .
 
 2. Criar um contentor com o nome **destino**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
 
@@ -66,7 +66,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
    
    ![Mensagem de erro de nova fábrica de dados](./media/tutorial-copy-data-tool/name-not-available-error.png)
    
-   Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_**ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+   Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_ **ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 3. Selecione a **subscrição** do Azure na qual quer criar a nova fábrica de dados. 
 4. Em **Grupo de Recursos**, efetue um destes passos:
      
@@ -102,7 +102,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
 
     c. Sob **Acione tipo**, selecione **janela em cascata**.
     
-    d. Sob **periodicidade**, introduza **1 hora (s)**. 
+    d. Sob **periodicidade**, introduza **1 hora (s)** . 
     
     e. Selecione **Seguinte**. 
     
@@ -184,7 +184,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
     > [!NOTE]
-    > Pode estar ciente de que um novo caminho de pasta é necessário a ser criada. Ajuste o nome da pasta com o seu fuso horário UTC.  Por exemplo, se a hora UTC atual é de 3:20 PM 26 de Fevereiro de 2019, pode criar o caminho da pasta como **origem/2019/02/26/15/** pela regra de **{ano} / {Month} / {Day} / {Hour} /**.
+    > Pode estar ciente de que um novo caminho de pasta é necessário a ser criada. Ajuste o nome da pasta com o seu fuso horário UTC.  Por exemplo, se a hora UTC atual é de 3:20 PM 26 de Fevereiro de 2019, pode criar o caminho da pasta como **origem/2019/02/26/15/** pela regra de **{ano} / {Month} / {Day} / {Hour} /** .
     
 13. Voltar para o **execuções de Pipeline** visualizar, selecione **todas as execuções de Pipelines**e aguarde que o pipeline mesmo sendo acionado novamente automaticamente após a outra, uma hora.  
 

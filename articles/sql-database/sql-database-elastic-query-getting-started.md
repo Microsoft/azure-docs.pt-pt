@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60556275"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bases de dados de cloud aumentadas horizontalmente (pré-visualização)
@@ -105,7 +105,7 @@ Execute esta consulta na base de dados ElasticDBQuery:
 
 Observará que a consulta agrega os resultados de todas as partições horizontais e oferece a seguinte saída:
 
-![Detalhes da saída][4]
+![Detalhes de saída][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Importar os resultados da consulta de base de dados elástica para Excel
  Pode importar os resultados de uma consulta para um ficheiro do Excel.

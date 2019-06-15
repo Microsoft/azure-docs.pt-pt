@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pabutler
 ms.openlocfilehash: 058ab30358811cb66ae033fb464974639569ae18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935268"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurar a gestão de oportunidades potenciais com um ponto final HTTPS
@@ -52,7 +52,7 @@ Pode utilizar um ponto final HTTPS para lidar com o Azure Marketplace e oportuni
 1. Selecione **+ novo passo**.
 2. Escolha o sistema CRM à sua escolha com a ação para criar um novo registo. Captura de ecrã seguinte mostra **Dynamics 365 - criar um novo registo** como exemplo.
 
-    ![Criar uma nova palavra-passe](./media/cloud-partner-portal-lead-management-instructions-https/https-image009.png)
+    ![Criar um novo registo](./media/cloud-partner-portal-lead-management-instructions-https/https-image009.png)
 
 3. Forneça o **nome da organização** é que as entradas de ligação para o conector. Selecione **leva** partir do **nome da entidade** lista suspensa.
 

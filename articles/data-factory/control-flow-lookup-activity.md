@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
 ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60768671"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
@@ -54,7 +54,7 @@ As seguintes origens de dados são suportadas para a atividade de pesquisa. O ma
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Name | Descrição | Type | Necessário?
+Name | Descrição | Tipo | Obrigatório?
 ---- | ----------- | ---- | --------
 Conjunto de dados | Fornece a referência de conjunto de dados para a pesquisa. Obtenha detalhes no **propriedades do conjunto de dados** secção cada artigo conector correspondente. | Par chave/valor | Sim
 source | Contém as propriedades da origem de conjunto de dados específicas, o mesmo que a origem de atividade de cópia. Obtenha detalhes no **propriedades da atividade de cópia** secção cada artigo conector correspondente. | Par chave/valor | Sim
@@ -70,7 +70,7 @@ firstRowOnly | Indica se deve retornar apenas a primeira linha ou todas as linha
 
 É devolvido o resultado de pesquisa no `output` seção a resultado da execução da atividade.
 
-* **Quando `firstRowOnly` está definido como `true` (predefinição)**, o formato de saída é conforme mostrado no código a seguir. O resultado de pesquisa é fixa em `firstRow` chave. Para utilizar o resultado na atividade subsequente, utilize o padrão de `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Quando `firstRowOnly` está definido como `true` (predefinição)** , o formato de saída é conforme mostrado no código a seguir. O resultado de pesquisa é fixa em `firstRow` chave. Para utilizar o resultado na atividade subsequente, utilize o padrão de `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {

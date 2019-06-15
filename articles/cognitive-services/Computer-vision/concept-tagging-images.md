@@ -8,18 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 02/08/2019
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 02/08/2019
+ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759678"
 ---
-# <a name="applying-content-tags-to-images"></a>Aplicação de conteúdo de marcas a imagens
+# <a name="applying-content-tags-to-images"></a>Aplicação de etiquetas de conteúdo a imagens
 
 Imagem digitalizada devolve etiquetas com base em milhares de objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
 
@@ -87,4 +86,3 @@ A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve quando a
 ## <a name="next-steps"></a>Passos Seguintes
 
 Conheça os conceitos [categorizar imagens](concept-categorizing-images.md) e [descrevendo imagens](concept-describing-images.md).
-

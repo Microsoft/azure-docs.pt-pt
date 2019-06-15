@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
 ms.openlocfilehash: 0421ec62d25bbfaba2909d16498cac5afd038a53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737283"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB enlaces das funções do Azure 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selecione a versão do runtime das funções do Azure que está a utilizar: "]
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
@@ -182,8 +182,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** || Tem de ser definido como `cosmosDBTrigger`. |
-|**direção** || Tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
+|**type** || Tem de ser definido como `cosmosDBTrigger`. |
+|**direction** || Tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
 |**name** || O nome da variável no código de função que representa a lista de documentos com as alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma definição de aplicação que contém a cadeia de ligação utilizada para ligar à conta do Azure Cosmos DB a ser monitorizada. |
 |**databaseName**|**DatabaseName**  | O nome da base de dados do Azure Cosmos DB com a coleção a ser monitorizada. |
@@ -1161,8 +1161,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     || Tem de ser definido como `documentdb`.        |
-|**direção**     || Tem de ser definido como `in`.         |
+|**type**     || Tem de ser definido como `documentdb`.        |
+|**direction**     || Tem de ser definido como `in`.         |
 |**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |A base de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
@@ -1579,8 +1579,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     || Tem de ser definido como `documentdb`.        |
-|**direção**     || Tem de ser definido como `out`.         |
+|**type**     || Tem de ser definido como `documentdb`.        |
+|**direction**     || Tem de ser definido como `out`.         |
 |**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** | **DatabaseName**|A base de dados que contém a coleção onde o documento é criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção em que o documento é criado. |

@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 09/13/2017
 ms.author: cynthn
 ms.openlocfilehash: b8f63d2a0f69f1eb1b8a1b9c645b1a0bcb3d9469
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61456313"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opções de cópia de segurança e restauro para máquinas virtuais no Azure

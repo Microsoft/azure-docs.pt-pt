@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717045"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Criar e modificar um peering de um circuito do ExpressRoute com a CLI

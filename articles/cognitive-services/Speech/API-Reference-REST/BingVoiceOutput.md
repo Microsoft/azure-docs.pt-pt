@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515428"
 ---
 # <a name="bing-text-to-speech-api"></a>API do Bing texto em voz
@@ -43,7 +43,7 @@ Segue-se as informações de cabeçalho necessário para acesso de token.
 
 Name| Formato | Descrição
 ----|----|----
-OCP-Apim-Subscription-Key | ASCII | Chave de subscrição
+OCP-Apim-Subscription-Key | ASCII | A chave de subscrição
 
 O serviço de token devolve o token de acesso do JWT como `text/plain`. Em seguida, o JWT é passado como um `Base64 access_token` para o ponto final de voz como um cabeçalho de autorização com a cadeia de prefixo `Bearer`. Por exemplo:
 
@@ -190,7 +190,7 @@ Para obter detalhes de implementação, consulte a [Visual C#aplicação de exem
 
 A tabela seguinte identifica algumas das regiões suportadas e tipos de voz relacionados.
 
-Região | Sexo | Mapeamento de nome de serviço
+Região | Género | Mapeamento de nome de serviço
 ---------|--------|------------
 ar-por exemplo * | Feminino | "Microsoft Server voz texto para voz de voz (ar-por exemplo, Hoda)"
 ar SA | Masculino | "Microsoft Server voz texto para voz de voz (ar-SA, Naayf)"
@@ -271,7 +271,7 @@ zh-TW | Feminino | "Microsoft Server voz texto para voz de voz (zh-TW, Yating, A
 zh-TW | Feminino | "Microsoft Server voz texto para voz de voz (zh-TW, HanHanRUS)"
 zh-TW | Masculino | "Microsoft Server voz texto para voz de voz (zh-TW, Zhiwei, Apollo)"
 
- * ar-por exemplo, oferece suporte a Árabe padrão modernos (MSA).
+ \* ar-por exemplo, oferece suporte a Árabe padrão modernos (MSA).
 
 > [!NOTE]
 > Tenha em atenção que os nomes de serviço anteriores **voz de servidor texto para voz de voz da Microsoft (cs-CZ, Vit)** e **Microsoft Server voz texto para voz de voz (en-IE, Shaun)** serão preteridas após 3/31/2018 no ordem para otimizar os recursos da API de voz do Bing. Atualize o seu código com os nomes de atualizado.

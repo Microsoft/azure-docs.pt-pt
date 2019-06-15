@@ -16,17 +16,17 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60714140"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registos de diagnóstico do Service Bus
 
 Pode ver dois tipos de registos do Azure Service Bus:
-* **[Registos de atividades](../azure-monitor/platform/activity-logs-overview.md)**. Estes registos contêm informações sobre as operações executadas numa tarefa. Os registos são sempre ativados.
-* **[Os registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md)**. Pode configurar os registos de diagnóstico para informações mais detalhadas sobre tudo o que acontece dentro de uma tarefa. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
+* **[Registos de atividades](../azure-monitor/platform/activity-logs-overview.md)** . Estes registos contêm informações sobre as operações executadas numa tarefa. Os registos são sempre ativados.
+* **[Os registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md)** . Pode configurar os registos de diagnóstico para informações mais detalhadas sobre tudo o que acontece dentro de uma tarefa. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
 
 ## <a name="turn-on-diagnostic-logs"></a>Ativar registos de diagnóstico
 
@@ -73,7 +73,7 @@ SubscriptionId | ID da subscrição
 EventTimeString | Tempo de operação
 EventProperties | Propriedades de operação
 Estado | Estado da operação
-Autor da chamada | Chamador de operação (cliente do Azure de portal ou de gestão)
+Caller | Chamador de operação (cliente do Azure de portal ou de gestão)
 category | OperationalLogs
 
 Eis um exemplo de um cadeia de caracteres do JSON de registo operacional:

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: bb1a56d204a46f89213f20e317494120f0ea565e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60580603"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Desativar e eliminar uma matriz Virtual StorSimple

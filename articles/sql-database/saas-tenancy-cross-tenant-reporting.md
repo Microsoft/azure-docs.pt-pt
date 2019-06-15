@@ -13,10 +13,10 @@ ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484741"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Consultas de distribuídas de relatórios usando entre inquilinos
@@ -93,7 +93,7 @@ Para examinar a definição do *locais* vista:
 
 1. Na **Object Explorer**, expanda **contosoconcerthall** > **vistas**:
 
-   ![visualizações](media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Modos de exibição](media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Com o botão direito **dbo. Locais**.
 3. Selecione **vista como de Script** > **criar para** > **nova janela do Editor de consultas**
@@ -128,7 +128,7 @@ Neste exercício adiciona esquema (a origem de dados externa e definições de t
 
     ![Criar origem de dados externa](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   As tabelas externas que fazem referência as vistas globais descrito na secção anterior e definido com **distribuição = SHARDED(VenueId)**. Uma vez que cada *VenueId* é mapeado para uma base de dados individual, isso melhora o desempenho para muitos cenários, como mostrado na próxima seção.
+   As tabelas externas que fazem referência as vistas globais descrito na secção anterior e definido com **distribuição = SHARDED(VenueId)** . Uma vez que cada *VenueId* é mapeado para uma base de dados individual, isso melhora o desempenho para muitos cenários, como mostrado na próxima seção.
 
     ![criar tabelas externas](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 

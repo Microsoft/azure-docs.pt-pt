@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
 ms.openlocfilehash: 51a97443f6b9ba2a37fa2db708b8520a9c450000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60594808"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Mostra Windows "a verificar o sistema de ficheiros" quando se reinicia uma VM do Azure
