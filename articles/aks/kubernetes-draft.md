@@ -2,17 +2,16 @@
 title: Utilizar o Draft com o AKS e registo de contentor do Azure
 description: Utilizar o Draft com o AKS e registo de contentor do Azure
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
+ms.date: 08/15/2018
+ms.author: zarhoads
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60465160"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Utilizar o Draft com o serviço Kubernetes do Azure (AKS)
@@ -77,7 +76,7 @@ Agora que existe uma relação de confiança entre o ACR e o AKS, ative a utiliz
 1. Definir a configuração de rascunho *Registro* valor. Nos seguintes comandos, substitua `<acrName>` com o nome do seu registo ACR:
 
     ```console
-    draft config set registry <acrName>.azurecr.cn
+    draft config set registry <acrName>.azurecr.io
     ```
 
 1. Inicie sessão no registo do ACR com [início de sessão az acr][az-acr-login]:
@@ -220,7 +219,7 @@ Neste exemplo, atualize a aplicação de exemplo de Java para alterar o texto de
 vi src/main/java/helloworld/Hello.java
 ```
 
-Atualizar o texto de saída para apresentar, *Hello World, eu sou o Java no AKS!*:
+Atualizar o texto de saída para apresentar, *Hello World, eu sou o Java no AKS!* :
 
 ```java
 package helloworld;
@@ -271,4 +270,4 @@ Para obter mais informações sobre como utilizar o Draft, consulte a documenta�
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-login]: /cli/azure/acr#az-acr-login

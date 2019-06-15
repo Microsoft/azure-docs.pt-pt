@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: v-pawal
 ms.openlocfilehash: be70043be7e05ea795f2b82774faec49419d5c43
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515014"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Como converter atrás de firewalls IP com a API de texto do tradutor

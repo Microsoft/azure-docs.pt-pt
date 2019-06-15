@@ -9,10 +9,10 @@ ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 0cfa0fdb51969c92e767adfa86a0065d11da56e2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237764"
 ---
 [Os ficheiros do Azure](../articles/storage/files/storage-files-introduction.md) suporta a autenticação com base na identidade através de SMB (Server Message Block) (pré-visualização) por meio [serviços de domínio do Azure Active Directory (Azure AD)](../articles/active-directory-domain-services/overview.md). Máquinas de virtuais de Windows (VMs) do seu associados a um domínio podem aceder a partilhas de ficheiros do Azure com [do Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) credenciais. 

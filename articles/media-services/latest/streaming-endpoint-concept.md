@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
 ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515731"
 ---
 # <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo 

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872791"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do Azure funções c# para programadores
@@ -187,7 +187,7 @@ O `Sdk` pacote também depende [newtonsoft](https://www.nuget.org/packages/Newto
 
 O código-fonte `Microsoft.NET.Sdk.Functions` está disponível no repositório do GitHub [azure\-funções\-vs\-criar\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## <a name="runtime-version"></a>Versão de runtime
+## <a name="runtime-version"></a>Versão de Runtime
 
 O Visual Studio utiliza o [ferramentas de núcleo de funções do Azure](functions-run-local.md#install-the-azure-functions-core-tools) para executar projetos de funções. As ferramentas de núcleo é uma interface de linha de comandos para o runtime das funções.
 

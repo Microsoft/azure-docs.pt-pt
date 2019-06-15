@@ -12,10 +12,10 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: 6a84ecff04381b6dcc9706105df92ecc96dc8b1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61389466"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Dicas de solução de problemas para suportar o serviço QnA Maker e o tempo de execução
@@ -36,7 +36,7 @@ Tempo de execução do QnAMaker faz parte do serviço de aplicações do Azure i
     ![Reiniciar o serviço de aplicações QnAMaker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
 ## <a name="how-to-get-the-qnamaker-service-hostname"></a>Como obter o nome de anfitrião do serviço do QnAMaker
-O nome de anfitrião do QnAMaker serviço é útil para fins de depuração quando contactar o suporte de QnAMaker ou UserVoice. O nome do anfitrião é um URL neste formato: https://*{nome do anfitrião}*. azurewebsites.net.
+O nome de anfitrião do QnAMaker serviço é útil para fins de depuração quando contactar o suporte de QnAMaker ou UserVoice. O nome do anfitrião é um URL neste formato: https:// *{nome do anfitrião}* . azurewebsites.net.
     
 1. Aceda ao seu serviço de QnAMaker (grupo de recursos) [portal do Azure](https://portal.azure.com)
 

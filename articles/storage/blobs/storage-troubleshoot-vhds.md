@@ -9,10 +9,10 @@ ms.date: 10/31/2018
 ms.author: rogarana
 ms.reviewer: wmgries
 ms.openlocfilehash: c00fdf3ad02edc1faf0d3257d3836a1c2f44d682
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150776"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Resolver problemas relacionados com discos anexados a VMs do Azure 

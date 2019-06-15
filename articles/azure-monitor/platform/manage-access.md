@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782807"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerir dados de registo e áreas de trabalho no Azure Monitor

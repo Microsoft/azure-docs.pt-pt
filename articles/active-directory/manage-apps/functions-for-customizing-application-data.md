@@ -15,10 +15,10 @@ ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824633"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory

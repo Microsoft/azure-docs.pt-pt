@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
 ms.openlocfilehash: 8c32043d9bf3ca68563ae01d415bdc0e1f6993f7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258136"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Pré-requisitos para a gestão de contas no Portal de parceiros de nuvem 

@@ -16,10 +16,10 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 30a4bfa2cf7a39a28db0575a6851f5b7b481524c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388177"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolher o tipo de aplicação ao adicionar uma aplicação no Azure Active Directory

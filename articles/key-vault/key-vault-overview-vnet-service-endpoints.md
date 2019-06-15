@@ -9,10 +9,10 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
 ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66416433"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para o Azure Key Vault

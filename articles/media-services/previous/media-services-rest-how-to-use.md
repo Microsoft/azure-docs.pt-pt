@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687062"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Descrição geral de REST API de operações de serviços de multimédia 
@@ -57,7 +57,7 @@ As seguintes considerações aplicam-se ao utilizar o REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Cabeçalhos de pedido HTTP padrão suportados pelos Media Services
 Para todas as chamadas feitas para os serviços de multimédia, existe um conjunto de cabeçalhos necessários, que tem de incluir no seu pedido e também um conjunto de cabeçalhos opcionais pode querer incluir. A tabela abaixo lista os cabeçalhos necessários:
 
-| Cabeçalho | Type | Value |
+| Cabeçalho | Tipo | Value |
 | --- | --- | --- |
 | Autorização |Portador |Portador é o mecanismo de autorização aceites apenas. O valor também tem de incluir o token de acesso fornecido pelo Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (ou versão mais recente)|
@@ -71,10 +71,10 @@ Para todas as chamadas feitas para os serviços de multimédia, existe um conjun
 
 Segue-se um conjunto de cabeçalhos opcionais:
 
-| Cabeçalho | Type | Value |
+| Cabeçalho | Tipo | Value |
 | --- | --- | --- |
 | Date |Data de RFC 1123 |Timestamp do pedido |
-| Aceitar |Tipo de conteúdo |O tipo de conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> -application/atom + xml<p> As respostas podem ter um tipo de conteúdo diferente, como a obtenção de BLOBs, em que uma resposta com êxito contém o fluxo de BLOBs como o payload. |
+| Aceite |Tipo de conteúdo |O tipo de conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> -application/atom + xml<p> As respostas podem ter um tipo de conteúdo diferente, como a obtenção de BLOBs, em que uma resposta com êxito contém o fluxo de BLOBs como o payload. |
 | Aceite-Encoding |Gzip, deflate |GZIP e DEFLATE codificação, quando aplicável. Nota: Para recursos grandes, os serviços de multimédia pode ignorar este cabeçalho e retornar dados noncompressed. |
 | Accept-Language |"pt", "es" e assim por diante. |Especifica o idioma preferido para a resposta. |
 | Accept-Charset |Tipo de conjunto de carateres como "UTF-8" |A predefinição é UTF-8. |
@@ -85,7 +85,7 @@ Segue-se um conjunto de cabeçalhos opcionais:
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos Media Services
 Segue-se um conjunto de cabeçalhos que podem ser devolvidos para si, dependendo do recurso que foram solicitar e a ação que pretende executar.
 
-| Cabeçalho | Type | Value |
+| Cabeçalho | Tipo | Value |
 | --- | --- | --- |
 | id do pedido |String |Um identificador exclusivo para a operação atual, o serviço gerado. |
 | client-request-id |String |Um identificador especificado pelo chamador na solicitação original, se estiver presente. |
@@ -103,7 +103,7 @@ Segue-se uma lista completa dos verbos HTTP que podem ser utilizados quando os p
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
 | DELETE |Exclui um objeto. |
 | INTERCALAR |Atualiza um objeto existente com as alterações de propriedade nomeada. |
-| CABEÇALHO |Devolve os metadados de um objeto para uma resposta GET. |
+| HEAD |Devolve os metadados de um objeto para uma resposta GET. |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Detetar e procurar o modelo de entidades de serviços de multimédia
 Para tornar as entidades de serviços de multimédia mais detetável, a operação de $metadata pode ser utilizada. Ele permite-lhe obter todos os tipos de entidade válido, propriedades de entidade, associações, funções, ações e assim por diante. Ao adicionar a operação de $metadata ao final do ponto final da API de REST dos serviços de multimédia, pode aceder a este serviço de deteção.

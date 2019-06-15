@@ -11,10 +11,10 @@ ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510437"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C

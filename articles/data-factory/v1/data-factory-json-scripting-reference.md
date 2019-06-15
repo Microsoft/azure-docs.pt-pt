@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156542"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
@@ -49,7 +49,7 @@ A tabela seguinte descreve as propriedades no pipeline definição JSON:
 
 | Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-| nome | Nome do pipeline. Especifique um nome que represente a ação que a atividade ou o pipeline está configurado para fazer<br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
+| name | Nome do pipeline. Especifique um nome que represente a ação que a atividade ou o pipeline está configurado para fazer<br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
 | description |Texto que descreve o que a atividade ou o pipeline é utilizado para | Não |
 | activities | Contém uma lista de atividades. | Sim |
 | start |Data-hora de início para o pipeline. Tem de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM estimativa<br/><br/>As propriedades de início e de fim especificam em conjunto o período ativo do pipeline. Apenas os setores de saída são produzidos neste período de Active Directory. |Não<br/><br/>Se especificar um valor para a propriedade final, tem de especificar o valor da propriedade de início.<br/><br/>As horas de início e de fim podem de estar vazias para criar um pipeline. Tem de especificar ambos os valores para definir um período de Active Directory para o execução do pipeline. Se não especificar horários de início e fim quando criar um pipeline, pode configurá-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
@@ -95,7 +95,7 @@ Seguinte tabela descreve as propriedades na definição JSON da atividade:
 | linkedServiceName |Nome do serviço ligado utilizado pela atividade. <br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. |Sim para atividades do HDInsight, atividades do Azure Machine Learning e atividade de procedimento armazenado. <br/><br/>Não para todas as outras. |
 | typeProperties |Propriedades na secção typeProperties dependem do tipo da atividade. |Não |
 | política |Políticas que afetam o comportamento de runtime da atividade. Se não for especificado, são utilizadas políticas predefinidas. |Não |
-| Scheduler |propriedade de "scheduler" é utilizada para definir um agendamento pretendida para a atividade. Seu subproperties são as mesmas que na [propriedade de disponibilidade num conjunto de dados](data-factory-create-datasets.md#dataset-availability). |Não |
+| scheduler |propriedade de "scheduler" é utilizada para definir um agendamento pretendida para a atividade. Seu subproperties são as mesmas que na [propriedade de disponibilidade num conjunto de dados](data-factory-create-datasets.md#dataset-availability). |Não |
 
 ### <a name="policies"></a>Políticas
 As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando o setor de uma tabela é processado. A tabela seguinte fornece os detalhes.
@@ -288,7 +288,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 | --- | --- | --- | --- |
 | name | Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |N/D |
 | type | Tipo de conjunto de dados. Especifique um dos tipos suportados pelo Azure Data Factory (por exemplo: AzureBlob, AzureSqlTable). Ver [ARQUIVOS de dados](#data-stores) secção para todos os arquivos de dados e os tipos de conjunto de dados suportados pelo Data Factory. |
-| estrutura | Esquema do conjunto de dados. Ela contém colunas, seus tipos, etc. | Não |N/D |
+| structure | Esquema do conjunto de dados. Ela contém colunas, seus tipos, etc. | Não |N/D |
 | typeProperties | Propriedades correspondentes ao tipo selecionado. Ver [ARQUIVOS de dados](#data-stores) na secção tipos suportados e as respetivas propriedades. |Sim |N/D |
 | externo | Sinalizador booleano para especificar se um conjunto de dados é produzido explicitamente por um pipeline de fábrica de dados ou não. |Não |false |
 | disponibilidade | Define o período de processamento ou o modelo slicing para o conjunto de dados de produção. Para obter detalhes sobre o modelo de fragmentação do conjunto de dados, consulte [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |N/D |
@@ -320,7 +320,7 @@ A tabela seguinte descreve as propriedades que pode utilizar o **disponibilidade
 | --- | --- | --- | --- |
 | frequency |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: Minuto, hora, dia, semana, mês |Sim |N/D |
 | interval |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido.<br/><br/>Se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Nota</b>: Se especificar a frequência como minuto, recomendamos que defina o intervalo para não menos do que 15 |Sim |N/D |
-| Estilo |Especifica se o setor deve ser gerado no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência está definida para o mês e estilo está definido como EndOfInterval, o setor é produzido no último dia do mês. Se o estilo é definido como StartOfInterval, o setor é produzido no primeiro dia do mês.<br/><br/>Se a frequência está definida como o dia e estilo está definido como EndOfInterval, o setor é produzido na última hora do dia.<br/><br/>Se a frequência está definida como hora e estilo está definido como EndOfInterval, o setor é produzido no fim da hora. Por exemplo, para um setor durante o período de 1 PM – 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
+| style |Especifica se o setor deve ser gerado no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência está definida para o mês e estilo está definido como EndOfInterval, o setor é produzido no último dia do mês. Se o estilo é definido como StartOfInterval, o setor é produzido no primeiro dia do mês.<br/><br/>Se a frequência está definida como o dia e estilo está definido como EndOfInterval, o setor é produzido na última hora do dia.<br/><br/>Se a frequência está definida como hora e estilo está definido como EndOfInterval, o setor é produzido no fim da hora. Por exemplo, para um setor durante o período de 1 PM – 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo agendador para computar os limites de setor de conjunto de dados. <br/><br/><b>Nota</b>: Se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b> , em seguida, o <b>minutos e segundos</b> partes do AnchorDateTime são ignorados. |Não |01/01/0001 |
 | offset |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/><b>Nota</b>: Se forem especificados anchorDateTime e desvio, o resultado é a mudança combinada. |Não |N/D |
 
@@ -599,7 +599,7 @@ Para definir um Store do Azure Data Lake serviço ligado, defina o tipo do servi
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim (para autenticação do principal de serviço) |
 | servicePrincipalKey | Especifique a chave da aplicação. | Sim (para autenticação do principal de serviço) |
 | tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim (para autenticação do principal de serviço) |
-| Autorização | Clique em **autorizar** botão no **Editor do Data Factory** e introduza a sua credencial que atribui o URL de autorização gerado automaticamente a esta propriedade. | Sim (para autenticação de credenciais de utilizador)|
+| authorization | Clique em **autorizar** botão no **Editor do Data Factory** e introduza a sua credencial que atribui o URL de autorização gerado automaticamente a esta propriedade. | Sim (para autenticação de credenciais de utilizador)|
 | sessionId | Id de sessão OAuth a partir da sessão de autorização de OAuth. Cada id de sessão é exclusivo e só pode ser utilizada uma vez. Esta definição é gerada automaticamente ao utilizar o Editor do Data Factory. | Sim (para autenticação de credenciais de utilizador) |
 
 #### <a name="example-using-service-principal-authentication"></a>Exemplo: utilizar a autenticação principal de serviço
@@ -1654,7 +1654,7 @@ Se estiver a copiar dados do Amazon Redshift, definir o **tipo de origem** da at
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -1710,7 +1710,7 @@ Para definir o IBM DB2 serviço ligado, defina o **tipo** do serviço ligado par
 | database |Nome da base de dados DB2. |Sim |
 | schema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
-| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
+| o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados de DB2 no local. |Sim |
 
@@ -1773,7 +1773,7 @@ Se estiver a copiar dados do IBM DB2, definir o **tipo de origem** da atividade 
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 #### <a name="example"></a>Exemplo
 ```json
@@ -1826,7 +1826,7 @@ Para definir um MySQL de serviço ligado, defina o **tipo** do serviço ligado p
 | database |Nome da base de dados MySQL. |Sim |
 | schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
-| username |Especifique o nome de utilizador para ligar à base de dados MySQL. |Sim |
+| userName |Especifique o nome de utilizador para ligar à base de dados MySQL. |Sim |
 | password |Especifique a palavra-passe da conta de utilizador que especificou. |Sim |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do MySQL no local. |Sim |
 
@@ -1891,7 +1891,7 @@ Se está a copiar dados de uma base de dados do MySQL, defina o **tipo de origem
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 
 #### <a name="example"></a>Exemplo
@@ -2117,7 +2117,7 @@ Para definir um PostgreSQL serviço ligado, defina o **tipo** do serviço ligado
 | database |Nome da base de dados PostgreSQL. |Sim |
 | schema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
-| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
+| o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do PostgreSQL no local. |Sim |
 
@@ -2180,7 +2180,7 @@ Se está a copiar dados de uma base de dados do PostgreSQL, defina o **tipo de o
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: "consulta": "selecionar * da \"MySchema\".\" MyTable\"". |Não (se **tableName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: "consulta": "selecionar * da \"MySchema\".\" MyTable\"". |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2675,7 +2675,7 @@ Para definir um Sybase serviço ligado, defina o **tipo** do serviço ligado par
 | database |Nome da base de dados Sybase. |Sim |
 | schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados Sybase. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
-| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
+| o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados de Sybase no local. |Sim |
 
@@ -2740,7 +2740,7 @@ Se está a copiar dados de uma base de dados Sybase, defina o **tipo de origem**
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2793,7 +2793,7 @@ Para definir um Teradata serviço ligado, defina o **tipo** do serviço ligado p
 | --- | --- | --- |
 | server |Nome do servidor de Teradata. |Sim |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados Teradata. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
-| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
+| o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do Teradata no local. |Sim |
 
@@ -2850,7 +2850,7 @@ Se está a copiar dados de uma base de dados Teradata, defina o **tipo de origem
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Sim |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -2977,7 +2977,7 @@ Se estiver a copiar dados do Cassandra, definir o **tipo de origem** da atividad
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Consulta de SQL-92 ou consulta CQL. Ver [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se for tableName e keyspace num conjunto de dados estão definidos). |
+| query |Utilize a consulta personalizada para ler dados. |Consulta de SQL-92 ou consulta CQL. Ver [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se for tableName e keyspace num conjunto de dados estão definidos). |
 | consistencyLevel |O nível de consistência Especifica o número de réplicas devem responder a uma solicitação de leitura antes de retornar dados para a aplicação cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer a solicitação de leitura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Ver [configurar a consistência dos dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes. |Não. Valor predefinido é um. |
 
 #### <a name="example"></a>Exemplo
@@ -3099,7 +3099,7 @@ Se estiver a copiar dados do MongoDB, defina o **tipo de origem** da atividade c
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta de SQL-92. Por exemplo: `select * from MyTable`. |Não (se **collectionName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta de SQL-92. Por exemplo: `select * from MyTable`. |Não (se **collectionName** dos **conjunto de dados** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -3318,7 +3318,7 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | type |Certifique-se de que a propriedade de tipo é definida como **OnPremisesFileServer**. |Sim |
-| anfitrião |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver definições de serviço e o conjunto de dados de exemplo ligada para obter exemplos. |Sim |
+| host |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver definições de serviço e o conjunto de dados de exemplo ligada para obter exemplos. |Sim |
 | userid |Especifica o ID de utilizador que tem acesso ao servidor. |Não (se escolher encryptedCredential) |
 | password |Especifique a palavra-passe para o utilizador (ID de utilizador). |Não (se escolher encryptedCredential |
 | encryptedCredential |Especifique as credenciais encriptadas que pode obter ao executar o cmdlet New-AzDataFactoryEncryptValue. |Não (se optar por especificar o ID de utilizador e palavra-passe em texto simples) |
@@ -4386,7 +4386,7 @@ Se estiver a copiar dados de uma origem de OData, definir o **tipo de origem** d
 
 | Propriedade | Descrição | Exemplo | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |"?$select=Name, Description&$top=5" |Não |
+| query |Utilize a consulta personalizada para ler dados. |"?$select=Name, Description&$top=5" |Não |
 
 #### <a name="example"></a>Exemplo
 
@@ -4442,7 +4442,7 @@ Para definir um ODBC serviço ligado, defina o **tipo** do serviço ligado para 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | connectionString |A credencial de acesso de leitura não parte de cadeia de ligação e uma credencial encriptada opcional. Veja exemplos nas seções a seguir. |Sim |
-| Credencial |A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |Não |
+| credential |A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC. Os valores possíveis são: Anónimo e básico. |Sim |
 | username |Especifique o nome de utilizador se estiver a utilizar autenticação básica. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
@@ -4541,7 +4541,7 @@ Se estiver a copiar dados de um arquivo de dados do ODBC, defina o **tipo de ori
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Sim |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `select * from MyTable`. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -4659,7 +4659,7 @@ Se estiver a copiar dados do Salesforce, definir o **tipo de origem** da ativida
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Uma consulta de SQL-92 ou [linguagem de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta. Por exemplo: `select * from MyTable__c`. |Não (se o **tableName** da **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Uma consulta de SQL-92 ou [linguagem de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta. Por exemplo: `select * from MyTable__c`. |Não (se o **tableName** da **conjunto de dados** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -4972,7 +4972,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 | Type |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
 | nomeConta |Nome da conta do Azure Data Lake Analytics. |Sim |
 | dataLakeAnalyticsUri |URI do Azure Data Lake Analytics. |Não |
-| Autorização |Código de autorização é obtido automaticamente depois de clicar em **autorizar** botão no Editor do Data Factory e concluir o início de sessão OAuth. |Sim |
+| authorization |Código de autorização é obtido automaticamente depois de clicar em **autorizar** botão no Editor do Data Factory e concluir o início de sessão OAuth. |Sim |
 | subscriptionId |Id de subscrição do Azure |Não (se não for especificado, a subscrição do data factory é utilizada). |
 | resourceGroupName |Nome do grupo de recursos do Azure |Não (se não for especificado, grupo de recursos do data factory é utilizado). |
 | sessionId |id de sessão a partir da sessão de autorização de OAuth. Cada id de sessão é exclusivo e só pode ser utilizada uma vez. Ao utilizar o Editor do Data Factory, este ID é gerada automaticamente. |Sim |
@@ -5130,8 +5130,8 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | Script |Especifique o inline de script do Hive |Não |
-| caminho do script |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
-| Define |Especifique parâmetros como pares chave/valor para a referenciar dentro do script do Hive com o 'hiveconf' |Não |
+| script path |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
+| defines |Especifique parâmetros como pares chave/valor para a referenciar dentro do script do Hive com o 'hiveconf' |Não |
 
 Estas propriedades de tipo são específicas para a atividade do Hive. Outras propriedades (fora da secção typeProperties) são suportadas para todas as atividades.
 
@@ -5176,8 +5176,8 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | Script |Especifique o inline de script Pig |Não |
-| caminho do script |Store o script Pig num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
-| Define |Especifique parâmetros como pares chave/valor para fazer referência no Pig script |Não |
+| scriptPath |Store o script Pig num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
+| defines |Especifique parâmetros como pares chave/valor para fazer referência no Pig script |Não |
 
 Estas propriedades de tipo são específicas para a atividade Pig. Outras propriedades (fora da secção typeProperties) são suportadas para todas as atividades.
 
@@ -5230,7 +5230,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 | jarLinkedService | Nome do serviço ligado para o armazenamento do Azure que contém o ficheiro JAR. | Sim |
 | jarFilePath | Caminho para o ficheiro JAR no armazenamento do Azure. | Sim |
 | className | Nome da classe principal no ficheiro JAR. | Sim |
-| argumentos | Uma lista de argumentos separados por vírgulas para o programa de MapReduce. No tempo de execução, verá alguns argumentos adicionais (por exemplo: mapreduce.job.tags) do MapReduce framework. Para diferenciar os argumentos com os argumentos do MapReduce, considere utilizar a opção e o valor como argumentos, conforme mostrado no exemplo a seguir (- s, - entrada, – resultado etc., são imediatamente seguidas pelos seus valores de opções) | Não |
+| arguments | Uma lista de argumentos separados por vírgulas para o programa de MapReduce. No tempo de execução, verá alguns argumentos adicionais (por exemplo: mapreduce.job.tags) do MapReduce framework. Para diferenciar os argumentos com os argumentos do MapReduce, considere utilizar a opção e o valor como argumentos, conforme mostrado no exemplo a seguir (- s, - entrada, – resultado etc., são imediatamente seguidas pelos seus valores de opções) | Não |
 
 ### <a name="json-example"></a>Exemplo de JSON
 
@@ -5291,7 +5291,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 | saída | Ficheiro de saída (incluindo a localização) para o reducer. O resultado da tarefa de transmissão em fluxo do Hadoop é escrito para a localização especificada para esta propriedade. |
 | filePaths | Caminhos para os mapeador de pontos e reducer executáveis. No exemplo: "adfsample/example/apps/wc.exe", adfsample é o contentor de BLOBs/aplicações de exemplo é a pasta e wc.exe é o executável. |
 | fileLinkedService | Serviço ligado do armazenamento do Azure que representa o armazenamento do Azure que contém os ficheiros especificados na secção filePaths. |
-| argumentos | Uma lista de argumentos separados por vírgulas para o programa de MapReduce. No tempo de execução, verá alguns argumentos adicionais (por exemplo: mapreduce.job.tags) do MapReduce framework. Para diferenciar os argumentos com os argumentos do MapReduce, considere utilizar a opção e o valor como argumentos, conforme mostrado no exemplo a seguir (- s, - entrada, – resultado etc., são imediatamente seguidas pelos seus valores de opções) |
+| arguments | Uma lista de argumentos separados por vírgulas para o programa de MapReduce. No tempo de execução, verá alguns argumentos adicionais (por exemplo: mapreduce.job.tags) do MapReduce framework. Para diferenciar os argumentos com os argumentos do MapReduce, considere utilizar a opção e o valor como argumentos, conforme mostrado no exemplo a seguir (- s, - entrada, – resultado etc., são imediatamente seguidas pelos seus valores de opções) |
 | getDebugInfo | Um elemento opcional. Quando é definido como falha, os registos são transferidos apenas em caso de falha. Quando for definida para todos, os registos serão sempre transferidos, independentemente do Estado de execução. |
 
 > [!NOTE]
@@ -5352,7 +5352,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 | rootPath | O contentor de Blobs do Azure e a pasta que contém o ficheiro de Spark. O nome de ficheiro diferencia maiúsculas de minúsculas. | Sim |
 | entryFilePath | Caminho relativo para a pasta raiz do código/pacote Spark. | Sim |
 | className | Classe de principal da aplicação Java/Spark | Não |
-| argumentos | Uma lista de argumentos da linha de comandos para o programa Spark. | Não |
+| arguments | Uma lista de argumentos da linha de comandos para o programa Spark. | Não |
 | proxyUser | A conta de utilizador para representar a execução do programa Spark | Não |
 | sparkConfig | Propriedades de configuração de Spark. | Não |
 | getDebugInfo | Especifica quando os ficheiros de registo do Spark são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo sparkJobLinkedService. Valores permitidos: Nenhum, sempre, ou a falha. Valor predefinido: Nenhum. | Não |

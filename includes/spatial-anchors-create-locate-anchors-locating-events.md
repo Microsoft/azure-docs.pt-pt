@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: c4339aa8548ef66c862200ad61b6aaca90332ad0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66110804"
 ---
 Depois do observador é criado, o `AnchorLocated` evento será disparado para cada pedida de âncora. Este evento é acionado quando uma âncora é localizada, ou se a âncora não é possível localizar. Se isso acontecer, o motivo pelo qual será indicado no estado. Depois de todas as âncoras de um observador são processadas, foi encontrado ou não encontrado, o `LocateAnchorsCompleted` irá disparar o evento.

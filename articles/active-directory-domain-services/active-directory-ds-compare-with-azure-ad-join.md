@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: eaa8cb54a46b1ff3c2c0f7c40c824f6ddcca16b9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234968"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Escolha entre a associação do Azure Active Directory e Azure Active Directory Domain Services

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
 ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66477580"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação

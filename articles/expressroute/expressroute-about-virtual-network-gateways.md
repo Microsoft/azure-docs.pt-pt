@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991596"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>Gateway de rede virtual do ExpressRoute e FastPath

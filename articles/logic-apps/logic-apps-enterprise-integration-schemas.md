@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
 ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60846372"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML com esquemas no Azure Logic Apps com o Enterprise Integration Pack
@@ -118,7 +118,7 @@ Adicionar esquemas maior, pode carregar seu esquema para um contentor de Blobs d
 
 1. Regresse ao portal do Azure onde o **Adicionar esquema** painel é aberto. 
    Introduza um nome para seu assembly. 
-   Escolher **ficheiros grandes (superiores a 2 MB)**. 
+   Escolher **ficheiros grandes (superiores a 2 MB)** . 
 
    O **URI de conteúdo** agora é apresentada a caixa, em vez de **esquema** caixa.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399357"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V para um site secundário

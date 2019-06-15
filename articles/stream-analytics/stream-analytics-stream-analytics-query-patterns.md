@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761974"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Consultar os exemplos de padrões de utilização comuns do Stream Analytics
@@ -35,7 +35,7 @@ JSON e Avro podem conter tipos complexos, como objetos aninhados (registos) ou m
 
 **Entrada**:
 
-| Criar | Time | Peso |
+| Criar | Hora | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -68,7 +68,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 
 **Entrada**:
 
-| Criar | LicensePlate | Time |
+| Criar | LicensePlate | Hora |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -76,7 +76,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 
 **Saída**:
 
-| Criar | LicensePlate | Time |
+| Criar | LicensePlate | Hora |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -100,7 +100,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 
 **Entrada**:
 
-| Criar | Time |
+| Criar | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -108,7 +108,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 
 **Saída**:
 
-| CarsPassed | Time |
+| CarsPassed | Hora |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -137,7 +137,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 
 **Entrada**:
 
-| Criar | Time |
+| Criar | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -147,7 +147,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 
 **Output1**:
 
-| Criar | Time |
+| Criar | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -157,7 +157,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 
 **Output2**:
 
-| Criar | Time | Count |
+| Criar | Hora | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -211,7 +211,7 @@ Por exemplo:
 
 **Entrada**:
 
-| Criar | Time |
+| Criar | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ Por exemplo:
 
 **Saída:**
 
-| CountMake | Time |
+| CountMake | Hora |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -247,14 +247,14 @@ GROUP BY
 
 **Entrada**:
 
-| Criar | Time |
+| Criar | Hora |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Saída**:
 
-| Criar | Time |
+| Criar | Hora |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -278,7 +278,7 @@ GROUP BY
 
 **Entrada**:
 
-| LicensePlate | Criar | Time |
+| LicensePlate | Criar | Hora |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -290,7 +290,7 @@ GROUP BY
 
 **Saída**:
 
-| LicensePlate | Criar | Time |
+| LicensePlate | Criar | Hora |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -310,7 +310,7 @@ GROUP BY
 
 Agora vamos alterar o problema e localize o carro primeiro de uma marca específica em cada intervalo de 10 minutos.
 
-| LicensePlate | Criar | Time |
+| LicensePlate | Criar | Hora |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -337,7 +337,7 @@ Agora vamos alterar o problema e localize o carro primeiro de uma marca específ
 
 **Entrada**:
 
-| LicensePlate | Criar | Time |
+| LicensePlate | Criar | Hora |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -349,7 +349,7 @@ Agora vamos alterar o problema e localize o carro primeiro de uma marca específ
 
 **Saída**:
 
-| LicensePlate | Criar | Time |
+| LicensePlate | Criar | Hora |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -386,7 +386,7 @@ Por exemplo, 2 carros consecutivos desde a mesma introduzidas ao longo do proces
 
 **Entrada**:
 
-| Criar | LicensePlate | Time |
+| Criar | LicensePlate | Hora |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -395,7 +395,7 @@ Por exemplo, 2 carros consecutivos desde a mesma introduzidas ao longo do proces
 
 **Saída**:
 
-| Criar | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Criar | Hora | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -422,10 +422,10 @@ Por exemplo, 2 carros consecutivos desde a mesma introduzidas ao longo do proces
 
 **Entrada**:  
 
-| Utilizador | Funcionalidade | Evento | Time |
+| Utilizador | Funcionalidade | Evento | Hora |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Iniciar |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Terminar |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |fim |2015-01-01T00:00:08.0000000Z |
 
 **Saída**:  
 
@@ -451,7 +451,7 @@ Por exemplo, suponha que um bug resultou em todos os carros ter um peso incorret
 
 **Entrada**:
 
-| Criar | Time | Peso |
+| Criar | Hora | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -614,7 +614,7 @@ WHERE
 
 **Entrada**:
 
-| LicensePlate | Criar | Time | TollID |
+| LicensePlate | Criar | Hora | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -627,7 +627,7 @@ WHERE
 
 **Saída**:
 
-| TollID | Count |
+| TollID | Contagem |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -655,7 +655,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Entrada**:  
 
-| DeviceId | Time | Atributo | Value |
+| DeviceId | Hora | Atributo | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |

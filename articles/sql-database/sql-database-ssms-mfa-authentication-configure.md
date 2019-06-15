@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 453a048bc9e7c2878c0730b9002b10bdeb8c22fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b12508fbd0aec3bc6c697c920cd8ff94e3ac3396
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331678"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119179"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurar a autenticação multifator para o SQL Server Management Studio e o Azure AD
 
@@ -29,7 +29,7 @@ Este tópico mostra-lhe como utilizar a autenticação multifator do Azure Activ
 ## <a name="configuration-steps"></a>Passos de configuração
 
 1. **Configurar um Azure Active Directory** – para obter mais informações, consulte [administrar o seu diretório do Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [integrar as identidades no local com o Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [ Adicionar o seu próprio nome de domínio para o Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure suporta agora a Federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), e [gerir do Azure AD com o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Configurar a MFA** – para obter instruções passo a passo, consulte [o que é o Azure multi-factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [condicional acesso (MFA) com o Azure SQL Database e o armazém de dados](sql-database-conditional-access.md). (O acesso condicional completa requer um Premium do Azure Active Directory (Azure AD). MFA limitado é um padrão do Azure AD.)
+2. **Configurar a MFA** – para obter instruções passo a passo, consulte [o que é o Azure multi-factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [condicional acesso (MFA) com o Azure SQL Database e o armazém de dados](sql-database-conditional-access.md). (Total de acesso condicional requer um Premium do Azure Active Directory (Azure AD). MFA limitado é um padrão do Azure AD.)
 3. **Configurar a base de dados SQL ou SQL Data Warehouse para autenticação do Azure AD** – para obter instruções passo a passo, consulte [ligar à base de dados SQL ou SQL Data Warehouse por através do Azure autenticação do Active Directory](sql-database-aad-authentication.md).
 4. **Baixe o SSMS** – no computador cliente, transfira o SSMS mais recente, a partir [baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Para todas as funcionalidades neste tópico, utilize, pelo menos, Julho de 2017, versão 17,2.  
 

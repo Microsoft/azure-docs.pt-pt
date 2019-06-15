@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826534"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir a eventos de armazenamento de BLOBs
@@ -34,24 +34,24 @@ Os eventos de armazenamento de blobs estão disponíveis em contas de armazename
 ## <a name="available-blob-storage-events"></a>Eventos de armazenamento de BLOBs disponíveis
 Grelha de eventos usa [subscrições de eventos](../../event-grid/concepts.md#event-subscriptions) encaminhar mensagens de eventos para os assinantes.  Subscrições de eventos de armazenamento de BLOBs podem incluir dois tipos de eventos:  
 
-> |Nome do Evento|Descrição|
+> |Nome do evento|Descrição|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Acionado quando um blob é criado ou substituído por meio da `PutBlob`, `PutBlockList`, ou `CopyBlob` operações|
 > |`Microsoft.Storage.BlobDeleted`|Acionado quando um blob é eliminado por meio de um `DeleteBlob` operação|
 
-## <a name="event-schema"></a>Esquema de Eventos
+## <a name="event-schema"></a>Esquema de eventos
 Eventos de armazenamento de BLOBs contenham todas as informações que necessárias para responder a alterações nos seus dados.  É possível identificar um evento de armazenamento de BLOBs, porque a propriedade eventType começa com "Microsoft". Informações adicionais sobre a utilização das propriedades de eventos do Event Grid estão documentadas no [esquema de eventos do Event Grid](../../event-grid/event-schema.md).  
 
 > |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |tópico|string|Id do Azure Resource Manager completo da conta de armazenamento que emite o evento.|
-> |assunto|string|O caminho relativo do recurso para o objeto que é o assunto do evento, usando o mesmo do Azure Resource Manager formato expandida que utilizamos para descrever as contas de armazenamento, serviços e contentores do RBAC do Azure.  Este formato inclui um nome de blob de preservação de caso.|
+> |topic|string|Id do Azure Resource Manager completo da conta de armazenamento que emite o evento.|
+> |subject|string|O caminho relativo do recurso para o objeto que é o assunto do evento, usando o mesmo do Azure Resource Manager formato expandida que utilizamos para descrever as contas de armazenamento, serviços e contentores do RBAC do Azure.  Este formato inclui um nome de blob de preservação de caso.|
 > |eventTime|string|Data/hora que o evento foi gerado, no formato ISO 8601|
 > |eventType|string|"Microsoft.Storage.BlobCreated" ou "Microsoft.Storage.BlobDeleted"|
-> |ID|string|Identificador exclusivo, se este evento|
+> |Id|string|Identificador exclusivo, se este evento|
 > |dataVersion|string|A versão do esquema do objeto de dados.|
 > |metadataVersion|string|A versão do esquema das propriedades de nível superior.|
-> |dados|objeto|Recolha de dados de eventos específico do armazenamento de BLOBs|
+> |data|objeto|Recolha de dados de eventos específico do armazenamento de BLOBs|
 > |data.contentType|string|O tipo de conteúdo do blob, como seria retornado no cabeçalho de tipo de conteúdo do blob|
 > |data.contentLength|número|O tamanho do blob como no número inteiro que representa um número de bytes, como seria retornado no cabeçalho Content-Length de blob.  Enviado com o evento de BlobCreated, mas não com BlobDeleted.|
 > |data.url|string|O url do objeto que é o assunto do evento|

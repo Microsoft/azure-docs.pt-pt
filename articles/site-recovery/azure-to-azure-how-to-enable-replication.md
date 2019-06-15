@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
 ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926631"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
@@ -55,7 +55,7 @@ Ative a replicação. Este procedimento assume que a região primária do Azure 
        - A localização do grupo de recursos de destino pode ser qualquer região do Azure, exceto a região na qual as VMs de origem estão alojadas.
    - **Rede virtual de destino**: Por predefinição, o Site Recovery cria uma nova rede virtual na região de destino com um sufixo "asr" no nome. Este é mapeado para a sua rede de origem e utilizado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre mapeamento de rede.
    - **Contas de armazenamento (a VM de origem não utiliza discos geridos) de destino**: Por predefinição, o Site Recovery cria uma nova conta de armazenamento de destino imitando a configuração de armazenamento VM de origem. No caso de já existe uma conta de armazenamento, este é reutilizado.
-   - **Discos geridos de réplica (a VM de origem utiliza discos geridos)**: Site Recovery cria novos discos geridos de réplica na região de destino para espelhar os discos geridos da VM de origem com o mesmo tipo de armazenamento (Standard ou premium), como a VM de origem de disco gerido.
+   - **Discos geridos de réplica (a VM de origem utiliza discos geridos)** : Site Recovery cria novos discos geridos de réplica na região de destino para espelhar os discos geridos da VM de origem com o mesmo tipo de armazenamento (Standard ou premium), como a VM de origem de disco gerido.
    - **Contas de armazenamento em cache**: Site Recovery precisa da conta de armazenamento extra chamada de armazenamento de cache na região de origem. Todas as alterações acontecendo nas VMs de origem são controladas e enviadas para a conta de armazenamento de cache antes de replicar os para a localização de destino.
    - **Conjuntos de disponibilidade de destino**: Por predefinição, o Site Recovery cria uma novo conjunto de disponibilidade na região de destino com o sufixo "asr" o nome, para as VMs que fazem parte de um conjunto de disponibilidade na região de origem. Se o conjunto de disponibilidade criado pelo Site Recovery já existir, este é reutilizado.
    - **As zonas de disponibilidade de destino**: Por predefinição, o Site Recovery atribui o mesmo número de zona e a região de origem na região de destino se a região de destino suporta zonas de disponibilidade.

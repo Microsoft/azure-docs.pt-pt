@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 05/30/2019
 ms.openlocfilehash: 42c0f5460a63b781aafdd43410761e2d7b17944d
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755354"
 ---
 #  <a name="what-is-a-compute-target-in-azure-machine-learning-service"></a>O que é um destino de computação no serviço Azure Machine Learning? 

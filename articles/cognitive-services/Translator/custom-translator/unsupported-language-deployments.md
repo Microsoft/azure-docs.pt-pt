@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: v-pawal
 ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390623"
 ---
 # <a name="unsupported-language-deployments"></a>Implementações de linguagens não suportadas

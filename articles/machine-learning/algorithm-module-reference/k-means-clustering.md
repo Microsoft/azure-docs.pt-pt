@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7e9b7c8f2cf86245322679198b84b50d2c5edce8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65464672"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: Clustering K-Means
@@ -75,7 +75,7 @@ Quando processa os dados de treinamento, o algoritmo K-means começa com um conj
 
          Esse método também é chamado de *partição aleatória* método.  
   
-    -   **K-Means++**: Este é o método predefinido para inicializar clusters.  
+    -   **K-Means++** : Este é o método predefinido para inicializar clusters.  
   
          O **K-means + +** algoritmo foi proposto no 2007, por David Arthur e Sergei Vassilvitskii para evitar o clustering ruim pelo algoritmo K-means padrão. **K-means + +** aprimora padrão K-means utilizando um método diferente para a escolha de centros de cluster inicial.  
   

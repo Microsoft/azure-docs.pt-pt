@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399579"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure

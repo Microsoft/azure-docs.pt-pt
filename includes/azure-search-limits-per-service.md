@@ -9,15 +9,15 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160515"
 ---
 Armazenamento é limitado pelo espaço em disco ou por um limite restritivo no *número máximo* de índices, documento ou outros recursos de alto nível, o que ocorrer primeiro. A tabela seguinte documenta os limites de armazenamento. Para obter limites máximos em índices, documentos e outros objetos, consulte [limites por recurso](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
-| Resource | Gratuito | Básico<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | ERROS DE L2 |
+| Resource | Livre | Básico<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | ERROS DE L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
 | (SLA) de contrato de nível de serviço<sup>3</sup>  |Não |Sim |Sim |Sim |Sim |Sim |Sim |Sim |
 | Armazenamento por partição |50 MB |2GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |

@@ -10,10 +10,10 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116029"
 ---
 1. Execute o ficheiro de instalação Configuração Unificada.

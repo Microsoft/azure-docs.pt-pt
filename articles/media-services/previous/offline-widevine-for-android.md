@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: 64c5bff0e48f55406476e71c82763bd8f3c03afd
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937231"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine para transmissão em fluxo para Android  
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão dos serviços de multimédia que está a utilizar:"]
 > * [Versão 3](../latest/offline-widevine-for-android.md)
 > * [Versão 2](offline-widevine-for-android.md)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2eed5ed60d5aed7fb537e886f39b97dfc8257f19
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942994"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicação do Azure

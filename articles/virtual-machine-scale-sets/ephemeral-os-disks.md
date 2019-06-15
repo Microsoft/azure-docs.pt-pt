@@ -12,10 +12,10 @@ ms.date: 05/01/2019
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 30c13c5b8f32b0b43a85e43e9a140ac3e2e9dfc4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65159109"
 ---
 # <a name="preview-ephemeral-os-disks-for-vm-instances"></a>Pré-visualização: Discos de SO efémeros para instâncias de VM

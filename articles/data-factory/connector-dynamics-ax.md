@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
 ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61347784"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copiar dados do Dynamics AX com o Azure Data Factory (pré-visualização)

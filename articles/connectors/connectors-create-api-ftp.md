@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
 ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60408601"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros de FTP ao utilizar o Azure Logic Apps
@@ -61,7 +61,7 @@ Pode usar acionadores que obtém respostas a partir do seu servidor FTP e dispon
    Abaixo da lista de ações, selecione a ação que pretende.
 
    Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
 1. Forneça os detalhes necessários para a sua ligação e, em seguida, escolha **criar**.
 
@@ -69,7 +69,7 @@ Pode usar acionadores que obtém respostas a partir do seu servidor FTP e dispon
 
 Quando solicitar o conteúdo do ficheiro, o acionador não obter ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão:
 
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
 
 * Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -85,7 +85,7 @@ Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando o 
 
 Quando solicitar o conteúdo do ficheiro, os acionadores não é possível obter ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
 
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
 
 * Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
 
@@ -106,7 +106,7 @@ Eis um exemplo que mostra este acionador: **Quando um ficheiro é adicionado ou 
 
    ![Criar a ligação ao servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
-1. Junto a **pasta** caixa, escolha o ícone de pasta, portanto, é apresentada uma lista. Para localizar a pasta que pretende monitorizar ficheiros novos ou editados, selecione a seta de ângulo direito (**>**), navegue para essa pasta e, em seguida, selecione a pasta.
+1. Junto a **pasta** caixa, escolha o ícone de pasta, portanto, é apresentada uma lista. Para localizar a pasta que pretende monitorizar ficheiros novos ou editados, selecione a seta de ângulo direito ( **>** ), navegue para essa pasta e, em seguida, selecione a pasta.
 
    ![Localize e selecione a pasta a monitorizar](./media/connectors-create-api-ftp/select-folder.png)  
 
@@ -124,7 +124,7 @@ Esta ação obtém o conteúdo de um arquivo num servidor FTP quando esse fichei
 
 Quando solicitar o conteúdo do ficheiro, os acionadores não é possível obter ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
 
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
+* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
 
 * Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
 

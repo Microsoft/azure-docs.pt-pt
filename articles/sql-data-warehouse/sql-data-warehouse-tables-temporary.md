@@ -11,10 +11,10 @@ ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 56c15a9505b3f0e4344c9164268082da1ff7cc22
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851570"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelas temporárias no SQL Data Warehouse

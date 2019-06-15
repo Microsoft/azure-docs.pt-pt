@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
 ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683178"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de controladores de NVIDIA GPU para Linux
@@ -75,7 +75,7 @@ O JSON seguinte mostra o esquema para a extensão.
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
-| tipo | NvidiaGpuDriverLinux | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Definições
@@ -174,9 +174,9 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 
 ### <a name="exit-codes"></a>Códigos de saída
 
-| Código de Saída | Significado | Ação possível |
+| Código de saída | Significado | Ação possível |
 | :---: | --- | --- |
-| 0 | Operação bem-sucedida |
+| 0 | Operação concluída com êxito |
 | 1 | Utilização incorreta de extensão | Verifique o registo de saída de execução |
 | 10 | Serviços de integração do Linux para Hyper-V e o Azure não disponível ou instalado | Saída de verificação de lspci |
 | 11 | NVIDIA GPU não encontrado neste tamanho VM | Utilize um [suportada do SO e o tamanho da VM](../linux/n-series-driver-setup.md) |

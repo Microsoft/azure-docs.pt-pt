@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: v-pawal
 ms.openlocfilehash: d3a77ee9273e9f587b6157bb6ed2294865b1fca5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514249"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Como utilizar um dicionário dinâmico

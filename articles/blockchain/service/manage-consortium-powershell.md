@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 ms.openlocfilehash: 4bb72bc3fe8b85a8d2aed88e02f5f3150abb6899
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66493639"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>Gerir Membros consortium no serviço do Azure Blockchain com o PowerShell

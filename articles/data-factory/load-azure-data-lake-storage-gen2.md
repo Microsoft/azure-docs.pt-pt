@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jingwang
 ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65560739"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregar dados para Gen2 de armazenamento do Azure Data Lake com o Azure Data Factory

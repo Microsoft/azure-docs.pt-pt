@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822591"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Hubs de eventos do Azure - autenticação e o modelo de segurança

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 59ece9c37a563efba6329a30c06c1b596b1a5d57
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921154"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058151"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Resolver problemas relacionados com o RBAC para recursos do Azure
 
@@ -36,7 +36,7 @@ Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em fu
 - Se precisar de passos para saber como criar uma função personalizada, veja os tutoriais de função personalizada usando [do Azure PowerShell](tutorial-custom-role-powershell.md) ou [CLI do Azure](tutorial-custom-role-cli.md).
 - Se não é possível atualizar uma função personalizada existente, verifique se o é atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleDefinition/write` permissão, tais como [proprietário](built-in-roles.md#owner) ou [o administrador de acesso de utilizador](built-in-roles.md#user-access-administrator).
 - Se não conseguir eliminar uma função personalizada e obtiver a mensagem de erro “Não existem atribuições de funções existentes que façam referência à função (código: RoleDefinitionHasAssignments)", significa que ainda há atribuições de funções a utilizar a função personalizada. Remova essas atribuições e experimente eliminar a função personalizada novamente.
-- Se receber a mensagem de erro “Limite de definição de função excedido. Podem ser criadas mais definições de função (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estão a ser utilizadas. O Azure suporta até **5000** funções personalizadas num inquilino. (Para nuvens especializadas, como o Azure Government, Azure Alemanha e Azure China 21Vianet, o limite é de funções personalizadas de 2000.)
+- Se receber a mensagem de erro “Limite de definição de função excedido. Podem ser criadas mais definições de função (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estão a ser utilizadas. O Azure suporta até **5000** funções personalizadas num inquilino. (para clouds especializadas, como o Azure Government, o Azure Alemanha e o Azure China 21Vianet, o limite é de 2000 funções personalizadas).
 - Se obtiver um erro semelhante a "o cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no âmbito '/ subscrições / {subscriptionid}', no entanto, a subscrição associada não foi encontrada" ao tentar atualizar uma função personalizada, verifique Se um ou mais [âmbitos atribuíveis](role-definitions.md#assignablescopes) ter sido eliminada no inquilino. Se o âmbito tiver sido eliminado, crie um pedido de suporte, pois não existe nenhuma solução self-service atualmente.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperar o RBAC quando as subscrições são movidas entre inquilinos
@@ -54,6 +54,61 @@ Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em fu
 - Se receber o erro de permissões “O cliente com o id de objeto não tem autorização para realizar a ação acima do âmbito (código: AuthorizationFailed)" quando tenta criar um recurso, confirme que tem sessão iniciada com um utilizador que tenha atribuída uma função com a permissão de escrita no recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões de cada função incorporada, veja [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas dos recursos do Azure)
 - Se obtiver o erro de permissões "Não tem permissão para criar um pedido de suporte" quando tenta criar ou atualizar um pedido de suporte, verifique se o é atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha o `Microsoft.Support/supportTickets/write` permissão, como [Contribuidor de pedido de suporte](built-in-roles.md#support-request-contributor).
 
+## <a name="role-assignments-without-a-security-principal"></a>Atribuições de funções sem uma entidade de segurança
+
+Quando listar as atribuições de função com o Azure PowerShell, poderá ver atribuições com vazio `DisplayName` e um `ObjectType` definido como Unknown. Por exemplo, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retorna uma atribuição de função que é semelhante ao seguinte:
+
+```azurepowershell
+RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
+Scope              : /subscriptions/11111111-1111-1111-1111-111111111111
+DisplayName        :
+SignInName         :
+RoleDefinitionName : Storage Blob Data Contributor
+RoleDefinitionId   : ba92f5b4-2d11-453d-a403-e96b0029c9fe
+ObjectId           : 33333333-3333-3333-3333-333333333333
+ObjectType         : Unknown
+CanDelegate        : False
+```
+
+Da mesma forma, quando listar as atribuições de função com a CLI do Azure, poderá ver atribuições com vazio `principalName`. Por exemplo, [lista de atribuições de função de az](/cli/azure/role/assignment#az-role-assignment-list) retorna uma atribuição de função que é semelhante ao seguinte:
+
+```azurecli
+{
+    "canDelegate": null,
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222",
+    "name": "22222222-2222-2222-2222-222222222222",
+    "principalId": "33333333-3333-3333-3333-333333333333",
+    "principalName": "",
+    "roleDefinitionId": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/ba92f5b4-2d11-453d-a403-e96b0029c9fe",
+    "roleDefinitionName": "Storage Blob Data Contributor",
+    "scope": "/subscriptions/11111111-1111-1111-1111-111111111111",
+    "type": "Microsoft.Authorization/roleAssignments"
+}
+```
+
+Estas atribuições de função ocorrerem quando atribuir uma função para uma entidade de segurança (utilizador, grupo, principal de serviço ou identidade gerida) e posteriormente eliminar esse principal de segurança. Estas atribuições de função não são apresentadas no portal do Azure e não é um problema para deixá-los. No entanto, se desejar, pode remover estas atribuições de funções.
+
+Para remover estas atribuições de função, utilize o [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) ou [eliminar atribuição de função de az](/cli/azure/role/assignment#az-role-assignment-delete) comandos.
+
+No PowerShell, se tentar remover as atribuições de funções com o ID de objeto e nome de definição de função e mais de uma atribuição de função corresponda os parâmetros, obterá a mensagem de erro: "As informações fornecidas não é mapeado para uma atribuição de função". O código a seguir mostra um exemplo de mensagem de erro:
+
+```Example
+PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
+
+Remove-AzRoleAssignment : The provided information does not map to a role assignment.
+At line:1 char:1
++ Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : CloseError: (:) [Remove-AzRoleAssignment], KeyNotFoundException
++ FullyQualifiedErrorId : Microsoft.Azure.Commands.Resources.RemoveAzureRoleAssignmentCommand
+```
+
+Se receber esta mensagem de erro, certifique-se de que especifique também a `-Scope` ou `-ResourceGroupName` parâmetros.
+
+```Example
+PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor" - Scope /subscriptions/11111111-1111-1111-1111-111111111111
+```
+
 ## <a name="rbac-changes-are-not-being-detected"></a>Alterações RBAC não estão a ser detetadas
 
 O Gestor de recursos do Azure armazena em cache, às vezes, configurações e dados para melhorar o desempenho. Quando criar ou eliminar as atribuições de funções, pode demorar até 30 minutos para que as alterações entrem em vigor. Se estiver a utilizar o portal do Azure, o Azure PowerShell ou a CLI do Azure, pode forçar uma atualização das suas alterações de atribuição de função ao terminar a sessão e iniciar sessão. Se estiver a efetuar alterações à atribuição de função com chamadas de REST API, pode forçar uma atualização ao atualizar o token de acesso.
@@ -69,7 +124,7 @@ Se conceder um acesso de só de leitura do utilizador para uma aplicação web i
 * Configuração de registos de diagnóstico
 * Console (linha de comandos)
 * Implementações de Active Directory e recentes (para implementação contínua do local git)
-* Gasto estimado
+* Estimado gastar
 * Testes Web
 * Rede virtual (visível apenas para um leitor se anteriormente tiver sido configurada uma rede virtual por um utilizador com acesso de escrita).
 
@@ -94,7 +149,7 @@ Esses itens requerem **escrever** acesso a todo **grupo de recursos** que conté
 * Certificados SSL e enlaces (certificados SSL podem ser partilhados entre sites no mesmo grupo de recursos e localização geográfica)  
 * Regras de alerta  
 * Definições de dimensionamento automático  
-* Componentes de informações de aplicação  
+* Componentes do Application insights  
 * Testes Web  
 
 ## <a name="virtual-machine-features-that-require-write-access"></a>Funcionalidades das máquinas virtuais que necessitam de acesso de escrita
@@ -112,7 +167,7 @@ Esses itens requerem **escrever** aceder para o **Máquina Virtual**:
 
 Eles exigem **escrever** acesso a ambos os **Máquina Virtual**e o **grupo de recursos** (juntamente com o nome de domínio) que estejam na:  
 
-* Conjunto de Disponibilidade  
+* Conjunto de disponibilidade  
 * Conjunto com balanceamento de carga  
 * Regras de alerta  
 
@@ -120,7 +175,7 @@ Se não é possível aceder a qualquer um destes mosaicos, peça ao administrado
 
 ## <a name="azure-functions-and-write-access"></a>As funções do Azure e o acesso de escrita
 
-Algumas funcionalidades do [as funções do Azure](../azure-functions/functions-overview.md) necessitam de acesso de escrita. Por exemplo, se um utilizador tem atribuído a função de leitor, não poderão ver as funções dentro de uma aplicação de funções. O portal apresentará **(sem acesso)**.
+Algumas funcionalidades do [as funções do Azure](../azure-functions/functions-overview.md) necessitam de acesso de escrita. Por exemplo, se um utilizador tem atribuído a função de leitor, não poderão ver as funções dentro de uma aplicação de funções. O portal apresentará **(sem acesso)** .
 
 ![Aplicações de funções sem acesso](./media/troubleshooting/functionapps-noaccess.png)
 

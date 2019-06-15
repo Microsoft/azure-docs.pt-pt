@@ -9,10 +9,10 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150298"
 ---
 Depois de criar um certificado de raiz autoassinado, exporte o ficheiro. cer de chave pública do certificado de raiz (não a chave privada). Mais tarde irá carregar o ficheiro para o Azure. Os passos seguintes ajudam-na exportar o ficheiro. cer para o seu certificado de raiz autoassinado:
@@ -37,10 +37,10 @@ Depois de criar um certificado de raiz autoassinado, exporte o ficheiro. cer de 
    ![Concluir](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. O certificado é exportado com êxito.
 
-   ![Com êxito](./media/vpn-gateway-certificates-export-public-key-include/success.png)
+   ![Êxito](./media/vpn-gateway-certificates-export-public-key-include/success.png)
 8. O certificado exportado será semelhante ao seguinte:
 
-   ![Exportado](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
+   ![Exportados](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
 9. Se abrir o certificado exportado usando o bloco de notas, verá algo semelhante a este exemplo. A seção em azul contém as informações que são carregadas para o Azure. Se abrir o certificado com o bloco de notas e não ser semelhante ao seguinte, normalmente, isso significa que não exportá-lo utilizando a Base 64 com codificação X.509 (. Formato CER). Além disso, se pretender utilizar um editor de texto diferente, compreenda que podem apresentar alguns editores de formatação não-intencionais em segundo plano. Isto pode provocar problemas quando carregado o texto deste certificado para o Azure.
 
    ![Abrir com o bloco de notas](./media/vpn-gateway-certificates-export-public-key-include/notepad.png)

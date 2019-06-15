@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: a63ad846f569f434e1cae33746f61e3a033de66c
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755031"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com o tópico e uma subscrição com um modelo Azure Resource Manager

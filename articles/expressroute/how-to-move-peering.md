@@ -9,10 +9,10 @@ ms.date: 03/12/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883147"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um peering público para o peering da Microsoft

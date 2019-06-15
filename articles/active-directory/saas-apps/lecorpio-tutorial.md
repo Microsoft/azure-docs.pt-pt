@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0dec40027441432845d44828eb61e6b9e0ff081
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bd351191e780118fbce81cd804204bc4dfa00285
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897742"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098408"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Tutorial: Integração do Active Directory do Azure com Lecorpio
 
@@ -53,7 +53,7 @@ Para configurar a integração do Lecorpio com o Azure AD, terá de adicionar Le
 
 **Para adicionar Lecorpio a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Lecorpio. Trabalhar com [equipa de suporte de Lecorpio](mailto:info@lecorpio.com) para adicionar os utilizadores na plataforma Lecorpio. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

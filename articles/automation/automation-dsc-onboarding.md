@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
 ms.openlocfilehash: 8a505e88ff92c5227d3b42da2adaf1dce58e6fbb
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441524"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Integrar computadores para gestão de configuração de estado de automatização do Azure

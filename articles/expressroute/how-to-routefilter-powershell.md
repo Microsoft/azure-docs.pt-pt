@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: e5d94fad5ddcfd0b34e36cb96727cff48b62ea0b
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730219"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configure filtros de rota para peering da Microsoft: PowerShell

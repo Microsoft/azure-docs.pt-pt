@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
 ms.openlocfilehash: bd7a78730186e4ea3d34449fd7977f7575bb8180
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935234"
 ---
 # <a name="dynamics-365-for-finance-and-operations-offer"></a>Dynamics 365 para a oferta de finanças e operações

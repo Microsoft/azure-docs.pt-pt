@@ -12,10 +12,10 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 1838dbb627a6dec46f817101fc1d0cca0961ef77
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574199"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sobre as bases de dados do MySql ClearDB com Serviço de Aplicações do Azure

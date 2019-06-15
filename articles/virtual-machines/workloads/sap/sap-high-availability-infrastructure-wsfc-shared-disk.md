@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408783"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparar a infraestrutura do Azure para SAP HA através de um cluster de ativação pós-falha do Windows e o disco partilhado para o SAP ASCS/SCS
@@ -204,7 +204,7 @@ _**Figura 1:** Definir parâmetros de Gestor de recursos do Azure de elevada dis
     * \<SAPSystemSID\>-nic-ascs-\<Number\>
     * \<SAPSystemSID\>-nic-db-\<Number\>
 
-  * **Contas de armazenamento do Azure (apenas discos não geridos)**:
+  * **Contas de armazenamento do Azure (apenas discos não geridos)** :
 
   * **Grupos de disponibilidade** para:
     * Máquinas de virtuais de servidor de aplicações SAP: \<SAPSystemSID\>-avset-di
@@ -526,7 +526,7 @@ Se pretender utilizar números diferentes para as instâncias de SAP ASCS ou SCS
 2. Todas as regras que pertencem à instância do SAP ASCS ou SCS de balanceamento de carga, altere estes valores:
 
    * Name
-   * Porta
+   * Port
    * Porta de back-end
 
    Por exemplo, se pretender alterar o número de instância do ASCS predefinido de 00 e 31, terá de efetuar as alterações para todas as portas listadas na tabela 1.
@@ -551,7 +551,7 @@ O Balanceador de carga do Azure tem um balanceador de carga interno que fecha li
 
 Para adicionar entradas de Registro em ambos os nós de cluster da instância do SAP ASCS/SCS, primeiro, adicione estas entradas de Registro do Windows em ambos os nós de cluster do Windows para o SAP ASCS/SCS:
 
-| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -562,7 +562,7 @@ Para adicionar entradas de Registro em ambos os nós de cluster da instância do
 
 Em seguida, adicione esta entrada de registo do Windows em ambos os nós de cluster do Windows para o SAP ASCS/SCS:
 
-| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: cad1f84f611ac3214b8823bb11817ffceb3e2017
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388704"
 ---
 # <a name="connect-your-check-point-appliance"></a>Ligar a sua aplicação de ponto de verificação

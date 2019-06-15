@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024537"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa "simples" no Azure Search
@@ -63,7 +63,7 @@ Cole este URL para um cliente REST como uma etapa de validação e para ver a es
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-A cadeia de consulta **`search=*`**, equivale uma pesquisa não especificada para a pesquisa de nula ou estar vazia. Não é especialmente útil, mas é a pesquisa mais simples, que pode fazer.
+A cadeia de consulta **`search=*`** , equivale uma pesquisa não especificada para a pesquisa de nula ou estar vazia. Não é especialmente útil, mas é a pesquisa mais simples, que pode fazer.
 
 Opcionalmente, pode adicionar **`$count=true`** para o URL para devolver uma contagem dos documentos correspondentes aos critérios de pesquisa. Numa cadeia de caracteres de pesquisa em branco, trata todos os documentos no índice (aproximadamente 2800 no caso de empregos em nova IORQUE).
 

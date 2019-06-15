@@ -10,10 +10,10 @@ ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
 ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60721800"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(PRETERIDO) Implementar o cluster Docker CE

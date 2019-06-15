@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
 ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684679"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquina virtual e tipos de nó do Service Fabric do Azure
@@ -34,7 +34,7 @@ Conforme mostrado na figura anterior, instâncias do conjunto de dimensionamento
 Ao aumentar verticalmente um conjunto de dimensionamento, é criada uma nova instância. O novo nome de instância de conjunto de dimensionamento é, normalmente, que o conjunto de dimensionamento nome e o número seguinte de instância. No nosso exemplo, é BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mapear balanceadores de carga do conjunto de dimensionamento para tipos de nós e conjuntos de dimensionamento
-Se implementou o cluster no portal do Azure ou utilizar o modelo do Azure Resource Manager de exemplo, são listados todos os recursos num grupo de recursos. Pode ver os balanceadores de carga para cada tipo de nó ou conjunto de dimensionamento. O nome do Balanceador de carga utiliza o seguinte formato: **LB -&lt;nome do tipo de nó&gt;**. Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
+Se implementou o cluster no portal do Azure ou utilizar o modelo do Azure Resource Manager de exemplo, são listados todos os recursos num grupo de recursos. Pode ver os balanceadores de carga para cada tipo de nó ou conjunto de dimensionamento. O nome do Balanceador de carga utiliza o seguinte formato: **LB -&lt;nome do tipo de nó&gt;** . Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
 
 ![Recursos][Resources]
 

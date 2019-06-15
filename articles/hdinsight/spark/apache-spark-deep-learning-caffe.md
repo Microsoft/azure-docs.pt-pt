@@ -8,10 +8,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
 ms.openlocfilehash: d0d68263485c5ab6e57a349317b1975862470cc2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721512"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Utilizar o Caffe para aprendizagem profunda distribuída no Azure HDInsight Spark

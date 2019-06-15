@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
 ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244394"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs

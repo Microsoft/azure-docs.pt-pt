@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569821"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigar Incidentes e Alertas no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a utilizar a funcionalidade de investigação do Centro de Segurança do Azure para investigar alertas e incidentes de segurança.
+
+> [!NOTE]
+> A experiência de investigação de alertas e incidentes vai ser descontinuada a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>O que é a investigação no Centro de Segurança?
 A funcionalidade Investigação do Centro de Segurança permite-lhe triar, compreender o âmbito e acompanhar a origem de potenciais [incidentes de segurança](https://docs.microsoft.com/azure/security-center/security-center-incident).

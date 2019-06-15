@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 08429ca76823b9e6c80a197cc390a5964c4198e6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969006"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas sem servidor com base em eventos com o Azure Cosmos DB e as funções do Azure

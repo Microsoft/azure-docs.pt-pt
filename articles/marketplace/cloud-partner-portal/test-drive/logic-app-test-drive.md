@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64940014"
 ---
 <a name="logic-app-test-drive"></a>Unidade de teste da aplicação lógica
@@ -61,11 +61,11 @@ A secção seguinte para preencher é onde configurar a aplicação de lógica d
 
 ![Configuração de técnica de unidade de teste](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Região** - *[Field necessário]* a região que selecionou é onde escolhe em que os recursos de teste de unidade lógica aplicação são implementados no.
+- **Região** -  *[Field necessário]* a região que selecionou é onde escolhe em que os recursos de teste de unidade lógica aplicação são implementados no.
 
     *Nota:* Se a sua aplicação lógica tiver todos os recursos personalizados que estão armazenados numa região, certificar-se de que essa região está selecionada aqui. É a melhor forma de fazer isso **totalmente implementar a sua aplicação lógica localmente na sua subscrição do Azure no portal e certifique-se de que ele funciona** antes de os escrever aqui.
 
-- **Máximo versões de teste de simultâneas** - *[Field necessário]* aceder a instâncias de número de teste de unidade de mensagens em fila que já estão implementados e espera por região selecionada. Os clientes podem aceder de forma instantânea este versões de teste, em vez de ter de esperar por uma implementação.
+- **Máximo versões de teste de simultâneas** -  *[Field necessário]* aceder a instâncias de número de teste de unidade de mensagens em fila que já estão implementados e espera por região selecionada. Os clientes podem aceder de forma instantânea este versões de teste, em vez de ter de esperar por uma implementação.
 
     *Nota:* Se estiver a executar uma webinar/classe onde pretende que todos os seu número de N de estudantes para fazer um Test Drive, recomenda-se para publicar com N diversas instâncias de acesso frequente e uma vez, em seguida, a classe está a terminar, voltar a publicar novamente para o seu número normal de instâncias de acesso frequente.
 
@@ -77,7 +77,7 @@ A secção seguinte para preencher é onde configurar a aplicação de lógica d
 
 - **Desaprovisionar o nome da aplicação lógica -** *[necessário campo]* escrever o nome de aplicação lógica para o desaprovisionamento de todos os recursos criados na unidade de teste. Certifique-se de que o ficheiro é guardado no grupo de recursos acima.
 
-- **Aceder a informações -** *[necessário campo]* depois de um cliente recebe a unidade de teste, as informações de acesso são apresentadas aos mesmos. Estas instruções destinam-se para partilhar os parâmetros de saída útil do seu teste de unidade modelo do Resource Manager. Para incluir parâmetros de saída, de utilizar chavetas aspas (por exemplo, **{{outputname}}**), e eles serão inseridos corretamente na localização. (Formatação da cadeia de caracteres HTML é recomendado aqui para renderizar no front-end).
+- **Aceder a informações -** *[necessário campo]* depois de um cliente recebe a unidade de teste, as informações de acesso são apresentadas aos mesmos. Estas instruções destinam-se para partilhar os parâmetros de saída útil do seu teste de unidade modelo do Resource Manager. Para incluir parâmetros de saída, de utilizar chavetas aspas (por exemplo, **{{outputname}}** ), e eles serão inseridos corretamente na localização. (Formatação da cadeia de caracteres HTML é recomendado aqui para renderizar no front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Detalhes de subscrição de implementação de unidade de teste
 
@@ -119,7 +119,7 @@ Clique em Guardar. A última etapa é obter o ID da aplicação para esta aplica
 Tendo em conta que estiver a utilizar a aplicação para implementar para a subscrição, precisamos de adicionar a aplicação como um contribuinte da subscrição. As instruções para estas são como abaixo:
 
 1. Navegue para o painel de subscrições e selecione a subscrição adequada, que está a utilizar para a versão de teste apenas.
-1. Clique em **controlo de acesso (IAM)**.
+1. Clique em **controlo de acesso (IAM)** .
 1. Clique nas **atribuições de funções** separador.  ![O Azure Active Directory, adicionar um novo principal de controlo de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Clique em **adicionar atribuição de função**.
 1. Definir a função como **contribuinte**.

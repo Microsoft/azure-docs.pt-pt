@@ -16,10 +16,10 @@ ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66498953"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de rede do serviço de aplicações
@@ -46,8 +46,8 @@ Para qualquer uso determinado caso, pode haver algumas formas de resolver o prob
  
 | Casos de utilização de entrada | Funcionalidade |
 |---------------------|-------------------|
-| Suportar as necessidades SSL baseado em IP para a sua aplicação | aplicação atribuída endereço |
-| Não partilhado, o endereço de entrada dedicado para a sua aplicação | aplicação atribuída endereço |
+| Suportar as necessidades SSL baseado em IP para a sua aplicação | Aplicação atribuída endereço |
+| Não partilhado, o endereço de entrada dedicado para a sua aplicação | Aplicação atribuída endereço |
 | Restringir o acesso à sua aplicação a partir de um conjunto de endereços bem definidos | Restrições de acesso |
 | Expor a minha aplicação no IPs privados na minha VNet | ASE DE ILB </br> Gateway de aplicação com pontos finais de serviço |
 | Restringir o acesso ao meu aplicativo a partir de recursos numa VNet | Pontos Finais de Serviço </br> ASE DE ILB |

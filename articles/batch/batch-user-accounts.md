@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595379"
 ---
 > [!NOTE] 

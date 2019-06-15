@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390424"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurar a sua experiência de pesquisa personalizada do Bing

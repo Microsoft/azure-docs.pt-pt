@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
 ms.openlocfilehash: 9ddf89ab0c4c14743206b2baf207ec10fee033b4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390324"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Obtenha vídeos da sua vista personalizada

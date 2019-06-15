@@ -15,10 +15,10 @@ ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64924657"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássica do Azure
@@ -38,7 +38,7 @@ Este artigo descreve como adicionar ou alterar as funções de Coadministrador e
 
     Coadministradores só podem ser atribuídos ao âmbito da subscrição.
 
-1. Clique em **controlo de acesso (IAM)**.
+1. Clique em **controlo de acesso (IAM)** .
 
 1. Clique nas **administradores clássico** separador.
 
@@ -71,7 +71,7 @@ Tenha em atenção que o [funções incorporadas para recursos do Azure](../role
 
 1. Open [subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-1. Clique em **controlo de acesso (IAM)**.
+1. Clique em **controlo de acesso (IAM)** .
 
 1. Clique nas **administradores clássico** separador.
 
@@ -87,7 +87,7 @@ Tenha em atenção que o [funções incorporadas para recursos do Azure](../role
 
 Apenas o administrador de conta pode alterar o administrador de serviços para uma subscrição. Por predefinição, quando se inscreve para uma subscrição do Azure, o administrador de serviços é o mesmo como o administrador de conta. O utilizador com a função de administrador de conta não tem acesso ao portal do Azure. O utilizador com a função de administrador de serviço tem acesso total ao portal do Azure. Se o administrador de conta e o administrador de serviço são o mesmo utilizador e alterar o administrador de serviço para um utilizador diferente, em seguida, o administrador de conta perde o acesso ao portal do Azure. No entanto, o administrador de conta, pode utilizar Centro de contas sempre para alterar o administrador de serviços para si.
 
-Existem duas formas de alterar o administrador de serviço. Pode alterar o **portal do Azure** ou **Centro de contas**.
+Existem duas formas de alterar o Administrador de Serviços. Pode alterar o **portal do Azure** ou **Centro de contas**.
 
 ### <a name="azure-portal"></a>Portal do Azure
 

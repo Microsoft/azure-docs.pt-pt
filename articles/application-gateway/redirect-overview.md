@@ -11,26 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/19/2018
-ms.date: 04/17/2019
-ms.author: v-junlch
+ms.date: 3/19/2018
+ms.author: amsriva
 ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715816"
 ---
 # <a name="application-gateway-redirect-overview"></a>Descrição geral de redirecionamento do Gateway de aplicação
 
-Pode utilizar o gateway de aplicação para redirecionar o tráfego.  Ele tem um mecanismo de redirecionamento genérico que permite redirecionar o tráfego recebido num serviço de escuta para outro serviço de escuta ou a um site externo. Isso simplifica a configuração da aplicação, otimiza a utilização de recursos e oferece suporte a novos cenários de redirecionamento, incluindo global e com base no caminho de redirecionamento.
+Pode utilizar o gateway de aplicação para redirecionar o tráfego.  Este tem um mecanismo de redirecionamento genérico que permite redirecionar o tráfego recebido num serviço de escuta para outro serviço de escuta ou para um site externo. Isso simplifica a configuração da aplicação, otimiza a utilização de recursos e oferece suporte a novos cenários de redirecionamento, incluindo global e com base no caminho de redirecionamento.
 
 É um cenário comum de redirecionamento para muitos aplicativos web suportar automática HTTP para redirecionamento a HTTPS para garantir que toda a comunicação entre aplicativos e para os utilizadores ocorre através de um caminho encriptado. No passado, os clientes usaram técnicas como a criação de um conjunto de back-end dedicado cujo único objetivo é redirecionar os pedidos recebidos de HTTP para HTTPS. Com o suporte de redirecionamento no Gateway de aplicação, é possível fazer isso simplesmente ao adicionar uma nova configuração de redirecionamento para uma regra de roteamento e especificar o outro serviço de escuta com o protocolo HTTPS como o serviço de escuta de destino.
 
 São suportados os seguintes tipos de redirecionamento de:
 
 - 301 Permanent Redirect
-- 302 Encontrado
+- 302 Found
 - 303 ver outros
 - 307 Temporary Redirect
 
@@ -51,5 +50,3 @@ Com esta alteração, os clientes têm de criar um novo objeto de configuração
 ### <a name="next-steps"></a>Passos Seguintes
 
 [Configurar o redirecionamento de URL num gateway de aplicação](tutorial-url-redirect-powershell.md)
-
-<!-- Update_Description: wording update -->

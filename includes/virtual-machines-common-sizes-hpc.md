@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn;amverma
 ms.custom: include file
 ms.openlocfilehash: 9b4bdee19c883252e7de140ac7b19babd43d1df8
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755201"
 ---
 Máquinas de virtuais de série H do Azure (VMs) foram concebidas para fornecer desempenho de classe de liderança, escalabilidade MPI e a eficiência para uma variedade de cargas de trabalho do mundo real HPC de custo.

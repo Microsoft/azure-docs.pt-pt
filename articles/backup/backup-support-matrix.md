@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
 ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400167"
 ---
 # <a name="azure-backup-support-matrix"></a>Matriz de suporte do Azure Backup
@@ -46,7 +46,7 @@ A tabela seguinte descreve as funcionalidades de cofres dos serviços de recuper
 
 Eis o que é suportado se quiser fazer uma cópia de segurança de máquinas no local:
 
-**Machine** | **O que é uma cópia de segurança** | **Localização** | **Funcionalidades**
+**Machine** | **O que é uma cópia de segurança** | **Location** | **Funcionalidades**
 --- | --- | --- | ---
 **Cópia de segurança direta da máquina do Windows com agente MARS** | Ficheiros, pastas, estado do sistema | Criar cópias de segurança para cofre dos serviços de recuperação. | Criar cópias de segurança três vezes por dia<br/><br/> Nenhuma cópia de segurança com suporte para a aplicação<br/><br/> Restaurar o ficheiro, pasta, volume
 **Cópia de segurança direta da máquina do Linux com o agente MARS** | Cópia de segurança não suportada
@@ -66,7 +66,7 @@ Eis o que é suportado se quiser fazer uma cópia de segurança de máquinas no 
 
 Eis o que é suportado se quiser fazer uma cópia de segurança de VMs do Azure:
 
-**Machine** | **O que é uma cópia de segurança** | **Localização** | **Funcionalidades**
+**Machine** | **O que é uma cópia de segurança** | **Location** | **Funcionalidades**
 --- | --- | --- | ---
 **Cópia de segurança VM do Azure ao utilizar a extensão de VM** | VM inteira | Criar cópias de segurança para o cofre. | Extensão instalada quando ativar a cópia de segurança para uma VM.<br/><br/> Criar cópias de segurança uma vez por dia.<br/><br/> Aplicação com suporte para cópia de segurança para VMs do Windows; cópia de segurança consistente com ficheiros para VMs do Linux. Pode configurar a consistência de aplicação para computadores Linux ao utilizar scripts personalizados.<br/><br/> Restaure VM ou disco.<br/><br/> Não é possível fazer backup de uma VM do Azure para uma localização no local.
 **Cópia de segurança VM do Azure com o agente MARS** | Ficheiros, pastas, estado do sistema | Criar cópias de segurança para o cofre. | Criar cópias de segurança três vezes por dia.<br/><br/> Se pretender criar cópias de segurança específicos ficheiros ou pastas, em vez de toda a VM, pode executar o agente de MARS juntamente com a extensão de VM.

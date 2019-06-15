@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 05/08/2019
 ms.openlocfilehash: 783a8f0bc25717f1c2bf78a9c0d40b209a07939b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473350"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Controlo de acesso de base de dados SQL e SQL Data Warehouse do Azure

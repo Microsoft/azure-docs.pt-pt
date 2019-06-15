@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/29/2019
 ms.author: rkarlin
 ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875611"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações de SQL no Centro de segurança do Azure (pré-visualização)
@@ -53,7 +53,7 @@ Para personalizar a política de proteção de informações para o seu inquilin
 2. Na **etiqueta de sensibilidade configurar** ecrã, pode criar ou alterar o nome de etiqueta e a descrição. Também pode definir se a etiqueta está desativada ou Active Directory, Ativando a **ativado** mudar ou desativar. Por fim, pode adicionar ou remover tipos de informações associados com a etiqueta. Todos os dados detetados que corresponda ao que tipo de informações incluirá automaticamente a etiqueta de sensibilidade associado nas recomendações de classificação.
 3. Clique em **OK**.
  
-   ![Configurar etiqueta de confidencialidade](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Configurar a etiqueta de confidencialidade](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. As etiquetas são listadas por ordem de ascendente sensibilidade. Para alterar a classificação entre as etiquetas, arraste as etiquetas para reordenar na tabela ou utilize o **mover para cima** e **mover para baixo** botões para alterar a ordem. 
  

@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: ac4310e851808d6e6d89d1a2b506975eea3b1d69
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029329"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo de regressão logística várias classes

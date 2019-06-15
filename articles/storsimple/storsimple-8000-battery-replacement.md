@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693759"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substitua o módulo de bateria de segurança no dispositivo StorSimple
 
@@ -47,12 +47,12 @@ O módulo de bateria de segurança para o dispositivo StorSimple é uma unidade 
    
     **Figura 1** verso mostrando módulos PCM e controlador de dispositivo primário
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
-   | 3 |Controlador 0 |
-   | 4 |Controlador 1 |
+   | 3 |Controlador 0 |
+   | 4 |Controlador 1 |
    
     Como é mostrado por número 3 na figura 2, os indicadores de monitorização por Instrutor no PCM 0, que corresponde ao **falhas de bateria** deve ser ativada.
    
@@ -60,7 +60,7 @@ O módulo de bateria de segurança para o dispositivo StorSimple é uma unidade 
    
     **Figura 2** PCM de voltar a mostrar o LEDs dos indicadores de monitorização
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |Falha de energia de AC |
    | 2 |Falha na ventoinha |

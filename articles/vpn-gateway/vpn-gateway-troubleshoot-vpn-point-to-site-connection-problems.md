@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
 ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475969"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Resolução de problemas: Problemas de ligação de ponto a site do Azure

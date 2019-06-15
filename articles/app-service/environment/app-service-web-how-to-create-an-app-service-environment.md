@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128889"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um serviço de aplicações v1 do ambiente 

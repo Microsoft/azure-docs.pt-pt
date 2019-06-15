@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979317"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas e ver os dados de conformidade através de programação

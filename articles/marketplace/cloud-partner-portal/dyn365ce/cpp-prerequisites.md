@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
 ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257532"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 para pré-requisitos de envolvimento do cliente

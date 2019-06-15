@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602728"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações em consultas de registo do Azure Monitor
@@ -31,7 +31,7 @@ Este artigo descreve as funções de agregação em consultas de registo do Azur
 
 ## <a name="counts"></a>Contagens
 
-### <a name="count"></a>contagem
+### <a name="count"></a>count
 Conte o número de linhas no resultado definida depois de todos os filtros são aplicados. O exemplo seguinte devolve o número total de linhas na _Perf_ tabela dos últimos 30 minutos. O resultado é devolvido numa coluna chamada *count_* a menos que atribua um nome específico:
 
 

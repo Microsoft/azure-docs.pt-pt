@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
 ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023862"
 ---
 # <a name="custom-web-api-skill"></a>Habilidade de Web API personalizada
@@ -41,7 +41,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 | uri | O URI da API Web ao qual o _JSON_ payload será enviado. Apenas **https** é permitido o esquema de URI |
 | httpMethod | O método a utilizar ao enviar o payload. Permitidos são métodos `PUT` ou `POST` |
 | httpHeaders | Uma coleção de pares chave-valor, onde as chaves representam nomes de cabeçalho e valores representam os valores de cabeçalho que serão enviados para a sua API Web, juntamente com a carga. Os seguintes cabeçalhos são proibidos de que está a ser nesta coleção: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| tempo limite | (Opcional) Quando especificado, indica o tempo limite para o cliente de http que efetua a chamada de API. Tem de ser formatado como um valor de "dayTimeDuration" XSD (um subconjunto restrito de um [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) valor). Por exemplo, `PT60S` durante 60 segundos. Se não for um valor predefinido de 30 segundos do conjunto, é escolhido. O tempo limite pode ser definido para um máximo de 90 segundos e um mínimo de 1 segundo. |
+| timeout | (Opcional) Quando especificado, indica o tempo limite para o cliente de http que efetua a chamada de API. Tem de ser formatado como um valor de "dayTimeDuration" XSD (um subconjunto restrito de um [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) valor). Por exemplo, `PT60S` durante 60 segundos. Se não for um valor predefinido de 30 segundos do conjunto, é escolhido. O tempo limite pode ser definido para um máximo de 90 segundos e um mínimo de 1 segundo. |
 | batchSize | (Opcional) Indica o número "registos de dados" (consulte _JSON_ estrutura de payload abaixo) serão enviadas por chamada de API. Se não for uma predefinição de 1000 do conjunto, é escolhida. Recomendamos que efetue a utilização deste parâmetro para alcançar uma compensação adequada entre o débito de indexação e de carga na sua API |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades

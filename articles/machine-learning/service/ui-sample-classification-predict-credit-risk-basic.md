@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
 ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789401"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Exemplo 3 - classificação: Prever o risco do crédito

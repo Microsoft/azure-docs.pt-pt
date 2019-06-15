@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/12/2019
+ms.openlocfilehash: 7a517be49a249b0b73c901137381bd05946aa4cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926337"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065707"
 ---
-# <a name="server-logs-in-azure-database-for-mariadb"></a>Registos do servidor na base de dados do Azure para MariaDB
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Registos de consulta lenta na base de dados do Azure para MariaDB
 Na base de dados do Azure para MariaDB, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas.
 
 Para obter mais informações sobre o registo de consulta lenta, consulte a documentação de MariaDB para [registo de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-server-logs"></a>Aceder a registos do servidor
-Pode listar e transferir a base de dados do Azure para MariaDB registos do servidor com o portal do Azure e a CLI do Azure.
+## <a name="access-slow-query-logs"></a>Aceder aos registos de consulta lenta
+Pode listar e transferir a base de dados do Azure para os registos de consulta lenta da MariaDB com o portal do Azure e a CLI do Azure.
 
 No portal do Azure, selecione a base de dados do Azure para MariaDB server. Sob o **monitorização** cabeçalho, selecione a **os registos do servidor** página.
 
@@ -30,7 +30,7 @@ Os registos estão disponíveis até sete dias desde a sua criação. Se o taman
 
 Os registos são revezados cada 24 horas ou 7 GB, o que ocorrer primeiro.
 
-## <a name="configure-logging"></a>Configurar o registo
+## <a name="configure-slow-query-logging"></a>Configurar o registo de consulta lenta
 Por predefinição, o registo de consulta lenta está desativado. Para ativá-lo, defina slow_query_log on.
 
 Outros parâmetros que pode ajustar incluem:
@@ -75,7 +75,7 @@ A tabela seguinte descreve as novidades em cada registo. Dependendo do método d
 | `insert_id_s` | Inserir ID |
 | `sql_text_s` | Consulta completa |
 | `server_id_s` | ID do servidor |
-| `thread_id_s` | ID do Thread |
+| `thread_id_s` | ID do thread |
 | `\_ResourceId` | URI do recurso |
 
 ## <a name="next-steps"></a>Passos Seguintes

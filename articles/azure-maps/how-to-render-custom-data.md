@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: a9fed8464bd19c4b8a32e37c8c97698f0a2d9503
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734305"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Processar dados personalizados num mapa de varredura

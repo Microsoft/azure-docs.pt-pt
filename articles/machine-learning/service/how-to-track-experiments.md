@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297481"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Métricas de registo durante o treinamento é executado no Azure Machine Learning

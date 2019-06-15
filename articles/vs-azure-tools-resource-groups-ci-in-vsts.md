@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66019774"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua nos serviços de DevOps do Azure com projetos de implantação do grupo de recursos do Azure
@@ -79,10 +79,10 @@ Os procedimentos seguintes explicam as etapas necessárias para configurar a imp
    5. Adicione as suas informações de subscrição do Azure para o **adicionar subscrição do Azure** caixa de diálogo. Tem de fornecer os seguintes itens:
       
       * ID da subscrição
-      * Nome da Subscrição
-      * ID do Principal de Serviço
+      * Nome da subscrição
+      * Id de Principal de serviço
       * Chave de Principal de serviço
-      * Id de Inquilino
+      * Id do inquilino
    6. Adicionar um nome à sua escolha para o **subscrição** caixa nome. Este valor aparece mais adiante no **subscrição do Azure** na lista pendente nos serviços de DevOps do Azure. 
 
    7. Se não souber o ID de subscrição do Azure, pode utilizar um dos seguintes comandos para recuperá-la.
@@ -111,7 +111,7 @@ Os procedimentos seguintes explicam as etapas necessárias para configurar a imp
    
    | Parâmetro | Descrição |
    | --- | --- |
-   | -ResourceGroupLocation |O valor de localização geográfica onde está localizado, por exemplo, o grupo de recursos **eastus** ou **"Este dos E.U.A."**. (Adicionar aspas se houver um espaço no nome.) Ver [regiões do Azure](https://azure.microsoft.com/regions/) para obter mais informações. |
+   | -ResourceGroupLocation |O valor de localização geográfica onde está localizado, por exemplo, o grupo de recursos **eastus** ou **"Este dos E.U.A."** . (Adicionar aspas se houver um espaço no nome.) Ver [regiões do Azure](https://azure.microsoft.com/regions/) para obter mais informações. |
    | -ResourceGroupName |O nome do grupo de recursos utilizado para esta implementação. |
    | -UploadArtifacts |Este parâmetro, quando estiver presente, especifica que os artefatos que precisam de ser carregados para o Azure, do sistema local. Apenas terá de definir esse comutador se a implementação de modelo requer artefactos Extras que deseja testar com o script do PowerShell (como scripts de configuração ou modelos aninhados). |
    | -StorageAccountName |O nome da conta de armazenamento utilizada nos artefatos do estágio para esta implementação. Este parâmetro só é utilizado se escalonar artefactos para implementação. Se este parâmetro for fornecido, é criada uma nova conta de armazenamento se o script não tiver criado um durante uma implantação anterior. Se o parâmetro for especificado, a conta de armazenamento tem de existir. |
@@ -172,8 +172,8 @@ Os procedimentos seguintes explicam as etapas necessárias para configurar a imp
    * Ação - selecione **criar ou grupo de recursos de atualização**
    * Grupo de recursos – selecione um grupo de recursos ou introduza o nome de um novo grupo de recursos para a implementação
    * Localização – selecione a localização para o grupo de recursos
-   * Modelo - introduza o caminho e nome do modelo devem ser implantados de prefixação **$(Build.StagingDirectory)**, por exemplo: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
-   * Parâmetros do modelo - introduza o caminho e o nome dos parâmetros a utilizar prefixação **$(Build.StagingDirectory)**, por exemplo: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
+   * Modelo - introduza o caminho e nome do modelo devem ser implantados de prefixação **$(Build.StagingDirectory)** , por exemplo: **$(Build.StagingDirectory/DSC-CI/azuredeploy.json)**
+   * Parâmetros do modelo - introduza o caminho e o nome dos parâmetros a utilizar prefixação **$(Build.StagingDirectory)** , por exemplo: **$(Build.StagingDirectory/DSC-CI/azuredeploy.parameters.json)**
    * Substitua os parâmetros de modelo - introduza ou copie e cole o seguinte código:
      
      ```    

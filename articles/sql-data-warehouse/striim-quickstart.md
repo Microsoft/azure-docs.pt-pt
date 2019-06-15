@@ -11,10 +11,10 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873401"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim oferta do Azure SQL DW Marketplace guia de instalação

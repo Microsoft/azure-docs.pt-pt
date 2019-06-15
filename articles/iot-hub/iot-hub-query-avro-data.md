@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 84e1dd77c6e873dc2facb5126bbddf795192b60d
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257754"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consultar dados Avro com o Azure Data Lake Analytics

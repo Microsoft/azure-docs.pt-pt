@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128578"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
@@ -63,7 +63,7 @@ Este artigo descreve alguns erros comuns de implementação do Azure e fornece i
 | MissingRegistrationForLocation | Verifique o estado de registo do fornecedor de recursos e localizações suportadas. | [Resolver registo](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registe a sua subscrição com o fornecedor de recursos. | [Resolver registo](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Verifique o estado de registo do fornecedor de recursos. | [Resolver registo](resource-manager-register-provider-errors.md) |
-| NãoLocalizado | Pode tentar implementar um recurso dependente em paralelo com um recurso principal. Verifique se tem de adicionar uma dependência. | [Resolver dependências](resource-manager-not-found-errors.md) |
+| NotFound | Pode tentar implementar um recurso dependente em paralelo com um recurso principal. Verifique se tem de adicionar uma dependência. | [Resolver dependências](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | A implementação está a tentar uma operação que excede a quota para a subscrição, grupo de recursos ou região. Se possível, rever a sua implementação para se manterem dentro as quotas. Caso contrário, considere solicitar uma alteração às suas quotas. | [Resolver quotas](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Certifique-se de que existe um recurso de principal antes de criar o filho de recursos. | [Resolver o recurso principal](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | Poderá ter selecionado uma palavra-passe com demasiados carateres, ou pode ter convertido seu valor de palavra-passe para uma cadeia segura antes de passá-lo como um parâmetro. Se o modelo inclui uma **proteger a cadeia de caracteres** parâmetro, não é necessário converter o valor numa cadeia segura. Forneça o valor de palavra-passe como texto. |  |
@@ -95,7 +95,7 @@ Erros de validação resultam de cenários que podem ser determinados antes da i
 
 Ambos os tipos de erros de devolvem um código de erro que utilizar para resolver problemas relacionados com a implementação. Ambos os tipos de erros são apresentados no [registo de atividades](resource-group-audit.md). No entanto, os erros de validação não aparecem no seu histórico de implementação porque nunca iniciou a implementação.
 
-### <a name="validation-errors"></a>Erros de validação
+### <a name="validation-errors"></a>erros de validação
 
 Ao implementar através do portal, verá um erro de validação depois de enviar seus valores.
 
@@ -131,7 +131,7 @@ Pode ver mais detalhes sobre a implementação. Selecione a opção para obter m
 
 Vê a mensagem de erro e códigos de erro. Observe que existem dois códigos de erro. O primeiro código de erro (**DeploymentFailed**) é um erro geral que não fornece os detalhes de que necessita para resolver o erro. O segundo código de erro (**StorageAccountNotFound**) fornece os detalhes que precisa. 
 
-![detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
+![Detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Ativar o registo de depuração
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ed8aa7db1fa47cbcf5150fc0abfe5f552f2b57ea
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755636"
 ---
 * [Autenticação do serviço de aplicações / descrição geral de autorização](../articles/app-service/overview-authentication-authorization.md).

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
 ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257496"
 ---
 # <a name="cloud-partner-portal-management"></a>Gestão de Portal de parceiros da cloud

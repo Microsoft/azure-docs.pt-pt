@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410442"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionar uma Máquina Virtual no Azure de aprendizagem profunda 

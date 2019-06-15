@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 90c6d40103bc9a20f7af28c76d0183f7a3fb04a9
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304551"
 ---
 ### <a name="initiator"></a>Iniciador

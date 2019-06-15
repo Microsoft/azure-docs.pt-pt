@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167372"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas no Azure Logic Apps

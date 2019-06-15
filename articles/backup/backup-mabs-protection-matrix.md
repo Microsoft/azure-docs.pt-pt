@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427362"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Azure Backup Server

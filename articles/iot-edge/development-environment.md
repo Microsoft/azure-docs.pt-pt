@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302673"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparar o ambiente de teste e desenvolvimento para o IoT Edge

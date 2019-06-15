@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 968b7dd703ba40f46a068deb1d8b7d2b32e0de2b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64688207"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um máquina virtual rede problema de encaminhamento - CLI do Azure

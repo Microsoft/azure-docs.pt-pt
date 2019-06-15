@@ -12,14 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 02/27/2019
-ms.author: v-junlch
+ms.date: 01/23/2017
+ms.author: yegu
 ms.openlocfilehash: 73c771ab18d1cc2944298818c1cab90eb2f277ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829808"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exemplos da Cache do Azure para Redis
@@ -32,14 +31,14 @@ O [Olá, mundo](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) ex
 
 Este exemplo mostra como:
 
-- Utilizar várias opções de ligação
-- Ler e escrever objetos de e para a cache a utilizar operações síncronas e assíncronas
-- Utilizar comandos da Redis MGET/MSET para valores de retorno de chaves especificadas
-- Efetuar operações transacionais de Redis
-- Apresenta uma lista de trabalho com o Redis e conjuntos ordenados
-- Objetos de .NET de Store usando JsonConvert Serializadores
-- Utilizar conjuntos de Redis para implementar a marcação
-- Trabalhar com o Cluster de Redis
+* Utilizar várias opções de ligação
+* Ler e escrever objetos de e para a cache a utilizar operações síncronas e assíncronas
+* Utilizar comandos da Redis MGET/MSET para valores de retorno de chaves especificadas
+* Efetuar operações transacionais de Redis
+* Apresenta uma lista de trabalho com o Redis e conjuntos ordenados
+* Objetos de .NET de Store usando JsonConvert Serializadores
+* Utilizar conjuntos de Redis para implementar a marcação
+* Trabalhar com o Cluster de Redis
 
 Para obter mais informações, consulte a [stackexchange. redis](https://github.com/StackExchange/StackExchange.Redis) documentação no GitHub e para obter mais cenários de utilização Consulte a [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) testes de unidade.
 
@@ -53,8 +52,8 @@ O [utilizar a Cache do Azure para Redis como uma ampliação Backplane para ASP.
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Cache do Azure para o exemplo de consulta do cliente de Redis
 Este exemplo demonstra o desempenho de compara entre Acessando dados através de uma cache e aceder aos dados do armazenamento de persistência. Este exemplo tem dois projetos.
 
-- [Como a Cache de Redis do Azure pode melhorar o desempenho ao armazenar em cache de dados de demonstração](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-- [Efetuar o seeding do banco de dados e Cache para a demonstração](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+* [Como a Cache de Redis do Azure pode melhorar o desempenho ao armazenar em cache de dados de demonstração](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+* [Efetuar o seeding do banco de dados e Cache para a demonstração](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## <a name="aspnet-session-state-and-output-caching"></a>Estado da sessão ASP.NET e o cache de saída
 O [utilizar a Cache do Azure para Redis armazenar SessionState do ASP.NET e OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) exemplo demonstra como utilizar a Cache de Redis do Azure para armazenar a sessão do ASP.NET e Cache de saída com os fornecedores SessionState e OutputCache para Redis .
@@ -70,6 +69,4 @@ O [Retwis](https://github.com/SyntaxC4-MSFT/retwis) exemplo é o Redis Hello Wor
 
 ## <a name="bandwidth-monitor"></a>Monitor de largura de banda
 O [monitor de largura de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) exemplo permite-lhe monitorizar a largura de banda utilizada no cliente. Para medir a largura de banda, execute o exemplo na máquina de cliente de cache, fazer chamadas para a cache e observe a largura de banda comunicada pelo exemplo de monitor de largura de banda.
-
-<!-- Update_Description: update metedata properties -->
 

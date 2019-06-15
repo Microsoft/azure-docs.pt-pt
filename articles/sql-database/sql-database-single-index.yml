@@ -131,7 +131,7 @@ sections:
           - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteger a sua base de dados do SQL</a>.
           - html: Distribuir dados globalmente ao utilizar um <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">base de dados distribuída geograficamente</a>.
           - html: Encontre mais <a href="sql-database-howto-single-database.md">guias de procedimentos</a> que pode ajudá-lo a configurar a sua base de dados.
-  - title: Amostras
+  - title: Exemplos
     items:
       - type: paragraph
         text: Encontre scripts para gerir tarefas comuns.

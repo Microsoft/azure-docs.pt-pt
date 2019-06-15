@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: v-pawal
 ms.topic: conceptual
 ms.openlocfilehash: ba6d1ed5bc26f121f32fad548e7a17c1f4998851
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389341"
 ---
 # <a name="data-filtering"></a>Filtragem de dados

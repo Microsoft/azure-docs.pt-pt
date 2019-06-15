@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 88ab13329a719ba1e1b8a7b5fba2f7a2d381eca2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251363"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64700848"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento de interface do Usuário de Microsoft.Compute.UserNameTextBox
 Um controle de caixa de texto com validação incorporada para os nomes de utilizador do Windows e Linux.

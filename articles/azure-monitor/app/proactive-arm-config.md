@@ -14,10 +14,10 @@ ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
 ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61461566"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligente do Application Insights com modelos Azure Resource Manager
@@ -39,7 +39,7 @@ Para obter flexibilidade máximo, cada regra de deteção inteligente pode ser c
 ## <a name="examples"></a>Exemplos
 
 Seguem-se alguns exemplos que mostram como configurar as definições de regras de deteção inteligente utilizando modelos Azure Resource Manager.
-Todos os exemplos de fazer referência a um recurso do Application Insights com o nome _"myApplication"_, e para a "dependência de longa duração regra de deteção inteligente", que é chamado internamente _"longdependencyduration"_.
+Todos os exemplos de fazer referência a um recurso do Application Insights com o nome _"myApplication"_ , e para a "dependência de longa duração regra de deteção inteligente", que é chamado internamente _"longdependencyduration"_ .
 Certifique-se de substituir o nome de recurso do Application Insights e para especificar o nome interno da regra de deteção inteligente relevantes. Consulte a tabela abaixo para obter uma lista dos nomes correspondentes interno do Azure Resource Manager para cada regra de deteção inteligente.
 
 ### <a name="disable-a-smart-detection-rule"></a>Desativar uma regra de deteção inteligente
@@ -145,11 +145,11 @@ Abaixo é uma tabela de nomes da regra de deteção inteligente, tal como aparec
 
 | Nome da regra de portal do Azure | Nome interno
 |:---|:---|
-| Tempo de carregamento da página lento | slowpageloadtime |
+| Tempo de carregamento de páginas lentas | slowpageloadtime |
 | Tempo de resposta do servidor lenta | slowserverresponsetime |
 | Duração longa da dependência | longdependencyduration |
 | Degradação no tempo de resposta do servidor | degradationinserverresponsetime |
-| Degradação na duração da dependência | degradationindependencyduration |
+| Degradação na duração de dependência | degradationindependencyduration |
 | Degradação na proporção de gravidade de rastreio (pré-visualização) | extension_traceseveritydetector |
 | Aumento anormal no volume de exceção (pré-visualização) | extension_exceptionchangeextension |
 | Potencial fuga de memória detetado (pré-visualização) | extension_memoryleakextension |

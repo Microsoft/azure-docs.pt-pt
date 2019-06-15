@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630214"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução de armazenamento na cloud híbrida
@@ -222,7 +222,7 @@ Um resumo das cargas de trabalho suportadas do StorSimple é apresentado abaixo.
 As cargas de trabalho seguintes não são suportadas por dispositivos da série StorSimple 8000. Se implementada no StorSimple, estas cargas de trabalho irão resultar numa configuração não suportada.
 
 * Geração de imagens médica
-* Troca
+* Exchange
 * VDI
 * Oracle
 * SAP

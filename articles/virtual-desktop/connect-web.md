@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
 ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834016"
 ---
 # <a name="connect-from-a-web-browser"></a>Ligar a partir de um browser web

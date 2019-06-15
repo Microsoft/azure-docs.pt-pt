@@ -10,10 +10,10 @@ ms.date: 05/03/2019
 ms.author: mhopkins
 ms.subservice: common
 ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209695"
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemplos de armazenamento do Azure com .NET
@@ -22,14 +22,14 @@ ms.locfileid: "65209695"
 
 A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e os cenários abordados em cada exemplo. Clique nos links para ver o código de exemplo correspondente no GitHub.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">Ponto Final</th><th style="font-size:110%">Cenário</th><th style="font-size:110%">Código de Exemplo</th></tr></thead><tbody> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Ponto Final</th><th style="font-size:110%">Cenário</th><th style="font-size:110%">Código de exemplo</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Acrescentar Blob</td> 
+<td>Blob de acréscimo</td> 
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Introdução com Blobs</a></td> 
 </tr> 
 <tr> 
-<td>Blob de Blocos</td>
+<td>Blob de blocos</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Aplicação Web de Galeria de fotos de armazenamento de Blobs do Azure</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Introdução com Blobs</a></td>
 </tr> 
 <tr> 
-<td>Blob de Página</td>
+<td>BLOBs de páginas</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Introdução com Blobs</a></td>
 </tr>
 <tr> 

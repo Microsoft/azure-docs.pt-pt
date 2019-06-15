@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
 ms.openlocfilehash: 1cb3946a93cbeff6a9b95e0a21edbf0523b53d5e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65203603"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analisar dados de registo no Azure Monitor

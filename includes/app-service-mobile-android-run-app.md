@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: crdun
 ms.openlocfilehash: 63c54f8af91b6b4a76ba49d5e6fc7b3cda9f5b98
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240320"
 ---
 1. Abra o projeto com o **Android Studio**, utilizando **Importar projeto (Eclipse ADT, Gradle, etc.)** . Verifique se seleciona esta importação para evitar eventuais erros do JDK.

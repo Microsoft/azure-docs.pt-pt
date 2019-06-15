@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 08031bc2ac29ea77374e21c4ce6f7bcf6151bcad
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730039"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrar o tráfego de rede com um grupo de segurança de rede com o PowerShell

@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
 ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551875"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para o Azure Logic Apps

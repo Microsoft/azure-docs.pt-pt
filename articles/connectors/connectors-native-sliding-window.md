@@ -10,10 +10,10 @@ ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: 44944955019fcf81fb0d296592577e2b00a15928
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299506"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-sliding-window-trigger-in-azure-logic-apps"></a>Criar, agendar e executar tarefas recorrentes e fluxos de trabalho com o acionador de janela deslizante no Azure Logic Apps
@@ -51,7 +51,7 @@ Para as diferenças entre este acionador e o acionador de periodicidade ou para 
 
    ![Definir intervalo e a frequência](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Propriedade | Necessário | Nome JSON | Type | Descrição |
+   | Propriedade | Necessário | Nome JSON | Tipo | Descrição |
    |----------|----------|-----------|------|-------------|
    | **Intervalo** | Sim | interval | Integer | Um número inteiro que descreve a frequência com que o fluxo de trabalho é executada com base na frequência. Seguem-se os intervalos mínimos e máximo: <p>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Hour", em seguida, a periodicidade é a cada 6 horas. |
    | **Frequência** | Sim | frequency | String | A unidade de tempo para a periodicidade: **Segunda**, **minuto**, ou **hora** |
@@ -62,7 +62,7 @@ Para as diferenças entre este acionador e o acionador de periodicidade ou para 
    Para obter mais opções de periodicidade, abra a **adicione o novo parâmetro** lista. 
    As opções que selecionou aparecem no acionador após a seleção.
 
-   | Propriedade | Necessário | Nome JSON | Type | Descrição |
+   | Propriedade | Necessário | Nome JSON | Tipo | Descrição |
    |----------|----------|-----------|------|-------------|
    | **atraso** | Não | delay | String | A duração para atrasar a cada periodicidade, usando o [especificação de hora ISO 8601 data](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
    | **Fuso horário** | Não | timeZone | String | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |

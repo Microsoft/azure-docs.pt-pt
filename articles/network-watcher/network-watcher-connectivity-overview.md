@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
 ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64705813"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à ligação resolução de problemas no observador de rede do Azure
@@ -74,7 +74,7 @@ Segue-se um exemplo de um problema encontrado num salto.
 
 Devolve a tipos de falha sobre a ligação resolver problemas de ligação. A tabela seguinte fornece uma lista de tipos de falha atual devolvido.
 
-|Type  |Descrição  |
+|Tipo  |Descrição  |
 |---------|---------|
 |CPU     | Alta utilização da CPU.       |
 |Memória     | Utilização de memória elevada.       |

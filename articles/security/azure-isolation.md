@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b8142551d9c20c18d83c256b3f07a0deb291577c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66147662"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Cloud pública do Azure
@@ -310,7 +310,7 @@ Bases de dados mestras lógicas incluem:
 
 -   Inícios de sessão SQL utilizados para ligar ao servidor
 
--   Regras de firewall
+-   Regras da firewall
 
 Faturas relacionadas com a utilização informações de e para SQL Azure bases de dados do mesmo servidor lógico não são garantidos ser na mesma instância física num cluster do SQL Azure, em vez disso, aplicativos tem de fornecer o nome de base de dados de destino quando se liga.
 

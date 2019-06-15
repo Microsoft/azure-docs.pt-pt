@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16e4a5f63ba80b02a967888ad76fedf165a576c8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 563ec5969a77dd01506270c3e864e00639a56eb1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66473391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110710"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um primário atualizar Token?
 

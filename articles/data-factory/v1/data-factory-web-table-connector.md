@@ -14,14 +14,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61250583"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma origem de tabela da Web com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-web-table-connector.md)
 > * [Versão 2 (versão atual)](../connector-web-table.md)
 
@@ -101,9 +101,9 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |Tipo de conjunto de dados. tem de ser definido como **WebTable** |Sim |
-| caminho |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição do serviço ligado. |
-| índice |O índice da tabela no recurso. Ver [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
+| type |Tipo de conjunto de dados. tem de ser definido como **WebTable** |Sim |
+| path |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição do serviço ligado. |
+| index |O índice da tabela no recurso. Ver [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
 **Exemplo:**
 

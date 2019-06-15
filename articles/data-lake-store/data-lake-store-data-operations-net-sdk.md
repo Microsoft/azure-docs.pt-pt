@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65908066"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o .NET SDK
@@ -131,7 +131,7 @@ O fragmento seguinte lê o conteúdo de um ficheiro na geração 1 de armazename
         }
     }
 
-## <a name="get-file-properties"></a>Obter propriedades do ficheiro
+## <a name="get-file-properties"></a>Obter as propriedades do ficheiro
 O fragmento seguinte devolve as propriedades associadas a um ficheiro ou diretório.
 
     // Get file properties

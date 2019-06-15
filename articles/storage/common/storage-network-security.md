@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520247"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
@@ -359,7 +359,7 @@ Se ativar o **permitir confiável a serviços da Microsoft...**  exceção, os s
 |Azure Monitor|Microsoft. insights|Permite a escrita de dados para uma conta de armazenamento seguro de monitorização [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Redes do Azure|Microsoft.Network|Store e analisar registos de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure recuperação após desastre ao ativar a replicação para máquinas de virtuais de IaaS do Azure. Isto é necessário se estiver a utilizar a conta de armazenamento de cache de firewall ativada ou a conta de armazenamento de origem ou a conta de armazenamento de destino.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|SQL Data Warehouse do Azure|Microsoft.Sql|Permite importar e exportar os cenários de instâncias específicas de bases de dados SQL com o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Permite importar e exportar os cenários de instâncias específicas de bases de dados SQL com o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Acesso de dados de análise de armazenamento
 

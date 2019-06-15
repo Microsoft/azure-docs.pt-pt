@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411364"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes de recursos em redes virtuais do Azure
@@ -88,15 +88,15 @@ A predefinição do cliente DNS do Windows tem um cache DNS interno. Algumas dis
 
 Há uma série de DNS diferentes pacotes disponíveis (por exemplo, dnsmasq) a colocação em cache. Eis como instalar dnsmasq sobre as distribuições mais comuns:
 
-* **Ubuntu (utiliza resolvconf)**:
+* **Ubuntu (utiliza resolvconf)** :
   * Instalar o pacote de dnsmasq com `sudo apt-get install dnsmasq`.
-* **SUSE (utiliza netconf)**:
+* **SUSE (utiliza netconf)** :
   * Instalar o pacote de dnsmasq com `sudo zypper install dnsmasq`.
   * Ativar o serviço de dnsmasq com `systemctl enable dnsmasq.service`. 
   * Iniciar o serviço de dnsmasq com `systemctl start dnsmasq.service`. 
   * Editar **/etc/sysconfig/network/config**e altere *NETCONFIG_DNS_FORWARDER = ""* para *dnsmasq*.
   * Atualizar resolv com `netconfig update`, para definir a cache como o resolvedor DNS local.
-* **CentOS (usa NetworkManager)**:
+* **CentOS (usa NetworkManager)** :
   * Instalar o pacote de dnsmasq com `sudo yum install dnsmasq`.
   * Ativar o serviço de dnsmasq com `systemctl enable dnsmasq.service`.
   * Iniciar o serviço de dnsmasq com `systemctl start dnsmasq.service`.
@@ -154,7 +154,7 @@ Encaminhamento de DNS também permite a resolução DNS entre redes virtuais e p
 
 ![Diagrama do DNS entre redes virtuais](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Quando estiver a utilizar a resolução de nomes fornecida pelo Azure, Azure anfitrião configuração protocolo DHCP (Dynamic) fornece um sufixo DNS interno (**. internal.cloudapp.net**) para cada VM. Este sufixo permite que a resolução de nomes de anfitrião porque os registos de nome de anfitrião estão no **internal.cloudapp.net** zona. Quando estiver a utilizar sua própria solução de resolução de nome, este sufixo não é fornecido para as VMs porque ele interfere com outras arquiteturas DNS (como nos cenários associados a um domínio). Em vez disso, o Azure fornece um marcador de posição não funcional (*reddog.microsoft.com*).
+Quando estiver a utilizar a resolução de nomes fornecida pelo Azure, Azure anfitrião configuração protocolo DHCP (Dynamic) fornece um sufixo DNS interno ( **. internal.cloudapp.net**) para cada VM. Este sufixo permite que a resolução de nomes de anfitrião porque os registos de nome de anfitrião estão no **internal.cloudapp.net** zona. Quando estiver a utilizar sua própria solução de resolução de nome, este sufixo não é fornecido para as VMs porque ele interfere com outras arquiteturas DNS (como nos cenários associados a um domínio). Em vez disso, o Azure fornece um marcador de posição não funcional (*reddog.microsoft.com*).
 
 Se necessário, é possível determinar o sufixo DNS interno com o PowerShell ou a API:
 
@@ -173,7 +173,7 @@ Se o reencaminhamento de consultas para o Azure não se adequar às suas necessi
 > 
 > 
 
-### <a name="web-apps"></a>Aplicações Web
+### <a name="web-apps"></a>Web Apps
 Suponha que precisa efetuar a resolução de nome da sua aplicação web criada pelo serviço de aplicações, ligada a uma rede virtual, para as VMs na mesma rede virtual. Para além de configurar um DNS personalizado o servidor que tenha um reencaminhador DNS que encaminha consultas para o Azure (virtual IP 168.63.129.16), execute os seguintes passos:
 1. Ativar a integração da rede virtual para a sua aplicação web, se não fez, conforme descrito em [integrar a sua aplicação com uma rede virtual](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. No portal do Azure, para o plano do serviço de aplicações que aloja a aplicação web, selecione **rede de sincronização** sob **redes**, **integração da rede Virtual**.

@@ -4,22 +4,20 @@ description: Como configurar a aplicação do serviço cloud do Azure para permi
 services: cloud-services
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/06/2018
-ms.date: 10/22/2018
-ms.author: v-yiso
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.topic: conceptual
+ms.workload: azure-vs
+ms.date: 03/06/2018
+ms.author: ghogen
 ms.openlocfilehash: 924719a8371f4d41cb9ead09252d8f3d3424326a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717748"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure com o Visual Studio
 
@@ -48,10 +46,8 @@ Ao utilizar o Visual Studio 2017 versão 15.4 e anterior, pode utilizar o **ativ
 
    > [!Note]
    > Os certificados que sejam necessárias para uma conexão de área de trabalho remota são diferentes dos certificados que utiliza para outras operações do Azure. O certificado de acesso remoto tem de ter uma chave privada.
-   >
-   >
 
-5. Selecione um certificado a partir da lista ou escolha  **&lt;criar... &gt;**. Se criar um novo certificado, forneça um nome amigável para o novo certificado quando lhe for pedido e selecione **OK**. O novo certificado é apresentado na caixa de lista pendente.
+5. Selecione um certificado a partir da lista ou escolha  **&lt;criar... &gt;** . Se criar um novo certificado, forneça um nome amigável para o novo certificado quando lhe for pedido e selecione **OK**. O novo certificado é apresentado na caixa de lista pendente.
 
 6. Forneça um nome de utilizador e uma palavra-passe. Não é possível utilizar uma conta existente. Não utilize "Administrador" como nome de utilizador para a nova conta.
 

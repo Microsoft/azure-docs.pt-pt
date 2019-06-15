@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160960"
 ---
 A tarefa produz um ficheiro de saída do JSON que contém metadados sobre rostos detetados e monitorizados. Os metadados incluem coordenadas que indica a localização de rostos, bem como um número de identificação de face indicando o rastreamento dessa pessoa. Números de ID do rosto são suscetíveis a repor em circunstâncias, o mostrador frontal caso de perda ou overlapped no frame, resultando em alguns indivíduos introdução atribuídos a vários IDs.
@@ -30,8 +30,8 @@ A saída JSON inclui os seguintes elementos:
 
 |Elemento|Descrição|
 |---|---|
-| início |A hora de início do primeiro evento na "ticks". |
-| duração |O comprimento do fragmento, em "ticks". |
+| start |A hora de início do primeiro evento na "ticks". |
+| Duração |O comprimento do fragmento, em "ticks". |
 | index | (Se aplica apenas para o Azure Media Redactor) define o índice do quadro do evento atual. |
 | interval |O intervalo de cada entrada de evento dentro do fragmento, na "ticks". |
 | eventos |Cada evento contém os rostos detetados e monitorizados dentro desse período de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituída por 0 ou mais eventos que ocorreram nesse ponto no tempo. Um [Reto de fecho vazio] significa que nenhum rostos foram detetados. |

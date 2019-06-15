@@ -11,10 +11,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 467c323a0b669e70e12f801fd8fdd6df119e793d
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595910"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa do "completo" Lucene (consultas avançadas no Azure Search)
@@ -67,7 +67,7 @@ Cole este URL para um cliente REST como uma etapa de validação e para ver a es
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-A cadeia de consulta **`search=*`**, equivale uma pesquisa não especificada para a pesquisa de nula ou estar vazia. É a pesquisa mais simples, que pode fazer.
+A cadeia de consulta **`search=*`** , equivale uma pesquisa não especificada para a pesquisa de nula ou estar vazia. É a pesquisa mais simples, que pode fazer.
 
 Opcionalmente, pode adicionar **`$count=true`** para o URL para devolver uma contagem dos documentos correspondentes aos critérios de pesquisa. Numa cadeia de caracteres de pesquisa em branco, trata todos os documentos no índice (aproximadamente 2800 no caso de empregos em nova IORQUE).
 

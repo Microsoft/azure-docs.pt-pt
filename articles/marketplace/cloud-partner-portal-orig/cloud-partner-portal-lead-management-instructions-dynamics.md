@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 6fdab26bb5a4da5402a3a0a895a7c8835ef22c2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935786"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Configurar a gestão de oportunidades potenciais para o Dynamics CRM online
@@ -141,5 +141,5 @@ A etapa final é permitir que o utilizador que criou para escrever as oportunida
 
 Conclua a configuração Dynamics CRM para gestão de oportunidades potenciais, adicionando as informações da conta gerada para o Portal de parceiro de Cloud. Por exemplo:
 
--   **O Azure Active Directory** - **Id de aplicação** (exemplo: *23456052-aaaa-bbbb-8662-1234df56788f*), **Id do diretório** (exemplo: *12345678-8af1-4asf-1234-12234d01db47*), e **chave da aplicação** (exemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
--   **Office 365** - **Url** (exemplo: *https://contoso.crm4.dynamics.com*), **nome de utilizador** (exemplo: *contoso\@ contoso.onmicrosoft.com*), e **palavra-passe** (exemplo: *P\@ssw0rd*).
+-   **O Azure Active Directory** - **Id de aplicação** (exemplo: *23456052-aaaa-bbbb-8662-1234df56788f*), **Id do diretório** (exemplo: *12345678-8af1-4asf-1234-12234d01db47*), e **chave da aplicação** (exemplo: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=* ).
+-   **Office 365** - **Url** (exemplo: *https://contoso.crm4.dynamics.com* ), **nome de utilizador** (exemplo: *contoso\@ contoso.onmicrosoft.com*), e **palavra-passe** (exemplo: *P\@ ssw0rd*).

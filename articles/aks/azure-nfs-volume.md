@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
 ms.openlocfilehash: 55eb5b0b98a4097d2f300bacabbfef3b0a32b27b
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65468503"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Crie manualmente e usar um volume NFS (Network File System) Linux Server com o Azure Kubernetes Service (AKS)

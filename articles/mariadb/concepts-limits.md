@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65550513"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na base de dados do Azure para MariaDB

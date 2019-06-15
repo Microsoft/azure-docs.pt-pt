@@ -9,10 +9,10 @@ ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 416040d91da2f6346027f738de507777f804fd1f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237736"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure

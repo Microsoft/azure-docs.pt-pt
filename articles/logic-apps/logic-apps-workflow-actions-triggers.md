@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: reference
 ms.date: 05/13/2019
 ms.openlocfilehash: aa5d3a0555875571276fdf4046ad0e4dd1e69bbd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596940"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de Acionador e ação na linguagem de definição de fluxo de trabalho para o Azure Logic Apps
@@ -63,7 +63,7 @@ Os acionadores têm esses elementos de nível superior, apesar de alguns são op
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Matriz | Uma matriz que contém um ou mais [condições](#trigger-conditions) que determinar se deve executar o fluxo de trabalho. Disponível apenas para acionadores. | 
+| <*array-with-conditions*> | Array | Uma matriz que contém um ou mais [condições](#trigger-conditions) que determinar se deve executar o fluxo de trabalho. Disponível apenas para acionadores. | 
 | <*runtime-config-options*> | Objeto JSON | Pode alterar o comportamento de tempo de execução do acionador definindo `runtimeConfiguration` propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
 | <*splitOn-expression*> | String | Para acionadores que retornam uma matriz, pode especificar uma expressão que [divide ou *debatches* ](#split-on-debatch) matriz de itens em várias instâncias de fluxo de trabalho para processamento. | 
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
@@ -75,7 +75,7 @@ Cada tipo de Acionador tem uma interface diferente e entradas que definem o comp
 
 ### <a name="built-in-triggers"></a>Acionadores incorporados
 
-| Tipo de acionador | Descrição | 
+| Tipo de Acionador | Descrição | 
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Verifica ou *inquéritos* qualquer ponto final. Este ponto final deve estar em conformidade com um contrato de Acionador específico usando um padrão assíncrono "202" ou retornando uma matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Cria um ponto final que pode ser chamado para a aplicação lógica, mas chama o URL especificado para registar ou anular o registo. |
@@ -85,7 +85,7 @@ Cada tipo de Acionador tem uma interface diferente e entradas que definem o comp
 
 ### <a name="managed-api-triggers"></a>Acionadores de API geridos
 
-| Tipo de acionador | Descrição | 
+| Tipo de Acionador | Descrição | 
 |--------------|-------------| 
 | [**ApiConnection**](#apiconnection-trigger) | Verifica ou *inquéritos* um ponto de extremidade usando [APIs geridas pela Microsoft](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Cria um ponto final que pode ser chamado para a aplicação lógica chamando [APIs geridas pela Microsoft](../connectors/apis-list.md) para subscrever e anular a subscrição. | 
@@ -154,10 +154,10 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
 
 *Saídas*
  
-| Elemento | Type | Descrição |
+| Elemento | Tipo | Descrição |
 |---------|------|-------------|
 | Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta |
-| corpo | Objeto JSON | O corpo da resposta |
+| Corpo | Objeto JSON | O corpo da resposta |
 | Código de estado | Integer | O código de estado da resposta |
 |||| 
 
@@ -271,7 +271,7 @@ Esta definição de Acionador assina a API do Office 365 Outlook, um URL de reto
 
 <a name="http-trigger"></a>
 
-### <a name="http-trigger"></a>Accionador HTTP
+### <a name="http-trigger"></a>Acionador HTTP
 
 Este acionador verifica ou consulta o ponto final especificado com base na agenda de periodicidade especificados. Resposta do ponto de extremidade determina se o fluxo de trabalho é executada.
 
@@ -327,10 +327,10 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 
 *Saídas*
 
-| Elemento | Type | Descrição |
+| Elemento | Tipo | Descrição |
 |---------|------|-------------| 
 | Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
-| corpo | Objeto JSON | O corpo da resposta | 
+| Corpo | Objeto JSON | O corpo da resposta | 
 | Código de estado | Integer | O código de estado da resposta | 
 |||| 
 
@@ -422,10 +422,10 @@ Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os
 
 *Saídas* 
 
-| Elemento | Type | Descrição |
+| Elemento | Tipo | Descrição |
 |---------|------|-------------| 
 | Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
-| corpo | Objeto JSON | O corpo da resposta | 
+| Corpo | Objeto JSON | O corpo da resposta | 
 | Código de estado | Integer | O código de estado da resposta | 
 |||| 
 
@@ -615,7 +615,7 @@ Para chamar este acionador, tem de utilizar o `listCallbackUrl` API, que está d
 |-------|------|-------------| 
 | <*method-type*> | String | O método que solicitações de entrada tem de utilizar para chamar a sua aplicação lógica: "GET", "COLOCAR", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | String | O caminho relativo para o parâmetro que pode aceitar o URL do ponto de extremidade | 
-| <*required-properties*> | Matriz | Uma ou mais propriedades que necessitam de valores | 
+| <*required-properties*> | Array | Uma ou mais propriedades que necessitam de valores | 
 | <*max-runs*> | Integer | Por predefinição, todos os de instâncias de fluxo de trabalho executadas ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
 | <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
@@ -1274,7 +1274,7 @@ Esta ação cria uma cadeia de caracteres a partir de todos os itens numa matriz
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*array*> | Matriz | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. | 
+| <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. | 
 | <*delimiter*> | Cadeia de caracteres único | O caráter que separa cada item na cadeia de caracteres | 
 |||| 
 
@@ -1420,7 +1420,7 @@ Esta ação cria uma matriz de itens na outra matriz com base numa condição es
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*array*> | Matriz | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. |
+| <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. |
 | <*condition-or-filter*> | String | A condição utilizada para filtrar itens na matriz de origem <p>**Nota**: Se não existem valores satisfaçam a condição, em seguida, a ação cria uma matriz vazia. |
 |||| 
 
@@ -1536,7 +1536,7 @@ Esta ação cria uma matriz com objetos JSON, transformando os itens a partir de
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*array*> | Matriz | A matriz ou uma expressão que fornece os itens de origem. Certifique-se de que coloque uma expressão com aspas duplas. <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma matriz vazia. | 
+| <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Certifique-se de que coloque uma expressão com aspas duplas. <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma matriz vazia. | 
 | <*key-name*> | String | O nome de propriedade atribuído para o resultado de <*expressão*> <p>Para adicionar uma nova propriedade de todos os objetos da matriz de saída, forneça um <*nome da chave*> para essa propriedade e um <*expressão*> para o valor da propriedade. <p>Para remover uma propriedade de todos os objetos da matriz, omita o <*nome da chave*> para essa propriedade. | 
 | <*expression*> | String | A expressão que transforma o item da matriz de origem e atribui o resultado de <*nome da chave*> | 
 |||| 
@@ -1635,7 +1635,7 @@ Esta ação cria uma tabela CSV ou HTML de uma matriz. Para as matrizes com obje
 | Value | Type | Descrição | 
 |-------|------|-------------| 
 | < CSV *ou* HTML >| String | O formato para a tabela que pretende criar | 
-| <*array*> | Matriz | A matriz ou uma expressão que fornece os itens de origem para a tabela <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma tabela vazia. | 
+| <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem para a tabela <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma tabela vazia. | 
 |||| 
 
 *Opcional*
@@ -2376,8 +2376,8 @@ Pode alterar o comportamento de tempo de execução padrão para acionadores e a
 
 | Propriedade | Tipo | Descrição | Ação ou acionador | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Integer | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo, ou em paralelo. Este valor pode ajudar a limitar o número de pedidos a receber de sistemas back-end. <p>Definir o `runs` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [simultaneidade de Acionador de alteração](#change-trigger-concurrency) ou [acionar instâncias sequencialmente](#sequential-trigger). | Todos os acionadores | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que pode aguardar para ser executada quando o fluxo de trabalho já está a executar o número máximo de instâncias em simultâneo. Pode alterar o limite de simultaneidade no `concurrency.runs` propriedade. <p>Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | Todos os acionadores | 
+| `runtimeConfiguration.concurrency.runs` | Integer | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo, ou em paralelo. Este valor pode ajudar a limitar o número de pedidos a receber de sistemas back-end. <p>Definir o `runs` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [simultaneidade de Acionador de alteração](#change-trigger-concurrency) ou [acionar instâncias sequencialmente](#sequential-trigger). | Todos os disparadores | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que pode aguardar para ser executada quando o fluxo de trabalho já está a executar o número máximo de instâncias em simultâneo. Pode alterar o limite de simultaneidade no `concurrency.runs` propriedade. <p>Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | Todos os disparadores | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p>Definir o `repetitions` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [alterar "for each" simultaneidade](#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | Para ações específicas que suportam e tem a paginação ativada, este valor Especifica a *mínima* número de resultados a obter. <p>Para ativar a paginação, consulte [obter dados em massa, itens ou resultados com paginação](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Ação: Diversificados |
 | `runtimeConfiguration.staticResult` | Objeto JSON | Para ações que suportam e têm o [resultado estático](../logic-apps/test-logic-apps-mock-data-static-results.md) definição ativados, o `staticResult` objeto tem esses atributos: <p>- `name`, que referencia o nome de definição estática do resultado da ação atual, que aparece dentro do `staticResults` atributo no seu trabalho de aplicação de lógica `definition` atributo. Para obter mais informações, consulte [resultados estáticos - referência de esquema para a linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, que especifica se os resultados estáticos são `Enabled` ou não para a ação atual. <p>Para ativar resultados estáticos, consulte [testar aplicações lógicas com dados fictícios ao configurar resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md) | Ação: Diversificados |
@@ -2389,12 +2389,12 @@ Pode alterar o comportamento de tempo de execução padrão para acionadores e a
 
 Pode alterar o comportamento predefinido para acionadores e ações com o `operationOptions` propriedade na definição de Acionador ou ação.
 
-| Opção de operação | Type | Descrição | Ação ou acionador | 
+| Opção de operação | Tipo | Descrição | Ação ou acionador | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Execute ações com base em HTTP de forma síncrona, em vez de assíncrona. <p><p>Para definir esta opção, veja [executar ações de forma síncrona](#asynchronous-patterns). | Ações: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Resposta](#response-action) | 
 | `OptimizedForHighThroughput` | String | Alteração da [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) o número de execuções de ação por 5 minutos para o [limite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para definir esta opção, veja [executado no modo de alto débito](#run-high-throughput-mode). | Todas as ações | 
 | `Sequential` | String | Execute "for each" loop iterações um por vez, em vez de todos ao mesmo tempo em paralelo. <p>Esta opção funciona da mesma forma que a definição do `runtimeConfiguration.concurrency.repetitions` propriedade `1`. Pode definir a propriedade, mas não ambos. <p><p>Para definir esta opção, veja [executar "for each" faz um loop sequencialmente](#sequential-for-each).| Ação: <p>[Foreach](#foreach-action) | 
-| `SingleInstance` | String | O acionador para cada instância da aplicação lógica são executados sequencialmente e aguarde pela execução anteriormente Active Directory para concluir antes de acionar a instância seguinte da aplicação lógica. <p><p>Esta opção funciona da mesma forma que a definição do `runtimeConfiguration.concurrency.runs` propriedade `1`. Pode definir a propriedade, mas não ambos. <p>Para definir esta opção, veja [acionar instâncias sequencialmente](#sequential-trigger). | Todos os acionadores | 
+| `SingleInstance` | String | O acionador para cada instância da aplicação lógica são executados sequencialmente e aguarde pela execução anteriormente Active Directory para concluir antes de acionar a instância seguinte da aplicação lógica. <p><p>Esta opção funciona da mesma forma que a definição do `runtimeConfiguration.concurrency.runs` propriedade `1`. Pode definir a propriedade, mas não ambos. <p>Para definir esta opção, veja [acionar instâncias sequencialmente](#sequential-trigger). | Todos os disparadores | 
 ||||
 
 <a name="change-trigger-concurrency"></a>

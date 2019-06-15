@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 162811221e6dde89ad11f358b2ec8f32f3c82522
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66420472"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Evitar recargas de página ao adquirir e tokens de renovação silenciosamente com msal

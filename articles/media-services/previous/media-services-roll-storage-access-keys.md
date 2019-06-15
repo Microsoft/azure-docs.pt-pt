@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: milanga;cenkdin;juliako
 ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60407325"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar Serviços de Multimédia após a implementação de chaves de acesso ao armazenamento 

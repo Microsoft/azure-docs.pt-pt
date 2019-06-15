@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
 ms.openlocfilehash: 183e2144317bf3f1c9a60443d393bdcb3fd7c04a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390554"
 ---
 # <a name="generation-2-vms-preview-on-azure"></a>VMs de geração 2 (pré-visualização) no Azure

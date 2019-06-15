@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158316"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Regras de firewall de base de dados SQL e o IP de armazém de dados SQL do Azure
@@ -121,12 +121,12 @@ Abre a página de descrição geral do seu servidor, que mostra o nome de servid
 
 | Vista de Catálogo ou Procedimento Armazenado | Nível | Descrição |
 | --- | --- | --- |
-| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Servidor  |Apresenta as regras de firewall IP ao nível do servidor atuais |
-| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Servidor  |Cria ou atualiza as regras de firewall do IP ao nível do servidor |
-| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Servidor  |Remove as regras de firewall do IP ao nível do servidor |
-| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Base de dados |Apresenta as regras de firewall IP de nível de base de dados atuais |
-| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Base de dados |Cria ou atualiza as regras de firewall do IP de nível de base de dados |
-| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Bases de dados |Remove as regras de firewall ao nível da base de dados IP |
+| [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Servidor |Apresenta as regras de firewall IP ao nível do servidor atuais |
+| [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Servidor |Cria ou atualiza as regras de firewall do IP ao nível do servidor |
+| [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx) |Servidor |Remove as regras de firewall do IP ao nível do servidor |
+| [sys.database_firewall_rules](https://msdn.microsoft.com/library/dn269982.aspx) |Base de Dados |Apresenta as regras de firewall IP de nível de base de dados atuais |
+| [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) |Base de Dados |Cria ou atualiza as regras de firewall do IP de nível de base de dados |
+| [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx) |Bases de Dados |Remove as regras de firewall ao nível da base de dados IP |
 
 Os exemplos seguintes revisar as regras existentes, ativar um intervalo de endereços IP no servidor do Contoso e elimina uma regra de firewall do IP:
 
@@ -155,10 +155,10 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 | Cmdlet | Nível | Descrição |
 | --- | --- | --- |
-| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Servidor  |Devolve as regras de firewall ao nível do servidor atuais |
-| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Servidor  |Cria uma regra de firewall ao nível do servidor nova |
-| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Servidor  |Atualiza as propriedades de uma regra de firewall ao nível do servidor existente |
-| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Servidor  |Remove as regras de firewall ao nível do servidor |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Servidor |Devolve as regras de firewall ao nível do servidor atuais |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Servidor |Cria uma regra de firewall ao nível do servidor nova |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Servidor |Atualiza as propriedades de uma regra de firewall ao nível do servidor existente |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Servidor |Remove as regras de firewall ao nível do servidor |
 
 O exemplo seguinte define uma regra de firewall do IP de ao nível do servidor com o PowerShell:
 
@@ -175,11 +175,11 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 | Cmdlet | Nível | Descrição |
 | --- | --- | --- |
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Servidor |Cria uma regra de firewall do IP de servidor|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Servidor |Lista as regras de firewall do IP num servidor|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Servidor |Mostra os detalhes de uma regra de firewall do IP|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Servidor |Atualiza uma regra de firewall do IP|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Servidor |Elimina uma regra de firewall do IP|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Servidor|Cria uma regra de firewall do IP de servidor|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Servidor|Lista as regras de firewall do IP num servidor|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Servidor|Mostra os detalhes de uma regra de firewall do IP|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Servidor|Atualiza uma regra de firewall do IP|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Servidor|Elimina uma regra de firewall do IP|
 
 O exemplo seguinte define uma regra de firewall ao nível do servidor IP com a CLI do Azure:
 
@@ -195,10 +195,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Nível | Descrição |
 | --- | --- | --- |
-| [Listar Regras de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Servidor  |Apresenta as regras de firewall IP ao nível do servidor atuais |
-| [Criar ou Atualizar Regra de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Servidor  |Cria ou atualiza as regras de firewall do IP ao nível do servidor |
-| [Eliminar Regra de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Servidor  |Remove as regras de firewall do IP ao nível do servidor |
-| [Obter regras de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Servidor  | Obtém as regras de firewall do IP ao nível do servidor |
+| [Listar Regras de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Servidor |Apresenta as regras de firewall IP ao nível do servidor atuais |
+| [Criar ou Atualizar Regra de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Servidor |Cria ou atualiza as regras de firewall do IP ao nível do servidor |
+| [Eliminar Regra de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Servidor |Remove as regras de firewall do IP ao nível do servidor |
+| [Obter regras de Firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Servidor | Obtém as regras de firewall do IP ao nível do servidor |
 
 ## <a name="server-level-versus-database-level-ip-firewall-rules"></a>Ao nível do servidor em comparação com as regras de firewall do IP de nível de base de dados
 

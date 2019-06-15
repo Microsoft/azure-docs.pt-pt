@@ -11,10 +11,10 @@ ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
 ms.openlocfilehash: 30a090aeb2d66c732e70a9acce67d5f3374c32fa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153156"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como utilizar o Armazenamento de filas do Ruby
@@ -98,8 +98,8 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Como: Remover da fila a mensagem seguinte
 Pode remover uma mensagem da fila em dois passos.
 
-1. Quando chama **lista\_messages()**, obterá a seguinte mensagem numa fila por predefinição. Também pode especificar quantas mensagens queira obter. As mensagens retornadas da **lista\_messages()** torna-se invisível para qualquer outro código lendo as mensagens desta fila. Passa o tempo limite de visibilidade em segundos, como um parâmetro.
-2. Para concluir a remover a mensagem da fila, também tem de chamar **delete_message()**.
+1. Quando chama **lista\_messages()** , obterá a seguinte mensagem numa fila por predefinição. Também pode especificar quantas mensagens queira obter. As mensagens retornadas da **lista\_messages()** torna-se invisível para qualquer outro código lendo as mensagens desta fila. Passa o tempo limite de visibilidade em segundos, como um parâmetro.
+2. Para concluir a remover a mensagem da fila, também tem de chamar **delete_message()** .
 
 Este processo de dois passos da remoção de uma mensagem garante que quando o seu código não consegue processar uma mensagem devido uma falha de hardware ou software, outra instância do seu código pode obter a mesma mensagem e tente novamente. A código chama **elimine\_message()** imediatamente após a mensagem foi processada.
 

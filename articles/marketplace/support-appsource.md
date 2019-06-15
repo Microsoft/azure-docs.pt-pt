@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
 ms.openlocfilehash: 788a50b85b47b104f12c22ea3d4c39627c412cc2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937553"
 ---
 # <a name="support-for-appsource"></a>Suporte para o AppSource  
 As opções de suporte para o AppSource.  
 
-## <a name="technical"></a>Técnico  
+## <a name="technical"></a>Técnica  
 
 | Canal de suporte | Descrição |  
 |:--- |:--- |  

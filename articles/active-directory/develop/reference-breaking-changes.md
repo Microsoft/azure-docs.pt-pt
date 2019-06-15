@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ea3ec9024e4ea6a254fb6fe80f93886dc31a0ff
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545790"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação? 
@@ -63,9 +63,9 @@ A maioria dos clientes não terá de alterar o comportamento para evitar este er
 
 * Âmbitos ou recurso que está a ser pedido
 
-* ID do Cliente
+* ID de Cliente
 
-* URI de Redirecionamento
+* URI de redirecionamento
 
 * Tipo de resposta e o modo
 

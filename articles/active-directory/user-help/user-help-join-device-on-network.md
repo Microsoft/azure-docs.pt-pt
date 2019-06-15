@@ -14,10 +14,10 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243278"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Associar o seu dispositivo de trabalho para a rede da sua organização

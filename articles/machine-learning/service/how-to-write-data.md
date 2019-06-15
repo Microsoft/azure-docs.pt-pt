@@ -13,10 +13,10 @@ ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
 ms.openlocfilehash: 6206ad1a7356221bf94134e5d293c27d778cc187
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752863"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Escrever e configurar os dados com o SDK de preparação de dados do Azure Machine Learning

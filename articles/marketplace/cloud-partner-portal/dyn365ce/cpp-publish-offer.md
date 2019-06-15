@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: pabutler
 ms.openlocfilehash: 65df08d5fa2b7e4e7f6654f520f9caacc696f7c3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942286"
 ---
 # <a name="publish-a-dynamics-365-for-customer-engagement-offer"></a>Publicar um do Dynamics 365 para a oferta de envolvimento do cliente

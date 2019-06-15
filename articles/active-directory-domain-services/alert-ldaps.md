@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: dde4a02e5be32d5549ba499742d1ab650fa146c0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246588"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Serviços de domínio do Azure AD - configuração de resolução de problemas do LDAP seguro

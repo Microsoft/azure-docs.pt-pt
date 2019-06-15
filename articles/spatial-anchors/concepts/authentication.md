@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e641025d49dd42125aa692925c0697235489b1db
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b3f4cf4099459b655fc0e370935ddc8079de810
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073948"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização a âncoras espaciais do Azure
 
@@ -56,7 +56,7 @@ Depois disso, o SDK processará a troca da chave de conta para um token de acess
 
 ## <a name="azure-ad-user-authentication"></a>Autenticação de utilizador do Azure AD
 
-Para aplicações destinadas aos utilizadores do Azure Active Directory, a abordagem recomendada é usar um token do Azure AD para o utilizador, o que pode utilizar a biblioteca ADAL, conforme descrito na documentação do seguinte: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; deve seguir os passos apresentados em "Quickstarts", que incluem:
+Para aplicações destinadas aos utilizadores do Azure Active Directory, a abordagem recomendada é usar um token do Azure AD para o utilizador, o que pode utilizar a biblioteca ADAL, conforme descrito na documentação do seguinte: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); deve seguir os passos listados na "Quickstarts", que incluem:
 
 1. Configuração no portal do Azure
     1.  Registar a sua aplicação no Azure AD como **aplicativo nativo**. Como parte do Registro, terá de determinar se a aplicação deve ser multi-inquilino ou não e fornecer o redirecionamento de URLs permitidos para a sua aplicação.  
@@ -89,7 +89,7 @@ A opção recomendada para implementar aplicações tirar partido do âncoras es
 
 Aqui, é assumido que o seu aplicativo usa seu próprio mecanismo (por exemplo: Conta Microsoft, PlayFab, Facebook, Google ID, nome de utilizador/palavra-passe personalizada, etc.) para autenticar para o seu serviço de back-end. Assim que os utilizadores são autenticados ao seu serviço de back-end, que o serviço pode obter um token do Azure AD, do exchange-lo para um token de acesso para as âncoras espaciais do Azure e retorná-lo para a sua aplicação de cliente.
 
-O token de acesso do Azure AD é recuperado usando a biblioteca ADAL, conforme descrito na documentação do seguinte: https://docs.microsoft.com/azure/active-directory/develop/v1-overview; deve seguir os passos listados na "Quickstarts", que incluem:
+O token de acesso do Azure AD é recuperado usando a biblioteca ADAL, conforme descrito na documentação do seguinte: [ https://docs.microsoft.com/azure/active-directory/develop/v1-overview ](../../active-directory/develop/v1-overview.md); deve seguir os passos listados na "Quickstarts", que incluem:
 
 1.  Configuração no portal do Azure:
     1.  Registe a sua aplicação no Azure AD:

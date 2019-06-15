@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: e4ba6cca679ce4910ea941d9578939721514b2ec
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478965"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Firewall de aplicações web do Azure, monitorização e registo 

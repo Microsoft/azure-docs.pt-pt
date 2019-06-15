@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786087"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introdução à Cache do Azure para o escalão Premium da Redis
@@ -41,7 +41,7 @@ Para obter instruções sobre como configurar a persistência, veja [como config
 ## <a name="redis-cluster"></a>Cluster de Redis
 Se quiser criar caches superiores a 53 GB ou queira dividir os dados em vários nós de Redis, pode utilizar o que está disponível no escalão Premium de clustering de Redis. Cada nó é composta por um par de cache primário/réplica gerenciado pelo Azure para elevada disponibilidade. 
 
-**O clustering de redis dá-lhe dimensionamento máximo e débito.** Débito aumenta linearmente à medida que aumenta o número de shards (nós) no cluster. Por exemplo. Se criar um cluster de P4 de 10 shards, então o débito disponível é 250 mil * 10 = 2,5 milhões de pedidos por segundo. Consulte a [do Azure na Cache de Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) para obter mais detalhes sobre o tamanho, débito e largura de banda com premium caches.
+**O clustering de redis dá-lhe dimensionamento máximo e débito.** Débito aumenta linearmente à medida que aumenta o número de shards (nós) no cluster. Por ex. Se criar um cluster de P4 de 10 shards, então o débito disponível é 250 mil * 10 = 2,5 milhões de pedidos por segundo. Consulte a [do Azure na Cache de Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) para obter mais detalhes sobre o tamanho, débito e largura de banda com premium caches.
 
 Para começar a utilizar com o clustering, veja [como configurar o clustering para uma Cache do Azure Premium para Redis](cache-how-to-premium-clustering.md).
 
@@ -50,7 +50,7 @@ As caches criadas no escalão básico ou Standard estão acessíveis na internet
 
 Para obter mais informações, consulte [como configurar o suporte de rede Virtual para uma Cache do Azure Premium para Redis](cache-how-to-premium-vnet.md).
 
-## <a name="importexport"></a>Importar/Exportar
+## <a name="importexport"></a>Importação/Exportação
 Importar/exportar é uma Cache do Azure para a operação de gestão de dados de Redis que permite-lhe importar dados para a Cache de Redis do Azure ou exportar dados a partir do Azure Cache de Redis por importar e exportar uma Cache do Azure para o instantâneo de base de dados de Redis (RDB) de uma cache premium para um BLOBs de páginas numa conta de armazenamento do Azure. Isto permite-lhe migrar entre diferentes a Cache do Azure para instâncias de Redis ou povoar a cache com os dados antes de utilização.
 
 Importação pode ser utilizada para colocar Redis compatíveis RDB ficheiros a partir de qualquer servidor Redis em execução em qualquer cloud ou o ambiente, incluindo o Redis em execução no Linux, Windows ou qualquer fornecedor de nuvem como Amazon Web Services e outros. A importação de dados é uma forma fácil de criar uma cache com dados preenchidos previamente. Durante o processo de importação, a Cache de Redis do Azure carrega os ficheiros RDB do armazenamento do Azure na memória e, em seguida, insere as chaves na cache.

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
 ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073692"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupar e extrair dados relacionados
@@ -93,7 +93,7 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
     ![Captura de ecrã da introdução composto nome na lista pendente de caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-1. Na **o tipo de entidade que pretende criar?**, todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Done** (Concluído). Tenha em atenção que a entidade pré-criados, personName, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
+1. Na **o tipo de entidade que pretende criar?** , todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Done** (Concluído). Tenha em atenção que a entidade pré-criados, personName, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
 
     ![Captura de ecrã da introdução composto nome na lista pendente de caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 

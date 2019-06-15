@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465682"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utilizar o moderador de conteúdo de multimédia do Azure para detetar possíveis conteúdos para adultos 
@@ -46,7 +46,7 @@ A saída JSON inclui os seguintes elementos:
 
 | Elemento | Descrição |
 | --- | --- |
-| versão |A versão do Content Moderator. |
+| version |A versão do Content Moderator. |
 | escala temporal |"Ticks" por segundo do vídeo. |
 | offset |Desvio de tempo para carimbos de data/hora. Na versão 1.0 de APIs de vídeo, este valor será sempre 0. Este valor podem ser alterados no futuro. |
 | framerate |Fotogramas por segundo do vídeo. |
@@ -60,7 +60,7 @@ A saída JSON inclui os seguintes elementos:
 |Elemento|Descrição|
 |---|---|
 | start |A hora de início do primeiro evento na "ticks". |
-| duração |O comprimento do fragmento, em "ticks". |
+| Duração |O comprimento do fragmento, em "ticks". |
 | interval |O intervalo de cada entrada de evento dentro do fragmento, na "ticks". |
 | [events](#events-json-elements) |Cada evento representa um clip e cada clip contém quadros-chave detetados e monitorizados dentro desse período de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituída por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
 
@@ -71,7 +71,7 @@ A saída JSON inclui os seguintes elementos:
 | reviewRecommended | `true` ou `false` consoante esteja a **adultScore** ou **racyScore** exceder os limiares internos. |
 | adultScore | Pontuação de confiança para possível conteúdo para adultos, numa escala de 0,00 para 0,99. |
 | racyScore | Pontuação de confiança para possível conteúdo para adultos, numa escala de 0,00 para 0,99. |
-| índice | índice do quadro numa escala do primeiro quadro de índice para o último índice do quadro. |
+| index | índice do quadro numa escala do primeiro quadro de índice para o último índice do quadro. |
 | timestamp | A localização do quadro em "ticks". |
 | shotIndex | Captura o índice do pai. |
 

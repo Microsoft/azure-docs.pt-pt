@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: diberry
 ms.openlocfilehash: 729d5d1c9ad21654fbd5923b9f3ffacc3b709ef0
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388795"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo do LUIS

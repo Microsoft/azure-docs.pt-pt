@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66392914"
 ---
 # <a name="streaming-policies"></a>Políticas de Transmissão em Fluxo

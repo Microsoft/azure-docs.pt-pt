@@ -12,10 +12,10 @@ ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9204b0d8513d4adbb9c93be94284d7d46de41e06
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479573"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Quais são as matrizes de porta de campos programáveis (FPGA)

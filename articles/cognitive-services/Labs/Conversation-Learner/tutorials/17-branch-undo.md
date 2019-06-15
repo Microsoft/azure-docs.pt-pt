@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: 6ffa0881df07e453c8beb175b8580deebbfc1ec9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389897"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Como utilizar operações de desfazer e de ramificação

@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: ''
 ms.openlocfilehash: 2553d08b55aff45e52b9d8c5a64db141a668eb62
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967123"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Criar um pedido de suporte para o Cloudyn
@@ -34,7 +34,7 @@ ms.locfileid: "65967123"
 9. Na **tipo de problema** selecionar **Cloudyn legada**e, em seguida, selecione um **categoria**.
 10. Na **Title** , introduza um título que descreve o seu pedido.
 11. Na **detalhes** caixa de informações adicionais sobre o tipo.
-12. Para **quando o problema começou?**, selecione uma aproximado data e hora para e, em seguida, clique em **próxima**.  
+12. Para **quando o problema começou?** , selecione uma aproximado data e hora para e, em seguida, clique em **próxima**.  
 14. Na **informações de contacto** área, selecione seu preferencial método de contacto e fornece as informações de contacto, em seguida, clique em **criar**.  
 
 Quando o pedido de suporte é criado, é adicionado à fila de suporte. Tempo de resposta varia com base no plano de suporte e de gravidade (impacto comercial) do problema. Para obter mais informações, consulte [âmbito de suporte e capacidade de resposta](https://azure.microsoft.com/support/plans/response/).
