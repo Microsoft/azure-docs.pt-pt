@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 083d8f66a73471548c812e27325e1ec69ad5c45c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869590"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Restringir o conteúdo do CDN do Azure por país/região
@@ -42,12 +42,12 @@ Para acessar a funcionalidade de filtragem geográfica, selecione o ponto final 
 
 Partir do **caminho** caixa, especifique o caminho relativo para a localização a que os utilizadores serão permitidos ou negados o acesso. 
 
-Pode aplicar filtragem geográfica para todos os seus ficheiros com um reencaminhamento barra (/) ou selecionar pastas específicas ao especificar caminhos de diretório (por exemplo, */imagens/*). Também pode aplicar a filtragem geográfica a um único ficheiro (por exemplo */pictures/city.png*). São permitidas várias regras; Depois de introduzir uma regra, é apresentada uma linha em branco para que insira a seguinte regra.
+Pode aplicar filtragem geográfica para todos os seus ficheiros com um reencaminhamento barra (/) ou selecionar pastas específicas ao especificar caminhos de diretório (por exemplo, */imagens/* ). Também pode aplicar a filtragem geográfica a um único ficheiro (por exemplo */pictures/city.png*). São permitidas várias regras; Depois de introduzir uma regra, é apresentada uma linha em branco para que insira a seguinte regra.
 
 Por exemplo, todos os seguintes filtros de caminho de diretório são válidos:   
 */*                                 
-*/Photos/*     
-*/Photos/Strasbourg/*     
+*/Photos/*      
+*/Photos/Strasbourg/*      
 */Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Definir o tipo de ação

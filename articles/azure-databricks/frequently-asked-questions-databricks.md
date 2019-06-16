@@ -10,10 +10,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784712"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Perguntas mais frequentes sobre o Azure Databricks
@@ -99,7 +99,7 @@ Clusters de Databricks utilizam um endereço IP público por nó. Se sua assinat
 #### <a name="error-message"></a>Mensagem de erro
 
 "Falha de inicialização do fornecedor da cloud: Foi encontrado um erro de fornecedor de cloud durante a configuração do cluster. Para obter mais informações, consulte o Guia do Databricks.
-Código de erro do Azure: Mensagem de erro do MissingSubscriptionRegistration Azure: A subscrição não está registada para utilizar o espaço de nomes "Microsoft.Compute". Consulte https://aka.ms/rps-not-found para saber como registar subscrições. "
+Código de erro do Azure: Mensagem de erro do MissingSubscriptionRegistration Azure: A subscrição não está registada para utilizar o espaço de nomes "Microsoft. Compute". Consulte https://aka.ms/rps-not-found para saber como registar subscrições. "
 
 #### <a name="solution"></a>Solução
 

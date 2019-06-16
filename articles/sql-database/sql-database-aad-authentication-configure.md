@@ -13,10 +13,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: abb4a43176026fca5a80409ade13af1f8f96d9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390584"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerir a autenticação do Azure Active Directory com o SQL
@@ -143,7 +143,7 @@ Sua instância gerida necessita de permissões para ler do Azure AD com êxito a
 
 8. Na parte superior da página de administração do Active Directory, selecione **guardar**.
 
-    ![guardar](./media/sql-database-aad-authentication/save.png)
+    ![Guardar](./media/sql-database-aad-authentication/save.png)
 
     O processo de alterar o administrador pode demorar vários minutos. Em seguida, o administrador do novo é apresentado na caixa de administração do Active Directory.
 
@@ -345,7 +345,7 @@ Utilize este método se tiver sessão iniciada Windows com as suas credenciais d
 
     ![Selecione o nome de base de dados][13]
 
-## <a name="active-directory-password-authentication"></a>Autenticação por palavra-passe do Active Directory
+## <a name="active-directory-password-authentication"></a>Autenticação de palavra-passe do Active Directory
 
 Utilize este método quando estabelecer ligação com um nome do principal do Azure AD com o Azure AD o domínio gerido. Também pode utilizar para contas federadas sem acesso ao domínio, por exemplo, ao trabalhar remotamente.
 
@@ -377,7 +377,7 @@ conn.Open();
 
 A palavra-chave da cadeia de ligação ``Integrated Security=True`` não é suportada para ligar à base de dados do Azure SQL. Ao fazer uma conexão ODBC, terá de remover espaços e defina a autenticação para 'ActiveDirectoryIntegrated'.
 
-### <a name="active-directory-password-authentication"></a>Autenticação por palavra-passe do Active Directory
+### <a name="active-directory-password-authentication"></a>Autenticação de palavra-passe do Active Directory
 
 Para ligar a uma base de dados através da autenticação integrada e uma identidade do Azure AD, a palavra-chave de autenticação tem de ser definida para a palavra-passe de diretório Active Directory. A cadeia de ligação tem de conter ID/UID de utilizador e palavras-chave de palavra-passe/PWD e valores. O seguinte exemplo de código do c# usa ADO .NET.
 

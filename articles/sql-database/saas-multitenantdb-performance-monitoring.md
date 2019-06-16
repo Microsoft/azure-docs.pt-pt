@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485590"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da base de SQL do Azure multi-inquilino em partição horizontal em aplicações SaaS multi-inquilino de
@@ -98,7 +98,7 @@ Base de dados do Wingtip Tickets SaaS multi-inquilino é uma aplicação SaaS e 
 
 Para monitorizar a utilização de recursos resultantes da carga que está a ser aplicada, abra o portal para a base de dados do multi-inquilino **tenants1**, que contém os inquilinos:
 
-1. Abra o [portal do Azure](https://portal.azure.com) e navegue para o servidor *tenants1-mt -&lt;utilizador&gt;*.
+1. Abra o [portal do Azure](https://portal.azure.com) e navegue para o servidor *tenants1-mt -&lt;utilizador&gt;* .
 1. Desloque para baixo e localizar as bases de dados e clique em **tenants1**. Esta base de dados do multi-inquilino em partição horizontal contém todos os inquilinos criados até.
 
 ![gráfico de base de dados](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)

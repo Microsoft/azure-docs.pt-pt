@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
 ms.openlocfilehash: b77fb3ab5651147c59b9f0afd22a2d6d0159c90e
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357530"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Origens de dados de monitorização para o Azure Monitor

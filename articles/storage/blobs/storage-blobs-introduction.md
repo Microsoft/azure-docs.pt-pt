@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 450e3b0a25f4be90aea26adfd4c35efc3077af57
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258412"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071398"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -29,7 +29,7 @@ Armazenamento de BLOBs oferece três tipos de recursos:
 
 O diagrama seguinte mostra a relação entre estes recursos.
 
-![Diagrama da arquitetura de armazenamento de BLOBs](./media/storage-blob-introduction/blob1.png)
+![relação entre o Blob da conta e recurso de contentor](./media/storage-blob-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 

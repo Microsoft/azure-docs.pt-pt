@@ -10,10 +10,10 @@ ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61081583"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks subordinados na automatização do Azure
@@ -30,7 +30,7 @@ Quando um runbook é publicado, todos os runbooks subordinados que aquele invoqu
 
 Os parâmetros de um runbook subordinado invocado inline podem ser qualquer tipo de dados, incluindo objetos complexos. Não existe nenhuma [serialização JSON](start-runbooks.md#runbook-parameters) porque não existe quando iniciar o runbook no portal do Azure ou com o cmdlet Start-AzureRmAutomationRunbook.
 
-### <a name="runbook-types"></a>Tipos de runbooks
+### <a name="runbook-types"></a>Tipos de Runbooks
 
 Quais são os tipos podem chamar entre si:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e7993ee1cb439ebeaa9f64bee55429aa54f9cee
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 897685eb967e03cfd30182eec6b237e27386496c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903957"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Tutorial: Integração do Azure Active Directory com SAP Fiori
 
@@ -193,7 +193,7 @@ Nesta secção, configura Azure AD início de sessão único com no SAP Fiori no
 
     1. Selecione **edite** para abrir o **afirmações de utilizador de gerir** painel.
 
-    1. Na **transformação** lista, selecione **ExtractMailPrefix()**.
+    1. Na **transformação** lista, selecione **ExtractMailPrefix()** .
 
     1. Na **parâmetro 1** lista, selecione **user.userprinicipalname**.
 
@@ -272,7 +272,7 @@ Nesta secção, configura Azure AD início de sessão único com no SAP Fiori no
 
     **Cenário 1**: Utilizador SAP para o mapeamento de utilizador do Azure AD
 
-    1. No SAP, sob **detalhes do formato NameID "Não especificado"**, tenha em atenção os detalhes:
+    1. No SAP, sob **detalhes do formato NameID "Não especificado"** , tenha em atenção os detalhes:
 
         ![A caixa de diálogo "Não especificado" Detalhes do formato NameID caixa no SAP](./media/sapfiori-tutorial/nameiddetails.png)
 
@@ -282,7 +282,7 @@ Nesta secção, configura Azure AD início de sessão único com no SAP Fiori no
 
     **Cenário 2**: Selecione o ID de utilizador SAP com base no endereço de e-mail configurado na SU01. Neste caso, o ID de e-mail deve ser configurado no SU01 para cada usuário que requer o SSO.
 
-    1.  No SAP, sob **detalhes do formato NameID "Não especificado"**, tenha em atenção os detalhes:
+    1.  No SAP, sob **detalhes do formato NameID "Não especificado"** , tenha em atenção os detalhes:
 
         ![A caixa de diálogo "Não especificado" Detalhes do formato NameID caixa no SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
@@ -314,7 +314,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
     1. Na **Name** , introduza **BrittaSimon**.
   
-    1. Na **nome de utilizador** , introduza **brittasimon\@\<seu domínio da empresa >.\< extensão >**. Por exemplo, **brittasimon\@contoso.com**.
+    1. Na **nome de utilizador** , introduza **brittasimon\@\<seu domínio da empresa >.\< extensão >** . Por exemplo, **brittasimon\@contoso.com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação. Anote o valor que é apresentado no **palavra-passe** caixa.
 
@@ -352,7 +352,7 @@ Nesta secção, concede acesso de Eduarda Almeida a no SAP Fiori, de modo que po
 
 Nesta secção, vai criar um utilizador com o nome Eduarda Almeida no SAP Fiori. Trabalhar com a sua equipa SAP interna de especialistas ou seu parceiro SAP da organização para adicionar o utilizador na plataforma no SAP Fiori.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 1. Depois do fornecedor de identidade do Azure AD é ativado no SAP Fiori, tentam aceder a um dos seguintes URLs para testar o início de sessão único (não deve ser-lhe pedido para um nome de utilizador e palavra-passe):
 

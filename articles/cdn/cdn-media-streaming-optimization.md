@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636248"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Suporte de dados de transmissão em fluxo de otimização com o CDN do Azure 
@@ -84,7 +84,7 @@ Se **CDN do Azure Standard da Akamai** Deteta que o elemento é um manifesto de 
 O tempo de colocação em cache negativo curto é útil para a descarga de origem quando muitos utilizadores pedem um fragmento que ainda não existe. Um exemplo é uma transmissão em direto onde os pacotes não estão disponíveis a partir da origem esse segundo. O intervalo já está a colocação em cache também ajuda a descarregar pedidos a partir da origem, porque o conteúdo de vídeo, normalmente, não é modificado.
  
 
-|   | Entrega geral Web | Transmissão geral de multimédia | Transmissão de multimédia de vídeo a pedido  
+|   | Entrega geral web | Transmissão geral de multimédia | Transmissão de multimédia de vídeo a pedido  
 --- | --- | --- | ---
 Colocação em cache: positivo <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 dias |365 dias | 365 dias   
 Colocação em cache: negativo <br> HTTP 204, 305, 404, <br> e 405 | Nenhuma | 1 segundo | 1 segundo
@@ -101,7 +101,7 @@ Quando um ficheiro corresponde à lista de condições de tipo e o tamanho de fi
 
 A tabela seguinte lista o conjunto de critérios de ser cumpridos para otimização de transmissão em fluxo de dados: 
  
-Tipos de transmissão em fluxo suportados | Extensões de ficheiros  
+Tipos de transmissão em fluxo suportados | Extensões de ficheiro  
 --- | ---  
 Apple HLS | Format=m3u8, m3u, m3ub, chave, ts, aac
 Adobe HDS | f4m, f4x, drmmeta, bootstrap, f4f,<br>Estrutura do URL de seg Frag <br> (correspondência de regex: ^(/.*)Seq(\d+)-Frag(\d+)

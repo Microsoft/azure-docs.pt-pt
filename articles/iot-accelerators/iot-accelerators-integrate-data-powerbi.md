@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61448132"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitorização remota com o Power BI
@@ -43,7 +43,7 @@ Este tutorial explica como conectar seus dados de solução de monitorização r
 5. No painel à esquerda, clique a secção "Chaves" e tome nota dos seguintes valores a ser utilizado no Power BI:
 
    - URI
-   - Chave Primária
+   - Chave primária
 
      ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
@@ -60,7 +60,7 @@ Este tutorial explica como conectar seus dados de solução de monitorização r
 3. Introduza as informações que foram registradas acima:
 
     * URI
-    * Chave Primária
+    * Chave primária
 
 4. Selecione todas as tabelas a serem importados para o Power BI. Esta ação irá iniciar o carregamento dos dados. Mais tempo a solução tem funcionado, quanto mais tempo pode demorar para que a data e carregar (até algumas horas). 
 

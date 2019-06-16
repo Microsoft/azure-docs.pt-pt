@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 312658bd653d94f3e1a32204b3c5ae4ae290558e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65832862"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Criar um novo pacote de acesso na gestão de direitos do Azure AD (pré-visualização)
@@ -56,7 +56,7 @@ O diagrama seguinte mostra o processo de alto nível para criar um novo pacote d
 
 1. Clique em **novo pacote de acesso**.
 
-## <a name="basics"></a>Noções Básicas
+## <a name="basics"></a>Noções básicas
 
 Sobre o **Noções básicas** separador, dê um nome ao pacote de acesso e especificar qual catálogo para criar o pacote de acesso no.
 

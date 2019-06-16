@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 6bb587de2f0f3ef9c4e8c4a856ee4b7430e9b9cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64715211"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Resolver problemas de implementação de dispositivos do StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -63,7 +63,7 @@ Os passos seguintes resumem o processo do Assistente de configuração. Para inf
 ## <a name="common-errors-during-device-deployment"></a>Erros comuns durante a implementação do dispositivo
 As tabelas seguintes listam os erros comuns que poderão surgir quando:
 
-* Configurar as definições de rede necessárias.
+* Configure as definições de rede necessária.
 * Configure as definições de proxy web opcional.
 * Configure a palavra-passe de administrador do dispositivo.
 * Registe o dispositivo.
@@ -82,7 +82,7 @@ As tabelas seguintes listam os erros comuns que poderão surgir quando:
 ## <a name="errors-during-the-optional-web-proxy-settings"></a>Erros durante as definições de proxy web opcional
 | Não. | Mensagem de erro | Causas possíveis | Ação recomendada |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: Parâmetro inválido (exceção de HRESULT: 0x80070057) |Um dos parâmetros fornecidos para que as definições de proxy não é válido. |O URI não é fornecido no formato correto. Utilize o seguinte formato: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 1 |Invoke-HcsSetupWizard: Parâmetro inválido (exceção de HRESULT: 0x80070057) |Um dos parâmetros fornecidos para que as definições de proxy não é válido. |O URI não é fornecido no formato correto. Utilize o seguinte formato: http:// *\<IP endereço ou FQDN do servidor de proxy web >* : *\<número da porta TCP >* |
 | 2 |Invoke-HcsSetupWizard: Servidor RPC não está disponível (exceção de HRESULT: 0x800706ba) |A causa raiz é um dos seguintes:<ol><li>O cluster não é até.</li><li>O controlador passivo não consegue comunicar com o controlador ativo e o comando é executado a partir do controlador passivo.</li></ol> |Dependendo da causa raiz:<ol><li>[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para se certificar de que o cluster está ativo.</li><li>Execute o comando a partir do controlador ativo. Se quiser executar o comando de controlador passivo, terá de se certificar de que o controlador passivo pode comunicar com o controlador ativo. Precisará [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) se essa conectividade está quebrada.</li></ol> |
 | 3 |Invoke-HcsSetupWizard: Falha na chamada RPC (exceção de HRESULT: 0x800706be) |Cluster está inativo. |[Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para se certificar de que o cluster está ativo. |
 | 4 |Invoke-HcsSetupWizard: Não foram encontrados recursos de cluster (exceção de HRESULT: 0x8007138f) |O recurso de cluster não foi encontrado. Isto pode acontecer quando a instalação não estava correta. |Poderá ter de repor o dispositivo para as predefinições de fábrica. [Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) para criar um recurso de cluster. |
@@ -111,7 +111,7 @@ Pode encontrar um ou mais dos seguintes erros ao configurar o administrador do d
 | 4 |A palavra-passe tem de conter carateres numéricos. |As palavras-passe tem de conter 3 dos seguintes tipos de 4 carateres: em minúsculas, letras maiúsculas, numéricos e especiais. Certifique-se de que a palavra-passe cumpre estes requisitos. |
 | 5 |A palavra-passe tem de conter carateres especiais. |As palavras-passe tem de conter 3 dos seguintes tipos de 4 carateres: em minúsculas, letras maiúsculas, numéricos e especiais. Certifique-se de que a palavra-passe cumpre estes requisitos. |
 | 6 |A palavra-passe tem de conter 3 dos seguintes tipos de 4 carateres: letras maiúsculas, minúsculas, numéricos e especiais. |A palavra-passe não contém os tipos necessários de carateres. Certifique-se de que a palavra-passe cumpre estes requisitos. |
-| 7 |O parâmetro não corresponde à confirmação. |Certifique-se de que a palavra-passe cumpre todos os requisitos e que introduziu corretamente. |
+| 7 |Parâmetro não corresponde a confirmação. |Certifique-se de que a palavra-passe cumpre todos os requisitos e que introduziu corretamente. |
 | 8 |A palavra-passe não pode corresponder a predefinição. |A palavra-passe predefinido é *Password1*. Terá de alterar esta palavra-passe depois de iniciar sessão pela primeira vez. |
 | 9 |A palavra-passe que introduziu não corresponde a palavra-passe do dispositivo. . Escreva novamente a palavra-passe. |Verifique a palavra-passe e escrevê-lo novamente. |
 

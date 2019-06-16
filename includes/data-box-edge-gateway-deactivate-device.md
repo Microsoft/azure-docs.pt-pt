@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: aebb82690a7a49aba071ed64349d37d516208cca
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555303"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67125624"
 ---
 Para repor o dispositivo, terá de forma segura apagar todos os dados sobre o disco de dados e o disco de arranque do seu dispositivo. 
 

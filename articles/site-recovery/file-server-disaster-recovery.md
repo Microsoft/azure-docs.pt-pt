@@ -9,10 +9,10 @@ ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772160"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Utilizar o Azure Site Recovery para proteger um servidor de ficheiros 
@@ -64,7 +64,7 @@ O diagrama seguinte ajuda-o a determinar a estratégia a utilizar para o seu amb
 ### <a name="site-recovery-support"></a>Suporte do Site Recovery
 Uma vez que a replicação do Site Recovery não depende da aplicação, espera-se que estas recomendações se apliquem aos cenários seguintes.
 
-| Origem    |Para um site secundário    |Para o Azure
+| source    |Para um site secundário    |Para o Azure
 |---------|---------|---------|
 |Azure| -|Sim|
 |Hyper-V|   Sim |Sim

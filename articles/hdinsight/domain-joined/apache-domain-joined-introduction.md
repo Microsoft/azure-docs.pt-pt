@@ -6,14 +6,14 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 04/19/2019
-ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: b7228fdf1bb67ff8029412174a883a3a0b123cfc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243961"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67126208"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>O que é o Enterprise Security Package no Azure HDInsight
 
@@ -21,10 +21,9 @@ No passado, o Azure HDInsight suportado apenas um único utilizador: administrad
 
 Pode criar um cluster do HDInsight com o pacote de segurança empresarial (ESP), que está associado a um domínio do Active Directory. Em seguida, pode configurar uma lista de funcionários da empresa que podem autenticar através do Azure Active Directory para iniciar sessão para o cluster do HDInsight. Ninguém de fora da empresa pode iniciar sessão ou aceder ao cluster do HDInsight. 
 
-O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para o Apache Hive security utilizando [Apache Ranger](https://hortonworks.com/apache/ranger/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
+O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para o Apache Hive security utilizando [Apache Ranger](https://ranger.apache.org/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
 
-> [!NOTE]  
-> Apache Oozie está agora ativada nos clusters do ESP. Para aceder à IU da web de Oozie, devem ativar os utilizadores [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
+Apache Oozie está agora ativada nos clusters do ESP. Para aceder à IU da web de Oozie, devem ativar os utilizadores [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Segurança empresarial contém quatro pilares principais: segurança de perímetro, autenticação, autorização e encriptação.
 
@@ -43,25 +42,22 @@ Com esta configuração, empregados da empresa podem iniciar sessão nós do clu
 ## <a name="authorization"></a>Autorização
 Uma prática recomendada que se seguem a maioria das empresas é garantir que nem todos os empregados têm acesso a todos os recursos da empresa. Da mesma forma, o administrador pode definir políticas de controlo de acesso baseado em funções para os recursos do cluster. 
 
-Por exemplo, o administrador pode configurar o [Apache Ranger](https://hortonworks.com/apache/ranger/) para definir políticas de controlo de acesso para o Hive. Esta funcionalidade garante que os empregados podem aceder apenas quantidade de dados que precisam para ter êxito nas suas tarefas. Acesso SSH ao cluster também está limitado a apenas o administrador.
+Por exemplo, o administrador pode configurar o [Apache Ranger](https://ranger.apache.org/) para definir políticas de controlo de acesso para o Hive. Esta funcionalidade garante que os empregados podem aceder apenas quantidade de dados que precisam para ter êxito nas suas tarefas. Acesso SSH ao cluster também está limitado a apenas o administrador.
 
 ## <a name="auditing"></a>Auditoria
 A auditoria de acesso de todos os recursos de cluster e os dados, é necessário para controlar o acesso não autorizado ou não intencional dos recursos. É tão importante quanto a proteger os recursos de cluster do HDInsight contra utilizadores não autorizados e proteção dos dados. 
 
 O administrador pode ver e comunicar todo o acesso aos dados e recursos de cluster do HDInsight. O administrador também pode ver e comunicar todas as alterações para as políticas de controlo de acesso criadas nos pontos finais suportados do Ranger Apache. 
 
-Um cluster do HDInsight com ESP usa a IU familiar do Ranger Apache para procurar registos de auditoria. No back-end, o Ranger utiliza [Apache Solr](https://hortonworks.com/apache/solr/) para armazenar e procurar os registos.
+Um cluster do HDInsight com ESP usa a IU familiar do Ranger Apache para procurar registos de auditoria. No back-end, o Ranger utiliza [Apache Solr](http://lucene.apache.org/solr/) para armazenar e procurar os registos.
 
 ## <a name="encryption"></a>Encriptação
 Proteção de dados é importante para os requisitos de segurança e conformidade organizacionais no reunião. Além de restringir o acesso aos dados de empregados não autorizados, deve criptografá-lo. 
 
-Ambos os arquivos de dados para os clusters do HDInsight – armazenamento de Blobs do Azure e Azure Data Lake Storage Gen1/Gen2 – suporte transparente lado do servidor [encriptação de dados](../../storage/common/storage-service-encryption.md) inativos. Clusters seguros do HDInsight funcionará sem problemas com esta capacidade de encriptação do lado do servidor de dados em repouso.
+Ambos os arquivos de dados para os clusters do HDInsight, armazenamento de Blobs do Azure e Azure Data Lake Storage Gen1/geração 2, suportam transparente do servidor [encriptação de dados](../../storage/common/storage-service-encryption.md) inativos. Clusters seguros do HDInsight funcionará sem problemas com esta capacidade de encriptação do lado do servidor de dados em repouso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Planear clusters do HDInsight com o ESP](apache-domain-joined-architecture.md)
 * [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure.md)
 * [Gerir clusters do HDInsight com o ESP](apache-domain-joined-manage.md)
-* [Configurar políticas do Apache Hive para clusters do HDInsight com o ESP](apache-domain-joined-run-hive.md)
-* [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
-

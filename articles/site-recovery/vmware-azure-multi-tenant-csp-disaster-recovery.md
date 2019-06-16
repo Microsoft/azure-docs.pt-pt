@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60461030"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware num ambiente de vários inquilinos com o programa de fornecedor de soluções Cloud (CSP)
@@ -52,7 +52,7 @@ Pode acessar a subscrição do inquilino através do Dashboard do Centro de parc
 
 1. Sobre o **clientes** página, clique no nome da conta de inquilino.
 2. Na **subscrições** página da conta de inquilino, pode monitorizar as subscrições de conta existente e adicionar mais subscrições, conforme necessário.
-3. Para gerir operações de recuperação após desastre do inquilino, selecione **todos os recursos (portal do Azure)**. Isso lhe concede que acesso a subscrições do Azure do inquilino.
+3. Para gerir operações de recuperação após desastre do inquilino, selecione **todos os recursos (portal do Azure)** . Isso lhe concede que acesso a subscrições do Azure do inquilino.
 
     ![A ligação de todos os recursos](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
 

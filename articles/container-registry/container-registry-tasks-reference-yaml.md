@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954468"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência de tarefas do ACR: YAML
@@ -79,7 +79,7 @@ az configure --defaults acr=myregistry
 
 Propriedades da tarefa, normalmente, são apresentados na parte superior de um `acr-task.yaml` de ficheiros e são propriedades globais que se aplicam durante toda a execução completa dos passos de tarefas. Algumas dessas propriedades global podem ser substituídas dentro de um passo individual.
 
-| Propriedade | Type | Opcional | Descrição | Suportada de substituição | Valor predefinido |
+| Propriedade | Tipo | Opcional | Descrição | Suportada de substituição | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | Sim | A versão do `acr-task.yaml` de ficheiros como analisado pelo serviço de tarefas do ACR. Enquanto as tarefas de ACR tenta manter a compatibilidade com versões anteriores, este valor permite que tarefas de ACR manter a compatibilidade dentro de uma versão definida. Se não for especificado, por predefinição, a versão mais recente. | Não | Nenhuma |
 | `stepTimeout` | Int (segundos) | Sim | O número máximo de segundos que pode executar uma etapa. Se a propriedade é especificada numa tarefa, ele define a predefinição `timeout` propriedade de todos os passos. Se o `timeout` é especificada a propriedade numa etapa, substitui a propriedade fornecida pela tarefa. | Sim | 600 (10 minutos) |
@@ -88,27 +88,27 @@ Propriedades da tarefa, normalmente, são apresentados na parte superior de um `
 | `secrets` | [SECRETO, segredo,...] | Sim | Matriz de [segredo](#secret) objetos. | Nenhuma |
 | `networks` | [rede, rede,...] | Sim | Matriz de [rede](#network) objetos. | Nenhuma |
 
-### <a name="secret"></a>segredo
+### <a name="secret"></a>secret
 
 O objeto secreto tem as seguintes propriedades.
 
-| Propriedade | Type | Opcional | Descrição | Valor predefinido |
+| Propriedade | Tipo | Opcional | Descrição | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | Não | O identificador do segredo do. | Nenhuma |
 | `keyvault` | string | Sim | O URL de segredo do Cofre de chaves do Azure. | Nenhuma |
 | `clientID` | string | Sim | O ID de cliente do atribuído ao utilizador a identidade de recursos do Azure gerido. | Nenhuma |
 
-### <a name="network"></a>rede
+### <a name="network"></a>Rede
 
 O objeto de rede tem as seguintes propriedades.
 
-| Propriedade | Type | Opcional | Descrição | Valor predefinido |
+| Propriedade | Tipo | Opcional | Descrição | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | Não | O nome da rede. | Nenhuma |
 | `driver` | string | Sim | O driver para gerir a rede. | Nenhuma |
-| `ipv6` | booleano | Sim | Se o sistema de rede IPv6 está ativado. | `false` |
-| `skipCreation` | booleano | Sim | Se ignorar a criação de rede. | `false` |
-| `isDefault` | booleano | Sim | Se a rede está uma rede predefinida fornecida com o Azure Container Registry | `false` |
+| `ipv6` | bool | Sim | Se o sistema de rede IPv6 está ativado. | `false` |
+| `skipCreation` | bool | Sim | Se ignorar a criação de rede. | `false` |
+| `isDefault` | bool | Sim | Se a rede está uma rede predefinida fornecida com o Azure Container Registry | `false` |
 
 ## <a name="task-step-types"></a>Tipos de passo de tarefa
 
@@ -147,18 +147,18 @@ O `build` tipo de passo suporta as seguintes propriedades. Encontrar detalhes so
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | booleano | Opcional |
-| `disableWorkingDirectoryOverride` | booleano | Opcional |
+| `detach` | bool | Opcional |
+| `disableWorkingDirectoryOverride` | bool | Opcional |
 | `entryPoint` | string | Opcional |
 | `env` | [string, string, ...] | Opcional |
 | `expose` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
-| `ignoreErrors` | booleano | Opcional |
+| `ignoreErrors` | bool | Opcional |
 | `isolation` | string | Opcional |
-| `keep` | booleano | Opcional |
+| `keep` | bool | Opcional |
 | `network` | objeto | Opcional |
 | `ports` | [string, string, ...] | Opcional |
-| `pull` | booleano | Opcional |
+| `pull` | bool | Opcional |
 | `repeat` | int | Opcional |
 | `retries` | int | Opcional |
 | `retryDelay` | Int (segundos) | Opcional |
@@ -221,7 +221,7 @@ O `push` tipo de passo suporta as seguintes propriedades. Encontrar detalhes sob
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
-| `ignoreErrors` | booleano | Opcional |
+| `ignoreErrors` | bool | Opcional |
 | `startDelay` | Int (segundos) | Opcional |
 | `timeout` | Int (segundos) | Opcional |
 | `when` | [string, string, ...] | Opcional |
@@ -264,18 +264,18 @@ O `cmd` tipo de passo suporta as seguintes propriedades:
 
 | | | |
 | -------- | ---- | -------- |
-| `detach` | booleano | Opcional |
-| `disableWorkingDirectoryOverride` | booleano | Opcional |
+| `detach` | bool | Opcional |
+| `disableWorkingDirectoryOverride` | bool | Opcional |
 | `entryPoint` | string | Opcional |
 | `env` | [string, string, ...] | Opcional |
 | `expose` | [string, string, ...] | Opcional |
 | `id` | string | Opcional |
-| `ignoreErrors` | booleano | Opcional |
+| `ignoreErrors` | bool | Opcional |
 | `isolation` | string | Opcional |
-| `keep` | booleano | Opcional |
+| `keep` | bool | Opcional |
 | `network` | objeto | Opcional |
 | `ports` | [string, string, ...] | Opcional |
-| `pull` | booleano | Opcional |
+| `pull` | bool | Opcional |
 | `repeat` | int | Opcional |
 | `retries` | int | Opcional |
 | `retryDelay` | Int (segundos) | Opcional |
@@ -362,21 +362,21 @@ Utilizando o padrão `docker run` Convenção de referência, de imagem `cmd` po
 
 Cada tipo de passo suporta várias propriedades adequadas para o respetivo tipo. A tabela seguinte define todas as propriedades do passo disponíveis. Nem todos os tipos de passo suportam todas as propriedades. Para ver qual destas propriedades estão disponíveis para cada tipo de passo, consulte a [cmd](#cmd), [crie](#build), e [push](#push) passo secções de referência de tipo.
 
-| Propriedade | Type | Opcional | Descrição | Valor predefinido |
+| Propriedade | Tipo | Opcional | Descrição | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------- |
-| `detach` | booleano | Sim | Se o contêiner deve ser desligado quando em execução. | `false` |
-| `disableWorkingDirectoryOverride` | booleano | Sim | Se pretende desativar `workingDirectory` substituir a funcionalidade. Utilize esta opção em combinação com `workingDirectory` ter controlo total sobre o diretório de trabalho do contentor. | `false` |
+| `detach` | bool | Sim | Se o contêiner deve ser desligado quando em execução. | `false` |
+| `disableWorkingDirectoryOverride` | bool | Sim | Se pretende desativar `workingDirectory` substituir a funcionalidade. Utilize esta opção em combinação com `workingDirectory` ter controlo total sobre o diretório de trabalho do contentor. | `false` |
 | `entryPoint` | string | Sim | Substitui o `[ENTRYPOINT]` do contentor de um passo. | Nenhuma |
 | `env` | [string, string, ...] | Sim | Matriz de cadeias de caracteres em `key=value` formato que definem as variáveis de ambiente para o passo. | Nenhuma |
 | `expose` | [string, string, ...] | Sim | Matriz de portas que são expostas a partir do contentor. |  Nenhuma |
 | [`id`](#example-id) | string | Sim | Identifica exclusivamente a etapa na tarefa. Outros passos da tarefa podem fazer referência a uma etapa `id`, por exemplo, para a dependência a verificar com `when`.<br /><br />O `id` também é o nome do contentor em execução. Processos em execução nos outros contentores na tarefa podem consultar o `id` como seu nome de anfitrião DNS, ou para aceder ao mesmo com os registos do docker [id], por exemplo. | `acb_step_%d`, onde `%d` é o índice baseado em 0 do passo de cima para baixo no ficheiro YAML |
-| `ignoreErrors` | booleano | Sim | Se marcar o passo como concluída com êxito, independentemente de se Ocorreu um erro durante a execução do contentor. | `false` |
+| `ignoreErrors` | bool | Sim | Se marcar o passo como concluída com êxito, independentemente de se Ocorreu um erro durante a execução do contentor. | `false` |
 | `isolation` | string | Sim | O nível de isolamento do contentor. | `default` |
-| `keep` | booleano | Sim | Se o contentor de um passo deve ser mantida após a execução. | `false` |
+| `keep` | bool | Sim | Se o contentor de um passo deve ser mantida após a execução. | `false` |
 | `network` | objeto | Sim | Identifica uma rede no qual o contentor é executado. | Nenhuma |
 | `ports` | [string, string, ...] | Sim | Matriz de portas que são publicados a partir do contentor para o anfitrião. |  Nenhuma |
-| `pull` | booleano | Sim | Se forçar uma solicitação do contentor antes de executá-la para impedir que qualquer comportamento de colocação em cache. | `false` |
-| `privileged` | booleano | Sim | Se é necessário executar o contentor no modo privilegiado. | `false` |
+| `pull` | bool | Sim | Se forçar uma solicitação do contentor antes de executá-la para impedir que qualquer comportamento de colocação em cache. | `false` |
+| `privileged` | bool | Sim | Se é necessário executar o contentor no modo privilegiado. | `false` |
 | `repeat` | int | Sim | O número de tentativas para repetir a execução de um contentor. | 0 |
 | `retries` | int | Sim | O número de tentativas para tentar se sua execução de um contentor falha. Apenas é tentada uma repetição se o código de saída de um contentor é diferente de zero. | 0 |
 | `retryDelay` | Int (segundos) | Sim | O atraso em segundos, entre tentativas de execução de um contentor. | 0 |

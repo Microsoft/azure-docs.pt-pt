@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925660"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar os comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB 
@@ -163,7 +163,7 @@ A tabela seguinte descreve os parâmetros no comando:
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 | customAction    | string | Nome do comando personalizado. Tem de ser "CreateCollection"     |
-| coleção      | string | Nome da coleção                                   |
+| Coleção      | string | Nome da coleção                                   |
 | offerThroughput | int    | Débito aprovisionado para definir na base de dados. É um parâmetro opcional |
 | shardKey        | string | Caminho da chave de partição horizontal para criar uma coleção em partição horizontal. É um parâmetro opcional |
 
@@ -208,7 +208,7 @@ A tabela seguinte descreve os parâmetros no comando:
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 |  customAction   |   string      |   Nome do comando personalizado. Tem de ser "UpdateCollection".      |
-|  coleção   |   string      |   Nome da coleção.       |
+|  Coleção   |   string      |   Nome da coleção.       |
 | offerThroughput   |int|   Débito aprovisionado para definir na coleção.|
 
 ## <a name="output"></a>Saída
@@ -243,7 +243,7 @@ A tabela seguinte descreve os parâmetros no comando:
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
 | customAction    |   string      |   Nome do comando personalizado. Tem de ser "GetCollection".      |
-| coleção    |    string     |    Nome da coleção.     |
+| Coleção    |    string     |    Nome da coleção.     |
 
 ### <a name="output"></a>Saída
 

@@ -16,12 +16,12 @@ ms.date: 11/08/2017
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb7dc356c8101c1b0907818b45618ef6372c691
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 3671623312f0da00c8f6172a101529a5cd12be1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60250880"
+ms.locfileid: "67110552"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Resolução de problemas híbrida do Azure Active Directory associados a dispositivos Windows 10 e Windows Server 2016 
 
@@ -34,7 +34,7 @@ Para outros clientes Windows, consulte [híbrido de resolução de problemas do 
 
 Este artigo pressupõe que tenha [dispositivos associados ao configurado híbrida do Azure Active Directory](hybrid-azuread-join-plan.md) para suportar os cenários seguintes:
 
-- Acesso condicional baseado no dispositivo
+- Acesso condicional com base no dispositivo
 
 - [Definições de roaming empresarial](../active-directory-windows-enterprise-state-roaming-overview.md)
 
