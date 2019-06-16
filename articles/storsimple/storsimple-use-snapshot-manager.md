@@ -16,10 +16,10 @@ ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
 ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60845278"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Interface de utilizador de utilizar o StorSimple Snapshot Manager para gerir tarefas de cópia de segurança e o catálogo de cópia de segurança
@@ -67,7 +67,7 @@ Para ver os **arquivo** menu, clique em **ficheiro** na barra de menus. É apres
 #### <a name="menu-description"></a>Descrição de menu
 A tabela seguinte descreve os itens que aparecem no **ficheiro** menu.
 
-| Item do menu | Descrição |
+| Item de menu | Descrição |
 |:--- |:--- |
 | Novo |Clique em **New** para criar um novo console com base no Snapshot Manager do StorSimple. |
 | Aberto |Clique em **abra** para abrir uma consola existente. |
@@ -139,7 +139,7 @@ Pode aceder a **View** menu no menu de barra ou no **ações** painel.
 #### <a name="menu-description"></a>Descrição de menu
 A tabela seguinte descreve os itens que aparecem no **vista** menu.
 
-| Item do menu | Descrição |
+| Item de menu | Descrição |
 |:--- |:--- |
 | Adicionar/remover colunas |Clique em **Adicionar/remover colunas** para adicionar ou remover colunas na **resultados** painel. |
 | Personalizar |Clique em **personalizar** para mostrar ou ocultar itens na janela de consola do Snapshot Manager do StorSimple. |
@@ -155,7 +155,7 @@ Pode aceder a **Favoritos** menu na barra de menus.
 #### <a name="menu-description"></a>Descrição de menu
 A tabela seguinte descreve os itens que aparecem no **Favoritos** menu.
 
-| Item do menu | Descrição |
+| Item de menu | Descrição |
 |:--- |:--- |
 | Adicionar aos Favoritos |Clique em **adicionar aos Favoritos** para adicionar a exibição atual à sua lista de Favoritos. |
 | Organizar Favoritos |Clique em **organizar Favoritos** para organizar o conteúdo da sua pasta de Favoritos. |
@@ -173,7 +173,7 @@ A lista numerada na parte inferior do menu mostra as janelas que estão atualmen
 #### <a name="menu-description"></a>Descrição de menu
 A tabela seguinte descreve os itens que aparecem no menu da janela.
 
-| Item do menu | Descrição |
+| Item de menu | Descrição |
 |:--- |:--- |
 | Nova janela |Clique em **nova janela** para abrir uma nova janela de consola (além da janela existente). |
 | Em cascata |Clique em **Cascade** para apresentar as janelas de consola aberta num estilo em cascata. |
@@ -190,7 +190,7 @@ Pode aceder a **ajudar** menu na barra de menus. Também pode aceder a tópicos 
 #### <a name="menu-description"></a>Descrição de menu
 A tabela seguinte descreve os itens que aparecem no menu de ajuda.
 
-| Item do menu | Descrição |
+| Item de menu | Descrição |
 |:--- |:--- |
 | Ajuda para o StorSimple Snapshot Manager |Clique em **ajudar no Snapshot Manager do StorSimple** para abrir a ajuda do Snapshot Manager do StorSimple numa janela separada. |
 | Tópicos de ajuda |Clique em **tópicos de ajuda** para abrir a ajuda online do MMC numa janela separada. |

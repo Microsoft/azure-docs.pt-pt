@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371962"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Obter a propriedade das subscrições do Azure com outros usuários de faturação
@@ -35,7 +35,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+2. Pesquisar nos **custo Management + faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -64,7 +64,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+2. Pesquisar nos **custo Management + faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure para gestão de custos + faturação](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -81,7 +81,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
    |---------|---------|
    |Data do pedido|A data quando o pedido de transferência foi enviado|
    |Destinatário|O endereço de e-mail do utilizador que enviou o pedido para transferir a propriedade de faturação|
-   |Data de validade|A data quando o pedido expirar|
+   |Data de expiração|A data quando o pedido expirar|
    |Estado|O estado do pedido de transferência|
 
     O pedido de transferência pode ter um dos seguintes Estados:
@@ -94,7 +94,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
    |Foi concluída com erros|Não foi possível transferir o pedido foi concluído, mas a faturação para algumas das subscrições que o utilizador selecionado|
    |Fora do prazo|O utilizador não aceitou o pedido no tempo e expirado|
    |Cancelado|Qualquer pessoa com acesso para o pedido de transferência foi cancelada o pedido|
-   |Recusada|O utilizador recusou o pedido de transferência|
+   |Recusado|O utilizador recusou o pedido de transferência|
 
 6. Selecione um pedido de transferência para ver os detalhes. A página de detalhes de transferência apresenta as seguintes informações:
    <!-- Todo - Add a screenshot -->
@@ -159,7 +159,7 @@ Não se transferem produtos SaaS com as subscrições. Pedir ao utilizador para 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
 

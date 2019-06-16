@@ -1,23 +1,20 @@
 ---
 title: Eliminar operações de API de Cassandra do Azure Cosmos DB do Spark
 description: Este artigo fornece detalhes sobre como eliminar os dados em tabelas na API de Cassandra do Azure Cosmos DB do Spark
-author: rockboyfor
-ms.author: v-yeche
+author: kanshiG
+ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 03/18/2019
+ms.date: 09/24/2018
 ms.openlocfilehash: fc9e0dabd226952bea3bd14da0747c5b6292c2e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60893970"
 ---
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Eliminar dados nas tabelas Cassandra API do Azure Cosmos DB do Spark
 
 Este artigo descreve como eliminar os dados nas tabelas Cassandra API do Azure Cosmos DB do Spark.
@@ -34,7 +31,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
@@ -362,10 +359,6 @@ deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datas
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para executar a agregação e de operações de cópia de dados, consulte-
-
+ 
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia da tabela](cassandra-spark-table-copy-ops.md)
-
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on cassandra spark delete ops -->
-<!--ms.date: 03/18/2019-->

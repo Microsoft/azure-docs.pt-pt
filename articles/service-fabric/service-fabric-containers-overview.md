@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/8/2018
 ms.author: aljo
 ms.openlocfilehash: 5a45f14e5ac1da5152f320bd92b1ebb42be1d214
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881425"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric e contentores
@@ -80,7 +80,7 @@ Seguem-se exemplos típicos onde um contentor é uma boa opção:
 
 * **Misturar contentores e microsserviços de Service Fabric**: Utilize uma imagem de contentor existente para a parte da sua aplicação. Por exemplo, poderá utilizar o [contentor NGINX](https://hub.docker.com/_/nginx/) para web front-end da aplicação e serviços com estado para a computação de back-end mais intensiva.
 
-* **Reduzir o impacto dos serviços de "vizinhos ruidosos"**: Pode utilizar a capacidade de governação de recursos de contentores para restringir os recursos utilizados por um serviço num anfitrião. Se os serviços podem consumir muitos recursos e afetar o desempenho de outras pessoas (como uma operação de longa execução, tipo de consulta), considere colocar esses serviços em contentores que tenham a governação de recursos.
+* **Reduzir o impacto dos serviços de "vizinhos ruidosos"** : Pode utilizar a capacidade de governação de recursos de contentores para restringir os recursos utilizados por um serviço num anfitrião. Se os serviços podem consumir muitos recursos e afetar o desempenho de outras pessoas (como uma operação de longa execução, tipo de consulta), considere colocar esses serviços em contentores que tenham a governação de recursos.
 
 ## <a name="service-fabric-support-for-containers"></a>Suporte do Service Fabric para contentores
 

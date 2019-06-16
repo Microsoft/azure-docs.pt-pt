@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60346339"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
@@ -32,7 +32,7 @@ São suportados os seguintes Estados de grupo inteligente.
 | Estado | Descrição |
 |:---|:---|
 | Novo | O problema apenas foi detetado e ainda não foi revisto. |
-| Confirmado | Um administrador tem revisto o grupo inteligente e começou a trabalhar no mesmo. |
+| Reconhecido | Um administrador tem revisto o grupo inteligente e começou a trabalhar no mesmo. |
 | Fechado | O problema foi resolvido. Depois de um grupo inteligente foi fechado, pode abri-lo novamente ao alterá-la para outro Estado. |
 
 [Saiba como alterar o estado do seu grupo inteligente.](https://aka.ms/managing-alert-smart-group-states)
@@ -62,4 +62,5 @@ O nome de um grupo inteligente é o nome do seu primeiro alerta. Não é possív
 
 - [Gerir grupos inteligentes](https://aka.ms/managing-smart-groups)
 - [Alterar o estado do grupo de alerta e inteligente](https://aka.ms/managing-alert-smart-group-states)
+
 

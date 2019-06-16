@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
 ms.openlocfilehash: 861c68ae8163e0ba8c2af2a3d96153ac3e84855f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803211"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>VMs de baixa prioridade em conjuntos de dimensionamento (pré-visualização)
@@ -28,7 +28,7 @@ Utilizar VMs de baixa prioridade em conjuntos de dimensionamento permite-lhe tir
 
 A quantidade de capacidade unutilized disponível pode variar com base no tamanho, região, hora do dia e muito mais. Quando define a implementação de VMs de baixa prioridade em escala, o Azure irá alocar as VMs se há capacidade disponível, mas não existe nenhum SLA para estas VMs. Um conjunto de dimensionamento de baixa prioridade é implementado num domínio de falha único e oferece que não garantias de nenhuma elevada disponibilidade.
 
-## <a name="eviction-policy"></a>Política de Expulsão
+## <a name="eviction-policy"></a>Política de expulsão
 
 Ao criar conjuntos de dimensionamento de baixa prioridade, pode definir a política de expulsão *Desalocação* (predefinição) ou *eliminar*. 
 

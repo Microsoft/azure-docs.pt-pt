@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 4cd2305ed3d7f88f6c3825d8f7cdb5d81f9a0f6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61460189"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Criar utilizadores na base de dados do Azure para o servidor MySQL 
@@ -29,7 +29,7 @@ Depois de criar a base de dados do Azure para o servidor MySQL, pode utilizar a 
 2. Utilize a conta de administrador e a palavra-passe para ligar ao seu servidor de base de dados. Utilize a sua ferramenta de cliente preferido, como o MySQL Workbench, mysql.exe, HeidiSQL ou outras pessoas. 
    Se tiver a certeza de como se pode ligar, consulte o artigo [utilizar o MySQL Workbench para se ligar e consultar dados](./connect-workbench.md)
 
-3. Edite e execute o seguinte código SQL. Substitua o novo nome de utilizador para o valor do marcador de posição `new_master_user`. Essa sintaxe concede os privilégios listados em todos os esquemas de banco de dados (*.*) para o nome de utilizador (new_master_user neste exemplo). 
+3. Edite e execute o seguinte código SQL. Substitua o novo nome de utilizador para o valor do marcador de posição `new_master_user`. Essa sintaxe concede os privilégios listados em todos os esquemas de banco de dados ( *.* ) para o nome de utilizador (new_master_user neste exemplo). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

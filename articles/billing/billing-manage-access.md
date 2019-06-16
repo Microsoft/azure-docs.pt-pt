@@ -17,10 +17,10 @@ ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 8c2843840790d1e0dbfd4a789775c6c7ceb51a54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60918688"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso a informações de faturação para o Azure
@@ -71,7 +71,7 @@ A funcionalidade de leitor de faturação está em pré-visualização e ainda n
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione a sua subscrição no [painel de Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
 
-1. Selecione **controlo de acesso (IAM)**.
+1. Selecione **controlo de acesso (IAM)** .
 1. Selecione **atribuições de funções** para ver todas as atribuições de função para esta subscrição.
 1. Selecione **adicionar atribuição de função**.
 1. Na **função** pendente lista, escolha **leitor de faturação**.

@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60486469"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de lançamento do Gateway de Gestão de Dados
@@ -103,7 +103,7 @@ Mantemos não mais aqui as notas de versão. Obter notas de versão mais recente
 *  Suporta a definição do proxy HTTP para o gateway com o Gestor de configuração do Gateway. Se configurado, os BLOBs do Azure, tabelas do Azure, Azure Data Lake e Document DB são acedidos através do proxy HTTP.
 *  Cabeçalho de suporta manipulação para TextFormat quando se copiam dados de/para Blob do Azure, Azure Data Lake Store, sistema de ficheiros no local e no local HDFS.
 *  Suporta a cópia de dados do Blob de acréscimo e BLOBs de páginas, juntamente com o Blob de blocos já suportadas.
-*  Apresenta um novo estado do gateway **Online (limitado)**, que indica que a funcionalidade principal do gateway funcione, exceto o suporte de operação interativo para o Assistente para copiar.
+*  Apresenta um novo estado do gateway **Online (limitado)** , que indica que a funcionalidade principal do gateway funcione, exceto o suporte de operação interativo para o Assistente para copiar.
 *  Melhora a robustez do Registro de gateway utilizando a chave de registo.
 
 ## <a name="216040"></a>2.1.6040.

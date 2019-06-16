@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
 ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861170"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos de Monitor do Azure para o Balanceador de carga básico público

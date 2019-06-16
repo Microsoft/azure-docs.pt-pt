@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126686"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Implementar o Azure Databricks na sua rede virtual (pré-visualização)
@@ -121,7 +121,7 @@ Se utilizar este modelo sem também utilizar o modelo de grupos de segurança de
 
 Se não utilizar o [portal do Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) ou [modelos Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) para criar a rede com grupos de segurança, tem manualmente o seguinte tráfego de lista de permissões nas suas sub-redes.
 
-|Direction|Protocolo|Origem|Porta de origem|Destino|Porta de destino|
+|Direction|Protocol|source|Porta de origem|Destino|Porta de destino|
 |---------|--------|------|-----------|-----------|----------------|
 |Entrada|\*|VirtualNetwork|\*|\*|\*|
 |Entrada|\*|IP do NAT de plano de controlo|\*|\*|22|

@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c98e59cd0e547381d6b173b3a4b91c3a3e27b3a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771724"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar a proteção de dados Oracle numa máquina virtual Linux do Azure 
@@ -678,7 +678,7 @@ SQL>
 Terminar a instalação e configuração de proteção de dados no Oracle Linux.
 
 
-## <a name="delete-the-virtual-machine"></a>Eliminar a máquina virtual
+## <a name="delete-the-virtual-machine"></a>Elimine a máquina virtual
 
 Quando já não precisar da VM, pode utilizar o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados:
 

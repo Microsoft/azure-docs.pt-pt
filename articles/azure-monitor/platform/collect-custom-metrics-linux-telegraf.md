@@ -1,18 +1,18 @@
 ---
 title: Recolher métricas personalizadas para uma VM do Linux com o agente de InfluxData Telegraf
 description: Recolher métricas personalizadas para uma VM do Linux com o agente de InfluxData Telegraf
-author: lingliw
+author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
-ms.date: 01/21/19
-ms.author: v-lingwu
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60741610"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Recolher métricas personalizadas para uma VM do Linux com o agente de InfluxData Telegraf
@@ -47,7 +47,7 @@ Crie uma nova VM do Linux:
 
     ![Descrição geral do agente de telégrafo de tamanho do máquina virtual](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Sobre o **definições** página no **rede** > **grupo de segurança de rede**   >  ** Selecione as portas de entrada públicas**, selecione **HTTP** e **SSH (22)**. Deixe o resto dos padrões e selecione **OK**. 
+1. Sobre o **definições** página no **rede** > **grupo de segurança de rede**   >  ** Selecione as portas de entrada públicas**, selecione **HTTP** e **SSH (22)** . Deixe o resto dos padrões e selecione **OK**. 
 
 1. Na página Resumo, selecione **Create** para iniciar a implementação de VM. 
 
@@ -132,5 +132,6 @@ Quando já não forem necessários, pode eliminar o grupo de recursos, a máquin
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+
 
 

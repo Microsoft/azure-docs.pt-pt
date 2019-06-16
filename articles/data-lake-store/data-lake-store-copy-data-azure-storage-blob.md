@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878839"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de armazenamento do Azure Data Lake
@@ -54,7 +54,7 @@ Os parâmetros na sintaxe são descritos abaixo:
 
 | Opção | Descrição |
 | --- | --- |
-| Origem |Especifica a localização dos dados de origem no blob de armazenamento do Azure. A origem pode ser um contentor de BLOBs, um blob ou outra conta de geração 1 de armazenamento do Data Lake. |
+| source |Especifica a localização dos dados de origem no blob de armazenamento do Azure. A origem pode ser um contentor de BLOBs, um blob ou outra conta de geração 1 de armazenamento do Data Lake. |
 | Dest |Especifica o destino de geração 1 de armazenamento do Data Lake para copiar para. |
 | SourceKey |Especifica a chave de acesso de armazenamento para a origem do blob de armazenamento do Azure. Isto é necessário apenas se a origem é um contentor de BLOBs ou um blob. |
 | Conta |**Opcional**. Utilize esta opção se pretender utilizar a conta do Azure Data Lake Analytics para executar a tarefa de cópia. Se utilizar a opção de /Account na sintaxe, mas não especificar uma conta do Data Lake Analytics, AdlCopy utiliza uma conta predefinida para executar a tarefa. Além disso, se utilizar esta opção, tem de adicionar a origem (Blob de armazenamento do Azure) e o destino (Azure Data Lake Storage Gen1) como fontes de dados para a sua conta do Data Lake Analytics. |

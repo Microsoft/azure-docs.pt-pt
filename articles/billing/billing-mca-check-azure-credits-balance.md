@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372261"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Acompanhar o saldo de crédito do Azure para o contrato de cliente da Microsoft
@@ -33,7 +33,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 1. Inicie sessão no [portal do Azure]( https://portal.azure.com).
 
-2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+2. Pesquisar nos **custo Management + faturação**.
 
    ![Captura de ecrã que mostra a pesquisa no portal de gestão de custos + faturação](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
@@ -59,9 +59,9 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
    | Termo                 | Definição                           |
    |----------------------|--------------------------------------------------------|
-   | Origem               | A origem de aquisição do crédito |
+   | source               | A origem de aquisição do crédito |
    | Data de início           | A data de quando tiver adquirido o crédito |
-   | Data de validade      | A data quando expira o crédito |
+   | Data de expiração      | A data quando expira o crédito |
    | Saldo              | O saldo desde a última fatura |
    | Quantidade original      | A quantidade original de crédito |
    | Estado               | O estado atual de crédito. Estado pode estar ativo, utilizado, expirou ou expira |
@@ -93,7 +93,7 @@ Créditos do Azure são um dos métodos de pagamento. Obtém crédito da Microso
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
 

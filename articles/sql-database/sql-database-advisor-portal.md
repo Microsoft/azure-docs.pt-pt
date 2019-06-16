@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61420380"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
@@ -41,7 +41,7 @@ As recomendações são ordenadas pelo seu potencial impacto no desempenho nas s
 
 | Impacto | Descrição |
 |:--- |:--- |
-| Elevado |Recomendações de alto impacto devem fornecer o impacto mais significativo do desempenho. |
+| Alta |Recomendações de alto impacto devem fornecer o impacto mais significativo do desempenho. |
 | Médio |Impacto intermédio recomendações devem melhorar o desempenho, mas não substancialmente. |
 | Baixa |Recomendações de baixo impacto devem fornecer um desempenho melhor do que sem, mas melhorias poderão não ser significativas. |
 
@@ -131,11 +131,11 @@ Aplicar uma recomendação pode não acontecer instantaneamente. O portal fornec
 | Estado | Descrição |
 |:--- |:--- |
 | Pendente |Aplica a recomendação comando foi recebido e está agendado para execução. |
-| A executar |A recomendação está a ser aplicada. |
-| A Validar |A recomendação foi aplicada com êxito e o serviço é medir os benefícios. |
+| Em execução |A recomendação está a ser aplicada. |
+| A validar |A recomendação foi aplicada com êxito e o serviço é medir os benefícios. |
 | Êxito |A recomendação foi aplicada com êxito e foram avaliados de benefícios. |
-| Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Isso pode ser um problema transitório, ou, possivelmente, um esquema altere para a tabela e o script já não é válido. |
-| A reverter |A recomendação foi aplicada, mas tiver sido considerada não de elevado desempenho e está a ser revertida automaticamente. |
+| Erro |Ocorreu um erro durante o processo de aplicar a recomendação. Isso pode ser um problema transitório, ou, possivelmente, um esquema altere para a tabela e o script já não é válido. |
+| A reversão |A recomendação foi aplicada, mas tiver sido considerada não de elevado desempenho e está a ser revertida automaticamente. |
 | Revertido |A recomendação foi revertida. |
 
 Clique numa recomendação no processo da lista para ver mais informações:

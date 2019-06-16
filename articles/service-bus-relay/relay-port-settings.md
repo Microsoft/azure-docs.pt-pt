@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/26/2018
 ms.author: spelluru
 ms.openlocfilehash: 9d11179a8518ebf48f68f8607f94e0253d4edb80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789931"
 ---
 # <a name="azure-relay-port-settings"></a>Definições de porta de reencaminhamento do Azure
@@ -31,7 +31,7 @@ Ligações híbridas utiliza WebSockets na porta 443 com SSL, como o mecanismo d
 
 ## <a name="wcf-relays"></a>Reencaminhamentos do WCF
   
-|Vínculo|Segurança de transporte|Porta|  
+|Vínculo|Segurança de transporte|Port|  
 |-------------|------------------------|----------|  
 |[Classe de BasicHttpRelayBinding](/dotnet/api/microsoft.servicebus.basichttprelaybinding) (cliente)|Sim|HTTPS| 
 |" |Não|HTTP|  

@@ -13,10 +13,10 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900528"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de pedido: Modelo de dados do Application Insights
@@ -45,7 +45,7 @@ URL do pedido com todos os parâmetros de cadeia de caracteres de consulta.
 
 Comprimento máximo: 2048 carateres
 
-## <a name="source"></a>Origem
+## <a name="source"></a>source
 
 Origem do pedido. Os exemplos são a chave de instrumentação do chamador ou o endereço ip do chamador. Para obter mais informações, consulte [correlação](../../azure-monitor/app/correlation.md) página.
 

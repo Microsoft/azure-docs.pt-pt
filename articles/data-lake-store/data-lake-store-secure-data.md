@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60198332"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Proteger dados armazenados na geração 1 de armazenamento do Azure Data Lake
@@ -55,7 +55,7 @@ Quando atribui a utilizadores ou grupos de segurança para contas de geração 1
 
 1. Abra uma conta de geração 1 de armazenamento do Data Lake. No painel esquerdo, clique em **todos os recursos**e, em seguida, no painel de todos os recursos, clique no nome de conta para o qual pretende atribuir um utilizador ou grupo de segurança.
 
-2. No painel da conta do Data Lake Storage Gen1, clique em **controlo de acesso (IAM)**. O painel por predefinição lista os proprietários de subscrições, como o proprietário.
+2. No painel da conta do Data Lake Storage Gen1, clique em **controlo de acesso (IAM)** . O painel por predefinição lista os proprietários de subscrições, como o proprietário.
    
     ![Atribua o grupo de segurança à conta de geração 1 de armazenamento do Azure Data Lake](./media/data-lake-store-secure-data/adl.select.user.icon1.png "atribuir o grupo de segurança à conta de geração 1 de armazenamento do Azure Data Lake")
 
@@ -127,7 +127,7 @@ Quando remover grupos de segurança de contas de geração 1 de armazenamento do
 
 Acesso a dados não é alterado e ainda é gerenciado pelo ACLs de acesso.  A exceção são os utilizadores/grupos na função de proprietários.  Os utilizadores/grupos removidos da função proprietários deixaram de ser superutilizadores e o acesso vai para as definições da ACL de acesso. 
 
-1. No painel da conta do Data Lake Storage Gen1, clique em **controlo de acesso (IAM)**. 
+1. No painel da conta do Data Lake Storage Gen1, clique em **controlo de acesso (IAM)** . 
    
     ![Atribua o grupo de segurança à conta do Data Lake Storage Gen1](./media/data-lake-store-secure-data/adl.select.user.icon.png "atribuir o grupo de segurança à conta de geração 1 de armazenamento do Data Lake")
 2. Na **controlo de acesso (IAM)** painel, clique nos grupos de segurança que pretende remover. Clique em **remover**.

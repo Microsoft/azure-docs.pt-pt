@@ -4,17 +4,16 @@ description: Este artigo destina-se como uma lição rápida para os autores fam
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: WenJason
-ms.author: v-jay
-origin.date: 12/14/2018
-ms.date: 04/01/2019
+author: georgewallace
+ms.author: gwallace
+ms.date: 12/14/2018
 ms.topic: conceptual
-manager: digimobile
+manager: carmonm
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60738337"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprender os principais conceitos de fluxo de trabalho do Windows PowerShell para runbooks de automatização
@@ -44,7 +43,7 @@ Para adicionar parâmetros ao fluxo de trabalho, utilize o **Param** palavra-cha
 
 Código de fluxo de trabalho do PowerShell parece quase idêntico ao código de script do PowerShell, com exceção de algumas alterações significativas.  As secções seguintes descrevem as alterações que precisa fazer para um script do PowerShell para o mesmo para ser executado num fluxo de trabalho.
 
-### <a name="activities"></a>Atividades
+### <a name="activities"></a>Actividades
 
 Uma atividade é uma tarefa específica num fluxo de trabalho. Tal como um script é composto por um ou mais comandos, um fluxo de trabalho é composta por uma ou mais atividades que são executadas numa sequência. O fluxo de trabalho do Windows PowerShell converte automaticamente muitos dos cmdlets do Windows PowerShell em atividades quando é executada um fluxo de trabalho. Quando especificar um destes cmdlets no runbook, a atividade correspondente é executada pelo Windows Workflow Foundation. No caso dos cmdlets sem atividade correspondente, o fluxo de trabalho do Windows PowerShell executa automaticamente o cmdlet dentro de um [InlineScript](#inlinescript) atividade. Existe um conjunto de cmdlets que são excluídos e não pode ser utilizado num fluxo de trabalho, a menos que explicitamente incluídos num bloco InlineScript. Para obter mais detalhes sobre estes conceitos, veja [utilizar atividades em fluxos de trabalho de Script](https://technet.microsoft.com/library/jj574194.aspx).
 
@@ -56,7 +55,7 @@ Não é possível utilizar parâmetros posicionais com atividades e cmdlets num 
 
 Por exemplo, considere o seguinte código que obtém todos os serviços em execução.
 
-```powershell
+```azurepowershell-interactive
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -73,7 +72,7 @@ Workflow Get-RunningServices
 
 Objetos em fluxos de trabalho são anular a serialização.  Isso significa que as respetivas propriedades ainda estão disponíveis, mas não os respetivos métodos.  Por exemplo, considere o seguinte código do PowerShell que pára um serviço usando o método Stop do objeto de serviço.
 
-```powershell
+```azurepowershell-interactive
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -172,7 +171,7 @@ Parallel
 
 Por exemplo, considere os seguintes comandos do PowerShell que a cópia de vários ficheiros para um destino de rede.  Estes comandos são executados sequencialmente, para que um arquivo tem de concluir a cópia antes da próxima é iniciada.
 
-```powershell
+```azurepowershell-interactive
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -225,7 +224,7 @@ Workflow Copy-Files
 > [!NOTE]
 > Não recomendamos a execução de runbooks subordinados em paralelo, uma vez que isso tenha sido mostrado para dar resultados pouco fiáveis. A saída do runbook subordinado, às vezes, não é exibido e as definições no runbook subordinado de um podem afetar outros runbooks subordinados paralela. As variáveis como $VerbosePreference, $WarningPreference e outros não podem ser propagadas para os runbooks subordinados. E se o runbook subordinado alterar estes valores, eles poderão não ser corretamente restaurados depois de invocação.
 
-## <a name="checkpoints"></a>Pontos de Verificação
+## <a name="checkpoints"></a>Pontos de verificação
 
 R *ponto de verificação* é um instantâneo do estado atual do fluxo de trabalho que inclui o valor atual para variáveis e qualquer resultado gerado até esse ponto. Se um fluxo de trabalho termina dentro de erro ou está suspenso, em seguida, na próxima vez que for executada iniciará do último ponto de verificação, em vez do início do fluxo de trabalho.  Pode definir um ponto de verificação num fluxo de trabalho com o **Checkpoint-Workflow** atividade. A automatização do Azure tem um recurso chamado [justa](automation-runbook-execution.md#fair-share), onde qualquer runbook que seja executada durante 3 horas é descarregado para permitir a execução de outros runbooks. Finalmente, o runbook descarregado irá ser recarregado e quando é, retomará a execução do último ponto de verificação decorrido no runbook. Para garantir que o runbook, eventualmente, será concluído, tem de adicionar pontos de verificação em intervalos que são executadas durante menos de 3 horas. Se durante cada execução é adicionado um novo ponto de verificação e, se o runbook obtém expulso depois de 3 horas devido a um erro, em seguida, o runbook vai ser retomado indefinidamente.
 
@@ -276,13 +275,13 @@ workflow CreateTestVms
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "ChinaNorth" -ResourceGroupName "ResourceGroup01"
+        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
         $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
+        $null = Connect-AzureRmAccount -Credential $Cred
         }
 }
 ```

@@ -17,10 +17,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60506238"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH detalhada, resolução de problemas de passos para problemas de ligação a uma VM do Linux no Azure
@@ -40,7 +40,7 @@ Os passos seguintes ajudam a isolar a origem da falha e descobrir soluções ou 
 
 2. Selecione **definições** para examinar os pontos de extremidade, endereços IP, grupos de segurança de rede e outras definições.
 
-   A VM deve ter um ponto final definido para o tráfego SSH que pode ver na **pontos de extremidade** ou  **[grupo de segurança de rede](../../virtual-network/security-overview.md)**. Pontos finais em VMs que foram criadas utilizando o Gestor de recursos são armazenados num grupo de segurança de rede. Certifique-se de que as regras foram aplicadas ao grupo de segurança de rede e são referenciadas na sub-rede.
+   A VM deve ter um ponto final definido para o tráfego SSH que pode ver na **pontos de extremidade** ou  **[grupo de segurança de rede](../../virtual-network/security-overview.md)** . Pontos finais em VMs que foram criadas utilizando o Gestor de recursos são armazenados num grupo de segurança de rede. Certifique-se de que as regras foram aplicadas ao grupo de segurança de rede e são referenciadas na sub-rede.
 
 Para verificar a conectividade de rede, verifique os pontos finais configurados e veja se pode ligar à VM através de outro protocolo, como HTTP ou outro serviço.
 

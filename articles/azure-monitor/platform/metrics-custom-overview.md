@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254069"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
@@ -57,7 +57,7 @@ Esta propriedade captura em que região do Azure, o recurso que está a emitir m
 ### <a name="timestamp"></a>Carimbo de data/hora
 Cada ponto de dados enviado para o Azure Monitor deve ser marcado com um carimbo. Este timestamp captura a DateTime em que o valor da métrica é medido ou recolhido. O Azure Monitor aceita dados métricos carimbos de data máximo 20 minutos no passado e 5 minutos no futuro. O carimbo de hora tem de estar no formato ISO 8601.
 
-### <a name="namespace"></a>Espaço de nomes
+### <a name="namespace"></a>Espaço de Nomes
 Espaços de nomes são uma forma de categorizar ou agrupar métricas semelhante. Ao utilizar espaços de nomes, pode atingir o isolamento entre grupos de métricas, que poderão recolher informações diferentes ou indicadores de desempenho. Por exemplo, pode ter um namespace chamado **ContosoMemoryMetrics** que controla as métricas de utilização de memória que a aplicação de perfil. Outro namespace chamado **ContosoAppTransaction** pode acompanhar todas as métricas sobre transações de utilizador na sua aplicação.
 
 ### <a name="name"></a>Name
@@ -81,7 +81,7 @@ As dimensões são opcionais, nem todas as métricas podem ter dimensões. Se um
 Monitor do Azure armazena todas as métricas em intervalos de granularidade de um minuto. Estamos cientes de que, durante um determinado minuto, uma métrica poderá ter de amostragem várias vezes. Um exemplo é a utilização da CPU. Ou pode ter de ser medidos para muitos eventos discretos. Um exemplo é latências de transação de início de sessão. Para limitar o número de valores não processados, que terá de emitir e pague no Azure Monitor, pode pré-agregar localmente e emitir os valores:
 
 * **Min**: O valor mínimo observado de todos os exemplos e medições durante o minuto.
-* **Máx.**: O valor máximo observado de todos os exemplos e medições durante o minuto.
+* **Máx.** : O valor máximo observado de todos os exemplos e medições durante o minuto.
 * **Soma**: A soma de todos os valores observados de todos os exemplos e medições durante o minuto.
 * **Contagem de**: O número de amostras e medidas tomadas durante o minuto.
 

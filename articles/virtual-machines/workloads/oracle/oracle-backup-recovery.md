@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567082"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Criar cópias de segurança e recuperar uma base de dados do Oracle Database 12C numa máquina virtual Linux do Azure
@@ -303,7 +303,7 @@ Para obter mais informações, consulte [cópias de segurança para VMs do Linux
 
     ![Página de detalhes de myVault de cofres dos serviços de recuperação](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  Sobre o **itens de cópia de segurança (Máquina Virtual do Azure)** painel, no lado direito da página, clique nas reticências (**...** ) botão e, em seguida, clique em **cópia de segurança agora**.
+9.  Sobre o **itens de cópia de segurança (Máquina Virtual do Azure)** painel, no lado direito da página, clique nas reticências ( **...** ) botão e, em seguida, clique em **cópia de segurança agora**.
 
     ![Cópia de segurança agora comando cofres de serviços de recuperação](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -351,7 +351,7 @@ Para restaurar os arquivos excluídos, conclua os seguintes passos:
 
     ![Número de itens de cópia de segurança de Máquina Virtual do Azure de cofres dos serviços de recuperação](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. Sobre o **myvm1** painel, clique em **recuperação de ficheiros (pré-visualização)**.
+3. Sobre o **myvm1** painel, clique em **recuperação de ficheiros (pré-visualização)** .
 
     ![Página de recuperação de ficheiros de cofres de captura de ecrã dos serviços de recuperação](./media/oracle-backup-recovery/recovery_service_14.png)
 
@@ -472,7 +472,7 @@ Em vez de restaurar os arquivos excluídos dos cofres de serviços de recuperaç
 
     ![Página de VM de recuperação](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  Sobre o **myvm1** painel, clique nas reticências (**...** ) botão e, em seguida, clique em **restaurar a VM**.
+4.  Sobre o **myvm1** painel, clique nas reticências ( **...** ) botão e, em seguida, clique em **restaurar a VM**.
 
     ![Restaurar o comando VM](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -503,7 +503,7 @@ Depois de restaurar a VM, configure o endereço IP público.
 
     ![Lista de endereços IP públicos](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  Sobre o **endereços IP públicos** painel, clique em **Add**. Sobre o **Criar endereço IP público** painel, para **nome**, selecione o nome do IP público. Em **Grupo de recursos**, selecione **Utilizar existente**. Em seguida, clique em **Criar**.
+2.  Sobre o **endereços IP públicos** painel, clique em **Add**. Sobre o **Criar endereço IP público** painel, para **nome**, selecione o nome do IP público. Em **Grupo de recursos**, selecione **Utilizar existente**. Em seguida, clique em **criar**.
 
     ![Criar endereço IP](./media/oracle-backup-recovery/create_ip_01.png)
 

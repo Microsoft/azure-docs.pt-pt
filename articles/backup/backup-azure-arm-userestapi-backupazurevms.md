@@ -11,10 +11,10 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646780"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer cópias de segurança de VM do Azure com o Azure Backup através da REST API
@@ -41,7 +41,7 @@ O URI de POST tem `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`,
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses"></a>Responses
 
 A operação de "Atualizar" é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que esta operação cria outra operação que tem de ser registados em separado.
 
@@ -108,7 +108,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 O *obter* URI tem todos os parâmetros necessários. Não é necessário nenhum corpo de pedido adicionais.
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses"></a>Responses
 
 |Name  |Tipo  |Descrição  |
 |---------|---------|---------|
@@ -208,7 +208,7 @@ O corpo do pedido seguinte define as propriedades necessárias para criar um ite
 
 O `{sourceResourceId}` é o `{virtualMachineId}` mencionadas acima a partir do [resposta suscetíveis de proteção de itens de lista](#example-responses-1).
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses"></a>Responses
 
 A criação de um item protegido é um [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que esta operação cria outra operação que tem de ser registados em separado.
 
@@ -319,7 +319,7 @@ O corpo do pedido seguinte define as propriedades necessárias para acionar uma 
 }
 ```
 
-### <a name="responses"></a>Respostas
+### <a name="responses"></a>Responses
 
 Acionar uma cópia de segurança a pedido é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que esta operação cria outra operação que tem de ser registados em separado.
 
@@ -439,7 +439,7 @@ O `{containerName}` e `{protectedItemName}` são como construído [acima](#respo
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Respostas
+### <a name="responses"></a>Responses
 
 *ELIMINAR* proteção é um [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que esta operação cria outra operação que tem de ser registados em separado.
 

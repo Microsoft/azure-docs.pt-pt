@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60796309"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolher o melhor de escalão de preço no Azure Maps
 
-Mapas do Azure oferece dois escalões de preços. O objetivo deste artigo é para o ajudar a escolher o melhor de preços para as suas necessidades. Para ajudar a escolher o melhor de escalão de preço, pergunte-se a duas perguntas seguintes.
+O Azure Maps tem dois escalões de preço. O objetivo deste artigo é para o ajudar a escolher o melhor de preços para as suas necessidades. Para ajudar a escolher o melhor de escalão de preço, pergunte-se a duas perguntas seguintes.
 
 ## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Que capacidades geoespaciais planeja usar?
 O escalão de preço S0 é adequado para si se geoespacial as principais APIs cumprir os requisitos de serviço. Se pretender que os recursos mais avançados para a sua aplicação, considere optar para o escalão de preço S1. Recursos de exemplo são um mais imagens híbridas, obtendo o intervalo de rota e geocodificação do batch. O **capacidades de escalão de preço** tabela que se segue dá-lhe uma ideia melhor de necessidades da sua aplicação. Ele também ajuda a escolher um escalão de preço mais adequado para a sua aplicação.
@@ -27,7 +27,7 @@ Os escalões de preços S0 e S1 lidar com diferentes quantidades de débito de d
 
 ### <a name="pricing-tier-capabilities"></a>Capacidades de escalão de preço
 
-| Capacidade                              |        S0           |  S1      |
+| Funcionalidade                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Pesquisa (fwd/rev geocodificação, pontos de interesse)  |        ✓           |     ✓    |
 | Geocodificação de batch (pré-visualização)              |                   |     ✓    |

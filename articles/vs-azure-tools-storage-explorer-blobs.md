@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60458562"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir recursos de armazenamento de Blobs do Azure com o Explorador de armazenamento
@@ -77,7 +77,7 @@ Os passos seguintes mostram como eliminar um contentor de BLOBs no Explorador de
    Também pode premir **eliminar** para eliminar o contentor de BLOBs atualmente selecionada.
 
    ![Eliminar o menu de contexto do contentor de BLOBs][4]
-5. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
+5. Selecione **Yes (Sim)** , na caixa de diálogo de confirmação.
 
    ![Eliminar confirmação de contentor do blob][5]
 
@@ -108,15 +108,15 @@ Os passos seguintes mostram como criar uma SAS para um contentor de BLOBs:
 4. O contentor de BLOBs pretendido com o botão direito e, no menu de contexto - selecione **obter assinatura de acesso partilhado**.
 
    ![Obter o menu de contexto SAS][8]
-5. Na caixa de diálogo **Shared Access Signature (Assinatura de Acesso Partilhado)**, especifique a política, as datas de início e de expiração, o fuso horário e os níveis de acesso que atribuir ao recurso.
+5. Na caixa de diálogo **Shared Access Signature (Assinatura de Acesso Partilhado)** , especifique a política, as datas de início e de expiração, o fuso horário e os níveis de acesso que atribuir ao recurso.
 
    ![Obter opções de SAS][9]
-6. Quando tiver terminado de especificar as opções de SAS, selecione **Create (Criar)**.
+6. Quando tiver terminado de especificar as opções de SAS, selecione **Create (Criar)** .
 7. Um segundo **assinatura de acesso partilhado** diálogo aparecerão, então, que lista o contentor de BLOBs, juntamente com o URL e QueryStrings que pode utilizar para aceder ao recurso de armazenamento.
-   Selecione **Copy (Copiar)**, junto ao URL que quer copiar para a área de transferências.
+   Selecione **Copy (Copiar)** , junto ao URL que quer copiar para a área de transferências.
 
    ![URLs SAS de cópia][10]
-8. Quando terminar, selecione **Close (Fechar)**.
+8. Quando terminar, selecione **Close (Fechar)** .
 
 ## <a name="manage-access-policies-for-a-blob-container"></a>Gerir políticas de acesso para um contentor de BLOBs
 Os passos seguintes mostram como gerir (adicionar e remover) políticas de acesso de um contentor de BLOBs:
@@ -132,7 +132,7 @@ Os passos seguintes mostram como gerir (adicionar e remover) políticas de acess
    ![Opções de política de acesso][12]        
 6. Siga estes passos consoante a tarefa de gestão de política de acesso:
 
-   * **Adicionar uma política de acesso nova** - selecione **Add (Adicionar)**. Depois de gerada, a caixa de diálogo **Access Policies** mostrará a política de acesso acabada de adicionar (com predefinições).
+   * **Adicionar uma política de acesso nova** - selecione **Add (Adicionar)** . Depois de gerada, a caixa de diálogo **Access Policies** mostrará a política de acesso acabada de adicionar (com predefinições).
    * **Editar uma política de acesso** - faça eventuais alterações que pretenda e selecione **guardar**.
    * **Remover uma política de acesso** - selecione **Remove (Remover)** junto à política de acesso que pretende remover.
 
@@ -169,10 +169,10 @@ Os passos seguintes mostram como gerir os blobs (e pastas) dentro de um contento
 
    * **Carregar ficheiros para um contentor de BLOBs**
 
-     1. Na barra de ferramentas do painel principal, selecione **Upload (Carregar)** e, em seguida, **Upload Files (Carregar Ficheiros)**, no menu pendente.
+     1. Na barra de ferramentas do painel principal, selecione **Upload (Carregar)** e, em seguida, **Upload Files (Carregar Ficheiros)** , no menu pendente.
 
         ![Menu Carregar ficheiros][15]
-     2. Na caixa de diálogo **Upload files (Carregar ficheiros)**, selecione o botão de reticências (**...**), no lado direito da caixa de texto **Files (Ficheiros)**, para selecionar o ficheiro ou ficheiros que quer carregar.
+     2. Na caixa de diálogo **Upload files (Carregar ficheiros)** , selecione o botão de reticências ( **...** ), no lado direito da caixa de texto **Files (Ficheiros)** , para selecionar o ficheiro ou ficheiros que quer carregar.
 
         ![Opções de ficheiros de carregamento][16]
      3. Especifique o tipo de **tipo de Blob**. Ver [criar o contentor e definir permissões](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) para obter mais informações.
@@ -180,10 +180,10 @@ Os passos seguintes mostram como gerir os blobs (e pastas) dentro de um contento
      5. Selecione **Upload**.
    * **Carregar uma pasta para um contentor de BLOBs**
 
-     1. Na barra de ferramentas do painel principal, selecione **Upload** e, em seguida, **Upload Folder (Carregar Pasta)**, no menu pendente.
+     1. Na barra de ferramentas do painel principal, selecione **Upload** e, em seguida, **Upload Folder (Carregar Pasta)** , no menu pendente.
 
         ![Menu Carregar pasta][17]
-     2. Na caixa de diálogo **Upload folder (Carregar pasta)**, selecione o botão de reticências (**...**), no lado direito da caixa de texto **Folder (Pasta)**, para selecionar a pasta cujos conteúdos quer carregar.
+     2. Na caixa de diálogo **Upload folder (Carregar pasta)** , selecione o botão de reticências ( **...** ), no lado direito da caixa de texto **Folder (Pasta)** , para selecionar a pasta cujos conteúdos quer carregar.
 
         ![Opções de pasta de carregamento][18]
      3. Especifique o tipo de **tipo de Blob**. Ver [criar o contentor e definir permissões](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) para obter mais informações.
@@ -192,25 +192,25 @@ Os passos seguintes mostram como gerir os blobs (e pastas) dentro de um contento
    * **Transferir um blob para o computador local**
 
      1. Selecione o blob que pretende transferir.
-     2. Na barra de ferramentas do painel principal, selecione **Download (Transferir)**.
+     2. Na barra de ferramentas do painel principal, selecione **Download (Transferir)** .
      3. Na **especifique onde pretende guardar o blob transferido** caixa de diálogo, especifique a localização onde pretende que o blob transferido e o nome que pretende dar a ele.  
      4. Selecione **Guardar**.
    * **Abra um blob no seu computador local**
 
      1. Selecione o blob que pretende abrir.
-     2. Na barra de ferramentas do painel principal, selecione **Open (Abrir)**.
+     2. Na barra de ferramentas do painel principal, selecione **Open (Abrir)** .
      3. O blob será transferido e aberto com a aplicação associada ao tipo de ficheiro subjacente do blob.
    * **Copiar um blob para a área de transferência**
 
      1. Selecione o blob que pretende copiar.
-     2. Na barra de ferramentas do painel principal, selecione **Copy (Copiar)**.
+     2. Na barra de ferramentas do painel principal, selecione **Copy (Copiar)** .
      3. No painel esquerdo, navegue para outro contentor de BLOBs e faça duplo clique para vê-la no painel principal.
      4. Na barra de ferramentas do painel principal, selecione **colar** para criar uma cópia do blob.
    * **Eliminar um blob**
 
      1. Selecione o blob que pretende eliminar.
-     2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)**.
-     3. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
+     2. Na barra de ferramentas do painel principal, selecione **Delete (Eliminar)** .
+     3. Selecione **Yes (Sim)** , na caixa de diálogo de confirmação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](https://www.storageexplorer.com).

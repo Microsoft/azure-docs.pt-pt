@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
 ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306399"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradação na proporção de gravidade de rastreio (pré-visualização)

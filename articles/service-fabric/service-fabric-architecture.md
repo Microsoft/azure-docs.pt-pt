@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
 ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62097849"
 ---
 # <a name="service-fabric-architecture"></a>Arquitetura do Service Fabric

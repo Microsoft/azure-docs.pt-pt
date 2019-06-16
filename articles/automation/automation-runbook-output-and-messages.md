@@ -10,10 +10,10 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61227010"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Resultado do Runbook e mensagens na automatização do Azure
@@ -21,7 +21,7 @@ A maioria dos runbooks de automatização do Azure têm alguma forma de saída. 
 
 A tabela seguinte fornece uma breve descrição de cada um dos fluxos e do respetivo comportamento no portal do Azure para runbooks publicados e quando [testar um runbook](automation-testing-runbook.md). Existem mais detalhes sobre cada fluxo são fornecidos nas secções posteriores.
 
-| Transmitir em fluxo | Descrição | Publicado | Teste |
+| Stream | Descrição | Publicado | Teste |
 |:--- |:--- |:--- |:--- |
 | Saída |Objetos destinados a ser consumidos por outros runbooks. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |
 | Aviso |Mensagem de aviso para o utilizador. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |

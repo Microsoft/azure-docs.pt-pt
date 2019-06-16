@@ -13,10 +13,10 @@ ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60946727"
 ---
 # <a name="service-fabric-environment-variables"></a>Variáveis de ambiente do Service Fabric

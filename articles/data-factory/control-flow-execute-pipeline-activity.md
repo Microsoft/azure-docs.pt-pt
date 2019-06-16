@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808845"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade execute Pipeline na fábrica de dados do Azure
@@ -62,9 +62,9 @@ A atividade executar Pipeline permite que um pipeline do Data Factory invoque ou
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade execute pipeline. | String | Sim
-tipo | Deve ser definida como: **ExecutePipeline**. | String | Sim
-pipeline | Referência do pipeline para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
+name | Nome da atividade execute pipeline. | String | Sim
+type | Deve ser definida como: **ExecutePipeline**. | String | Sim
+Pipeline | Referência do pipeline para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
 parameters | Parâmetros a ser transmitidos para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
 waitOnCompletion | Define se a execução da atividade aguarda para que a execução de pipeline dependentes concluir. A predefinição é falso. | Boolean | Não
 

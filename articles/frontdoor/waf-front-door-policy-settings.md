@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459373"
 ---
 # <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Definições de política de firewall de aplicações web com porta da frente do Azure

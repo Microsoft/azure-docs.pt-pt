@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60636331"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a CDN do Azure para o tipo de entrega de conteúdos
@@ -78,7 +78,7 @@ Quando cria um ponto final da CDN, selecione um tipo de otimização que descrev
 
 Pode otimizar o ponto final da CDN para um desses cenários. 
 
-### <a name="general-web-delivery"></a>Entrega geral Web
+### <a name="general-web-delivery"></a>Entrega geral web
 
 Entrega geral web é a opção de otimização mais comuns. Foi concebido para a otimização de conteúdo web geral, tais como aplicações web e de páginas da Web. Esta otimização também pode ser utilizada para o ficheiro e downloads de vídeo.
 
@@ -111,7 +111,7 @@ Para obter mais informações sobre a Otimização da transmissão em fluxo de m
 > Se o ponto final da CDN serve principalmente conteúdo de vídeo a pedido, utilize este tipo de otimização. A principal diferença entre esse tipo de Otimização e o suporte de dados geral, o tipo de otimização de transmissão em fluxo é o tempo limite de tentativas de ligação. O tempo limite é muito menor para trabalhar com cenários de transmissão em fluxo em direto.
 >
 
-### <a name="large-file-download"></a>Transferência de ficheiro grande
+### <a name="large-file-download"></a>Transferência de ficheiros grandes
 
 Para **CDN do Azure Standard da Akamai** perfis de ficheiros grandes downloads são otimizados para o conteúdo mais de 10 MB. Se o tamanho de arquivo média é menor do que 10 MB, utilize a entrega geral web. Se os tamanhos de arquivos média são consistentemente maiores do que 10 MB, poderá ser mais eficiente para criar um ponto de final separado para ficheiros grandes. Por exemplo, o firmware ou atualizações de software normalmente são arquivos grandes. Para entregar os ficheiros mais de 1,8 GB, a otimização de transferência de ficheiros grandes é necessária.
 

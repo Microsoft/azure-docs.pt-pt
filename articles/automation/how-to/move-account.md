@@ -10,10 +10,10 @@ ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 59d433bfb888eaa41cc8f66bdf3ad28c16efbe5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61302624"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mover a sua conta de automatização do Azure para outra subscrição
@@ -137,7 +137,7 @@ Para obter instruções detalhadas sobre como configurar a solução, consulte [
 
 Quando a migração estiver concluída, verifique a lista seguinte de tarefas que devem ser verificados:
 
-|Capacidade|Testes|Resolução de problemas de ligação|
+|Funcionalidade|Testes|Resolução de problemas de ligação|
 |---|---|---|
 |Runbooks|Um runbook pode executar e ligar aos recursos do Azure com êxito.|[Resolver problemas de runbooks](../troubleshoot/runbooks.md)
 | Controlo de origem|Pode executar uma sincronização manual no seu repositório de controle de origem.|[Integração do controlo de origem](../source-control-integration.md)|

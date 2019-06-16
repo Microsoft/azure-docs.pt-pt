@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60718126"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Descrição geral do suporte de multi-inquilino para a recuperação de desastre do VMware para o Azure com o CSP
@@ -91,7 +91,7 @@ Configure o servidor de configuração com uma conta que tenha um papel especial
 
 >| Object | Função | Observações |
 >| --- | --- | --- |
->| vCenter | Só de Leitura | É necessário apenas para permitir o acesso de vCenter para gerir diferentes objetos. Pode remover esta permissão, se a conta nunca vai ser fornecido para um inquilino ou utilizada para quaisquer operações de gestão no vCenter. |
+>| vCenter | Só de leitura | É necessário apenas para permitir o acesso de vCenter para gerir diferentes objetos. Pode remover esta permissão, se a conta nunca vai ser fornecido para um inquilino ou utilizada para quaisquer operações de gestão no vCenter. |
 >| Datacenter | Azure_Site_Recovery |  |
 >| Anfitriões e cluster de anfitriões | Azure_Site_Recovery | Novamente garante que o acesso é ao nível do objeto, para que apenas os anfitriões acessíveis tenham VMs inquilinas antes da ativação pós-falha e depois da reativação pós-falha. |
 >| Cluster de arquivo de dados e o arquivo de dados | Azure_Site_Recovery | Mesmo que a anterior. |
@@ -110,7 +110,7 @@ Para restringir operações de recuperação após desastre até a ativação p�
 ### <a name="deploy-resources-to-the-tenant-subscription"></a>Implementar recursos para a subscrição do inquilino
 
 1. No portal do Azure, crie um grupo de recursos e, em seguida, implementar um cofre de serviços de recuperação pelo processo normal.
-2. Transfira a chave de registo do cofre.
+2. Transferir a chave de registo do cofre.
 3. Registe o CS para o inquilino com a chave de registo do cofre.
 4. Introduza as credenciais para as contas de acesso de duas, a conta para aceder ao servidor vCenter e a conta para aceder à VM.
 

@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: tomfitz
 ms.openlocfilehash: 19642138105f3de0e2bda3f0f80e12cf74a35709
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61059995"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolva os erros para os recursos de principal

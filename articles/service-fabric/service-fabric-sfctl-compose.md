@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837271"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
@@ -28,12 +28,12 @@ Criar, eliminar e gerir aplicações do Docker Compose.
 
 |Comando|Descrição|
 | --- | --- |
-| criar | Cria um recurso de infraestrutura do serviço de aplicação de implementação. |
+| create | Cria um recurso de infraestrutura do serviço de aplicação de implementação. |
 | list | Obtém a lista de compor implementações criadas no cluster do Service Fabric. |
-| remover | Elimina um recursos de infraestrutura existente do serviço de aplicação de implementação do cluster. |
+| remove | Elimina um recursos de infraestrutura existente do serviço de aplicação de implementação do cluster. |
 | status | Obtém informações sobre um recurso de infraestrutura do serviço de aplicação de implementação. |
-| Atualizar | Começa a atualizar uma implementação de composição no cluster do Service Fabric. |
-| reversão de atualização | Atualizar começa a reverter uma implementação de composição no cluster do Service Fabric. |
+| upgrade | Começa a atualizar uma implementação de composição no cluster do Service Fabric. |
+| upgrade-rollback | Atualizar começa a reverter uma implementação de composição no cluster do Service Fabric. |
 | upgrade-status | Obtém detalhes para a atualização mais recente realizada nestes recursos de infraestrutura do serviço de aplicação de implementação. |
 
 ## <a name="sfctl-compose-create"></a>o sfctl compor criar

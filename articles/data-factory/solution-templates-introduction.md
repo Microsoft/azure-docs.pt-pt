@@ -12,10 +12,10 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60786977"
 ---
 # <a name="templates"></a>Modelos
@@ -30,11 +30,11 @@ Pode começar a criar um pipeline do Data Factory a partir de um modelo a seguir
 
     ![Abrir a Galeria de modelos a partir da página de descrição geral](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  No separador de autor no Explorador de recursos, selecione **+**, em seguida, **Pipeline de modelo** para abrir a Galeria de modelos.
+1.  No separador de autor no Explorador de recursos, selecione **+** , em seguida, **Pipeline de modelo** para abrir a Galeria de modelos.
 
     ![Abra a Galeria de modelos da guia do autor](media/solution-templates-introduction/templates-intro-image2.png)
 
-## <a name="template-gallery"></a>Galeria de Modelos
+## <a name="template-gallery"></a>Galeria de modelos
 
 ![Galeria de modelos](media/solution-templates-introduction/templates-intro-image3.png)
 

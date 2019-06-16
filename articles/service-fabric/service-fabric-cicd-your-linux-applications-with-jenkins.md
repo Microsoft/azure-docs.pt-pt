@@ -13,10 +13,10 @@ ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
 ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61038848"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Utilizar o Jenkins para criar e implementar as suas aplicações do Linux
@@ -298,7 +298,7 @@ Para ambientes de desenvolvimento e teste, pode configurar as credenciais do Azu
 
 1. Para criar um Azure Active Directory, principal de serviço e o atribuir permissões na sua subscrição do Azure, siga os passos em [utilizar o portal para criar um Azure Active Directory principal de aplicações e serviço](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Preste atenção ao seguinte:
 
-   * Ao seguir os passos no tópico, certifique-se de que copia e guarda os seguintes valores: *ID da aplicação*, *chave da aplicação*, *ID de diretório (ID de inquilino)*, e *ID de subscrição*. Precisa para configurar as credenciais do Azure no Jenkins.
+   * Ao seguir os passos no tópico, certifique-se de que copia e guarda os seguintes valores: *ID da aplicação*, *chave da aplicação*, *ID de diretório (ID de inquilino)* , e *ID de subscrição*. Precisa para configurar as credenciais do Azure no Jenkins.
    * Se não tiver o [permissões obrigatórias](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) em seu diretório, terá de pedir a um administrador para lhe conceder as permissões ou criar o principal de serviço para, ou terá de configurar o ponto final de gestão para o cluster no **ações de pós-compilação** para a sua tarefa no Jenkins.
    * Na [criar uma aplicação do Azure Active Directory](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) secção, pode introduzir qualquer URL bem formado para o **URL de início de sessão**.
    * Na [atribua a aplicação a uma função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) secção, pode atribuir a aplicação a *leitor* função no grupo de recursos para o seu cluster.

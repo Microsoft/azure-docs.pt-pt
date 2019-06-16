@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
 ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60400853"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Mensagens de dispositivo-para-cloud do Azure IoT com o rastreio distribuído (pré-visualização) de rastreio
@@ -191,7 +191,7 @@ Para alterar a percentagem de mensagens de rastreamento da cloud, tem de atualiz
 
 1. Clique no seu dispositivo.
 
-1. Procure **distribuídas de ativar o rastreio (pré-visualização)**, em seguida, selecione **ativar**.
+1. Procure **distribuídas de ativar o rastreio (pré-visualização)** , em seguida, selecione **ativar**.
 
     ![Ativar o rastreio distribuído no portal do Azure](./media/iot-hub-distributed-tracing/azure-portal.png)
 
@@ -213,7 +213,7 @@ Para alterar a percentagem de mensagens de rastreamento da cloud, tem de atualiz
 
 1. Abra o VS Code e [configurar a cadeia de ligação do IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Expanda o dispositivo e procure **distribuído rastreio definição (pré-visualização)**. Clique em **distribuído rastreio definição de atualização (pré-visualização)** do nó de sub-rotina.
+1. Expanda o dispositivo e procure **distribuído rastreio definição (pré-visualização)** . Clique em **distribuído rastreio definição de atualização (pré-visualização)** do nó de sub-rotina.
 
     ![Ativar o rastreio distribuído no Kit de ferramentas do Azure IoT Hub](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
@@ -242,8 +242,8 @@ Para atualizar a configuração de amostragem de rastreio distribuído para vár
 
 | Nome do elemento | Necessário | Tipo | Descrição |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sim | Número inteiro | Dois valores de modo são atualmente suportados para ativar e desativar a amostragem. `1` está ativada e, `2` está desativada. |
-| `sampling_rate` | Sim | Número inteiro | Este valor é uma percentagem. Apenas os valores da `0` para `100` (inclusive) são permitidos.  |
+| `sampling_mode` | Sim | Integer | Dois valores de modo são atualmente suportados para ativar e desativar a amostragem. `1` está ativada e, `2` está desativada. |
+| `sampling_rate` | Sim | Integer | Este valor é uma percentagem. Apenas os valores da `0` para `100` (inclusive) são permitidos.  |
 
 ## <a name="query-and-visualize"></a>Consultar e visualizar
 

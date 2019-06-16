@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60705300"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Compreender as recomendações do Centro de segurança do Azure container
@@ -32,11 +32,11 @@ Centro de segurança do Azure fornece as seguintes capacidades para o ajudar a p
     ![separador de contentor](./media/security-center-container-recommendations/docker-recommendation.png)
 
 
-- **Recomendações de segurança com base no parâmetro de comparação de itens de configuração para o Docker**<br>Centro de segurança analisa as configurações do Docker e permite-lhe ver configurações incorretas ao fornecer uma lista de todas as regras com falhas que foram analisadas. Centro de segurança fornece diretrizes para ajudar a resolver rapidamente estes problemas e poupar tempo. Centro de segurança avalia as configurações de Docker e fornece-lhe o estado mais recente continuamente.
+- **Recomendações de segurança com base no parâmetro de comparação de itens de configuração para o Docker**<br>O Centro de Segurança analisa as suas configurações do Docker e fornece-lhe visibilidade sobre as configurações incorretas ao disponibilizar uma lista de todas as regras com falhas que foram analisadas. Centro de segurança fornece diretrizes para ajudar a resolver rapidamente estes problemas e poupar tempo. O Centro de Segurança avalia continuamente as configurações do Docker e fornece o estado mais recente.
 
     ![separador de contentor](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Deteção de ameaças de contentor em tempo real**<br> Centro de segurança fornece deteção de ameaças em tempo real para os seus contentores em máquinas do Linux com o componente de AuditD. Os alertas identificam várias atividades suspeitas do Docker como, por exemplo, a criação de um contentor com privilégios no anfitrião, uma indicação de servidor de Secure Shell (SSH) em execução dentro de um contentor de Docker ou o uso dos extratores de criptografia. Pode usar essas informações para resolver problemas de segurança e aumente a segurança dos seus contentores rapidamente.
+- **Deteção de ameaças de contentor em tempo real**<br> Centro de segurança fornece deteção de ameaças em tempo real para os seus contentores em máquinas do Linux com o componente de AuditD. Os alertas identificam várias atividades suspeitas do Docker como, por exemplo, a criação de um contentor com privilégios no anfitrião, uma indicação de servidor de Secure Shell (SSH) em execução dentro de um contentor de Docker ou o uso dos extratores de criptografia. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
 
     ![separador de contentor](./media/security-center-container-recommendations/docker-threat-detection.png)
 
@@ -45,13 +45,13 @@ Utilize as tabelas abaixo como referência para ajudar a compreender os contento
 
 | Recomendação | Descrição | Remediação |
 | --- | --- | --- |
-|Remediar vulnerabilidades nas configurações de segurança do contentor |Remediar vulnerabilidades em configurações de segurança do contentor com base nas melhores práticas de configuração.| Remediar vulnerabilidades nas configurações de segurança do contentor:<br>1. Reveja a lista de regras com falhas.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
+|Remediar vulnerabilidades em configurações de segurança do contentor |Remediar vulnerabilidades em configurações de segurança do contentor com base nas melhores práticas de configuração.| Remediar vulnerabilidades nas configurações de segurança do contentor:<br>1. Reveja a lista de regras com falhas.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
-* [Monitor identity and access in Azure Security Center](security-center-identity-access.md) (Monitorizar a identidade e o acesso no Centro de Segurança do Azure)
+* [Monitorizar a identidade e acesso no Centro de segurança do Azure](security-center-identity-access.md)
 * [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 * [Proteger o seu serviço do SQL do Azure no Centro de segurança do Azure](security-center-sql-service-recommendations.md)
 

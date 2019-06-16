@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881487"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Ver registos para um serviço de contentor do Service Fabric
@@ -29,7 +29,7 @@ Registos de contentor podem ser acessados usando [Service Fabric Explorer](servi
 
 Registos de contentor estão localizados no nó de cluster que a instância do serviço de contentor é executado. Por exemplo, obter os registos do contentor web front-end do [aplicação de voto do Linux do exemplo](service-fabric-quickstart-containers-linux.md). Na vista de árvore, expanda **Cluster**>**aplicativos**>**VotingType**>**fabric: / Voting / azurevotefront**.  Em seguida, expanda a partição (d1aa737e-f22a-e347-be16-eec90be24bc1, neste exemplo) e ver que o contentor está em execução no nó de cluster *_lnxvm_0*.
 
-Na vista de árvore, encontrar o pacote do código sobre o *_lnxvm_0* nó ao expandir **nós**>**_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**pacotes do código**>**código**.  Em seguida, selecione o **registos de contentor** opção para apresentar os registos de contentor.
+Na vista de árvore, encontrar o pacote do código sobre o *_lnxvm_0* nó ao expandir **nós**> **_lnxvm_0**>**fabric: / Voting**  > **azurevotfrontPkg**>**pacotes do código**>**código**.  Em seguida, selecione o **registos de contentor** opção para apresentar os registos de contentor.
 
 ![Plataforma do Service Fabric][Image1]
 

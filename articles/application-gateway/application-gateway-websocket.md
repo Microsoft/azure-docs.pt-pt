@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
 ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831254"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Descrição geral do suporte de WebSocket no Gateway de aplicação
 
-Gateway de aplicação fornece suporte nativo para WebSocket em todos os tamanhos de gateway. Não existe qualquer definição configurável pelo utilizador para ativar ou desativar seletivamente o suporte de WebSocket. 
+O Gateway de Aplicação fornece suporte nativo para o WebSocket em todos os tamanhos de gateway. Não existe qualquer definição configurável pelo utilizador para ativar ou desativar seletivamente o suporte de WebSocket. 
 
 Protocolo WebSocket padronizado nas [RFC6455](https://tools.ietf.org/html/rfc6455) permite uma comunicação duplex completa entre um servidor e um cliente através de uma ligação de TCP de longa execução. Esta funcionalidade permite uma comunicação mais interativa entre o servidor web e o cliente, que pode ser bidirecional sem a necessidade de consulta como necessário em implementações baseadas em HTTP. WebSocket tem baixa sobrecarga ao contrário de HTTP e pode reutilizar a mesma ligação de TCP para várias solicitações/respostas, resultando numa utilização mais eficiente dos recursos. Protocolos de WebSocket foram concebidos para funcionar nas portas de HTTP tradicionais de 80 e 443.
 

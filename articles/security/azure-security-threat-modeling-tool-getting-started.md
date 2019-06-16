@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
 ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610789"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guia de introdução a ferramenta de modelagem de ameaças
 
-2018 a ferramenta Microsoft de modelagem de ameaças lançada como disponibilidade geral, em Setembro de 2018, como um livre  **[clique para download](https://aka.ms/threatmodelingtool)**. A alteração no mecanismo de entrega permite-nos enviar as mais recentes melhorias e correções de erros para os clientes sempre que abrem a ferramenta, tornando mais fácil de manter e utilizar.
+2018 a ferramenta Microsoft de modelagem de ameaças lançada como disponibilidade geral, em Setembro de 2018, como um livre  **[clique para download](https://aka.ms/threatmodelingtool)** . A alteração no mecanismo de entrega permite-nos enviar as mais recentes melhorias e correções de erros para os clientes sempre que abrem a ferramenta, tornando mais fácil de manter e utilizar.
 Este artigo orienta-o processo de introdução com a abordagem de modelagem de ameaças do Microsoft SDL e mostra-lhe como utilizar a ferramenta para desenvolver ótimos modelos de risco como um backbone de seu processo de segurança.
 
 Este artigo baseia-se no conhecimento existente de abordagem de modelagem de ameaças SDL. Para uma análise rápida, consulte **[aplicativos de Web de modelagem de ameaças](https://msdn.microsoft.com/library/ms978516.aspx)** e uma versão arquivada do **[descobrir segurança falhas usando a abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** Artigo do MSDN publicado em 2006.
@@ -79,14 +79,14 @@ Que passam pelo processo de desenvolvimento de seu primeiro modelo de risco.
 > - Estão a enviar comandos para o nosso servidor Web — o círculo
 > - O servidor Web está consultando um banco de dados (por duas linhas paralelas)
 
-O que Ricardo acabamos de mostrar Cristina é a abreviação de um DFD  **[diagrama de fluxo de dados](https://en.wikipedia.org/wiki/Data_flow_diagram)**. A ferramenta de modelagem de ameaças permite aos utilizadores especificar limites de fidedignidade, indicados pelas linhas pontilhadas vermelhas, para mostrar onde as diferentes entidades estão no controle. Por exemplo, os administradores de TI exigem um sistema do Active Directory para fins de autenticação, para que o Active Directory está fora do controlo.
+O que Ricardo acabamos de mostrar Cristina é a abreviação de um DFD  **[diagrama de fluxo de dados](https://en.wikipedia.org/wiki/Data_flow_diagram)** . A ferramenta de modelagem de ameaças permite aos utilizadores especificar limites de fidedignidade, indicados pelas linhas pontilhadas vermelhas, para mostrar onde as diferentes entidades estão no controle. Por exemplo, os administradores de TI exigem um sistema do Active Directory para fins de autenticação, para que o Active Directory está fora do controlo.
 
 > Cristina: Tem o aspeto pretendido para mim. E as ameaças?
 > Ricardo: Deixe-me mostrar a.
 
 ## <a name="analyzing-threats"></a>Análise de riscos
 
-Assim que ele clica na vista de análise da seleção de menu de ícone (arquivo com Lupa), ele é levado para uma lista de ameaças geradas a ferramenta de modelagem de ameaças encontradas com base no modelo padrão, que utiliza a abordagem do SDL chamada  **[ STRIDE (Spoofing, violação, divulgação de informações, rejeição, Denial of Service e elevação de privilégios)](https://en.wikipedia.org/wiki/STRIDE_(security))**. A idéia é que o software é fornecido um conjunto previsível de ameaças, que podem ser encontrados usando essas 6 categorias.
+Assim que ele clica na vista de análise da seleção de menu de ícone (arquivo com Lupa), ele é levado para uma lista de ameaças geradas a ferramenta de modelagem de ameaças encontradas com base no modelo padrão, que utiliza a abordagem do SDL chamada  **[ STRIDE (Spoofing, violação, divulgação de informações, rejeição, Denial of Service e elevação de privilégios)](https://en.wikipedia.org/wiki/STRIDE_(security))** . A idéia é que o software é fornecido um conjunto previsível de ameaças, que podem ser encontrados usando essas 6 categorias.
 
 Essa abordagem é como a proteção da sua casa, assegurando que cada porta e janela tem um mecanismo de bloqueio em vigor antes de adicionar um sistema de alarme ou perseguir o ladrão.
 

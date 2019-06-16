@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679579"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Criar um ponto de final de CDN do Azure
@@ -44,7 +44,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
    
     ![Adicionar página de ponto final](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. Para **Nome**, introduza um nome exclusivo para o novo ponto final da CDN. Este nome é utilizado para aceder aos recursos em cache no domínio  _\<endpointname >_. azureedge.net.
+3. Para **Nome**, introduza um nome exclusivo para o novo ponto final da CDN. Este nome é utilizado para aceder aos recursos em cache no domínio  _\<endpointname >_ . azureedge.net.
 
 4. Para **tipo de origem**, escolha um dos seguintes tipos de origem: 
    - **Armazenamento** para o armazenamento do Azure
@@ -62,7 +62,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do
    > Alguns tipos de origens, como o Armazenamento e as Aplicações Web do Azure, requerem que o cabeçalho de anfitrião coincida com o domínio da origem. A menos que tenha uma origem que necessite de um cabeçalho de anfitrião diferente do respetivo domínio, deve deixar o valor predefinido.
    > 
     
-8. Para **protocolo** e **porta de origem**, especifique os protocolos e portas a utilizar para aceder aos recursos do servidor de origem. Tem de ser selecionado pelo menos um protocolo (HTTP ou HTTPS). Utilizar o domínio fornecido pela CDN (_\<endpointname >_. azureedge.net) para aceder a conteúdo HTTPS. 
+8. Para **protocolo** e **porta de origem**, especifique os protocolos e portas a utilizar para aceder aos recursos do servidor de origem. Tem de ser selecionado pelo menos um protocolo (HTTP ou HTTPS). Utilizar o domínio fornecido pela CDN ( _\<endpointname >_ . azureedge.net) para aceder a conteúdo HTTPS. 
    
    > [!NOTE]
    > O **porta de origem** valor determina apenas o ponto final que utiliza para recuperar informações a partir do servidor de origem. O próprio ponto final só está disponível para clientes finais nas portas HTTP e HTTPS predefinidas (80 e 443), independentemente do valor **Porta de origem**.  

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60320435"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utilizar o serviço StorSimple Device Manager para ver e gerir alertas do StorSimple
@@ -72,7 +72,7 @@ Depois de ativar notificações por e-mail para um dispositivo, os membros da li
       
 3. Para enviar uma notificação de e-mail de teste, clique em **enviar e-mail de teste**. O serviço StorSimple Device Manager irá apresentar mensagens de estado, como ele encaminha a notificação de teste.
 
-    ![Definições de alerta](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+    ![definições de alerta](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
 4. Verá uma notificação quando é enviado o e-mail de teste. 
    
@@ -154,13 +154,13 @@ Se falhar a conectividade de cloud no seu dispositivo de produção do StorSimpl
 |:--- |:--- |:--- |
 | Dispositivo foi efetuada para <*nome do dispositivo*>. |Dispositivo estiver no modo de manutenção. |Dispositivo ativação pós-falha porque entrou ou saiu do modo de manutenção. Esta situação é normal e é necessária nenhuma ação. Depois de confirmar este alerta, limpe-o da página de alertas. |
 | Dispositivo foi efetuada para <*nome do dispositivo*>. |Firmware do dispositivo ou de software apenas foi atualizado. |Ocorreu uma ativação pós-falha do cluster devido a uma atualização. Esta situação é normal e é necessária nenhuma ação. Depois de confirmar este alerta, limpe-o da página de alertas. |
-| Dispositivo foi efetuada para <*nome do dispositivo*>. |Controlador foi encerrado ou reiniciado. |Dispositivo ativação pós-falha porque o controlador ativo foi encerrado ou reiniciado por um administrador. Não é necessária nenhuma ação. Depois de confirmar este alerta, limpe-o da página de alertas. |
+| Dispositivo foi efetuada para <*nome do dispositivo*>. |Controlador foi encerrado ou reiniciado. |Dispositivo ativação pós-falha porque o controlador ativo foi encerrado ou reiniciado por um administrador. É necessária nenhuma ação. Depois de confirmar este alerta, limpe-o da página de alertas. |
 | Dispositivo foi efetuada para <*nome do dispositivo*>. |Ativação pós-falha planeada. |Certifique-se de que isso era uma ativação pós-falha planeada. Depois de tomar as medidas adequadas, limpe este alerta da página de alertas. |
 | Dispositivo foi efetuada para <*nome do dispositivo*>. |Ativação pós-falha não planeada. |StorSimple foi concebido para recuperar automaticamente de ativações pós-falha não planeadas. Se vir um grande número destes alertas, contacte Support da Microsoft. |
 | Dispositivo foi efetuada para <*nome do dispositivo*>. |Causa outra/desconhecida. |Se vir um grande número destes alertas, contacte Support da Microsoft. Depois do problema for resolvido, limpe este alerta da página de alertas. |
 | Um serviço de dispositivo comunica o estado como falhado. |Falha no serviço de DataPath. |Entre em contato com Support da Microsoft para obter assistência. |
-| Endereço IP virtual para a interface de rede <*dados #*> relatórios de estado como falhado. |Causa outra/desconhecida. |Condições algumas vezes temporárias podem provocar estes alertas. Se for este o caso, em seguida, este alerta será limpo automaticamente após algum tempo. Se o problema persistir, contacte o Suporte da Microsoft. |
-| Endereço IP virtual para a interface de rede <*dados #*> relatórios de estado como falhado. |Nome da interface: <*dados n. º*> endereço IP `<IP address>` não pode ser colocado online, porque foi detetado um endereço IP duplicado na rede. |Certifique-se de que o endereço IP duplicado é removido da rede ou reconfigurar a interface com um endereço IP diferente. |
+| Endereço IP virtual para a interface de rede <*dados #* > relatórios de estado como falhado. |Causa outra/desconhecida. |Condições algumas vezes temporárias podem provocar estes alertas. Se for este o caso, em seguida, este alerta será limpo automaticamente após algum tempo. Se o problema persistir, contacte o Suporte da Microsoft. |
+| Endereço IP virtual para a interface de rede <*dados #* > relatórios de estado como falhado. |Nome da interface: <*dados n. º*> endereço IP `<IP address>` não pode ser colocado online, porque foi detetado um endereço IP duplicado na rede. |Certifique-se de que o endereço IP duplicado é removido da rede ou reconfigurar a interface com um endereço IP diferente. |
 
 ### <a name="disaster-recovery-alerts"></a>Alertas de recuperação após desastre
 

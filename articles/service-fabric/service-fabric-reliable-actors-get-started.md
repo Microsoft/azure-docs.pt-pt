@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
 ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726387"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução ao Reliable Actors
@@ -50,11 +50,11 @@ O projeto criado mostra a estrutura seguinte:
 
 A solução contém três projetos:
 
-* **O projeto de aplicativo (MyApplication)**. Este projeto pacotes todos os serviços em conjunto para implementação. Contém os *Applicationmanifest* e scripts do PowerShell para gerir a aplicação.
+* **O projeto de aplicativo (MyApplication)** . Este projeto pacotes todos os serviços em conjunto para implementação. Contém os *Applicationmanifest* e scripts do PowerShell para gerir a aplicação.
 
-* **O projeto de interface (HelloWorld.Interfaces)**. Este projeto contém a definição de interface para o ator. Interfaces de ator podem ser definidos em qualquer projeto com qualquer nome.  A interface define o contrato de ator que é partilhado pela implementação de ator e pelos clientes que chamam o ator.  Porque os projetos de cliente podem dependem dele, normalmente, faz sentido defini-lo num assembly separado da implementação de ator.
+* **O projeto de interface (HelloWorld.Interfaces)** . Este projeto contém a definição de interface para o ator. Interfaces de ator podem ser definidos em qualquer projeto com qualquer nome.  A interface define o contrato de ator que é partilhado pela implementação de ator e pelos clientes que chamam o ator.  Porque os projetos de cliente podem dependem dele, normalmente, faz sentido defini-lo num assembly separado da implementação de ator.
 
-* **O projeto de serviço de ator (HelloWorld)**. Este projeto define o serviço do Service Fabric que irá alojar o ator. Contém a implementação de ator, *HelloWorld.cs*. Uma implementação de ator é uma classe que deriva do tipo base `Actor` e implementa as interfaces definidas no *MyActor.Interfaces* projeto. Uma classe de ator também tem de implementar um construtor que aceita uma `ActorService` instância e uma `ActorId` e os passa para a base `Actor` classe.
+* **O projeto de serviço de ator (HelloWorld)** . Este projeto define o serviço do Service Fabric que irá alojar o ator. Contém a implementação de ator, *HelloWorld.cs*. Uma implementação de ator é uma classe que deriva do tipo base `Actor` e implementa as interfaces definidas no *MyActor.Interfaces* projeto. Uma classe de ator também tem de implementar um construtor que aceita uma `ActorService` instância e uma `ActorId` e os passa para a base `Actor` classe.
     
     Este projeto contém também *Program.cs*, que regista as classes de ator com o tempo de execução do Service Fabric utilizando `ActorRuntime.RegisterActorAsync<T>()`. O `HelloWorld` classe já está registrada. Quaisquer implementações de ator adicionais adicionadas ao projeto também devem ser registadas no `Main()` método.
 
@@ -97,7 +97,7 @@ Crie uma aplicação de consola simples para chamar o serviço de ator.
 
 1. Com o botão direito na solução no Explorador de soluções > **Add** > **novo projeto...** .
 
-2. Sob o **.NET Core** tipos de projetos, escolha **aplicação de consola (.NET Core)**.  Nomeie o projeto *ActorClient*.
+2. Sob o **.NET Core** tipos de projetos, escolha **aplicação de consola (.NET Core)** .  Nomeie o projeto *ActorClient*.
     
     ![Adicionar a caixa de diálogo novo projeto][6]    
     
