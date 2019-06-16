@@ -10,13 +10,13 @@ ms.date: 10/18/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127694"
 ---
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 Um cofre dos serviços de recuperação é uma entidade que armazena as cópias de segurança e os pontos de recuperação criados ao longo do tempo. O Cofre dos serviços de recuperação também contém as políticas de cópia de segurança que estão associadas a máquinas virtuais protegidas.
 
 Para criar um cofre dos Serviços de Recuperação:

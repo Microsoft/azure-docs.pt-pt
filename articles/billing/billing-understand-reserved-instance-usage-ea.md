@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
 ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126848"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter os custos de reserva do contrato Enterprise e utilização
@@ -94,7 +94,7 @@ No portal do Azure, navegue até [gestão de custos + faturação](https://porta
 2. Clique em **utilização e custos**.
 3. Clique em **Transferir**.  
 ![Exemplo que mostra onde pode transferir o ficheiro de dados de utilização CSV no portal do Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. Na **transferir utilização + custos** , em **versão 2 dos detalhes de utilização** , selecione **todas as despesas (utilização e compras)** e, em seguida, clique em transferir. Repita esta operação para **amortizado custos (utilização e compras)**.
+4. Na **transferir utilização + custos** , em **versão 2 dos detalhes de utilização** , selecione **todas as despesas (utilização e compras)** e, em seguida, clique em transferir. Repita esta operação para **amortizado custos (utilização e compras)** .
 
 Os ficheiros CSV que transferir a contenham custos reais e os custos amortizados.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1da9ec6098864d4f17ac668db6411c1dd0e3afe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247505"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095663"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integração do Active Directory do Azure com OnTrack
 
@@ -53,7 +53,7 @@ Para configurar a integração do OnTrack com o Azure AD, terá de adicionar OnT
 
 **Para adicionar OnTrack a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

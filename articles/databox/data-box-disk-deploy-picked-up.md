@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 0314c0e03402d53c7f79eed2efe11db953d184e6
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603081"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147513"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o disco do Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -98,7 +98,7 @@ Os datacenters do Azure na Austrália tem uma notificação de segurança adicio
 2. Deve ser o assunto do e-mail - *pedido de etiqueta de envio reversa com o código TAU*. Certifique-se incluir os seguintes detalhes do e-mail: 
 
     - Nome do pedido
-    - Morada
+    - Endereço
     - Nome do contacto
 
 #### <a name="pick-up-in-japan"></a>Escolher no Japão
@@ -143,21 +143,23 @@ Body:
 
 ## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
 
-Após a sua transportadora recolher os discos, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)**. É também mostrado um ID de controlo.
+Após a sua transportadora recolher os discos, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)** . É também mostrado um ID de controlo.
 
 ![Discos recolhidos](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
 
-Quando a Microsoft receber e analisar o disco, o estado da tarefa será alterado para **Received (Recebido)**. 
+Quando a Microsoft receber e analisar o disco, o estado da tarefa será alterado para **Received (Recebido)** . 
 
 ![Discos recebidos](media/data-box-disk-deploy-picked-up/data-box-portal-received.png)
 
 Os dados são automaticamente copiados após os discos serem ligados a um servidor no datacenter do Azure. Consoante o tamanho dos dados, a operação de cópia poderá demorar algumas horas a dias para concluir. Pode monitorizar o progresso da tarefa de cópia no portal.
 
-Quando a cópia for concluída, o estado da encomenda será atualizado para **Completed (Concluído)**.
+Quando a cópia for concluída, o estado da encomenda será atualizado para **Completed (Concluído)** .
 
 ![Cópia de dados concluída](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de o eliminá-los da origem. Os dados podem estar:
+Se a cópia for concluída com erros, ver [resolver problemas de erros de carregamento](data-box-disk-troubleshoot-upload.md).
+
+Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de eliminá-los da origem. Os dados podem estar:
 
 - Sua conta de armazenamento do Azure (s). Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
 

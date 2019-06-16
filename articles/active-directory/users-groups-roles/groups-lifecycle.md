@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604392"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
@@ -69,7 +69,7 @@ Para obter mais informações sobre as permissões para restaurar um grupo elimi
 > Quando configurar a expiração pela primeira vez, todos os grupos que são mais antigos do que o intervalo de expiração estão definidos para 30 dias até à expiração. O primeiro e-mail de notificação de renovação é enviado no prazo de um dia. Por exemplo, um grupo foi criado de 400 dias atrás, e o intervalo de expiração é definido para 180 dias. Quando aplica a política de expiração, o grupo A tem 30 dias antes de ser eliminado, a menos que o proprietário renova-lo.
 > Quando um grupo dinâmico é eliminado e restaurado, é visto como um novo grupo e novamente preenchida, de acordo com a regra. Este processo pode demorar até 24 horas.
 
-## <a name="email-notifications"></a>Notificações de e-mail
+## <a name="email-notifications"></a>Notificações por e-mail
 
 Notificações de e-mail como este são enviadas para os proprietários do grupo do Office 365 30 dias, 15 dias e 1 dia antes da expiração do grupo. O idioma da mensagem de e-mail é determinado pelo idioma preferencial do proprietário de grupos ou a linguagem de inquilino. Se o proprietário do grupo tiver definido um idioma preferencial ou os proprietários de vários têm o mesmo idioma preferencial, é utilizado esse idioma. Para todos os outros casos, é utilizado o idioma de inquilino.
 

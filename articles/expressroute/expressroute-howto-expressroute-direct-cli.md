@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965902"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direta com a CLI do Azure

@@ -1,20 +1,20 @@
 ---
-title: Criar um cluster do Apache Spark no HDInsight do Azure com a CLI do Azure
+title: 'Início rápido: Criar um cluster do Apache Spark no HDInsight do Azure com a CLI do Azure'
 description: Este início rápido mostra como utilizar a CLI do Azure para criar um cluster do Apache Spark no HDInsight do Azure.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: b9478ca8e1b31c1761e063a6789e96043f9a2c68
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.openlocfilehash: 72bdab9d7fb5c3019d97ffc4c92257c49ec2b8e5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066250"
 ---
-# <a name="create-an-apache-spark-cluster-in-azure-hdinsight-with-azure-cli"></a>Criar um cluster do Apache Spark no HDInsight do Azure com a CLI do Azure
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Início rápido: Criar cluster do Apache Spark no HDInsight do Azure com a CLI do Azure
 
 Neste guia de introdução, saiba como criar um cluster do Apache Spark no HDInsight do Azure com a CLI do Azure. O Apache Spark permite uma análise de dados e computação de clusters rápidas através do processamento dentro da memória. O [interface de linha de comandos (CLI) do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) é a experiência de linha de comandos para várias plataformas da Microsoft para gerir recursos do Azure.
 

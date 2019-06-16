@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: b-juche
 ms.openlocfilehash: d4e06429aa1efec7c3301c7d0f0e7e17800fd520
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63769440"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Resolver problemas de erros do Fornecedor de Recursos do Azure NetApp Files

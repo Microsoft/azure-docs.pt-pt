@@ -9,10 +9,10 @@ ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518168"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço

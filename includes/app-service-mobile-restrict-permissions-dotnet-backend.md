@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139847"
 ---
 Por predefinição, as APIs num back-end de aplicações móveis podem ser invocadas anonimamente. Em seguida, precisa restringir o acesso a apenas os clientes autenticados.  

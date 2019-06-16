@@ -10,17 +10,17 @@ ms.service: automation
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133129"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário da máquina virtual do Azure
 
 A automatização do Azure fornece soluções para o ajudar a gerir as atualizações de segurança do sistema operativo, controlar as alterações e inventário o que é instalado nos seus computadores. Existem várias formas de carregar máquinas. Pode integrar a solução a partir de uma máquina virtual, [da sua conta de automatização](automation-onboard-solutions-from-automation-account.md), [a partir de várias máquinas de navegação](automation-onboard-solutions-from-browse.md), ou utilizando um [runbook](automation-onboard-solutions.md). Este artigo abrange a inclusão destas soluções a partir de uma máquina virtual do Azure.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 

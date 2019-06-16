@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91ee8b6e614cf12deccd1429ad67323c277954a0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061493"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Perguntas mais frequentes sobre a firewall de aplicações web do Azure
 
@@ -31,9 +31,6 @@ Pode ser aplicada uma política de WAF do Azure para aplicações web alojadas n
 ## <a name="what-is-waf-for-azure-front-door-service"></a>O que é o WAF desde início do serviço do Azure? 
 
 Porta de entrada do Azure é uma aplicação altamente dimensionável e globalmente distribuída e a rede de entrega de conteúdos. WAF do Azure, quando integrada com a porta da frente, deixa de negação de serviço e direcionada a ataques de aplicativo na borda da rede do Azure, próximo de origens de ataque antes de entrarem em sua rede virtual, oferece proteção sem sacrificar o desempenho.
-
-## <a name="how-will-i-be-charged-for-azure-waf-for-front-door"></a>Como vou ser cobrado por WAF do Azure para a porta da frente?
-Durante a pré-visualização pública, a utilização da WAF desde início são gratuitos. Tenha em atenção que a cobrança de porta de entrada está extra. Ver preços do serviço de porta da frente [aqui](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## <a name="does-azure-waf-support-https"></a>O WAF do Azure suporta HTTPS?
 

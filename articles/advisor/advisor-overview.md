@@ -10,12 +10,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069692"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Assistente do Azure
 
@@ -61,7 +61,9 @@ Pode acessar as recomendações do assistente como *proprietário*, *contribuint
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Que recursos o assistente fornece recomendações para?
 
-O assistente fornece recomendações para as máquinas virtuais, conjuntos de disponibilidade, gateways de aplicação, serviços de aplicações, servidores do SQL Server e Cache do Azure para Redis.
+O assistente fornece recomendações para o Gateway de aplicação, serviços de aplicações, conjuntos de disponibilidade, a Cache do Azure, Azure Data Factory, base de dados do Azure para MySQL, base de dados do Azure para PostgreSQL, a base de dados do Azure para MariaDB, o Azure ExpressRoute, o Azure Cosmos DB, público do Azure Endereços IP, o SQL Data Warehouse, servidores SQL, contas de armazenamento, perfis do Gestor de tráfego e máquinas virtuais.
+
+O Assistente do Azure também inclui as suas recomendações partir [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-recommendations) que pode incluir recomendações para tipos de recursos adicionais.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Pode adiar ou ignorar uma recomendação?
 

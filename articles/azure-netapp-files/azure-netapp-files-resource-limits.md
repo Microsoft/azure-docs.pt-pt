@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
 ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826382"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
@@ -43,7 +43,7 @@ A tabela seguinte descreve os limites de recursos para ficheiros de NetApp do Az
 |  Máximo atribuído a quota de um único volume *   |   92 TiB   |    Não   |
 |  Tamanho máximo de um único volume *     |    100 TiB    |    Não       |
 
-* Um volume pode ser criado manualmente ou redimensionado para TiB maximally 92. No entanto, um volume pode crescer até 100 TiB num cenário de utilização excedido. Ver [modelo de custos para os ficheiros do Azure NetApp](azure-netapp-files-cost-model.md) para obter detalhes sobre o excesso de capacidade. 
+\* Um volume pode ser criado manualmente ou redimensionado para TiB maximally 92. No entanto, um volume pode crescer até 100 TiB num cenário de utilização excedido. Ver [modelo de custos para os ficheiros do Azure NetApp](azure-netapp-files-cost-model.md) para obter detalhes sobre o excesso de capacidade. 
 
 ## <a name="request-limit-increase"></a>Pedir aumento de limite 
 
@@ -54,7 +54,7 @@ De plano de navegação do portal do Azure:
 1. Clique em **ajuda + suporte**.
 2. Clique em **+ novo pedido de suporte**.
 3. No separador Noções básicas, forneça as seguintes informações: 
-    1. Tipo de problema: Selecione **limites de serviço e subscrição (cotas)**.
+    1. Tipo de problema: Selecione **limites de serviço e subscrição (cotas)** .
     2. Subscrições: Selecione a subscrição para o recurso que precisa de aumentar a quota.
     3. Tipo de quota: Selecione **armazenamento: Os ficheiros do Azure NetApp limita**.
     4. Clique em **seguinte: Soluções**.

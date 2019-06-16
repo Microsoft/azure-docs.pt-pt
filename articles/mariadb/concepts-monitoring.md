@@ -1,17 +1,17 @@
 ---
 title: Monitorização na base de dados do Azure para MariaDB
 description: Este artigo descreve as métricas de monitorização e alertas para base de dados do Azure para MariaDB, incluindo as estatísticas de CPU, armazenamento e conexão.
-author: rachel-msft
-ms.author: raagyema
+author: andrela
+ms.author: ajlam
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 06/12/2019
+ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "64925932"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065733"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na base de dados do Azure para MariaDB
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MariaDB fornece várias métricas que lhe dar informações sobre o comportamento do seu servidor.
@@ -41,8 +41,22 @@ Estas métricas estão disponíveis para a base de dados do Azure para MariaDB:
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede no através de ligações de Active Directory.|
 
 ## <a name="server-logs"></a>Registos do servidor
+
 Pode ativar o registo no seu servidor de consulta lenta. Estes registos também estão disponíveis através de registos de diagnóstico do Azure em registos, os Hubs de eventos e conta de armazenamento do Azure Monitor. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.
 
+## <a name="query-store"></a>Arquivo de Consultas
+
+[Consulta Store](concepts-query-store.md) é uma funcionalidade de pré-visualização pública que mantém o controle da consulta de desempenho ao longo do tempo incluindo estatísticas de tempo de execução de consulta e eventos de espera. A funcionalidade de persistir informações de desempenho de tempo de execução de consulta no **mysql** esquema. Pode controlar a coleção e o armazenamento de dados por meio de vários botões de configuração.
+
+## <a name="query-performance-insight"></a>Query Performance Insight
+
+[Query Performance Insight](concepts-query-performance-insight.md) funciona em conjunto com Store de consulta para fornecer visualizações acessíveis a partir do portal do Azure. Estes gráficos permitem identificar consultas principais que um impacto no desempenho. O Query Performance Insight está em pré-visualização pública e está acessível a **desempenho inteligente** secção da base de dados do Azure para a página do portal do servidor de MariaDB.
+
+## <a name="performance-recommendations"></a>Recomendações de Desempenho
+
+O [recomendações de desempenho](concepts-performance-recommendations.md) funcionalidade identifica oportunidades para melhorar o desempenho da carga de trabalho. A versão de pré-visualização pública de recomendações de desempenho fornece recomendações para a criação de índices novo que têm o potencial de melhorar o desempenho das suas cargas de trabalho. Para produzir recomendações de índice, a funcionalidade leva em consideração várias características de base de dados, incluindo o respetivo esquema e a carga de trabalho, conforme comunicado pelo Store de consulta. Depois de implementar quaisquer recomendações de desempenho, os clientes devem testar o desempenho para avaliar o impacto dessas alterações.
+
 ## <a name="next-steps"></a>Passos Seguintes
+
 - Para obter mais informações sobre como aceder e exportar métricas com o portal do Azure, a REST API ou a CLI, consulte a [descrição geral das métricas do Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
   - Ver [como posso configurar alertas](howto-alert-metric.md) para obter orientações sobre como criar um alerta na métrica.

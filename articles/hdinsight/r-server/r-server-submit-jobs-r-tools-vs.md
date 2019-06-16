@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 8f1ed582b7abf43afd38ca5c358aa7e179bfecb3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64702279"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Submeter tarefas a partir das Ferramentas R para o Visual Studio
@@ -71,7 +71,7 @@ Usando um Microsoft ML Server/Microsoft R Client a partir de um computador Windo
 
 2. Copiar o **nome de anfitrião do nó de extremidade** valor.
 
-    ![Nome de anfitrião do nó periférico](./media/r-server-submit-jobs-r-tools-vs/edge-node.png)
+    ![Nome de anfitrião do nó de extremidade](./media/r-server-submit-jobs-r-tools-vs/edge-node.png)
 
 3. Cole o seguinte código na janela interativa do R no Visual Studio, alterar os valores das variáveis de configuração para corresponder ao seu ambiente.
 

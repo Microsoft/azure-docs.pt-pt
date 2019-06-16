@@ -8,10 +8,10 @@ ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
 ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991408"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Firewall de aplicações Web para o Gateway de aplicação do Azure
@@ -130,10 +130,10 @@ No modo de anomalias de classificação de mensagens em fila, o tráfego que cor
 
 |Gravidade  |Value  |
 |---------|---------|
-|Crítica     |5|
+|Crítico     |5|
 |Erro        |4|
 |Aviso      |3|
-|Aviso       |2|
+|Tenha em atenção       |2|
 
 Existe um limite de 5 para a classificação de anomalias para bloquear o tráfego. Deste modo, um único *crítico* correspondência de regra é o suficiente para o WAF do Gateway de aplicação bloquear um pedido, até mesmo no modo de prevenção. Mas um *aviso* regra de correspondência apenas aumenta a anomalias pontuação por 3, que não não suficiente por si só para bloquear o tráfego.
 

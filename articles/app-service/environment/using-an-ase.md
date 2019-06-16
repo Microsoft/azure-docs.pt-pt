@@ -15,10 +15,10 @@ ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66496510"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #

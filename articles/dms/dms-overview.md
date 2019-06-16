@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/31/2019
 ms.openlocfilehash: 0b1c45fcb030ac31934a5fb7aad478ef08d66129
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478187"
 ---
 # <a name="what-is-azure-database-migration-service"></a>O que é o serviço de migração de base de dados do Azure?

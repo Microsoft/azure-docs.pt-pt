@@ -7,16 +7,16 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a7713576565ca2632d7d91857040ece4d02c411b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5f777238b4682cfd5873ceeb34452218d4c46f3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068276"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Início rápido: Converter texto para voz com node. js
 

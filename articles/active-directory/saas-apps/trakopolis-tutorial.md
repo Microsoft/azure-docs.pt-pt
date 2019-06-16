@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 66fb18542fe35c586af11139dff3cd5dfb7bde73
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1316e3274b851c41af21b94847ed16491310e908
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakopolis"></a>Tutorial: Integração do Active Directory do Azure com Trakopolis
 
@@ -53,7 +53,7 @@ Para configurar a integração do Trakopolis com o Azure AD, terá de adicionar 
 
 **Para adicionar Trakopolis a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -184,7 +184,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Trakopolis. Trabalhar com [equipa de suporte de Trakopolis](mailto:support@cantelematics.com) para adicionar os utilizadores na plataforma Trakopolis. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

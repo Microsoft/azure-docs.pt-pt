@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108475"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear uma implementação do Proxy de aplicações do Azure AD
 
@@ -64,7 +64,7 @@ Os seguintes requisitos principais têm de ser cumpridos para configurar e imple
 
 *  **Integração do Azure**: Antes de implementar o proxy de aplicações, as identidades de utilizador tem de ser sincronizadas a partir de um diretório no local ou criadas diretamente dentro de seus inquilinos do Azure AD. Sincronização de identidade permite que o Azure AD para autenticar previamente os utilizadores antes de lhes conceder acesso ao Proxy de aplicação aplicações publicadas e para que as informações de identificador de utilizador necessários para efetuar logon único (SSO).
 
-* **Requisitos de acesso condicional**: Recomendamos que não utilize o Proxy de aplicações para acesso à intranet, porque esta ação adiciona latência que irá afetar os utilizadores. Recomendamos que utilize o Proxy de aplicações com políticas de acesso condicional e de pré-autenticação para acesso remoto a partir da internet.  Uma abordagem para fornecer acesso condicional para utilização na intranet é precisem de modernizar os aplicativos para que eles podem diretly autenticar com o AAD. Consulte a [recursos para a migração de aplicativos para o AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) para obter mais informações. 
+* **Requisitos de acesso condicionais**: Recomendamos que não utilize o Proxy de aplicações para acesso à intranet, porque esta ação adiciona latência que irá afetar os utilizadores. Recomendamos que utilize o Proxy de aplicações com pré-autenticação e políticas de acesso condicional para acesso remoto a partir da internet.  Uma abordagem para fornecer acesso condicional para utilização na intranet é precisem de modernizar os aplicativos para que eles podem diretly autenticar com o AAD. Consulte a [recursos para a migração de aplicativos para o AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) para obter mais informações. 
 
 * **Limites de serviço**: Para proteger contra o consumo excessivo de recursos por aí inquilinos individuais são limites de limitação definido por aplicação e de inquilino. Para ver estes limites, consulte [restrições e limites do serviço Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Estes limites de limitação se baseiam num parâmetro de comparação muito acima do volume de utilização típicos e fornece uma ampla buffer para a maioria das implementações.
 
@@ -268,7 +268,7 @@ As seguintes capacidades podem ser utilizadas para suportar o Proxy de aplicaç�
 
 * Acesso condicional baseado na aplicação: Trabalho não tem de parar quando um utilizador não está na rede empresarial. [Proteger o acesso a aplicações empresariais de cloud e no local](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) e manter o controle com o acesso condicional.
 
-* Acesso condicional baseado no risco: Proteger os dados de hackers mal-intencionados com um [política de acesso condicional baseado no risco](https://www.microsoft.com/cloud-platform/conditional-access) que podem ser aplicadas a todas as aplicações e todos os utilizadores, quer no local ou na cloud.
+* Acesso condicional baseado no risco: Proteger os dados de hackers mal-intencionados com um [política de acesso condicional com base no risco](https://www.microsoft.com/cloud-platform/conditional-access) que podem ser aplicadas a todas as aplicações e todos os utilizadores, quer no local ou na cloud.
 
 * Painel de acesso do Azure AD: Com o seu serviço de Proxy de aplicações implementadas e aplicações publicadas com segurança, proporcionar aos usuários um hub simple para detetar e aceder a todos os seus aplicativos. Aumentar a produtividade com capacidades self-service, como a capacidade de solicitar acesso a aplicações de novas e grupos ou gerir o acesso a estes recursos em nome de outros, através da [painel de acesso](https://aka.ms/AccessPanelDPDownload).
 

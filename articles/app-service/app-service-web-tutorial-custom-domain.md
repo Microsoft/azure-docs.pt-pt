@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 89034b04c6b38c0873f890e55693c6e15e6a8d93
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069405"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
 
@@ -68,7 +68,7 @@ No menu à esquerda, selecione **Serviços de Aplicações** e selecione o nome 
 
 Será apresentada a página de gestão da aplicação do Serviço de Aplicações.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
 
@@ -82,7 +82,7 @@ O escalão atual da aplicação é realçado com um limite azul. Confirme que a 
 
 Se o plano do Serviço de Aplicações não estiver no escalão **F1**, feche a página **Aumentar verticalmente** e avance para [Mapear um registo CNAME](#cname).
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Aumentar verticalmente o plano do Serviço de Aplicações
 
@@ -96,7 +96,7 @@ Quando vir a notificação seguinte, significa que a operação de dimensionamen
 
 ![Confirmação de operação de dimensionamento](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>Mapear o seu domínio
 
@@ -162,7 +162,7 @@ Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um e
 
 ![Erro de verificação](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>Mapear um registo A
 
@@ -213,7 +213,7 @@ Quando os registos estiverem adicionados, a página de registos DNS terá um asp
 
 ![Página de registos DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>Ativar o mapeamento de registos A na aplicação
 
@@ -246,7 +246,7 @@ Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um e
 
 ![Erro de verificação](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Mapear um domínio com caráteres universais
 
@@ -310,7 +310,7 @@ Se receber o erro de HTTP 404 (Não Encontrado) ao navegar para o URL do seu dom
 - Falta um registo A e/ou um registo CNAME ao domínio personalizado configurado.
 - O cliente do browser colocou em cache o endereço IP antigo do seu domínio. Limpe a cache e volte a testar a resolução de DNS. Num computador Windows, limpe a cache com `ipconfig /flushdns`.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>Migrar um domínio ativo
 
@@ -326,7 +326,7 @@ Na parte inferior da página, o diretório de raiz virtual `/` aponta para `site
 
 ![Personalizar o diretório virtual](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Uma vez concluída a operação, a aplicação deverá devolver a página correta no caminho da raiz (por exemplo, http://contoso.com)).
+Uma vez concluída a operação, a aplicação deverá devolver a página correta no caminho da raiz (por exemplo, http://contoso.com) ).
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 

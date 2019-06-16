@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 83027e9fbc1826de727f123afe4507c2858c49ff
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integração do Active Directory do Azure com Percolate
 
@@ -95,7 +95,7 @@ Para configurar o Azure AD início de sessão único com Percolate, siga estes p
 
 2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Selecione um método de início de sessão único](common/select-saml-option.png)
+    ![Selecionar um método de início de sessão único](common/select-saml-option.png)
 
 3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
@@ -105,7 +105,7 @@ Para configurar o Azure AD início de sessão único com Percolate, siga estes p
 
     ![Percolate domínio e URLs únicas início de sessão em informações](common/preintegrated.png)
 
-5. Se quiser configurar a aplicação no modo iniciado por SP, selecione **definir URLs adicionais** e, no **iniciar sessão no URL** , introduza **https://percolate.com/app/login**:
+5. Se quiser configurar a aplicação no modo iniciado por SP, selecione **definir URLs adicionais** e, no **iniciar sessão no URL** , introduza **https://percolate.com/app/login** :
 
    ![Percolate domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 6. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, selecione o **cópia** ícone para copiar o **Url de metadados de Federação de aplicação** . Guarde este URL.
@@ -168,7 +168,7 @@ Nesta secção, irá criar um utilizador de teste com o nome Eduarda Almeida no 
 
     1. Na **Name** , introduza **BrittaSimon**.
   
-    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >**. (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >** . (Por exemplo, BrittaSimon@contoso.com.)
 
     1. Selecione **mostrar palavra-passe**e, em seguida, anote o valor que está a **palavra-passe** caixa.
 
@@ -222,7 +222,7 @@ Para criar uma conta de utilizador, siga estes passos:
 
     1. Selecione **criar utilizadores**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 

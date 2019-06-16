@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d5bceff004d1cc6ddac4046a2ddcd0b5f0b5e73
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487236"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072519"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de voz em texto
 
@@ -164,7 +164,7 @@ O `RecognitionStatus` campo pode conter estes valores:
 > [!NOTE]
 > Se o áudio consiste apenas em linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz.
 
-O `detailed` formato inclui os mesmos dados que o `simple` formatar, juntamente com `NBest`, uma lista de alternativas interpretações sobre o mesmo resultado de reconhecimento. Esses resultados estão ordenados do maior probabilidade de menos provável que a primeira entrada é o mesmo como o resultado do reconhecimento principal.  Ao utilizar o `detailed` formato, `DisplayText` é fornecido como `Display` para cada resultado no `NBest` lista.
+O `detailed` formato inclui os mesmos dados que o `simple` formatar, juntamente com `NBest`, uma lista de alternativas interpretações sobre o mesmo resultado de reconhecimento. Esses resultados estão ordenados do mais provável para menos provável. A primeira entrada é o mesmo, como o resultado do reconhecimento principal.  Ao utilizar o `detailed` formato, `DisplayText` é fornecido como `Display` para cada resultado no `NBest` lista.
 
 Cada objeto no `NBest` lista inclui:
 

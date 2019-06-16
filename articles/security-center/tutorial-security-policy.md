@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967922"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
@@ -233,13 +233,13 @@ Este exemplo mostra como remover uma atribuição:
 |Atualizações do sistema |Monitorizar atualizações de sistema em falta no Centro de segurança do Azure |systemUpdatesMonitoringEffect|
 |Encriptação do armazenamento |Auditar encriptação de BLOBs em falta para contas de armazenamento |storageEncryptionMonitoringEffect|
 |Acesso à rede JIT |Monitorizar o acesso de apenas no Time (JIT) de rede possível no Centro de segurança do Azure |jitNetworkAccessMonitoringEffect |
-|Controlos de aplicação adaptável |Monitorizar aplicação possíveis listas de permissões no Centro de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
+|Controlos de aplicações adaptáveis |Monitorizar aplicação possíveis listas de permissões no Centro de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |Monitorizar o acesso de rede permissivo no Centro de segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |Monitorizar vulnerabilidades do SO no Centro de segurança do Azure |systemConfigurationsMonitoringEffect| 
-|Proteção de ponto final |Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure |endpointProtectionMonitoringEffect |
-|Encriptação de discos |Monitorizar discos de VM não encriptados no Centro de segurança do Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidades |Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
-|Firewall de aplicações Web |Monitorizar aplicações web desprotegidas no Centro de segurança do Azure |webApplicationFirewallMonitoringEffect |
+|Endpoint protection |Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure |endpointProtectionMonitoringEffect |
+|Encriptação de disco |Monitorizar discos de VM não encriptados no Centro de segurança do Azure |diskEncryptionMonitoringEffect|
+|Avaliação de vulnerabilidades |Monitor de vulnerabilidades de VM no Centro de segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
+|Firewall de aplicação Web |Monitorizar aplicações web desprotegidas no Centro de segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorizar pontos finais de redes desprotegidos no Centro de segurança do Azure| |
 
 

@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: nikiest
 ms.subservice: logs
 ms.openlocfilehash: 8902e29baa5802e3416bcda97ca59a5576d41829
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244866"
 ---
 # <a name="overview-of-azure-diagnostic-logs"></a>Descrição geral dos registos de diagnóstico do Azure

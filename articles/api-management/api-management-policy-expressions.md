@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304365"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de gestão de API
@@ -74,7 +74,7 @@ Expressões podem ser utilizadas como valores de atributo ou valores de texto em
 ## <a name="CLRTypes"></a> Tipos do .NET framework permitidos em expressões de política
 A tabela seguinte lista os tipos do .NET Framework e seus membros que são permitidos em expressões de política.
 
-|Type|Membros suportados|
+|Tipo|Membros suportados|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Todos|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|

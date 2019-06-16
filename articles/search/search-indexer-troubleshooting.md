@@ -11,10 +11,10 @@ ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
 ms.openlocfilehash: 256a38320c9b3ca826ee9c12ac0a437957f988e2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539295"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Resolução de problemas comuns do indexador no Azure Search
@@ -27,7 +27,7 @@ Indexadores podem executar numa série de problemas durante a indexação dos da
 
 ## <a name="data-source-connection-errors"></a>Erros de ligação de origem de dados
 
-### <a name="blob-storage"></a>Armazenamento de Blobs
+### <a name="blob-storage"></a>Blob Storage
 
 #### <a name="storage-account-firewall"></a>Firewall de conta de armazenamento
 

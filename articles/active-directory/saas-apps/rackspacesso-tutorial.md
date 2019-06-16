@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093187"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Active Directory do Azure com o Rackspace SSO
 
@@ -53,7 +53,7 @@ Para configurar a integração do Rackspace SSO para o Azure AD, terá de adicio
 
 **Para adicionar Rackspace SSO a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -228,7 +228,7 @@ mapping:
 
 Consulte a Rackspace [documentação de noções básicas de mapeamento do atributo](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) para obter mais exemplos.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

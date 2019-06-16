@@ -9,10 +9,10 @@ ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754998"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure

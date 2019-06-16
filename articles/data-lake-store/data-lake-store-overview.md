@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: twooley
-ms.openlocfilehash: 518c129aedf3161ab761d09139e0c4d988dd2cbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99384374226fd89cfd672c6b4f851a1743db0764
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60885563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118792"
 ---
 # <a name="what-is-azure-data-lake-storage-gen1"></a>O que é a geração 1 de armazenamento do Azure Data Lake?
 

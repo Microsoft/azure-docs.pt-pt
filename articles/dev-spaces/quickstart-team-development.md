@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Desenvolvimento em equipe Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: e9f9198f8e086bee6c6b02b67ae7dd9cf523416c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8160e72657be83af6f9af5226b7cd77c692dcd82
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480372"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061835"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Desenvolvimento em equipa no Kubernetes através dos espaços de desenvolvimento do Azure
 
@@ -90,7 +90,7 @@ Utilize o `helm init` e `helm install` comandos para configurar e instalar a apl
 ```cmd
 cd charts/
 helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+helm install -n bikesharing . --dep-up --namespace dev --atomic 
 ```
 > [!Note]
 > **Se estiver a utilizar um cluster habilitados no RBAC**, certifique-se de que configurar [uma conta de serviço para Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Caso contrário, `helm` comandos irão falhar.
@@ -103,7 +103,7 @@ $ helm init --wait
 ...
 Happy Helming!
 
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic --wait
+$ helm install -n bikesharing . --dep-up --namespace dev --atomic
 
 Hang tight while we grab the latest from your chart repositories...
 ...

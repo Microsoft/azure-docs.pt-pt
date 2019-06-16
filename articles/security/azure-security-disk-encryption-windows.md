@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 376df206d75780a4b814873d72d9c56554f6b0b8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956606"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs de IaaS do Windows

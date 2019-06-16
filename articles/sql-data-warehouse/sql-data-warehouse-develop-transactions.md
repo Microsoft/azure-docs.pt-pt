@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: b6f95607c7cfc574d647be3046cef4a4b61906f6
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65861756"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Usando transações no SQL Data Warehouse
@@ -34,7 +34,7 @@ Na tabela a seguir as seguintes suposições foram feitas:
 * Ocorreu uma distribuição uniforme de dados 
 * O comprimento de linha média é de 250 bytes
 
-## <a name="gen2"></a>Ger2
+## <a name="gen2"></a>Gen2
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo de transação (GB) | # Linhas por distribuição | Máximo de linhas por transação |
 | --- | --- | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Na tabela a seguir as seguintes suposições foram feitas:
 | DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
 | DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
 
-## <a name="gen1"></a>Ger1
+## <a name="gen1"></a>Gen1
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | Limite por distribuição (GB) | Número de distribuições | Tamanho máximo de transação (GB) | # Linhas por distribuição | Máximo de linhas por transação |
 | --- | --- | --- | --- | --- | --- |

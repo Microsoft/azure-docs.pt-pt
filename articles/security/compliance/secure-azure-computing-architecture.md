@@ -7,10 +7,10 @@ ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
 ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963234"
 ---
 # <a name="secure-azure-computing-architecture"></a>Arquitetura de Computação Protegida do Azure
@@ -157,13 +157,13 @@ Recomendamos esta arquitetura de uma vez que ele atende aos requisitos de SCCA. 
             - Esta sub-rede é onde as VMs e serviços utilizados para VDMS estão implementados.
         - Sub-redes fidedignas e não fidedignas
             - Estas sub-redes estão onde as aplicações virtuais são implementadas.
-        - Sub-rede do gateway
+        - Sub-rede de gateway
             - Esta sub-rede é onde o Gateway do ExpressRoute está implementado.
 - Máquinas de virtuais de caixa de atalhos de gestão
     - Eles são usados para a gestão fora de banda do ambiente.
 - Aplicações virtuais de rede
     - Utilizar qualquer um dos Citrix ou F5 com base na qual modelo implementa.
-- IPs Públicos
+- IPs públicos
     - Eles são usados para o front-end até que o ExpressRoute é colocado online. Estes IPs traduzir-se para o espaço de endereço privado do Azure de back-end.
 - Tabelas de rotas 
     - Aplicadas durante a automação, estes encaminham tabelas forçar túnel todo o tráfego através do dispositivo virtual.

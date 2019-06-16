@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238449"
 ---
 | Resource | Livre | Partilhado | Básica | Standard | Premium (v2) | Isolado </th> |
@@ -20,7 +20,7 @@ ms.locfileid: "66238449"
 | Armazenamento<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
 | Tempo de CPU (5 minutos)<sup>6</sup> |3 minutos |3 minutos |Ilimitado, pague no padrão [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> |Ilimitado, pague no padrão [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> |Ilimitado, pague no padrão [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> |Ilimitado, pague no padrão [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | Tempo de CPU (dia)<sup>6</sup> |60 minutos |240 minutos |Ilimitado, pague no padrão [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> |Ilimitado, pague no padrão [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> |Ilimitado, pague no padrão [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> |Ilimitado, pague no padrão [tarifas](https://azure.microsoft.com/pricing/details/app-service/)</a> |
-| Memória (1 hora) |1.024 MB por plano do serviço de aplicações |1.024 MB por aplicação |N/A |N/D |N/D |N/A |
+| Memória (1 hora) |1\.024 MB por plano do serviço de aplicações |1\.024 MB por aplicação |N/A |N/D |N/D |N/A |
 | Largura de banda |165 MB |Ilimitado, [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |Ilimitado, [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |Ilimitado, [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |Ilimitado, [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |Ilimitado, [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) aplicam-se |
 | Arquitetura da aplicação |32 bits |32 bits |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |32-bit/64-bit |
 | Web sockets por instância<sup>7</sup> |5 |35 |350 |Ilimitado |Ilimitado |Ilimitado |

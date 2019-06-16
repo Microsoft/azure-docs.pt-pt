@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab2fc543d345436e3d0a82fdb97a8c937f6ef256
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0abb842f5c8ce36262def30ec243e70327075825
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60265224"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: Integração do Active Directory do Azure com join.me
 
@@ -53,7 +53,7 @@ Para configurar a integração do join.me com o Azure AD, terá de adicionar joi
 
 **Para adicionar join.me a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

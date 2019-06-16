@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 2cd6998c7ac11638ead67fde384bdf4599692781
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201796"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706039"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Configurar e utilizar ambientes públicos no Azure DevTest Labs
 O Azure DevTest Labs tem um [repositório público dos modelos do Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) que pode utilizar para criar ambientes sem ter de ligar a uma origem externa do GitHub sozinho. Este repositório inclui modelos usados com freqüência, como aplicações Web do Azure, o Cluster do Service Fabric e o desenvolvimento de ambiente de Farm do SharePoint. Esta funcionalidade é semelhante para o repositório público de artefactos que é incluído para todos os laboratórios que criar. O repositório de ambiente permite-lhe começar a utilizar rapidamente com modelos de ambiente previamente criados com parâmetros de entrada mínimos para lhe fornecer uma experiência de introdução ao obter uniforme para os recursos de PaaS dentro de laboratórios. 

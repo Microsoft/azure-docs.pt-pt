@@ -17,10 +17,10 @@ ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506829"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Descrição Geral das Máquinas Virtuais do Windows no Azure

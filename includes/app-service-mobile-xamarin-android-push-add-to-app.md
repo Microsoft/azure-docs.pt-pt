@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140283"
 ---
 1. Criar uma nova classe no projeto chamado `ToDoBroadcastReceiver`.
@@ -66,7 +66,7 @@ ms.locfileid: "66140283"
     Tenha em atenção que essa classe deriva **GcmServiceBase** e que o **serviço** atributo deve ser aplicado a essa classe.
 
     > [!NOTE]
-    > O **GcmServiceBase** classe implementa a **onregistered ()**, **onunregistered ()**, **onmessage ()** e  **Onerror ()** métodos. É necessário substituir esses métodos no **PushHandlerService** classe.
+    > O **GcmServiceBase** classe implementa a **onregistered ()** , **onunregistered ()** , **onmessage ()** e  **Onerror ()** métodos. É necessário substituir esses métodos no **PushHandlerService** classe.
 
 6. Adicione o seguinte código para o **PushHandlerService** classe que substitui o **OnRegistered** manipulador de eventos.
 

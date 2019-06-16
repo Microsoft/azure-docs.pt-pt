@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61419159"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar matriz Virtual StorSimple - aprovisionamento no VMware
@@ -131,7 +131,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 18. Sobre o **versão do Virtual Machine** página, selecione **versão da Máquina Virtual: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. Sobre o **sistema operativo convidado** página, selecione a **sistema operativo convidado** como **Windows**. Para **versão**, na lista pendente, selecione **Microsoft Windows Server 2012 (64-bit)**.
+19. Sobre o **sistema operativo convidado** página, selecione a **sistema operativo convidado** como **Windows**. Para **versão**, na lista pendente, selecione **Microsoft Windows Server 2012 (64-bit)** .
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. Na **CPUs** página, ajustar a **número de soquetes virtual** e **número de núcleos por virtual socket** para que o **número Total de núcleos** é 4 (ou mais). Clique em **Seguinte**.

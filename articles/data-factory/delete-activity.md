@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346348"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Eliminar a atividade de Azure Data Factory
@@ -82,7 +82,7 @@ Seguem-se algumas recomendações para usar a atividade de eliminação:
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | Conjunto de dados | Fornece a referência de conjunto de dados para determinar quais arquivos ou a pasta a eliminar | Sim |
-| recursiva | Indica se os ficheiros são eliminado recursivamente das subpastas ou apenas a partir da pasta especificada.  | Não. A predefinição é `false`. |
+| recursive | Indica se os ficheiros são eliminado recursivamente das subpastas ou apenas a partir da pasta especificada.  | Não. A predefinição é `false`. |
 | maxConcurrentConnections | O número de ligações ao se conectar ao armazenamento de armazenamento em simultâneo para eliminar a pasta ou nos ficheiros.   |  Não. A predefinição é `1`. |
 | EnableLogging | Indica se é preciso registe os nomes de pasta ou ficheiro tem sido eliminados. Se for VERDADEIRO, terá de fornecer ainda mais uma conta de armazenamento para guardar o ficheiro de registo, para que pode controlar os comportamentos da atividade de eliminação ao ler o ficheiro de registo. | Não |
 | logStorageSettings | Apenas aplicável quando enablelogging = true.<br/><br/>Um grupo de propriedades de armazenamento que pode ser especificado em que pretende guardar o ficheiro de registo que contém os nomes de ficheiro ou pasta que tenham sido excluídos até a atividade de eliminação. | Não |
@@ -117,10 +117,10 @@ Existem dois locais onde pode ver e monitorizar os resultados da atividade de el
 
 | Name | Category | Estado | Erro |
 |:--- |:--- |:--- |:--- |
-| test1/yyy.json | Ficheiro | Eliminada |  |
-| test2/hello789.txt | Ficheiro | Eliminada |  |
-| test2/test3/hello000.txt | Ficheiro | Eliminada |  |
-| test2/test3/zzz.json | Ficheiro | Eliminada |  |
+| test1/yyy.json | Ficheiro | Eliminado |  |
+| test2/hello789.txt | Ficheiro | Eliminado |  |
+| test2/test3/hello000.txt | Ficheiro | Eliminado |  |
+| test2/test3/zzz.json | Ficheiro | Eliminado |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Exemplos de como utilizar a atividade de eliminação
 
@@ -143,7 +143,7 @@ Agora está a utilizar a atividade de eliminação para eliminar a pasta ou nos 
 
 Pode criar um pipeline para limpar periodicamente a pasta de particionada de tempo ou ficheiros.  Por exemplo, a estrutura de pastas é semelhante a como: `/mycontainer/2018/12/14/*.csv`.  Pode aproveitar a variável do sistema ADF do acionador de agenda para identificar qual pasta ou nos ficheiros devem ser eliminados em cada execução de pipeline. 
 
-#### <a name="sample-pipeline"></a>Pipeline de exemplo
+#### <a name="sample-pipeline"></a>Exemplo de pipeline
 
 ```json
 {
@@ -263,7 +263,7 @@ Pode criar um pipeline para limpar periodicamente a pasta de particionada de tem
 
 Pode criar um pipeline para limpar os arquivos antigos ou expirados ao tirar partido do filtro de atributo de ficheiro: "LastModified" no conjunto de dados.  
 
-#### <a name="sample-pipeline"></a>Pipeline de exemplo
+#### <a name="sample-pipeline"></a>Exemplo de pipeline
 
 ```json
 {
@@ -328,7 +328,7 @@ Pode mover um ficheiro com uma atividade de cópia para copiar um ficheiro e, em
 > [!NOTE]
 > Se pretender mover toda a pasta definindo um conjunto de dados que contém apenas um caminho de pasta e, em seguida, utilizar uma atividade de cópia e uma atividade Delete para fazer referência ao mesmo conjunto de dados que representa uma pasta, precisa ter muito cuidado. É porque tem para se certificar de que não haverá novos ficheiros que estão a chegar para a pasta entre a operação de cópia e a eliminar a operação.  Se existirem novos ficheiros que estão a chegar na pasta neste momento, quando sua atividade de cópia acabou de concluir a tarefa de cópia, a atividade de eliminação não foi stared, mas, é possível que a atividade de eliminação irá eliminar este novo ficheiro que são recebido que não foi copiado para o destinati no ainda ao eliminar a pasta inteira. 
 
-#### <a name="sample-pipeline"></a>Pipeline de exemplo
+#### <a name="sample-pipeline"></a>Exemplo de pipeline
 
 ```json
 {
@@ -573,4 +573,4 @@ Conjunto de dados para o destino dos dados utilizado pela atividade de cópia.
 
 Saiba mais sobre como mover ficheiros no Azure Data Factory.
 
--   [Ferramenta copiar dados no Azure Data Factory](copy-data-tool.md)
+-   [Ferramenta Copiar Dados no Azure Data Factory](copy-data-tool.md)

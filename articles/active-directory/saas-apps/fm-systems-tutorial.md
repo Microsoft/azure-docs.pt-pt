@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: dda1447a049071a0871079f2cabd046ed7c479d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62e800a5ac1e1e001e5d4ef328a80c554d007182
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65770156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integração do Active Directory do Azure com FM:Systems
 
@@ -52,7 +52,7 @@ Para configurar a integração do FM:Systems com o Azure AD, terá de adicionar 
 
 **Para adicionar FM:Systems a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -197,7 +197,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
    
     b. Clique em **Seguinte**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
 ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152942"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Criar um acionador que é executado um pipeline numa janela em cascata
@@ -74,7 +74,7 @@ Uma janela em cascata tem as seguintes propriedades de tipo de Acionador:
 
 A tabela seguinte fornece uma visão geral dos principais elementos JSON que estão relacionados com a periodicidade e o agendamento de um acionador de janela em cascata:
 
-| Elemento JSON | Descrição | Type | Valores permitidos | Necessário |
+| Elemento JSON | Descrição | Tipo | Valores permitidos | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | O tipo de Acionador. O tipo é o valor fixo "TumblingWindowTrigger." | String | "TumblingWindowTrigger" | Sim |
 | **runtimeState** | O estado atual do acionador de tempo de execução.<br/>**Nota**: Este elemento está \<só de leitura >. | String | "Iniciado", "parada" "Desativada" | Sim |

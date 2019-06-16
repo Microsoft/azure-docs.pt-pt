@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 06/06/2019
 ms.author: yluiu
-ms.openlocfilehash: 63f705061db7c89a80578e741d02ab8f8b1041c2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a7667f94d3f4dea2901c4b4b0e2b2c893b9f535e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917103"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074101"
 ---
 # <a name="face-api-release-notes"></a>Notas de versão de API de rostos
 
 Este artigo diz respeito à versão do serviço de API de rostos de 1.0.
+
+### <a name="release-changes-in-june-2019"></a>Lance as alterações de Junho de 2019
+
+* Adicionado um novo modelo de deteção de rostos com maior precisão no pequeno, do lado do Vista, occluded e indistinta rostos. Usá-lo por meio [enfrentam – detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup pessoa - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) e o [LargePersonGroup pessoa - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) especificando o novo nome de modelo de deteção de rostos `detection_02` no `detectionModel` parâmetro. Obter mais detalhes no [como especificar um modelo de deteção](Face-API-How-to-Topics/specify-detection-model.md).
 
 ### <a name="release-changes-in-april-2019"></a>Alterações de lançamento em Abril de 2019
 

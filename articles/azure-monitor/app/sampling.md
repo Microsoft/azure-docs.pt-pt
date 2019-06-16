@@ -14,10 +14,10 @@ ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
 ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388379"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights

@@ -14,10 +14,10 @@ ms.date: 03/10/2019
 ms.author: cephalin;byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: b054e56afdec65ac000b0dc18a0c1a3fd845b4c3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955988"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implementação para o serviço de aplicações do Azure
@@ -33,7 +33,7 @@ Pode configurar as suas credenciais de nível de usuário em qualquer aplicaçã
 
 Para configurar as suas credenciais de nível de usuário:
 
-1. Na [portal do Azure](https://portal.azure.com), no menu à esquerda, clique em **dos serviços de aplicações** > **&lt;any_app >** > **implementação centro** > **credenciais de implementação**.
+1. Na [portal do Azure](https://portal.azure.com), no menu à esquerda, clique em **dos serviços de aplicações** >  **&lt;any_app >**  > **implementação centro** > **credenciais de implementação**.
 
     No portal, tem de ter pelo menos uma aplicação antes de poder aceder a página de credenciais de implementação. No entanto, com o [CLI do Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), pode configurar as credenciais de nível de usuário sem uma aplicação existente.
 
@@ -63,7 +63,7 @@ Uma vez que as credenciais de nível de usuário são associadas ao usuário e n
 ## <a name="appscope"></a>Obter e repor as credenciais de ao nível da aplicação
 Para obter as credenciais ao nível da aplicação:
 
-1. Na [portal do Azure](https://portal.azure.com), no menu à esquerda, clique em **dos serviços de aplicações** > **&lt;any_app >** > **implementação centro** > **credenciais de implementação**.
+1. Na [portal do Azure](https://portal.azure.com), no menu à esquerda, clique em **dos serviços de aplicações** >  **&lt;any_app >**  > **implementação centro** > **credenciais de implementação**.
 
 2. Clique em **aplicação credenciais**e clique nas **cópia** ligação para copiar o nome de utilizador ou palavra-passe.
 

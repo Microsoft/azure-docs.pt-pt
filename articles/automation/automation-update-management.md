@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4df40febefa872fa52afdfaaf31b94dba7000af5
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729489"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075508"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -45,7 +45,7 @@ Depois de um computador realiza uma análise de conformidade de atualização, o
 
 Além do agendamento da análise, a análise da compatibilidade de atualização é iniciada dentro de 15 minutos do MMA ser reiniciado, antes da instalação da atualização e após a instalação de atualização.
 
-Para um computador Linux, a análise de conformidade é realizada em três horas por predefinição. Se o agente MMA ser reiniciado, é iniciada uma análise de conformidade em 15 minutos.
+Para um computador Linux, a análise de conformidade é realizada por hora por predefinição. Se o agente MMA ser reiniciado, é iniciada uma análise de conformidade em 15 minutos.
 
 A solução de relatórios como atualizados, o computador baseia-se a origem com a qual estão configurados para sincronizar com. Se o computador do Windows estiver configurado para reportar para o WSUS, dependendo de quando um WSUS última sincronização com o Microsoft Update, os resultados podem divergir o que mostra o Microsoft Updates. Este comportamento é o mesmo para computadores Linux que estão configurados para reportar a um repositório local, em vez de para um repositório público.
 
@@ -303,7 +303,7 @@ Gestão de atualizações que se baseia no Windows Update para transferir e inst
 
 ### <a name="pre-download-updates"></a>Atualizações de transferências de pré
 
-Para configurar automaticamente a transferir atualizações na diretiva de grupo, pode definir o [definição configurar atualizações automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) ao **3**. Transfere as atualizações necessárias em segundo plano, mas não instalá-los. Isso mantém o gerenciamento de atualizações no controlo de agendas, mas permitir atualizações transferir fora da janela de manutenção de gestão de atualizações. Isso pode impedir **janela de manutenção excedida** erros na gestão de atualizações.
+Para configurar automaticamente a transferir atualizações na diretiva de grupo, pode definir o [definição configurar atualizações automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) ao **3**. Transfere as atualizações necessárias em segundo plano, mas não instalá-los. Isso mantém o gerenciamento de atualizações no controlo de agendas, mas permitir atualizações transferir fora da janela de manutenção de gestão de atualizações. Isso pode impedir **janela de manutenção excedida** erros na gestão de atualizações.
 
 Também pode definir isso com o PowerShell, execute o PowerShell seguinte num sistema que pretende transferir automaticamente as atualizações.
 

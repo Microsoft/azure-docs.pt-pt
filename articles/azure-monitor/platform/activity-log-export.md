@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248148"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o registo de atividades do Azure para armazenamento ou Hubs de eventos do Azure
@@ -156,7 +156,7 @@ Se já existir um perfil de registo, tem primeiro de remover o perfil de registo
     | --- | --- | --- |
     | name |Sim |Nome do seu perfil de registo. |
     | storage-account-id |Sim |ID de recurso da conta do Storage para o qual os registos de atividades devem ser salvos. |
-    | localizações |Sim |Lista de regiões para o qual pretende recolher eventos de registo de atividades separadas por espaços. Pode ver uma lista de todas as regiões para a sua subscrição com `az account list-locations --query [].name`. |
+    | locations |Sim |Lista de regiões para o qual pretende recolher eventos de registo de atividades separadas por espaços. Pode ver uma lista de todas as regiões para a sua subscrição com `az account list-locations --query [].name`. |
     | days |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 365. Um valor igual a zero irá armazenar os registos indefinidamente (Eterno).  Se zero, em seguida, o parâmetro ativado deve ser definido como true. |
     |enabled | Sim |VERDADEIRO ou FALSO.  Utilizado para ativar ou desativar a política de retenção.  Se for VERDADEIRO, o parâmetro de dias tem de ser um valor maior que 0.
     | categories |Sim |Lista de categorias de evento que deve ser coletado separadas por espaços. Valores possíveis são escrita, eliminação e ação. |
@@ -235,9 +235,9 @@ Os elementos neste JSON são descritos na tabela seguinte.
 | callerIpAddress |Endereço IP do utilizador que efetuou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. |
 | correlationId |Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
 | identidade |Blob JSON que descrevem a autorização e afirmações. |
-| Autorização |Blob de propriedades RBAC do evento. Normalmente, inclui as propriedades de "action", "função" e "escopo". |
+| authorization |Blob de propriedades RBAC do evento. Normalmente, inclui as propriedades de "action", "função" e "escopo". |
 | nível |Nível do evento. Um dos seguintes valores: _Crítico_, _erro_, _aviso_, _informativa_, e _verboso_ |
-| location |Região em que ocorreu a localização (ou global). |
+| localização |Região em que ocorreu a localização (ou global). |
 | properties |Conjunto de `<Key, Value>` pares (ou seja, dicionário), que descreve os detalhes do evento. |
 
 > [!NOTE]

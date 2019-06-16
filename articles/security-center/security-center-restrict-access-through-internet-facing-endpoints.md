@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: b736bb5549b7d236e746ba7b161cde79209e927b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60906586"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>Restringir o acesso através de pontos finais de acesso à Internet no Centro de segurança do Azure
@@ -34,7 +34,7 @@ Esta recomendação é gerada para qualquer porta não web que tenha "qualquer" 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 1. Na **painel recomendações**, selecione **restringir o acesso através da Internet destinada ao ponto final**.
 
-   ![Restringir o acesso através de um ponto final com acesso à Internet][1]
+   ![Restringir o acesso através da Internet destinada ao ponto final][1]
 2. Esta ação abre o painel **restringir o acesso através da Internet destinada ao ponto final**. Este painel apresenta uma lista as máquinas virtuais (VMs) com as regras de entrada que criam um potencial problema de segurança. Selecione uma VM.
 
    ![Selecione uma VM][2]

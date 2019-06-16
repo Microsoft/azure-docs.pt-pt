@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877827"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com a REST API
@@ -35,7 +35,7 @@ Neste artigo, saiba mais sobre como utilizar a API REST para fazer a autenticaç
 
 * **Criar uma aplicação de "Nativa" do Azure Active Directory**. Tem de ter concluído os passos em [autenticação de utilizador final com geração 1 de armazenamento do Data Lake com o Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](https://curl.haxx.se/)**. Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a uma conta de geração 1 de armazenamento do Data Lake.
+* **[cURL](https://curl.haxx.se/)** . Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a uma conta de geração 1 de armazenamento do Data Lake.
 
 ## <a name="end-user-authentication"></a>Autenticação de utilizador final
 Autenticação de utilizador final é a abordagem recomendada, se pretender que um utilizador inicie sessão sua aplicação utilizar o Azure AD. Seu aplicativo é capaz de aceder aos recursos do Azure com o mesmo nível de acesso que o utilizador com sessão iniciada. O utilizador precisa de fornecer as credenciais periodicamente por ordem para a sua aplicação manter o acesso.
@@ -49,7 +49,7 @@ Neste cenário, a aplicação pede ao utilizador para iniciar sessão e todas as
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > \<REDIRECT-URI> tem de estar codificado para utilização num URL. Assim, para https://localhost, utilize `https%3A%2F%2Flocalhost`)
+   > \<REDIRECT-URI> tem de estar codificado para utilização num URL. Assim, para https://localhost , utilize `https%3A%2F%2Flocalhost` )
 
     Para o objetivo deste tutorial, pode substituir os valores de marcador de posição no URL acima e colá-lo na barra de endereço do browser. Será redirecionado para a autenticação utilizando o seu início de sessão do Azure. Depois de iniciar sessão com êxito, a resposta é apresentada na barra de endereço do browser. A resposta estará no seguinte formato:
 

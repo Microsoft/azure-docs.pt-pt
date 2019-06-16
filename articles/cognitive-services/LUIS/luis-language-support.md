@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
 ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072367"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
@@ -49,20 +49,20 @@ LUIS compreende expressões com nos seguintes idiomas:
 
 Suporte de idiomas varia para [entidades pré-concebidas](luis-reference-prebuilt-entities.md) e [domínios pré-concebidos](luis-reference-prebuilt-domains.md).
 
-### <a name="chinese-support-notes"></a>* Notas de suporte chinês
+### <a name="chinese-support-notes"></a>\* Notas de suporte chinês
 
  - Na `zh-cn` cultura, LUIS espera que o caractere do chinês simplificado, em vez do conjunto de caracteres tradicional.
  - Os nomes de objetivos, entidades, funcionalidades e as expressões regulares podem ser em chinês ou numeral carateres.
  - Consulte a [referência de domínios pré-concebidos](luis-reference-prebuilt-domains.md) para obter informações em que são suportados domínios pré-concebidos a `zh-cn` cultura.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
-### <a name="japanese-support-notes"></a>* Notas de suporte japonês
+### <a name="japanese-support-notes"></a>\* Notas de suporte japonês
 
  - Como o LUIS não fornece análise sintática e não saberá a diferença entre Keigo e japonês informal, tem de incorporar os diferentes níveis de formalidade como exemplos de treinamento para as suas aplicações.
      - でございます não é o mesmo que です.
      - です não é o mesmo que だ.
 
-### <a name="text-analytics-support-notes"></a>* * Notas de suporte de análise de texto
+### <a name="text-analytics-support-notes"></a>\* * Notas de suporte de análise de texto
 Análise de texto inclui keyPhrase pré-criados de análise de sentimentos e entidades. Português apenas é suportado para subcultures: `pt-PT` e `pt-BR`. Todas as outras culturas são suportadas ao nível da cultura principal. Saiba mais sobre a análise de texto [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages).
 
 ### <a name="speech-api-supported-languages"></a>Idiomas suportado de API de voz

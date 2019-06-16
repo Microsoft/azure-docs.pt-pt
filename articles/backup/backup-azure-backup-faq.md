@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
 ms.openlocfilehash: a0a2bc58603a81ba23ff3f1feb05f4d2350cfe72
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66688737"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes

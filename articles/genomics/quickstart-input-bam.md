@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 329ac374edbffa65a1b654a05a4934828f25d5de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60780847"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Submeter um fluxo de trabalho através de entradas de ficheiros BAM
@@ -21,7 +21,7 @@ ms.locfileid: "60780847"
 Este artigo demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics se o ficheiro de entrada for um único ficheiro BAM. Este tópico pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Azure. Se tiver submetido com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, está pronto para continuar com este artigo. 
 
 ## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configure: Carregar o ficheiro BAM para o armazenamento do Azure
-Vamos supor que tem um único ficheiro BAM, *reads.bam*, e o carregou para a sua conta de armazenamento *myaccount* no Azure como **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>**. Tem o URL da API e a chave de acesso. Quer ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
+Vamos supor que tem um único ficheiro BAM, *reads.bam*, e o carregou para a sua conta de armazenamento *myaccount* no Azure como **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>** . Tem o URL da API e a chave de acesso. Quer ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
 
 
 

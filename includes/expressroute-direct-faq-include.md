@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ab74c331bdc8b72612aa848688e1de080314337a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170689"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133324"
 ---
 ### <a name="what-is-expressroute-direct"></a>O que é direta do ExpressRoute?
 
@@ -28,11 +28,10 @@ Clientes precisam trabalhar com as respetivas operadoras locais e fornecedores d
 As portas disponíveis serão dinâmicas e estarão disponíveis através do PowerShell para ver a capacidade. Locais incluem e *estão sujeitos a alterações com base na disponibilidade*:
 
 * Amesterdão
-* Camberra
 * Chicago
-* Washington, D.C.
+* Washington DC
 * Dallas 
-* R.A.E. Hong Kong
+* RAE de Hong Kong
 * Londres
 * Los Angeles
 * New York City
@@ -41,7 +40,7 @@ As portas disponíveis serão dinâmicas e estarão disponíveis através do Pow
 * Toronto
 * San Antonio
 * Seattle
-* Seul
+* Seoul
 * Silicon Valley
 * Singapura 
 * Sydney

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc142bf02a44ea85861f4cc648fd7ee8602c7520
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 08108a1718ee917a317b4864de81959ae139eaa5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896874"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mondaycom"></a>Tutorial: Integração do Active Directory do Azure com monday.com
 
@@ -154,7 +154,7 @@ Nesta secção, irá configurar o Azure AD início de sessão único com monday.
 
        ![As afirmações de utilizador de gerir](common/new-attribute-details.png)
 
-1. Na **definir a segurança de início de sessão único com o SAML** painel, em **certificado de assinatura SAML**, selecione **transferir** junto a **certificado (Base64)**. Selecione uma opção de download com base nos seus requisitos. Guarde o certificado no seu computador.
+1. Na **definir a segurança de início de sessão único com o SAML** painel, em **certificado de assinatura SAML**, selecione **transferir** junto a **certificado (Base64)** . Selecione uma opção de download com base nos seus requisitos. Guarde o certificado no seu computador.
 
     ![A opção de download de certificado (Base64)](common/certificatebase64.png)
 
@@ -186,7 +186,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
     1. Na **Name** , introduza **BrittaSimon**.
   
-    1. Na **nome de utilizador** , introduza **brittasimon\@\<seu domínio da empresa >.\< extensão >**. Por exemplo, **brittasimon\@contoso.com**.
+    1. Na **nome de utilizador** , introduza **brittasimon\@\<seu domínio da empresa >.\< extensão >** . Por exemplo, **brittasimon\@contoso.com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação. Anote o valor que é apresentado no **palavra-passe** caixa.
 
@@ -224,7 +224,7 @@ Nesta secção, concede acesso de Eduarda Almeida a monday.com para que ela pode
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado no aplicativo monday.com. Monday.com suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no monday.com, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal as minhas aplicações.
 

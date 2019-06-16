@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61322741"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente do IoT Edge e aos duplos de módulo do IoT Edge hub
@@ -34,7 +34,7 @@ O módulo duplo do agente do IoT Edge é chamado `$edgeAgent` e coordena as comu
 | runtime.settings.loggingOptions | Um JSON em cadeias de contentor que contém as opções de registo do contentor de agente do IoT Edge. [Opções de registo do docker](https://docs.docker.com/engine/admin/logging/overview/) | Não |
 | runtime.settings.registryCredentials<br>. .username {registryId} | O nome de utilizador do registo de contentor. No Azure Container Registry, o nome de utilizador é normalmente o nome do registo.<br><br> As credenciais do registo são necessárias para imagens qualquer módulo que não são públicas. | Não |
 | runtime.settings.registryCredentials<br>. .password {registryId} | A palavra-passe para o registo de contentor. | Não |
-| runtime.settings.registryCredentials<br>. .address {registryId} | O endereço do registo de contentor. No Azure Container Registry, o endereço é normalmente *, como, de {nome do registo}*. | Não |  
+| runtime.settings.registryCredentials<br>. .address {registryId} | O endereço do registo de contentor. No Azure Container Registry, o endereço é normalmente *, como, de {nome do registo}* . | Não |  
 | systemModules.edgeAgent.type | Tem de ser "docker" | Sim |
 | systemModules.edgeAgent.settings.image | O URI da imagem do agente do IoT Edge. Atualmente, o agente do IoT Edge não é possível se Atualize automaticamente. | Sim |
 | systemModules.edgeAgent.settings<br>.createOptions | Um JSON em cadeias de contentor que contém as opções para a criação do contentor de agente do IoT Edge. [Opções de criação de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |

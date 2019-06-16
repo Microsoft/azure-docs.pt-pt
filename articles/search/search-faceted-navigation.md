@@ -10,10 +10,10 @@ ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65793626"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Um parâmetro de consulta de faceta está definido como um campo e consoante o tipo de dados, pode ser ainda mais parametrizada por lista delimitada por vírgulas que inclua `count:<integer>`, `sort:<>`, `interval:<integer>`, e `values:<list>`. Uma lista de valores é suportada para dados numéricos, na configuração de intervalos. Ver [documentos sobre pesquisa (API do Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para detalhes de utilização.
 
-Juntamente com as facetas, a solicitação formulada pelo seu aplicativo também deve criar filtros para limitar o conjunto de documentos de candidatos com base numa seleção de valor de faceta. Para uma loja de bicicletas, navegação por facetas fornece pistas para perguntas, como *que as cores, os fabricantes e tipos de bicicletas estão disponíveis?*. Filtragem de respostas a perguntas como *quais bicicletas exatas são red, bicicletas de montanha, neste de preço intervalo?*. Quando clicar em "Red" para indicar que apenas os produtos de vermelhos devem ser mostrados, a consulta seguinte, a aplicação envia inclui `$filter=Color eq ‘Red’`.
+Juntamente com as facetas, a solicitação formulada pelo seu aplicativo também deve criar filtros para limitar o conjunto de documentos de candidatos com base numa seleção de valor de faceta. Para uma loja de bicicletas, navegação por facetas fornece pistas para perguntas, como *que as cores, os fabricantes e tipos de bicicletas estão disponíveis?* . Filtragem de respostas a perguntas como *quais bicicletas exatas são red, bicicletas de montanha, neste de preço intervalo?* . Quando clicar em "Red" para indicar que apenas os produtos de vermelhos devem ser mostrados, a consulta seguinte, a aplicação envia inclui `$filter=Color eq ‘Red’`.
 
 O seguinte fragmento de código do `JobsSearch.cs` página adiciona o título de negócio selecionada para o filtro, se selecionar um valor de faceta o título de negócios.
 
@@ -395,7 +395,7 @@ A demonstração de Portal do Azure Search tarefa contém exemplos referenciados
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 Assista [aprofunde-se o Azure Search](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). No 45:25, existe uma demonstração sobre como implementar facetas.
 
 Para obter mais informações sobre os princípios de design para navegação por facetas, recomendamos as seguintes ligações:

@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164650"
 ---
 Máquinas virtuais do Azure (VMs) passar por Estados diferentes que podem ser categorizados em *aprovisionamento* e *power* Estados. O objetivo deste artigo é descrever esses Estados e realçar especificamente quando os clientes são faturados por exemplo utilização. 
@@ -153,7 +153,7 @@ Faturação da utilização de instância
 
 &#42;Alguns recursos do Azure, tais como discos e redes, incorrer em custos. Licenças de software na instância não incorrem em custos.
 
-## <a name="provisioning-states"></a>A aprovisionar estados
+## <a name="provisioning-states"></a>A aprovisionar Estados
 
 Estado de aprovisionamento é o estado de uma operação iniciada pelo utilizador, plano de controlo na VM. Esses Estados são separados do Estado de energia de uma VM.
 

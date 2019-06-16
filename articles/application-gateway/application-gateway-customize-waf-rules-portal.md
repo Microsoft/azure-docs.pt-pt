@@ -7,10 +7,10 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
 ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720393"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalizar regras de firewall de aplicações web através do portal do Azure

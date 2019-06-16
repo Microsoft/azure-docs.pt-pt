@@ -6,20 +6,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 6fecd2278ddad4de3a2cff9035d60083101e873e
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 06/12/2019
+ms.openlocfilehash: d24686a094c524c5ce913eee4b711daf1c60100d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393843"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67130619"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>O que é o serviços de ML no Azure HDInsight
 
 Microsoft Machine Learning Server está disponível como uma opção de implementação quando criar clusters do HDInsight no Azure. O tipo de cluster que fornece esta opção é chamado **serviços ML**. Esta capacidade fornece cientistas de dados, estatísticos e programadores de R com acesso a pedido dimensionável, distribuído métodos de análise no HDInsight.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Serviços de ML no HDInsight oferece as capacidades mais recentes para análise baseada em R em conjuntos de dados de virtualmente qualquer tamanho, carregado para o armazenamento de Blobs do Azure ou o Data Lake. Uma vez que o cluster de serviços de ML baseia-se em R de código aberto, os aplicativos baseados em R que criar podem tirar partido de qualquer os 8000 + aberto pacotes R. As rotinas de ScaleR, o pacote de análise de macrodados da Microsoft também estão disponíveis.
 

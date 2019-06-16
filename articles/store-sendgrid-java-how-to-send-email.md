@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 0cb75c1acb731432ed524560698e3355699b2500
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60931216"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar E-mails com o SendGrid de Java
@@ -104,7 +104,7 @@ O código a seguir mostra como especificar valores para uma mensagem de e-mail.
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## <a name="how-to-send-an-email"></a>Como: Enviar uma mensagem de e-mail
+## <a name="how-to-send-an-email"></a>Como: Enviar um e-mail
 O código a seguir mostra como enviar uma mensagem de e-mail.
 
     Transport transport = mailSession.getTransport();

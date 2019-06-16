@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 65e94a271fc8fc72ac74d51af3cf7b717f8410b0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f3c1331e2b005b136a015c537d0fc18406ca9d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072094"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Crie manualmente e usar um volume com a partilha de ficheiros do Azure no Azure Kubernetes Service (AKS)
@@ -71,7 +71,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Montar a partilha de ficheiros como um volume
 
-Para montar a partilha de ficheiros do Azure no seu pod, configure o volume na especificação do contentor. Crie um novo ficheiro designado `azure-files-pod.yaml` com o seguinte conteúdo. Se tiver alterado o nome da partilha de ficheiros ou nome do segredo, atualize o *shareName* e *secretName*. Se assim o desejar, atualize o `mountPath`, que é o caminho onde os ficheiros partilham esteja montada no pod.
+Para montar a partilha de ficheiros do Azure no seu pod, configure o volume na especificação do contentor. Crie um novo ficheiro designado `azure-files-pod.yaml` com o seguinte conteúdo. Se tiver alterado o nome da partilha de ficheiros ou nome do segredo, atualize o *shareName* e *secretName*. Se assim o desejar, atualize o `mountPath`, que é o caminho onde os ficheiros partilham esteja montada no pod. Para o Windows Server contentores (atualmente em pré-visualização no AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, tal como *'D:'* .
 
 ```yaml
 apiVersion: v1
@@ -137,7 +137,7 @@ Volumes:
 
 Predefinido *fileMode* e *dirMode* valores diferentes entre versões do Kubernetes, conforme descrito na tabela seguinte.
 
-| versão | value |
+| version | value |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |

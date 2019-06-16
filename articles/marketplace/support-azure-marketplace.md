@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: 496fef7cfd93004e77a710942cffabbf23d6b29a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937705"
 ---
 # <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
@@ -30,7 +30,7 @@ Abra um pedido com a Microsoft [suporte do publicador de marketplace](https://su
 |:--- |:--- |:--- |  
 | Para obter assistência, visite o criar uma página de incidente localizada em [suporte do Marketplace](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Suporte para o Portal de parceiros da Cloud. | O suporte é fornecido entre 6 da manhã - 6 pm PST. |  
 
-## <a name="technical"></a>Técnico  
+## <a name="technical"></a>Técnica  
 
 | Canal de suporte | Descrição |  
 |:--- |:--- |  

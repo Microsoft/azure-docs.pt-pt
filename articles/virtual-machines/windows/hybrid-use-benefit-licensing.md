@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 64eb89612765f9a47d0eaac2b9cbceb6341c4155
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64681292"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Software Assurance, o Azure híbrido benefício para o Windows Server permite-lhe utilizar as suas licenças do Windows Server no local e executar as máquinas virtuais do Windows no Azure a um custo reduzido. Pode utilizar o Azure híbrido benefício para o Windows Server para implementar novas máquinas virtuais com o SO Windows. Este artigo vai sobre os passos sobre como implementar novas VMs com o Azure híbrido benefício para o Windows Server e como pode atualizar existente VMs em execução. Para obter mais informações sobre o Azure híbrido benefício para o Windows Server poupanças de custos e licenciamento, consulte a [página de licenciamento do Azure híbrido benefício para o Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -36,7 +36,7 @@ Para clientes com Software Assurance, o Azure híbrido benefício para o Windows
 > Para VMs clássicas, a única implementação nova VM a partir em imagens personalizadas do local é suportado. Para tirar partido das capacidades de suportadas neste artigo, deve primeiro migrar VMs clássicas ao modelo do Resource Manager.
 >
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Formas de utilizar o Azure híbrido benefício para o Windows Server
 Existem algumas formas de utilizar as máquinas virtuais do Windows com o benefício híbrido do Azure:

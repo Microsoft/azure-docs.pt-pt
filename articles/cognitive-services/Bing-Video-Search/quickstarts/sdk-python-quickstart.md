@@ -10,14 +10,14 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: ae91deb5b49b0eb202175fdd242ef0d91975bb25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 27aa0012023f99702cd435f309e44b3330681aee
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798230"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67134988"
 ---
-#  <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Início rápido: Executar uma pesquisa de vídeos com o SDK de pesquisa de vídeos do Bing para Python
+# <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Início rápido: Executar uma pesquisa de vídeos com o SDK de pesquisa de vídeos do Bing para Python
 
 Utilize este guia de introdução para a pesquisa de notícias com o SDK de pesquisa de vídeos do Bing para Python. Embora a pesquisa de vídeos do Bing tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py). Ela contém mais anotações e funcionalidades.
 
@@ -33,7 +33,7 @@ Utilize este guia de introdução para a pesquisa de notícias com o SDK de pesq
 ```console
 python -m venv mytestenv
 ```
-   
+
 Instalar o SDK com de pesquisa de vídeos do Bing:
 
 ```console
@@ -50,8 +50,9 @@ python -m pip install azure-cognitiveservices-search-videosearch
     from azure.cognitiveservices.search.videosearch.models import VideoPricing, VideoLength, VideoResolution, VideoInsightModule
     from msrest.authentication import CognitiveServicesCredentials
     ```
+
 2. Crie uma variável para a sua chave de subscrição. 
-    
+
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
     ```
@@ -60,9 +61,9 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
 Crie uma instância do `CognitiveServicesCredentials`e instancie o cliente:
 
-    ```python
-    client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
-    ```
+```python
+client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
+```
 
 ## <a name="send-a-search-request-and-get-a-response"></a>Enviar um pedido de pesquisa e obter uma resposta
 
@@ -92,5 +93,5 @@ Crie uma instância do `CognitiveServicesCredentials`e instancie o cliente:
 
 ## <a name="see-also"></a>Consulte também 
 
-* [O que é a API de pesquisa de vídeos do Bing?](../overview.md)
-* [Exemplos de SDK .NET nos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+- [O que é a API de pesquisa de vídeos do Bing?](../overview.md)
+- [Exemplos de SDK .NET nos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

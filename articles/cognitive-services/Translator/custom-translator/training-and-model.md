@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-pawal
 ms.openlocfilehash: 530e87a84899b9659acd19f90c7c30ad3da3e7ba
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66382315"
 ---
 # <a name="what-are-trainings-and-models"></a>Quais são os modelos e treinamentos?

@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238823"
 ---
 #### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transações da chave (máximo de transações permitido dentro de 10 segundos, por cofre por região<sup>1</sup>):
 
 |Tipo de chave|Chave HSM<br>Criar chave|Chave HSM<br>Todas as outras transações|Chave de software<br>Criar chave|Chave de software<br>Todas as outras transações|
 |:---|---:|---:|---:|---:|
-|RSA 2.048 bits|5|1,000|10|2.000|
+|RSA 2.048 bits|5|1,000|10|2\.000|
 |RSA 3,072 bits|5|250|10|500|
 |RSA 4.096 bits|5|125|10|250|
-|P-256 ECC|5|1,000|10|2.000|
-|ECC P-384|5|1,000|10|2.000|
-|P-521 ECC|5|1,000|10|2.000|
-|ECC SECP256K1|5|1,000|10|2.000|
+|P-256 ECC|5|1,000|10|2\.000|
+|ECC P-384|5|1,000|10|2\.000|
+|P-521 ECC|5|1,000|10|2\.000|
+|ECC SECP256K1|5|1,000|10|2\.000|
 
 > [!NOTE]
 > Na tabela anterior, Vemos que as chaves de software RSA 2.048 bits, são permitidas 2000 transações de GET por 10 segundos. Para chaves HSM de RSA 2.048 bits, são permitidas 1000 transações de GET por 10 segundos.
@@ -37,7 +37,7 @@ ms.locfileid: "66238823"
 #### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Segredos, chaves de conta de armazenamento gerido e as transações de cofre:
 | Tipo de transações | Transações máximas permitidas dentro de 10 segundos, por cofre por região<sup>1</sup> |
 | --- | --- |
-| Todas as transações |2.000 |
+| Todas as transações |2\.000 |
 
 Para obter informações sobre como resolver problemas de limitação quando estes limites são ultrapassados, consulte [orientações para a limitação do Azure Key Vault](../articles/key-vault/key-vault-ovw-throttling.md).
 

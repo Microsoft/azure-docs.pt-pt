@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11cb309e6c49ed36247398909e5e1b7ad9f7bc42
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891199"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integração do Active Directory do Azure com PageDNA
 
@@ -163,7 +163,7 @@ Nesta secção, vai criar um utilizador de teste no portal do Azure com o nome E
 
     1. Na **Name** , introduza **BrittaSimon**.
   
-    1. Na **nome de utilizador** , introduza **BrittaSimon\@\<yourcompanydomain >.\< extensão >**. Por exemplo, **BrittaSimon\@contoso.com**.
+    1. Na **nome de utilizador** , introduza **BrittaSimon\@\<yourcompanydomain >.\< extensão >** . Por exemplo, **BrittaSimon\@contoso.com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
@@ -199,7 +199,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Um usuário chamado Eduarda Almeida está agora criado no PageDNA. Não tem de fazer nada para criar este utilizador. PageDNA suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Se um usuário chamado Eduarda Almeida ainda não existir no PageDNA, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal as minhas aplicações.
 

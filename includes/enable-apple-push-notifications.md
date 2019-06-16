@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: 687a1963ca34f2b053b479ff92f7ccdcd80b5588
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140163"
 ---
 * [Registe-se um ID de aplicação para a sua aplicação](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Criar um ID de aplicação explícito (não um ID de aplicação de caráter universal) e, para **ID do pacote**, utilize o ID do pacote exata que esteja no seu projeto de início rápido do Xcode. Também é fundamental que selecione o **notificações Push** opção. 

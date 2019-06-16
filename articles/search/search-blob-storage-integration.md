@@ -10,10 +10,10 @@ manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
 ms.openlocfilehash: b6bb70e4c56adb162006d2597d301c73b12d2a8a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540879"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Pesquisar o armazenamento de Blobs com o Azure Search

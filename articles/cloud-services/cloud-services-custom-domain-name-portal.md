@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e210882cb773718f68e9178cbbce6874c2729744
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063621"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço cloud do Azure
-Quando cria um serviço em nuvem, o Azure atribui-lo a um subdomínio de **cloudapp.net**. Por exemplo, se o seu serviço Cloud com o nome "contoso", os utilizadores serão capazes de aceder à sua aplicação numa URL como http://contoso.cloudapp.net. O Azure também atribui um endereço IP virtual.
+Quando cria um serviço em nuvem, o Azure atribui-lo a um subdomínio de **cloudapp.net**. Por exemplo, se o seu serviço Cloud com o nome "contoso", os utilizadores serão capazes de aceder à sua aplicação numa URL como `http://contoso.cloudapp.net`. O Azure também atribui um endereço IP virtual.
 
 No entanto, também é possível expor a aplicação no seu próprio nome de domínio, tal como **contoso.com**. Este artigo explica como reserva ou configurar um nome de domínio personalizado para funções de web do serviço Cloud.
 
@@ -78,7 +78,7 @@ Para criar um registo CNAME, tem de adicionar uma nova entrada na tabela de DNS 
      Guarde o nome de domínio utilizado no URL devolvido por qualquer um dos métodos, pois irá precisar dele quando criar um registo CNAME.
 2. Inicie sessão no Web site do seu DNS da entidade de registo e vá para a página para a gestão de DNS. Procurar ligações ou áreas do site identificadas como **nome de domínio**, **DNS**, ou **nome do servidor de gestão**.
 3. Localize agora onde pode selecionar ou introduzir do CNAME. Poderá ter de selecionar o tipo de registo de um menu pendente ou ir para uma página de definições avançadas. Deve procurar as palavras **CNAME**, **Alias**, ou **subdomínios**.
-4. Tem também de fornecer o domínio ou subdomínio alias para o CNAME, tal como **www** se pretender criar um alias para **www\.customdomain.com**. Se pretender criar um alias para o domínio de raiz, poderá ser listado como o '**\@**"símbolo nas ferramentas DNS da entidade de registo.
+4. Tem também de fornecer o domínio ou subdomínio alias para o CNAME, tal como **www** se pretender criar um alias para **www\.customdomain.com**. Se pretender criar um alias para o domínio de raiz, poderá ser listado como o ' **\@** "símbolo nas ferramentas DNS da entidade de registo.
 5. Em seguida, tem de fornecer um nome de anfitrião canônico, que é o seu aplicativo **cloudapp.net** domínio neste caso.
 
 Por exemplo, o seguinte registo CNAME encaminha todo o tráfego dos **www\.contoso.com** para **contoso.cloudapp.net**, o nome de domínio personalizado da sua aplicação implementada:
@@ -113,7 +113,7 @@ Para criar um registo, tem primeiro de localizar o endereço IP virtual do seu s
 3. Localize agora onde pode selecionar ou introduzir um registo. Poderá ter de selecionar o tipo de registo de um menu pendente ou ir para uma página de definições avançadas.
 4. Selecione ou introduza o domínio ou subdomínio que irá utilizar este registo. Por exemplo, seleccione **www** se pretender criar um alias para **www\.customdomain.com**. Se quiser criar uma entrada de carateres universais para todos os subdomínios, introduza "***'. Este irá cobrir como todos os subdomínios **mail.customdomain.com**, **login.customdomain.com**, e **www\.customdomain.com**.
 
-    Se pretender criar um registo para o domínio de raiz, poderá ser listado como o '**\@**"símbolo nas ferramentas DNS da entidade de registo.
+    Se pretender criar um registo para o domínio de raiz, poderá ser listado como o ' **\@** "símbolo nas ferramentas DNS da entidade de registo.
 5. Introduza o endereço IP do seu serviço cloud no campo fornecido. Isso associa a entrada de domínio utilizada no registo com o endereço IP da sua implementação do serviço cloud.
 
 Por exemplo, o seguinte um registo por sua vez encaminha todo o tráfego dos **contoso.com** ao **137.135.70.239**, o endereço IP da sua aplicação implementada:

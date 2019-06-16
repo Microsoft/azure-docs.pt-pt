@@ -10,10 +10,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65234170"
 ---
 # <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
@@ -63,7 +63,7 @@ Nenhum.
 
 ---
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -220,7 +220,7 @@ Se quiser limpar os recursos criados por este artigo de procedimento, pode elimi
 Para remover um grupo de recursos através do portal do Azure:
 
 1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Grupos de Recursos**, para apresentar a lista dos seus grupos de recursos.
-2. Encontre o grupo de recursos a eliminar e clique com o botão direito do rato em **Mais** (**...** ) no lado direito da lista.
+2. Encontre o grupo de recursos a eliminar e clique com o botão direito do rato em **Mais** ( **...** ) no lado direito da lista.
 3. Selecione **Eliminar grupo de recursos** e confirme.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)

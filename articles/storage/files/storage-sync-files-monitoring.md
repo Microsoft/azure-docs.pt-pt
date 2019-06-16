@@ -9,10 +9,10 @@ ms.date: 01/31/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711645"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
@@ -27,7 +27,7 @@ As seguintes opções de monitorização estão atualmente disponíveis.
 
 No portal do Azure, pode ver o estado de funcionamento do servidor registado e métricas de estado de funcionamento do ponto final de servidor (estado de funcionamento de sincronização).
 
-### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
+### <a name="storage-sync-service"></a>Serviço de sincronização de armazenamento
 
 Para ver o estado de funcionamento do servidor registado e métricas de estado de funcionamento de ponto final de servidor, vá para o serviço de sincronização de armazenamento no portal do Azure. Pode ver o estado de funcionamento do servidor registado no **servidores registados** painel e servidor de ponto final estado de funcionamento no **sincronizar grupos** painel.
 
@@ -48,10 +48,10 @@ Métricas:
   | Nome da métrica | Descrição | Nome do painel |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (carregamento e transferência) | Grupo de sincronização, o ponto final do servidor |
-  | Lembre-se camadas da cloud | Tamanho dos dados recuperados | Servidores Registados |
-  | Os ficheiros não estão a sincronizar | Contagem de ficheiros que estão a falhar para sincronizar | Ponto final do servidor |
+  | Lembre-se camadas da cloud | Tamanho dos dados recuperados | Servidores registados |
+  | Ficheiros não sincronizar | Contagem de ficheiros que estão a falhar para sincronizar | Ponto final do servidor |
   | Ficheiros sincronizados | Contagem de ficheiros transferidos (carregamento e transferência) | Grupo de sincronização, o ponto final do servidor |
-  | Estado online do servidor | Contagem de heartbeats recebido do servidor | Servidores Registados |
+  | Estado online do servidor | Contagem de heartbeats recebido do servidor | Servidores registados |
 
 - Para obter mais informações, consulte [do Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
 
@@ -69,11 +69,11 @@ As métricas seguintes para o Azure File Sync estão disponíveis no Azure Monit
 | Nome da métrica | Descrição |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (carregamento e transferência).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
-| Lembre-se camadas da cloud | Tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do Servidor |
-| Os ficheiros não estão a sincronizar | Contagem de ficheiros que estão a falhar para sincronizar.<br><br>Unidade: Contagem<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+| Lembre-se camadas da cloud | Tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
+| Ficheiros não sincronizar | Contagem de ficheiros que estão a falhar para sincronizar.<br><br>Unidade: Count<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
 | Ficheiros sincronizados | Contagem de ficheiros transferidos (carregamento e transferência).<br><br>Unidade: Contagem<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
-| Estado online do servidor | Número de heartbeats recebido do servidor.<br><br>Unidade: Contagem<br>Tipo de agregação: Máximo<br>Dimensão aplicável: Nome do Servidor |
-| Resultado da sessão de sincronização | Resultado da sessão de sincronização (1 = a sincronização com êxito sessão; 0 = a sessão de sincronização com falha)<br><br>Unidade: Contagem<br>Tipos de agregação: Máximo<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+| Estado online do servidor | Número de heartbeats recebido do servidor.<br><br>Unidade: Count<br>Tipo de agregação: Máximo<br>Dimensão aplicável: Nome do servidor |
+| Resultado da sessão de sincronização | Resultado da sessão de sincronização (1 = a sincronização com êxito sessão; 0 = a sessão de sincronização com falha)<br><br>Unidade: Count<br>Tipos de agregação: Máximo<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
 
 ## <a name="windows-server"></a>Windows Server
 

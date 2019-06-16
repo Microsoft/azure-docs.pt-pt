@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60815112"
 ---
 # <a name="structured-query-expression"></a>Expressão de consulta estruturadas
@@ -29,7 +29,7 @@ Expressões de consulta estruturadas podem ser obtidas a partir [ *interpretar* 
 
 Uma expressão de consulta do atributo identifica um conjunto de objetos com base na correspondência em relação a um atributo específico.  Diferentes operações correspondentes são suportadas consoante o tipo de atributo e operação indexada especificado na [esquema](SchemaFormat.md):
 
-| Type | Operação | Exemplos |
+| Tipo | Operação | Exemplos |
 |------|-------------|------------|
 | String | é igual a | Title = "latente semântico analysis" (canônico + sinónimos) |
 | String | é igual a | Dos Author.Name=='susan t dumais (canônico apenas)|

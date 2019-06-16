@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157677"
 ---
 Crie uma ligação de ambiente de trabalho remoto para ligar a uma VM que é implementada nos VNet. A melhor forma de verificar que se pode ligar à sua VM é ligar com o respetivo endereço IP privado, em vez de seu nome de computador. Dessa forma, que está a testar para ver se pode ligar, não se a resolução de nomes está corretamente configurada. 

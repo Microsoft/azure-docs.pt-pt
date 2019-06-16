@@ -7,15 +7,16 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 3ca166b287858b3e42aeda1421d1733fe24c81ab
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7c7d7c480068b754413fd2309a2251d1e3855106
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075179"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Instruções de acompanhamento de utilização para criar vários folheio de uma conversa
 

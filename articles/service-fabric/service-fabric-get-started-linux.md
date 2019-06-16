@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470234"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
@@ -277,7 +277,7 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 
 2. Para instalar o plug-in do Service Fabric, selecione **Ajuda** > **Instalar Novo Software**.
 
-3. Na caixa **Compatível com**, escreva **https://dl.microsoft.com/eclipse**.
+3. Na caixa **Compatível com**, escreva **https://dl.microsoft.com/eclipse** .
 
 4. Selecione **Adicionar**.
 

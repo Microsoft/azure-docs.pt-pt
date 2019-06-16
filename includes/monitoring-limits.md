@@ -9,10 +9,10 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 050d3314345e64e3d69a07367a0e9acc318fa106
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66271539"
 ---
 | Resource | Limite predefinido | Limite máximo |
@@ -22,7 +22,7 @@ ms.locfileid: "66271539"
 | Alertas de métricas |1000 active regras de alerta por subscrição (em clouds públicas) e 100 regras de alertas ativas por subscrição do Azure China e Azure Government. | Contacte o suporte. |
 | Alertas do registo de atividades | 100 active regras de alerta por subscrição. | Mesmo que o padrão. |
 | Alertas de registo | 512 | Contacte o suporte. |
-| Grupos de ação |2.000 grupos de ação por subscrição. | Contacte o suporte. |
+| Grupos de ação |2\.000 grupos de ação por subscrição. | Contacte o suporte. |
 
 **Limites do grupo específico de ação**
 

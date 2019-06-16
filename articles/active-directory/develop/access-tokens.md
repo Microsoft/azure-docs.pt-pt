@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 355e61fdfd9847e54a4bd13ac3b0f2d416c05812
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962894"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111965"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso de plataforma de identidade do Microsoft
 
@@ -141,7 +141,7 @@ As identidades da Microsoft podem autenticar-se de diversas formas, que podem se
 | `rsa` | Autenticação tiveram como base a prova de uma chave RSA, por exemplo com o [aplicação Microsoft Authenticator](https://aka.ms/AA2kvvu). Isto inclui se a autenticação foi realizada por um JWT autoassinado com um serviço pertencentes à empresa X509 certificado. |
 | `otp` | O código de acesso através de uma mensagem de e-mail ou uma mensagem de texto único. |
 | `fed` | Foi utilizada uma asserção de autenticação federada (como JWT ou SAML). |
-| `wia` | Autenticação Integrada do Windows |
+| `wia` | Autenticação integrada do Windows |
 | `mfa` | Autenticação multifator foi utilizada. Quando ela estiver presente, os outros métodos de autenticação também serão incluídos. |
 | `ngcmfa` | Equivalente a `mfa`, utilizado para o aprovisionamento de certos tipos de credencial avançadas. |
 | `wiaormfa`| O utilizador utilizou o Windows ou uma credencial MFA para autenticar. |
@@ -233,12 +233,12 @@ Atualizar tokens podem ser invalidados ou revogados em qualquer altura, por dife
 |   | Cookies baseada em palavra-passe | Token baseado em palavra-passe | Cookie não-palavra-passe | Token de não-palavra-passe | Token de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | Palavra-passe expirar | Fique vivo | Fique vivo | Fique vivo | Fique vivo | Fique vivo |
-| Palavra-passe alterada pelo utilizador | Revogado | Revogado | Fique vivo | Fique vivo | Fique vivo |
-| Utilizador realiza SSPR | Revogado | Revogado | Fique vivo | Fique vivo | Fique vivo |
-| Administrador repõe a palavra-passe | Revogado | Revogado | Fique vivo | Fique vivo | Fique vivo |
-| Utilizador revoga os tokens de atualização [através do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revogado | Revogado | Revogado | Revogado | Revogado |
-| Administrador revoga todos os tokens de atualização para o inquilino [através do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revogado | Revogado |Revogado | Revogado | Revogado |
-| [Fim de sessão único](v1-protocols-openid-connect-code.md#single-sign-out) na web | Revogado | Fique vivo | Revogado | Fique vivo | Fique vivo |
+| Palavra-passe alterada pelo utilizador | Revoked | Revoked | Fique vivo | Fique vivo | Fique vivo |
+| Utilizador realiza SSPR | Revoked | Revoked | Fique vivo | Fique vivo | Fique vivo |
+| Administrador repõe a palavra-passe | Revoked | Revoked | Fique vivo | Fique vivo | Fique vivo |
+| Utilizador revoga os tokens de atualização [através do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
+| Administrador revoga todos os tokens de atualização para o inquilino [através do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
+| [Fim de sessão único](v1-protocols-openid-connect-code.md#single-sign-out) na web | Revoked | Fique vivo | Revoked | Fique vivo | Fique vivo |
 
 > [!NOTE]
 > Um início de sessão "não-palavra-passe com base" é aquele em que o utilizador não escreva uma palavra-passe para obtê-la. Por exemplo, utilizar o rosto com o Windows Hello, uma chave de FIDO ou um PIN.

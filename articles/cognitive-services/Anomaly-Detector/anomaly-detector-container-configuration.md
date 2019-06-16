@@ -3,18 +3,18 @@ title: Configurar contentores - detetor de anomalias
 titleSuffix: Azure Cognitive Services
 description: O ambiente de tempo de execução de contentores detetor de anomalias é configurado usando o `docker run` argumentos de comando. Este contentor tem várias definições necessárias, juntamente com algumas configurações opcionais.
 services: cognitive-services
-author: aahill
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/07/2019
-ms.author: aahi
-ms.openlocfilehash: 0d09ce29aa5431de3eb82e5d9fe7440d4e3352e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 8e6f7e33bf8bae3bc76074093167650813d76a8b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026393"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073340"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contentores detetor de anomalias
 

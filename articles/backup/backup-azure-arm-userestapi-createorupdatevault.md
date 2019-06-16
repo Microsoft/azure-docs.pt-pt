@@ -11,10 +11,10 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60646712"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar cofre dos serviços de recuperação do Azure com a REST API
@@ -36,7 +36,7 @@ Os seguintes cabeçalhos são necessários:
 | Cabeçalho do pedido   | Descrição |
 |------------------|-----------------|
 | *Content-Type:*  | Necessário. Definido como `application/json`. |
-| *Autorização:* | Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Para obter mais informações sobre como criar o pedido, consulte [componentes de uma REST API de solicitação/resposta](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -49,8 +49,8 @@ As seguintes definições comuns são utilizadas para criar um corpo de pedido:
 |eTag     |         |   String      |  ETag opcional       |
 |localização     |  true       |String         |   Localização do recurso      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do Cofre       |
-|sku     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador de sistema exclusivo de cada recurso do Azure     |
-|etiquetas     |         | Object        |     Etiquetas de recursos    |
+|SKU     |         |  [Sku](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador de sistema exclusivo de cada recurso do Azure     |
+|tags     |         | Object        |     Etiquetas de recursos    |
 
 Tenha em atenção que o nome do cofre e o nome do grupo de recursos são fornecidos no URI de PUT. O corpo do pedido define o local.
 
@@ -68,7 +68,7 @@ O corpo de exemplo seguinte é utilizado para criar um cofre em "E.U.A. Oeste". 
 }
 ```
 
-## <a name="responses"></a>Respostas
+## <a name="responses"></a>Responses
 
 Existem duas respostas com êxito para a operação criar ou atualizar um cofre dos serviços de recuperação:
 

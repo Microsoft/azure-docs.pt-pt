@@ -19,12 +19,12 @@ ms.author: joflore
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353181"
+ms.locfileid: "67110673"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
 
@@ -85,7 +85,7 @@ Sob determinadas condições, Roaming de estado empresarial pode não conseguir 
 
 **Problema em potencial**: Se o dispositivo estiver configurado para requerer o multi-factor Authentication no portal do Azure Active Directory, poderá falhar sincronizar definições ao iniciar sessão num dispositivo Windows 10 com uma palavra-passe. Destina-se este tipo de configuração de multi-factor Authentication para proteger uma conta de administrador do Azure. Os utilizadores administradores ainda poderá sincronizar ao iniciar sessão para os dispositivos Windows 10 com o seu Microsoft Passport para o PIN de trabalho ou ao concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
 
-**Problema em potencial**: Sincronização pode falhar se o administrador configura a política de acesso condicional de autenticação do multi-factor dos serviços de Federação do Active Directory e o token de acesso do dispositivo expira. Certifique-se de que iniciar sessão e termine com o Microsoft Passport para o PIN de trabalho ou concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
+**Problema em potencial**: Sincronização pode falhar se o administrador configura o Active Directory Federation serviços multi-factor Authentication política de acesso condicional e o token de acesso do dispositivo expira. Certifique-se de que iniciar sessão e termine com o Microsoft Passport para o PIN de trabalho ou concluir o multi-factor Authentication ao aceder a outros serviços do Azure como o Office 365.
 
 ### <a name="event-viewer"></a>Visualizador de eventos
 

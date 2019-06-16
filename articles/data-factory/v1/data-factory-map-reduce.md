@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 715c595f7a8757842ddf10de1c5d5c0a905e9d53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824223"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce a partir do Data Factory
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Atividades de transformação"]
 > * [Atividade do Hive](data-factory-hive-activity.md) 
 > * [Atividade PIg](data-factory-pig-activity.md)
 > * [Atividade MapReduce](data-factory-map-reduce.md)
@@ -188,7 +188,7 @@ O pipeline neste exemplo tem apenas uma atividade que é do tipo: HDInsightMapRe
 | className |Nome da classe é: **wordcount** |
 | jarFilePath |Caminho para o ficheiro jar que contém a classe. Se copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço ligado do armazenamento do Azure que contém o ficheiro jar. Este serviço ligado refere-se para o armazenamento que está associado ao HDInsight cluster. |
-| argumentos |O programa de wordcount leva dois argumentos, entrada e saída. O ficheiro de entrada é o arquivo de davinci.txt. |
+| arguments |O programa de wordcount leva dois argumentos, entrada e saída. O ficheiro de entrada é o arquivo de davinci.txt. |
 | frequency/interval |Os valores para estas propriedades corresponder o conjunto de dados de saída. |
 | linkedServiceName |refere-se ao serviço ligado de HDInsight tivesse criado anteriormente. |
 

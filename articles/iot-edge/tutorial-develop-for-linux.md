@@ -4,25 +4,25 @@ description: Este tutorial explica como configurar os recursos de máquina e na 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/26/2019
+ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: e5499afebf29df2942e74148b33797844fa9c880
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051904"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos do Linux
+# <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Linux
 
 Utilize o Visual Studio Code para desenvolver e implementar código a dispositivos de Linux com o IoT Edge. 
 
 Os artigos de início rápido, criou um dispositivo IoT Edge, utilizando uma máquina virtual do Linux e implantado um módulo previamente criado no Azure Marketplace. Este tutorial explica o que é necessário para desenvolver e implementar seu próprio código para um dispositivo IoT Edge. Este tutorial é um pré-requisito útil para todos os outros tutoriais, que irão entrar em mais detalhes sobre as linguagens de programação específicas ou serviços do Azure. 
 
-Este tutorial utiliza o exemplo de implementação de um **módulo de C para um dispositivo Linux**. Este exemplo foi escolhido porque tem os pré-requisitos de menor, para que pode saber mais sobre as ferramentas de desenvolvimento sem se preocupar se tiver as bibliotecas corretas instaladas. Assim que compreender os conceitos de desenvolvimento, em seguida, pode escolher seu idioma preferencial ou o serviço do Azure para aprofundar os detalhes. 
+Este tutorial utiliza o exemplo de implementação de um  **C# módulo para um dispositivo Linux**. Este exemplo foi escolhido porque é o cenário mais comum do desenvolvedor para soluções de IoT Edge. Mesmo se pretender utilizar um idioma diferente ou implementar um serviço do Azure, este tutorial ainda será útil para saber mais sobre os conceitos e ferramentas de desenvolvimento. Depois de concluir esta introdução ao processo de desenvolvimento, em seguida, pode escolher seu idioma preferencial ou o serviço do Azure para aprofundar os detalhes. 
 
 Neste tutorial, ficará a saber como:
 
@@ -51,7 +51,7 @@ A tabela seguinte lista os cenários de desenvolvimento para **contentores de Li
 | **Arquitetura de dispositivo do Linux** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Serviços do Azure** | Funções do Azure <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Idiomas** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Mais informações** | [O Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [O Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [o Azure IoT Edge Tools para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+| **Mais informações** | [O Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [O Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [O Azure IoT Edge Tools para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 Esse tutorial ensina os passos de desenvolvimento para o Visual Studio Code. Se usaria em vez disso, Visual Studio, consulte as instruções em [utilizar o Visual Studio 2019 para desenvolver e depurar os módulos do Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
@@ -62,6 +62,8 @@ Uma máquina de desenvolvimento:
 * Pode utilizar o seu computador ou uma máquina virtual, dependendo de suas preferências de desenvolvimento.
 * A maioria dos sistemas operativos que pode ser executado um mecanismo de contentor pode ser usados para desenvolver módulos do IoT Edge para dispositivos de Linux. Este tutorial utiliza um computador Windows, mas destaca as diferenças conhecidas no MacOS ou Linux. 
 * Instale [Git](https://git-scm.com/), para mostrar as módulo pacotes de modelo mais tarde neste tutorial.  
+* [Extensão C# para Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [SDK de .NET Core 2.1](https://www.microsoft.com/net/download).
 
 Um dispositivo Azure IoT Edge no Linux:
 
@@ -116,7 +118,7 @@ Utilize as extensões de IoT para o Visual Studio Code para desenvolver módulos
 
 A extensão das ferramentas de IoT do Azure fornece modelos de projeto para o IoT Edge de suportados todos os idiomas de módulo no Visual Studio Code. Esses modelos têm todos os arquivos e código que precisa implantar um módulo de trabalho para testar o IoT Edge ou dão-lhe um ponto de partida para personalizar o modelo com sua própria lógica de negócio. 
 
-Neste tutorial, vamos utilizar o modelo de módulo de C porque tem as menor quantidade pré-requisitos para instalar. 
+Neste tutorial, vamos utilizar o C# modelo de módulo porque é o modelo de uso mais comum. 
 
 ### <a name="create-a-project-template"></a>Criar um modelo de projeto
 
@@ -126,7 +128,7 @@ Na paleta de comandos de código do Visual Studio, procure e selecione **Azure I
    | ----- | ----- |
    | Selecionar pasta | Escolha a localização no computador de desenvolvimento na qual o VS Code vai criar os ficheiros da solução. |
    | Indicar um nome para a solução | Introduza um nome descritivo para a sua solução ou aceite a predefinição **EdgeSolution**. |
-   | Selecionar modelo de módulo | Escolher **C módulo**. |
+   | Selecionar modelo de módulo | Escolher  **C# módulo**. |
    | Indicar um nome para o módulo | Aceite a predefinição **SampleModule**. |
    | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida do nome que indicou no último passo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome do registo\>.azurecr.io/samplemodule. |
  
@@ -154,7 +156,7 @@ A extensão de IoT Edge tenta obter o seu contentor as credenciais do registo do
 
 ### <a name="select-your-target-architecture"></a>Selecione a sua arquitetura de destino
 
-Atualmente, o Visual Studio Code pode desenvolver módulos de C para dispositivos AMD64 de Linux e ARM32v7 de Linux. Tem de selecionar qual arquitetura visa com cada solução, pois isso afeta como o contentor é criado e é executado. A predefinição é AMD64 de Linux. 
+Atualmente, pode desenvolver o Visual Studio Code C# módulos de hardware para Linux AMD64 e ARM32v7 dispositivos. Tem de selecionar qual arquitetura visa com cada solução, pois isso afeta como o contentor é criado e é executado. A predefinição é AMD64 de Linux. 
 
 1. Abra a paleta de comandos e procure **Azure IoT Edge: Definir a plataforma de destino predefinido para solução de ponta**, ou selecione o ícone de atalho na barra do lado na parte inferior da janela. 
 
@@ -168,17 +170,19 @@ O modelo de solução que criou inclui código de exemplo de um módulo do IoT E
 
 Cada módulo pode ter vários *entrada* e *saída* filas declarado em seu código. O hub do IoT Edge em execução no dispositivo encaminha mensagens a partir da saída de um módulo para a entrada de um ou mais módulos. O idioma específico para declarar as entradas e saídas varia entre as linguagens, mas o conceito é o mesmo em todos os módulos. Para obter mais informações sobre o encaminhamento entre módulos, consulte [declarar rotas](module-composition.md#declare-routes).
 
-1. Abra o **Main** arquivo, o que está dentro do **módulos/SampleModules/** pasta. 
+O exemplo C# utiliza o código que vem com o modelo de projeto a [classe de ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) do SDK do Hub IoT para .NET. 
 
-2. O SDK de C do IoT Hub utiliza a função [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback) inicializar filas de entrada do módulo. Pesquisar no arquivo Main XML para essa função.
+1. Abra o **Program.cs** arquivo, o que está dentro do **módulos/SampleModule/** pasta. 
 
-3. Reveja o construtor de função SetInputMessageCallback e ver que uma fila de entrada chamado **input1** é inicializado no código. 
+2. Em program.cs, localize a **SetInputMessageHandlerAsync** método.
+
+2. O [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) método configura uma fila de entrada para receber mensagens de entrada. Reveja este método e veja como ele inicializa uma fila de entrada chamada **input1**. 
 
    ![Encontrar o nome de entrada no construtor de SetInputMessageCallback](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
-4. Filas de saída do módulo são inicializadas de forma semelhante. Procure o [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync) função no ficheiro Main. 
+3. Em seguida, localize a **SendEventAsync** método.
 
-5. Reveja o construtor de função SendEventToOutputAsync e ver que uma fila de saída chamado **output1** é inicializado no código. 
+4. O [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) método processa as mensagens recebidas e configura uma fila de saída para os transmitirá. Rever este método e ver o que inicializa uma fila de saída chamada **output1**. 
 
    ![Encontrar o nome de saída no SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 
@@ -245,7 +249,7 @@ Visual Studio Code tem agora acesso para o seu registo de contentor, pelo que é
 
 10. No seu registo de contentor, selecione **repositórios** , em seguida, **samplemodule**. Certifique-se de que ambas as versões da imagem foram enviadas para o registo.
 
-   ![Ver as duas versões de imagem no registo de contentor](./media/tutorial-develop-for-linux/view-repository-versions.png)
+    ![Ver as duas versões de imagem no registo de contentor](./media/tutorial-develop-for-linux/view-repository-versions.png)
 
 <!--Alternative steps: Use VS Code Docker tools to view ACR images with tags-->
 
@@ -256,7 +260,7 @@ Se encontrar erros ao criar e enviar a imagem do módulo, muitas vezes, tem a ve
 * Deparou-se a `docker login` comando com as credenciais que copiou do seu registo de contentor? Estas credenciais são diferentes dos que utiliza para iniciar sessão no Azure. 
 * O repositório do contentor está correto? Isso tem o nome do registo de contentor correto e o nome do módulo correto? Abra o **Module** ficheiro na pasta SampleModule para verificar. O valor de repositório deve ser semelhante à  **\<nome do registo\>.azurecr.io/samplemodule**. 
 * Se utilizou um nome diferente **SampleModule** para seu módulo, é esse nome consistente em toda a solução?
-* A máquina está a executar o mesmo tipo de contentores que está a criar? Este tutorial destina-se a dispositivos do IoT Edge do Linux, para que o Visual Studio Code deverá indicar **amd64** ou **arm32v7** na barra lateral, e o ambiente de trabalho do Docker devem estar a executar contentores do Linux. Módulos de C no Visual Studio Code não suportam contentores do Windows. 
+* A máquina está a executar o mesmo tipo de contentores que está a criar? Este tutorial destina-se a dispositivos do IoT Edge do Linux, para que o Visual Studio Code deverá indicar **amd64** ou **arm32v7** na barra lateral, e o ambiente de trabalho do Docker devem estar a executar contentores do Linux.  
 
 ## <a name="deploy-modules-to-device"></a>Implementar módulos no dispositivo
 

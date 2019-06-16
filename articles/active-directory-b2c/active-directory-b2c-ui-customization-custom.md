@@ -11,10 +11,10 @@ ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507680"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C

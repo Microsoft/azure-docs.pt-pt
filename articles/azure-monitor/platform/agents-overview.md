@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977576"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Descrição geral do Azure agentes de monitorização 
@@ -25,7 +25,7 @@ O Microsoft Azure fornece várias formas de recolher diferentes tipos de dados d
 
 * Extensões de diagnóstico do Azure
 * Agente de análise de registo para Linux e Windows
-* Dependency Agent
+* Agente de Dependência
 
 Este artigo descreve as diferenças entre eles e seus recursos para poder determinar qual deles irá suportar o gerenciamento de serviços ou os requisitos de monitorização gerais.  
 
@@ -37,9 +37,9 @@ Pode optar por coletar:
 * Um conjunto predefinido de contadores de desempenho do sistema operativo e logs de eventos ou pode especificar quais quer coletar. 
 * Todos os pedidos de e/ou pedidos falhados para um servidor web IIS
 * Aplicação .NET nos registos de saída de rastreio
-* Eventos do rastreio de eventos para o Windows (ETW) 
+* Rastreamento de eventos para eventos do Windows (ETW) 
 * Recolher eventos de registo do syslog  
-* Informações de falhas de sistema 
+* Informações de falha de sistema 
 
 O agente de diagnóstico do Azure deve ser utilizado quando pretender:
 
@@ -69,7 +69,7 @@ Anteriormente, os vários serviços do Azure foram agrupados como o *Operations 
 * Controlar as alterações de configuração com [controlo de alterações de automatização do Azure e de inventário](../../automation/change-tracking.md).
 * Serviços do Azure, tal como [Application Insights](https://docs.microsoft.com/azure/application-insights/) e [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/), nativamente que armazenam os dados diretamente no Log Analytics.  
 
-## <a name="dependency-agent"></a>Dependency Agent
+## <a name="dependency-agent"></a>Agente de Dependência
 O agente de dependência foi desenvolvido como parte da solução mapa de serviço, que não foi originalmente desenvolvida pela Microsoft. [Mapa de serviço](../insights/service-map.md) e [do Azure Monitor para VMs](../insights/vminsights-overview.md) requer um agente de dependência no Windows e Linux máquinas virtuais e ele se integra com o agente do Log Analytics para recolher os dados detetados sobre os processos em execução no virtual máquina e dependências de processo externo. Ele armazena esses dados numa área de trabalho do Log Analytics e visualiza os componentes interconectados detetados.
 
 Poderá ter alguma combinação destes agentes para monitorizar a sua VM. Os agentes podem ser instalados lado a lado como extensões do Azure, no entanto no Linux, o agente Log Analytics *tem* ser instalado primeiro, caso contrário instalação irá falhar. 

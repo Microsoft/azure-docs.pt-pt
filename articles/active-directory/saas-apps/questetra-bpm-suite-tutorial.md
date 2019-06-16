@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33c2d211fad16a81a307a5c0f2a9d048ef07bf4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f58d6cbc6ec04e51e105662dff31c60ff502584c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093364"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Active Directory do Azure com o Suite de BPM Questetra
 
@@ -53,7 +53,7 @@ Para configurar a integração do Questetra BPM Suite para o Azure AD, terá de 
 
 **Para adicionar Questetra BPM Suite a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD início de sessão único com o Suite de BPM Questetr
    
     ![O Azure AD Single Sign-On][10]
 
-3. Para abrir o **SingleSignOnSAML** página, clique em **SSO (SAML)**. 
+3. Para abrir o **SingleSignOnSAML** página, clique em **SSO (SAML)** . 
    
     ![O Azure AD Single Sign-On][11]
 
@@ -234,7 +234,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Queste
     
     d. Clique em **adicionar novo utilizador**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

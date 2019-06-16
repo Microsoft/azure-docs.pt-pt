@@ -14,20 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573603"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança de SO no Centro de segurança do Azure (pré-visualização)
 
 Estas instruções demonstram como personalizar as avaliações de configuração de segurança de SO no Centro de segurança do Azure.
 
+> [!NOTE]
+> A capacidade de personalizar as configurações de segurança do SO será descontinuada a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+
 ## <a name="what-are-os-security-configurations"></a>Quais são as configurações de segurança do sistema operacional?
 
-Centro de segurança do Azure monitoriza as configurações de segurança através da aplicação de um conjunto de [mais de 150 recomendado regras](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o sistema operacional, incluindo regras relacionadas com firewalls, auditoria, as políticas de palavra-passe e muito mais. Se uma máquina é encontrada ter uma configuração vulnerável, o Centro de segurança gera uma recomendação de segurança.
+O Centro de Segurança do Azure monitoriza as configurações de segurança através da aplicação de um conjunto de [mais de 150 regras recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o SO, incluindo regras relacionadas com firewalls, auditoria, políticas de palavra-passe, entre outras. Se um computador apresentar uma configuração vulnerável, o Centro de Segurança gerará uma recomendação de segurança.
 
 Ao personalizar as regras, as organizações podem controlar quais opções de configuração são mais adequadas para o seu ambiente. Pode definir uma política personalizada de avaliação e, em seguida, aplicá-la em todos os computadores aplicáveis na subscrição.
 
@@ -275,13 +278,13 @@ Todos os erros potenciais estão listados na tabela a seguir:
 
 | **Error**                                | **Descrição**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfigurationSchemaVersionError  | A propriedade *schemaVersion* foi encontrado inválido ou está vazio. O valor tem de ser definido como *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | A propriedade *schemaVersion* foi encontrado inválido ou está vazio. O valor tem de ser definido como *{0}* .                                                         |
 | BaselineInvalidStringError               | A propriedade *{0}* não pode conter  *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | A lista de regras de configuração de linha de base contém uma regra com o valor *nulo*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | O ID do CCE *{0}* não é exclusivo.                                                                                                                  |
 | BaselineRuleEmptyProperty                | A propriedade *{0}* está em falta ou é inválido.                                                                                                       |
 | BaselineRuleIdNotInDefault               | A regra tem uma propriedade de origem *Microsoft* mas não foi encontrada no conjunto de regras de predefinição da Microsoft.                                                   |
-| BaselineRuleIdNotUniqueError             | O ID da regra não é exclusivo.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | O identificador de regra não é exclusivo.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | A propriedade *{0}* foi encontrado inválido. O valor não é um GUID válido.                                                                             |
 | BaselineRuleInvalidHive                  | O ramo de registo tem de ser LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | O nome da regra não é exclusivo.                                                                                                                 |
@@ -290,12 +293,12 @@ Todos os erros potenciais estão listados na tabela a seguir:
 | BaselineRuleNotInPlace                   | A regra corresponder uma regra predefinida com o tipo {0} e está listado no {1} lista.                                                                       |
 | BaselineRulePropertyTooLong              | A propriedade *{0}* é demasiado longo. Máximo permitido de comprimento: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | O valor esperado *{0}* não corresponde ao tipo de valor de registo que está definido.                                                              |
-| BaselineRulesetAdded                     | O conjunto de regras com o ID *{0}* não foi encontrado na configuração predefinida. Não é possível adicionar o conjunto de regras.                                               |
+| BaselineRulesetAdded                     | O conjunto de regras com o identificador *{0}* não foi encontrado na configuração predefinida. Não é possível adicionar o conjunto de regras.                                               |
 | BaselineRulesetIdMustBeUnique            | O conjunto de regras de linha de base especificada *{0}* tem de ser exclusivo.                                                                                           |
-| BaselineRulesetNotFound                  | O conjunto de regras com o id *{0}* e o nome *{1}* não foi encontrado na configuração especificada. Não é possível eliminar o conjunto de regras.                                |
-| BaselineRuleSourceNotMatch               | A regra com ID *{0}* já está definido.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | É o tipo de regra predefinida *{0}*.                                                                                                              |
-| BaselineRuleTypeDoesntMatchError         | É o tipo real da regra *{0}*, mas o *ruleType* propriedade é *{1}*.                                                                          |
+| BaselineRulesetNotFound                  | O conjunto de regras com o identificador *{0}* e o nome *{1}* não foi encontrado na configuração especificada. Não é possível eliminar o conjunto de regras.                                |
+| BaselineRuleSourceNotMatch               | A regra com o identificador *{0}* já está definido.                                                                                                       |
+| BaselineRuleTypeDoesntMatch              | É o tipo de regra predefinida *{0}* .                                                                                                              |
+| BaselineRuleTypeDoesntMatchError         | É o tipo real da regra *{0}* , mas o *ruleType* propriedade é *{1}* .                                                                          |
 | BaselineRuleUnpermittedChangesError      | Apenas *expectedValue* e *estado* propriedades têm permissão para ser alterada.                                                                       |
 | BaselineTooManyRules                     | O número máximo de regras personalizadas permitidas é {0} regras. Contém a configuração de determinado {1} regras, {2} regras, predefinidas e {3} personalizado regras. |
 | ErrorNoConfigurationStatus               | Não foi encontrado nenhum Estado de configuração. Estado do Estado de configuração pretendida: *Predefinido* ou *personalizado*.                                    |

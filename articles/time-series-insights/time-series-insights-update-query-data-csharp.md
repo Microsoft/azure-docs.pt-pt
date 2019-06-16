@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.custom: seodec18
 ms.openlocfilehash: fc5f35aedd52e206433afb0f556bc1cde8296232
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237478"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Consultar dados a partir do ambiente de pré-visualização do Azure Time Series Insights utilizandoC#

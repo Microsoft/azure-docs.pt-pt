@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 16-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 477271debc5f04b4ea0c71145968b29945142571
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e363b6284b29b28b8bfc3081221e23ea1842a322
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917493"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Tutorial: Integração do Active Directory do Azure com o SSO Kantega para FishEye/Crucible
 
@@ -54,7 +54,7 @@ Para configurar a integração do SSO de Kantega para FishEye/Crucible com o Azu
 
 **Para adicionar Kantega SSO para FishEye/Crucible a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

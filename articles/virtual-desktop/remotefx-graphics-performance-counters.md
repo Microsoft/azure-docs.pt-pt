@@ -8,10 +8,10 @@ ms.topic: troubleshoot
 ms.date: 05/23/2019
 ms.author: v-chjenk
 ms.openlocfilehash: 0b4113f1e0024415135aa99d1fb4e881efe448a3
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66499268"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho de gráficos no ambiente de trabalho remoto

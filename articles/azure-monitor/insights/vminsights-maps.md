@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2019
 ms.author: magoedte
 ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522182"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilizar o Azure Monitor para VMs (pré-visualização) mapa para compreender os componentes da aplicação
@@ -25,7 +25,7 @@ Visualizar os componentes da aplicação detetada em máquinas de virtuais Windo
 
 Este artigo ajuda-o a compreender a experiência de entre as duas perspetivas e como utilizar a funcionalidade de mapa. Para obter informações sobre como configurar o Azure Monitor para VMs, veja [ativar o Azure Monitor para VMs](vminsights-enable-overview.md).
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="introduction-to-map-experience"></a>Introdução à experiência de mapa
@@ -60,14 +60,14 @@ O **ligações** painel apresenta métricas de conectividade padrão para a liga
 
 ![Exemplo de painel de gráficos de conectividade de rede](./media/vminsights-maps/map-group-network-conn-pane-01.png)  
 
-### <a name="failed-connections"></a>Ligações com falhas
+### <a name="failed-connections"></a>Ligações falhadas
 Ligações falhadas são apresentadas no mapa para processos e computadores, com uma linha vermelha tracejada que indica que é um sistema de cliente que está a conseguir chegar a um processo ou a porta. Ligações falhadas forem comunicadas a partir de qualquer sistema com o agente de dependência se esse sistema for a tentar a falha de ligação. Mapa mede este processo ao observar os sockets TCP que não obedeçam a estabelecer uma ligação. Esta falha pode resultar de uma firewall, uma configuração incorreta no cliente ou servidor ou um serviço remoto indisponível.
 
 ![Exemplo de falha de ligação no mapa](./media/vminsights-maps/map-group-failed-connection-01.png)
 
 Noções sobre ligações falhadas podem ajudar na resolução de problemas, a validação da migração, a análise de segurança e compreender a arquitetura geral do serviço. Ligações falhadas, às vezes, são inofensivos, mas, muitas vezes, apontam diretamente para um problema, como um ambiente de ativação pós-falha, de repente, tornando-se inacessível ou duas camadas da aplicação que está a ser não é possível comunicar entre si após a migração para a cloud.
 
-### <a name="client-groups"></a>Grupos de Clientes
+### <a name="client-groups"></a>Grupos de clientes
 Grupos de clientes no mapa representam máquinas de cliente que tenham ligações à máquina mapeadas. Um único grupo de cliente representa os clientes para uma máquina ou processo individual.
 
 ![Exemplo de grupos de cliente no mapa](./media/vminsights-maps/map-group-client-groups-01.png)

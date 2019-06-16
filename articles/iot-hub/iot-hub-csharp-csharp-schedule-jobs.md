@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
 ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864488"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Agendar e difundir tarefas (.NET/.NET)

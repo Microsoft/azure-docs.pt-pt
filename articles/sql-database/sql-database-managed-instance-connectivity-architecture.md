@@ -13,10 +13,10 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522321"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL
@@ -97,17 +97,17 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatório
 
-| Name       |Port                        |Protocol|Origem           |Destino|Acção|
+| Name       |Port                        |Protocol|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DE MI  |Permitir |
+|móveis  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DE MI  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DE MI        |SUB-REDE DE MI  |Permitir |
 |health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DE MI  |Permitir |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórios
 
-| Name       |Port          |Protocol|Origem           |Destino|Acção|
+| Name       |Port          |Protocol|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
-|gestão  |80, 443, 12000|TCP     |SUB-REDE DE MI        |AzureCloud |Permitir |
+|móveis  |80, 443, 12000|TCP     |SUB-REDE DE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DE MI        |SUB-REDE DE MI  |Permitir |
 
 > [!IMPORTANT]

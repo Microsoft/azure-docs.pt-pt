@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d3e1995682569e5ef7b356bd85ad6c7dba6cdbdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112522"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689497"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager
 Enquanto o Azure Resource Manager oferece muitos recursos incríveis, é fundamental planejar seu percurso de migração para o fazer se as coisas a serem executados corretamente. Gastando tempo no planejamento irá garantir que não encontrar problemas durante a execução de atividades de migração.
@@ -116,7 +116,7 @@ A seguir foram problemas descobertos em muitas das migrações maiores. Não se 
 
 - **As implementações de função da Web/trabalho** -serviços Cloud, que contém funções web e de trabalho não é possível migrar para o Azure Resource Manager. As funções da web/trabalho tem de ser removidas da rede virtual antes de iniciar a migração.  Uma solução típica é para mover instâncias de função da web/trabalho a uma rede virtual de clássico separada que também está ligada a um circuito do ExpressRoute ou para migrar o código para os serviços mais recente da aplicação de PaaS (essa discussão está além do escopo deste documento). No primeiro Reimplementar o caso, criar uma nova rede virtual clássica, movimentação/voltar a implementar as funções da web/de trabalho para essa nova rede virtual, em seguida, eliminar as implementações da rede virtual que está a ser movida. Sem alterações de código necessárias. A nova [Peering de rede Virtual](../../virtual-network/virtual-network-peering-overview.md) recurso pode ser usado para configurar o peering em conjunto a rede virtual clássica, que contém as funções da web/de trabalho e outras redes virtuais na mesma região do Azure, como a rede virtual que está a ser migrados (**depois de concluída a migração de rede virtual como redes virtuais em modo de peering não não possível migrar**), fornecendo, por conseguinte, os mesmos recursos sem perda de desempenho e sem penalidades de latência/largura de banda. Tendo em conta a adição de [Peering de rede Virtual](../../virtual-network/virtual-network-peering-overview.md), implementações de função da web/trabalho facilmente agora podem ser atenuadas e não bloqueiam a migração para o Azure Resource Manager.
 
-- **Quotas do Gestor de recursos do Azure** -regiões do Azure tem limites/quotas separadas para clássicas e do Azure Resource Manager. Mesmo que num cenário de migração novo hardware não está a ser consumido *(está a troca de VMs existentes da implementação clássica para Azure Resource Manager)*, quotas do Azure Resource Manager ainda tem de estar no local com capacidade suficiente antes de Pode começar a migração. Abaixo encontram-se os principais limites que já vimos causam problemas.  Abra um pedido de suporte para aumentar os limites de quota.
+- **Quotas do Gestor de recursos do Azure** -regiões do Azure tem limites/quotas separadas para clássicas e do Azure Resource Manager. Mesmo que num cenário de migração novo hardware não está a ser consumido *(está a troca de VMs existentes da implementação clássica para Azure Resource Manager)* , quotas do Azure Resource Manager ainda tem de estar no local com capacidade suficiente antes de Pode começar a migração. Abaixo encontram-se os principais limites que já vimos causam problemas.  Abra um pedido de suporte para aumentar os limites de quota.
 
     > [!NOTE]
     > Estes limites devem ser gerados na mesma região que o seu ambiente atual a ser migrados.
@@ -124,7 +124,7 @@ A seguir foram problemas descobertos em muitas das migrações maiores. Não se 
 
   - Interfaces de Rede
   - Balanceador de Carga
-  - IPs Públicos
+  - IPs públicos
   - IPs públicos estáticos
   - Núcleos
   - Grupos de Segurança de Rede
@@ -132,7 +132,7 @@ A seguir foram problemas descobertos em muitas das migrações maiores. Não se 
 
     Pode verificar as suas quotas atual do Azure Resource Manager com os comandos seguintes com a versão mais recente do Azure PowerShell.
     
-    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
     **Computação** *(núcleos, conjuntos de disponibilidade)*
 

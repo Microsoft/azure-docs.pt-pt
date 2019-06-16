@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66125980"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
@@ -26,7 +26,7 @@ ms.locfileid: "66125980"
 Com os registos de diagnóstico do Azure, pode ver a análise de núcleo e salvá-los num ou mais destinos, incluindo:
 
  - Conta de armazenamento do Azure
- - Hubs de Eventos do Azure
+ - Azure Event Hubs
  - [Área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Esta funcionalidade está disponível nos pontos finais CDN para todos os escalões de preço. 
@@ -73,7 +73,7 @@ Para utilizar uma conta de armazenamento para armazenar os registos, siga estes 
  
 2. Selecione **arquivo para uma conta de armazenamento**, em seguida, selecione **CoreAnalytics**. 
 
-2. Para **retenção (dias)**, escolha o número de dias de retenção. A retenção de zero dias armazena os logs de indefinidamente. 
+2. Para **retenção (dias)** , escolha o número de dias de retenção. A retenção de zero dias armazena os logs de indefinidamente. 
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
 
@@ -176,7 +176,7 @@ Antes de poder aceder os dados de análise de principais de uma conta de armazen
 2.  Localize a conta de armazenamento
 3.  Expanda a **contentores de BLOBs** esta conta de armazenamento no nó.
 4.  Selecione o contentor com o nome *insights-logs-coreanalytics*.
-5.  Resultados mostram a cópia de segurança no painel da direita, começando com o primeiro nível, como *resourceId =*. Continuar a selecionar cada nível até encontrar o ficheiro *PT1H.json*. Para obter uma explicação do caminho, consulte [formato de caminho do Blob](cdn-azure-diagnostic-logs.md#blob-path-format).
+5.  Resultados mostram a cópia de segurança no painel da direita, começando com o primeiro nível, como *resourceId =* . Continuar a selecionar cada nível até encontrar o ficheiro *PT1H.json*. Para obter uma explicação do caminho, consulte [formato de caminho do Blob](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Cada blob *PT1H.json* arquivo representa os registos de análise de uma hora para um ponto de final CDN específico ou o seu domínio personalizado.
 7.  O esquema do conteúdo deste ficheiro de JSON é descrito o esquema da seção de registos de análise de núcleo.
 
@@ -192,7 +192,7 @@ Registos de análise de núcleo são gerados a cada hora e os dados são recolhi
 |Value|Descrição|
 |-------|---------|
 |ID da subscrição    |ID da subscrição do Azure no formato Guid.|
-|Nome do Grupo de Recursos |Nome do grupo de recursos ao qual pertencem os recursos do CDN.|
+|Nome do grupo de recursos |Nome do grupo de recursos ao qual pertencem os recursos do CDN.|
 |Profile Name (Nome do Perfil) |Nome do perfil da CDN|
 |Nome do ponto final |Nome do ponto final da CDN|
 |Ano|  Representação de quatro dígitos do ano, por exemplo, de 2017|
@@ -221,7 +221,7 @@ Para utilizar o Azure Monitor, terá [ativar o registo](#enable-logging-with-azu
 
  O diagrama seguinte mostra a arquitetura das entradas e saídas do repositório:
 
-![Área de trabalho do Log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Área de trabalho do log Analytics](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Figura 3 – repositório do Log Analytics*
 
@@ -242,55 +242,55 @@ Siga estes passos para adicionar uma solução de monitorização do Azure Monit
 
 3. Na **monitorização + gestão** página, selecione **ver tudo**.
 
-    ![Ver todos](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. Pesquisa de CDN na caixa de pesquisa.
 
-    ![Ver todos](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. Selecione **a CDN do Azure Core Analytics**. 
 
-    ![Ver todos](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6. Depois de selecionar **criar**, é-lhe perguntado para criar uma nova área de trabalho do Log Analytics ou utilize um já existente. 
 
-    ![Ver todos](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7. Selecione a área de trabalho que criou anteriormente. Em seguida, precisa adicionar uma conta de automatização.
 
-    ![Ver todos](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. O ecrã seguinte mostra o formulário de conta de automatização que terá de preencher. 
 
-    ![Ver todos](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. Assim que tiver criado a conta de automatização, está pronto para adicionar a sua solução. Selecione o botão **Criar**.
 
-    ![Ver todos](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. Sua solução agora foi adicionada à sua área de trabalho. Regresse ao dashboard do portal do Azure.
 
-    ![Ver todos](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Selecione a área de trabalho do Log Analytics que criou para aceder à sua área de trabalho. 
 
 11. Selecione o **Portal do OMS** mosaico para ver a nova solução.
 
-    ![Ver todos](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. Seu portal deverá agora ser semelhante ao seguinte ecrã:
 
-    ![Ver todos](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Selecione um dos mosaicos para ver os vários modos de exibição sobre os seus dados.
 
-    ![Ver todos](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Ver tudo](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     Pode rolar esquerda ou direita para ver mais mosaicos que representam exibições individuais para os dados. 
 
     Selecione um dos mosaicos para ver mais detalhes sobre os seus dados.
 
-     ![Ver todos](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Ver tudo](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Os escalões de preços e ofertas
 
@@ -353,7 +353,7 @@ A tabela seguinte mostra uma lista de métricas disponíveis no Centro de regist
 | EgressCacheUncacheable | Transferência de dados de saída para os recursos que são impedidos de serem colocados em cache pelo Cache-Control e/ou os cabeçalhos de Expires do recurso. Indica que ele deve não ser armazenados em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
 | EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Sim | Não |
 
-* Transferência de dados saída refere-se ao tráfego entregue a partir de servidores de POP da CDN ao cliente.
+\* Transferência de dados saída refere-se ao tráfego entregue a partir de servidores de POP da CDN ao cliente.
 
 
 ### <a name="schema-of-the-core-analytics-logs"></a>Esquema de registos de análise de núcleo 

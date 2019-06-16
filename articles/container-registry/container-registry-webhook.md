@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: danlep
 ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389458"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilizar webhooks de registo de contentor do Azure

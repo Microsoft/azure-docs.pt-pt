@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac59b68f1ddda695fba8f1a4ceacb90bfa4102a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cbe10eb88550f04ead22a64fbcc2f17548af02d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358505"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057380"
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Ativar a autenticação de aplicação móvel com o Servidor Multi-Factor Authentication do Azure
 
 A aplicação Microsoft Authenticator oferece uma opção de verificação fora de banda adicional. Em vez de fazer uma chamada telefónica automática ou enviar um SMS ao utilizador durante o início de sessão, o Multi-Factor Authentication do Azure envia uma notificação push para a aplicação Microsoft Authenticator no smartphone ou tablet do utilizador. O utilizador toca simplesmente em **Verificar** (ou introduz um PIN e toca em "Autenticar") na aplicação para concluir o início de sessão.
 
 É preferível utilizar uma aplicação móvel para a verificação de dois passos quando a receção de telefone é pouco fiável. Se utilizar a aplicação como um gerador de token OATH, não é precisa qualquer ligação de rede ou à Internet.
+
+> [!IMPORTANT]
+> A partir de 1 de Julho de 2019 Microsoft já não irá oferecer servidor MFA para novas implementações. Novos clientes que gostariam de exigir a autenticação multifator de seus usuários devem utilizar com base na cloud do Azure multi-factor Authentication. Os clientes existentes que tenham ativado o servidor de MFA antes de 1 de Julho poderão transferir a versão mais recente, as atualizações futuras e gerar credenciais de ativação como de costume.
 
 > [!IMPORTANT]
 > Se tiver instalado o Servidor Multi-Factor Authentication do Azure v8.x ou superior, a maior parte dos passos abaixo não são precisos. A autenticação da aplicação móvel pode ser configurada seguindo os passos em [Configurar a aplicação móvel](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).

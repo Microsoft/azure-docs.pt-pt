@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417312"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementar a matriz Virtual StorSimple – conjunto de cópia de segurança como um servidor de iSCSI através do portal do Azure
@@ -90,7 +90,7 @@ Utilize as seguintes instruções passo a passo para preparar e configurar a sua
       > 
    4. Será apresentada uma caixa de diálogo. Introduza as credenciais de domínio no formato especificado. Clique no ícone de verificação ![ícone de verificação](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). As credenciais de domínio serão verificadas. Verá uma mensagem de erro se as credenciais estão incorretas.
       
-       ![credenciais](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
+       ![Credenciais](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. Clique em **Aplicar**. Isso se aplica e validar as definições do dispositivo.
 7. (Opcionalmente)-configure o servidor de proxy da web. Apesar de configuração do proxy web é opcional, lembre-se de que se utilizar um proxy da web, pode apenas configurá-lo aqui.
    
@@ -104,7 +104,7 @@ Utilize as seguintes instruções passo a passo para preparar e configurar a sua
    4. Clique em **Aplicar**. Isto irá validar e aplicar as definições de proxy da web configurado.
 8. (Opcionalmente) configure as definições de hora para o seu dispositivo, como fuso horário e os servidores NTP primário e secundários. Os servidores NTP são necessários porque o dispositivo tem de sincronizar tempo para que ele pode autenticar com o seu fornecedor de serviços cloud.
    
-    ![Definições da hora](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
+    ![Definições de hora](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
    
     Sobre o **definições da hora** página:
    
@@ -118,12 +118,12 @@ Utilize as seguintes instruções passo a passo para preparar e configurar a sua
    2. Se não for o primeiro dispositivo que está a registar este serviço, terá de fornecer a **chave de encriptação de dados do serviço**. Esta chave é necessária com a chave de registo de serviço para registar dispositivos adicionais com o serviço StorSimple Device Manager. Para obter mais informações, consulte [obter a chave de encriptação de dados do serviço](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) da interface do Usuário da web no local.
    3. Clique em **registar**. Esta ação irá reiniciar o dispositivo. Terá de aguardar 2 a 3 minutos antes do dispositivo está registado com êxito. Depois do dispositivo for reiniciado, será direcionado para o página de início de sessão.
       
-      ![Registar dispositivo](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
+      ![Registar o dispositivo](./media/storsimple-virtual-array-deploy3-iscsi-setup/image11.png)
 10. Regresse ao portal do Azure.
 11. Navegue para o **dispositivos** painel do seu serviço. Se tiver muitos recursos, clique em **todos os recursos**, clique no nome do serviço (procure-o se necessário) e, em seguida, clique em **dispositivos**.
 12. Sobre o **dispositivos** painel, certifique-se de que o dispositivo foi ligado com êxito para o serviço, vendo o estado. O estado do dispositivo deve ser **Pronto para configurar**.
     
-    ![Registar dispositivo](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
+    ![Registar o dispositivo](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
 ## <a name="step-2-configure-the-device-as-iscsi-server"></a>Passo 2: Configurar o dispositivo como servidor iSCSI
 

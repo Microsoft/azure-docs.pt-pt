@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b1789f0f6441da8a38440fc606a5748d48930a1a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c480babcb88528ef59cc9f1a9a0478e35a7b3fba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897916"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Tutorial: Integração do Active Directory do Azure com a Kiteworks
 
@@ -54,7 +54,7 @@ Para configurar a integração do Kiteworks com o Azure AD, terá de adicionar a
 
 **Para adicionar a Kiteworks da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -217,7 +217,7 @@ Kiteworks suporta o aprovisionamento de just-in-time, que está por predefiniç�
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte a Kiteworks](https://accellion.com/support).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956739"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guia de publicação do Azure de Marketplace e AppSource

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 375d0de60b916becc8e86a1e33cf4ed46f12c077
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: e9363f88db4fa44879eb8f6a6a04e23563c5ba44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125738"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 
@@ -34,22 +34,22 @@ ms.locfileid: "66754832"
 
     Suporte de encriptação SMB 3.0 foi introduzido na versão de kernel 4.11 Linux e tem sido backported para versões mais antigas do kernel para distribuições populares do Linux. No momento da publicação deste documento, as distribuições seguintes a partir da galeria do Azure suportam a opção de montagem especificada nos cabeçalhos de tabela. 
 
-* **Mínimo recomendado para as versões com recursos de montagem correspondentes (versão do SMB versão 2.1 vs do SMB 3.0)**    
+### <a name="minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30"></a>Mínimo recomendado para as versões com recursos de montagem correspondentes (versão do SMB versão 2.1 vs do SMB 3.0)
 
-    |   | SMB 2.1 <br>(Monta em VMs na mesma região do Azure) | SMB 3.0 <br>(Monta no local e em várias regiões) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(Monta em VMs na mesma região do Azure) | SMB 3.0 <br>(Monta no local e em várias regiões) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-    Se sua distribuição do Linux não estiver listada aqui, pode verificar a versão de kernel do Linux com o seguinte comando:
+Se sua distribuição do Linux não estiver listada aqui, pode verificar a versão de kernel do Linux com o seguinte comando:
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**O pacote do cifs utils está instalado.**  
     O pacote do cifs utils pode ser instalado utilizando o Gestor de pacotes no distribuição Linux da sua preferência. 
@@ -75,7 +75,7 @@ ms.locfileid: "66754832"
 
     Em outras distribuições, utilize o Gestor de pacotes apropriada ou [compilar a partir da origem](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Decidir sobre as permissões de diretório/ficheiro da partilha montada**: Nos exemplos abaixo, a permissão `0777` é usada para dar a leitura, escrita e permissões a todos os utilizadores de execução. Pode substituí-la com os outros [chmod permissões](https://en.wikipedia.org/wiki/Chmod) conforme pretendido, embora isso significará potencialmente restringir o acesso. Se utilizar outras permissões, deve considerar a utilização também uid e gid para manter o acesso para grupos locais de sua escolha.
+* **Decidir sobre as permissões de diretório/ficheiro da partilha montada**: Nos exemplos abaixo, a permissão `0777` é usada para dar a leitura, escrita e permissões a todos os utilizadores de execução. Pode substituí-la com os outros [chmod permissões](https://en.wikipedia.org/wiki/Chmod) conforme pretendido, embora isso significará potencialmente restringir o acesso. Se utilizar outras permissões, deve considerar a utilização também uid e gid para manter o acesso para utilizadores locais e grupos da sua preferência.
 
 > [!NOTE]
 > Se não atribuir permissão de diretório e arquivo com dir_mode e file_mode explicitamente, eles serão padrão 0755.

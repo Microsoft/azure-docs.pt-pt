@@ -17,10 +17,10 @@ ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 7a390c5231f715ce778c0cc267211b8bfb5934d2
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66418410"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs do Azure para discos geridos no Azure

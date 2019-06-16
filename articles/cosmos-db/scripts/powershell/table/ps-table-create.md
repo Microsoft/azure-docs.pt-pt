@@ -7,10 +7,10 @@ ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: d159ea7c4b48f7b028ed2c3774713fc1d1384153
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247323"
 ---
 # <a name="create-a-table-for-azure-cosmos-db---table-api"></a>Criar uma tabela para o Azure Cosmos DB - API de tabela

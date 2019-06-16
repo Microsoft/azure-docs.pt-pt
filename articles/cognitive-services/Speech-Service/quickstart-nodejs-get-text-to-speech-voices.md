@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08936ca0fe2fe10c332df146edd541c75df325e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620265"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067582"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Início rápido: Obter a lista de texto para discurso vozes com node. js
 
@@ -39,7 +39,7 @@ Crie um novo projeto de node. js com o seu IDE ou editor favorito. Em seguida, c
 // Requires request and request-promise for HTTP requests
 // e.g. npm install request request-promise
 const rp = require('request-promise');
-// Requires fs to write the list of languagesto a file
+// Requires fs to write the list of languages to a file
 const fs = require('fs');
 ```
 

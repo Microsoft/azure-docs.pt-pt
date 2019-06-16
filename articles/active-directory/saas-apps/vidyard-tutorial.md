@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ff939fa514e067c26daf609270ef49de8c16db2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a55ec7afc94440ea8b6a48ed1507476d362df6c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143166"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integração do Active Directory do Azure com Vidyard
 
@@ -55,7 +55,7 @@ Para configurar a integração do Vidyard com o Azure AD, terá de adicionar Vid
 
 **Para adicionar Vidyard a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -239,7 +239,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Vidyard. Vidyar
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Vidyard](mailto:support@vidyard.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
 ms.openlocfilehash: 8d0806bc0262cd45a49e4f97ea629683ac239aa8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799646"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personalizar um modelo de marcas com a API do Video Indexer
@@ -29,7 +29,7 @@ Pode utilizar as APIs do indexador de vídeo para criar, usar e editar os modelo
 
 Isso cria uma nova marca personalizada e adiciona-o para o modelo de marcas personalizado para a conta especificada.
 
-### <a name="request-url"></a>URL do pedido
+### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
@@ -41,7 +41,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
@@ -91,7 +91,7 @@ A resposta fornece informações sobre a marca que acabou de criar ao seguir o f
 
 Remove uma marca do modelo de marcas personalizado para a conta especificada. A conta é especificada na **accountId** parâmetro. Assim que a chamada com êxito, a marca deixará de estar no *inclusão* ou *excluir* marcas de listas.
 
-### <a name="request-url"></a>URL do pedido
+### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
@@ -103,7 +103,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |id|inteiro|Sim|O id da marca (gerado quando a marca foi criada)|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
@@ -120,7 +120,7 @@ Não há nenhum conteúdo devolvido quando a marca é eliminada com êxito.
 
 Isto permite-lhe procurar os detalhes de uma marca no modelo de marcas personalizada para a conta especificada com o id de marca.
 
-### <a name="request-url"></a>URL do pedido
+### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
@@ -132,7 +132,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |id|inteiro|Sim|O ID da marca (gerado quando a marca foi criada)|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
@@ -170,7 +170,7 @@ A resposta fornece informações sobre a marca que procurou (usando o ID da marc
 
 Isto permite-lhe procurar os detalhes de uma marca no modelo de marcas personalizada para a conta especificada com o ID da marca.
 
-### <a name="request-url"></a>URL do pedido
+### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
@@ -182,7 +182,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |id|inteiro|Sim|O ID da marca (gerado quando a marca foi criada)|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
@@ -233,7 +233,7 @@ A resposta fornece as informações atualizadas sobre a marca que atualizado seg
 
 Esta ação devolve todas as marcas no modelo de marcas personalizado para a conta especificada, independentemente se a marca deve ser na *inclusão* ou *excluir* lista de marcas.
 
-### <a name="request-url"></a>URL do pedido
+### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
@@ -245,7 +245,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
@@ -293,7 +293,7 @@ A resposta fornece uma lista de todas as marcas na sua conta e cada um dos respe
 
 Esta ação devolve as definições de modelo de marcas na conta especificada. As definições de modelo de marcas representam se a deteção da base de dados de marcas do Bing está ativada ou não. Se as marcas do Bing não estiverem ativadas, o Video Indexer irá detetar apenas marcas do modelo de marcas personalizada da conta especificada.
 
-### <a name="request-url"></a>URL do pedido
+### <a name="request-url"></a>URL do Pedido
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
@@ -305,7 +305,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
@@ -342,7 +342,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 

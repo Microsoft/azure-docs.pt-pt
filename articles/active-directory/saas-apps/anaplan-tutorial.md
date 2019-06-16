@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88741c81fe5efe219b052810c374fed3f4834d2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ed6762a1cce3afb3e22b15a63c68432fec121efe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Tutorial: Integração do Active Directory do Azure com Anaplan
 
@@ -53,7 +53,7 @@ Para configurar a integração do Anaplan com o Azure AD, terá de adicionar Ana
 
 **Para adicionar Anaplan a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Anaplan. Trabalhar com [equipa de suporte de Anaplan](mailto:support@anaplan.com) para adicionar os utilizadores na plataforma Anaplan. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

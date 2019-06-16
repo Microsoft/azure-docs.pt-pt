@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002056"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Chave de ver as métricas com os dashboards de custos
@@ -42,7 +42,7 @@ Para começar rapidamente com um dashboard personalizado, pode duplicar um já e
 
 Para criar um dashboard personalizado:
 
-1. Na home page, clique em **adicionar novo +**. É apresentada a página de meu painel.  
+1. Na home page, clique em **adicionar novo +** . É apresentada a página de meu painel.  
     ![Minha página de dashboard onde adiciona novos relatórios](./media/dashboards/my-dashboard.png)
 2. Clique em **adicione o novo relatório**. É apresentada a caixa Adicionar relatório.
 3. Selecione o relatório que pretende adicionar para o widget de dashboard. O widget é adicionado ao dashboard.

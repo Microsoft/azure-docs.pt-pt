@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: 9223f6d20f4f5e3901465379fe53c7b9c338e53f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969157"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Gira orçamentos do Azure no Cloudyn

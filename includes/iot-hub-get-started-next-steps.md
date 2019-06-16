@@ -9,10 +9,10 @@ ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: fc4b613eb9e77acef4568ef93b7606fb43568f82
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476001"
 ---
 Para continuar a introdução ao IoT Hub do Azure e explorar todos os cenários de IoT alargados, consulte o seguinte:

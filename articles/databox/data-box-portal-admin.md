@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427730"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilizar o portal do Azure para administrar o Azure Data Box e pesadas de caixa de dados do Azure

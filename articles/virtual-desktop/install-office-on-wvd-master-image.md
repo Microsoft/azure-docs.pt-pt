@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
 ms.openlocfilehash: cb9edbb508ddd993dcefbf69eb06b4f0d4156485
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742556"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD

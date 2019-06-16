@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: juliako
 ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735078"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações

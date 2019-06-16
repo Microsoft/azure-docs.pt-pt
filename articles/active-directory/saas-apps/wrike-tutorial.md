@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12970e2df1d54212682ebb79f2354c4c9e712a34
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 22421d88d5d0b426b641c04cd8797c26d216c502
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813684"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Tutorial: Integração do Active Directory do Azure com Wrike
 
@@ -56,7 +56,7 @@ Para configurar a integração do Wrike com o Azure AD, terá de adicionar Wrike
 
 **Para adicionar Wrike a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Wrike. Wrike su
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Wrike](mailto:support@team.wrike.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

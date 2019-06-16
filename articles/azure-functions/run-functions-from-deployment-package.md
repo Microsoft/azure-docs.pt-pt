@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
 ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787547"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Execute as suas funções do Azure a partir de um ficheiro de pacote

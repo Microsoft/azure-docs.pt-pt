@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64726961"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware suportado para as interfaces de rede 10 GbE no dispositivo StorSimple
 ## <a name="overview"></a>Descrição geral

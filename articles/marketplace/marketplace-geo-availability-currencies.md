@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 215a15da2868a4543ba1108899981f40f7bf4e07
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938262"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidade geográfica e suporte de moeda
@@ -95,8 +95,8 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Liechtenstein                       | LI        | EUR          |
 | Lituânia                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
-| R.A.E. de Macau                           | MO        | USD          |
-| Macedónia do Norte                     | MK        | USD          |
+| RAE de Macau                           | MO        | USD          |
+| Macedónia norte                     | MK        | USD          |
 | Malásia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Maurícia                           | MU        | USD          |
@@ -106,7 +106,7 @@ Ofertas do Marketplace do Azure podem ser adquiridas em 141 geografias, conforme
 | Mongólia                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marrocos                             | MA        | USD          |
-| Namíbia                             | ND        | USD          |
+| Namíbia                             | N/D        | USD          |
 | Nepal                               | NP        | USD          |
 | Países Baixos                         | NL        | EUR          |
 | Nicarágua                           | NI        | USD          |

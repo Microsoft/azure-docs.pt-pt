@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: b-juche
 ms.openlocfilehash: aca0668fc364518fe45d9fe94d089ee366b25676
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870886"
 ---
-# <a name="performance-benchmarks-for-azure-netapp-files"></a>Parâmetros de comparação de desempenho para os ficheiros do Azure NetApp
+# <a name="performance-benchmarks-for-azure-netapp-files"></a>Referências de desempenho para o Azure NetApp Files
 
 Este artigo descreve os resultados dos testes de benchmark de desempenho para ficheiros de NetApp do Azure ao nível do volume. 
 
@@ -53,7 +53,7 @@ Foram executados os seguintes testes:
 * 50% 64 KiB sequenciais leitura, as 64 escrita sequencial de KiB de 50%
 * 50% 8 KiB aleatório de leitura, de 50% 8 escrita aleatória de KiB
 
-## <a name="bandwidth"></a>Largura de Banda
+## <a name="bandwidth"></a>Largura de banda
 
 Os ficheiros NetApp do Azure oferece várias [níveis de serviço](azure-netapp-files-service-levels.md). Cada nível de serviço oferece uma quantidade diferente de largura de banda por TiB de capacidade aprovisionada (quota de volume). O limite de largura de banda para um volume é aprovisionado com base na combinação de nível de serviço e a quota de volume. Observe que o limite de largura de banda é apenas um fator usado para determinar a quantidade real de débito que ocorrerá.  
 

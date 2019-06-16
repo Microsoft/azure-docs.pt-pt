@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6c8ce090039e3d5cc85c86d920710294de2165f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748908"
 ---
 # <a name="monitor-workload---azure-portal"></a>Carga de trabalho do monitor - portal do Azure
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar o portal do Azure para monitorizar a carga de
 
 Navegue para o painel de navegação para áreas de trabalho do Log Analytics e crie uma área de trabalho 
 
-![Áreas de trabalho do Log Analytics](media/sql-data-warehouse-monitor/log_analytics_workspaces.png)
+![Áreas de trabalho do log Analytics](media/sql-data-warehouse-monitor/log_analytics_workspaces.png)
 
 ![Adicionar área de trabalho de análise](media/sql-data-warehouse-monitor/add_analytics_workspace.png)
 

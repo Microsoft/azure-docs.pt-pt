@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952046"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade de cognitiva reconhecimento de entidades nomeada
@@ -43,7 +43,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categorias    | Matriz de categorias que deve ser extraído.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`. Se não for fornecida nenhum categoria, todos os tipos são devolvidos.|
+| categories    | Matriz de categorias que deve ser extraído.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`. Se não for fornecida nenhum categoria, todos os tipos são devolvidos.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. São suportados os seguintes idiomas: `de, en, es, fr, it`|
 | minimumPrecision  | Um número entre 0 e 1. Se a precisão é inferior este valor, a entidade não é devolvida. A predefinição é 0.|
 
@@ -52,16 +52,16 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. A predefinição é `"en"`.  |
-| text          | O texto a analisar.          |
+| texto          | O texto a analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 | Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | pessoas      | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa o nome de uma pessoa. |
-| localizações  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma localização. |
+| locations  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma localização. |
 | organizações  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma organização. |
-| entidades | Uma matriz de tipos complexos. Cada tipo complexo inclui os seguintes campos: <ul><li>categoria (`"person"`, `"organization"`, ou `"location"`)</li> <li>valor (o nome de entidade real)</li><li>deslocamento (localização onde foi encontrado no texto)</li><li>confiança (um valor entre 0 e 1 que representa essa confiança que o valor é uma entidade real)</li></ul> |
+| Entidades | Uma matriz de tipos complexos. Cada tipo complexo inclui os seguintes campos: <ul><li>categoria (`"person"`, `"organization"`, ou `"location"`)</li> <li>valor (o nome de entidade real)</li><li>deslocamento (localização onde foi encontrado no texto)</li><li>confiança (um valor entre 0 e 1 que representa essa confiança que o valor é uma entidade real)</li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 

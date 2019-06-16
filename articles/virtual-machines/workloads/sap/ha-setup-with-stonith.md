@@ -15,10 +15,10 @@ ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123574"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Elevada disponibilidade no SUSE usando o STONITH

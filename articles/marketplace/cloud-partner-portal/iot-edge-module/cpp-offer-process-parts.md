@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: pabutler
 ms.openlocfilehash: 319031ec99d449ea5866bb5234cc617145954173
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942603"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>Descrição geral da publicação da oferta de módulo do IoT Edge

@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787678"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função a partir do Microsoft Flow
@@ -51,9 +51,9 @@ Começar através da criação de uma lista que utilizar como uma origem de dado
 |-----------------|---------------------|------------------------------------------|
 | **Título**           | Uma linha de texto | Nome da turbina                      |
 | **LastServiceDate** | Date                |                                          |
-| **MaxOutput**       | Número              | Saída da turbina, em KwH            |
+| **MaxOutput**       | Number              | Saída da turbina, em KwH            |
 | **ServiceRequired** | Sim/Não              |                                          |
-| **EstimatedEffort** | Número              | Tempo estimado para o reparo, em horas |
+| **EstimatedEffort** | Number              | Tempo estimado para o reparo, em horas |
 
 1. No seu site do SharePoint, clique ou toque **New**, em seguida, **lista**.
 
@@ -246,7 +246,7 @@ Agora que o fluxo está concluído, adicionar uma linha à lista do SharePoint e
 
 5. Sob **histórico de EXECUÇÕES**, clique em execução do fluxo.
 
-    ![Execuções](media/functions-flow-scenario/run-history.png)
+    ![Histórico de execuções](media/functions-flow-scenario/run-history.png)
 
     Se a execução foi concluída com êxito, pode rever as operações de fluxo na página seguinte. Se a execução falhou por qualquer motivo, a página seguinte fornece informações de resolução de problemas.
 

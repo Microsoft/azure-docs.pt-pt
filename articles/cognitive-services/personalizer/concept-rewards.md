@@ -1,21 +1,21 @@
 ---
 title: Pontuação de recompensa - Personalizer
 titleSuffix: Azure Cognitive Services
-description: A pontuação de recompensa indica a forma como a personalização escolha, RewardActionID, resultada para o utilizador. O valor da pontuação recompensa é determinado pela sua lógica de negócio, com base nas observações do comportamento do usuário. Personalizer prepara de modelos de machine learning ao avaliar as recompensas.
+description: A pontuação de recompensa indica a forma como a personalização escolha, RewardActionID, resultada para o utilizador. O valor da pontuação recompensa é determinado pela sua lógica de negócio, com base nas observações do comportamento do usuário. Personalizer prepara seus modelos de machine learning ao avaliar as recompensas.
 services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/13/2019
+ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c64d43301fd173203bd1625b8d37120b71c22805
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077400"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Pontuações de recompensa indicam sucesso de personalização
 
@@ -30,6 +30,18 @@ Remunerações são enviadas para Personalizer pela [recompensa API](https://doc
 Remunerações são enviadas após o comportamento do utilizador tiver ocorrido, o que poderia ser dias mais tarde. A quantidade máxima de tempo Personalizer irão esperar que um evento é considerado como não tendo nenhuma remuneração ou uma recompensa de predefinição está configurada com o [tempo de espera de recompensa](#reward-wait-time) no portal do Azure.
 
 Se a pontuação de recompensa para um evento ainda não foi recebida dentro do **tempo de espera de recompensa**, em seguida, o **recompensa predefinido** serão aplicadas. Normalmente, o **[recompensa predefinido](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** está configurado para ser zero.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportamentos e os dados a serem considerados para recompensas
+
+Considere esses sinais e comportamentos para o contexto da pontuação recompensa:
+
+* Direcionar a entrada do usuário para obter sugestões quando opções estão envolvidas ("quer dizer X?").
+* Duração da sessão.
+* Tempo entre sessões.
+* Análise de sentimentos de interações do usuário.
+* Direcione as dúvidas e pesquisas mini onde o bot pede ao usuário comentários sobre a utilidade, precisão.
+* Resposta a alertas, ou atraso a resposta a alertas.
 
 ## <a name="composing-reward-scores"></a>Compor pontuações de recompensa
 

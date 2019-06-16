@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b9fdc6bf46cff1f3a38d40a4e7abad5bfe56c47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ce68547ca13d2395fcd447990c42c48c04eb5f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089376"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integração do Active Directory do Azure com o serviço de segurança de Web do Symantec (WSS)
 
@@ -56,7 +56,7 @@ Para configurar a integração do Symantec Web Security Service (WSS) com o Azur
 
 **Para adicionar serviço de segurança de Web do Symantec (WSS) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -156,7 +156,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escreva e selecione **Symantec Web Security Service (WSS)**.
+2. Na lista de aplicativos, escreva e selecione **Symantec Web Security Service (WSS)** .
 
     ![A ligação de serviço de segurança Web (WSS) da Symantec na lista de aplicações](common/all-applications.png)
 
@@ -181,7 +181,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no serviço de seg
 > [!NOTE]
 > Clique [aqui](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1) para obter a sua máquina do IPaddress pública.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, irá testar a funcionalidade de início de sessão única, agora que configurou a sua conta do WSS para utilizar o Azure AD para autenticação de SAML.
 

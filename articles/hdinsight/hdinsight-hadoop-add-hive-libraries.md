@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: fe8f97368531ed572083834256d84cd1ed6dd8a1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c3ef5362c4d97b8d805212f9cf813c7bc9c8c18c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059442"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas de Apache Hive personalizadas, quando criar o cluster do HDInsight
 
@@ -39,9 +39,6 @@ Para **clusters baseados em Linux**: [https://hdiconfigactions.blob.core.windows
 
 Para **clusters baseados em Windows**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
-
 **Requisitos**
 
 * Os scripts devem ser aplicados para ambos os **nós principais** e **nós de trabalho**.
@@ -50,7 +47,7 @@ Para **clusters baseados em Windows**: [https://hdiconfigactions.blob.core.windo
 
 * A conta de armazenamento que contém a biblioteca de ficheiros jar **tem** ligado ao cluster do HDInsight, durante a criação. Ele deve ser a conta de armazenamento predefinida ou uma conta adicionada através de __configuração opcional__.
 
-* O caminho WASB para o contentor tem de ser especificado como um parâmetro para a ação de Script. Por exemplo, se o Intune é armazenados num contentor com o nome **libs** numa conta de armazenamento com o nome **mystorage**, o parâmetro seria **wasb://libs\@ mystorage.blob.Core.Windows.NET/**.
+* O caminho WASB para o contentor tem de ser especificado como um parâmetro para a ação de Script. Por exemplo, se o Intune é armazenados num contentor com o nome **libs** numa conta de armazenamento com o nome **mystorage**, o parâmetro seria **wasb://libs\@ mystorage.blob.Core.Windows.NET/** .
 
   > [!NOTE]  
   > Este documento assume que já tiver criado uma conta de armazenamento, o contentor de BLOBs e os ficheiros carregados ao mesmo.
@@ -76,9 +73,9 @@ Para **clusters baseados em Windows**: [https://hdiconfigactions.blob.core.windo
 
    * **FUNÇÃO DE TRABALHO**: Marque esta opção.
 
-   * **ZOOKEEPER**: Deixe em branco.
+   * **ZOOKEEPER**: Deixe este campo em branco.
 
-   * **PARÂMETROS**: Introduza o endereço WASB para a conta de armazenamento e de contentor que contém os jars. Por exemplo, **wasb://libs\@mystorage.blob.core.windows.net/**.
+   * **PARÂMETROS**: Introduza o endereço WASB para a conta de armazenamento e de contentor que contém os jars. Por exemplo, **wasb://libs\@mystorage.blob.core.windows.net/** .
 
 3. Na parte inferior a **ações de Script**, utilize o **selecione** botão para guardar a configuração.
 

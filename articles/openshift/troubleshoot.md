@@ -9,10 +9,10 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
 ms.openlocfilehash: 7f2bdf643f12671bec3d0c087d8775844099fe9a
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306253"
 ---
 # <a name="troubleshooting-for-azure-red-hat-openshift"></a>Resolução de problemas do Azure de Red Hat OpenShift

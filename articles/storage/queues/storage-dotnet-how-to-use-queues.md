@@ -10,30 +10,34 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: bfa69c6904644f707626e57a6696695cf4868c50
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077055"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="overview"></a>Descrição geral
+
 O armazenamento de Filas do Azure fornece um serviço de mensagens na nuvem entre componentes da aplicação. Ao conceber aplicações para o dimensionamento, os componentes da aplicação, muitas vezes, são desacoplados para um dimensionamento independente. O Armazenamento de filas fornece um serviço de mensagens assíncrono para uma comunicação entre os componentes da aplicação, quer estejam a ser executados na nuvem, no ambiente de trabalho, num servidor no local ou num dispositivo móvel. O Armazenamento de filas também suporta a gestão das tarefas assíncronas e a criação de fluxos de trabalho do processo.
 
 ### <a name="about-this-tutorial"></a>Acerca deste tutorial
+
 Este tutorial demonstra como escrever código .NET para alguns cenários comuns utilizando o Armazenamento de filas do Azure. Os cenários abrangidos incluem criar e eliminar filas e adicionar, ler e eliminar mensagens de filas.
 
 **Tempo estimado para concluir:** 45 minutos
 
-###<a name="prerequisites"></a>Pré-requisitos:
+### <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Biblioteca de Clientes do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Storage comuns biblioteca de clientes para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [Biblioteca de cliente de fila de armazenamento do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
 * [Gestor de Configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 * Uma [Conta do Storage do Azure](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
@@ -41,9 +45,93 @@ Este tutorial demonstra como escrever código .NET para alguns cenários comuns 
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-[!INCLUDE [storage-development-environment-include](../../../includes/storage-development-environment-include.md)]
+## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
+
+Em seguida, configure o ambiente de desenvolvimento no Visual Studio, para estar pronto para experimentar os exemplos de código deste guia.
+
+### <a name="create-a-windows-console-application-project"></a>Criar um projeto de aplicação de consola do Windows
+
+No Visual Studio, crie uma nova aplicação de consola do Windows. Os passos seguintes mostram como criar uma aplicação de consola no Visual Studio 2019. Os passos são semelhantes aos de outras versões do Visual Studio.
+
+1. Selecione **Ficheiro** > **Novo** > **Projeto**
+2. Selecione **plataforma** > **Windows**
+3. Selecione **Aplicação da Consola (.NET Framework)**
+4. Selecione **Seguinte**
+5. Na **nome do projeto** , insira um nome para a sua aplicação
+6. Selecione **Criar**
+
+Todos os exemplos de código neste tutorial, podem ser adicionados para o **main ()** método da sua aplicação de consola **Program.cs** ficheiro.
+
+Pode usar as bibliotecas de cliente de armazenamento do Azure em qualquer tipo de aplicações de .NET, incluindo uma aplicação de web ou serviço de cloud do Azure e aplicações de dispositivos móveis e computadores. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
+
+### <a name="use-nuget-to-install-the-required-packages"></a>Utilizar o NuGet para instalar os pacotes necessários
+
+Tem de referenciar os seguintes três pacotes em seu projeto para concluir este tutorial:
+
+* [Biblioteca de cliente de comuns de armazenamento do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Este pacote fornece acesso programático a recursos de dados na sua conta de armazenamento.
+* [Biblioteca de fila de armazenamento do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): Esta biblioteca de cliente permite trabalhar com o serviço de fila de armazenamento do Microsoft Azure para armazenar mensagens que podem ser acedidas por um cliente.
+* [Biblioteca do Gestor de configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação está em execução.
+
+Pode utilizar o NuGet para obter esses pacotes. Siga estes passos.
+
+1. Clique com o botão direito do rato no projeto no **Explorador de Soluções** e escolha **Gerir Pacotes NuGet**.
+2. Selecione **procurar**
+3. Procure online "Microsoft.Azure.Storage.Queue" e selecione **instalar** para instalar a biblioteca de cliente de armazenamento e as respetivas dependências. Isto irá também instalar a biblioteca de Microsoft.Azure.Storage.Common, que é uma dependência da biblioteca de fila.
+4. Procure online "Microsoft.Azure.ConfigurationManager" e selecione **instalar** para instalar o Gestor de configuração do Azure.
+
+> [!NOTE]
+> Os pacotes de bibliotecas de cliente de armazenamento também inclui a [Azure SDK para .NET](https://azure.microsoft.com/downloads/). No entanto, recomendamos que instale também as bibliotecas de cliente de armazenamento a partir do NuGet para garantir que tenha sempre as versões mais recentes.
+>
+> As dependências ODataLib nas bibliotecas de cliente de armazenamento para .NET são resolvidas através de pacotes ODataLib disponíveis no NuGet e não a partir do WCF Data Services. As bibliotecas ODataLib podem ser transferidas diretamente ou referenciadas pelo seu projeto de código através do NuGet. Os pacotes ODataLib específicos utilizados pelas bibliotecas de cliente de armazenamento são [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), e [Geográ](http://nuget.org/packages/System.Spatial/). Embora estas bibliotecas sejam utilizadas pelas classes de armazenamento de tabelas do Azure, são dependências necessárias para a programação com as bibliotecas de cliente de armazenamento.
+
+### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
+
+Tem duas opções de ambiente para executar os exemplos neste guia:
+
+* Pode executar o código numa conta de armazenamento do Azure na nuvem.
+* Pode executar o código no emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar o seu código enquanto a aplicação está em desenvolvimento. O emulador utiliza uma conta e chave bem conhecidas. Para obter mais informações, veja [Utilizar o emulador de armazenamento do Azure para programação e teste](../common/storage-use-emulator.md).
+
+Se estiver a filtrar uma conta de armazenamento na cloud, copie a chave de acesso primária para a sua conta de armazenamento a partir do portal do Azure. Para obter mais informações, veja [Chaves de acesso](../common/storage-account-manage.md#access-keys).
+
+> [!NOTE]
+> Pode filtrar o emulador de armazenamento para evitar incorrer em custos associados ao Storage do Azure. No entanto, se optar por filtrar uma conta de armazenamento do Azure na nuvem, os custos para efetuar este tutorial serão negligenciável.
+
+### <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
+
+As bibliotecas de cliente de armazenamento do Azure para o suporte .NET usando uma cadeia de ligação de armazenamento para configurar pontos finais e credenciais para aceder a serviços de armazenamento. A melhor forma para manter a cadeia de ligação de armazenamento é num ficheiro de configuração.
+
+Para obter mais informações sobre as cadeias de ligação, veja [Configurar uma cadeia de ligação para o Armazenamento do Azure](../common/storage-configure-connection-string.md).
+
+> [!NOTE]
+> A chave da conta de armazenamento é semelhante à palavra-passe de raiz da conta de armazenamento. Tenha sempre o cuidado de proteger a chave da conta de armazenamento. Evite distribui-la a outros utilizadores, pré-programá-la ou guardá-la num ficheiro de texto simples que seja acessível a outras pessoas. Regenere a sua chave através do portal do Azure se considerar que poderá ter sido comprometida.
+
+Para configurar a cadeia de ligação, abra a **App. config** ficheiro a partir do Explorador de soluções no Visual Studio. Adicionar o conteúdo do **\<appSettings\>** elemento mostrado abaixo. Substitua *nome da conta* com o nome da sua conta de armazenamento, e *chave de conta* pela chave de acesso da conta:
+
+```xml
+<configuration>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+    </startup>
+    <appSettings>
+        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+    </appSettings>
+</configuration>
+```
+
+Por exemplo, a definição de configuração é semelhante a:
+
+```xml
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+```
+
+Para filtrar o emulador de armazenamento, pode utilizar um atalho que mapeia para o nome de conta e chave bem conhecidas. Nesse caso, a definição da cadeia de ligação é:
+
+```xml
+<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+```
 
 ### <a name="add-using-directives"></a>Adicionar com diretivas
+
 Adicione as seguintes diretivas `using` à parte superior do ficheiro `Program.cs`:
 
 ```csharp
@@ -64,18 +152,21 @@ O código de exemplo tem de autorizar o acesso à sua conta de armazenamento. Pa
     ![Captura de ecrã que mostra como copiar uma cadeia de ligação do portal do Azure](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### <a name="parse-the-connection-string"></a>Analisar a cadeia de ligação
+
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-queue-service-client"></a>Criar o cliente do serviço Fila
+
 A classe [CloudQueueClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet) permite-lhe obter filas armazenadas no Armazenamento de filas. Eis uma forma de criar o cliente do serviço:
 
 ```csharp
 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 ```
-    
+
 Agora, está pronto para escrever código que lê dados de e escreve dados para o Armazenamento de filas.
 
 ## <a name="create-a-queue"></a>Criar uma fila
+
 Este exemplo mostra como criar uma fila se ainda não existir:
 
 ```csharp
@@ -94,6 +185,7 @@ queue.CreateIfNotExists();
 ```
 
 ## <a name="insert-a-message-into-a-queue"></a>Introduzir uma mensagem numa fila
+
 Para introduzir uma mensagem numa fila existente, primeiro crie um novo [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet). Em seguida, chame o método [AddMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet). É possível criar uma **CloudQueueMessage** a partir de uma cadeia (no formato UTF-8) ou uma matriz de **bytes**. Eis o código que cria uma fila (se não existir) e introduz a mensagem "Olá, Mundo":
 
 ```csharp
@@ -116,6 +208,7 @@ queue.AddMessage(message);
 ```
 
 ## <a name="peek-at-the-next-message"></a>Pré-visualização da mensagem seguinte
+
 Pode pré-visualizar a mensagem no início de um fila sem a remover da fila ao chamar o método [PeekMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet).
 
 ```csharp
@@ -137,6 +230,7 @@ Console.WriteLine(peekedMessage.AsString);
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Alterar os conteúdos de uma mensagem em fila
+
 Pode alterar os conteúdos de uma mensagem no local na fila de espera. Se a mensagem representa uma tarefa de trabalho, pode utilizar esta funcionalidade para atualizar o estado da tarefa de trabalho. O seguinte código atualiza a mensagem de filas com novos conteúdos e expande o tempo limite de visibilidade em 60 segundos. Isto guarda o estado do trabalho associado à mensagem e atribui ao cliente outro minuto para continuar a trabalhar na mensagem. Pode utilizar esta técnica para controlar fluxos de trabalho de vários passos em mensagens de filas, sem ser necessário recomeçar do início se falhar um passo de processamento devido a uma falha de hardware ou software. Normalmente, também manteria uma contagem de tentativas e se a mensagem for repetida mais do que *n* vezes, deveria eliminá-la. Esta ação protege contra uma mensagem que aciona um erro da aplicação sempre que é processada.
 
 ```csharp
@@ -152,13 +246,14 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 
 // Get the message from the queue and update the message contents.
 CloudQueueMessage message = queue.GetMessage();
-message.SetMessageContent("Updated contents.");
+message.SetMessageContent2("Updated contents.", false);
 queue.UpdateMessage(message,
     TimeSpan.FromSeconds(60.0),  // Make it invisible for another 60 seconds.
     MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
 ## <a name="de-queue-the-next-message"></a>Remover a mensagem seguinte da fila
+
 O código remove uma mensagem da fila em dois passos. Quando chamar [GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet), obterá a seguinte mensagem numa fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Por predefinição, esta mensagem permanece invisível durante 30 segundos. Para acabar de remover a mensagem da fila, também tem de chamar [DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet). Este processo de dois passos da remoção de uma mensagem garante que se o código não conseguir processar uma mensagem devido a uma falha de hardware ou software, outra instância do seu código poderá obter a mesma mensagem e tentar novamente. O seu código chama **DeleteMessage** imediatamente após a mensagem ser processada.
 
 ```csharp
@@ -180,6 +275,7 @@ queue.DeleteMessage(retrievedMessage);
 ```
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Utilizar o padrão Async-Await com APIs de Armazenamento de filas comuns
+
 Este exemplo mostra como utilizar o padrão Async-Await com APIs de Armazenamento de filas comuns. O exemplo chama a versão assíncrona de cada um dos métodos em questão, conforme indicado pelo sufixo *Async* de cada método. Quando é utilizado um método assíncrono, o padrão async-await suspende a execução local, até que a chamada seja concluída. Este comportamento permite que o thread atual efetue outro trabalho, o que ajuda a evitar congestionamentos de desempenho e melhora a capacidade de resposta global da sua aplicação. Para obter mais detalhes sobre como utilizar o padrão Async-Await no .NET, consulte [Async-Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
 ```csharp
@@ -208,8 +304,9 @@ Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsStr
 await queue.DeleteMessageAsync(retrievedMessage);
 Console.WriteLine("Deleted message");
 ```
-    
+
 ## <a name="leverage-additional-options-for-de-queuing-messages"></a>Tirar maior partido das opções adicionais para remover as mensagens da fila
+
 Existem duas formas através das quais pode personalizar a obtenção de mensagens a partir de uma fila. Em primeiro lugar, pode obter um lote de mensagens (até 32). Em segundo lugar, pode definir um tempo limite de invisibilidade superior ou inferior, dando mais ou menos tempo ao código para processar totalmente cada mensagem. O seguinte código de exemplo utiliza o método [GetMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet) para obter 20 mensagens numa chamada. Em seguida, processa cada mensagem através de um ciclo **foreach**. Define também o tempo limite de invisibilidade para cinco minutos para cada mensagem. Tenha em atenção que os 5 minutos começam para todas as mensagens ao mesmo tempo, como tal, 5 minutos após a chamada para **GetMessages**, as mensagens que não tenham sido eliminadas ficarão visíveis novamente.
 
 ```csharp
@@ -231,6 +328,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## <a name="get-the-queue-length"></a>Obter o comprimento da fila
+
 Pode obter uma estimativa do número de mensagens numa fila. O método [FetchAttributes](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) pede ao serviço Fila que devolva os atributos de fila, incluindo a contagem de mensagens. A propriedade [ApproximateMessageCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) devolve o último valor obtido pelo método **FetchAttributes**, sem chamar o serviço Fila.
 
 ```csharp
@@ -255,6 +353,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="delete-a-queue"></a>Eliminar uma fila
+
 Para eliminar uma fila e todas as mensagens nela contidas, chame o método [Eliminar](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) no objeto de fila.
 
 ```csharp
@@ -271,9 +370,9 @@ CloudQueue queue = queueClient.GetQueueReference("myqueue");
 // Delete the queue.
 queue.Delete();
 ```
-    
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Agora que aprendeu as noções básicas do Armazenamento de filas, siga estas ligações para saber mais sobre as tarefas de armazenamento mais complexas.
 
 * Ver a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:

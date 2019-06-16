@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b71ba92e46a0363a22695229c40bfac7e0d6f589
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e4fb9e300a4019ffe47b82582783b9024d968ef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100574"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idrive"></a>Tutorial: Integração do Active Directory do Azure com IDrive
 
@@ -53,7 +53,7 @@ Para configurar a integração do IDrive com o Azure AD, terá de adicionar IDri
 
 **Para adicionar IDrive a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40fc631e84336b684f981a2fef1515a1febec0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811910"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113077"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração do Azure Active Directory B2B FAQs
 

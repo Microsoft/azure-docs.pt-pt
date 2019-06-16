@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 3/20/2018
 ms.author: v-mohabe
 ms.openlocfilehash: 4592caacf7f73e4bce9f974fb3bb2ab3ed1a89ff
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968354"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Compreender os alertas de segurança no Centro de Segurança do Azure

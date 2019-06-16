@@ -19,10 +19,10 @@ ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed4e7559ff6c3b76bbdf49b538ffebf3ad09cc58
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001224"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação de aplicação
@@ -51,9 +51,9 @@ Para computar a asserção, pode utilizar um dos muitos [JSON Web Token](https:/
 | `iss` | Emissor: deve ser o client_id (ID de aplicação do serviço de cliente) |
 | `jti` | GUID: o ID do JWT |
 | `nbf` | Não antes: a data antes do qual o token não pode ser utilizado. O tempo é representado como o número de segundos a partir de 1 de Janeiro de 1970 (1970-01-01T0:0:0Z) UTC até o momento o token foi emitido. |
-| `sub` | Requerente: Como para `iss`, deve ser o client_id (ID de aplicação do serviço de cliente) |
+| `sub` | Assunto: Como para `iss`, deve ser o client_id (ID de aplicação do serviço de cliente) |
 
-### <a name="signature"></a>Assinatura
+### <a name="signature"></a>assinatura
 
 A assinatura é calculada a aplicar o certificado, conforme descrito no [especificação RFC7519 Token do JSON Web](https://tools.ietf.org/html/rfc7519)
 

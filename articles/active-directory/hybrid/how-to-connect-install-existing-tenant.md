@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571375"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Quando tiver um inquilino existente
@@ -34,7 +34,7 @@ Pode gerir alguns utilizadores no local e outros na cloud. Um cenário comum par
 Se começou a gerir os utilizadores no Azure AD que também estejam no AD no local e posteriormente, pretender utilizar o Connect, haverá algumas preocupações adicionais que precisa considerar.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Sincronizar com os utilizadores existentes no Azure AD
-Quando instalar o Azure AD Connect e iniciá-la, o serviço de sincronização do Azure AD (no Azure AD) faz uma verificação em cada novo objeto e tentar localizar um objeto existente para corresponder. Existem três atributos utilizados para executar este processo: **userPrincipalName**, **proxyAddresses**, e **sourceAnchor**/**immutableID** . Uma correspondência no **userPrincipalName** e **proxyAddresses** é conhecido como um **correspondência de forma recuperável**. Uma correspondência no **sourceAnchor** é conhecido como **correspondência de disco rígida**. Para o **proxyAddresses** apenas o valor com o atributo **SMTP:**, que é o endereço de e-mail principal, é utilizado para a avaliação.
+Quando instalar o Azure AD Connect e iniciá-la, o serviço de sincronização do Azure AD (no Azure AD) faz uma verificação em cada novo objeto e tentar localizar um objeto existente para corresponder. Existem três atributos utilizados para executar este processo: **userPrincipalName**, **proxyAddresses**, e **sourceAnchor**/**immutableID** . Uma correspondência no **userPrincipalName** e **proxyAddresses** é conhecido como um **correspondência de forma recuperável**. Uma correspondência no **sourceAnchor** é conhecido como **correspondência de disco rígida**. Para o **proxyAddresses** apenas o valor com o atributo **SMTP:** , que é o endereço de e-mail principal, é utilizado para a avaliação.
 
 A correspondência é avaliada apenas para novos objetos provenientes do Connect. Se alterar um objeto existente para que ele é correspondência de qualquer um destes atributos, em seguida, verá um erro em vez disso.
 

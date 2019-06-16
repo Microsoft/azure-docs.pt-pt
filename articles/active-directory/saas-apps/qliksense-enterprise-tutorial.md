@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31df4cb9163e598bfde0c491d8088398c3204119
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e72ec4f9c512f6525f790d555794c1a120ac07c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093428"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Qlik sentido Enterprise
 
@@ -53,7 +53,7 @@ Para configurar a integração do Qlik sentido Enterprise no Azure AD, terá de 
 
 **Para adicionar Qlik sentido empresarial a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -183,9 +183,9 @@ Para configurar o Azure AD início de sessão único com Qlik sentido empresaria
 
     e. O **metadados de SAML IdP** é o ficheiro editado anteriormente na **Editar metadados de Federação a partir de configuração do Azure AD** secção.  **Antes de carregar os metadados de IdP, o ficheiro tem de ser editado** remover as informações para garantir a operação adequada entre o Azure AD e Qlik Sense server.  **Consulte as instruções acima se o ficheiro ainda não foi possível editá-lo.**  Se o ficheiro foi editado, clique no botão Procurar e selecione o ficheiro de metadados editado carregá-lo para a configuração de virtual proxy.
 
-    f. Introduza a referência do atributo de nome ou o esquema para o atributo SAML que representa a **UserID** do Azure AD envia para o servidor de Qlik Sense.  Informações de referência de esquema estão disponíveis na configuração de postagem de ecrãs da aplicação do Azure.  Para utilizar o atributo de nome, introduza `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    f. Introduza a referência do atributo de nome ou o esquema para o atributo SAML que representa a **UserID** do Azure AD envia para o servidor de Qlik Sense.  Informações de referência de esquema estão disponíveis na configuração de postagem de ecrãs da aplicação do Azure.  Para utilizar o atributo de nome, introduza `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    g. Introduza o valor para o **diretório de utilizador** que será anexado aos utilizadores quando fizer a autenticação de servidor Qlik Sense através do Azure AD.  Valores embutidos em código tem de ser rodeados por **quadrado parêntesis Retos []**.  Para utilizar um atributo enviado na asserção de SAML do Azure AD, introduza o nome do atributo nesta caixa de texto **sem** Parênteses Retos.
+    g. Introduza o valor para o **diretório de utilizador** que será anexado aos utilizadores quando fizer a autenticação de servidor Qlik Sense através do Azure AD.  Valores embutidos em código tem de ser rodeados por **quadrado parêntesis Retos []** .  Para utilizar um atributo enviado na asserção de SAML do Azure AD, introduza o nome do atributo nesta caixa de texto **sem** Parênteses Retos.
 
     h. O **algoritmo de assinatura de SAML** define o certificado de fornecedor (neste servidor Qlik Sense maiúsculas) do serviço de assinatura para a configuração de virtual proxy.  Se o servidor de Qlik Sense utiliza um certificado fidedigno gerado usando o Microsoft RSA avançada e o fornecedor de criptografia AES, altere o algoritmo de assinatura de SAML para **SHA-256**.
 
@@ -298,7 +298,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Qlik sentido empresarial. Trabalhar com [equipa de suporte da empresa de sentido Qlik](https://www.qlik.com/us/services/support) para adicionar os utilizadores na plataforma Qlik sentido empresarial. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

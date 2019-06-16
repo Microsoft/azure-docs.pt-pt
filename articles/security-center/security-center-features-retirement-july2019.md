@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
 ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952133"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Extinção dos recursos de centro de segurança (Julho de 2019)
@@ -100,7 +100,7 @@ Podemos está removendo a **vá para o mapa de eventos de segurança** botão e 
 
 Quando seleciona a **vá para o mapa de eventos de segurança** botão, abra o dashboard de informações sobre ameaças. Podemos reformar-se o dashboard de informações sobre ameaças.  
 
-![Dashboard Informações sobre Ameaças][11]
+![Dashboard Informações sobre ameaças][11]
 
 Ao escolher uma área de trabalho para ver o seu dashboard de inteligência de ameaças, abre o ecrã de mapa (pré-visualização) de alertas de segurança no Log Analytics. Podemos reformar-se neste ecrã.
 
@@ -110,7 +110,7 @@ Os dados existentes permanecerão disponíveis na solução de segurança do Log
 
 ### <a name="security-events-map---the-new-experience"></a>Mapa de eventos de segurança - a nova experiência
 
-Aconselhamo-lo para utilizar a funcionalidade de mapa de alertas incorporada no Centro de segurança: **Mapa de alertas de segurança (pré-visualização)**. Esta funcionalidade fornece uma experiência otimizada e funciona em todas as subscrições e áreas de trabalho associadas. Ele oferece uma visão de alto nível em todo o ambiente e não está concentrado num único espaço de trabalho.
+Aconselhamo-lo para utilizar a funcionalidade de mapa de alertas incorporada no Centro de segurança: **Mapa de alertas de segurança (pré-visualização)** . Esta funcionalidade fornece uma experiência otimizada e funciona em todas as subscrições e áreas de trabalho associadas. Ele oferece uma visão de alto nível em todo o ambiente e não está concentrado num único espaço de trabalho.
 
 ## Regras de alerta personalizadas (pré-visualização)<a name="menu_customalerts"></a>
 

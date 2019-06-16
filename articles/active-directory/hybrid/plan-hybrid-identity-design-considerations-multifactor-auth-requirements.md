@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dabb381c16aa107e41c1d556e61e020b8c6a6c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60455742"
+ms.locfileid: "67109298"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de autenticação multifator para a sua solução de identidade híbrida
 Neste mundo de mobilidade, com utilizadores que acedem aos dados e aplicações na cloud e a partir de qualquer dispositivo, proteger essas informações se tornou imprescindível.  Todos os dias é uma Manchete novo sobre uma violação de segurança.  Embora, não há nenhuma garantia em relação a tais violações, autenticação multifator, fornece uma camada adicional de segurança para ajudar a evitar essas falhas.

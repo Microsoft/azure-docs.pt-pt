@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/11/2019
 ms.author: juliako
-ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ab07b87d724f2006b6b5c0e4f472140f92230dea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225512"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080406"
 ---
 # <a name="pre-filtering-manifests-with-dynamic-packager"></a>Pré-filtrar manifestos com Packager dinâmico
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2018
+ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: b968cc29a7139a4a6db5d2dea8dd6f8f4e1c7ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6d4a5b9688540e5aa96dd8789dbb609aedeca97
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60630792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077843"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO num anfitrião StorSimple em execução no CentOS
 Este artigo explica os passos necessários para configurar o Multipathing e/s (MPIO) no seu servidor de anfitrião do Centos 6.6. O servidor de anfitrião está ligado ao seu dispositivo do Microsoft Azure StorSimple para elevada disponibilidade através de iniciadores iSCSI. Ele descreve detalhadamente a deteção automática de dispositivos multipath e o programa de configuração específico apenas para os volumes do StorSimple.
@@ -56,11 +56,11 @@ O ficheiro de configuração `/etc/multipath.conf` torna muitos dos recursos de 
 
 O multipath.conf tem cinco seções:
 
-- **Predefinições ao nível do sistema** *(predefinições)*: Pode substituir as predefinições ao nível do sistema.
-- **Bloqueado de dispositivos** *(lista de bloqueios)*: Pode especificar a lista de dispositivos que não devem ser controlados por mapeador de dispositivo.
-- **Lista de exceções de bloqueio** *(blacklist_exceptions)*: Pode identificar dispositivos específicos sejam tratados como dispositivos multipath, mesmo se listados na lista de bloqueios.
-- **As definições específicas do controlador de armazenamento** *(dispositivos)*: Pode especificar definições de configuração que serão aplicadas a dispositivos que tenham informações do fornecedor e o produto.
-- **As definições específicas do dispositivo** *(multipaths)*: Pode utilizar esta secção para ajustar as definições de configuração para os LUNs individuais.
+- **Predefinições ao nível do sistema** *(predefinições)* : Pode substituir as predefinições ao nível do sistema.
+- **Bloqueado de dispositivos** *(lista de bloqueios)* : Pode especificar a lista de dispositivos que não devem ser controlados por mapeador de dispositivo.
+- **Lista de exceções de bloqueio** *(blacklist_exceptions)* : Pode identificar dispositivos específicos sejam tratados como dispositivos multipath, mesmo se listados na lista de bloqueios.
+- **As definições específicas do controlador de armazenamento** *(dispositivos)* : Pode especificar definições de configuração que serão aplicadas a dispositivos que tenham informações do fornecedor e o produto.
+- **As definições específicas do dispositivo** *(multipaths)* : Pode utilizar esta secção para ajustar as definições de configuração para os LUNs individuais.
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configurar o multipathing no StorSimple ligado ao anfitrião Linux
 Um dispositivo StorSimple ligado ao anfitrião Linux pode ser configurado para elevada disponibilidade e balanceamento de carga. Por exemplo, se o anfitrião Linux possui duas interfaces ligados à SAN e o dispositivo tiver duas interfaces ligados à SAN que essas interfaces são na mesma sub-rede, em seguida, haverá 4 caminhos disponíveis. No entanto, se cada interface de dados na interface de dispositivo e o anfitrião estiver numa sub-rede IP diferente (e não encaminháveis), em seguida, apenas 2 caminhos estarão disponíveis. Pode configurar multipathing automaticamente detetar todos os caminhos disponíveis, escolher um algoritmo de balanceamento de carga para esses caminhos, aplicar definições de configuração específicas para volumes de só de StorSimple e, em seguida, ativar e certifique-se de multipathing.
@@ -417,10 +417,10 @@ R. Para verificar se o seu dispositivo está na lista de permissões, utilize o 
     dm-3 devnode blacklisted, unmonitored
 
 
-Para obter mais informações, aceda a [utilizar a resolução de problemas de comando interativo para multipathing](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Para obter mais informações, aceda a [resolução de problemas para multipathing](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Lista de comandos úteis
-| Type | Comando | Descrição |
+| Tipo | Comando | Descrição |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Iniciar o serviço iSCSI |
 | &nbsp; |`service iscsid stop` |Parar o serviço iSCSI |
@@ -444,6 +444,6 @@ Para obter mais informações, aceda a [utilizar a resolução de problemas de c
 ## <a name="next-steps"></a>Passos Seguintes
 Como está a configurar o MPIO no anfitrião Linux, também poderá ter de consultar os seguintes documentos de CentoS 6.6:
 
-* [Configurar o MPIO no CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+* [Configurar o MPIO no CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Guia de treinamento do Linux](http://linux-training.be/linuxsys.pdf)
 

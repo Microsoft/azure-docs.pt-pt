@@ -16,10 +16,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298734"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações em nós de computação com pacotes de aplicações do Batch

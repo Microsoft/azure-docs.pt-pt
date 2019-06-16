@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8db590c8c79db9bc47edbbef69a11d3b0e4b51f6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540353"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111073"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Inquilinos no Azure Active Directory
 
@@ -38,8 +38,8 @@ No portal do Azure, pode configurar a sua aplicação para ser o inquilino únic
 
 | Audiência | Único/várias-tenant | Quem pode iniciar sessão | 
 |----------|--------| ---------|
-| Contas apenas neste diretório | Inquilino único | Todas as contas de convidados e utilizadores no seu diretório podem utilizar a sua aplicação ou a API.<br>*Utilize esta opção se o seu público-alvo é interno para a sua organização.* |
-| Contas em diretório do Azure AD | Multi-inquilino | Todos os utilizadores e convidados com uma conta escolar ou profissional da Microsoft podem utilizar a sua aplicação ou API. Isto inclui a instituições de ensino e empresas que utilizam o Office 365.<br>*Utilize esta opção se o seu público-alvo é empresas ou clientes de instituições de ensino.* |
+| Contas apenas neste diretório | Inquilino único | Todas as contas de convidado no seu diretório de utilizador e podem utilizar a sua aplicação ou API.<br>*Utilize esta opção se o seu público-alvo é interno para a sua organização.* |
+| Contas de qualquer diretório do Azure AD | Multi-inquilino | Todos os utilizadores e convidados com uma conta escolar ou profissional da Microsoft podem utilizar a sua aplicação ou API. Isto inclui a instituições de ensino e empresas que utilizam o Office 365.<br>*Utilize esta opção se o seu público-alvo é empresas ou clientes de instituições de ensino.* |
 | Contas em qualquer diretório do Azure AD e as contas Microsoft pessoais (por exemplo, o Skype, Xbox, Outlook.com) | Multi-inquilino | Todos os utilizadores com um trabalho ou escola ou conta Microsoft pessoal podem utilizar a sua aplicação ou API. Ele inclui a instituições de ensino e as empresas que utilizam o Office 365, bem como contas pessoais que são utilizadas para iniciar sessão em serviços como a Xbox e o Skype.<br>*Utilize esta opção para o conjunto mais ampla de contas Microsoft de destino.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Melhores práticas para aplicações multi-inquilino

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b2c7ca8699274b96f7f382dfe1958bf5babbbe99
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c217663c5752907e0b3d6372d4522f6aba982b3d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720161"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: Integração do Active Directory do Azure com o Insights adaptável
 
@@ -52,7 +52,7 @@ Para configurar a integração de informações adaptáveis com o Azure AD, ter�
 
 **Para adicionar informações adaptável a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 0cc94141d683f626d0654e2067135569710de330
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b2a22beb1c88e30ce0c88a0f57ec71bbdc45ece8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086433"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Active Directory do Azure com os guias de Yonyx interativa
 
@@ -55,7 +55,7 @@ Para configurar a integração de guias de Yonyx interativa com o Azure AD, ter�
 
 **Para adicionar guias de Yonyx interativos a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado nos guias de Yonyx
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de guias de interativo Yonyx](mailto:support@yonyx.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

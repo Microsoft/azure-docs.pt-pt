@@ -16,10 +16,10 @@ ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
 ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833583"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com o WebJobs no serviço de aplicações do Azure
@@ -41,7 +41,7 @@ As funções do Azure proporciona outra forma de executar programas e scripts. P
 A tabela seguinte descreve as diferenças entre *contínua* e *acionada* WebJobs.
 
 
-|Contínuo  |Acionado  |
+|Contínuo  |Acionada  |
 |---------|---------|
 | Começa imediatamente quando o trabalho Web é criado. Para impedir que a tarefa terminar, o programa ou script normalmente faz seu trabalho dentro de um loop infinito. Se a tarefa terminar, pode reiniciá-lo. | É iniciado apenas quando acionados com base numa agenda ou manualmente. |
 | É executado em todas as instâncias que a aplicação web é executado. Opcionalmente, pode restringir o WebJob para uma única instância. |É executado numa única instância para o Azure seleciona o balanceamento de carga.|
@@ -124,7 +124,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_".|
    | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
-   | **Tipo** | Acionado | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
+   | **Tipo** | Acionada | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
    | **acionadores** | Manual | |
 
 4. Clique em **OK**.
@@ -162,8 +162,8 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Nome** | myScheduledWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_". |
    | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
-   | **Tipo** | Acionado | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
-   | **acionadores** | Agendada | Para o agendamento para trabalhar de forma fiável, ative a funcionalidade Always On. Always On está disponível apenas no básico, Standard e Premium de escalões de preço.|
+   | **Tipo** | Acionada | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
+   | **acionadores** | Agendado | Para o agendamento para trabalhar de forma fiável, ative a funcionalidade Always On. Always On está disponível apenas no básico, Standard e Premium de escalões de preço.|
    | **Expressão CRON** | 0 0/20 * * * * | [Expressões CRON](#cron-expressions) são descritos na secção seguinte. |
 
 4. Clique em **OK**.

@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c57feb33967732481d78e0ddaba5e90f4f82f327
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544433"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Considerações sobre o Xamarin. Android-específicas com MSAL.NET
@@ -56,16 +56,16 @@ A tabela seguinte lista os dispositivos e browsers que foram testados.
 
 | | Browser&ast;     |  Resultado  | 
 | ------------- |:-------------:|:-----:|
-| Huawei / um + | Chrome&ast; | Passagem|
-| Huawei / um + | Edge&ast; | Passagem|
-| Huawei / um + | Firefox&ast; | Passagem|
-| Huawei / um + | Brave&ast; | Passagem|
-| Um + | Ecosia&ast; | Passagem|
-| Um + | Kiwi&ast; | Passagem|
-| Huawei / um + | Opera | Passagem|
-| Huawei | OperaMini | Passagem|
-| Huawei / um + | InBrowser | Passagem|
-| Um + | Maxthon | Passagem|
+| Huawei / um + | Chrome&ast; | Pass|
+| Huawei / um + | Edge&ast; | Pass|
+| Huawei / um + | Firefox&ast; | Pass|
+| Huawei / um + | Brave&ast; | Pass|
+| Um + | Ecosia&ast; | Pass|
+| Um + | Kiwi&ast; | Pass|
+| Huawei / um + | Opera | Pass|
+| Huawei | OperaMini | Pass|
+| Huawei / um + | InBrowser | Pass|
+| Um + | Maxthon | Pass|
 | Huawei / um + | DuckDuckGo | Autenticação do utilizador foi cancelada|
 | Huawei / um + | Browser UC | Autenticação do utilizador foi cancelada|
 | Um + | Dolphin | Autenticação do utilizador foi cancelada|

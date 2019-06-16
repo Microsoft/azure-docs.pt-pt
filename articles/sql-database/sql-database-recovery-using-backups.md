@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
 ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232654"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
@@ -97,7 +97,7 @@ Pode restaurar uma base de dados eliminada para a hora de eliminação ou um pon
 > [!TIP]
 > Para um script do PowerShell de exemplo que mostra como restaurar uma base de dados eliminada, consulte [restaurar uma base de dados SQL com o PowerShell](scripts/sql-database-restore-database-powershell.md).
 > [!IMPORTANT]
-> Se eliminar uma instância de servidor de base de dados do Azure SQL, todas as suas bases de dados também são eliminados e não podem ser recuperados. Atualmente não há suporte para restaurar um servidor foi eliminado.
+> Se eliminar uma instância de servidor de base de dados do Azure SQL, todas as suas bases de dados também são eliminados e não podem ser recuperados. Atualmente, não existe suporte para restaurar um servidor eliminado.
 
 ### <a name="deleted-database-restore-using-the-azure-portal"></a>Restauro de base de dados eliminada através do portal do Azure
 

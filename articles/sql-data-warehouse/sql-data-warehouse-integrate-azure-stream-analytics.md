@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873271"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utilizar o Azure Stream Analytics com o SQL Data Warehouse
@@ -33,13 +33,13 @@ Primeiro, execute os seguintes passos no [começar a utilizar o Azure Stream Ana
 Em seguida, crie uma base de dados do Azure SQL Data Warehouse
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Especifique o resultado da tarefa: Base de dados de armazém de dados SQL do Azure
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 Na sua tarefa do Stream Analytics, clique em **saída** na parte superior da página e, em seguida, clique **adicionar**.
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 Selecione a base de dados SQL.
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 Introduza os seguintes valores na página seguinte:
 
 * *Alias de saída*: Introduza um nome amigável para este resultado da tarefa.

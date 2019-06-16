@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d5c697f8c6c2365539ce5147ad5bafff1e6c396
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd347f4eb5f77dacc3c9fd61d0e885e9b3ee7959
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870370"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095642"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Active Directory do Azure com o Origami
 
@@ -53,7 +53,7 @@ Para configurar a integração do Origami com o Azure AD, terá de adicionar Ori
 
 **Para adicionar Origami a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -237,7 +237,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Origami.
    
     ![Configurar o início de sessão único](./media/origami-tutorial/tutorial_origami_58.png)
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540653"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicativos na versão 1.0
@@ -34,11 +34,11 @@ O diagrama seguinte ilustra os cenários e tipos de aplicativos, e como componen
 
 Estes são os cinco cenários de aplicação principal suportados pelo Azure AD:
 
-- **[Aplicação de página única (SPA)](single-page-application.md)**: O utilizador precisa de iniciar sessão a uma aplicação de página única que está protegida pelo Azure AD.
-- **[Navegador da Web para a aplicação web](web-app.md)**: O utilizador precisa de iniciar sessão a uma aplicação web que está protegida pelo Azure AD.
-- **[Aplicação nativa a web API](native-app.md)**: Um aplicativo nativo que é executado num telefone, tablet ou PC tem de autenticar um usuário para obter recursos de uma API web que está protegida pelo Azure AD.
-- **[Aplicação Web API Web](web-api.md)**: Uma aplicação web tem de obter recursos de uma API web protegida pelo Azure AD.
-- **[O daemon ou servidor de aplicativo web API](service-to-service.md)**: Um aplicativo de daemon ou um aplicativo de servidor sem interface do usuário de web tem de obter recursos de uma API web protegida pelo Azure AD.
+- **[Aplicação de página única (SPA)](single-page-application.md)** : O utilizador precisa de iniciar sessão a uma aplicação de página única que está protegida pelo Azure AD.
+- **[Navegador da Web para a aplicação web](web-app.md)** : O utilizador precisa de iniciar sessão a uma aplicação web que está protegida pelo Azure AD.
+- **[Aplicação nativa a web API](native-app.md)** : Um aplicativo nativo que é executado num telefone, tablet ou PC tem de autenticar um usuário para obter recursos de uma API web que está protegida pelo Azure AD.
+- **[Aplicação Web API Web](web-api.md)** : Uma aplicação web tem de obter recursos de uma API web protegida pelo Azure AD.
+- **[O daemon ou servidor de aplicativo web API](service-to-service.md)** : Um aplicativo de daemon ou um aplicativo de servidor sem interface do usuário de web tem de obter recursos de uma API web protegida pelo Azure AD.
 
 Siga as ligações para saber mais sobre cada tipo de aplicação e compreender os cenários de alto nível antes de começar a trabalhar com o código. Também pode saber mais sobre as diferenças que precisa saber ao escrever uma aplicação específica que funciona com o ponto final da versão 1.0 ou o ponto final v2.0.
 
@@ -49,7 +49,7 @@ Pode desenvolver a qualquer uma das aplicações e dos cenários descritos aqui,
 
 Além disso, se seu aplicativo precisar de uma parte específica ou um segmento de um cenário ponto-a-ponto, na maioria dos casos essa funcionalidade pode ser adicionada independentemente. Por exemplo, se tiver um aplicativo nativo que chama uma API web, pode adicionar facilmente uma aplicação web que também chama a API web.
 
-## <a name="app-registration"></a>Registo de aplicações
+## <a name="app-registration"></a>Registo da aplicação
 
 ### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registar uma aplicação que utiliza o ponto de extremidade de versão 1.0 do Azure AD
 

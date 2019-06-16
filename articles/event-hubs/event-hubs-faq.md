@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
 ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476127"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos

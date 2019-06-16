@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2019
+ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a370dcb349b61f3dda544d9c5a2030b6789e34c4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075400"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contentores 
 Com o Azure Monitor para contentores, pode utilizar os gráficos de desempenho e estado de funcionamento para monitorizar a carga de trabalho de seus clusters do Azure Kubernetes Service (AKS) de duas perspetivas, diretamente a partir de um cluster do AKS ou todos os clusters do AKS numa subscrição do Azure Monitorize. Visualização do Azure Container Instances (ACI) também é possível ao monitorizar um cluster do AKS específico.
@@ -61,7 +61,7 @@ Os Estados de estado de funcionamento incluídos são:
 * **Não foi encontrado** - criar a área de trabalho, o grupo de recursos ou subscrição que contém a área de trabalho para esta solução foi eliminada.
 * **Não autorizado** -utilizador não tem as permissões necessárias para ler os dados na área de trabalho.
 * **Erro** -Ocorreu um erro ao tentar ler dados a partir da área de trabalho.
-* **MIS configurados** -Monitor do Azure para contentores não foi configurado corretamente na área de trabalho especificada.
+* **Configurado incorretamente** -Monitor do Azure para contentores não foi configurado corretamente na área de trabalho especificada.
 * **Não existem dados** -dados não comunicou à área de trabalho nos últimos 30 minutos.
 
 Estado de funcionamento calcula o estado geral do cluster como *pior de* as três Estados com uma exceção – se qualquer um dos três Estados for *desconhecido*, irá mostrar o estado geral do cluster **desconhecido**.  
@@ -102,19 +102,19 @@ A página padrão aberto quando clica em **Insights** é **Cluster**, e inclui q
 
 Gráfico de desempenho apresenta quatro métricas de desempenho:
 
-- **Utilização do nó da CPU&nbsp;%**: Um ponto de vista agregado da utilização da CPU para todo o cluster. Pode filtrar os resultados para o intervalo de tempo, selecionando **Avg**, **Mín**, **Max**, **percentis 50 º**, **90**, e **95** no Seletor de percentis acima do gráfico, seja individualmente ou combinado. 
-- **Utilização de memória do nó&nbsp;%**: Um ponto de vista agregado de utilização da memória para todo o cluster. Pode filtrar os resultados para o intervalo de tempo, selecionando **Avg**, **Mín**, **Max**, **percentis 50 º**, **90**, e **95** no Seletor de percentis acima do gráfico, seja individualmente ou combinado. 
+- **Utilização do nó da CPU&nbsp;%** : Um ponto de vista agregado da utilização da CPU para todo o cluster. Pode filtrar os resultados para o intervalo de tempo, selecionando **Avg**, **Mín**, **Max**, **percentis 50 º**, **90**, e **95** no Seletor de percentis acima do gráfico, seja individualmente ou combinado. 
+- **Utilização de memória do nó&nbsp;%** : Um ponto de vista agregado de utilização da memória para todo o cluster. Pode filtrar os resultados para o intervalo de tempo, selecionando **Avg**, **Mín**, **Max**, **percentis 50 º**, **90**, e **95** no Seletor de percentis acima do gráfico, seja individualmente ou combinado. 
 - **Contagem de nós**: Uma contagem de nós e o estado do Kubernetes. São Estados de nós do cluster representados *todos os*, *pronto*, e *não está pronto* e podem ser filtrados individualmente ou combinado no Seletor de acima do gráfico. 
 - **Contagem de pod de atividade**: Uma contagem de pod e o estado a partir do Kubernetes. Estados de pods representados são *todos os*, *pendente*, *em execução*, e *desconhecido* e podem ser filtrados individualmente ou combinado no Seletor de acima do gráfico. 
 
-Pode usar as teclas de seta esquerda/direita para percorrer cada ponto de dados no gráfico e a seta para cima/para baixo para as chaves para percorrer as linhas de percentil.
+Pode usar as teclas de seta esquerda/direita para percorrer cada ponto de dados no gráfico e a seta para cima/para baixo para as chaves para percorrer as linhas de percentil. Ao clicar no ícone de pin, no canto superior direito de qualquer um dos gráficos irá afixar o gráfico selecionado para o último dashboard do Azure visualizado pela última vez. No dashboard, pode redimensionar e reposicionar o gráfico. Selecionar o gráfico a partir do dashboard irá redirecioná-lo para o Azure Monitor para contentores e carregar a exibição e o âmbito correto.
 
 Monitor do Azure para contentores também suporta o Azure Monitor [Explorador de métricas](../platform/metrics-getting-started.md), onde pode criar seus próprios gráficos de plotagem, correlacionar e investigar as tendências e afixar nos dashboards. No Explorador de métricas, também pode utilizar os critérios que definiu para visualizar as métricas, como a base de um [métrica com base em regra de alerta](../platform/alerts-metric.md).  
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>Ver métricas de contentor no Explorador de métricas
 No Explorador de métricas, pode ver o nó agregado e pod métricas de utilização do Azure Monitor para contentores. A tabela seguinte resume os detalhes para ajudar a compreender como utilizar os gráficos de métricas para visualizar as métricas de contentor.
 
-|Espaço de nomes | Métrica |
+|Espaço de Nomes | Métrica |
 |----------|--------|
 | insights.container/nodes | |
 | | cpuUsageMillicores |
@@ -129,7 +129,7 @@ No Explorador de métricas, pode ver o nó agregado e pod métricas de utilizaç
 
 Pode aplicar [divisão](../platform/metrics-charts.md#apply-splitting-to-a-chart) de uma métrica para vê-la por dimensão e visualizar como diferentes segmentos do mesmo comparar entre si. Para um nó, pode segmentar o gráfico pela *anfitrião* dimensão, e a partir de um pod pode segmentá-lo pelas seguintes dimensões:
 
-* Controlador
+* controlador
 * Espaço de nomes do Kubernetes
 * Nó
 * Fase
@@ -163,7 +163,7 @@ Azure Container instâncias nós virtuais a executar o SO Linux são apresentado
 A partir de um nó expandido, pode desagregar do pod ou contentor em execução no nó para o controlador para ver os dados de desempenho filtrados para esse controlador. Clique no valor sob a **controlador** coluna para o nó específico.   
 ![Desagregação de exemplo, a partir do nó para o controlador na vista de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Pode selecionar os controladores ou contentores na parte superior da página e reveja a utilização de estado e de recursos para esses objetos.  Se em vez disso, pretende rever a utilização da memória, na **métrica** na lista pendente, selecione **memória RSS** ou **conjunto de trabalho de memória**. **Memória RSS** só é suportada para Kubernetes versão 1.8 e posterior. Caso contrário, exibir os valores para **Min&nbsp; %**  como *NaN&nbsp;%*, que é um valor de tipo de dados numéricos que representa um indefinido ou valor não representável. 
+Pode selecionar os controladores ou contentores na parte superior da página e reveja a utilização de estado e de recursos para esses objetos.  Se em vez disso, pretende rever a utilização da memória, na **métrica** na lista pendente, selecione **memória RSS** ou **conjunto de trabalho de memória**. **Memória RSS** só é suportada para Kubernetes versão 1.8 e posterior. Caso contrário, exibir os valores para **Min&nbsp; %**  como *NaN&nbsp;%* , que é um valor de tipo de dados numéricos que representa um indefinido ou valor não representável. 
 
 ![Vista de desempenho de nós de contentor](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -175,7 +175,7 @@ Quando passa o mouse sobre o gráfico de barras sob o **tendência** coluna, cad
 
 ![Coloque o cursor do gráfico de barras de tendência ao longo de exemplo](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
-No exemplo seguinte, tenha em atenção para o primeiro na lista - nó *aks-nodepool1 -*, o valor de **contentores** é 9, que é um rollup do número total de contentores implementados.
+No exemplo seguinte, tenha em atenção para o primeiro na lista - nó *aks-nodepool1 -* , o valor de **contentores** é 9, que é um rollup do número total de contentores implementados.
 
 ![Rollup de contentores, por exemplo de nó](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
@@ -233,7 +233,7 @@ Os ícones no campo status indicam o estado online dos contentores:
 | ![Reportou pela última vez com o ícone de estado](./media/container-insights-analyze/containers-grey-icon.png) | Por fim comunicados em execução, mas ainda não responderam a mais de 30 minutos|
 | ![Ícone de estado com êxito](./media/container-insights-analyze/containers-green-icon.png) | Parado ou falha ao parar com êxito|
 
-O ícone de estado apresenta uma contagem com base no que fornece o pod. Mostra os pior dois Estados, e quando paira o rato sobre o status, apresenta um Estado de rollup de todos os pods no contentor. Se não existir um estado estável, o valor de estado apresenta **(0)**. 
+O ícone de estado apresenta uma contagem com base no que fornece o pod. Mostra os pior dois Estados, e quando paira o rato sobre o status, apresenta um Estado de rollup de todos os pods no contentor. Se não existir um estado estável, o valor de estado apresenta **(0)** . 
 
 No Seletor de, selecione **contentores**.
 
@@ -270,6 +270,20 @@ Os ícones no campo status indicam os Estados online de pods, conforme descrito 
 | ![Reportou pela última vez com o ícone de estado](./media/container-insights-analyze/containers-grey-icon.png) | Por fim comunicados em execução, mas ainda não responderam em mais de 30 minutos|  
 | ![Ícone de estado terminada](./media/container-insights-analyze/containers-terminated-icon.png) | Parado ou falha ao parar com êxito|  
 | ![Ícone de estado com falhas](./media/container-insights-analyze/containers-failed-icon.png) | Estado de falha |  
+
+## <a name="disk-capacity-workbook"></a>Livro de capacidade do disco
+Pastas de trabalho do texto, de combinar [consultas de registo](../log-query/query-language.md), [métricas](../platform/data-platform-metrics.md)e os parâmetros em relatórios interativos avançados. Pastas de trabalho são editáveis por quaisquer outros membros da Equipe que têm acesso aos mesmos recursos do Azure.
+
+Monitor do Azure para contentores inclui uma pasta de trabalho para começar, **capacidade de disco**.  Este livro apresenta gráficos de utilização do disco interativo para cada disco apresentado para o nó dentro de um contêiner por perspetivas seguintes:
+
+- % De utilização de disco para todos os discos
+- Espaço livre em disco para todos os discos
+- Uma tabela que mostra para cada disco de nós, que a % de espaço utilizado, a tendência de % utilizada espaço, espaço livre em disco (GiB) e tendência de espaço livre em disco (GiB). Quando uma linha é selecionada na tabela, % de espaço utilizado e espaço livre em disco (GiB) é mostrado abaixo 
+
+Aceder a este livro selecionando **capacidade de disco** da **vista de pastas de trabalho** na lista pendente.  
+
+![Ver a lista pendente de pastas de trabalho](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Reveja os [criar alertas de desempenho com o Azure Monitor para contentores](container-insights-alerts.md) para saber como criar alertas para alta utilização de CPU e memória suportar o DevOps ou processos operacionais e procedimentos. 

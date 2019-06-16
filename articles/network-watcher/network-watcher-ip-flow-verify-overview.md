@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2017
 ms.author: kumud
 ms.openlocfilehash: 5c34fd2b6d354f594ed153647c1bed700566fad6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64709584"
 ---
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Introdução ao fluxo de IP, certifique-se no observador de rede do Azure

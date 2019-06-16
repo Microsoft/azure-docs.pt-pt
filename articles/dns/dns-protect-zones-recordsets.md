@@ -2,17 +2,16 @@
 title: Proteger zonas de DNS do Azure e registos
 description: Como proteger zonas DNS e conjuntos de registos no DNS do Azure de Microsoft.
 services: dns
-author: WenJason
+author: vhorne
 ms.service: dns
 ms.topic: article
-origin.date: 12/4/2018
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 12/4/2018
+ms.author: victorh
 ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66121384"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger zonas e registos DNS
@@ -118,7 +117,8 @@ O exemplo seguinte mostra uma definição de função personalizada para gerenci
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
     ],
     "NotActions": [
     ],
@@ -156,7 +156,7 @@ A função pode depois ser atribuída da mesma forma como as funções incorpora
 
 Para obter mais informações sobre como criar, gerir e atribuir funções personalizadas, consulte [funções personalizadas no Azure RBAC](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Bloqueios de recurso
+## <a name="resource-locks"></a>Bloqueios de recursos
 
 Para além do RBAC, o Azure Resource Manager suporta outro tipo de controlo de segurança, ou seja, a capacidade de bloquear recursos. Em que as regras RBAC permitem controlar as ações de utilizadores e grupos específicos, bloqueios de recursos são aplicados ao recurso e entram em vigor em todos os utilizadores e funções. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 

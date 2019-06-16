@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
 ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540934"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Atualizações de serviço no Azure Site Recovery

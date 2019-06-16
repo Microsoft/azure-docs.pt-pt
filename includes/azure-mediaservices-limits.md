@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116343"
 ---
 >[!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "66116343"
 | Unidades de transmissão em fluxo por ponto final de transmissão em fluxo |10 |
 | Contas de armazenamento | 1000<sup>5</sup> (fixo) |
 | Políticas | 1 000 000<sup>6</sup> |
-| Tamanho do ficheiro| Em alguns cenários, existe um limite no tamanho de ficheiro máximo suportado para processamento nos serviços de multimédia. <sup>7</sup> |
+| Tamanho dos ficheiros| Em alguns cenários, existe um limite no tamanho de ficheiro máximo suportado para processamento nos serviços de multimédia. <sup>7</sup> |
 
 <sup>1</sup>se alterar o tipo, por exemplo, de S2 para S1, os limites de unidade reservada máximo são repostos.
 

@@ -11,10 +11,10 @@ ms.date: 05/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 2929c033b4744ea89f8e3d711a5e2e0df6301c14
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730013"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C

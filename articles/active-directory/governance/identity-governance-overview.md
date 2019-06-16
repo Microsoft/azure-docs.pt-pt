@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 4b4f1563aa0437cd45c297b95a83119318a24624
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307053"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109581"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é a governação de identidade do Azure AD?
 
@@ -68,7 +68,7 @@ Historicamente, acesso privilegiado foi descrito por outros fornecedores como um
 
 ![Ciclo de vida do acesso privilegiado](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-O Azure AD Privileged Identity Management (PIM) fornece controlos adicionais adaptados para proteger o acesso de direitos para os recursos, no Azure AD, Azure e a outros serviços Online da Microsoft.  O acesso just-in-time e a alteração de funções alertas recursos fornecidos pelo Azure AD PIM, além de autenticação multifator e acesso condicional, fornecem que um conjunto abrangente de controles de governação para ajudar a proteger recursos da empresa (diretório, Office 365 e funções de recursos do Azure). Tal como acontece com outras formas de acesso, as organizações podem utilizar as revisões de acesso para configurar recorrentes recertification de acesso para todos os utilizadores nas funções de administrador.
+O Azure AD Privileged Identity Management (PIM) fornece controlos adicionais adaptados para proteger o acesso de direitos para os recursos, no Azure AD, Azure e a outros serviços Online da Microsoft.  O acesso just-in-time e a função alterar recursos fornecidos pelo Azure AD PIM, além de autenticação multifator e acesso condicional de alertas, fornecer que um conjunto abrangente de controles de governação para ajudar a proteger recursos da empresa (diretório, Office 365 e funções de recursos do Azure). Tal como acontece com outras formas de acesso, as organizações podem utilizar as revisões de acesso para configurar recorrentes recertification de acesso para todos os utilizadores nas funções de administrador.
 
 ## <a name="getting-started"></a>Introdução
 

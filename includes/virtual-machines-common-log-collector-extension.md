@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387966"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67120182"
 ---
 Diagnosticar problemas com um serviço cloud do Microsoft Azure requer a recolher ficheiros de registo do serviço em máquinas virtuais à medida que os problemas ocorrem. Pode usar a AzureLogCollector extensão sob demanda para efetuar única coleção de registos a partir de um ou mais VMs de serviço de nuvem (a partir de funções da web e funções de trabalho) e transferir os ficheiros recolhidos para uma conta de armazenamento do Azure – tudo sem logon remotamente a quaisquer as VMS.
 
@@ -20,8 +20,8 @@ Diagnosticar problemas com um serviço cloud do Microsoft Azure requer a recolhe
 
 Existem dois modos de coleção depende dos tipos de arquivos a serem recolhidos.
 
-* **Convidado do Azure agente registos apenas (GA)**. Este modo de coleção inclui todos os registos relacionados com agentes de convidado do Azure e outros componentes do Azure.
-* **Todos os registos (completa)**. Este modo de coleção recolhe todos os ficheiros na adição de modo de disponibilidade geral:
+* **Convidado do Azure agente registos apenas (GA)** . Este modo de coleção inclui todos os registos relacionados com agentes de convidado do Azure e outros componentes do Azure.
+* **Todos os registos (completa)** . Este modo de coleção recolhe todos os ficheiros na adição de modo de disponibilidade geral:
   
   * registos de eventos do sistema e da aplicação
   * Registos de erros HTTP

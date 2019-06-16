@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
 ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235088"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência dados Windows no Azure

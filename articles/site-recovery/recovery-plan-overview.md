@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66471440"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação

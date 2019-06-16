@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ce65d87142df64a9f0c27f3acdb4d6f25e86fb8a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244909"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071633"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como o trabalho de alertas de métrica no Azure Monitor
 
@@ -36,6 +36,8 @@ Digamos que tenha criado uma regra de alerta de métrica de limiar estática sim
 - Limiar: 70
 
 Desde o momento em que a regra de alerta é criada, o monitor é executado a cada 1 minuto e procura valores de métrica para os últimos 5 minutos e verifica se a média desses valores excede 70. Se a condição for cumprida, ou seja, 70 de excede a percentagem de CPU média nos últimos 5 minutos, a regra de alerta é acionado uma notificação ativada. Se tiver configurado uma mensagem de e-mail ou uma ação de hook de web no grupo de ação associado a regra de alerta, receberá uma notificação ativada em ambos.
+
+Quando estiver a utilizar várias condições numa regra, a regra "ands" as condições em conjunto.  Ou seja, o alerta é acionado quando todas as condições no alerta avaliar como VERDADEIRO e resolver quando já não é uma das condições é verdadeira. E o exemplo deste tipo de alerta seria alertar quando "CPU superior a 90%" e "comprimento da fila é a mais de 300 itens". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Regra de alerta com o tipo de condição dinâmica
 

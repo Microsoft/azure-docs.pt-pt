@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002831"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transforme dados executando uma atividade de Python no Azure Databricks
@@ -66,7 +66,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 |---|---|---|
 |name|Nome da atividade no pipeline.|Sim|
 |description|Texto que descreve o que faz a atividade.|Não|
-|tipo|Para a atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|Sim|
+|type|Para a atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|Sim|
 |linkedServiceName|Nome do serviço ligado do Databricks em que a atividade de Python é executado. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
 |pythonFile|O URI do ficheiro de Python a ser executado. Apenas os caminhos de DBFS são suportados.|Sim|
 |parameters|Parâmetros de linha de comandos que serão passados para o ficheiro de Python. Esta é uma matriz de cadeias de caracteres.|Não|

@@ -13,10 +13,10 @@ ms.date: 04/05/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: b2e34f1f72b1b0aa76d4a3031102d052118dae5f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304120"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Instalar o Visual Studio e SSDT para SQL Data Warehouse

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 3ecdf62cfed7d70873f3dc752bfacd134e367a90
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059258"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>O que é uma área de trabalho do serviço do Azure Machine Learning?
 
@@ -32,16 +32,16 @@ O diagrama mostra os seguintes componentes de uma área de trabalho:
 
 + Uma área de trabalho pode conter [VMs de bloco de notas](quickstart-run-cloud-notebook.md), recursos configurados com o ambiente do Python necessário para executar o Azure Machine Learning na cloud.
 + [Funções de utilizador](how-to-assign-roles.md) permitir que Compartilhe sua área de trabalho com outros utilizadores, as equipes ou projetos.
-+ [Destinos de computação](concept-azure-machine-learning-architecture.md#compute-target) são utilizados para executar as suas experimentações.
++ [Destinos de computação](concept-azure-machine-learning-architecture.md#compute-targets) são utilizados para executar as suas experimentações.
 + Quando cria a área de trabalho, [recursos associados](#resources) também são criados por si.
-+ [Experimentações](concept-azure-machine-learning-architecture.md#experiment) execuções de treinamento que utilizar para criar os seus modelos.  Pode criar e executar experimentações com
++ [Experimentações](concept-azure-machine-learning-architecture.md#experiments) execuções de treinamento que utilizar para criar os seus modelos.  Pode criar e executar experimentações com
     + O [do Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + O [automatizada experiências de machine learning (pré-visualização)](how-to-create-portal-experiments.md) secção no portal do Azure.
     + O [interface visual (pré-visualização)](ui-concept-visual-interface.md).
-+ [Pipelines](concept-azure-machine-learning-architecture.md#pipeline) são fluxos de trabalho reutilizáveis para formação e reparametrização do seu modelo.
-+ [Conjuntos de dados](concept-azure-machine-learning-architecture.md#dataset) ajuda na gestão dos dados que utilizar para a criação de treinamento e o pipeline de modelo.
-+ Depois de ter um modelo que pretende implementar, criar um [modelo registado](concept-azure-machine-learning-architecture.md#model-registry).
-+ Utilizar o modelo registado e um script de classificação para criar uma [implementação](concept-azure-machine-learning-architecture.md#image-registry).
++ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) são fluxos de trabalho reutilizáveis para formação e reparametrização do seu modelo.
++ [Conjuntos de dados](concept-azure-machine-learning-architecture.md#datasets-and-datastores) ajuda na gestão dos dados que utilizar para a criação de treinamento e o pipeline de modelo.
++ Depois de ter um modelo que pretende implementar, vai criar um modelo registado.
++ Utilizar o modelo registado e um script de classificação para criar uma [implementação](concept-azure-machine-learning-architecture.md#deployment).
 
 ## <a name="tools-for-workspace-interaction"></a>Ferramentas para interação de área de trabalho
 

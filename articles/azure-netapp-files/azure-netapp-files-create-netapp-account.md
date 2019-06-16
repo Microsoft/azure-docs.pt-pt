@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: 25cae58663f6fa7ef27995c10509eb33e49dd4c7
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522821"
 ---
 # <a name="create-a-netapp-account"></a>Criar uma conta NetApp
@@ -48,7 +48,7 @@ Tem também de ter registado a sua subscrição para utilizar o fornecedor de re
      Selecione uma subscrição a partir das subscrições existentes.
    * **Grupo de recursos**   
      Utilize um Grupo de Recursos existente ou crie um novo.
-   * **Localização**  
+   * **Location**  
      Selecione a região onde quer ter a conta e os respetivos recursos subordinados a localizar.  
 
      ![Nova conta NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)

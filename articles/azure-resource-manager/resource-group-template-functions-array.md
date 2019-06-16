@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128708"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos Azure Resource Manager
@@ -199,7 +199,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | Array | [1] |
-| emptyOutput | Bool | Verdadeiro |
+| emptyOutput | Booleano | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -329,7 +329,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="contains" />
 
-## <a name="contains"></a>contém
+## <a name="contains"></a>Contém
 `contains(container, itemToFind)`
 
 Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cadeia de caracteres contém uma subcadeia. A comparação de cadeia de caracteres diferencia maiúsculas de minúsculas. No entanto, ao testar se um objeto contém uma chave, a comparação diferencia maiúsculas de minúsculas.
@@ -402,12 +402,12 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| stringTrue | Bool | Verdadeiro |
-| stringFalse | Bool | Falso |
-| objectTrue | Bool | Verdadeiro |
-| objectFalse | Bool | Falso |
-| arrayTrue | Bool | Verdadeiro |
-| arrayFalse | Bool | Falso |
+| stringTrue | Booleano | Verdadeiro |
+| stringFalse | Booleano | Falso |
+| objectTrue | Booleano | Verdadeiro |
+| objectFalse | Booleano | Falso |
+| arrayTrue | Booleano | Verdadeiro |
+| arrayFalse | Booleano | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -503,7 +503,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="empty" />
 
-## <a name="empty"></a>Vazio
+## <a name="empty"></a>vazio
 
 `empty(itemToTest)`
 
@@ -564,9 +564,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | Verdadeiro |
-| objectEmpty | Bool | Verdadeiro |
-| stringEmpty | Bool | Verdadeiro |
+| arrayEmpty | Booleano | Verdadeiro |
+| objectEmpty | Booleano | Verdadeiro |
+| stringEmpty | Booleano | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -864,7 +864,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="length" />
 
-## <a name="length"></a>Comprimento
+## <a name="length"></a>length
 `length(arg1)`
 
 Devolve o número de elementos numa matriz ou carateres numa cadeia.
@@ -947,7 +947,7 @@ Para obter mais informações sobre como utilizar esta função com uma matriz, 
 
 <a id="max" />
 
-## <a name="max"></a>máx.
+## <a name="max"></a>max
 `max(arg1)`
 
 Devolve o valor máximo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
@@ -1011,7 +1011,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>mín.
+## <a name="min"></a>min.
 `min(arg1)`
 
 Devolve o valor mínimo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
@@ -1139,7 +1139,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="skip" />
 
-## <a name="skip"></a>ignorar
+## <a name="skip"></a>Ignorar
 `skip(originalValue, numberToSkip)`
 
 Devolve uma matriz com todos os elementos após o número especificado na matriz ou retorna uma cadeia de caracteres com todos os carateres após o número especificado na cadeia de caracteres.

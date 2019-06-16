@@ -17,10 +17,10 @@ ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutorial: Integração do Active Directory do Azure com o segredo do servidor (no local)
@@ -61,7 +61,7 @@ Para configurar a integração do segredo do servidor (no local) para o Azure AD
 
 **Para adicionar segredo do servidor (no local) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -73,7 +73,7 @@ Para configurar a integração do segredo do servidor (no local) para o Azure AD
 
     ![O novo botão de aplicativo][3]
 
-1. Na caixa de pesquisa, escreva **segredo do servidor (no local)**, selecione **segredo do servidor (no local)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, escreva **segredo do servidor (no local)** , selecione **segredo do servidor (no local)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![Servidor secreta (no local), na lista de resultados](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
@@ -191,7 +191,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][201]
 
-1. Na lista de aplicações, selecione **segredo do servidor (no local)**.
+1. Na lista de aplicações, selecione **segredo do servidor (no local)** .
 
     ![A ligação de segredo de servidor (no local) na lista de aplicações](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 

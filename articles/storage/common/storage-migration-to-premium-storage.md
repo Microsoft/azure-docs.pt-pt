@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
 ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153770"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento Premium do Azure (discos não geridos)
@@ -180,11 +180,11 @@ Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependen
 
     Aqui estão as descrições dos parâmetros utilizados no comando do AzCopy:
 
-   * **/ Origem:  *&lt;origem&gt;:*** Localização da pasta ou URL do contentor de armazenamento que contém o VHD.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** Chave de conta de armazenamento da conta de armazenamento de origem.
-   * **/ Dest:  *&lt;destino&gt;:*** URL do contentor de armazenamento para copiar o VHD.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** Chave de conta de armazenamento da conta de armazenamento de destino.
-   * **/ Padrão:  *&lt;nome de ficheiro&gt;:*** Especifique o nome de ficheiro do VHD para copiar.
+   * **/ Origem:  *&lt;origem&gt;:* ** Localização da pasta ou URL do contentor de armazenamento que contém o VHD.
+   * **/SourceKey: *&lt;source-account-key&gt;:* ** Chave de conta de armazenamento da conta de armazenamento de origem.
+   * **/ Dest:  *&lt;destino&gt;:* ** URL do contentor de armazenamento para copiar o VHD.
+   * **/DestKey: *&lt;dest-account-key&gt;:* ** Chave de conta de armazenamento da conta de armazenamento de destino.
+   * **/ Padrão:  *&lt;nome de ficheiro&gt;:* ** Especifique o nome de ficheiro do VHD para copiar.
 
 Para obter detalhes sobre como utilizar o AzCopy ferramenta, consulte [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md).
 
@@ -247,7 +247,7 @@ Crie uma conta de armazenamento para a manutenção dos VHDs. Quando planear ond
 
 Recomendamos vivamente que mover todos os dados para a carga de trabalho de produção utilizar o armazenamento premium.
 
-#### <a name="step-3-upload-the-vhd-to-azure-storage"></a>Passo 3. Carregar o VHD para o armazenamento do Azure
+#### <a name="step-3-upload-the-vhd-to-azure-storage"></a>Passo 3: Carregar o VHD para o armazenamento do Azure
 Agora que tem o VHD no diretório local, pode utilizar o AzCopy ou AzurePowerShell para carregar o ficheiro. vhd para o armazenamento do Azure. Ambas as opções são fornecidas aqui:
 
 ##### <a name="option-1-using-azure-powershell-add-azurevhd-to-upload-the-vhd-file"></a>Opção 1: Utilização do Azure PowerShell Add-AzureVhd para carregar o ficheiro. vhd
@@ -277,12 +277,12 @@ Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependen
 
     Aqui estão as descrições dos parâmetros utilizados no comando do AzCopy:
 
-   * **/ Origem:  *&lt;origem&gt;:*** Localização da pasta ou URL do contentor de armazenamento que contém o VHD.
-   * **/SourceKey: *&lt;source-account-key&gt;:*** Chave de conta de armazenamento da conta de armazenamento de origem.
-   * **/ Dest:  *&lt;destino&gt;:*** URL do contentor de armazenamento para copiar o VHD.
-   * **/DestKey: *&lt;dest-account-key&gt;:*** Chave de conta de armazenamento da conta de armazenamento de destino.
+   * **/ Origem:  *&lt;origem&gt;:* ** Localização da pasta ou URL do contentor de armazenamento que contém o VHD.
+   * **/SourceKey: *&lt;source-account-key&gt;:* ** Chave de conta de armazenamento da conta de armazenamento de origem.
+   * **/ Dest:  *&lt;destino&gt;:* ** URL do contentor de armazenamento para copiar o VHD.
+   * **/DestKey: *&lt;dest-account-key&gt;:* ** Chave de conta de armazenamento da conta de armazenamento de destino.
    * **/BlobType: page:** Especifica que o destino é um blob de página.
-   * **/ Padrão:  *&lt;nome de ficheiro&gt;:*** Especifique o nome de ficheiro do VHD para copiar.
+   * **/ Padrão:  *&lt;nome de ficheiro&gt;:* ** Especifique o nome de ficheiro do VHD para copiar.
 
 Para obter detalhes sobre como utilizar o AzCopy ferramenta, consulte [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md).
 

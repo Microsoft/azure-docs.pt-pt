@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 20e84482b31c4da991f3fdc9c7bbf6ee0e7f902a
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299089"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075067"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços do Azure Logic Apps
 
@@ -89,7 +89,7 @@ Depois de desativar uma aplicação lógica, quaisquer instâncias em execução
 
 ## <a name="integration-accounts"></a>Contas de integração
 
-Preços de consumo aplica-se ao [contas de integração](logic-apps-enterprise-integration-create-integration-account.md) onde pode explorar, desenvolver e testar o [B2B e EDI](logic-apps-enterprise-integration-b2b.md) e [processamento XML](logic-apps-enterprise-integration-xml.md) recursos no Azure Logic Apps em não custos adicionais.
+O modelo de preço fixo aplica-se ao [contas de integração](logic-apps-enterprise-integration-create-integration-account.md) onde pode explorar, desenvolver e testar o [B2B e EDI](logic-apps-enterprise-integration-b2b.md) e [processamento XML](logic-apps-enterprise-integration-xml.md) recursos no Azure Logic Apps em não custos adicionais.
 Pode ter uma conta de integração em cada região do Azure. Cada conta de integração pode armazenar até específicas [números dos artefactos](../logic-apps/logic-apps-limits-and-config.md), que incluem o comércio de parceiros, contratos, mapas, esquemas, assemblies, certificados, configurações de lote e assim por diante.
 
 O Azure Logic Apps oferece contas de integração gratuito, Basic e Standard. Os escalões básico e Standard são compatíveis com o contrato de nível de serviço de aplicações lógicas (SLA), enquanto o escalão gratuito não é suportado por um SLA e tem limites relativamente ao débito e de utilização.

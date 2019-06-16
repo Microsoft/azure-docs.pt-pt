@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
 ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66751623"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Perguntas mais frequentes sobre o texto em voz

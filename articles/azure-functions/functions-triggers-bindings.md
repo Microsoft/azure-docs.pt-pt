@@ -8,14 +8,13 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 02/18/2019
-ms.date: 03/04/2019
-ms.author: v-junlch
+ms.date: 02/18/2019
+ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020967"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
@@ -97,5 +96,3 @@ Para obter informações sobre as ligações estão em pré-visualização ou s�
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Registar as extensões de vinculação de funções do Azure](./functions-bindings-register.md)
-
-<!-- Update_Description: wording update -->

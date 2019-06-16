@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943148"
 ---
 <a name="web-analytics"></a>Análise da Web
@@ -71,7 +71,7 @@ Segue-se um exemplo:
     2.  URL da página de destino = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. A utilizador clica no \"Experimente o meu produto\" associar e entra no AppSource.
     1. URL de referência =  <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. URL da página de aterrissagem (**Certifique-se de que este URL tem utm\_campanha e utm\_adicionada a este URL de origem**) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_campanha = MyCampaignAdName & utm\_origem = MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. URL da página de aterrissagem (**Certifique-se de que este URL tem utm\_campanha e utm\_adicionada a este URL de origem**) = [ https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername? **utm\_ campanha = MyCampaignAdName & utm\_ origem = MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>Como avaliar o sucesso de uma campanha
 -----------------------------------------

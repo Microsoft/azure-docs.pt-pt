@@ -17,17 +17,17 @@ ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b6ebab0eeca6895e1c7a0f6008972030d81da42
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962403"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Aplicação móvel que chamadas de web APIs - registo de aplicações
 
 Este artigo contém as instruções de registo de aplicação para a criação de um aplicativo móvel.
 
-## <a name="supported-account-types"></a>Tipos de contas suportadas
+## <a name="supported-account-types"></a>Tipos de conta suportados
 
 Os tipos de conta suportados nas aplicações móveis dependem a experiência de que pretende ativar e os utilizadores que se destina a sua aplicação.
 

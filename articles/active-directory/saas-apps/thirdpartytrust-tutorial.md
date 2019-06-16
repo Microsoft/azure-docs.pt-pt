@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 63905a1130ffb972ff71ebcce232cd242961dcad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 345c9fc89882597f23958a620453008eeb5bfb86
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866124"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdpartytrust"></a>Tutorial: Integração do Active Directory do Azure com ThirdPartyTrust
 
@@ -53,7 +53,7 @@ Para configurar a integração do ThirdPartyTrust com o Azure AD, terá de adici
 
 **Para adicionar ThirdPartyTrust a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no ThirdPartyTrust. Trabalhar com [equipa de suporte de ThirdPartyTrust](mailto:support@thirdpartytrust.com) para adicionar os utilizadores na plataforma ThirdPartyTrust. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

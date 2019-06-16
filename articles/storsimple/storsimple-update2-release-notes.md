@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
 ms.openlocfilehash: f23a507ab631be553613e22cafa037291548a8aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60530858"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717131"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de versão do StorSimple 8000 Series Update 2
 

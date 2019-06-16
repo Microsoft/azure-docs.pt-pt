@@ -9,10 +9,10 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
 ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230990"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo e a versão do Ansible
@@ -25,7 +25,7 @@ Os seguintes módulos podem ser executados diretamente em hosts remotos ou por m
 
 Estes módulos estão disponíveis desde a versão oficial do Ansible e para as seguintes funções do playbook de Microsoft.
 
-| Módulo do Ansible para o Azure                   |  2.4 do Ansible |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Função do Ansible | 
+| Módulo do Ansible para o Azure                   |  2\.4 do Ansible |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Função do Ansible | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
 | **Computação**                    |           |                          |                          |                            |           |           |
 | azure_rm_availabilityset                    | Sim          | Sim                         | Sim          | Sim          | Sim          | Sim          |
