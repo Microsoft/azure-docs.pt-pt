@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 351cb7ba2d7a55300a0ace999792a498cf72ebbb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: aed18cd33078d6af65e749cf9dd4950087b6b72c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063903"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com cURL
 
@@ -36,7 +36,7 @@ Quando são concedido acesso ao utilizar o reconhecedor de formulário, receber�
 |--|--|
 | **Nome** | Um nome descritivo para o seu recurso. Recomendamos que utilize um nome descritivo, por exemplo *MyNameFormRecognizer*. |
 | **Subscrição** | Selecione a subscrição do Azure que tenha sido concedida acesso. |
-| **Localização** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
+| **Location** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
 | **Escalão de preço** | O custo do seu recurso depende do escalão de preço que escolher e a sua utilização. Para obter mais informações, consulte a API [os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
 | **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que irá conter o seu recurso. Pode criar um novo grupo ou adicioná-lo a um grupo já existente. |
 
@@ -52,7 +52,7 @@ Em primeiro lugar, terá um conjunto de dados de treinamento num blob de armazen
 Para preparar um modelo de formulário reconhecedor utilizando os documentos no seu contentor de Blobs do Azure, chame o **treinar** API ao executar o comando cURL que se segue. Antes de executar o comando, efetue estas alterações:
 
 1. Substitua `<Endpoint>` com o ponto final que obteve na sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
-1. Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS) da localização de dados de treinamento.  
+1. Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS) da localização de dados de treinamento. (Obter o URL de SAS ao clicar em "Assinatura de acesso partilhado" no menu de definições na conta de armazenamento e "cadeia de ligação e gerar SAS". Isto irá mostrar o URL de SAS de serviço de Blobs. Ajustar essa url adicionando o containername após .net / e antes? sv = no url, por exemplo:.blob.core.windows.net/ < name_of_your_container > /? sv =... Este é o URL de SAS para ser usado.)
 1. Substitua `<subscription key>` com a chave de subscrição que copiou no passo anterior.
 
 ```bash
@@ -108,7 +108,7 @@ Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabela
 
 1. Substitua `<Endpoint>` com o ponto final que obteve na sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
 1. Substitua `<modelID>` com o ID de modelo que recebeu na secção anterior.
-1. Substitua `<path to your form>` com o caminho do seu formulário. Por exemplo c:\temp\file.pdf. 
+1. Substitua `<path to your form>` com o caminho do seu formulário (por exemplo, C:\temp\file.pdf).
 1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: pdf, imagem/jpeg, png/imagem.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 

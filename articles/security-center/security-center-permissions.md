@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: aa6c154e14fbf5291e2493f4f27b9d4501ba18f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60905624"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões no Centro de segurança do Azure
@@ -49,7 +49,7 @@ A tabela seguinte mostra as funções e permitido ações no Centro de seguranç
 | Contribuinte do grupo de recursos | -- | X | -- | X |
 | Leitor | -- | -- | -- | X |
 | Administrador de Segurança | X | -- | X | X |
-| Leitor de Segurança | -- | -- | -- | X |
+| Leitor de segurança | -- | -- | -- | X |
 
 > [!NOTE]
 > Recomendamos que atribua a função menos permissiva necessária para que os utilizadores concluam as respetivas tarefas. Por exemplo, atribua a função de leitor para utilizadores que apenas precisam de ver informações sobre o estado de funcionamento de segurança de um recurso, mas não tomar medidas, como aplicar recomendações ou editar políticas.

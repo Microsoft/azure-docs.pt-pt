@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f58c8c3ea76cf44730a54897e6b77ef6e648a49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1df79d7a4bd983527ee6d84c7ffe8e5ef61d6197
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286417"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Active Directory do Azure com o Amazon Web Services (AWS)
 
@@ -85,7 +85,7 @@ Para configurar a integração do Amazon Web Services (AWS) para o Azure AD, ter
 
 **Para adicionar Amazon Web Services (AWS) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -97,7 +97,7 @@ Para configurar a integração do Amazon Web Services (AWS) para o Azure AD, ter
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Amazon Web Services (AWS)**, selecione **Amazon Web Services (AWS)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Amazon Web Services (AWS)** , selecione **Amazon Web Services (AWS)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
      ![Amazon Web Services (AWS) na lista de resultados](common/search-new-app.png)
 
@@ -149,7 +149,7 @@ Para configurar o Azure AD início de sessão único com o Amazon Web Services (
 
 7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Name  | Atributo de origem  | Espaço de nomes |
+    | Name  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Função            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -412,11 +412,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para o Amazon Web Services (AWS).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Amazon Web Services (AWS)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Amazon Web Services (AWS)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, escreva e selecione **Amazon Web Services (AWS)**.
+2. Na lista de aplicativos, escreva e selecione **Amazon Web Services (AWS)** .
 
     ![A ligação do Amazon Web Services (AWS) na lista de aplicações](common/all-applications.png)
 

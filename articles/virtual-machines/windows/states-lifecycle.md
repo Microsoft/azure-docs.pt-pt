@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
 ms.openlocfilehash: 921da2808757255a2a39ae8e7b927dbfde2fc627
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583563"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Ciclo de vida de máquinas virtuais e os Estados

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414958"
+ms.locfileid: "67113478"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gestão de controlo de acesso resilientes no Azure Active Directory
 
@@ -37,7 +37,7 @@ Este documento fornece orientação sobre estratégias de uma organização deve
 Existem quatro principais pedidas neste documento:
 
 * Evite o bloqueio de administrador, utilizando as contas de acesso de emergência.
-* Implementar o MFA através do acesso condicional (AC) em vez de MFA por utilizador.
+* Implemente o MFA com acesso condicional (AC) em vez de MFA por utilizador.
 * Reduza o bloqueio do utilizador através de vários controlos de acesso condicional (AC).
 * Reduza o bloqueio do utilizador através do aprovisionamento de vários métodos de autenticação ou equivalentes para cada utilizador.
 
@@ -268,5 +268,5 @@ Se a sua organização utilizar políticas de legado de MFA por utilizador, em s
 * [Como configurar híbrida do Azure Active Directory associados a um dispositivos](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Guia de Implementação do Windows Hello para Empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Documentação de orientação de palavra-passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Quais são condições no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Quais são os controles de acesso no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [Quais são condições no Azure Active Directory condicional acesso?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [Quais são os controlos de acesso no Azure Active Directory condicional acesso?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

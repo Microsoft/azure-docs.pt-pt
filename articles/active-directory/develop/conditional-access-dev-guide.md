@@ -1,5 +1,5 @@
 ---
-title: Orientação para programadores de acesso condicional do Azure Active Directory
+title: Orientações para programadores do Azure Active Directory condicional acesso
 description: Cenários para acesso condicional do Azure AD e orientação para programadores
 services: active-directory
 keywords: ''
@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0674934f7105df3874048308e98fd582d32e72bc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 9e4e0eb830d5ede910e72ec3193cfd613561811b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111526"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação para programadores de acesso condicional do Azure Active Directory
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientações para programadores do Azure Active Directory condicional acesso
 
 A funcionalidade de acesso condicional no Azure Active Directory (Azure AD) oferece uma das várias formas que pode utilizar para proteger a sua aplicação e proteger um serviço. Acesso condicional permite aos desenvolvedores e clientes empresariais proteger serviços numa infinidade de maneiras, incluindo:
 
-* Autenticação multifator
+* Multi-Factor Authentication
 * Permitir que apenas o Intune inscrito os dispositivos para aceder a serviços específicos
 * Intervalos de restringir os locais do usuário e de IP
 
@@ -49,11 +49,11 @@ Os seguintes cenários requerem especificamente, o código para lidar com acesso
 * Aplicações de página única com ADAL.js
 * Chamar um recurso de aplicações Web
 
-Acesso condicional, as políticas podem ser aplicadas à aplicação, mas também podem ser aplicadas a uma API web a sua aplicação acede. Para saber mais sobre como configurar uma política de acesso condicional, veja [início rápido: Exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](../conditional-access/app-based-mfa.md).
+Acesso condicional, as políticas podem ser aplicadas à aplicação, mas também podem ser aplicadas a uma API web a sua aplicação acede. Para saber mais sobre como configurar uma política de acesso condicional, veja [início rápido: Exigir a MFA para aplicações específicas com o Azure Active Directory condicional acesso](../conditional-access/app-based-mfa.md).
 
 Dependendo do cenário, um cliente empresarial pode aplicar e remover as políticas de acesso condicional em qualquer altura. Para a sua aplicação continuar a funcionar quando uma nova política é aplicada, terá de implementar o tratamento de "desafio". Os exemplos seguintes mostram manipulação de desafio.
 
-### <a name="conditional-access-examples"></a>Exemplos de acesso condicional
+### <a name="conditional-access-examples"></a>Exemplos de acesso condicionais
 
 Alguns cenários requerem alterações de código para lidar com acesso condicional, ao passo que outras pessoas são compatíveis. Seguem-se alguns cenários, usando o acesso condicional para fazer a autenticação multifator que fornece algum esclarecimento sobre a diferença.
 
@@ -100,9 +100,9 @@ As seguintes informações aplicam-se apenas nos seguintes cenários de acesso c
 * Aplicações acedam aos vários serviços/recursos
 * Aplicações de página única com ADAL.js
 
-As secções seguintes abordam cenários comuns que são mais complexos. Centro operacional princípio é o acesso condicional, as políticas são avaliadas no momento que o token é solicitado para o serviço que tem uma política de acesso condicional aplicada.
+As secções seguintes abordam cenários comuns que são mais complexos. Centro operacional princípio é políticas de acesso condicional são avaliadas no momento que o token é solicitado para o serviço que tem uma política de acesso condicional aplicada.
 
-## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Cenário: Executar o fluxo em-nome-de aplicação
+## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Cenário: aplicação a executar o fluxo On-Behalf-Of
 
 Neste cenário, vamos analisar o caso em que uma aplicação nativa chama uma serviço/API web. Por sua vez, esse serviço faz o fluxo "em-nome-de" para chamar um serviço downstream. No nosso caso, estamos aplicou a nossa política de acesso condicional para o serviço downstream (Web API 2) e estiver a utilizar uma aplicação nativa, em vez de uma aplicação de servidor/daemon. 
 
@@ -149,11 +149,11 @@ Se a aplicação estiver a utilizar a biblioteca ADAL, uma falha ao adquirir o t
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Cenário: Aplicação de página única (SPA) usando ADAL.js
 
-Neste cenário, vamos analisar o caso quando temos uma aplicação de página única (SPA), usando ADAL.js para chamar uma API da web de acesso condicional protegido. Esta é uma arquitetura de simple, mas tem algumas nuances que precisam ser levados em consideração ao desenvolver em torno do acesso condicional.
+Neste cenário, vamos analisar o caso quando temos uma aplicação de página única (SPA), usando ADAL.js para chamar uma API da web de acesso condicional protegidos. Esta é uma arquitetura de simple, mas tem algumas nuances que precisam ser levados em consideração ao desenvolver em torno do acesso condicional.
 
 ADAL.js, existem algumas funções de obter os tokens: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)`, e `acquireTokenRedirect(…)`.
 
-* `login()` obtém um token de ID através de um pedido de início de sessão interativo, mas não obter tokens de acesso para qualquer serviço (incluindo uma API da web de acesso condicional protegido).
+* `login()` obtém um token de ID através de um pedido de início de sessão interativo, mas não obter tokens de acesso para qualquer serviço (incluindo uma API da web de acesso condicional protegidos).
 * `acquireToken(…)` em seguida, pode ser utilizado para silenciosamente obter um token de acesso que significa que ele não mostra da interface do Usuário em qualquer circunstância.
 * `acquireTokenPopup(…)` e `acquireTokenRedirect(…)` são usados para interativamente solicitar um token para um recurso que significa que sempre mostram o início de sessão da interface do Usuário.
 

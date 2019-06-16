@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
 ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66000110"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters do HDInsight do Azure (pré-visualização)
@@ -221,7 +221,7 @@ Todas as mensagens de estado de cluster que poderá ver são explicadas na lista
 
 | Estado do cluster | Explicação |
 |---|---|
-| Em Execução | O cluster está a funcionar normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
+| A executar | O cluster está a funcionar normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
 | A atualizar  | A configuração de dimensionamento automático do cluster está a ser atualizada.  |
 | Configuração do HDInsight  | Um cluster de aumentar ou reduzir verticalmente a operação está em curso.  |
 | Erro de atualização  | HDInsight detetou problemas durante a atualização de configuração de dimensionamento automático. Os clientes podem optar por repita a atualização ou desativar o dimensionamento automático.  |

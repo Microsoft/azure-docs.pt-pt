@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69dac57118d7876ba08a562f5478b19465b37e07
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 670319eb3fb79742d2946f5fc45ca8904e8c1dd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441464"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>Tutorial: Integração do Active Directory do Azure com Braze
 
@@ -54,7 +54,7 @@ Para configurar a integração do Braze com o Azure AD, terá de adicionar Braze
 
 **Para adicionar Braze a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD início de sessão único com Braze, execute os segui
 
     | Name | Atributo de origem|
     | -----| --------------- |
-    | e-mail | user.userprincipalname |
+    | email | user.userprincipalname |
     | first_name| user.givenname|
     | last_name| user.surname|
     | início de sessão| user.mail|
@@ -220,7 +220,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Braze. Trabalhar com [equipa de suporte de Braze](mailto:support@braze.com) para adicionar os utilizadores na plataforma Braze. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

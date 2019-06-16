@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 87fca23cab27ec27bfc9799066c126994167f46e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 499b5ac77728bc14aadd5a2ef235e28b6ca83516
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391256"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133737"
 ---
 Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de CPU que são ótimos para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
 
@@ -188,48 +188,6 @@ Acelerador de escrita:  [Suportado](https://docs.microsoft.com/azure/virtual-mac
 <sup>4</sup> instância está isolada do hardware dedicado de um único cliente.
 <br>
 
-## <a name="gs-series"></a>Séries GS 
-
-ACU: 180 - 240 <sup>1</sup>
-
-Armazenamento Premium:  Suportadas
-
-Cache de armazenamento Premium:  Suportadas
-
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
-|---|---|---|---|---|---|---|---|
-| Standard_GS1 |2 |28 |56 |8 |10000 / 100 (264) |5000 / 125 |2 / 2000 |
-| Standard_GS2 |4 |56 |112 |16 |20000 / 200 (528) |10000 / 250 |2 / 4000 |
-| Standard_GS3 |8 |112 |224 |32 |40000 / 400 (1056) |20000 / 500 |4 / 8000 |
-| Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80000 / 800 (2112) |40000 / 1000 |8 / 16000 |
-| Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160000 / 1600 (4224) |80000 / 2000 |8 / 20000 |
-
-<sup>1</sup> o débito máximo do disco (IOPS ou MBps) possível com uma VM da série GS pode estar limitado pelo número, tamanho e repartição dos discos anexados. Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>2</sup> instância está isolada do hardware dedicado de um único cliente.
-
-<sup>3</sup> restrita tamanhos de núcleos disponíveis.
-
-<br>
-
-## <a name="g-series"></a>Série G
-
-ACU: 180 - 240
-
-Armazenamento Premium:  Não suportado
-
-Cache de armazenamento Premium:  Não suportado
-
-| Tamanho         | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS / MBps de leitura / MBps de escrita | Discos de dados máximos / débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
-| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
-| Standard_G3  | 8         | 112         | 1536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8000                |
-| Standard_G4  | 16        | 224         | 3072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16000          |
-| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
-
-<sup>1</sup> instância está isolada do hardware dedicado de um único cliente.
-<br>
 
 ## <a name="dsv2-series-11-15"></a>11-15 de série DSv2
 

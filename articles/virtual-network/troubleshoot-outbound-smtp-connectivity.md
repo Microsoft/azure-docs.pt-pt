@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
 ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401924"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Resolver problemas de conectividade de SMTP saídos no Azure
@@ -36,7 +36,7 @@ Para os utilizadores do Azure do contrato Enterprise, não há nenhuma alteraç�
 ## <a name="pay-as-you-go"></a>"Pay As You Go"
 Se se inscreveu no antes de 15 de Novembro de 2017 a pay as you go ou não ofertas de subscrição do Microsoft Partner Network, haverá nenhuma alteração na capacidade técnica para experimentar a entrega de e-mails de saída. Irá continuar a ser possível experimentar a entrega de e-mails de saída VMS do Azure dentro destas subscrições diretamente para fornecedores de e-mail externos sem quaisquer restrições de plataforma do Azure. Novamente, não é garantido que os fornecedores de e-mail aceitarão e-mails recebidos a partir de qualquer usuário e os utilizadores terão de trabalhar diretamente com fornecedores de e-mail para corrigir qualquer entrega de mensagens ou problemas de filtragem que envolvem provedores específicos de SPAM.
 
-Para subscrições pay as you go ou Microsoft Partner Network criadas após 15 de Novembro de 2017, existirão restrições técnicas que bloqueiam o e-mail que é enviado diretamente a partir de VMs dentro destas subscrições. Se pretender que a capacidade de enviar e-mail a partir de VMs do Azure diretamente para fornecedores de e-mail externos (sem utilizar um reencaminhamento de SMTP autenticado), pode fazer um pedido para remover a restrição. Pedidos serão analisados e aprovados à discrição da Microsoft e vai ser concedidas apenas depois de serem efetuadas a adicionais as verificações contra fraudes. Para fazer um pedido, abra um pedido de suporte através do seguinte tipo de problema: **Técnicas** > **rede Virtual** > **conectividade** > **não é possível enviar correio eletrónico (SMTP/porta 25)**. Certifique-se de que adicione detalhes sobre por que a sua implementação tem que enviar e-mails diretamente para fornecedores de e-mail em vez de utilizar um reencaminhamento autenticado.
+Para subscrições pay as you go ou Microsoft Partner Network criadas após 15 de Novembro de 2017, existirão restrições técnicas que bloqueiam o e-mail que é enviado diretamente a partir de VMs dentro destas subscrições. Se pretender que a capacidade de enviar e-mail a partir de VMs do Azure diretamente para fornecedores de e-mail externos (sem utilizar um reencaminhamento de SMTP autenticado), pode fazer um pedido para remover a restrição. Pedidos serão analisados e aprovados à discrição da Microsoft e vai ser concedidas apenas depois de serem efetuadas a adicionais as verificações contra fraudes. Para fazer um pedido, abra um pedido de suporte através do seguinte tipo de problema: **Técnicas** > **rede Virtual** > **conectividade** > **não é possível enviar correio eletrónico (SMTP/porta 25)** . Certifique-se de que adicione detalhes sobre por que a sua implementação tem que enviar e-mails diretamente para fornecedores de e-mail em vez de utilizar um reencaminhamento autenticado.
 
 Quando uma subscrição pay as you go ou Microsoft Partner Network for isenta, VMs dentro dessa subscrição apenas irão ser excluídas no futuro.
 
@@ -52,6 +52,6 @@ Se estiver a utilizar estes tipos de subscrição, é recomendado que utilize se
 
 Se estiver a utilizar os recursos do Azure através do CSP, pode criar um incidente de suporte por meio de sua escolha de CSP e pode solicitar o CSP para criar um caso de desbloqueio em seu nome, se não é possível utilizar um reencaminhamento de SMTP seguro.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

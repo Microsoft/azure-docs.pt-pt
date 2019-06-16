@@ -1,6 +1,6 @@
 ---
 title: Ativar o Azure Monitor para descrição geral de VMs (pré-visualização) | Documentos da Microsoft
-description: Este artigo descreve como implementar e configurar o Azure Monitor para VMs e os requisitos de sistema necessário.
+description: Saiba como implementar e configurar o Azure Monitor para as VMs. Descubra os requisitos de sistema.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: c84c3eb74d214a5c98aabef7b2e2987dfdf67c0f
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3f93318dedb8a4667d32bcc97eb6a697ccebfcc4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66472599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122582"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Ativar o Azure Monitor para descrição geral de VMs (pré-visualização)
 
-Este artigo fornece uma descrição geral das opções disponíveis para configurar o Azure Monitor para as VMs monitorizar o estado de funcionamento, desempenho e detetar dependências de aplicações em execução em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais, as VMs no local, ou VMs alojadas no outro ambiente de cloud.  
+Este artigo fornece uma descrição geral das opções disponíveis para configurar o Azure Monitor para as VMs. Utilize o Azure Monitor para as VMs para monitorar a integridade e desempenho. Detetar dependências de aplicações que são executadas em máquinas virtuais do Azure (VMs) e conjuntos de dimensionamento de máquinas virtuais, no local VMs ou VMs alojadas no outro ambiente de cloud.  
 
-Ativar o Azure Monitor para VMs com um dos seguintes métodos:
+Para configurar o Azure Monitor para VMs:
 
-* Ativar uma única máquina virtual do Azure ou a seleção de conjunto de dimensionamento de máquina virtual **Insights (pré-visualização)** diretamente do VM ou de máquina virtual de conjunto de dimensionamento.
-* Ativar dois ou conjuntos de dimensionamento de VMs do Azure e a máquina virtual mais utilizando a política do Azure. Através deste método, as dependências necessárias de VMs novas e existentes e conjuntos de dimensionamento são instaladas e configuradas corretamente. VMs não compatíveis e conjuntos de dimensionamento são relatados para que possa decidir se pretende ativá-los e como deseja resolvê-los.
+* Ativar uma único VM do Azure ou numa máquina virtual conjunto de dimensionamento, selecionando **Insights (pré-visualização)** diretamente do VM ou de máquina virtual de conjunto de dimensionamento.
+* Ativar dois ou conjuntos de dimensionamento de VMs do Azure e a máquina virtual mais utilizando a política do Azure. Esse método garante que nas VMs novas e existentes e conjuntos de dimensionamento, as dependências necessárias são instaladas e configuradas corretamente. VMs não compatíveis e conjuntos de dimensionamento são relatados para que possa decidir se deve para ativá-los e resolvê-los.
 * Ativar dois ou conjuntos de dimensionamento de VMs do Azure ou numa máquina virtual mais através de uma subscrição especificada ou o grupo de recursos com o PowerShell.
-* Ative para monitorizar máquinas virtuais ou computadores físicos, hospedados em sua rede empresarial ou outro ambiente de cloud.
+* Ative o Azure Monitor para as VMs monitorizar VMs ou de computadores físicos, hospedados em sua rede empresarial ou outro ambiente de cloud.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,30 +50,30 @@ Monitor do Azure para VMs oferece suporte a uma área de trabalho do Log Analyti
 <sup>1</sup> nesta região atualmente não suporta a funcionalidade de estado de funcionamento do Monitor do Azure para VMs.
 
 >[!NOTE]
->Máquinas virtuais do Azure podem ser implementadas a partir de qualquer região e não fica limitadas para as regiões suportadas para a área de trabalho do Log Analytics.
+>Pode implementar VMs do Azure em qualquer região. Estas VMs não forem limitadas para as regiões suportadas pela área de trabalho do Log Analytics.
 >
 
-Se não tiver uma área de trabalho, pode criar uma com um dos seguintes métodos:
+Se não tiver uma área de trabalho, pode criar uma com um dos seguintes recursos:
 * [A CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
 * [O portal do Azure](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
-Se estiver a ativar a monitorização para uma única VM do Azure ou o dimensionamento de máquinas virtuais definido no portal do Azure, pode criar uma área de trabalho durante este processo.
+Também pode criar uma área de trabalho enquanto estiver a ativar a monitorização para uma único máquina virtual de VM do Azure ou conjunto de dimensionamento no portal do Azure.
 
-Para o cenário de à escala com o Azure Policy, Azure PowerShell ou modelos Azure Resource Manager, a sua área de trabalho do Log Analytics precisa primeiro as seguintes configurações:
+Para configurar um cenário de à escala que usa os modelos de política do Azure, Azure PowerShell ou do Azure Resource Manager, na sua área de trabalho do Log Analytics:
 
-* Instale as soluções ServiceMap e InfrastructureInsights. Pode concluir esta instalação com um modelo Azure Resource Manager que é fornecido, ou utilizando o **configurar a área de trabalho** opção encontrado no **começar** separador.
+* Instale as soluções ServiceMap e InfrastructureInsights. Pode concluir esta instalação ao utilizar um modelo Azure Resource Manager fornecido. Ou no **começar** separador, selecione **configurar a área de trabalho**.
 * Configure a área de trabalho do Log Analytics para recolher contadores de desempenho.
 
-Para configurar a sua área de trabalho para o cenário de à escala, pode configurá-lo através de um dos seguintes métodos:
+Para configurar a sua área de trabalho para o cenário de à escala, utilize um dos seguintes métodos:
 
-* [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace)
-* Do **configurar a área de trabalho** opção no Monitor do Azure para VMs [abrangência da apólice](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) página
+* Uso [do Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
+* No Monitor do Azure para VMs [ **abrangência da apólice** ](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) página, selecione **área de trabalho de configurar**. 
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-A tabela seguinte lista os sistemas operativos Windows e Linux que são suportados com o Azure Monitor para as VMs. Uma lista completa, que fornece detalhes sobre a versão de SO Linux principal e secundária e versões de kernel suportadas será fornecida posteriormente nesta secção.
+A tabela seguinte lista os sistemas operativos Windows e Linux que suporta o Azure Monitor para as VMs. Mais adiante nesta seção, encontrará uma lista completa que apresenta em detalhe o sistema operacional Linux principal e secundária da versão e versões de kernel suportadas.
 
 |Versão do SO |Desempenho |Maps |Estado de Funcionamento |
 |-----------|------------|-----|-------|
@@ -89,10 +89,10 @@ A tabela seguinte lista os sistemas operativos Windows e Linux que são suportad
 |SUSE Linux Enterprise Server (SLES) 11, 12 | X | X | X |
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
-<sup>1</sup> funcionalidade do desempenho do Azure Monitor para VMs está disponível apenas a partir do Azure Monitor. Não está disponível quando acessá-lo diretamente a partir do painel do lado esquerdo da VM do Azure.
+<sup>1</sup> funcionalidade do desempenho do Azure Monitor para VMs está disponível apenas a partir do Azure Monitor. Não está disponível diretamente a partir do painel do lado esquerdo da VM do Azure.
 
 >[!NOTE]
->As seguintes informações aplicam-se para oferecer suporte a do sistema operativo Linux:
+>No sistema operativo Linux:
 > - Apenas as versões de kernel padrão e SMP Linux são suportadas.
 > - Versões kernel não padrão, como extensão de endereço físico (PAE) e Xen, não são suportadas para qualquer distribuição de Linux. Por exemplo, um sistema com a cadeia de versão do *2.6.16.21-0.8-xen* não é suportada.
 > - Kernels personalizados, incluindo recompilações de kernels padrão, não são suportados.
@@ -113,7 +113,7 @@ A tabela seguinte lista os sistemas operativos Windows e Linux que são suportad
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
 
-### <a name="centosplus"></a>CentOSPlus
+#### <a name="centosplus"></a>CentOSPlus
 | Versão do SO | Versão de kernel |
 |:--|:--|
 | 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
@@ -143,21 +143,21 @@ A tabela seguinte lista os sistemas operativos Windows e Linux que são suportad
 
 ### <a name="the-microsoft-dependency-agent"></a>O agente do Microsoft Dependency
 
-O Azure Monitor para a funcionalidade de mapa de VMs obtém seus dados do agente do Microsoft Dependency. O agente de dependência depende do agente do Log Analytics para estabelecer ligação com o Log Analytics. Por conseguinte, o sistema tem de ter o agente do Log Analytics instalada e configurada com o agente de dependência.
+A funcionalidade de mapa no Azure Monitor para VMs obtém seus dados do agente do Microsoft Dependency. O agente de dependência depende do agente do Log Analytics para estabelecer ligação com o Log Analytics. Portanto, seu sistema tem de ter o agente do Log Analytics instalada e configurada com o agente de dependência.
 
-Se ativar o Azure Monitor para as VMs para uma única VM do Azure ou utilizar o método de implementação à escala, terá de utilizar a extensão de agente de dependência de VM do Azure para instalar o agente como parte da experiência.
+Se ativar o Azure Monitor para as VMs para uma única VM do Azure ou utilizar o método de implementação à escala, utilize a extensão de agente de dependência de VM do Azure para instalar o agente como parte da experiência.
 
-Num ambiente híbrido, pode transferir e instalar o agente de dependência de qualquer uma das duas formas: manualmente ou através de um método de implantação automatizado para máquinas virtuais que estão alojados fora do Azure.
+Num ambiente híbrido, pode transferir e instalar manualmente o agente de dependência. Se as VMs estiverem alojadas fora do Azure, use um método de implantação automatizado.
 
 A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa suporta num ambiente híbrido.
 
 | Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Para além da [agente do Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), agentes do Windows exigem o agente do Microsoft Dependency. Para obter uma lista completa das versões de sistema operativo, consulte [sistemas operativos suportados](#supported-operating-systems). |
-| Agentes do Linux | Sim | Para além da [agente do Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Para obter uma lista completa das versões de sistema operativo, consulte [sistemas operativos suportados](#supported-operating-systems). |
+| Agentes do Windows | Sim | Juntamente com o [agente do Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), agentes do Windows tem do agente de dependência. Para obter mais informações, consulte [sistemas operativos suportados](#supported-operating-systems). |
+| Agentes do Linux | Sim | Juntamente com o [agente do Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), agentes do Linux tem do agente de dependência. Para obter mais informações, consulte [sistemas operativos suportados](#supported-operating-systems). |
 | Grupo de gestão do System Center Operations Manager | Não | |
 
-O agente de dependência pode ser transferido a partir das seguintes localizações:
+Pode transferir o agente de dependência a partir destas localizações:
 
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
@@ -166,28 +166,24 @@ O agente de dependência pode ser transferido a partir das seguintes localizaç�
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 
-Para ativar e acessar os recursos no Azure Monitor para as VMs, terá de ser atribuídas as seguintes funções de acesso:
-
-- Para ativá-la, tem de ter o *Contribuidor do Log Analytics* função.
-
-- Para ver o desempenho, o estado de funcionamento e mapear dados, tem de ter o *leitor monitorização* função para a VM do Azure. A área de trabalho do Log Analytics tem de ser configurada para o Azure Monitor para as VMs.
+Para ativar e acessar os recursos no Azure Monitor para as VMs, tem de ter o *Contribuidor do Log Analytics* função. Para ver o desempenho, o estado de funcionamento e mapear dados, tem de ter o *leitor de monitorização* função para a VM do Azure. A área de trabalho do Log Analytics tem de ser configurada para o Azure Monitor para as VMs.
 
 Para obter mais informações sobre como controlar o acesso a uma área de trabalho do Log Analytics, consulte [gerir áreas de trabalho](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="how-to-enable-azure-monitor-for-vms-preview"></a>Como ativar o Azure Monitor para VMs (pré-visualização)
 
-Ativar o Azure Monitor para VMs utilizando um dos seguintes métodos descritos na tabela seguinte.
+Ative o Azure Monitor para VMs com um dos métodos descritos nesta tabela:
 
 | Estado de implementação | Método | Descrição |
 |------------------|--------|-------------|
-| Único conjunto de dimensionamento de VM do Azure ou numa máquina virtual | [Diretamente a partir da VM](vminsights-enable-single-vm.md) | Pode ativar uma única máquina virtual do Azure, selecionando **Insights (pré-visualização)** diretamente do VM ou de máquina virtual de conjunto de dimensionamento. |
-| Várias VMs do Azure ou os conjuntos de dimensionamento de máquinas virtuais | [Azure Policy](vminsights-enable-at-scale-policy.md) | Pode ativar várias VMs do Azure com o Azure Policy e definições de política disponíveis. |
-| Várias VMs do Azure ou os conjuntos de dimensionamento de máquinas virtuais | [Modelos do Azure PowerShell ou do Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Pode ativar vários conjuntos de dimensionamento de VMs do Azure ou numa máquina virtual num especificado subscrição ou grupo de recursos com modelos do Azure PowerShell ou do Azure Resource Manager. |
-| Nuvem híbrida | [Ativar para o ambiente híbrido](vminsights-enable-hybrid-cloud.md) | Pode implementar em máquinas virtuais ou computadores físicos que estão alojados no seu datacenter ou em outros ambientes de cloud. |
+| Único conjunto de dimensionamento de VM do Azure ou numa máquina virtual | [Ativar a partir da VM](vminsights-enable-single-vm.md) | Pode ativar uma única VM do Azure, selecionando **Insights (pré-visualização)** diretamente do VM ou de máquina virtual de conjunto de dimensionamento. |
+| Várias VMs do Azure ou os conjuntos de dimensionamento de máquinas virtuais | [Ativar através da política do Azure](vminsights-enable-at-scale-policy.md) | Pode ativar várias VMs do Azure com o Azure Policy e definições de política disponíveis. |
+| Várias VMs do Azure ou os conjuntos de dimensionamento de máquinas virtuais | [Ativar através de modelos do Azure PowerShell ou do Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Pode ativar vários conjuntos de dimensionamento de VMs do Azure ou numa máquina virtual através de uma subscrição especificada ou o grupo de recursos com modelos do Azure PowerShell ou do Azure Resource Manager. |
+| Nuvem híbrida | [Ativar para o ambiente de híbrida](vminsights-enable-hybrid-cloud.md) | Pode implementar em VMs ou de computadores físicos que estão alojados no seu datacenter ou em outros ambientes de cloud. |
 
-## <a name="performance-counters-enabled"></a>Contadores de desempenho ativadas
+## <a name="performance-counters-enabled"></a>Contadores de desempenho ativadas 
 
-Monitor do Azure para VMs configura uma área de trabalho do Log Analytics para recolher os contadores de desempenho que utiliza. A tabela seguinte lista os objetos e os contadores que são recolhidas a cada 60 segundos.
+Monitor do Azure para VMs configura uma área de trabalho do Log Analytics para recolher os contadores de desempenho que utiliza. As tabelas seguintes listam os objetos e os contadores que são recolhidas a cada 60 segundos.
 
 ### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
 
@@ -228,12 +224,16 @@ Monitor do Azure para VMs configura uma área de trabalho do Log Analytics para 
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
 
-A Microsoft recolhe automaticamente dados de utilização e desempenho através da sua utilização do serviço do Azure Monitor. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço. Para fornecer capacidades de resolução de problemas exatas e eficientes, os dados a partir da funcionalidade de mapa incluem informações sobre a configuração do seu software, como o sistema operativo e o versão, o endereço IP, o nome DNS e o nome de estação de trabalho. Microsoft não recolhe nomes, moradas ou outras informações de contacto.
+A Microsoft recolhe automaticamente dados de utilização e desempenho através da sua utilização do serviço do Azure Monitor. A Microsoft utiliza estes dados para melhorar a qualidade, segurança e integridade do serviço. 
+
+Para fornecer capacidades de resolução de problemas exatas e eficientes, a funcionalidade de mapa inclui dados sobre a configuração de software. Os dados fornecem informações como o sistema operativo e o versão, o endereço IP, o nome DNS e o nome de estação de trabalho. Microsoft não recolhe nomes, moradas ou outras informações de contacto.
 
 Para obter mais informações sobre a recolha de dados e a utilização, consulte a [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
+Agora que ativou a monitorização para a sua VM, informações de monitorização está disponível para análise no Azure Monitor para as VMs.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que a monitorização estiver ativada para a máquina virtual, estas informações são disponíveis para análise com o Azure Monitor para as VMs. Para saber como utilizar a funcionalidade de estado de funcionamento, veja [vista do Azure Monitor de estado de funcionamento de VMs](vminsights-health.md). Para ver dependências de aplicações detetadas, consulte [vista do Azure Monitor para o mapa de VMs](vminsights-maps.md).
+Para saber como utilizar a funcionalidade de estado de funcionamento, veja [vista do Azure Monitor de estado de funcionamento de VMs](vminsights-health.md). Para ver dependências de aplicações detetadas, consulte [vista do Azure Monitor para o mapa de VMs](vminsights-maps.md).

@@ -17,10 +17,10 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
 ms.openlocfilehash: 8e91d0cd68997dee9bb00cceeaa6b697f6644ee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736569"
 ---
 # <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Códigos de erro de API de REST do Azure Machine Learning Studio

@@ -7,14 +7,14 @@ author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 06/11/2019
 ms.author: garye
-ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1149cc6bd4fa41514056342a06d31016123eb88c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062152"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Início rápido: Criar uma conta dos serviços cognitivos no portal do Azure
 
@@ -54,7 +54,7 @@ As secções seguintes explicam como criar uma subscrição única ou múltiplos
     |--|--|
     | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Recomendamos que utilize um nome descritivo, por exemplo *MyCognitiveServicesAccount*. |
     | **Subscrição** | Selecione uma das suas subscrições do Azure disponíveis. |
-    | **Localização** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
+    | **Location** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
     | **Escalão de preço** | O custo da sua conta dos serviços cognitivos depende das opções que escolher e a sua utilização. Para obter mais informações, consulte a API [os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que irá conter o seu recurso dos serviços cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo já existente. |
 
@@ -76,7 +76,7 @@ As secções seguintes explicam como criar uma subscrição única ou múltiplos
     |--|--|
     | **Nome** | Um nome descritivo para o seu recurso de serviços cognitivos. Recomendamos que utilize um nome descritivo, por exemplo *MyNameFaceAPIAccount*. |
     | **Subscrição** | Selecione uma das suas subscrições do Azure disponíveis. |
-    | **Localização** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
+    | **Location** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
     | **Escalão de preço** | O custo da sua conta dos serviços cognitivos depende das opções que escolher e a sua utilização. Para obter mais informações, consulte a API [os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
     | **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que irá conter o seu recurso dos serviços cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo já existente. |
 
@@ -105,4 +105,4 @@ Anote a localização e as chaves. Pode obter as chaves selecionando **chaves** 
 * [Quickstart: Extrair texto manuscrito a partir de uma imagem](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
 * [Tutorial: Criar uma aplicação para detetar e rostos numa imagem de fotograma](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
 * [Criar uma página Web de pesquisa personalizada](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
-* [Integrar a compreensão de idiomas (LUIS) com um bot, com o Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)
+* [Integrar a compreensão de idiomas (LUIS) com um bot, com o Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-bf-v4)

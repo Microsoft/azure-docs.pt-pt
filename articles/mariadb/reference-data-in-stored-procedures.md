@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: reference
 ms.date: 09/24/2018
 ms.openlocfilehash: 75dc10ba3d95fd12ea99e10d321237560ee28171
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125870"
 ---
 # <a name="azure-database-for-mariadb-data-in-replication-stored-procedures"></a>Procedimentos armazenados de base de dados do Azure para a replicação de dados de MariaDB

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d4cdcecd08ae87b3a2ae6023b8a2557a515fb1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: de27afabe024f08cb80a7b31cfb1b664684315a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107234"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Tutorial: Integração do Active Directory do Azure com Arrá!
 
@@ -54,7 +54,7 @@ Para configurar a integração do Arrá! com o Azure AD, tem de adicionar Arrá!
 
 **Para adicionar Arrá! partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -66,7 +66,7 @@ Para configurar a integração do Arrá! com o Azure AD, tem de adicionar Arrá!
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Arrá!**, selecione **Arrá!** no painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Arrá!** , selecione **Arrá!** no painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
 
      ![Aha! na lista de resultados](common/search-new-app.png)
 
@@ -188,11 +188,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Arrá!.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Arrá!**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Arrá!** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Arrá!**.
+2. Na lista de aplicações, selecione **Arrá!** .
 
     ![O Eureca! ligação na lista de aplicativos](common/all-applications.png)
 
@@ -214,7 +214,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Arrá!. Aha! suporta just-in-time de provisionamento de usuários, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Arrá!, uma nova é criada uma após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

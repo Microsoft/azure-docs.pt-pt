@@ -9,19 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: b0354803a117e8e2c2382ae888bde94a502f24c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 74ccf2af2d379b3c1966543885df6ebe5cf0f47a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724571"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059437"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar Hue em clusters do HDInsight Hadoop
 
 Saiba como instalar a Hue em clusters do HDInsight e utilizar o túnel para encaminhar os pedidos para Hue.
-
-> [!IMPORTANT]  
-> Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ## <a name="what-is-hue"></a>O que é Hue?
 Hue é um conjunto de aplicações Web utilizado para interagir com um cluster do Apache Hadoop. Pode utilizar Hue para procurar o armazenamento associado um cluster do Hadoop (WASB, no caso de clusters do HDInsight), executar tarefas do Hive e Pig scripts e assim por diante. Os seguintes componentes estão disponíveis com instalações de Hue num cluster do HDInsight Hadoop.
@@ -64,9 +61,9 @@ Esta secção fornece instruções sobre como utilizar o script quando são apro
    * **NOME**: Introduza um nome amigável para a ação de script.
    * **URI DO SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: Marque esta opção.
-   * **FUNÇÃO DE TRABALHO**: Deixe em branco.
-   * **ZOOKEEPER**: Deixe em branco.
-   * **PARÂMETROS**: Deixe em branco.
+   * **FUNÇÃO DE TRABALHO**: Deixe este campo em branco.
+   * **ZOOKEEPER**: Deixe este campo em branco.
+   * **PARÂMETROS**: Deixe este campo em branco.
 3. Na parte inferior a **ações de Script**, utilize o **selecione** botão para guardar a configuração. Por último, utilize o **selecionar** na parte inferior do **configuração opcional** painel para guardar as informações de configuração opcional.
 4. Continuar o aprovisionamento do cluster, conforme descrito em [Provision HDInsight clusters no Linux](hdinsight-hadoop-provision-linux-clusters.md).
 

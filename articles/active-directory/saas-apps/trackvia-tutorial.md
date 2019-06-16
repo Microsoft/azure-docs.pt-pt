@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a04622d0c35a93d954dcca38859ea3a48a8d5416
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e63b209f24e2bdc54c809caaaa4fb5faa80b43a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Tutorial: Integração do Active Directory do Azure com TrackVia
 
@@ -55,7 +55,7 @@ Para configurar a integração do TrackVia com o Azure AD, terá de adicionar Tr
 
 **Para adicionar TrackVia a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -202,7 +202,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na TrackVia. Track
 
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de TrackVia](mailto:support@trackvia.com).
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

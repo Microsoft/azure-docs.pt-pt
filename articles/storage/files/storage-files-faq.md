@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190074"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
@@ -360,7 +360,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
     Não. O tamanho máximo de uma partilha de ficheiros do Azure é de 5 TiB. Atualmente, este é um limite rígido que nós não é possível ajustar. Estamos a trabalhar numa solução para aumentar o tamanho de partilha para TiB de 100, mas não temos linhas cronológicas para partilhar neste momento.
 
 * <a id="open-handles-quota"></a>
-**O número de clientes pode aceder ao mesmo ficheiro simultaneamente?**   
+**O número de clientes pode aceder ao mesmo ficheiro simultaneamente?**    
     Existe uma quota de 2.000 identificadores abertos num único arquivo. Quando tiver de 2.000 identificadores abertos, é apresentada uma mensagem de erro que diz que a quota é atingida.
 
 * <a id="zip-slow-performance"></a>

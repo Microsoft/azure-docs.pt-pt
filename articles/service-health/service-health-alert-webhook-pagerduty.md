@@ -1,19 +1,19 @@
 ---
-title: Configurar alertas de estado de funcionamento do serviço do Azure com PagerDuty | Documentos da Microsoft
+title: Enviar alertas de estado de funcionamento do serviço do Azure com PagerDuty através de webhooks
 description: Obtenha notificações personalizadas sobre eventos de estado de funcionamento de serviço à sua instância do PagerDuty.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621021"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067143"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>Configurar alertas de estado de funcionamento do serviço com PagerDuty
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Enviar alertas de estado de funcionamento do serviço do Azure com PagerDuty através de webhooks
 
 Este artigo mostra-lhe como configurar notificações de estado de funcionamento do serviço do Azure através do PagerDuty através de um webhook. Usando [PagerDuty](https://www.pagerduty.com/)do tipo de integração personalizado do Microsoft Azure, pode facilmente adicionar alertas de estado de funcionamento do serviço aos seus serviços de PagerDuty novos ou existentes.
 

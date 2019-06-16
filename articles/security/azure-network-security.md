@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587466"
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
@@ -70,7 +70,7 @@ Neste artigo, será abrangem o seguinte Azure enterprise capacidades de rede:
 
 -   Conectividade híbrida
 
--   Controlos de Segurança
+-   Controlos de segurança
 
 -   Validação de rede
 
@@ -284,9 +284,9 @@ Um NSG é fornecido com algumas regras incorporadas que deve estar atento. Nomea
 
 -   **Permitir todo o tráfego dentro de uma rede virtual específico:** Todas as VMs na mesma rede Virtual do Azure podem comunicar entre si.
 
--   **Permitir a entrada de balanceamento de carga do Azure:** esta regra permite o tráfego de qualquer endereço de origem para qualquer endereço de destino para o Balanceador de carga do Azure.
+-   **Permitir a entrada de balanceamento de carga do Azure:**  esta regra permite o tráfego de qualquer endereço de origem para qualquer endereço de destino para o Balanceador de carga do Azure.
 
--   **Negar toda a entrada:** esta regra bloqueia todo o tráfego da Internet que tem a permissão explicitamente de fornecimento.
+-   **Negar toda a entrada:**  esta regra bloqueia todo o tráfego da Internet que tem a permissão explicitamente de fornecimento.
 
 -   **Permitir todo o tráfego de saída à Internet:** Esta regra permite que as VMs iniciar as ligações à Internet. Se não pretender que estas ligações iniciadas, terá de criar uma regra para bloquear essas ligações ou impor o túnel forçado.
 
@@ -547,7 +547,7 @@ Determina a [próximo salto](https://docs.microsoft.com/azure/network-watcher/ne
 
 Também o salto seguinte devolve a tabela de rotas associada com o próximo salto. Ao consultar um salto seguinte se a rota é definida como uma rota definida pelo utilizador, será devolvido esse caminho. Caso contrário, o salto seguinte devolve "Rotas de sistema".
 
-#### <a name="security-group-view"></a>Vista do grupo de segurança
+#### <a name="security-group-view"></a>Vista de grupo de segurança
 
 Obtém as regras de segurança aplicada e eficiente que são aplicadas numa VM. Grupos de segurança de rede são associados a um nível de sub-rede ou num nível NIC. Quando associados a um nível de sub-rede, aplica-se a todas as instâncias VM na sub-rede. Rede [vista de grupo de segurança](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) devolve todas as configurado NSGs e regras que estão associadas a um nível NIC e sub-rede de uma máquina virtual, fornece ideias sobre a configuração. Além disso, as regras de segurança efetivas são devolvidas para cada uma das NICs numa VM. Vista de grupo de segurança de rede a utilizar, pode avaliar uma VM para vulnerabilidades de rede, tais como abrir portas. Também pode validar se o seu grupo de segurança de rede está a funcionar conforme esperado com base numa [comparação entre configurada e as regras de segurança efetivas](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 

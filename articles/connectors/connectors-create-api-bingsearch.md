@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 7146e59eabf9e30fa263f957f1c546414ad0fe26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60952663"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com pesquisa do Bing e o Azure Logic Apps
@@ -89,7 +89,7 @@ No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-
    ![Adicionar ação](./media/connectors-create-api-bing-search/add-action.png)
 
    Para adicionar uma ação entre os passos existentes, mova o rato por cima da seta de ligação. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, escolha **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, escolha **adicionar uma ação**.
 
 3. Na caixa de pesquisa, introduza "Pesquisa do Bing" como o filtro.
 Na lista de ações, selecione a ação que pretende.

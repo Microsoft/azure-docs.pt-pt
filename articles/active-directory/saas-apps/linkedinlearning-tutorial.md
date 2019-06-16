@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3717ed095c162255b0c0cdf09cac13fe2033979a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ff3748213d8449704f7b1001469eb8f7a224498
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60260490"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutorial: Integração do Active Directory do Azure com o LinkedIn Learning
 
@@ -54,7 +54,7 @@ Para configurar a integração do LinkedIn Learning no Azure AD, terá de adicio
 
 **Para adicionar o LinkedIn Learning a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD início de sessão único com o LinkedIn Learning, ex
     
     | Name | Atributo de origem |
     | ---------------| --------------- |
-    | e-mail  | user.mail  |
+    | email  | user.mail  |
     | Departamento  | user.department  |
     | FirstName  | user.givenname  |
     | Apelido  | user.surname  |

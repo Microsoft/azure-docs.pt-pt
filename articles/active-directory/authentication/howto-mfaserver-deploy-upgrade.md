@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcafa3e2f2665e84856b80cc0911d2e83df1aa65
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057334"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o servidor de autenticação de multi-factor do Azure mais recente
 
 Este artigo orienta-o processo de atualização do servidor multi-factor Authentication (MFA) do Azure v6.0 ou superior. Se precisar de atualizar uma versão antiga do PhoneFactor Agent, consulte [atualizar o PhoneFactor Agent para o servidor do Azure multi-factor Authentication](howto-mfaserver-deploy-upgrade-pf.md).
 
 Se estiver a atualizar a partir de v6.x ou mais antigo para o v7.x ou mais recente, alterar todos os componentes do .NET 2.0 para o .NET 4.5. Todos os componentes também requerem o Microsoft Visual C++ 2015 a atualização redistribuível 1 ou superior. O instalador do servidor MFA instala as versões x86 e x64 desses componentes, se ainda não estiverem instalados. Se o Portal de utilizador e o serviço Web da aplicação móvel são executados em servidores separados, terá de instalar os pacotes antes de atualizar esses componentes. Pode pesquisar para a atualização mais recente do Microsoft Visual C++ 2015 Redistributable sobre o [Microsoft Download Center](https://www.microsoft.com/download/). 
+
+> [!IMPORTANT]
+> A partir de 1 de Julho de 2019 Microsoft já não irá oferecer servidor MFA para novas implementações. Novos clientes que gostariam de exigir a autenticação multifator de seus usuários devem utilizar com base na cloud do Azure multi-factor Authentication. Os clientes existentes que tenham ativado o servidor de MFA antes de 1 de Julho poderão transferir a versão mais recente, as atualizações futuras e gerar credenciais de ativação como de costume.
 
 Etapas de atualização rapidamente:
 

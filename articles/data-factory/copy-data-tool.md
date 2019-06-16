@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787742"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Ferramenta copiar dados no Azure Data Factory
@@ -78,7 +78,7 @@ Captura de ecrã seguinte mostra uma consulta SQL para filtrar os dados.
 ![Filtrar dados numa base de dados](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrar dados numa pasta de Blobs do Azure
-Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta. As variáveis suportadas são: **{year}**, **{month}**, **{day}**, **{hour}**, e **{minute}**. Por exemplo: inputfolder / {ano} / {month} / {day}. 
+Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta. As variáveis suportadas são: **{year}** , **{month}** , **{day}** , **{hour}** , e **{minute}** . Por exemplo: inputfolder / {ano} / {month} / {day}. 
 
 Suponha que tem a entrada pastas no seguinte formato: 
 
@@ -91,7 +91,7 @@ Suponha que tem a entrada pastas no seguinte formato:
 
 Clique nas **navegue** botão para **ficheiro ou pasta**, procure uma dessas pastas (por exemplo, 2016 -> 03 -> 01-02 >) e clique em **escolha**. Deverá ver 2016/03/01/02 na caixa de texto. 
 
-Em seguida, substitua **2016** com **{year}**, **03** com **{month}**, **01** com **{day}** , e **02** com **{hour}** e prima a **separador** chave. Deverá ver a lista pendente para selecionar o formato para este quatro variáveis:
+Em seguida, substitua **2016** com **{year}** , **03** com **{month}** , **01** com **{day}** , e **02** com **{hour}** e prima a **separador** chave. Deverá ver a lista pendente para selecionar o formato para este quatro variáveis:
 
 ![Filtro de ficheiro ou pasta](./media/copy-data-tool/filter-file-or-folder.png)
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 7a589ba80b61ea5ef9ea1c941e9a0218a1653c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60735528"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Ligar dispositivos IoT para o Azure: O Hub IoT e dos Hubs de eventos
@@ -34,7 +34,7 @@ A tabela seguinte fornece detalhes sobre como as duas camadas do IoT Hub compara
 | Protocolos: MQTT, MQTT ao longo de webSockets | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
 | Identidade por dispositivo | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
 | Carregamento de ficheiros a partir de dispositivos | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
-| Serviço de Aprovisionamento do Dispositivo | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
+| Serviço de aprovisionamento de dispositivos | ![Marcar][checkmark] | ![Marcar][checkmark] |  |
 | Mensagens cloud para dispositivo | ![Marcar][checkmark] |  |  |
 | Dispositivo duplo e gestão de dispositivos | ![Marcar][checkmark] |  |  |
 | Fluxos de dispositivo (pré-visualização) | ![Marcar][checkmark] |  |  |

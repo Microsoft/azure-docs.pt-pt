@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: spelluru
 ms.openlocfilehash: fdd18b833794c25cb90188ba8bc418d4785492ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824161"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorizar a entrega de mensagens do Event Grid 

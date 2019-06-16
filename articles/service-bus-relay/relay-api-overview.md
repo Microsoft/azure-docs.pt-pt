@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: spelluru
 ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60593345"
 ---
 # <a name="available-relay-apis"></a>APIs de reencaminhamento disponíveis

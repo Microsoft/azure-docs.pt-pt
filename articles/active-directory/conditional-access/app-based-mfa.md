@@ -1,5 +1,5 @@
 ---
-title: Início rápido - exigir autenticação multifator (MFA) para aplicações específicas com acesso condicional do Azure Active Directory | Documentos da Microsoft
+title: Início rápido - exigir autenticação multifator (MFA) para aplicações específicas com o Azure Active Directory condicional acesso | Documentos da Microsoft
 description: Este guia de introdução, saiba como é possível vincular seus requisitos de autenticação para o tipo de aplicação de cloud acedidos através do acesso condicional do Azure Active Directory (Azure AD).
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd5ab513034d6e2946dcb31f3a31dbf86f14873e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db191587f02fa8fa8934cac7a001ea31c233cbdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413177"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112758"
 ---
-# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início rápido: Exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory
+# <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Início rápido: Exigir a MFA para aplicações específicas com o Azure Active Directory condicional acesso
 
 Para simplificar a experiência de início de sessão dos utilizadores, pode querer permitir-lhes iniciar sessão suas aplicações na cloud com um nome de utilizador e uma palavra-passe. No entanto, muitos ambientes têm, pelo menos, algumas aplicações para o qual é recomendado para exigir um formulário mais forte de verificação de conta, por exemplo, a autenticação multifator (MFA). Isto pode ser, para true de exemplo, para obter acesso ao sistema de e-mail da sua organização ou as suas aplicações de RH. No Azure Active Directory (Azure AD), pode concretizar este objetivo com uma política de acesso condicional.
 
@@ -49,7 +49,7 @@ O objetivo deste passo é obter uma impressão da experiência de início de ses
 
 ## <a name="create-your-conditional-access-policy"></a>Criar a sua política de acesso condicional
 
-Esta secção mostra como criar a política de acesso condicional necessário. O cenário neste início rápido utiliza:
+Esta secção mostra como criar a política de acesso condicional necessária. O cenário neste início rápido utiliza:
 
 - Portal do Azure como marcador de posição para uma aplicação de cloud que necessita de MFA. 
 - O utilizador de exemplo para testar a política de acesso condicional.  
@@ -62,11 +62,11 @@ Na sua política, defina:
 | Aplicações na cloud | Microsoft Azure Management |
 | Conceder acesso | Exigir autenticação multifator |
 
-![Expandido a política de acesso condicional](./media/app-based-mfa/31.png)
+![Política de acesso condicional expandida](./media/app-based-mfa/31.png)
 
 **Para configurar a política de acesso condicional:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou um administrador de acesso condicional.
 
 1. No portal do Azure, na barra de navegação esquerda, clique em **do Azure Active Directory**.
 
@@ -74,7 +74,7 @@ Na sua política, defina:
 
 1. Na **do Azure Active Directory** página, além do **segurança** secção, clique em **acesso condicional**.
 
-   ![Acesso condicional](./media/app-based-mfa/03.png)
+   ![Acesso Condicional](./media/app-based-mfa/03.png)
 
 1. Sobre o **acesso condicional** página, na barra de ferramentas na parte superior, clique em **nova política**.
 
@@ -122,7 +122,7 @@ Na sua política, defina:
 
 1. Sobre o **concessão** página, execute os seguintes passos:
 
-   ![Conceder](./media/app-based-mfa/11.png)
+   ![Concessão](./media/app-based-mfa/11.png)
 
    1. Selecione **conceder acesso**.
 
@@ -132,13 +132,13 @@ Na sua política, defina:
 
 1. Na **ativar política** secção, clique em **no**.
 
-   ![Activar política](./media/app-based-mfa/18.png)
+   ![Ativar política](./media/app-based-mfa/18.png)
 
 1. Clique em **Criar**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um simulado início de sessão
 
-Agora que configurou a política de acesso condicional, provavelmente quer saber se funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
+Agora que configurou a política de acesso condicional, provavelmente quer saber se ele funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
 
 Para inicializar o que se o conjunto de ferramentas de avaliação da política,:
 
@@ -156,7 +156,7 @@ Clicar **e se** cria um relatório de simulação, que mostra:
 
 1. Sobre o [acesso condicional - políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) página, no menu na parte superior, clique em **e se**.  
 
-   ![What If](./media/app-based-mfa/14.png)
+   ![E se](./media/app-based-mfa/14.png)
 
 1. Clique em **usuários**, selecione **Isabella Simonsen**e, em seguida, clique em **selecionar**.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: ab33feb1ffdbced193afaba8f52719b3c215652f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511125"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060877"
 ---
 # <a name="what-is-custom-speech"></a>O que é a conversão de voz personalizada?
 
@@ -52,7 +52,7 @@ Depois de criar uma conta do Azure e uma subscrição de serviços de voz, terá
 
 1. Obtenha a chave de subscrição de serviços de voz do portal do Azure.
 2. Início de sessão para o [portal da voz personalizada](https://aka.ms/custom-speech).
-3. Selecione a subscrição que preciso para trabalhar com e criar um projeto de conversão de voz.
+3. Selecione a subscrição que tem de trabalhar em e crie um projeto de conversão de voz.
 4. Se quiser modificar a sua subscrição, utilize o **ícone de roda dentada** ícone localizado na parte superior da navegação.
 
 ## <a name="how-to-create-a-project"></a>Como criar um projeto

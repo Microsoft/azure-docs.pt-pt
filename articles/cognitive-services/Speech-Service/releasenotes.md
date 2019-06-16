@@ -12,15 +12,15 @@ ms.date: 05/13/2019
 ms.author: wolfma
 ms.custom: seodec18
 ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606343"
 ---
 # <a name="release-notes"></a>Notas de versão
 
-## <a name="speech-sdk-151"></a>1.5.1 do SDK de voz
+## <a name="speech-sdk-151"></a>1\.5.1 do SDK de voz
 
 Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nativo. Ele não está a afetar a versão de JavaScript do SDK.
 
@@ -57,7 +57,7 @@ Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nati
 
 Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nativo. Ele não está a afetar a versão de JavaScript do SDK.
 
-## <a name="speech-sdk-141"></a>1.4.1 do SDK de voz
+## <a name="speech-sdk-141"></a>1\.4.1 do SDK de voz
 
 Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. Foram efetuadas as seguintes correções:
 
@@ -91,7 +91,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
 * Python: melhore o tratamento de erros por argumentos em chamadas de retorno de Python.
 * JavaScript: Terminou a RequestSession fixo estado errado, geração de relatórios para voz.
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>1.3.1 do SDK de voz: Atualização de Fevereiro de 2019
+## <a name="speech-sdk-131-2019-february-refresh"></a>1\.3.1 do SDK de voz: Atualização de Fevereiro de 2019
 
 Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nativo. Ele não está a afetar a versão de JavaScript do SDK.
 
@@ -241,7 +241,7 @@ Melhorias de confiabilidade e correções de erros:
 
 No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicionada uma nova amostra para JavaScript.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>1.0.0 do SDK de voz dos serviços cognitivos: Versão de Setembro de 2018
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>1\.0.0 do SDK de voz dos serviços cognitivos: Versão de Setembro de 2018
 
 **Novos recursos**
 

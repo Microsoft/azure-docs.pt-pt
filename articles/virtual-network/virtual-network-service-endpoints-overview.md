@@ -14,10 +14,10 @@ ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
 ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61032584"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
@@ -28,21 +28,21 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões do 
 
 **Disponível em Geral**
 
-- **[O armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Disponível em geral em todas as regiões do Azure.
-- **[Base de dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure.
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure.
-- **[Base de dados do Azure para o servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
-- **[Base de dados do Azure para o servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
-- **[Base de dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure.
-- **[Cofre de chaves do Azure](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: Disponível em geral em todas as regiões do Azure.
-- **[O Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure.
-- **[Os Hubs de eventos do Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure.
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure onde o ADLS Gen1 está disponível.
+- **[O armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** : Disponível em geral em todas as regiões do Azure.
+- **[Base de dados SQL do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponível em geral em todas as regiões do Azure.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponível em geral em todas as regiões do Azure.
+- **[Base de dados do Azure para o servidor PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
+- **[Base de dados do Azure para o servidor MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
+- **[Base de dados do Azure para MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** : Disponível em geral em regiões do Azure onde o serviço de base de dados está disponível.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponível em geral em todas as regiões do Azure.
+- **[Cofre de chaves do Azure](../key-vault/key-vault-overview-vnet-service-endpoints.md)** : Disponível em geral em todas as regiões do Azure.
+- **[O Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponível em geral em todas as regiões do Azure.
+- **[Os Hubs de eventos do Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponível em geral em todas as regiões do Azure.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : Disponível em geral em todas as regiões do Azure onde o ADLS Gen1 está disponível.
 
 **Pré-visualização pública**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: A pré-visualização está disponível em todas as regiões do Azure onde o Azure Container Registry está disponível.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** : A pré-visualização está disponível em todas as regiões do Azure onde o Azure Container Registry está disponível.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

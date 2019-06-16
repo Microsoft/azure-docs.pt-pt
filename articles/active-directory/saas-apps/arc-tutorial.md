@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eec05507cd66e2b856e3110bfb60f24c87dfdf7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb088af37133269977c1f8ae9a5ad19a3b3e4513
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60283844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutorial: Integração do Active Directory do Azure com a publicação de arco - SSO
 
@@ -54,7 +54,7 @@ Para configurar a integração de publicação de arco - SSO para o Azure AD, te
 
 **Para adicionar publicação de arco - SSO a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -129,8 +129,8 @@ Para configurar o Azure AD início de sessão único com a publicação de arco 
     | ---------------| --------------- |    
     | firstName | user.givenname |
     | lastName | user.surname |
-    | e-mail | user.mail |
-    | grupos | user.assignedroles |
+    | email | user.mail |
+    | groups | user.assignedroles |
 
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.

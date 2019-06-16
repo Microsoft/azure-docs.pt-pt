@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ccb12ca5daf7a57ed50f6ed471e62f61b335466
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: f45fc1d5128811f04ca96224551dde969f4fe9d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097257"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>Tutorial: Integração do Active Directory do Azure com Meta4 de RH Global
 
@@ -58,7 +58,7 @@ Para configurar a integração de RH Global de Meta4 com o Azure AD, terá de ad
 
 **Para adicionar Meta4 de RH Global a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
+1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -193,7 +193,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Meta4 de RH Global. Trabalhar com [equipa de suporte de RH Global de Meta4](mailto:victors@meta4.com) para adicionar os utilizadores na plataforma Meta4 de RH Global. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

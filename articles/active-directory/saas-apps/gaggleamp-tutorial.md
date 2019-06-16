@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 57d80394c89072a0d0a2c87a378942c32ade6844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 678f4e52fd8d3adf802bd89a1cc07ff585e696ef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: Integração do Active Directory do Azure com GaggleAMP
 
@@ -54,7 +54,7 @@ Para configurar a integração do GaggleAMP com o Azure AD, terá de adicionar G
 
 **Para adicionar GaggleAMP a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -133,7 +133,7 @@ Para configurar o Azure AD início de sessão único com GaggleAMP, execute os s
 
 ### <a name="configure-gaggleamp-single-sign-on"></a>Configurar GaggleAMP Single Sign-On
 
-1. Em outra instância do browser, navegue para a página de SAML SSO criada para pelo Gaggle equipa de suporte (por exemplo: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+1. Em outra instância do browser, navegue para a página de SAML SSO criada para pelo Gaggle equipa de suporte (por exemplo: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit* ).
 
 2. No seu **SAML SSO** página, execute os seguintes passos:  
    

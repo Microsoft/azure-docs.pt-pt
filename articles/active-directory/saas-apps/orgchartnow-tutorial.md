@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b96606b5558e0fbb81733b2f548a89bfb38d5f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integração do Active Directory do Azure com OrgChart agora
 
@@ -53,7 +53,7 @@ Para configurar a integração do OrgChart agora para o Azure AD, terá de adici
 
 **Para adicionar OrgChart agora a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -225,7 +225,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no OrgChart agora, tem de
 
     * Clique em **Adicionar**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

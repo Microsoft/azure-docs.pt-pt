@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866017"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088756"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integração do Active Directory do Azure com mesclar os Thoughtworks
 
@@ -53,7 +53,7 @@ Para configurar a integração do Thoughtworks ser combinado com o Azure AD, ter
 
 **Para adicionar a Thoughtworks ser combinado a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -224,7 +224,7 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
 >Pode utilizar quaisquer outras mesclar os Thoughtworks utilizador conta criação ferramentas ou APIs fornecidas pelo mesclar os Thoughtworks, para aprovisionar contas de utilizador do AAD.
 > 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

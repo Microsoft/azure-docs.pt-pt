@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603144"
 ---
 # <a name="azure-customer-data-protection"></a>Proteção de dados do cliente do Azure   
@@ -55,9 +55,9 @@ Os dados podem ser replicados dentro de uma área geográfica selecionada para r
 
 Quando criar a sua conta de armazenamento, selecione uma das seguintes opções de replicação:
 
-- **Armazenamento localmente redundante (LRS)**: O Armazenamento localmente redundante mantém três cópias dos seus dados. LRS é replicado três vezes num único local e numa única região. O LRS protege os dados de falhas de normal hardware, mas não a partir de uma falha de um único local.
-- **Armazenamento com redundância de zona (ZRS)**: O Armazenamento com redundância entre zonas mantém três cópias dos seus dados. O ZRS é replicado três vezes em duas ou três instalações para fornecer uma durabilidade superior ao LRS. A replicação ocorre numa única região ou em duas regiões. O ZRS ajuda a garantir que seus dados são duráveis numa única região.
-- **Armazenamento georredundante (GRS)**: O Armazenamento georredundante está ativado para a sua conta do Storage por predefinição aquando da sua criação. O GRS mantém seis cópias dos seus dados. Com a GRS, os dados são replicados três vezes dentro da região primária. Os dados também são replicados três vezes numa região secundária a centenas de quilómetros de distância da região primária, fornecendo o nível mais elevado de durabilidade. Se ocorrer uma falha na região primária, armazenamento do Azure efetua a ativação pós-falha para a região secundária. GRS ajuda a garantir que os seus dados são duráveis em duas regiões separadas.
+- **Armazenamento localmente redundante (LRS)** : O Armazenamento localmente redundante mantém três cópias dos seus dados. LRS é replicado três vezes num único local e numa única região. O LRS protege os dados de falhas de normal hardware, mas não a partir de uma falha de um único local.
+- **Armazenamento com redundância de zona (ZRS)** : O Armazenamento com redundância entre zonas mantém três cópias dos seus dados. O ZRS é replicado três vezes em duas ou três instalações para fornecer uma durabilidade superior ao LRS. A replicação ocorre numa única região ou em duas regiões. O ZRS ajuda a garantir que seus dados são duráveis numa única região.
+- **Armazenamento georredundante (GRS)** : O Armazenamento georredundante está ativado para a sua conta do Storage por predefinição aquando da sua criação. O GRS mantém seis cópias dos seus dados. Com a GRS, os dados são replicados três vezes dentro da região primária. Os dados também são replicados três vezes numa região secundária a centenas de quilómetros de distância da região primária, fornecendo o nível mais elevado de durabilidade. Se ocorrer uma falha na região primária, armazenamento do Azure efetua a ativação pós-falha para a região secundária. GRS ajuda a garantir que os seus dados são duráveis em duas regiões separadas.
 
 **A destruição de dados**: Quando os clientes eliminar dados, ou desistir do Azure, Microsoft segue normas rigorosas para substituição de recursos de armazenamento antes de sua reutilização, bem como a destruição física do hardware desativado. Microsoft executa uma eliminação completa de dados no pedido de cliente e no término do contrato.
 

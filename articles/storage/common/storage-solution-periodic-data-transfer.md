@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8f106674c1b1ec90477c7c030dc55085fcf10656
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729924"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para a transferência de dados periódica
@@ -42,7 +42,7 @@ A tabela seguinte resume as diferenças nas capacidades principais.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Transferência de dados de rede com script/Programmatic
 
-| Capacidade                  | AzCopy                                 | APIs REST do armazenamento do Azure       |
+| Funcionalidade                  | AzCopy                                 | APIs REST do armazenamento do Azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Fator de formulário                 | Ferramenta de linha de comando da Microsoft       | Os clientes desenvolvem no armazenamento <br> APIs REST com bibliotecas de cliente do Azure |
 | Configuração inicial de uso individual     | Mínimo                                | Esforço de desenvolvimento moderada, a variável    |
@@ -55,7 +55,7 @@ A tabela seguinte resume as diferenças nas capacidades principais.
 | Funcionalidade                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fator de formulário                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal do Azure, o agente no local                                                            |
-| Hardware                                      | O hipervisor            | Fornecido pela Microsoft    | ND                                                            |
+| Hardware                                      | O hipervisor            | Fornecido pela Microsoft    | N/D                                                            |
 | Esforço de configuração inicial                          | Baixa (< 30 min.)            | Moderado (~ acoplar horas) | Grande (~ dias)                                                 |
 | Formato de dados                                   | Blobs do Azure, os ficheiros do Azure   | Blobs do Azure, os ficheiros do Azure | [Suporta 70 conectores de dados para arquivos de dados e formatos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Processamento prévio de dados                           | Não                         | Sim, através de computação do Edge    | Sim                                                           |

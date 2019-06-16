@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61070101"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
@@ -70,7 +70,7 @@ O dashboard contém um gráfico que controla uma métrica ao longo do período d
 * Clique em vista um ano atrás para ativar/desativar uma sobreposição de atividade do ano durante o mesmo período de tempo para o gráfico. Este tipo de comparação fornece informações sobre padrões de utilização da CDN longo prazo. Canto do canto superior direito do gráfico contém uma legenda que indica o código de cor para cada gráfico de linha.
 
 #### <a name="updating-the-chart"></a>A atualizar o gráfico
-* Intervalo de Tempo: Efetue um dos seguintes procedimentos:
+* Intervalo de tempo: Efetue um dos seguintes procedimentos:
   * Selecione a região desejada na linha da tempo. O gráfico será atualizado com os dados que corresponde ao período de tempo selecionado.
   * Faça duplo clique no gráfico para apresentar todos os dados históricos disponíveis até um máximo de dois anos.
 * Métrica: Clique no ícone de gráfico é apresentado junto a métrica pretendida. O gráfico e a linha do tempo são atualizados com os dados para a métrica correspondente.
@@ -168,7 +168,7 @@ Cada relatório neste módulo contém um gráfico e estatísticas sobre o uso de
 | Detalhes TCP_EXPIRED_MISS |Contém um gráfico que apresenta os 10 principais URLs para obsoletos ativos para o qual uma nova versão precisava ser recuperada do servidor de origem. Estatísticas para os URLs de 100 principais para estes tipos de ativos são apresentadas diretamente abaixo este gráfico. |
 | Detalhes TCP_CLIENT_REFRESH_MISS |Contém um gráfico de barras apresenta os 10 principais URLs para os recursos foram obtidos a partir de um servidor de origem devido a um pedido de não-cache do cliente. Estatísticas para os URLs de 100 principais para estes tipos de pedidos são apresentadas diretamente abaixo este gráfico. |
 | Tipos de pedido do cliente |Indica o tipo de pedidos que foram feitas pelos clientes HTTP (por exemplo, browsers). Este relatório inclui um gráfico em anel que fornece uma noção sobre como os pedidos estão a ser processados. Informações de tráfego e de largura de banda para cada tipo de pedido são apresentadas abaixo do gráfico. |
-| Agente do Utilizador |Contém um gráfico de barras apresenta os principais agentes de utilizador de 10 para pedir o seu conteúdo através da nossa CDN. Normalmente, um agente de utilizador é um navegador da web, o leitor de multimédia ou um browser do telemóvel. Estatísticas para os agentes de 100 utilizadores principais são apresentadas diretamente abaixo este gráfico. |
+| Agente de utilizador |Contém um gráfico de barras apresenta os principais agentes de utilizador de 10 para pedir o seu conteúdo através da nossa CDN. Normalmente, um agente de utilizador é um navegador da web, o leitor de multimédia ou um browser do telemóvel. Estatísticas para os agentes de 100 utilizadores principais são apresentadas diretamente abaixo este gráfico. |
 | Referenciadores |Contém um gráfico de barras apresenta os 10 Referenciadores Principais para o conteúdo acedido através da nossa CDN. Normalmente, uma referência é o URL da página da web ou recurso que liga ao seu conteúdo. Informações detalhadas são fornecidas abaixo o gráfico para os Referenciadores 100 principais. |
 | Tipos de compressão |Contém um gráfico em anel que divide ativos solicitados por se terem sido compactadas por nossos servidores de borda. A percentagem de ativos compactados é dividida pelo tipo de compactação utilizado. Informações detalhadas são fornecidas abaixo o gráfico para cada tipo de compactação e o estado. |
 | Tipos de ficheiro |Contém um gráfico de barras apresenta os tipos de 10 ficheiro principais que foram solicitados por meio de nossa CDN para a sua conta. Para efeitos deste relatório, um tipo de ficheiro é definido pela extensão de nome de ficheiro do recurso e tipo de suporte de Internet (por exemplo,. HTML \[texto/html\],. htm \[texto/html\],. aspx \[texto/html\], etc.). Informações detalhadas são apresentadas abaixo o gráfico para os principais tipos de ficheiro de 100. |

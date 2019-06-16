@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
 ms.openlocfilehash: 5cf94079dcd68887d9725ffbe9124f9b6c897dd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736161"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door-service"></a>Permitido autoridades de certificação para ativar o HTTPS personalizado no serviço de porta de entrada do Azure

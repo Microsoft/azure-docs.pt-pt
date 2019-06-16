@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
 ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61219295"
 ---
 # <a name="manage-azure-vm-backups"></a>Gerir as cópias de segurança de VMs do Azure
@@ -38,7 +38,7 @@ Para ver as VMs no dashboard do cofre:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. No Hub menu, selecione **procurar**. Na lista de recursos, escreva **Serviços de Recuperação**. À medida que escreve, a lista é filtrada com base na sua entrada. Selecione **cofres dos serviços de recuperação**.
 
-    ![Criar um cofre dos Serviços de Recuperação ](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![Criar um cofre dos Serviços de Recuperação](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. Facilidade de utilização, com o botão direito do cofre e selecione **afixar ao dashboard**.
 4. Abra o dashboard do cofre.
@@ -132,7 +132,7 @@ Para retomar a proteção para uma VM:
 
     ![Mensagem a indicar que uma VM protegida com êxito](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>eliminar dados de cópia de segurança
+## <a name="delete-backup-data"></a>Eliminar dados de cópia de segurança
 
 Pode eliminar dados de cópia de segurança de uma VM durante a **parar cópia de segurança** tarefa ou depois de concluída a tarefa de cópia de segurança. Antes de eliminar dados de cópia de segurança, considere estes detalhes:
 

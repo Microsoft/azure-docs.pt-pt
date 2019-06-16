@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: b8994d4c1eabf4381bf8364c76f7328d225f7e1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62111532"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ligar a uma Máquina Virtual do SQL Server no Azure (Implementação Clássica)
@@ -58,7 +58,7 @@ Neste cenário, pode ligar-se com a VM **Name** (também mostrado como **nome do
 ### <a name="connect-to-sql-server-over-the-internet"></a>Ligar ao SQL Server através da Internet
 Se pretender ligar ao seu motor de base de dados do SQL Server a partir da Internet, tem de criar um ponto de final de máquina virtual para comunicação TCP de entrada. Este passo de configuração do Azure direciona o tráfego da porta TCP recebido para uma porta TCP a que a máquina virtual tenha acesso.
 
-Para ligar através da internet, tem de utilizar o nome DNS da VM e o número de porta de ponto final VM (configurado neste artigo). Para localizar o nome de DNS, navegue para o portal do Azure e selecione **máquinas virtuais (clássicas)**. Em seguida, selecione a sua máquina virtual. O **nome DNS** é mostrada na **descrição geral** secção.
+Para ligar através da internet, tem de utilizar o nome DNS da VM e o número de porta de ponto final VM (configurado neste artigo). Para localizar o nome de DNS, navegue para o portal do Azure e selecione **máquinas virtuais (clássicas)** . Em seguida, selecione a sua máquina virtual. O **nome DNS** é mostrada na **descrição geral** secção.
 
 Por exemplo, considere uma máquina virtual clássica com o nome **mysqlvm** com o nome DNS **mysqlvm7777.cloudapp.net** e um ponto final da VM de **57500**. Partindo do princípio de conectividade configurada corretamente, a seguinte cadeia de ligação poderia ser usada para acessar a máquina virtual a partir de qualquer lugar na internet:
 

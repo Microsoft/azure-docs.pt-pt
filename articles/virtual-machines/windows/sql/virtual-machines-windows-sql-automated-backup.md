@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 99439c2b6bd4fdd271dda7a49850c5b6f44330b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d30d044a26e6a092eba267f223be9b10c3a238b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165620"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075835"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Cópia de segurança automatizada para máquinas de virtuais do SQL Server 2014 (Resource Manager)
 
@@ -77,21 +77,19 @@ Pode utilizar o portal do Azure para configurar a cópia de segurança automatiz
 
 Utilize o portal do Azure para configurar a cópia de segurança automatizada, quando cria uma nova Virtual máquina do SQL Server 2014 no modelo de implementação do Resource Manager.
 
-Na **definições do SQL Server** painel, selecione **cópia de segurança automatizada**. A captura de ecrã de portal do Azure a seguir mostra a **cópia de segurança do SQL automatizada** definições.
+Na **definições do SQL Server** separador, desloque para baixo até **cópia de segurança automatizada** e selecione **ativar**. Também pode especificar o período de retenção e conta de armazenamento, bem como encriptação, backup de bancos de dados do sistema e configurar uma agenda de cópia de segurança.  A captura de ecrã de portal do Azure a seguir mostra a **cópia de segurança do SQL automatizada** definições.
 
 ![Configuração de cópia de segurança do SQL automatizada no portal do Azure](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
 ## <a name="configure-existing-vms"></a>Configurar as VMs existentes
 
-Para máquinas de virtuais do SQL Server existentes, selecione a máquina virtual do SQL Server. Em seguida, selecione o **configuração do SQL Server** secção da VM **definições**.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Para máquinas de virtuais existentes do SQL Server, navegue para o [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) e, em seguida, selecione **cópias de segurança**. 
 
 ![SQL automatizados cópia de segurança de VMs existentes](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
-Na **configuração do SQL Server** painel, clique nas **editar** botão na secção de cópia de segurança automatizada.
-
-![Configurar a cópia de segurança do SQL automatizada de VMs existentes](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
-
-Quando terminar, clique nas **OK** botão na parte inferior dos **configuração do SQL Server** definições para guardar as alterações.
+Quando terminar, selecione o **aplicar** botão na parte inferior dos **cópias de segurança** página para guardar as alterações.
 
 Se pretende ativar a cópia de segurança automatizada pela primeira vez, o Azure configura o agente IaaS do SQL Server em segundo plano. Durante este período, o portal do Azure poderá não mostrar que a cópia de segurança automatizada está configurada. Aguarde alguns minutos até que o agente ser instalado, configurado. Depois disso, o portal do Azure irão refletir as novas definições.
 
@@ -119,7 +117,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se a extensão do agente IaaS do SQL Server estiver instalada, deverá ver que o mesmo listado como "SqlIaaSAgent" ou "SQLIaaSExtension". **ProvisioningState** para a extensão também deve mostrar "Com êxito".
 
-Se não está instalado ou falha no aprovisionamento, pode instalá-lo com o seguinte comando. Juntamente com o grupo de recursos e o nome VM, também tem de especificar a região (**$region**) situado na sua VM.
+Se não está instalado ou falha no aprovisionamento, pode instalá-lo com o seguinte comando. Juntamente com o grupo de recursos e o nome VM, também tem de especificar a região ( **$region**) situado na sua VM.
 
 ```powershell
 $region = "EASTUS2"

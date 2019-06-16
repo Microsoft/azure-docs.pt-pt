@@ -7,10 +7,10 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540777"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
@@ -34,7 +34,7 @@ Quando está a replicar máquinas virtuais VMware, mantenha estas informações 
 * Para adicionar máquinas virtuais para a replicação sem aguardar a deteção agendada, realce o servidor de configuração (mas não clique nele) e selecione **atualizar**.
 * Quando ativa a replicação, se a máquina virtual é preparada, o servidor de processos instala automaticamente o serviço de mobilidade de recuperação de Site do Azure no mesmo.
 
-## <a name="enable-replication"></a>Ativar replicação
+## <a name="enable-replication"></a>Ativar a replicação
 
 Antes de seguir os passos nesta secção, tenha em atenção as seguintes informações:
 * O Azure Site Recovery replica agora diretamente para os managed disks para todas as replicações de novo. O servidor de processos escreve os registos de replicação para uma conta de armazenamento de cache na região de destino. Estes registos são utilizados para criar pontos de recuperação em discos geridos de réplica.

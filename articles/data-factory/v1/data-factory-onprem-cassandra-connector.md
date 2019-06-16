@@ -14,14 +14,14 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0a3adbd082c68121e762fd03c2221a0c800f0bc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60823985"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de uma base de dados de Cassandra no local com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-onprem-cassandra-connector.md)
 > * [Versão 2 (versão atual)](../connector-cassandra.md)
 
@@ -67,10 +67,10 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | type |A propriedade de tipo tem de ser definida como: **OnPremisesCassandra** |Sim |
-| anfitrião |Um ou mais endereços IP ou nomes de anfitrião dos servidores de Cassandra.<br/><br/>Especifica uma lista separada por vírgulas de endereços IP ou nomes de anfitrião para ligar a todos os servidores em simultâneo. |Sim |
-| porta |A porta TCP que o servidor Cassandra utiliza para escutar ligações de cliente. |Não, o valor predefinido: 9042 |
+| host |Um ou mais endereços IP ou nomes de anfitrião dos servidores de Cassandra.<br/><br/>Especifica uma lista separada por vírgulas de endereços IP ou nomes de anfitrião para ligar a todos os servidores em simultâneo. |Sim |
+| port |A porta TCP que o servidor Cassandra utiliza para escutar ligações de cliente. |Não, o valor predefinido: 9042 |
 | authenticationType |Básico ou anónimo |Sim |
-| o nome de utilizador |Especifique o nome de utilizador para a conta de utilizador. |Sim, se authenticationType está definido para básico. |
+| username |Especifique o nome de utilizador para a conta de utilizador. |Sim, se authenticationType está definido para básico. |
 | password |Especifique a palavra-passe da conta de utilizador. |Sim, se authenticationType está definido para básico. |
 | gatewayName |O nome do gateway que é utilizado para ligar à base de dados do Cassandra no local. |Sim |
 | encryptedCredential |Credencial encriptada pelo gateway. |Não |
@@ -97,7 +97,7 @@ Quando a origem é do tipo **CassandraSource**, as seguintes propriedades estão
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Consulta de SQL-92 ou consulta CQL. Ver [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se for tableName e keyspace num conjunto de dados estão definidos). |
+| query |Utilize a consulta personalizada para ler dados. |Consulta de SQL-92 ou consulta CQL. Ver [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se for tableName e keyspace num conjunto de dados estão definidos). |
 | consistencyLevel |O nível de consistência Especifica o número de réplicas devem responder a uma solicitação de leitura antes de retornar dados para a aplicação cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer a solicitação de leitura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Ver [configurar a consistência dos dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes. |Não. Valor predefinido é um. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Exemplo JSON: Copiar dados do Cassandra para BLOBs do Azure
@@ -265,14 +265,14 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| VALOR BOOLEANO |Boolean |
+| BOOLEAN |Boolean |
 | DECIMAL |Decimal |
-| VALOR DE DUPLO |Double |
-| NÚMERO DE VÍRGULA FLUTUANTE |Single |
+| DOUBLE |Double |
+| FLOAT |Single |
 | INET |String |
 | INT |Int32 |
-| TEXTO |String |
-| CARIMBO DE DATA/HORA |DateTime |
+| TEXT |String |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |

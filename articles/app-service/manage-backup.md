@@ -16,10 +16,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61271802"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
@@ -32,7 +32,7 @@ Para obter informações sobre como restaurar uma aplicação de cópia de segur
 ## <a name="what-gets-backed-up"></a>O que obtém uma cópia de segurança
 Serviço de aplicações, pode criar cópias de segurança as seguintes informações para uma conta de armazenamento do Azure e o contentor que configurou a aplicação para utilizar. 
 
-* Configuração da aplicação
+* Configuração de aplicações
 * Conteúdo do ficheiro
 * Base de dados ligada à sua aplicação
 
@@ -78,13 +78,13 @@ As seguintes soluções de base de dados são suportadas com a funcionalidade c�
 ![clique em configurar](./media/web-sites-backup/ClickConfigure1.png)
 3. Na **configuração de cópia de segurança** página, clique em **armazenamento: Não configurado** para configurar uma conta de armazenamento.
    
-    ![Escolher conta de armazenamento][ChooseStorageAccount]
+    ![Escolha a conta de armazenamento][ChooseStorageAccount]
 4. Escolher o destino da cópia de segurança, selecionando um **conta de armazenamento** e **contentor**. A conta de armazenamento têm de pertencer à mesma subscrição que a aplicação que pretende criar cópias de segurança. Se desejar, pode criar uma nova conta de armazenamento ou um novo contentor nas respectivas páginas. Quando tiver terminado, clique em **selecione**.
    
-    ![Escolher conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
+    ![Escolha a conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
 5. Na **configuração de cópia de segurança** página que ainda é deixada aberta, pode configurar **base de dados de cópia de segurança**, em seguida, selecione as bases de dados que pretende incluir nas cópias de segurança (base de dados SQL ou MySQL), em seguida, clique em **OK**.  
    
-    ![Escolher conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
+    ![Escolha a conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
    > Para uma base de dados a aparecer nesta lista, sua cadeia de ligação tem de existir na **cadeias de ligação** secção a **as definições da aplicação** página para a sua aplicação. 
@@ -106,7 +106,7 @@ Quando a conta de armazenamento e o contentor estiver configurado, pode iniciar 
 ## <a name="configure-automated-backups"></a>Configurar cópias de segurança automatizadas
 1. Na **configuração de cópia de segurança** página, defina **cópia de segurança agendada** para **no**. 
    
-    ![Escolher conta de armazenamento](./media/web-sites-backup/05ScheduleBackup1.png)
+    ![Escolha a conta de armazenamento](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Agenda de cópia de segurança opções serão exibida, defina **agendado cópias de segurança** ao **no**, em seguida, configure a agenda de cópia de segurança conforme pretendido e clique em **OK**.
    
     ![Permita cópias de segurança automatizadas][SetAutomatedBackupOn]

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d3e79b00545f76dff9442a11864701d6d61f057
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1688cc9317306e7f524536754854b6147ad3dd5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108773"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início rápido: Adicionar uma aplicação com o seu inquilino do Azure Active Directory
 
@@ -24,7 +24,7 @@ O Azure Active Directory (Azure AD) tem uma galeria que contém milhares de apli
 
 Após a adição de uma aplicação ao seu inquilino do Azure AD, pode:
 
-- Gerir o acesso dos utilizadores à aplicação com uma política de acesso condicional.
+- Gerir o acesso de utilizador para a aplicação com uma política de acesso condicional.
 - Configurar utilizadores para o início de sessão único na aplicação com as contas do Azure AD deles.
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -58,7 +58,7 @@ Para adicionar uma aplicação da galeria ao seu inquilino do Azure AD:
 
 1. Para procurar num aplicativo **adicionar a partir da galeria**, introduza o nome da aplicação que pretende adicionar. Selecione a aplicação a partir de resultados e selecione **adicionar**. A exemplo a seguir mostra a **Adicionar aplicação** formulário que aparece a seguir a procurar github.com.
 
-    ![Adicionar uma Aplicação](media/add-application-portal/add-an-application.png)
+    ![Adicionar uma aplicação](media/add-application-portal/add-an-application.png)
 
 1. No formulário específico da aplicação, pode alterar as informações de propriedade. Por exemplo, pode editar o nome da aplicação para satisfazer as necessidades da sua organização. Este exemplo utiliza o nome **GitHub-test**.
 
@@ -72,7 +72,7 @@ Terminar de adicionar a sua aplicação. Aproveite para descansar. As secções 
 
 Vamos supor que teve de se ausentar e que voltou agora para retomar a configuração da aplicação. A primeira coisa a fazer é encontrar o seu aplicativo.
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
 1. Na **do Azure Active Directory** painel, selecione **aplicações empresariais**.
 
@@ -122,7 +122,7 @@ Para editar as propriedades da aplicação:
 
        | Definições da propriedades da aplicação | | | Experiência para utilizadores não atribuídos | |
        |---|---|---|---|---|
-       | Ativado para os utilizadores iniciem sessão? | Atribuição utiliz. necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
+       | Ativado para os utilizadores iniciem sessão? | Atribuição do utilizador necessária? | Visível para os utilizadores? | Os utilizadores não atribuídos podem iniciar sessão? | Os utilizadores não atribuídos podem ver a aplicação?* |
        | sim | sim | sim | não  | não   |
        | sim | sim | não  | não  | não   |
        | sim | não  | sim | sim | não   |

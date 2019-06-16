@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d78ab917589af0eae72eb70e3cdc2cc751072eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076446"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do serviço Cloud comuns
 Este artigo fornece alguns exemplos de tarefas de arranque comuns, que talvez queira executar no seu serviço cloud. Pode utilizar tarefas de arranque para executar operações antes de uma função de inicialização. As operações que pode querer executar incluem instalar um componente, registar componentes COM, definir chaves do Registro ou a partir de um processo de execução demorada. 
@@ -73,7 +73,7 @@ O nível de erro devolvido pelo *AppCmd.exe* estão listados no ficheiro winerro
 ### <a name="example-of-managing-the-error-level"></a>Exemplo de gestão do nível de erro
 Este exemplo adiciona uma seção de compactação e uma entrada de compressão para JSON para o *Web. config* arquivo, com o erro de processamento e o registo.
 
-As seções relevantes da [ServiceDefinition.csdef] arquivo são mostrados aqui, que incluem a definição a [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) atributo para `elevated` dar *AppCmd.exe* permissões suficientes para alterar as definições no *Web. config* ficheiro:
+As seções relevantes da [ServiceDefinition.csdef] arquivo são mostrados aqui, que incluem a definição a [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) atributo para `elevated` dar *AppCmd.exe* permissões suficientes para alterar as definições no *Web. config* ficheiro:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

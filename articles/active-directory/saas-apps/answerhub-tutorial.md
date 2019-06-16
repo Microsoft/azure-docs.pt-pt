@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e51c37f983162b82747760b05e2ec5e4e6553c0b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901278"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure com AnswerHub
 
@@ -184,7 +184,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
     a. Na **Name** , introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** , introduza **brittasimon\@< yourcompanydomain.extension >**.  
+    b. Na **nome de utilizador** , introduza **brittasimon\@< yourcompanydomain.extension >** .  
     Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
@@ -242,7 +242,7 @@ Para permitir que utilizadores do Azure AD iniciar sessão no AnswerHub, terá d
 > [!NOTE]
 > Pode usar qualquer outra ferramenta do utilizador conta criação ou API fornecidos pela AnswerHub configurar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 

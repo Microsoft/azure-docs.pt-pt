@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61477149"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utilizar o armazenamento do Azure para o restauro e cópia de segurança do SQL Server
@@ -51,14 +51,14 @@ Os seguintes componentes do Azure são utilizados quando a cópia de segurança 
 | --- | --- |
 | **Storage Account** |A conta de armazenamento é o ponto de partida para todos os serviços de armazenamento. Para aceder a um serviço de armazenamento de Blobs do Azure, crie primeiro uma conta de armazenamento do Azure. Para obter mais informações sobre o serviço de armazenamento de Blobs do Azure, consulte [como utilizar o serviço de armazenamento de Blobs do Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Contentor** |Um contentor fornece um agrupamento de um conjunto de blobs e pode armazenar um número ilimitado de Blobs. Para escrever um SQL Server cópia de segurança a um serviço de Blobs do Azure, tem de ter, pelo menos, o contentor de raiz que criou. |
-| **Blob** |Um ficheiro de qualquer tipo e tamanho. Os BLOBs são endereçáveis através do formato de URL seguinte: **https://[storage account].blob.core.windows.net/[container]/[blob]**. Para obter mais informações sobre Blobs de páginas, consulte [compreensão blocos e Blobs de páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Blob** |Um ficheiro de qualquer tipo e tamanho. Os BLOBs são endereçáveis através do formato de URL seguinte: **https://[storage account].blob.core.windows.net/[container]/[blob]** . Para obter mais informações sobre Blobs de páginas, consulte [compreensão blocos e Blobs de páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Componentes do SQL Server
 Os seguintes componentes do SQL Server são utilizados quando a cópia de segurança para o serviço de armazenamento de Blobs do Azure.
 
 | Componente | Descrição |
 | --- | --- |
-| **URL** |Um URL especifica um identificador URI (Uniform Resource) para um ficheiro de cópia de segurança exclusivo. O URL é utilizado para fornecer a localização e o nome do ficheiro de cópia de segurança do SQL Server. O URL tem de apontar para um blob real, não apenas um contêiner. Se o blob não existir, será criada. Se um blob existente for especificado, cópia de segurança falha, a menos que o > a opção WITH FORMAT está especificada. Segue-se um exemplo do URL tem de especificar no comando de cópia de segurança: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]**. HTTPS é recomendável, mas não obrigatório. |
+| **URL** |Um URL especifica um identificador URI (Uniform Resource) para um ficheiro de cópia de segurança exclusivo. O URL é utilizado para fornecer a localização e o nome do ficheiro de cópia de segurança do SQL Server. O URL tem de apontar para um blob real, não apenas um contêiner. Se o blob não existir, será criada. Se um blob existente for especificado, cópia de segurança falha, a menos que o > a opção WITH FORMAT está especificada. Segue-se um exemplo do URL tem de especificar no comando de cópia de segurança: **http[s]://[storageaccount].blob.core.windows.net/[container]/[FILENAME.bak]** . HTTPS é recomendável, mas não obrigatório. |
 | **Credencial** |As informações necessárias para ligar e autenticar-se ao serviço de armazenamento de Blobs do Azure são armazenadas como uma credencial.  Por ordem para o SQL Server escrever cópias de segurança para um Blob do Azure ou o restauro a partir do mesmo, tem de ser criada uma credencial do SQL Server. Para obter mais informações, consulte [credenciais do SQL Server](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]

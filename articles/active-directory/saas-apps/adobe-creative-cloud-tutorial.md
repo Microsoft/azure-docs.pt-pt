@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35bd52904ab081e41cb43a346288234c18a7f43b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 9650389d8ec641af1db0652dd09fbd7f06223956
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Active Directory do Azure com o Adobe Creative Cloud
 
@@ -53,7 +53,7 @@ Para configurar a integração do Adobe Creative Cloud no Azure AD, terá de adi
 
 **Para adicionar o Adobe Creative Cloud a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD início de sessão único com o Adobe Creative Cloud,
     |----- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Correio Electrónico | user.mail
+    | Email | user.mail
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -253,7 +253,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Adobe Creative Clo
    * Dentro do utilitário de aplicativo de desktop > início de sessão
    * Dentro da aplicação > Ajuda > início de sessão
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

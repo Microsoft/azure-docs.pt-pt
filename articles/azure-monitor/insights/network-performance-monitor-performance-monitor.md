@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: absha
 ms.openlocfilehash: bb99689409ddff311e556250083b99842bc59927
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963439"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução de Monitor de desempenho de rede: Monitorização de desempenho

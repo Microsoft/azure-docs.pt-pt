@@ -12,12 +12,12 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80680de6602b26488a8bade8a69fdd85b7f83ed1
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 9246d7bd48579def171986606e88c09593029aa2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729949"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108157"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestão de aplicações com o Microsoft Azure Active Directory
 
@@ -41,7 +41,7 @@ Existem quatro tipos principais de aplicações que pode adicionar a sua **aplic
 -   **Aplicações não à galeria** – traga os seus próprios aplicativos! Suporta início de sessão único para outras aplicações, adicionando-os para o Azure AD. Pode integrar qualquer ligação web que pretende, ou qualquer aplicativo que compõe um campo de nome de utilizador e palavra-passe, que oferece suporte a protocolos SAML ou OpenID Connect ou suporta SCIM. Para obter mais informações, consulte [configurar o início de sessão único para aplicações externas à galeria](configure-single-sign-on-non-gallery-applications.md).
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>Gerir o risco com políticas de acesso condicional
-O acoplamento do Azure AD início de sessão único (SSO) com [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) fornece altos níveis de segurança para aceder a aplicações. As capacidades de segurança incluem a proteção de identidade à escala da cloud, o controlo de acesso baseado no risco, a autenticação multifator nativa e políticas de acesso condicional. Estas capacidades permitem políticas de controlo granular com base em aplicações ou em grupos que precisam de níveis mais elevados de segurança.
+O acoplamento do Azure AD início de sessão único (SSO) com [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) fornece altos níveis de segurança para aceder a aplicações. Capacidades de segurança incluem a proteção de identidade de escala da cloud, controlo de acesso baseado em risco, a autenticação multifator nativa e políticas de acesso condicional. Estas capacidades permitem políticas de controlo granular com base em aplicações ou em grupos que precisam de níveis mais elevados de segurança.
 
 ## <a name="improve-productivity-with-single-sign-on"></a>Aumentar a produtividade com o início de sessão único
 Ativar o início de sessão único (SSO) nas aplicações e no Office 365 proporciona uma experiência de início de sessão superior para os utilizadores existentes ao reduzir ou eliminar pedidos de início de sessão. O ambiente do utilizador é mais coeso e com menos distrações, sem vários pedidos ou a necessidade de gerir várias palavras-passe. O grupo empresarial pode gerir e aprovar o acesso através da associação dinâmica e de gestão personalizada. Permitir que as pessoas certas na empresa giram o acesso a uma aplicação melhora a segurança do sistema de identidade.

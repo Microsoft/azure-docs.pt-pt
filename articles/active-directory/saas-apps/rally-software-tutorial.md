@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 800b6307504632be5b584dd645f74c6b48962d20
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: de84d03c3e0e433dbe7bc24c47b1766b32ad7bc4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903019"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutorial: Integração do Active Directory do Azure com Rally Software
 
@@ -53,7 +53,7 @@ Para configurar a integração da Rally Software para o Azure AD, terá de adici
 
 **Para adicionar Rally Software a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -227,7 +227,7 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
    >[!NOTE]
    >Pode utilizar quaisquer outras ferramentas de criação da conta de utilizador de Rally Software ou APIs fornecidas pelo Rally Software para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

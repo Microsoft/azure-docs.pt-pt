@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff1718211fa298e4daee694795a0b2438033fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 808564f291328450b17db8eb7ea299c194c66400
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Tutorial: Integração do Active Directory do Azure com Egnyte
 
@@ -53,7 +53,7 @@ Para configurar a integração do Egnyte com o Azure AD, terá de adicionar Egny
 
 **Para adicionar Egnyte a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -245,7 +245,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Egnyte, tem de ser apr
 >Pode utilizar quaisquer outras Egnyte utilizador conta criação ferramentas ou APIs fornecidas pelo Egnyte para aprovisionar contas de utilizador do AAD.
 >
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

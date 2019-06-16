@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60824019"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados de DB2 usando a atividade de cópia de fábrica de dados do Azure
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-onprem-db2-connector.md)
 > * [Versão 2 (versão atual)](../connector-db2.md)
 
@@ -81,7 +81,7 @@ A tabela seguinte lista as propriedades JSON que são específicas para um servi
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **tipo** |Esta propriedade tem de ser definida **OnPremisesDb2**. |Sim |
+| **type** |Esta propriedade tem de ser definida **OnPremisesDb2**. |Sim |
 | **server** |O nome do servidor DB2. |Sim |
 | **database** |O nome da base de dados DB2. |Sim |
 | **schema** |O nome do esquema na base de dados DB2. Esta propriedade diferencia maiúsculas de minúsculas. |Não |
@@ -309,7 +309,7 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | Tipo de base de dados de DB2 | Tipo de .NET framework |
 | --- | --- |
 | SmallInt |Int16 |
-| Número inteiro |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -319,23 +319,23 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | Numeric |Decimal |
 | Date |DateTime |
 | Hora |TimeSpan |
-| Carimbo de data/hora |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| char |String |
+| Char |String |
 | VarChar |String |
 | LongVarChar |String |
 | DB2DynArray |String |
 | Binário |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Gráfico |String |
+| Graphic |String |
 | VarGraphic |String |
 | LongVarGraphic |String |
-| CLOB |String |
+| Clob |String |
 | Blobs |Byte[] |
 | DbClob |String |
 | SmallInt |Int16 |
-| Número inteiro |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -345,9 +345,9 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | Numeric |Decimal |
 | Date |DateTime |
 | Hora |TimeSpan |
-| Carimbo de data/hora |DateTime |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| char |String |
+| Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
 Para saber como mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

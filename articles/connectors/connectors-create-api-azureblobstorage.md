@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60958643"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Criar e gerir os blobs no armazenamento de Blobs do Azure com o Azure Logic Apps
@@ -86,7 +86,7 @@ No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-
    ![Adicionar uma ação](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    Para adicionar uma ação entre os passos existentes, mova o rato por cima da seta de ligação. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, escolha **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, escolha **adicionar uma ação**.
 
 3. Na caixa de pesquisa, introduza "BLOBs do azure" como o filtro. Na lista de ações, selecione a ação que pretende.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131584"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema Media Encoder Standard
@@ -38,7 +38,7 @@ Define uma predefinição de codificação.
 
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| **Versão**<br/><br/> Necessário |**xs: decimal** |A versão predefinida. As seguintes restrições aplicam-se: valor de xs:fractionDigits = valor "1" e xs:minInclusive = "1", por exemplo, **versão = "1.0"**. |
+| **Versão**<br/><br/> Necessário |**xs: decimal** |A versão predefinida. As seguintes restrições aplicam-se: valor de xs:fractionDigits = valor "1" e xs:minInclusive = "1", por exemplo, **versão = "1.0"** . |
 
 ## <a name="Encoding"></a> Codificação
 Contém uma seqüência dos seguintes elementos:  
@@ -61,7 +61,7 @@ Contém uma seqüência dos seguintes elementos:
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Atualmente, é suportada a codificação de apenas de uma passagem. |
 | **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina o espaçamento fixo entre quadros IDR em unidades de segundos. Também referida como a duração de GOP. Ver **SceneChangeDetection** para controlar se o codificador pode se desviar este valor. |
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> predefinição = "false" |**xs: boolean** |Se definido como true, codificador tenta detetar alterações de cena o vídeo e insere um quadro IDR. |
-| **Complexidade**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controla o equilíbrio entre velocidade e vídeo de qualidade de codificar. Poderia ser um dos seguintes valores: **Velocidade**, **balanceada**, ou **qualidade**<br/><br/> Predefinição: **Com balanceamento de** |
+| **Complexidade**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controla o equilíbrio entre velocidade e vídeo de qualidade de codificar. Poderia ser um dos seguintes valores: **Velocidade**, **balanceada**, ou **qualidade**<br/><br/> predefinição: **Com balanceamento de** |
 | **SyncMode**<br/><br/> minOccurs="0" | |Funcionalidade será exposta numa versão futura. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Coleção de camadas de vídeo de saída. |
 
@@ -135,7 +135,7 @@ Para obter detalhes sobre quais os valores são válidos para cada perfil, consu
 
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| **canais**<br/><br/> minOccurs="0" |**xs: int** |O número de canais de áudio codificado. Seguem-se as opções válidas: 1, 2, 5, 6, 8.<br/><br/> Predefinição: 2. |
+| **canais**<br/><br/> minOccurs="0" |**xs: int** |O número de canais de áudio codificado. Seguem-se as opções válidas: 1, 2, 5, 6, 8.<br/><br/> predefinição: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |A taxa de amostragem de áudio, especificada no Hz. |
 | **Velocidade de transmissão**<br/><br/> minOccurs="0" |**xs: int** |A velocidade de transmissão utilizada quando a codificação de áudio, especificado em kbps. |
 
@@ -160,7 +160,7 @@ Codec de áudio|Detalhes
 
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| **FileName** |**xs:string** |O nome do ficheiro de saída.<br/><br/> Pode usar macros descritas na tabela seguinte para criar os nomes de ficheiro de saída. Por exemplo:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |O nome do ficheiro de saída.<br/><br/> Pode usar macros descritas na tabela seguinte para criar os nomes de ficheiro de saída. Por exemplo:<br/><br/> **"Outputs": [      {       "FileName": "{Basename} *{Resolution}* {Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
 

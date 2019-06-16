@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 41a55eca321cbe1bfa23a889b8e3ce7c701ce769
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8717dad27786450e4275c9fd91523c0e9379f375
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468052"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073048"
 ---
 # <a name="using-codec-compressed-audio-input-with-the-speech-sdk"></a>Usar o codec comprimidos a entrada de áudio com o SDK de voz
 
@@ -23,6 +23,7 @@ O SDK de voz **Stream de entrada de áudio compactados** API fornece uma maneira
 
 > [!IMPORTANT]
 > Transmissão em fluxo de áudio compactado só é suportado para C++, C#e o Java no Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9).
+> Voz SDK versão 1.4.0 ou superior é obrigatório.
 
 Para wav/PCM consulte a documentação de voz principais.  Fora do wav/PCM, são suportados os seguintes formatos de entrada de codec comprimido:
 

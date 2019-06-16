@@ -11,10 +11,10 @@ ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61420971"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Monitorizar atividade de consulta e de utilização de recursos no Azure SQL Data Warehouse
@@ -40,7 +40,7 @@ As métricas seguintes estão disponíveis no portal do Azure para o SQL Data Wa
 | Percentagem de cache utilizada | (o cache utilizada / capacidade em cache) * 100 onde cache utilizada é a soma de todos os bytes no cache SSD local em todos os nós e a capacidade de cache é a soma da capacidade de local SSD de armazenamento em cache em todos os nós | Máximo |
 | Percentagem de local tempdb | Utilização de local tempdb em todos os nós de computação - valores são emitidos a cada cinco minutos | Máximo |
 
-## <a name="query-activity"></a>Atividade de Consulta
+## <a name="query-activity"></a>Atividade de consulta
 Para uma experiência de programação ao monitorizar o SQL Data Warehouse através de T-SQL, o serviço fornece um conjunto de vistas de gestão dinâmica (DMVs). Estas vistas são úteis quando ativamente a solução de problemas e identificar afunilamentos de desempenho com a carga de trabalho.
 
 Para ver a lista de DMVs que fornece o SQL Data Warehouse, consulte este [documentação](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 

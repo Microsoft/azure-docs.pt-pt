@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61425139"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk à consulta de registo do Azure Monitor
@@ -30,14 +30,14 @@ A tabela seguinte compara as estruturas de dados e de conceitos entre registos S
 
  | Conceito  | Splunk | Azure Monitor |  Comentário
  | --- | --- | --- | ---
- | Unidade de implementação  | cluster |  cluster |  O Azure Monitor permite arbitrário cruzada consultas de cluster. Splunk, não. |
+ | Unidade de implementação  | Cluster |  Cluster |  O Azure Monitor permite arbitrário cruzada consultas de cluster. Splunk, não. |
  | Caches de dados |  registos  |  Políticas de colocação em cache e retenção |  Controla o período e a colocação em cache ao nível dos dados. Esta definição diretamente afeta o desempenho das consultas e o custo da implementação. |
- | Partição lógica de dados  |  índice  |  base de dados  |  Permite a separação lógica dos dados. As duas implementações permitem uniões e a associação entre estas partições. |
- | Metadados de eventos estruturados | N/A | tabela |  Splunk não tem o conceito exposto para o idioma de procura de metadados de eventos. Registos de Monitor do Azure tem o conceito de uma tabela, que tem colunas. Cada instância de eventos é mapeada para uma linha. |
+ | Partição lógica de dados  |  index  |  database  |  Permite a separação lógica dos dados. As duas implementações permitem uniões e a associação entre estas partições. |
+ | Metadados de eventos estruturados | N/A | table |  Splunk não tem o conceito exposto para o idioma de procura de metadados de eventos. Registos de Monitor do Azure tem o conceito de uma tabela, que tem colunas. Cada instância de eventos é mapeada para uma linha. |
  | Registo de dados | event | linha |  Apenas a mudança de terminologia. |
  | Atributo de registo de dados | Campo |  Coluna |  No Azure Monitor, está predefinida como parte da estrutura de tabela. No Splunk, cada evento tem seu próprio conjunto de campos. |
  | Tipos | tipo de dados |  tipo de dados |  Tipos de dados de Monitor do Azure são mais explícitos como eles são definidos nas colunas. Ambos têm a capacidade de trabalhar dinamicamente com tipos de dados e praticamente equivalente conjunto de tipos de dados incluindo suporte JSON. |
- | Consulta e pesquisa  | procurar | consulta |  Conceitos são essencialmente o mesmo entre o Azure Monitor e Splunk. |
+ | Consulta e pesquisa  | Pesquisa | consulta |  Conceitos são essencialmente o mesmo entre o Azure Monitor e Splunk. |
  | Tempo de ingestão de eventos | Hora do sistema | ingestion_time() |  No Splunk, cada evento obtém um carimbo de sistema da hora em que o evento foi indexado. No Azure Monitor, pode definir uma política denominada ingestion_time que expõe uma coluna de sistema que pode ser referenciada por meio da função de ingestion_time(). |
 
 ## <a name="functions"></a>Funções
@@ -56,7 +56,7 @@ A seguinte tabela especifica as funções no Azure Monitor, que são equivalente
 | tolower |  tolower() | (1) |
 | toupper | toupper() | (1) |
 | Correspondência | coincide com regex |  (2)  |
-| regex | coincide com regex | No Splunk, `regex` é um operador. No Azure Monitor, é um operador relacional. |
+| RegEx | coincide com regex | No Splunk, `regex` é um operador. No Azure Monitor, é um operador relacional. |
 | searchmatch | == | No Splunk, `searchmatch` permite pesquisar na cadeia exata.
 | aleatório | rand()<br>rand(n) | Função do Splunk devolve um número de 0 até 2<sup>31</sup>-1. O Azure Monitor' devolve um número entre 0,0 e 1,0, ou se um parâmetro fornecido, entre 0 e n-1.
 | agora | now() | (1)
@@ -158,7 +158,7 @@ Consulte a [agregações no Azure Monitor registar as consultas](aggregations.md
 
 
 
-### <a name="join"></a>Associar
+### <a name="join"></a>Aderir
 Associação no Splunk possui limitações significativas. A subconsulta tem um limite de 10000 resultados (definido no ficheiro de configuração de implementação) e há um número limitado de associação sabores.
 
 | |  | |

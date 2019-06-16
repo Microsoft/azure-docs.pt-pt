@@ -3,18 +3,18 @@ title: Opções de IoT do Microsoft Azure | Microsoft Docs
 description: Escolha como pretende implementar a sua solução de IoT do Azure com o Azure IoT Central, aceleradores de solução de IoT ou IoT Hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 06/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 571c703609bac2e4414baf19edc39cf5e9f8820a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19ec7afeb71f0e9d5602f1c4ba1a2456162cdfae
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077394"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Comparar as opções do Azure IoT Central e do Azure IoT
 

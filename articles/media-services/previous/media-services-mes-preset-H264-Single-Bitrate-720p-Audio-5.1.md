@@ -1,8 +1,8 @@
 ---
 title: H264 taxa de bits Única 720p Audio 5.1 | Documentos da Microsoft
 description: O tópico fornece uma visão geral do **h264 taxa de bits única 720p Audio 5.1** predefinido de tarefa.
-author: WenJason
-manager: digimobile
+author: Juliako
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/19/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 03/19/2019
+ms.author: juliako
 ms.openlocfilehash: aad0a5f0e521d0608c1797ea8c1225c48240b391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61129561"
 ---
 # <a name="h264-single-bitrate-720p-audio-51"></a>H264 Taxa de Bits Única 720p Audio 5.1

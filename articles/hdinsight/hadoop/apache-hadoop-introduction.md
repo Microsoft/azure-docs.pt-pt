@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 05/28/2019
-ms.openlocfilehash: 6e7e07d130c8c4c8fa776dcad539398a004ecea0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 42bfa571818efa4d4a5ad96f62a47fb2b80dca3c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298916"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057558"
 ---
-# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>O que é o Azure HDInsight e a pilha de tecnologia do Apache Hadoop?
+# <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>O que é o Apache Hadoop no Azure HDInsight?
 
 Este artigo disponibiliza uma introdução ao Apache Hadoop no Azure HDInsight. O Azure HDInsight é um serviço de análise completamente gerido, de espectro completo e de código aberto na cloud para empresas. Pode usar as estruturas de open source, como Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, o Apache Storm, R e muito mais. 
 
@@ -25,7 +25,7 @@ Este artigo disponibiliza uma introdução ao Apache Hadoop no Azure HDInsight. 
 O [Apache Hadoop](https://hadoop.apache.org/) era a arquitetura de código aberto original para processamento distribuído e análise de conjuntos de macrodados em clusters. A pilha de tecnologia do Hadoop inclui software e utilitários, incluindo Apache Hive, Apache HBase, Spark, Kafka e muitos outros relacionados.
 
 
-O Azure HDInsight é uma distribuição de cloud dos componentes do Hadoop da [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/). O Azure HDInsight torna mais fácil, rápido e rentável processar quantidades enormes de dados. Pode utilizar as estruturas de código aberto mais populares, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o R, entre outras. Com estas estruturas, pode permitir um vasto leque de cenários como extrair, transformar e carregar (ETL), armazenamento de dados, machine learning e IoT.
+O Azure HDInsight é uma distribuição de nuvem de componentes do Hadoop. O Azure HDInsight torna mais fácil, rápido e rentável processar quantidades enormes de dados. Pode utilizar as estruturas de código aberto mais populares, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o R, entre outras. Com estas estruturas, pode permitir um vasto leque de cenários como extrair, transformar e carregar (ETL), armazenamento de dados, machine learning e IoT.
 
 Para ver componentes disponíveis da pilha de tecnologia do Hadoop no HDInsight, consulte [componentes e versões disponíveis com o HDInsight](../hdinsight-component-versioning.md). Para ler mais sobre o Hadoop no HDInsight, veja a [página de funcionalidades do Azure para o HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -140,7 +140,4 @@ As ferramentas de business intelligence (BI) familiares obtêm, analisam e repor
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu o que é o Azure HDInsight e como fornece o Hadoop e outros tipos de cluster no Azure. Avance para o artigo seguinte para saber como criar um cluster do Apache Hadoop no HDInsight.
-
-> [!div class="nextstepaction"]
-> [Criar cluster do Apache Hadoop no HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Criar cluster do Apache Hadoop no HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 4c22c9c202e6de3b31b99803dce4a07d38287a92
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506862"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057296"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -36,6 +36,7 @@ Após a funcionalidade de execução no modo de auditoria durante um período ra
 
 ## <a name="deployment-requirements"></a>Requisitos de implementação
 
+* Os requisitos de licenciamento para a proteção de palavra-passe do Azure AD pode ser encontrada no artigo [eliminar palavras-passe incorretas na sua organização](concept-password-ban-bad.md#license-requirements).
 * Todos os controladores de domínio que obtenham o agente de controlador de domínio de serviço para proteção de palavra-passe do Azure AD instalada deve executar o Windows Server 2012 ou posterior. Este requisito não implica que o domínio do Active Directory ou a floresta também tem de ser ao nível funcional Windows Server 2012 domínio ou floresta. Conforme mencionado na [princípios de Design](concept-password-ban-bad-on-premises.md#design-principles), não existe mínimo DFL ou FFL necessário para qualquer um do DC proxy ou agente de software ser executado.
 * Todas as máquinas que obtém o serviço de agente do controlador de domínio instalado tem de ter .NET 4.5 instalado.
 * Todas as máquinas que obtenham o proxy de serviço para proteção de palavra-passe do Azure AD instalada deve executar o Windows Server 2012 R2 ou posterior.

@@ -7,16 +7,16 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 0e67a56e3d723874ed93fc8dcad91e3063d923ed
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076159"
 ---
-# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Tutorial: Stream Analytics e o Power BI: Um dashboard de análise em tempo real para dados de transmissão em fluxo
+# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e o Power BI: Um dashboard de análise em tempo real para dados de transmissão em fluxo
+
 O Azure Stream Analytics permite-lhe tirar partido de um das principais ferramentas de business intelligence, [Microsoft Power BI](https://powerbi.com/). Neste artigo, ficará a saber como criar ferramentas de business intelligence com o Power BI como uma saída para as tarefas do Azure Stream Analytics. Também irá aprender a criar e utilizar um dashboard em tempo real.
 
 Este artigo continua a partir do Stream Analytics [deteção de fraudes em tempo real](stream-analytics-real-time-fraud-detection.md) tutorial. Ele se baseia no fluxo de trabalho criado nesse tutorial e adiciona um Power BI, de modo a que é possível visualizar as chamadas de telefone fraudulentas que são detetadas por um trabalho de análise de transmissão em fluxo de saída. 
@@ -38,41 +38,31 @@ O tutorial de deteção de fraudes em tempo real, a saída é enviada para o arm
 
 1. No portal do Azure, abra a tarefa de análise de transmissão em fluxo que criou anteriormente. Se tiver utilizado o nome sugerido, a tarefa com o nome `sa_frauddetection_job_demo`.
 
-2. Selecione o **saídas** caixa no meio do dashboard de tarefa e, em seguida, selecione **+ adicionar**.
+2. No menu da esquerda, selecione **saídas** sob **topologia da tarefa**. Em seguida, selecione **+ adicionar** e escolha **Power BI** no menu pendente.
 
-3. Para **Alias de saída**, introduza `CallStream-PowerBI`. Pode utilizar um nome diferente. Se o fizer, tome nota do mesmo, porque é necessário o nome mais tarde. 
+3. Selecione **+ Adicionar** > **Power BI**. Em seguida, preencha o formulário com os seguintes detalhes e selecione **Autorizar**:
 
-4. Sob **Sink**, selecione **Power BI**.
+   |**Definição**  |**Valor sugerido**  |
+   |---------|---------|
+   |Alias de saída  |  CallStream-PowerBI  |
+   |Nome do conjunto de dados  |   conjunto de dados SA  |
+   |Nome da tabela |  chamadas fraudulentas  |
 
-   ![Criar uma saída para o Power BI](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
+   ![Configurar a saída do Stream Analytics](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
-5. Clique em **autorizar**.
+   > [!WARNING]
+   > Se o Power BI tem um conjunto de dados e a tabela que tem os mesmos nomes que aqueles que especificou na tarefa do Stream Analytics, os existentes serão substituídos.
+   > Recomendamos que não explicitamente criar este conjunto de dados e a tabela na sua conta do Power BI. Elas são criadas automaticamente quando iniciar a tarefa de Stream Analytics e a tarefa é iniciada a saída de bombagem para o Power BI. Se a sua consulta da tarefa não devolve nenhum resultado, o conjunto de dados e a tabela não são criados.
+   >
 
-    Uma é apresentada a janela onde pode fornecer as credenciais do Azure para uma conta escolar ou profissional. 
-
-    ![Introduza as credenciais de acesso para o Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
-
-6. Introduza as credenciais. Tenha em atenção, em seguida, ao introduzir as suas credenciais, também está a dar permissão para a tarefa de análise de transmissão em fluxo para acessar sua área de Power BI.
-
-7. Quando forem retornados para o **nova saída** painel, introduza as seguintes informações:
-
-   * **Área de trabalho de grupo**: Selecione uma área de trabalho no seu inquilino do Power BI em que pretende criar o conjunto de dados.
-   * **Nome do conjunto de dados**:  Introduza `sa-dataset`. Pode utilizar um nome diferente. Se o fizer, tome nota do mesmo para utilizar mais tarde.
-   * **Nome da tabela**: Introduza `fraudulent-calls`. Atualmente, a saída do Power BI a partir de tarefas do Stream Analytics pode ter apenas uma tabela num conjunto de dados.
-
-     ![O conjunto de dados do Power BI área de trabalho e de tabela](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
-
-     > [!WARNING]
-     > Se o Power BI tem um conjunto de dados e a tabela que tem os mesmos nomes que aqueles que especificou na tarefa do Stream Analytics, os existentes serão substituídos.
-     > Recomendamos que não explicitamente criar este conjunto de dados e a tabela na sua conta do Power BI. Elas são criadas automaticamente quando iniciar a tarefa de Stream Analytics e a tarefa é iniciada a saída de bombagem para o Power BI. Se a sua consulta da tarefa não devolve nenhum resultado, o conjunto de dados e a tabela não são criados.
-     >
+4. Quando seleciona **Autorizar**, uma janela de pop-up abre e é-lhe pedido que forneça credenciais para fazer a autenticação na sua conta do Power BI. Assim que a autorização for bem sucedida, **guarde** as definições.
 
 8. Clique em **Criar**.
 
 O conjunto de dados é criado com as seguintes definições:
 
-* **defaultRetentionPolicy: BasicFIFO**: Os dados são FIFO, com um máximo de 200 000 linhas.
-* **defaultMode: pushStreaming**: O conjunto de dados suporta a transmissão em fluxo de mosaicos e elementos visuais com base no relatório tradicionais (também conhecido como Push).
+* **defaultRetentionPolicy: BasicFIFO** -os dados são FIFO, com um máximo de 200 000 linhas.
+* **defaultMode: pushStreaming** -o conjunto de dados suporta mosaicos de transmissão em fluxo e elementos visuais com base no relatório tradicionais (também conhecido como push).
 
 Atualmente, não é possível criar conjuntos de dados com outros sinalizadores.
 
@@ -90,54 +80,52 @@ Para obter mais informações sobre conjuntos de dados do Power BI, consulte a [
     >[!NOTE]
     >Se não nome de entrada `CallStream` do tutorial de deteção de fraudes, substitua o nome de `CallStream` no **FROM** e **associar** cláusulas na consulta.
 
-        ```SQL
-        /* Our criteria for fraud:
-        Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
+   ```SQL
+   /* Our criteria for fraud:
+   Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
-        SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-        INTO "CallStream-PowerBI"
-        FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-        JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+   SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+   INTO "CallStream-PowerBI"
+   FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+   JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
 
-        /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
-        ON CS1.CallingIMSI = CS2.CallingIMSI
+   /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+   ON CS1.CallingIMSI = CS2.CallingIMSI
 
-        /* ...and date between CS1 and CS2 is between one and five seconds */
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+   /* ...and date between CS1 and CS2 is between one and five seconds */
+   AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
 
-        /* Where the switch location is different */
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-        GROUP BY TumblingWindow(Duration(second, 1))
-        ```
+   /* Where the switch location is different */
+   WHERE CS1.SwitchNum != CS2.SwitchNum
+   GROUP BY TumblingWindow(Duration(second, 1))
+   ```
 
 4. Clique em **Guardar**.
 
 
 ## <a name="test-the-query"></a>Testar a consulta
+
 Esta secção é opcional mas recomendado. 
 
 1. Se a aplicação de TelcoStreaming não estiver em execução, inicie-o através dos seguintes passos:
 
-    * Abra uma janela de comando.
+    * Abra a linha de comandos.
     * Vá para a pasta onde estão os ficheiros de telcodatagen.exe.config modificado e telcogenerator.exe.
     * Execute o seguinte comando:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. No **consulta** painel, clique nos pontos junto a `CallStream` de entrada e, em seguida, selecione **dados de exemplo da entrada**.
+2. No **consulta** página para a sua tarefa do Stream Analytics, clique nos pontos junto a `CallStream` de entrada e, em seguida, selecione **dados de exemplo da entrada**.
 
 3. Especifique que pretende que o valor de três minutos de dados e clique em **OK**. Aguarde até receber uma notificação a indicar que foi criada uma amostra dos dados.
 
-4. Clique em **Testar** e certifique-se de que está a obter os resultados.
-
+4. Clique em **teste** e rever os resultados.
 
 ## <a name="run-the-job"></a>Executar a tarefa
 
-1. Certifique-se de que a aplicação de TelcoStreaming está em execução.
+1. Certificar-se de que a aplicação de TelcoStreaming está em execução.
 
-2. Fechar o **consulta** painel.
-
-3. No painel de tarefas, clique em **iniciar**.
+2. Navegue para o **descrição geral** página para a sua tarefa do Stream Analytics e selecione **iniciar**.
 
     ![Iniciar a tarefa de Stream Analytics](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 

@@ -7,12 +7,12 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: b2b3d1ac0a7c0e917f87be1dd131120f63a70f8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b245661ab8f26c1f529a049d326d2c72838c7a17
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142801"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056719"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Faça a integração do Apache Spark e Apache Hive com o conector de armazém do Hive
 
@@ -20,7 +20,7 @@ O Apache Hive armazém conector (HWC) é uma biblioteca que lhe permite trabalha
 
 O conector de armazém do Hive permite-lhe tirar partido das funcionalidades únicas de Hive e do Spark para criar poderosas aplicações de macrodados. Apache Hive oferece suporte para transações da base de dados que são ocorreu, consistência, Isolated e durável (ACID). Para obter mais informações sobre ACID e transações no Hive, consulte [Hive transações](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive também oferece controlos de segurança detalhadas através do Apache Ranger e baixa latência analítico de processamento não está disponível no Apache Spark.
 
-Apache Spark, tem uma API de transmissão em fluxo estruturada que fornece capacidades de transmissão em fluxo não está disponíveis no Apache Hive. Começando com o Hortonworks Data Platform (HDP) 3.0, Apache Spark e Apache Hive têm metastores separado, que pode tornar difícil interoperabilidade. O conector de armazém do Hive torna mais fácil de utilizar o Spark e do Hive em conjunto. A biblioteca HWC carrega dados a partir dos daemons do LLAP para executor do Spark em paralelo, tornando-o mais eficiente e dimensionável do que utilizar uma ligação de JDBC padrão do Spark para Hive.
+Apache Spark, tem uma API de transmissão em fluxo estruturada que fornece capacidades de transmissão em fluxo não está disponíveis no Apache Hive. A partir do HDInsight 4.0, 2.3.1 do Apache Spark e Apache Hive 3.1.0 têm metastores separado, que pode tornar difícil interoperabilidade. O conector de armazém do Hive torna mais fácil de utilizar o Spark e do Hive em conjunto. A biblioteca HWC carrega dados a partir dos daemons do LLAP para executor do Spark em paralelo, tornando-o mais eficiente e dimensionável do que utilizar uma ligação de JDBC padrão do Spark para Hive.
 
 ![Arquitetura](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -239,5 +239,5 @@ Siga os passos abaixo para criar um exemplo de conector de armazém do Hive que 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Utilizar uma consulta interativa com o HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Utilizar uma Consulta Interativa com o HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started).
 * [Exemplos de interação com o conector de armazém do Hive com o Zeppelin, Livy, spark-submit e pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

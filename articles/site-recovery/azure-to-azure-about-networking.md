@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
 ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60789799"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para replicação
@@ -128,7 +128,7 @@ Este exemplo mostra como configurar regras NSG para uma VM a replicar.
 
 3. Crie regras de saída HTTPS (443) para os IPs de recuperação de Site que correspondem à localização de destino:
 
-   **Localização** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação de site**
+   **Location** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação de site**
     --- | --- | ---
    EUA Central | 40.69.144.231 | 52.165.34.144
 
@@ -142,7 +142,7 @@ Estas regras são necessárias para que os replicação pode ser ativada a parti
 
 3. Crie regras de saída HTTPS (443) para os IPs de recuperação de Site que correspondem à localização de origem:
 
-   **Localização** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação de site**
+   **Location** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação de site**
     --- | --- | ---
    EUA Central | 13.82.88.226 | 104.45.147.24
 

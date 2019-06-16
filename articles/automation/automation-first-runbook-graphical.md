@@ -11,10 +11,10 @@ ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61078105"
 ---
 # <a name="my-first-graphical-runbook"></a>O meu primeiro runbook gráfico
@@ -209,13 +209,13 @@ Agora modifique o runbook para que apenas tente iniciar a máquina virtual se es
 
 1. Crie uma ligação de **Obter Estado** para **Start-AzureRmVM**.<br> ![Runbook com Módulo de Código](media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
 1. Selecione a ligação e, no painel de Configuração, altere **Aplicar condição** para **Sim**. Tenha em atenção que a ligação muda para uma linha tracejada que indica que a atividade de destino apenas é executada se a condição for resolvida como verdadeira.  
-1. Para **Expressão de condição**, escreva *$ActivityOutput['Get Status'] -eq "Stopped"*. Agora, **Start-AzureRmVM** só é executado se a máquina virtual estiver parada.
+1. Para **Expressão de condição**, escreva *$ActivityOutput['Get Status'] -eq "Stopped"* . Agora, **Start-AzureRmVM** só é executado se a máquina virtual estiver parada.
 1. No controlo da Biblioteca, expanda **Cmdlets** e, em seguida, **Microsoft.PowerShell.Utility**.
 1. Adicione **Write-Output** à tela duas vezes.
 1. No primeiro controlo **Write-Output**, clique em **Parâmetros** e altere o valor de **Etiqueta** para *Notify VM Started*.
-1. Para **InputObject**, altere **Origem de dados** para **Expressão do PowerShell** e escreva a expressão *"$VMName successfully started."*.
+1. Para **InputObject**, altere **Origem de dados** para **Expressão do PowerShell** e escreva a expressão *"$VMName successfully started."* .
 1. No primeiro controlo **Write-Output**, clique em **Parâmetros** e altere o valor de **Etiqueta** para *Notify VM Started*
-1. Para **InputObject**, altere **Origem de dados** para **Expressão do PowerShell** e escreva a expressão *"$VMName could not start."*.
+1. Para **InputObject**, altere **Origem de dados** para **Expressão do PowerShell** e escreva a expressão *"$VMName could not start."* .
 1. Crie uma ligação de **Start-AzureRmVM** para **Notify VM Started** e **Notify VM Start Failed**.
 1. Selecione a ligação para **Notify VM Started** e altere **Aplicar condição** para **True**.
 1. Para a **Expressão de condição**, escreva *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*. Agora, este controlo Write-Output apenas é executado se a máquina virtual for iniciada com êxito.

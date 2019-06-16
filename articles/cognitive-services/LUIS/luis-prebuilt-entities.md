@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
 ms.openlocfilehash: 0cfc4ff58cfeb65f80f9ac5ce2dd532defde5ef8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60596132"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades previamente concebidas para reconhecer os tipos de dados comuns

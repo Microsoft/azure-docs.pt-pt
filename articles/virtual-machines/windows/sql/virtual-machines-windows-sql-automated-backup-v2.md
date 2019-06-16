@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d03d4bd86367aa29bbf93062f7cc03f57f4cad83
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165685"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075956"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>V2 de cópia de segurança automatizada para máquinas virtuais do Azure (Resource Manager)
 
@@ -60,17 +60,17 @@ Para utilizar a cópia de segurança automatizada v2, reveja os seguintes pré-r
 ## <a name="settings"></a>Definições
 A tabela seguinte descreve as opções que podem ser configuradas para cópia de segurança automatizada v2. Os passos de configuração real variam consoante utilize ou o portal do Azure ou os comandos do Azure Windows PowerShell.
 
-### <a name="basic-settings"></a>Definições Básicas
+### <a name="basic-settings"></a>Definições básicas
 
 | Definição | Intervalo (predefinição) | Descrição |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/desativar (desativado) | Ativa ou desativa a cópia de segurança automatizada para uma VM do Azure a executar o SQL Server 2016/2017 Developer, Standard ou Enterprise. |
 | **Período de retenção** | 1-30 dias (30 dias) | O número de dias a manter as cópias de segurança. |
 | **Storage Account** | Conta de armazenamento do Azure | Uma conta de armazenamento do Azure a utilizar para armazenar ficheiros de cópia de segurança automatizada no armazenamento de Blobs. É criado um contentor nesta localização para armazenar todos os ficheiros de cópia de segurança. A Convenção de nomenclatura de ficheiro de cópia de segurança inclui a data, hora e a base de dados GUID. |
-| **Encriptação** |Ativar/desativar (desativado) | Ativa ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada. Ele usa o mesmo **automaticbackup** contentor com a mesma Convenção de nomenclatura. Se alterar a palavra-passe, um novo certificado é gerado com essa palavra-passe, mas o certificado antigo permanece restaurar cópias de segurança anteriores. |
+| **Encriptação** |Ativar/desativar (desativado) | Ativa ou desativa a encriptação. Quando a encriptação está ativada, os certificados utilizados para restaurar a cópia de segurança estão localizados na conta de armazenamento especificada. Ele usa o mesmo **cópia de segurança automática** contentor com a mesma Convenção de nomenclatura. Se alterar a palavra-passe, um novo certificado é gerado com essa palavra-passe, mas o certificado antigo permanece restaurar cópias de segurança anteriores. |
 | **Palavra-passe** |Texto de palavra-passe | Uma palavra-passe para as chaves de encriptação. Esta palavra-passe só é necessário se a encriptação está ativada. Para restaurar uma cópia de segurança encriptada, tem de ter a palavra-passe correta e o certificado relacionado que foi utilizado no momento que da cópia de segurança. |
 
-### <a name="advanced-settings"></a>Definições Avançadas
+### <a name="advanced-settings"></a>Definições avançadas
 
 | Definição | Intervalo (predefinição) | Descrição |
 | --- | --- | --- |
@@ -127,7 +127,7 @@ Pode utilizar o portal do Azure para configurar a cópia de segurança automatiz
 
 Utilize o portal do Azure para configurar a cópia de segurança automatizada v2 quando cria um novo SQL Server 2016 ou 2017 numa máquina Virtual no modelo de implementação do Resource Manager.
 
-Na **definições do SQL Server** painel, selecione **cópia de segurança automatizada**. A captura de ecrã de portal do Azure a seguir mostra a **cópia de segurança do SQL automatizada** definições.
+Na **definições do SQL Server** separador, selecione **ativar** sob **cópia de segurança automatizada**. A captura de ecrã de portal do Azure a seguir mostra a **cópia de segurança do SQL automatizada** definições.
 
 ![Configuração de cópia de segurança do SQL automatizada no portal do Azure](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
@@ -136,15 +136,14 @@ Na **definições do SQL Server** painel, selecione **cópia de segurança autom
 
 ## <a name="configure-existing-vms"></a>Configurar as VMs existentes
 
-Para máquinas de virtuais do SQL Server existentes, selecione a máquina virtual do SQL Server. Em seguida, selecione o **configuração do SQL Server** secção da VM **definições**.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Para máquinas de virtuais existentes do SQL Server, navegue para o [recurso de máquinas virtuais do SQL](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) e, em seguida, selecione **cópias de segurança** para configurar as cópias de segurança automatizadas.
 
 ![SQL automatizados cópia de segurança de VMs existentes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-Na **configuração do SQL Server** definições, clique nas **editar** botão na secção de cópia de segurança automatizada.
 
-![Configurar a cópia de segurança do SQL automatizada de VMs existentes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
-
-Quando terminar, clique nas **OK** botão na parte inferior dos **configuração do SQL Server** definições para guardar as alterações.
+Quando terminar, clique nas **aplicar** botão na parte inferior dos **cópias de segurança** página de definições para guardar as alterações.
 
 Se pretende ativar a cópia de segurança automatizada pela primeira vez, o Azure configura o agente IaaS do SQL Server em segundo plano. Durante este período, o portal do Azure poderá não mostrar que a cópia de segurança automatizada está configurada. Aguarde alguns minutos até que o agente ser instalado, configurado. Depois disso, o portal do Azure irão refletir as novas definições.
 
@@ -169,7 +168,7 @@ $resourcegroupname = "resourcegroupname"
 
 Se a extensão do agente IaaS do SQL Server estiver instalada, deverá ver que o mesmo listado como "SqlIaaSAgent" ou "SQLIaaSExtension". **ProvisioningState** para a extensão também deve mostrar "Com êxito". 
 
-Se não está instalado ou falha no aprovisionamento, pode instalá-lo com o seguinte comando. Juntamente com o grupo de recursos e o nome VM, também tem de especificar a região (**$region**) situado na sua VM.
+Se não está instalado ou falha no aprovisionamento, pode instalá-lo com o seguinte comando. Juntamente com o grupo de recursos e o nome VM, também tem de especificar a região ( **$region**) situado na sua VM.
 
 ```powershell
 $region = “EASTUS2”

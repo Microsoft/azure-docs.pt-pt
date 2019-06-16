@@ -2,18 +2,18 @@
 title: 'Migre redes virtuais do clássico para Resource Manager - ExpressRoute: Azure: PowerShell | Microsoft Docs'
 description: Esta página descreve como migrar redes virtuais associadas do ExpressRoute para o Resource Manager depois de mover o seu circuito.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.author: ganesr;cherylmc
+ms.date: 06/13/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60363857"
+ms.locfileid: "67115415"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrar redes virtuais associadas do ExpressRoute do clássico para Resource Manager
 
@@ -23,7 +23,7 @@ Este artigo explica como migrar redes virtuais associadas do ExpressRoute do mod
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Certifique-se de que tem a versão mais recente dos módulos do Azure PowerShell. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+* Certifique-se de que tem as versões mais recentes de módulos do Azure PowerShell. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Instalar o módulo de gestão de serviço do PowerShell (que é necessária para o modelo de implementação clássica), veja [instalar o módulo de gestão de serviço do Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps).
 * Certifique-se de que consultou os [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 * Reveja as informações que são fornecidas através de [mover um circuito do ExpressRoute do clássico para Resource Manager](expressroute-move.md). Certifique-se de que compreende totalmente os limites e limitações.
 * Certifique-se de que o circuito é totalmente operacional no modelo de implementação clássica.

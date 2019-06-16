@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 0bbd13a29b8d01f64ca68c35b751b0adf0a76c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 751de509d17b05c2515261eeb7c036ae345986fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65743821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de Netop
 
@@ -52,7 +52,7 @@ Para configurar a integração do Portal de Netop com o Azure AD, terá de adici
 
 **Para adicionar Netop Portal a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -211,7 +211,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Portal de Netop. Trabalhar com [equipa de suporte do Portal de Netop](mailto:casemanager@netop.com) para adicionar os utilizadores na plataforma do Portal de Netop. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

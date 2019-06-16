@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd7199e94a58b3f0c121a0fd9401bff94406ed84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Active Directory do Azure com Nimblex
 
@@ -55,7 +55,7 @@ Para configurar a integração do Nimblex com o Azure AD, terá de adicionar Nim
 
 **Para adicionar Nimblex a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -216,7 +216,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Nimblex. Nimble
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente Nimblex](mailto:support@ebms.com.au).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -11,16 +11,16 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062108"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-use-custom-activities.md)
 > * [Versão atual](transform-data-using-dotnet-custom-activity.md)
 
@@ -104,7 +104,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Nome da atividade no pipeline     | Sim      |
 | description           | Texto que descreve o que faz a atividade.  | Não       |
-| tipo                  | Para a atividade personalizada, é o tipo de atividade **personalizado**. | Sim      |
+| type                  | Para a atividade personalizada, é o tipo de atividade **personalizado**. | Sim      |
 | linkedServiceName     | Serviço ligado para o Azure Batch. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.  | Sim      |
 | Comando               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já está disponível no nó no conjunto do Azure Batch, podem ser ignorados o resourceLinkedService e folderPath. Por exemplo, pode especificar o comando para ser `cmd /c dir`, que é suportado nativamente por nó no conjunto de Batch do Windows. | Sim      |
 | resourceLinkedService | Serviço ligado do armazenamento do Azure para a conta de armazenamento onde está armazenado o aplicativo personalizado | Não&#42;       |
@@ -301,7 +301,7 @@ Activity Error section:
 Se desejar consumir o conteúdo de stdout.txt em atividades downstream, pode obter o caminho para o ficheiro de stdout.txt na expressão "\@activity('MyCustomActivity').output.outputs [0]".
 
 > [!IMPORTANT]
-> - O activity.json linkedServices.json e datasets.json são armazenadas na pasta de tempo de execução da tarefa do Batch. Para este exemplo, o activity.json linkedServices.json e datasets.json são armazenados em "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" caminho. Se for necessário, terá de limpá-los separadamente.
+> - O activity.json linkedServices.json e datasets.json são armazenadas na pasta de tempo de execução da tarefa do Batch. Para este exemplo, o activity.json linkedServices.json e datasets.json são armazenados em `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` caminho. Se for necessário, terá de limpá-los separadamente.
 > - Para obter serviços ligados que utilizem o Runtime de integração autoalojado, as informações confidenciais, como chaves ou palavras-passe são criptografadas pelo Runtime de integração autoalojado para garantir que a credencial permanece no cliente definido pelo ambiente de rede privada. Alguns campos confidenciais poderiam estar em falta quando referenciados pelo seu código de aplicativo personalizada dessa forma. Utilize SecureString extendedProperties em vez de utilizar a referência de serviço ligado, se necessário.
 
 ## <a name="pass-outputs-to-another-activity"></a>Saídas de passagem para outra atividade

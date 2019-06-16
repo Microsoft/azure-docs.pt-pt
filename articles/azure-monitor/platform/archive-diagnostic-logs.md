@@ -1,39 +1,31 @@
 ---
 title: Arquivar registos de diagnóstico do Azure
 description: Aprenda a arquivar os registos de diagnóstico do Azure para retenção de longa duração numa conta de armazenamento.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: johnkem
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: bc1804e547bb1a29fc0dc680b948f1bb31af8307
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8ab8a0bcf0c2c00515e46f3e2bbdb55b42ff7a2a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244923"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071541"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar registos de diagnóstico do Azure
 
 Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell, CLI ou REST API para arquivar sua [registos de diagnóstico do Azure](diagnostic-logs-overview.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter os seus registos de diagnóstico com uma política de retenção opcional para auditoria, análise estática ou cópia de segurança. A conta de armazenamento não tem de estar na mesma subscrição que o recurso emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
 
-> [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, precisa [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) ao qual pode arquivar os seus registos de diagnóstico. É altamente recomendável que não use uma conta de armazenamento existente que tenha outros, não monitorizar dados armazenados na mesma, para que pode controlar melhor acesso a dados de monitorização. No entanto, se também são arquivar o registo de atividades e métricas de diagnóstico para uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para os seus registos de diagnóstico para manter todos os dados de monitorização numa localização central.
 
-> [!NOTE]
->  Atualmente não pode arquivar dados a um armazenamento de conta que, por trás de uma rede virtual protegida.
-
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
 
-Para arquivar os registos de diagnósticos usando qualquer um dos métodos abaixo, define um **definição de diagnóstico** para um recurso em particular. Uma definição de diagnóstico para um recurso define as categorias de registos e métricos dados enviados para um destino (conta de armazenamento, espaço de nomes de Hubs de eventos ou área de trabalho do Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e dados métricos armazenados numa conta de armazenamento. Se uma política de retenção é definida como zero, eventos dessa categoria de registo são armazenados indefinidamente (ou seja dizer que, para sempre). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 2147483647. [Pode ler mais sobre as definições de diagnóstico aqui](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além do período de retenção política será eliminada. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento. 
+Para arquivar os registos de diagnósticos usando qualquer um dos métodos abaixo, define um **definição de diagnóstico** para um recurso em particular. Uma definição de diagnóstico para um recurso define as categorias de registos e métricos dados enviados para um destino (conta de armazenamento, espaço de nomes de Hubs de eventos ou área de trabalho do Log Analytics). Também define a política de retenção (número de dias a manter) para eventos de cada categoria de registo e dados métricos armazenados numa conta de armazenamento. Se uma política de retenção é definida como zero, eventos dessa categoria de registo são armazenados indefinidamente (ou seja dizer que, para sempre). Uma política de retenção caso contrário, pode ser qualquer número de dias entre 1 e 365. [Pode ler mais sobre as definições de diagnóstico aqui](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além do período de retenção política será eliminada. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento. 
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
@@ -71,17 +63,17 @@ Após alguns instantes, a nova definição é apresentada na sua lista de defini
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```
-Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Category networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
 | ResourceId |Sim |ID de recurso do recurso no qual pretende definir uma definição de diagnóstico. |
 | StorageAccountId |Não |ID de recurso da conta do Storage para o qual os registos de diagnóstico deverá ser guardados. |
-| Categories |Não |Lista separada por vírgulas de categorias de registo para ativar. |
+| Category |Não |Lista separada por vírgulas de categorias de registo para ativar. |
 | Enabled |Sim |Booleano indicando se o diagnóstico está ativado ou desativado neste recurso. |
 | RetentionEnabled |Não |Booleano indicando se uma política de retenção estão ativadas neste recurso. |
-| RetentionInDays |Não |Número de dias para as quais eventos devem ser mantidos entre 1 e 2147483647. Um valor de zero armazena os logs de indefinidamente. |
+| RetentionInDays |Não |Número de dias para as quais eventos devem ser mantidos entre 1 e 365. Um valor de zero armazena os logs de indefinidamente. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Arquivar os registos de diagnóstico através da CLI do Azure
 

@@ -7,10 +7,10 @@ ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
 ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832919"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Grupos de regras CRS do Web application firewall e regras

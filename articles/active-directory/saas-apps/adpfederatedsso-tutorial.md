@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7f47fcbdf61caa95e49a34bcfd093d3370f769
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859258"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutorial: Integração do Active Directory do Azure com ADP
 
@@ -53,7 +53,7 @@ Para configurar a integração do ADP com o Azure AD, terá de adicionar ADP a p
 
 **Para adicionar ADP a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -169,7 +169,7 @@ Para configurar o início de sessão único em **ADP** lado, terá de carregar o
 > Os seus funcionários que precisam de acesso federado aos seus serviços ADP tem de ser atribuídos para a aplicação de serviço ADP e, em seguida, os utilizadores devem ser reatribuídos para o serviço de ADP específico.
 Após a receção de confirmação do seu representante de ADP, configure os utilizadores de serviços e atribuir/gerir ADP para controlar o acesso de utilizador para o serviço de ADP específico.
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -296,7 +296,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no ADP. Trabalhar com [equipa de suporte de ADP](https://www.adp.com/contact-us/overview.aspx) para adicionar os utilizadores na conta ADP. 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

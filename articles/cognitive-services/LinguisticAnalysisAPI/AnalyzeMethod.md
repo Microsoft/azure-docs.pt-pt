@@ -12,10 +12,10 @@ ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401191"
 ---
 # <a name="analyze-method"></a>Analisar método
@@ -26,7 +26,7 @@ ms.locfileid: "61401191"
 O **analisar** REST API é usada para analisar a entrada de um determinado idioma natural.
 Que pode envolver a localização a [frases e tokens](Sentences-and-Tokens.md) dentro do que a entrada, localizar o [etiquetas de parte da voz](POS-tagging.md), ou ao localizar o [árvore de constituintes](Constituency-Parsing.md).
 Pode especificar quais os resultados que pretende ao escolher os analisadores relevantes.
-Para listar todos os analisadores disponíveis, veja a  **[analisadores](AnalyzersMethod.md)**.
+Para listar todos os analisadores disponíveis, veja a  **[analisadores](AnalyzersMethod.md)** .
 
 Tenha em atenção que tem de especificar o idioma da cadeia de entrada.
 

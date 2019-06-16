@@ -8,19 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
-ms.date: 03/26/2019
-ms.openlocfilehash: 16a168f69c635ca86f40a08ba38a26d68c95954c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.date: 06/07/2019
+ms.openlocfilehash: 847b6f12a2be0b92fe59b19b81e7953e261d1dd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66495766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67129255"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
 Saiba mais sobre o [Apache Hadoop](https://hadoop.apache.org/) componentes do ecossistema e versões no Microsoft Azure HDInsight, bem como o Enterprise Security Package. Além disso, saiba como verificar as versões de componentes do Hadoop no HDInsight.
-
-Cada versão do HDInsight é uma distribuição de nuvem de uma versão do Hortonworks Data Platform (HDP).
 
 ## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Componentes de Apache Hadoop disponíveis com diferentes versões do HDInsight
 
@@ -48,8 +46,8 @@ As versões de componente associadas a versões de cluster do HDInsight estão l
 | Apache Storm | - | 1.1.0 | 1.0.1 | 0.10.0 | 0.10.0 | 0.9.3 |
 | Apache Mahout | - | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0 |
 | Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
-| Apache Spark | 2.3.2 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2.0 | 1.6.0 | 1.5.2 | 1.3.1 (apenas Windows) |
-| Apache Livy | 0,5 | 0.4 | 0.3 | 0.3 | 0.2 | - |
+| Apache Spark | 2.3.1 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2.0 | 1.6.0 | 1.5.2 | 1.3.1 (apenas Windows) |
+| Apache Livy | 0,5 | 0.4, 0.4, 0.3 | 0.3 | 0.3 | 0.2 | - |
 | Apache Kafka | 1.1.1 | 1.1, 1.0 * (ver nota abaixo) | 0.10.0 | 0.9.0 | - | - |
 | Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
 | Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
@@ -60,10 +58,7 @@ As versões de componente associadas a versões de cluster do HDInsight estão l
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Verifique a existência de informações de versão do componente de Hadoop atuais
 
-Versões de componente do ecossistema do Hadoop associadas a versões de cluster do HDInsight, podem alterar com as atualizações para o HDInsight. Para verificar os componentes do Hadoop e para verificar as versões que estão a ser utilizadas para um cluster, utilize a API de REST do Ambari. O **GetComponentInformation** comando obtém informações sobre os componentes de serviço. Para obter detalhes, consulte a [documentação do Apache Ambari][ambari-docs].
-
-> [!IMPORTANT]    
-> Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, consulte [reforma do Windows no HDInsight](#hdinsight-windows-retirement).
+Versões de componente do ecossistema do Hadoop associadas a versões de cluster do HDInsight, podem alterar com as atualizações para o HDInsight. Para verificar os componentes do Hadoop e para verificar as versões que estão a ser utilizadas para um cluster, utilize a API de REST do Ambari. O **GetComponentInformation** comando obtém informações sobre os componentes de serviço. Para obter detalhes, consulte a [documentação do Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ### <a name="release-notes"></a>Notas de versão
 
@@ -144,67 +139,14 @@ Atualmente, apenas os seguintes tipos de cluster suportam o Enterprise Security 
 
 O suporte de Enterprise Security Package usando o armazenamento do Azure Data Lake como armazenamento primário e o armazenamento do suplemento.
 
-### <a name="pricing-and-sla"></a>Preços e SLA
+### <a name="pricing-and-service-level-agreement"></a>Contrato de nível de preço e de serviço
 
 Para obter informações sobre preços e SLA para o Enterprise Security Package, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="hdinsight-windows-retirement"></a>Reforma do Windows HDInsight
-
-Microsoft Azure HDInsight versão 3.3 foi a última versão do HDInsight no Windows. A data de retirada para HDInsight no Windows é 31 de Julho de 2018. Se tiver quaisquer clusters do HDInsight no Windows 3.3 ou anterior, tem de migrar para o HDInsight no Linux (HDInsight versão 3.5 ou posterior) antes de 31 de Julho de 2018. Migrar para o SO Linux permite-lhe manter a capacidade de criar ou redimensionar os seus clusters do HDInsight. Suporte para o HDInsight versão 3.3 no Windows expirou em 27 de Junho de 2016.
-
-A partir do HDInsight versão 3.4, a Microsoft lançou o HDInsight apenas no SO Linux. Como resultado, alguns dos componentes do HDInsight só estão disponíveis para o Linux. Estes incluem [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), Interactive Query, [Apache Spark](https://spark.apache.org/), HDInsight aplicativos e armazenamento do Azure Data Lake como o sistema de ficheiros primário. Versões futuras do HDInsight estão disponíveis apenas no SO Linux. Não haverá nenhuma versões futuras do HDInsight no Windows. 
-
-## <a name="faqs"></a>FAQs
-
-### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>O que é a linha cronológica para extinguir o HDInsight no Windows?
-
-31 de Julho de 2018, é a data de extinção para o HDInsight no Windows. Se a data de retirada planejada for diferente da sua região, será notificado separadamente. 
-
-### <a name="what-is-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>O que é o impacto de extinguir o HDInsight no Windows para clientes existentes?
-
-Depois de HDInsight no Windows é extinguido, não é possível criar um novo cluster de HDInsight Windows ou redimensionar um cluster de HDInsight Windows existente. Suporte para o HDInsight versão 3.3 expirou em 27 de Junho de 2016. Por conseguinte, não existe suporte ou correções de erros para o HDInsight 3.3 ou versões anteriores. Versões futuras do HDInsight estão disponíveis apenas no SO Linux. Não haverá nenhuma versões futuras do HDInsight no Windows.
- 
-### <a name="which-versions-of-hdinsight-on-windows-are-affected"></a>Quais versões do HDInsight no Windows são afetados?
-
-O Azure HDInsight versão 3.3 é a última versão do HDInsight para o Windows. Antes de HDInsight no Windows é extinto, todas as versões de clusters de HDInsight Windows 3.3 ou anterior têm de ser migradas para o HDInsight no Linux versão 3.5 ou posterior. Migrar os seus clusters para o HDInsight no Linux permite-lhe manter a capacidade de criar novos clusters ou redimensionar clusters existentes. 
-
-### <a name="what-do-i-need-to-do"></a>O que tenho de fazer?
-
-Migre seus clusters do HDInsight Windows para um cluster do Linux de HDInsight suportado antes de 31 de Julho de 2018. Saiba mais no [documento de migração de HDInsight](hdinsight-migrate-from-windows-to-linux.md). Para obter detalhes sobre as versões do Azure HDInsight, consulte a lista de [versões suportadas](hdinsight-component-versioning.md#supported-hdinsight-versions). 
-
-### <a name="where-do-i-find-the-cluster-os-type"></a>Onde posso encontrar o tipo de SO de cluster?
-
-No portal do Azure, vá para a página de descrição geral do Cluster do HDInsight e localize **tipo de Cluster** sob **Essentials**. Os tipos de SO de cluster estão listados nessa página. 
-
-### <a name="i-cant-migrate-to-an-hdinsight-linux-cluster-by-july-31-2018-what-is-the-impact-to-my-hdinsight-windows-cluster"></a>Eu não pode migrar para um cluster Linux de HDInsight até 31 de Julho de 2018. O que é o impacto para o meu cluster HDInsight Windows?
-
-O cluster de HDInsight Windows é executado como-é, mas não é possível criar um novo cluster de HDInsight Windows, ou como redimensionar um cluster de HDInsight Windows existente. 
-
-### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>Meu cluster tem uma dependência de .NET. Como posso resolver esta dependência no Linux?
-
-Pode resolver a dependência de cluster do Linux ao utilizar o [projeto Mono](https://www.mono-project.com/). Esta implementação de código-fonte aberto do .NET está disponível para clusters do Linux de HDInsight. Saiba mais no [documento de migração de HDInsight](hdinsight-migrate-from-windows-to-linux.md). 
-
-### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>Sou um novo cliente para o HDInsight no Windows. Como posso criar um cluster do HDInsight Windows?
-
-A partir de 3 de Julho de 2017, os clientes existentes do Windows HDInsight só podem criar novos Windows de HDInsight clusters. Novos clientes não é possível criar um cluster do HDInsight Windows no portal do Azure com o PowerShell ou o SDK. Recomendamos que novos clientes, crie um cluster do HDInsight do Linux. Os clientes existentes podem criar as novas Windows de HDInsight clusters até que o HDInsight no Windows data de retirada. 
-
-### <a name="is-there-a-pricing-impact-associated-with-moving-from-hdinsight-on-windows-to-hdinsight-on-linux"></a>Existe um impacto no preço associado mudando do HDInsight no Windows para HDInsight no Linux?
-
-Não, o preço é o mesmo para o HDInsight em qualquer sistema operacional. 
-
-### <a name="what-are-the-customer-advantages-associated-with-the-move-to-only-using-hdinsight-on-linux"></a>Quais são as vantagens de cliente associadas com a mudança para utilizar apenas o HDInsight no Linux?
-
-* Mais rápido tempo de comercialização para tecnologias de macrodados de código aberto através do serviço do HDInsight
-* Uma grande Comunidade e ecossistema para o suporte
-* Capacidade para exercitar o desenvolvimento de Active Directory pela Comunidade de código-fonte aberto para o Hadoop e outras tecnologias de macrodados
-
-### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>O HDInsight no Linux fornece funcionalidades adicionais para além das disponível no HDInsight no Windows?
-
-A partir do HDInsight versão 3.4, a Microsoft lançou o HDInsight apenas no SO Linux. Como resultado, alguns dos componentes do HDInsight só estão disponíveis para o Linux. Isso inclui o Apache Ranger, Kafka, Interactive Query, Spark, aplicações do HDInsight e o armazenamento do Azure Data Lake como o sistema de ficheiros primário. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contrato de nível de serviço para versões de cluster do HDInsight
 
-O contrato de nível de serviço (SLA) é definido em termos de um _janela de suporte_. A janela de suporte é o período de tempo que uma versão de cluster do HDInsight é suportada pelo suporte ao cliente da Microsoft. Se a versão tem um _suportam a data de expiração_ que tiver passado, o cluster do HDInsight está fora da janela de suporte. Para obter mais informações sobre as versões suportadas, consulte a lista de [versões de cluster do HDInsight suportadas](hdinsight-migrate-from-windows-to-linux.md). A data de expiração de suporte para uma versão X (depois de uma versão mais recente de X + 1 estiver disponível) de HDInsight especificado é calculada como o posterior de:  
+O contrato de nível de serviço (SLA) é definido em termos de um _janela de suporte_. A janela de suporte é o período de tempo que uma versão de cluster do HDInsight é suportada pelo suporte ao cliente da Microsoft. Se a versão tem um _suportam a data de expiração_ que tiver passado, o cluster do HDInsight está fora da janela de suporte. A data de expiração de suporte para uma versão X (depois de uma versão mais recente de X + 1 estiver disponível) de HDInsight especificado é calculada como o posterior de:  
 
 * Fórmula 1: Adicione 180 dias para a data quando a versão do cluster do HDInsight X foi lançada.
 * Fórmula 2: Adicione a 90 dias da data quando a versão do cluster do HDInsight X + 1 é disponibilizada no portal do Azure.
@@ -262,8 +204,8 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 |ZooKeeper: recomendado tamanhos de VM||A4 v2||A2 v2|||A2M v2|
 |||A8 v2||A4 v2|||D3 v2|
 |||A2m v2||A8 v2|||E8 v3|
-|Edge: tamanho da VM predefinida||||||D4 v2||
-|Edge: tamanho VM de recomendado||||||D4 v2||
+|Dos serviços de ML: tamanho VM predefinido||||||D4 v2||
+|Serviços de ML: recomendado o tamanho da VM||||||D4 v2||
 |||||||D12 v2||
 |||||||D13 v2||
 |||||||D14 v2||
@@ -282,8 +224,8 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
   | Função de trabalho: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: tamanho da VM predefinida | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper: recomendado tamanhos de VM | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
-  | Edge: tamanhos de VM predefinido | | | | | |D4 |
-  | Edge: recomendado tamanhos de VM | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
+  | Dos serviços de ML: tamanhos de VM predefinido | | | | | |D4 |
+  | Serviços de ML: recomendado tamanhos de VM | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - HEAD é conhecido como *Nimbus* tipo de cluster para o Storm.
@@ -293,14 +235,6 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 ## <a name="next-steps"></a>Passos Seguintes
 - [Configuração de cluster para Apache Hadoop, Spark e muito mais no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Trabalhar no Apache Hadoop no HDInsight a partir de um PC do Windows](hdinsight-hadoop-windows-tools.md)
-
-[Supported HDInsight versions]:(#supported-hdinsight-versions)
-
-[image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
-
-[wa-forums]: https://azure.microsoft.com/support/forums/
-
-[connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 
 [hdp-2-2]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.9/bk_HDP_RelNotes/content/ch_relnotes_v229.html
 
@@ -313,7 +247,3 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 [hdp-1-3-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
 
 [hdp-1-1-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.1.1.16_1.html
-
-[ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
-
-[zookeeper]: https://zookeeper.apache.org/

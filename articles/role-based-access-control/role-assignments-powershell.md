@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: deb7864c9f59427d6da9d27ede349c7532bf40d5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66160324"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074031"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gerir o acesso aos recursos do Azure através do RBAC e o Azure PowerShell
 
@@ -355,7 +355,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Remover acesso
+## <a name="remove-access"></a>Remover o acesso
 
 No RBAC, para remover o acesso, remover uma atribuição de função usando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
@@ -366,6 +366,8 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
+
+Se receber a mensagem de erro: "As informações fornecidas não é mapeado para uma atribuição de função", certifique-se de que também especifica os `-Scope` ou `-ResourceGroupName` parâmetros. Para obter mais informações, consulte [resolver problemas relacionados com o RBAC para recursos do Azure](troubleshooting.md#role-assignments-without-a-security-principal).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

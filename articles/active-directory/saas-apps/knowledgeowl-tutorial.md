@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: b57beb18b8bf7d82694f89e131d79d15c6fcd6bc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ab80b6efef71c71feea1359112d09bae90a7ab84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integração do Active Directory do Azure com KnowledgeOwl
 
@@ -54,7 +54,7 @@ Para configurar a integração do KnowledgeOwl com o Azure AD, terá de adiciona
 
 **Para adicionar KnowledgeOwl a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -148,7 +148,7 @@ Para configurar o Azure AD início de sessão único com KnowledgeOwl, execute o
 
 7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
 
-    | Name | Atributo de origem | Espaço de nomes |
+    | Name | Atributo de origem | Espaço de Nomes |
     | ------------ | -------------------- | -----|
     | ssoid | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
@@ -218,7 +218,7 @@ Para configurar o Azure AD início de sessão único com KnowledgeOwl, execute o
     * Introduza `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` para o **nome de utilizador/E-Mail** caixa de texto.
     * Introduza `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` para o **nome próprio** caixa de texto.
     * Introduza `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` para o **Apelido** caixa de texto.
-    * Clicar em **Guardar**
+    * Clique em **Guardar**
 
     i. Clique em **Guardar** na parte inferior da página.
 

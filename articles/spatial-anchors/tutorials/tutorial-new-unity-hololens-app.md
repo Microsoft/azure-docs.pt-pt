@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3c125c54c1e0a70cdec19af912b17759d82a9936
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: c831e8fdacf5103619374605dd980ab1f6735047
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969469"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135281"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova aplicação de HoloLens Unity com âncoras espaciais do Azure
 
@@ -38,7 +38,7 @@ Iremos primeiro configurar nosso projeto e a cena do Unity:
 7. Guarde a cena vazio predefinido para um ficheiro novo com: **Arquivo** > **guardar como**.
 8. Dê um nome novo cena **Main** e prima a **guardar** botão.
 
-**configurar as definições do projeto**
+**Configurar as definições do projeto**
 
 Vamos agora definir algumas configurações de projeto do Unity que ajudam-no SDK do Windows Holographic para o desenvolvimento de destino. 
 
@@ -77,7 +77,7 @@ Em primeiro lugar, permite configurar as definições de qualidade para a nossa 
 
 **criar o nosso script**
 1. Na **projeto** painel, crie uma nova pasta **Scripts**, no **ativos** pasta. 
-2. Clique com o botão direito do rato na pasta, em seguida, selecione **criar >**,  **C# Script**. Título-lo **AzureSpatialAnchorsScript**. 
+2. Clique com o botão direito do rato na pasta, em seguida, selecione **criar >** ,  **C# Script**. Título-lo **AzureSpatialAnchorsScript**. 
 3. Aceda a **GameObject** -> **criar vazio**. 
 4. Selecioná-la e, no **Inspetor** renomeá-lo a partir de **GameObject** para **MixedRealityCloud**. Selecione **Add Component** e procure e adicione o **AzureSpatialAnchorsScript**.
 

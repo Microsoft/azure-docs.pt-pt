@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 72d1c4d2ea3adf7d8751adfbb013435f8f2530f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125751"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Configurar endereços IP privados para uma máquina virtual (clássico) com o portal do Azure
@@ -61,7 +61,7 @@ Para criar uma VM com o nome *DNS01* no *front-end* sub-rede de uma VNet com o n
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Como obter estáticas informações de endereço IP privadas para uma VM
 Para ver as estáticas informações de endereço IP privadas para a VM criada com os passos acima, execute os passos abaixo.
 
-1. A partir do portal do Azure, selecione **Procurar tudo** > **máquinas virtuais (clássicas)** > **DNS01** > **todos os as definições** > **endereços IP** e repare que a atribuição de endereços IP e o endereço IP, como mostrado abaixo.
+1. A partir do portal do Azure, selecione **Procurar tudo** > **máquinas virtuais (clássicas)**  > **DNS01** > **todos os as definições** > **endereços IP** e repare que a atribuição de endereços IP e o endereço IP, como mostrado abaixo.
    
     ![Criar VM no portal do Azure](./media/virtual-networks-static-ip-classic-pportal/figure06.png)
 

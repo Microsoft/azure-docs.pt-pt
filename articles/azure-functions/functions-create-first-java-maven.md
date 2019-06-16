@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: e4aa5314811ceac9e1f9d1136fc8ae5557a3d71d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827416"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063253"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Criar a primeira função com o Java e Maven
 
-Este artigo orienta-o através da utilização da ferramenta de linha de comandos do Maven para criar e publicar uma função de Java para as funções do Azure. Quando tiver terminado, o código de função é executado o [plano de consumo](functions-scale.md#consumption-plan) no Azure e pode ser acionada com um pedido HTTP.
+Este artigo orienta-o através da utilização da ferramenta de linha de comando Maven para criar e publicar uma função de Java para as funções do Azure. Quando tiver terminado, o código de função é executado o [plano de consumo](functions-scale.md#consumption-plan) no Azure e pode ser acionada com um pedido HTTP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -79,7 +79,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-O Maven cria os ficheiros de projeto numa pasta nova, com o nome _artifactId_, `fabrikam-functions` neste exemplo. O código pronto a ser executado no projeto é uma função [acionada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) simples que ecoa o corpo do pedido:
+O Maven cria os ficheiros de projeto numa pasta nova, com o nome _artifactId_, `fabrikam-functions` neste exemplo. Preparado para executar o código gerado no projeto é uma [acionada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) função que ecoa o corpo do pedido:
 
 ```java
 public class Function {
@@ -156,7 +156,7 @@ O processo de implementação para as Funções do Azure utiliza credenciais de 
 az login
 ```
 
-Implemente o código numa aplicação de funções nova com o destino do Maven `azure-functions:deploy`.
+Implemente o código numa aplicação de funções nova com o destino do Maven `azure-functions:deploy`. Isso executa uma [Zip implementar com a execução do pacote](functions-deployment-technologies.md#zip-deploy) modo ativado.
 
 > [!NOTE]
 > Quando utiliza o Visual Studio Code para implementar a sua aplicação de função, lembre-se de escolher uma assinatura não gratuitos ou obterá um erro. Pode assistir a sua subscrição no lado esquerdo do IDE.

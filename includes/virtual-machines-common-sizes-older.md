@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 7196a2ea794c1d17a2c55c05accb447d83929972
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5c35cbfbd2e9d0a1655d05c1116d293fb78c9eb7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145699"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133308"
 ---
 Esta seção fornece informações sobre suporte a gerações anteriores de tamanhos de máquina virtual. Estes tamanhos ainda são suportados mas não receberão a capacidade adicional. Existem mais recente ou alternativos tamanhos que estão disponíveis em geral. Consulte a [máquinas de virtuais de tamanhos para Windows no Azure](../articles/virtual-machines/windows/sizes.md) ou [tamanhos de máquinas de virtuais do Linux no Azure](../articles/virtual-machines/linux/sizes.md) para escolher a VM tamanhos que serão melhor acordo com as suas necessidades.  
 
@@ -172,4 +172,47 @@ Cache de armazenamento Premium:  Suportadas
 <sup>1</sup> o débito máximo do disco (IOPS ou MBps) possível com uma VM da série DS pode estar limitado pelo número, tamanho e repartição dos discos anexados.  Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).   
 <sup>2</sup> família de VM pode ser executado em um dos seguinte da CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5 2673 v3 (Haswell) ou 2.3 GHz Intel XEON® E5 2673 v4 (Broadwell)  
 
+<br>
+
+### <a name="gs-series"></a>Séries GS 
+
+ACU: 180 - 240 <sup>1</sup>
+
+Armazenamento Premium:  Suportadas
+
+Cache de armazenamento Premium:  Suportadas
+
+| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+|---|---|---|---|---|---|---|---|
+| Standard_GS1 |2 |28 |56 |8 |10,000 / 100 (264) |5,000 / 125 |2 / 2000 |
+| Standard_GS2 |4 |56 |112 |16 |20,000 / 200 (528) |10,000 / 250 |2 / 4000 |
+| Standard_GS3 |8 |112 |224 |32 |40,000 / 400 (1,056) |20,000 / 500 |4 / 8000 |
+| Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80,000 / 800 (2,112) |40,000 / 1,000 |8 / 16000 |
+| Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8 / 20000 |
+
+<sup>1</sup> o débito máximo do disco (IOPS ou MBps) possível com uma VM da série GS pode estar limitado pelo número, tamanho e repartição dos discos anexados. Para obter detalhes, consulte [conceber o elevado desempenho](../articles/virtual-machines/windows/premium-storage-performance.md).
+
+<sup>2</sup> instância está isolada do hardware dedicado de um único cliente.
+
+<sup>3</sup> restrita tamanhos de núcleos disponíveis.
+
+<br>
+
+### <a name="g-series"></a>Série G
+
+ACU: 180 - 240
+
+Armazenamento Premium:  Não suportado
+
+Cache de armazenamento Premium:  Não suportado
+
+| Tamanho         | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS / MBps de leitura / MBps de escrita | Discos de dados máximos / débito: IOPS | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
+| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
+| Standard_G3  | 8         | 112         | 1,536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8000                |
+| Standard_G4  | 16        | 224         | 3,072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16000          |
+| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
+
+<sup>1</sup> instância está isolada do hardware dedicado de um único cliente.
 <br>

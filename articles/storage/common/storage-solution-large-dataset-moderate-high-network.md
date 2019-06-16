@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729240"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com moderada para elevada largura de banda
@@ -72,7 +72,7 @@ Se utilizar a transferência de dados offline, utilize a tabela seguinte para co
 |    Exportar dados do Azure           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
 |    Encriptação                       |    AES 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES 128 bits                         |
 |    Hardware                         |     Microsoft fornecido          |    Microsoft fornecido                            |    Microsoft fornecido                    |    Cliente fornecido                   |
-|    Interface de rede                |    3.1/SATA DE USB                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
+|    Interface de rede                |    3\.1/SATA DE USB                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
 |    Integração de parceiros              |    Alguns                         |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Alguns                                |
 |    Envio                         |    Gerida pela Microsoft            |    Gerida pela Microsoft                             |    Gerida pela Microsoft                     |    Gerida pelo cliente                    |
 | Quando move os dados de utilização         |Num limite de comércio|Num limite de comércio|Num limite de comércio|Através das fronteiras geográficas, por exemplo, da UE|

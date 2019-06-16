@@ -2,20 +2,20 @@
 title: Apontar um domínio de Internet da empresa para um nome de domínio do Gestor de tráfego do Azure
 description: Este artigo ajuda-o a apontar o nome de domínio da sua empresa para um nome de domínio do Traffic Manager.
 services: traffic-manager
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: kumud
-ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: cd99d8829a8a7bb57b6affe98c1257eaa3ea8ce7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070969"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gestor de Tráfego do Azure
 

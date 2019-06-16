@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 41d8d05cf5f900c7fcd5640f8896c715640ebcab
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65772805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Active Directory do Azure com o controlo de Workspot
 
@@ -236,7 +236,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no controle de Workspot, 
 
     1. Selecione **adicionar utilizador**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vamos testar nosso única início de sessão em configuração do Azure AD através de *painel de acesso*.
 

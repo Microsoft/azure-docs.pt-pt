@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: b5df69e9670c01b576afe242b39532acb1e1c526
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60685901"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de eventos do Azure no Azure Monitor
@@ -64,23 +64,23 @@ Conta o número de pedidos de operações de gestão e de dados.
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | Pedidos de entrada (pré-visualização) | O número de pedidos efetuados para o serviço de Event Hubs do Azure num determinado período. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
-| Pedidos com êxito (pré-visualização)   | O número de pedidos com êxito efetuados para o serviço de Event Hubs do Azure num determinado período. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
-| Erros de servidor (pré-visualização) | O número de pedidos não processadas devido a um erro no serviço de Event Hubs do Azure num determinado período. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
+| Pedidos com êxito (pré-visualização)   | O número de pedidos com êxito efetuados para o serviço de Event Hubs do Azure num determinado período. <br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
+| Erros de servidor (pré-visualização) | O número de pedidos não processadas devido a um erro no serviço de Event Hubs do Azure num determinado período. <br/><br/>Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 |Erros de utilizador (pré-visualização)|O número de pedidos não processadas devido a erros de utilizador num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Quota excedida erros (pré-visualização)|O número de pedidos excedeu a quota disponível. Ver [este artigo](event-hubs-quotas.md) para obter mais informações sobre as quotas de Hubs de eventos.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Quota excedida erros (pré-visualização)|O número de pedidos excedeu a quota disponível. Ver [este artigo](event-hubs-quotas.md) para obter mais informações sobre as quotas de Hubs de eventos.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="throughput-metrics"></a>Métricas de débito
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Pedidos limitados (pré-visualização)|O número de pedidos que foram limitado porque a utilização de unidades de débito foi excedida.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Pedidos limitados (pré-visualização)|O número de pedidos que foram limitado porque a utilização de unidades de débito foi excedida.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="message-metrics"></a>Métricas de mensagem
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens de entrada (pré-visualização)|O número de eventos ou as mensagens enviadas para os Hubs de eventos num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Mensagens de saída (pré-visualização)|Obter o número de mensagens ou eventos dos Hubs de eventos num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Mensagens de entrada (pré-visualização)|O número de eventos ou as mensagens enviadas para os Hubs de eventos num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Mensagens de saída (pré-visualização)|Obter o número de mensagens ou eventos dos Hubs de eventos num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Bytes recebidos (pré-visualização)|O número de bytes enviados para o serviço de Event Hubs do Azure num determinado período.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Bytes enviados (pré-visualização)|O número de bytes obtidos a partir do serviço de Event Hubs do Azure num determinado período.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
@@ -88,7 +88,7 @@ Conta o número de pedidos de operações de gestão e de dados.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|ActiveConnections (pré-visualização)|O número de ligações ativas num espaço de nomes, bem como numa entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveConnections (pré-visualização)|O número de ligações ativas num espaço de nomes, bem como numa entidade.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Ligações aberto (pré-visualização)|O número de conexões abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Ligações fechado (pré-visualização)|O número de conexões encerradas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 

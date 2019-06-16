@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703512"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
@@ -189,7 +189,7 @@ O registo de diagnóstico produz hashes de consulta para as consultas que foram 
 > Para a otimização de desempenho contínuo de base de dados SQL, recomendamos que ative [otimização automática da base de dados SQL](sql-database-automatic-tuning.md). Esse recurso exclusivo de inteligência incorporada da base de dados SQL continuamente monitoriza a base de dados SQL e automaticamente adaptável e cria índices para seus bancos de dados.
 >
 
-## <a name="new-query"></a>Nova Consulta
+## <a name="new-query"></a>Nova consulta
 
 ### <a name="what-is-happening"></a>O que está acontecendo
 

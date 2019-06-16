@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc32f464044149e263db60fc2de237b473da5ab2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863771"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Tutorial: Integração do Active Directory do Azure com o Citrix Netscaler
 
@@ -55,7 +55,7 @@ Para configurar a integração do Citrix Netscaler no Azure AD, terá de adicion
 
 **Para adicionar Citrix Netscaler a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -375,7 +375,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado no Citrix Netscale
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de cliente do Citrix Netscaler](https://www.citrix.com/contact/technical-support.html).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

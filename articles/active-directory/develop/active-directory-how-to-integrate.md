@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8804988387ba4a6cdc8dff5d93077de42ea2051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4af8cdc1072678de7e34458fc4b54d52aae9eff1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111602"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração com o Azure Active Directory
 
@@ -81,7 +81,7 @@ Integração com o Azure AD é fornecido com os benefícios que não necessitam 
 
 **Início de sessão anómalos em deteção.**  O Azure AD processa mais de um bilhão-inícios de sessão por dia, ao utilizar os algoritmos de machine learning para detetar atividade suspeita e notificar os administradores de TI de possíveis problemas. Ao suportar o início de sessão no Azure AD, a aplicação obtém o benefício dessa proteção. Saiba mais sobre [visualizar o relatório de acesso do Azure Active Directory](../active-directory-view-access-usage-reports.md).
 
-**Acesso condicional.**  Para além da autenticação multifator, os administradores podem exigir condições específicas de ser cumpridos antes dos utilizadores podem iniciar sessão no seu aplicativo. As condições que podem ser definidas incluem o intervalo de endereços IP de dispositivos de cliente, a associação a grupos especificados e o estado do dispositivo que está a ser utilizado para acesso. Saiba mais sobre [acesso condicional do Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+**Acesso condicional.**  Para além da autenticação multifator, os administradores podem exigir condições específicas de ser cumpridos antes dos utilizadores podem iniciar sessão no seu aplicativo. As condições que podem ser definidas incluem o intervalo de endereços IP de dispositivos de cliente, a associação a grupos especificados e o estado do dispositivo que está a ser utilizado para acesso. Saiba mais sobre [do Azure Active Directory condicional acesso](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Fácil desenvolvimento
 

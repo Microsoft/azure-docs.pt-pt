@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: mstephen
 ms.openlocfilehash: 122caddd73219060689ac8f6e3ab6408ea99a422
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246228"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Desativar o Azure Active Directory Domain Services no portal do Azure

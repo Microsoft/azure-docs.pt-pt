@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60532859"
 ---
 # <a name="monitor-migration-activity"></a>Monitorizar a atividade de migração
@@ -50,12 +50,12 @@ A tabela seguinte lista os campos no painel de nível de base de dados e descrev
       <td>Atividade de migração foi concluída com êxito sem problemas.</td>
     </tr>
     <tr>
-      <td>Falhou</td>
+      <td>Com falhas</td>
       <td>Falha na migração. Selecione a ligação "Ver detalhes do erro" em detalhes de migração para a mensagem de erro completa.</td>
     </tr>
     <tr>
       <td rowspan="4" class="Status"><strong>Estado</strong></td>
-      <td>A iniciar</td>
+      <td>A inicializar</td>
       <td>O DMS é configurar o pipeline de migração.</td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@ A tabela seguinte lista os campos no painel de nível de base de dados e descrev
       <td>Depois de concluído o carregamento inicial, DMS serão marcadas como base de dados como pronto para transferência. Utilizador deve verificar se dados detetou na sincronização contínua.</td>
     </tr>
     <tr>
-      <td>Todas as alterações foram aplicadas</td>
+      <td>Todas as alterações aplicadas</td>
       <td>Carga inicial e a sincronização contínua estão completos. Este estado também ocorre depois da base de dados é transferência com êxito.</td>
     </tr>
     <tr>

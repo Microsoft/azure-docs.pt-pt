@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459243"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Notificações push em segurança de Hubs de notificação do Azure
@@ -90,7 +90,7 @@ Este tutorial de Push seguro mostra como enviar uma notificação push de forma 
 A próxima etapa é criar o componente de plano de fundo de push.
 
 1. No Explorador de soluções, clique no nó de nível superior da solução (**SecurePush da solução** neste caso), em seguida, clique em **Add**, em seguida, clique em **novo projeto**.
-2. Expanda **Store Apps**, em seguida, clique em **aplicativos do Windows Phone**, em seguida, clique em **componente de tempo de execução do Windows (Windows Phone)**. Nomeie o projeto **PushBackgroundComponent**e, em seguida, clique em **OK** para criar o projeto.
+2. Expanda **Store Apps**, em seguida, clique em **aplicativos do Windows Phone**, em seguida, clique em **componente de tempo de execução do Windows (Windows Phone)** . Nomeie o projeto **PushBackgroundComponent**e, em seguida, clique em **OK** para criar o projeto.
 
     ![][12]
 3. No Solution Explorer, clique com botão direito a **PushBackgroundComponent (Windows Phone 8.1)** do projeto, em seguida, clique em **Add**, em seguida, clique em **classe**. Nome à nova classe `PushBackgroundTask.cs`. Clique em **adicionar** para gerar a classe.
