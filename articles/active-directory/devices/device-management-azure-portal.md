@@ -18,10 +18,10 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48f162e5e6eb29e4a658000826ccf25389086342
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730444"
 ---
 # <a name="manage-device-identity-using-the-azure-portal"></a>Gerir a identidade de dispositivo com o portal do Azure

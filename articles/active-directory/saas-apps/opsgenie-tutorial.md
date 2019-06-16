@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 446ac54d84f7b2b3bf3aaf6eaf5536f0dfb804fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095761"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Active Directory do Azure com OpsGenie
 
@@ -53,7 +53,7 @@ Para configurar a integração do OpsGenie com o Azure AD, terá de adicionar Op
 
 **Para adicionar OpsGenie a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -163,7 +163,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **Simon B**.
+    a. Na **Name** campo introduza **Simon B.** .
   
     b. Na **nome de utilizador** tipo de campo **bsimon@yourcompanydomain.extension**  
     Por exemplo, BSimon@contoso.com
@@ -216,14 +216,14 @@ O objetivo desta secção é criar um usuário chamado Simon B. no OpsGenie.
    
     a. Na **E-Mail** caixa de texto, o endereço de e-mail typu B. Simon resolvidos no Azure Active Directory.
    
-    b. Na **FullName** caixa de texto, tipo **Simon B**.
+    b. Na **FullName** caixa de texto, tipo **Simon B.** .
    
     c. Clique em **Guardar**. 
 
 >[!NOTE]
 >B. Simon obtém uma mensagem de e-mail com instruções sobre como configurar o respetivo perfil.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

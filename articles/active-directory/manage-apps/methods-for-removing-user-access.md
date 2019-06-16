@@ -16,10 +16,10 @@ ms.date: 10/17/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b69502995eff88df53af3671a8e611809f83e59
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65826106"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação

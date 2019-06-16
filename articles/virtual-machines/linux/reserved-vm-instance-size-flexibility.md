@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: manshuk
 ms.openlocfilehash: 3cfa9efa8ba0b5a5c91220b64badbf4d6fee8073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60771206"
 ---
 [!INCLUDE [virtual-machines-common-reserved-vm-instance-size-flexibility](../../../includes/virtual-machines-common-reserved-vm-instance-size-flexibility.md)]

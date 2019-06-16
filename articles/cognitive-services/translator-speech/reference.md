@@ -12,10 +12,10 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60539184"
 ---
 # <a name="translator-speech-api"></a>API de Voz do Microsoft Translator
@@ -56,7 +56,7 @@ Exemplos de código demonstrar o uso da API de voz do Translator estão disponí
 
 OBTER /speech/translate Establishes uma sessão para a tradução de voz
 
-### <a name="connecting"></a>A ligar
+### <a name="connecting"></a>Ligar
 Antes de ligar ao serviço, reveja a lista de parâmetros, tendo em conta mais tarde nesta secção. Um exemplo de solicitação é:
 
 `GET wss://dev.microsofttranslator.com/speech/translate?from=en-US&to=it-IT&features=texttospeech&voice=it-IT-Elsa&api-version=1.0`
@@ -166,14 +166,14 @@ Quando uma aplicação de cliente foi concluída a transmissão em fluxo de áud
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:---|:---|:---|:---|:---|
 |versão de API|1.0|Versão da API do pedido pelo cliente. Valores permitidos são: `1.0`.|consulta   |string|
-|de|(vazio)   |Especifica o idioma de conversão de voz recebida. O valor é um dos identificadores de idiomas do `speech` âmbito na resposta da API de idiomas.|consulta|string|
+|from|(vazio)   |Especifica o idioma de conversão de voz recebida. O valor é um dos identificadores de idiomas do `speech` âmbito na resposta da API de idiomas.|consulta|string|
 |para|(vazio)|Especifica o idioma para traduzir texto transcrito em. O valor é um dos identificadores de idiomas do `text` âmbito na resposta da API de idiomas.|consulta|string|
 |elástica|(vazio)   |Conjunto de funcionalidades selecionadas pelo cliente separados por vírgulas. As funcionalidades disponíveis incluem:<ul><li>`TextToSpeech`: Especifica que o serviço tem de devolver o áudio traduzido da sentença traduzida final.</li><li>`Partial`: Especifica que o serviço tem de devolver resultados de reconhecimento de nível intermediário, enquanto o áudio é transmissão em fluxo para o serviço.</li><li>`TimingInfo`: Especifica que o serviço tem de devolver informações de tempo associadas a cada reconhecimento.</li></ul>Por exemplo, um cliente deve especificar `features=partial,texttospeech` para receber os resultados parciais e voz, mas não existem informações de tempo. Tenha em atenção que os resultados finais são sempre transmitidos ao cliente.|consulta|string|
 |Voz|(vazio)|Identifica quais voz para utilizar a opção pela composição de texto para discurso do texto traduzido. O valor é um dos identificadores de voz do âmbito tts na resposta da API de idiomas. Se uma voz não for especificada que o sistema será automaticamente escolha um quando a funcionalidade de texto para voz está ativada.|consulta|string|
-|Formato|(vazio)|Especifica o formato do fluxo de áudio texto para discurso retornado pelo serviço. As opções disponíveis são:<ul><li>`audio/wav`: Transmissão de áudio de forma de onda. Cliente deve utilizar o cabeçalho WAV para interpretar corretamente o formato de áudio. Áudio WAV para a voz é de 16 bits, canal único PCM com uma taxa de amostragem de 24kHz ou 16kHz.</li><li>`audio/mp3`: Transmissão de áudio MP3.</li></ul>A predefinição é `audio/wav`.|consulta|string|
+|format|(vazio)|Especifica o formato do fluxo de áudio texto para discurso retornado pelo serviço. As opções disponíveis são:<ul><li>`audio/wav`: Transmissão de áudio de forma de onda. Cliente deve utilizar o cabeçalho WAV para interpretar corretamente o formato de áudio. Áudio WAV para a voz é de 16 bits, canal único PCM com uma taxa de amostragem de 24kHz ou 16kHz.</li><li>`audio/mp3`: Transmissão de áudio MP3.</li></ul>A predefinição é `audio/wav`.|consulta|string|
 |ProfanityAction    |(vazio)    |Especifica a forma como o serviço deve processar profanities reconhecidos na conversão de voz. Ações válidas são:<ul><li>`NoAction`: Profanities são deixados como está.</li><li>`Marked`: Profanities são substituídos por um marcador. Consulte `ProfanityMarker` parâmetro.</li><li>`Deleted`: Profanities são eliminados. Por exemplo, se a palavra `"jackass"` é tratado como uma linguagem inapropriada, a frase `"He is a jackass."` irá tornar-se `"He is a .".`</li></ul>A predefinição é marcada.|consulta|string|
 |ProfanityMarker|(vazio)    |Especifica como detetados profanities são processadas quando `ProfanityAction` está definido como `Marked`. As opções válidas são:<ul><li>`Asterisk`: Profanities são substituídos pela cadeia de caracteres `***`. Por exemplo, se a palavra `"jackass"` é tratado como uma linguagem inapropriada, a frase `"He is a jackass."` irá tornar-se `"He is a ***.".`</li><li>`Tag`: Linguagem inapropriada são rodeado por uma marca XML de palavras ofensivas. Por exemplo, se a palavra `"jackass"` é tratado como uma linguagem inapropriada, a frase `"He is a jackass."` irá tornar-se `"He is a <profanity>jackass</profanity>."`.</li></ul>A predefinição é `Asterisk`.|consulta|string|
 |Autorização|(vazio)  |Especifica o valor do token de portador do cliente. Utilize o prefixo `Bearer` seguido o valor da `access_token` valor devolvido pelo serviço de token de autenticação.|cabeçalho   |string|
@@ -187,7 +187,7 @@ Quando uma aplicação de cliente foi concluída a transmissão em fluxo de áud
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|Modelo de resposta|Cabeçalhos|
+|Código de estado de HTTP|Reason|Modelo de resposta|Cabeçalhos|
 |:--|:--|:--|:--|
 |101    |Atualização do WebSocket.|Valor de exemplo do modelo <br/> Objeto {}|X-RequestId<br/>Um valor identificando o pedido para fins de resolução de problemas.<br/>string|
 |400    |Pedido incorreto. Verifique os parâmetros de entrada para garantir que são válidos. O objeto de resposta inclui uma descrição mais detalhada do erro.|||

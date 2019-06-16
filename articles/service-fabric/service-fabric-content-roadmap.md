@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
 ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540708"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Portanto, quiser saber mais sobre o Service Fabric?
@@ -84,7 +84,7 @@ Por predefinição, o Service Fabric implementa e ativa a serviços como process
 ### <a name="reliable-actors"></a>Reliable Actors
 Criado com base no Reliable Services, o [Reliable Actor](service-fabric-reliable-actors-introduction.md) framework é uma estrutura de aplicações que implementa o padrão de Ator Virtual, com base no padrão de design de ator. A estrutura de Reliable Actor usa unidades independentes de computação e o estado com a execução de thread único chamada atores. O Reliable Actor framework fornece incorporada de comunicação para atores e previamente definir as configurações de escalamento horizontal e persistência de estado.
 
-### <a name="aspnet-core"></a>ASP.NET Core
+### <a name="aspnet-core"></a>Núcleo de ASP.NET
 Service Fabric integra [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) como um modelo de programação de primeira classe para a criação de aplicações web e API.  ASP.NET Core podem ser utilizado de duas formas diferentes no Service Fabric:
 
 - Hospedado como um executável de convidado. Isso é usado principalmente para executar aplicativos existentes do ASP.NET Core no Service Fabric sem alterações de código.

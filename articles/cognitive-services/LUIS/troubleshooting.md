@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
 ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417971"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)

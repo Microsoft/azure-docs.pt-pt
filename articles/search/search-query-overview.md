@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595972"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
@@ -51,7 +51,7 @@ Os exemplos são úteis para introduzindo novos conceitos. Como uma consulta rep
 
 + **`queryType`** Define o analisador, que, no Azure Search, pode ser o [predefinido o analisador de consultas simples](search-query-simple-examples.md) (ideal para pesquisa em texto completo), ou o [completa de analisador de consultas de Lucene](search-query-lucene-examples.md) utilizado para construções de consulta avançada, como as expressões regulares , difusa, pesquisa de proximidade e pesquisa com carateres universais, para citar alguns.
 
-+ **`search`** Fornece a correspondência de critérios, normalmente, texto, mas, muitas vezes, acompanhados por operadores booleanos. Termos de autônomo único são *termo* consultas. Incluído de cotação de consultas com várias partes são *expressões-chave* consultas. Pesquisa pode ser definida, como mostrado na **`search=*`**, mas o mais provável que consiste em termos de expressões e operadores semelhantes para o que é apresentado no exemplo.
++ **`search`** Fornece a correspondência de critérios, normalmente, texto, mas, muitas vezes, acompanhados por operadores booleanos. Termos de autônomo único são *termo* consultas. Incluído de cotação de consultas com várias partes são *expressões-chave* consultas. Pesquisa pode ser definida, como mostrado na **`search=*`** , mas o mais provável que consiste em termos de expressões e operadores semelhantes para o que é apresentado no exemplo.
 
 + **`searchFields`** é opcional, usado para restringir a execução da consulta a campos específicos.
 
@@ -86,8 +86,8 @@ Elementos necessários numa solicitação de consulta incluem os seguintes compo
 
 + Ponto final e índice documentos coleção de serviços, expressada como um URL que contém componentes fixos e definido pelo utilizador: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
 + **`api-version`** (Apenas de REST) é necessário porque a mais de uma versão da API está disponível em todos os momentos. 
-+ **`api-key`**, uma consulta ou o administrador de chave de api, autentica o pedido para o seu serviço.
-+ **`queryType`**, simples ou completo, que pode ser omitido se estiver a utilizar a sintaxe simples predefinidas e incorporadas.
++ **`api-key`** , uma consulta ou o administrador de chave de api, autentica o pedido para o seu serviço.
++ **`queryType`** , simples ou completo, que pode ser omitido se estiver a utilizar a sintaxe simples predefinidas e incorporadas.
 + **`search`** ou **`filter`** fornece a correspondência de critérios, o que podem ser especificados se deseja realizar uma pesquisa em branco. Ambos os tipos de consulta são discutidos em termos do analisador simple, mas consultas avançadas ainda requerem o parâmetro de pesquisa para a passagem de expressões de consulta complexas.
 
 Todos os outros parâmetros de pesquisa são opcionais. Para obter a lista completa de atributos, consulte [criar índice (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Para uma análise detalhada das como parâmetros são utilizados durante o processamento, consulte [como funciona a pesquisa em texto completo no Azure Search](search-lucene-query-architecture.md).
@@ -160,7 +160,7 @@ Se pretender que o Azure Search devolva os resultados ordenados por um valor dif
 
 
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
-No Azure Search, realce da parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitado através da **`highlight`**, **`highlightPreTag`**, e **`highlightPostTag`** parâmetros. Pode especificar os campos *pesquisáveis* que devem ter o respetivo texto com correspondência realçado, bem como especificar as etiquetas de cadeias exatas a adicionar no início e no fim do texto com correspondência devolvido pela Azure Search.
+No Azure Search, realce da parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitado através da **`highlight`** , **`highlightPreTag`** , e **`highlightPostTag`** parâmetros. Pode especificar os campos *pesquisáveis* que devem ter o respetivo texto com correspondência realçado, bem como especificar as etiquetas de cadeias exatas a adicionar no início e no fim do texto com correspondência devolvido pela Azure Search.
 
 ## <a name="see-also"></a>Consulte também
 

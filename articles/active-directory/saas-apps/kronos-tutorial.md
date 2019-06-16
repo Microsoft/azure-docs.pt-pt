@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126d5b501b9c4239fbdbe06318604bcfaf861150
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08cc13f8e8b1329794231f0a1d0821679abf811e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60261306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kronos"></a>Tutorial: Integração do Active Directory do Azure com Kronos
 
@@ -53,7 +53,7 @@ Para configurar a integração do Kronos com o Azure AD, terá de adicionar Kron
 
 **Para adicionar Kronos a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -123,7 +123,7 @@ Para configurar o Azure AD início de sessão único com Kronos, execute os segu
 
     ![image](./media/kronos-tutorial/tutorial_usermailedit.png)
 
-    b. Partir do **transformação** lista, selecione **ExtractMailPrefix()**.
+    b. Partir do **transformação** lista, selecione **ExtractMailPrefix()** .
 
     c. Partir do **parâmetro 1** lista, selecione **user.userprinicipalname**.
 

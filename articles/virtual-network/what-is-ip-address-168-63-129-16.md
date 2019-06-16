@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
 ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833126"
 ---
 # <a name="what-is-ip-address-1686312916"></a>O que é o endereço IP 168.63.129.16?

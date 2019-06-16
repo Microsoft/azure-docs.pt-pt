@@ -10,10 +10,10 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 8a1ae906a72d781f638fb171a409b860ffa6d501
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65517709"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utilize um alerta para acionar um runbook da automatização do Azure
@@ -25,7 +25,7 @@ Pode usar [do Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomat
 Pode utilizar runbooks de automatização com três tipos de alertas:
 
 * Alertas comuns
-* Alertas de registo de atividade
+* Alertas do registo de atividades
 * Perto de alertas de métricas em tempo real
 
 > [!NOTE]

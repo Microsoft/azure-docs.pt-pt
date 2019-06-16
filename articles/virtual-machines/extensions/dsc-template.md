@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: 1bcec37e7642ae0cb5bd68de1426c8cc62085d38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475529"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration de extensão com modelos Azure Resource Manager
@@ -178,7 +178,7 @@ Para obter uma lista dos argumentos que estão disponíveis para o script de con
 
 ## <a name="details"></a>Detalhes
 
-| Nome da propriedade | Type | Descrição |
+| Nome da propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica a versão do Windows Management Framework (WMF) que deve ser instalado na sua VM. Definir esta propriedade como **mais recente** instala a versão mais recente do WMF. Atualmente, são só possíveis valores para esta propriedade **4.0**, **5.0**, **5.1**, e **mais recente**. Estes valores possíveis são sujeitos a atualizações. O valor predefinido é **mais recente**. |
 | settings.configuration.url |string |Especifica a localização de URL para transferir o ficheiro de. zip de configuração de DSC. Se o URL fornecido requer um token SAS para o acesso, defina o **protectedSettings.configurationUrlSasToken** propriedade para o valor do seu token SAS. Esta propriedade é necessária se **settings.configuration.script** ou **settings.configuration.function** são definidos. Se nenhum valor é atribuído para estas propriedades, a extensão chama um script de configuração para definir os metadados do Gestor de configuração local (LCM) e deve ser fornecido nenhum argumento. |
@@ -186,7 +186,7 @@ Para obter uma lista dos argumentos que estão disponíveis para o script de con
 | settings.configuration.function |string |Especifica o nome da sua configuração de DSC. A configuração com o nome tem de ser incluída no script que **settings.configuration.script** define. Esta propriedade é necessária se **settings.configuration.url** ou **settings.configuration.function** são definidos. Se nenhum valor é atribuído para estas propriedades, a extensão chama um script de configuração para configurar o LCM metadados e deve ser fornecido nenhum argumento. |
 | settings.configurationArguments |Coleção |Define quaisquer parâmetros que pretende passar para a configuração de DSC. Esta propriedade não está encriptada. |
 | settings.configurationData.url |string |Especifica o URL para transferir o ficheiro de dados (. psd1) de configuração para utilizar como entrada para a sua configuração de DSC. Se o URL fornecido requer um token SAS para o acesso, defina o **protectedSettings.configurationDataUrlSasToken** propriedade para o valor do seu token SAS. |
-| settings.privacy.dataCollection |string |Ativa ou desativa a coleção de telemetria. Os valores apenas possíveis para esta propriedade são **habilitar**, **desativar**, **'**, ou **$null**. Deixar esta propriedade está em branco ou nulo permite a telemetria. O valor predefinido é **'**. Para obter mais informações, consulte [recolha de dados de extensão DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
+| settings.privacy.dataCollection |string |Ativa ou desativa a coleção de telemetria. Os valores apenas possíveis para esta propriedade são **habilitar**, **desativar**, **'** , ou **$null**. Deixar esta propriedade está em branco ou nulo permite a telemetria. O valor predefinido é **'** . Para obter mais informações, consulte [recolha de dados de extensão DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
 | settings.advancedOptions.downloadMappings |Coleção |Define locais alternativos para transferir WMF. Para obter mais informações, consulte [2.8 de extensão de DSC do Azure e como mapear os downloads das dependências de extensão para sua própria localização](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
 | protectedSettings.configurationArguments |Coleção |Define quaisquer parâmetros que pretende passar para a configuração de DSC. Esta propriedade é encriptada. |
 | protectedSettings.configurationUrlSasToken |string |Especifica o token SAS para utilizar para aceder ao URL que **settings.configuration.url** define. Esta propriedade é encriptada. |
@@ -197,7 +197,7 @@ Para obter uma lista dos argumentos que estão disponíveis para o script de con
 Para obter mais informações sobre os seguintes valores, consulte [definições básicas do Gestor de configuração Local](/powershell/dsc/metaconfig#basic-settings).
 Pode utilizar o script de configuração do padrão de extensão DSC para configurar apenas as propriedades de LCM que estão listadas na tabela seguinte.
 
-| Nome da propriedade | Type | Descrição |
+| Nome da propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propriedade necessária. Especifica a chave que é utilizada para um nó para registar com o serviço de automatização do Azure como a palavra-passe de um objeto de credencial do PowerShell. Este valor pode ser detetado automaticamente ao utilizar o **listkeys** método contra a conta de automatização.  Consulte a [exemplo](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |string |Propriedade necessária. Especifica o URL do ponto de extremidade de automatização em que o nó tenta registrar. Este valor pode ser detetado automaticamente ao utilizar o **referência** método contra a conta de automatização. |

@@ -13,10 +13,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61390738"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar os registos do Azure Monitor com uma aplicação de SQL da base de dados SaaS multi-inquilino
@@ -57,7 +57,7 @@ As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log
 
 1. Agora, inicie o gerador de carga para executar uma carga simulada em todos os inquilinos.
 
-    a. Definir **$DemoScenario = 2**, _gerar carga de intensidade normal (aproximadamente 30 DTU)_.
+    a. Definir **$DemoScenario = 2**, _gerar carga de intensidade normal (aproximadamente 30 DTU)_ .
 
     b. Para executar o script, pressione F5.
 
@@ -83,7 +83,7 @@ Neste exercício, abra a área de trabalho do Log Analytics no portal do Azure p
 
    ![Abrir área de trabalho do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-1. Selecione a área de trabalho com o nome _wtploganalytics -&lt;usuário&gt;_.
+1. Selecione a área de trabalho com o nome _wtploganalytics -&lt;usuário&gt;_ .
 
 1. Selecione **descrição geral** para abrir a solução de análise de registo no portal do Azure.
 
@@ -129,7 +129,7 @@ Neste exercício, abra a área de trabalho do Log Analytics no portal do Azure p
 
 1. Na área de trabalho do Log Analytics, selecione **Portal do OMS** para abrir a área de trabalho para lá.
 
-    ![Área de trabalho do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Área de trabalho do log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
 Na área de trabalho do Log Analytics, pode explorar ainda mais os dados no registo e métrica. 
 

@@ -11,10 +11,10 @@ ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476069"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>APIs REST para o armazém de dados SQL do Azure

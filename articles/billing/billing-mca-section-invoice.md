@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371615"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Criar secções na sua fatura para organizar os seus custos
@@ -30,7 +30,7 @@ Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+2. Pesquisar nos **custo Management + faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
@@ -57,6 +57,6 @@ Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário
 - [Conceder a outros utilizadores permissão para criar subscrição do Azure](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
 - [Obter propriedade da faturação das subscrições do Azure de utilizadores nas outras contas de faturas](billing-mca-request-billing-ownership.md)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

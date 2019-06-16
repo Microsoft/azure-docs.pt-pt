@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan;juliako
 ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61466600"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido do subsistemas DRM 

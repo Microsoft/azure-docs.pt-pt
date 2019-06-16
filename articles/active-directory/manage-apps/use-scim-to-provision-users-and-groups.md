@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66742459"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
@@ -665,7 +665,7 @@ Para facilitar este processo, [exemplos de código](https://github.com/Azure/Azu
    ![][2]
    *Figura 6: Configurar o aprovisionamento no portal do Azure*
     
-1. Na **URL de inquilino** , insira o URL e a porta do ponto final do SCIM exposta de internet. A entrada é algo como http://testmachine.contoso.com:9000 ou http://\<ip-address >: 9000 /, onde \<ip-address > é a internet expostos IP endereço. 
+1. Na **URL de inquilino** , insira o URL e a porta do ponto final do SCIM exposta de internet. A entrada é algo como http://testmachine.contoso.com:9000 ou http://\< ip-address >: 9000 /, onde \< ip-address > é a internet expostos IP endereço. 
 
 1. Se o ponto de extremidade SCIM exige um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para o opcional **segredo de Token** campo. 
 1. Selecione **Testar ligação** ter o Azure Active Directory tentar estabelecer ligação ao ponto final do SCIM. Se a tentativa falhar, são apresentadas informações de erro.  
@@ -823,7 +823,7 @@ Para hospedar o serviço dentro de serviços de informação Internet, um desenv
    ```
 
 ### <a name="handling-endpoint-authentication"></a>Processar a autenticação de ponto final
-Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0.   Qualquer serviço que o pedido a receber deve autenticar o emissor como sendo o Azure Active Directory para o inquilino do Azure Active Directory esperado, para acesso ao serviço da web do Azure Active Directory Graph.  No token, o emissor é identificado por uma afirmação de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor de afirmação, https://sts.windows.net, identifica o Azure Active Directory como o emissor, enquanto o caminho relativo de segmento, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 endereços, que é um identificador exclusivo do inquilino do Azure Active Directory para qual o token foi emitido.  Se o token foi emitido para acessar o serviço web do Azure Active Directory Graph, em seguida, o identificador do serviço, 00000002-0000-0000-c000-000000000000, deve estar no valor de afirmação de aud o token.  Cada um dos aplicativos que estão registados num único inquilino poderá receber o mesmo `iss` a afirmação com SCIM pedidos.
+Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0.   Qualquer serviço que o pedido a receber deve autenticar o emissor como sendo o Azure Active Directory para o inquilino do Azure Active Directory esperado, para acesso ao serviço da web do Azure Active Directory Graph.  No token, o emissor é identificado por uma afirmação de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ".  Neste exemplo, o endereço base do valor de afirmação, https://sts.windows.net , identifica o Azure Active Directory como o emissor, enquanto o caminho relativo de segmento, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 endereços, que é um identificador exclusivo do inquilino do Azure Active Directory para qual o token foi emitido.  Se o token foi emitido para acessar o serviço web do Azure Active Directory Graph, em seguida, o identificador do serviço, 00000002-0000-0000-c000-000000000000, deve estar no valor de afirmação de aud o token.  Cada um dos aplicativos que estão registados num único inquilino poderá receber o mesmo `iss` a afirmação com SCIM pedidos.
 
 Os desenvolvedores que usam as bibliotecas CLI fornecidas pela Microsoft para a criação de um serviço SCIM podem autenticar os pedidos do Azure Active Directory utilizando o pacote de Microsoft.Owin.Security.ActiveDirectory seguindo estes passos: 
 

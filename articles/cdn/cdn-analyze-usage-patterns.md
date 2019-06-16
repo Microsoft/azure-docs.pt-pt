@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606381"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de núcleos da Verizon
@@ -96,7 +96,7 @@ Para reduzir acertos na cache expirada, defina um recurso `max-age` para um long
   
   * Cache-Control: s-maxage
   * Cache-Control: idade máxima
-  * Expira
+  * Expirar
 * TCP_MISS: Este status indica que uma versão em cache do recurso solicitado não foi encontrada no POP de mais próximo ao cliente. O elemento é pedido a partir de um servidor de origem ou de um servidor de escudo de origem. Se o servidor de origem ou o servidor de origem do escudo retornar um recurso, é fornecido ao cliente e colocados em cache no cliente e o servidor de borda. Caso contrário, um código de estado que não 200 (por exemplo, 403 proibido ou 404 não encontrado) é devolvido.
 * TCP_EXPIRED_HIT: Este estado é comunicado quando um pedido que tenha como destino um recurso com um valor de TTL expirado tiver sido servido diretamente a partir do POP ao cliente. Por exemplo, quando o elemento da duração máxima expirou. 
   

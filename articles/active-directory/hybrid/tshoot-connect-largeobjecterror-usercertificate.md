@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095494"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: Tratamento de erros de LargeObject causados pelo atributo userCertificate
@@ -110,7 +110,7 @@ Deve haver uma regra de sincronização existente que está ativada e configurad
     | sourceObjectType | EQUAL | Utilizador |
     | cloudMastered | NOTEQUAL | Verdadeiro |
 
-### <a name="step-3-create-the-outbound-sync-rule-required"></a>Passo 3. Criar a regra de sincronização de saída necessária
+### <a name="step-3-create-the-outbound-sync-rule-required"></a>Passo 3: Criar a regra de sincronização de saída necessária
 A nova regra de sincronização tem de ter o mesmo **filtro de âmbito** e **precedência superior** que a regra de sincronização existente. Isto garante que a nova regra de sincronização aplica-se para o mesmo conjunto de objetos, como a regra de sincronização existente e substitui a regra de sincronização existente para o atributo userCertificate. Para criar a regra de sincronização:
 1. No Editor de regras de sincronização, clique nas **Adicionar nova regra** botão.
 2. Sob o **separador de descrição**, forneça a seguinte configuração:
@@ -122,7 +122,7 @@ A nova regra de sincronização tem de ter o mesmo **filtro de âmbito** e **pre
     | Sistema ligado | *Selecione o conector Azure AD* |
     | Tipo de objeto de sistema ligado | **user** | |
     | Tipo de objeto de Metaverso | **person** | |
-    | Tipo de Ligação | **Associar** | |
+    | Tipo de ligação | **Associar** | |
     | Precedência | *Optou por um número entre 1 e 99* | O número escolhido não pode ser utilizado por qualquer regra de sincronização existente e tem um valor inferior (e, portanto, precedência superior) que a regra de sincronização existente. |
 
 3. Vá para o **Scoping filtro** separador e implementar o mesmo filtro de âmbito a regra de sincronização existente está a utilizar.
@@ -132,12 +132,12 @@ A nova regra de sincronização tem de ter o mesmo **filtro de âmbito** e **pre
     | Atributo | Value |
     | --- | --- |
     | Tipo de fluxo |**expressão** |
-    | Atributo de Destino |**userCertificate** |
+    | Atributo de destino |**userCertificate** |
     | Atributo de origem |*Utilize a seguinte expressão*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Clique nas **adicionar** botão para criar a regra de sincronização.
 
-### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Passo 4. Certifique-se a nova regra de sincronização num objeto existente com o erro de LargeObject
+### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Passo 4: Certifique-se a nova regra de sincronização num objeto existente com o erro de LargeObject
 Isso é verificar se a regra de sincronização criada está funcionando corretamente num objeto do AD existente com o erro de LargeObject antes de aplicá-la a outros objetos:
 1. Vá para o **operações** separador o Synchronization Service Manager.
 2. Selecione a exportação de mais recente para a operação do Azure AD e clique em um dos objetos com erros de LargeObject.
@@ -149,7 +149,7 @@ Isso é verificar se a regra de sincronização criada está funcionando correta
 8. No pop-up executar o conector, selecione **exportar** passo e clique em **OK**.
 9. Aguarde pela exportação para o Azure AD para concluir e confirme que não há nenhum erro de LargeObject mais neste objeto específico.
 
-### <a name="step-5-apply-the-new-sync-rule-to-remaining-objects-with-largeobject-error"></a>Passo 5. Aplicar a nova regra de sincronização aos restantes objetos com o erro de LargeObject
+### <a name="step-5-apply-the-new-sync-rule-to-remaining-objects-with-largeobject-error"></a>Passo 5: Aplicar a nova regra de sincronização aos restantes objetos com o erro de LargeObject
 Depois de adicionada a regra de sincronização, tem de executar um passo de sincronização completa no conector AD:
 1. Vá para o **conectores** separador o Synchronization Service Manager.
 2. Com o botão direito sobre os **AD** conector e selecione **executar...**

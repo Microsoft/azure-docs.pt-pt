@@ -1,22 +1,20 @@
 ---
 title: Dados de Upsert na API de Cassandra do Azure Cosmos DB do Spark
 description: Este artigo descreve como upsert para tabelas no Cassandra API do Azure Cosmos DB a partir do Spark
-author: rockboyfor
-ms.author: v-yeche
+author: kanshiG
+ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 03/18/2019
+ms.date: 09/24/2018
 ms.openlocfilehash: 7770e7fbe846defc865b3fcc702fcb00bae1b73c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60893423"
 ---
-<!--Verify sucessfully-->
 # <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Dados de Upsert na API de Cassandra do Azure Cosmos DB do Spark
 
 Este artigo descreve como dados de upsert para o Cassandra API do Azure Cosmos DB a partir do Spark.
@@ -33,7 +31,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
@@ -92,11 +90,7 @@ cdbConnector.withSessionDo(session => session.execute("update books_ks.books set
 ## <a name="next-steps"></a>Passos Seguintes
 
 Avance para os seguintes artigos para executar outras operações nos dados armazenados em tabelas Cassandra API do Azure Cosmos DB:
-
+ 
 * [Operações de eliminação](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia da tabela](cassandra-spark-table-copy-ops.md)
-
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->

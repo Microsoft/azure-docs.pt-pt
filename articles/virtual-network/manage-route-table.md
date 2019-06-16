@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
 ms.openlocfilehash: a39d9f9c5a138ece5d40cc5afe1d1dcdd8e7a41a
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65849792"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
@@ -30,7 +30,7 @@ O Azure automaticamente encaminha o tráfego entre sub-redes do Azure, redes vir
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 * Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).<br>
-* Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.<br>
+* Se utilizar o portal, abra https://portal.azure.com e inicie sessão com a sua conta do Azure.<br>
 * Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.<br>
 * Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a versão 2.0.31 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
@@ -236,7 +236,7 @@ Pode determinar o tipo de próximo salto entre uma máquina virtual e o endereç
 
 Para executar tarefas em tabelas de rotas e rotas, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-| Acção                                                          |   Name                                                  |
+| Ação                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Ler uma tabela de rotas                                    |
 | Microsoft.Network/routeTables/write                             |   Criar ou atualizar uma tabela de rotas                        |

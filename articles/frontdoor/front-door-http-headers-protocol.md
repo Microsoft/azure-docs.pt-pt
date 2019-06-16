@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736650"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Suporte de protocolo para cabeçalhos HTTP no serviço de porta de entrada do Azure
@@ -35,7 +35,7 @@ Serviço de porta de entrada inclui cabeçalhos a partir de uma solicitação de
 
 | Cabeçalho  | Exemplo e uma descrição |
 | ------------- | ------------- |
-| Através de |  Via: 1.1 azure </br> Porta de entrada adiciona a versão HTTP do cliente seguido *Azure* como o valor para o cabeçalho de Via. Isto indica a versão HTTP do cliente e essa porta de entrada foi um destinatário intermediário para o pedido entre o cliente e o back-end.  |
+| Via |  Via: 1.1 azure </br> Porta de entrada adiciona a versão HTTP do cliente seguido *Azure* como o valor para o cabeçalho de Via. Isto indica a versão HTTP do cliente e essa porta de entrada foi um destinatário intermediário para o pedido entre o cliente e o back-end.  |
 | X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representa o endereço IP do cliente associado à solicitação a ser processada. Por exemplo, um pedido proveniente de um proxy poderá adicionar o cabeçalho X-reencaminhados-para indicar o endereço IP do chamador original. |
 | X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representa o endereço IP de soquete associado com a ligação de TCP que originou a solicitação atual. Endereço IP do cliente de um pedido pode não ser igual ao respetivo endereço IP de socket porque pode ser arbitrariamente substituída por um utilizador.|
 | X-Azure-Ref |  X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> Uma cadeia de referência exclusivo que identifica um pedido servido por porta de entrada. É utilizado para aceder aos registos de pesquisa e críticas para resolução de problemas.|

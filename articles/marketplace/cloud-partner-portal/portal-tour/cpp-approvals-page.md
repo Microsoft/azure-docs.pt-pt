@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 69727b2eb4259f106d114050e6fc6e8a21410cc5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943439"
 ---
 # <a name="approvals-page"></a>Página de aprovações

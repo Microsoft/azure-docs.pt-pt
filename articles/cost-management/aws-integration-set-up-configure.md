@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002133"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Definir e configurar a integração de relatório de custos do AWS e utilização
@@ -67,7 +67,7 @@ Utilize o Assistente de criação de nova função:
 3. Selecione **funções** e, em seguida, selecione **criar função**.
 4. Na página seguinte, selecione **conta AWS outro**.
 5. Na **ID da conta**, introduza **432263259397**.
-6. Na **opções**, selecione **necessitam de ID externo (melhor prática, quando uma aplicação de terceiros irão assumir essa função)**.
+6. Na **opções**, selecione **necessitam de ID externo (melhor prática, quando uma aplicação de terceiros irão assumir essa função)** .
 7. Na **ID externo**, introduza o ID externo. O ID externo é um código de acesso partilhado entre a função AWS e o Azure Cost Management. O mesmo ID externo é também usado na **novo conector** página no Cost Management. Por exemplo, é semelhante a um ID externo _Companyname1234567890123_.
 
     > [!NOTE]
@@ -100,7 +100,7 @@ Configure as permissões para o Explorer de custo:
 
 1. Selecione **escolher um serviço**.
 2. Introduza **custo Explorer Service**.
-3. Selecione **ações de todos os serviços de Explorador de custo (ce:\*)**. Esta ação valida que a coleção está correta.
+3. Selecione **ações de todos os serviços de Explorador de custo (ce:\*)** . Esta ação valida que a coleção está correta.
 4. Selecione **adicionar permissões adicionais**.
 
 Adicione permissão para organizações de AWS:

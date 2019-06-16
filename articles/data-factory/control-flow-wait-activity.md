@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: shlo
 ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764756"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Executar a atividade de espera no Azure Data Factory
@@ -39,9 +39,9 @@ Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de t
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome do `Wait` atividade. | String | Sim
-tipo | Tem de ser definido como **aguarde**. | String | Sim
-waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar com o processamento. | Número inteiro | Sim
+name | Nome do `Wait` atividade. | String | Sim
+type | Tem de ser definido como **aguarde**. | String | Sim
+waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar com o processamento. | Integer | Sim
 
 ## <a name="example"></a>Exemplo
 

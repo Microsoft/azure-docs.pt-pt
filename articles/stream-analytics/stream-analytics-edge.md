@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60804079"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics do IoT Edge
  
-O Azure Stream Analytics (ASA) do IoT Edge permite aos programadores implementar intelligence análise quase em tempo real mais próxima dos dispositivos IoT para que possam desbloquear todo o valor dos dados gerados pelo dispositivo. O Azure Stream Analytics foi concebido para baixa latência, resiliência, utilização eficiente da largura de banda e conformidade. As empresas agora podem implementar a lógica de controle de perto as operações industriais e complementar feito na cloud de análise de macrodados.  
+O Azure Stream Analytics (ASA) do IoT Edge permite aos programadores implementar intelligence análise quase em tempo real mais próxima dos dispositivos IoT para que possam desbloquear todo o valor dos dados gerados pelo dispositivo. O Azure Stream Analytics foi concebido para baixa latência, resiliência, uso eficiente da largura de banda e conformidade. As empresas agora podem implementar a lógica de controle de perto as operações industriais e complementar feito na cloud de análise de macrodados.  
 
 O Azure Stream Analytics do IoT Edge é executado dentro de [do Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Depois de criar a tarefa no ASA, pode implementar e geri-lo através do IoT Hub.
 
@@ -74,9 +74,9 @@ Um contentor de armazenamento é necessário para exportar a consulta do ASA com
 
    ![Criar tarefa do Stream Analytics do Edge](media/stream-analytics-edge/create-asa-edge-job.png)
 3. Definição de tarefa
-    1. **Definir a entrada Stream(s)**. Defina um ou vários fluxos de entrada para a sua tarefa.
+    1. **Definir a entrada Stream(s)** . Defina um ou vários fluxos de entrada para a sua tarefa.
     2. Defina os dados de referência (opcionais).
-    3. **Definir a saída Stream(s)**. Defina um ou vários fluxos de saídas para a sua tarefa. 
+    3. **Definir a saída Stream(s)** . Defina um ou vários fluxos de saídas para a sua tarefa. 
     4. **Definir consulta**. Defina a consulta do ASA na cloud com o editor de inline. O compilador verifica automaticamente a sintaxe ativada para o ASA edge. Também pode testar a consulta através do carregamento de dados de exemplo. 
 
 4. Definir as informações de contentor de armazenamento na **definições do IoT Edge** menu.

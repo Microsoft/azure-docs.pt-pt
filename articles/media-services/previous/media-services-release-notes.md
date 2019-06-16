@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c519cf88f40928bbd556b0accfa30d9f8c5c0f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991903"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
@@ -504,7 +504,7 @@ Correções para problemas encontrados em Novembro de 2012 SDK:
 ## <a id="november_changes_12"></a>Versão de Novembro de 2012
 As alterações mencionadas nesta seção foram atualizações incluídas em Novembro de 2012 (versão 2.0.0.0) SDK. Estas alterações podem exigir qualquer código escrito para a pré-visualização de Junho de 2012 de versão do SDK para ser modificado ou reescrito.
 
-* Recursos
+* Elementos
   
     * IAsset.Create(assetName) é o *apenas* função de criação do recurso. IAsset.Create já não carrega ficheiros como parte da chamada do método. Utilize IAssetFile para carregar.
     * O método IAsset.Publish e o valor de enumeração de AssetState.Publish foram removidas do SDK de serviços. Qualquer código que conta com este valor tem de ser reescrito.

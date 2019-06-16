@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60543160"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrar recursos de IaaS do clássico para o Azure Resource Manager com CLI do Azure
@@ -35,7 +35,7 @@ Eis um fluxograma para identificar a ordem em que passos têm de ser executado d
 
 ![Captura de ecrã que mostra os passos da migração](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-prepare-for-migration"></a>Passo 1: Preparar para migração
+## <a name="step-1-prepare-for-migration"></a>Passo 1: Prepare para a migração
 Seguem-se algumas melhores práticas que recomendamos durante a avaliação migrar recursos de IaaS do clássico para Resource Manager:
 
 * Leia os [lista de configurações não suportadas ou funcionalidades](../windows/migration-classic-resource-manager-overview.md). Se tiver máquinas virtuais que utilizem as configurações não suportadas ou funcionalidades, recomendamos que aguarde o suporte de configuração/funcionalidades serão anunciados. Em alternativa, pode remover essa funcionalidade ou mover para fora de que a configuração para permitir a migração se ele atenda às suas necessidades.
@@ -146,7 +146,7 @@ A saída será algo parecido com isto:
 
 ![Captura de ecrã da linha de comandos com o nome de toda a rede virtual realçado.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-No exemplo acima, o **virtualNetworkName** é o nome completo **"Grupo classicubuntu16 classicubuntu16"**.
+No exemplo acima, o **virtualNetworkName** é o nome completo **"Grupo classicubuntu16 classicubuntu16"** .
 
 Em primeiro lugar, valide se é possível migrar a rede virtual com o seguinte comando:
 

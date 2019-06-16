@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 70801f7d616434df83a7fd3399780a73afde1f32
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66751693"
 ---
 # <a name="azure-saas-application-offer"></a>Oferta de aplicação SaaS do Azure

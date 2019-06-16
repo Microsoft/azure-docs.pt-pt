@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 984498a2b9d4d72ee6bb6b9f0a9e62636bf870bf
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: e0a1538f640bb4722eca1d4f3a80125837593bab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66226442"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085745"
 ---
 # <a name="tutorial-integrate-zscaler-private-access-zpa-with-azure-active-directory"></a>Tutorial: Integrar o Zscaler privada acesso (ZPA) com o Azure Active Directory
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-pawal
 ms.openlocfilehash: 08be79dde62a1d624fa59816cf855e702245b622
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66385172"
 ---
 # <a name="what-is-a-bleu-score"></a>O que é uma pontuação de BLEU?

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205755"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Windows e Linux origens de dados de desempenho no Azure Monitor
@@ -90,7 +90,7 @@ Os parâmetros neste elemento são descritos na tabela seguinte.
 
 A tabela seguinte lista os objetos e os contadores que pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para determinadas aplicações conforme descrito em [recolher contadores de desempenho de aplicações do Linux no Azure Monitor](data-sources-linux-applications.md).
 
-| Nome do Objeto | Nome do Contador |
+| Nome do objeto | Nome do contador |
 |:--|:--|
 | Disco lógico | % De Inodes livres |
 | Disco lógico | % De espaço livre |
@@ -126,10 +126,10 @@ A tabela seguinte lista os objetos e os contadores que pode especificar no arqui
 | Disco físico | Média Disco seg/transferência |
 | Disco físico | Média Disco seg/escritas |
 | Disco físico | Bytes de disco físico/seg |
-| Processo | Tempo de PCT privilegiado |
-| Processo | Tempo de utilizador de PCT |
-| Processo | KBytes de memória utilizada |
-| Processo | Memória compartilhada virtual |
+| Process | Tempo de PCT privilegiado |
+| Process | Tempo de utilizador de PCT |
+| Process | KBytes de memória utilizada |
+| Process | Memória compartilhada virtual |
 | Processador | % De tempo DPC |
 | Processador | % De tempo inativo |
 | Processador | % De tempo de interrupção |

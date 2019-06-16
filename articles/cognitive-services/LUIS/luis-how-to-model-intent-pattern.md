@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60196704"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar os padrões para melhorar a exatidão da previsão

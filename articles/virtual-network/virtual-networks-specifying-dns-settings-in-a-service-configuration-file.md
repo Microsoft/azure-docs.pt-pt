@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: genli
 ms.openlocfilehash: 0ac488a67d8b9debf6539d199395997cf44cf1e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60232748"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Especificar as definições de DNS num ficheiro de configuração de serviço

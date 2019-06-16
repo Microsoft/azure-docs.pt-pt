@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
 ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979633"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)

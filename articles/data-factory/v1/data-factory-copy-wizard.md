@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60487988"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copiar ou mover dados facilmente com o Assistente de cópia do Azure Data Factory
@@ -63,7 +63,7 @@ No exemplo, a consulta SQL utiliza a `Text.Format` função e `WindowStart` vari
 ![Validar expressões](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtragem de dados numa pasta de Blobs do Azure
-Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base na [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** e **{personalizado}**. Exemplo: inputfolder / {ano} / {month} / {day}.
+Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base na [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** e **{personalizado}** . Exemplo: inputfolder / {ano} / {month} / {day}.
 
 Suponha que tem a entrada pastas no seguinte formato:
 
@@ -72,11 +72,11 @@ Suponha que tem a entrada pastas no seguinte formato:
     2016/03/01/03
     ...
 
-Clique nas **navegue** botão para **ficheiro ou pasta**, procure uma dessas pastas (por exemplo, 2016 -> 03 -> 01-02 >) e clique em **escolha**. Deverá ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** com **{year}**, **03** com **{month}**, **01** com **{day}** , e **02** com **{hour}**, e pressione Tab. Deverá ver a lista pendente para selecionar o formato para este quatro variáveis:
+Clique nas **navegue** botão para **ficheiro ou pasta**, procure uma dessas pastas (por exemplo, 2016 -> 03 -> 01-02 >) e clique em **escolha**. Deverá ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** com **{year}** , **03** com **{month}** , **01** com **{day}** , e **02** com **{hour}** , e pressione Tab. Deverá ver a lista pendente para selecionar o formato para este quatro variáveis:
 
 ![Usando variáveis de sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Conforme mostrado na captura de ecrã seguinte, também pode utilizar um **personalizados** variável e qualquer [suportados cadeias de caracteres de formato](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com essa estrutura, utilize o **procurar** botão pela primeira vez. Em seguida, substitua um valor com **{personalizado}**, e pressione Tab para ver a caixa de texto onde pode escrever a cadeia de formato.     
+Conforme mostrado na captura de ecrã seguinte, também pode utilizar um **personalizados** variável e qualquer [suportados cadeias de caracteres de formato](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para selecionar uma pasta com essa estrutura, utilize o **procurar** botão pela primeira vez. Em seguida, substitua um valor com **{personalizado}** , e pressione Tab para ver a caixa de texto onde pode escrever a cadeia de formato.     
 
 ![Usando a variável personalizada](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

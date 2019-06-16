@@ -16,10 +16,10 @@ ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539839"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Descrição geral de diagnóstico de serviço de aplicações do Azure
@@ -38,7 +38,7 @@ Para as funções do Azure, navegue até à sua aplicação de função e no pai
 
 Na home page diagnóstico do serviço de aplicações, pode escolher a categoria que melhor descreve o problema com a sua aplicação ao utilizar as palavras-chave em cada mosaico de home page. Além disso, esta página é onde encontrará **ferramentas de diagnóstico** para aplicações do Windows. Ver [ferramentas de diagnóstico (apenas para a aplicação do Windows)](#diagnostic-tools-only-for-windows-app).
 
-![Home page](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![Homepage](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>Interface interativa
 

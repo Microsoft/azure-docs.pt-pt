@@ -15,10 +15,10 @@ ms.reviewer: maghan
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002937"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory

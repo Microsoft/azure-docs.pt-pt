@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
 ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551519"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure

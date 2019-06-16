@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545848"
 ---
 # <a name="native-apps"></a>Aplicações nativas
@@ -50,7 +50,7 @@ Se estiver a utilizar as bibliotecas de autenticação do AD, a maioria dos deta
 
 Veja os exemplos de código para o aplicativo nativo para cenários de Web API. Além disso, visite-a freqüentemente – adicionamos novos exemplos com frequência. [Aplicação nativa a Web API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
-## <a name="app-registration"></a>Registo de aplicações
+## <a name="app-registration"></a>Registo da aplicação
 
 Registar uma aplicação com o ponto de final de versão 1.0 do Azure AD, consulte [registar uma aplicação](quickstart-register-app.md).
 

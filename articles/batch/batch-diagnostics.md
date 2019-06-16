@@ -16,10 +16,10 @@ ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242627"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização

@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595447"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Explorador de métricas do Azure
@@ -32,20 +32,20 @@ Para criar um gráfico de métricas, do recurso, grupo de recursos, subscrição
 
 1. Utilizando o selecionador de recursos, selecione o recurso para o qual pretende ver as métricas. (O recurso está pré-selecionada se abriu **métricas** no contexto de um recurso específico).
 
-    > ![Selecione um recurso](./media/metrics-getting-started/resource-picker.png)
+    > ![Selecionar um recurso](./media/metrics-getting-started/resource-picker.png)
 
 2. Para alguns recursos, tem de escolher um espaço de nomes. O espaço de nomes é apenas uma forma de organizar as métricas para que pode encontrá-los facilmente. Por exemplo, contas de armazenamento têm espaços de nomes separados para armazenar as métricas de ficheiros, tabelas, Blobs e filas. Muitos tipos de recursos tem apenas um espaço de nomes.
 
 3. Selecione uma métrica de uma lista de métricas disponíveis.
 
-    > ![Selecionar uma métrica](./media/metrics-getting-started/metric-picker.png)
+    > ![Selecione uma métrica](./media/metrics-getting-started/metric-picker.png)
 
 4. Opcionalmente, pode alterar a agregação de métricas. Por exemplo, pode desejar seu gráfico para mostrar os valores mínimo, máximos ou médios da métrica.
 
 > [!NOTE]
 > Utilize o **adicionar métrica** botão e repita estes passos, se quiser ver várias métricas desenhadas no mesmo gráfico. Para vários gráficos numa vista, selecione o **adicionar gráfico** botão na parte superior.
 
-## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
+## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
 
 Por predefinição, o gráfico mostra as mais recentes 24 horas de dados de métricas. Utilize o **Seletor de hora** painel para alterar o intervalo de tempo, ampliar ou reduzir o tempo limite no gráfico. 
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
 ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66141675"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a gestão de API numa VNET interna com o Gateway de aplicação
@@ -88,7 +88,7 @@ Neste guia, também expõe os **portal do programador** a públicos externos atr
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Resource Manager
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Iniciar sessão no Azure
 
@@ -98,7 +98,7 @@ Connect-AzAccount
 
 Autenticar com as suas credenciais.
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Selecione a subscrição pretendida.
 
@@ -107,7 +107,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure su
 Get-AzSubscription -Subscriptionid $subscriptionId | Select-AzSubscription
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Crie um novo grupo de recursos (ignore este passo se estiver a utilizar um grupo de recursos existente).
 
@@ -123,7 +123,7 @@ O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma
 
 O exemplo seguinte mostra como criar uma rede Virtual com o resource manager.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Atribua o endereço intervalo 10.0.0.0/24 à variável da sub-rede a utilizar para o Gateway de aplicação ao criar uma rede Virtual.
 
@@ -131,7 +131,7 @@ Atribua o endereço intervalo 10.0.0.0/24 à variável da sub-rede a utilizar pa
 $appgatewaysubnet = New-AzVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Atribua o endereço intervalo 10.0.1.0/24 à variável da sub-rede a utilizar para a gestão de API ao criar uma rede Virtual.
 
@@ -139,7 +139,7 @@ Atribua o endereço intervalo 10.0.1.0/24 à variável da sub-rede a utilizar pa
 $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Criar uma rede Virtual denominada **appgwvnet** no grupo de recursos **apim-appGw-RG** para a região EUA oeste. Utilize o prefixo 10.0.0.0/16 com sub-redes 10.0.0.0/24 e 10.0.1.0/24.
 
@@ -160,7 +160,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 
 O exemplo seguinte mostra como criar um serviço de gestão de API numa VNET configurada para apenas o acesso interno.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Crie um objeto de rede Virtual de gestão de API com a sub-rede $apimsubnetdata criada acima.
 
@@ -168,7 +168,7 @@ Crie um objeto de rede Virtual de gestão de API com a sub-rede $apimsubnetdata 
 $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Crie um serviço de gestão de API dentro da rede Virtual.
 
@@ -183,7 +183,7 @@ Depois do comando acima for concluída com êxito, consulte a [necessária confi
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Configurar um nome de domínio personalizado na gestão de API
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Inicialize as seguintes variáveis com os detalhes dos certificados com chaves privadas para os domínios. Neste exemplo, utilizamos `api.contoso.net` e `portal.contoso.net`.  
 
@@ -200,7 +200,7 @@ $certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -
 $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Crie e defina o nome de anfitrião objetos de configuração para o proxy de e para o portal.  
 
@@ -227,7 +227,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "public
 
 Tem de configurar todos os itens de configuração antes de criar o gateway de aplicação. Com os seguintes passos, irá criar os itens de configuração necessários para um recurso do gateway de aplicação.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Crie uma configuração de IP do gateway de aplicação com o nome **gatewayIP01**. Ao iniciar, o Application Gateway escolhe um endereço IP na subrede configurada e encaminha o tráfego da rede para os endereços IP no conjunto de IPs de back-end. Note que cada instância terá um endereço IP.
 
@@ -235,7 +235,7 @@ Crie uma configuração de IP do gateway de aplicação com o nome **gatewayIP01
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Configure a porta IP de front-end para o ponto de final IP público. Esta porta é a porta que os utilizadores finais que se ligam a.
 
@@ -243,7 +243,7 @@ Configure a porta IP de front-end para o ponto de final IP público. Esta porta 
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Configure o IP de front-end com o ponto final de IP público.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
 ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596737"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos

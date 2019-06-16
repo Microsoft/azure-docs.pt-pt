@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475818"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
@@ -456,7 +456,7 @@ A descrição da tarefa. a descrição é nvarchar(512), com uma predefinição 
 [  **\@ativado =** ] ativada  
 Se o agendamento do trabalho está ativado. Ativado é o bit, com um padrão de 0 (desativado). Se for 0, a tarefa não está ativada e não é executado de acordo com seu Cronograma; No entanto, pode ser executado manualmente. Se 1, a tarefa será executada de acordo com a sua agenda e também pode ser executada manualmente.
 
-[  **\@schedule_interval_type =**] schedule_interval_type  
+[  **\@schedule_interval_type =** ] schedule_interval_type  
 Valor indica quando a tarefa está a ser executado. schedule_interval_type é nvarchar(50), com uma predefinição de uma vez e pode ser um dos seguintes valores:
 - 'Uma vez',
 - 'Minutos',
@@ -1225,7 +1225,7 @@ Mostra o histórico de execução de tarefas.
 |**end_time**|  datetime2(7)    |Data e hora a tarefa foi concluída a execução. NULO se a tarefa ainda não tiver sido executada ou não tem ainda concluiu a execução.
 |**current_attempts**   |int    |Número de vezes que a etapa foi repetida. Tarefa principal será 0, as execuções de tarefas de subordinado vão ser 1 ou superior com base na política de execução.
 |**current_attempt_start_time** |datetime2(7)|  Data e hora a tarefa iniciou a execução. NULO indica que esta é a execução de tarefa principal.
-|**last_message**   |nvarchar(max)| Mensagem de histórico do trabalho ou passo. 
+|**last_message**   |nvarchar (Max)| Mensagem de histórico do trabalho ou passo. 
 |**target_type**|   nvarchar(128)   |Tipo de base de dados de destino ou uma coleção de bases de dados incluindo todas as bases de dados num servidor, todas as bases de dados num conjunto elástico ou uma base de dados. Valores válidos para target_type são 'SqlServer', "SqlElasticPool" ou "SqlDatabase". NULO indica que esta é a execução de tarefa principal.
 |**target_id**  |uniqueidentifier|  ID exclusivo do membro do grupo de destino.  NULO indica que esta é a execução de tarefa principal.
 |**target_group_name**  |nvarchar(128)  |Nome do grupo de destino. NULO indica que esta é a execução de tarefa principal.
@@ -1279,7 +1279,7 @@ Mostra todos os passos na versão atual de cada tarefa.
 |**step_name**  |nvarchar(128)  |Nome exclusivo (para esta tarefa) para o passo.|
 |**command_type**   |nvarchar(50)   |Tipo de comando a executar o passo de tarefa. Para a v1, valor tem de ser igual ao e predefinido para 'TSql'.|
 |**command_source** |nvarchar(50)|  Localização do comando. Para a v1, "Inline" é o padrão e apenas aceite o valor.|
-|**command**|   nvarchar(max)|  Os comandos a serem executados por tarefas elásticas através de command_type.|
+|**command**|   nvarchar (Max)|  Os comandos a serem executados por tarefas elásticas através de command_type.|
 |**credential_name**|   nvarchar(128)   |Nome da credencial com âmbito de base de dados utilizado para a execução da tarefa.|
 |**target_group_name**| nvarchar(128)   |Nome do grupo de destino.|
 |**target_group_id**|   uniqueidentifier|   ID exclusivo do grupo de destino.|
@@ -1294,8 +1294,8 @@ Mostra todos os passos na versão atual de cada tarefa.
 |**output_resource_group_name** |nvarchar(128)| Nome do grupo de recursos onde reside o servidor de destino.|
 |**output_server_name**|    nvarchar(256)   |Nome do servidor de destino para o conjunto de resultados.|
 |**output_database_name**   |nvarchar(128)| Nome da base de dados de destino para o conjunto de resultados.|
-|**output_schema_name** |nvarchar(max)| Nome do esquema de destino. Assume a predefinição de dbo, se não for especificado.|
-|**output_table_name**| nvarchar(max)|  Nome da tabela para armazenar os resultados definido nos resultados da consulta. Tabela será criada automaticamente com base no esquema de resultados definido se ainda não exista. Esquema tem de corresponder ao esquema do conjunto de resultados.|
+|**output_schema_name** |nvarchar (Max)| Nome do esquema de destino. Assume a predefinição de dbo, se não for especificado.|
+|**output_table_name**| nvarchar (Max)|  Nome da tabela para armazenar os resultados definido nos resultados da consulta. Tabela será criada automaticamente com base no esquema de resultados definido se ainda não exista. Esquema tem de corresponder ao esquema do conjunto de resultados.|
 |**max_parallelism**|   int|    O número máximo de bases de dados por conjunto elástico que o passo da tarefa será executado cada vez. A predefinição é nulo, significa que nenhum limite. |
 
 

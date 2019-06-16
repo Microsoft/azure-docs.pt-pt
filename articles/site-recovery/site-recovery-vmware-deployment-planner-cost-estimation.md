@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/14/2019
 ms.author: mayg
 ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61471130"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Reveja o relatório de estimativa de custo no Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
@@ -122,17 +122,17 @@ Para adicionar VMs manualmente:
 
 **Número de VMs**: O número de VMs que correspondem à configuração. Pode atualizar o número de VMs existentes se as VMs com configuração semelhante não tiverem perfis criados, mas irão ser protegidas.
 
-**Tamanho de IaaS (recomendação)**: É o tamanho da função VM da VM compatível que a ferramenta recomenda. 
+**Tamanho de IaaS (recomendação)** : É o tamanho da função VM da VM compatível que a ferramenta recomenda. 
 
-**Tamanho de IaaS (a sua seleção)**: Por predefinição, é o mesmo que o tamanho da função VM recomendado. Pode alterar a função com base nos seus requisitos. O custo de computação baseia-se no tamanho da função VM que selecionou.
+**Tamanho de IaaS (a sua seleção)** : Por predefinição, é o mesmo que o tamanho da função VM recomendado. Pode alterar a função com base nos seus requisitos. O custo de computação baseia-se no tamanho da função VM que selecionou.
 
 **Tipo de armazenamento**: O tipo de armazenamento que é utilizado pela VM. É armazenamento standard ou premium.
 
-**Tamanho de armazenamento total da VM (GB)**: O armazenamento total da VM.
+**Tamanho de armazenamento total da VM (GB)** : O armazenamento total da VM.
 
 **Número de explorações de DR num ano**: O número de vezes que executa explorações de DR num ano. Por predefinição, é 4 vezes num ano. Pode modificar o período para VMs específicas ou aplicar o novo valor a todas as VMs ao introduzir o novo valor na linha superior e clicar no botão «Apply to all» (Aplicar a todos). Com base no número de Explorações de DR num ano e no período de duração de cada Exploração de DR, é calculado o custo total de Exploração de DR.  
 
-**Duração de cada exploração de DR (dias)**: A duração de cada exploração de DR. Por predefinição, é 7 dias a cada 90 dias, de acordo com o [benefício Recuperação Após Desastre do Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Pode modificar o período para VMs específicas ou pode aplicar um novo valor a todas as VMs ao introduzir o novo valor na linha superior e clicar no botão «Apply to all» (Aplicar a todos). O custo total de Exploração de DR é calculado com base no número de Explorações de DR num ano e no período de duração de cada Exploração de DR.
+**Duração de cada exploração de DR (dias)** : A duração de cada exploração de DR. Por predefinição, é 7 dias a cada 90 dias, de acordo com o [benefício Recuperação Após Desastre do Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Pode modificar o período para VMs específicas ou pode aplicar um novo valor a todas as VMs ao introduzir o novo valor na linha superior e clicar no botão «Apply to all» (Aplicar a todos). O custo total de Exploração de DR é calculado com base no número de Explorações de DR num ano e no período de duração de cada Exploração de DR.
   
 **Tipo de SO**: O tipo de SO da VM. É Windows ou Linux. Se o tipo de SO for Windows, o Benefício Híbrido do Azure pode ser aplicado a essa VM. 
 
@@ -144,7 +144,7 @@ Para adicionar VMs manualmente:
 
 **Custo de replicação de estado estável**: Ele inclui o custo de armazenamento para replicação.
 
-**Total de custo de exploração de DR (média)**: Ele inclui o custo de exploração de DR de armazenamento e computação.
+**Total de custo de exploração de DR (média)** : Ele inclui o custo de exploração de DR de armazenamento e computação.
 
 **Custo da licença de ASR**: Custo da licença do Azure Site Recovery.
 

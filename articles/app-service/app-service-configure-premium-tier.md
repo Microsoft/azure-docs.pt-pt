@@ -17,10 +17,10 @@ ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66139788"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurar o escalão PremiumV2 para serviço de aplicações do Azure
@@ -66,7 +66,7 @@ Dependendo do ambiente de alojamento, a aumentar verticalmente pode requerer pas
 
 Na <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, abra a página da aplicação de serviço de aplicações.
 
-No painel de navegação esquerdo da página da aplicação de serviço de aplicações, selecione **aumentar verticalmente (plano do serviço de aplicações)**.
+No painel de navegação esquerdo da página da aplicação de serviço de aplicações, selecione **aumentar verticalmente (plano do serviço de aplicações)** .
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 

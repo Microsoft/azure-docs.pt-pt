@@ -12,10 +12,10 @@ ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60715661"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo
@@ -171,19 +171,19 @@ Os seguintes passos guiá-lo sobre como ligar o ficheiro pbix para a base de dad
    
    Precisará **nome do servidor, nome de base de dados, nome de utilizador e palavra-passe de base de dados** antes de passar aos passos seguintes. Aqui estão as etapas para orientá-lo como encontrá-los.
    
-   * Uma vez **'Do Azure SQL Database'** no seu modelo de solução diagrama fica verde, clique no mesmo e, em seguida, clique em **"Abrir"**.
+   * Uma vez **'Do Azure SQL Database'** no seu modelo de solução diagrama fica verde, clique no mesmo e, em seguida, clique em **"Abrir"** .
    * Verá uma novo separador/janela do browser que apresenta a página do portal do Azure. Clique em **grupos de recursos** no painel esquerdo.
-   * Selecione a subscrição está a utilizar para implementar a solução e, em seguida, selecione **' YourSolutionName\_ResourceGroup "**.
-   * No pop de novo o painel, clique nas ![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ícone para acessar seu banco de dados. O nome da sua base de dados é junto a este ícone (por exemplo, **'pmaintenancedb'**) e o **nome do servidor de base de dados** está listado sob a propriedade de nome de servidor e deve ser semelhante à  **YourSolutionName.database.windows.net**.
+   * Selecione a subscrição está a utilizar para implementar a solução e, em seguida, selecione **' YourSolutionName\_ResourceGroup "** .
+   * No pop de novo o painel, clique nas ![ícone SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ícone para acessar seu banco de dados. O nome da sua base de dados é junto a este ícone (por exemplo, **'pmaintenancedb'** ) e o **nome do servidor de base de dados** está listado sob a propriedade de nome de servidor e deve ser semelhante à  **YourSolutionName.database.windows.net**.
    * A base de dados **nome de utilizador** e **palavra-passe** são o mesmo que o nome de utilizador e palavra-passe gravado anteriormente durante a implementação da solução.
 2. Atualize a origem de dados do ficheiro de relatório do caminho típico com o Power BI Desktop.
    
-   * Na pasta onde transferiu e descompactei o ficheiro de gerador, faça duplo clique o **PowerBI\\PredictiveMaintenanceAerospace.pbix** ficheiro. Se vir quaisquer mensagens de aviso quando abrir o arquivo, ignorá-las. Na parte superior do ficheiro, clique em **'Editar consultas'**.
+   * Na pasta onde transferiu e descompactei o ficheiro de gerador, faça duplo clique o **PowerBI\\PredictiveMaintenanceAerospace.pbix** ficheiro. Se vir quaisquer mensagens de aviso quando abrir o arquivo, ignorá-las. Na parte superior do ficheiro, clique em **'Editar consultas'** .
      
      ![Editar consultas](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * Verá duas tabelas, **RemainingUsefulLife** e **PMResult**. Selecione a primeira tabela e clique em ![ícone de definições de consulta](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) junto a **"Source"** sob **passos aplicados** à direita **definições de consulta** painel. Ignore todas as mensagens de aviso que aparecem.
-   * No pop de fora da janela, substitua **"Server"** e **'Database'** com seus próprios nomes de servidor e base de dados e, em seguida, clique **'OK'**. Nome do servidor, certifique-se de que especifique a porta 1433 (**YourSolutionName.database.windows.net, 1433**). Deixe o campo de base de dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem no ecrã.
-   * No pop seguinte fora da janela, verá duas opções no painel da esquerda (**Windows** e **base de dados**). Clique em **'Database'**, preencha suas **'Username'** e **'Password'** (este é o nome de utilizador e palavra-passe que introduziu quando implementou a solução pela primeira vez e criado do Azure Base de dados SQL). Na ***selecione o nível para aplicar estas definições para***, marque a opção de nível de base de dados. Em seguida, clique em **"Ligar"**.
+   * No pop de fora da janela, substitua **"Server"** e **'Database'** com seus próprios nomes de servidor e base de dados e, em seguida, clique **'OK'** . Nome do servidor, certifique-se de que especifique a porta 1433 (**YourSolutionName.database.windows.net, 1433**). Deixe o campo de base de dados como **pmaintenancedb**. Ignore as mensagens de aviso que aparecem no ecrã.
+   * No pop seguinte fora da janela, verá duas opções no painel da esquerda (**Windows** e **base de dados**). Clique em **'Database'** , preencha suas **'Username'** e **'Password'** (este é o nome de utilizador e palavra-passe que introduziu quando implementou a solução pela primeira vez e criado do Azure Base de dados SQL). Na ***selecione o nível para aplicar estas definições para***, marque a opção de nível de base de dados. Em seguida, clique em **"Ligar"** .
    * Clique na segunda tabela **PMResult** , em seguida, clique em ![ícone de navegação](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) junto a **"Source"** sob **passos aplicados** à direita **Definições de consulta** painel e atualizar os nomes de servidor e base de dados, tal como os passos acima e clique em OK.
    * Assim que estiver orientada para a página anterior, feche a janela. É apresentada uma mensagem - clique **aplicar**. Por último, clique a **guardar** botão para guardar as alterações. O ficheiro do Power BI agora estabeleceu ligação ao servidor. Se as visualizações estiverem vazias, certifique-se de que desmarcar as seleções nas visualizações para visualizar todos os dados ao clicar no ícone de borracha no canto superior direito de legendas. Utilize o botão de atualização para refletir novos dados nas visualizações. Inicialmente, apenas verá os dados de seed nas suas visualizações conforme a fábrica de dados é agendada para atualização em três horas. Depois de 3 horas, verá novas predições refletidas nas suas visualizações, quando atualizar os dados.
 3. (Opcional) Publique o dashboard do caminho típico para [Power BI online](https://www.powerbi.com/). Tenha em atenção que este passo necessita de uma conta Power BI (ou conta do Office 365).

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237424"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606433"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
@@ -362,7 +362,7 @@ Neste momento calcula o número total de potenciais simultâneas versões de tes
 
 **Modelo de teste de unidade Resource Manager -** *necessário* carregue o modelo do Resource Manager aqui. Este é o ficheiro que criou na secção anterior acima. Nomeie o arquivo de modelo principal: "main-Template" e certifique-se de que o modelo do Resource Manager contém parâmetros de saída para variáveis-chave que são necessários. (Tem de ser um ficheiro. zip)
 
-**Aceder a informações -** *necessário* depois de um cliente recebe a unidade de teste, as informações de acesso são apresentadas aos mesmos. Estas instruções destinam-se para partilhar os parâmetros de saída útil do seu teste de unidade modelo do Resource Manager. Para incluir parâmetros de saída, de utilizar chavetas aspas (por exemplo, **{{outputname}}**), e eles serão inseridos corretamente na localização. (Formatação da cadeia de caracteres HTML é recomendado aqui para renderizar no front-end).
+**Aceder a informações -** *necessário* depois de um cliente recebe a unidade de teste, as informações de acesso são apresentadas aos mesmos. Estas instruções destinam-se para partilhar os parâmetros de saída útil do seu teste de unidade modelo do Resource Manager. Para incluir parâmetros de saída, de utilizar chavetas aspas (por exemplo, **{{outputname}}** ), e eles serão inseridos corretamente na localização. (Formatação da cadeia de caracteres HTML é recomendado aqui para renderizar no front-end).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Detalhes de subscrição de implementação de unidade de teste
 
@@ -403,7 +403,7 @@ Clique em Guardar. A última etapa é obter o ID da aplicação para esta aplica
 Tendo em conta que estiver a utilizar a aplicação para implementar para a subscrição, precisamos de adicionar a aplicação como um contribuinte da subscrição. As instruções para estas são como abaixo:
 
 1. Navegue para o painel de subscrições e selecione a subscrição adequada, que está a utilizar para a versão de teste apenas.
-1. Clique em **controlo de acesso (IAM)**.
+1. Clique em **controlo de acesso (IAM)** .
 1. Clique nas **atribuições de funções** separador.  ![Adicionar um novo principal de controlo de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Clique em **adicionar atribuição de função**.
 1. Definir a função como **contribuinte**.

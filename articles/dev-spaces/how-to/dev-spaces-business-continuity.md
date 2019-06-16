@@ -11,10 +11,10 @@ description: Desenvolvimento rápido da Kubernetes com contentores e microsservi
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
 manager: jeconnoc
 ms.openlocfilehash: 69f5bdd80e4cf10db6a530ddfa08a1f26cd42ca0
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754427"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Recuperação de desastre e continuidade de negócio nos espaços de desenvolvimento do Azure

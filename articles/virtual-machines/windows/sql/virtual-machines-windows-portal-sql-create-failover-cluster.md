@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591531"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em máquinas virtuais do Azure
@@ -74,7 +74,7 @@ Deve ter uma compreensão operacional das seguintes tecnologias:
 - [Tecnologias de cluster do Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [Instâncias de Cluster de ativação pós-falha do SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Uma diferença importante é que num cluster de ativação pós-falha de convidado de VM de IaaS do Azure, recomendamos que um único NIC por servidor (nó de cluster) e uma única sub-rede. Redes do Azure tem redundância física que torna desnecessário NICs e sub-redes adicionais num cluster de convidados de VM de IaaS do Azure. Embora o relatório de validação de cluster irá emitir um aviso de que os nós só são acessíveis numa única rede, este aviso pode ser ignorado com segurança em clusters de ativação pós-falha de convidado de VM de IaaS do Azure. 
+Uma diferença importante é que num cluster de ativação pós-falha de convidado de VM de IaaS do Azure, recomendamos que um único NIC por servidor (nó de cluster) e uma única sub-rede. As redes do Azure têm redundância físicas, as quais tornam desnecessários NICs e sub-redes adicionais num cluster convidado da VM IaaS do Azure. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure. 
 
 Além disso, deve ter uma compreensão geral das seguintes tecnologias:
 
@@ -175,7 +175,7 @@ Com a configuração destes pré-requisitos, pode avançar com a criação do cl
 
    Em cada máquina virtual, abra as seguintes portas na Firewall do Windows.
 
-   | Objetivo | A porta TCP | Notas
+   | Objetivo | Porta TCP | Notas
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normal para instâncias padrão do SQL Server. Se utilizou uma imagem a partir da galeria, esta porta é aberta automaticamente.
    | Sonda de estado de funcionamento | 59999 | Abra qualquer porta TCP. Num passo posterior, configurar o Balanceador de carga [sonda de estado de funcionamento](#probe) e o cluster para utilizar esta porta.  
@@ -416,7 +416,7 @@ Para criar o Balanceador de carga:
    - **Nome**: Um nome para a regras de balanceamento de carga.
    - **Endereço IP de front-end**: Utilize o endereço IP para o recurso de rede de cluster do SQL Server FCI.
    - **Porta**: Definir para a porta TCP do SQL Server FCI. A porta de instância padrão é 1433.
-   - **Porta de back-end**: Este valor usa a mesma porta como a **porta** valor quando ativa **IP flutuante (devolução direta do servidor)**.
+   - **Porta de back-end**: Este valor usa a mesma porta como a **porta** valor quando ativa **IP flutuante (devolução direta do servidor)** .
    - **Conjunto back-end**: Utilize o nome do conjunto de back-end que configurou anteriormente.
    - **Sonda de estado de funcionamento**: Utilize a sonda de estado de funcionamento que configurou anteriormente.
    - **Persistência da sessão**: Nenhum.

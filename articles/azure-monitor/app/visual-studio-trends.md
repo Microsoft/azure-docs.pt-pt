@@ -16,10 +16,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66255895"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisar Tendências no Visual Studio

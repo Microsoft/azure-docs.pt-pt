@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b5b1f24fb22ff0922c362bd9911ad5c42236ee6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051711"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -40,7 +40,42 @@ O Azure Disk Encryption é atualmente suportado em selecionadas Distribuições 
 
 O Azure Disk Encryption para o Linux requer conectividade à Internet para acesso do Active Directory, o Cofre de chaves, armazenamento e pontos finais de gestão do pacote.  Para obter mais informações, consulte [pré-requisitos do Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
 
-## <a name="extension-schema"></a>Esquema de extensão
+## <a name="extension-schemata"></a>Esquemas de extensão
+
+Existem dois esquemas para a encriptação de disco do Azure: v1.1, um esquema mais recente, é recomendado que não utiliza as propriedades do Azure Active Directory (AAD) e o v0.1, um esquema mais antigo que necessita de propriedades do AAD. Tem de utilizar a versão do esquema correspondente para a extensão estiver a utilizar: v1.1 de esquema para a versão 1.1, v0.1 de esquema para a versão da extensão 0,1 de AzureDiskEncryptionForLinux da extensão de AzureDiskEncryptionForLinux.
+### <a name="schema-v11-no-aad-recommended"></a>Schema v1.1: Não existem AAD (recomendado)
+
+O esquema de v1.1 é recomendado e não necessita de propriedades do Azure Active Directory.
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+        "publisher": "Microsoft.Azure.Security",
+        "settings": {
+          "DiskFormatQuery": "[diskFormatQuery]",
+          "EncryptionOperation": "[encryptionOperation]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KeyVaultURL": "[keyVaultURL]",
+          "SequenceVersion": "sequenceVersion]",
+          "VolumeType": "[volumeType]"
+        },
+        "type": "AzureDiskEncryptionForLinux",
+        "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
+### <a name="schema-v01-with-aad"></a>Esquema v0.1: com o AAD 
+
+Requer o esquema de 0,1 `aadClientID` e qualquer um dos `aadClientSecret` ou `AADClientCertificate`.
+
+Using `aadClientSecret`:
 
 ```json
 {
@@ -70,23 +105,54 @@ O Azure Disk Encryption para o Linux requer conectividade à Internet para acess
 }
 ```
 
+Using `AADClientCertificate`:
+
+```json
+{
+  "type": "extensions",
+  "name": "[name]",
+  "apiVersion": "2015-06-15",
+  "location": "[location]",
+  "properties": {
+    "protectedSettings": {
+      "AADClientCertificate": "[aadClientCertificate]",
+      "Passphrase": "[passphrase]"
+    },
+    "publisher": "Microsoft.Azure.Security",
+    "settings": {
+      "AADClientID": "[aadClientID]",
+      "DiskFormatQuery": "[diskFormatQuery]",
+      "EncryptionOperation": "[encryptionOperation]",
+      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+      "KeyVaultURL": "[keyVaultURL]",
+      "SequenceVersion": "sequenceVersion]",
+      "VolumeType": "[volumeType]"
+    },
+    "type": "AzureDiskEncryptionForLinux",
+    "typeHandlerVersion": "[extensionVersion]"
+  }
+}
+```
+
+
 ### <a name="property-values"></a>Valores de propriedade
 
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
+| publicador | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 0,1, 1.1 (VMSS) | int |
-| AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | password | string |
-| AADClientCertificate | thumbprint | string |
+| typeHandlerVersion | 0.1, 1.1 | int |
+| (esquema de 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (esquema de 0,1) AADClientSecret | password | string |
+| (esquema de 0,1) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dicionário JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
-| KeyVaultURL | url | string |
-| Passphrase | password | string | 
+| (opcional) KeyVaultURL | url | string |
+| Frase de acesso | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | Sistema operacional, dados, todos os | string |
 

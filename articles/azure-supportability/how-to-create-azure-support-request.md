@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
 ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129064"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar um pedido de suporte do Azure
@@ -41,7 +41,7 @@ Pode criar um pedido de suporte no menu de navegação superior, ou diretamente 
 
 **Na barra de navegação superior**
 
-![Ajuda e Suporte](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![Ajuda e suporte](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 Na página de ajuda e suporte, selecione "Novo pedido de suporte"
 
@@ -100,7 +100,7 @@ Depois de criar o pedido de suporte, pode ver os detalhes do **todos os pedidos 
 
 **Na barra de navegação superior**
 
-![Ajuda e Suporte](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![Ajuda e suporte](./media/how-to-create-azure-support-request/HelpandSupport.png)
 
 Na página de ajuda e suporte, selecione "Todos os pedidos de suporte" no menu à esquerda.
 

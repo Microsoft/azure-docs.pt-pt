@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
 ms.openlocfilehash: 5d5280a996faa77b498c02f904f250e88b1fdbe0
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66729610"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Criar um gateway de aplicação com o redirecionamento externo com o Azure PowerShell

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299390"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka e muito mais
@@ -50,7 +50,7 @@ Siga as instruções no ecrã de uma configuração de cluster básico. Os detal
 * [Nome do grupo de recursos](#resource-group-name)
 * [Tipos de cluster e configuração](#cluster-types) 
 * Início de sessão do cluster e nome de utilizador SSH
-* [Localização](#location)
+* [Location](#location)
 
 ## <a name="resource-group-name"></a>Nome do grupo de recursos
 
@@ -154,7 +154,7 @@ A maioria dos aplicativos HDInsight é instalada num nó de extremidade em branc
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Número de nós para cada tipo de cluster
 Cada tipo de cluster tem seu próprio número de nós, a terminologia para nós e o tamanho da VM predefinida. Na tabela a seguir, o número de nós para cada tipo de nó é parênteses.
 
-| Type | Nós | Diagrama |
+| Tipo | Nós | Diagrama |
 | --- | --- | --- |
 | Hadoop |Nó principal (2), do nó de trabalho (1 +) |![Nós de cluster de Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor de cabeça (2), servidor de região (1 +), o nó de mestre/ZooKeeper (3) |![Nós de cluster do HBase do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

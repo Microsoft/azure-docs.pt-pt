@@ -13,14 +13,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 3852b2d18b48be63cbc612159facb6273f23dc2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848111"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados com a atividade de Hive do Hadoop no Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-hive-activity.md)
 > * [Versão atual](transform-data-using-hadoop-hive.md)
 
@@ -58,15 +58,15 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade            | Descrição                                                  | Necessário |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| nome                | Nome da atividade                                         | Sim      |
+| name                | Nome da atividade                                         | Sim      |
 | description         | Texto que descreve o que a atividade é utilizada para                | Não       |
-| tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightHive        | Sim      |
+| type                | Para a atividade do Hive, o tipo de atividade é HDinsightHive        | Sim      |
 | linkedServiceName   | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | scriptLinkedService | Referência para um serviço ligado de armazenamento do Azure utilizada para armazenar o script de ramo de registo a ser executado. Se não especificar este serviço ligado, o serviço ligado de armazenamento de Azure definido no serviço ligado do HDInsight é utilizado. | Não       |
 | scriptPath          | Forneça o caminho para o ficheiro de script armazenado no armazenamento do Azure mencionados pelo scriptLinkedService. O nome de ficheiro diferencia maiúsculas de minúsculas. | Sim      |
 | getDebugInfo        | Especifica quando os arquivos de log são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre, ou a falha. Valor predefinido: Nenhum. | Não       |
-| argumentos           | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
-| Define             | Especifique parâmetros como pares chave/valor para referenciar a dentro do script do Hive. | Não       |
+| arguments           | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
+| defines             | Especifique parâmetros como pares chave/valor para referenciar a dentro do script do Hive. | Não       |
 | queryTimeout        | Consultar o valor de tempo limite (em minutos). Aplicável quando o cluster do HDInsight é com o Enterprise Security Package ativada. | Não       |
 
 ## <a name="next-steps"></a>Passos Seguintes

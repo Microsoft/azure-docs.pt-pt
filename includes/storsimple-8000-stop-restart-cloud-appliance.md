@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159648"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>Para parar e iniciar uma aplicação da cloud
@@ -24,7 +24,7 @@ ms.locfileid: "66159648"
 
     ![Máquina Virtual do StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
-4. Quando parar uma VM, esta é desalocada. Enquanto a aplicação da cloud está a parar, o respetivo estado é **A desalocar**. Depois de a aplicação da cloud estar parada, o respetivo estado é **Parada (desalocada)**.
+4. Quando parar uma VM, esta é desalocada. Enquanto a aplicação da cloud está a parar, o respetivo estado é **A desalocar**. Depois de a aplicação da cloud estar parada, o respetivo estado é **Parada (desalocada)** .
 
     ![Máquina Virtual do StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 

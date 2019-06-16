@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464985"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Fornecimento de transmissão em fluxo em direto com os serviços de multimédia do Azure
@@ -30,7 +30,7 @@ Serviços de multimédia do Microsoft Azure oferece APIs que enviam pedidos para
 O SDK .NET dos Media Services fornece APIs que enviar a solicitação e aguarde pela conclusão da operação (internamente, as APIs são de consulta para o progresso da operação em alguns intervalos). Por exemplo, quando chama o canal. Start(), o método retorna depois do canal está iniciado. Também pode utilizar a versão assíncrona: await canal. StartAsync() (para obter informações sobre o padrão assíncrono baseado em tarefas, consulte [TOQUE](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). "Métodos de consulta" são chamadas de APIs que enviar um pedido de operação e, em seguida, consultar o estado até que a operação esteja concluída. Esses métodos (especialmente a versão de Async) são recomendados para aplicativos cliente sofisticados e/ou serviços com estado.
 
 Existem cenários onde um aplicativo não é possível aguardar por um pedido de http de longa execução e quer consultar o progresso da operação manualmente. Um exemplo típico seria um navegador da interagir com um serviço web sem monitorização de estado: quando o browser pede para criar um canal, o serviço web inicia uma operação de longa execução e retorna a ID de operação para o navegador. O browser, em seguida, pode pedir o web service para obter o estado da operação com base no ID do. O SDK .NET dos Media Services fornece APIs que são úteis para este cenário. Essas APIs são chamadas de "métodos de consulta não".
-"Métodos de consulta não" tem o seguinte padrão de nomenclatura: Envie*OperationName*operação (por exemplo, SendCreateOperation). Envie*OperationName*métodos de operação retornar a **IOperation** objeto; retornado objeto contém informações que podem ser utilizadas para controlar a operação. O envio*OperationName*OperationAsync métodos retornam **tarefa\<IOperation >**.
+"Métodos de consulta não" tem o seguinte padrão de nomenclatura: Envie*OperationName*operação (por exemplo, SendCreateOperation). Envie*OperationName*métodos de operação retornar a **IOperation** objeto; retornado objeto contém informações que podem ser utilizadas para controlar a operação. O envio*OperationName*OperationAsync métodos retornam **tarefa\<IOperation >** .
 
 Atualmente, as seguintes classes de suportam a métodos de consulta não:  **Canal**, **StreamingEndpoint**, e **programa**.
 

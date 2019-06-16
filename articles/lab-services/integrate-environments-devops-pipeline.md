@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61318396"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrar ambientes os pipelines CI/CD do Azure DevOps

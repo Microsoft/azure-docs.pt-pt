@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: bwren
 ms.openlocfilehash: 1d92973e32e9c694b1d0488753b9a701e7d71a5d
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66416908"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Localizações de dados de monitorização no Azure Monitor

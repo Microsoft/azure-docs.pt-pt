@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 70de178df86a4b202298eda63b0f59cb7bc96281
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237841"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 

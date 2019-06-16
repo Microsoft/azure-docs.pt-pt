@@ -7,10 +7,10 @@ ms.author: mamccrea
 ms.date: 05/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8674d478646c8f9be6b32521c6624752ac6df052
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827804"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Explorar o Azure Stream Analytics com o Visual Studio Code (pré-visualização)

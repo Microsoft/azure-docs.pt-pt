@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596638"
 ---
 # <a name="get-started-with-device-management-node"></a>Introdução à gestão de dispositivo (Node)

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60420208"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expõe um serviço do WCF no local a uma aplicação web na cloud utilizando o reencaminhamento do Azure 
@@ -81,7 +81,7 @@ Em primeiro lugar, criar um sistema de catálogo de produtos no local simulado. 
 ### <a name="create-the-project"></a>Criar o projeto
 1. Inicie o Microsoft Visual Studio com privilégios de administrador. Para tal, clique com o botão direito do rato no ícone do programa do Visual Studio e, em seguida, clique em **Executar como administrador**.
 2. No Visual Studio, no menu **Ficheiro**, clique em **Novo** e, de seguida, em **Projeto**.
-3. A partir de **Modelos Instalados**, no **Visual C#**, clique em **Aplicação de Consola (.NET Framework)**. Na caixa **Nome**, escreva o nome **ProductsServer**:
+3. A partir de **Modelos Instalados**, no **Visual C#** , clique em **Aplicação de Consola (.NET Framework)** . Na caixa **Nome**, escreva o nome **ProductsServer**:
 
    ![Caixa de diálogo Novo Projeto][11]
 4. Clique em **OK** para criar o projeto **ProductsServer**.
@@ -93,7 +93,7 @@ Em primeiro lugar, criar um sistema de catálogo de produtos no local simulado. 
    ![Selecione o pacote NuGet][13]
 
    Os assemblies de clientes necessários estão agora referenciados.
-8. Adicione uma nova classe para o contrato de produto.  No Explorador de Soluções, clique no projeto **ProductsServer** e, em seguida, clique em **Adicionar** e, em seguida, em **Classe**.
+8. Adicione uma nova classe para o contrato de produto. No Explorador de Soluções, clique no projeto **ProductsServer** e, em seguida, clique em **Adicionar** e, em seguida, em **Classe**.
 9. Na caixa **Nome**, escreva o nome **ProductsContract.cs**. Em seguida, clique em **Adicionar**.
 10. No **ProductsContract.cs**, substitua a definição de espaço de nomes pelo código seguinte, que define o contrato para o serviço.
 
@@ -229,7 +229,7 @@ Nesta secção, vai criar uma aplicação ASP.NET simples que apresenta dados ob
 
 1. Certifique-se de que o Visual Studio está em execução com privilégios de administrador.
 2. No Visual Studio, no menu **Ficheiro**, clique em **Novo** e, de seguida, em **Projeto**.
-3. A partir de **Modelos Instalados**, no **Visual C#**, clique em **Aplicação Web ASP.NET (.NET Framework)**. Atribua o nome **ProductsPortal** ao projeto. Em seguida, clique em **OK**.
+3. A partir de **Modelos Instalados**, no **Visual C#** , clique em **Aplicação Web ASP.NET (.NET Framework)** . Atribua o nome **ProductsPortal** ao projeto. Em seguida, clique em **OK**.
 
    ![Caixa de diálogo Novo Projeto][15]
 

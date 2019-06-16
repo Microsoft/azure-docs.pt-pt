@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/10/2019
 ms.author: jureid
 ms.openlocfilehash: 7985451eb2bb5e9fd4fbcfb3d2fcf35149122c15
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796068"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente as subscrições do Azure Enterprise (pré-visualização)

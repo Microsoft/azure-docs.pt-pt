@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
 ms.openlocfilehash: 4ef485bb91fe52e138b805f347e729fc4097fc7c
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431092"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Encriptar discos virtuais numa VM do Windows

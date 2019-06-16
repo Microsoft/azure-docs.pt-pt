@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60372023"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Criar uma subscrição do Azure adicional para o contrato de cliente da Microsoft
@@ -59,7 +59,7 @@ Adicione utilizadores de como os criadores de subscrição do Azure, numa seçã
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+2. Pesquisar nos **custo Management + faturação**.
 
    ![Captura de ecrã que mostra a pesquisa no portal de subscrições](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
@@ -80,7 +80,7 @@ Adicione utilizadores de como os criadores de subscrição do Azure, numa seçã
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

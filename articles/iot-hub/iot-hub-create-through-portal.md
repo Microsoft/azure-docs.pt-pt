@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742080"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64571045"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um hub IoT com o portal do Azure
 
@@ -86,7 +86,7 @@ Em seguida, adicione uma consulta de encaminhamento. Neste exemplo, as mensagens
 
 Clique em **guardar** para guardar a regra de encaminhamento. Regressar ao painel de encaminhamento de mensagens e sua nova regra de encaminhamento é apresentada.
 
-### <a name="custom-endpoints"></a>Pontos finais personalizados
+### <a name="custom-endpoints"></a>Os pontos finais personalizados
 
 Clique nas **pontos finais personalizados** separador. Ver todos os pontos finais personalizados já criados. A partir daqui, pode adicionar novos pontos de extremidade ou eliminar pontos finais existentes. 
 

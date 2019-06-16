@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b670b5aeffcd699226a088d8db21a12dbaf40042
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242821"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Adicionar os analisadores personalizados para um índice da Azure Search
@@ -214,7 +214,7 @@ Para analisadores, atributos de índice variam consoante o se estiver a utilizar
 |||  
 |-|-|  
 |Name|Só pode conter letras, dígitos, espaços, traços ou carateres de sublinhado, só pode começar e terminar com carateres alfanuméricos e está limitado a 128 carateres.|  
-|Type|Tipo de analisador da lista de analisadores suportados. Consulte a **analyzer_type** coluna na [analisadores](#AnalyzerTable) tabela abaixo.|  
+|Tipo|Tipo de analisador da lista de analisadores suportados. Consulte a **analyzer_type** coluna na [analisadores](#AnalyzerTable) tabela abaixo.|  
 |Opções|Tem de ser as opções válidas de um analisador predefinido listados na [analisadores](#AnalyzerTable) tabela abaixo.|  
 
 #### <a name="custom-analyzers"></a>Analisadores personalizados
@@ -222,7 +222,7 @@ Para analisadores, atributos de índice variam consoante o se estiver a utilizar
 |||  
 |-|-|  
 |Name|Só pode conter letras, dígitos, espaços, traços ou carateres de sublinhado, só pode começar e terminar com carateres alfanuméricos e está limitado a 128 carateres.|  
-|Type|Tem de ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
+|Tipo|Tem de ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
 |CharFilters|Definido como um dos filtros de char predefinidos listados na [filtros de Char](#char-filters-reference) tabela ou um filtro de char personalizado especificado na definição do índice.|  
 |Tokenizer|Necessário. Definido como uma destas tokenizers predefinidos listados na [Tokenizers](#Tokenizers) abaixo da tabela ou um atomizador personalizado especificado na definição do índice.|  
 |TokenFilters|Definido como um dos filtros de token predefinidos listados na [filtros do Token](#TokenFilters) tabela ou um filtro personalizado de token especificado na definição do índice.|  
@@ -239,7 +239,7 @@ Para analisadores, atributos de índice variam consoante o se estiver a utilizar
 |||  
 |-|-|  
 |Name|Só pode conter letras, dígitos, espaços, traços ou carateres de sublinhado, só pode começar e terminar com carateres alfanuméricos e está limitado a 128 carateres.|  
-|Type|Tipo da lista de filtros de char suportadas de filtro de char. Ver **char_filter_type** coluna na [Char filtros](#char-filters-reference) tabela abaixo.|  
+|Tipo|Tipo da lista de filtros de char suportadas de filtro de char. Ver **char_filter_type** coluna na [Char filtros](#char-filters-reference) tabela abaixo.|  
 |Opções|Tem de ser as opções válidas de uma determinada [Char filtros](#char-filters-reference) tipo.|  
 
 ### <a name="tokenizers"></a>Tokenizers
@@ -252,7 +252,7 @@ Um analisador personalizado pode utilizar um atomizador predefinido com opções
 |||  
 |-|-|  
 |Name|Só pode conter letras, dígitos, espaços, traços ou carateres de sublinhado, só pode começar e terminar com carateres alfanuméricos e está limitado a 128 carateres.|  
-|Type|Nome de atomizador na lista de tokenizers suportados. Ver **tokenizer_type** coluna na [Tokenizers](#Tokenizers) tabela abaixo.|  
+|Tipo|Nome de atomizador na lista de tokenizers suportados. Ver **tokenizer_type** coluna na [Tokenizers](#Tokenizers) tabela abaixo.|  
 |Opções|Tem de ser as opções válidas de um tipo de determinado atomizador listados na [Tokenizers](#Tokenizers) tabela abaixo.|  
 
 ### <a name="token-filters"></a>Filtros de token
@@ -263,7 +263,7 @@ Pode ter vários filtros de token num analisador personalizado. Filtros de token
 |||  
 |-|-|  
 |Name|Só pode conter letras, dígitos, espaços, traços ou carateres de sublinhado, só pode começar e terminar com carateres alfanuméricos e está limitado a 128 carateres.|  
-|Type|Nome do filtro de token na lista de filtros de token suportados. Ver **token_filter_type** coluna na [filtros do Token](#TokenFilters) tabela abaixo.|  
+|Tipo|Nome do filtro de token na lista de filtros de token suportados. Ver **token_filter_type** coluna na [filtros do Token](#TokenFilters) tabela abaixo.|  
 |Opções|Tem de ser [filtros do Token](#TokenFilters) de um tipo de filtro de token específico.|  
 
 <a name="PropertyReference"></a>  

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
 ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60903658"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de Azure Application Insights com o conector para o Microsoft Flow

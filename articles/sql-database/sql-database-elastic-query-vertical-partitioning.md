@@ -7,17 +7,16 @@ ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: MladjoA
+ms.author: mlandzic
 ms.reviewer: sstein
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 02/25/2019
+manager: craigg
+ms.date: 01/25/2019
 ms.openlocfilehash: e7ba8057cd22c5cc1080b4a6d95f17bf76d4acb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585428"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consultar entre bases de dados de cloud com esquemas diferentes (pré-visualização)
@@ -62,8 +61,8 @@ Sintaxe:
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
                (TYPE = RDBMS,
-                LOCATION = '<fully_qualified_server_name>',
-                DATABASE_NAME = '<remote_database_name>',  
+                LOCATION = ’<fully_qualified_server_name>’,
+                DATABASE_NAME = ‘<remote_database_name>’,  
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 
@@ -79,7 +78,7 @@ O exemplo a seguir ilustra o uso da instrução CREATE para origens de dados ext
     WITH 
     ( 
         TYPE=RDBMS, 
-        LOCATION='myserver.database.chinacloudapi.cn', 
+        LOCATION='myserver.database.windows.net', 
         DATABASE_NAME='ReferenceData', 
         CREDENTIAL= SqlUser 
     ); 

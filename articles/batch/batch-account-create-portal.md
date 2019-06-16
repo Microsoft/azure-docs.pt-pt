@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60722574"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
@@ -92,7 +92,7 @@ Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador
 
     ![Registar fornecedor do Microsoft.Batch][register_provider]
 
-1. Na **subscrição** página, selecione **controlo de acesso (IAM)** > **atribuições de funções** > **adicionar atribuição de função**.
+1. Na **subscrição** página, selecione **controlo de acesso (IAM)**  > **atribuições de funções** > **adicionar atribuição de função**.
 
     ![Controlo de acesso da subscrição][subscription_access]
 

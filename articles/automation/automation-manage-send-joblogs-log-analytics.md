@@ -10,10 +10,10 @@ ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: e0f2d3491db24ecbb49c189232dbc7f698e09fb1
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430782"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor
@@ -116,7 +116,7 @@ Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automat
 | TimeGenerated |Data e hora da execução do trabalho do runbook. |
 | RunbookName_s |O nome do runbook. |
 | Caller_s |Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados. |
-| StreamType_s |O tipo de fluxo de trabalho. Os valores possíveis são:<br>- Em Curso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Verboso |
+| StreamType_s |O tipo de fluxo de trabalho. Os valores possíveis são:<br>\- Em Curso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Verboso |
 | Tenant_g | GUID que identifica o inquilino para o chamador. |
 | JobId_g |GUID que é o Id do trabalho do runbook. |
 | ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Em curso |

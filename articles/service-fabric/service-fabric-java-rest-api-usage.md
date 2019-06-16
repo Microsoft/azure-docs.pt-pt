@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
 ms.openlocfilehash: 97bba87331965b0f7ce20ec2ee089e0e18f72457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60720285"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>APIs do cliente de Java de recursos de infraestrutura do serviço do Azure

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
 ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967582"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure

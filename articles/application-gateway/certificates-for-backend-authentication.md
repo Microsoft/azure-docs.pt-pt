@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/14/2019
 ms.author: absha
 ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831727"
 ---
 # <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Criar certificados para o back-end de lista de permissões com o Gateway de aplicação do Azure
 
-Para efetuar o SSL ponto a ponto, o gateway de aplicação requer as instâncias de back-end de permissões através do carregamento de certificados de raiz fidedigna/autenticação. Em caso de SKU do v1, os certificados de autenticação são necessários, ao passo que no caso de SKU do v2, fidedignos os certificados de raiz são necessários para a inclusão de certificados
+Para efetuar o SSL ponto a ponto, o gateway de aplicação requer as instâncias de back-end de permissões através do carregamento de certificados de raiz fidedigna/autenticação. No caso do SKU v1, precisa dos certificados de autenticação, ao passo que com o SKU v2 precisa dos certificados de raiz fidedignos para colocar os certificados na lista de permissões
 
 Neste artigo, vai aprender a:
 
@@ -65,7 +65,7 @@ Do seu certificado SSL, exporte o ficheiro. cer de chave pública (não a chave 
 
    O certificado exportado será semelhante ao seguinte:
 
-   ![Exportado](./media/certificates-for-backend-authentication/exported.png)
+   ![Exportados](./media/certificates-for-backend-authentication/exported.png)
 
 8. Se abrir o certificado exportado usando o bloco de notas, verá algo semelhante a este exemplo. A seção em azul contém as informações que são carregadas para o gateway de aplicação. Se abrir o certificado com o bloco de notas e não ser semelhante ao seguinte, normalmente, isso significa que não exportá-lo utilizando a Base 64 com codificação X.509 (. Formato CER). Além disso, se pretender utilizar um editor de texto diferente, compreenda que podem apresentar alguns editores de formatação não-intencionais em segundo plano. Isto pode provocar problemas quando carregado o texto deste certificado para o Azure.
 

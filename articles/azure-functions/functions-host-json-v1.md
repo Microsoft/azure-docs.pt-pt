@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
 ms.openlocfilehash: 44bc5a245d1bcbc8ff53991af4193ef86f7cd704
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107079"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>referência de Host. JSON para as funções do Azure 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Selecione a versão do runtime das funções do Azure que está a utilizar: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
@@ -177,7 +177,7 @@ Definições de configuração para [http acionadores e enlaces](functions-bindi
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 
 *Versão 1.x apenas.*
 
@@ -301,7 +301,7 @@ Definições de configuração para os registos que criar utilizando um `TraceWr
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|consoleLevel|informações|O nível de rastreio para o registo da consola. As opções são: `off`, `error`, `warning`, `info`, e `verbose`.|
+|consoleLevel|info|O nível de rastreio para o registo da consola. As opções são: `off`, `error`, `warning`, `info`, e `verbose`.|
 |fileLoggingMode|debugOnly|O nível de rastreio para o registo do ficheiro. As opções são `never`, `always`, `debugOnly`.| 
 
 ## <a name="watchdirectories"></a>watchDirectories

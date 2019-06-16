@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb421442a7b45f3cd5925fd1475a0a69053c3113
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 27f5a7d8bb6dc347414d84d8cf536f1c2d7a9910
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66473375"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109345"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar de Federação para autenticação pass-through do Azure Active Directory
 
@@ -128,7 +128,7 @@ Antes de converter de identidades federadas para identidade gerida, examine de p
 |-|-|
 | Planeia continuar a utilizar o AD FS com outros aplicativos (que não o Azure AD e o Office 365). | Depois de converter os domínios, irá utilizar o AD FS e o Azure AD. Considere a experiência do usuário. Em alguns cenários, os utilizadores poderão ser necessárias para se autenticar duas vezes: uma vez para o Azure AD (em que um utilizador obtém acesso SSO para outros aplicativos, como o Office 365) e, novamente, para todos os aplicativos que ainda estão vinculados ao AD FS, como uma fidedignidade de entidade confiadora. |
 | A instância do AD FS altamente personalizada e depende de definições de personalização específicos no ficheiro onload.js (por exemplo, se tiver alterado a experiência de início de sessão para que os utilizadores utilizam apenas um **SamAccountName** formato para o respetivo nome de utilizador em vez de um utilizador (UPN) do nome do Principal ou a sua organização tem muito com a marca a experiência de início de sessão). O ficheiro de onload.js não pode ser duplicado no Azure AD. | Antes de continuar, certifique-se de que o Azure AD pode satisfazer as suas necessidades de personalização atual. Para obter mais informações e para obter orientações, veja as secções em uma marca para AD FS e personalização do AD FS.|
-| Utilizar o AD FS para bloquear versões anteriores dos clientes de autenticação.| Considerar a substituição de controles do AD FS que bloquear versões anteriores dos clientes de autenticação ao utilizar uma combinação de [controlos de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regras de acesso de cliente Online do Exchange](https://aka.ms/EXOCAR). |
+| Utilizar o AD FS para bloquear versões anteriores dos clientes de autenticação.| Considerar a substituição de controles do AD FS que bloquear versões anteriores dos clientes de autenticação ao utilizar uma combinação de [controla o acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regras de acesso de cliente Online do Exchange](https://aka.ms/EXOCAR). |
 | Exigir que os usuários realizem a autenticação multifator em relação a uma solução de servidor de autenticação multifator no local quando os usuários são autenticados para o AD FS.| Num domínio de identidade gerida, não pode injetar um desafio de autenticação multifator através da solução de autenticação multifator no local para o fluxo de autenticação. No entanto, pode utilizar o serviço de multi-factor Authentication para autenticação multifator, depois do domínio é convertido.<br /><br /> Se os utilizadores não utilizarem atualmente o Azure multi-factor Authentication, um passo de registo de utilizador onetime é necessário. Tem de preparar para e comunicar o registo em planeadas aos seus utilizadores. |
 | Utilizar atualmente a políticas de controlo de acesso (regras de AuthZ) no AD FS para controlar o acesso ao Office 365.| Considere substituir as políticas com o Azure AD equivalente [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e [regras de acesso de cliente Online do Exchange](https://aka.ms/EXOCAR).|
 
@@ -144,7 +144,7 @@ O **InsideCorporateNetwork** afirmação não está disponível depois dos domí
 
 Depois de configurar localizações com nome, tem de atualizar todas as políticas de acesso condicional que foram configuradas para incluir ou excluir da rede **todas as localizações fidedignas** ou **IPs fidedignos de MFA** valores a refletir a nova localizações com nome.
 
-Para obter mais informações sobre o **localização** condição no acesso condicional, consulte [localizações de acesso condicional do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Para obter mais informações sobre o **localização** condição no acesso condicional, consulte [localizações de acesso condicional de diretório Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>Híbrido do Azure AD-dispositivos associados a um
 

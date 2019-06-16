@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
 ms.openlocfilehash: 33f871564b7c8435395db6b97122ba6a75800271
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66225986"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contentores com a chave de partição de grandes dimensões

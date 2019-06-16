@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447935"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas mais frequentes sobre acelerador de solução de fábrica ligada

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759610"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte de idiomas para imagem digitalizada
@@ -60,7 +60,7 @@ OCR Deteta automaticamente o idioma de material de entrada, pelo que é necessá
 
 Algumas ações do [analise - o de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API pode retornar resultados em outros idiomas, especificados com o `language` parâmetro de consulta. Outras ações devolvem resultados em inglês, independentemente de qual idioma especificado e outras pessoas lançam uma exceção para idiomas não suportados. Ações são especificadas com o `visualFeatures` e `details` parâmetros de consulta; consulte a [descrição geral](home.md) para obter uma lista de todas as ações que pode fazer com a análise de imagem.
 
-|Idioma | Código do idioma | Categories | Etiquetas | Descrição | Adulto | Marcas | Cor | Rostos | TipoImagem | Objetos | Celebridades | Pontos de referência |
+|Idioma | Código do idioma | Categories | Tags | Descrição | Adulto | Marcas | Cor | Rostos | TipoImagem | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Português | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

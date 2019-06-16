@@ -16,10 +16,10 @@ ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 11651c2721756a4f750a5a5e78f86fdbd363fb9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323523"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Permitido autoridades de certificação para ativar o HTTPS personalizado na CDN do Azure

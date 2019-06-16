@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551758"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Advanced agregações em consultas de registo do Azure Monitor
@@ -130,11 +130,11 @@ Heartbeat
 
 | Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
-| Agente Direto | 2017-06-06T17:00:00Z | 15 |
-| Agente Direto | 2017-06-06T18:00:00Z | 60 |
-| Agente Direto | 2017-06-06T20:00:00Z | 55 |
-| Agente Direto | 2017-06-06T21:00:00Z | 57 |
-| Agente Direto | 2017-06-06T22:00:00Z | 60 |
+| Agente direto | 2017-06-06T17:00:00Z | 15 |
+| Agente direto | 2017-06-06T18:00:00Z | 60 |
+| Agente direto | 2017-06-06T20:00:00Z | 55 |
+| Agente direto | 2017-06-06T21:00:00Z | 57 |
+| Agente direto | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
 Nessa época resulta no entanto o bucket associado "2017-06-06T19:00:00Z" está em falta porque não existem quaisquer dados de heartbeat durante essa hora. Utilize o `make-series` função para atribuir um valor predefinido para registos vazios. Esta ação irá gerar uma linha para cada categoria com duas colunas de matriz extra, um para valores e outro para registos de tempo correspondente:
@@ -146,7 +146,7 @@ Heartbeat
 
 | Category | count_ | TimeGenerated |
 |---|---|---|
-| Agente Direto | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
+| Agente direto | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
 
 O terceiro elemento do *count_* matriz é 0, conforme o esperado e não existe um carimbo de correspondência de "2017-06-06T19:00:00.0000000Z" no _TimeGenerated_ matriz. Esse formato de matriz é difícil de ler, no entanto. Uso `mvexpand` para expandir as matrizes e produzir o mesmo formato de saída gerados por `summarize`:
@@ -160,12 +160,12 @@ Heartbeat
 
 | Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
-| Agente Direto | 2017-06-06T17:00:00Z | 15 |
-| Agente Direto | 2017-06-06T18:00:00Z | 60 |
-| Agente Direto | 2017-06-06T19:00:00Z | 0 |
-| Agente Direto | 2017-06-06T20:00:00Z | 55 |
-| Agente Direto | 2017-06-06T21:00:00Z | 57 |
-| Agente Direto | 2017-06-06T22:00:00Z | 60 |
+| Agente direto | 2017-06-06T17:00:00Z | 15 |
+| Agente direto | 2017-06-06T18:00:00Z | 60 |
+| Agente direto | 2017-06-06T19:00:00Z | 0 |
+| Agente direto | 2017-06-06T20:00:00Z | 55 |
+| Agente direto | 2017-06-06T21:00:00Z | 57 |
+| Agente direto | 2017-06-06T22:00:00Z | 60 |
 | ... | ... | ... |
 
 

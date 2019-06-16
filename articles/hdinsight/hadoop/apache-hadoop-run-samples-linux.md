@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706659"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos de MapReduce incluídos no HDInsight

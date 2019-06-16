@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
 ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497550"
 ---
 # <a name="monitor-site-recovery"></a>Recuperação de sites do monitor

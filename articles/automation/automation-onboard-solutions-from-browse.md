@@ -10,17 +10,17 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133130"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 
 A automatização do Azure fornece soluções para gerenciar atualizações de segurança do sistema operativo, controlar as alterações e inventário o que é instalado nos seus computadores. Existem várias formas de carregar máquinas, pode integrar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), do seu [conta de automatização](automation-onboard-solutions-from-automation-account.md), ao navegar em máquinas virtuais ou por [runbook](automation-onboard-solutions.md). Este artigo abrange a inclusão destas soluções ao navegar em máquinas virtuais no Azure.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Azure a https://portal.azure.com
 

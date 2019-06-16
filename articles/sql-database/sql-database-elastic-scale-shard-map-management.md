@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60332318"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais
@@ -55,11 +55,11 @@ Dimensionamento elástico suporta os seguintes tipos como chaves de fragmentaç�
 | .NET | Java |
 | --- | --- |
 | inteiro |inteiro |
-| longa |longa |
+| long |long |
 | GUID |uuid |
 | byte[]  |byte[] |
 | datetime | timestamp |
-| TimeSpan | duração|
+| TimeSpan | Duração|
 | datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Mapas de partições horizontais de lista e o intervalo
@@ -98,8 +98,8 @@ Cada uma das tabelas mostradas acima é um exemplo de conceitual de um **ShardMa
 
 Na biblioteca do cliente, o Gestor de mapas de partições horizontais é uma coleção de mapas de partições horizontais. Os dados geridos por um **ShardMapManager** instância é mantida em três locais:
 
-1. **Mapa de partições horizontais global (GSM)**: Especifique uma base de dados para ser usado como o repositório de todos os seus mapas de partições horizontais e os mapeamentos. Tabelas especiais e procedimentos armazenados são criados automaticamente para gerenciar as informações. Isto é, normalmente, um pequeno banco de dados e pouco acedidos, e não deve ser utilizada para outras necessidades do aplicativo. As tabelas estão num esquema especial chamado **__ShardManagement**.
-2. **Mapa de partições horizontais local (LSM)**: Cada base de dados que especificar para ser uma partição horizontal é modificado para conter vários pequenas tabelas e procedimentos armazenados especiais que contenham e gerir informações de mapa de partições horizontais específicas para essa partição horizontal. Esta informação é redundante com as informações do GSM e permite que o aplicativo validar as informações de mapa de partições horizontais em cache sem colocar qualquer carga no GSM; o aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondente a LSM em cada partição horizontal também estão no esquema **__ShardManagement**.
+1. **Mapa de partições horizontais global (GSM)** : Especifique uma base de dados para ser usado como o repositório de todos os seus mapas de partições horizontais e os mapeamentos. Tabelas especiais e procedimentos armazenados são criados automaticamente para gerenciar as informações. Isto é, normalmente, um pequeno banco de dados e pouco acedidos, e não deve ser utilizada para outras necessidades do aplicativo. As tabelas estão num esquema especial chamado **__ShardManagement**.
+2. **Mapa de partições horizontais local (LSM)** : Cada base de dados que especificar para ser uma partição horizontal é modificado para conter vários pequenas tabelas e procedimentos armazenados especiais que contenham e gerir informações de mapa de partições horizontais específicas para essa partição horizontal. Esta informação é redundante com as informações do GSM e permite que o aplicativo validar as informações de mapa de partições horizontais em cache sem colocar qualquer carga no GSM; o aplicativo usa o LSM para determinar se um mapeamento em cache ainda é válido. As tabelas correspondente a LSM em cada partição horizontal também estão no esquema **__ShardManagement**.
 3. **Cache do aplicativo**: Cada instância de aplicativo Acessando um **ShardMapManager** objeto mantém um cache na memória local de seus mapeamentos. Ele armazena informações de encaminhamento que recentemente foi obtidas.
 
 ## <a name="constructing-a-shardmapmanager"></a>Construir uma ShardMapManager

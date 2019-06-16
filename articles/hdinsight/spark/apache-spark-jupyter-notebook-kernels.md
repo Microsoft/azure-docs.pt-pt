@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
 ms.openlocfilehash: b2ae24c0449b009db6fcecdd8a1366ea5154629a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257803"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de notas do Jupyter nos clusters do Apache Spark no Azure HDInsight 
@@ -72,7 +72,7 @@ Aqui estão alguns benefícios de usar os kernels novo com o bloco de notas do J
    | Magic | Exemplo | Descrição |
    | --- | --- | --- |
    | Obter ajuda |`%%help` |Gera uma tabela de todos os a magia disponíveis com o exemplo e uma descrição |
-   | Informações |`%%info` |Informações de sessão de saídas para o ponto de final atual do Livy |
+   | info |`%%info` |Informações de sessão de saídas para o ponto de final atual do Livy |
    | Configurar |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) é obrigatório se a sessão já foi criada, que garante que a sessão é removida e recriada. Examinar [/sessions POST de Livy corpo do pedido](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Parâmetros devem ser passados como uma cadeia de caracteres do JSON e tem de ser na próxima linha posterior a mágica, conforme mostrado na coluna de exemplo. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o kontext sqlContext. Se o `-o` parâmetro é transmitido, o resultado da consulta é mantido no % % contexto Python local como uma [Pandas](https://pandas.pydata.org/) dataframe. |
    | local |`%%local`<br>`a=1` |Todo o código nas linhas subsequentes é executado localmente. Código tem de ser código Python2 válido até mesmo, independentemente do kernel que estiver a utilizar. Assim, mesmo se tiver selecionado **PySpark3** ou **Spark** kernels ao criar o bloco de notas, se usar o `%%local` mágica numa célula, essa célula tem apenas de ter código de Python2 válido. |

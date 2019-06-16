@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: ff77a955c34941d87a1f653726ab3f19e84aa440
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458353"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registar o utilizador atual para as notificações push utilizando o ASP.NET

@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: c3088ae777fe1a64be218105d36fdb9e01d7b798
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66172239"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Depurar problemas de conector de Proxy de aplicações 
@@ -40,7 +40,7 @@ Este fluxograma orienta-o através dos passos para depuração alguns dos proble
 
 ![Fluxograma que mostra os passos para a depuração de um conector](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | Acção | Descrição | 
+|  | Ação | Descrição | 
 |---------|---------|---------|
 |1 | Encontrar o grupo de conectores atribuído à aplicação | Provavelmente terá um conector instalado em vários servidores, caso em que os conectores devem estar [atribuídas a grupos de conector](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Para saber mais sobre os grupos de conector, veja [publicar aplicações em redes separadas e localizações de utilização de grupos de conector](application-proxy-connector-groups.md). |
 |2 | Instalar o conector e atribuir um grupo | Se não tiver um conector instalado, veja [instale e registe um conector](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br>Se o conector não está atribuído a um grupo, consulte [atribuir o conector a um grupo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Se a aplicação não está atribuída a um grupo de conectores, consulte [atribuir a aplicação a um grupo de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|

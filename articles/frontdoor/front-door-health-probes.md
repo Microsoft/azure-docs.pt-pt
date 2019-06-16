@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736586"
 ---
 # <a name="health-probes"></a>Sondas do estado de funcionamento
@@ -29,7 +29,7 @@ Porta de entrada suporta o envio de sondas através de protocolos HTTP ou HTTPS.
 
 ## <a name="health-probe-responses"></a>Respostas de sonda de estado de funcionamento
 
-| Respostas  | Descrição | 
+| Responses  | Descrição | 
 | ------------- | ------------- |
 | Determinar o estado de funcionamento  |  Um código de 200 estado OK indica que o back-end está em bom estado. Tudo o resto é considerado uma falha. Se por algum motivo (incluindo a falha de rede), uma resposta HTTP válida não for recebida para uma sonda, a sonda é contada uma falha.|
 | Medir a latência  | A latência é o tempo de relógio medido desde o momento imediatamente antes de podemos enviar o pedido de sonda para um momento quando recebermos o último byte de resposta. Utilizamos uma nova ligação de TCP para cada solicitação, para que esta medida não é viés back-ends com ligações de acesso pouco frequente existentes.  |

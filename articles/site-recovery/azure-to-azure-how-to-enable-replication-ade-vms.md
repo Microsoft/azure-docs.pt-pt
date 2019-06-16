@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60791022"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas virtuais do Azure Disk Encryption ativadas para outra região do Azure
@@ -98,8 +98,8 @@ Neste exemplo, a região primária do Azure é a Ásia Oriental e a região secu
     - **Subscrição de destino**: A subscrição de destino que é utilizada para recuperação após desastre. Por predefinição, a subscrição de destino é o mesmo que a subscrição de origem.
     - **Grupo de recursos de destino**: O grupo de recursos para que todos os seus máquinas virtuais replicadas pertence. Por predefinição, o Site Recovery cria um novo grupo de recursos na região de destino. O nome obtém o sufixo "asr". Se um grupo de recursos já existe e que foi criado pelo Azure Site Recovery, este é reutilizado. Também é possível personalizá-lo, conforme mostrado na secção seguinte. A localização do grupo de recursos de destino pode ser qualquer região do Azure, exceto a região onde estão alojadas as máquinas de virtuais de origem.
     - **Rede virtual de destino**: Por predefinição, o Site Recovery cria uma nova rede virtual na região de destino. O nome obtém o sufixo "asr". É mapeado para a sua rede de origem e utilizado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre mapeamento de rede.
-    - **Contas de armazenamento de destino (se a sua origem de VM não utilizar discos geridos)**: Por predefinição, o Site Recovery cria uma nova conta de armazenamento de destino por imitando a configuração de armazenamento VM de origem. Se já existir uma conta de armazenamento, este é reutilizado.
-    - **Discos de geridos de réplica (se a VM de origem utilizar discos geridos)**: Site Recovery cria novos discos geridos de réplica na região de destino para espelhar os discos geridos da VM de origem do mesmo tipo de armazenamento (standard ou premium) como os discos geridos da VM de origem.
+    - **Contas de armazenamento de destino (se a sua origem de VM não utilizar discos geridos)** : Por predefinição, o Site Recovery cria uma nova conta de armazenamento de destino por imitando a configuração de armazenamento VM de origem. Se já existir uma conta de armazenamento, este é reutilizado.
+    - **Discos de geridos de réplica (se a VM de origem utilizar discos geridos)** : Site Recovery cria novos discos geridos de réplica na região de destino para espelhar os discos geridos da VM de origem do mesmo tipo de armazenamento (standard ou premium) como os discos geridos da VM de origem.
     - **Contas de armazenamento em cache**: Recuperação de sites precisa de uma conta de armazenamento extra chamada *armazenamento em cache* na região de origem. Todas as alterações nas VMs de origem são controladas e enviadas para a conta de armazenamento de cache. Eles são, em seguida, replicados para a localização de destino.
     - **Conjunto de disponibilidade**: Por predefinição, o Site Recovery cria uma novo conjunto de disponibilidade na região de destino. O nome tem o sufixo "asr". Se um conjunto de disponibilidade que foi criado pelo Site Recovery já existir, este é reutilizado.
     - **Cofres de chaves de encriptação de disco**: Por predefinição, o Site Recovery cria um novo cofre de chaves na região de destino. Ele tem um sufixo "asr" que baseia-se as chaves de encriptação de disco VM de origem. Se um cofre de chaves que foi criado pelo Azure Site Recovery já existir, este é reutilizado.

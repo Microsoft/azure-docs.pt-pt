@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753830"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido

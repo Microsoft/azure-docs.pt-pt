@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306754"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511875"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
@@ -501,10 +501,10 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definido como `table`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure.|
-|**direção** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure. |
+|**type** | n/d | Tem de ser definido como `table`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure.|
+|**direction** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure. |
 |**name** | n/d | O nome da variável que representa a tabela ou entidade no código de função. | 
-|**tableName** | **TableName** | Nome da tabela.| 
+|**tableName** | **TableName** | O nome da tabela.| 
 |**partitionKey** | **PartitionKey** |Opcional. A chave de partição da entidade de tabela para ler. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | Opcional. A chave de linha da entidade de tabela para ler. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**take** |**Take** | Opcional. O número máximo de entidades para ler em JavaScript. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
@@ -761,10 +761,10 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definido como `table`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure.|
-|**direção** | n/d | Tem de ser definido como `out`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure. |
+|**type** | n/d | Tem de ser definido como `table`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure.|
+|**direction** | n/d | Tem de ser definido como `out`. Esta propriedade é definida automaticamente quando criar o enlace no portal do Azure. |
 |**name** | n/d | O nome da variável no código de função que representa a tabela ou entidade. Definido como `$return` para referenciar o valor de retorno da função.| 
-|**tableName** |**TableName** | Nome da tabela.| 
+|**tableName** |**TableName** | O nome da tabela.| 
 |**partitionKey** |**PartitionKey** | A chave de partição da entidade de tabela para escrever. Consulte a [secção utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | A chave de linha da entidade de tabela para escrever. Consulte a [secção utilização](#output---usage) para obter orientações sobre como utilizar esta propriedade.| 
 |**ligação** |**ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para essa ligação. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação com o nome `AzureWebJobsStorage`.|

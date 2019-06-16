@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
 ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604221"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um pedido de suporte para uma tarefa de importação/exportação
@@ -22,13 +22,13 @@ Se encontrar algum problema com o seu serviço de importação/exportação, pod
 * Como criar um pedido de suporte.
 * Como gerir uma pedido de vida de suporte no portal.
 
-## <a name="create-a-support-request"></a>Criar um pedido de apoio
+## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
 Execute os seguintes passos para criar um pedido de suporte:
 
 1. Aceda à sua tarefa de importação/exportação. Navegue para **suporte + resolução de problemas** secção e, em seguida, clique em **novo pedido de suporte**.
      
-    ![Noções Básicas](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Noções básicas](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. Na **novo pedido de suporte**, selecione **Noções básicas**. Na **Noções básicas**, siga os passos abaixo:
     
@@ -61,7 +61,7 @@ Execute os seguintes passos para criar um pedido de suporte:
    2. As informações de contacto, fornece seu nome, e-mail, contato opcional, país/região. Selecione o **guardar alterações de contactos para futuros pedidos de suporte** caixa de verificação.
    3. Clique em **Criar**.
    
-       ![Informação de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![Informações de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
       Support da Microsoft irá utilizar estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
       Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.

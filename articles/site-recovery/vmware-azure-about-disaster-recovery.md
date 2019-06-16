@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/30/2019
 ms.author: raynew
 ms.openlocfilehash: a00c129126886bd71c82940aa340a8db29cf7a0e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66417791"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação após desastre de VMs de VMware para o Azure

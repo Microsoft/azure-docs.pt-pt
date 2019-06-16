@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153637"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure
@@ -94,7 +94,7 @@ As métricas que selecionou no **diagnóstico** determina a resolução das mét
 
 Pode criar alertas para notificá-lo quando forem atingidos limiares de métricas de recurso de armazenamento.
 
-1. Para abrir o **painel de regras de alerta**, desloque para baixo até o **monitorização** seção o **painel de Menu** e selecione **alertas (clássico)**.
+1. Para abrir o **painel de regras de alerta**, desloque para baixo até o **monitorização** seção o **painel de Menu** e selecione **alertas (clássico)** .
 2. Selecione **Adicionar alerta de métrica (clássico)** para abrir o **adicionar uma regra de alerta** painel
 3. Introduza um **Name** e **Descrição** para sua nova regra de alerta.
 4. Selecione o **métrica** para que gostaria de adicionar um alerta, um alerta **condição**e um **limiar**. A unidade de limiar escreva é diferente consoante a métrica que escolheu. Por exemplo, "count" é o tipo de unidade para *ContainerCount*, enquanto a unidade para o *PercentNetworkError* métrica é uma percentagem.

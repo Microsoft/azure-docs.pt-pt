@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60754204"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de versão de disponibilidade de dados de caixa Edge/Azure dados caixa Gateway geral do Azure
@@ -44,7 +44,7 @@ A tabela seguinte fornece um resumo dos problemas conhecidos para o Gateway de c
 | --- | --- | --- | --- |
 | **1.** |Tipos de ficheiro | Não são suportados os seguintes tipos de ficheiro: arquivos, os ficheiros de bloco, soquetes, pipes, links simbólicos de caracteres.  |Copiar esses arquivos partilham resultados nos ficheiros de comprimento 0, que são criados no NFS. Estes ficheiros permanecem no estado de erro e também são apresentados na *error.xml*. <br> Links simbólicos aos diretórios resultam em diretórios nunca introdução marcada como offline. Como resultado, não poderá ver em cinzento vários nos diretórios que indica que os diretórios estão offline e todo o conteúdo associado foi completamente carregado para o Azure. |
 | **2.** |Eliminação | Devido a um erro nesta versão, se eliminar uma partilha NFS, em seguida, a partilha não pode ser eliminada. Apresenta o estado de partilha *a eliminação*.  |Isto ocorre apenas quando a partilha está a utilizar um nome de ficheiro não suportado. |
-| **3.** |Copiar | Cópia de dados pode falhar com o erro:  Não foi possível concluir a operação pedida devido a uma limitação do sistema de ficheiros.  |A alternativa dados Stream (ADS) associado a mais de 128 KB de tamanho de ficheiro não é suportada.   |
+| **3.** |cópia | Cópia de dados pode falhar com o erro:  Não foi possível concluir a operação pedida devido a uma limitação do sistema de ficheiros.  |A alternativa dados Stream (ADS) associado a mais de 128 KB de tamanho de ficheiro não é suportada.   |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

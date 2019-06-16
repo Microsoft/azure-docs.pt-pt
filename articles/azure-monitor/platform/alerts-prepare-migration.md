@@ -8,10 +8,10 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66015617"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar o logic apps e runbooks para a migração de regras de alerta clássicas
@@ -34,7 +34,7 @@ A tabela seguinte é uma referência para as interfaces de programação para al
 |API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |CLI do Azure     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Modelo do Azure Resource Manager | [Para alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para novos alertas de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| Modelo Azure Resource Manager | [Para alertas clássicos](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Para novos alertas de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>Alterações do payload de notificação
 

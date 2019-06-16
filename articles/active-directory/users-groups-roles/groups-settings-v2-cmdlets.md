@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65407875"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets da versão 2 do Azure Active Directory para gestão de grupos
@@ -168,7 +168,7 @@ Para eliminar grupos do seu diretório, utilize o cmdlet Remove-AzureADGroup da 
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="manage-group-membership"></a>Gerir associação a um grupo 
+## <a name="manage-group-membership"></a>Gerir a associação de grupo 
 ### <a name="add-members"></a>Adicionar membros
 Para adicionar novos membros a um grupo, utilize o cmdlet Add-AzureADGroupMember. Este comando adiciona um membro ao grupo administradores do Intune que utilizámos no exemplo anterior:
 
@@ -254,13 +254,13 @@ Quando é criado um grupo, determinado pontos de extremidade permitem que o util
   
 * abuso 
 * admin 
-* administrador 
+* Administrador 
 * hostmaster 
 * majordomo 
 * postmaster 
 * raiz 
-* proteger 
-* Segurança 
+* segura 
+* security 
 * SSL-administrador 
 * webmaster 
 

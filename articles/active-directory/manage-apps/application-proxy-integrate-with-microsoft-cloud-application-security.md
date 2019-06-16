@@ -1,6 +1,6 @@
 ---
 title: Integrar aplicações no local com o Cloud App Security – o Azure Active Directory | Documentos da Microsoft
-description: Configure uma aplicação no local no Azure Active Directory para trabalhar com o Microsoft Cloud App Security (MCAS). Utilizar o controlo de aplicação de acesso condicional do MCAS para monitorizar e sessões de controlo em tempo real com base nas políticas de acesso condicional. Pode aplicar estas políticas para aplicações no local que utilizam o Proxy de aplicações no Azure Active Directory (Azure AD).
+description: Configure uma aplicação no local no Azure Active Directory para trabalhar com o Microsoft Cloud App Security (MCAS). Utilize o MCAS aplicação controlo de acesso condicional para sessões de monitorizar e controlar em tempo real com base nas políticas de acesso condicional. Pode aplicar estas políticas para aplicações no local que utilizam o Proxy de aplicações no Azure Active Directory (Azure AD).
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
@@ -11,12 +11,12 @@ ms.date: 12/19/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c614d636e572eb261ec28c55ac49fec0e2b58b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a7b9b27a3b8329f906b1adfd48d28892a7edc4d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783593"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108454"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurar a monitorização de acesso de aplicações em tempo real com o Microsoft Cloud App Security e Azure Active Directory
 Configure uma aplicação no local no Azure Active Directory (Azure AD) para utilizar a segurança de aplicação na Cloud da Microsoft (MCAS) para a monitorização em tempo real. MCAS utiliza o controlo de aplicação de acesso condicional para monitorizar e sessões de controlo em tempo real com base nas políticas de acesso condicional. Pode aplicar estas políticas para aplicações no local que utilizam o Proxy de aplicações no Azure Active Directory (Azure AD).

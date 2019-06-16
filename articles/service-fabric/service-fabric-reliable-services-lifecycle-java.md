@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 36c1ff2ace944d84120bf456060c7504170a814c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772946"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida dos Reliable Services

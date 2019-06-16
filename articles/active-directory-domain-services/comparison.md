@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: 17bb8eb910990e0e9da65491f8dd7361398479a5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246468"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se dos serviços de domínio do Azure AD é a certo para seu caso de utilização

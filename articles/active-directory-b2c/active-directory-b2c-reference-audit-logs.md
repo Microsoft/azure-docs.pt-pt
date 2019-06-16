@@ -11,10 +11,10 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509641"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Registos de auditoria do acesso ao Azure AD B2C

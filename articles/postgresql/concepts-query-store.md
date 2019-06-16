@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b622de3e21d26676bb11d81a6facf8fea18cabc1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65067189"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorizar o desempenho com o Store de consulta
@@ -73,7 +73,7 @@ Tipos de eventos de espera combinam diferentes de espera eventos em buckets por 
 
 Aqui estão alguns exemplos de como pode obter mais informações sobre sua carga de trabalho com as estatísticas de espera no Query Store:
 
-| **Observação** | **Ação** |
+| **Observação** | **ação** |
 |---|---|
 |Esperas de bloqueio elevado | Verifique os textos de consulta para consultas afetadas e identificar as entidades de destino. Procure no Query Store outras consultas modificar a mesma entidade, o que é executada com frequência e/ou tem alta duração. Depois de identificar estas consultas, considere alterar a lógica do aplicativo para aprimorar a simultaneidade ou utilizar um nível de isolamento menos restritivo.|
 | Esperas de alto de memória intermédia de e/s | Determinar as consultas com um elevado número de leituras físicas na Store de consulta. Se coincidirem as consultas com alta esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de análises. Isso seria minimizar a sobrecarga de e/s das consultas. Verifique os **recomendações de desempenho** para o seu servidor no portal para ver se existem recomendações de índice para este servidor que seria otimizar as consultas.|
@@ -86,7 +86,7 @@ As seguintes opções estão disponíveis para configurar parâmetros de consult
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Define quais declarações são controladas. | nenhum | Nenhum, principais, tudo |
+| pg_qs.query_capture_mode | Define quais declarações são controladas. | Nenhum | Nenhum, principais, tudo |
 | pg_qs.max_query_text_length | Define o período de consulta máxima que pode ser salvo. Consultas mais tempo serão truncadas. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Define o período de retenção. | 7 | 1 - 30 |
 | pg_qs.track_utility | Define se são controlados comandos de utilitário | em | on, off |
@@ -95,7 +95,7 @@ As opções seguintes aplicam-se especificamente a estatísticas de espera.
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Range**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Conjuntos de declarações são controladas por estatísticas de espera. | nenhum | NONE, tudo|
+| pgms_wait_sampling.query_capture_mode | Conjuntos de declarações são controladas por estatísticas de espera. | Nenhum | NONE, tudo|
 | Pgms_wait_sampling.history_period | Defina a frequência, em milissegundos, no qual espera os eventos são recolhidos. | 100 | 1-600000 |
 
 > [!NOTE] 
@@ -115,8 +115,8 @@ Esta vista devolve todos os dados na consulta Store. Há uma linha para cada bas
 |**Nome**   |**Tipo** | **Referências**  | **Descrição**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | ID da tabela runtime_stats_entries|
-|user_id    |OID    |pg_authid.oid  |OID de utilizador que executou a instrução|
-|db_id  |OID    |pg_database.oid    |OID da base de dados em que a instrução foi executada|
+|user_id    |oid    |pg_authid.oid  |OID de utilizador que executou a instrução|
+|db_id  |oid    |pg_database.oid    |OID da base de dados em que a instrução foi executada|
 |query_id   |bigint  || Código de hash interna, calculado a partir da árvore de análise a instrução|
 |query_sql_text |Varchar(10000)  || Texto de uma instrução representativa. Diferentes consultas com a mesma estrutura sejam agrupadas; Este texto é o texto para a primeira das consultas no cluster.|
 |plan_id    |bigint |   |ID do plano correspondente a esta consulta não está disponível ainda|
@@ -128,7 +128,7 @@ Esta vista devolve todos os dados na consulta Store. Há uma linha para cada bas
 |max_time   |precisão dupla   ||  Tempo de execução máxima de consulta, em milissegundos|
 |mean_time  |precisão dupla   ||  Significa que o tempo de execução da consulta, em milissegundos|
 |stddev_time|   precisão dupla    ||  Desvio-padrão do tempo de execução de consulta, em milissegundos |
-|linhas   |bigint ||  Número total de linhas obtido ou afetada pela instrução|
+|rows   |bigint ||  Número total de linhas obtido ou afetada pela instrução|
 |shared_blks_hit|   bigint  ||  Número total de acertos na cache de blocos partilhado pela instrução|
 |shared_blks_read|  bigint  ||  Número total de blocos partilhados pela instrução de leitura|
 |shared_blks_dirtied|   bigint   || Número total de blocos partilhados dirtied pela instrução |
@@ -155,12 +155,12 @@ Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linh
 
 |**Nome**|  **Tipo**|   **Referências**| **Descrição**|
 |---|---|---|---|
-|user_id    |OID    |pg_authid.oid  |OID de utilizador que executou a instrução|
-|db_id  |OID    |pg_database.oid    |OID da base de dados em que a instrução foi executada|
+|user_id    |oid    |pg_authid.oid  |OID de utilizador que executou a instrução|
+|db_id  |oid    |pg_database.oid    |OID da base de dados em que a instrução foi executada|
 |query_id   |bigint     ||Código de hash interna, calculado a partir da árvore de análise a instrução|
 |event_type |texto       ||O tipo de evento para o qual está aguardando o back-end|
 |event  |texto       ||O nome do evento espera se back-end está atualmente a aguardar|
-|chamadas  |Número inteiro        ||Número do mesmo evento capturado|
+|chamadas  |Integer        ||Número do mesmo evento capturado|
 
 
 ### <a name="functions"></a>Funções

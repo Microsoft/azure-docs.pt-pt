@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119083"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Como criar e gerir o Azure Cache de Redis com a CLI clássica do Azure
@@ -46,16 +46,16 @@ As seguintes propriedades são utilizadas quando criar e atualizar o Cache do Az
 
 | Propriedade | Comutador | Descrição |
 | --- | --- | --- |
-| nome |-n, --name |Nome da Cache do Azure para Redis. |
+| name |-n, --name |Nome da Cache do Azure para Redis. |
 | grupo de recursos |-g, --resource-group |Nome do grupo de recursos. |
 | localização |-l, --location |Localização para criar a cache. |
-| tamanho |-z, --size |Tamanho da Cache do Azure para Redis. Valores válidos: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3 e P4] |
-| sku |-x, --sku |SKU de redis. Deve ser um dos: [básico, Standard, Premium] |
+| size |-z, --size |Tamanho da Cache do Azure para Redis. Valores válidos: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3 e P4] |
+| SKU |-x, --sku |SKU de redis. Deve ser um dos: [básico, Standard, Premium] |
 | EnableNonSslPort |-e, --enable-non-ssl-port |Propriedade de EnableNonSslPort da Cache de Redis do Azure. Adicionar este sinalizador para ativar a porta de SSL não para a sua cache |
 | Configuração do redis |-c, --redis-configuration |Configuração do redis. Introduza uma cadeia de caracteres do JSON formatado de chaves de configuração e valores aqui. Formato: "{" ":""," ":" "}" |
 | Configuração do redis |-f, --redis-configuration-file |Configuração do redis. Introduza o caminho de um ficheiro com chaves de configuração e valores aqui. Formato para a entrada do ficheiro: {"": "","": ""} |
 | Contagem de partições horizontais |-r, --shard-count |Número de partições horizontais para criar uma Cache de Cluster Premium com clustering. |
-| Rede Virtual |-v, --virtual-network |Ao alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a Cache do Azure para Redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Rede virtual |-v, --virtual-network |Ao alojar a cache numa VNET, especifica o ID de recurso ARM exato, da rede virtual para implementar a Cache do Azure para Redis no. Formato de exemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Tipo de chave |-t, --key-type |Tipo de chave para renovar. Valores válidos: [primário, secundário] |
 | StaticIP |-p, --static-ip \<static-ip\> |Ao alojar a cache numa VNET, especifica um endereço IP exclusivo na sub-rede para a cache. Se não for indicado, um é escolhido por da sub-rede. |
 | Subrede |t, --subnet \<subnet\> |Ao alojar a cache numa VNET, especifica o nome da sub-rede na qual implementar a cache. |

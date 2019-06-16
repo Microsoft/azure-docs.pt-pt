@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
 ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851655"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexação de tabelas no armazém de dados SQL
@@ -154,7 +154,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 Depois de executar a consulta que pode começar a examinar os dados e analisar os resultados. Esta tabela explica o que procurar em sua análise do grupo de linha.
 
-| colunas | Como utilizar estes dados |
+| Coluna | Como utilizar estes dados |
 | --- | --- |
 | [table_partition_count] |Se a tabela está particionada, em seguida, pode esperar ver a conta de grupo de linhas abertos superior. Em teoria, cada partição na distribuição poderia ter um grupo de linhas abertos associado a ele. Incluir isso no sua análise. Uma pequena tabela que tem sido particionada poderia ser otimizada ao remover completamente o particionamento como isso aumentaria a compressão. |
 | [row_count_total] |Contagem total de linhas da tabela. Por exemplo, pode utilizar este valor para calcular a porcentagem das linhas no estado comprimido. |

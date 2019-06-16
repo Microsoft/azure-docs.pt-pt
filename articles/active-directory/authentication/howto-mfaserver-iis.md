@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2b7f76211fe810ce1db53e5afaa307d90317464a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057387"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configurar o Servidor Multi-Factor Authentication do Azure para aplicações Web IIS
 
 Utilize a secção Autenticação do IIS do Servidor do Multi-Factor Authentication (MFA) do Azure que permite ativar e configurar a autenticação do IIS para integração com aplicações Web do Microsoft IIS. O Servidor do MFA do Azure instala um plug-in que pode filtrar os pedidos efetuados para o servidor Web do IIS para adicionar o Multi-Factor Authentication do Azure. O plug-in do IIS fornece suporte para Autenticação Baseada em Formulários e Autenticação HTTP Integrada do Windows. Também podem ser configurados IPs Fidedignos para excluir os endereços IP internos da autenticação de dois fatores.
+
+> [!IMPORTANT]
+> A partir de 1 de Julho de 2019 Microsoft já não irá oferecer servidor MFA para novas implementações. Novos clientes que gostariam de exigir a autenticação multifator de seus usuários devem utilizar com base na cloud do Azure multi-factor Authentication. Os clientes existentes que tenham ativado o servidor de MFA antes de 1 de Julho poderão transferir a versão mais recente, as atualizações futuras e gerar credenciais de ativação como de costume.
 
 ![Autenticação do IIS no servidor MFA](./media/howto-mfaserver-iis/iis.png)
 

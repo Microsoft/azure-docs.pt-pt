@@ -13,10 +13,10 @@ ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60482442"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Como parametrizar os ficheiros de configuração no Service Fabric

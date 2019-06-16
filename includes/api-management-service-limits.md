@@ -10,17 +10,17 @@ ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
 ms.openlocfilehash: fc945a7e9389c8aec48a6a1dba969fbf92002d3a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238143"
 ---
 | Resource | Limite |
 | --- | --- |
 | Número máximo de unidades de escala | 10 por região<sup>1</sup> |
 | Tamanho da cache | 5 GB por unidade<sup>2</sup> |
-| Ligações simultâneas de back-end<sup>3</sup> por uma autoridade HTTP | 2.048 por unidade<sup>4</sup> |
+| Ligações simultâneas de back-end<sup>3</sup> por uma autoridade HTTP | 2\.048 por unidade<sup>4</sup> |
 | Tamanho máximo da resposta em cache | 2 MB |
 | Tamanho do documento de política máximo | 256 KB<sup>5</sup> | 
 | Domínios de gateway personalizada máximo por instância de serviço<sup>6</sup> | 20 |

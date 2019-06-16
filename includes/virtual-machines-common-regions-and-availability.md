@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
 ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66156249"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regiões e disponibilidade para máquinas virtuais no Azure
@@ -98,7 +98,7 @@ Um conjunto de disponibilidade é composta por dois agrupamentos adicionais que 
 
 Ao alocar vários recursos de computação que não utilizam as construções de elevada disponibilidade de domínios de falha não existe uma probabilidade elevada de antiafinidade, no entanto este antiafinidade não é garantida.
 
-### <a name="fault-domains"></a>Domínios de falhas
+### <a name="fault-domains"></a>Domínios de falha
 Um domínio de falha é um grupo lógico de hardware subjacente que partilha a mesma origem de energia e o mesmo comutador de rede física, semelhante a uma estrutura dentro de um datacenter no local. À medida que cria VMs num conjunto de disponibilidade, a plataforma Azure distribui automaticamente as suas VMs por estes domínios de falha. Esta abordagem limita o impacto de potenciais falhas de hardware físico, indisponibilidade de rede ou falhas de energia.
 
 ### <a name="update-domains"></a>Domínios de atualização

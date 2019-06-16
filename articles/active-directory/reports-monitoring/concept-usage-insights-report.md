@@ -17,10 +17,10 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 3fe1e72d277bffd4bc9b38ac377e33b341967e17
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806360"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Relatório de utilização e informações no portal do Azure Active Directory
@@ -45,7 +45,7 @@ Para acessar os dados do relatório de utilização e informações, precisa:
 2. Selecione o diretório correto, em seguida, selecione **do Azure Active Directory** e escolha **aplicações empresariais**.
 3. Do **atividade** secção, selecione **utilização & insights** para abrir o relatório. 
 
-![Relatório de utilização e informações](./media/concept-usage-insights-report/main-menu.png)
+![Relatório de Utilização e Informações](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Utilize o relatório
@@ -58,7 +58,7 @@ Também pode definir o foco numa aplicação específica. Selecione **ver a ativ
 
 Quando seleciona um dia no gráfico de utilização do aplicativo, obtém uma lista detalhada das atividades de início de sessão para a aplicação.  
 
-![Relatório de utilização e informações](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Relatório de Utilização e Informações](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

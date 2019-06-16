@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65790905"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Adicionar analisadores de idiomas para um índice da Azure Search
@@ -67,13 +67,13 @@ Para obter mais informações sobre as propriedades de índice, consulte [Create
 |Basco (Basco)||eu.lucene|  
 |Búlgaro|bg.microsoft|bg.lucene|  
 |Catalão|ca.microsoft|ca.lucene|  
-|Chinês Simplificado|zh-Hans.microsoft|zh-Hans.lucene|  
-|Chinês Tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
+|Chinês simplificado|zh-Hans.microsoft|zh-Hans.lucene|  
+|Chinês tradicional|zh-Hant.microsoft|zh-Hant.lucene|  
 |Croata|hr.microsoft||  
 |Checo|cs.microsoft|cs.lucene|  
 |Dinamarquês|da.microsoft|da.lucene|  
 |Neerlandês|nl.microsoft|nl.lucene|  
-|Inglês|en.microsoft|en.lucene|  
+|Português|en.microsoft|en.lucene|  
 |Estónio|et.microsoft||  
 |Finlandês|fi.microsoft|fi.lucene|  
 |Francês|fr.microsoft|fr.lucene|  
@@ -95,7 +95,7 @@ Para obter mais informações sobre as propriedades de índice, consulte [Create
 |Lituano|lt.microsoft||  
 |Malayalam|ml.microsoft||  
 |Malaio (Latim)|ms.microsoft||  
-|Marata|mr.microsoft||  
+|Marati|mr.microsoft||  
 |Norueguês|nb.microsoft|no.lucene|  
 |Persa||fa.lucene|  
 |Polaco|pl.microsoft|pl.lucene|  

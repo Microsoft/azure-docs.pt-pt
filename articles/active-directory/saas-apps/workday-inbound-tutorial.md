@@ -16,10 +16,10 @@ ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827298"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o dia de trabalho para aprovisionamento automático de utilizadores
@@ -311,9 +311,9 @@ Neste passo, terá de conceder permissões de política para os dados de trabalh
    | ---------- | ---------- |
    | Get e Put | Dados de trabalho: Relatórios de trabalho público |
    | Get e Put | Dados de pessoa: Informações de contacto de trabalho |
-   | Obter | Dados de trabalho: Todas as posições |
-   | Obter | Dados de trabalho: Informações de equipe atuais |
-   | Obter | Dados de trabalho: Título de negócios no perfil de trabalho |
+   | Get | Dados de trabalho: Todas as posições |
+   | Get | Dados de trabalho: Informações de equipe atuais |
+   | Get | Dados de trabalho: Título de negócios no perfil de trabalho |
    | Get e Put | Contas de workday |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configurar permissões de política de segurança de processo de negócio
@@ -474,7 +474,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem a partir do Wo
 
    * Exemplo: Âmbito para utilizadores com IDs de trabalho entre 1000000 e 2000000 (excluindo 2000000)
 
-      * Atributo: WorkerID
+      * atributo: WorkerID
 
       * Operador: Correspondência REGEX
 
@@ -482,7 +482,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem a partir do Wo
 
    * Exemplo: Apenas os funcionários e não os operadores de contingência
 
-      * Atributo: employeeID
+      * atributo: employeeID
 
       * Operador: IS NOT NULL
 
@@ -545,7 +545,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem a partir do Wo
 | **Empresa**         | Empresa   |     |  Criar + atualizar |
 | **SupervisoryOrganization**  | Departamento  |     |  Criar + atualizar |
 | **ManagerReference**   | gestor  |     |  Criar + atualizar |
-| **BusinessTitle**   |  título     |     |  Criar + atualizar | 
+| **BusinessTitle**   |  title     |     |  Criar + atualizar | 
 | **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
 | **Município**   |   l   |     | Criar + atualizar |
 | **CountryReferenceTwoLetter**      |   Co |     |   Criar + atualizar |
@@ -614,7 +614,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem do Workday par
 
    * Exemplo: Âmbito para utilizadores com IDs de trabalho entre 1000000 e 2000000
 
-      * Atributo: WorkerID
+      * atributo: WorkerID
 
       * Operador: Correspondência REGEX
 
@@ -622,7 +622,7 @@ Nesta secção, irá configurar como os dados de utilizador fluem do Workday par
 
    * Exemplo: Apenas os operadores de contingência e os funcionários não regulares
 
-      * Atributo: ContingentID
+      * atributo: ContingentID
 
       * Operador: IS NOT NULL
 
@@ -919,7 +919,7 @@ Pode utilizar o Microsoft Graph API para exportar a configuração de aprovision
 
 A solução suporta os atributos personalizados de dia de trabalho e o Active Directory. Para adicionar seus atributos personalizados para o esquema de mapeamento, abra a **mapeamento do atributo** painel e desloque-se para baixo para expandir a secção **Mostrar opções avançadas**. 
 
-![Editar Lista de Atributos](./media/workday-inbound-tutorial/wd_edit_attr_list.png)
+![Editar lista de atributos](./media/workday-inbound-tutorial/wd_edit_attr_list.png)
 
 Para adicionar seus atributos personalizados do Workday, selecione a opção *lista de atributos de edição para Workday* e para adicionar os atributos de AD personalizados, selecione a opção *Editar lista de atributos no local do Active Directory*.
 
@@ -931,7 +931,7 @@ Veja também:
 
 Esta configuração pode ser alcançada ao definir o **ações do objeto de destino** no **mapeamentos de atributos** painel, conforme mostrado abaixo:
 
-![Atualizar ação](./media/workday-inbound-tutorial/wd_target_update_only.png)
+![Ação de atualização](./media/workday-inbound-tutorial/wd_target_update_only.png)
 
 Selecione a caixa de verificação "Atualizar" para operações de atualização para o fluxo a partir do Workday para o AD. 
 
@@ -959,7 +959,7 @@ A solução atualmente não suporta a definição atributos binários, tal como 
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Como eu formate os nomes a apresentar no AD com base em atributos de departamento/país/cidade e variações regionais do identificador do usuário?
 
-É um requisito comum para configurar o *displayName* de atributos no AD para que ele também fornece informações sobre o departamento e país/região do utilizador. Para por exemplo, se John Smith trabalha no departamento de Marketing nos EUA, talvez tenha seu *displayName* ser apresentado como *Smith, John (Marketing-US)*.
+É um requisito comum para configurar o *displayName* de atributos no AD para que ele também fornece informações sobre o departamento e país/região do utilizador. Para por exemplo, se John Smith trabalha no departamento de Marketing nos EUA, talvez tenha seu *displayName* ser apresentado como *Smith, John (Marketing-US)* .
 
 Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* para incluir atributos como empresa, unidade de negócios, cidade ou país/região.
 
@@ -988,14 +988,14 @@ Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* par
 
   Confirme com a sua equipa de dia de trabalho que as expressões de API acima são válidas para a sua configuração de inquilino do Workday. Se necessário, pode editá-los conforme descrito na secção [personalizar a lista de atributos de utilizador do Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Para construir a expressão de mapeamento do atributo certo, identifique o atributo que Workday "forma autoritativa" representa o utilizador nome próprio, último nome, país/região e departamento. Vamos supor que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization* , respetivamente. Pode utilizá-lo para criar uma expressão do AD *displayName* atributo da seguinte forma para obter um nome a apresentar como *Smith, John (Marketing-US)*.
+* Para construir a expressão de mapeamento do atributo certo, identifique o atributo que Workday "forma autoritativa" representa o utilizador nome próprio, último nome, país/região e departamento. Vamos supor que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization* , respetivamente. Pode utilizá-lo para criar uma expressão do AD *displayName* atributo da seguinte forma para obter um nome a apresentar como *Smith, John (Marketing-US)* .
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
     Assim que tiver a expressão da direita, edite a tabela de mapeamentos de atributos e modificar os *displayName* mapeamento do atributo conforme mostrado abaixo:   ![Mapeamento de DisplayName](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
-* Estendendo o exemplo acima, vamos dizer que pretende converter os nomes das cidades chegam a partir do Workday valores de um atalho e, em seguida, utilizá-lo a criar nomes a apresentar, tal como *Smith, John (CHI)* ou *Martins, a Joana (NYC)*, em seguida, este resultado pode ser obtido usando uma expressão de comutador com o Workday *município* atributo como a variável determinante.
+* Estendendo o exemplo acima, vamos dizer que pretende converter os nomes das cidades chegam a partir do Workday valores de um atalho e, em seguida, utilizá-lo a criar nomes a apresentar, tal como *Smith, John (CHI)* ou *Martins, a Joana (NYC)* , em seguida, este resultado pode ser obtido usando uma expressão de comutador com o Workday *município* atributo como a variável determinante.
 
      ```
     Switch

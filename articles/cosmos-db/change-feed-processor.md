@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 9cf9e1aabc0898ef025c7c2f517e631a812e67d7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969019"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador de feed de alterações no Azure Cosmos DB 
@@ -41,7 +41,7 @@ Existem quatro componentes principais de implementar o biblioteca processador do
 
    * Continuação: Especifica a posição (token de continuação) na alteração do feed para uma determinada partição.
 
-   * Carimbo de data/hora: Hora da última concessão foi atualizada. o carimbo de hora pode ser usado para verificar se a concessão seja considerada expirada.
+   * Timestamp: Hora da última concessão foi atualizada. o carimbo de hora pode ser usado para verificar se a concessão seja considerada expirada.
 
 1. **O anfitrião do processador:** Cada anfitrião determina quantas partições para processar com base no número de outro instâncias de anfitriões tem concessões ativas.
 

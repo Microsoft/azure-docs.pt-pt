@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
 ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475418"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utilizar o Virtual Kubelet com o serviço Kubernetes do Azure (AKS)

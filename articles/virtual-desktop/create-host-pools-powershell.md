@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
 ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833960"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell

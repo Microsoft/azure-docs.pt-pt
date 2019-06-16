@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799198"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
@@ -63,7 +63,7 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
         |Name|Descrição|
         |---|---|
         |id|O ID do vídeo|
-        |estado|O estado de vídeo|  
+        |state|O estado de vídeo|  
     - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Pessoa identificada no vídeo:
   - Propriedades

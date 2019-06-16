@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632867"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utilizar o serviço StorSimple Device Manager para monitorizar componentes de hardware e o Estado
@@ -79,7 +79,7 @@ Execute os seguintes passos para ver o estado de hardware de um componente de di
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista de componentes para inclusão principal do dispositivo StorSimple
 A tabela seguinte descreve os componentes físicos e lógicos contidos no bastidor principal (presente no 8100 e 8600) do seu dispositivo do StorSimple no local.
 
-| Componente | Módulo | Type | Location | Unidade substituível em campo (FRU)? | Descrição |
+| Componente | Módulo | Tipo | Location | Unidade substituível em campo (FRU)? | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Sim |Uma linha é apresentada para cada um do SSD ou as unidades HDD no bastidor principal. |
 | Sensor de temperatura ambiente |Bastidor |Físico |Partilhado |Não |Mede a temperatura dentro do chassi. |
@@ -105,22 +105,22 @@ A tabela seguinte descreve os componentes físicos e lógicos contidos no bastid
 | Espaço SSD NVRAM |N/A |Lógica |Partilhado |N/A |O espaço de armazenamento no agrupamento de armazenamento SSD dedicado para a lógica NVRAM. |
 | Agrupamento de armazenamento HDD |N/A |Lógica |Partilhado |N/A |Apresenta o estado do agrupamento de armazenamento lógico, que é criado a partir do dispositivo HDDs. |
 | Agrupamento de armazenamento SSD |N/A |Lógica |Partilhado |N/A |Apresenta o estado do agrupamento de armazenamento lógico, que é criado a partir de dispositivos SSDs. |
-| Controlador [0-1], [Estado] |I/O |Físico |Controlador |Sim |Apresenta o estado do controlador, e se está no modo de Active Directory ou em modo de espera dentro do chassi. |
-| Sensores de temperatura no controlador |I/O |Físico |Controlador |Não |Vários sensores de temperatura, como o módulo de e/s, temperatura de CPU, sensores DIMM e PCIe tem o estado apresentado, que indica se é ou não a temperatura encontrou respeitam a tolerância. |
-| Expansor de SAS |I/O |Físico |Controlador |Não |Indica o estado da série anexado SCSI (SAS) Expansor, que é utilizada para ligar o armazenamento integrado para o controlador. |
-| Conector de SAS [0-1] |I/O |Físico |Controlador |Não |Indica o estado de cada conector SAS, o que é utilizada para ligar o armazenamento integrada para o Expansor de SAS. |
-| Interconexão de plano médio SBB |I/O |Físico |Controlador |Não |Indica o estado do conector do plano de médio e o que é utilizado para ligar cada controlador para o plano de médio. |
-| Núcleo de processador |I/O |Físico |Controlador |Não |Indica o estado dos núcleos de processador dentro de cada controlador. |
-| Bastidor eletrónico-energia |I/O |Físico |Controlador |Não |Indica o estado do sistema de energia usado pelo bastidor. |
-| Bastidor eletrónico-diagnóstico |I/O |Físico |Controlador |Não |Indica o estado dos subsistemas de diagnóstico fornecida pelo controlador. |
-| Controlador de gestão da placa base (BMC) |I/O |Físico |Controlador |Não |Indica o estado do controlador de gestão da placa base (BMC), que é um processador de serviços especializado que monitora o dispositivo de hardware através de sensores e comunica com o administrador de sistema através de uma ligação independente. |
-| Ethernet |I/O |Físico |Controlador |Não |Indica o estado de cada uma das interfaces de rede, ou seja, o gerenciamento e as portas de dados fornecidas no controlador. |
-| NVRAM |I/O |Físico |Controlador |Não |Indica o estado da NVRAM, uma memória de acesso de aleatório não volátil uma cópia de segurança a bateria que serve para manter informações críticas para a aplicação em caso de falha de energia. |
+| Controlador [0-1], [Estado] |I/O |Físico |controlador |Sim |Apresenta o estado do controlador, e se está no modo de Active Directory ou em modo de espera dentro do chassi. |
+| Sensores de temperatura no controlador |I/O |Físico |controlador |Não |Vários sensores de temperatura, como o módulo de e/s, temperatura de CPU, sensores DIMM e PCIe tem o estado apresentado, que indica se é ou não a temperatura encontrou respeitam a tolerância. |
+| Expansor de SAS |I/O |Físico |controlador |Não |Indica o estado da série anexado SCSI (SAS) Expansor, que é utilizada para ligar o armazenamento integrado para o controlador. |
+| Conector de SAS [0-1] |I/O |Físico |controlador |Não |Indica o estado de cada conector SAS, o que é utilizada para ligar o armazenamento integrada para o Expansor de SAS. |
+| Interconexão de plano médio SBB |I/O |Físico |controlador |Não |Indica o estado do conector do plano de médio e o que é utilizado para ligar cada controlador para o plano de médio. |
+| Núcleo de processador |I/O |Físico |controlador |Não |Indica o estado dos núcleos de processador dentro de cada controlador. |
+| Bastidor eletrónico-energia |I/O |Físico |controlador |Não |Indica o estado do sistema de energia usado pelo bastidor. |
+| Bastidor eletrónico-diagnóstico |I/O |Físico |controlador |Não |Indica o estado dos subsistemas de diagnóstico fornecida pelo controlador. |
+| Controlador de gestão da placa base (BMC) |I/O |Físico |controlador |Não |Indica o estado do controlador de gestão da placa base (BMC), que é um processador de serviços especializado que monitora o dispositivo de hardware através de sensores e comunica com o administrador de sistema através de uma ligação independente. |
+| Ethernet |I/O |Físico |controlador |Não |Indica o estado de cada uma das interfaces de rede, ou seja, o gerenciamento e as portas de dados fornecidas no controlador. |
+| NVRAM |I/O |Físico |controlador |Não |Indica o estado da NVRAM, uma memória de acesso de aleatório não volátil uma cópia de segurança a bateria que serve para manter informações críticas para a aplicação em caso de falha de energia. |
 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista de componentes para inclusão EBOD do dispositivo StorSimple
 A tabela seguinte descreve os componentes físicos e lógicos contidos no bastidor EBOD (apenas presente no modelo 8600) do seu dispositivo do StorSimple no local.
 
-| Componente | Módulo | Type | Location | FRU? | Descrição |
+| Componente | Módulo | Tipo | Location | FRU? | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Unidade na ranhura [0-11] |Unidades de disco |Físico |Partilhado |Sim |Uma linha é apresentada para as unidades HDD no início a inclusão EBOD. |
 | Sensor de temperatura ambiente |Bastidor |Físico |Partilhado |Não |Mede a temperatura dentro do chassi. |
@@ -134,14 +134,14 @@ A tabela seguinte descreve os componentes físicos e lógicos contidos no bastid
 | Fonte de alimentação [0-1] |PCM |Físico |Partilhado |Sim |Uma linha é apresentada para cada um das fontes de alimentação nos dois PCMs localizados na parte traseira o dispositivo. |
 | Refrigeração [0-1] |PCM |Físico |Partilhado |Sim |Uma linha é apresentada para cada um as quatro ventoinhas de arrefecimento que residem nos dois PCMs. |
 | Armazenamento local [HDD] |N/A |Lógica |Partilhado |N/A |Apresenta o estado do agrupamento de armazenamento lógico, que é criado a partir do dispositivo HDDs. |
-| Controlador [0-1], [Estado] |I/O |Físico |Controlador |Sim |Apresenta o estado dos controladores no módulo EBOD. |
-| Sensores de temperatura de EBOD |I/O |Físico |Controlador |Não |Vários sensores de temperatura de cada controlador de tem o estado apresentado, que indica se a temperatura encontrou é respeitam a tolerância. |
-| Expansor de SAS |I/O |Físico |Controlador |Não |Indica o estado do Expansor SAS, que é utilizada para ligar o armazenamento integrado para o controlador. |
-| Conector de SAS [0-2] |I/O |Físico |Controlador |Não |Indica o estado de cada conector SAS, o que é utilizada para ligar o armazenamento integrada para o Expansor de SAS. |
-| Interconexão de plano médio SBB |I/O |Físico |Controlador |Não |Indica o estado do conector do plano de médio e o que é utilizado para ligar cada controlador para o plano de médio. |
-| Bastidor eletrónico-energia |I/O |Físico |Controlador |Não |Indica o estado do sistema de energia usado pelo bastidor. |
-| Bastidor eletrónico-diagnóstico |I/O |Físico |Controlador |Não |Indica o estado dos subsistemas de diagnóstico fornecida pelo controlador. |
-| Ligação ao controlador de dispositivo |I/O |Físico |Controlador |Não |Indica o estado da ligação entre o módulo de e/s de EBOD e o controlador de dispositivo. |
+| Controlador [0-1], [Estado] |I/O |Físico |controlador |Sim |Apresenta o estado dos controladores no módulo EBOD. |
+| Sensores de temperatura de EBOD |I/O |Físico |controlador |Não |Vários sensores de temperatura de cada controlador de tem o estado apresentado, que indica se a temperatura encontrou é respeitam a tolerância. |
+| Expansor de SAS |I/O |Físico |controlador |Não |Indica o estado do Expansor SAS, que é utilizada para ligar o armazenamento integrado para o controlador. |
+| Conector de SAS [0-2] |I/O |Físico |controlador |Não |Indica o estado de cada conector SAS, o que é utilizada para ligar o armazenamento integrada para o Expansor de SAS. |
+| Interconexão de plano médio SBB |I/O |Físico |controlador |Não |Indica o estado do conector do plano de médio e o que é utilizado para ligar cada controlador para o plano de médio. |
+| Bastidor eletrónico-energia |I/O |Físico |controlador |Não |Indica o estado do sistema de energia usado pelo bastidor. |
+| Bastidor eletrónico-diagnóstico |I/O |Físico |controlador |Não |Indica o estado dos subsistemas de diagnóstico fornecida pelo controlador. |
+| Ligação ao controlador de dispositivo |I/O |Físico |controlador |Não |Indica o estado da ligação entre o módulo de e/s de EBOD e o controlador de dispositivo. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo, aceda à [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

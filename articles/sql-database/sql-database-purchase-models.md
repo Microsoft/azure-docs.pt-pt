@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
 ms.openlocfilehash: 98c19732c372fbcda3ca8e746d002f94c2687b22
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431364"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Escolher entre o vCore e a DTU modelos de compra

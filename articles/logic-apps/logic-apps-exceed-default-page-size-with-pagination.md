@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64476545"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obter mais dados, itens ou registos ao utilizar a paginação no Azure Logic Apps
@@ -51,7 +51,7 @@ Aqui está uma lista com apenas alguns dos conectores onde pode exceder o tamanh
 
 Para determinar se uma ação suporta paginação no Estruturador da aplicação lógica, verifique as definições da ação para o **paginação** definição. Este exemplo mostra como ativar a paginação no SQL Server **obter linhas** ação.
 
-1. No canto superior direito da ação, selecione as reticências (**...** ) e selecione **definições**.
+1. No canto superior direito da ação, selecione as reticências ( **...** ) e selecione **definições**.
 
    ![Abrir definições da ação](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings.png)
 

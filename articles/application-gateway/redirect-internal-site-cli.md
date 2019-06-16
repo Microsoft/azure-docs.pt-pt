@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133756"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicação com o redirecionamento interno com a CLI do Azure
@@ -217,7 +217,7 @@ Introduza o nome de domínio na barra de endereço do seu browser. Como, por exe
 
 ![Testar o site contoso no gateway de aplicação](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Alterar o endereço para o seu domínio, por exemplo http://www.contoso.org e deverá ver que o tráfego foi redirecionado para o serviço de escuta para www\.contoso.com.
+Alterar o endereço para o seu domínio, por exemplo http://www.contoso.org e deverá ver que o tráfego foi redirecionado para o serviço de escuta para www\. contoso.com.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

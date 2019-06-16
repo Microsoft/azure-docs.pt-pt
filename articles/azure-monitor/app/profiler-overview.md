@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60306330"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicações de produção do perfil no Azure com o Application Insights
@@ -27,7 +27,7 @@ De Azure Application Insights Profiler fornece rastreios de desempenho para apli
 Profiler funciona com aplicações de .NET que são implementadas nos seguintes serviços do Azure. Instruções específicas para ativar o Profiler para cada tipo de serviço estão nos links a seguir.
 
 * [Serviço de Aplicações do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços em Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 * [**Pré-visualização** aplicações ASP.NET Core a Web do Linux do Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
@@ -75,7 +75,7 @@ Se **clr! ThePreStub** demora muito tempo para um pedido, o pedido é o primeiro
 
 ### <a id="ngencold"></a>Carregamento de código ([frio])
 
-Se o nome do método contiver **[frio]**, tal como **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, o tempo de execução do .NET Framework esteja executando código pela primeira vez que não está otimizada por [otimização orientada por perfil](/cpp/build/profile-guided-optimizations). Para cada método, que deve ser exibida no máximo uma vez durante o processo.
+Se o nome do método contiver **[frio]** , tal como **mscorlib.ni! [ COLD]System.Reflection.CustomAttribute.IsDefined**, o tempo de execução do .NET Framework esteja executando código pela primeira vez que não está otimizada por [otimização orientada por perfil](/cpp/build/profile-guided-optimizations). Para cada método, que deve ser exibida no máximo uma vez durante o processo.
 
 Se o carregamento de código leva uma quantidade substancial de tempo para um pedido, o pedido é o primeiro para executar a parte não otimizada do método. Considere a utilização de um processo de aquecimento que executa essa parte do código antes dos utilizadores aceder a ele.
 
@@ -95,7 +95,7 @@ Métodos como **SqlCommand.Execute** indicar que o código está à espera que u
 
 **BLOCKED_TIME** indica que o código está a aguardar outro recurso esteja disponível. Por exemplo, pode aguardar para um objeto de sincronização, para um thread esteja disponível ou para um pedido para concluir.
 
-### <a name="unmanaged-async"></a>Assíncrono Não Gerido
+### <a name="unmanaged-async"></a>Async não gerido
 
 .NET framework emite eventos do ETW e transmite os ids de atividade entre threads para que as chamadas assíncronas podem ser controladas entre threads. Código não gerenciado (código nativo) e alguns estilos mais antigos do código assíncrono estão em falta esses eventos e ids de atividade, para que o criador de perfil não é possível dizer qual thread e quais funções estão sendo executados no thread. Isso tem o nome "Async não gerenciado" na pilha de chamadas. Se baixar o arquivo do ETW, poderá conseguir utilizar [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obter mais informações sobre o que está acontecendo.
 
@@ -128,7 +128,7 @@ Profiler aleatoriamente executa dois minutos por hora em cada máquina virtual q
 ## <a name="next-steps"></a>Passos Seguintes
 Ative o Application Insights Profiler para a sua aplicação do Azure. Consulte também:
 * [Serviços Aplicacionais](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços em Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

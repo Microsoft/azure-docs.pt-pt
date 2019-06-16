@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393658"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrar com o Azure managed identidades

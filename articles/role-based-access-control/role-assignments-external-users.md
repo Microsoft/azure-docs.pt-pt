@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952202"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gerir o acesso aos recursos do Azure para utilizadores externos através do RBAC
@@ -44,7 +44,7 @@ Funções RBAC podem ser concedidas apenas pelo **proprietários** da subscriç�
 No portal do Azure, depois de iniciar sessão como administrador, selecione "Subscrições" e escolha aquela pretendido.
 ![Painel de subscrição no portal do Azure](./media/role-assignments-external-users/0.png) por predefinição, se o utilizador de administrador tiver comprado a subscrição do Azure, o utilizador será apresentado como **administrador de conta**, é a função de subscrição. Para obter mais informações sobre as funções de subscrição do Azure, consulte [adicionar ou alterar os administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
-Neste exemplo, o utilizador "alflanigan@outlook.com" é o **proprietário** da "Versão de avaliação gratuita" de subscrição no AAD inquilino "Padrão inquilino do Azure". Uma vez que este utilizador é o criador da subscrição do Azure com a inicial Account da Microsoft "Outlook" (Microsoft Account = Outlook, etc. Live) será o nome de domínio predefinido para todos os outros utilizadores adicionados neste inquilino **"\@ alflaniganuoutlook.onmicrosoft.com"**. Por predefinição, a sintaxe do novo domínio é formada pela juntar o nome de domínio e nome de utilizador do utilizador que criou o inquilino e adicionar a extensão **". onmicrosoft.com"**.
+Neste exemplo, o utilizador "alflanigan@outlook.com" é o **proprietário** da "Versão de avaliação gratuita" de subscrição no AAD inquilino "Padrão inquilino do Azure". Uma vez que este utilizador é o criador da subscrição do Azure com a inicial Account da Microsoft "Outlook" (Microsoft Account = Outlook, etc. Live) será o nome de domínio predefinido para todos os outros utilizadores adicionados neste inquilino **"\@ alflaniganuoutlook.onmicrosoft.com"** . Por predefinição, a sintaxe do novo domínio é formada pela juntar o nome de domínio e nome de utilizador do utilizador que criou o inquilino e adicionar a extensão **". onmicrosoft.com"** .
 Além disso, os utilizadores podem iniciar sessão com um nome de domínio personalizado no inquilino depois de adicionar e verificá-lo para o novo inquilino. Para obter mais informações sobre como verificar um nome de domínio personalizado num inquilino do Azure Active Directory, consulte [adicionar um nome de domínio personalizado ao seu diretório](../active-directory/fundamentals/add-custom-domain.md).
 
 Neste exemplo, o diretório de "Predefinição de inquilino do Azure" contém apenas os utilizadores com o nome de domínio "\@alflanigan.onmicrosoft.com".

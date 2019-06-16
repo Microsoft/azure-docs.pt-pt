@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
 ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65146026"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mover o armazenamento de longa duração de banda para a cloud do Azure
@@ -35,7 +35,7 @@ Os clientes também podem agendar uma cópia de segurança semanal. Por exemplo,
 ## <a name="what-is-the-retention-policy"></a>O que é a política de retenção?
 A política de retenção Especifica a duração para os quais a cópia de segurança deve ser armazenada. Em vez de especificar apenas uma "política simples" para todos os pontos de cópia de segurança, os clientes podem especificar políticas de retenção diferentes com base em quando é feita a cópia de segurança. Por exemplo, o ponto de cópia de segurança executado diariamente, que funciona como um ponto de recuperação operacional, é preservado durante 90 dias. O ponto de cópia de segurança efetuado no final de cada trimestre para fins de auditoria é mantido durante um longo período.
 
-![Política de Retenção](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
+![Política de retenção](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 O número total de "pontos de retenção" especificados nesta política é 90 (pontos diários) + 40 (um de cada trimestre para 10 anos) = 130.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794295"
 ---
 # <a name="access-the-vfxt-cluster"></a>Aceder ao cluster vFXT
@@ -59,7 +59,7 @@ Na **configuração** painel:
 1. Para o destino, introduza o endereço IP de gestão do cluster vFXT e a porta 443. 
    Exemplo: ``203.0.113.51:443``
 1. Clique em **Adicionar**.
-1. Clique em **Open** (Abrir).
+1. Clique em **aberto**.
 
 ![Aplicativo de captura de ecrã do Putty, que mostra onde pode clicar para adicionar um túnel](media/avere-vfxt-ptty-numbered.png)
 

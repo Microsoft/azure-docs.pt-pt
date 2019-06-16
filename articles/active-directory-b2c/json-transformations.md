@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 9a026d205d3ab855ecbb51048e7464df6fb4a094
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510758"
 ---
 # <a name="json-claims-transformations"></a>Transformações de afirmações de JSON
@@ -121,7 +121,7 @@ Obtém um numérico (muito) o elemento especificado a partir de um dados JSON.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | Os ClaimTypes que são utilizados pela transformação de declarações para obter a afirmação. |
 | InputParameter | claimToExtract | string | O nome do elemento JSON para extrair. |
-| OutputClaim | extractedClaim | longa | ClaimType produzido depois deste ClaimsTransformation ser invocada, o valor do elemento especificado na _claimToExtract_ parâmetros de entrada. |
+| OutputClaim | extractedClaim | long | ClaimType produzido depois deste ClaimsTransformation ser invocada, o valor do elemento especificado na _claimToExtract_ parâmetros de entrada. |
 
 No exemplo seguinte, a transformação de declarações extrai o `id` elemento a partir dos dados JSON.
 

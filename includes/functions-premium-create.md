@@ -9,10 +9,10 @@ ms.date: 04/01/2019
 ms.author: jehollan, glenga
 ms.custom: include file
 ms.openlocfilehash: 0f3303e7bc87ca0bd29f367405372568ed6da7a7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131564"
 ---
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
@@ -37,7 +37,7 @@ ms.locfileid: "66131564"
 
     | Definição      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome da aplicação**  | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os carateres válidos são `a-z`, `0-9` e `-`.  | 
+    | **Nome da aplicação** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os carateres válidos são `a-z`, `0-9` e `-`.  | 
     | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova aplicação de função é criada. |
     | **[Grupo de Recursos](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. Também pode utilizar o valor sugerido. |
     | **OS** | Windows | Linux não é atualmente suportado no plano Premium. |

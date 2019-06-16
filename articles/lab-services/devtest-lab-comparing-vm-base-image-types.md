@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64680305"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Comparar imagens personalizadas e fórmulas no DevTest Labs
 Ambos [imagens personalizadas](devtest-lab-create-template.md) e [fórmulas](devtest-lab-manage-formulas.md) podem ser utilizados como as bases para [criadas novas VMs](devtest-lab-add-vm.md). No entanto, a principal diferença entre as imagens personalizadas e fórmulas é que uma imagem personalizada é simplesmente uma imagem com base num VHD, enquanto uma fórmula é uma imagem com base num VHD *além* predefinições - por exemplo, o tamanho da VM, rede virtual, sub-rede e artefactos. Estas definições pré-configuradas são configuradas com valores predefinidos que podem ser substituídas no momento da criação da VM. Este artigo explica alguns dos (profissionais) de vantagens e desvantagens (contras) para utilizar imagens personalizadas e o uso de fórmulas.

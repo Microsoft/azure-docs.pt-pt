@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: robinsh
 ms.openlocfilehash: fe548b0e8c791d5e7e3bdbc7bd4612a130ff8168
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873290"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Introdução à gestão de dispositivos (.NET/.NET)
@@ -56,7 +56,7 @@ Para concluir este tutorial, precisa do seguinte:
 
 Nesta secção, vai criar uma aplicação de consola do .NET (usando a linguagem c#) inicia um reinício remoto num dispositivo através de um método direto. A aplicação utiliza consultas de dispositivo duplo para detetar a última hora de reinício desse dispositivo.
 
-1. No Visual Studio, adicione um projeto Visual C# no Ambiente de Trabalho Clássico do Windows a uma solução nova, utilizando o modelo de projeto **Aplicação de Consola (.NET Framework)**. Certifique-se de ter a versão 4.5.1 ou superior do .NET Framework. Nomeie o projeto **TriggerReboot**.
+1. No Visual Studio, adicione um projeto Visual C# no Ambiente de Trabalho Clássico do Windows a uma solução nova, utilizando o modelo de projeto **Aplicação de Consola (.NET Framework)** . Certifique-se de ter a versão 4.5.1 ou superior do .NET Framework. Nomeie o projeto **TriggerReboot**.
 
     ![Novo projeto do Visual C# no Ambiente de Trabalho Clássico do Windows](./media/iot-hub-csharp-csharp-device-management-get-started/createserviceapp.png)
 
@@ -218,7 +218,7 @@ Nesta secção, vai fazer o seguinte:
    }
    ```
         
-8. No Explorador de Soluções do Visual Studio, clique com o botão direito do rato na sua solução e, em seguida, clique em **Definir Projetos de Arranque...**. Selecione **projeto de arranque único**e, em seguida, selecione a **SimulateManagedDevice** projeto no menu pendente. Compilar a solução.       
+8. No Explorador de Soluções do Visual Studio, clique com o botão direito do rato na sua solução e, em seguida, clique em **Definir Projetos de Arranque...** . Selecione **projeto de arranque único**e, em seguida, selecione a **SimulateManagedDevice** projeto no menu pendente. Compilar a solução.       
 
 > [!NOTE]
 > Para facilitar, este tutorial não implementa nenhuma política de repetição. No código de produção, deve implementar as políticas de repetição (como um término exponencial), como sugerido no artigo [processamento de erros transitórios](/azure/architecture/best-practices/transient-faults).

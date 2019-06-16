@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94b35f0530dacfadb799f1d44d7a9eb666def6c9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65891901"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como um fornecedor de identidade para utilizadores convidados B2B
@@ -36,7 +36,7 @@ Se o utilizador convidado vê um erro de "cabeçalho demasiado longo", podem ten
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Passo 1: Configurar um projeto de programador do Google
 Primeiro, crie um novo projeto na consola de programadores do Google para obter uma client ID e um segredo do cliente que pode adicionar mais tarde para o Azure AD. 
-1. Aceda às APIs do Google em https://console.developers.google.come inicie sessão com a sua conta do Google. Recomendamos que utilize uma equipe partilhada conta Google.
+1. Aceda às APIs do Google em https://console.developers.google.com e inicie sessão com a sua conta do Google. Recomendamos que utilize uma equipe partilhada conta Google.
 2. Crie um novo projeto: No Dashboard, selecione **criar projeto**e, em seguida, selecione **criar**. Na página de novo projeto, introduza um **nome do projeto**e, em seguida, selecione **criar**.
    
    ![Captura de ecrã que mostra uma nova página do projeto para o Google](media/google-federation/google-new-project.png)
@@ -64,7 +64,7 @@ Primeiro, crie um novo projeto na consola de programadores do Google para obter 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(onde `<directory id>` é o seu ID de diretório)
    
      > [!NOTE]
-     > Para encontrar o seu ID de diretório, aceda a https://portal.azure.come, em **do Azure Active Directory**, escolha **propriedades** e copie o **ID do diretório**.
+     > Para encontrar o seu ID de diretório, aceda a https://portal.azure.com e, em **do Azure Active Directory**, escolha **propriedades** e copie o **ID do diretório**.
 
    ![Secção de URIs de redirecionamento de captura de ecrã que mostra o autorizado](media/google-federation/google-create-oauth-client-id.png)
 
@@ -101,7 +101,7 @@ Agora definirá o cliente de Google ID e segredo do cliente, tanto pelo introduz
 1. Aceda ao [Portal do Azure](https://portal.azure.com). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Selecione **relações organizacionais**.
 3. Selecione **fornecedores de identidade**.
-4. Sobre o **Google** , selecione o menu de contexto (**...** ) e, em seguida, selecione **eliminar**. 
+4. Sobre o **Google** , selecione o menu de contexto ( **...** ) e, em seguida, selecione **eliminar**. 
    
    ![Captura de ecrã que mostra a opção de eliminação para o fornecedor de identidade de redes sociais](media/google-federation/google-social-identity-providers.png)
 

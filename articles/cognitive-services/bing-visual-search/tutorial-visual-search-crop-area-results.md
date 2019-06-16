@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: rosh
 ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65896269"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Recortar uma imagem com o SDK de pesquisa Visual do Bing paraC#
@@ -81,7 +81,7 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 
 A aplicação concluída devolve:
 
-|ActionType  |URL  | |
+|ActionType  |do IdP  | |
 |---------|---------|---------|
 |PagesIncluding WebSearchURL     |         |
 |MoreSizes WebSearchURL     |         |  

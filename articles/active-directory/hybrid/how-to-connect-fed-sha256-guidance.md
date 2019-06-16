@@ -17,10 +17,10 @@ ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b6c81343d52f016dc779f9e08176a0d909684c0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138628"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Altere o algoritmo de hash de assinatura para o Office 365 confiança de entidade confiadora

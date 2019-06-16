@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66164508"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Número de domínios de falha por região
@@ -18,7 +18,7 @@ ms.locfileid: "66164508"
 | EUA Leste             | 3                       |
 | EUA Leste 2           | 3                       |
 | EUA Oeste             | 3                       |
-| E.U.A. Oeste 2           | 2                       |
+| EUA Oeste 2           | 2                       |
 | EUA Central          | 3                       |
 | EUA Centro-Norte    | 3                       |
 | EUA Centro-Sul    | 3                       |
@@ -39,15 +39,15 @@ ms.locfileid: "66164508"
 | Índia Central       | 2                       |
 | Oeste da Índia          | 2                       |
 | Coreia do Sul Central       | 2                       |
-| Sul da Coreia do Sul         | 2                       |
+| Coreia do Sul         | 2                       |
 |                     |                         |
 | Leste da Austrália      | 2                       |
 | Sudeste da Austrália | 2                       |
 |                     |                         |
 | Sul do Brasil        | 2                       |
 |                     |                         |
-| US Gov - Virginia     | 2                       |
-| US Gov - Texas        | 2                       |
-| US Gov - Arizona      | 2                       |
-| US DoD Central      | 2                       |
+| Gov (US) - Virginia     | 2                       |
+| Gov (US) - Texas        | 2                       |
+| Gov (US) - Arizona      | 2                       |
+| US DoD Centro      | 2                       |
 | US DoD Leste         | 2                       |

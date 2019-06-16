@@ -8,10 +8,10 @@ manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306453"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Criar um inquilino do Azure AD para a Azure Red Hat OpenShift

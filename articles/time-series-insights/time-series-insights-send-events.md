@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237699"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights com um hub de eventos
@@ -100,7 +100,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 * **Saída**: Um evento.
 
-    |ID|carimbo de data/hora|
+    |id|carimbo de data/hora|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -123,7 +123,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 * **Saída**: Dois eventos.
 
-    |ID|carimbo de data/hora|
+    |id|carimbo de data/hora|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|
@@ -191,7 +191,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 * **Saída**: Dois eventos.
 
-    |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
+    |localização|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
     |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|

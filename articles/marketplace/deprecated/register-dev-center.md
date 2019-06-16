@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 6ba008ffdf0fe00d6720b0968dc42bfcfc651c9c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258973"
 ---
 # <a name="register-in-dev-center"></a>Registar no Dev Center  

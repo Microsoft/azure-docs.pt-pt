@@ -13,10 +13,10 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60699349"
 ---
 # <a name="local-forwarder-preview"></a>Reencaminhador local (pré-visualização)
@@ -35,7 +35,7 @@ Reencaminhador local é uma [projeto de código-fonte aberto no GitHub](https://
 
 > [!NOTE]
 > O serviço do reencaminhador local requer um mínimo de .NET Framework 4.7. Se não tiver .NET Framework 4.7 o serviço de instalação, mas não iniciará. Para acessar a versão de disponibilidade mais recente do .NET Framework **[visite a página de download do .NET Framework](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Baixe o LF. WindowsServiceHost.zip ficheiro a partir da [página de versão do reencaminhador local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) no GitHub.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Monitorizar o serviço através da inspeção **. log* ficheiros no diretório /home/SAMPLE_USER/LOCALFORWARDER_DIR.
+* Monitorizar o serviço através da inspeção * *. log* ficheiros no diretório /home/SAMPLE_USER/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
 Reencaminhador local pode funcionar com o macOS, mas atualmente não é oficialmente suportado.
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>Monitorização local reencaminhador
 
-Rastreios são escritos para o sistema de ficheiros junto ao executável que executa o reencaminhador local (procure **. log* ficheiros). Pode colocar um ficheiro com o nome *NLog.config* junto ao executável para fornecer a sua própria configuração em vez do predefinido. Ver [documentação](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) para a descrição do formato.
+Rastreios são escritos para o sistema de ficheiros junto ao executável que executa o reencaminhador local (procure * *. log* ficheiros). Pode colocar um ficheiro com o nome *NLog.config* junto ao executável para fornecer a sua própria configuração em vez do predefinido. Ver [documentação](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) para a descrição do formato.
 
 Se nenhum ficheiro de configuração não for fornecido (o que é o padrão), o reencaminhador Local irá utilizar a configuração predefinida, que pode ser encontrada [aqui](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 

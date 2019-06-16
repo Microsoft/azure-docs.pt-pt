@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: yegu
 ms.openlocfilehash: 66361871d365068a90a2eeab70d92adb6b246a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60830012"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Como resolver problemas de Cache do Azure para Redis
@@ -202,12 +202,12 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
 | --- | --- |
 | portamento da instalação |No último intervalo de tempo: 0 comandos foram emitidos |
 | mgr |O Gestor de socket está fazendo `socket.select`, que significa que pede o sistema operacional para indicar um soquete que tem algo a fazer. O leitor não está ativamente ler a partir da rede porque ele não pensa que há algo a ver |
-| fila |Existem 73 total de operações em curso |
+| queue |Existem 73 total de operações em curso |
 | qu |6 das operações em curso estão na fila de mensagens e ainda não tiver sido escrito para a rede de saída |
 | qs |67 das operações em curso foram enviados para o servidor, mas ainda não está disponível uma resposta. A resposta pode ser `Not yet sent by the server` ou `sent by the server but not yet processed by the client.` |
 | qc |0 das operações em curso viu respostas, mas ainda não foi marcada como concluída porque eles estão aguardando o loop de conclusão |
 | wR |Existe um escritor Active Directory (ou seja, que não estão a ser ignorados os 6 pedidos não enviados) bytes/activewriters |
-| pol. |Não há nenhum leitores Active Directory e zero bytes estão disponíveis para ser continue a ler os bytes/activereaders NIC |
+| No |Não há nenhum leitores Active Directory e zero bytes estão disponíveis para ser continue a ler os bytes/activereaders NIC |
 
 ### <a name="steps-to-investigate"></a>Passos para investigar
 

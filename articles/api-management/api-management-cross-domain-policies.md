@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071946"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -129,7 +129,7 @@ Este exemplo demonstra como suportar pedidos de simulação, tais como aqueles c
 |origens permitidas|Contém `origin` elementos que descrevem as origens permitidas para pedidos entre domínios. `allowed-origins` pode conter um único `origin` elemento que especifica `*` para permitir que qualquer origem, ou um ou mais `origin` elementos que contêm um URI.|Sim|N/A|
 |origem|O valor pode ser uma `*` para permitir que todas as origens ou um URI que especifica uma única origem. O URI tem de incluir um esquema, o anfitrião e a porta.|Sim|Se a porta for omitida num URI, é utilizada porta 80 para HTTP e a porta 443 é utilizada para HTTPS.|
 |métodos permitidos|Este elemento é necessário se métodos diferentes de introdução ou POST são permitidos. Contém `method` elementos que especifique os verbos HTTP suportados.|Não|Se não estiver presente nesta secção, são suportados GET e POST.|
-|método|Especifica um verbo HTTP.|Pelo menos um `method` elemento é necessário se o `allowed-methods` secção está presente.|N/A|
+|method|Especifica um verbo HTTP.|Pelo menos um `method` elemento é necessário se o `allowed-methods` secção está presente.|N/A|
 |allowed-headers|Esse elemento contém `header` elementos especificando os nomes dos cabeçalhos que podem ser incluídos no pedido.|Não|N/A|
 |expose-headers|Esse elemento contém `header` elementos especificando os nomes dos cabeçalhos que estarão acessíveis pelo cliente.|Não|N/A|
 |cabeçalho|Especifica um nome de cabeçalho.|Pelo menos um `header` elemento é obrigatório `allowed-headers` ou `expose-headers` se a seção estiver presente.|N/A|
@@ -145,7 +145,7 @@ Este exemplo demonstra como suportar pedidos de simulação, tais como aqueles c
 Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **As secções de política:** entrada
-- **Âmbitos de política:** global, API, operação
+- **Âmbitos de política:** global, produto, API, operação
 
 ## <a name="JSONP"></a> JSONP
 O `jsonp` política adiciona JSON com o suporte de preenchimento (JSONP) para uma operação ou uma API para permitir chamadas entre domínios de clientes baseada no browser de JavaScript. JSONP é um método usado em programas de JavaScript para dados de pedidos de um servidor num domínio diferente. JSONP ignora a limitação imposta pela maioria dos navegadores da web em que o acesso às páginas da web tem de estar no mesmo domínio.

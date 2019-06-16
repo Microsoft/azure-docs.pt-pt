@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
 ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66142547"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com o Logic Apps
@@ -69,7 +69,7 @@ Configure a atividade HTTP da seguinte forma:
 |**URI**     | https://*sua região de servidor*/servers/*nome do servidor aas*/models/*seu nome de base de dados*/ <br /> <br /> Por exemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
 |**Headers** (Cabeçalhos)     |   Content-Type, application/json <br /> <br />  ![Cabeçalhos](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Para saber mais sobre formando o corpo do pedido, consulte [assíncrona atualizar com a API REST - POST /refreshes](analysis-services-async-refresh.md#post-refreshes). |
-|**Autenticação**     |Active Directory OAuth         |
+|**Autenticação**     |OAuth do Active Directory         |
 |**Tenant**     |Preencha o TenantId do Azure Active Directory         |
 |**Público-alvo**     |https://*.asazure.windows.net         |
 |**ID de cliente**     |Introduza o seu ID de cliente de nome Principal de serviço         |

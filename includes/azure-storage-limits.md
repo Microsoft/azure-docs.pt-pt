@@ -9,10 +9,10 @@ ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114517"
 ---
 A tabela seguinte descreve os limites predefinidos para o Azure para fins gerais v1, v2 e contas de armazenamento de Blobs. O *entrada* limite refere-se a todos os dados de pedidos que são enviados para uma conta de armazenamento. O *saída* limite refere-se a todos os dados de respostas que são recebidas a partir de uma conta de armazenamento.

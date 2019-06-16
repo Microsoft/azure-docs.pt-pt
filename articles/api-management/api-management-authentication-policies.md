@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708789"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação de gestão de API
@@ -57,7 +57,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|o nome de utilizador|Especifica o nome de utilizador da credencial básica.|Sim|N/A|  
+|username|Especifica o nome de utilizador da credencial básica.|Sim|N/A|  
 |password|Especifica a palavra-passe da credencial básica.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
@@ -132,7 +132,7 @@ Neste exemplo, o certificado de cliente é identificado por nome de recurso.
   
 |Name|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|Recurso|cadeia de caracteres. O URI de ID de aplicação da web de destino API (recurso protegido) no Azure Active Directory.|Sim|N/A|  
+|resource|cadeia de caracteres. O URI de ID de aplicação da web de destino API (recurso protegido) no Azure Active Directory.|Sim|N/A|  
 |nome-do-token-variável de saída|cadeia de caracteres. Nome da variável de contexto que receberá o valor do token como um tipo de objeto `string`.|Não|N/A|  
 |ignore-error|Valor booleano. Se definido como `true`, o pipeline de política irá continuar a executar o mesmo que não é possível obter o um token de acesso.|Não|false|  
   

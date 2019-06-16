@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 242fb2daebfe9eb6e5a0c73c2c4c0e91a3131032
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304165"
 ---
 # <a name="develop-stream-analytics-data-box-edge-jobs-using-visual-studio-tools"></a>Desenvolver trabalhos de borda de caixa de dados do Stream Analytics com ferramentas do Visual Studio

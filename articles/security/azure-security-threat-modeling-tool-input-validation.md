@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 0803ade7613480621a0cd87f9944ee5f55bf432c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60586310"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entrada | Atenuações 
@@ -32,7 +32,7 @@ ms.locfileid: "60586310"
 
 ## <a id="disable-xslt"></a>Desativar o XSLT scripts para todas as transformações com folhas de estilo não fidedigno
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -64,7 +64,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 
 ## <a id="out-sniffing"></a>Certifique-se de que cada página que pode conter o conteúdo de utilizador controlável opta ativamente por detecção automática de MIME
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -133,7 +133,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 
 ## <a id="xml-resolution"></a>Proteger ou desativar a resolução de entidades XML
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -195,7 +195,7 @@ Tenha em atenção que o MSXML6, ProhibitDTD está definido como true (processam
 
 ## <a id="app-verification"></a>Aplicações com o HTTP. sys efetuar verificação de canonização do URL
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -206,7 +206,7 @@ Tenha em atenção que o MSXML6, ProhibitDTD está definido como true (processam
 
 ## <a id="controls-users"></a>Certifique-se de que controles adequados estão em vigor quando abertos ao recebimento de arquivos de usuários
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -322,7 +322,7 @@ Para o último ponto sobre validação de assinatura de formato de ficheiro, con
 
 ## <a id="typesafe"></a>Certifique-se de que os parâmetros de tipo seguro são utilizados numa aplicação Web para acesso a dados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -352,7 +352,7 @@ No exemplo de código anterior, o valor de entrada não pode ser mais de 11 cara
 
 ## <a id="binding-mvc"></a>Utilizar classes de ligações de modelo separado ou apresenta uma lista de filtro de associação para impedir a vulnerabilidade de atribuição em massa do MVC
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -363,7 +363,7 @@ No exemplo de código anterior, o valor de entrada não pode ser mais de 11 cara
 
 ## <a id="rendering"></a>Codificar a saída da web não fidedignos antes da composição
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -388,7 +388,7 @@ No exemplo de código anterior, o valor de entrada não pode ser mais de 11 cara
 
 ## <a id="typemodel"></a>Realizar validação de entrada e filtragem no tipo de cadeia de caracteres de todas as propriedades do modelo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -399,7 +399,7 @@ No exemplo de código anterior, o valor de entrada não pode ser mais de 11 cara
 
 ## <a id="richtext"></a>A limpeza deve ser aplicada em campos de formulário que aceitam todos os carateres, por exemplo, o editor de texto avançado
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -410,7 +410,7 @@ No exemplo de código anterior, o valor de entrada não pode ser mais de 11 cara
 
 ## <a id="inbuilt-encode"></a>Não atribua elementos DOM a Coletores de que não têm a codificação incorporadas
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -432,7 +432,7 @@ Não utilize `innerHtml`; em vez disso, utilize `innerText`. Da mesma forma, em 
 
 ## <a id="redirect-safe"></a>Validar se todos os redirecionamentos de dentro do aplicativo são fechados ou feitos com segurança
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -443,7 +443,7 @@ Não utilize `innerHtml`; em vez disso, utilize `innerText`. Da mesma forma, em 
 
 ## <a id="string-method"></a>Implementar validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceites pelos métodos de controlador
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -454,7 +454,7 @@ Não utilize `innerHtml`; em vez disso, utilize `innerText`. Da mesma forma, em 
 
 ## <a id="dos-expression"></a>Definir o tempo limite de limite superior para a expressão regular de processamento para impedir que o DoS devido a más expressões regulares
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -472,7 +472,7 @@ Por exemplo, a seguinte configuração irá gerar um RegexMatchTimeoutException,
 
 ## <a id="html-razor"></a>Evite utilizar Html.Raw em modos de exibição do Razor
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -497,7 +497,7 @@ Não utilize `Html.Raw()` , a menos que precisa exibir a marcação. Este métod
 
 ## <a id="stored-proc"></a>Não utilize consultas dinâmicas em procedimentos armazenados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -557,7 +557,7 @@ AS
 
 ## <a id="validation-api"></a>Certifique-se de que a validação de modelo é feita nos métodos da Web API
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -614,7 +614,7 @@ namespace MyApi.Controllers
 
 ## <a id="string-api"></a>Implementar validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceites pelos métodos da Web API
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -625,7 +625,7 @@ namespace MyApi.Controllers
 
 ## <a id="typesafe-api"></a>Certifique-se de que são utilizados os parâmetros de tipo seguro na Web API para acesso a dados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -655,7 +655,7 @@ No exemplo de código anterior, o valor de entrada não pode ser mais de 11 cara
 
 ## <a id="sql-docdb"></a>Utilizar consultas SQL parametrizadas para o Cosmos DB
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -666,7 +666,7 @@ No exemplo de código anterior, o valor de entrada não pode ser mais de 11 cara
 
 ## <a id="schema-binding"></a>Validação de entrada do WCF por meio da associação de esquema
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -677,7 +677,7 @@ No exemplo de código anterior, o valor de entrada não pode ser mais de 11 cara
 
 ## <a id="parameters"></a>Validação de entrada WCF por meio dos Inspetores de parâmetro
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  

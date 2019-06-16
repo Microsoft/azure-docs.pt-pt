@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966836"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
@@ -136,7 +136,7 @@ Antes de configurar as políticas de segurança, reveja cada uma das [recomenda�
 ## <a name="data-collection-and-storage"></a>Armazenamento e recolha de dados
 Centro de segurança do Azure utiliza o Microsoft Monitoring Agent – este é o mesmo agente utilizado pelo serviço do Azure Monitor – para recolher dados de segurança das suas máquinas virtuais. Os [dados recolhidos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) neste agente serão armazenados nas suas áreas de trabalho do Log Analytics.
 
-### <a name="agent"></a>Com Agente
+### <a name="agent"></a>Agente
 
 Quando o aprovisionamento automático está ativado na política de segurança, o Microsoft Monitoring Agent (para [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ou [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) é instalado em todas as VMs do Azure suportadas e nas VMs novas que forem criadas. Se a VM ou o computador já tiver instalado o Microsoft Monitoring Agent, o Centro de Segurança do Azure tirará partido do agente atual instalado. O processo do agente foi concebido para ser não invasivo e ter um impacto muito reduzido no desempenho da VM.
 
@@ -148,7 +148,7 @@ Se a determinada altura pretender desativar a Recolha de Dados, pode desativá-l
 > Para encontrar uma lista de VMs suportadas, leia as [Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure ](security-center-faq.md).
 >
 
-### <a name="workspace"></a>Área de Trabalho
+### <a name="workspace"></a>Área de trabalho
 
 Uma área de trabalho é um recurso do Azure que funciona como um contentor para os dados. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
 
@@ -157,7 +157,7 @@ Os dados recolhidos pelo Agente de Monitorização Microsoft (em nome do Centro 
 No portal do Azure, pode procurar uma lista das áreas de trabalho do Log Analytics, incluindo as que foram criadas pelo Centro de Segurança do Azure. Um grupo de recursos relacionado será criado para as novas áreas de trabalho. Ambos seguirão esta convenção de nomenclatura:
 
 * Área de trabalho: *DefaultWorkspace-[subscription-ID]-[geo]*
-* Grupo de Recursos: *DefaultResourceGroup-[geo]*
+* Grupo de recursos: *DefaultResourceGroup-[geo]*
 
 Para áreas de trabalho criadas pelo Centro de Segurança do Azure, os dados são retidos durante 30 dias. Para as áreas de trabalho existentes, a retenção baseia-se no escalão de preço da área de trabalho. Se quiser, também pode utilizar uma área de trabalho existente.
 

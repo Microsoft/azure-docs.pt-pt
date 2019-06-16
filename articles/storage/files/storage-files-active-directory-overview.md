@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
 ms.openlocfilehash: ad8ddf7e9e324bbcc48f15c95870a24fe7476828
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237747"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Descrição geral da autenticação do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)
