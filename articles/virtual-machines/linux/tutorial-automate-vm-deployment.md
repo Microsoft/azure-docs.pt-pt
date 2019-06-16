@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a65b7becc4ec60290670819799e9f8731d55058
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114261"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -45,7 +45,7 @@ O cloud-init também funciona em distribuições. Por exemplo, não utiliza **ap
 
 Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído e fique operacional nas imagens que fornecem ao Azure. A tabela seguinte descreve a disponibilidade atual do cloud-init nas imagens de plataforma do Azure:
 
-| Alias | Publicador | Oferta | SKU | Version |
+| Alias | Fabricante | Oferta | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canónico |UbuntuServer |16.04-LTS |mais recente |
 | UbuntuLTS |Canónico |UbuntuServer |14.04.5-LTS |mais recente |
@@ -110,7 +110,7 @@ Antes de poder criar uma VM, tem de criar um grupo de recursos com [az group cre
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria uma VM com o nome *myAutomatedVM*:
+Agora, crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Utilize o parâmetro `--custom-data` para passar o ficheiro de configuração de inicialização da cloud. Forneça o caminho completo para a configuração do *cloud-init.txt*, se tiver guardado o ficheiro fora do diretório de trabalho atual. O exemplo seguinte cria uma VM com o nome *myVM*:
 
 ```azurecli-interactive
 az vm create \

@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822293"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnóstico para um hub de eventos do Azure
 
 Pode ver dois tipos de registos para os Hubs de eventos do Azure:
 
-* **[Registos de atividades](../azure-monitor/platform/activity-logs-overview.md)**: Estes registos têm informações sobre as operações executadas numa tarefa. Os registos são sempre ativados.
-* **[Os registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md)**: Pode configurar os registos de diagnóstico para uma vista mais avançada de tudo o que acontece com uma tarefa. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
+* **[Registos de atividades](../azure-monitor/platform/activity-logs-overview.md)** : Estes registos têm informações sobre as operações executadas numa tarefa. Os registos são sempre ativados.
+* **[Os registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md)** : Pode configurar os registos de diagnóstico para uma vista mais avançada de tudo o que acontece com uma tarefa. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
 
 ## <a name="enable-diagnostic-logs"></a>Ativar registos de diagnóstico
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
 ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937654"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promover o seu negócio com a Microsoft 
@@ -29,7 +29,7 @@ MPN fornece orientação sobre os tópicos seguintes.
 
 Para promover a sua aplicação ou uma oferta, utilize a tabela seguinte para obter mais benefícios e recursos de acesso. 
 
-| Benefício | recursos |  
+| Benefício | Recursos |  
 |:--- |:--- |  
 | Utilize os seus benefícios de núcleo | Como parte do Microsoft Partner Network, recebe um conjunto de benefícios centrais que podem ajudá-lo a economizar tempo e dinheiro. Os benefícios podem também ajudar a reforçar as capacidades, melhor servir clientes e criar ligações para atingir seu potencial de negócios.<ul> <li>Para obter mais informações sobre os benefícios de core, visite as principais vantagens e página requisitos localizado em [partner.microsoft.com/membership/core-benefits](https://partner.microsoft.com/membership/core-benefits).</li> </ul> |  
 | Obter a competência Cloud Platform | Obter a competência ajuda-o destaque-se entre outros parceiros da Microsoft. Obter a competência também ajuda-o a demonstrar a experiência técnica e o sucesso dos clientes no mercado. Competência é um pré-requisito para muitos programas de parceria de chave, como a venda conjunta.<ul> <li>Para obter mais informações sobre a competência Cloud Platform, visite a competência Cloud Platform página localizada em [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  

@@ -6,15 +6,15 @@ keywords: codificação; codificadores; suporte de dados
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055274"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Recomendado codificadores de transmissão em fluxo em direto
 
@@ -24,7 +24,7 @@ Nos serviços de multimédia do Azure, um [evento em direto](https://docs.micros
 
   > [!NOTE]
   > Usando um método pass-through é a forma mais económica para transmissão em direto.
-
+ 
 * Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o evento em direto que está ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou transmissão em fluxo uniforme (MP4 fragmentado). O evento em direto, em seguida, executa a codificação em tempo real do fluxo de velocidade de transmissão única de entrada para um fluxo de vídeo com várias (adaptável).
 
 Para obter informações detalhadas sobre o live encoding com Media Services, consulte [Live transmissão em fluxo com serviços de multimédia v3](live-streaming-overview.md).
@@ -127,7 +127,7 @@ Siga os passos como na [verificação de evento em direto de pass-through](#pass
 
 ### <a name="email-your-recorded-settings"></a>As definições gravadas de e-mail
 
-Por fim, envie um e-mail as definições gravadas e live parâmetros de arquivo para serviços de multimédia do Azure em amsstreaming@microsoft.com como uma notificação de que todas as verificações de verificação automática tenham passado. Além disso, incluem as informações de contacto para qualquer seguimentos. Pode contactar a equipa de serviços de multimédia do Azure com quaisquer perguntas sobre este processo.
+Por fim, envie um e-mail as definições gravadas e live parâmetros de arquivo para serviços de multimédia do Azure em amslived@microsoft.com como uma notificação de que todas as verificações de verificação automática tenham passado. Além disso, incluem as informações de contacto para qualquer seguimentos. Pode contactar a equipa de serviços de multimédia do Azure com quaisquer perguntas sobre este processo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

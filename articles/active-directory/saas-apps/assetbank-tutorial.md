@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7fbaad8ea3e242c79f06ac314f551bddd892d45
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 75339a03f94ad10446a5b5b1024a3f5fd1c7c432
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900139"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asset-bank"></a>Tutorial: Integração do Active Directory do Azure com o banco de recurso
 
@@ -54,7 +54,7 @@ Para configurar a integração do banco de recurso para o Azure AD, terá de adi
 
 **Para adicionar bancária de recurso da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado no recurso de banc
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte do banco Asset](mailto:support@assetbank.co.uk).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

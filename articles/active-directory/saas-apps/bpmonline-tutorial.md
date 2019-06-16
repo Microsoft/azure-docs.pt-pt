@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e2bc30a5b856cba5f1fcca254603c35dfd3764d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 937278f6a9261ca807f934718bc108bf125f44a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutorial: Integração do Active Directory do Azure com Bpm'online
 
@@ -54,7 +54,7 @@ Para configurar a integração do Bpm'online com o Azure AD, terá de adicionar 
 
 **Para adicionar Bpm'online a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
+1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -181,7 +181,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Bpm'online. Trabalhar com [equipa de suporte de Bpm'online](mailto:support@bpmonline.com) para adicionar os utilizadores na plataforma Bpm'online. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

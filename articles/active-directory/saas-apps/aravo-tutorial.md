@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e5df48e7fdd766a7f4ae264b1989507e0c280be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d5ee500624e44fa7412ad8c98a02a0614e85820
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aravo"></a>Tutorial: Integração do Active Directory do Azure com Aravo
 
@@ -53,7 +53,7 @@ Para configurar a integração do Aravo com o Azure AD, terá de adicionar Aravo
 
 **Para adicionar Aravo a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

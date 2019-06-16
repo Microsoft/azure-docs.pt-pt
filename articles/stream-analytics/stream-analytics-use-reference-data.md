@@ -4,19 +4,19 @@ description: Este artigo descreve como utilizar os dados de referência para pes
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.date: 06/11/2019
+ms.openlocfilehash: 99917fa01fcdb3faf731e9d0909d67ff41222f22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393127"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066774"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para pesquisas no Stream Analytics
+
 Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto finito de dados que é estático ou de variação lenta por natureza, utilizado para efetuar uma pesquisa ou para correlacionar com seu fluxo de dados. Por exemplo, um cenário de IoT, poderia armazenar metadados sobre sensores (que não são alterados frequentemente) em dados de referência e associe-o com fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para alcançar o processamento de fluxo de baixa latência. Para tornar usar dados de referência na sua tarefa do Azure Stream Analytics, geralmente utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. 
 
 Stream Analytics suporta o armazenamento de Blobs do Azure e base de dados do Azure SQL como a camada de armazenamento para dados de referência. Pode também transformar e/ou copiar dados de referência para o armazenamento de Blobs do Azure Data Factory para usar [qualquer número de baseado na nuvem e arquivos de dados no local](../data-factory/copy-activity-overview.md).
@@ -43,7 +43,7 @@ Para configurar os seus dados de referência, tem primeiro de criar uma entrada 
 
 ### <a name="static-reference-data"></a>Dados de referência estáticos
 
-Se seus dados de referência não são esperados para alterar, em seguida, o suporte para referência estática dados estiver ativados, especificando um caminho estático na configuração de entrada. O Azure Stream Analytics seleciona o blob a partir do caminho especificado. {date} e tokens de substituição de {time} não são necessárias. Dados de referência são imutáveis no Stream Analytics. Por conseguinte, a substituição de um blob de dados de referência estáticos não é recomendado.
+Se seus dados de referência não são esperados para alterar, em seguida, o suporte para referência estática dados estiver ativados, especificando um caminho estático na configuração de entrada. O Azure Stream Analytics seleciona o blob a partir do caminho especificado. {date} e tokens de substituição de {time} não são necessárias. Uma vez que os dados de referência são imutáveis no Stream Analytics, não é recomendado substituir um blob de dados de referência estáticos.
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Gerar dados de referência com base numa agenda
 
@@ -54,7 +54,7 @@ O Azure Stream Analytics analisa automaticamente para blobs de dados de referên
 > [!NOTE]
 > Atualmente as tarefas do Stream Analytics procure a atualização de blob apenas quando o tempo de máquina avança para a hora codificada no nome do blob. Por exemplo, a tarefa irá procurar `sample/2015-04-16/17-30/products.csv` assim que possível, mas não anteriormente que 17:30, 16 de Abril de 2015 UTC fuso horário. Ele será *nunca* procure um blob com um período de tempo anterior ao último aquele que é detetado codificado.
 > 
-> Por exemplo, Assim que a tarefa de encontra o blob `sample/2015-04-16/17-30/products.csv` ele irá ignorar os ficheiros com uma data com codificação anteriores ao 17:30, 16 de Abril de 2015 por isso, se um atraso que chegam `sample/2015-04-16/17-25/products.csv` blob é criado no mesmo contentor a tarefa não as usará.
+> Por exemplo, uma vez que a tarefa de encontra o blob `sample/2015-04-16/17-30/products.csv` ele irá ignorar os ficheiros com uma data com codificação anteriores ao 17:30, 16 de Abril de 2015 por isso, se um atraso que chegam `sample/2015-04-16/17-25/products.csv` blob é criado no mesmo contentor a tarefa não as usará.
 > 
 > Da mesma forma se `sample/2015-04-16/17-30/products.csv` é produzido apenas em 10 às 18:03 16 de Abril de 2015, mas não blob com uma data anterior está presente no contentor, a tarefa irá utilizar este ficheiro a partir de 10 às 18:03 16 de Abril de 2015 e utilizar os dados de referência anterior até lá.
 > 

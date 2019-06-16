@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
 ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65237811"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Fazer cópias de segurança de uma base de dados do SAP HANA
@@ -40,7 +40,7 @@ ms.locfileid: "65237811"
 - Pode criar cópias de segurança da base de dados registos a cada 15 minutos. Backups de log apenas começarem a fluir depois de uma cópia de segurança completa da base de dados estar concluída.
 - Pode efetuar cópias de segurança completas e diferenciais. Cópia de segurança incremental não é atualmente suportada.
 - Não é possível modificar a política de cópia de segurança depois de aplicar para cópias de segurança do SAP HANA. Se pretender criar cópias de segurança com definições diferentes, crie uma nova política ou atribuir uma política diferente. 
-    - Para criar uma nova política, no cofre clique **políticas** > **políticas de cópia de segurança** > **+ adicionar** > **SAP HANA no VM do Azure**e especifique as definições de política.
+    - Para criar uma nova política, no cofre clique **políticas** > **políticas de cópia de segurança** >  **+ adicionar** > **SAP HANA no VM do Azure**e especifique as definições de política.
     - Para atribuir uma política diferente, nas propriedades da VM a executar a base de dados, clique no nome da política atual. Em seguida, na **política de cópia de segurança** página, pode selecionar uma política diferente para utilizar para a cópia de segurança.
 
 
@@ -91,7 +91,7 @@ Carregar para a pré-visualização pública da seguinte forma:
 ## <a name="discover-the-databases"></a>Detetar as bases de dados
 
 
-1. No cofre, no **introdução**, clique em **cópia de segurança**. Na **em que a sua carga de trabalho é executado?**, selecione **SAP HANA na VM do Azure**.
+1. No cofre, no **introdução**, clique em **cópia de segurança**. Na **em que a sua carga de trabalho é executado?** , selecione **SAP HANA na VM do Azure**.
 2. Clique em **Iniciar deteção**. Esta ação inicia a deteção de VMs de Linux não protegida na região do cofre.
 
    - Após a deteção, VMs não protegidas são apresentados no portal, listadas por nome e grupo de recursos.

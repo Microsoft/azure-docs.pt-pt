@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b302ec0265473e09b3960660b10661faa1960442
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: fa975446c19db3176fdb89ccfb1a987b1fda049d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812970"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113225"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicos
 
@@ -64,7 +64,7 @@ Para adicionar uma lista de permissões:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **do Azure Active Directory** > **utilizadores** > **as definições de utilizador**.
 3. Sob **utilizadores externos**, selecione **gerir definições de colaboração externa**.
-4. Sob **restrições de colaboração**, selecione **permitir convites apenas aos domínios especificados (mais restritivo)**.
+4. Sob **restrições de colaboração**, selecione **permitir convites apenas aos domínios especificados (mais restritivo)** .
 5. Sob **domínios de destino**, introduza o nome de um dos domínios que pretende permitir. Para vários domínios, insira cada domínio numa nova linha. Por exemplo:
 
    ![Mostra a opção de permitir com domínios adicionados](./media/allow-deny-list/AllowListSettings.png)
@@ -157,7 +157,7 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para uma descrição geral do Azure AD B2B, consulte [o que é a colaboração B2B do Azure AD?](what-is-b2b.md)
-- Para obter informações sobre o acesso condicional e de colaboração B2B, consulte [acesso condicional para utilizadores de colaboração B2B](conditional-access.md).
+- Para obter informações sobre a colaboração B2B e de acesso condicional, consulte [acesso condicional para utilizadores de colaboração B2B](conditional-access.md).
 
 
 

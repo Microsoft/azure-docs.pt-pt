@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65072228"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061090"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamicamente criar e utilizar um volume persistente com ficheiros do Azure no Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Uma classe de armazenamento é utilizada para definir como uma partilha de fiche
 * *Standard_RAGRS* -armazenamento geograficamente redundante com padrão de acesso de leitura (RA-GRS)
 
 > [!NOTE]
-> Ficheiros do Azure atualmente funciona apenas com o armazenamento Standard. Se utilizar o armazenamento Premium, o volume não consegue aprovisionar.
+> Os ficheiros do Azure suportam o premium storage em clusters do AKS com o Kubernetes 1.13 ou superior.
 
 Para obter mais informações sobre classes de armazenamento do Kubernetes para ficheiros do Azure, consulte [Classes de armazenamento do Kubernetes][kubernetes-storage-classes].
 

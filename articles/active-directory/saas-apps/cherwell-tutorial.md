@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 211e11b5bfd6a8bb7b1d61fec120566d60b9c5c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6fde8c38722e39d530c2890ef9c9a045b28b6e49
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integração do Active Directory do Azure com o Cherwell
 
@@ -54,7 +54,7 @@ Para configurar a integração do Cherwell com o Azure AD, terá de adicionar Ch
 
 **Para adicionar Cherwell a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Cherwell, tem de ser a
 > [!NOTE]
 > Pode utilizar quaisquer outras Cherwell utilizador conta criação ferramentas ou APIs fornecidas pelo Cherwell para aprovisionar o Azure Active Directory contas de utilizador.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

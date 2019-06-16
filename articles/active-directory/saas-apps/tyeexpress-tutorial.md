@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d84a7060fadcb3f3d80b7fbbff9d91f8812388b2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 10ebe796f5aed827a4934a94d568aedbef704503
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920618"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088220"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Active Directory do Azure com o T & E Express
 
@@ -53,7 +53,7 @@ Para configurar a integração de d & E Express com o Azure AD, terá de adicion
 
 **Para adicionar T & E Express a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD início de sessão único com o T & E Express, execut
 
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Selecione o **Activar(Activate)** opção partir **não** para **SI(Yes)**. Na **metadados de fornecedor de identidade** caixa de texto, cole os metadados XML que transferiu do portal do Azure.
+1. Selecione o **Activar(Activate)** opção partir **não** para **SI(Yes)** . Na **metadados de fornecedor de identidade** caixa de texto, cole os metadados XML que transferiu do portal do Azure.
 
     ![Configurar o início de sessão único](./media/tyeexpress-tutorial/tyeAdmin.png)
 

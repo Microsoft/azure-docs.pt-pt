@@ -1,8 +1,8 @@
 ---
 title: Melhores práticas para acesso condicional no Azure Active Directory | Documentos da Microsoft
-description: Saiba mais sobre os aspetos que deve saber, e o que é que deve evitar ao fazê-lo quando configurar políticas de acesso condicional.
+description: Saiba mais sobre coisas que deve saber, e o que é deve evitar quando configurar políticas de acesso condicional.
 services: active-directory
-keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
+keywords: Acesso condicional para aplicações, acesso condicional com o Azure AD, proteger o acesso aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67811e03bfa87a991b9eeb6f80ddddd87f781335
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 8e7b77376989031dc1697d155cccf59954233a85
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305743"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112661"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
 
@@ -109,7 +109,7 @@ Para cada início de sessão, o Azure Active Directory avalia todas as política
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Acesso condicional funciona com o Exchange ActiveSync?
 
-Sim, pode utilizar o Exchange ActiveSync numa política de acesso condicional com algumas [limitações](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
+Sim, pode utilizar o Exchange ActiveSync numa política de acesso condicional com algumas [limitações](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como configurar o acesso condicional com aplicações do Office 365?
 
@@ -117,7 +117,7 @@ Como aplicações do Office 365 estão interligadas, recomendamos que normalment
 
 Aplicativos interconectados comuns incluem o Microsoft Flow, Microsoft Planner, Microsoft Teams, Exchange Online do Office 365, Office 365 SharePoint Online e Yammer do Office 365.
 
-É importante para as políticas que necessitem de interações de utilizador, como autenticação multifator, quando o acesso é controlado no início de sessão ou a tarefa. Se não o fizer, os utilizadores não poderão concluir algumas tarefas dentro de uma aplicação. Por exemplo, se necessitar de autenticação multifator em dispositivos não geridos para acessar o SharePoint, mas não ao e-mail, os utilizadores que trabalham no respetivo e-mail não será possível anexar arquivos do SharePoint a uma mensagem. Mais informações podem ser encontradas no artigo, [quais são as dependências do serviço de acesso condicional do Azure Active Directory?](service-dependencies.md).
+É importante para as políticas que necessitem de interações de utilizador, como autenticação multifator, quando o acesso é controlado no início de sessão ou a tarefa. Se não o fizer, os utilizadores não poderão concluir algumas tarefas dentro de uma aplicação. Por exemplo, se necessitar de autenticação multifator em dispositivos não geridos para acessar o SharePoint, mas não ao e-mail, os utilizadores que trabalham no respetivo e-mail não será possível anexar arquivos do SharePoint a uma mensagem. Mais informações podem ser encontradas no artigo, [quais são as dependências do serviço no Azure Active Directory condicional Access?](service-dependencies.md).
 
 
 
@@ -183,5 +183,5 @@ Para obter mais informações, consulte [migrar políticas clássicas no portal 
 
 Se quiser saber:
 
-- Como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
+- Como configurar uma política de acesso condicional, consulte [exigir MFA para aplicações específicas com o Azure Active Directory condicional acesso](app-based-mfa.md).
 - Como planear as suas políticas de acesso condicional, consulte [como planear a implementação de acesso condicional no Azure Active Directory](plan-conditional-access.md).

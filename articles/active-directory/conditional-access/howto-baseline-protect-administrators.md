@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1ce48126c3e8867ac7f2696d8cf7db992a9a60a
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4f8b7f281ad5ed8424110696544ffdb49e50ce59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112428"
 ---
 # <a name="baseline-policy-require-mfa-for-admins"></a>Política de linha de base: Exigir MFA aos administradores
 
@@ -24,13 +24,13 @@ Os utilizadores com acesso a contas com privilégios têm acesso irrestrito ao s
 
 **Exigir a MFA para os administradores** é um [política de linha de base](concept-baseline-protection.md) que requer a MFA sempre que uma das seguintes funções com privilégios de administrador inicia sessão:
 
-* Administrador Global
-* Administrator do SharePoint
+* Administrador global
+* Administrador do SharePoint
 * Administrador do Exchange
 * Administrador de acesso condicional
 * Administrador de segurança
 * Administrador de suporte técnico / administrador da palavra-passe
-* Administrador de Faturação
+* Administrador de faturação
 * Administrador de utilizadores
 
 Após ativar o MFA necessita para os administradores política, as funções de nove administrador acima serão necessário para se registar para MFA com a aplicação de autenticador. Após a conclusão do registo na MFA, os administradores terão de executar a MFA sempre único eles início de sessão.

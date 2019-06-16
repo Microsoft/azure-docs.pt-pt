@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 86354caced6ab46a1847bca994f4dd3eb7f279cc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f52b0c8de3bcc89bd7051a896d3ed15e856e7e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartvidio"></a>Tutorial: Integração do Active Directory do Azure com smartvid.io
 
@@ -52,7 +52,7 @@ Para configurar a integração do smartvid.io com o Azure AD, terá de adicionar
 
 **Para adicionar smartvid.io a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -177,7 +177,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no smartvid.io. Trabalhar com [equipa de suporte de smartvid.io](mailto:vgorsky@smartvid.io) para adicionar os utilizadores na plataforma smartvid.io. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

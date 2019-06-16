@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: e6b484dabd77a142961db2d97242896790fa3d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836965"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
@@ -28,7 +28,7 @@ Crie recursos de malha do Service Fabric.
 
 |Comando|Descrição|
 | --- | --- |
-| criar | Cria uma implementação de recursos de malha do Service Fabric. |
+| create | Cria uma implementação de recursos de malha do Service Fabric. |
 
 ## <a name="sfctl-mesh-deployment-create"></a>criar a implementação de malha sfctl
 Cria uma implementação de recursos de malha do Service Fabric.

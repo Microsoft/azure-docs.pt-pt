@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 8ab24d478efa0d0006cff618d7760d4396d0e45e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6007f88af4d1049a87851b3808c66693173a648a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069251"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extrair dados de forma livre com Pattern.any entidade
 
@@ -65,24 +65,20 @@ O comprimento variado inclui palavras que podem confundir o LUIS sobre onde term
 |{FormName} está publicado em francês[?]|
 
 ## <a name="import-example-app"></a>Aplicação de exemplo de importação
-Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-Utilize os passos seguintes:
+1. Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
+1. Na [portal de LUIS](https://www.luis.ai), na **as minhas aplicações** página, importar o JSON para uma nova aplicação.
 
-2. Importe o JSON para uma nova aplicação.
-
-3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `patt-any`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
+1. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `patt-any`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
 ## <a name="add-example-utterances"></a>Adicionar expressões de exemplo 
-Remova a entidade keyPhrase pré-criada, se for difícil criar e identificar a entidade FormName. 
 
 1. Selecione **Compilar** no painel de navegação superior e, em seguida, selecione **Intenções** no painel de navegação esquerdo.
 
-2. Selecione **FindForm** na lista de intenções.
+1. Selecione **FindForm** na lista de intenções.
 
-3. Adicione algumas expressões de exemplo:
+1. Adicione algumas expressões de exemplo:
 
     |Expressão de exemplo|
     |--|
@@ -94,13 +90,13 @@ Remova a entidade keyPhrase pré-criada, se for difícil criar e identificar a e
     Sem uma entidade Pattern.any, o LUIS teria dificuldade em compreender onde termina o título do formulário, devido a muitas variações de nomes do formulário.
 
 ## <a name="create-a-patternany-entity"></a>Criar uma entidade Pattern.any
-A entidade Pattern.any extrai entidades de comprimento variável. Só funciona num padrão porque o padrão marca o início e o final da entidade. Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](luis-concept-patterns.md#explicit-lists) para corrigir este problema. 
+A entidade Pattern.any extrai entidades de comprimento variável. Só funciona num padrão porque o padrão marca o início e o final da entidade.  
 
 1. Selecione **Entidades** no painel de navegação esquerdo.
 
-2. Selecione **Criar nova entidade**, introduza o nome `FormName` e selecione **Pattern.any** como o tipo. Selecione **Done** (Concluído). 
+1. Selecione **Criar nova entidade**, introduza o nome `FormName` e selecione **Pattern.any** como o tipo. Selecione **Done** (Concluído). 
 
-    Não é possível identificar a entidade na intenção porque a entidade Pattern.any só é válida num padrão. 
+    Não é possível identificar a entidade em expressões de exemplo de um objetivo porque um Pattern.any só é válido num padrão. 
 
     Se pretender que os dados extraídos incluam outras entidades, como o número ou datetimeV2, terá de criar uma entidade composta que inclua o Pattern.any, bem como o número e o datetimeV2.
 
@@ -108,9 +104,9 @@ A entidade Pattern.any extrai entidades de comprimento variável. Só funciona n
 
 1. Selecione **Padrões** no menu de navegação esquerdo.
 
-2. Selecione a intenção **FindForm**.
+1. Selecione a intenção **FindForm**.
 
-3. Introduza as seguintes expressões de modelo, que utilizam a nova entidade:
+1. Introduza as seguintes expressões de modelo, que utilizam a nova entidade:
 
     |Expressões de modelo|
     |--|
@@ -121,8 +117,6 @@ A entidade Pattern.any extrai entidades de comprimento variável. Só funciona n
 
     Se quiser ter em conta as variações do formulário, como plicas em vez de aspas ou um ponto final em vez de um ponto de interrogação, crie um novo padrão para cada variação.
 
-4. Se tiver removido a entidade keyPhrase, adicione-a novamente à aplicação. 
-
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -130,15 +124,20 @@ A entidade Pattern.any extrai entidades de comprimento variável. Só funciona n
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testar o novo padrão para extração de dados de forma livre
 1. Selecione **Testar** na barra superior para abrir o painel de teste. 
 
-2. Introduza a seguinte expressão: 
+1. Introduza a seguinte expressão: 
 
     `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-3. Selecione **Inspecionar** no resultado para ver os resultados da entidade e intenção.
+1. Selecione **Inspecionar** no resultado para ver os resultados da entidade e intenção.
 
     Em primeiro lugar, é encontrada a entidade `FormName` e depois o padrão, que determina a intenção. Se tiver um resultado de teste em que as entidades não são detetadas e, por conseguinte, o padrão não é encontrado, terá de adicionar mais expressões de exemplo na intenção (não no padrão).
 
-4. Feche o painel de teste, ao selecionar o botão **Testar** no painel de navegação superior.
+1. Feche o painel de teste, ao selecionar o botão **Testar** no painel de navegação superior.
+
+## <a name="using-an-explicit-list"></a>Utilizar uma lista explícita
+
+Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, extrai as entidades incorretamente, utilize uma [lista explícita](luis-concept-patterns.md#explicit-lists) para corrigir este problema.
+
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

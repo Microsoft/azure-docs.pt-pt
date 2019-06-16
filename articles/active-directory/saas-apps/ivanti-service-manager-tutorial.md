@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9130717f7846c81bee2bf4892a13fcf6042257c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e0ca336fd2ca24a7fe2fbc0d2d693c4f793362f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60269731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Tutorial: Integração do Active Directory do Azure com o Gestor de serviço de Ivanti (ISM)
 
@@ -54,7 +54,7 @@ Para configurar a integração do Gestor de serviço Ivanti (ISM) para o Azure A
 
 **Para adicionar Ivanti Service Manager (ISM) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -66,7 +66,7 @@ Para configurar a integração do Gestor de serviço Ivanti (ISM) para o Azure A
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Ivanti Service Manager (ISM)**, selecione **Ivanti Service Manager (ISM)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Ivanti Service Manager (ISM)** , selecione **Ivanti Service Manager (ISM)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
      ![Gestor de serviço Ivanti (ISM) na lista de resultados](common/search-new-app.png)
 
@@ -172,11 +172,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para o Gestor de serviço de Ivanti (ISM).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Ivanti Service Manager (ISM)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Ivanti Service Manager (ISM)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Ivanti Service Manager (ISM)**.
+2. Na lista de aplicações, selecione **Ivanti Service Manager (ISM)** .
 
     ![A ligação de Gestor de serviço Ivanti (ISM) na lista de aplicações](common/all-applications.png)
 

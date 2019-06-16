@@ -3,18 +3,18 @@ title: Criar uma aplicação do Azure IoT Central | Microsoft Docs
 description: Crie uma nova aplicação do Azure IoT Central. Utilize um modelo de aplicação para criar uma aplicação de avaliação ou pay as you go.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/07/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 6b53f091b63c79493f6bed78e111b50d33adbf13
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 07b062bd39177f283bd38ed6b687b590c5c4fb46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442158"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066027"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -45,7 +45,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 
     | Modelo de aplicação | Descrição |
     | -------------------- | ----------- |
-    | Amostra Contoso       | Cria uma aplicação que inclui um modelo de dispositivo já criado para uma máquina dispensadora de bebidas. Utilize este modelo para começar a explorar o Azure IoT Central. |
+    | Exemplo da Contoso       | Cria uma aplicação que inclui um modelo de dispositivo já criado para uma máquina dispensadora de bebidas. Utilize este modelo para começar a explorar o Azure IoT Central. |
     | Exemplo da Devkits       | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Se for programador de dispositivos, utilize este modelo para experimentar um destes dispositivos. |
     | Aplicação personalizada   | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
 

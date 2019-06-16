@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108893"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>O que é o Azure Active Directory Identity Protection (atualizadas)?
 
@@ -56,7 +56,7 @@ Para responder a essas ameaças, o Azure AD Identity Protection fornece para:
 
  
 
-O Azure AD Identity Protection é um recurso do Azure Active Directory Premium P2 que permite-lhe configurar políticas para responder automaticamente quando a identidade do utilizador for comprometida ou quando alguém que o proprietário da conta está a tentar iniciar sessão com as suas identidade. Estas políticas, além de outros Controles de acesso condicional fornecido pelo Azure AD, pode seja automaticamente bloquear acesso ou ações de atenuação de iniciar, como a reposição de palavra-passe ou a imposição de multi-factor authentication. Além disso, o Identity Protection fornece capacidades de monitorização e relatórios para obter informações mais aprofundadas sobre risco e potenciais comprometimentos na sua organização. 
+O Azure AD Identity Protection é um recurso do Azure Active Directory Premium P2 que permite-lhe configurar políticas para responder automaticamente quando a identidade do utilizador for comprometida ou quando alguém que o proprietário da conta está a tentar iniciar sessão com as suas identidade. Estas políticas, além de outros Controles de acesso condicional fornecidos pelo Azure AD, podem optar por automaticamente bloquear acesso ou ações de atenuação de iniciar, como a reposição de palavra-passe ou a imposição de multi-factor authentication. Além disso, o Identity Protection fornece capacidades de monitorização e relatórios para obter informações mais aprofundadas sobre risco e potenciais comprometimentos na sua organização. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -69,11 +69,11 @@ O Azure AD Identity Protection Deteta os seguintes eventos de risco:
 
 | Tipo de evento de risco | Descrição | Tipo de deteção |
 | ---             | ---         | ---            |
-| Percurso atípico | Iniciar sessão a partir de uma localização atípica, com base em inícios de sessão de recentes do utilizador. | Offline |
-| Endereços IP anónimos | Iniciar sessão a partir de um endereço IP anónimo (por exemplo: Tor browser, anonymizer VPNs). | Em tempo real |
-| Propriedades de início de sessão não familiar | Inicie sessão com as propriedades que não vimos recentemente para o utilizador especificado. | Em tempo real |
-| Endereço IP ligado a software maligno | Iniciar sessão a partir de um endereço IP de software maligno ligado | Offline |
-| Fuga de credenciais | Este evento de risco indica que houve uma fuga das credenciais válidas do utilizador | Offline |
+| Viagens atípica | Iniciar sessão a partir de uma localização atípica, com base em inícios de sessão de recentes do utilizador. | Offline |
+| Endereço IP anónimo | Iniciar sessão a partir de um endereço IP anónimo (por exemplo: Tor browser, anonymizer VPNs). | Em tempo real |
+| Propriedades de início de sessão não familiares | Inicie sessão com as propriedades que não vimos recentemente para o utilizador especificado. | Em tempo real |
+| Software maligno ligado o endereço IP | Iniciar sessão a partir de um endereço IP de software maligno ligado | Offline |
+| Fuga de credenciais | Este evento de risco indica que as credenciais do usuário válido tem sofreu vazamento | Offline |
 
 
 
@@ -83,11 +83,11 @@ O Azure AD Identity Protection Deteta os seguintes eventos de risco:
 
 Proteção de identidade se baseia em dois tipos de risco:
 
-- Risco de início de sessão
+- Início de sessão de risco
 
 - Risco de utilizador
 
-### <a name="sign-in-risk"></a>Risco de início de sessão
+### <a name="sign-in-risk"></a>Início de sessão de risco
 
 Um risco de início de sessão representa a probabilidade de que um pedido de autenticação especificado não está autorizado pelo proprietário de identidade.
 
@@ -110,7 +110,7 @@ Um risco de utilizador representa a probabilidade de que uma identidade de deter
 
 O risco de utilizador é calculado considerando todos os riscos associados ao utilizador:
 
-- Todos os inícios de sessão de risco
+- Todos os inícios de sessão arriscados
 - Todos os eventos de risco não associados a um início de sessão
 - O risco de utilizador atual
 - Quaisquer ações de remediação ou exoneração de risco realizadas no usuário até a data
@@ -153,7 +153,7 @@ Vamos examinar o exemplo de um funcionário da Contoso.
 
 2. Azure AD Deteta que o empregado está a iniciar sessão de um endereço IP anónimo, acionar um nível de médio risco de início de sessão. 
 
-3. O funcionário é desafiado pela linha de comandos do MFA, porque o administrador de TI da Contoso configurado a política de acesso condicional de risco de início de sessão do Identity Protection. A política requer MFA para um risco de início de sessão de média ou superior. 
+3. O funcionário é desafiado pela linha de comandos do MFA, porque o administrador de TI da Contoso configurado o risco de início de sessão Identity Protection política de acesso condicional. A política requer MFA para um risco de início de sessão de média ou superior. 
 
 4. O funcionário passa a linha de comandos da MFA e acede ao Exchange Online, e seu nível de risco de utilizador não é alterado. 
 
@@ -196,7 +196,7 @@ Identity Protection suporta 3 funções no Azure AD para balancear as atividades
 
 | Função | Pode fazer | Não é possível fazer |
 | --- | --- | --- |
-| Administrador Global | Acesso total ao Identity Protection, carregar Identity Protection | |
+| Administrador global | Acesso total ao Identity Protection, carregar Identity Protection | |
 | Administrador de segurança | Acesso total ao Identity Protection | Carregar Identity Protection, repor palavras-passe para um utilizador |
 | Leitor de segurança | Acesso só de leitura ao Identity Protection | Carregar Identity Protection, remediar utilizadores, configurar políticas, repor palavras-passe| 
 
@@ -210,11 +210,11 @@ Para obter mais detalhes, consulte [atribuir funções de administrador no Azure
 
 
 
-| Capacidade | Azure AD Premium P2 | Azure AD Premium P1 | Basic/gratuita do Azure AD |
+| Funcionalidade | Azure AD Premium P2 | Azure AD Premium P1 | Basic/gratuita do Azure AD |
 | --- | --- | --- | --- |
-| Política de risco de utilizador | Sim | Não | Não |
+| Política de risco do utilizador | Sim | Não | Não |
 | Política de risco de início de sessão | Sim | Não | Não |
-| Relatório dos utilizadores de risco | Acesso total | Informações limitadas | Informações limitadas |
+| Relatório de utilizadores de risco | Acesso total | Informações limitadas | Informações limitadas |
 | Relatório de inícios de sessão de risco | Acesso total | Informações limitadas | Informações limitadas |
 | Política de registo MFA | Sim | Não | Não |
 

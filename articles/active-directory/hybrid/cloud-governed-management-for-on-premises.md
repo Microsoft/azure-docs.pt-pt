@@ -13,12 +13,12 @@ ms.date: 06/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7e54f6acfe1cbbe6e46fe92d132ebdaa91ff33
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 510a5562740260eb2946ded074a5c37804c55375
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109511"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Como o Azure AD fornece Cloud regem-se a gestão de cargas de trabalho no local
 
@@ -89,7 +89,7 @@ Quando uma organização está pronta para migrar uma aplicação integrada no A
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Gestão da cloud regem-se para aplicações de baseada em federação no local
 
-Para uma organização que já utiliza um fornecedor de identidade no local, a mover aplicações para o Azure AD permite acesso mais seguro e uma experiência administrativa mais fácil para a gestão de Federação. O Azure AD permite configurar os controlos de acesso granulares por aplicação, incluindo multi-factor Authentication do Azure, utilizando o acesso condicional do Azure AD. O Azure AD suporta capacidades mais, incluindo certificados de assinatura de tokens de específico do aplicativo e datas de expiração de certificados configuráveis. Esses recursos, ferramentas e orientações permitem às organizações extinguir os respetivos fornecedores de identidade no local. Do Microsoft IT, para obter um exemplo, foi movido 17,987 aplicativos de interna Active Directory Federation Services da Microsoft (AD FS) para o Azure AD.
+Para uma organização que já utiliza um fornecedor de identidade no local, a mover aplicações para o Azure AD permite acesso mais seguro e uma experiência administrativa mais fácil para a gestão de Federação. O Azure AD permite configurar os controlos de acesso granulares por aplicação, incluindo multi-factor Authentication do Azure, com o acesso condicional do Azure AD. O Azure AD suporta capacidades mais, incluindo certificados de assinatura de tokens de específico do aplicativo e datas de expiração de certificados configuráveis. Esses recursos, ferramentas e orientações permitem às organizações extinguir os respetivos fornecedores de identidade no local. Do Microsoft IT, para obter um exemplo, foi movido 17,987 aplicativos de interna Active Directory Federation Services da Microsoft (AD FS) para o Azure AD.
 
 ![Evolução do Azure AD](media/cloud-governed-management-for-on-premises/image5.png)
 

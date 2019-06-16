@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f0ead46bf93815644cb766c24fc9d894c2b4983
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7e1dfe10cdf80f750efbb7f08d001c7ce25fe068
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905270"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Tutorial: Integração do Active Directory do Azure com a linha FUNCIONA
 
@@ -58,7 +58,7 @@ Para configurar a integração de linha FUNCIONA com o Azure AD, terá de Adicio
 
 **Para adicionar FUNCIONA de linha a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Nesta secção, vai ativar Eduarda Almeida a utilizar do Azure-início de sessã
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida na linha FUNCIONA. Acesso [página de administração de linha FUNCIONA](https://admin.worksmobile.com) e adicione os utilizadores na plataforma FUNCIONA de linha.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

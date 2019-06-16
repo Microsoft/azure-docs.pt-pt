@@ -11,10 +11,10 @@ ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62114160"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Resolução de problemas de âncora de origem durante a instalação
@@ -22,7 +22,7 @@ Este artigo explica os diferentes problemas que possam ocorrer durante a instala
 
 ## <a name="invalid-source-anchor-in-azure-active-directory"></a>Âncora de origem inválido no Azure Active Directory
 
-### <a name="custom-installation"></a>Instalação Personalizada
+### <a name="custom-installation"></a>Instalação personalizada
 
 Durante a instalação personalizada, o Azure AD Connect lê a política de âncora de origem do Azure Active Directory. Se a política existe no Azure Active Directory, Azure AD Connect aplica-se a mesma política, a menos que ele é substituído pelo cliente. O assistente apresenta o atributo que foi lido. Além disso, o assistente avisa se tentar substituir a política de âncora de origem.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa088aa331621409103997755b2344f2dd70c64
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 49d0f2c695135c6b36eb6a3e89dec74b9e6bb695
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65994532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087130"
 ---
 # <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>Tutorial: Integrar Whatfix com o Azure Active Directory
 

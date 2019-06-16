@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125802"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Serviço de utilização StorSimple Device Manager para gerir volumes na matriz Virtual StorSimple
@@ -133,7 +133,7 @@ Conclua os passos seguintes para eliminar um volume.
 1. Partir do **Volumes** definição no painel de resumo do serviço StorSimple, selecione a matriz virtual no qual reside o volume que pretende eliminar.
 2. **Selecione** do volume e clique em **...**  (em alternativa com o botão direito na linha) e no menu de contexto, selecione **eliminar**.
    
-    ![Eliminar volume](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
+    ![Eliminação do volume](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
 3. Verificar o estado do volume que pretende eliminar. Se o volume que pretende eliminar não estiver offline, colocá-lo offline em primeiro lugar, siga os passos descritos em [colocar um volume offline](#take-a-volume-offline).
 4. Quando lhe for pedida confirmação no **elimine** painel, aceite a confirmação e clique em **eliminar**. O volume agora será eliminado e o **Volumes** painel mostrará a lista atualizada de volumes dentro da matriz virtual.
 

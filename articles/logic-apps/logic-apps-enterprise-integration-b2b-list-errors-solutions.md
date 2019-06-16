@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60998829"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros de B2B e soluções para o Azure Logic Apps
@@ -52,7 +52,7 @@ Este artigo ajuda-o a resolver problemas de erros que podem acontecer em cenári
 
 |   |   |  
 |---|---|
-| Descrição do erro | O conteúdo do pedido é nulo ou está vazio. | 
+| Descrição do erro | O conteúdo do pedido é nulo ou estar vazio. | 
 | Ação do utilizador | Foi recebida uma mensagem AS2 que não continha o corpo da mensagem. |
 |  |  | 
 
@@ -105,7 +105,7 @@ Por exemplo:
 
 ## <a name="x12-and-edifact"></a>X12 e EDIFACT
 
-### <a name="leading-or-trailing-space-found"></a>Foi encontrado um espaço à esquerda ou à direita    
+### <a name="leading-or-trailing-space-found"></a>À esquerda ou foi encontrado o espaço à direita    
     
 |   |   | 
 |---|---|
@@ -119,7 +119,7 @@ Por exemplo:
 
 |   |   | 
 |---|---| 
-| Descrição do erro | Número de Controlo Duplicado |
+| Descrição do erro | Número de controlo duplicado |
 | Ação do utilizador | Este erro indica que a mensagem recebida tem números de controlo duplicado. </br>Corrija o número de controlo e reenviar a mensagem. |
 |   |   |
 
@@ -135,7 +135,7 @@ Por exemplo:
 
 |   |   | 
 |---|---| 
-| Descrição do erro | A mensagem tem um tipo de documento desconhecido e não foi resolvida para nenhum dos esquemas existentes configurados no contrato. |
+| Descrição do erro | A mensagem tem um tipo de documento desconhecido e não foi resolvida para qualquer um dos esquemas existentes configurados no contrato. |
 | Ação do utilizador | Configure o esquema correto nas definições de contrato. |
 |   |   |
 

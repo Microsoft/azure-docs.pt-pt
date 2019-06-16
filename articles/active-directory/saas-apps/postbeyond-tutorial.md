@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a2bfcdcef00889d12fb30cb6f16bf74e6ab2cbd1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: fb6c32870d7a0ef07a6616d5669325538e64b14c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-postbeyond"></a>Tutorial: Integração do Active Directory do Azure com PostBeyond
 
@@ -53,7 +53,7 @@ Para configurar a integração do PostBeyond com o Azure AD, terá de adicionar 
 
 **Para adicionar PostBeyond a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -184,7 +184,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no PostBeyond. Trabalhar com [equipa de suporte PostBeyond](mailto:sso@postbeyond.com) para adicionar os utilizadores na plataforma PostBeyond. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -1,8 +1,8 @@
 ---
 title: Bloquear o acesso quando um risco de sessão é detetado com o Azure Active Directory Identity Protection - guia de introdução | Documentos da Microsoft
-description: Este guia de introdução, saiba como pode configurar uma política de acesso condicional do Azure Active Directory (Azure AD) Identity Protection início de sessão de risco para bloquear os inícios de sessão com base em riscos de sessão.
+description: Este guia de introdução, saiba como pode configurar um risco de início de sessão do Azure Active Directory (Azure AD) Identity Protection política de acesso condicional para bloquear os inícios de sessão com base em riscos de sessão.
 services: active-directory
-keywords: proteção de identidade, o acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, políticas de acesso condicional
+keywords: proteção de identidade, o acesso condicional para aplicações, acesso condicional com o Azure AD, proteger o acesso aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -17,18 +17,18 @@ ms.date: 09/13/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: c04d1a01c0ffd69e70dfa3b88b4f3c7f4b3576d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381825"
+ms.locfileid: "67108812"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detetado com o Azure Active Directory Identity Protection  
 
-Para manter seu ambiente protegido, poderá querer impedir que os utilizadores suspeitos de iniciar sessão. O Azure Active Directory (Azure AD) Identity Protection analisa cada início de sessão e calcula a probabilidade de que um início de sessão tentar não foi efetuada pelo proprietário legítimo de uma conta de utilizador. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado de nível de risco de início de sessão. Ao definir a condição de início de sessão de risco, pode configurar uma política de acesso condicional do risco de início de sessão para responder aos níveis de risco de início de sessão específicos. 
+Para manter seu ambiente protegido, poderá querer impedir que os utilizadores suspeitos de iniciar sessão. O Azure Active Directory (Azure AD) Identity Protection analisa cada início de sessão e calcula a probabilidade de que um início de sessão tentar não foi efetuada pelo proprietário legítimo de uma conta de utilizador. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado de nível de risco de início de sessão. Ao definir a condição de início de sessão de risco, pode configurar um início de sessão risco de política de acesso condicional para responder aos níveis de risco de início de sessão específicos. 
 
-Este início rápido mostra como configurar uma política de acesso condicional de início de sessão de risco bloquear um início de sessão quando um meio e acima de risco de início de sessão ao nível foi detetado. 
+Este início rápido mostra como configurar um início de sessão risco de bloquear um início de sessão quando um meio de política de acesso condicional e acima de risco de início de sessão ao nível foi detetado. 
 
 ![Criar política](./media/quickstart-sign-in-risk-policy/1004.png)
 
@@ -65,7 +65,7 @@ O objetivo deste passo é certificar-se de que sua conta de teste pode aceder ao
 
 O cenário neste início rápido utiliza um início de sessão num browser de Tor para gerar um detetado **inícios de sessão de endereços IP anónimos** evento de risco. O nível de risco deste evento de risco é médio. Para responder a este evento de risco, defina a condição de início de sessão de risco como média. 
 
-Esta secção mostra como criar a política de acesso condicional do risco de início de sessão necessário. Na sua política, defina:
+Esta secção mostra como criar o risco de início de sessão necessário política de acesso condicional. Na sua política, defina:
 
 |Definição |Value|
 |---     | --- |
@@ -119,7 +119,7 @@ Para testar a sua política, tente iniciar sessão no seu [portal do Azure](http
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o utilizador de teste, o navegador de Tor e desativar a política de acesso condicional do risco de início de sessão:
+Quando já não for necessário, elimine o utilizador de teste, o navegador de Tor e desativar o início de sessão risco política de acesso condicional:
 
 - Se não souber como eliminar um utilizador do Azure AD, veja [como adicionar ou eliminar utilizadores](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 

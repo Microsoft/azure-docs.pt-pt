@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
 ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691423"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregação de esquema e os dados na análise de tráfego
@@ -58,7 +58,7 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 | FlowEndTime_t | Data e hora em UTC | Última ocorrência do fluxo (o que irá obter agregado) no intervalo de processamento de registo de fluxo entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t". Em termos de fluxo registo v2, este campo contém a hora de início (marcado como "B" no registo de fluxo não processados) o último fluxo com o mesmo quatro cadeias de identificação |
 | FlowType_s |  * IntraVNet <br> * Inter-Vnet <br> * S2S <br> * P2S <br> * AzurePublic <br> * ExternalPublic <br> * MaliciousFlow <br> * Privada desconhecido <br> * Desconhecido | Definição nas notas abaixo da tabela |
 | SrcIP_s | Endereço IP de origem | Estará em branco em caso de AzurePublic e ExternalPublic fluxos |
-| DestIP_s | Endereço IP de destino | Estará em branco em caso de AzurePublic e ExternalPublic fluxos |
+| DestIP_s | Endereço de IP de destino | Estará em branco em caso de AzurePublic e ExternalPublic fluxos |
 | VMIP_s | IP da VM | Utilizado para os fluxos AzurePublic e ExternalPublic |
 | PublicIP_s | Endereços IP públicos | Utilizado para os fluxos AzurePublic e ExternalPublic |
 | DestPort_d | Porta de destino | Porta em que o tráfego é recebido | 
@@ -91,7 +91,7 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 | LoadBalancer2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Balanceador de carga associado com o IP de destino no fluxo |
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Gateway de rede local associado com o IP de origem no fluxo |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Gateway de rede local associado com o IP de destino no fluxo |
-| ConnectionType_s | Os valores possíveis são VNetPeering VpnGateway e ExpressRoute |    Tipo de Ligação |
+| ConnectionType_s | Os valores possíveis são VNetPeering VpnGateway e ExpressRoute |    Tipo de ligação |
 | ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Nome da Ligação |
 | ConnectingVNets_s | Lista de separados de espaço de nomes de rede virtual | Em caso de topologia hub- and -spoke, redes virtuais de hub serão preenchidas aqui |
 | Country_s | Duas letras indicativo de país (ISO 3166-1 alpha-2) | Preenchido para o tipo de fluxo ExternalPublic. Todos os endereços IP no campo de PublicIPs_s irão partilhar o mesmo código de país |

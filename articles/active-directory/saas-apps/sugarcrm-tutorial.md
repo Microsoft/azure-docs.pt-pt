@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2dea1dcd2f6ecef580d65a95d1227380901213eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c46b096b1182b3f2a998f992f72e6127dfe0888
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089544"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Tutorial: Integração do Active Directory do Azure com o CRM de sintaxe
 
@@ -53,7 +53,7 @@ Para configurar a integração de CRM de sintaxe para o Azure AD, terá de adici
 
 **Para adicionar o CRM de sintaxe da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -247,7 +247,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no CRM de sintaxe, te
 > [!NOTE]
 > Pode usar qualquer outras sintaxe CRM utilizador conta ferramentas de criação ou APIs fornecidas pelo CRM de sintaxe para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

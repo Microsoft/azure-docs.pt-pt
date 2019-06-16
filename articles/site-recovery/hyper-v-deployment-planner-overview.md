@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
 ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65149113"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure
@@ -73,9 +73,9 @@ A ferramenta disponibiliza os seguintes detalhes:
 | | **VMware para o Azure** |**Hyper-V para o Azure**|**Azure para o Azure**|**Hyper-V para um site secundário**|**VMware para um site secundário**
 --|--|--|--|--|--
 Cenários suportados |Sim|Sim|Não|Sim*|Não
-Versão suportada | vCenter 6.7, 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
-Configuração suportada|vCenter, ESXi| Cluster Hyper-V, anfitrião Hyper-V|ND|Cluster Hyper-V, anfitrião Hyper-V|ND|
-Número de servidores para os quais podem ser criados perfis por instância de execução do Planeador de Implementações do Azure Site Recovery |Único (é possível criar um perfil de cada vez de VMs pertencentes a um vCenter Server ou um servidor ESXi)|Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND |Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| ND
+Versão suportada | vCenter 6.7, 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
+Configuração suportada|vCenter, ESXi| Cluster Hyper-V, anfitrião Hyper-V|N/D|Cluster Hyper-V, anfitrião Hyper-V|N/D|
+Número de servidores para os quais podem ser criados perfis por instância de execução do Planeador de Implementações do Azure Site Recovery |Único (é possível criar um perfil de cada vez de VMs pertencentes a um vCenter Server ou um servidor ESXi)|Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| N/D |Vários (é possível criar um perfil de cada vez de VMs em vários anfitriões ou clusters anfitriões)| N/D
 
 *A ferramenta destina-se principalmente ao cenário de recuperação após desastre Hyper-V para o Azure. Para a recuperação após desastre de Hyper-V para um site secundário, só pode ser utilizada para compreender recomendações do lado da origem, como a largura de banda de rede necessária, espaço de armazenamento livre necessário em cada um dos servidores Hyper-V de origem e definições de batches e números de criação de batches na replicação inicial.  Ignore as recomendações e os custos do Azure do relatório. Além disso, a operação Obter Débito não é aplicável ao cenário de recuperação após desastre de Hyper-V para um site secundário.
 

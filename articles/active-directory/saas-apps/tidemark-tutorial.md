@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 8a35a71896951e42b66f5b02998867d015923d29
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: cb9a6a79aa75f646370d05a6a55ec75533d42038
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902201"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088725"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: Integração do Active Directory do Azure com Tidemark
 
@@ -53,7 +53,7 @@ Para configurar a integração do Tidemark com o Azure AD, terá de adicionar Ti
 
 **Para adicionar Tidemark a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -196,7 +196,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Tidemark. Trabalhar com [equipa de suporte de Tidemark](http://www.tidemark.com/contact-us) para adicionar os utilizadores na plataforma Tidemark. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

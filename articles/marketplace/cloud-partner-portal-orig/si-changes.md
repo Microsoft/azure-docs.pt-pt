@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/3/2019
 ms.author: pabutler
 ms.openlocfilehash: c6e9e4fe672c7e171ed4b1cd60655f9e71a562e6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943113"
 ---
 # <a name="seller-insights-release-notes"></a>Notas de versão de informações do vendedor 

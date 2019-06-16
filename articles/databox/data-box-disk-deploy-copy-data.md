@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925156"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147521"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o disco do Azure Data Box e certifique-se
 
@@ -58,9 +58,9 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
 
     |Destino de armazenamento selecionada  |Tipo de conta de armazenamento|Tipo de conta de armazenamento de teste |Pastas e subpastas  |
     |---------|---------|---------|------------------|
-    |Conta de armazenamento     |Contas GPv1 ou GPv2                 | ND | BlockBlob <br> PageBlob <br> AzureFile        |
-    |Conta de armazenamento     |Conta de armazenamento de BLOBs         | ND | BlockBlob        |
-    |Managed disks     |ND | Contas GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Conta de armazenamento     |Contas GPv1 ou GPv2                 | N/D | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Conta de armazenamento     |Conta de armazenamento de BLOBs         | N/D | BlockBlob        |
+    |Managed disks     |N/D | Contas GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
     |Conta de armazenamento <br> Managed disks     |Contas GPv1 ou GPv2 | Contas GPv1 ou GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
     |Conta de armazenamento <br> Managed disks    |Conta de armazenamento de BLOBs | Contas GPv1 ou GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
 
@@ -88,7 +88,7 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
     
     |Parâmetros/Opções  |Descrição |
     |--------------------|------------|
-    |Origem            | Especifica o caminho para o diretório de origem.        |
+    |source            | Especifica o caminho para o diretório de origem.        |
     |Destino       | Especifica o caminho para o diretório de destino.        |
     |/E                  | Copia os subdiretórios, incluindo diretórios vazios. |
     |/MT[:N]             | Cria cópias com múltiplos threads com N threads, em que N é um número inteiro entre 1 e 128. <br>O valor predefinido para N é 8.        |
@@ -223,7 +223,7 @@ Este procedimento opcional pode ser utilizado quando utilizar vários discos e d
  
 7. Abra uma janela de Linha de Comandos. 
 
-8. Execute o `DataBoxDiskSplitCopy.exe`. Type
+8. Execute o `DataBoxDiskSplitCopy.exe`. Tipo
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -250,6 +250,8 @@ Este procedimento opcional pode ser utilizado quando utilizar vários discos e d
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Se vir erros usando a ferramenta de cópia de divisão, veja como [resolver problemas de erros de ferramenta de cópia de divisão](data-box-disk-troubleshoot-data-copy.md).
+
 Depois de concluída a cópia de dados, pode avançar para validar os seus dados. Se utilizou a ferramenta de cópia de divisão, ignore a validação (cópia de divisão ferramenta também valida) e avance para o próximo tutorial.
 
 
@@ -270,6 +272,8 @@ Se não utilizou a ferramenta de divisão de cópia para copiar dados, terá de 
     > - Utilize a opção 1, se lidando com um grande conjunto de dados que contém os arquivos pequenos (~ KBs). Esta opção apenas valida os arquivos, como a geração de soma de verificação pode demorar muito tempo e o desempenho poderia ser muito lento.
 
 3. Se estiver a utilizar vários discos, execute o comando para cada disco.
+
+Se vir erros durante a validação, consulte [resolver problemas de erros de validação](data-box-disk-troubleshoot.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

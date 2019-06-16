@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 5d6cce859aa26935f0b6007fe8e5ff2c2239b210
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243708"
+ms.locfileid: "67109456"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
 
@@ -68,7 +68,7 @@ A [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchr
 
 A [repetição de escrita de palavras-passe](../authentication/quickstart-sspr.md) permitirá que os utilizadores alterem e reponham as respetivas palavras-passe na nuvem e a aplicação da sua política de palavras-passe no local.
 
-A [repetição de escrita do dispositivo](how-to-connect-device-writeback.md) permitirá que um dispositivo registado no Azure AD seja rescrito no Active Directory no local, para que possa ser utilizado para acesso condicional.
+[Repetição de escrita do dispositivo](how-to-connect-device-writeback.md) permitirá que um dispositivo registado no Azure AD para a repetição de escrita do Active Directory no local para que possa ser utilizada para o acesso condicional.
 
 A funcionalidade [impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md) está ativada por predefinição e protege o diretório na nuvem de sofrer várias eliminações ao mesmo tempo. Por predefinição, permite 500 eliminações por execução. Pode alterar esta definição consoante o tamanho da sua organização.
 

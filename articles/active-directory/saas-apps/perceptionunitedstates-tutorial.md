@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869538"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Active Directory do Azure com a percepção dos Estados Unidos (não-UltiPro)
 
@@ -53,7 +53,7 @@ Para configurar a integração de percepção dos Estados Unidos (não-UltiPro) 
 
 **Para adicionar percepção dos Estados Unidos (não-UltiPro) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar a integração de percepção dos Estados Unidos (não-UltiPro) 
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **percepção dos Estados Unidos (não-UltiPro)**, selecione **percepção dos Estados Unidos (não-UltiPro)** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
+4. Na caixa de pesquisa, escreva **percepção dos Estados Unidos (não-UltiPro)** , selecione **percepção dos Estados Unidos (não-UltiPro)** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
 
      ![Percepção dos Estados Unidos (não-UltiPro) na lista de resultados](common/search-new-app.png)
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD início de sessão único com percepção dos Estados
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. O **percepção dos Estados Unidos (não-UltiPro)** aplicação requer o **do Azure AD identificador** valor como < entity_id >, que terá do **configurar percepção dos Estados Unidos ( Non-UltiPro)** seção, para ser codificada por uri. Para obter o valor codificado por uri, utilize a seguinte ligação: **http://www.url-encode-decode.com/**.
+    c. O **percepção dos Estados Unidos (não-UltiPro)** aplicação requer o **do Azure AD identificador** valor como < entity_id >, que terá do **configurar percepção dos Estados Unidos ( Non-UltiPro)** seção, para ser codificada por uri. Para obter o valor codificado por uri, utilize a seguinte ligação: **http://www.url-encode-decode.com/** .
 
     d. Depois de obter o uri valor codificado combiná-la com o **URL de resposta** conforme mencionado abaixo -
 
@@ -195,11 +195,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a percepção dos Estados Unidos (não-UltiPro).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **percepção dos Estados Unidos (não-UltiPro)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **percepção dos Estados Unidos (não-UltiPro)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **percepção dos Estados Unidos (não-UltiPro)**.
+2. Na lista de aplicações, selecione **percepção dos Estados Unidos (não-UltiPro)** .
 
     ![A ligação de percepção dos Estados Unidos (não-UltiPro) na lista de aplicações](common/all-applications.png)
 
@@ -221,7 +221,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida na percepção dos Estados Unidos (não-UltiPro). Trabalhar com [equipa de suporte de percepção dos Estados Unidos (não-UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) para adicionar os utilizadores na plataforma percepção dos Estados Unidos (não-UltiPro).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

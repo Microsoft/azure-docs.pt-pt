@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
 ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64691527"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de armazenamento
@@ -73,7 +73,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 
 Para obter mais informações, veja os artigos seguintes:
 
-- [Utilizar o armazenamento do Azure com clusters do HDInsight do Azure](../hdinsight-hadoop-use-blob-storage.md)
+- [Utilizar o armazenamento do Azure com clusters do Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Metas de Dimensionamento e Desempenho do Armazenamento do Azure](../../storage/common/storage-scalability-targets.md)
 - [Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure](../../storage/common/storage-performance-checklist.md)
 - [Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)

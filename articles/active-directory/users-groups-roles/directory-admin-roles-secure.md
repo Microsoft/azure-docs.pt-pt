@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4b61b661d9da0748bc354b8defa4e6d67a047a2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7e61207ea23b9b9560668b58b33e3f32f5f70ab2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083945"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -173,7 +173,7 @@ Ative:
 
 Se utilizar o Windows Hello para empresas, o requisito de MFA pode ser atendido usando o Windows Hello início de sessão na experiência. Para obter mais informações, consulte [Hello do Windows](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
-#### <a name="configure-identity-protection"></a>Configurar Identity Protection 
+#### <a name="configure-identity-protection"></a>Configurar a proteção de identidade 
 
 O Azure AD Identity Protection é uma ferramenta que pode utilizar para detetar potenciais vulnerabilidades que afetam as identidades da sua organização de relatórios e monitorização baseada no algoritmo. Pode configurar respostas automáticas para essas atividades suspeitas detetadas e tomar as medidas adequadas para resolvê-los. Para obter mais informações, consulte [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4dde358f10e9ac5054297ff68a0971404c0dc135
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160249"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple manutenção e atualizações
@@ -48,7 +48,7 @@ CloudSimple cria cópias de segurança, mantém e atualiza esses elementos de VM
 
 * ESXi
 * Serviços de plataforma do vCenter
-* Controlador
+* controlador
 * vSAN
 * NSX
 

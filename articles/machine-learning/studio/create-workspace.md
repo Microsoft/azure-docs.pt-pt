@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
 ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62109353"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Criar e partilhar uma área de trabalho do Azure Machine Learning Studio

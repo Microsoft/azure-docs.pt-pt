@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e756a0a7af9ad89e3aad8b0dbe27a870a3f855c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d94567800a9fd020784c9cb07b2c6824cd032509
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60907487"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064282"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a gerir soluções de segurança já ligadas ao Centro de Segurança do Azure e adicionar novas.
+
+> [!NOTE]
+> Um subconjunto de soluções de segurança vai ser descontinuado a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## <a name="integrated-azure-security-solutions"></a>Soluções de segurança do Azure integradas
 O Centro de Segurança facilita a ativação de soluções de segurança integradas no Azure. As vantagens incluem:
@@ -31,11 +34,7 @@ O Centro de Segurança facilita a ativação de soluções de segurança integra
 - **Deteções integradas**: Os eventos de segurança das soluções de parceiros são automaticamente recolhidos, agregados e apresentados como parte dos alertas e incidentes do Centro de Segurança. Estes eventos também são combinados com deteções de outras origens, para disponibilizarem capacidades avançadas de deteção de ameaças.
 - **Monitorização de estado de funcionamento e gestão unificadas**: Os clientes podem utilizar eventos de estado de funcionamento integrados para monitorizar todas as soluções do parceiro de forma rápida. Está disponível uma gestão básica, com acesso fácil a configuração avançada mediante a utilização da solução do parceiro.
 
-Atualmente, as soluções de segurança integradas incluem:
-
-- Firewall de aplicações Web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) e [Gateway de Aplicação do Azure](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Firewalls de próxima geração ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) e [Palo Alto Networks](https://www.paloaltonetworks.com/products))
-- Avaliação de vulnerabilidades ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/))
+Atualmente, soluções de segurança integradas incluem a avaliação de vulnerabilidade por [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) e [Rapid7](https://www.rapid7.com/products/insightvm/) e firewall de aplicações Web de Gateway de aplicação do Microsoft.
 
 > [!NOTE]
 > O Centro de Segurança não instala o Microsoft Monitoring Agent em aplicações virtuais de parceiro, porque a maioria dos fornecedores de segurança proíbe agentes externos em execução nas suas aplicações.
@@ -43,12 +42,7 @@ Atualmente, as soluções de segurança integradas incluem:
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>Como são integradas as soluções de segurança
-As soluções de segurança do Azure implementadas a partir do Centro de Segurança são ligadas automaticamente. Também pode ligar outras origens de dados de segurança, incluindo:
-
-- Azure AD Identity Protection
-- Computadores em execução no local ou noutras clouds
-- Solução de segurança que suporte o Common Event Format (CEF)
-- Microsoft Advanced Threat Analytics
+As soluções de segurança do Azure implementadas a partir do Centro de Segurança são ligadas automaticamente. Também pode ligar outras origens de dados de segurança, incluindo computadores em execução no local ou noutras clouds.
 
 ![Integração de soluções de parceiros](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
@@ -112,76 +106,6 @@ A secção **Adicionar origens de dados** inclui outras origens de dados dispon�
 
 ![Origens de dados](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
-### <a name="connect-external-solutions"></a>Ligar soluções externas
-
-Além de recolher dados de segurança dos seus computadores, pode integrar os dados de segurança de várias outras soluções de segurança, incluindo as que suportarem o Formato de Evento Comum (CEF). O CEF é um formato padrão da indústria sobre as mensagens Syslog, utilizado por vários fornecedores de segurança para permitir a integração de eventos entre diferentes plataformas.
-
-Este manual de início rápido mostra-lhe como:
-- Ligar uma solução de segurança ao Centro de Segurança com Registos CEF
-- Validar a ligação com a solução de segurança
-
-#### <a name="prerequisites"></a>Pré-requisitos
-Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/).
-
-Para acompanhar este manual de início rápido, tem de estar no escalão de preço Standard do Centro de Segurança. Pode experimentar o Centro de segurança Standard sem encargos. O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
-
-Também precisa de uma [máquina Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux), com o serviço de Syslog já ligado ao seu Centro de Segurança.
-
-#### <a name="connect-solution-using-cef"></a>Ligar a solução com CEF
-
-1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
-2. No menu **Microsoft Azure**, selecione **Centro de Segurança**. **Centro de Segurança - Descrição Geral** é aberto.
-
-    ![Selecionar centro de segurança](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
-
-3. No menu principal do Centro de Segurança, selecione **Soluções de Segurança**.
-4. Na página Soluções de Segurança, em **Adicionar origens de dados (3)**, clique em **Adicionar** em **Formato de Evento Comum**.
-
-    ![Adicionar origem de dados](./media/quick-security-solutions/quick-security-solutions-fig2.png)
-
-5. Na página Registos do Formato de Evento Comum, expanda o segundo passo **Configurar o reencaminhamento do Syslog para enviar os registos necessários para o agente na porta UDP 25226**e siga as instruções abaixo no seu computador Linux:
-
-    ![Configurar o syslog](./media/quick-security-solutions/quick-security-solutions-fig3.png)
-
-6. Expanda o terceiro passo **Colocar o ficheiro de configuração do agente no computador do agente** e siga as instruções abaixo no seu computador Linux:
-
-    ![Configuração do agente](./media/quick-security-solutions/quick-security-solutions-fig4.png)
-
-7. Expanda o quarto passo **Reiniciar o syslog daemon e o agente**e siga as instruções abaixo no seu computador Linux:
-
-    ![Reiniciar o syslog](./media/quick-security-solutions/quick-security-solutions-fig5.png)
-
-
-#### <a name="validate-the-connection"></a>Validar a ligação
-
-Antes de avançar para os passos abaixo, terá de aguardar até que o syslog comece a reportar para o Centro de Segurança. Esta operação pode demorar algum tempo, que irá variar consoante o tamanho do ambiente.
-
-1.  No painel esquerdo do dashboard do Centro de Segurança, clique em **Procurar**.
-2.  Selecione a área de trabalho à qual o Syslog (Máquina Linux) está ligado.
-3.  Escreva *CommonSecurityLog* e clique no botão **Procurar**.
-
-O exemplo seguinte mostra o resultado destes passos: ![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
-
-#### <a name="clean-up-resources"></a>Limpar recursos
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com inícios rápidos e tutoriais posteriores, continue a executar o escalão Standard e mantenha o aprovisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
-
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
-2. Selecione a subscrição ou a política para a qual pretende voltar como Gratuita. **Política de segurança** abre-se.
-3. Em **COMPONENTES DA POLÍTICA**, selecione **Escalão de preço**.
-4. Selecione **Gratuito** para alterar a subscrição, do Escalão standard para o Escalão gratuito.
-5. Selecione **Guardar**.
-
-Se pretender desativar aprovisionamento automático:
-
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de segurança**.
-2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
-3. Em **Política de segurança – Recolha de Dados**, selecione **Desativar** em **Inclusão** para desativar o aprovisionamento automático.
-4. Selecione **Guardar**.
-
->[!NOTE]
-> Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
->
-
 ## <a name="exporting-data-to-a-siem"></a>Exportar dados para um SIEM
 
 Os eventos processados produzidos pelo centro de segurança do Azure são publicados para o Azure [registo de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), um registo de tipos disponíveis através do Azure Monitor. Monitor do Azure oferece um pipeline consolidado para o encaminhamento qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Isso é feito por transmissão em fluxo de dados para um Hub de eventos em que ele, em seguida, pode ser extraído para uma ferramenta de parceiro.
@@ -220,7 +144,7 @@ Eis algumas consultas de Splunk que pode utilizar para extrair dados de alertas:
 
 | **Descrição da consulta** | **Consulta** |
 |----|----|
-| Todos os Alertas| índice = Microsoft.Security/locations/alerts principal|
+| Todos os alertas| índice = Microsoft.Security/locations/alerts principal|
 | Resumir contagem das operações pelo respetivo nome| índice = sourcetype principal = "amal: segurança" \| operationName tabela \| estatísticas contagem por operationName|
 | Obter as informações de alertas: Tempo, o nome, o estado, o ID e o subscrição | índice = principal Microsoft.Security/locations/alerts \| tabela \_tempo, properties.eventName, estado, properties.operationId, am_subscriptionId |
 
@@ -230,6 +154,5 @@ Eis algumas consultas de Splunk que pode utilizar para extrair dados de alertas:
 Neste artigo, aprendeu a integrar soluções de parceiros no Centro de Segurança. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança](security-center-monitoring.md). Saiba como monitorizar o estado de funcionamento dos recursos do Azure.
-* [Monitor partner solutions with Security Center](security-center-partner-solutions.md) (Monitorizar soluções de parceiros com o Centro de Segurança). Saiba como monitorizar o estado de funcionamento das soluções dos seus parceiros.
 * [Azure Security Center FAQs](security-center-faq.md) (FAQ do Centro de Segurança do Azure). Encontre respostas para as perguntas mais frequentes sobre o Centro de Segurança.
 * [Blogue Azure Security](https://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

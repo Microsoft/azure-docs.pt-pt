@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dace26f9eb4948a8cfd06be568ab9ec471765d1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2eed00aab4296cb5352e74d9e6bfc014f2340646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Tutorial: Integração do Active Directory do Azure com Sequr
 
@@ -54,7 +54,7 @@ Para configurar a integração do Sequr com o Azure AD, terá de adicionar Sequr
 
 **Para adicionar Sequr a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

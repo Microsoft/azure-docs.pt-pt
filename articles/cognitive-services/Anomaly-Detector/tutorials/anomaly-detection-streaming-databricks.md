@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: a5790b5412023f06d9f9fd1d2ff61c11db4c53f3
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080793"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias dos dados de transmissão em fluxo com o Azure Databricks
 
@@ -74,7 +74,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks utilizando o
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
     |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../../azure-resource-manager/resource-group-overview.md). |
-    |**Localização**     | Selecione **E.U.A. Leste 2** ou uma das outras regiões disponíveis. Ver [serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/) para disponibilidade de região.        |
+    |**Location**     | Selecione **E.U.A. Leste 2** ou uma das outras regiões disponíveis. Ver [serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/) para disponibilidade de região.        |
     |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Não escolha **versão de avaliação**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Selecione **Criar**.
@@ -670,22 +670,22 @@ Resultado abaixo:
 +--------------------+-------+
 |2019-04-16T00:00:00Z|  false|
 +--------------------+-------+
+```
 
+Já está! Com o Azure Databricks, têm transmitido com êxito os dados nos Hubs de eventos do Azure, consumiu os dados de transmissão com o conector de Hubs de eventos e, em seguida, executar a deteção de anomalias na transmissão em fluxo de dados em tempo real.
+Embora neste tutorial, a granularidade é de hora a hora, pode sempre alterar a granularidade para atender às suas necessidades. 
 
-That's it! Using Azure Databricks, you have successfully streamed data into Azure Event Hubs, consumed the stream data using the Event Hubs connector, and then run anomaly detection on streaming data in near real time.
-Although in this tutorial, the granularity is hourly, you can always change the granularity to meet your need. 
+## <a name="clean-up-resources"></a>Limpar recursos
 
-## Clean up resources
+Depois de executar o tutorial, pode terminar o cluster. Para tal, na área de trabalho do Azure Databricks, selecione **Clusters** no painel à esquerda. Para o cluster que pretende terminar, mova o cursor sobre o botão de reticências na **ações** coluna e selecione o **Terminate** ícone e selecione **confirmar**.
 
-After you have finished running the tutorial, you can terminate the cluster. To do so, in the Azure Databricks workspace, select **Clusters** from the left pane. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon and then select **Confirm**.
+![Parar um cluster do Databricks](../media/tutorials/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-![Stop a Databricks cluster](../media/tutorials/terminate-databricks-cluster.png "Stop a Databricks cluster")
+Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
-If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
+## <a name="next-steps"></a>Passos Seguintes
 
-## Next steps
-
-In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
+Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Avance para o próximo tutorial para saber como chamar a API de detetor de anomalias e visualizar anomalias com o Power BI desktop. 
 
 > [!div class="nextstepaction"]
->[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)
+>[Deteção de anomalias de batch com o Power BI desktop](batch-anomaly-detection-powerbi.md)

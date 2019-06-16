@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c9b07e7524488d0336a55af6e1d5f36af59a870
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c5ccc4ef6c095eacd29590504d46756ead856574
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058614"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 Este artigo contém instruções para utilizar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar os grupos. Este conteúdo aplica-se apenas a grupos do Office 365 (por vezes denominados grupos unificados). 
@@ -78,7 +78,7 @@ Estes passos criam definições ao nível do diretório, que se aplicam a todos 
    ```
 6. Pode ler os valores usando:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```  
 ## <a name="update-settings-at-the-directory-level"></a>Atualizar as definições ao nível do diretório
@@ -86,7 +86,7 @@ Para atualizar o valor para UsageGuideLinesUrl no modelo de definição, simples
 
 Para remover o valor de UsageGuideLinesUrl, edite o URL para ser uma cadeia vazia com o passo 4 acima:
 
- ```powershell
+   ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
 Em seguida, execute o passo 5 para definir o novo valor.
@@ -112,7 +112,7 @@ Seguem-se as configurações definidas no Group.Unified SettingsTemplate. A meno
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exemplo: Configurar a política de convidado para grupos ao nível do diretório
 1. Obter todos os modelos de definição:
-  ```powershell
+   ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
 2. Para definir a política de convidado para grupos ao nível do diretório, terá de modelo de Group.Unified
@@ -135,7 +135,7 @@ Seguem-se as configurações definidas no Group.Unified SettingsTemplate. A meno
    ```
 6. Pode ler os valores usando:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```   
 
@@ -143,9 +143,9 @@ Seguem-se as configurações definidas no Group.Unified SettingsTemplate. A meno
 
 Se souber o nome da definição que pretende recuperar, pode utilizar o cmdlet para obter o valor atual de definições abaixo. Neste exemplo, recuperando o valor para uma definição denominada "UsageGuidelinesUrl." 
 
-  ```powershell
-  (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
-  ```
+   ```powershell
+   (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+   ```
 Estes passos ler as configurações ao nível do diretório, que se aplicam a todos os grupos do Office no diretório.
 
 1. Ler todas as definições do diretório existente:
@@ -188,11 +188,11 @@ Estes passos ler as configurações ao nível do diretório, que se aplicam a to
 
 ## <a name="remove-settings-at-the-directory-level"></a>Remova as definições ao nível do diretório
 Este passo remove as definições ao nível do diretório, que se aplicam a todos os grupos do Office no diretório.
-  ```powershell
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
-  ```
+   ```powershell
+   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
+   ```
 
-## <a name="update-settings-for-a-specific-group"></a>Atualizar as definições para um grupo específico
+## <a name="create-settings-for-a-specific-group"></a>Criar definições para um grupo específico
 
 1. Procure o modelo de configurações com o nome "Groups.Unified.Guest"
    ```powershell
@@ -219,13 +219,49 @@ Este passo remove as definições ao nível do diretório, que se aplicam a todo
    ```powershell
    $SettingCopy["AllowToAddGuests"]=$False
    ```
-5. Crie a nova definição para o grupo de necessário no diretório:
+5. Obter o ID do grupo que pretende aplicar esta definição para:
    ```powershell
-   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $SettingCopy
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-6. Para verificar as definições, execute este comando:
+6. Crie a nova definição para o grupo de necessário no diretório:
    ```powershell
-   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups | fl Values
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
+   ```
+7. Para verificar as definições, execute este comando:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
+   ```
+
+## <a name="update-settings-for-a-specific-group"></a>Atualizar as definições para um grupo específico
+1. Obter o ID do grupo cuja definição que pretende atualizar:
+   ```powershell
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
+   ```
+2. Recuperar a configuração do grupo:
+   ```powershell
+   $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+3. Atualizar a definição do grupo, conforme necessário, por exemplo
+   ```powershell
+   $Setting["AllowToAddGuests"] = $True
+   ```
+4. Em seguida, obter o ID da definição para este grupo específico:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+   Obterá uma resposta semelhante ao seguinte:
+   ```powershell
+   Id                                   DisplayName            TemplateId                             Values
+   --                                   -----------            -----------                            ----------
+   2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
+   ```
+5. Em seguida, pode definir o novo valor para esta definição:
+   ```powershell
+   Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
+   ```
+6. Pode ler o valor de configuração para se certificar de que ele foi atualizado corretamente:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## <a name="cmdlet-syntax-reference"></a>Referência de sintaxe do cmdlet

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3157cef6952f01d689d3cb4a30c9d7c843095809
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405698"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071704"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do registo de atividade nas notificações do serviço
 ## <a name="overview"></a>Descrição geral
@@ -92,7 +92,7 @@ Saiba como [configurar notificações de webhook para sistemas de gestão existe
 
 ## <a name="alert-with-existing-action-group-using-azure-portal"></a>Alerta com o grupo de ação existente através do portal do Azure
 
-1. Siga os passos 1 a 7 na secção anterior para criar a notificação de estado de funcionamento do serviço. 
+1. Siga os passos 1 a 6 na secção anterior para criar a notificação de estado de funcionamento do serviço. 
 
 1. Sob **grupo de ação de definir**, clique nas **grupo de ação de seleção** botão. Selecione o grupo de medidas adequadas.
 

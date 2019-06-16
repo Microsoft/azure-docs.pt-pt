@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 83e33ffa2854b92718828ae870b82431993fac24
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 15b2b5863f5b78bd24ffd8cbd55b9914f52e32a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603525"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072799"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início rápido: Criar um hub de eventos com o portal do Azure
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -57,7 +57,7 @@ Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusiv
    ![Procure Hubs de eventos](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Selecione **os Hubs de eventos** sob **Favoritos** no menu de navegação à esquerda e selecione **Add** na barra de ferramentas.
 
-   ![Adicionar botão de barra de ferramentas](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![Botão Adicionar](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Sobre o **criar espaço de nomes** página, siga os passos seguintes:
     1. Introduza um nome para o espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
     2. Escolha o escalão de preço (básico ou Standard).

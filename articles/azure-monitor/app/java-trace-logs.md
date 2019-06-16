@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: 614f9a44f7c699be38906ac00e12f523490ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2703c97dc78983ef294b3aa50f7ace879c96f66d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60900494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061224"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore Java registos de rastreio no Application Insights
 Se estiver a utilizar Logback ou Log4J (versão 1.2 ou 2.0) para o rastreio, pode ter os registos de rastreio enviados automaticamente para o Application Insights, onde pode explorar e pesquisar nos mesmos.
@@ -100,7 +100,7 @@ Em seguida, Atualize as dependências do projeto, para obter os binários transf
 #### <a name="otherwise-"></a>Caso contrário...
 Siga as diretrizes para manualmente instalar o SDK de Java do Application Insights, transfira o jar (após a chegar ao clique de página da Central Maven no link "jar" na seção download) para appender adequado e a adicionar jar appender transferido para o projeto.
 
-| Logger | Transferência | Biblioteca |
+| agente de log | Transferência | Biblioteca |
 | --- | --- | --- |
 | Logback |[Logback appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v2.0 |[Log4J v2 appender Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |

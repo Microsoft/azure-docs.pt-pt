@@ -3,7 +3,7 @@ title: Tipos de ponto final do Gestor de tráfego | Documentos da Microsoft
 description: Este artigo explica os diferentes tipos de pontos de extremidade que podem ser utilizados com o Gestor de tráfego do Azure
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,18 +11,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: kumud
-ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.author: allensu
+ms.openlocfilehash: 469b6543b380cb6b3b10c3def8484bed944f8556
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508437"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071210"
 ---
-# <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de Tráfego
+# <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
+
 O Gestor de tráfego do Microsoft Azure permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em datacenters diferentes. Configurar a cada implementação de aplicação como um ponto 'final' no Gestor de tráfego. Quando o Gestor de tráfego recebe um pedido DNS, ele escolhe um ponto de extremidade disponível para devolver na resposta DNS. O Gestor de tráfego bases a escolha sobre o estado atual do ponto final e o método de encaminhamento de tráfego. Para obter mais informações, consulte [como funciona o Gestor de tráfego](traffic-manager-how-it-works.md).
 
 Existem três tipos de ponto de extremidade suportada pelo Gestor de tráfego:
+
 * **Pontos finais do Azure** são utilizados para os serviços alojados no Azure.
 * **Pontos finais externos** são utilizadas para endereços IPv4/IPv6, FQDNs, ou para os serviços alojados fora do Azure que pode ser local ou num fornecedor de alojamento diferentes.
 * **Aninhados pontos finais** são utilizados para combinar os perfis do Gestor de tráfego para criar esquemas de encaminhamento de tráfego de mensagens em fila mais flexíveis para suportar as necessidades de Implantações maiores e mais complexas.
@@ -42,14 +44,14 @@ Pontos finais do Azure são utilizados para serviços baseados no Azure no Gesto
 
 Recursos PublicIPAddress são recursos do Azure Resource Manager. Eles não existem no modelo de implementação clássica. Portanto, elas são apenas suportadas no Gestor de tráfego do Azure Resource Manager experiências. Os outros tipos de ponto de extremidade são suportados através do Resource Manager e o modelo de implementação clássica.
 
-Quando utilizar pontos finais do Azure, o Gestor de tráfego Deteta quando uma aplicação Web, serviço cloud ou uma VM de IaaS do "Clássico" é parada e iniciada. Este estado é refletido no estado de ponto final. Ver [monitorização de pontos finais do Gestor de tráfego](traffic-manager-monitoring.md#endpoint-and-profile-status) para obter detalhes. Quando o serviço subjacente está parado, o Gestor de tráfego não efetua as verificações de estado de funcionamento do ponto final ou direcionar o tráfego para o ponto final. Não existem eventos de faturação do Gestor de tráfego ocorrerem para a instância de parado. Quando o serviço é reiniciado, é elegível para receber o tráfego de retoma de faturação e o ponto final. Esta deteção não se aplica aos pontos finais PublicIpAddress.
+Quando utilizar pontos finais do Azure, o Gestor de tráfego Deteta quando uma aplicação Web é parada e iniciada. Este estado é refletido no estado de ponto final. Ver [monitorização de pontos finais do Gestor de tráfego](traffic-manager-monitoring.md#endpoint-and-profile-status) para obter detalhes. Quando o serviço subjacente está parado, o Gestor de tráfego não efetua as verificações de estado de funcionamento do ponto final ou direcionar o tráfego para o ponto final. Não existem eventos de faturação do Gestor de tráfego ocorrerem para a instância de parado. Quando o serviço é reiniciado, é elegível para receber o tráfego de retoma de faturação e o ponto final. Esta deteção não se aplica aos pontos finais PublicIpAddress.
 
 ## <a name="external-endpoints"></a>Pontos finais externos
 
 Pontos finais externos são utilizados para qualquer um dos endereços IPv4/IPv6, o FQDN, ou para serviços fora do Azure. Uso de pontos finais do endereço IPv4/IPv6 permite tráfego manager verificar o estado de funcionamento dos pontos finais sem a necessidade de um nome DNS para os mesmos. Como resultado, o Gestor de tráfego pode responder a consultas com registos de A/AAAA ao retornar esse ponto final numa resposta. Serviços fora do Azure podem incluir um serviço alojado no local ou com um fornecedor diferente. Pontos finais externos podem ser utilizados individualmente ou combinados com pontos finais do Azure no perfil do Gestor de tráfego do mesmo, exceto para pontos de extremidade especificado como endereços IPv4 ou IPv6, que só podem ser a pontos finais externos. A combinação de pontos finais do Azure com pontos finais externos permite vários cenários:
 
 * Fornece redundância de maior para uma aplicação no local existente em qualquer um de um modelo de ativação pós-falha ativa-ativa ou ativa-passiva com o Azure. 
-* Encaminhar o tráfego para pontos de extremidade que não tem um nome DNS associado a eles. Além disso, diminua a latência de pesquisa DNS global, removendo a necessidade de executar uma segunda consulta DNS para obter um endereço IP de um nome DNS devolvido. 
+* Encaminhar o tráfego para pontos de extremidade que não tem um nome DNS associado a eles. Além disso, diminua a latência de pesquisa DNS global, removendo a necessidade de executar uma segunda consulta DNS para obter um endereço IP de um nome DNS devolvido.
 * Reduzir a latência de aplicação para utilizadores em todo o mundo, expansão de um aplicativo no local existente para as localizações geográficas adicionais no Azure. Para obter mais informações, consulte [Gestor de tráfego "Performance" encaminhamento de tráfego](traffic-manager-routing-methods.md#performance).
 * Fornece capacidade adicional para um existente no local aplicativo, continuamente ou como uma solução de "burst-to-cloud" para satisfazer um pico no pedido com o Azure.
 

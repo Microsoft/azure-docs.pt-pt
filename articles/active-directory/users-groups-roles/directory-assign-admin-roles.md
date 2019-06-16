@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d31bde1a33d622c2c0b7aa716cbbbfbc8ef42ecf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083925"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -91,24 +91,26 @@ As seguintes funções de administrador estão disponíveis:
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Ver todos os dados de auditoria do Intune
   [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas<br>Pode criar e modificar as políticas de ficheiros e permitir ações de governação de ficheiros<br> Pode ver todos os relatórios incorporados sob a gestão de dados
 
-<!--* **[Compliance Data Administrator](#compliance-data-administrator)**: Users with this role have permissions to protect and track data in the Microsoft 365 compliance center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365.
+* **[Administrador de dados de conformidade](#compliance-data-administrator)** : Os utilizadores com esta função têm permissões para proteger e controlar os dados no Centro de conformidade do Microsoft 365, o Centro de administração do Microsoft 365 e do Azure. Os utilizadores também podem gerir todos os recursos no Exchange Centro de administração, Gestor de conformidade e as Equipes e Skype para o Centro de administração de negócios e criar pedidos de suporte para o Azure e o Microsoft 365.
 
-  In | Can do
+  Em | Pode fazer
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
-  [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
--->
-* **[Administrador de acesso condicional](#conditional-access-administrator)** : Os utilizadores com esta função têm a capacidade para gerir as definições de acesso condicional do Azure Active Directory.
+  [Centro de conformidade do Microsoft 365](https://protection.office.com) | Monitorizar as políticas relacionadas com conformidade em todos os serviços do Microsoft 365<br>Gerir alertas de conformidade
+  [Gestor de conformidade](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Controlar, atribuir e verificar suas atividades da organização a conformidade a normas
+  [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir a governação de dados<br>Executar dados de e legais da investigação<br>Gerir pedido do requerente de dados
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Ver todos os dados de auditoria do Intune
+  [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões só de leitura e pode gerir alertas<br>Pode criar e modificar as políticas de ficheiros e permitir ações de governação de ficheiros<br> Pode ver todos os relatórios incorporados sob a gestão de dados
+
+* **[Administrador de acesso condicional](#conditional-access-administrator)** : Os utilizadores com esta função têm a capacidade para gerir as definições do Azure Active Directory condicional acesso.
   > [!NOTE]
   > Para implementar a política de acesso condicional do Exchange ActiveSync no Azure, o utilizador também tem de ser um Administrador Global.
   
 * **[Aprovador de acesso do Cofre de cliente](#customer-lockbox-access-approver)** : Gere [pedidos de cliente cofre](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) na sua organização. Receber notificações por e-mail para pedidos de Cofre de cliente e podem aprovar e negar pedidos a partir do Centro de administração do Microsoft 365. Também pode ativar a funcionalidade de Cofre de cliente ou desativar. Apenas os administradores globais podem repor as palavras-passe de pessoas atribuídas a esta função.
   <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
 
-* **[Administradores de dispositivos](#device-administrators)** : Esta função está disponível para atribuição apenas como um administrador local adicional na [definições do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os utilizadores com esta função tornam-se os administradores do computador local em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivos no Azure Active Directory. 
+* **[Administrador de análise de ambiente de trabalho](#desktop-analytics-administrator)** : Os utilizadores nesta função podem gerir a análise de ambiente de trabalho e os serviços de personalização do Office e a política. Para análise de ambiente de trabalho, isso inclui a capacidade de ver o inventário de ativos, criar planos de implantação, ver o estado de implementação e o estado de funcionamento. Para o serviço de personalização do Office e política, esta função concede aos utilizadores gerir as diretivas do Office.
+
+* **[Administrador de dispositivos](#device-administrators)** : Esta função está disponível para atribuição apenas como um administrador local adicional na [definições do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os utilizadores com esta função tornam-se os administradores do computador local em todos os dispositivos Windows 10 que estão associados ao Azure Active Directory. Não têm a capacidade de gerir objetos de dispositivos no Azure Active Directory. 
 
 * **[Leitores de diretório](#directory-readers)** : Esta é uma função que deve ser atribuída a aplicativos herdados apenas para que não suportam o [consentimento Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Não atribua aos utilizadores.
 
@@ -210,19 +212,20 @@ Além disso, o usuário pode acessar relatórios relacionados com a adoção e a
   [Centro de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações
   [Estado de funcionamento do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Ver o estado de funcionamento dos serviços do Office 365
 
-<!--* **[Security operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management, as well as the ability to read Azure Active Directory sign-in reports and audit logs, and in Office 365 Security & Compliance Center.
+* **[Operador de segurança](#security-operator)** : Os utilizadores com esta função podem gerir alertas e tem acesso só de leitura global na funcionalidade relacionados à segurança, incluindo todas as informações no Centro de segurança do Microsoft 365, Azure Active Directory, Identity Protection, Privileged Identity Management e do Office 365 Centro de conformidade e segurança. Obter mais informações sobre as permissões do Office 365 estão disponíveis em [permissões no Centro de conformidade de segurança do Office 365 e](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
-  In | Can do
+  Em | Pode fazer
   --- | ---
-  [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
-  Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
-  [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
-  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | All permissions of the Security Reader role
-  [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | All permissions of the Security Reader role
-  [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
--->
+  [Centro de segurança do Microsoft 365](https://protection.office.com) | Todas as permissões da função do leitor de segurança<br>Ver, investigar e responder a alertas de ameaças de segurança
+  Centro de proteção de identidade | Todas as permissões da função do leitor de segurança<br>Além disso, a capacidade de executar todas as operações do Centro de proteção de identidade, exceto para repor palavras-passe
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Todas as permissões da função do leitor de segurança
+  [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Todas as permissões da função do leitor de segurança<br>Ver, investigar e responder a alertas de segurança
+  Windows Defender ATP e EDR | Todas as permissões da função do leitor de segurança<br>Ver, investigar e responder a alertas de segurança
+  [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Todas as permissões da função do leitor de segurança
+  [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Todas as permissões da função do leitor de segurança
+  [Estado de funcionamento do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Ver o estado de funcionamento dos serviços do Office 365
+<!--* **[Security Operator](#security-operator)**: Users with this role can manage alerts and have global read-only access on security-related feature, including all information in Microsoft 365 security center, Azure Active Directory, Identity Protection, Privileged Identity Management.-->
+
 * **[Leitor de segurança](#security-reader)** : Os utilizadores com esta função têm acesso só de leitura global na funcionalidade relacionados à segurança, incluindo todas as informações no Microsoft 365 Centro de segurança, Azure Active Directory, Identity Protection, Privileged Identity Management, bem como a capacidade de leitura do Active Directory do Azure Relatórios do início de sessão e registos de auditoria e no Centro de conformidade e segurança do Office 365. Obter mais informações sobre as permissões do Office 365 estão disponíveis em [permissões no Centro de conformidade de segurança do Office 365 e](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
   Em | Pode fazer
@@ -406,22 +409,6 @@ Pode efetuar tarefas de faturação comuns, como atualizar as informações de p
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o estado de funcionamento do serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Office 365. |
 
-### <a name="desktop-analytics-administrator"></a>Administrador de análise de ambiente de trabalho
-Pode gerir a análise de ambiente de trabalho e os serviços de personalização do Office e a política. Para análise de ambiente de trabalho, isso inclui a capacidade de ver o inventário de ativos, criar planos de implantação, ver o estado de implementação e o estado de funcionamento. Para o serviço de personalização do Office e política, esta função concede aos utilizadores gerir as diretivas do Office.
-
-  > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
-  >
-  >
-
-| **Ações** | **Descrição** |
-| --- | --- |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
-| microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerir todos os aspetos da análise de ambiente de trabalho. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o estado de funcionamento do serviço do Office 365. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Office 365. |
 
 ### <a name="cloud-application-administrator"></a>Administrador da aplicação cloud
 Pode criar e gerir todos os aspetos de registos de aplicações e aplicações empresariais, exceto o Proxy de aplicações.
@@ -565,6 +552,28 @@ Pode ler e gerir configurações de conformidade e relatórios no Azure AD e o O
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerir todos os aspetos do Skype para empresas Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Office 365. |
 
+### <a name="compliance-data-administrator"></a>Administrador de dados de conformidade
+Cria e gere o conteúdo de conformidade.
+
+  > [!NOTE]
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Ler e configurar o Microsoft Cloud App Security. |
+| microsoft.azure.informationProtection/allEntities/allTasks | Gerir todos os aspetos do Azure Information Protection. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
+| microsoft.office365.complianceManager/allEntities/allTasks | Gerir todos os aspectos do Gestor de conformidade do Office 365 |
+| microsoft.office365.exchange/allEntities/allTasks | Gerir todos os aspetos do Exchange Online. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o estado de funcionamento do serviço do Office 365. |
+| microsoft.office365.sharepoint/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize propriedades padrão no microsoft.office365.sharepoint. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerir todos os aspetos do Skype para empresas Online. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Office 365. |
+
 ### <a name="conditional-access-administrator"></a>Administrador de Acesso Condicional
 Pode gerir capacidades de acesso condicional.
 
@@ -608,6 +617,23 @@ Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizaciona
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
 | microsoft.office365.lockbox/allEntities/allTasks | Gerir todos os aspectos do Cofre de cliente do Office 365 |
+
+### <a name="desktop-analytics-administrator"></a>Administrador de análise de ambiente de trabalho
+Pode gerir a análise de ambiente de trabalho e os serviços de personalização do Office e a política. Para análise de ambiente de trabalho, isso inclui a capacidade de ver o inventário de ativos, criar planos de implantação, ver o estado de implementação e o estado de funcionamento. Para o serviço de personalização do Office e política, esta função concede aos utilizadores gerir as diretivas do Office.
+
+  > [!NOTE]
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerir todos os aspetos da análise de ambiente de trabalho. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o estado de funcionamento do serviço do Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Office 365. |
 
 ### <a name="device-administrators"></a>Administradores de dispositivos
 Os utilizadores atribuídos a esta função são adicionados ao grupo Administradores local em dispositivos associados ao AD Azure.
@@ -1081,6 +1107,25 @@ Pode ler as informações de segurança e de relatórios e gerir a configuraçã
 | microsoft.office365.protectionCenter/allEntities/update | Atualize todos os recursos no microsoft.office365.protectionCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o estado de funcionamento do serviço do Office 365. |
 
+### <a name="security-operator"></a>Operador de segurança
+Cria e gere eventos de segurança.
+
+  > [!NOTE]
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Ler e configurar o Microsoft Cloud App Security. |
+| microsoft.aad.identityProtection/allEntities/read | Ler todos os recursos no microsoft.aad.identityProtection. |
+| microsoft.aad.privilegedIdentityManagement/allEntities/read | Ler todos os recursos no microsoft.aad.privilegedIdentityManagement. |
+| microsoft.azure.advancedThreatProtection/allEntities/read | Leia e configure a proteção de ameaças avançada do Azure AD. |
+| microsoft.intune/allEntities/allTasks | Gerir todos os aspetos do Intune. |
+| microsoft.office365.securityComplianceCenter/allEntities/allTasks | Ler e configurar o Centro de conformidade e segurança. |
+| microsoft.office365.usageReports/allEntities/read | Relatórios de utilização de leitura Office 365. |
+| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Leia e configure a proteção de ameaças avançada do Windows Defender. |
+
 ### <a name="security-reader"></a>Leitor de segurança
 Pode ler as informações de segurança e relatórios no Azure AD e o Office 365.
 
@@ -1261,14 +1306,15 @@ Administrador de Atributos de Fluxo de Utilizadores B2C | Administrador de Atrib
 Administrador de Conjuntos de Chaves B2C IEF | Administrador de Conjuntos de Chaves B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
 Administrador de Políticas B2C IEF | Administrador de Políticas B2C IEF | 3edaf663-341e-4475-9f94-5c398ef6c070
 Administrador de faturação | Administrador de faturação | b0f54661-2d74-4c50-afa3-1ec803f12efe
-Administrador de análise de ambiente de trabalho | Administrador de análise de ambiente de trabalho | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Administrador da aplicação cloud | Administrador da aplicação cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
 Administrador de dispositivos de cloud | Administrador de dispositivos de cloud | 7698a772-787b-4ac8-901f-60d6b08affd2
 Administrador de Empresa | Administrador global | 62e90394-69f5-4237-9190-012177145e10
 Administrador de conformidade | Administrador de conformidade | 17315797-102d-40b4-93e0-432062caca18
+Administrador de dados de conformidade | Administrador de dados de conformidade | e6d1a23a-da11-4be4-9570-befc86d067a7
 Administrador de Acesso Condicional | Administrador de acesso condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 Administrador de serviço CRM | Administrador do Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
 Aprovador de acesso ao Cofre de cliente | Aprovador de acesso do Cofre de cliente | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
+Administrador de análise de ambiente de trabalho | Administrador de análise de ambiente de trabalho | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Administradores de dispositivos | Administradores de dispositivos | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Associação de dispositivo | Associação de dispositivo | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Gestores de dispositivos | Gestores de dispositivos | 2b499bcd-da44-4968-8aec-78e1674fa64d
@@ -1295,6 +1341,7 @@ Leitor de relatórios | Leitor de relatórios | 4a5d8f65-41da-4de4-8968-e035b653
 Administrador de pesquisa | Administrador de pesquisa | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
 Editor de pesquisa | Editor de pesquisa | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Administrador de Segurança | Administrador de segurança | 194ae4cb-b126-40b2-bd5b-6091b380977d
+Operador de segurança | Operador de segurança | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Leitor de segurança | Leitor de segurança | 5d6b6bb7-de71-4623-b4af-96380a352509
 Administrador de assistência técnica | Administrador de serviço | f023fd81-a637-4b56-95fd-791ac0226033
 Administrador de serviços do SharePoint | Administrador do SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c

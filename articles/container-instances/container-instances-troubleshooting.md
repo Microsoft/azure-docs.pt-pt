@@ -10,10 +10,10 @@ ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65070857"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
@@ -24,11 +24,11 @@ Este artigo mostra como resolver problemas comuns de gestão ou implementar cont
 
 Ao definir sua especificação de contentor, determinados parâmetros requerem o cumprimento das restrições de nomenclatura. Segue-se uma tabela com requisitos específicos para o contentor de propriedades do grupo. Para obter mais informações sobre as convenções de nomenclatura do Azure, consulte [convenções de nomenclatura] [ azure-name-restrictions] no Centro de arquitetura do Azure.
 
-| Âmbito | Comprimento | Maiúsculas e Minúsculas | Carateres válidos | Padrão sugerido | Exemplo |
+| Scope | Comprimento | Maiúsculas e Minúsculas | Carateres válidos | Padrão sugerido | Exemplo |
 | --- | --- | --- | --- | --- | --- |
 | Nome do grupo de contentor | 1-64 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caráter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome do contentor | 1-64 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caráter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Portas de contentores | Entre 1 e 65535 |Número inteiro |Número inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Portas de contentores | Entre 1 e 65535 |Integer |Número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Etiqueta de nome DNS | 5-63 |Não sensível a maiúsculas e minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caráter |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não sensível a maiúsculas e minúsculas |Alfanumérico e o caráter de sublinhado (_) em qualquer lugar, exceto o primeiro ou último caráter |`<name>` |`MY_VARIABLE` |
 | Nome do volume | 5-63 |Não sensível a maiúsculas e minúsculas |Letras minúsculas e números e hífenes em qualquer lugar, exceto o primeiro ou último caráter. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |

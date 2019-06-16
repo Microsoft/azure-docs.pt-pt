@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
-ms.openlocfilehash: c1b8f711a6984a6134e6df0ae6ae12bf0b62cc0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: a9ce3d67d0a394e583d7b512f74cbd2d0c61c22f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060585"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Criar cluster do Apache Kafka no HDInsight do Azure com o modelo do Resource Manager
 
 [Apache Kafka](https://kafka.apache.org/) é uma plataforma de transmissão em fluxo distribuída e de código-fonte aberto. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
@@ -27,9 +27,9 @@ Neste guia de início rápido, irá saber como criar um cluster do [Apache Kafka
 >
 > Para obter mais informações, veja o documento [Ligar ao Apache Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cliente SSH. Os passos neste documento utilizam SSH para se ligar ao cluster.
 

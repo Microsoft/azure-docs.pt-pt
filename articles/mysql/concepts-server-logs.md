@@ -1,25 +1,25 @@
 ---
 title: Registos do servidor da base de dados do Azure para MySQL
-description: Descreve os registos disponíveis no banco de dados do Azure para MySQL e os parâmetros disponíveis para ativar os níveis de registo diferente.
+description: Descreve os registos de consulta lenta disponíveis no banco de dados do Azure para MySQL e os parâmetros disponíveis para ativar os níveis de registo diferente.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: 1a8956d40ef30e8d52fbdded3448019e14ab16a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062399"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Registos do servidor na base de dados do Azure para MySQL
-Na base de dados do Azure para MySQL, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas. 
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consulta lenta na base de dados do Azure para MySQL
+Na base de dados do Azure para MySQL, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas.
 
 Para obter mais informações sobre o registo de consulta lenta MySQL, consulte o manual de referência de MySQL [lento secção de registo de consulta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 
-## <a name="access-server-logs"></a>Aceder a registos do servidor
-Pode listar e transferir a base de dados do Azure para os registos do servidor MySQL com o portal do Azure e a CLI do Azure.
+## <a name="access-slow-query-logs"></a>Aceder aos registos de consulta lenta
+Pode listar e transferir a base de dados do Azure para os registos de consulta lenta MySQL com o portal do Azure e a CLI do Azure.
 
 No portal do Azure, selecione a base de dados do Azure para o servidor MySQL. Sob o **monitorização** cabeçalho, selecione a **os registos do servidor** página.
 
@@ -30,8 +30,7 @@ Os registos estão disponíveis até sete dias desde a sua criação. Se o taman
 
 Os registos são revezados cada 24 horas ou 7 GB, o que ocorrer primeiro.
 
-
-## <a name="configure-logging"></a>Configurar o registo 
+## <a name="configure-slow-query-logging"></a>Configurar o registo de consulta lenta 
 Por predefinição, o registo de consulta lenta está desativado. Para ativá-lo, defina slow_query_log on.
 
 Outros parâmetros que pode ajustar incluem:
@@ -73,10 +72,10 @@ A tabela seguinte descreve as novidades em cada registo. Dependendo do método d
 | `rows_sent_s` | Número de linhas enviados |
 | `rows_examined_s` | Número de linhas examinado |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| `insert_id_s` | Inserir id |
+| `insert_id_s` | Inserir ID |
 | `sql_text_s` | Consulta completa |
-| `server_id_s` | Id do servidor |
-| `thread_id_s` | Id do thread |
+| `server_id_s` | ID do servidor |
+| `thread_id_s` | ID do thread |
 | `\_ResourceId` | URI do recurso |
 
 ## <a name="next-steps"></a>Próximos Passos

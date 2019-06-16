@@ -9,17 +9,17 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dd073d040e6e7f149109c9988580dcd889f7c62f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65160144"
 ---
 # <a name="activity-management-overview"></a>Descrição geral da gestão de atividade
 
 CloudSimple controla todas as atividades que podem afetar o funcionamento das nuvens privadas. Essas atividades, incluindo alertas, eventos, tarefas e atividade de auditoria. O [páginas de atividade](https://docs.azure.cloudsimple.com/activity/) resumir toda a atividade atual e permitem-lhe desagregar para obter mais detalhes.
 
-## <a name="events"></a>Eventos
+## <a name="events"></a>Events
 
 Eventos de controlam a atividade do sistema e de utilizador no portal do CloudSimple.  Eventos mostram a atividade associada um recurso específico e a gravidade do impacto.  Pode ver os eventos a partir do portal do CloudSimple.
 

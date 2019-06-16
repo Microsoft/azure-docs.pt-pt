@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a0581ef43e8a3c02126612a21122db559a941370
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058166"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação após desastre do Service Bus Geo do Azure
 
@@ -102,7 +102,7 @@ Se tiver efetuado um erro; Por exemplo, emparelhado as regiões de errado durant
 
 Se tiver um cenário em que não é possível alterar as ligações de produtores e consumidores, é possível reutilizar o seu espaço de nomes como o nome de alias. Consulte a [exemplo de código no GitHub aqui](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
-## <a name="samples"></a>Amostras
+## <a name="samples"></a>Exemplos
 
 O [exemplos no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) mostram como configurar e iniciar uma ativação pós-falha. Estes exemplos demonstram os seguintes conceitos:
 
@@ -120,7 +120,7 @@ Tenha em atenção as seguintes considerações a ter em conta com esta versão:
 
 2. O fato de que não existem dados são replicados significa que atualmente sessões ativas não são replicadas. Além disso, deteção de duplicados e de mensagens agendadas poderão não funcionar. Novas sessões, novas mensagens agendadas e duplicados novo irão funcionar. 
 
-3. Realizar a ativação pós-falha de uma infraestrutura distribuída complexa deve estar [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) , pelo menos, uma vez.
+3. Realizar a ativação pós-falha de uma infraestrutura distribuída complexa deve estar [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) , pelo menos, uma vez.
 
 4. Sincronização de entidades pode demorar algum tempo, aproximadamente 50 a 100 entidades por minuto. As assinaturas e regras também contam como entidades.
 

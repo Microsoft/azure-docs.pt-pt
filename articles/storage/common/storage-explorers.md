@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65138561"
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
@@ -26,13 +26,13 @@ Fornecemos apenas um instantâneo das ferramentas de cliente de armazenamento do
 <table>
   <tr>
     <th rowspan="2">Ferramenta de cliente de armazenamento do Azure</th>
-    <th rowspan="2">Blob de Blocos</th>
-    <th rowspan="2">Blob de Página</th>
-    <th rowspan="2">Acrescentar Blob</th>
+    <th rowspan="2">Blob de blocos</th>
+    <th rowspan="2">BLOBs de páginas</th>
+    <th rowspan="2">Blob de acréscimo</th>
     <th rowspan="2">Tabelas</th>
     <th rowspan="2">Filas</th>
     <th rowspan="2">Ficheiros</th>
-    <th rowspan="2">Gratuito</th>
+    <th rowspan="2">Livre</th>
     <th colspan="4">Plataforma</th>
   </tr>
   <tr>
@@ -92,13 +92,13 @@ Não podemos ter verificado a funcionalidade ou qualidade reclamadas pelos segui
 <table>
   <tr>
     <th rowspan="2">Ferramenta de cliente de armazenamento do Azure</th>
-    <th rowspan="2">Blob de Blocos</th>
-    <th rowspan="2">Blob de Página</th>
-    <th rowspan="2">Acrescentar Blob</th>
+    <th rowspan="2">Blob de blocos</th>
+    <th rowspan="2">BLOBs de páginas</th>
+    <th rowspan="2">Blob de acréscimo</th>
     <th rowspan="2">Tabelas</th>
     <th rowspan="2">Filas</th>
     <th rowspan="2">Ficheiros</th>
-    <th rowspan="2">Gratuito</th>
+    <th rowspan="2">Livre</th>
     <th colspan="4">Plataforma</th>
   </tr>
   <tr>

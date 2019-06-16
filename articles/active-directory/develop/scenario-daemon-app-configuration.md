@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8d377db827a6548c380128624c21f4ae7896aff
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075329"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055763"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicação de daemon que chamadas de web APIs - configuração de código
 
@@ -39,9 +39,11 @@ As bibliotecas da Microsoft que suporta aplicações daemon são:
 
 ## <a name="configuration-of-the-authority"></a>Configuração da autoridade de
 
-Uma vez que os aplicativos de daemon não utilizam permissões delegadas, mas as permissões de aplicação, seus *tipo de conta suportado* não pode ser *(de contas Microsoft pessoa e de contas em qualquer diretório organizacional Por exemplo, o Skype, Xbox, Outlook.com)*. Na verdade, não há nenhum administrador de inquilino para conceder o consentimento para a aplicação de daemon de contas pessoais da Microsoft. Precisará escolher *contas na minha organização* ou *contas em qualquer organização*.
+Uma vez que os aplicativos de daemon não utilizam permissões delegadas, mas as permissões de aplicação, seus *tipo de conta suportado* não pode ser *(de contas Microsoft pessoa e de contas em qualquer diretório organizacional Por exemplo, o Skype, Xbox, Outlook.com)* . Na verdade, não há nenhum administrador de inquilino para conceder o consentimento para a aplicação de daemon de contas pessoais da Microsoft. Precisará escolher *contas na minha organização* ou *contas em qualquer organização*.
 
-Portanto, a autoridade especificada na configuração da aplicação deve ser inquilino-ed (especificar um ID de inquilino ou um nome de domínio associados com a sua organização). Se for um ISV e pretende fornecer uma ferramenta de multi-inquilino, pode utilizar `organizations`. Mas tenha em atenção que também será necessário explicar aos seus clientes, como pode conceder o consentimento de administrador. Ver [pedir consentimento para um inquilino todo](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) para obter detalhes
+Portanto, a autoridade especificada na configuração da aplicação deve ser inquilino-ed (especificar um ID de inquilino ou um nome de domínio associados com a sua organização).
+
+Se for um ISV e pretende fornecer uma ferramenta de multi-inquilino, pode utilizar `organizations`. Mas tenha em atenção que também será necessário explicar aos seus clientes, como pode conceder o consentimento de administrador. Ver [pedir consentimento para um inquilino todo](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) para obter detalhes. Também existe atualmente uma limitação no MSAL que `organizations` só é permitida quando as credenciais de cliente são um segredo de aplicação (não um certificado). Consulte [MSAL.NET bug #891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>Configuração da aplicação e a instanciação
 

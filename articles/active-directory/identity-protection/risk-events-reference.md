@@ -17,10 +17,10 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65191530"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referência de eventos de risco do Azure Active Directory Identity Protection
@@ -28,7 +28,7 @@ ms.locfileid: "65191530"
 A grande maioria das falhas de segurança ocorrem quando os atacantes obtêm acesso a um ambiente, por roubo de identidade de um utilizador. Detetar identidades comprometidas não é tarefa fácil. O Azure Active Directory utiliza algoritmos de aprendizagem automática adaptáveis e heurística para detetar as ações suspeitas relacionadas com as contas de utilizador. Cada detetado, ação suspeita é armazenada num evento de risco de chamada de registo.
 
 
-## <a name="anonymous-ip-address"></a>Endereços IP anónimos
+## <a name="anonymous-ip-address"></a>Endereço IP anónimo
 
 **Tipo de Deteção:** Em tempo real  
 **Nome antigo:** Inícios de sessão de endereço IP anónimo
@@ -38,7 +38,7 @@ Esse tipo de evento de risco indica inícios de sessão de um endereço IP anón
 Estes endereços IP são normalmente utilizados por atores que pretendem ocultar sua telemetria de início de sessão (endereço IP, localização, dispositivo, etc.) para potencialmente mal-intencionados.
 
 
-## <a name="atypical-travel"></a>Percurso atípico
+## <a name="atypical-travel"></a>Viagens atípica
 
 **Tipo de Deteção:** Offline  
 **Nome antigo:** Deslocação impossível para localizações atípicas
@@ -69,7 +69,7 @@ Quando cybercriminals comprometer válidas palavras-passe de utilizadores legít
 Quando o serviço de adquire as credenciais de utilizador da dark web, sites de colar ou as origens de acima, eles são verificados relativamente credenciais válidas atual dos utilizadores do Azure AD para localizar correspondências válidas.
 
 
-## <a name="malware-linked-ip-address"></a>Endereço IP ligado a software maligno
+## <a name="malware-linked-ip-address"></a>Software maligno ligado o endereço IP
 
 **Tipo de Deteção:** Offline  
 **Nome antigo:** Inícios de sessão de dispositivos infetados
@@ -78,7 +78,7 @@ Quando o serviço de adquire as credenciais de utilizador da dark web, sites de 
 Esse tipo de evento de risco indica inícios de sessão de endereços IP infetados com software maligno que conhece ativamente a comunicar com um servidor de bot. Tal é determinado ao correlacionar endereços IP do dispositivo do utilizador em relação a endereços IP que estavam em contacto com um servidor de bot, enquanto o servidor de bot ter estado ativo.
 
 
-## <a name="unfamiliar-sign-in-properties"></a>Propriedades de início de sessão não familiar
+## <a name="unfamiliar-sign-in-properties"></a>Propriedades de início de sessão não familiares
 
 **Tipo de Deteção:** Em tempo real  
 **Nome antigo:** Inícios de sessão de localizações desconhecidas

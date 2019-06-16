@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 04/22/2018
 ms.author: yegu
 ms.openlocfilehash: a93d21b07dc486f743694ee99f60018ed4ef517c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943862"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Fornecedor de Cache de saída do ASP.NET para a Cache do Azure para Redis
@@ -59,7 +59,7 @@ O pacote NuGet transfere e adiciona as referências de assemblagem necessárias 
 
 Configurar os atributos com os valores do seu painel de cache no portal do Microsoft Azure e configure os outros valores conforme pretendido. Para obter instruções sobre como acessar as propriedades de seu cache, consulte [configurar a Cache do Azure para as definições de Redis](cache-configure.md#configure-azure-cache-for-redis-settings).
 
-| Atributo | Type | Predefinição | Descrição |
+| Atributo | Tipo | Predefinição | Descrição |
 | --------- | ---- | ------- | ----------- |
 | *host* | string | "localhost" | O Redis IP endereço ou anfitrião nome do servidor |
 | *port* | número inteiro positivo | 6379 (non-SSL)<br/>6380 (SSL) | Porta do servidor de redis |

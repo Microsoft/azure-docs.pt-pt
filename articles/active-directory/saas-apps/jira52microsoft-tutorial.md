@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 003666d5bb3c309e501bcf76a15beb47340f9150
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d3b304bb35ea69906fc9576f45733134387be1b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708749"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099521"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Active Directory do Azure com o JIRA SAML SSO pela Microsoft (V5.2)
 
@@ -80,7 +80,7 @@ Para configurar a integração do JIRA SAML SSO pela Microsoft (V5.2) para o Azu
 
 **Para adicionar JIRA SAML SSO pela Microsoft (V5.2) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -92,7 +92,7 @@ Para configurar a integração do JIRA SAML SSO pela Microsoft (V5.2) para o Azu
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **JIRA SAML SSO pela Microsoft (V5.2)**, selecione **JIRA SAML SSO pela Microsoft (V5.2)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **JIRA SAML SSO pela Microsoft (V5.2)** , selecione **JIRA SAML SSO pela Microsoft (V5.2)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
     ![JIRA SAML SSO pela Microsoft (V5.2) na lista de resultados](common/search-new-app.png)
 
@@ -224,11 +224,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso ao JIRA SAML SSO pela Microsoft (V5.2).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **JIRA SAML SSO pela Microsoft (V5.2)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **JIRA SAML SSO pela Microsoft (V5.2)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **JIRA SAML SSO pela Microsoft (V5.2)**.
+2. Na lista de aplicações, selecione **JIRA SAML SSO pela Microsoft (V5.2)** .
 
     ![O JIRA SAML SSO pela Microsoft (V5.2) de ligação na lista de aplicações](common/all-applications.png)
 

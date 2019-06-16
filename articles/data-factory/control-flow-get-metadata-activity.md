@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: jingwang
 ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61346918"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Atividade obter metadados da fábrica de dados do Azure
@@ -43,10 +43,10 @@ A atividade GetMetadata usa um conjunto de dados como entrada necessária e apre
 
 **Armazenamento de ficheiros:**
 
-| Conector/metadados | itemName<br>(ficheiro/pasta) | itemType<br>(ficheiro/pasta) | tamanho<br>(ficheiro) | criado<br>(ficheiro/pasta) | lastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | estrutura<br/>(ficheiro) | columnCount<br>(ficheiro) | Existe<br>(ficheiro/pasta) |
+| Conector/metadados | itemName<br>(ficheiro/pasta) | itemType<br>(ficheiro/pasta) | size<br>(ficheiro) | Criado<br>(ficheiro/pasta) | lastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | structure<br/>(ficheiro) | columnCount<br>(ficheiro) | Existe<br>(ficheiro/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Armazenamento na Cloud do Google | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Blob do Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Armazenamento do Azure Data Lake Ger1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Armazenamento do Azure Data Lake Ger2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
@@ -60,7 +60,7 @@ A atividade GetMetadata usa um conjunto de dados como entrada necessária e apre
 
 **Base de dados relacional:**
 
-| Conector/metadados | estrutura | columnCount | Existe |
+| Conector/metadados | structure | columnCount | Existe |
 |:--- |:--- |:--- |:--- |
 | Base de Dados SQL do Azure | √ | √ | √ |
 | Instância Gerida da Base de Dados SQL do Azure | √ | √ | √ |
@@ -75,12 +75,12 @@ Os seguintes tipos de metadados podem ser especificados na lista de campos de at
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
 | itemType | Tipo de ficheiro ou pasta. Valor de saída é `File` ou `Folder`. |
-| tamanho | Tamanho do ficheiro em bytes. Aplicável a apenas de ficheiros. |
-| criado | Datetime de criação do ficheiro ou pasta. |
+| size | Tamanho do ficheiro em bytes. Aplicável a apenas de ficheiros. |
+| Criado | Datetime de criação do ficheiro ou pasta. |
 | lastModified | Última modificação datetime do ficheiro ou pasta. |
 | childItems | Lista de subpastas e ficheiros dentro da pasta especificada. Aplicável apenas a pasta. Valor de saída é uma lista de nome e tipo de cada item subordinado. |
 | contentMD5 | MD5 do ficheiro. Aplicável a apenas de ficheiros. |
-| estrutura | Estrutura de dados dentro do ficheiro ou uma tabela de base de dados relacional. Valor de saída é uma lista de nome de coluna e o tipo de coluna. |
+| structure | Estrutura de dados dentro do ficheiro ou uma tabela de base de dados relacional. Valor de saída é uma lista de nome de coluna e o tipo de coluna. |
 | columnCount | Número de colunas no interior do ficheiro ou uma tabela relacional. |
 | Existe| Se um ficheiro/pasta/tabela já existe ou não. Tenha em atenção que "existe" seja especificado na lista de campos de GetaMetadata, a atividade não falha, mesmo quando o item (ficheiro/pasta/tabela) não existe; em vez disso, ele retorna `exists: false` na saída. |
 

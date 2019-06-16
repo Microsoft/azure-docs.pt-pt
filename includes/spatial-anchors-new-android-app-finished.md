@@ -7,11 +7,11 @@ ms.topic: include
 ms.author: rgarcia
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: fcc6c10419b46d31fde20001fefccb32b7a421ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60786404"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67135188"
 ---
 ## <a name="putting-everything-together"></a>Colocando tudo junto
 

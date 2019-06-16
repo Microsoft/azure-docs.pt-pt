@@ -2,20 +2,20 @@
 title: Métricas e alertas no Gestor de tráfego do Azure
 description: Este artigo descreve as métricas disponíveis para o Gestor de tráfego no Azure.
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
-ms.author: kumud
-ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: e689398a38030a712ec6beb651131d0424e44476
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330080"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071126"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>O Gestor de tráfego métricas e alertas
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b45c88ddf3e4a5781e48641d26a9487e5861880c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5f083178ca7e28831bf4f60940c3ced73a427dda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890028"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Active Directory do Azure com RightAnswers
 
@@ -53,7 +53,7 @@ Para configurar a integração do RightAnswers com o Azure AD, terá de adiciona
 
 **Para adicionar RightAnswers a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -193,7 +193,7 @@ Os utilizadores são criados automaticamente se for necessário durante a primei
 > [!NOTE]
 > Pode utilizar quaisquer outras RightAnswers utilizador conta criação ferramentas ou APIs fornecidas pelo RightAnswers para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

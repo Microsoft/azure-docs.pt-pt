@@ -17,19 +17,19 @@ ms.date: 06/27/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294383"
+ms.locfileid: "67108832"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook do Azure Active Directory Identity Protection
 
 Este playbook ajuda-o a:
 
 * Preencher os dados no ambiente do Identity Protection ao simular eventos de risco e vulnerabilidades
-* Definir políticas de acesso condicional baseado no risco e teste o impacto destas políticas
+* Configurar políticas de acesso condicional com base no risco e teste o impacto destas políticas
 
 
 ## <a name="simulating-risk-events"></a>Simular eventos de risco
@@ -135,7 +135,7 @@ Para obter mais informações, veja [Como configurar a política de risco de uti
 6. Eleve o risco de utilizador de uma conta de teste por, por exemplo, simulando um dos eventos de risco algumas vezes.
 7. Aguarde alguns minutos e, em seguida, certifique-se de que o nível de usuário para o utilizador é médio. Caso contrário, simular mais eventos de risco para o utilizador.
 8. Como **impor a política**, selecione **no**.
-9. Agora pode testar o acesso de condicional baseado no risco de utilizador ao iniciar sessão com um utilizador com um nível de risco elevado.
+9. Pode testar utilizador acesso condicional com base no risco ao iniciar sessão com um utilizador com um nível de risco elevado.
     
     
 

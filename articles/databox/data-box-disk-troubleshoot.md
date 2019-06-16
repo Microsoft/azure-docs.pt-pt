@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/2/2019
 ms.author: alkohli
 ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939630"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Resolver problemas no disco do Azure Data Box

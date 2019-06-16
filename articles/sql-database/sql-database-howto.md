@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd2406bb4825ac295a6f9a3a18ba466cdc20c55d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120864"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Como utilizar a base de dados do Azure SQL
 

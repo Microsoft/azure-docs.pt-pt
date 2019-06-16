@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b0cd88cbb3729a3e81aeb5d6f43f417c8cb2f17
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64682771"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -34,7 +34,7 @@ Extensão de DSCForLinux é publicado e suportado pela Microsoft. A extensão in
 - Instalar módulos personalizados do DSC à VM do Linux (instalar ExtensionAction)
 - Remover módulos personalizados do DSC à VM do Linux (remover ExtensionAction)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Extensão de DSCForLinux é publicado e suportado pela Microsoft. A extensão in
 
 A extensão DSC Linux oferece suporte a todos os [distribuições do Linux apoiadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , exceto:
 
-| Distribuição | Versão |
+| Distribuição | Version |
 |---|---|
 | Debian | Todas as versões |
 | Ubuntu| 18.04 |
@@ -419,7 +419,7 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Código do erro: 51 representa distro não suportada ou ação de extensão não suportado.
+Código de erro: 51 representa distro não suportada ou ação de extensão não suportado.
 Em alguns casos, o Linux DSC extensão não consegue instalar OMI, quando uma versão posterior da OMI é já existe na máquina. [resposta de erro: (000003) Mudança para versão anterior não permitida]
 
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4d8d34d8dec52dd9173cea80c39097f46d32bff5
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: bb99a3c063f69aa5aeb00efdb51319a53d05b2d1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735485"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067611"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Pedido de dados em tempo real com o serviço de mobilidade do Azure Maps
 
@@ -115,9 +115,9 @@ Vamos usar "522" como nosso metro ID, que é o metro parar o ID de área "Seattl
     }
 
 
-## Real-time availability and vacancy information for bike docking station
+## Real-time data for bike docking station
 
-The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes. 
+The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information such as availability and vacancy information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes.
 
 In order to make a request to the Get Transit Dock Info API, you will need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) and setting the **objectType** parameter to "bikeDock". Follow the steps below to get real-time data of a docking station for bikes.
 

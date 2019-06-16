@@ -6,21 +6,19 @@ ms.reviewer: jasonh
 keywords: apache storm use cases,storm cluster,what is apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/24/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 97083142066e59acbefe60181743e5aa32541bac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115830"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
 O [Apache Storm](https://storm.apache.org/) é um sistema de computação distribuído com tolerância a falhas e de código aberto. Pode utilizar o Storm para processar fluxos de dados em tempo real com [Apache Hadoop](https://hadoop.apache.org/). As soluções do Storm também podem fornecer processamento garantido de dados, dada a capacidade de reprodução de dados que não foram processados com êxito à primeira vez.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>Porquê utilizar o Apache Storm no HDInsight?
 
@@ -38,8 +36,7 @@ O Storm no HDInsight oferece as funcionalidades seguintes:
 
 * **Dimensionamento dinâmico**: Pode adicionar ou remover nós de trabalho sem qualquer impacto nas topologias Storm em execução.
 
-    > [!NOTE]  
-    > Tem de desativar e reativar as topologias em execução para tirar partido de novos nós adicionados através de operações de dimensionamento.
+    * Tem de desativar e reativar as topologias em execução para tirar partido de novos nós adicionados através de operações de dimensionamento.
 
 * **Criar pipelines de transmissão em fluxo com vários serviços do Azure**: O Storm no HDInsight integra-se com outros serviços do Azure, como os Hubs de eventos, base de dados SQL, armazenamento do Azure e armazenamento do Azure Data Lake.
 
@@ -149,7 +146,9 @@ O modo como os fluxos de dados são associados varia consoante as aplicações. 
 
 No exemplo de Java a seguir, utiliza-se fieldsGrouping para encaminhar cadeias de identificação que têm origem nos componentes "1", "2" e "3" para o bolt MyJoiner:
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### <a name="batches"></a>Lotes
 

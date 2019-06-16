@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61342137"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar vistas personalizadas com o estruturador de vistas no Azure Monitor
@@ -105,7 +105,7 @@ As opções para trabalhar com modos de exibição no modo de edição são desc
 |:--|:--|
 | Guardar        | Guarda as alterações e fecha o modo de exibição. |
 | Cancelar      | Elimina as suas alterações e fecha o modo de exibição. |
-| Eliminar Vista | Elimina a vista. |
+| Eliminar vista | Elimina a vista. |
 | Exportar      | Exporta a exibição para um [modelo Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que pode importar para outra área de trabalho. O nome do ficheiro é o nome da vista e tem um *omsview* extensão. |
 | Importar      | Importa os *omsview* ficheiro que exportou a partir da outra área de trabalho. Esta ação substitui a configuração da vista existente. |
 | Clone       | Cria uma nova vista e abre-a no estruturador de vistas. O nome do novo modo de exibição é o mesmo que o nome original, mas com *cópia* acrescentado. |

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 754722508de248294667ee9e923e8faf3ad67f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236280"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Busca de ameaças com sentinela na pré-visualização no Azure
@@ -68,7 +68,7 @@ Com sorte sentinela do Azure, pode tirar partido dos recursos a seguir:
 
  
 
-## <a name="query-language"></a>Linguagem de consulta 
+## <a name="query-language"></a>Linguagem da consulta 
 
 Arquivo terá no Azure sentinela baseia-se a linguagem de consulta do Log Analytics do Azure. Para obter mais informações sobre a linguagem de consulta e os operadores suportados, consulte [referência de linguagem de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
 

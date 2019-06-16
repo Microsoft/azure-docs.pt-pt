@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988e8982b6f06fb1210330c5cafdb696892794fe
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113388"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure multi-factor Authentication
 

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 73aab0750d97981d6684d04415683435bbd28797
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: be00f8338430452faa8bd5a20d9e2ddfcbb9d09d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980419"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64701302"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-powershell"></a>Alterar o disco do SO utilizado por uma VM do Azure com o PowerShell
 
 Se tiver uma VM existente, mas pretende trocar o disco para um disco de cópia de segurança ou de outro disco do SO, pode utilizar o Azure PowerShell para trocar os discos de SO. Não tem de eliminar e recriar a VM. Pode usar um disco gerido outro grupo de recursos,, desde que ainda não estiver em utilização.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 A VM tem de ser stopped\deallocated, em seguida, o ID de recurso do disco gerido pode ser substituído com o ID de recurso de um disco gerido diferente.
 
