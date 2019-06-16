@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60450748"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorizar e gerir recursos do SharePoint com o Azure Logic Apps
@@ -70,7 +70,7 @@ Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Log
    Abaixo da lista de ações, selecione a ação que pretende.
 
    Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
 1. Quando lhe for pedido para iniciar sessão, forneça as informações de ligação necessárias. Se estiver a utilizar o SharePoint Server, certifique-se de que seleciona **ligar através do gateway de dados no local**. Quando tiver terminado, escolha **Create** (Criar).
 

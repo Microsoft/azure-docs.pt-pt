@@ -9,10 +9,10 @@ ms.date: 05/30/2019
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 0e8cb18b3ea4b01db6b373ebbcb55c1e17614319
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399157"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Trocar a preferência de API para os Alertas de Registos

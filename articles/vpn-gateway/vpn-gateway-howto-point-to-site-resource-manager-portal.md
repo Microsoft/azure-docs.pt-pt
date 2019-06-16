@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 5/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157397"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: Portal do Azure
@@ -37,7 +37,7 @@ Pode utilizar os valores seguintes para criar um ambiente de teste ou consultá-
 
 * **Nome da VNet:** VNet1
 * **Espaço de endereços:** 192.168.0.0/16<br>Para este exemplo, utilizamos apenas um espaço de endereços. Pode ter mais do que um espaço de endereços para a sua VNet.
-* **Nome da sub-rede:** Front-End
+* **Nome da sub-rede:** FrontEnd
 * **Intervalo de endereços da sub-rede:** 192.168.1.0/24
 * **Subscrição:** Se tiver mais de uma subscrição, certifique-se de que está a utilizar correta.
 * **Grupo de recursos:** TestRG

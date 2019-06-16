@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711208"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Compreender as mensagens de erro comuns na gestão de máquinas virtuais no Azure
@@ -64,14 +64,14 @@ Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir V
 |  AttachDiskWhileBeingDetached  |  Não é possível anexar o disco de dados '{0}'para a VM"{1}' porque o disco está atualmente a ser desligado. Aguarde até que o disco tenha sido completamente desanexado e, em seguida, tente novamente.  |
 |  BadRequest  |  Alinhado "conjuntos de disponibilidade ainda não são suportados nesta região.  |
 |  BadRequest  |  Não é suportada a adição de uma VM com discos geridos para o conjunto de disponibilidade não gerido ou a adição de uma VM com discos baseados em blob para o conjunto de disponibilidade gerido. Crie um conjunto de disponibilidade com a propriedade "geridos" definida para adicionar uma VM com discos geridos ao mesmo.  |
-|  BadRequest  |  Os Discos Geridos não são suportados nesta região.  |
+|  BadRequest  |  Discos geridos não são suportados nesta região.  |
 |  BadRequest  |  Múltiplas VMExtensions por processador não suportada para o tipo de SO "{0}'. VMExtension "{1}'com o manipulador'{2}' já foi adicionada ou especificada na entrada.  |
 |  BadRequest  |  Operação "{0}"não é suportada no recurso"{1}" com discos geridos.  |
 |  CertificateImproperlyFormatted  |  Representação JSON do segredo obtida {0} tem um campo de dados que não é um ficheiro PFX corretamente formatado ou a palavra-passe fornecida não descodificar o ficheiro PFX corretamente.  |
 |  CertificateImproperlyFormatted  |  Os dados recuperados da {0} não é são desserializáveis no JSON.  |
-|  Conflito  |  O redimensionamento do disco é permitido apenas quando se cria uma VM ou quando a VM é desalocada.  |
+|  Conflito  |  O redimensionamento do disco é permitido apenas quando criar uma VM ou quando a VM é desalocada.  |
 |  ConflictingUserInput  |  Disco '{0}"não pode ser anexado tal como o disco já é propriedade da VM"{1}'.  |
-|  ConflictingUserInput  |  Os grupos de recursos de origem e de destino são os mesmos.  |
+|  ConflictingUserInput  |  Grupos de recursos de origem e de destino são os mesmos.  |
 |  ConflictingUserInput  |  As contas de armazenamento de origem e de destino do disco {0} são diferentes.  |
 |  ContainerAlreadyOnLease  |  Já existe uma concessão no contentor de armazenamento que contém o blob com o URI {0}.  |
 |  CrossSubscriptionMoveWithKeyVaultResources  |  O pedido mover recursos contém recursos KeyVault que são referenciados por um ou mais {0}s no pedido. Isto não é suportado atualmente na movimentação de subscrição cruzada. Verifique os detalhes do erro para os Ids de recurso do Cofre de chaves.  |
@@ -83,7 +83,7 @@ Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir V
 |  DiskEncryptionKeySecretUnwrapFailed  |  Anular a moldagem de segredo {0} valor de utilização de chave {1} falhou.  |
 |  DiskImageNotReady  |  Imagem de disco {0} está em {1} estado. Tente novamente quando a imagem está pronta.  |
 |  DiskPreparationError  |  Ocorreram um ou mais erros ao preparar discos de VM. Ver a vista de instância de disco para obter detalhes.  |
-|  DiskProcessingError  |  O processamento do disco foi interrompido uma vez que a VM tem outros discos nos discos com falhas.  |
+|  DiskProcessingError  |  Processamento de disco suspensa que a VM tem outros discos nos discos com falhas.  |
 |  ImageBlobNotFound  |  Não é possível encontrar o blob VHD com o URI {0} para o disco "{1}'.  |
 |  ImageBlobNotFound  |  Não é possível encontrar o blob VHD com o URI {0}.  |
 |  IncorrectDiskBlobType  |  Blobs de disco só podem ser do tipo blob de página. Blob {0} para o disco "{1}' é do tipo blob de blocos.  |
@@ -97,15 +97,15 @@ Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir V
 |  InvalidParameter  |  O valor do parâmetro {0} é inválido.  |
 |  InvalidParameter  |  A palavra-passe de Admin especificada não é permitida.  |
 |  InvalidParameter  |  "A palavra-passe fornecida tem de estar entre {0}-{1} carateres de comprimento e cumprir, pelo menos, {2} dos requisitos de complexidade de palavra-passe entre as seguintes opções: <ol><li> Contém um caráter em maiúsculas</li><li>Contém um caráter em minúsculas</li><li>Contém um dígito numérico</li><li>Contém um caráter especial.</li></ol>  |
-|  InvalidParameter  |  O Nome de Utilizador de Admin especificado não é permitido.  |
-|  InvalidParameter  |  Não é possível anexar um disco de SO existente quando a VM é criada a partir de uma imagem de plataforma ou de utilizador.  |
+|  InvalidParameter  |  O nome de utilizador de Admin especificado não é permitida.  |
+|  InvalidParameter  |  Não é possível anexar um disco de SO existente se a VM é criada a partir de uma imagem de plataforma ou de utilizador.  |
 |  InvalidParameter  |  Nome do contentor {0} é inválido. Os nomes de contentor tem de ter entre 3 a 63 carateres de comprimento e podem conter apenas carateres alfanuméricos minúsculos e hífenes. Hífen tem de ser precedido e seguido por um caráter alfanumérico.  |
 |  InvalidParameter  |  Nome do contentor {0} no URL {1} é inválido. Os nomes de contentor tem de ter entre 3 a 63 carateres de comprimento e podem conter apenas carateres alfanuméricos minúsculos e hífenes. Hífen tem de ser precedido e seguido por um caráter alfanumérico.  |
 |  InvalidParameter  |  O nome do blob no URL {0} contém uma barra. Isto atualmente não é suportado para discos.  |
 |  InvalidParameter  |  O URI {0} não parece para ser um URI de blob correto.  |
 |  InvalidParameter  |  Um disco com o nome '{0}"já utiliza o mesmo LUN: {1}.  |
 |  InvalidParameter  |  Um disco chamado "{0}' já existe.  |
-|  InvalidParameter  |  Não é possível especificar substituições da imagem de utilizador para um disco que já está definido na referência de imagem especificada.  |
+|  InvalidParameter  |  Não é possível especificar substituições da imagem de utilizador para um disco já definido na referência de imagem especificada.  |
 |  InvalidParameter  |  Um disco com o nome '{0}"já utiliza o mesmo URL de VHD {1}.  |
 |  InvalidParameter  |  A contagem de domínios de falhas especificado {0} deve estar no intervalo {1} para {2}.  |
 |  InvalidParameter  |  O tipo de licença {0} é inválido. Tipos de licenças válidos são: Windows_Client ou Windows_Server, maiúsculas de minúsculas.  |
@@ -137,13 +137,13 @@ Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir V
 |  NotSupported  |  É o tipo de licença {0}, mas o blob de imagem {1} não está no local.  |
 |  OperationNotAllowed  |  Conjunto de disponibilidade {0} não pode ser eliminada. Antes de eliminar um conjunto de disponibilidade, certifique-se que não contém qualquer VM.  |
 |  OperationNotAllowed  |  Alterar o conjunto de disponibilidade SKU de "Alinhado" para "Clássico" não é permitida.  |
-|  OperationNotAllowed  |  Não é possível modificar as extensões numa VM que não está a ser executada.  |
+|  OperationNotAllowed  |  Não é possível modificar as extensões na VM quando a VM não está em execução.  |
 |  OperationNotAllowed  |  A ação de captura apenas é suportada numa máquina Virtual com discos baseados em blob. Utilize as APIs de recurso de "Imagem" para criar uma imagem de uma Máquina Virtual gerida.  |
 |  OperationNotAllowed  |  O recurso {0} não é possível criar a partir da imagem {1} até que a imagem foi criada com êxito.  |
 |  OperationNotAllowed  |  Atualizações para encryptionSettings não é permitida quando a VM é alocado, tente novamente após a VM é desalocada  |
-|  OperationNotAllowed  |  A adição de um disco gerido a uma VM com disco baseado em blob não é suportada.  |
+|  OperationNotAllowed  |  Adição de um disco gerido a uma VM com discos baseados em blob não é suportada.  |
 |  OperationNotAllowed  |  O número máximo de discos de dados podem ser anexados a uma VM deste tamanho é {0}.  |
-|  OperationNotAllowed  |  A adição de um disco baseado em blob a uma VM com discos geridos não é suportada.  |
+|  OperationNotAllowed  |  Não é suportada a adição de um disco baseado em blob a VM com discos geridos.  |
 |  OperationNotAllowed  |  Operação "{0}"não é permitida na imagem"{1}' uma vez que a imagem está marcada para eliminação. Pode apenas repetir a operação de eliminação (ou aguardar que uma seja concluída).  |
 |  OperationNotAllowed  |  Operação "{0}"não é permitida na VM"{1}' uma vez que a VM está generalizada.  |
 |  OperationNotAllowed  |  Operação "{0}"não é permitido como a coleção de ponto de restauro"{1}' está marcado para eliminação.  |
@@ -157,14 +157,14 @@ Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir V
 |  OperationNotAllowed  |  Operação "{0}"não é permitida na VM"{1}", pois a VM tem a extensão'{2}' no estado de falha.  |
 |  OperationNotAllowed  |  Operação "{0}"não é permitida na VM"{1}' uma vez que está em curso outra operação.  |
 |  OperationNotAllowed  |  A operação "{0}'requer a Máquina Virtual'{1}" seja generalizada.  |
-|  OperationNotAllowed  |  A operação requer que a VM esteja em execução (ou definida para ser executada).  |
+|  OperationNotAllowed  |  A operação requer que a VM estar em execução (ou configurada para ser executada).  |
 |  OperationNotAllowed  |  Disco com tamanho {0}GB, que é inferior ao tamanho {1}GB de disco correspondente na imagem, não é permitida.  |
 |  OperationNotAllowed  |  Extensões de conjunto de dimensionamento de VM do processador "{0}" podem ser adicionadas apenas no momento da criação de conjunto de dimensionamento de VM.  |
 |  OperationNotAllowed  |  Extensões de conjunto de dimensionamento de VM do processador "{0}" pode ser eliminado apenas no momento da eliminação do conjunto de dimensionamento de VM.  |
 |  OperationNotAllowed  |  VM '{0}' já está a utilizar discos geridos.  |
 |  OperationNotAllowed  |  VM "{0}'pertence ao conjunto de disponibilidade 'Clássico' '{1}'. Atualize o conjunto de disponibilidade para utilizar o SKU "alinhado" e, em seguida, repita a conversão.  |
 |  OperationNotAllowed  |  VM criada a partir da imagem não pode ter discos baseados em blob. Todos os discos têm de ser discos geridos.  |
-|  OperationNotAllowed  |  A operação de recolher não pode ser concluída porque a VM não está generalizada.  |
+|  OperationNotAllowed  |  Capturar não é possível concluir a operação porque a VM não está generalizada.  |
 |  OperationNotAllowed  |  Operações de gestão na VM "{0}" não são permitidas porque os discos VM estão a ser convertidos em discos geridos.  |
 |  OperationNotAllowed  |  Uma operação em curso é alterar o estado de energia da Máquina Virtual {0} para {1}. Execute a operação {2} após algum tempo.  |
 |  OperationNotAllowed  |  Não é possível adicionar ou atualizar a VM. O tamanho da VM pedida {0} poderá não estar disponível na unidade de alocação existente. Saiba mais sobre VM redimensionamento estratégia em https://aka.ms/azure-resizevm.  |
@@ -198,8 +198,8 @@ Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir V
 |  TooManyVMRedeploymentRequests  |  Foram recebidos demasiados pedidos de reimplementação para a VM "{0}' ou as VMs no mesmo conjunto de disponibilidades com esta VM. Tente novamente mais tarde.  |
 |  VHDSizeInvalid  |  O valor de tamanho de disco especificado de {0} para o disco '{1}' com o blob {2} é inválido. Tamanho do disco tem de estar entre {3} e {4}.  |
 |  VMAgentStatusCommunicationError  |  VM '{0}"não comunicou o estado de agente de VM ou extensões. Verifique se a VM tem um agente VM em execução e pode estabelecer ligações de saída para o armazenamento do Azure.  |
-|  VMArtifactRepositoryInternalError  |  Ocorreu um erro durante a comunicação com o repositório de artefactos para obtenção dos detalhes de artefacto da VM.  |
-|  VMArtifactRepositoryInternalError  |  Ocorreu um erro interno ao obter os dados de artefacto da VM a partir do repositório de artefactos.  |
+|  VMArtifactRepositoryInternalError  |  Ocorreu um erro ao comunicar com o repositório de artefactos para obter detalhes de artefacto da VM.  |
+|  VMArtifactRepositoryInternalError  |  Ocorreu um erro interno ao obter os dados de artefacto da VM do repositório de artefactos.  |
 |  VMExtensionHandlerNonTransientError  |  Manipulador de '{0}'relatou uma falha para a extensão de VM'{1}'com o código de erro terminal"{2}" e mensagem de erro: "{3}'  |
 |  VMExtensionManagementInternalError  |  Ocorreu um erro interno durante o processamento de extensão de VM '{0}'.  |
 |  VMExtensionManagementInternalError  |  Ocorreram vários erros durante a preparação as extensões VM. Consulte a vista de instância de extensão VM para obter detalhes.  |

@@ -11,10 +11,10 @@ ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
 ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65467440"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Crie seu primeiro aplicativo sem servidor com o Azure Logic Apps e as funções do Azure - Visual Studio
@@ -88,7 +88,7 @@ Para começar, crie uma [projeto do grupo de recursos do Azure](../azure-resourc
    > [!TIP]
    > Em cenários em que não deseja pré-implementar sua solução num grupo de recursos do Azure, pode utilizar a aplicação em branco **aplicação lógica** modelo, que simplesmente cria uma aplicação lógica vazia.
 
-1. Partir do **Mostrar modelos a partir desta localização** lista, selecione **início rápido do Azure (github.com/Azure/azure-quickstart-templates)**.
+1. Partir do **Mostrar modelos a partir desta localização** lista, selecione **início rápido do Azure (github.com/Azure/azure-quickstart-templates)** .
 
 1. Na caixa de pesquisa, introduza "aplicação lógica" como o filtro. Nos resultados, selecione este modelo: **101-logic-app-and-function-app**
 

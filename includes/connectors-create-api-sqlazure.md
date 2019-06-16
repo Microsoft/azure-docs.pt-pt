@@ -9,11 +9,11 @@ ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
 ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541148"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67122222"
 ---
 * Se estiver a utilizar a base de dados do Azure SQL, siga os passos em [Connect to Azure SQL Database](#connect-azure-sql-db). 
 
@@ -48,8 +48,8 @@ ms.locfileid: "60541148"
    | Propriedade | Value | Detalhes | 
    |----------|-------|---------| 
    | Nome da Ligação | <*my-sql-connection*> | O nome para a sua ligação | 
-   | Nome do Servidor SQL | <*my-sql-server*> | O nome do seu servidor SQL |
-   | Nome da Base de Dados SQL | <*my-sql-database*>  | O nome da base de dados SQL | 
+   | Nome do SQL Server | <*my-sql-server*> | O nome do seu servidor SQL |
+   | Nome de base de dados SQL | <*my-sql-database*>  | O nome da base de dados SQL | 
    | Nome de utilizador | <*my-sql-username*> | O nome de utilizador para aceder à sua base de dados |
    | Palavra-passe | <*my-sql-password*> | A palavra-passe para aceder à sua base de dados | 
    |||| 
@@ -100,11 +100,11 @@ Antes de poder selecionar o gateway, certifique-se de que já [configurar o gate
    |----------|-------|---------| 
    | Ligar através do gateway no local | Selecione esta opção primeiro para definições do SQL Server. | | 
    | Nome da Ligação | <*my-sql-connection*> | O nome para a sua ligação | 
-   | Nome do Servidor SQL | <*my-sql-server*> | O nome do seu servidor SQL |
-   | Nome da Base de Dados SQL | <*my-sql-database*>  | O nome da base de dados SQL |
+   | Nome do SQL Server | <*my-sql-server*> | O nome do seu servidor SQL |
+   | Nome de base de dados SQL | <*my-sql-database*>  | O nome da base de dados SQL |
    | Nome de utilizador | <*my-sql-username*> | O nome de utilizador para aceder à sua base de dados |
    | Palavra-passe | <*my-sql-password*> | A palavra-passe para aceder à sua base de dados | 
-   | Tipo de Autenticação | Windows ou Basic | Opcional: O tipo de autenticação utilizado pelo seu servidor SQL | 
+   | Tipo de autenticação | Windows ou Basic | Opcional: O tipo de autenticação utilizado pelo seu servidor SQL | 
    | Gateways | <*my-data-gateway*> | O nome para o seu gateway de dados no local | 
    |||| 
 

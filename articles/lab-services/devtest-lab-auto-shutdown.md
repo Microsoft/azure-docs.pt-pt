@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 9adf8dd4a5a3c469ed130b29308a0d828aee40bf
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873994"
 ---
 # <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir políticas de autoshutdown para um laboratório no Azure DevTest Labs
@@ -166,7 +166,7 @@ Para começar, crie uma aplicação lógica na sua subscrição do Azure utiliza
     }
     ```
     
-    ![Pedir Esquema JSON do Corpo](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Esquema JSON do corpo do pedido](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Selecione **+ novo passo** no designer e siga estes passos:
     1. Procure **Office 365 Outlook - enviar um e-mail**. 
     2. Selecione **enviar um e-mail** partir **ações**. 
@@ -177,7 +177,7 @@ Para começar, crie uma aplicação lógica na sua subscrição do Azure utiliza
     5. Selecione **assunto**e um assunto da notificação de e-mail de entrada. Por exemplo: "Encerramento da máquina vmName para laboratório: labName."
     6. Selecione **corpo**e definir o conteúdo do corpo de notificação por e-mail. Por exemplo: "vmName está agendada para encerrar em 15 minutos. Ignore este encerramento ao clicar em: URL. Encerramento de atraso durante uma hora: delayUrl60. Encerramento de atraso durante 2 horas: delayUrl120. "
 
-        ![Pedir Esquema JSON do Corpo](./media/devtest-lab-auto-shutdown/email-options.png)
+        ![Esquema JSON do corpo do pedido](./media/devtest-lab-auto-shutdown/email-options.png)
 1. Selecione **Guardar** na barra de ferramentas. Agora, pode copiar o **URL do HTTP POST**. Selecione o botão de cópia para copiar o URL para a área de transferência. 
 
     ![URL do WebHook](./media/devtest-lab-auto-shutdown/webhook-url.png)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/03/2019
 ms.custom: seodec18
 ms.openlocfilehash: c4f3053063ce33d2777387da2c53effd61b05f1a
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399867"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualizar dados no Explorador de pré-visualização

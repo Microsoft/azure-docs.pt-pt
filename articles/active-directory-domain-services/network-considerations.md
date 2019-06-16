@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2010
 ms.author: mstephen
 ms.openlocfilehash: 1f21d71bba01eb4bec24dbb558a126ecbbd78bbf
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246948"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações de redes para o Azure AD Domain Services

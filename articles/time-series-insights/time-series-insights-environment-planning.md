@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: 9d9f9b7fe7aafa927f023e1d4e30e079a26f7fab
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431042"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planejar seu ambiente de disponibilidade geral do Azure Time Series Insights
@@ -83,7 +83,7 @@ A tabela seguinte resume a capacidade de entrada por unidade para cada SKU do Ti
 |SKU  |Contagem de eventos por mês  |Tamanho de eventos por mês  |Contagem de eventos por minuto  |Tamanho de eventos por minuto  |
 |---------|---------|---------|---------|---------|
 |S1     |   30 milhões     |  30 GB     |  720    |  720 KB   |
-|S2     |   300 milhões    |   300 GB   | 7,200   | 7.200 KB  |
+|S2     |   300 milhões    |   300 GB   | 7,200   | 7\.200 KB  |
 
 Pode aumentar a capacidade de um S1 ou S2 SKU de 10 unidades num único ambiente. Não é possível migrar a partir de um ambiente de S1 para S2. Não é possível migrar a partir de um ambiente de S2 para um S1.
 

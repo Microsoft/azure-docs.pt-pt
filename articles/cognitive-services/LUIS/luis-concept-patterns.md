@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813557"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
@@ -68,7 +68,7 @@ Sintaxe do padrão dá suporte a seguinte sintaxe:
 |Função|Sintaxe|Nível de aninhamento|Exemplo|
 |--|--|--|--|
 |entidade| {} -chaves de saída|2|Onde está o formulário {nome da entidade}?|
-|opcional|[] - Parênteses Retos<BR><BR>Existe um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamentos |2|O ponto de interrogação é opcional [?]|
+|Opcional|[] - Parênteses Retos<BR><BR>Existe um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamentos |2|O ponto de interrogação é opcional [?]|
 |Agrupamento|(a) - parênteses|2|is (a \| b)|
 |ou| \| -barra (pipe) vertical<br><br>Existe um limite de 2 nas barras verticais (ou) num grupo |-|É onde o formulário ({formulário-nome-short} &#x7c; {formulário-nome-longa} &#x7c; {formulário-number})| 
 |início e/ou de fim da expressão|^-acento circunflexo|-|^ começar a expressão<br>a expressão é feito ^<br>^ strict correspondência literal da expressão inteira com a entidade de {number} ^|
@@ -170,7 +170,7 @@ Marcar o texto opcional na expressão usando a sintaxe de colchete de expressão
 |Padrão com o texto opcional|Significado|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` e `from {person}` são opcionais|
-|' Pode me ajudar a [?] | A marca de pontuação é opcional|
+|' Pode me ajudar a [?]|A marca de pontuação é opcional|
 
 Marcas de pontuação (`?`, `!`, `.`) devem ser ignorados e terá de ignorá-los usando a sintaxe de colchete em padrões. 
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60882417"
 ---
 # <a name="replicas-and-instances"></a>Réplicas e instâncias 
@@ -116,11 +116,11 @@ A função de réplica não é relevante no Estado em espera.
 ## <a name="replica-role"></a>Função de réplica 
 A função da réplica determina sua função no conjunto de réplica:
 
-- **Principal (P)**: Há um principal no conjunto de réplicas que é responsável por executar as operações leitura e escrita. 
-- **ActiveSecondary (S)**: Estas são as réplicas que recebem atualizações do Estado do primário, aplicá-las e, em seguida, enviar as confirmações de back. Existem vários secundários Active Directory no conjunto de réplicas. O número destas bases de dados secundárias Active Directory determina o número de falhas, que o serviço pode processar.
-- **IdleSecondary (I)**: Essas réplicas estão sendo criadas pelo principal. Antes de eles podem ser promovidos para o secundário ativo que está ganhando estado dos principais. 
-- **Nenhum (N)**: Essas réplicas não tem uma responsabilidade no conjunto de réplicas.
-- **Desconhecida (U)**: Esta é a função inicial de uma réplica antes de receber qualquer **ChangeRole** chamada à API do Service Fabric.
+- **Principal (P)** : Há um principal no conjunto de réplicas que é responsável por executar as operações leitura e escrita. 
+- **ActiveSecondary (S)** : Estas são as réplicas que recebem atualizações do Estado do primário, aplicá-las e, em seguida, enviar as confirmações de back. Existem vários secundários Active Directory no conjunto de réplicas. O número destas bases de dados secundárias Active Directory determina o número de falhas, que o serviço pode processar.
+- **IdleSecondary (I)** : Essas réplicas estão sendo criadas pelo principal. Antes de eles podem ser promovidos para o secundário ativo que está ganhando estado dos principais. 
+- **Nenhum (N)** : Essas réplicas não tem uma responsabilidade no conjunto de réplicas.
+- **Desconhecida (U)** : Esta é a função inicial de uma réplica antes de receber qualquer **ChangeRole** chamada à API do Service Fabric.
 
 O diagrama seguinte ilustra as transições de função de réplica e alguns cenários de exemplo em que pode ocorrer:
 

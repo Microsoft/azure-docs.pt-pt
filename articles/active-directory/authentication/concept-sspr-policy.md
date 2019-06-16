@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65823397"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
@@ -33,19 +33,19 @@ A política de porta de dois requer dois tipos de dados de autenticação, por e
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de suporte técnico
   * Administrador de assistência técnica
-  * Administrador de Faturação
+  * Administrador de faturação
   * Parceiro de Suporte de Escalão 1
   * Parceiro de Suporte de Escalão 2
   * Administrador do Exchange
-  * Administrador do Skype para Empresas
+  * Skype para o administrador da empresa
   * Administrador de utilizadores
-  * Escritores em diretórios
+  * Gravadores de diretórios
   * Administrador global ou administrador de empresa
-  * Administrator do SharePoint
-  * Administrador de Conformidade
-  * Administrador de aplicações
+  * Administrador do SharePoint
+  * Administrador de conformidade
+  * Administrador da aplicação
   * Administrador de segurança
-  * Administrador de Funções Privilegiadas
+  * Administrador com função privilegiada
   * Administrador do Intune
   * Administrador de serviço de proxy de aplicações
   * Administrador do Dynamics 365

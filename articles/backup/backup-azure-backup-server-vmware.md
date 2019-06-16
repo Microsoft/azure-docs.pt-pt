@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
 ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65789608"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer uma cópia de segurança de VMs de VMware no servidor de cópia de segurança do Azure
@@ -140,7 +140,7 @@ O servidor de cópia de segurança do Azure tem uma conta de utilizador com perm
 
      ![Hierarquia de privilégio do principal subordinado](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
-### <a name="role-permissions"></a>Permissões de funções
+### <a name="role-permissions"></a>Permissões de função
 **6.5/6.0** | **5.5**
 --- | ---
 Datastore.AllocateSpace | Datastore.AllocateSpace
@@ -245,7 +245,7 @@ Adicione o vCenter Server para o servidor de cópia de segurança do Azure.
 
      ![Assistente de adição do servidor de produção](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-3. Na **selecionar computadores****servidor de nome/endereço IP**, especifique o endereço IP ou FQDN do servidor VMware. Se todos os servidores do ESXi são geridos pelo mesmo vCenter, especifique o nome do vCenter. Caso contrário, adicione o anfitrião ESXi.
+3. Na **selecionar computadores** **servidor de nome/endereço IP**, especifique o endereço IP ou FQDN do servidor VMware. Se todos os servidores do ESXi são geridos pelo mesmo vCenter, especifique o nome do vCenter. Caso contrário, adicione o anfitrião ESXi.
 
     ![Especifique o servidor VMware](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
@@ -359,7 +359,7 @@ A tarefa de cópia de segurança vSphere 6.7 o seguinte:
 
 - Ativar o TLS 1.2 no servidor DPM
   >[!Note]
-  >6.7 de VMWare e posteriores tiver habilitado a TLS como protocolo de comunicação.
+  >6\.7 de VMWare e posteriores tiver habilitado a TLS como protocolo de comunicação.
 
 - Defina as chaves de registo da seguinte forma:  
 

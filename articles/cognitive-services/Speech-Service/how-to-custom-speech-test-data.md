@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237957"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137243"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para a conversão de voz personalizada
 
@@ -44,7 +44,7 @@ Cada conjunto de dados que carrega têm de cumprir os requisitos para o tipo de 
 Depois do conjunto de dados é carregado, tem algumas opções:
 
 * Pode navegar para o **teste** separador e inspecionar visualmente apenas áudio ou dados de transcrição de áudio + rotulado como humanos.
-* Pode navegar para o **treinamento** separador e nos dados de transcrição de áudio + humano ou dados de texto relacionados para preparar um modelo personalizado.
+* Pode navegar para o **treinamento** separador e utilizar dados de transcrição de áudio + humano ou dados de texto relacionados para preparar um modelo personalizado.
 
 ## <a name="audio-data-for-testing"></a>Dados de áudio para fins de teste
 
@@ -55,9 +55,9 @@ Utilize esta tabela para garantir que seus arquivos de áudio são devidamente f
 | Propriedade | Value |
 |----------|-------|
 | Formato de ficheiro | RIFF (WAV) |
-| Taxa da amostragem | 8.000 Hz ou Hz 16.000 |
+| Taxa de exemplo | 8\.000 Hz ou Hz 16.000 |
 | Canais | 1 (mono) |
-| Comprimento máximo por áudio | Duas horas |
+| Comprimento máximo por áudio | 2 horas |
 | Formato de exemplo | PCM, 16 bits |
 | Formato de arquivo | .zip |
 | Tamanho máximo de arquivo | 2 GB |
@@ -76,7 +76,7 @@ Para medir a precisão de precisão de conversão de voz em texto da Microsoft d
 | Propriedade | Value |
 |----------|-------|
 | Formato de ficheiro | RIFF (WAV) |
-| Taxa da amostragem | 8.000 Hz ou Hz 16.000 |
+| Taxa de exemplo | 8\.000 Hz ou Hz 16.000 |
 | Canais | 1 (mono) |
 | Comprimento máximo por áudio | 60 s |
 | Formato de exemplo | PCM, 16 bits |
@@ -138,11 +138,11 @@ Se existirem termos incomuns sem pronunciations padrão que encontrar ou utiliza
 
 Isto inclui exemplos de uma expressão falada e uma pronúncia personalizada para cada:
 
-| Formulário falado | Formulário reconhecido/apresentado |
+| Formulário reconhecido/apresentado | Formulário falado |
 |--------------|--------------------------|
-| o três de c de p | 3CPO |  
-| k de n de t c | CNTK |
-| i triplicar e | IEEE |
+| 3CPO | o três de c de p |  
+| CNTK | k de n de t c |
+| IEEE | i triplicar e |
 
 O formulário falado é a sequência de fonética escrita. Ele pode ser composto por letra, palavras, sílabas ou uma combinação de todos os três.
 
@@ -150,7 +150,7 @@ Pronúncia personalizada está disponível em inglês (en-US) e alemão (Alemanh
 
 | Idioma | Região | Carateres |
 |----------|--------|------------|
-| Inglês | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Português | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Alemão | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 Utilize esta tabela para garantir que seu arquivo de dados relacionados para pronunciations está formatado corretamente. Pronúncia ficheiros são pequenos e não devem exceder os KBs alguns.

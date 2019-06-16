@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824388"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utilizar as restrições de inquilino para gerir o acesso a aplicações de cloud de SaaS
@@ -118,7 +118,7 @@ Como outros relatórios no portal do Azure, pode utilizar filtros para especific
 - **Endereço IP**
 - **Client**
 - **Nome de Utilizador**
-- **Localização**
+- **Location**
 - **ID de inquilino de destino**
 
 ## <a name="office-365-support"></a>Suporte do Office 365
@@ -136,7 +136,7 @@ Outlook e o Skype para clientes de empresas que oferecem suporte a autenticaçã
 
 Para o Outlook no Windows, os clientes podem optar por implementar restrições de impedir que os utilizadores finais adicionando contas de correio não aprovados a seus perfis. Por exemplo, consulte a [impedir a adição de contas do Exchange não predefinidas](https://gpsearch.azurewebsites.net/default.aspx?ref=1) definição de política de grupo.
 
-## <a name="testing"></a>A testar
+## <a name="testing"></a>Testes
 
 Se quiser experimentar as restrições de inquilino antes de a implementar para toda a organização, tem duas opções: uma abordagem baseada em host usando uma ferramenta como o Fiddler ou uma implementação faseada de configurações de proxy.
 

@@ -9,10 +9,10 @@ ms.date: 03/19/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: bbc5aaf02f4ab4388e816faaf8df536770f3302a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65205638"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Instruções de API do REST de monitorização do Azure
@@ -98,7 +98,7 @@ Utilize o [definições de métrica de Monitor de Azure REST API](https://docs.m
 
 **Método**: GET
 
-**URI do pedido**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
+**URI do pedido**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
 
 Por exemplo, para obter as definições de métricas para uma conta de armazenamento do Azure, a solicitação seria a seguinte aparência:
 
@@ -242,7 +242,7 @@ Utilize nome "value" a métrica (não o ' localizedValue") para todos os pedidos
 
 **Método**: GET
 
-**URI do pedido**: https\://management.azure.com/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{ recurso-provedor-namespace}*/*{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics? metricnames =*{métrica}*& timespan =*{starttime/endtime}*& $filter =*{filtro}*& resultType = metadados e a api-version = *{apiVersion}*
+**URI do pedido**: https\://management.azure.com/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/ *{ recurso-provedor-namespace}* / *{tipo de recurso}* / *{nome do recurso}* /providers/microsoft.insights/metrics? metricnames = *{métrica}* & timespan = *{starttime/endtime}* & $filter = *{filtro}* & resultType = metadados e a api-version = *{apiVersion}*
 
 Por exemplo, para obter a lista de valores de dimensão que foram emitidos para a "dimensão de nome da API" para a métrica "Transações", em que a dimensão de GeoType = 'Primary' durante o intervalo de tempo especificado, a solicitação seria da seguinte forma:
 
@@ -315,7 +315,7 @@ Utilize nome "value" a métrica (não o ' localizedValue") para todos os pedidos
 
 **Método**: GET
 
-**URI do pedido**: https://management.azure.com/subscriptions/ *{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{resource-provider-namespace}* / *{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?metricnames=*{métrica}*& timespan =*{starttime/endtime}*& $filter =*{filtro}*& intervalo =*{timeGrain}*& agregação =*{ aggreation}*& api-version =*{apiVersion}*
+**URI do pedido**: https://management.azure.com/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/ *{resource-provider-namespace}* / *{tipo de recurso}* / *{nome do recurso}* /providers/microsoft.insights/metrics?metricnames= *{métrica}* & timespan = *{starttime/endtime}* & $filter = *{filtro}* & intervalo = *{timeGrain}* & agregação = *{ aggreation}* & api-version = *{apiVersion}*
 
 Por exemplo, para recuperar a parte superior 3 APIs, descendente de valor, pelo número de transações durante um intervalo de 5 min, onde o GeotType foi 'Primary', a solicitação seria da seguinte forma:
 
@@ -394,7 +394,7 @@ Utilize o [definições de métrica de Monitor de Azure REST API](https://msdn.m
 
 **Método**: GET
 
-**URI do pedido**: https:\/\/management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}* / *{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{ apiVersion}*
+**URI do pedido**: https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{ apiVersion}*
 
 Por exemplo, para obter as definições de métricas para uma aplicação de lógica do Azure, a solicitação seria a seguinte aparência:
 
@@ -467,7 +467,7 @@ Assim que as definições de métricas disponíveis são conhecidas, em seguida,
 
 **Método**: GET
 
-**URI do pedido**: https://management.azure.com/subscriptions/ *{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/*{resource-provider-namespace}* / *{tipo de recurso}*/*{nome do recurso}*/providers/microsoft.insights/metrics?$filter=*{filtro}*& api-version =*{apiVersion}*
+**URI do pedido**: https://management.azure.com/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/ *{resource-provider-namespace}* / *{tipo de recurso}* / *{nome do recurso}* /providers/microsoft.insights/metrics?$filter= *{filtro}* & api-version = *{apiVersion}*
 
 Por exemplo, para obter os pontos de dados métricos RunsSucceeded para o intervalo de tempo específico e para um grão de tempo de 1 hora, a solicitação seria da seguinte forma:
 
@@ -605,13 +605,13 @@ Para o código anterior, o ID de recurso a utilizar é o caminho completo para o
 
 A lista seguinte contém alguns exemplos de formatos de ID de recurso para vários recursos do Azure:
 
-* **IoT Hub** -/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Devices/IotHubs/*{iot-hub-name}*
-* **Conjunto elástico de SQL** -/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Sql/servers/*{conjunto-db}*/elasticpools/*{sql-pool-name}*
-* **Base de dados do SQL (v12)** -/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Sql/servers/*{servidor-name}*/databases/*{da base de dados-name}*
-* **Do Service Bus** -/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.ServiceBus/*{namespace}* / *{servicebus-name}*
-* **Os conjuntos de dimensionamento de máquinas virtuais** -/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
-* **VMs** -/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
-* **Os Hubs de eventos** -/subscriptions/*{subscrição-id}*/resourceGroups/*{nome de grupo de recursos}*/providers/Microsoft.EventHub/namespaces/*{ eventhub-namespace}*
+* **IoT Hub** -/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/Microsoft.Devices/IotHubs/ *{iot-hub-name}*
+* **Conjunto elástico de SQL** -/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/Microsoft.Sql/servers/ *{conjunto-db}* /elasticpools/ *{sql-pool-name}*
+* **Base de dados do SQL (v12)** -/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/Microsoft.Sql/servers/ *{servidor-name}* /databases/ *{da base de dados-name}*
+* **Do Service Bus** -/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/Microsoft.ServiceBus/ *{namespace}* / *{servicebus-name}*
+* **Os conjuntos de dimensionamento de máquinas virtuais** -/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/Microsoft.Compute/virtualMachineScaleSets/ *{vm-name}*
+* **VMs** -/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/Microsoft.Compute/virtualMachines/ *{vm-name}*
+* **Os Hubs de eventos** -/subscriptions/ *{subscrição-id}* /resourceGroups/ *{nome de grupo de recursos}* /providers/Microsoft.EventHub/namespaces/ *{ eventhub-namespace}*
 
 Existem abordagens alternativas para obter o ID de recurso, incluindo a utilização do Explorador de recursos do Azure, visualizar o recurso pretendido, no portal do Azure e através do PowerShell ou a CLI do Azure.
 

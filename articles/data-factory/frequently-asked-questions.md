@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61345759"
 ---
 # <a name="azure-data-factory-faq"></a>FAQ de fábrica de dados do Azure
@@ -112,7 +112,7 @@ Uma subscrição do Azure pode ter uma ou mais instâncias do Azure Data Factory
 ### <a name="pipelines"></a>Pipelines
 Uma fábrica de dados pode ter um ou mais pipelines. Os pipelines são agrupamentos lógicos de atividades para realizar uma unidade de trabalho. Em conjunto, as atividades num pipeline executam tarefas. Por exemplo, um pipeline pode conter um grupo de atividades que ingerem dados de um blob do Azure e, em seguida, executar uma consulta do Hive num cluster do HDInsight para particionar os dados. A vantagem é que pode utilizar um pipeline para gerir as atividades como um conjunto em vez de ter de gerir cada atividade individualmente. Em conjunto pode encadear atividades num pipeline para operá-los sequencialmente ou podem funcioná-los de forma independente, em paralelo.
 
-### <a name="activities"></a>Atividades
+### <a name="activities"></a>Actividades
 As atividades representam uma fase de processamento num pipeline. Por exemplo, pode utilizar uma atividade de cópia para copiar dados de um arquivo de dados para outro armazenamento de dados. Da mesma forma, pode utilizar uma atividade de Hive, que executa uma consulta do Hive num cluster do Azure HDInsight para transformar ou analisar os seus dados. O Data Factory suporta três tipos de atividades: atividades de movimento de dados, atividades de transformação de dados e atividades de controlo.
 
 ### <a name="datasets"></a>Conjuntos de dados
@@ -139,7 +139,7 @@ Um conjunto de dados é um parâmetro com rigidez de tipos e uma entidade que po
 
 Os serviços ligados também são um parâmetro inflexível que contém informações de ligação para um arquivo de dados ou a um ambiente de computação. Também é uma entidade que pode reutilizar ou fazer referência.
 
-### <a name="control-flows"></a>Fluxos de controle
+### <a name="control-flows"></a>Fluxos de controlo
 Fluxos de controlo orquestrar as atividades de pipeline que incluem o encadeamento de atividades numa sequência, ramificação, parâmetros que são definidos ao nível do pipeline, e argumentos que passar à medida que invocar o pipeline a pedido ou a partir de um acionador. Fluxos de controle também incluem o estado personalizado passando e contentores de ciclo (ou seja, iteradores de foreach).
 
 

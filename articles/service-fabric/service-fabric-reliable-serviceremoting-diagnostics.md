@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925945"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitorização de desempenho para Reliable Service Remoting
@@ -31,7 +31,7 @@ O tempo de execução fiável ServiceRemoting define as categorias de contador d
 | Category | Descrição |
 | --- | --- |
 | Serviço do Service Fabric |Contadores específicos do Azure Service Fabric Service Remoting, por exemplo, média de tempo que demora a processar o pedido |
-| Método de Serviço do Service Fabric |Contadores específicos de métodos implementados pelo serviço de comunicação remota do Service Fabric, por exemplo, a frequência com que um método de serviço é invocado |
+| Método de serviço do Service Fabric |Contadores específicos de métodos implementados pelo serviço de comunicação remota do Service Fabric, por exemplo, a frequência com que um método de serviço é invocado |
 
 Cada uma das categorias anteriores tem um ou mais contadores.
 
@@ -85,18 +85,18 @@ O tempo de execução de Reliable Service publica os seguintes contadores de des
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Método de Serviço do Service Fabric |Invocações/Segundo |Número de vezes que o método de serviço é invocado por segundo |
-| Método de Serviço do Service Fabric |Média em milissegundos por invocação |Tempo decorrido para executar o método de serviço em milissegundos |
-| Método de Serviço do Service Fabric |Exceções geradas/Segundo |Número de vezes que o método de serviço emitiu uma exceção por segundo |
+| Método de serviço do Service Fabric |Chamadas/seg |Número de vezes que o método de serviço é invocado por segundo |
+| Método de serviço do Service Fabric |Média em milissegundos por invocação |Tempo decorrido para executar o método de serviço em milissegundos |
+| Método de serviço do Service Fabric |Exceções iniciadas/seg |Número de vezes que o método de serviço emitiu uma exceção por segundo |
 
 ### <a name="service-request-processing-performance-counters"></a>Contadores de desempenho de processamento de pedido de serviço
 Quando um cliente invoca um método por meio de um objeto de proxy de serviço, que resulta numa mensagem de solicitação a ser enviada através da rede para o serviço de comunicação remota. O serviço processa a mensagem de solicitação e envia uma resposta de volta ao cliente. O tempo de execução fiável ServiceRemoting publica os seguintes contadores de desempenho relacionados com o processamento de pedidos de serviço.
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Serviço do Service Fabric |N.º de pedidos pendentes |Número de pedidos em processamento no serviço |
+| Serviço do Service Fabric |n. º de pedidos pendentes |Número de pedidos em processamento no serviço |
 | Serviço do Service Fabric |Média em milissegundos por pedido |Tempo decorrido (em milissegundos) pelo serviço para processar um pedido |
-| Serviço do Service Fabric |Média em milissegundos para a desserialização do pedido |Tempo decorrido (em milissegundos) para anular a serialização de mensagem de pedido de serviço quando ele é recebido no serviço |
+| Serviço do Service Fabric |Média em milissegundos para desserialização do pedido |Tempo decorrido (em milissegundos) para anular a serialização de mensagem de pedido de serviço quando ele é recebido no serviço |
 | Serviço do Service Fabric |Média em milissegundos para a serialização da resposta |Tempo decorrido (em milissegundos) para serializar a mensagem de resposta do serviço no serviço antes da resposta é enviada ao cliente |
 
 ## <a name="next-steps"></a>Passos Seguintes

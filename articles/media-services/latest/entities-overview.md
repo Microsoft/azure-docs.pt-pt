@@ -13,10 +13,10 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60732370"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, ordenação, paginação de entidades de serviços de multimédia
@@ -57,7 +57,7 @@ A tabela seguinte mostra como a filtragem e ordenação opções podem ser aplic
 |Name|Filtro|Encomenda|
 |---|---|---|
 |ID|||
-|nome|eq, gt, lt| Ascendente e descendente|
+|name|eq, gt, lt| Ascendente e descendente|
 |properties.alternateId |eq||
 |properties.assetId |eq||
 |Properties.Container |||
@@ -144,13 +144,13 @@ A tabela seguinte mostra como essas opções podem ser aplicadas para o [diretiv
 |Name|Filtro|Encomenda|
 |---|---|---|
 |ID|||
-|nome|eq, ne, ge, le, gt, lt|Ascendente e descendente|
+|name|eq, ne, ge, le, gt, lt|Ascendente e descendente|
 |Properties.created |eq, ne, ge, le,  gt, lt|Ascendente e descendente|
 |Properties.Description |eq, ne, ge, le, gt, lt||
 |properties.lastModified|eq, ne, ge, le, gt, lt|Ascendente e descendente|
 |Properties.Options |||
 |properties.policyId|eq, ne||
-|tipo|||
+|type|||
 
 ### <a name="pagination"></a>Paginação
 
@@ -178,7 +178,7 @@ A tabela seguinte mostra como essas opções podem ser aplicadas para o [tarefas
 
 | Name    | Filtro                        | Encomenda |
 |---------|-------------------------------|-------|
-| nome                    | eq            | Ascendente e descendente|
+| name                    | eq            | Ascendente e descendente|
 | properties.state        | eq, ne        |                         |
 | Properties.created      | gt, ge, lt, le| Ascendente e descendente|
 | properties.lastModified | gt, ge, lt, le | Ascendente e descendente| 
@@ -226,7 +226,7 @@ A tabela seguinte mostra como essas opções podem ser aplicadas às propriedade
 |Name|Filtro|Encomenda|
 |---|---|---|
 |ID |||
-|nome|eq, ne, ge, le, gt, lt|Ascendente e descendente|
+|name|eq, ne, ge, le, gt, lt|Ascendente e descendente|
 |properties.alternativeMediaId  |||
 |properties.assetName   |||
 |properties.contentKeys |||
@@ -236,7 +236,7 @@ A tabela seguinte mostra como essas opções podem ser aplicadas às propriedade
 |properties.startTime   |||
 |properties.streamingLocatorId  |||
 |properties.streamingPolicyName |||
-|tipo   |||
+|type   |||
 
 ### <a name="pagination"></a>Paginação
 
@@ -265,14 +265,14 @@ A tabela seguinte mostra como essas opções podem ser aplicadas às propriedade
 |Nome|Filtro|Encomenda|
 |---|---|---|
 |ID|||
-|nome|eq, ne, ge, le, gt, lt|Ascendente e descendente|
+|name|eq, ne, ge, le, gt, lt|Ascendente e descendente|
 |properties.commonEncryptionCbcs|||
 |properties.commonEncryptionCenc|||
 |Properties.created |eq, ne, ge, le,  gt, lt|Ascendente e descendente|
 |properties.defaultContentKeyPolicyName |||
 |properties.envelopeEncryption|||
 |properties.noEncryption|||
-|tipo|||
+|type|||
 
 ### <a name="pagination"></a>Paginação
 
@@ -300,7 +300,7 @@ A tabela seguinte mostra como essas opções podem ser aplicadas para o [transfo
 
 | Name    | Filtro                        | Encomenda |
 |---------|-------------------------------|-------|
-| nome                    | eq            | Ascendente e descendente|
+| name                    | eq            | Ascendente e descendente|
 | Properties.created      | gt, ge, lt, le| Ascendente e descendente|
 | properties.lastModified | gt, ge, lt, le | Ascendente e descendente|
 

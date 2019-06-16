@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571727"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um grupo de disponibilidade Always On em máquinas virtuais do Azure em regiões diferentes
@@ -179,7 +179,7 @@ Para obter mais informações, consulte os seguintes tópicos:
 - [Execute uma ativação pós-falha Manual planeada de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/hh231018.aspx)
 - [Executar uma ativação pós-falha Manual forçada de um grupo de disponibilidade (SQL Server)](https://msdn.microsoft.com/library/ff877957.aspx)
 
-## <a name="additional-links"></a>Ligações Adicionais
+## <a name="additional-links"></a>Links adicionais
 
 * [Grupos de disponibilidade Always On](https://msdn.microsoft.com/library/hh510230.aspx)
 * [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/)

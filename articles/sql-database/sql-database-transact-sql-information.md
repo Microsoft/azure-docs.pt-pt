@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
 ms.openlocfilehash: 84b93005941acf625d05a48f0df7b685e1bea0bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65785505"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolver diferenças do Transact-SQL durante a migração para a base de dados SQL
@@ -83,7 +83,7 @@ Para obter mais informações sobre a gramática de Transact-SQL, utilização e
 
 ### <a name="about-the-applies-to-tags"></a>Sobre as etiquetas "Aplica-se a"
 
-A referência de Transact-SQL inclui artigos relacionados com versões do SQL Server 2008 ao presente. Abaixo do título do artigo aqui está um ícone de barra, listando as quatro plataformas do SQL Server e indica a aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) artigo indica que a instrução se aplica ao **do SQL Server (começando com o 2012)**. A instrução não é aplicável ao SQL Server 2008, ao SQL Server 2008 R2, à Base de Dados SQL do Azure, ao Azure SQL Data Warehouse ou ao Parallel Data Warehouse.
+A referência de Transact-SQL inclui artigos relacionados com versões do SQL Server 2008 ao presente. Abaixo do título do artigo aqui está um ícone de barra, listando as quatro plataformas do SQL Server e indica a aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) artigo indica que a instrução se aplica ao **do SQL Server (começando com o 2012)** . A instrução não é aplicável ao SQL Server 2008, ao SQL Server 2008 R2, à Base de Dados SQL do Azure, ao Azure SQL Data Warehouse ou ao Parallel Data Warehouse.
 
 Em alguns casos, o assunto geral de um artigo pode ser usado num produto, mas existem pequenas diferenças entre produtos. As diferenças são indicadas em pontos intermédios no artigo conforme apropriado. Em alguns casos, o assunto geral de um artigo pode ser usado num produto, mas existem pequenas diferenças entre produtos. As diferenças são indicadas em pontos intermédios no artigo conforme apropriado. Por exemplo o artigo de CREATE TRIGGER está disponível na base de dados SQL. Mas o **todos os SERVER** opção para acionadores ao nível do servidor, indica que os acionadores ao nível do servidor não podem ser utilizados na base de dados SQL. Em alternativa, utilize os acionadores ao nível da base de dados.
 

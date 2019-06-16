@@ -2,35 +2,60 @@
 title: Implementar várias instâncias de recursos do Azure | Documentos da Microsoft
 description: Utilize a operação de cópia e matrizes de um modelo Azure Resource Manager para iterar várias vezes durante a implantação de recursos.
 services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 06/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807382"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar mais de uma instância de um recurso ou uma propriedade nos modelos do Azure Resource Manager
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propriedade ou variável iteração nos modelos do Azure Resource Manager
 
-Este artigo mostra como iterar no modelo do Azure Resource Manager para criar mais de uma instância de um recurso. Se tiver de especificar se um recurso está implementado em todos os, consulte [elemento condition](resource-group-authoring-templates.md#condition).
+Este artigo mostra-lhe como criar mais de uma instância de um recurso, uma variável ou uma propriedade no modelo do Azure Resource Manager. Para criar várias instâncias, adicione o `copy` objeto ao seu modelo.
 
-Para obter um tutorial, veja [Tutorial: criar várias instâncias de recursos com modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+Quando usado com um recurso, o objeto de cópia tem o seguinte formato:
 
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Quando utilizado com uma variável ou a propriedade, o objeto de cópia tem o seguinte formato:
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+Ambas as utilizações são descritas em mais detalhes neste artigo. Para obter um tutorial, veja [Tutorial: criar várias instâncias de recursos com modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
+
+Se tiver de especificar se um recurso está implementado em todos os, consulte [elemento condition](resource-group-authoring-templates.md#condition).
+
+## <a name="copy-limits"></a>Limites de cópia
+
+Para especificar o número de iterações, forneça um valor para a propriedade de contagem. A contagem não pode ter mais de 800.
+
+A contagem não pode ser um número negativo. Se implementar um modelo com a versão de REST API **2019-05-10** ou posterior, pode definir a contagem a zero. Versões anteriores da REST API não suportam a zero para contagem. Atualmente, da CLI do Azure ou o PowerShell não é suportada zero para contagem, mas que será adicionado suporte numa versão futura.
+
+Os limites para a contagem são os mesmos se utilizada com um recurso, uma variável ou uma propriedade.
 
 ## <a name="resource-iteration"></a>Iteração de recursos
 
-Quando tem de decidir durante a implementação para criar uma ou mais instâncias de um recurso, adicione um `copy` elemento para o tipo de recurso. No elemento de cópia, especifique o número de iterações e um nome para este ciclo. O valor de contagem tem de ser um número inteiro positivo e não pode ser mais de 800. 
+Quando tem de decidir durante a implementação para criar uma ou mais instâncias de um recurso, adicione um `copy` elemento para o tipo de recurso. No elemento de cópia, especifique o número de iterações e um nome para esse loop.
 
 O recurso para criar várias vezes assume o formato seguinte:
 
@@ -71,7 +96,7 @@ Cria estes nomes:
 * storage1
 * storage2.
 
-Para deslocar o valor de índice, pode passar um valor na função copyIndex(). O número de iterações para efetuar ainda é especificado no elemento de cópia, mas o valor de copyIndex é contrabalançado pelo valor especificado. Para isso, o exemplo seguinte:
+Para deslocar o valor de índice, pode passar um valor na função copyIndex(). O número de iterações ainda é especificado no elemento de cópia, mas o valor de copyIndex é contrabalançado pelo valor especificado. Para isso, o exemplo seguinte:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -156,7 +181,7 @@ Para obter informações sobre como utilizar a cópia com modelos aninhados, vej
 Para criar mais de um valor para uma propriedade num recurso, adicione um `copy` matriz no elemento de propriedades. Essa matriz contém objetos, e cada objeto tem as seguintes propriedades:
 
 * nome – o nome da propriedade para criar vários valores para
-* Contagem - o número de valores para criar. O valor de contagem tem de ser um número inteiro positivo e não pode ser mais de 800.
+* Contagem - o número de valores para criar.
 * introdução - um objeto que contém os valores a atribuir à propriedade  
 
 O exemplo seguinte mostra como aplicar `copy` à propriedade dataDisks numa máquina virtual:

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65787294"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
@@ -90,7 +90,7 @@ Esse protocolo permite coordenar processos de execução longa com clientes exte
 
 Todas as APIs de HTTP implementados, com a extensão take, os seguintes parâmetros. O tipo de dados de todos os parâmetros é `string`.
 
-| Parâmetro        | Tipo de Parâmetro  | Descrição |
+| Parâmetro        | Tipo de parâmetro  | Descrição |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Cadeia de consulta    | O nome da [hub tarefas](durable-functions-task-hubs.md). Se não for especificado, é assumido o nome do hub de tarefas da aplicação de função atual. |
 | **`connection`** | Cadeia de consulta    | O **nome** a cadeia de ligação para a conta de armazenamento. Se não for especificado, é assumida a cadeia de ligação predefinido para a aplicação de funções. |
@@ -134,7 +134,7 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | O ID da instância de orquestração. |
+| **`instanceId`**        | do IdP             | O ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a função de entrada não será incluído no payload de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a função devolve serão incluídos no histórico de execução de orquestração.|
@@ -146,11 +146,11 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 Vários valores de código de estado possível podem ser devolvidos.
 
-* **HTTP 200 (OK)**: A instância especificada é um estado concluído.
-* **HTTP 202 (aceite)**: A instância especificada está em curso.
-* **O HTTP 400 (pedido incorreto)**: A instância especificada falhou ou foi terminada.
-* **HTTP 404 (não encontrado)**: A instância especificada não existe ou não iniciado em execução.
-* **HTTP 500 (erro de servidor interno)**: A instância especificada falhou com uma exceção não processada.
+* **HTTP 200 (OK)** : A instância especificada é um estado concluído.
+* **HTTP 202 (aceite)** : A instância especificada está em curso.
+* **O HTTP 400 (pedido incorreto)** : A instância especificada falhou ou foi terminada.
+* **HTTP 404 (não encontrado)** : A instância especificada não existe ou não iniciado em execução.
+* **HTTP 500 (erro de servidor interno)** : A instância especificada falhou com uma exceção não processada.
 
 O payload de resposta para o **HTTP 200** e **HTTP 202** casos é um objeto JSON com os seguintes campos:
 
@@ -262,7 +262,7 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | O ID da instância de orquestração. |
+| **`instanceId`**        | do IdP             | O ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a função de entrada não será incluído no payload de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a função devolve serão incluídos no histórico de execução de orquestração.|
@@ -360,14 +360,14 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | O ID da instância de orquestração. |
+| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
 
 #### <a name="response"></a>Resposta
 
 Os seguintes valores de código de estado HTTP podem ser devolvidos.
 
-* **HTTP 200 (OK)**: O histórico de instância foi removido com êxito.
-* **HTTP 404 (não encontrado)**: A instância especificada não existe.
+* **HTTP 200 (OK)** : O histórico de instância foi removido com êxito.
+* **HTTP 404 (não encontrado)** : A instância especificada não existe.
 
 O payload de resposta para o **HTTP 200** caso é um objeto JSON com o seguinte campo:
 
@@ -428,8 +428,8 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 Os seguintes valores de código de estado HTTP podem ser devolvidos.
 
-* **HTTP 200 (OK)**: O histórico de instância foi removido com êxito.
-* **HTTP 404 (não encontrado)**: Não foram encontradas instâncias que correspondam a expressão de filtro.
+* **HTTP 200 (OK)** : O histórico de instância foi removido com êxito.
+* **HTTP 404 (não encontrado)** : Não foram encontradas instâncias que correspondam a expressão de filtro.
 
 O payload de resposta para o **HTTP 200** caso é um objeto JSON com o seguinte campo:
 
@@ -473,18 +473,18 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | O ID da instância de orquestração. |
-| **`eventName`**   | URL             | O nome do evento que esteja aguardando a instância de orquestração de destino. |
+| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
+| **`eventName`**   | do IdP             | O nome do evento que esteja aguardando a instância de orquestração de destino. |
 | **`{content}`**   | Conteúdo do pedido | O payload do evento formatada em JSON. |
 
 #### <a name="response"></a>Resposta
 
 Vários valores de código de estado possível podem ser devolvidos.
 
-* **HTTP 202 (aceite)**: O evento registado foi aceite para processamento.
-* **O HTTP 400 (pedido incorreto)**: O conteúdo do pedido não era do tipo `application/json` ou não era um JSON válido.
-* **HTTP 404 (não encontrado)**: A instância especificada não foi encontrada.
-* **HTTP 410 (ficaram no passado)**: A instância especificada foi concluída ou falhada e não pode processar todos os eventos gerados.
+* **HTTP 202 (aceite)** : O evento registado foi aceite para processamento.
+* **O HTTP 400 (pedido incorreto)** : O conteúdo do pedido não era do tipo `application/json` ou não era um JSON válido.
+* **HTTP 404 (não encontrado)** : A instância especificada não foi encontrada.
+* **HTTP 410 (ficaram no passado)** : A instância especificada foi concluída ou falhada e não pode processar todos os eventos gerados.
 
 Eis um exemplo de solicitação que envia a cadeia de caracteres do JSON `"incr"` a uma instância à espera de um evento chamado **operação**:
 
@@ -526,18 +526,18 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 O pedido parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, bem como o seguinte parâmetro exclusivo.
 
-| Campo             | Tipo de Parâmetro  | Descrição |
+| Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | O ID da instância de orquestração. |
+| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para a instância da orquestração a terminar. |
 
 #### <a name="response"></a>Resposta
 
 Vários valores de código de estado possível podem ser devolvidos.
 
-* **HTTP 202 (aceite)**: O pedido de encerramento foi aceite para processamento.
-* **HTTP 404 (não encontrado)**: A instância especificada não foi encontrada.
-* **HTTP 410 (ficaram no passado)**: A instância especificada foi concluída ou falhada.
+* **HTTP 202 (aceite)** : O pedido de encerramento foi aceite para processamento.
+* **HTTP 404 (não encontrado)** : A instância especificada não foi encontrada.
+* **HTTP 410 (ficaram no passado)** : A instância especificada foi concluída ou falhada.
 
 Eis um exemplo de solicitação que termina uma instância em execução e especifica um motivo de **buggy**:
 
@@ -575,18 +575,18 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 O pedido parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, bem como o seguinte parâmetro exclusivo.
 
-| Campo             | Tipo de Parâmetro  | Descrição |
+| Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL             | O ID da instância de orquestração. |
+| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo de avanço rápido a instância de orquestração. |
 
 ### <a name="response"></a>Resposta
 
 Vários valores de código de estado possível podem ser devolvidos.
 
-* **HTTP 202 (aceite)**: O pedido de recuo foi aceite para processamento.
-* **HTTP 404 (não encontrado)**: A instância especificada não foi encontrada.
-* **HTTP 410 (ficaram no passado)**: A instância especificada foi concluída ou foi terminada.
+* **HTTP 202 (aceite)** : O pedido de recuo foi aceite para processamento.
+* **HTTP 404 (não encontrado)** : A instância especificada não foi encontrada.
+* **HTTP 410 (ficaram no passado)** : A instância especificada foi concluída ou foi terminada.
 
 Eis um exemplo de solicitação que rewinds uma instância com falha e especifica um motivo de **fixo**:
 

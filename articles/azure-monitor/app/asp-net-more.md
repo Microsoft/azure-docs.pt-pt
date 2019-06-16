@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
 ms.openlocfilehash: 7e62efb0b64b0b882b36126af4a1f9d520d92475
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230631"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Mais telemetria do Application Insights
 Depois de ter [adicionado o Application Insights ao seu código ASP.NET](../../azure-monitor/app/asp-net.md), existem algumas coisas que pode fazer para obter ainda mais telemetria. 
 
-| Acção | O que obtém|
+| Ação | O que obtém|
 |---|---|
 |(Servidores IIS) [Instalar o Monitor de estado](https://go.microsoft.com/fwlink/?LinkId=506648) em cada máquina do servidor.<br/>(As aplicações web do azure) No painel de controlo do Azure para a aplicação web, abra o painel do Application Insights.| [**Contadores de desempenho**](../../azure-monitor/app/performance-counters.md)<br/>[**Exceções** ](asp-net-exceptions.md) - detalhadas rastreios de pilha<br/>[**Dependências**](../../azure-monitor/app/asp-net-dependencies.md)|
 |[Adicione o fragmento do JavaScript às suas páginas web](../../azure-monitor/app/javascript.md)|[Página desempenho](../../azure-monitor/app/usage-overview.md), exceções do browser, desempenho de AJAX. Telemetria personalizada do lado do cliente.|

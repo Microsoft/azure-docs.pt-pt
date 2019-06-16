@@ -9,10 +9,10 @@ ms.date: 11/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d9b7296a116ebd06542a53087afbd083dbd3a7eb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696753"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
@@ -109,7 +109,7 @@ Se &ast;. one.microsoft.com é demasiado abrangente, pode limitar a comunicaçã
 
 Por motivos de (BCDR) de recuperação de desastres e continuidade do negócio pode ter especificado que os ficheiros do Azure partilham numa conta de armazenamento globalmente redundante (GRS). Se for esse o caso, em seguida, as partilhas de ficheiros do Azure irão efetuar a ativação pós-falha para a região emparelhada em caso de uma falha regional duradouras. O Azure File Sync utiliza os mesmo emparelhamentos regionais como armazenamento. Portanto, se utilizar contas de armazenamento GRS, tem de ativar a URLs adicionais permitir que o seu servidor para comunicar com a região emparelhada para o Azure File Sync. A tabela a seguir chama nesta região"Paired". Além disso, existe um URL de perfil do Gestor de tráfego que tem de ser ativada também. Isto irá garantir que pode ser perfeitamente reencaminhado para a região emparelhada em caso de uma ativação pós-falha de tráfego de rede e é chamado "Deteção URL" na tabela abaixo.
 
-| Nuvem  | Região | URL de ponto final primário | Região emparelhada | URL de Deteção |
+| Nuvem  | Região | URL de ponto final primário | Região emparelhada | URL de deteção |
 |--------|--------|----------------------|---------------|---------------|
 | Público |Leste da Austrália | https://kailani-aue.one.microsoft.com | Sudeste da Austrália | https://kailani-aue.one.microsoft.com |
 | Público |Sudeste da Austrália | https://kailani-aus.one.microsoft.com | Leste da Austrália | https://tm-kailani-aus.one.microsoft.com |

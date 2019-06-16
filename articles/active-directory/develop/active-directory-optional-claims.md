@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119713"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer afirmações opcionais para a sua aplicação do Azure AD
@@ -38,7 +38,7 @@ Embora as afirmações opcionais são suportadas na v1.0 e v2.0 tokens de format
 
 **Tabela 1: Aplicabilidade**
 
-| Tipo de Conta | Tokens v1.0 | Tokens v2.0  |
+| Tipo de conta | Tokens v1.0 | Tokens v2.0  |
 |--------------|---------------|----------------|
 | Conta Microsoft pessoal  | N/A  | Suportadas|
 | Conta do Azure AD      | Suportadas | Suportadas |
@@ -52,13 +52,13 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 
 **Tabela 2: Conjunto de afirmações v1.0 e V2.0 opcional**
 
-| Name                       |  Descrição   | Tipo de token | Tipo de Utilizador | Notas  |
+| Name                       |  Descrição   | Tipo de token | Tipo de utilizador | Notas  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora quando o usuário autenticado pela última vez. A especificação de OpenID Connect consulte.| JWT        |           |  |
 | `tenant_region_scope`      | Região do inquilino de recursos | JWT        |           | |
 | `home_oid`                 | Para os utilizadores convidados, o ID de objeto do utilizador no inquilino principal do utilizador.| JWT        |           | |
 | `sid`                      | ID de sessão utilizado para a fim de sessão utilizador por sessão. | JWT        |  Pessoais e contas do Azure AD.   |         |
-| `platf`                    | Plataforma de dispositivos    | JWT        |           | Restringido aos dispositivos geridos que podem verificar o tipo de dispositivo.|
+| `platf`                    | Plataforma de dispositivo    | JWT        |           | Restringido aos dispositivos geridos que podem verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Origem PrimaryAuthoritativeEmail do utilizador      | JWT        |           |         |
 | `verified_secondary_email` | Origem SecondaryAuthoritativeEmail do utilizador   | JWT        |           |        |
 | `enfpolids`                | IDs de política imposta. Uma lista da política de IDs que foram consideradas para o utilizador atual. | JWT |  |  |
@@ -84,11 +84,11 @@ Essas declarações são sempre incluídas na v1.0 tokens de AD do Azure, mas n�
 | Afirmação do JWT     | Name                            | Descrição                                | Notas |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP, o sessão iniciado a partir de cliente.   |       |
-| `onprem_sid`  | Identificador de Segurança no Local |                                             |       |
+| `onprem_sid`  | Identificador de segurança no local |                                             |       |
 | `pwd_exp`     | Hora de expiração de palavra-passe        | A datetime em que a palavra-passe expira. |       |
 | `pwd_url`     | Alterar o URL da palavra-passe             | Um URL que o utilizador pode visitar para alterar a palavra-passe.   |   |
 | `in_corp`     | Rede empresarial interior        | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não estiverem, a afirmação não está incluída.   |  Com a base dos [IPs fidedignos](../authentication/howto-mfa-mfasettings.md#trusted-ips) as definições de MFA.    |
-| `nickname`    | Alcunha                        | Um nome adicional para o utilizador, separado do primeiro ou último nome. | 
+| `nickname`    | Apelido                        | Um nome adicional para o utilizador, separado do primeiro ou último nome. | 
 | `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto user. <br>"family_name": "Santos" | Suportado no AAD e MSA   |
 | `given_name`  | Nome próprio                      | Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto user.<br>"given_name": "Frank"                   | Suportado no AAD e MSA  |
 | `upn`         | Nome do Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador duradouro para o utilizador e não deve ser usado para dados de chave. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da afirmação. |

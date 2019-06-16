@@ -16,10 +16,10 @@ ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60766924"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionar e implementar microsserviços de forma previsível no Azure
@@ -140,7 +140,7 @@ A aplicação depende de dois recursos diferentes. Isso significa que o Azure Re
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>Definições de aplicação
+##### <a name="app-settings"></a>Definições da aplicação
 As definições da aplicação também são definidas como um recurso aninhado.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
@@ -193,7 +193,7 @@ Novamente, os recursos aninhados devem ter uma hierarquia muito semelhante aos e
 O **implementar no Azure** botão é ótimo, mas permite-lhe implementar o modelo de grupo de recursos em azuredeploy. JSON, apenas se já tiver emitida azuredeploy. JSON para o GitHub. O SDK .NET do Azure também fornece as ferramentas para a implementação de qualquer ficheiro de modelo JSON diretamente a partir do seu computador local. Para tal, siga os passos abaixo:
 
 1. No Visual Studio, clique em **Ficheiro** > **Novo** > **Projeto**.
-2. Clique em **em Visual C#** > **Cloud** > **grupo de recursos do Azure**, em seguida, clique em **OK**.
+2. Clique em **em Visual C#**  > **Cloud** > **grupo de recursos do Azure**, em seguida, clique em **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. Na **selecionar modelo do Azure**, selecione **modelo em branco** e clique em **OK**.

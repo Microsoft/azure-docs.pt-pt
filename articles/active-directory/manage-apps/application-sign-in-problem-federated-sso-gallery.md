@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65825200"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de galeria configurada para início de sessão único federado
@@ -61,7 +61,7 @@ Certifique-se de que o `Issuer` atributo no pedido de SAML corresponde ao valor 
 
 
 
-## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para a aplicação
+## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde ao endereço de resposta configurado para a aplicação
 
 *AADSTS50011 de erro: O endereço de resposta "https:\//contoso.com" não coincide com o endereço de resposta configurado para a aplicação*
 
@@ -145,8 +145,8 @@ Após um curto período de tempo, os utilizadores que selecionou será capazes d
 
 Azure AD não suporta o pedido SAML enviado pela aplicação para início de sessão único. Alguns problemas comuns são:
 
--   Faltam campos obrigatórios no pedido SAML
--   Método codificado de pedido SAML
+-   Campos necessários no pedido de SAML em falta
+-   Método de codificação do pedido SAML
 
 **Resolução**
 
@@ -263,7 +263,7 @@ Elimine os URLs de resposta não utilizados configurados para a aplicação.
 
 6.  Selecione a aplicação que pretende configurar para início de sessão único.
 
-7.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Na **URL de resposta (URL do serviço de consumidor de asserção)**, delete não utilizada ou URLs de resposta predefinida criada pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Assim que a aplicação for carregada, abra **Configuração de SAML básica**. Na **URL de resposta (URL do serviço de consumidor de asserção)** , delete não utilizada ou URLs de resposta predefinida criada pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as afirmações SAML enviadas para uma aplicação
 

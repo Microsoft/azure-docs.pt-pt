@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
 ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304238"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos do Azure Event Grid
@@ -91,8 +91,8 @@ Todos os eventos possuem os mesmos dados de nível superior seguintes:
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | id | string | Identificador exclusivo para o evento. |
 | data | objeto | Dados de eventos específicos para o fornecedor de recursos. |
-| dataVersion | string | A versão de esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão de esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, veja a origem do evento:
 

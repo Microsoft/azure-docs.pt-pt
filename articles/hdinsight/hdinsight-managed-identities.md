@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: hrasheed
 ms.openlocfilehash: 30631c4b71d1e8f3b0380a39bab49b900df32621
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427645"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades geridas no Azure HDInsight

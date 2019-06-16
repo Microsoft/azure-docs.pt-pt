@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8ad2ffddf96aa6ecc886ac5653d2d0b8dcfb0856
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091705"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Tutorial: Integração do Active Directory do Azure com o SAP Cloud de objeto de negócio
 
@@ -53,7 +53,7 @@ Para configurar a integração da Cloud de objeto de negócios SAP no Azure AD, 
 
 **Para adicionar SAP Cloud de objeto comercial a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -138,7 +138,7 @@ Para configurar o Azure AD início de sessão único com o SAP Business objeto C
     
     ![Na guia segurança, selecione o ícone de edição](./media/sapboc-tutorial/config2.png)  
 
-4. Para **método de autenticação**, selecione **SAML único início de sessão (SSO)**.
+4. Para **método de autenticação**, selecione **SAML único início de sessão (SSO)** .
 
     ![Selecione SAML início de sessão único para o método de autenticação](./media/sapboc-tutorial/config3.png)  
 
@@ -225,7 +225,7 @@ Para Aprovisionar uma conta de utilizador:
 
     ![Adicionar o funcionário](./media/sapboc-tutorial/user1.png)
 
-3. Sobre o **usuários** página, para adicionar novos detalhes de utilizador, selecione **+**. 
+3. Sobre o **usuários** página, para adicionar novos detalhes de utilizador, selecione **+** . 
 
     ![Adicionar página usuários](./media/sapboc-tutorial/user4.png)
 
@@ -247,7 +247,7 @@ Para Aprovisionar uma conta de utilizador:
 
     g. Selecione o **guardar** ícone.    
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

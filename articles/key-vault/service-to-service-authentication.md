@@ -10,10 +10,10 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722467"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço para o Azure Key Vault com o .NET
@@ -53,7 +53,7 @@ O `AzureServiceTokenProvider` classe armazena em cache o token na memória e obt
 
 O `GetAccessTokenAsync` método requer um identificador de recurso. Para obter mais informações, consulte [que serviços do Azure suportam identidades geridas para recursos do Azure](../active-directory/msi-overview.md).
 
-## <a name="samples"></a>Amostras
+## <a name="samples"></a>Exemplos
 
 Os seguintes exemplos mostram a `Microsoft.Azure.Services.AppAuthentication` biblioteca em ação:
 
@@ -177,7 +177,7 @@ Para utilizar um certificado para iniciar sessão no Azure AD:
           CertificateStoreLocation={CertificateStore}
     ```
  
-    Substitua *{AppId}*, *{TenantId}*, e *{Thumbprint}* com valores geradas no passo 1. Substitua *{CertificateStore}* com ambos `LocalMachine` ou `CurrentUser`, com base no seu plano de implementação.
+    Substitua *{AppId}* , *{TenantId}* , e *{Thumbprint}* com valores geradas no passo 1. Substitua *{CertificateStore}* com ambos `LocalMachine` ou `CurrentUser`, com base no seu plano de implementação.
 
 4. Execute a aplicação. 
 
@@ -191,7 +191,7 @@ Para iniciar sessão com um Azure AD partilhado credencial secreta:
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret} 
     ```
 
-    Substitua _{AppId}_, _{TenantId}_, e _{ClientSecret}_ com valores geradas no passo 1.
+    Substitua _{AppId}_ , _{TenantId}_ , e _{ClientSecret}_ com valores geradas no passo 1.
 
 3. Execute a aplicação. 
 

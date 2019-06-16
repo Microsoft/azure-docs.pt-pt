@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: c4684dd27aeed4fab4335a93ea5a458b4a9f5d80
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a6474320fd8b1545d61320cd43e155ab077ba310
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64683535"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerir um conjunto de dimensionamento com o Azure PowerShell
 
@@ -28,7 +28,7 @@ Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais
 
 Se precisar de criar um conjunto de dimensionamento de máquina virtual, pode [criar conjunto de dimensionamento com o Azure PowerShell](quick-create-powershell.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>Ver informações sobre um conjunto de dimensionamento
 Para ver as informações gerais sobre um conjunto de dimensionamento, utilize [Get-AzVmss](/powershell/module/az.compute/get-azvmss). O exemplo seguinte obtém informações sobre o conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:

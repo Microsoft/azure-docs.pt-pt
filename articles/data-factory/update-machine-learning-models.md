@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60335495"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar os modelos do Azure Machine Learning, utilizando a atividade de recursos de atualização
@@ -59,9 +59,9 @@ O fragmento JSON seguinte define uma atividade de execução de lote do Azure Ma
 
 | Propriedade                      | Descrição                              | Necessário |
 | :---------------------------- | :--------------------------------------- | :------- |
-| nome                          | Nome da atividade no pipeline     | Sim      |
+| name                          | Nome da atividade no pipeline     | Sim      |
 | description                   | Texto que descreve o que faz a atividade.  | Não       |
-| tipo                          | Para a atividade do recurso de atualização do Azure Machine Learning, é o tipo de atividade **AzureMLUpdateResource**. | Sim      |
+| type                          | Para a atividade do recurso de atualização do Azure Machine Learning, é o tipo de atividade **AzureMLUpdateResource**. | Sim      |
 | linkedServiceName             | Serviço ligado do Machine Learning do Azure que contém a propriedade updateResourceEndpoint. | Sim      |
 | trainedModelName              | Nome do módulo modelo preparado na experimentação do serviço Web para ser atualizado | Sim      |
 | trainedModelLinkedServiceName | Nome do serviço ligado do armazenamento do Azure que contém o ficheiro ilearner que é carregado pela operação de atualização | Sim      |

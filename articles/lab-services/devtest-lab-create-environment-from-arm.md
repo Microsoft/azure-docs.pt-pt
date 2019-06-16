@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833991"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos Azure Resource Manager
@@ -99,7 +99,7 @@ Depois de configurar um repositório de modelos do Azure Resource Manager no lab
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório pretendido.   
-1. No painel do laboratório, selecione **adicionar +**.
+1. No painel do laboratório, selecione **adicionar +** .
 1. O **Vyberte bázi** painel apresenta as imagens base, pode utilizar com os modelos Azure Resource Manager listados em primeiro lugar. Selecione o modelo Azure Resource Manager pretendido.
 
     ![Escolher uma base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)

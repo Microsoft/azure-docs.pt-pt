@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.openlocfilehash: dde5623bf5bd579a13fa7271dfba64f9df61bad1
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66576700"
 ---
-# <a name="specify-a-face-detection-model"></a>Especifique um modelo de deteção de rostos
+# <a name="specify-a-face-detection-model"></a>Especifique um modelo de deteção facial
 
 Este guia mostra como especificar um modelo de deteção de rostos para a API de rostos do Azure.
 

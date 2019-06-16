@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: erhopf
 ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514646"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de pedido para o texto do tradutor
@@ -34,7 +34,7 @@ As seguintes tabela listas de elemento e o caráter limites da matriz para cada 
 | Detect | 10,000 | 100 |   50,000 |
 | BreakSentence | 10,000    | 100 | 5,0000 |
 | Pesquisa no Dicionário| 100 |  10  | 1,000 |
-| Exemplos do dicionário | 100 para texto e 100 para tradução (total de 200)| 10|   2.000 |
+| Exemplos do dicionário | 100 para texto e 100 para tradução (total de 200)| 10|   2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Limites do caractere por hora
 

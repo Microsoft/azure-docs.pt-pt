@@ -12,10 +12,10 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967954"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
@@ -126,7 +126,7 @@ Pode associar vários nós ao instalar o software de runtime de integração aut
 
 ### <a name="scale-considerations"></a>Considerações de dimensionamento
 
-#### <a name="scale-out"></a>Ampliar
+#### <a name="scale-out"></a>Aumentar horizontalmente
 
 Quando a memória disponível no runtime de integração autoalojado é baixa e a utilização da CPU é alta, adicionar um novo nó ajuda a aumentar horizontalmente a carga entre máquinas. Se atividades estão a falhar porque eles estão exceder o tempo limite ou porque o nó do Runtime de integração autoalojado está offline, isso será útil se adicionar um nó para o gateway.
 

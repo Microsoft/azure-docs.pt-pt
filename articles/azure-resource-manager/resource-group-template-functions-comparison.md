@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128682"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funções de comparação para modelos Azure Resource Manager
@@ -137,10 +137,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
-| checkStrings | Bool | Verdadeiro |
-| checkArrays | Bool | Verdadeiro |
-| checkObjects | Bool | Verdadeiro |
+| checkInts | Booleano | Verdadeiro |
+| checkStrings | Booleano | Verdadeiro |
+| checkArrays | Booleano | Verdadeiro |
+| checkObjects | Booleano | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -175,7 +175,7 @@ O resultado do exemplo anterior é:
 
 | Name | Tipo | Value |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Verdadeiro |
+| checkNotEquals | Booleano | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -250,8 +250,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falso |
-| checkStrings | Bool | Verdadeiro |
+| checkInts | Booleano | Falso |
+| checkStrings | Booleano | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -326,8 +326,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | Falso |
-| checkStrings | Bool | Verdadeiro |
+| checkInts | Booleano | Falso |
+| checkStrings | Booleano | Verdadeiro |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -402,8 +402,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
-| checkStrings | Bool | Falso |
+| checkInts | Booleano | Verdadeiro |
+| checkStrings | Booleano | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -478,8 +478,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| checkInts | Bool | Verdadeiro |
-| checkStrings | Bool | Falso |
+| checkInts | Booleano | Verdadeiro |
+| checkStrings | Booleano | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 

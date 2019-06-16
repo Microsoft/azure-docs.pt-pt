@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943566"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar a sua aplicação no Portal de publicação
@@ -43,11 +43,11 @@ Existem quatro formas principais para a criação de um do Dynamics 365 para a o
 
 O formulário de definições da oferta é um formulário básico para especificar as definições da oferta. Os diferentes campos são descritos abaixo.
 
-### <a name="offer-id"></a>ID de Oferta
+### <a name="offer-id"></a>ID de oferta
 
 Este é um identificador exclusivo para a oferta de um perfil do publicador. Este ID será visível em URLs de produto. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um travessão e pode ter um máximo de 50 carateres. Este campo está bloqueado assim que uma oferta entra no ar.
 
-Por exemplo, se um publicador **"contoso"** publicadores cria uma oferta com o ID de oferta **"WebApp de exemplo"**, que será apresentado no AppSource como "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+Por exemplo, se um publicador **"contoso"** publicadores cria uma oferta com o ID de oferta **"WebApp de exemplo"** , que será apresentado no AppSource como "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>ID de publicador
 
@@ -116,7 +116,7 @@ Introduza o URL para uma página que tem a ajudar a obter informações relacion
 
 Este campo determina os países/regiões em que a oferta estará disponível para avaliação.
 
-### <a name="supported-languages"></a>Linguagens suportadas
+### <a name="supported-languages"></a>Idiomas suportados
 
 Selecione os idiomas que oferece suporte a sua aplicação. Se a sua aplicação suportar outros idiomas que não estejam na lista, continuar a publicar a sua oferta e enviar-nos para: [ appsource@microsoft.com ](mailto:appsource@microsoft.com) para nos informar.
 

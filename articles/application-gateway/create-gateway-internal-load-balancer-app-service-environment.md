@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: baed2b23a321c53a614303d3085fbb3a4bf6ad0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831100"
 ---
 # <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Certificado de servidor back-end não está na lista de permissões para um gateway de aplicação com um balanceador de carga interno com um ambiente de serviço de aplicações
@@ -36,9 +36,9 @@ Quando cria um gateway de aplicação utilizando um ILB com um ASE no back-end, 
 - **Nome do anfitrião:** test.appgwtestase.com
 - **Certificado SSL:** CN=test.appgwtestase.com
 - **Conjunto de back-end:** Endereço IP ou FQDN
-- **Endereço IP:**: 10.1.5.11
+- **Endereço IP:** : 10.1.5.11
 - **Definições de HTTP:** HTTPS
-- **Porta:**: 443
+- **Porta:** : 443
 - **Sonda personalizada:** Nome de anfitrião – test.appgwtestase.com
 - **Certificado de autenticação:** . cer de test.appgwtestase.com
 - **Estado de funcionamento do back-end:** Mau estado de funcionamento – certificado de servidor de back-end não está na lista de permissões com o Gateway de aplicação.
@@ -70,6 +70,6 @@ Quando utiliza um nome de domínio completamente qualificado (FQDN) para acessar
 
 Para reduzir a sobrecarga, pode carregar o certificado ILB nas definições de HTTP para fazer o caminho de sonda de trabalho. (Este passo é apenas para a lista de permissões. Não será usado para comunicação SSL.) Pode recuperar o certificado ILB acessando o ILB com o respetivo endereço IP a partir do seu browser em HTTPS, em seguida, exportar o certificado SSL em Base-64 codificada formato CER e carregar o certificado nas respetivas definições de HTTP.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

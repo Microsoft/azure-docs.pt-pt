@@ -16,13 +16,13 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65076304"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Cenário: Aplicação Web que chamadas de APIs web
+# <a name="scenario-web-app-that-calls-web-apis"></a>Cenário: Aplicação Web que chama as APIs Web
 
 Saiba como criar uma aplicação web aos utilizadores iniciar sessão na plataforma de identidade da Microsoft e que chama as APIs web em nome do utilizador com sessão iniciada.
 
@@ -39,7 +39,7 @@ Este cenário supposes que já percorreu o seguinte cenário:
 
 Adicionar autenticação à sua aplicação Web, que, por conseguinte, pode iniciar sessão dos utilizadores e chama uma API web em nome do utilizador com sessão iniciada.
 
-![Aplicação Web que chamadas de APIs web](./media/scenario-webapp/web-app.svg)
+![Aplicação Web que chama as APIs Web](./media/scenario-webapp/web-app.svg)
 
 Aplicações Web que chama a APIs web:
 

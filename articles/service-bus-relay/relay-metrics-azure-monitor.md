@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
 ms.openlocfilehash: bd62624406adb006fdcd7d59f72db3fb5e1848a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60421811"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Métricas de reencaminhamento do Azure no Azure Monitor (pré-visualização)
@@ -41,7 +41,7 @@ Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://por
 
 ![][1]
 
-Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (pré-visualização)**. 
+Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (pré-visualização)** . 
 
 Para as métricas que suporta dimensões, tem de filtrar com o valor de dimensão pretendida.
 
@@ -62,13 +62,13 @@ Todos os valores de métricas são enviados para o Azure Monitor, a cada minuto.
 | ------------------- | ----------------- |
 | ListenerConnections-êxito (pré-visualização) | O número de conexões com êxito do serviço de escuta a reencaminhamento do Azure num determinado período. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ListenerConnections-ClientError (pré-visualização)|O número de erros do cliente em ligações de serviço de escuta num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ListenerConnections-ServerError (pré-visualização)|O número de erros de servidor em ligações de serviço de escuta num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|SenderConnections-êxito (pré-visualização)|O número de ligações de remetente bem-sucedida efetuadas num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ListenerConnections-ServerError (pré-visualização)|O número de erros de servidor em ligações de serviço de escuta num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-êxito (pré-visualização)|O número de ligações de remetente bem-sucedida efetuadas num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |SenderConnections-ClientError (pré-visualização)|O número de erros do cliente em ligações de remetente num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|SenderConnections-ServerError (pré-visualização)|O número de erros de servidor em ligações de remetente num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|SenderConnections-ServerError (pré-visualização)|O número de erros de servidor em ligações de remetente num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ListenerConnections-TotalRequests (pré-visualização)|O número total de ligações de serviço de escuta num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |SenderConnections-TotalRequests (pré-visualização)|Os pedidos de ligação graças as remetentes num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|ActiveConnections (pré-visualização)|O número de ligações ativas num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveConnections (pré-visualização)|O número de ligações ativas num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ActiveListeners (pré-visualização)|O número de serviços de escuta ativos durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |ListenerDisconnects (pré-visualização)|O número de serviços de escuta desligado num determinado período.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |SenderDisconnects (pré-visualização)|O número de remetentes desligados num determinado período.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|

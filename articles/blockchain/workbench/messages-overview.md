@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510149"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>O Azure Blockchain Workbench, integração de mensagens
@@ -158,7 +158,7 @@ Blockchain Workbench devolve uma resposta com os seguintes campos:
 | connectionId             | Identificador exclusivo para a ligação de blockchain                               |
 | messageSchemaVersion     | Versão do esquema de mensagens                                                         |
 | messageName              | **CreateContractUpdate**                                                      |
-| estado                   | Estado do pedido de criação do contrato.  Valores possíveis: **Submetido**, **consolidadas**, **falha**.  |
+| status                   | Estado do pedido de criação do contrato.  Valores possíveis: **Submetido**, **consolidadas**, **falha**.  |
 | additionalInformation    | Fornecidas informações adicionais com base no status                              |
 
 Exemplo de um submetido **criar contrato** resposta do Blockchain Workbench:
@@ -261,7 +261,7 @@ Blockchain Workbench devolve uma resposta com os seguintes campos:
 | connectionId          | Identificador exclusivo para a ligação de blockchain |
 | messageSchemaVersion  | Versão do esquema de mensagens |
 | messageName           | **CreateContractActionUpdate** |
-| estado                | Estado do pedido de ação de contrato. Valores possíveis: **Submetido**, **consolidadas**, **falha**.                         |
+| status                | Estado do pedido de ação de contrato. Valores possíveis: **Submetido**, **consolidadas**, **falha**.                         |
 | additionalInformation | Fornecidas informações adicionais com base no status |
 
 Exemplo de um submetido **criar uma ação de contrato** resposta do Blockchain Workbench:
@@ -368,7 +368,7 @@ Tópicos do Service Bus pode ser utilizados para notificar os utilizadores sobre
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Consumir mensagens do Service Bus com o Logic Apps
 
 1. Criar uma nova **aplicação lógica do Azure** no portal do Azure.
-2. Ao abrir a aplicação de lógica do Azure no portal, será solicitado a selecionar um acionador. Tipo **do Service Bus** na caixa de pesquisa e selecione o acionador apropriado para o tipo de interação que pretende ter com o Service Bus. Por exemplo, **do Service Bus - quando uma mensagem é recebida numa subscrição de tópico (concluir automaticamente)**.
+2. Ao abrir a aplicação de lógica do Azure no portal, será solicitado a selecionar um acionador. Tipo **do Service Bus** na caixa de pesquisa e selecione o acionador apropriado para o tipo de interação que pretende ter com o Service Bus. Por exemplo, **do Service Bus - quando uma mensagem é recebida numa subscrição de tópico (concluir automaticamente)** .
 3. Quando o designer de fluxo de trabalho é exibido, especifique as informações de ligação para o Service Bus.
 4. Selecione a sua subscrição e especifique o tópico da **Bancada de trabalho externo**.
 5. Desenvolva a lógica para a sua aplicação que utiliza a mensagem deste acionador.
@@ -383,7 +383,7 @@ Contém informações sobre blocos individuais. O *BlockMessage* inclui uma seç
 
 | Name | Descrição |
 |------|-------------|
-| bloquear | Contém [bloquear informações](#block-information) |
+| Bloco | Contém [bloquear informações](#block-information) |
 | transações | Contém uma coleção [informações sobre transações](#transaction-information) para o bloco |
 | connectionId | Identificador exclusivo para a ligação |
 | messageSchemaVersion | Versão do esquema de mensagens |
@@ -563,7 +563,7 @@ Contém informações quando uma função de contrato é invocada, como o nome d
 | Name | Descrição |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| chamador                      | [Informações do chamador](#caller-information) |
+| Autor da chamada                      | [Informações do chamador](#caller-information) |
 | contractId                  | Identificador exclusivo para o contrato de dentro do Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificador exclusivo para o contrato no razão |
 | functionName                | Nome da função |
@@ -579,7 +579,7 @@ Contém informações quando uma função de contrato é invocada, como o nome d
 
 | Name | Descrição |
 |------|-------------|
-| tipo | Tipo do chamador, como um utilizador ou um contrato |
+| type | Tipo do chamador, como um utilizador ou um contrato |
 | id | Identificador exclusivo para o chamador dentro do Azure Blockchain Workbench |
 | ledgerIdentifier | Identificador exclusivo para o autor da chamada no razão |
 
@@ -645,7 +645,7 @@ Contém informações quando um aplicativo é carregado para a Bancada de trabal
 | eventName | **ApplicationIngestion** |
 | applicationId | Identificador exclusivo para a aplicação dentro do Azure Blockchain Workbench |
 | applicationName | Nome da aplicação |
-| applicationDisplayName | Nome a apresentar da aplicação |
+| applicationDisplayName | Nome de exibição do aplicativo |
 | applicationVersion | Versão da aplicação |
 | applicationDefinitionLocation | URL onde está localizado o ficheiro de configuração de aplicação |
 | contractCodes | Coleção de [códigos de contrato](#contract-code-information) para a aplicação |
@@ -662,7 +662,7 @@ Contém informações quando um aplicativo é carregado para a Bancada de trabal
 |------|-------------|
 | id | Identificador exclusivo para o arquivo de código de contrato dentro do Azure Blockchain Workbench |
 | ledgerId | Identificador exclusivo para a razão de dentro do Azure Blockchain Workbench |
-| location | URL onde está localizado o ficheiro de código do contrato |
+| localização | URL onde está localizado o ficheiro de código do contrato |
 
 #### <a name="application-role-information"></a>Informações de função de aplicação
 
@@ -694,9 +694,9 @@ Contém informações quando um aplicativo é carregado para a Bancada de trabal
 
 | Name | Descrição |
 |------|-------------|
-| name | Nome do estado |
+| name | Nome do Estado |
 | displayName | Nome a apresentar de estado |
-| Estilo | Estilo de estado (êxito ou falha) |
+| style | Estilo de estado (êxito ou falha) |
 
 ##### <a name="workflow-property-information"></a>Informações de propriedade do fluxo de trabalho
 
@@ -704,7 +704,7 @@ Contém informações quando um aplicativo é carregado para a Bancada de trabal
 |------|-------------|
 | id | Identificador exclusivo para a propriedade de fluxo de trabalho de aplicação dentro do Azure Blockchain Workbench |
 | name | Nome da propriedade |
-| tipo | Tipo de propriedade |
+| type | Tipo de propriedade |
 
 Exemplo de uma *EventMessage ApplicationIngestion* da bancada de trabalho de Blockchain:
 
@@ -839,7 +839,7 @@ Contém informações quando é atribuída uma função na bancada de trabalho, 
 | eventName | **RoleAssignment** |
 | applicationId | Identificador exclusivo para a aplicação dentro do Azure Blockchain Workbench |
 | applicationName | Nome da aplicação |
-| applicationDisplayName | Nome a apresentar da aplicação |
+| applicationDisplayName | Nome de exibição do aplicativo |
 | applicationVersion | Versão da aplicação |
 | applicationRole        | Informações sobre o [função de aplicação](#roleassignment-application-role) |
 | mandatário               | Informações sobre o [mandatário](#roleassignment-assigner) |
@@ -861,7 +861,7 @@ Contém informações quando é atribuída uma função na bancada de trabalho, 
 | Name | Descrição |
 |------|-------------|
 | id | Identificador exclusivo do utilizador dentro do Azure Blockchain Workbench |
-| tipo | Tipo do mandatário |
+| type | Tipo do mandatário |
 | chainIdentifier | Identificador exclusivo do utilizador no razão |
 
 #### <a name="roleassignment-assignee"></a>Detentor de RoleAssignment
@@ -869,7 +869,7 @@ Contém informações quando é atribuída uma função na bancada de trabalho, 
 | Name | Descrição |
 |------|-------------|
 | id | Identificador exclusivo do utilizador dentro do Azure Blockchain Workbench |
-| tipo | Tipo do detentor |
+| type | Tipo do detentor |
 | chainIdentifier | Identificador exclusivo do utilizador no razão |
 
 Exemplo de uma *EventMessage RoleAssignment* da bancada de trabalho de Blockchain:

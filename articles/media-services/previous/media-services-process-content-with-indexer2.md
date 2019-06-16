@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: adsolank;juliako;
 ms.openlocfilehash: 304ecda320e1fdd9573bc961fde74efe03400aa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712966"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexe ficheiros multimédia com a pré-visualização de 2 de indexador de multimédia do Azure
@@ -73,7 +73,7 @@ O JSON seguinte define os parâmetros disponíveis.
     }
 ```
 
-## <a name="supported-languages"></a>Linguagens suportadas
+## <a name="supported-languages"></a>Idiomas suportados
 Pré-visualização de 2 de indexador de multimédia do Azure suporta a conversão de voz em texto para os seguintes idiomas (ao especificar o nome do idioma na configuração da tarefa, utilize o código de 4 carateres entre parênteses Retos, conforme mostrado abaixo):
 
 * Inglês [EnUs]

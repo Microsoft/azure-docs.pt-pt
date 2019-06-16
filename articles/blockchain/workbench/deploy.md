@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154595"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementar o Azure Blockchain Workbench
@@ -192,7 +192,7 @@ Implementação de Blockchain Workbench requer o registo de uma aplicação do A
 2. Selecione a sua conta no canto superior direito e mude para o Azure AD pretendido do inquilino. O inquilino deve ser o inquilino do administrador de subscrição da subscrição em que a Bancada de trabalho é implementada e tem permissões suficientes para registar aplicações.
 3. No painel de navegação do lado esquerdo, selecione o serviço do **Azure Active Directory**. Selecione **registos de aplicações** > **novo registo de aplicação**.
 
-    ![Registo de aplicações](media/deploy/app-registration.png)
+    ![Registo da aplicação](media/deploy/app-registration.png)
 
 4. Fornecer um **Name** e **URL de início de sessão** para a aplicação. Pode utilizar valores de marcador de posição, uma vez que os valores são alterados durante a implantação. 
 
@@ -201,7 +201,7 @@ Implementação de Blockchain Workbench requer o registo de uma aplicação do A
     |Definição  | Valor  |
     |---------|---------|
     |Name | `Blockchain API` |
-    |Tipo de aplicação |Aplicação/API Web|
+    |Tipo de aplicação |Aplicação Web / API|
     |URL de início de sessão | `https://blockchainapi` |
 
 5. Selecione **criar** para registar a aplicação do Azure AD.

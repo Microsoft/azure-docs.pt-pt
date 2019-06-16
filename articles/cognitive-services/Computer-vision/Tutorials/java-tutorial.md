@@ -12,10 +12,10 @@ ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
 ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232625"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Utilizar as funcionalidades de imagem digitalizada com a REST API e o Java
@@ -63,8 +63,8 @@ Importe o ficheiro **cognitive-services-java-computer-vision-tutorial-master.zip
 1. No NetBeans, clique em **File** (Ficheiro)  > **Import Project** (Importar Projeto) > **From ZIP...** (Do ZIP). A caixa de diálogo **Import Project(s) from ZIP** (Importar Projetos do ZIP) é apresentada.
 1. No campo **ZIP File:** (Ficheiro ZIP:), clique no botão **Browse** (Procurar) para localizar o ficheiro **cognitive-services-java-computer-vision-tutorial-master.zip** e, em seguida, clique em **Open** (Abrir).
 1. Clique em **Import** (Importar) na caixa de diálogo **Import Project(s) from ZIP** (Importar Projetos do ZIP).
-1. No painel **Projects** (Projetos), expanda **ComputerVision** (Imagem Digitalizada)  > **Source Packages** (Pacotes de Origem)  > **&lt;pacote predefinido&gt;**. 
-   Algumas versões do NetBeans utilizam **src** em vez de **Source Packages** (Pacotes de Origem)  > **&lt;pacote predefinido&gt;**. Nesse caso, expanda **src**.
+1. No painel **Projects** (Projetos), expanda **ComputerVision** (Imagem Digitalizada)  > **Source Packages** (Pacotes de Origem)  >  **&lt;pacote predefinido&gt;** . 
+   Algumas versões do NetBeans utilizam **src** em vez de **Source Packages** (Pacotes de Origem)  >  **&lt;pacote predefinido&gt;** . Nesse caso, expanda **src**.
 1. Faça duplo clique em **MainFrame.java** para carregar o ficheiro para o editor do NetBeans. O separador **Design** (Estrutura) do ficheiro **MainFrame.java** é apresentado.
 1. Clique no separador **Source** (Fonte) para ver o código fonte Java.
 

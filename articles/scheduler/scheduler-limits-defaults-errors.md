@@ -3,19 +3,18 @@ title: Limites, quotas e limites no agendador do Azure
 description: Saiba mais sobre os limites, quotas, valores padrão e limiares de limitação do Azure Scheduler
 services: scheduler
 ms.service: scheduler
-author: WenJason
-ms.author: v-jay
+author: derek1ee
+ms.author: deli
 ms.reviewer: klam
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
-origin.date: 08/18/2016
-ms.date: 11/12/2018
+ms.date: 08/18/2016
 ms.openlocfilehash: 478afb20f3dabec74d66d00bec325408ce6604fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64713737"
 ---
 # <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limites, quotas e limites de limitação no agendador do Azure
 

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 9aee881844e9338cc1da2484a94c8355f2516c82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252016"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720753"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.OptionsGroup
 Um controlo de seleção com uma linha de opções disponíveis.

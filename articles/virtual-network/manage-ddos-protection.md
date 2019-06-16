@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65911269"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir padrão do Azure DDoS Protection através do portal do Azure
@@ -31,7 +31,7 @@ Antes de concluir qualquer os passos neste tutorial, inicie sessão no portal do
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-ddos-protection-plan"></a>Criar um plano de proteção contra DDoS
+## <a name="create-a-ddos-protection-plan"></a>Criar um plano de proteção DDoS
 
 Um plano de proteção contra DDoS define um conjunto de redes virtuais que têm a norma de proteção DDoS ativada, entre subscrições. Pode configurar um plano de proteção de DDoS para sua organização e redes virtuais ligação de várias subscrições para o mesmo plano. O plano de proteção contra DDoS em si também está associado uma subscrição que selecionou durante a criação do plano. Plano de DDoS Protection funciona em regiões e subscrições. Exemplo-pode criar o plano na região Leste-US e ligação à subscrição #1 no seu inquilino. O mesmo plano pode ser associado às redes virtuais de outras subscrições em regiões diferentes, com o seu inquilino. A subscrição o plano é associado a implica a fatura mensal recorrente para o plano, bem como os custos da utilização excessiva, no caso do número de endereços IP públicos protegidos exceder 100. Para obter mais informações sobre os preços de DDoS, consulte [os detalhes dos preços](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -186,9 +186,9 @@ Registos de fluxo de mitigação de ataque permite-lhe rever o tráfego ignorado
 1. Para ver os dados de registos de fluxo no dashboard de análise do Azure, pode importar o dashboard de exemplo do https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Os registos de fluxo terá os seguintes campos: 
-- IP de origem
-- IP de Destino
-- Porta de Origem 
+- IP de Origem
+- ID de destino
+- Porta de origem 
 - Porta de destino 
 - Tipo de protocolo 
 - Ação executada durante a atenuação
@@ -221,7 +221,7 @@ Os alertas incluem informações gerais sobre o endereço IP público, que está
 
 Para trabalhar com planos de proteção DDoS, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-| Acção                                            | Name                                     |
+| Ação                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Ler um plano de proteção DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Criar ou atualizar um plano de proteção DDoS  |

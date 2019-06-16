@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410730"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
@@ -46,9 +46,9 @@ A tabela seguinte mostra os Estados de processamento de conjuntos de dados impor
 
 | Estado | Significado |
 | ----- | ------- |
-| A processar | O conjunto de dados foi recebido e está a ser processado. |
-| Com Êxito | O conjunto de dados foi validado e agora pode ser utilizado para criar um modelo de voz. |
-| Com falhas | O conjunto de dados foi falhou durante o processamento devido a várias razões, por exemplo, erros de ficheiros, problemas de dados ou problemas de rede. |
+| Em processamento | O conjunto de dados foi recebido e está a ser processado. |
+| Bem-sucedido | O conjunto de dados foi validado e agora pode ser utilizado para criar um modelo de voz. |
+| Com Falhas | O conjunto de dados foi falhou durante o processamento devido a várias razões, por exemplo, erros de ficheiros, problemas de dados ou problemas de rede. |
 
 Depois de concluída a validação, pode ver o número total de expressões correspondentes para cada um dos seus conjuntos de dados do **expressões com** coluna. Se o tipo de dados que selecionou necessita de segmentação de áudio de longa, esta coluna reflete apenas as expressões que podemos ter segmentada para qualquer um com base em suas transcrições ou através do serviço de transcrição de voz. Ainda mais, pode baixar o conjunto de dados validado para ver os resultados de detalhe das expressões que foram importados com êxito e suas transcrições de mapeamento. Sugestão: Segmentação de áudio longa pode demorar mais de uma hora para concluir o processamento de dados.
 
@@ -88,9 +88,9 @@ O estado de que é apresentado reflete o processo de conversão o conjunto de da
 
 | Estado | Significado |
 | ----- | ------- |
-| A processar | Seu modelo de voz está a ser criado. |
-| Com Êxito | Seu modelo de voz foi criado e pode ser implementado. |
-| Com falhas | Seu modelo de voz foi falhou no treinamento devido a várias razões, problemas de dados que não foram vistos por exemplo, ou problemas de rede. |
+| Em processamento | Seu modelo de voz está a ser criado. |
+| Bem-sucedido | Seu modelo de voz foi criado e pode ser implementado. |
+| Com Falhas | Seu modelo de voz foi falhou no treinamento devido a várias razões, problemas de dados que não foram vistos por exemplo, ou problemas de rede. |
 
 O tempo de treinamento varia dependendo do volume de dados de áudio processados. Vezes típicos variam entre sobre 30 minutos para centenas de expressões e 40 horas para expressões 20.000 com. Assim que o seu treinamento de modelo é concluído com êxito, pode começar a testá-lo.
 

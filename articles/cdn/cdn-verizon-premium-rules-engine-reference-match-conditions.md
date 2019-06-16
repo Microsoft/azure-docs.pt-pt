@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 5197fdfe78b1b091de713754967f58157cc4a1b3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481658"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>A CDN do Azure do motor de regras de Premium da Verizon coincidam com condições
@@ -804,7 +804,7 @@ Informações da chave:
 - Um URL de CNAME do edge é reescrito para um URL de CDN antes de comparação de URL.
 
     Por exemplo, ambos os seguintes URLs apontam para o mesmo elemento e, portanto, tem o mesmo caminho de URL:
-     - URL de CDN: http://wpc.0001.&lt; domínio&gt;/800001/CustomerOrigin/path/asset.htm
+     - URL de CDN: http://wpc.0001.&lt ; domínio&gt; /800001/CustomerOrigin/path/asset.htm
      - URL de CNAME do Edge: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Informações adicionais:

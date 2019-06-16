@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466483"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
@@ -91,7 +91,7 @@ Forneça o **nome a apresentar**, **nome do campo**, e **gravidade** detalhes do
 
 Por exemplo, pode adicionar um novo **erro de Motor de ventoinha** eventos.
 
-| Nome a apresentar        | Nome do Campo    |  Gravidade Predefinida |
+| Nome a apresentar        | Nome do Campo    |  Gravidade de predefinição |
 | --------------------| ------------- |-----------|
 | Erro de Motor da Ventoinha     | fanmotorerror |  Erro    |
 
@@ -114,9 +114,9 @@ Forneça os detalhes para **nome a apresentar**, **nome do campo**, e **valores*
 
 Por exemplo, pode adicionar um novo **ventoinha modo** estado de que tem dois valores possíveis que o dispositivo pode enviar, **operacional** e **parado**.
 
-| Nome a apresentar | Nome do Campo    |  Valor 1   | Nome a apresentar | Valor 2    |Nome a apresentar  | 
+| Nome a apresentar | Nome do Campo    |  Valor de 1   | Nome a apresentar | Valor 2    |Nome a apresentar  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
-| Modo da Ventoinha     | fanmode       |  1         | Em funcionamento    |     0      | Parado      |
+| Modo da Ventoinha     | fanmode       |  1         | Em funcionamento    |     0      | Parada      |
 
 ![Formulário de "Estado de edição" com detalhes para o modo de ventoinha](./media/howto-set-up-template/statemeasurementsform.png)
 
@@ -213,7 +213,7 @@ Pode criar uma propriedade de localização como uma propriedade de dispositivo 
 
     | Nome a apresentar  | Nome do Campo | Tipo de Dados |
     | --------------| -----------|-----------|
-    | Localização do dispositivo | deviceLocation | location  |
+    | Localização do dispositivo | deviceLocation | localização  |
 
    > [!NOTE]
    > Os nomes de campo tem de corresponder aos nomes de propriedade no código de dispositivo correspondente

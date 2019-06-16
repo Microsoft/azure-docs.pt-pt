@@ -1,21 +1,21 @@
 ---
-title: Configurar e aceder aos registos de servidor da base de dados do Azure para MariaDB no Portal do Azure
-description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para MariaDB no Portal do Azure.
+title: Configurar e aceder aos registos de servidor da base de dados do Azure para MariaDB no portal do Azure
+description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para MariaDB do portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 3dbf7064e409230916668e62ef861c0ce149fdbb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61040695"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065630"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e registos do servidor de acesso no portal do Azure
 
-Pode configurar, listar e transfira o [base de dados do Azure para os registos do servidor MariaDB](concepts-server-logs.md) do portal do Azure.
+Pode configurar, listar e transfira o [base de dados do Azure para registos de consulta lenta de MariaDB](concepts-server-logs.md) do portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de procedimentos, terá de:
@@ -42,7 +42,7 @@ Configure o acesso ao registo de consulta lenta.
 6. Regressar à lista de registos ao clicar o **botão Fechar** (ícone de X) no **parâmetros do servidor** página.
 
 ## <a name="view-list-and-download-logs"></a>Ver lista e transferir registos
-Assim que começa de registo, pode ver uma lista de registos disponíveis e transferir ficheiros de registo individuais no painel de registos do servidor. 
+Assim que começa de registo, pode ver uma lista de registos de consulta lenta disponíveis e transferir ficheiros de registo individuais no painel de registos do servidor. 
 
 1. Abra o portal do Azure.
 
@@ -62,7 +62,7 @@ Assim que começa de registo, pode ver uma lista de registos disponíveis e tran
    ![Clique em ícone de download](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [registos do servidor](concepts-server-logs.md) na base de dados do Azure para MariaDB.
+- Saiba mais sobre [lento de registos de consulta](concepts-server-logs.md) na base de dados do Azure para MariaDB.
 - Para obter mais informações sobre as definições de parâmetros e o registo, consulte a documentação de MariaDB sobre [registos](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

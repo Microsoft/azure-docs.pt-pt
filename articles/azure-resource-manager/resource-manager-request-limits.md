@@ -8,10 +8,10 @@ ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399721"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitar pedidos do Resource Manager

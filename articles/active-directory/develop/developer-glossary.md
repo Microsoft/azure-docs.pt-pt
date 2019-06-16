@@ -19,10 +19,10 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235356"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de programador do Microsoft identity platform
@@ -54,7 +54,7 @@ Quando Registre-se/atualizar uma aplicação no [portal do Azure][AZURE-portal],
 
 Para obter mais informações, consulte [objetos de Principal de serviço de aplicação e][AAD-App-SP-Objects].
 
-## <a name="application-registration"></a>Registo de aplicação
+## <a name="application-registration"></a>registo de aplicação
 
 Para permitir que um aplicativo integrar com e delegar funções de gestão de acesso e identidade para o Azure AD, tem de ser registado com um Azure AD [inquilino](#tenant). Quando registar a sua aplicação com o Azure AD, está a fornecer uma configuração de identidade para a sua aplicação, permitindo-lhe integrar com o Azure AD e usar recursos como:
 
@@ -64,11 +64,11 @@ Para permitir que um aplicativo integrar com e delegar funções de gestão de a
 
 Ver [integrar aplicações com o Azure Active Directory] [ AAD-Integrating-Apps] para obter mais detalhes.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>autenticação
 
 O ato de desafiador uma entidade para credenciais legítimas, fornecendo a base para a criação de uma entidade de segurança a ser utilizado para controlo de acesso e identidade. Durante uma [concessão de autorização de OAuth2](#authorization-grant) por exemplo, a autenticação de terceiros é preencher a função do [proprietário do recurso](#resource-owner) ou [aplicação cliente](#client-application), consoante o concessão utilizado.
 
-## <a name="authorization"></a>Autorização
+## <a name="authorization"></a>authorization
 
 O ato de conceder uma permissão de principal de segurança autenticado para fazer algo. Existem dois casos de utilização principais no modelo de programação do Azure AD:
 
@@ -156,7 +156,7 @@ Um servidor de recurso expõe as APIs e impõe o acesso aos seus recursos proteg
 
 Assim como um aplicativo de cliente, a configuração de identidade da aplicação de recurso é estabelecida através de [registo](#application-registration) no inquilino do Azure AD, fornecendo a aplicação e o objeto principal do serviço. Algumas APIs disponibilizadas pela Microsoft, como o Azure AD Graph API, registou previamente disponibilizados em todos os inquilinos durante o aprovisionamento de principais de serviço.
 
-## <a name="roles"></a>funções
+## <a name="roles"></a>roles
 
 Como [âmbitos](#scopes), as funções fornecem uma forma de um [servidor recursos](#resource-server) para governar o acesso a seus recursos protegidos. Existem dois tipos: uma função de "usuário" implementa o controlo de acesso baseado em funções para os utilizadores/grupos que necessitam de acesso ao recurso, enquanto uma função de "aplicativo" implementa o mesmo para [aplicativos cliente](#client-application) que necessitam de acesso.
 

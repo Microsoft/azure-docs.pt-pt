@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
 ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64682041"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Ver a topologia de rede virtual do Azure
@@ -37,7 +37,7 @@ Pode utilizar o [portal do Azure](#azure-portal), o [CLI do Azure](#azure-cli), 
 4. Selecione **topologia**. Gerar uma topologia requer um observador de rede na mesma região que a rede virtual que pretende gerar a topologia para existe no. Se não tiver um observador de rede ativado na região que a rede virtual que pretende gerar uma topologia para pertença, observadores de rede são criadas automaticamente para em todas as regiões. Observadores de rede são criados num grupo de recursos com o nome **NetworkWatcherRG**.
 5. Selecione uma subscrição, o grupo de recursos de uma rede virtual que pretende ver a topologia, e, em seguida, selecione a rede virtual. Na imagem seguinte, uma topologia é apresentada para uma rede virtual denominada *MyVnet*, no grupo de recursos com o nome *MyResourceGroup*:
 
-    ![Ver topologia](./media/view-network-topology/view-topology.png)
+    ![Ver a topologia](./media/view-network-topology/view-topology.png)
 
     Como pode ver na imagem anterior, a rede virtual contém três sub-redes. Uma sub-rede tem uma VM implementada na mesma. A VM tem uma interface de rede ligados ao mesmo e um endereço IP público associado a si. As outras duas sub-redes têm uma tabela de rotas associada a eles. Cada tabela de rotas contém duas rotas. Uma sub-rede tem um grupo de segurança de rede associado à mesma. Informações de topologia são mostradas apenas para recursos que são:
     
@@ -134,7 +134,7 @@ Todos os recursos retornados numa topologia de tem um dos seguintes tipos de rel
 | Tipo de relação | Exemplo                                                                                                |
 | ---               | ---                                                                                                    |
 | Contenção       | Uma rede virtual contém uma sub-rede. Uma sub-rede contém uma interface de rede.                            |
-| Associado        | Uma interface de rede está associada uma VM. Um endereço IP público é associado a uma interface de rede. |
+| Associados        | Uma interface de rede está associada uma VM. Um endereço IP público é associado a uma interface de rede. |
 
 ## <a name="properties"></a>Propriedades
 

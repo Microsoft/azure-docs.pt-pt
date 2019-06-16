@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424660"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Uniformizar a vários recursos do Azure Monitor Application Insights 
@@ -103,10 +103,10 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
-| AvailabilityDuration | duração |
+| AvailabilityDuration | Duração |
 | AvailabilityMessage | message |
 | AvailabilityRunLocation | localização |
-| AvailabilityTestId | ID |
+| AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
@@ -122,17 +122,17 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | tipo |
+| ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | SO | client_OS | 
 | PageViewCount | itemCount |
-| PageViewDuration | duração | 
+| PageViewDuration | Duração | 
 | PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
-| RequestDuration | duração | 
-| RequestID | ID | 
+| RequestDuration | Duração | 
+| RequestID | id | 
 | RequestName | name | 
 | RequestSuccess | exito | 
 | ResponseCode | resultCode | 
@@ -140,7 +140,7 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | tipo |
+| TelemetryTYpe | type |
 | do IdP | _url |
 | UserAccountId | user_AccountId |
 

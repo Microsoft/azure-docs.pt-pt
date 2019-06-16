@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60321830"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no seu dispositivo da série StorSimple 8000
@@ -92,7 +92,7 @@ Os módulos de plug-ins no dispositivo estão realçados na frente seguinte e di
 
 **Figura 1** frontal do dispositivo
 
-| Label | Descrição |
+| Etiqueta | Descrição |
 |:--- |:--- |
 | 0 - 11 |Unidades de disco (total de 12) |
 
@@ -102,18 +102,18 @@ O bastidor principal e a inclusão EBOD têm módulos de operadora de unidade. O
 
 **Figura 2** verso o bastidor principal
 
-| Label | Descrição |
+| Etiqueta | Descrição |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
-| 3 |Controlador 0 |
-| 4 |Controlador 1 |
+| 3 |Controlador 0 |
+| 4 |Controlador 1 |
 
 ![Backplane dos módulos de plug-ins do bastidor EBOD do dispositivo](./media/storsimple-hardware-component-replacement/IC769599.png)
 
 **Figura 3** verso o bastidor EBOD
 
-| Label | Descrição |
+| Etiqueta | Descrição |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

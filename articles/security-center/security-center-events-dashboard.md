@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bc0fd83bd45e7c5c671b387d124cdddc75244ade
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60705178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64573519"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitorização e a processar eventos de segurança no Centro de segurança do Azure
 O dashboard de eventos fornece uma descrição geral do número de eventos de segurança recolhidos ao longo do tempo e uma lista de eventos notáveis que podem exigir a sua atenção.  
 
 > [!NOTE]
-> Para utilizar esta funcionalidade, sua área de trabalho tem de executar a versão 2 do Log Analytics e estar no escalão Standard do Centro de segurança. Consulte o Centro de segurança [página de preços](security-center-pricing.md) para obter mais informações sobre o escalão Standard.
->
->
+> Dashboard de eventos de segurança vai ser descontinuado a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>O que é um evento de segurança?
 Usos do Centro de segurança do Microsoft Monitoring Agent para recolher vários segurança e configurações relacionados com eventos das suas máquinas e armazena esses eventos em suas áreas de trabalho. Exemplos destes dados são: registos de sistema (registos de eventos Windows), em execução operativo processa e eventos de soluções de segurança integrado com o Centro de segurança. O Agente de Monitorização da Microsoft também copia os ficheiros de informação de falha de sistema para as suas áreas de trabalho.
+
+## <a name="requirements"></a>Requisitos
+Para utilizar esta funcionalidade, sua área de trabalho tem de executar a versão 2 do Log Analytics e estar no escalão Standard do Centro de segurança. Consulte o Centro de segurança [página de preços](security-center-pricing.md) para obter mais informações sobre o escalão Standard.
 
 ## <a name="events-processed-dashboard"></a>Dashboard de eventos processados
 Aceder a **eventos** dashboard a partir do menu principal do Centro de segurança ou o Centro de segurança **descrição geral** painel.  

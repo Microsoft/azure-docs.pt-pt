@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
 ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966392"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
@@ -78,8 +78,8 @@ Poderá ser a obter este erro pois modificar as etiquetas em nós de agente dent
 Este erro ocorre quando clusters entrar num Estado com falhas por vários motivos. Siga os passos abaixo para resolver o seu estado de falha de cluster antes de repetir a operação que falhou anteriormente:
 
 1. Até que o cluster é de `failed` Estado, `upgrade` e `scale` operações não ter êxito. Problemas de raiz comuns e resoluções incluem:
-    * Dimensionar com **quota insuficiente de computação (CRP)**. Para resolver, primeiro a dimensionar o seu cluster para um estado estável objetivo dentro da quota. Em seguida, siga estes [aumentam de passos para pedir uma quota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar aumentar verticalmente novamente os limites de quota inicial do além deste.
-    * Dimensionar um cluster com o advanced networking e **recursos de sub-rede insuficiente (redes)**. Para resolver, primeiro a dimensionar o seu cluster para um estado estável objetivo dentro da quota. Em seguida, siga [estas etapas para pedir uma quota de recursos aumentam](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar aumentar verticalmente novamente os limites de quota inicial do além deste.
+    * Dimensionar com **quota insuficiente de computação (CRP)** . Para resolver, primeiro a dimensionar o seu cluster para um estado estável objetivo dentro da quota. Em seguida, siga estes [aumentam de passos para pedir uma quota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar aumentar verticalmente novamente os limites de quota inicial do além deste.
+    * Dimensionar um cluster com o advanced networking e **recursos de sub-rede insuficiente (redes)** . Para resolver, primeiro a dimensionar o seu cluster para um estado estável objetivo dentro da quota. Em seguida, siga [estas etapas para pedir uma quota de recursos aumentam](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar aumentar verticalmente novamente os limites de quota inicial do além deste.
 2. Uma vez resolvida a causa da falha de atualização, o cluster deve estar num Estado com êxito. Depois de verificar um Estado com êxito, repita a operação original.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou a receber erros ao tentar fazer a atualização ou de escala que meu cluster de estado está a ser atualmente sendo atualizado ou falha na atualização

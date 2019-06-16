@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 05/28/2019
 ms.author: jehollan, glenga, cshoe
 ms.openlocfilehash: b1a6751f0d788c26af60b28eee994dc9b3877f00
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693262"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência nas funções do .NET do Azure

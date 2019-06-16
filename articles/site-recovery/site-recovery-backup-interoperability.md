@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: sideeksh
 ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035780"
 ---
 # <a name="support-for-using-site-recovery-with-azure-backup"></a>Suporte para utilizar o Site Recovery com o Azure Backup
 
 Este artigo resume o suporte para utilizar o [serviço Site Recovery](site-recovery-overview.md) em conjunto com o [serviço de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-overview).
 
-**Ação** | **Suporte de recuperação de site** | **Detalhes**
+**ação** | **Suporte de recuperação de site** | **Detalhes**
 --- | --- | ---
 **Implementar serviços em conjunto** | Suportadas | Os serviços são interoperáveis e podem ser configurados em conjunto.
 **Cópia de segurança/restauro de ficheiros** | Suportadas | Quando a cópia de segurança e de replicação estão ativadas para uma VM e backups são feitos, não existe nenhum problema no restauro de ficheiros no lado da origem VMs ou o grupo de VMs. Replicação como de costume continua sem qualquer alteração no estado de funcionamento de replicação.

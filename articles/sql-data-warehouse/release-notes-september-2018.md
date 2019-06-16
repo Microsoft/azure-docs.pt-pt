@@ -11,17 +11,17 @@ ms.date: 10/08/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912170"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>O que há de novo no Azure SQL Data Warehouse? Setembro de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Setembro de 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Novo ponto de entrada inferior para o SQL Data Warehouse Gen2
-Em Abril de 2018 [Microsoft anunciada](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 que oferece 5 vezes o desempenho, 5x a escala de computação, 4 x a simultaneidade e o armazenamento ilimitado. Conforme observado na [armazém de dados na cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) por Gigaom, o SQL Data Warehouse Gen2 **supera o Amazon Redshift em 42%**.
+Em Abril de 2018 [Microsoft anunciada](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 que oferece 5 vezes o desempenho, 5x a escala de computação, 4 x a simultaneidade e o armazenamento ilimitado. Conforme observado na [armazém de dados na cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) por Gigaom, o SQL Data Warehouse Gen2 **supera o Amazon Redshift em 42%** .
 
 Geração 2 agora está disponível em geral num menor entrada ponto de DWU500c permitindo-lhe gerir um ambientes de menor tamanho data warehouse ou de programador/teste com todos os aprimoramentos mais recentes do serviço. Ponto de entrada novo retém todos os recursos de geração 2, incluindo [colocação em cache adaptável](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [iluminação rapidamente dados descarte](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/)e suporte para [armazém de dados em tempo real](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e82a78953c4385f7688705d4ab3f697be9c3ddbd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235166"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
@@ -28,9 +28,7 @@ Para os clientes que forneceu um endereço na Europa, do Azure AD mantém a maio
     
 - Autenticação de todos os dois fatores através de chamadas de telefone ou SMS têm origem nos datacenters nos EUA e também é roteado pelo fornecedores mundiais.
 - Enviar notificações push com o Microsoft Authenticator app provêm de datacenters nos EUA. Além disso, os serviços específicos do fornecedor de dispositivo também pode ter no play e estes serviços talvez fora da Europa.
-- Os códigos OATH são sempre validados nos E.U.A.
-
-Para obter mais informações sobre as informações de utilizador recolhidas pelo servidor do Azure multi-factor Authentication (MFA Server) e baseado na nuvem do MFA do Azure, consulte [recolha de dados de utilizador do multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+- Os códigos OATH são sempre validados nos E.U.A. 
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

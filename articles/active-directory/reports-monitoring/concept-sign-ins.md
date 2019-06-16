@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 81b7030d0f45222a1641e34b341885d2ecc051e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107655"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -117,8 +117,8 @@ O filtro **Estado do início de sessão** permite-lhe selecionar:
 O **acesso condicional** filtro permite-lhe selecionar o estado de política de AC para o início de sessão:
 
 - Todos
-- Não Aplicado
-- Com êxito
+- Não aplicado
+- Êxito
 - Falha
 
 O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.  
@@ -127,7 +127,7 @@ Os valores possíveis são:
 - 1 mês
 - 7 dias
 - 24 horas
-- Intervalo de Tempo Personalizado
+- Intervalo de tempo personalizado
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
@@ -171,7 +171,7 @@ Para além do Azure AD, o portal do Azure fornece pontos de entrada adicionais p
 - A descrição de geral de proteção de segurança de identidade
 - Utilizadores
 - Grupos
-- Aplicações empresariais
+- Aplicações Empresariais
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de inícios de sessão de utilizadores na proteção de segurança de identidade
 
@@ -190,7 +190,7 @@ Cada linha na lista de atividades de início de sessão mostra:
 
 Ao clicar num item, obtém mais detalhes sobre a operação de início de sessão:
 
-- ID de Utilizador
+- ID de utilizador
 - Utilizador
 - Nome de utilizador
 - ID da aplicação

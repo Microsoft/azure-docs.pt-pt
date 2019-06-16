@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837327"
 ---
 # <a name="sfctl-container"></a>sfctl container
@@ -29,7 +29,7 @@ Contentor de execução relacionados com os comandos num nó de cluster.
 |Comando|Descrição|
 | --- | --- |
 | invoke-api | Invoca a API de contentor num contêiner implementado num nó do Service Fabric para o pacote de código específico. |
-| registos | Obtém os registos de contentor para contentor implementado num nó do Service Fabric para o pacote de código específico. |
+| logs | Obtém os registos de contentor para contentor implementado num nó do Service Fabric para o pacote de código específico. |
 
 ## <a name="sfctl-container-invoke-api"></a>contentor de sfctl invocar-api
 Invoca a API de contentor num contêiner implementado num nó do Service Fabric para o pacote de código específico.

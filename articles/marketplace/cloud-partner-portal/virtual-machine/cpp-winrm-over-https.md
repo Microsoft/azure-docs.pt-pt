@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pabutler
 ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938233"
 ---
 # <a name="windows-remote-management-over-https"></a>Gestão remota do Windows através de HTTPS

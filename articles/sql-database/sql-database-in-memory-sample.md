@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035749"
 ---
 # <a name="in-memory-sample"></a>Exemplo de dentro da memória
@@ -406,7 +406,7 @@ Numa base de dados com o escalão de preço P2, pode esperar cerca de nove vezes
 
 - Ver [padrões de carga de trabalho comuns e considerações sobre a migração](https://msdn.microsoft.com/library/dn673538.aspx) (que descreve padrões de carga de trabalho onde o OLTP dentro da memória fornece mais ganhos significativos de desempenho)
 
-#### <a name="application-design"></a>Design do aplicativo
+#### <a name="application-design"></a>Design da aplicação
 
 - [(Otimização de memória) de OLTP na memória](https://msdn.microsoft.com/library/dn133186.aspx)
 

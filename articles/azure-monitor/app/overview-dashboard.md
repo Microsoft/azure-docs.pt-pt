@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mbullwin
 ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497158"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard de descrição geral de informações de aplicações
@@ -37,7 +37,7 @@ Seleção do intervalo de tempo foi simplificada para uma interface de um clique
 
 Em geral desempenho tem sido aumentou bastante. Tem acesso de um clique a funcionalidades populares, como **pesquisa** e **Analytics**. Cada padrão dinamicamente a atualizar o mosaico KPI fornece informações sobre os recursos correspondentes do Application Insights. Para saber mais sobre a falha selecione pedidos **falhas** sob a **investigar** cabeçalho:
 
-![falhas](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
+![Falhas](./media/overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Dashboard de aplicações
 

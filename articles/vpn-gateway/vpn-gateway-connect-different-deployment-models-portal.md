@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62124032"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o portal
@@ -76,7 +76,7 @@ Para esta configuração, crie uma ligação de gateway VPN através de um túne
 
 A tabela seguinte mostra um exemplo de como o exemplo VNets e os sites locais são definidas:
 
-| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
+| Rede virtual | Espaço de endereços | Região | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |EUA Oeste | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |EUA Leste |ClassicVNetLocal (10.0.0.0/24) |
@@ -175,7 +175,7 @@ Antes de criar um gateway de rede virtual, tem primeiro de criar a sub-rede do g
 
 **Valores de exemplo:** Gateway de rede local = ClassicVNetLocal
 
-| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |Endereço IP público do gateway|
+| Rede virtual | Espaço de endereços | Região | Liga-se ao site de rede local |Endereço IP público do gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |EUA Oeste | RMVNetLocal (192.168.0.0/16) |O endereço IP público atribuído ao ClassicVNet gateway|
 | RMVNet | (192.168.0.0/16) |EUA Leste |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público atribuído ao RMVNet gateway.|

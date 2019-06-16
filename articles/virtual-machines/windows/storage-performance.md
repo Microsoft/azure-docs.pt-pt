@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: f84e81a5a9e9c9cf6f477adefa0869d776f7dd71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec6a6ea5d00d43f6dffa3aabc367d94ebb8db198
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075614"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas de virtuais de série Lsv2
 
@@ -24,7 +24,7 @@ Máquinas de virtuais de série Lsv2 suportam uma variedade de cargas de trabalh
 
 O design das máquinas de virtuais de série Lsv2 (VMs) maximiza o processador de AMD EPYC™ 7551 para proporcionar o melhor desempenho entre o processador, memória, dispositivos NVMe e as VMs. Além do aumento do desempenho de hardware, as VMs da série Lsv2 foram concebidas para trabalhar com as necessidades dos sistemas operativos Windows e Linux para um melhor desempenho com o hardware e software.
 
-Otimização de software e hardware resultou na versão otimizada do [Centro de dados do Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview), lançada no início de Dezembro de 2018, no Azure Marketplace, que suporta o máximo desempenho nos dispositivos NVMe Lsv2 série VMs.
+Otimização de software e hardware resultou na versão otimizada do [Centro de dados do Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), lançada no início de Dezembro de 2018, no Azure Marketplace, que suporta o máximo desempenho nos dispositivos NVMe Lsv2 série VMs.
 
 Este artigo apresenta dicas e sugestões para assegurar a cargas de trabalho e aplicativos atinjam o máximo desempenho concebido para as VMs. As informações nesta página serão continuamente atualizadas à medida que mais de Lsv2 otimizado de imagens são adicionadas no Azure Marketplace.
 

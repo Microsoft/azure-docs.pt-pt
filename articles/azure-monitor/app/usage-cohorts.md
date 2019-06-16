@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604115"
 ---
 # <a name="application-insights-cohorts"></a>Coortes do Application Insights
@@ -136,7 +136,7 @@ Coortes e os filtros são diferentes. Suponha que tem uma coorte de utilizadores
 * A versão de coorte mostra todos os eventos dos utilizadores que enviaram um ou mais eventos do Reino Unido no intervalo de tempo atual. Se dividir por país ou região, provavelmente ver diversos países e regiões.
 * A versão de filtros mostra apenas os eventos do Reino Unido. Mas se dividir por país ou região, verá apenas o Reino Unido.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 * [Linguagem de consulta do Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Os utilizadores, sessões, eventos](usage-segmentation.md)

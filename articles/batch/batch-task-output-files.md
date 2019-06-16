@@ -14,10 +14,10 @@ ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595271"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefas para o armazenamento do Azure com a API de serviço do Batch
@@ -72,7 +72,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Para especificar os ficheiros de saída para uma tarefa, crie uma coleção de [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) objetos e atribuí-lo para o [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) propriedade quando cria a tarefa.
 
-O seguinte C# exemplo de código cria uma tarefa que grava números aleatórios num arquivo chamado `output.txt`. O exemplo cria um ficheiro de saída para `output.txt` de escrita ao contentor. O exemplo também cria ficheiros de saída para quaisquer ficheiros de registo que correspondam ao padrão de arquivo `std*.txt` (_por exemplo,_, `stdout.txt` e `stderr.txt`). O URL de contentor requer a SAS que foi criada anteriormente para o contentor. O serviço Batch utiliza a SAS para autenticar o acesso ao contentor:
+O seguinte C# exemplo de código cria uma tarefa que grava números aleatórios num arquivo chamado `output.txt`. O exemplo cria um ficheiro de saída para `output.txt` de escrita ao contentor. O exemplo também cria ficheiros de saída para quaisquer ficheiros de registo que correspondam ao padrão de arquivo `std*.txt` (_por exemplo,_ , `stdout.txt` e `stderr.txt`). O URL de contentor requer a SAS que foi criada anteriormente para o contentor. O serviço Batch utiliza a SAS para autenticar o acesso ao contentor:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")

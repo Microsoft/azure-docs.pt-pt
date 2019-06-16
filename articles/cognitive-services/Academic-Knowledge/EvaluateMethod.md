@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61339101"
 ---
 # <a name="evaluate-method"></a>Avalie o método
@@ -30,13 +30,13 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 
 ## <a name="request-parameters"></a>Parâmetros do Pedido  
 
-Name     | Value | Necessário?  | Descrição
+Name     | Value | Obrigatório?  | Descrição
 -----------|-----------|---------|--------
 **expr**       | Cadeia de texto | Sim | Uma expressão de consulta que especifica quais entidades devem ser devolvidas.
 **Modelo**      | Cadeia de texto | Não  | Nome do modelo que pretende consultar.  Atualmente, o valor é predefinido para *mais recente*.        
 **Atributos** | Cadeia de texto | Não<br>predefinição: Id | Uma lista delimitada por vírgulas que especifica os valores de atributos que estão incluídos na resposta. Nomes de atributo diferenciam maiúsculas de minúsculas.
-**count**        | Number | Não<br>Predefinição: 10 | Número de resultados a devolver.
-**offset**     | Number |   Não<br>Predefinição: 0    | Índice do primeiro resultado a devolver.
+**count**        | Number | Não<br>predefinição: 10 | Número de resultados a devolver.
+**offset**     | Number |   Não<br>predefinição: 0    | Índice do primeiro resultado a devolver.
 **orderby** |   Cadeia de texto | Não<br>Predefinição:, diminuindo prob | Nome de um atributo que é utilizado para ordenação as entidades. Opcionalmente, ascendente/descendente pode ser especificado. O formato é: *name: asc* ou *nome: desc*.
   
  <br>

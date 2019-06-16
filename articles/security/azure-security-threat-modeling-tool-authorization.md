@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935872"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de segurança: Autorização | Atenuações 
@@ -43,7 +43,7 @@ ms.locfileid: "64935872"
 
 ## <a id="acl-restricted-access"></a>Certifique-se de que as ACLs adequadas estão configuradas para restringir o acesso não autorizado aos dados no dispositivo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -54,7 +54,7 @@ ms.locfileid: "64935872"
 
 ## <a id="sensitive-directory"></a>Certifique-se de que o conteúdo da aplicação do confidenciais específicas do usuário é armazenado no diretório do perfil de utilizador
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -65,7 +65,7 @@ ms.locfileid: "64935872"
 
 ## <a id="deployed-privileges"></a>Certifique-se de que os aplicativos implantados são executados com privilégios mínimos
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -76,7 +76,7 @@ ms.locfileid: "64935872"
 
 ## <a id="sequential-logic"></a>Impor a ordem sequencial passo durante o processamento de fluxos de lógica de negócio
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -87,7 +87,7 @@ ms.locfileid: "64935872"
 
 ## <a id="rate-enumeration"></a>Implementar o mecanismo para impedir que a enumeração de limitação de taxas
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -98,7 +98,7 @@ ms.locfileid: "64935872"
 
 ## <a id="principle-least-privilege"></a>Certifique-se de que a autorização adequada se estiver em vigor e seguido do princípio de menos privilégios
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -109,7 +109,7 @@ ms.locfileid: "64935872"
 
 ## <a id="logic-request-parameters"></a>Lógica e os recursos acesso autorização decisões de negócios não devem ser baseadas em parâmetros de pedido de entrada
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -128,7 +128,7 @@ Agora, um invasor possível pode não adulteração e alterar a operação de ap
 
 ## <a id="enumerable-browsing"></a>Certifique-se de que o conteúdo e recursos não estão acessíveis através de navegação forçadas ou enumerable
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -139,7 +139,7 @@ Agora, um invasor possível pode não adulteração e alterar a operação de ap
 
 ## <a id="privileged-server"></a>Certifique-se de que as contas com privilégios mínimos são utilizadas para ligar ao servidor de base de dados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -150,7 +150,7 @@ Agora, um invasor possível pode não adulteração e alterar a operação de ap
 
 ## <a id="rls-tenants"></a>Implementar a RLS de segurança de nível de linha para impedir que os inquilinos acedem aos dados uns dos outros
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -163,7 +163,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="sysadmin-users"></a>Função de administrador do sistema deverá ter apenas os utilizadores necessários válidos
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -174,7 +174,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="cloud-least-privileged"></a>Ligar ao Gateway de Cloud com os tokens de acesso com privilégios mínimos
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
 | **Fase do SDL**               | Implementação |  
@@ -185,7 +185,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="sendonly-sas"></a>Utilizar um permissões só de envio da chave SAS para gerar tokens de dispositivo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -196,7 +196,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="access-tokens-hub"></a>Não utilize tokens de acesso que fornecem acesso direto ao Hub de eventos
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -207,7 +207,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="sas-minimum-permissions"></a>Ligar ao Hub de eventos utilizando chaves SAS com as permissões mínimas necessárias
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -218,7 +218,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="resource-docdb"></a>Utilizar tokens de recurso para ligar ao Cosmos DB, sempre que possível
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -229,7 +229,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="grained-rbac"></a>Ativar a gestão de acessos detalhada para a subscrição do Azure através do RBAC
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -240,7 +240,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="cluster-rbac"></a>Restringir o acesso do cliente para operações de cluster utilizando o RBAC
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Service Fabric | 
 | **Fase do SDL**               | Implementação |  
@@ -251,7 +251,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="modeling-field"></a>Execute a Modelagem de segurança e usar a segurança de nível de campo onde for necessário
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -262,7 +262,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="portal-security"></a>Execute a Modelagem de segurança de contas portais tendo em mente que o modelo de segurança para o portal é diferente do restante do CRM
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Portal do Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -273,7 +273,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="permission-entities"></a>Conceder permissão detalhada numa ampla gama de entidades no armazenamento de tabelas do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -284,7 +284,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="rbac-azure-manager"></a>Ativar com base em função de controlo de acesso (RBAC) para a conta de armazenamento do Azure com o Azure Resource Manager
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -295,7 +295,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="rooting-detection"></a>Implementar jailbreak implícita ou embota deteção
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Compilação |  
@@ -306,7 +306,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 ## <a id="weak-class-wcf"></a>Referência de classe fracos no WCF
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -343,7 +343,7 @@ O `<behaviorExtensions/>` elemento do ficheiro de configuração de WCF abaixo I
 
 ## <a id="wcf-authz"></a>Controlo de autorização de implementar do WCF
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -391,7 +391,7 @@ return result;
 
 ## <a id="authz-aspnet"></a>Implementar o mecanismo de autorização adequada na ASP.NET Web API
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -442,7 +442,7 @@ public class CustomController : ApiController
 
 ## <a id="device-permission"></a>Executar verificações de autorização no dispositivo, se ele oferece suporte a várias ações que exigem níveis de permissão diferentes
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -453,7 +453,7 @@ public class CustomController : ApiController
 
 ## <a id="field-permission"></a>Executar verificações de autorização no Gateway de campo, se ele oferece suporte a várias ações que exigem níveis de permissão diferentes
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase do SDL**               | Compilação |  

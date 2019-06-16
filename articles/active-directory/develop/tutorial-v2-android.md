@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6112facfc0c10d7a0a0495cd778fa6c3cb6130a7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 79ffb31dd41e600344d341d17e07ad13d5fcd7f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111085"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Iniciar sessão dos utilizadores e chamar o Microsoft Graph a partir de uma aplicação Android
 
@@ -74,7 +74,7 @@ Neste tutorial, irá criar um novo projeto. Se deseja baixar o tutorial completo
 
 Pode registar a sua aplicação em qualquer uma das duas formas, conforme descrito nas próximas duas secções.
 
-### <a name="register-your-app"></a>Registar a aplicação
+### <a name="register-your-app"></a>Registar a sua aplicação
 
 1. Vá para o [portal do Azure](https://aka.ms/MobileAppReg) > selecione `New registration`. 
 2. Introduza um **Name** para a sua aplicação > `Register`. **Não defina um URI de redirecionamento nesta fase**. 
@@ -178,7 +178,7 @@ Pode registar a sua aplicação em qualquer uma das duas formas, conforme descri
 
 ### <a name="add-msal-to-your-project"></a>Adicionar MSAL ao seu projeto
 
-1. No Android Studio, selecione **Scripts de Gradle** > **gradle (módulo: aplicação)**.
+1. No Android Studio, selecione **Scripts de Gradle** > **gradle (módulo: aplicação)** .
 2. Sob **dependências**, cole o seguinte código:
 
     ```gradle  
@@ -281,7 +281,7 @@ Agora, podemos implementar lógica de processamento e obter tokens de forma inte
 
 A MSAL expõe dois métodos principais para obter os tokens: `acquireTokenSilentAsync` e `acquireToken`.  
 
-`acquireTokenSilentAsync` inicia sessão um utilizador e obter tokens sem qualquer interação do usuário se uma conta estiver presente. Se tiver êxito, MSAL será handoff os tokens para a sua aplicação, caso de falha, irão gerar um `MsalUiRequiredException`.  Se esta exceção é gerada ou pretende que o seu utilizador tem de ter um início de sessão interativo na experiência (as credenciais, mfa ou outro acesso condicional, as políticas podem ou não podem ser necessário), em seguida, pode utilizar `acquireToken`.  
+`acquireTokenSilentAsync` inicia sessão um utilizador e obter tokens sem qualquer interação do usuário se uma conta estiver presente. Se tiver êxito, MSAL será handoff os tokens para a sua aplicação, caso de falha, irão gerar um `MsalUiRequiredException`.  Se esta exceção é gerada ou pretende que o seu utilizador tem de ter um início de sessão interativo na experiência (as credenciais, mfa ou outros acesso condicional, as políticas podem ou não podem ser necessário), em seguida, pode utilizar `acquireToken`.  
 
 `acquireToken` mostrará sempre da interface do Usuário durante a tentativa de iniciar a sessão do utilizador e obter tokens; No entanto, ele poderá usar cookies de sessão no browser ou uma conta no Microsoft authenticator para lhe proporcionar uma experiência interativa SSO. 
 
@@ -542,6 +542,6 @@ Se tiver quaisquer problemas, pode abrir um problema neste documento ou na bibli
 
 Na primeira vez que qualquer utilizador inicia sessão na sua aplicação, serão solicitados pela identidade da Microsoft para dar consentimento às permissões solicitadas.  Embora a maioria dos usuários são capazes de consentir, alguns inquilinos do Azure AD tem desativado o consentimento do utilizador - exigindo que os administradores consentir em nome de todos os utilizadores.  Para suportar este cenário, certifique-se de que registe os âmbitos da sua aplicação no portal do Azure.
 
-## <a name="help-and-support"></a>Ajuda e Suporte
+## <a name="help-and-support"></a>Ajuda e suporte
 
 Teve problemas com este tutorial, ou com a plataforma de identidade da Microsoft? Consulte [ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)

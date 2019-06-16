@@ -11,10 +11,10 @@ ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236574"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
@@ -27,7 +27,7 @@ R *instantâneo de armazém de dados* cria um ponto de restauro que pode aprovei
 
 R *restauro do armazém de dados* é um novo armazém de dados que é criado a partir de um ponto de restauro de um existente ou o armazém de dados eliminado. Restaurar o seu armazém de dados é uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque ele cria novamente os dados depois de danos acidentais ou eliminação. Armazém de dados também é um mecanismo poderoso para criar cópias do seu armazém de dados para fins de teste ou desenvolvimento.  Tarifas de restauro do SQL Data Warehouse podem variar dependendo do tamanho de base de dados e a localização do armazém de dados de origem e de destino. Em média na mesma região, taxas de restauro normalmente demoram cerca de 20 minutos. 
 
-## <a name="automatic-restore-points"></a>Pontos de Restauro Automático
+## <a name="automatic-restore-points"></a>Pontos de restauro automático
 
 Os instantâneos são uma funcionalidade incorporada do serviço que cria pontos de restauro. Não é necessário que ativar esta capacidade. Pontos de restauro automático atualmente não não possível eliminar por utilizadores onde o serviço utiliza estes restaurar aponta para manter os SLAs para recuperação.
 
@@ -42,7 +42,7 @@ order by run_id desc
 ;
 ```
 
-## <a name="user-defined-restore-points"></a>Pontos de Restauro Definidos pelo Utilizador
+## <a name="user-defined-restore-points"></a>Pontos de restauro definidas pelo utilizador
 
 Esta funcionalidade permite-lhe manualmente os instantâneos de Acionador para criar pontos de restauração do seu armazém de dados antes e depois grandes modificações. Esta capacidade assegura que os pontos de restauração estão logicamente consistentes, que fornece proteção de dados adicional em caso de quaisquer interrupções de carga de trabalho ou erros de utilizador para o tempo de recuperação rápida. Pontos de restauro definidas pelo utilizador estão disponíveis durante sete dias e são automaticamente eliminados em seu nome. Não é possível alterar o período de retenção de pontos de restauro definidas pelo utilizador. **pontos de restauro de 42 definidas pelo utilizador** são garantidas em qualquer ponto no tempo para que estes têm de estar [eliminado](https://go.microsoft.com/fwlink/?linkid=875299) antes de criar outro ponto de restauro. Pode acionar instantâneos para criar pontos de restauro definidas pelo utilizador através da [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) ou o portal do Azure.
 

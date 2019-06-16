@@ -9,10 +9,10 @@ ms.date: 05/04/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: b5bb5da2b68bae36353b81a04993814b395ce67b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127554"
 ---
 > [!NOTE]

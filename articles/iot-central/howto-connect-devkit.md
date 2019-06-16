@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235871"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
@@ -212,7 +212,7 @@ Uma aplicação criada a partir do modelo de aplicativo de exemplo Devkits inclu
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Estado do dispositivo   | Verde  | Orange  | Vermelho    | 
 
-#### <a name="events"></a>Eventos 
+#### <a name="events"></a>Events 
 | Name             | Display name      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | B de botão premido  | 
@@ -235,17 +235,17 @@ Ativar/desativar definições
 
 ### <a name="properties"></a>Propriedades
 
-| Type            | Display name | Nome do campo | Tipo de dados |
+| Tipo            | Display name | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
-| Propriedade do dispositivo | Localização do dispositivo   | location  | location    |
+| Propriedade do dispositivo | Localização do dispositivo   | localização  | localização    |
 | Text            | Fabricados no     | manufacturedIn   | N/A       |
 
 ### <a name="commands"></a>Comandos
 
 | Display name | Nome do campo | Tipo de retorno | Nome a apresentar do campo de entrada | Nome do campo de entrada | Tipo de campo de entrada |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| Echo         | echo       | text        | valor, para apresentar         | displayedValue   | text             |
+| Echo         | echo       | texto        | valor, para apresentar         | displayedValue   | texto             |
 | Contagem decrescente    | Contagem decrescente  | número      | Contar de               | countFrom        | número           |
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938464"
 ---
 <a name="what-is-test-drive"></a>O que é a Versão de Teste?
@@ -47,8 +47,8 @@ E aqui está um exemplo do aspeto de uma oferta quando tem de hora de implantar 
 
 Independentemente da complexidade do aplicativo, sua versão de teste da Microsoft ajuda-o a traga o seu produto para a vida do cliente. Hoje em dia, podemos oferecer três tipos diferentes de versões de teste com base no tipo de produto, o cenário e o marketplace que estiver a utilizar.
 
-- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Uma versão de teste de Gestor de recursos do Azure é um modelo de implementação que contém todos os recursos do Azure que compõem uma solução que está a ser criada pelo editor. Produtos que se enquadram neste cenário são aqueles que utilizam apenas os recursos do Azure.
-- **[Aplicação lógica](./logic-app-test-drive.md)**: Uma unidade de teste da aplicação lógica é um modelo de implementação que se destina a abranger todas as arquiteturas de solução complexas. Todas as aplicações do Dynamics ou produtos personalizados, devem utilizar este tipo de versão de teste.
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)** : Uma versão de teste de Gestor de recursos do Azure é um modelo de implementação que contém todos os recursos do Azure que compõem uma solução que está a ser criada pelo editor. Produtos que se enquadram neste cenário são aqueles que utilizam apenas os recursos do Azure.
+- **[Aplicação lógica](./logic-app-test-drive.md)** : Uma unidade de teste da aplicação lógica é um modelo de implementação que se destina a abranger todas as arquiteturas de solução complexas. Todas as aplicações do Dynamics ou produtos personalizados, devem utilizar este tipo de versão de teste.
 - **Power BI**: Uma unidade de teste de BI Power é simplesmente uma ligação incorporada a um dashboard personalizado criado. Qualquer produto que quer apenas demonstrar que uma interactive visual do Power BI deve utilizar este tipo de versão de teste.
     Tudo o que precisa para carregar aqui é o URL de BI de energia incorporados.
 

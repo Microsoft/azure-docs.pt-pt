@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: nitinme
 ms.openlocfilehash: d5a3226050901f6feb17c4d9d6a6582cb622618b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65020193"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Quais são os serviços cognitivos do Azure?
@@ -22,7 +22,7 @@ Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajud
 
 ## <a name="vision-apis"></a>APIs Visuais
 
-|Nome do Serviço|Descrição do Serviço|
+|Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
 |[Imagem digitalizada](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "de imagem digitalizada")|O serviço de visão do computador fornece acesso a algoritmos avançados para processar imagens e retornar informações.|
 |[Serviço de visão personalizada](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "serviço de visão personalizada")|O serviço de visão personalizada permite-lhe criar classificadores de imagem personalizada.|
@@ -33,7 +33,7 @@ Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajud
 
 ## <a name="speech-apis"></a>APIs de Voz
 
-|Nome do Serviço|Descrição do Serviço|
+|Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
 |[Serviços de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "serviços de voz")|Serviço de voz adiciona recursos habilitados para voz às aplicações.|
 |[API de reconhecimento de orador](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de reconhecimento de orador") (pré-visualização)|A API de reconhecimento de orador fornece algoritmos para identificação de orador e a verificação.|
@@ -42,7 +42,7 @@ Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajud
 
 ## <a name="language-apis"></a>APIs de idioma
 
-|Nome do Serviço|Descrição do Serviço|
+|Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
 |[Compreensão de idiomas LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "compreensão de idiomas")|O serviço de compreensão de idiomas (LUIS) permite que a sua aplicação saiba o que uma pessoa quer em suas próprias palavras.|
 |[A ferramenta QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "do QnA Maker")|A ferramenta QnA Maker permite-lhe criar uma pergunta e responder serviço a partir do conteúdo semiestruturado.|
@@ -50,9 +50,9 @@ Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajud
 |[Texto do tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/ "texto do tradutor")|Texto do Translator fornece para tradução de texto baseado em máquina em tempo quase real.|
 |[O Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "indexador de vídeos")|O Video Indexer permite-lhe extrair informações do seu vídeo.|
 
-## <a name="search-apis"></a>Pesquisar APIs
+## <a name="search-apis"></a>APIs de pesquisa
 
-|Nome do Serviço|Descrição do Serviço|
+|Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
 |[Pesquisa do Bing notícias](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/ "pesquisa do Bing notícias")|Pesquisa de notícias do Bing devolve uma lista de artigos de notícias determinado para ser relevante para a consulta do utilizador.|
 |[Pesquisa de vídeos do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search/ "de pesquisa de vídeos do Bing")|Pesquisa de vídeos do Bing devolve uma lista de vídeos determinado para ser relevante para a consulta do utilizador.|
@@ -67,7 +67,7 @@ Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajud
 
 ## <a name="decision-apis"></a>APIs de decisão
 
-|Nome do Serviço|Descrição do Serviço|
+|Nome do serviço|Descrição do serviço|
 |:-----------|:------------------|
 |[Detetor de anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "detetor de anomalias") (pré-visualização)|Detetor de anomalias permite-lhe monitorizar e detetar anomalias nos seus dados de séries de tempo.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Content Moderator fornece monitorização para possíveis conteúdos ofensivos, indesejáveis e risco.|

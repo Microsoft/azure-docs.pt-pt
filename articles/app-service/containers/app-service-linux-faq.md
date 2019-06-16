@@ -17,10 +17,10 @@ ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
 ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65594275"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de aplicações do Azure no Linux FAQ
@@ -95,7 +95,7 @@ Se falhar a implementação do Git para a sua aplicação web do Linux, escolha 
 
    Se obtiver um erro que o `curl` comando não for encontrado, certifique-se de instalar o curl, utilizando `apt-get install curl` antes de executar o anterior `curl` comando.
 
-## <a name="language-support"></a>Suporte de idioma
+## <a name="language-support"></a>Suporte de idiomas
 
 **Quer utilize sockets web na minha aplicação node. js, quaisquer definições especiais ou configurações para definir?**
 

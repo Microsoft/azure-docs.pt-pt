@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719798"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de Hyper-V para replicação do Azure e de ativação pós-falha
@@ -75,7 +75,7 @@ Limitações de largura de banda de rede podem afetar a replicação. Resolva pr
 
 1. Para verificar o estado de funcionamento da replicação, ligar para a consola do Gestor de Hyper-V no local, em seguida, selecione a VM e verificar o estado de funcionamento.
 
-    ![Estado de funcionamento da replicação](media/hyper-v-azure-troubleshoot/replication-health1.png)
+    ![Estado de funcionamento de replicação](media/hyper-v-azure-troubleshoot/replication-health1.png)
     
 
 2. Clique em **Ver estado de funcionamento de replicação** para ver os detalhes:
@@ -145,7 +145,7 @@ Um instantâneo consistente com a aplicação é um instantâneo de ponto no tem
 
 Todos os eventos de replicação de Hyper-V são registadas no registo do Hyper-V-VMMS\Admin, localizado em **Applications and Services Logs** > **Microsoft** > **Windows**. Além disso, pode ativar um registo de análise para o serviço de gestão de Máquina Virtual de Hyper-V, da seguinte forma:
 
-1. Verifique os registos analíticos e de depuração podem ser visualizados no Visualizador de eventos. Para disponibilizar os registos, no Visualizador de eventos, clique em **View** > **Mostrar depurar registos analíticos e.**. O registo de análise é apresentado em **Hyper-V-VMMS**.
+1. Verifique os registos analíticos e de depuração podem ser visualizados no Visualizador de eventos. Para disponibilizar os registos, no Visualizador de eventos, clique em **View** > **Mostrar depurar registos analíticos e.** . O registo de análise é apresentado em **Hyper-V-VMMS**.
 2. Na **ações** painel, clique em **ativar registo**. 
 
     ![Ativar registo](media/hyper-v-azure-troubleshoot/enable-log.png)

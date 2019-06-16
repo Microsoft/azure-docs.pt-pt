@@ -16,10 +16,10 @@ ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
 ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835605"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
@@ -53,7 +53,7 @@ Este módulo lida com várias coisas para a sua aplicação:
 
 O módulo é executado separadamente do código da aplicação e está configurado com as definições de aplicação. Não existem SDKs, linguagens específicas de ou alterações ao seu código de aplicativo são necessárias. 
 
-### <a name="user-claims"></a>Afirmações do utilizador
+### <a name="user-claims"></a>Afirmações de utilizador
 
 Para todas as arquiteturas de linguagem, serviço de aplicações disponibiliza afirmações do utilizador para o seu código injetando-los para os cabeçalhos de pedido. Para aplicações ASP.NET 4.6, o serviço de aplicações preenche [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com afirmações do utilizador autenticado, pelo que pode seguir o padrão de código do .NET, incluindo o `[Authorize]` atributo. Da mesma forma, para aplicações do PHP, o serviço de aplicações preenche o `_SERVER['REMOTE_USER']` variável.
 
@@ -132,7 +132,7 @@ Escolha esta opção se não precisar de autenticação e autorização, ou se q
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir apenas pedidos autenticados
 
-É a opção **início de sessão \<fornecedor >**. Serviço de aplicações redireciona todas as solicitações anônimas `/.auth/login/<provider>` para o fornecedor que escolher. Se o pedido anónimo é proveniente de uma aplicação móvel nativa, a resposta retornada é um `HTTP 401 Unauthorized`.
+É a opção **início de sessão \<fornecedor >** . Serviço de aplicações redireciona todas as solicitações anônimas `/.auth/login/<provider>` para o fornecedor que escolher. Se o pedido anónimo é proveniente de uma aplicação móvel nativa, a resposta retornada é um `HTTP 401 Unauthorized`.
 
 Com esta opção, não terá de escrever qualquer código de autenticação na sua aplicação. Autorização mais, como autorização específicas de função, pode ser processada ao inspecionar as afirmações de utilizadores (consulte [afirmações de utilizador de acesso](app-service-authentication-how-to.md#access-user-claims)).
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576956"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco no seu dispositivo da série StorSimple 8000
@@ -46,7 +46,7 @@ Este procedimento explica como os bloqueios antitamper no dispositivo StorSimple
    
     **Figura 1** bloqueio de adulterações anti envolvido
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |Abertura de indicador |
    | 2 |Bloqueio antitamper |

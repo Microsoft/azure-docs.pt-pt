@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926231"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Resolver problemas de erros de eliminação de recursos de armazenamento clássicas
@@ -99,7 +99,7 @@ No portal, pode haver mais de duas experiências consoante a lista de blobs sele
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Se o utilizador optar por eliminar com o PowerShell, irá resultar no seguinte erro. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : O servidor remoto devolveu um erro: (412) existe atualmente uma concessão no blob e nenhum ID de concessão foi especificado no pedido.... Código de estado HTTP: 412 - mensagem de erro HTTP: Atualmente, existe uma concessão no blob e nenhum ID de concessão foi especificado no pedido.</span>
 

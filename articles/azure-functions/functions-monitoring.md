@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922971"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
@@ -163,11 +163,11 @@ O agente de log de funções do Azure também inclui um *nível de registo* com 
 |LogLevel    |Código|
 |------------|---|
 |Rastreio       | 0 |
-|Depurar       | 1 |
+|depurar       | 1 |
 |Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
-|Crítica    | 5 |
+|Crítico    | 5 |
 |Nenhuma        | 6 |
 
 Nível de registo `None` é explicado na próxima seção. 
@@ -605,7 +605,7 @@ Pode escrever código personalizado para mostrar as dependências. Para obter ex
 
 Para comunicar um problema com a integração do Application Insights em funções ou para fazer uma sugestão ou a pedido, [criar um problema no GitHub](https://github.com/Azure/Azure-Functions/issues/new).
 
-## <a name="streaming-logs"></a>Registos de Transmissão em Fluxo
+## <a name="streaming-logs"></a>Registos de transmissão em fluxo
 
 Ao desenvolver um aplicativo, geralmente é útil ver informações de registo em tempo quase real. Pode ver um fluxo de ficheiros de registo que está a ser gerados pelas suas funções no portal do Azure ou numa sessão da linha de comandos no seu computador local.
 

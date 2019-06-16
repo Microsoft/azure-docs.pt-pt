@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 882bae14678d8bfff15b35c63c666a20aeee3d1d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64720055"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorizar, receber e enviar eventos com os Hubs de eventos do Azure e Azure Logic Apps
@@ -94,7 +94,7 @@ Este exemplo mostra como pode iniciar um fluxo de trabalho de aplicação lógic
    | **Esquema do conteúdo** | Não | O esquema do conteúdo JSON para os eventos ler a partir do Hub de eventos. Por exemplo, se especificar o esquema do conteúdo, pode acionar a aplicação lógica para apenas os eventos que corresponde ao esquema. |
    | **Chave de partição mínimo** | Não | Introduza o mínimo [partição](../event-hubs/event-hubs-features.md#partitions) ID para ler. Por predefinição, todas as partições são de leitura. |
    | **Chave de partição máximo** | Não | Introduza o máximo [partição](../event-hubs/event-hubs-features.md#partitions) ID para ler. Por predefinição, todas as partições são de leitura. |
-   | **Time zone** (Fuso horário) | Não | Aplica-se apenas quando especificar uma hora de início, porque este acionador não aceita a compensação UTC. Selecione o fuso horário que pretende aplicar. <p>Para obter mais informações, consulte [criar e executadas tarefas recorrentes e fluxos de trabalho com o Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
+   | **Fuso horário** | Não | Aplica-se apenas quando especificar uma hora de início, porque este acionador não aceita a compensação UTC. Selecione o fuso horário que pretende aplicar. <p>Para obter mais informações, consulte [criar e executadas tarefas recorrentes e fluxos de trabalho com o Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
    | **Start time** (Hora de início) | Não | Forneça uma hora de início no seguinte formato: <p>AAAA-MM-ddTHH se selecionar um fuso horário<p>-ou-<p>AAAA-MM-: ssZ se não selecionar um fuso horário<p>Para obter mais informações, consulte [criar e executadas tarefas recorrentes e fluxos de trabalho com o Azure Logic Apps](../connectors/connectors-native-recurrence.md). |
    ||||
 
@@ -120,7 +120,7 @@ No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-
 1. Sob o acionador ou ação, escolha **novo passo**.
 
    Para adicionar uma ação entre os passos existentes, mova o rato por cima da seta de ligação. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
 1. Na caixa de pesquisa, introduza "os hubs de eventos" como o filtro.
 Na lista de ações, selecione a ação: **Enviar event - Hubs de eventos**
@@ -168,7 +168,7 @@ Na lista de ações, selecione a ação: **Enviar event - Hubs de eventos**
    Para introduzir manualmente a cadeia de ligação, escolha **introduzir manualmente as informações de ligação**. 
    Saiba mais [como encontrar a cadeia de ligação](#permissions-connection-string).
 
-2. Selecione a política de Hubs de eventos a utilizar, se não estiver selecionado. Escolha **Criar**.
+2. Selecione a política de Hubs de eventos a utilizar, se não estiver selecionado. Selecione **Criar**.
 
    ![Criar ligação do Hub de eventos, parte 2](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-2.png)
 

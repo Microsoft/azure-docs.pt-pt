@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: f7b762d5502986c306de240519688aa639f58445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60756894"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-edge"></a>Utilizar o portal do Azure para gerir os agendamentos de largura de banda no seu limite de caixa de dados do Azure  
@@ -46,7 +46,7 @@ Execute os seguintes passos no portal do Azure para adicionar uma agenda.
    4. Marque a largura de banda como **Ilimitada** se não quiser limitar o carregamento e a transferência de dados.
    5. Selecione **Adicionar**.
 
-      ![Adicionar agendamento](media/data-box-edge-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Adicionar agenda](media/data-box-edge-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. É criada uma agenda com os parâmetros especificados. Esta agenda é então apresentada na lista de agendas de largura de banda no portal.
 

@@ -16,10 +16,10 @@ ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65987902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Integração do Active Directory do Azure com o cliente de Gorila terra
@@ -65,7 +65,7 @@ Para configurar a integração do cliente de Gorila terra para o Azure AD, terá
 
 **Para adicionar ' s Land Gorilla cliente a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[do Portal de gestão do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na  **[do Portal de gestão do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -172,7 +172,7 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
     ![Criar um utilizador de teste do Azure AD](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. Na **Name** caixa de texto, tipo **Simon B.**.
+    a. Na **Name** caixa de texto, tipo **Simon B.** .
 
     b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de Simon B.
 

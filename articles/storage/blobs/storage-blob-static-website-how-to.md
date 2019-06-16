@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 7a1aef14a2a32266c893933482527c361f17d7fb
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428564"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071440"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Alojar um Web site estático no armazenamento do Azure
 
@@ -181,11 +181,13 @@ Pode ver o conteúdo a partir de um navegador usando a URL pública do site.
 Encontre o URL com o seguinte comando:
 
 ```powershell
-$context = Get-AzSubscription -SubscriptionId <subscription-d>
-Set-AzContext $context
+ $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+Write-Output $storageAccount.PrimaryEndpoints.Web
 ```
 
-Substitua o `<subscription-id>` valor do marcador de posição com o ID da sua subscrição.
+* Substitua o `<resource-group-name>` valor do marcador de posição pelo nome do seu grupo de recursos.
+
+* Substitua o `<storage-account-name>` valor do marcador de posição pelo nome da sua conta de armazenamento.
 
 <a id="metrics" />
 

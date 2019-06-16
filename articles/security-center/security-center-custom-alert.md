@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
 ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192627"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de Alerta Personalizadas no Centro de Segurança do Azure (Pré-visualização)
@@ -58,8 +58,8 @@ As regras de alerta personalizadas no Centro de Segurança permitem-lhe definir 
 
 Abra o dashboard **Centro de Segurança** e siga estes passos para criar uma regra de alerta personalizada:
 
-1.  No painel esquerdo, em **Deteção** clique em **Regras de alerta personalizadas (Pré-visualização)**.
-2.  Na página **Centro de Segurança – Regras de alerta personalizadas (Pré-visualização)**, clique em **Nova regra de alerta personalizada**.
+1.  No painel esquerdo, em **Deteção** clique em **Regras de alerta personalizadas (Pré-visualização)** .
+2.  Na página **Centro de Segurança – Regras de alerta personalizadas (Pré-visualização)** , clique em **Nova regra de alerta personalizada**.
 
     ![Alerta personalizado](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
 

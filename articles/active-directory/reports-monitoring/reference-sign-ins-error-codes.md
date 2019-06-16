@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107631"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro de relatório de atividades de início de sessão 
 
@@ -133,8 +133,8 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |52004|O utilizador não deu consentimento de acesso a recursos do LinkedIn. |
 |53000|A política de acesso condicional requer um dispositivo em conformidade e o dispositivo não está em conformidade. Peça ao utilizador inscrever o dispositivo com um fornecedor de MDM aprovado, como o Intune.|
 |53001|A política de acesso condicional requer um dispositivo associado a um domínio, o que não é o caso deste dispositivo. Tem do utilizador utilize um domínio associado ao dispositivo.|
-|53002|A aplicação utilizada não é uma aplicação aprovada para acesso condicional. Para obter acesso, o utilizador tem de utilizar uma das aplicações na lista de aplicações aprovadas.|
-|53003|O acesso foi bloqueado devido a políticas de acesso condicional.|
+|53002|Aplicativo usado não é uma aplicação aprovada para o acesso condicional. Para obter acesso, o utilizador tem de utilizar uma das aplicações na lista de aplicações aprovadas.|
+|53003|Acesso foi bloqueado devido a políticas de acesso condicional.|
 |53004|O utilizador tem de concluir o processo de registo na autenticação multifator antes de aceder a este conteúdo. O utilizador deve registar-se na autenticação multifator.|
 |65001|A aplicação X não tem permissão para aceder à aplicação Y ou a permissão foi revogada. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização interativo para este utilizador e este recurso. Ou o utilizador ou administrador não permitiu utilizar a aplicação com o ID X. envie um pedido de autorização para o seu administrador de inquilino para agir em nome da aplicação: Y para o recurso: Z.|
 |65004|O utilizador recusou dar autorização para aceder à aplicação. Pedir ao utilizador que repita o início de sessão e que autorize o acesso à aplicação|

@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60864137"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurar georreplicação ativa para o Azure SQL Database no portal do Azure e iniciar ativação pós-falha
@@ -70,7 +70,7 @@ A base de dados secundária pode ser mudado para primária.
 2. No painel da base de dados SQL, selecione **todas as definições** > **georreplicação**.
 3. Na **bases de dados secundárias** , selecione a base de dados para a primária e clique em **ativação pós-falha**.
 
-    ![ativação pós-falha](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![Ativação pós-falha](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Clique em **Sim** para iniciar a ativação pós-falha.
 
 O comando muda imediatamente a base de dados secundária para a função primária. Esse processo normalmente deverá ser concluída em 30 segundos ou menos.

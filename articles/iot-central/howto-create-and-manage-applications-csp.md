@@ -9,10 +9,10 @@ ms.date: 04/03/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 43fe0047022173cc20f58688920fa95b95cc6c22
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65473540"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como um CSP, criar e gerir um aplicativo de Central de IoT do Azure em nome do seu cliente 
@@ -47,7 +47,7 @@ Só pode criar aplicativos de pay as you go como CSP. Para demonstrar o Azure Io
 
 O nome da sua aplicação é apresentado na **Gerenciador de aplicativos** página e dentro de cada aplicação Azure IoT Central. Pode escolher qualquer nome para a sua aplicação do Azure IoT Central. Escolha um nome que faça sentido para si e para outras pessoas na sua organização.
 
-## <a name="application-url"></a>URL da aplicação
+## <a name="application-url"></a>URL da Aplicação
 
 O URL da aplicação é a ligação à sua aplicação. Pode salvar um indicador para ele no seu browser ou partilhá-lo com outras pessoas.
 
@@ -87,7 +87,7 @@ Pode escolher um dos modelos de aplicativos disponíveis para a sua nova aplica�
 | Modelo de aplicação | Descrição |
 | -------------------- | ----------- |
 | Aplicação personalizada   | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
-| Amostra Contoso       | Cria uma aplicação que inclui um modelo de dispositivo para um dispositivo conectado simple. Utilize este modelo para começar a explorar o Azure IoT Central. |
+| Exemplo da Contoso       | Cria uma aplicação que inclui um modelo de dispositivo para um dispositivo conectado simple. Utilize este modelo para começar a explorar o Azure IoT Central. |
 | Exemplo da Devkits       | Cria uma aplicação com modelos de dispositivo prontos para se poder ligar a dispositivos MXChip ou Raspberry Pi. Utilize este modelo, se for um desenvolvedor de dispositivo fazer experiências com o código em um desses dispositivos. |
 
 ## <a name="next-steps"></a>Passos Seguintes

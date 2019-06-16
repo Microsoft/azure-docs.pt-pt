@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;
 ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61247401"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edite rostos com análise de multimédia do Azure 
@@ -34,7 +34,7 @@ Além de um modo totalmente automático, há um fluxo de trabalho de dois, que p
 ### <a name="combined-mode"></a>Modo combinado
 Isso produz um mp4 eliminadas automaticamente sem qualquer manual de entrada.
 
-| Fase | Nome do Ficheiro | Notas |
+| Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
 | Elemento de entrada |foo.bar |Vídeo em formato WMV, MOV ou MP4 |
 | Entrada de configuração |Configuração predefinida de configuração da tarefa |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -49,7 +49,7 @@ Isso produz um mp4 eliminadas automaticamente sem qualquer manual de entrada.
 ### <a name="analyze-mode"></a>Analisar o modo
 O **analisar** pass do fluxo de trabalho dois precisar de uma entrada de vídeo e produz um ficheiro JSON de localizações de rostos e jpg imagens de cada detetado face.
 
-| Fase | Nome do Ficheiro | Notas |
+| Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
 | Elemento de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4 |
 | Entrada de configuração |Configuração predefinida de configuração da tarefa |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -114,7 +114,7 @@ Isto inclui uma lista de IDs de Desfoca, o vídeo original e as anotações JSON
 
 O resultado da passagem de análise não inclui o vídeo original. O vídeo tem de ser carregados para o elemento de entrada para a tarefa de modo Redact e selecionada como ficheiro principal.
 
-| Fase | Nome do Ficheiro | Notas |
+| Fase | Nome de Ficheiro | Notas |
 | --- | --- | --- |
 | Elemento de entrada |foo.bar |Vídeo em formato MP4, MPV ou WMV. Mesmo vídeo como no passo 1. |
 | Elemento de entrada |foo_annotations.json |ficheiro de metadados de anotações da primeira fase, com modificações opcionais. |
@@ -153,9 +153,9 @@ Pode encontrar exemplos dos tipos de obscurecimento abaixo.
 
 ![Med](./media/media-services-face-redaction/blur2.png)
 
-#### <a name="high"></a>Elevado
+#### <a name="high"></a>Alta
 
-![Elevado](./media/media-services-face-redaction/blur3.png)
+![Alta](./media/media-services-face-redaction/blur3.png)
 
 #### <a name="box"></a>Box
 

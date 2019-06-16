@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65561216"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrever um cluster do service fabric
@@ -32,7 +32,7 @@ O Gestor de recursos de Cluster suporta vários recursos que descrevem um cluste
 * Propriedades de nó
 * Capacidades de nós
 
-## <a name="fault-domains"></a>Domínios de falhas
+## <a name="fault-domains"></a>Domínios de falha
 Um domínio de falha é qualquer área de falha de coordenada. Uma única máquina é um domínio de falha (uma vez que ele poderá falhar na própria, por várias razões, de fonte de alimentação falhas para falhas de unidade ao firmware do NIC ruim). As máquinas ligadas ao mesmo comutador Ethernet estão no mesmo domínio de falha, como máquinas numa única fonte de energia ou numa única localização de partilha. Uma vez que é natural para falhas de hardware para se sobrepõem, domínios de falha são inerentemente hierárquicos e são representados como URIs no Service Fabric.
 
 É importante que domínios de falha estão configurados corretamente, uma vez que o Service Fabric utiliza estas informações para colocar em segurança a serviços. Service Fabric não quer colocar os serviços, de modo a que a perda de um domínio de falha (causada pela falha de algum componente) faz com que um serviço descer. No Azure o ambiente do Service Fabric utiliza as informações de domínio de falha fornecidas pelo ambiente para configurar corretamente os nós do cluster em seu nome. Autónomo do Service Fabric, os domínios de falha são definidos no momento em que o cluster está configurado 
@@ -369,7 +369,7 @@ O valor especificado na propriedade de nó pode ser uma cadeia, booleano, ou ass
 
 1) verificações condicionais para a criação de instruções específicas
 
-| Declaração | Sintaxe |
+| Instrução | Sintaxe |
 | --- |:---:|
 | "igual a" | "==" |
 | "não igual a" | "!=" |
@@ -380,7 +380,7 @@ O valor especificado na propriedade de nó pode ser uma cadeia, booleano, ou ass
 
 2) instruções booleanas para operações de agrupamentos e lógicas
 
-| Declaração | Sintaxe |
+| Instrução | Sintaxe |
 | --- |:---:|
 | "e" | "&&" |
 | "ou" | "&#124;&#124;" |

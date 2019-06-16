@@ -8,10 +8,10 @@ ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389472"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contentores e itens no Azure Cosmos DB
@@ -86,7 +86,7 @@ Um contentor do Cosmos do Azure tem um conjunto de propriedades definidas pelo s
 |\_etag | Gerados pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
 |\_ts | Gerados pelo sistema | Última timestamp atualizado do contentor | Sim | Não | Não | Não | Não |
 |\_gestão personalizada | Gerados pelo sistema | Endereçável URI do contentor | Sim | Não | Não | Não | Não |
-|ID | Configurável pelo utilizador | Nome exclusivo definido pelo utilizador do contentor | Sim | Sim | Sim | Sim | Sim |
+|id | Configurável pelo utilizador | Nome exclusivo definido pelo utilizador do contentor | Sim | Sim | Sim | Sim | Sim |
 |indexingPolicy | Configurável pelo utilizador | Fornece a capacidade de alterar o caminho de índice, o tipo de índice e o modo de índice | Sim | Não | Não | Não | Sim |
 |timeToLive | Configurável pelo utilizador | Fornece a capacidade de excluir itens automaticamente a partir de um contentor após um período de tempo. Para obter detalhes, consulte [TTL](time-to-live.md). | Sim | Não | Não | Não | Sim |
 |changeFeedPolicy | Configurável pelo utilizador | Utilizado para ler as alterações efetuadas aos itens num contentor. Para obter detalhes, consulte [feed de alterações](change-feed.md). | Sim | Não | Não | Não | Sim |

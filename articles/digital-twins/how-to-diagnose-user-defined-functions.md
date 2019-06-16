@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: 455e78c63960103f5facae764aff3d2b3b2a590d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4d772b8cad64f138d93d91e87f6e6364c5a5d602
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808888"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -34,7 +34,7 @@ Uma variedade de registo, análise e ferramentas de diagnóstico são fornecidos
 Duplos Digital do Azure suporta registo robusto, monitorização e análise. Os desenvolvedores de soluções podem utilizar os registos do Azure Monitor, registos de diagnóstico, registos de atividades e outros serviços para suportar as necessidades complexas de monitorização de uma aplicação IoT. Opções de registo podem ser combinadas para consultar ou apresentar registos em vários serviços e fornecer cobertura de Registro em log granular para muitos serviços.
 
 * Para a configuração de registo específica de duplos Digital do Azure, leia [como configurar a monitorização e registo](./how-to-configure-monitoring.md).
-* Consulte o os [do Azure Monitor](../azure-monitor/overview.md) descrição geral para saber mais sobre as definições de registo poderosas ativadas através do Azure Monitor.
+* Consulte a [do Azure Monitor](../azure-monitor/overview.md) descrição geral para saber mais sobre as definições de registo poderosas ativadas através do Azure Monitor.
 * Consulte o artigo [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para configurar definições de registo de diagnóstico num duplos Digital do Azure através do Portal do Azure, CLI do Azure ou do PowerShell.
 
 Uma vez configurado, será capaz de selecionar todas as categorias de registo, métricas, e utilizar poderosas Monitor do Azure log analytics áreas de trabalho para suportar os esforços de depuração.

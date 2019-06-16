@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60563431"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Cópia de Segurança e Restauro para SQL Server em Máquinas Virtuais do Azure
@@ -69,7 +69,7 @@ Para obter mais informações sobre como configurar a cópia de segurança autom
 - **Monitorização e gestão central**: Gerenciar centralmente todas as cópias de segurança, incluindo outras cargas de trabalho do Azure Backup oferece suporte, a partir de um dashboard único no Azure.
 - **Política controlado por cópia de segurança e retenção**: Crie políticas de cópia de segurança padrão para cópias de segurança regulares. Estabeleça políticas de retenção para manter as cópias de segurança durante anos.
 - **Suporte para SQL sempre em**: Detetar e proteger uma configuração de SQL Server Always On e irá cumprir a preferência de cópia de segurança do grupo de disponibilidade cópia de segurança.
-- **o objetivo de ponto de recuperação de 15 minutos (RPO)**: Configure os backups de log de transação de SQL cada 15 minutos.
+- **o objetivo de ponto de recuperação de 15 minutos (RPO)** : Configure os backups de log de transação de SQL cada 15 minutos.
 - **Ponto de restauro para um tempo**: Utilizar o portal para recuperar bases de dados para um ponto específico no tempo sem ter de restaurar manualmente vários diferenciais completo e backups de log.
 - **Alertas de e-mail para falhas consolidados**: Configure notificações de e-mail consolidada para eventuais falhas.
 - **Controlo de acesso baseado em funções**: Determine quem pode gerir a cópia de segurança e restaurar as operações através do portal.
