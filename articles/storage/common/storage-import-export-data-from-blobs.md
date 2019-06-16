@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209627"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para exportar dados do armazenamento de Blobs do Azure
@@ -55,7 +55,7 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
     - Selecione uma subscrição.
     - Introduza ou selecione um grupo de recursos.
 
-        ![Noções Básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![Noções básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. Na **detalhes da tarefa**:
 
@@ -146,7 +146,7 @@ Isso *opcional* passo ajuda a determina o número de unidades necessário para a
     |**/sk:**|Obrigatório apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
     |**/csas:**|Obrigatório apenas se não for especificada uma chave de conta de armazenamento. O contentor de SAS para listar os blobs para ser exportado na tarefa de exportação.|  
     |**/ExportBlobListFile:**|Necessário. Caminho para o XML que contêm lista de caminhos dos BLOBs de ficheiros ou prefixos de caminho para os blobs ser exportada de Blobs. O formato de ficheiro utilizado na `BlobListBlobPath` elemento no [colocar tarefa](/rest/api/storageimportexport/jobs) operação de REST API do serviço de importação/exportação.|  
-    |**/DriveSize:**|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação *por exemplo,*, 500 GB, 1,5 TB.|  
+    |**/DriveSize:**|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação *por exemplo,* , 500 GB, 1,5 TB.|  
 
     Veja uma [exemplo do comando PreviewExport](#example-of-previewexport-command).
  

@@ -13,10 +13,10 @@ ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 377c5088d39821e87412c517540b3190b0a14a00
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393271"
 ---
 # <a name="import-or-export-configuration-data"></a>Importar ou exportar dados de configuração

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 190394481f17310784f87c9e2f642eeea0b2597f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062231"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ligar a origens de dados no local com o Gateway de dados no local
 O gateway de dados no local fornece a transferência de dados segura entre origens de dados no local e os servidores do Azure Analysis Services na cloud. Além de trabalhar com vários servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com o Azure Logic Apps, o Power BI, o Power Apps e o Microsoft Flow. Pode associar vários serviços na mesma subscrição e na mesma região com um único gateway. 
 
 Obter configuração com o gateway pela primeira vez é um processo de quatro partes:
 
-- **Transfira e execute a configuração** -este passo instala um serviço de gateway num computador na sua organização. Também iniciar sessão no Azure através de uma conta no seu [do inquilino](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) do Azure AD. B2B do Azure (convidado) contas não são suportadas.
+- **Transfira e execute a configuração** -este passo instala um serviço de gateway num computador na sua organização. Também iniciar sessão no Azure através de uma conta no seu [do inquilino](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) do Azure AD. B2B do Azure (convidado) contas não são suportadas.
 
 - **Registar o seu gateway** - neste passo, especifique um nome e recuperação de chaves para o seu gateway e selecione uma região, registar o gateway com o serviço Cloud do Gateway. O recurso de gateway pode ser registado em qualquer região, mas recomendamos que ele estar na mesma região que os servidores do Analysis Services. 
 

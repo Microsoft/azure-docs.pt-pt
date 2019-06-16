@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696407"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Ligar ao SQL Server ou base de dados SQL do Azure a partir do Azure Logic Apps
@@ -63,7 +63,7 @@ No Azure Logic Apps, todas as aplicações lógicas têm de começar com uma [ac
 3. Se lhe for pedido para obter detalhes de ligação, [criar a ligação de SQL agora](#create-connection). 
    Ou, se a ligação já existir, selecione o **nome da tabela** pretendida na lista.
 
-   ![Selecionar a tabela](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
 
 4. Definir o **intervalo** e **frequência** propriedades, que especifique a frequência com que a aplicação lógica verifica a tabela.
 
@@ -90,7 +90,7 @@ No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-
    ![Selecione "Novo passo", "Adicionar uma ação"](./media/connectors-create-api-sqlazure/add-action.png)
    
    Para adicionar uma ação entre os passos existentes, mova o rato por cima da seta de ligação. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, escolha **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, escolha **adicionar uma ação**.
 
 2. Na caixa de pesquisa, introduza "sql server" como o filtro. Na lista de ações, selecione qualquer ação de SQL que desejar. 
 

@@ -10,10 +10,10 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813754"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Expandir scripts U-SQL com o código de R no Azure Data Lake Analytics
@@ -162,7 +162,7 @@ Apenas R 3.2.2 é suportada.
 ### <a name="input-and-output-size-limitations"></a>Entrada e limitações de tamanho de saída
 Cada vértice tem uma quantidade limitada de memória atribuída à mesma. Uma vez que os pacotes de entrada e saída têm de existir na memória no código R, o tamanho total de entrada e de saída não pode exceder os 500 MB.
 
-### <a name="sample-code"></a>Código de Exemplo
+### <a name="sample-code"></a>Código de exemplo
 Mais código de exemplo está disponível na sua conta do Data Lake Store depois de instalar as extensões de análise avançada de U-SQL. O caminho para obter mais código de exemplo é: `<your_account_address>/usqlext/samples/R`. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>Implementar módulos R personalizados com o U-SQL

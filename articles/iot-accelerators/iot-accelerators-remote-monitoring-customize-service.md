@@ -3,17 +3,16 @@ title: Adicionar um serviço para a solução de monitorização remota da inter
 description: Este artigo mostra-lhe como adicionar um novo serviço para monitorização remota solution accelerator da IU da web.
 author: dominicbetts
 manager: timlt
-ms.author: v-yiso
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-origin.date: 10/02/2018
-ms.date: 11/26/2018
+ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447051"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um serviço personalizado para monitorização remota solution accelerator da IU da web
@@ -48,13 +47,13 @@ Para começar, o **passo a passo/src/serviços** pasta contém os ficheiros que 
 
 **exampleService.js**
 
-
+[!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
 
 Para saber mais sobre como os serviços são implementados, veja [a introdução à programação reativa estiver em falta](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).
 
 **model/exampleModels.js**
 
-
+[!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
 
 Cópia **exampleService.js** para o **src/serviços** pastas e copia **exampleModels.js** para o **serviços/src/modelos** pasta.
 
@@ -76,7 +75,7 @@ Para começar, o **src/instruções/store/redutores** pasta contém um reducer d
 
 **exampleReducer.js**
 
-
+[!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
 Cópia **exampleReducer.js** para o **src/store/redutores** pasta.
 

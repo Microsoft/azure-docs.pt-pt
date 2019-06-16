@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 436685f3bba58ed7d06dfe834d808e7fe422176b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66751975"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recolher dados de registo com o agente do Log Analytics do Azure

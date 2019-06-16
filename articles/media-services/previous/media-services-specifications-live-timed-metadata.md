@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: 10dbf7e8cf67ab721cf525d4a1e7594473592bd4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459118"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Assinalar metadados temporizados na transmissão em direto 
@@ -66,11 +66,11 @@ Para o modo simple de RTMP, serviços de multimédia suportam uma única mensage
 
 ### <a name="simple-mode"></a>Modo Simple
 
-| Nome do Campo | Tipo de campo | Necessário? | Descrições                                                                                                             |
+| Nome do Campo | Tipo de campo | Obrigatório? | Descrições                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | indicação        | String     | Necessário | A mensagem de evento.  Deve ser "SpliceOut" para designar um modo simple fusão.                                              |
-| ID         | String     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem                            |
-| duração   | Number     | Necessário | Durante o processo de fusão. As unidades são segundos fracionais.                                                                |
+| id         | String     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem                            |
+| Duração   | Number     | Necessário | Durante o processo de fusão. As unidades são segundos fracionais.                                                                |
 | elapsed    | Number     | Opcional | Quando o sinal é que está a ser repetido para oferecer suporte à Sintonize, este campo deve ser a quantidade de tempo de apresentação que tiver sido decorrido desde a fusão início. As unidades são segundos fracionais. Ao utilizar o modo simple, este valor não deve exceder o período original da fusão.                                                  |
 | time       | Number     | Necessário | Será o momento da fusão, em tempo de apresentação. As unidades são segundos fracionais.                                     |
 
@@ -78,12 +78,12 @@ Para o modo simple de RTMP, serviços de multimédia suportam uma única mensage
 
 ### <a name="scte-35-mode"></a>Modo de SCTE 35
 
-| Nome do Campo | Tipo de campo | Necessário? | Descrições                                                                                                             |
+| Nome do Campo | Tipo de campo | Obrigatório? | Descrições                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | indicação        | String     | Necessário | A mensagem de evento.  Para mensagens de [SCTE-35], tem de ser o base64 (4648 de RFC da IETF) binário codificado splice_info_section() mensagens a serem enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].                                              |
-| tipo       | String     | Necessário | Um URN ou uma URL, identificando o esquema de mensagem. Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].  |
-| ID         | String     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem.  As mensagens com uma semântica equivalente deverá ter o mesmo valor.|
-| duração   | Number     | Necessário | A duração do evento ou ad fusão-segmento, se conhecidos. Se desconhecido, o valor deve ser 0.                                                                 |
+| type       | String     | Necessário | Um URN ou uma URL, identificando o esquema de mensagem. Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].  |
+| id         | String     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem.  As mensagens com uma semântica equivalente deverá ter o mesmo valor.|
+| Duração   | Number     | Necessário | A duração do evento ou ad fusão-segmento, se conhecidos. Se desconhecido, o valor deve ser 0.                                                                 |
 | elapsed    | Number     | Opcional | Quando o sinal de ad [SCTE-35] está a ser repetido para Prepare-se, este campo deve ter a quantidade de tempo de apresentação que tiver sido decorrido desde a fusão início. As unidades são segundos fracionais. No modo de [SCTE-35], este valor pode exceder a duração especificada original da fusão ou segmento.                                                  |
 | time       | Number     | Necessário | A hora de apresentação do evento ou ad fusão.  O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. Saída HLS, de tempo e a duração devem alinhar com os limites de segmento. O tempo de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não se podem sobrepor. As unidades são segundos fracionais.
 
@@ -119,7 +119,7 @@ A caixa "moov" deve conter uma **TrackHeaderBox ('tkhd')** caixa conforme defini
 
 | **Nome do campo** | **Tipo de campo**          | **Necessário?** | **Descrição**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
-| duração       | número inteiro não assinado de 64 bits | Necessário      | DEVE ser 0, uma vez que a caixa de controle tem zero exemplos e a duração total dos exemplos na caixa de controle é 0. |
+| Duração       | número inteiro não assinado de 64 bits | Necessário      | DEVE ser 0, uma vez que a caixa de controle tem zero exemplos e a duração total dos exemplos na caixa de controle é 0. |
 
 -------------------------------------
 
@@ -151,8 +151,8 @@ A caixa de MediaDataBox ('mdat') tem de ter o seguinte formato:
 
 | **Nome do campo**          | **Tipo de campo**                   | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-------------------------|----------------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| versão                 | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | Determina o formato do conteúdo da caixa de 'mdat'. Versões não reconhecidas serão ignoradas. Atualmente a única versão suportada é 1.                                                                                                                                                                                                                                                                                                                                                      |
-| ID                      | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | Identifica esta instância da mensagem. Mensagens com uma semântica equivalente deverá ter o mesmo valor; ou seja, qualquer caixa de mensagem de um evento com o mesmo id de processamento é suficiente.                                                                                                                                                                                                                                                                                                            |
+| version                 | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | Determina o formato do conteúdo da caixa de 'mdat'. Versões não reconhecidas serão ignoradas. Atualmente a única versão suportada é 1.                                                                                                                                                                                                                                                                                                                                                      |
+| id                      | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | Identifica esta instância da mensagem. Mensagens com uma semântica equivalente deverá ter o mesmo valor; ou seja, qualquer caixa de mensagem de um evento com o mesmo id de processamento é suficiente.                                                                                                                                                                                                                                                                                                            |
 | presentation_time_delta | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | A soma de fragment_absolute_time, especificada a TrackFragmentExtendedHeaderBox e o presentation_time_delta tem de ser o tempo de apresentação do evento. O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. Saída HLS, de tempo e a duração devem alinhar com os limites de segmento. O tempo de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não se podem sobrepor. |
 | message                 | matriz de bytes                       | Necessário      | A mensagem de evento. Para mensagens de [SCTE-35], a mensagem é o splice_info_section() binária, embora [SCTE 67] recomenda outra coisa. Para mensagens de [SCTE-35], tem de ser splice_info_section() mensagens a serem enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. Para mensagens de [SCTE-35], o binário splice_info_section() é o payload da caixa de 'mdat' e não é codificado em base64.                                                            |
 
@@ -232,7 +232,7 @@ Metadados temporizados para Apple HTTP Live Streaming (HLS) podem ser incorporad
 | ID                 | cadeia de caracteres com aspas                 | Necessário                                  | Um identificador exclusivo para o evento. Se o ID não for especificado, quando a mensagem é ingerida, serviços de multimédia do Azure irá gerar um id exclusivo.                                                                                                                                          |
 | DURAÇÃO           | número de ponto flutuante decimal | Necessário                                  | A duração do evento. Se desconhecido, o valor deve ser 0. As unidades são factional segundos.                                                                                                                                                                                           |
 | DECORRIDOS            | número de ponto flutuante decimal | Opcional, mas necessário para a janela deslizante | Quando o sinal é que está a ser repetido para oferecer suporte a uma janela deslizante de apresentação, este campo tem de ser a quantidade de tempo de apresentação que tiver sido decorrido, uma vez que o evento começou. As unidades são segundos fracionais. Este valor pode exceder a duração especificada original da fusão ou segmento. |
-| HORA               | número de ponto flutuante decimal | Necessário                                  | O tempo de apresentação do evento. As unidades são segundos fracionais.                                                                                                                                                                                                                    |
+| TIME               | número de ponto flutuante decimal | Necessário                                  | O tempo de apresentação do evento. As unidades são segundos fracionais.                                                                                                                                                                                                                    |
 
 
 A camada de aplicação de leitor HLS irá utilizar o tipo para identificar o formato da mensagem, decodificar a mensagem, aplique as conversões de tempo necessário e processar o evento.  Os eventos são sincronizado na lista de reprodução da segmento do controle pai, de momento, de acordo com o carimbo de hora do evento.  Eles são inseridos antes do mais próximo segmento (etiqueta #EXTINF).
@@ -292,8 +292,8 @@ Zero ou mais elementos de evento estão contidos dentro do elemento de EventStre
 | **Nome de atributo**  | **Tipo**                | **Necessário?** | **Descrição**                                                                                                                                                                                                             |
 |---------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | presentation_time   | número inteiro não assinado de 64 bits | Opcional      | TEM de ser o suporte de dados de tempo de apresentação do evento relativo ao início do período. O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. |
-| duração            | número inteiro sem sinal de 32 bits | Opcional      | A duração do evento. Isso tem de ser omitido se a duração é desconhecida.                                                                                                                                                 |
-| ID                  | número inteiro sem sinal de 32 bits | Opcional      | Identifica esta instância da mensagem. As mensagens com uma semântica equivalente deverá ter o mesmo valor. Se o ID não for especificado, quando a mensagem é ingerida, serviços de multimédia do Azure irá gerar um id exclusivo.             |
+| Duração            | número inteiro sem sinal de 32 bits | Opcional      | A duração do evento. Isso tem de ser omitido se a duração é desconhecida.                                                                                                                                                 |
+| id                  | número inteiro sem sinal de 32 bits | Opcional      | Identifica esta instância da mensagem. As mensagens com uma semântica equivalente deverá ter o mesmo valor. Se o ID não for especificado, quando a mensagem é ingerida, serviços de multimédia do Azure irá gerar um id exclusivo.             |
 | Valor do elemento do evento | string                  | Necessário      | A mensagem de evento como uma cadeia base64, conforme descrito em [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>Sintaxe do XML e de exemplo para DASH manifesto Signaling (MPD)
@@ -383,7 +383,7 @@ Eventos são sinalizados em banda, na caixa "emsg", para as faixas de áudio e v
 
 Mensagens de [SCTE-35] são ingeridas no formato binário, utilizando o esquema **"urn: scte:scte35:2013a:bin"** para uniforme de ingestão e o tipo **"scte35"** para RTMP de ingestão. Para facilitar a conversão de tempo de [SCTE-35], que se baseia em MPEG-2 transporte stream apresentação tempo carimbos (PTS), um mapeamento entre PTS (pts_time + pts_adjustment do splice_time()) e a linha cronológica de suporte de dados é fornecido pelo (de tempo de apresentação do evento o campo de fragment_absolute_time para uniforme de ingestão e o campo de tempo para RTMP ingerir). O mapeamento é necessário porque o valor PTS 33 bits é agregado ao longo de aproximadamente a cada 26.5 horas.
 
-Ingestão de transmissão em fluxo uniforme requer que a caixa de dados de suporte de dados ('mdat') tem de conter o **splice_info_section()** definida na tabela 8-1, de [SCTE-35]. Para RTMP de ingestão, o atributo de indicação da mensagem AMF está definido como o base64encoded **splice_info_section()**. Quando as mensagens têm o formato descrito acima, eles são enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].
+Ingestão de transmissão em fluxo uniforme requer que a caixa de dados de suporte de dados ('mdat') tem de conter o **splice_info_section()** definida na tabela 8-1, de [SCTE-35]. Para RTMP de ingestão, o atributo de indicação da mensagem AMF está definido como o base64encoded **splice_info_section()** . Quando as mensagens têm o formato descrito acima, eles são enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].
 
 
 ## <a name="5-references"></a>5 referências

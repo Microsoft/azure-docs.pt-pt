@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60751867"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer ciência de dados
@@ -52,7 +52,7 @@ Um dos segredos comerciais da ciência de dados é obter a outras pessoas para f
 
 A Microsoft tem um serviço baseado na nuvem chamado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que está bem-vindo ao experimentar gratuitamente. Ele fornece uma área de trabalho em que pode experimentar com algoritmos de aprendizagem diferente e, quando tem sua solução esmiuçada, pode iniciá-lo como um serviço web.
 
-Parte deste serviço é algo chamado de  **[Galeria de IA do Azure](https://gallery.azure.ai/)**. Contém recursos, incluindo uma coleção de experiências do Azure Machine Learning Studio, ou como modelos, o que as pessoas tenham criado e contribuiu para utilização de terceiros. Estas experiências são uma excelente forma de aproveitar a reflexão e o trabalho pesado de outras pessoas para começar a usar em suas próprias soluções. Todas as pessoas são bem-vindo ao navegar por ele.
+Parte deste serviço é algo chamado de  **[Galeria de IA do Azure](https://gallery.azure.ai/)** . Contém recursos, incluindo uma coleção de experiências do Azure Machine Learning Studio, ou como modelos, o que as pessoas tenham criado e contribuiu para utilização de terceiros. Estas experiências são uma excelente forma de aproveitar a reflexão e o trabalho pesado de outras pessoas para começar a usar em suas próprias soluções. Todas as pessoas são bem-vindo ao navegar por ele.
 
 ![Galeria de IA do Azure](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 

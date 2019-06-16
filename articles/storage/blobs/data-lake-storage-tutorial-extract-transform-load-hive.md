@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: cae639f74005a9d0c7509b38c9e68a9cb0a281a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061369"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados com o Apache Hive no HDInsight do Azure
 
@@ -43,10 +43,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 * **CLI do Azure**: Se ainda não instalou a CLI do Azure, consulte [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **Um cliente Secure Shell (SSH)**: Para obter mais informações, consulte [ligar ao HDInsight (Hadoop) através de SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-
-> [!IMPORTANT]
-> Os passos neste artigo necessitam de um cluster do HDInsight que utiliza o Linux. Linux é o único sistema operativo que é utilizado no Azure HDInsight versão 3.4 ou posterior. Para obter mais informações, veja [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+* **Um cliente Secure Shell (SSH)** : Para obter mais informações, consulte [ligar ao HDInsight (Hadoop) através de SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Transferir os dados de voos
 

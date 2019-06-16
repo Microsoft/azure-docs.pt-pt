@@ -13,10 +13,10 @@ ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035751"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Armazenamento OLTP dentro da memória de monitor

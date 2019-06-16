@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 95c24f74e9af4443db994a6655a82108de18efdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7ca163b93a68525e80018051baa626bc378c200
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60270769"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Active Directory do Azure com iQualify LMS
 
@@ -54,7 +54,7 @@ Para configurar a integração do iQualify LMS com o Azure AD, terá de adiciona
 
 **Para adicionar iQualify LMS a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -139,7 +139,7 @@ Para configurar o Azure AD início de sessão único com iQualify LMS, execute o
 
     | Name | Atributo de origem|
     | --- | --- |
-    | e-mail | user.userprincipalname |
+    | email | user.userprincipalname |
     | first_name | user.givenname |
     | last_name | user.surname |
     | person_id | "o atributo" |
@@ -185,7 +185,7 @@ Para configurar o Azure AD início de sessão único com iQualify LMS, execute o
 
 1. Assim que tiver iniciado a sessão, clique no seu avatar no canto superior direito, em seguida, clique em **definições da conta**
 
-    ![Definições de conta](./media/iqualify-tutorial/setting1.png)
+    ![Definições da conta](./media/iqualify-tutorial/setting1.png)
 
 1. Na área de definições de conta, clique no menu à esquerda da faixa de opções e clique em **INTEGRAÇÕES**
 

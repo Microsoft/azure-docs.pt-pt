@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470564"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Configurar o sinal de dinâmico para aprovisionamento automático de utilizadores
@@ -45,7 +45,7 @@ Antes de configurar o sinal de dinâmico para automático de utilizadores de apr
 
 **Para adicionar o sinal dinâmico a partir da Galeria de aplicações do Azure AD, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -116,7 +116,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 8. Na **notificação por E-Mail** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação - **enviar uma notificação por e-mail quando uma falha ocorre**.
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+    ![E-Mail de notificação](common/provisioning-notification-email.png)
 
 9. Clique em **Guardar**.
 

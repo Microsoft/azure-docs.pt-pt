@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726536"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Introdução ao R linguagem no Azure Machine Learning Studio de programação
@@ -930,7 +930,7 @@ outframe
 
 A primeira linha do código é um pouco complicada e explicações podem ajudá-lo a compreendê-lo. Trabalhar a partir de dentro para fora, temos o seguinte:
 
-1. O '**[[**'operador com o argumento'**1**' seleciona o vetor de correlações nos lags o primeiro elemento da lista de objetos de ccf.
+1. O ' **[[** 'operador com o argumento'**1**' seleciona o vetor de correlações nos lags o primeiro elemento da lista de objetos de ccf.
 2. O `do.call()` função aplica-se a `rbind()` função sobre os elementos da lista devolve por `lapply()`.
 3. O `data.frame()` função coerces o resultado gerado pela `do.call()` para um dataframe.
 

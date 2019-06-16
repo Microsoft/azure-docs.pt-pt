@@ -1,8 +1,8 @@
 ---
 title: H264 taxa de bits Múltiplas 4x3 SD | Documentos da Microsoft
 description: O tópico fornece uma visão geral do **h264 taxa de bits múltiplas 4x3 SD** predefinido de tarefa.
-author: WenJason
-manager: digimobile
+author: Juliako
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/18/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 03/18/2019
+ms.author: juliako
 ms.openlocfilehash: e5a0251ffd7d013a2e90d05609c04cec5c9dc1e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61129613"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd"></a>H264 Taxas de Bits Múltiplas 4x3 SD

@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108067"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um conjunto de dimensionamento de Máquina Virtual com o Visual Studio
@@ -76,7 +76,7 @@ O Balanceador de carga permite-lhe ligar às instâncias de VM com SSH (Linux) o
 
 3. A partir daqui, pode criar um grupo de recursos do Azure para implementar o modelo para.
    
-    ![Novo Grupo de Recursos][new_resource]
+    ![Novo grupo de recursos][new_resource]
 
 4. Em seguida, clique em **Editar parâmetros** para introduzir parâmetros que são transmitidos ao seu modelo. Forneça o nome de utilizador e palavra-passe para o sistema operacional, que é necessária para criar a implementação. Se não tiver o PowerShell Tools for Visual Studio instaladas, é recomendável verificar **guardar palavras-passe** para evitar uma linha de comandos da linha de comandos oculta do PowerShell ou utilize [suporte de keyvault](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
    

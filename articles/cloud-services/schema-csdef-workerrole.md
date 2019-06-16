@@ -14,10 +14,10 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 90a11c5bb81a0d29f5f8a1c1696732453aa4b1ab
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62095409"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Esquema de WorkerRole de definição dos serviços Cloud do Azure
@@ -151,7 +151,7 @@ A tabela seguinte descreve os atributos do `WorkerRole` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|nome|string|Necessário. O nome para a função de trabalho. Nome da função tem de ser exclusivo.|
+|name|string|Necessário. O nome para a função de trabalho. Nome da função tem de ser exclusivo.|
 |enableNativeCodeExecution|boolean|Opcional. O valor predefinido é `true`; nativo execução de código e de confiança total estão ativadas por predefinição. Defina este atributo como `false` desabilite a execução de código nativo para a função de trabalho e utilizar em vez disso, a confiança parcial do Azure.|
 |vmsize|string|Opcional. Defina este valor para alterar o tamanho da máquina virtual que foi atribuída a esta função. O valor predefinido é `Small`. Para obter uma lista de tamanhos de máquinas de virtuais possíveis e seus atributos, consulte [tamanhos de Máquina Virtual para serviços em nuvem](cloud-services-sizes-specs.md).|
 
@@ -165,7 +165,7 @@ A tabela seguinte descreve os atributos do `Setting` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|nome|string|Necessário. Um nome exclusivo para a definição de configuração.|
+|name|string|Necessário. Um nome exclusivo para a definição de configuração.|
 
 As definições de configuração para uma função são pares nome / valor que é declarados no ficheiro de definição do serviço e defina no ficheiro de configuração do serviço.
 
@@ -182,7 +182,7 @@ A tabela seguinte descreve os atributos do `LocalStorage` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|nome|string|Necessário. Um nome exclusivo para o armazenamento local.|
+|name|string|Necessário. Um nome exclusivo para o armazenamento local.|
 |cleanOnRoleRecycle|boolean|Opcional. Indica se o arquivo local deve ser limpos quando a função é reiniciada. Valor predefinido é `true`.|
 |sizeInMb|int|Opcional. A quantidade desejada de espaço de armazenamento para alocar para o armazenamento local, em MB. Se não for especificado, o espaço de armazenamento padrão atribuído é 100 MB. A quantidade mínima de espaço de armazenamento que pode ser atribuído é 1 MB.<br /><br /> O tamanho máximo dos recursos locais é depende do tamanho de máquina virtual. Para obter mais informações, consulte [tamanhos de Máquina Virtual para serviços em nuvem](cloud-services-sizes-specs.md).|
 
@@ -205,9 +205,9 @@ A tabela seguinte descreve os atributos do `InputEndpoint` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|nome|string|Necessário. Um nome exclusivo para o ponto final externo.|
-|protocolo|string|Necessário. O protocolo de transporte para o ponto final externo. Para uma função de trabalho, os valores possíveis são `HTTP`, `HTTPS`, `UDP`, ou `TCP`.|
-|porta|int|Necessário. A porta para o ponto final externo. Pode especificar qualquer número de porta que escolher, mas os números de porta especificados para cada função no serviço tem de ser exclusivos.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|
+|name|string|Necessário. Um nome exclusivo para o ponto final externo.|
+|protocol|string|Necessário. O protocolo de transporte para o ponto final externo. Para uma função de trabalho, os valores possíveis são `HTTP`, `HTTPS`, `UDP`, ou `TCP`.|
+|port|int|Necessário. A porta para o ponto final externo. Pode especificar qualquer número de porta que escolher, mas os números de porta especificados para cada função no serviço tem de ser exclusivos.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|
 |certificado|string|É necessário para um ponto final HTTPS. O nome de um certificado definido por um `Certificate` elemento.|
 |localPort|int|Opcional. Especifica uma porta utilizada para ligações internas no ponto final. O `localPort` atributo mapeia a porta externa no ponto final a uma porta interna numa função. Isto é útil em cenários em que uma função têm de comunicar para um componente interno numa porta que diferente da que é exposto externamente.<br /><br /> Se não for especificado, o valor de `localPort` é o mesmo que o `port` atributo. Defina o valor da `localPort` para "*" para atribuir automaticamente uma porta não alocada que é detectável usando a API de tempo de execução.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).<br /><br /> O `localPort` atributo só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.|
 |ignoreRoleInstanceStatus|boolean|Opcional. Quando o valor deste atributo é definido como `true`, o estado de um serviço é ignorado e o ponto final não será removido pelo balanceador de carga. Definir este valor para `true` útil na depuração de ocupado instâncias de um serviço. O valor predefinido é `false`. **Nota:** Um ponto de extremidade pode receber tráfego, mesmo quando a função não está no estado pronto.|
@@ -220,9 +220,9 @@ A tabela seguinte descreve os atributos do `InternalEndpoint` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|nome|string|Necessário. Um nome exclusivo para o ponto final interno.|
-|protocolo|string|Necessário. O protocolo de transporte para o ponto final interno. Os valores possíveis são `HTTP`, `TCP`, `UDP`, ou `ANY`.<br /><br /> Um valor de `ANY` Especifica que qualquer protocolo, qualquer porta é permitida.|
-|porta|int|Opcional. A porta utilizada para ligações com balanceamento de carga interno no ponto final. Ponto final utiliza duas portas de uma carga balanceada. A porta utilizada para o endereço IP público e a porta utilizada no endereço IP privado. Normalmente, estes são elas são definidas com o mesmo, mas pode optar por utilizar portas diferentes.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).<br /><br /> O `Port` atributo só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.|
+|name|string|Necessário. Um nome exclusivo para o ponto final interno.|
+|protocol|string|Necessário. O protocolo de transporte para o ponto final interno. Os valores possíveis são `HTTP`, `TCP`, `UDP`, ou `ANY`.<br /><br /> Um valor de `ANY` Especifica que qualquer protocolo, qualquer porta é permitida.|
+|port|int|Opcional. A porta utilizada para ligações com balanceamento de carga interno no ponto final. Ponto final utiliza duas portas de uma carga balanceada. A porta utilizada para o endereço IP público e a porta utilizada no endereço IP privado. Normalmente, estes são elas são definidas com o mesmo, mas pode optar por utilizar portas diferentes.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).<br /><br /> O `Port` atributo só está disponível a utilizar a versão do SDK do Azure 1.3 ou superior.|
 
 ##  <a name="InstanceInputEndpoint"></a> InstanceInputEndpoint
 O `InstanceInputEndpoint` elemento descreve um instância ponto final de entrada para uma função de trabalho. Um ponto de final de entrada de instância é associado a uma instância de função específica usando o encaminhamento de porta no balanceador de carga. Cada ponto de final de entrada de instância é mapeado para uma porta específica de um intervalo de portas possíveis. Este elemento é o principal do `AllocatePublicPortFrom` elemento.
@@ -233,9 +233,9 @@ A tabela seguinte descreve os atributos do `InstanceInputEndpoint` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|nome|string|Necessário. Um nome exclusivo para o ponto final.|
+|name|string|Necessário. Um nome exclusivo para o ponto final.|
 |localPort|int|Necessário. Especifica a porta interna que todas as instâncias de função irão escutar para receber o tráfego de entrada reencaminhado do Balanceador de carga. Intervalo de valores possíveis entre 1 e 65535, inclusive.|
-|protocolo|string|Necessário. O protocolo de transporte para o ponto final interno. Os valores possíveis são `udp` ou `tcp`. Utilize `tcp` para tráfego baseado em http/https.|
+|protocol|string|Necessário. O protocolo de transporte para o ponto final interno. Os valores possíveis são `udp` ou `tcp`. Utilize `tcp` para tráfego baseado em http/https.|
 
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom
 O `AllocatePublicPortFrom` elemento descreve o intervalo de portas públicas que pode ser utilizado por clientes externos para aceder a cada ponto de final de entrada de instância. O número da porta (VIP) público é alocado a partir deste intervalo e atribuído a cada ponto de extremidade de instância de função individuais durante a implementação de inquilino e a atualização. Este elemento é o principal do `FixedPortRange` elemento.
@@ -251,7 +251,7 @@ A tabela seguinte descreve os atributos do `FixedPort` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|porta|int|Necessário. A porta para o ponto final interno. Isso tem o mesmo efeito que a definição do `FixedPortRange` min e max à mesma porta.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|
+|port|int|Necessário. A porta para o ponto final interno. Isso tem o mesmo efeito que a definição do `FixedPortRange` min e max à mesma porta.<br /><br /> Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|
 
 ##  <a name="FixedPortRange"></a> FixedPortRange
 O `FixedPortRange` elemento Especifica o intervalo de portas que são atribuídas ao ponto final interno ou o ponto final de entrada de instância e a porta utilizada para a carga de conjuntos com balanceamento de ligações no ponto final.
@@ -266,7 +266,7 @@ A tabela seguinte descreve os atributos do `FixedPortRange` elemento.
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
 |min.|int|Necessário. A porta mínima no intervalo. Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|
-|máx.|string|Necessário. A porta máxima no intervalo. Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|
+|max|string|Necessário. A porta máxima no intervalo. Intervalo de valores possíveis entre 1 e 65535, inclusive (do Azure SDK versão 1.7 ou superior).|
 
 ##  <a name="Certificates"></a> Certificados
 O `Certificates` elemento descreve a coleção de certificados para uma função de trabalho. Este elemento é o principal do `Certificate` elemento. Uma função pode ter qualquer número de certificados associados. Para obter mais informações sobre como utilizar o elemento de certificados, consulte [modificar o ficheiro de definição de serviço com um certificado](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
@@ -278,7 +278,7 @@ A tabela seguinte descreve os atributos do `Certificate` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|nome|string|Necessário. Um nome para este certificado, o que é utilizado para fazer referência a ele quando é associado a um HTTPS `InputEndpoint` elemento.|
+|name|string|Necessário. Um nome para este certificado, o que é utilizado para fazer referência a ele quando é associado a um HTTPS `InputEndpoint` elemento.|
 |storeLocation|string|Necessário. A localização do arquivo de certificados em que este certificado pode ser encontrado no computador local. Os valores possíveis são `CurrentUser` e `LocalMachine`.|
 |storeName|string|Necessário. O nome do arquivo de certificados em que este certificado reside no computador local. Os valores possíveis incluem os nomes de arquivo internos `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, ou por qualquer nome de arquivo personalizado. Se não for especificado um nome de arquivo personalizado, o arquivo é criado automaticamente.|
 |permissionLevel|string|Opcional. Especifica as permissões de acesso para os processos de função. Se pretender que os processos elevados só para poder aceder à chave privada, em seguida, especifique `elevated` permissão. `limitedOrElevated` permissão permite que todos os processos de função aceder à chave privada. Os valores possíveis são `limitedOrElevated` ou `elevated`. O valor predefinido é `limitedOrElevated`.|
@@ -322,7 +322,7 @@ A tabela seguinte descreve os atributos do `Variable` elemento:
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|nome|string|Necessário. O nome da variável de ambiente para definir.|
+|name|string|Necessário. O nome da variável de ambiente para definir.|
 |value|string|Opcional. O valor a definir para a variável de ambiente. Tem de incluir um atributo de valor ou uma `RoleInstanceValue` elemento.|
 
 ##  <a name="RoleInstanceValue"></a> RoleInstanceValue
@@ -401,7 +401,7 @@ A tabela seguinte descreve os atributos do `Content` elemento.
 
 | Atributo | Type | Descrição |
 | --------- | ---- | ----------- |
-|Destino|string|Necessário. Localização da máquina virtual do Azure para o qual o conteúdo é colocado. Esta localização é relativo para a pasta **%ROLEROOT%\Approot**.|
+|destination|string|Necessário. Localização da máquina virtual do Azure para o qual o conteúdo é colocado. Esta localização é relativo para a pasta **%ROLEROOT%\Approot**.|
 
 Este elemento é o elemento principal do `SourceDirectory` elemento.
 

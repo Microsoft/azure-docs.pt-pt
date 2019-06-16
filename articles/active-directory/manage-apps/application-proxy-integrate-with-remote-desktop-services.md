@@ -16,12 +16,12 @@ ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108469"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o ambiente de trabalho remoto com o Proxy de aplicações do Azure AD
 
@@ -57,6 +57,8 @@ Numa implementação de RDS, a função da Web de RD e a função do Gateway de 
 - Durante a publicação de Web de RD, recomenda-se para utilizar o mesmo FQDN interno e externo. Se os FQDNs internos e externos são diferentes, em seguida, deve desabilitar tradução de cabeçalho do pedido para evitar que o cliente receber ligações inválidas. 
 
 - No Internet Explorer, ative o suplemento do ActiveX de RDS.
+
+- Para o fluxo de pré-autenticação do Azure AD, os utilizadores só podem ligar a recursos publicados para eles no **RemoteApp e ambientes de trabalho** painel. Os utilizadores não é possível ligar a um ambiente de trabalho usando o **ligar a um PC remoto** painel.
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implementar o cenário conjunto de RDS e o Proxy de aplicações
 
@@ -127,7 +129,7 @@ A configuração descrita neste artigo é para os utilizadores no Windows 7 ou 1
 | Pré-autenticação    | O Windows 7/10 através do Internet Explorer + suplemento ActiveX de RDS |
 | Passthrough | Qualquer outro sistema operativo que suporte a aplicação de ambiente de trabalho remoto |
 
-O fluxo de pré-autenticação oferece mais benefícios de segurança do que o fluxo de pass-through. Com a pré-autenticação pode utilizar funcionalidades de autenticação do Azure AD como o início de sessão único, acesso condicional e verificação de dois passos para os seus recursos no local. Também garantir que apenas o tráfego autorizado alcance sua rede.
+O fluxo de pré-autenticação oferece mais benefícios de segurança do que o fluxo de pass-through. Com a pré-autenticação pode utilizar funcionalidades de autenticação do Azure AD, como de verificação de início de sessão, acesso condicional e em dois passos para os seus recursos no local. Também garantir que apenas o tráfego autorizado alcance sua rede.
 
 Para utilizar autenticação pass-through, existem apenas duas modificações para os passos apresentados neste artigo:
 1. Na [publique o ponto final de anfitrião de área de trabalho remota](#publish-the-rd-host-endpoint) passo 1, definir o método de pré-autenticação **pass-through**.

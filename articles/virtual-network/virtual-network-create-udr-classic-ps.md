@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.openlocfilehash: 1441ee9a3d4a563ab35cd9b01e8347d8f51b827a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743409"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Controlar o encaminhamento e utilizar aplicações virtuais (clássico) com o PowerShell

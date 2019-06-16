@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9526cde92fe2f504207de188fa8f0567ffa580d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866617"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Active Directory do Azure com SuccessFactors
 
@@ -53,7 +53,7 @@ Para configurar a integração do SuccessFactors com o Azure AD, terá de adicio
 
 **Para adicionar SuccessFactors a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -187,7 +187,7 @@ Para configurar o Azure AD início de sessão único com SuccessFactors, execute
 
     e. Selecione **habilitado** como **ativar o sinalizador SAML**.
 
-    f. Selecione **não** como **assinatura do pedido de início de sessão (SF gerados/SP/RP)**.
+    f. Selecione **não** como **assinatura do pedido de início de sessão (SF gerados/SP/RP)** .
 
     g. Selecione **perfil de Browser/pós** como **perfil SAML**.
 
@@ -210,7 +210,7 @@ Para configurar o Azure AD início de sessão único com SuccessFactors, execute
 
     d. Selecione **não especificado** como **formato NameID**.
 
-    e. Selecione **Sim** como **Enable sp iniciada pelo início de sessão (AuthnRequest)**.
+    e. Selecione **Sim** como **Enable sp iniciada pelo início de sessão (AuthnRequest)** .
 
     f. Na **pedido de envio como o emissor de toda a empresa** caixa de texto, colar **URL de início de sessão** valor que copiou do portal do Azure.
 
@@ -284,7 +284,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no SuccessFactors, tem de
 
 Para obter os utilizadores criados no SuccessFactors, terá de contactar o [equipa de suporte de SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

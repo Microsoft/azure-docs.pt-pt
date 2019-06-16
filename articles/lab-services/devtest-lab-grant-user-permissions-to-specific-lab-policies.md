@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 70469a9e8737a9df18628951a061c97081c74080
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127383"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Conceder permissões de utilizador para políticas de laboratório específico
@@ -28,7 +28,7 @@ Este artigo ilustra como utilizar o PowerShell para conceder permissões de util
 ## <a name="policies-as-resources"></a>Políticas de recursos
 Como explicado no [controlo de acesso baseado em funções do Azure](../role-based-access-control/role-assignments-portal.md) artigo, o RBAC permite a gestão de acesso detalhado dos recursos do Azure. Utilizando o RBAC, pode segregar funções na sua equipa de DevOps e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
 
-No DevTest Labs, uma política é um tipo de recurso que permite a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Cada política de laboratório é um recurso no tipo de recurso de política e pode ser atribuída como um âmbito a uma função RBAC.
+No DevTest Labs, uma política é um tipo de recurso que permite a ação de RBAC **Microsoft.DevTestLab/labs/policySets/policies/** . Cada política de laboratório é um recurso no tipo de recurso de política e pode ser atribuída como um âmbito a uma função RBAC.
 
 Por exemplo, para conceder permissão de leitura/escrita de utilizadores para o **tamanhos de VM permitidos** diretiva, criaria uma função personalizada que funciona com o **Microsoft.DevTestLab/labs/policySets/policies/** ação e, em seguida, atribuir os usuários adequados para esta função personalizada no âmbito da **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 

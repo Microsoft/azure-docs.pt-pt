@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424708"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor
@@ -51,10 +51,10 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 Operador       |Descrição                         |Diferencia maiúsculas de minúsculas|Exemplo (produz `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
-`!=`           |Diferente de                          |Sim           |`"abc" != "ABC"`
-`=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
-`!~`           |Diferente de                          |Não            |`"aBc" !~ "xyz"`
+`==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
+`!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
+`=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
+`!~`           |Não é igual a                          |Não            |`"aBc" !~ "xyz"`
 `has`          |Direita lado é um termo todo no esquerdo lado |Não|`"North America" has "america"`
 `!has`         |Direita lado não é um termo completo na esquerdo lado       |Não            |`"North America" !has "amer"` 
 `has_cs`       |Direita lado é um termo todo no esquerdo lado |Sim|`"North America" has_cs "America"`

@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478560"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure importar/exportar metadados e propriedades de formato de ficheiro serviço
@@ -30,7 +30,7 @@ O formato de um ficheiro de metadados é o seguinte:
 </Metadata>  
 ```
   
-|Elemento XML|Type|Descrição|  
+|Elemento XML|Tipo|Descrição|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Elemento de raiz|O elemento raiz do ficheiro de metadados.|  
 |`metadata-name`|String|Opcional. O elemento XML Especifica o nome dos metadados do blob e seu valor Especifica o valor da definição de metadados.|  
@@ -52,7 +52,7 @@ O formato de um arquivo de propriedades é o seguinte:
 </Properties>  
 ```
   
-|Elemento XML|Type|Descrição|  
+|Elemento XML|Tipo|Descrição|  
 |-----------------|----------|-----------------|  
 |`Properties`|Elemento de raiz|O elemento raiz do arquivo de propriedades.|  
 |`Last-Modified`|String|Opcional. A hora de última modificação de mensagens em fila para o blob. Para tarefas de exportação apenas.|  

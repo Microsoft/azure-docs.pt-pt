@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61387282"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com pastas de trabalho do Azure Monitor
@@ -33,7 +33,7 @@ Pastas de trabalho são úteis para cenários, tais como:
 
 Monitor do Azure para VMs inclui várias pastas de trabalho para começar e a tabela seguinte resume-los.
 
-| Livro | Descrição | Âmbito |
+| Pasta de trabalho | Descrição | Scope |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável de nossa lista de N principais e exibição de gráficos numa única pasta de trabalho que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Em escala |
 | Contadores de desempenho | Uma vista de gráfico de Top N num grande conjunto de contadores de desempenho. | Em escala |
@@ -57,7 +57,7 @@ Uma pasta de trabalho é constituída por secções que consiste de forma indepe
 
 3. Na lista, selecione uma VM.
 
-4. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)**.
+4. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)** .
 
 5. Na página de informações VM, selecione **desempenho** ou **Maps** separador e, em seguida, selecione **pastas de trabalho do modo de exibição** da ligação na página. 
 
@@ -166,14 +166,14 @@ Existem quatro tipos diferentes de parâmetros, que são atualmente suportados:
 
 |                  |      |
 | ---------------- |:-----|
-| **Text** (Texto)    | Permite ao utilizador editar uma caixa de texto e, opcionalmente, pode fornecer uma consulta para preencher o valor predefinido. |
+| **Texto**    | Permite ao utilizador editar uma caixa de texto e, opcionalmente, pode fornecer uma consulta para preencher o valor predefinido. |
 | **Lista pendente** | Permite ao utilizador escolher a partir de um conjunto de valores. |
 | **Seletor de intervalo de tempo**| Permite ao utilizador escolher a partir de um conjunto predefinido de valores de intervalo de tempo ou escolha entre mais de um intervalo de tempo personalizado.|
 | **Seleccionador de recursos** | Permite ao utilizador escolher entre os recursos selecionados para a pasta de trabalho.|
 
 ### <a name="using-a-text-parameter"></a>Com um parâmetro de texto
 
-O valor de um usuário digitar na caixa de texto é substituído diretamente na consulta, sem carateres de escape ou aspas. Se o valor que precisa é uma cadeia de caracteres, a consulta deve ter o parâmetro entre aspas (como **'{parameter}'**).
+O valor de um usuário digitar na caixa de texto é substituído diretamente na consulta, sem carateres de escape ou aspas. Se o valor que precisa é uma cadeia de caracteres, a consulta deve ter o parâmetro entre aspas (como **'{parameter}'** ).
 
 O parâmetro de texto permite que o valor numa caixa de texto a ser utilizado em qualquer lugar. Pode ser um nome de tabela, nome da coluna, nome da função, operador, etc.  O tipo de parâmetro de texto tem uma definição **obter o valor predefinido de consulta do analytics**, que permite que o autor do livro para usar uma consulta para preencher o valor predefinido para essa caixa de texto.
 
@@ -227,7 +227,7 @@ Enquanto pode fazer o seu parâmetro de intervalo de tempo personalizado atravé
 
 Tipos de parâmetros de intervalo de tempo tem 15 intervalos predefinidos que vão de cinco minutos para os últimos 90 dias. Também é uma opção para permitir a seleção de intervalo de tempo personalizado, que permite que o operador do relatório para escolha explícita iniciar e parar valores para o intervalo de tempo.
 
-### <a name="resource-picker"></a>Selecionador de recursos
+### <a name="resource-picker"></a>Seleccionador de recursos
 
 O tipo de parâmetro de Seletor de recurso dá-lhe a capacidade de definir o âmbito do relatório para determinados tipos de recursos. Um exemplo de uma pasta de trabalho pré-criados que aproveita o tipo de Seletor de recurso é o **desempenho** pasta de trabalho.
 

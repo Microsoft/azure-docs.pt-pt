@@ -9,10 +9,10 @@ ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: 3881a6d0ee1139fa481908f09b6e96efda24a5cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60542548"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Executar scripts na VM do Linux
@@ -29,7 +29,7 @@ O [extensão de Script personalizado](../extensions/custom-script-linux.md) é u
 * Executar script do PowerShell em máquinas do Windows e em máquinas do Linux do script de Bash.
 * Útil para configuração pós-implementação, instalação de software e outros configuração ou tarefas de gestão.
 
-## <a name="run-command"></a>Comando Executar
+## <a name="run-command"></a>Execute o comando
 
 O [executar comando](run-command.md) funcionalidade permite que a máquina virtual e a gestão de aplicações e a resolução de problemas com scripts e está disponível, mesmo quando o computador não estiver acessível, por exemplo, se a firewall de convidado não tiver a porta RDP ou SSH Abra.
 

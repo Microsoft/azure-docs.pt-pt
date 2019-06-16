@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
 ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723607"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de coleção fiável no Azure Service Fabric
@@ -35,7 +35,7 @@ Serializadores internos são mais eficientes, uma vez que já estão habituados 
 
 Reliable State Manager tem serializador incorporado para os seguintes tipos: 
 - Guid
-- booleano
+- bool
 - byte
 - sbyte
 - byte[]
@@ -46,7 +46,7 @@ Reliable State Manager tem serializador incorporado para os seguintes tipos:
 - float
 - int
 - uint
-- longa
+- long
 - ulong
 - curto
 - ushort

@@ -1,0 +1,148 @@
+---
+title: 'Tutorial: Integração do Active Directory do Azure com a autenticação de SAML CyberArk | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e autenticação de SAML CyberArk.
+services: active-directory
+documentationCenter: na
+author: jeevansd
+manager: mtillman
+ms.reviewer: celested
+ms.assetid: 58d8a0be-5f1b-4680-bbcb-2975e5c57014
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 06/10/2019
+ms.author: jeedes
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 612de66bfdc2778a87685e0157ba8ef013ac51b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108344"
+---
+# <a name="tutorial-integrate-cyberark-saml-authentication-with-azure-active-directory"></a>Tutorial: Integrar a autenticação de CyberArk SAML com o Azure Active Directory
+
+Neste tutorial, irá aprender como integrar a autenticação de SAML CyberArk com o Azure Active Directory (Azure AD). Quando integrar a autenticação de SAML de CyberArk com o Azure AD, pode:
+
+* Controlar no Azure AD que tenha acesso ao CyberArk autenticação de SAML.
+* Permita que os utilizadores ser automaticamente sessão iniciada para autenticação de SAML CyberArk com as suas contas do Azure AD.
+* Gira as suas contas num local central – portal do Azure.
+
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para começar, terá dos seguintes itens:
+
+* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
+* Autenticação de SAML CyberArk início de sessão único (SSO) ativado na subscrição.
+
+## <a name="scenario-description"></a>Descrição do cenário
+
+Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Suporta a autenticação de SAML CyberArk **SP e IDP** iniciada SSO.
+
+## <a name="adding-cyberark-saml-authentication-from-the-gallery"></a>Adicionando autenticação de SAML CyberArk da Galeria
+
+Para configurar a integração de autenticação de SAML CyberArk com o Azure AD, terá de adicionar CyberArk SAML autenticação a partir da Galeria à sua lista de aplicações de SaaS geridas.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar nova aplicação, selecione **nova aplicação**.
+1. Na **adicionar a partir da galeria** secção, escreva **CyberArk SAML autenticação** na caixa de pesquisa.
+1. Selecione **autenticação de SAML CyberArk** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+
+Configurar e testar o SSO do Azure AD com a autenticação de SAML CyberArk com um utilizador de teste **B. Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na autenticação de SAML CyberArk.
+
+Para configurar e testar o SSO do Azure AD com a autenticação de SAML CyberArk, conclua os seguintes blocos de construção:
+
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Configurar a autenticação de SAML CyberArk](#configure-cyberark-saml-authentication)**  para configurar as definições de SSO no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Simon B.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Simon B. utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de autenticação de SAML CyberArk](#create-cyberark-saml-authentication-test-user)**  ter um equivalente de B. Simon na autenticação SAML CyberArk que está ligado à representação de utilizador do Azure AD.
+6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
+
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+
+Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+
+1. Na [portal do Azure](https://portal.azure.com/), na **CyberArk SAML autenticação** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único** .
+1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
+1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+
+   ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+1. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, executar o passo seguinte:
+
+    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:  `https://<PVWA DNS or IP>/passwordvault/api/auth/saml/logon`
+
+1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<PVWA DNS or IP>/PasswordVault/v10/logon/saml`
+
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta e o URL de início de sessão real. Contacte [equipa de suporte de cliente de autenticação SAML CyberArk](mailto:bizdevtech@cyberark.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+
+1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (bruto)** e selecione **transferir**para transferir o certificado e guarde-o no seu computador.
+
+   ![O link de download de certificado](common/certificateraw.png)
+
+1. Sobre o **configurar a autenticação de SAML CyberArk** secção, copie o URL adequado com base nos seus requisitos.
+
+   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+### <a name="configure-cyberark-saml-authentication"></a>Configurar a autenticação de CyberArk SAML
+
+Para configurar o início de sessão único num **autenticação de SAML CyberArk** lado, terá de enviar o transferido **certificado (bruto)** e adequadas copiados URLs a partir do portal do Azure para [CyberArk SAML Equipa de suporte de autenticação](mailto:bizdevtech@cyberark.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+
+Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Simon B.
+
+1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Na **utilizador** propriedades, siga estes passos:
+   1. No campo **Nome**, introduza `B. Simon`.  
+   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B. Simon@contoso.com`.
+   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. Clique em **Criar**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, irá ativar a Simon B. utilizar o Azure início de sessão único, concedendo acesso para autenticação de SAML CyberArk.
+
+1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicações, selecione **autenticação de SAML CyberArk**.
+1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+
+1. Na **utilizadores e grupos** caixa de diálogo, selecione **B. Simon** a partir da lista de utilizadores, em seguida, clique no **selecione** na parte inferior do ecrã.
+1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
+1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+
+### <a name="create-cyberark-saml-authentication-test-user"></a>Criar utilizador de teste de autenticação de SAML CyberArk
+
+Nesta secção, vai criar um usuário chamado Eduarda Almeida na autenticação de SAML CyberArk. Trabalhar com [equipa de suporte de autenticação de SAML CyberArk](mailto:bizdevtech@cyberark.com) para adicionar os utilizadores da plataforma de autenticação de SAML CyberArk. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+
+### <a name="test-sso"></a>Teste SSO
+
+Ao selecionar o mosaico de autenticação de SAML CyberArk no painel de acesso, deve ser automaticamente conectado para a autenticação de SAML CyberArk para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="additional-resources"></a>Recursos Adicionais
+
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

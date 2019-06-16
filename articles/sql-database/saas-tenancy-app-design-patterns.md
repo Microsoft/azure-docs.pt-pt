@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61484476"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de inquilinos de bases de dados de SaaS de multi-inquilino
@@ -33,8 +33,8 @@ Ao pagar aluguel, cada inquilino recebe acesso para os componentes da aplicaçã
 
 O termo *modelo de inquilinos* refere-se para como os dados armazenados dos inquilinos são organizados:
 
-- *Single-inquilinos:*&nbsp; Cada base de dados armazena os dados de apenas um inquilino.
-- *Vários inquilinos:*&nbsp; Cada base de dados armazena os dados a partir de vários inquilinos separados (com mecanismos para proteger a privacidade de dados).
+- *Single-inquilinos:* &nbsp; Cada base de dados armazena os dados de apenas um inquilino.
+- *Vários inquilinos:* &nbsp; Cada base de dados armazena os dados a partir de vários inquilinos separados (com mecanismos para proteger a privacidade de dados).
 - Modelos de inquilinos híbridos também estão disponíveis.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Como escolher o modelo de inquilinos adequados
@@ -47,9 +47,9 @@ Em geral, o modelo de inquilinos não afeta a função de um aplicativo, mas é 
     - Armazenamento em forma agregada.
     - Carga de trabalho.
 
-- **Isolamento de inquilino:**&nbsp; Isolamento de dados e o desempenho (se a carga de trabalho de um inquilino afeta outras pessoas).
+- **Isolamento de inquilino:** &nbsp; Isolamento de dados e o desempenho (se a carga de trabalho de um inquilino afeta outras pessoas).
 
-- **Custo por inquilino:**&nbsp; Custos da base de dados.
+- **Custo por inquilino:** &nbsp; Custos da base de dados.
 
 - **Complexidade de desenvolvimento:**
     - Alterações ao esquema.
@@ -61,7 +61,7 @@ Em geral, o modelo de inquilinos não afeta a função de um aplicativo, mas é 
     - Restaurar um inquilino.
     - Recuperação após desastre.
 
-- **Capacidade de personalização:**&nbsp; Facilidade de oferecer suporte a personalizações de esquema que são específicas do inquilino ou inquilinos específicos da classe.
+- **Capacidade de personalização:** &nbsp; Facilidade de oferecer suporte a personalizações de esquema que são específicas do inquilino ou inquilinos específicos da classe.
 
 A discussão de inquilinos enfoca a *dados* camada.  Mas considere por um momento a *aplicativo* camada.  A camada de aplicativo é tratada como uma entidade monolítica.  Se dividir o aplicativo em muitos componentes pequenos, à sua escolha do modelo de inquilinos podem ser alteradas.  Pode tratar alguns componentes diferente das outras pessoas em relação aos inquilinos e a tecnologia de armazenamento ou plataforma utilizada.
 
@@ -126,9 +126,9 @@ Outro padrão disponível é armazenar muitos inquilinos numa base de dados do m
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Isolamento de inquilino é sacrificado
 
-*Dados:*&nbsp; Uma base de dados do multi-inquilino necessariamente sacrificará o isolamento de inquilino.  Os dados de vários inquilinos são armazenados em conjunto numa base de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca expõem os dados de mais do que um inquilino.  Base de dados SQL suporta [segurança de nível de linha][docu-sql-svr-db-row-level-security-947w], que pode impor que os dados devolvidos por uma consulta ser confinada para um único inquilino.
+*Dados:* &nbsp; Uma base de dados do multi-inquilino necessariamente sacrificará o isolamento de inquilino.  Os dados de vários inquilinos são armazenados em conjunto numa base de dados.  Durante o desenvolvimento, certifique-se de que consultas nunca expõem os dados de mais do que um inquilino.  Base de dados SQL suporta [segurança de nível de linha][docu-sql-svr-db-row-level-security-947w], que pode impor que os dados devolvidos por uma consulta ser confinada para um único inquilino.
 
-*Processamento:*&nbsp; Uma base de dados do multi-inquilino partilha os recursos de computação e armazenamento em todos os seus inquilinos.  A base de dados como um todo pode ser monitorado para garantir que está a funcionar de forma aceitável.  No entanto, o sistema do Azure tem uma maneira interna para monitorar ou gerenciar o uso desses recursos por um inquilino individual.  Por conseguinte, a base de dados do multi-inquilino acarreta um risco maior de encontrar vizinhos ruidosos, em que a carga de trabalho de um inquilino overactive tem impacto sobre a experiência de desempenho de outros inquilinos na mesma base de dados.  Monitorização de nível de aplicativo adicional pode monitorizar o desempenho de nível de inquilino.
+*Processamento:* &nbsp; Uma base de dados do multi-inquilino partilha os recursos de computação e armazenamento em todos os seus inquilinos.  A base de dados como um todo pode ser monitorado para garantir que está a funcionar de forma aceitável.  No entanto, o sistema do Azure tem uma maneira interna para monitorar ou gerenciar o uso desses recursos por um inquilino individual.  Por conseguinte, a base de dados do multi-inquilino acarreta um risco maior de encontrar vizinhos ruidosos, em que a carga de trabalho de um inquilino overactive tem impacto sobre a experiência de desempenho de outros inquilinos na mesma base de dados.  Monitorização de nível de aplicativo adicional pode monitorizar o desempenho de nível de inquilino.
 
 #### <a name="lower-cost"></a>Custo mais reduzido
 
@@ -187,7 +187,7 @@ A tabela seguinte resume as diferenças entre os modelos de inquilinos principal
 | Medida | Aplicação autónoma | Base de dados por inquilino | Em partição horizontal multi-inquilino |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Escala | Médio<br />1-100s | Muito alta<br />1-100,000s | Ilimitado<br />1-1,000,000s |
-| Isolamento de inquilino | Muito alta | Elevado | Baixa; exceto para qualquer inquilino individual (ou seja, num db de MT). |
+| Isolamento de inquilino | Muito alta | Alta | Baixa; exceto para qualquer inquilino individual (ou seja, num db de MT). |
 | Custo de base de dados por inquilino | Alta; é dimensionado para picos. | Baixa; conjuntos utilizados. | Mais baixo, para inquilinos pequenos no bds de MT. |
 | Gestão e monitorização de desempenho | Por inquilino apenas | Agregado + por inquilino | Agregar; Embora é por inquilino apenas para singles. |
 | Complexidade de desenvolvimento | Baixa | Baixa | Médio; devido à fragmentação. |

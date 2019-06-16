@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fdabd237fa128326673d84e889387d03f184b00
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236583"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Active Directory do Azure com InsideView
 
@@ -94,7 +94,7 @@ Para configurar o Azure AD início de sessão único com InsideView, siga estes 
 
 2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Selecione um método de início de sessão único](common/select-saml-option.png)
+    ![Selecionar um método de início de sessão único](common/select-saml-option.png)
 
 3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
@@ -143,13 +143,13 @@ Para configurar o Azure AD início de sessão único com InsideView, siga estes 
 
     1. Abra o certificado não processado que transferiu a partir do portal do Azure. Copie o conteúdo do certificado para a área de transferência e, em seguida, cole o conteúdo para o **certificado STS** caixa.
 
-    1. Na **mapeamento de Id de utilizador do Crm** , introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. Na **mapeamento de Id de utilizador do Crm** , introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-    1. Na **mapeamento de E-Mail de Crm** , introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    1. Na **mapeamento de E-Mail de Crm** , introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-    1. Na **mapeamento de nome de Crm** , introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    1. Na **mapeamento de nome de Crm** , introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-    1. Na **Crm lastName mapeamento** , introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.  
+    1. Na **Crm lastName mapeamento** , introduza **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .  
 
     1. Selecione **Guardar**.
 
@@ -212,7 +212,7 @@ Para criar utilizadores ou contactos no InsideView, entre em contato com o [equi
 > [!NOTE]
 > Pode utilizar qualquer ferramenta de criação de conta de utilizador ou API fornecidos pela InsideView para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 

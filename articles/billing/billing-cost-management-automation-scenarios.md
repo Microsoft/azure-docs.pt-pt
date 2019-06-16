@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
 ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65232473"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Cenários de automação para a gestão de faturação e de custo
@@ -48,7 +48,7 @@ Pode utilizar a faturação e APIs de gestão em vários cenários para responde
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
 | Orçamentos                     |                           |                  |           X          |                  |                    |     X     |
 | Encargos do Marketplace                |             X             |         X        |           X          |         X        |          X         |     X     |
-| Folha de Preços                 |             X             |         X        |           X          |         X        |          X         |           |
+| Folha de preços                 |             X             |         X        |           X          |         X        |          X         |           |
 | Recomendações da Reserva |                           |                  |           X          |                  |                    |           |
 | Detalhes da Reserva         |                           |                  |           X          |         X        |                    |           |
 | Resumos da Reserva       |                           |                  |           X          |         X        |                    |           |

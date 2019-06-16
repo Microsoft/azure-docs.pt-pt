@@ -13,10 +13,10 @@ ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60900715"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetria: Modelo de dados do Application Insights
@@ -45,7 +45,7 @@ Este campo foi utilizado originalmente para indicar o tipo de dispositivo que do
 Comprimento máximo: 64
 
 
-## <a name="operation-id"></a>ID da operação
+## <a name="operation-id"></a>Id da operação
 
 Um identificador exclusivo da operação de raiz. Este identificador permite a telemetria de grupo em vários componentes. Ver [correlação de telemetria](../../azure-monitor/app/correlation.md) para obter detalhes. O id da operação é criado por um pedido ou uma vista de página. Todos os outra telemetria define este campo para o valor para a vista de página ou pedido que o contém. 
 
@@ -73,7 +73,7 @@ Nome da origem sintético. Alguma telemetria da aplicação pode representar tr�
 Comprimento máximo: 1024
 
 
-## <a name="session-id"></a>ID de sessão
+## <a name="session-id"></a>Id de sessão
 
 ID de sessão - a instância de interação do utilizador com a aplicação. Informações nos campos de contexto de sessão são sempre sobre o utilizador final. Quando a telemetria é enviada a partir de um serviço, o contexto da sessão é sobre o utilizador que iniciou a operação no serviço.
 
@@ -112,7 +112,7 @@ Nome da função de aplicação faz parte. É mapeado diretamente para o nome da
 Comprimento máximo: 256
 
 
-## <a name="cloud-role-instance"></a>Instância de função de cloud
+## <a name="cloud-role-instance"></a>Instância de função na nuvem
 
 Nome da instância onde a aplicação está em execução. Nome do computador no local, nome da instância para o Azure.
 

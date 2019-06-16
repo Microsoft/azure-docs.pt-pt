@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60314232"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gerir recursos do IBM DB2 no Azure Logic Apps
@@ -87,7 +87,7 @@ Para configurar a sua ligação, forneça estes detalhes de ligação quando lhe
 |----------|----------|-------------|
 | **Ligar através do gateway no local** | Não | Aplica-se apenas para ligações no local. |
 | **Nome da Ligação** | Sim | O nome para a sua ligação, por exemplo, "MyLogicApp-DB2-ligação" |
-| **Servidor** | Sim | O número de porta de dois pontos de alias ou endereço do servidor de DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor é uma cadeia de caracteres que representa um endereço de TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por uma vírgula e um número de porta de TCP/IP. |
+| **servidor** | Sim | O número de porta de dois pontos de alias ou endereço do servidor de DB2, por exemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor é uma cadeia de caracteres que representa um endereço de TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por uma vírgula e um número de porta de TCP/IP. |
 | **Base de Dados** | Sim | O nome da base de dados <p><p>**Nota**: Este valor é uma cadeia de caracteres que representa um nome DRDA da base de dados relacional (RDBNAM): <p>-DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes em que a base de dados é conhecido como uma localização de "IBM DB2 para z/OS". <br>-DB2 para i aceita uma cadeia de caracteres de byte de 18 onde a base de dados é conhecido como um "IBM DB2 para eu" base de dados relacional. <br>-DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
 | **Nome de Utilizador** | Sim | O nome de utilizador para a base de dados <p><p>**Nota**: Este valor é uma cadeia cujo comprimento baseia-se a base de dados específico: <p><p>-DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>-DB2 para i aceita uma cadeia de caracteres de byte de 10. <br>-DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>-DB2 para Windows aceita uma cadeia de caracteres de byte de 30. |
 | **Palavra-passe** | Sim | A palavra-passe para a base de dados |
@@ -107,7 +107,7 @@ Antes de criar a ligação, já tem de ter o seu gateway de dados no local insta
 |----------|----------|-------------|
 | **Ligar através do gateway no local** | Sim | Aplica-se quando pretender uma ligação no local e mostra os locais propriedades de ligação. |
 | **Nome da Ligação** | Sim | O nome para a sua ligação, por exemplo, "MyLogicApp-DB2-ligação" | 
-| **Servidor** | Sim | O número de porta de dois pontos de alias ou endereço do servidor de DB2, por exemplo, "myDB2server:50000" <p><p>**Nota**: Este valor é uma cadeia de caracteres que representa um endereço de TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por uma vírgula e um número de porta de TCP/IP. |
+| **servidor** | Sim | O número de porta de dois pontos de alias ou endereço do servidor de DB2, por exemplo, "myDB2server:50000" <p><p>**Nota**: Este valor é uma cadeia de caracteres que representa um endereço de TCP/IP ou alias, no formato IPv4 ou IPv6, seguido por uma vírgula e um número de porta de TCP/IP. |
 | **Base de Dados** | Sim | O nome da base de dados <p><p>**Nota**: Este valor é uma cadeia de caracteres que representa um nome DRDA da base de dados relacional (RDBNAM): <p>-DB2 para z/OS aceita uma cadeia de caracteres de 16 bytes em que a base de dados é conhecido como uma localização de "IBM DB2 para z/OS". <br>-DB2 para i aceita uma cadeia de caracteres de byte de 18 onde a base de dados é conhecido como um "IBM DB2 para eu" base de dados relacional. <br>-DB2 para LUW aceita uma cadeia de caracteres de 8 bytes. |
 | **Autenticação** | Sim | O tipo de autenticação para a sua ligação, por exemplo, "Basic" <p><p>**Nota**: Selecione este valor na lista, que inclui Basic ou o Windows (Kerberos). |
 | **Nome de Utilizador** | Sim | O nome de utilizador para a base de dados <p><p>**Nota**: Este valor é uma cadeia cujo comprimento baseia-se a base de dados específico: <p><p>-DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. <br>-DB2 para i aceita uma cadeia de caracteres de byte de 10. <br>-DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. <br>-DB2 para Windows aceita uma cadeia de caracteres de byte de 30. |
@@ -160,7 +160,7 @@ Para obter um registo na tabela de base de dados DB2, utilize o **obter linha** 
    | **ID de área** | Sim | O ID do registo que pretende, como "99999", neste exemplo |
    ||||
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Quando tiver terminado, na barra de ferramentas da estruturador, escolha **guardar**.
 
@@ -195,7 +195,7 @@ Para obter todos os registos de uma tabela de base de dados DB2, utilize o **obt
 
 1. Abra o **nome da tabela** lista e, em seguida, selecione a tabela que pretende, que é a "Área" neste exemplo:
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Para especificar um filtro ou a consulta para obter os resultados, escolha **Mostrar opções avançadas**.
 
@@ -244,7 +244,7 @@ Para adicionar um único registo numa tabela de base de dados DB2, utilize o **I
 
    Por exemplo:
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Quando tiver terminado, na barra de ferramentas da estruturador, escolha **guardar**.
 
@@ -292,7 +292,7 @@ Para atualizar um único registo numa tabela de base de dados DB2, utilize o **a
 
    Por exemplo:
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Quando tiver terminado, na barra de ferramentas da estruturador, escolha **guardar**.
 
@@ -337,7 +337,7 @@ Para eliminar um único registo de uma tabela de base de dados DB2, utilize o **
 
    Por exemplo:
 
-   ![Selecionar a tabela](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Selecionar tabela](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Quando tiver terminado, na barra de ferramentas da estruturador, escolha **guardar**.
 

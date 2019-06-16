@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8ddb5d0566c57dd1d507d543ac53c0975a83dd43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723568"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar a reliable services com estado
@@ -30,8 +30,8 @@ A configuração do serviço fiável global é especificada no manifesto do clus
 ### <a name="configuration-names"></a>Nomes de configuração
 | Name | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB para alocar no modo de kernel para o conjunto de memória de memória intermédia de escrita de agente de log. Este conjunto de memória é usado para colocar em cache de informações de estado antes de escrever no disco. |
-| WriteBufferMemoryPoolMaximumInKB |Kilobytes |Sem Limite |Pode aumentar o tamanho máximo para o qual o agente de log escrever o conjunto de memória de memória intermédia. |
+| WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |Número mínimo de KB para alocar no modo de kernel para o conjunto de memória de memória intermédia de escrita de agente de log. Este conjunto de memória é usado para colocar em cache de informações de estado antes de escrever no disco. |
+| WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem Limite |Pode aumentar o tamanho máximo para o qual o agente de log escrever o conjunto de memória de memória intermédia. |
 | SharedLogId |GUID |"" |Especifica um GUID exclusivo a utilizar para identificar o ficheiro de registo partilhado predefinido utilizado por todos os serviços fiáveis em todos os nós do cluster que não especificam o SharedLogId em suas configurações específicas do serviço. Se SharedLogId for especificada, em seguida, SharedLogPath deve também ser especificado. |
 | SharedLogPath |Nome do caminho completamente qualificado |"" |Especifica o caminho totalmente qualificado, onde o ficheiro de registo partilhado utilizado por todos os serviços fiáveis em todos os nós do cluster que não especificam o SharedLogPath em suas configurações específicas do serviço. No entanto, se SharedLogPath for especificada, em seguida, SharedLogId deve também ser especificado. |
 | SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB de espaço em disco para alocar estaticamente para o início de sessão partilhado. O valor tem de ser maior ou 2048. |

@@ -18,10 +18,10 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60936274"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de elevada disponibilidade e cenários para SAP NetWeaver
@@ -369,7 +369,7 @@ O número de domínios de atualização e com falha que pode ser utilizado por u
 Se implementar algumas instâncias de servidor de aplicações SAP em suas VMs dedicadas, partindo do princípio de que temos cinco domínios de atualização, a imagem seguinte surge. O número real de máximo de domínios de atualização e com falha num conjunto de disponibilidade podem ser alteradas no futuro:
 
 ![Figura 2: Elevada disponibilidade dos servidores de aplicações SAP num conjunto de disponibilidade do Azure][planning-guide-figure-3000]
-_**figura 2:** Conjunto de disponibilidade elevada de servidores de aplicações SAP na disponibilidade do Azure_
+ _**figura 2:** Conjunto de disponibilidade elevada de servidores de aplicações SAP na disponibilidade do Azure_
 
 Para obter mais informações, consulte [gerir a disponibilidade das máquinas de virtuais do Windows no Azure][azure-virtual-machines-manage-availability].
 

@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 6618906f7b1b063de18a4f8a418c1c2744ca1533
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 723d0cfe6e292c4b8013de4da55779a6c675d610
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975789"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705939"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Passar credenciais para o manipulador de DSCExtension do Azure
 
 Este artigo aborda a extensão do Desired State Configuration (DSC) para o Azure. Para obter uma descrição geral do manipulador de extensão DSC, veja [introdução ao manipulador de extensão Azure Desired State Configuration](dsc-overview.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="pass-in-credentials"></a>Passar credenciais
 
@@ -61,7 +61,7 @@ configuration Main
 }
 ```
 
-É importante incluir **localhost do nó** como parte da configuração. O manipulador de extensão procura especificamente para o **localhost do nó** instrução. Se essa instrução está em falta, os seguintes passos não funcionam. Também é importante incluir a typecast **[PsCredential]**. Este tipo específico aciona a extensão para encriptar a credencial.
+É importante incluir **localhost do nó** como parte da configuração. O manipulador de extensão procura especificamente para o **localhost do nó** instrução. Se essa instrução está em falta, os seguintes passos não funcionam. Também é importante incluir a typecast **[PsCredential]** . Este tipo específico aciona a extensão para encriptar a credencial.
 
 Para publicar este script para o armazenamento de Blobs do Azure:
 
@@ -84,7 +84,7 @@ $vm | Update-AzVM
 
 Execução desse código solicita uma credencial. Depois da credencial for fornecida, brevemente é armazenado na memória. Quando a credencial é publicada utilizando o **Set-AzVMDscExtension** cmdlet, a credencial é transmitido via HTTPS para a VM. Na VM, o Azure armazena a credencial encriptada no disco com o certificado VM local. A credencial é descriptografada brevemente na memória e, em seguida, ele será novamente encriptado passá-lo para DSC.
 
-Este processo é diferente [utilizar configurações de seguras sem o manipulador de extensão](/powershell/dsc/securemof). O ambiente do Azure dá-lhe uma forma de transmitir dados de configuração de forma segura através de certificados. Quando utiliza o manipulador de extensão DSC, não precisa fornecer **$CertificatePath** ou uma **$CertificateID**/ **$Thumbprint** entrada no **ConfigurationData**.
+Este processo é diferente [utilizar configurações de seguras sem o manipulador de extensão](/powershell/dsc/securemof). O ambiente do Azure dá-lhe uma forma de transmitir dados de configuração de forma segura através de certificados. Quando utiliza o manipulador de extensão DSC, não precisa fornecer **$CertificatePath** ou uma **$CertificateID**/  **$Thumbprint** entrada no **ConfigurationData**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

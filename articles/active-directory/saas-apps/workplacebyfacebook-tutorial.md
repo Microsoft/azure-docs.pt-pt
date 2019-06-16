@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27173c8beeecf2be43e80f59df8907952734c06b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: db14df2dc24afbc8f7982d8d1e4e6429c1c4b1ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905266"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Active Directory do Azure com a área de trabalho pelo Facebook
 
@@ -66,7 +66,7 @@ Para configurar a integração de área de trabalho pelo Facebook com o Azure AD
 
 **Para adicionar à área de trabalho pelo Facebook a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -174,7 +174,7 @@ Para configurar o Azure AD início de sessão único à área de trabalho pelo F
 
     i. Todos os utilizadores usem à área de trabalho serão agora apresentados com página de início de sessão do Azure AD para autenticação.
 
-4. **Redirecionamento de fim de sessão de SAML (opcional)** -
+4. **Redirecionamento de fim de sessão de SAML (opcional)**  -
 
     Pode optar por configurar, opcionalmente, um Url de fim de sessão SAML, que podem ser usados para apontar para a página de fim de sessão do Azure AD. Quando esta definição está ativada e configurada, o utilizador já não será direcionado para a página de fim de sessão de área de trabalho. Em vez disso, o utilizador será redirecionado para o url que foi adicionado na definição de redirecionamento de fim de sessão de SAML.
 
@@ -247,7 +247,7 @@ Não existe nenhuma ação para nesta secção. Se um utilizador não existir na
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte o [à área de trabalho pela equipa de suporte de cliente do Facebook](https://workplace.fb.com/faq/)
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

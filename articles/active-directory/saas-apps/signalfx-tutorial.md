@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f742def0441b5ae18ad9da3a8ac9d280de8f824
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ce766da0521b787edec020d7dfc3de2a2d83b19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090713"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Active Directory do Azure com SignalFx
 
@@ -54,7 +54,7 @@ Para configurar a integração do SignalFx com o Azure AD, terá de adicionar Si
 
 **Para adicionar SignalFx a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -246,7 +246,7 @@ Quando um utilizador inicia sessão SignalFx do SAML SSO pela primeira vez, [equ
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [SignalFx a equipa de suporte](mailto:kmazzola@signalfx.com)
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

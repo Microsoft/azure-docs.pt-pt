@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60515329"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de voz do Bing
@@ -80,7 +80,7 @@ As seguintes informações de cabeçalho são necessárias para acesso de token.
 
 | Name | Formato | Descrição |
 |----|----|----|
-| OCP-Apim-Subscription-Key | ASCII | Chave de subscrição |
+| OCP-Apim-Subscription-Key | ASCII | A chave de subscrição |
 
 O serviço de token devolve o token de acesso do JWT como `text/plain`. Em seguida, o JWT é passado como um `Base64 access_token` para o handshake como um *autorização* cabeçalho com a cadeia de prefixo `Bearer`. Por exemplo:
 
@@ -101,7 +101,7 @@ Os clientes *tem* utilizar um ponto final adequado do serviço de voz. O ponto f
 | Modo | Caminho | URI de serviço |
 | -----|-----|-----|
 | Interativo | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversação | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| conversação | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
 | ditado | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 Para obter mais informações, consulte a [URI de serviço](../GetStarted/GetStartedREST.md#service-uri) página.
@@ -511,7 +511,7 @@ O `Connection` métrica Especifica os detalhes sobre as tentativas de ligação 
 | Name | `Connection` | Necessário |
 | Id | O valor do identificador de ligação que foi utilizado na *X ConnectionId* cabeçalho para este pedido de ligação | Necessário |
 | Iniciar | A hora quando o cliente enviou um pedido de ligação | Necessário |
-| Terminar | O tempo quando o cliente recebeu a notificação de que a ligação foi estabelecida com êxito ou, em casos de erro, rejeitado, recusado ou falha | Necessário |
+| fim | O tempo quando o cliente recebeu a notificação de que a ligação foi estabelecida com êxito ou, em casos de erro, rejeitado, recusado ou falha | Necessário |
 | Erro | Uma descrição do erro que ocorreu, se aplicável. Se a ligação foi concluída com êxito, os clientes devem omitir este campo. O comprimento máximo deste campo é de 50 carateres. | Necessário para casos de erro, caso contrário, omitidos |
 
 A descrição do erro deve ter um máximo de 50 carateres e o ideal é que deve ser um dos valores listados na tabela seguinte. Se a condição de erro não corresponder a um dos seguintes valores, os clientes podem utilizar uma descrição sucinta da condição de erro, utilizando [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) sem espaço em branco. A capacidade de enviar um *telemetria* mensagem requer uma ligação ao serviço, por isso, apenas transitório ou podem ser comunicadas as condições de erro temporário na *telemetria* mensagem. Condições de erro que *permanentemente* bloquear um cliente de estabelecer uma ligação para o serviço de impedir que o cliente enviar qualquer mensagem para o serviço, incluindo *telemetria* mensagens.
@@ -527,7 +527,7 @@ A descrição do erro deve ter um máximo de 50 carateres e o ideal é que deve 
 | BadRequest | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um HTTP `400 Bad Request` código de estado sobre a solicitação de atualização do WebSocket. |
 | ServerUnavailable | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um HTTP `503 Server Unavailable` código de estado sobre a solicitação de atualização do WebSocket. |
 | ServerError | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um `HTTP 500` código de estado de erro interno no pedido de atualização de WebSocket. |
-| Tempo Limite (excedido) | Pedido de ligação do cliente excedido o tempo limite sem uma resposta do serviço. O *final* campo contém a hora quando o cliente excedeu o tempo e parado a aguardar a ligação. |
+| Tempo limite | Pedido de ligação do cliente excedido o tempo limite sem uma resposta do serviço. O *final* campo contém a hora quando o cliente excedeu o tempo e parado a aguardar a ligação. |
 | ClientError | O cliente terminada a ligação devido a um erro interno de cliente. |
 
 ### <a name="metric-microphone"></a>Métrica `Microphone`
@@ -550,7 +550,7 @@ O *final* tempo valor para o `Microphone` métrica regista o tempo quando a apli
 | ----- | ----------- | ----- |
 | Name | Microfone | Necessário |
 | Iniciar | A hora quando o cliente à utilização de entrada de áudio do microfone ou outro transmissão de áudio ou recebido um acionador de spotter a palavra-chave | Necessário |
-| Terminar | A hora quando o cliente parado com o fluxo de microfone ou de áudio | Necessário |
+| fim | A hora quando o cliente parado com o fluxo de microfone ou de áudio | Necessário |
 | Erro | Uma descrição do erro que ocorreu, se aplicável. Se as operações de microfone foram bem-sucedidas, os clientes devem omitir este campo. O comprimento máximo deste campo é de 50 carateres. | Necessário para casos de erro, caso contrário, omitidos |
 
 ### <a name="metric-listeningtrigger"></a>Métrica `ListeningTrigger`
@@ -570,7 +570,7 @@ Utilize os exemplos a seguir como diretrizes para gravação *começar* e *final
 | ----- | ----------- | ----- |
 | Name | ListeningTrigger | Opcional |
 | Iniciar | A hora de início o acionador de escuta do cliente | Necessário |
-| Terminar | O tempo em que o acionador de escuta do cliente foi concluído | Necessário |
+| fim | O tempo em que o acionador de escuta do cliente foi concluído | Necessário |
 | Erro | Uma descrição do erro que ocorreu, se aplicável. Se a operação de Acionador foi concluída com êxito, os clientes devem omitir este campo. O comprimento máximo deste campo é de 50 carateres. | Necessário para casos de erro, caso contrário, omitidos |
 
 #### <a name="sample-message"></a>Mensagem de exemplo

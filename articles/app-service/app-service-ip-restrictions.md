@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e408439c4868a9fadfd15ab8ae303b2d881c481e
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494276"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069441"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrições de acesso de serviço de aplicações do Azure #
 
@@ -48,27 +48,27 @@ Desde a interface do Usuário de restrições de acesso, pode rever a lista de r
 
 A lista mostrará todas as restrições atuais que estão na sua aplicação. Se tiver uma restrição de VNet na sua aplicação, a tabela mostra se os pontos finais de serviço estão ativados para Microsoft. Web. Quando não existem sem restrições definidas na sua aplicação, a aplicação estará acessível de qualquer lugar.  
 
+## <a name="adding-ip-address-rules"></a>Adicionar regras de endereços IP
+
 Pode clicar em **[+] adicionar** para adicionar uma nova regra de restrição de acesso. Depois de adicionar uma regra, ele entrarão em vigor imediatamente. As regras são impostas por ordem de prioridade a partir do número mais baixo e a aumentar. Há uma implícita Negar tudo o que está em vigor depois de adicionar até mesmo uma única regra.
-
-### <a name="adding-ip-address-rules"></a>Adicionar regras de endereços IP
-
-![Adicionar uma regra de restrição de acesso de IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
 
 Ao criar uma regra, tem de selecionar permitir/recusar e também o tipo de regra. Também tem de fornecer o valor de prioridade e o que está a restringir o acesso a.  Opcionalmente, pode adicionar um nome e uma descrição para a regra.  
 
+![Adicionar uma regra de restrição de acesso de IP](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
+
 Para definir um endereço IP com base em regra, selecione um tipo de IPv4 ou IPv6. A notação de endereço IP tem de ser especificada na notação CIDR para endereços IPv4 e IPv6. Para especificar um endereço exato, pode usar algo como 1.2.3.4/32 onde os quatro primeiros octetos representam o seu endereço IP e /32 é a máscara. A notação de CIDR de IPv4 para todos os endereços é 0.0.0.0/0. Para saber mais sobre a notação CIDR, leia [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
-### <a name="service-endpoints"></a>Pontos finais de serviço
+## <a name="service-endpoints"></a>Pontos finais de serviço
+
+Pontos finais de serviço permite-lhe restringir o acesso a sub-redes de rede virtual do Azure selecionada. Para restringir o acesso a uma sub-rede específica, crie uma regra de restrição com um tipo de rede Virtual. Pode selecionar a subscrição, a VNet e a sub-rede que pretende permitir ou negar o acesso com. Se a pontos finais de serviço não já foram ativados com o Microsoft. Web para a sub-rede que selecionou, ele será ativado automaticamente para, a menos que marque a caixa pedindo para não fazê-lo. A situação em que iria querer ativá-lo a aplicação, mas não a sub-rede está amplamente relacionada à se tiver as permissões para ativar os pontos finais de serviço na sub-rede ou não. Se precisar de obter alguém para ativar pontos finais de serviço na sub-rede, pode selecionar a caixa e ter a aplicação configurada para pontos finais de serviço em antecipação a ele que está a ser ativado mais tarde na sub-rede. 
 
 ![Adicionar uma regra de restrição de acesso de VNet](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
-
-Para restringir o acesso a sub-redes selecionadas, selecione um tipo de rede Virtual. Abaixo disso, poderá escolher a subscrição, a VNet e a sub-rede que pretende permitir ou negar o acesso com. Se a pontos finais de serviço não já foram ativados com o Microsoft. Web para a sub-rede que selecionou, ele será ativado automaticamente para, a menos que marque a caixa pedindo para não fazê-lo. A situação em que iria querer ativá-lo a aplicação, mas não a sub-rede está amplamente relacionada à se tiver as permissões para ativar os pontos finais de serviço na sub-rede ou não. Se precisar de obter alguém para ativar pontos finais de serviço na sub-rede, pode selecionar a caixa e ter a aplicação configurada para pontos finais de serviço em antecipação a ele que está a ser ativado mais tarde na sub-rede. 
 
 Pontos finais de serviço não podem ser utilizados para restringir o acesso às aplicações que são executados num ambiente de serviço de aplicações. Quando a sua aplicação está num ambiente de serviço de aplicações, pode controlar o acesso à sua aplicação com regras de acesso IP. 
 
 Com pontos finais de serviço, pode configurar a sua aplicação com Gateways de aplicação ou outros dispositivos de WAF. Também pode configurar aplicações de várias camadas com o back-ends seguro. Para obter mais detalhes sobre algumas das possibilidades, leia [recursos de rede e o serviço de aplicações](networking-features.md).
 
-### <a name="managing-access-restriction-rules"></a>Gerir regras de restrição de acesso
+## <a name="managing-access-restriction-rules"></a>Gerir regras de restrição de acesso
 
 Pode clicar em qualquer linha para editar uma regra de restrição de acesso existente. As edições entram em vigor de imediato, incluindo alterações na ordem de prioridade.
 
@@ -82,7 +82,7 @@ Para eliminar uma regra, clique no **...**  na sua regra e clique em **remover**
 
 ![Eliminar regra de restrição de acesso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="blocking-a-single-ip-address"></a>Bloqueio de um único endereço IP ##
+## <a name="blocking-a-single-ip-address"></a>Bloqueio de um único endereço IP ##
 
 Ao adicionar a sua primeira regra de restrição de IP, o serviço irá adicionar explícita **recusar tudo** regra com prioridade 2147483647. Na prática, o explícita **recusar tudo** regra será a última regra executada e irá bloquear o acesso para qualquer endereço IP que não é explicitamente permitido utilizando um **permitir** regra.
 
@@ -90,7 +90,7 @@ Para o cenário em que os usuários querem bloquear explicitamente um único end
 
 ![endereço de ip único bloco](media/app-service-ip-restrictions/block-single-address.png)
 
-### <a name="scm-site"></a>Site do SCM 
+## <a name="scm-site"></a>Site do SCM 
 
 Além de ser capaz de controlar o acesso à sua aplicação, também pode restringir o acesso ao site scm utilizado pela sua aplicação. O site do scm é web implementar ponto final e também a consola Kudu. Em separado pode atribuir as restrições de acesso ao scm site da aplicação ou utilizar o mesmo definido para a aplicação e o site do scm. Quando seleciona a caixa para têm as mesmas restrições que a sua aplicação, tudo o que é blanked horizontalmente. Se desmarcar a caixa, são aplicadas a quaisquer definições que tinha anteriormente no site do scm. 
 

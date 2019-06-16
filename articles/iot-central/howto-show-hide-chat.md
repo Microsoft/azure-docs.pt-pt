@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64513343"
 ---
-# <a name="toggle-live-chat"></a>Ativar/desativar de chat ao vivo
+# <a name="toggle-live-chat"></a>Ativar/desativar chat ao vivo
 
 Este artigo de referência mostra como ativar/desativar o chat ao vivo na sua aplicação IoT Central. Pode utilizar o chat ao vivo para aceder ao suporte técnico.
 
@@ -32,17 +32,17 @@ Pode digitar uma pergunta, conforme mostrado na captura de ecrã seguinte:
 
 ![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](media/howto-show-hide-chat/sample-chat.png)
 
-## <a name="hide-chat"></a>Ocultar Chat
+## <a name="hide-chat"></a>Ocultar bate-papo
 
 Para ocultar o chat, escolha **ocultar bate-papo** no **ajudar** painel:
 
- ![Ocultar Chat](media/howto-show-hide-chat/hide-chat.png)
+ ![Ocultar bate-papo](media/howto-show-hide-chat/hide-chat.png)
 
 ## <a name="enable-chat"></a>Ativar bate-papo
 
 Para mostrar o chat, escolha **Mostrar bate-papo** no **ajudar** painel:
 
- ![Mostrar Chat](media/howto-show-hide-chat/show-chat.png)
+ ![Mostrar bate-papo](media/howto-show-hide-chat/show-chat.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

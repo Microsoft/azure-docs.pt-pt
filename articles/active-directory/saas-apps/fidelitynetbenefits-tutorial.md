@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b35deab4c4fb20c58e135c0de01a0aa05b1c33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ce37aea9e700907ebfda9aa181b7f0eb638af35
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862664"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integração do Active Directory do Azure com fidelidade NetBenefits
 
@@ -55,7 +55,7 @@ Para configurar a integração do NetBenefits de fidelidade com o Azure AD, ter�
 
 **Para adicionar fidelidade NetBenefits a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -197,7 +197,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no NetBenefits fid
 
 Para a Federação dinâmica, os utilizadores são criados com o aprovisionamento de utilizador do Just In Time. Para utilizar o JIT, os clientes de aprovisionamento com base tem de adicionar algumas declarações mais no Azure AD, como a data de nascimento do usuário etc. Esses detalhes são fornecidos pelo seu atribuído **Gestor de serviço de cliente de fidelidade** e têm de ativar esta federação dinâmica para a sua instância.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: pabutler
 ms.openlocfilehash: ef329bfef9dc4f98dfd975a33c190f0b1825df4e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942059"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Navegação do Portal de parceiros da cloud

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123919"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação após desastre de servidores físicos no Azure
@@ -50,7 +50,7 @@ A tabela seguinte lista os mínimos de hardware, software e requisitos de rede p
    ![Configurar a origem](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. Na **Adicionar servidor** painel, verifique se **servidor de configuração** aparece no **tipo de servidor**.
 4. Transfira o ficheiro de instalação do Site Recovery Unified Setup.
-5. Transfira a chave de registo do cofre. Terá da chave de registo ao executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
+5. Transferir a chave de registo do cofre. Terá da chave de registo ao executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
 
     ![Configurar a origem](./media/physical-azure-set-up-source/set-source2.png)
 6. No computador que está a utilizar como o servidor de configuração, execute **do Azure Site Recovery Unified Setup** para instalar o servidor de configuração, o servidor de processos e o servidor de destino mestre.

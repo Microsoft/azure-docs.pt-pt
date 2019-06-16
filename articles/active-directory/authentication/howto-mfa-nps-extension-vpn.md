@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570651"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar a sua infraestrutura VPN com o MFA do Azure ao utilizar a extensão de servidor de políticas de rede para o Azure
@@ -153,7 +153,7 @@ Para funcionar corretamente neste cenário, o servidor NPS tem de ser registado 
 
 Pode usar um padrão (baseada em Assistente) ou avançadas a opção de configuração para configurar o servidor RADIUS. Esta secção assume que está a utilizar a opção de configuração padrão baseada em Assistente.
 
-1. Na consola do servidor de políticas de rede, selecione **NPS (Local)**.
+1. Na consola do servidor de políticas de rede, selecione **NPS (Local)** .
 
 2. Sob **configuração padrão**, selecione **servidor RADIUS para ligações VPN ou de marcação telefónica**e, em seguida, selecione **configurar VPN ou Dial-Up**.
 
@@ -269,7 +269,7 @@ Nesta secção, confirme que o cliente VPN é autenticado e autorizado pelo serv
 
 4. Selecione **adicionar uma ligação VPN**.
 
-5. Na **adicionar uma ligação de VPN** janela, na **fornecedor de VPN** caixa, selecione **Windows (incorporados)**, preencha os campos restantes, conforme adequado e, em seguida, selecione **Guardar**.
+5. Na **adicionar uma ligação de VPN** janela, na **fornecedor de VPN** caixa, selecione **Windows (incorporados)** , preencha os campos restantes, conforme adequado e, em seguida, selecione **Guardar**.
 
     ![A janela "Adicionar uma ligação VPN"](./media/howto-mfa-nps-extension-vpn/image17.png)
 
