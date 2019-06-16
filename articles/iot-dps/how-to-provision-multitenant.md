@@ -2,18 +2,17 @@
 title: Como aprovisionar dispositivos para arquitetura "multitenancy", em que o serviço de aprovisionamento de dispositivos do Azure IoT Hub | Documentos da Microsoft
 description: Como aprovisionar dispositivos para arquitetura "multitenancy" com a sua instância do serviço de aprovisionamento de dispositivos
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116105"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
@@ -42,6 +41,8 @@ Este artigo utiliza uma amostra de um dispositivo simulado a [SDK C do Azure IoT
 
 * Conclusão do [configurar o serviço aprovisionamento de dispositivos Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) início rápido.
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-two-regional-iot-hubs"></a>Criar dois os IoT hubs regionais
@@ -133,7 +134,7 @@ Para fazer a limpeza, estas VMs será adicionado ao mesmo grupo de recursos que 
 
     **nome de utilizador – administrador**: Utilize o seu próprio nome de utilizador de administrador.
 
-    **palavra-passe de administrador –**: Utilize a sua própria palavra-passe de administrador.
+    **palavra-passe de administrador –** : Utilize a sua própria palavra-passe de administrador.
 
     ```azurecli-interactive
     az vm create \
@@ -154,7 +155,7 @@ Para fazer a limpeza, estas VMs será adicionado ao mesmo grupo de recursos que 
 
     **nome de utilizador – administrador**: Utilize o seu próprio nome de utilizador de administrador.
 
-    **palavra-passe de administrador –**: Utilize a sua própria palavra-passe de administrador.
+    **palavra-passe de administrador –** : Utilize a sua própria palavra-passe de administrador.
 
     ```azurecli-interactive
     az vm create \
@@ -192,7 +193,7 @@ Para fazer a limpeza, estas VMs será adicionado ao mesmo grupo de recursos que 
 Nesta secção, irá clone o SDK de C do Azure IoT em cada VM. O SDK contém um exemplo que simulará a partir de cada região de aprovisionamento de dispositivos de um inquilino.
 
 
-1. Para cada VM, instale **Cmake**, **g + +**, **gcc**, e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) através dos seguintes comandos:
+1. Para cada VM, instale **Cmake**, **g + +** , **gcc**, e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) através dos seguintes comandos:
 
     ```bash
     sudo apt-get update
@@ -299,7 +300,7 @@ Nesta secção, irá atualizar um exemplo de aprovisionamento no SDK de C do IoT
 
 O código de exemplo simula uma sequência de arranque de dispositivo que envia a solicitação de provisionamento à sua instância do serviço aprovisionamento de dispositivos. A sequência de arranque fará com que o dispositivo a serem reconhecidas e atribuído ao hub IoT que é o mais próximo com base na latência.
 
-1. No portal do Azure, selecione o separador **Descrição Geral** do Serviço de Aprovisionamento de Dispositivos e anote o valor de **_Âmbito do ID_**.
+1. No portal do Azure, selecione o separador **Descrição Geral** do Serviço de Aprovisionamento de Dispositivos e anote o valor de **_Âmbito do ID_** .
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

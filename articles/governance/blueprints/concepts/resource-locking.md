@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719743"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o recurso de bloqueio em esquemas do Azure
@@ -28,10 +28,10 @@ Recursos criados por artefactos de uma atribuição do esquema têm quatro Estad
 
 |Modo|Tipo de recurso de artefacto|Estado|Descrição|
 |-|-|-|-|
-|Não Bloquear|*|Não bloqueado|Recursos não estão protegidos por esquemas. Este estado também é utilizado para o recurso adicionado a um **só de leitura** ou **não elimine** artefacto de grupo de recursos de fora de uma atribuição do esquema.|
+|Não bloquear|*|Não bloqueado|Recursos não estão protegidos por esquemas. Este estado também é utilizado para o recurso adicionado a um **só de leitura** ou **não elimine** artefacto de grupo de recursos de fora de uma atribuição do esquema.|
 |Só de Leitura|Grupo de recursos|Não é possível editar / eliminar|O grupo de recursos é só de leitura e as etiquetas no grupo de recursos não podem ser modificadas. **Não bloqueado** recursos podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
 |Só de Leitura|Grupo de recursos não|Só de Leitura|--Sem alterações e ele não não possível eliminar o recurso não pode ser alterado de forma alguma.|
-|Não Eliminar|*|Não é possível eliminar|Os recursos podem ser alterados, mas não podem ser eliminados. **Não bloqueado** recursos podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
+|Não elimine|*|Não é possível eliminar|Os recursos podem ser alterados, mas não podem ser eliminados. **Não bloqueado** recursos podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Substituir os Estados de bloqueios
 
@@ -59,7 +59,7 @@ O [propriedades de atribuição de negação](../../../role-based-access-control
 |Modo |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
 |Só de Leitura |**\*** |**\*/read** |SystemDefined (todos) |atribuição de esquema e definida pelo utilizador na **excludedPrincipals** |Grupo de recursos - _true_; Recursos - _FALSO_ |
-|Não Eliminar |**\*/delete** | |SystemDefined (todos) |atribuição de esquema e definida pelo utilizador na **excludedPrincipals** |Grupo de recursos - _true_; Recursos - _FALSO_ |
+|Não elimine |**\*/delete** | |SystemDefined (todos) |atribuição de esquema e definida pelo utilizador na **excludedPrincipals** |Grupo de recursos - _true_; Recursos - _FALSO_ |
 
 > [!IMPORTANT]
 > O Azure Resource Manager coloca em cache os detalhes de atribuição de função durante até 30 minutos. Assim, negar atribuições negar a ação nos recursos de esquema pode não ser imediatamente em vigor completa. Durante este período de tempo, é possível eliminar um recurso que se destina a ser protegidos por bloqueios de esquema.

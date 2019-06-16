@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111470"
 ---
 # <a name="azure-relay-faqs"></a>FAQ de reencaminhamento do Azure
@@ -83,10 +83,10 @@ Reencaminhamentos abertos ao utilizar o **netTCPRelay** associação WCF tratar 
 | Nome da quota | Scope |  Notas | Value |
 | --- | --- | --- | --- |
 | Serviços de escuta em simultâneo num reencaminhamento |Entidade |Pedidos subsequentes para ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |25 |
-| Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Espaço de nomes |- |5,000 |
-| Pontos finais de reencaminhamento por espaço de nomes de serviço |Espaço de nomes |- |10,000 |
-| Tamanho da mensagem [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) retransmite |Espaço de nomes |Mensagens de entrada que excederem estes quotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |
-| Tamanho da mensagem [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) retransmite |Espaço de nomes |Sem limite no tamanho da mensagem. |Ilimitado |
+| Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Espaço de Nomes |- |5,000 |
+| Pontos finais de reencaminhamento por espaço de nomes de serviço |Espaço de Nomes |- |10,000 |
+| Tamanho da mensagem [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) retransmite |Espaço de Nomes |Mensagens de entrada que excederem estes quotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |
+| Tamanho da mensagem [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) retransmite |Espaço de Nomes |Sem limite no tamanho da mensagem. |Ilimitado |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>O reencaminhamento tem quaisquer quotas de utilização?
 Por predefinição, para qualquer serviço cloud, a Microsoft define uma quota de utilização mensal agregado que é calculada em todas as subscrições de um cliente. Compreendemos que às vezes suas necessidades podem exceder estes limites. Pode contactar o suporte ao cliente em qualquer altura, para que possamos avaliar as suas necessidades e ajustar estes limites em conformidade. Para o Service Bus, as quotas de utilização de agregação são os seguintes:

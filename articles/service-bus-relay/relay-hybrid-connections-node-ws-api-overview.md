@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421612"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699382"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Descrição geral da API de nó de ligações híbridas de reencaminhamento
 
@@ -131,7 +131,7 @@ Argumentos do construtor:
 - `server` (obrigatório) - o URI completamente qualificado de um nome de ligação híbrida na qual pode escutar, e geralmente construída com o método de programa auxiliar de WebSocket.createRelayListenUri().
 - `token` Este argumento (obrigatório) - contém uma cadeia de caracteres de token emitida anteriormente ou uma função de retorno de chamada que pode ser chamada para obter esse uma cadeia de token. A opção de chamada de retorno é preferencial, pois permitirá renovação token.
 
-#### <a name="events"></a>Eventos
+#### <a name="events"></a>Events
 
 `RelayedServer` instâncias de emitem três eventos que permitem-lhe processar os pedidos recebidos, estabeleça ligações e detetar condições de erro. Tem de subscrever o `connect` eventos para processar mensagens. 
 
@@ -152,7 +152,7 @@ function(socket)
 Emitida quando uma nova conexão WebSocket é aceite. O objeto é do tipo `ws.WebSocket`, tal como com o pacote básico.
 
 
-##### <a name="error"></a>erro
+##### <a name="error"></a>error
 
 ```JavaScript
 function(error)

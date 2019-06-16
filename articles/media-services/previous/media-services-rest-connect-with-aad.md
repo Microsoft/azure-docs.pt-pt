@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: 6284a1aa0cc3a49291553309b058e4d9f65b24c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64701021"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utilizar autenticação do Azure AD para aceder à API de serviços de multimédia com REST
@@ -64,7 +64,7 @@ Para aceder à API de serviços de multimédia, terá de recolher os seguintes p
 |Definição|Exemplo|Descrição|
 |---|-------|-----|
 |Domínio de inquilino do Azure Active Directory|microsoft.onmicrosoft.com|Azure AD como um ponto de extremidade de proteger o serviço de Token (STS) é criado usando o seguinte formato: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. O Azure AD emite um JWT para poder aceder aos recursos (um token de acesso).|
-|Ponto final de API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este é o ponto final em relação a quais todas as API de REST de serviços de multimédia são efetuadas chamadas em seu aplicativo.|
+|Ponto final da REST API|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Este é o ponto final em relação a quais todas as API de REST de serviços de multimédia são efetuadas chamadas em seu aplicativo.|
 |ID de cliente (ID de aplicação)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID de aplicação (cliente) do Azure AD É necessário o ID de cliente para obter o token de acesso. |
 |Segredo do Cliente|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Chaves de aplicação do Azure AD (segredo do cliente). O segredo do cliente é necessária para obter o token de acesso.|
 

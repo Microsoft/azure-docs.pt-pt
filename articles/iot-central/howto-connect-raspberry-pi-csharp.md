@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 3e77494eacaf16ac23a531cb7a16fe8bf6117006
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714428"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (c#)
@@ -340,7 +340,7 @@ Um aplicativo criado a partir da **Devkits de exemplo** inclui o modelo de aplic
 
 Definições de numérico
 
-| Nome a apresentar | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
+| Display name | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Tensão      | setVoltage | Volts | 0              | 0       | 240     | 0       |
 | Atual      | setCurrent | AMPS  | 0              | 0       | 100     | 0       |
@@ -348,13 +348,13 @@ Definições de numérico
 
 Ativar/desativar definições
 
-| Nome a apresentar | Nome do campo | No texto | Desativar o texto | Inicial |
+| Display name | Nome do campo | No texto | Desativar o texto | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ON      | OFF      | Desativado     |
 
 ### <a name="properties"></a>Propriedades
 
-| Type            | Nome a apresentar | Nome do campo | Tipo de dados |
+| Tipo            | Display name | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
 | Text            | Location     | localização   | N/A       |

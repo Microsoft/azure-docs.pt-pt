@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573038"
 ---
 # <a name="streaming-endpoints-overview"></a>Descrição geral de pontos finais de transmissão em fluxo  
@@ -50,7 +50,7 @@ Para pontos finais adicionais: `{EndpointName}-{AccountName}.streaming.mediaserv
 A partir da versão de Janeiro de 2017 dos serviços de multimédia, tem dois tipos de transmissão em fluxo: **Standard** (pré-visualização) e **Premium**. Esses tipos são parte da versão de ponto final de transmissão em fluxo "2.0".
 
 
-|Type|Descrição|
+|Tipo|Descrição|
 |--------|--------|  
 |**Standard**|A predefinição é o ponto final de transmissão em fluxo uma **padrão** tipo, pode ser alterado para o tipo de Premium, ao ajustar unidades transmissão em fluxo.|
 |**Premium** |Esta opção é adequada para cenários de profissionais que necessitam de maior escala ou controle. Mover para uma **Premium** tipo ao ajustar unidades transmissão em fluxo.<br/>Dedicada pontos finais de transmissão em fluxo em direto em ambiente isolado e não compitam por recursos.|
@@ -75,9 +75,9 @@ Se sua **versão "1.0"** ponto final de transmissão em fluxo tem > = 1 premium 
 
 ### <a name="versions"></a>Versões
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|
+|Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Clássica|1.0|0|ND|Gratuito|
+|Clássica|1.0|0|N/D|Livre|
 |Ponto final de transmissão em fluxo Standard (pré-visualização)|2.0|0|Sim|Pago|
 |Unidades de Transmissão em Fluxo Premium|1.0|>0|Sim|Pago|
 |Unidades de Transmissão em Fluxo Premium|2.0|>0|Sim|Pago|
@@ -104,7 +104,7 @@ Para informações de SLA, consulte [preços e SLA](https://azure.microsoft.com/
 
 ## <a name="migration-between-types"></a>Migração entre tipos
 
-A partir de | Para | Ação
+De | Para | Ação
 ---|---|---
 Clássica|Standard|Tem de participar
 Clássica|Premium| Dimensionamento (unidades de transmissão em fluxo adicional)

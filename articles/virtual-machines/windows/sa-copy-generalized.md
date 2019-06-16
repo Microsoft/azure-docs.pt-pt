@@ -17,11 +17,11 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: e1ed419892412c1fb9334fed74b82c53154723ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252424"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708412"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem VM não gerida a partir de uma VM do Azure
 
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como utilizar o Azure PowerShell para criar uma imagem de
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-vm"></a>Generalizar a VM 
-Esta secção mostra-lhe como generalizar a máquina virtual do Windows para utilização como uma imagem. Generalizar uma VM remove todas as suas informações de conta pessoal como, entre outras coisas e prepara a máquina a ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [como utilizar Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
+Esta secção mostra-lhe como generalizar a máquina virtual do Windows para utilização como uma imagem. Generalizar uma VM remove todas as suas informações de conta pessoal como, entre outras coisas e prepara a máquina a ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, veja [How to Use Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
 Certifique-se de que as funções de servidor em execução na máquina são suportadas pelo Sysprep. Para obter mais informações, consulte [suporte de Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -89,7 +89,7 @@ Também pode generalizar uma VM do Linux utilizar `sudo waagent -deprovision+use
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
    
-    O *Status* é alterado para a VM do Azure de portal **parado** para **parada (desalocada)**.
+    O *Status* é alterado para a VM do Azure de portal **parado** para **parada (desalocada)** .
 2. Definir o estado da máquina virtual para o **generalizado**. 
    
     ```powershell

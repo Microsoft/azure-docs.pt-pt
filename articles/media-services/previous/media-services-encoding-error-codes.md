@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 82a8eecb4fb211117000c94c51644ce1fd27916d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463912"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64709520"
 ---
 # <a name="encoding-error-codes"></a>Códigos de erro de codificação
 
@@ -27,10 +27,10 @@ A tabela seguinte lista os códigos de erro que podem ser devolvidos no caso de 
 
 | ErrorDetail.Code | Causas possíveis para erro |
 | --- | --- |
-| Desconhecidos |Erro desconhecido ao executar a tarefa |
+| Desconhecido |Erro desconhecido ao executar a tarefa |
 | ErrorDownloadingInputAssetMalformedContent |Categoria de erros que abrange os erros no download do elemento de entrada, tais como nomes de ficheiro incorreto, nenhum arquivo de comprimento incorreto formata e assim por diante. |
 | ErrorDownloadingInputAssetServiceFailure |Categoria de erros que aborda problemas no lado do serviço - erros de rede ou armazenamento de exemplo ao transferir. |
-| ErrorParsingConfiguration |Categoria de erros de tarefas onde <see cref="MediaTask.PrivateData"/> (configuração) não é válida, por exemplo a configuração não é um sistema válido configuração predefinida ou contém XML inválido. |
+| ErrorParsingConfiguration |Categoria de erros de tarefas onde \<Consulte cref="MediaTask.PrivateData"/ > (configuração) não é válida, por exemplo a configuração não é um sistema válido configuração predefinida ou contém XML inválido. |
 | ErrorExecutingTaskMalformedContent |Categoria de erros durante a execução da tarefa onde problemas dentro os ficheiros de suporte de dados de entrada causam a falha. |
 | ErrorExecutingTaskUnsupportedFormat |Categoria de erros em que o processador de multimédia não é possível processar os ficheiros fornecidos - formato de multimédia não suportado ou não coincide com a configuração. Por exemplo, tentando produzir um resultado de só de áudio de um elemento que tem apenas vídeo |
 | ErrorProcessingTask |Categoria de outros erros que o processador de multimédia encontra durante o processamento da tarefa que estão relacionadas ao conteúdo. |

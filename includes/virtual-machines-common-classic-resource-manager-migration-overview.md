@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
 ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158274"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migração suportada por plataforma de recursos de IaaS do clássico para o Azure Resource Manager
@@ -26,7 +26,7 @@ Quase todas as funcionalidades do modelo de implementação clássica são supor
 ## <a name="supported-resources-for-migration"></a>Recursos suportados para migração
 Estes recursos de IaaS clássicos são suportados durante a migração
 
-* Máquinas Virtuais
+* Virtual Machines
 * Conjuntos de Disponibilidade
 * Serviços Cloud com Máquinas Virtuais
 * Contas de Armazenamento

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
 ms.openlocfilehash: 4733a4c92a5bdfe2eabd2144a1c6c8738ac6693e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473533"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511712"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com otimização de computação
 

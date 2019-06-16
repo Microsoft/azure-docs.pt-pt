@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: b1b281c7beac6b6cb48834e636edff818f89bf12
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304144"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementar e explorar uma aplicação de inquilino único autónoma que utiliza a base de dados do Azure SQL
@@ -76,16 +76,16 @@ A aplicação apresenta os locais que alojam os eventos.  Os locais são inquili
 
 1. Abra a página de eventos para cada um dos três inquilinos no separadores de browser separados:
 
-   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt ;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt ;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt ;user&gt;.trafficmanager.net
 
      (No cada URL, substitua &lt;utilizador&gt; com valor de utilizador da sua implementação.)
 
-   ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
+   ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Para controlar a distribuição de pedidos recebidos, a aplicação utiliza [ *Gestor de tráfego do Azure*](../traffic-manager/traffic-manager-overview.md). Cada instância de aplicação específico de inquilino inclui o nome de inquilino como parte do nome do domínio no URL. Todo o inquilino URLs incluem sua específicas **utilizador** valor. Os URLs seguem o formato seguinte:
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt ;venuename&gt;.&lt; user&gt;.trafficmanager.net
 
 Base de dados de cada inquilino **localização** está incluído nas definições da aplicação da aplicação implementada correspondente.
 

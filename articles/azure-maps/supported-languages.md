@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686788"
 ---
 # <a name="localization-support-in-azure-maps"></a>Suporte de localização do Azure Maps
@@ -56,7 +56,7 @@ Foram localizado numa variedade de linguagens do Azure Maps em serviços. A tabe
 | id-ID      | Indonésio             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
 | it-IT      | Italiano                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japonês               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Cazaquistanês                 |       |    ✓   |         |                   |                |     ✓     |
+| kk-KZ      | Cazaque                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | Coreano                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | Latino American espanhol |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Letão                |       |    ✓   |         |         ✓         |                |     ✓     |
@@ -85,7 +85,7 @@ Foram localizado numa variedade de linguagens do Azure Maps em serviços. A tabe
 
 ## <a name="azure-maps-supported-views"></a>Vistas de suporte do Azure Maps
 
-Parâmetro de vista de mapas do Azure (também referido como "parâmetro de região do utilizador") é um código de país ISO 3166 de 2 letras que mostrará os mapas corretos para esse país/região a especificar qual conjunto de geopolitically questionadas bordas e as etiquetas são apresentadas no mapa.  Por predefinição, o parâmetro de modo de exibição é definido como **"Unified"**.  País/regiões que não estejam na lista de vista será predefinido para a vista de "Unificado". É da responsabilidade do cliente para determinar a localização dos seus utilizadores e, em seguida, defina o parâmetro de modo de exibição corretamente para esse local. O parâmetro de ver no mapas do Azure tem de ser utilizado em conformidade com as leis aplicáveis, incluindo aquelas sobre mapeamento do país em que os mapas, imagens e outros conteúdos de dados e de terceiros que está autorizado a aceder através do Azure Maps é disponibilizado.
+Parâmetro de vista de mapas do Azure (também referido como "parâmetro de região do utilizador") é um código de país ISO 3166 de 2 letras que mostrará os mapas corretos para esse país/região a especificar qual conjunto de geopolitically questionadas bordas e as etiquetas são apresentadas no mapa.  Por predefinição, o parâmetro de modo de exibição é definido como **"Unified"** .  País/regiões que não estejam na lista de vista será predefinido para a vista de "Unificado". É da responsabilidade do cliente para determinar a localização dos seus utilizadores e, em seguida, defina o parâmetro de modo de exibição corretamente para esse local. O parâmetro de ver no mapas do Azure tem de ser utilizado em conformidade com as leis aplicáveis, incluindo aquelas sobre mapeamento do país em que os mapas, imagens e outros conteúdos de dados e de terceiros que está autorizado a aceder através do Azure Maps é disponibilizado.
 
 A tabela seguinte fornece vistas suportadas.
 
@@ -107,4 +107,4 @@ A tabela seguinte fornece vistas suportadas.
 | SA           | Arábia Saudita (vista de Árabe)            |   ✓   |        |     ✓          |
 | SY           | Síria (vista de Árabe)                   |   ✓   |        |     ✓          |
 | VOCÊ           | Iémen (vista de Árabe)                   |   ✓   |        |     ✓          |
-| Unified      | Vista unificada (outros)                  |   ✓   |   ✓     |     ✓          |
+| Unificado      | Vista unificada (outros)                  |   ✓   |   ✓     |     ✓          |

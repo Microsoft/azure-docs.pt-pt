@@ -14,10 +14,10 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64569615"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com pastas de trabalho do Azure Monitor
@@ -159,14 +159,14 @@ Existem quatro tipos diferentes de parâmetros que são atualmente suportados:
 
   |         |          |
    | ---------------- |:-----|
-   | **Text** (Texto)    | o utilizador irá editar uma caixa de texto e, opcionalmente, pode fornecer uma consulta para preencher o valor predefinido. |
+   | **Texto**    | o utilizador irá editar uma caixa de texto e, opcionalmente, pode fornecer uma consulta para preencher o valor predefinido. |
    | **Lista pendente** | O utilizador irá escolher a partir de um conjunto de valores. |
    | **Seletor de intervalo de tempo**| O utilizador irá escolher a partir de um conjunto predefinido de valores de intervalo de tempo ou escolha entre mais de um intervalo de tempo personalizado.|
    | **Seleccionador de recursos** | O utilizador irá escolher a partir de recursos selecionados para a pasta de trabalho.|
 
 ### <a name="using-a-text-parameter"></a>Com um parâmetro de texto
 
-O valor de um usuário digita na caixa de texto é substituído diretamente na consulta, sem carateres de escape ou aspas. Se o valor que precisa é uma cadeia de caracteres, a consulta deve ter o parâmetro entre aspas (como **'{parameter}'**).
+O valor de um usuário digita na caixa de texto é substituído diretamente na consulta, sem carateres de escape ou aspas. Se o valor que precisa é uma cadeia de caracteres, a consulta deve ter o parâmetro entre aspas (como **'{parameter}'** ).
 
 Isso permite que o valor numa caixa de texto a ser utilizado em qualquer lugar. Pode ser um nome de tabela, nome da coluna, nome da função, operador, etc.
 
@@ -229,7 +229,7 @@ Enquanto pode fazer o seu parâmetro de intervalo de tempo personalizado atravé
 
 Tipos de parâmetros de intervalo de tempo tem 15 intervalos predefinidos que vão de cinco minutos para os últimos 90 dias. Também é uma opção para permitir a seleção de intervalo de tempo personalizado, que permite que o operador do relatório para escolha explícita iniciar e parar valores para o intervalo de tempo.
 
-### <a name="resource-picker"></a>Selecionador de recursos
+### <a name="resource-picker"></a>Seleccionador de recursos
 
 O tipo de parâmetro de Seletor de recurso dá-lhe a capacidade de definir o âmbito do relatório para determinados tipos de recursos. Um exemplo de livro pré-criados que aproveita o tipo de Seletor de recurso é o **Insights falha** pasta de trabalho.
 
