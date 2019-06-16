@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/04/2019
 ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60331935"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com Entity Framework
@@ -45,8 +45,8 @@ Depois de criar esses bancos de dados, preencha os espaços reservados no **Prog
 
 Os desenvolvedores do Entity Framework se baseiam em um dos seguintes quatro fluxos de trabalho para criar aplicativos e para garantir a persistência para objectos da aplicação:
 
-* **Code First (nova base de dados)**: O desenvolvedor do EF cria o modelo no código da aplicação e, em seguida, o EF gera a base de dados do mesmo. 
-* **Code First (base de dados existente)**: O desenvolvedor permite que o EF gerar o código do aplicativo para o modelo a partir de uma base de dados existente.
+* **Code First (nova base de dados)** : O desenvolvedor do EF cria o modelo no código da aplicação e, em seguida, o EF gera a base de dados do mesmo. 
+* **Code First (base de dados existente)** : O desenvolvedor permite que o EF gerar o código do aplicativo para o modelo a partir de uma base de dados existente.
 * **Modelar primeiro**: O desenvolvedor cria o modelo no EF designer e, em seguida, o EF cria a base de dados do modelo.
 * **Base de dados primeiro**: O desenvolvedor usa o EF de ferramentas para inferir o modelo de uma base de dados existente. 
 

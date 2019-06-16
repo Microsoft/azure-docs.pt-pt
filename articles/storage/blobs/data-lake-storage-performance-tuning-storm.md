@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: aa3c942448be6444044981eacc2bbc3214b9c1b4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939396"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o Storm no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
@@ -111,7 +111,7 @@ Se atingir os limites de largura de banda fornecido pela geração 2 de armazena
 
 Para verificar se estiver obtendo otimizado, ative a depuração de registo no lado do cliente:
 
-1. Na **Ambari** > **Storm** > **Config** > **Advanced storm-trabalho-log4j**, alterar **&lt;nível de raiz = "informações"&gt;** para  **&lt;nível de raiz = "debug"&gt;**. Reinicie todos o nós/serviço para a configuração entrem em vigor.
+1. Na **Ambari** > **Storm** > **Config** > **Advanced storm-trabalho-log4j**, alterar **&lt;nível de raiz = "informações"&gt;** para  **&lt;nível de raiz = "debug"&gt;** . Reinicie todos o nós/serviço para a configuração entrem em vigor.
 2. Monitorizar a topologia de Storm faz logon em nós de trabalho (em /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;porta&gt;/worker.log) para geração 2 de armazenamento do Data Lake exceções de limitação.
 
 ## <a name="next-steps"></a>Passos Seguintes

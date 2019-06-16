@@ -8,10 +8,10 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: 88e843c410a750387ecf58497dec79586e2a59d8
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523333"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
@@ -320,7 +320,7 @@ Exemplo de erro bruto:
 Se estiver a executar a oferta do Azure Marketplace, forneça valores para os seguintes parâmetros autenticar corretamente para a área de Trabalho Virtual do Windows:
 
 - Proprietário de RDS de inquilino de área de Trabalho Virtual do Windows: Principal de serviço
-- ID da Aplicação: A identificação de aplicação do principal de serviço novo que criou
+- ID da aplicação: A identificação de aplicação do principal de serviço novo que criou
 - Palavra-passe/Confirmar palavra-passe: O segredo de palavra-passe gerada para o principal de serviço
 - ID de inquilino do Azure AD: O ID de inquilino do Azure AD do principal de serviço que criou
 

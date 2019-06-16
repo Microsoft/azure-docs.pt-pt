@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64572792"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Resolver problemas de conectividade do Azure AD
@@ -43,7 +43,7 @@ O servidor proxy tem de ter também os URLs necessários abertos. A lista oficia
 
 URLs, a tabela seguinte é o mínimo absoluto, para conseguir ligar ao Azure AD de todo. Esta lista não inclui quaisquer funcionalidades opcionais, como a repetição de escrita de palavra-passe ou o Azure AD Connect Health. Foi documentado aqui para ajudar na resolução de problemas para a configuração inicial.
 
-| do IdP | Porta | Descrição |
+| do IdP | Port | Descrição |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Utilizado para transferir as listas CRL. |
 | \*.verisign.com |HTTP/80 |Utilizado para transferir as listas CRL. |
@@ -151,7 +151,7 @@ Aqui está um despejo de um registo de proxy real e a página do Assistente de i
 Esta secção abrange os erros que podem ser devolvidos da ADAL (a biblioteca de autenticação utilizada pelo Azure AD Connect) e o PowerShell. O erro explicado deve ajudá-lo a em compreender os passos seguintes.
 
 ### <a name="invalid-grant"></a>Concessão inválido
-Nome de utilizador ou palavra-passe inválido. Para obter mais informações, consulte [não é possível verificar a palavra-passe](#the-password-cannot-be-verified).
+Nome de utilizador inválido ou a palavra-passe. Para obter mais informações, consulte [não é possível verificar a palavra-passe](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Tipo de utilizador desconhecido
 Diretório do Azure AD não pode ser encontrado ou resolvido. Talvez tentar iniciar sessão com um nome de utilizador num domínio não verificado?

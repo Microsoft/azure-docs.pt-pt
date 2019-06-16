@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312563"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Carregar e gerir ficheiros no Dropbox utilizando o Azure Logic Apps
@@ -57,7 +57,7 @@ Na lista de ações, selecione a ação: **Obter conteúdo do ficheiro através 
 
 1. Se já ainda não tem autorização do Azure Logic Apps para acessar o Dropbox, agora a autorizar o acesso.
 
-1. Para navegar para o caminho do ficheiro que pretende utilizar, junto a **caminho do ficheiro** caixa, selecione as reticências (**...** ) botão. 
+1. Para navegar para o caminho do ficheiro que pretende utilizar, junto a **caminho do ficheiro** caixa, selecione as reticências ( **...** ) botão. 
 
    Também pode clicar no interior da **caminho do ficheiro** caixa e, na lista de conteúdo dinâmico, selecione **caminho do ficheiro**, cujo valor está disponível como resultado do acionador adicionada na secção anterior.
 

@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478050"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de importação/exportação do Azure
@@ -28,12 +28,12 @@ Pode controlar o estado da importação ou exportar tarefas a partir do portal d
 
 Veja um dos seguintes Estados de tarefa, dependendo de onde sua unidade está no processo.
 
-| Estado da Tarefa | Descrição |
+| Estado da tarefa | Descrição |
 |:--- |:--- |
 | Criação | Depois de uma tarefa é criada, o seu estado está definido como **Creating**. Enquanto a tarefa está no **Creating** de estado, o serviço importar/exportar pressupõe que as unidades não foram enviadas para o Centro de dados. Uma tarefa pode permanecer neste estado durante até duas semanas, após o qual é automaticamente eliminado pelo serviço. |
 | Envio | Depois de enviar seu pacote, deve atualizar as informações de controle no portal do Azure.  Isso transforma o trabalho em **envio** estado. A tarefa continuará a ser o **envio** estado para duas semanas. 
 | Recebido | Depois de todas as unidades são recebidas no Centro de dados, o estado da tarefa está definido como **recebidos**. |
-| A transferir | Depois de pelo menos uma unidade iniciou o processamento, o estado da tarefa está definido como **Transferring**. Para obter mais informações, aceda a [Estados de unidade](#view-drive-status). |
+| A transferência | Depois de pelo menos uma unidade iniciou o processamento, o estado da tarefa está definido como **Transferring**. Para obter mais informações, aceda a [Estados de unidade](#view-drive-status). |
 | Empacotamento | Depois de concluíram todas as unidades de processamento, a tarefa é colocada num **empacotamento** estado até que as unidades são enviadas novamente para si. |
 | Concluído | Depois de todas as unidades são fornecidas para, se a tarefa for concluído sem erros, a tarefa com a, em seguida, é definida como **concluído**. A tarefa é eliminada automaticamente após 90 dias no **concluído** estado. |
 | Fechado | Depois de todas as unidades são fornecidas para, se ocorreram erros durante o processamento da tarefa, a tarefa está definida como **fechado**. A tarefa é eliminada automaticamente após 90 dias no **fechado** estado. |
@@ -49,7 +49,7 @@ A tabela seguinte descreve cada Estado de cada unidade numa tarefa pode pass-thr
 | Especificado | Para uma tarefa de importação, quando a tarefa é criada a partir do portal do Azure, o estado inicial para uma unidade é **especificado**. Para uma tarefa de exportação, uma vez que for especificada nenhuma unidade quando a tarefa é criada, o estado inicial de unidade é **recebidos**. |
 | Recebido | A unidade faz a transição para o **recebidos** quando o serviço importar/exportar processou as unidades que foram recebidas da empresa de transporte para uma tarefa de importação de estado. Para uma tarefa de exportação, o estado da unidade inicial é o **recebidos** estado. |
 | NeverReceived | A unidade se move para o **NeverReceived** quando chega o pacote para uma tarefa, mas o pacote não contém a unidade de estado. Uma unidade também passa para neste estado se já tiverem passado duas semanas, uma vez que o serviço recebeu as informações de envio, mas o pacote ainda não está disponível no datacenter. |
-| A transferir | Move de uma unidade para o **Transferring** de estado quando o serviço começa a transferir os dados da unidade para o armazenamento do Azure. |
+| A transferência | Move de uma unidade para o **Transferring** de estado quando o serviço começa a transferir os dados da unidade para o armazenamento do Azure. |
 | Concluído | Move de uma unidade para o **concluído** quando o serviço foi transferida com êxito todos os dados sem erros de estado.
 | CompletedMoreInfo | Move de uma unidade para o **CompletedMoreInfo** quando o serviço encontrou alguns problemas ao copiar dados a partir ou para a unidade de estado. As informações podem incluir erros, avisos ou mensagens informativas sobre Sobrescrever blobs.
 | ShippedBack | Move de uma unidade para o **ShippedBack** estado quando ele foi enviado do Centro de dados para o endereço do remetente. |

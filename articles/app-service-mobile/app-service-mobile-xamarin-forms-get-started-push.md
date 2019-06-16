@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098731"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Adicionar notificações push à aplicação xamarin. Forms
@@ -232,7 +232,7 @@ Os primeiros dois passos são necessários apenas quando estiver a testar no emu
 2. Adicionar uma conta do Google para o dispositivo Android clicando **aplicações** > **definições** > **adicionar conta**. Em seguida, siga as instruções para adicionar uma conta Google existente no dispositivo ou para criar um novo.
 3. No Visual Studio ou no Xamarin Studio, clique com botão direito a **Droid** do projeto e clique em **definir como projeto de arranque**.
 4. Clique em **executar** para compilar o projeto e iniciar a aplicação no seu dispositivo Android ou emulador.
-5. Na aplicação, escreva uma tarefa e, em seguida, clique no sinal de adição (**+**) ícone.
+5. Na aplicação, escreva uma tarefa e, em seguida, clique no sinal de adição ( **+** ) ícone.
 6. Certifique-se de que uma notificação é recebida quando é adicionado um item.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Configurar e executar o projeto iOS (opcional)
@@ -326,7 +326,7 @@ A aplicação foi atualizada para suportar notificações push.
    > [!NOTE]
    > Tem de aceitar explicitamente notificações push da sua aplicação. Este pedido ocorre apenas na primeira vez que a aplicação é executada.
 
-3. Na aplicação, escreva uma tarefa e, em seguida, clique no sinal de adição (**+**) ícone.
+3. Na aplicação, escreva uma tarefa e, em seguida, clique no sinal de adição ( **+** ) ícone.
 4. Certifique-se de que uma notificação é recebida e, em seguida, clique em **OK** para dispensar a notificação.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Configurar e executar projetos do Windows (opcionais)
@@ -398,7 +398,7 @@ Esta secção destina-se a executar a WinApp xamarin. Forms e WinPhone81 projeto
 
 1. No Visual Studio, um projeto do Windows com o botão direito e clique em **definir como projeto de arranque**.
 2. Prima o botão **Executar** para compilar o projeto e iniciar a aplicação.
-3. Na aplicação, escreva um nome para um todoitem novo e, em seguida, clique no sinal de adição (**+**) ícone para adicioná-lo.
+3. Na aplicação, escreva um nome para um todoitem novo e, em seguida, clique no sinal de adição ( **+** ) ícone para adicioná-lo.
 4. Certifique-se de que uma notificação é recebida quando o item é adicionado.
 
 ## <a name="next-steps"></a>Passos Seguintes

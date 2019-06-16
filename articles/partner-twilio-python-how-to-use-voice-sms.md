@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: e6cfd9e72dc1a38e4ed0c11320336ccc4b44a2c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457673"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como utilizar o Twilio para voz e SMS capacidades em Python
@@ -46,17 +46,17 @@ A API usa Twilio verbos; Por exemplo, o **&lt;Digamos&gt;** verbo instrui o Twil
 
 Segue-se uma lista de verbos Twilio. Saiba mais sobre os outros verbos e capacidades através de [documentação da linguagem de marcação do Twilio][twiml].
 
-* **&lt;Dial&gt;**: Liga-se o autor da chamada para outro telefone.
-* **&lt;Gather&gt;**: Recolhe os dígitos numéricos introduzidos no teclado do telefone.
-* **&lt;Hangup&gt;**: Termina uma chamada.
-* **&lt;Pause&gt;**: Aguarda silenciosamente um número de segundos especificado.
-* **&lt;Reproduzir&gt;**: Reproduz um arquivo de áudio.
-* **&lt;Fila&gt;**: Adicionar à uma fila de chamadores.
-* **&lt;Registo&gt;**: Regista a voz do chamador e retorna uma URL de um ficheiro que contém a gravação.
-* **&lt;Redirect&gt;**: Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
-* **&lt;Reject&gt;**: Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação.
-* **&lt;Say&gt;**: Converte texto em voz, que é efetuado numa chamada.
-* **&lt;Sms&gt;**: Envia uma mensagem SMS.
+* **&lt;Dial&gt;** : Liga-se o autor da chamada para outro telefone.
+* **&lt;Gather&gt;** : Recolhe os dígitos numéricos introduzidos no teclado do telefone.
+* **&lt;Hangup&gt;** : Termina uma chamada.
+* **&lt;Pause&gt;** : Aguarda silenciosamente um número de segundos especificado.
+* **&lt;Reproduzir&gt;** : Reproduz um arquivo de áudio.
+* **&lt;Fila&gt;** : Adicionar à uma fila de chamadores.
+* **&lt;Registo&gt;** : Regista a voz do chamador e retorna uma URL de um ficheiro que contém a gravação.
+* **&lt;Redirect&gt;** : Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
+* **&lt;Reject&gt;** : Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação.
+* **&lt;Say&gt;** : Converte texto em voz, que é efetuado numa chamada.
+* **&lt;Sms&gt;** : Envia uma mensagem SMS.
 
 ### <a id="TwiML"></a>TwiML
 TwiML é um conjunto de instruções com base em XML, com base nos verbos de Twilio informam Twilio de como processar uma chamada ou SMS.

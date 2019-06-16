@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585630"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas de base de dados elástico
@@ -29,7 +29,7 @@ Esses termos são utilizados no [adicionando uma partição horizontal com as fe
 
 **Base de dados**: Uma base de dados SQL do Azure. 
 
-**Encaminhamento dependente de dados**: A funcionalidade que permite que uma aplicação ligar a uma partição horizontal dada uma chave de fragmentação específico. Ver [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Compare com  **[consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md)**.
+**Encaminhamento dependente de dados**: A funcionalidade que permite que uma aplicação ligar a uma partição horizontal dada uma chave de fragmentação específico. Ver [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Compare com  **[consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md)** .
 
 **Mapa de partições horizontais global**: O mapa entre chaves de fragmentação e seus respectivos shards dentro de um **conjunto de partições horizontais**. O mapa de partições horizontais global é armazenado na **Gestor de mapas de partições horizontais**. Compare com **mapa de partições horizontais local**.
 

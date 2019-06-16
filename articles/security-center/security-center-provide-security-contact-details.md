@@ -15,24 +15,24 @@ ms.workload: na
 ms.date: 1/9/2018
 ms.author: rkarlin
 ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60909298"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Fornecer detalhes de contactos de segurança no Centro de segurança do Azure
 Centro de segurança do Azure irá recomendar que forneça os detalhes de contacto de segurança para a sua subscrição do Azure se ainda não o fez. A Microsoft irá utilizar estas informações para o contactar se o Microsoft Security Response Center (MSRC) detetar que os seus dados de cliente foram acedidos de forma ilícita ou não autorizada. MSRC executa segurança selecione monitorização da rede do Azure e infraestrutura e recebe a reclamações de abuso e inteligência de ameaças de terceiros.
 
-É enviada uma notificação de e-mail na primeira ocorrência diária de um alerta e apenas para alertas de gravidade elevada. As preferências de e-mail só podem ser configuradas para as políticas de subscrição. Grupos de recursos numa subscrição herdarão essas configurações. 
+É enviada uma notificação por e-mail na primeira ocorrência diária de um alerta e apenas relativamente a alertas de gravidade elevada. As preferências de e-mail só podem ser configuradas para as políticas de subscrição. Os grupos de recursos numa subscrição herdarão estas definições. 
 
-Notificações de e-mail de alerta são enviadas:
+As notificações de e-mail de alerta são enviadas:
 - Apenas para alertas de gravidade elevada
-- Para um destinatário de e-mail única por tipo de alerta por dia  
+- Para um único destinatário de e-mail por tipo de alerta por dia  
 - Não mais de 3 mensagens de e-mail são enviadas para um único destinatário no mesmo dia
 - Cada mensagem de e-mail contém um único alerta, não uma agregação de alertas
  
-Por exemplo, se uma mensagem de e-mail já foi enviada para o alertar sobre um ataque RDP, não receberá outra mensagem de e-mail sobre um ataque RDP no mesmo dia, mesmo se outro alerta é acionada. 
+Por exemplo, se uma mensagem de e-mail já tiver sido enviada para o alertar sobre um ataque RDP, não receberá outra mensagem de e-mail sobre um ataque RDP no mesmo dia, mesmo que seja acionado outro alerta. 
  
 
 > [!NOTE]

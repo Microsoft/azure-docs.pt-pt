@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332605"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574155"
 ---
 # <a name="azure-security-center-search"></a>Pesquisa do Centro de segurança do Azure
+
+> [!NOTE]
+> Dashboard de pesquisa do Centro de segurança vai ser descontinuado a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_search).
+
 Centro de segurança do Azure utiliza [pesquisa de registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar os seus dados de segurança. Registos de Monitor do Azure inclui uma linguagem de consulta para obter e consolidar os dados rapidamente. No Centro de segurança, pode aproveitar a pesquisa de registos do Azure Monitor para construir consultas e analisar os dados recolhidos.
 
 Pesquisa está disponível no escalão gratuito e escalão Standard do Centro de segurança.  Os dados disponíveis em suas pesquisas de registo estão dependentes de nível da camada aplicado à sua área de trabalho.  Consulte o Centro de segurança [página de preços](../security-center/security-center-pricing.md) para obter mais informações.
@@ -45,7 +49,7 @@ Pesquisa está disponível no escalão gratuito e escalão Standard do Centro de
 
    SecurityEvent | onde EventID = = 4625 | resumir count () by TargetAccount
 
-   Resultado mostra todas as contas que falharam ao início de sessão (evento 4625).
+   Resultado mostra todas as contas que falha ao iniciar sessão (evento 4625).
 
    ![Resultados da pesquisa][3]
 

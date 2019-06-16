@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65508476"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Tutorial: Configure o Gestor de palavra-passe de extinção do responsável e cofre Digital para aprovisionamento automático de utilizadores
@@ -45,7 +45,7 @@ Antes de configurar o Gestor de palavra-passe de extinção do responsável & Di
 
 **Para adicionar Gestor de palavra-passe de extinção do responsável & Digital cofre a partir da Galeria de aplicações do Azure AD, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -124,7 +124,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 8. Na **notificação por E-Mail** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação - **enviar uma notificação por e-mail quando uma falha ocorre**.
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+    ![E-Mail de notificação](common/provisioning-notification-email.png)
 
 9. Clique em **Guardar**.
 

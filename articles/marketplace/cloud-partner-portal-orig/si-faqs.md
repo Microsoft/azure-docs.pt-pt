@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
 ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943104"
 ---
 <a name="seller-insights-faq"></a>FAQ do vendedor Insights
@@ -35,19 +35,19 @@ Depois de transferir suas transações do módulo dividendos, localize a coluna 
 <a name="calculate-my-open-accounts-receivable"></a>Calcular o meu Abra Contas a receber
 -------------------------------------
 
-Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **dividendos estado**e aplique o filtro para apresentar apenas o valor "Dividendos futuras" e "Não está pronto para dividendos." Somar, em seguida, a coluna intitulada **dividendos quantidade (PC)**.
+Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **dividendos estado**e aplique o filtro para apresentar apenas o valor "Dividendos futuras" e "Não está pronto para dividendos." Somar, em seguida, a coluna intitulada **dividendos quantidade (PC)** .
 
 
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcular a receita por período de utilização do cliente
 ------------------------------------------
 
-Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **estado de transação**e o valor "Pago" do filtro.   Para cada transação listada, a coluna intitulada **dividendos quantidade (PC)** representa a quantidade que foram pagas.  Para estimar o período de utilização associado à transação, utilize a coluna **data de cobrança**, que é uma aproximação do último dia de utilização para o período a que se aplique a transação.
+Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **estado de transação**e o valor "Pago" do filtro.   Para cada transação listada, a coluna intitulada **dividendos quantidade (PC)**  representa a quantidade que foram pagas.  Para estimar o período de utilização associado à transação, utilize a coluna **data de cobrança**, que é uma aproximação do último dia de utilização para o período a que se aplique a transação.
 
 
 <a name="calculate-your-bad-debt"></a>Calcular a sua dívida incorreto
 ---------------------
 
-Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **Final de recolha de estado**e aplique o filtro a apenas apresentar o valor "escrever desativado." Somar, em seguida, a coluna intitulada **dividendos quantidade (PC)**.
+Depois de transferir suas transações do módulo dividendos, localize a coluna rotulada **Final de recolha de estado**e aplique o filtro a apenas apresentar o valor "escrever desativado." Somar, em seguida, a coluna intitulada **dividendos quantidade (PC)** .
 
 
 <a name="view-payout-or-customer-contact-information"></a>Ver informações de contacto dividendos ou cliente

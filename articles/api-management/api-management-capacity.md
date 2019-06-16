@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60658333"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidade de uma instância de gestão de API do Azure
@@ -69,7 +69,7 @@ As operações mais complexas nas solicitações são, mais alto a **capacidade*
 ![Métrica de capacidade](./media/api-management-capacity/capacity-metric.png)  
 
 1. Navegue para a instância APIM no [portal do Azure](https://portal.azure.com/).
-2. Selecione **métricas (pré-visualização)**.
+2. Selecione **métricas (pré-visualização)** .
 3. Na secção de roxa, selecione **capacidade** métrica de métricas disponíveis e deixe a predefinição **média** agregação.
 
     > [!TIP]

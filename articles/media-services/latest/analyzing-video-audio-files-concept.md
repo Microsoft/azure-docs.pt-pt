@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 9154e5d58a36bde1827d63d11d57a77b4289a781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689378"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisar ficheiros de áudio e vídeos
@@ -64,7 +64,7 @@ A saída inclui um ficheiro JSON (insights.json) com todas as informações que 
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de linha.|
+|id|O ID de linha.|
 |texto|A transcrição em si.|
 |language|O idioma de transcrição. A finalidade oferecer suporte a transcrição em que cada linha pode ter um idioma diferente.|
 |instâncias|Uma lista de intervalos de tempo em que esta linha apareceu. Se a instância de transcrição, ele terá apenas 1 instância.|
@@ -102,7 +102,7 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de linha de OCR.|
+|id|O ID de linha de OCR.|
 |texto|O texto de OCR.|
 |confiança|A confiança de reconhecimento.|
 |language|O idioma de OCR.|
@@ -145,15 +145,15 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID do rosto.|
-|nome|O nome de face. Pode ser ' desconhecido n º 0", uma celebridade identificada ou uma pessoa de preparação do cliente.|
+|id|O ID do rosto.|
+|name|O nome de face. Pode ser ' desconhecido n º 0", uma celebridade identificada ou uma pessoa de preparação do cliente.|
 |confiança|A confiança de identificação de face.|
 |description|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura do que enfrentam.|
 |knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
 |referenceId|Se for uma celebridade do Bing, o ID do Bing.|
 |referenceType|Atualmente, apenas o Bing.|
-|título|Se for uma celebridade, seu título (por exemplo "CEO da Microsoft").|
+|title|Se for uma celebridade, seu título (por exemplo "CEO da Microsoft").|
 |imageUrl|Se for uma celebridade, o seu url da imagem.|
 |instâncias|Estes são instâncias de onde o mostrador apareceu no intervalo de tempo especificado. Cada instância tem também um thumbnailsId. |
 
@@ -190,7 +190,7 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de captura.|
+|id|O ID de captura.|
 |keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
 |instâncias|Uma lista de intervalos de tempo desta captura (capturas de tem apenas 1 instância).|
 
@@ -260,7 +260,7 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de sentimentos.|
+|id|O ID de sentimentos.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - positivo/neutra/negativo|
 |instâncias|Uma lista de intervalos de tempo em que esse sentimento apareceu.|
 |sentimentType |O tipo pode ser "Neutral", 'Positivo' ou 'Negativo'.|
@@ -295,8 +295,8 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 
 |Name|Descrição|
 |---|---|
-|ID|O ID da etiqueta.|
-|nome|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
+|id|O ID da etiqueta.|
+|name|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
 |language|Idioma de nome etiqueta (quando traduzido). BCP-47|
 |instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
@@ -354,7 +354,7 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de palavra-chave.|
+|id|O ID de palavra-chave.|
 |texto|O texto de palavra-chave.|
 |confiança|Confiança de reconhecimento da palavra-chave.|
 |language|O idioma de palavra-chave (quando traduzido).|
@@ -405,7 +405,7 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de moderação de conteúdos visual.|
+|id|O ID de moderação de conteúdos visual.|
 |adultScore|Como sendo para adultos (a partir do moderador de conteúdo).|
 |racyScore|O classificado como indecoroso (a partir de moderação de conteúdos).|
 |instâncias|Uma lista de intervalos de tempo em que este moderação de conteúdos visual apareceu.|

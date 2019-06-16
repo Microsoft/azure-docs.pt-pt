@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 9aecef81547131e6f843fdd55db259d2c4299c9c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938683"
 ---
 # <a name="enable-lead-sharing"></a>Ativar a partilha de oportunidades potenciais
@@ -39,7 +39,7 @@ Suas oportunidades potenciais demonstram interesse dos clientes em listagens de 
 
 | Loja | Listagem |
 |:--- |:--- |
-| AppSource | <table> <tr><td>Aplicação</td></tr> <tr><td>Serviços de Consultoria</td></tr> </table> |
+| AppSource | <table> <tr><td>Aplicação</td></tr> <tr><td>Serviços de consultoria</td></tr> </table> |
 | Azure Marketplace | <table> <tr><td>Oferta</td></tr> <tr><td>Tecnologia</td></tr> </table> |
 
 Deve ter um processo no local para dar seguimento às suas oportunidades potenciais, conforme descrito na tabela a seguir:

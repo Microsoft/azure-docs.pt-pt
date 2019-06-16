@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
 ms.openlocfilehash: 45f7adab684b7b6097328a42abb60c8d58c1acc2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796784"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Enviar e utilizar consultas de API de pesquisa do Bing Local comerciais e respostas
@@ -54,7 +54,7 @@ Respostas JSON da API de pesquisa de negócios locais do Bing contêm um `Search
 Os resultados JSON devolvidos pela API incluem os seguintes atributos:
 
 * _type
-* endereço
+* Endereço
 * entityPresentationInfo
 * geo
 * id

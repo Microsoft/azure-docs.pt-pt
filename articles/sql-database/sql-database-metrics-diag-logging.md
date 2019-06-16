@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791918"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
@@ -46,12 +46,12 @@ Pode ativar e gerir as métricas e registos de telemetria de diagnóstico utiliz
 - PowerShell
 - CLI do Azure
 - API de REST do Azure Monitor
-- Modelo do Azure Resource Manager
+- Modelo Azure Resource Manager
 
 Quando ativar métricas e registo de diagnósticos, tem de especificar o destino de recursos do Azure para recolher a telemetria de diagnóstico. Opções disponíveis incluem:
 
 - Análise de SQL do Azure
-- Hubs de Eventos do Azure
+- Azure Event Hubs
 - Storage do Azure
 
 Pode aprovisionar um novo recurso do Azure ou selecione um recurso existente. Depois de escolher um recurso utilizando o **das definições de diagnóstico** opção, especifique os dados a recolher.
@@ -411,7 +411,7 @@ Se estiver a utilizar a análise de SQL do Azure, pode monitorizar o consumo de 
 
 Monitorizar a telemetria disponível para a base de dados do Azure SQL, conjuntos elásticos e a instância gerida está documentado abaixo. Telemetria de monitorização recolhida dentro de análise de SQL pode ser utilizada para sua própria análise personalizada e, em seguida, desenvolvimento de aplicativo usando [consultas de registo do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) idioma.
 
-## <a name="basic-metrics"></a>Métrica básica
+## <a name="basic-metrics"></a>Métricas básicas
 
 Consulte as tabelas seguintes para obter detalhes sobre métricas básicas por recurso.
 
@@ -441,13 +441,13 @@ Detalhes de telemetria disponível para todos os registos estão documentados na
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: ResourceUsageStats |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome da instância gerida |
 |ResourceId|URI do recurso |
 |SKU_s|SKU do produto de instância gerida |
@@ -466,14 +466,14 @@ Detalhes de telemetria disponível para todos os registos estão documentados na
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -517,14 +517,14 @@ Saiba mais sobre [dados de estatísticas de tempo de execução de consulta Stor
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -555,14 +555,14 @@ Saiba mais sobre [dados de estatísticas de espera de consulta Store](https://do
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQ |
 |Category|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -584,14 +584,14 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/li
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -613,14 +613,14 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: Tempos limite |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -636,14 +636,14 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -660,14 +660,14 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Category|Nome da categoria. Sempre: Impasses |
+|Category|Nome da categoria. Sempre: Deadlocks |
 |OperationName|Nome da operação. Sempre: DeadlockEvent |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -681,13 +681,13 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Type|Sempre: AzureDiagnostics |
+|Tipo|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: AutomaticTuning |
-|Resource|Nome do recurso |
+|Resource|O nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|GrupoRecursos|Nome do grupo de recursos para a base de dados |
+|ResourceGroup|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |LogicalDatabaseName_s|Nome da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
 ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60999616"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Criar e gerir contas de integração para soluções de B2B no logic apps
@@ -57,9 +57,9 @@ Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do A
    | Name | Sim | conta de integração de teste | O nome para a sua conta de integração. Neste exemplo, utilize o nome especificado. | 
    | Subscrição | Sim | <*Azure-subscription-name*> | O nome para a subscrição do Azure a utilizar | 
    | Grupo de recursos | Sim | teste-integration-conta-rg | O nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar os recursos relacionados. Neste exemplo, crie um novo grupo de recursos com o nome especificado. | 
-   | Escalão de Preço | Sim | Gratuito | O escalão de preço que pretende utilizar. Para este exemplo, selecione **gratuito**, mas para obter mais informações, consulte [Logic Apps limites e configuração](../logic-apps/logic-apps-limits-and-config.md) e [preços do Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
+   | Escalão de Preço | Sim | Livre | O escalão de preço que pretende utilizar. Para este exemplo, selecione **gratuito**, mas para obter mais informações, consulte [Logic Apps limites e configuração](../logic-apps/logic-apps-limits-and-config.md) e [preços do Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
    | Location | Sim | EUA Oeste | A região onde pretende armazenar as suas informações de conta de integração. Selecione a mesma localização que a sua aplicação lógica ou criar uma aplicação lógica na mesma localização como a sua conta de integração. | 
-   | Área de trabalho do Log Analytics | Não | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. | 
+   | Área de trabalho do log Analytics | Não | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. | 
    ||||| 
 
 4. Quando estiver pronto, selecione **Afixar ao dashboard** e escolha **Criar**.

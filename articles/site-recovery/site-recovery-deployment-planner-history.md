@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 04/24/2019
 ms.author: dapatil
 ms.openlocfilehash: 2edf7ce3be1402a497ceab5b826a89ee43c5c39b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927376"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Histórico de versões do Azure Site Recovery Deployment Planner

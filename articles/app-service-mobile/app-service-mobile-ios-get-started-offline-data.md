@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62112655"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Ativar a sincronização offline com aplicações móveis iOS
@@ -147,7 +147,7 @@ Open **QSDataModel.xcdatamodeld**. Quatro tabelas são definidas – três que s
   * TodoItem: Armazena os itens de tarefas. As colunas de sistema **createdAt**, **updatedAt**, e **versão** são propriedades do sistema opcional.
 
 > [!NOTE]
-> O SDK de aplicações móveis reserva-se os nomes de coluna que começam por "**``**". Não utilize este prefixo com algo diferente de colunas de sistema. Caso contrário, os nomes de coluna são modificados ao utilizar o back-end remoto.
+> O SDK de aplicações móveis reserva-se os nomes de coluna que começam por " **``** ". Não utilize este prefixo com algo diferente de colunas de sistema. Caso contrário, os nomes de coluna são modificados ao utilizar o back-end remoto.
 >
 >
 
@@ -159,12 +159,12 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
 ![Atributos da tabela de MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | Type |
+| Atributo | Tipo |
 | --- | --- |
-| ID | Número inteiro de 64 |
+| id | Número inteiro de 64 |
 | itemId | String |
 | properties | Dados binários |
-| tabela | String |
+| table | String |
 | tableKind | Número inteiro de 16 |
 
 
@@ -172,9 +172,9 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
  ![Atributos da tabela de MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | Type |
+| Atributo | Tipo |
 | --- | --- |
-| ID |String |
+| id |String |
 | operationId |Número inteiro de 64 |
 | properties |Dados binários |
 | tableKind |Número inteiro de 16 |
@@ -183,26 +183,26 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | Type |
+| Atributo | Tipo |
 | --- | --- |
-| ID |String |
+| id |String |
 | key |String |
 | keyType |Número inteiro de 64 |
-| tabela |String |
+| table |String |
 | value |String |
 
 ### <a name="data-table"></a>Tabela de dados
 
 **TodoItem**
 
-| Atributo | Type | Nota |
+| Atributo | Tipo | Nota |
 | --- | --- | --- |
-| ID | Cadeia de caracteres, marcada como necessária |chave primária no arquivo remoto |
+| id | Cadeia de caracteres, marcada como necessária |chave primária no arquivo remoto |
 | Concluir | Boolean | Campo de item de tarefas pendentes |
 | texto |String |Campo de item de tarefas pendentes |
 | createdAt | Date | (opcional) É mapeado para **createdAt** propriedade do sistema |
 | updatedAt | Date | (opcional) É mapeado para **updatedAt** propriedade do sistema |
-| versão | String | (opcional) Usado para detectar conflitos, mapas para a versão |
+| version | String | (opcional) Usado para detectar conflitos, mapas para a versão |
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização da aplicação
 Nesta secção, modifique a aplicação para que ele não sincroniza no início da aplicação ou quando insere e atualizar itens. Ele sincroniza apenas quando o botão de gesto de atualização é executado.

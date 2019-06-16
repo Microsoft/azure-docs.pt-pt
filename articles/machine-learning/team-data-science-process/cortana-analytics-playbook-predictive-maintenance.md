@@ -12,10 +12,10 @@ ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64573767"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
@@ -173,7 +173,7 @@ Os dois tipos de dados principal observados no domínio PdM tendo em conta as or
 As variáveis de previsão e de destino devem ser de pré-processados/transformado em [tipos de dados numéricos, categóricos e outros](https://www.statsdirect.com/help/basics/measurement_scales.htm) dependendo do algoritmo usado.
 
 ### <a name="data-preprocessing"></a>O pré-processamento de dados
-Como um pré-requisito para _"feature Engineering"_, preparar os dados de vários fluxos para compor um esquema a partir do qual é fácil criar recursos. Visualize os dados pela primeira vez como uma tabela de registos. Cada linha na tabela representa uma instância de treinamento e as colunas representam _predictor_ recursos (também denominados atributos independentes ou variáveis). Organizar os dados de forma a que a última coluna (s) é o _destino_ (variável dependente). Para cada instância de treinamento, atribuir um _etiqueta_ como o valor desta coluna.
+Como um pré-requisito para _"feature Engineering"_ , preparar os dados de vários fluxos para compor um esquema a partir do qual é fácil criar recursos. Visualize os dados pela primeira vez como uma tabela de registos. Cada linha na tabela representa uma instância de treinamento e as colunas representam _predictor_ recursos (também denominados atributos independentes ou variáveis). Organizar os dados de forma a que a última coluna (s) é o _destino_ (variável dependente). Para cada instância de treinamento, atribuir um _etiqueta_ como o valor desta coluna.
 
 Para dados temporais, divida a duração de dados de sensor em unidades de tempo. Cada registo deve pertencer a uma unidade de tempo para um recurso _e deve oferecer informações distintas_. Unidades de tempo são definidas com base nas necessidades de negócio em múltiplos de segundos, minutos, horas, dias, meses, e assim por diante. A unidade de tempo _não tem de ser o mesmo que a frequência de recolha de dados_. Se a frequência é alta, os dados não podem mostrar qualquer diferença significativa de uma unidade para outro. Por exemplo, suponha que a temperatura ambiente foi recolhida cada 10 segundos. Apenas utilizar esse mesmo intervalo de tempo para os dados de treinamento aumenta o número de exemplos sem fornecer informações adicionais. Para esse caso, uma estratégia melhor seria usar a média de dados mais de 10 minutos, ou uma hora com base na justificativa comercial.
 
@@ -227,7 +227,7 @@ As especificações técnicas do equipamento como a data de fabrico, número de 
 
 Os esforços de preparação de dados discutidos até agora devem levar aos dados que está a ser organizados conforme mostrado abaixo. Dados de treinamento, teste e validação devem ter este esquema lógico (Este exemplo mostra o tempo em unidades de dias).
 
-| ID do Recurso | Hora | \<Colunas de recursos > | Label |
+| ID do Recurso | Hora | \<Colunas de recursos > | Etiqueta |
 | ---- | ---- | --- | --- |
 | A123 |Dia 1 | . . . | . |
 | A123 |Dia 2 | . . . | . |
@@ -291,7 +291,7 @@ A questão aqui é: "O que é a probabilidade de que um recurso irá falhar nos 
 
 ![Figura 5. Etiquetas de predição de hora de falha para classificação multiclasses](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) figura 5. Etiquetas para classificação de Roc para predição de falha de tempo
 
-A questão aqui é: "O que é a probabilidade de que o elemento falhará no prazo de X unidades de tempo devido a causa de raiz/problema _P<sub>eu</sub>_?" em que _eu_ é o número de causas possíveis. Para responder a essa pergunta, registos de etiqueta X antes da falha de um ativo como "prestes a falhar devido a causa raiz _P<sub>eu</sub>_" (etiqueta = _P<sub>eu</sub>_). Todos os outros registos como sendo "normal" da etiqueta (etiqueta = 0). Nesse método além disso, as etiquetas são categóricos (consulte figura 6).
+A questão aqui é: "O que é a probabilidade de que o elemento falhará no prazo de X unidades de tempo devido a causa de raiz/problema _P<sub>eu</sub>_ ?" em que _eu_ é o número de causas possíveis. Para responder a essa pergunta, registos de etiqueta X antes da falha de um ativo como "prestes a falhar devido a causa raiz _P<sub>eu</sub>_ " (etiqueta = _P<sub>eu</sub>_ ). Todos os outros registos como sendo "normal" da etiqueta (etiqueta = 0). Nesse método além disso, as etiquetas são categóricos (consulte figura 6).
 
 ![Figura 6. Etiquetas de predição para classificação de várias classes de causa raiz](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) figura 6. Etiquetas para classificação de Roc para predição de causa raiz
 

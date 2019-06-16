@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
 ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128571"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testar o desempenho de um serviço Cloud localmente no emulador de computação do Azure com o Visual Studio Profiler
@@ -31,7 +31,7 @@ Pode também querer analisar seu aplicativo localmente no emulador de computaç�
 Este artigo aborda o método de criação de perfis da Amostragem de CPU, que pode ser levada a cabo localmente no emulador. Amostragem de CPU é um método de criação de perfis que não é muito INVASIVO. Num intervalo de amostragem designado, o criador de perfil tira um instantâneo de pilha de chamadas. Os dados são recolhidos ao longo de um período de tempo e apresentados num relatório. Este método de criação de perfis tende a indicar onde num aplicativo intensivo a nível computacional maior parte do trabalho de CPU está a ser feito.  Isso lhe dá a oportunidade de se concentrar em "hot path" em que seu aplicativo está gastando mais tempo.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Configurar o Visual Studio para criação de perfis
-Em primeiro lugar, existem algumas opções de configuração do Visual Studio que podem ser útil durante a criação de perfis. Dar sentido os relatórios de criação de perfis, precisará símbolos (arquivos. pdb) para a aplicação e também os símbolos para bibliotecas do sistema. Vai querer Certifique-se de que mencione o servidor de símbolos disponíveis. Para tal, no **ferramentas** menu no Visual Studio, escolha **opções**, em seguida, escolha **Debugging**, em seguida, **símbolos**. Certifique-se de que o servidor de símbolos da Microsoft está listado em **símbolo localizações de ficheiros (. pdb)**.  Também pode fazer referência https://referencesource.microsoft.com/symbols, que poderá ter os arquivos de símbolo adicionais.
+Em primeiro lugar, existem algumas opções de configuração do Visual Studio que podem ser útil durante a criação de perfis. Dar sentido os relatórios de criação de perfis, precisará símbolos (arquivos. pdb) para a aplicação e também os símbolos para bibliotecas do sistema. Vai querer Certifique-se de que mencione o servidor de símbolos disponíveis. Para tal, no **ferramentas** menu no Visual Studio, escolha **opções**, em seguida, escolha **Debugging**, em seguida, **símbolos**. Certifique-se de que o servidor de símbolos da Microsoft está listado em **símbolo localizações de ficheiros (. pdb)** .  Também pode fazer referência https://referencesource.microsoft.com/symbols, que poderá ter os arquivos de símbolo adicionais.
 
 ![Opções de símbolo][4]
 

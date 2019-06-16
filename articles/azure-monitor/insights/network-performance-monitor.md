@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
 ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64916765"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
@@ -37,7 +37,7 @@ Monitor de desempenho de rede oferece três recursos abrangentes:
 
     Esta capacidade ajuda-o a efetuar testes com base em HTTP, HTTPS, TCP e ICMP para monitorar em quase em tempo real ou, historicamente, a disponibilidade e o tempo de resposta do seu serviço. Também pode monitorizar a contribuição da rede na perda de pacotes e latência. Com um mapa de topologia de rede, pode isolar abrandamentos de rede. Pode identificar problemáticos que ocorrem ao longo do caminho de rede a partir do nó para o serviço, com dados de latência em cada salto. Com testes internos, pode monitorizar a conectividade de rede, ao Office 365 e Dynamics CRM, sem qualquer pré-configuração. Com esta capacidade, pode monitorizar a conectividade de rede para qualquer ponto final compatível com TCP, como Web sites, aplicações SaaS, PaaS aplicações e bases de dados SQL.
 
-* [Monitor do ExpressRoute](network-performance-monitor-expressroute.md): Monitorizar a conectividade e desempenho ponto a ponto entre os escritórios das filiais e o Azure através do Azure ExpressRoute.  
+* [Monitor do ExpressRoute](network-performance-monitor-expressroute.md): Monitorizar a conectividade de ponto-a-ponto e de desempenho entre suas sucursais e o Azure, através do Azure ExpressRoute.  
 
 Obter mais informações sobre os vários recursos suportados pelo [Monitor de desempenho de rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) está disponível online.
  

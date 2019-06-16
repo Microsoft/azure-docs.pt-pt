@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507930"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Linux
@@ -75,11 +75,11 @@ Se a VM não é criada numa rede Virtual, os casos de padrão para serviços clo
 ### <a name="version-and-region-availability"></a>Versão e a disponibilidade de região
 O serviço de eventos agendados tem a mesma versão. Versões são obrigatórias; a versão atual é `2017-11-01`.
 
-| Version | Tipo de versão | Regiões | Notas de versão | 
+| Version | Tipo de versão | Regiões | Notas de Versão | 
 | - | - | - | - | 
 | 2017-11-01 | Disponibilidade Geral | Todos | <li> Foi adicionado suporte para expulsão de baixa prioridade VM EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade Geral | Todos | <li> Removido o caráter de sublinhado antecedendo nomes de recursos para IaaS VMs<br><li>Requisito de cabeçalho de metadados imposto a todos os pedidos | 
-| 2017-03-01 | Pré-visualizar | Todos | <li>Versão inicial
+| 2017-03-01 | Pré-visualização | Todos | <li>Versão inicial
 
 
 > [!NOTE] 
@@ -95,7 +95,7 @@ Manutenção da VM iniciado pelo utilizador através do portal do Azure, a API, 
 
 Se reiniciar uma VM, um evento com o tipo de `Reboot` está agendada. Se voltar a implementar uma VM, um evento com o tipo de `Redeploy` está agendada.
 
-## <a name="use-the-api"></a>Utilize a API
+## <a name="use-the-api"></a>Utilizar a API
 
 ### <a name="headers"></a>Cabeçalhos
 Ao consultar o serviço de metadados, tem de fornecer o cabeçalho `Metadata:true` para garantir que o pedido não foi redirecionado inadvertidamente. O `Metadata:true` cabeçalho é obrigatório para todos os pedidos de eventos agendados. Falha ao incluir o cabeçalho no pedido resulta numa resposta de "Solicitação incorreta" do serviço de metadados.
@@ -143,7 +143,7 @@ Cada evento está agendado uma quantidade mínima de tempo no futuro, com base n
 | - | - |
 | Congelamento| 15 minutos |
 | Reiniciar | 15 minutos |
-| Implementar novamente | 10 minutos |
+| Voltar a implementar | 10 minutos |
 | Tomar o lugar | 30 segundos |
 
 ### <a name="start-an-event"></a>Iniciar um evento 

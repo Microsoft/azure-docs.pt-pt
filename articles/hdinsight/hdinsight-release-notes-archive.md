@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713036"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de versão do Azure HDInsight
@@ -28,7 +28,7 @@ O Azure HDInsight é um dos serviços mais populares entre os clientes empresari
 
 As novas atualizações e capacidades se encontra às seguintes categorias:
 
-*  ***Atualizar o Hadoop e outros projetos de open source*** – além de mais de 1000 correções de bugs em projetos de código-fonte aberto, esta atualização contém uma nova versão de 20 + **Spark (2.3)** e **Kafka (1.0)**.
+*  ***Atualizar o Hadoop e outros projetos de open source*** – além de mais de 1000 correções de bugs em projetos de código-fonte aberto, esta atualização contém uma nova versão de 20 + **Spark (2.3)** e **Kafka (1.0)** .
 
     a.  [**Novos recursos do Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
@@ -822,73 +822,73 @@ Esta secção abrange todas as vulnerabilidades mais comuns e exposições CVE (
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Resumo:** ignora os carateres após a avaliação de políticas do Apache Ranger '\*"caráter universal |
+| **Resumo:**  ignora os carateres após a avaliação de políticas do Apache Ranger '\*"caráter universal |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravidade:** críticas                                                                           |
-| **Fornecedor:** Hortonworks                                                                          |
-| **Versões Affected:** versões 3.6 do HDInsight, incluindo Apache Ranger versões 0.5.x/0.6.x/0.7.0     |
-| **Utilizadores afetados:** ambientes que utilizam políticas do Ranger com caracteres depois '\*"caráter universal – como meu\*testar, testar\*. txt |
-| **Impacto:** política recurso na ferramenta de correspondência ignora os carateres após '\*"caráter universal, que pode resultar em comportamentos indesejados.      |
-| **Corrigir detalhes:** Ranger política recurso na ferramenta de correspondência foi atualizada para a manipulação correta de correspondências de caráter universal.           |
-| **Ação recomendada:** atualizar para HDI 3.6 (com o Apache Ranger 0.7.1+).                                |
+| **Gravidade:**  críticas                                                                           |
+| **Fornecedor:**  Hortonworks                                                                          |
+| **Versões Affected:**  versões 3.6 do HDInsight, incluindo Apache Ranger versões 0.5.x/0.6.x/0.7.0     |
+| **Utilizadores afetados:**  ambientes que utilizam políticas do Ranger com caracteres depois '\*"caráter universal – como meu\*testar, testar\*. txt |
+| **Impacto:**  política recurso na ferramenta de correspondência ignora os carateres após '\*"caráter universal, que pode resultar em comportamentos indesejados.      |
+| **Corrigir detalhes:**  Ranger política recurso na ferramenta de correspondência foi atualizada para a manipulação correta de correspondências de caráter universal.           |
+| **Ação recomendada:**  atualizar para HDI 3.6 (com o Apache Ranger 0.7.1+).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Resumo:** Authorizer de ramo de registo do Apache Ranger deve verificar a existência de permissões de RWX quando é especificada a localização externa |
+| **Resumo:**  Authorizer de ramo de registo do Apache Ranger deve verificar a existência de permissões de RWX quando é especificada a localização externa |
 |--------------------------------------------------------------------------------------------------|
-| **Gravidade:** críticas                                                                           |
-| **Fornecedor:** Hortonworks                                                                          |
-| **Versões Affected:** versões 3.6 do HDInsight, incluindo Apache Ranger versões 0.5.x/0.6.x/0.7.0 |
-| **Utilizadores afetados:** ambientes que usam uma localização externa para tabelas de ramo de registo |
-| **Impacto:** em ambientes que usam a localização externa para tabelas do hive, Apache Ranger Hive Authorizer deverá verificar permissões de RWX para a localização externa especificada para a tabela de criar. |
-| **Corrigir detalhes:** Authorizer do Hive do Ranger foi atualizada para processar corretamente a verificação da permissão com a localização externa. |
-| **Ação recomendada:** os utilizadores devem atualizar para HDI 3.6 (com o Apache Ranger 0.7.1+). |
+| **Gravidade:**  críticas                                                                           |
+| **Fornecedor:**  Hortonworks                                                                          |
+| **Versões Affected:**  versões 3.6 do HDInsight, incluindo Apache Ranger versões 0.5.x/0.6.x/0.7.0 |
+| **Utilizadores afetados:**  ambientes que usam uma localização externa para tabelas de ramo de registo |
+| **Impacto:**  em ambientes que usam a localização externa para tabelas do hive, Apache Ranger Hive Authorizer deverá verificar permissões de RWX para a localização externa especificada para a tabela de criar. |
+| **Corrigir detalhes:**  Authorizer do Hive do Ranger foi atualizada para processar corretamente a verificação da permissão com a localização externa. |
+| **Ação recomendada:**  os utilizadores devem atualizar para HDI 3.6 (com o Apache Ranger 0.7.1+). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Resumo:** potencial execução de código como o utilizador errado no Apache Storm |
+| **Resumo:**  potencial execução de código como o utilizador errado no Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Gravidade:** importante |
-| **Fornecedor:** Hortonworks |
-| **Versões afetadas:** HDP 2.4.0 HDP-2.5.0 HDP 2.6.0 |
-| **Utilizadores afetados:** com base em utilizadores que utilizam o Storm no modo seguro e estiver a utilizar o blobstore para distribuir a topologia de artefactos ou o uso do blobstore para distribuir quaisquer recursos de topologia. |
-| **Impacto:** em algumas situações e configurações do storm é teoricamente possível que o proprietário de uma topologia para fazer com que o supervisor para iniciar uma função de trabalho como um utilizador diferente, não raiz,. Na pior das hipóteses, isso poderia levar para proteger as credenciais do utilizador que está a ser comprometido. Essa vulnerabilidade aplica-se apenas às instalações do Apache Storm com segurança ativada. |
-| **Atenuação:** atualizar para o HDP 2.6.2.1 como existem atualmente não existem soluções alternativas.  |
+|**Gravidade:**  importante |
+| **Fornecedor:**  Hortonworks |
+| **Versões afetadas:**  HDP 2.4.0 HDP-2.5.0 HDP 2.6.0 |
+| **Utilizadores afetados:**  com base em utilizadores que utilizam o Storm no modo seguro e estiver a utilizar o blobstore para distribuir a topologia de artefactos ou o uso do blobstore para distribuir quaisquer recursos de topologia. |
+| **Impacto:**  em algumas situações e configurações do storm é teoricamente possível que o proprietário de uma topologia para fazer com que o supervisor para iniciar uma função de trabalho como um utilizador diferente, não raiz,. Na pior das hipóteses, isso poderia levar para proteger as credenciais do utilizador que está a ser comprometido. Essa vulnerabilidade aplica-se apenas às instalações do Apache Storm com segurança ativada. |
+| **Atenuação:**  atualizar para o HDP 2.6.2.1 como existem atualmente não existem soluções alternativas.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Resumo:** handler/ssl/OpenSslEngine.java no 4.0.x Netty antes 4.0.37.Final e 4.1.x antes 4.1.1.Final permite aos atacantes remotos causar uma negação de serviço (loop infinito) |
+| **Resumo:**  handler/ssl/OpenSslEngine.java no 4.0.x Netty antes 4.0.37.Final e 4.1.x antes 4.1.1.Final permite aos atacantes remotos causar uma negação de serviço (loop infinito) |
 |--------------------------------------------------------------------------------------------------|
 | **Gravidade:** Moderado  |
-| **Fornecedor:** Hortonworks  |
-| **Versões afetadas:** HDP 2.x.x desde 2.3.x  |
-| **Os utilizadores Affected:** todos os utilizadores que utilizam o HDFS. |
-| **Impacto:** impacto é baixo, como Hortonworks não utiliza OpenSslEngine.java diretamente na base de código do Hadoop.     |
-| **Ação recomendada:** atualizar para o HDP 2.6.3.   |
+| **Fornecedor:**  Hortonworks  |
+| **Versões afetadas:**  HDP 2.x.x desde 2.3.x  |
+| **Os utilizadores Affected:**  todos os utilizadores que utilizam o HDFS. |
+| **Impacto:**  impacto é baixo, como Hortonworks não utiliza OpenSslEngine.java diretamente na base de código do Hadoop.     |
+| **Ação recomendada:**  atualizar para o HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Resumo:** problema no período de avaliação da política de correspondência de caminhos de Apache Ranger                                                                    |
+| **Resumo:**  problema no período de avaliação da política de correspondência de caminhos de Apache Ranger                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravidade:** Normal                                                                                                                   |
+| **Gravidade:**  Normal                                                                                                                   |
 | **Fornecedor:** Hortonworks                                                                                                                |
-| **Versões Affected:** todas as versões de HDP 2.5 incluindo Apache Ranger versões 0.6.0/0.6.1/0.6.2                                         |
-| **Utilizadores afetados:** todos os utilizadores da ferramenta de administração de políticas de ranger.                                                                         |
-| **Impacto:** motor de políticas do Ranger corresponde incorretamente caminhos em determinadas condições quando uma política contém sinalizadores de carateres universais e recursiva. |
+| **Versões Affected:**  todas as versões de HDP 2.5 incluindo Apache Ranger versões 0.6.0/0.6.1/0.6.2                                         |
+| **Utilizadores afetados:**  todos os utilizadores da ferramenta de administração de políticas de ranger.                                                                         |
+| **Impacto:**  motor de políticas do Ranger corresponde incorretamente caminhos em determinadas condições quando uma política contém sinalizadores de carateres universais e recursiva. |
 | **Corrigi detalhes:** Lógica da política fixo de avaliação                                                                                          |
-| **Ação recomendada:** os utilizadores devem atualizar para o HDP 2.5.4+ (com o Apache Ranger 0.6.3+) ou HDP 2.6 + (com o Apache Ranger 0.7.0+)         |
+| **Ação recomendada:**  os utilizadores devem atualizar para o HDP 2.5.4+ (com o Apache Ranger 0.6.3+) ou HDP 2.6 + (com o Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Resumo:** Apache Ranger armazenados problema de criação de scripts entre sites  |
+| **Resumo:**  Apache Ranger armazenados problema de criação de scripts entre sites  |
 |--------------------------------------------------------------------------------------------------|
-| **Gravidade:** Normal |
-| **Fornecedor:** Hortonworks |
-| **Versões Affected:** todas as versões de 2.3/2.4/2.5 HDP incluindo Apache Ranger versões 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **Utilizadores afetados:** todos os utilizadores da ferramenta de administração de políticas de ranger. |
-| **Impacto:** Apache Ranger é vulnerável a um armazenados scripts entre sites na inserção de condições de política personalizada. Os utilizadores administradores podem armazenar algum javascript arbitrário código ser executado quando iniciarem sessão de usuários normais e políticas de acesso. |
-| **Corrigir detalhes:** adicionada lógica para limpar a entrada do usuário.  |
-| **Ação recomendada:** os utilizadores devem atualizar para o HDP 2.5.4+ (com o Apache Ranger 0.6.3+) ou HDP 2.6 + (com o Apache Ranger 0.7.0+)  |
+| **Gravidade:**  Normal |
+| **Fornecedor:**  Hortonworks |
+| **Versões Affected:**  todas as versões de 2.3/2.4/2.5 HDP incluindo Apache Ranger versões 0.5.x/0.6.0/0.6.1/0.6.2  |
+| **Utilizadores afetados:**  todos os utilizadores da ferramenta de administração de políticas de ranger. |
+| **Impacto:**  Apache Ranger é vulnerável a um armazenados scripts entre sites na inserção de condições de política personalizada. Os utilizadores administradores podem armazenar algum javascript arbitrário código ser executado quando iniciarem sessão de usuários normais e políticas de acesso. |
+| **Corrigir detalhes:**  adicionada lógica para limpar a entrada do usuário.  |
+| **Ação recomendada:**  os utilizadores devem atualizar para o HDP 2.5.4+ (com o Apache Ranger 0.6.3+) ou HDP 2.6 + (com o Apache Ranger 0.7.0+)  |
 
 ## <a name="fixed-issues-for-support"></a>Problemas fixos para o suporte
 

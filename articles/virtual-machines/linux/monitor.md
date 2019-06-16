@@ -15,10 +15,10 @@ ms.date: 08/14/2017
 ms.author: cynthn
 ms.topic: conceptual
 ms.openlocfilehash: 248a77ac0894cc8a360b9888983e082741e9cc55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473975"
 ---
 # <a name="how-to-monitor-virtual-machines-in-azure"></a>Como monitorizar máquinas virtuais no Azure

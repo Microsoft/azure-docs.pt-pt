@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
 ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956300"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de programador com o Azure Active Directory na gestão de API do Azure
@@ -34,7 +34,7 @@ Este artigo mostra-lhe como permitir o acesso ao portal do programador para os u
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de programador através do Azure AD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Seleccionar ![seta](./media/api-management-howto-aad/arrow.png).
+2. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
 3. Tipo **api** na caixa de pesquisa.
 4. Selecione **dos serviços de gestão de API**.
 5. Selecionar a sua instância de serviço de Gestão de API.

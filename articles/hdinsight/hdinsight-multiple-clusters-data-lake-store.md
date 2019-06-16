@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: b580890b1663aa6ce742443e927e4d760585d4ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64700295"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Utilizar vários clusters do HDInsight com uma conta de armazenamento do Azure Data Lake
@@ -50,10 +50,10 @@ Para obter instruções sobre como criar uma aplicação do AAD (que também cri
 
 Alguns pontos importantes a considerar.
 
-- Estrutura de pastas de nível de dois (**/clusters/Finanças/**) tem de ser criado e provisionado com permissões adequadas pelo administrador de armazenamento do Data Lake **antes de** com a conta de armazenamento para clusters. Essa estrutura não é criada automaticamente durante a criação de clusters.
+- Estrutura de pastas de nível de dois ( **/clusters/Finanças/** ) tem de ser criado e provisionado com permissões adequadas pelo administrador de armazenamento do Data Lake **antes de** com a conta de armazenamento para clusters. Essa estrutura não é criada automaticamente durante a criação de clusters.
 - O exemplo acima recomenda a configuração do grupo proprietário da **/clusters/finance** como **FINGRP** e permitindo **r-x** acesso a FINGRP para a hierarquia de toda a pasta a partir de raiz. Isto garante que os membros de FINGRP podem navegar a estrutura de pastas a partir de raiz.
 - No caso de quando os principais de serviço do AAD diferente pode criar clusters **/clusters/finance**, o sticky bit (quando definidos na **Finanças** pasta) garante que as pastas criadas por um Principal de serviço Não é possível eliminar por outros.
-- Assim que a estrutura de pastas e as permissões estiverem em vigor, o processo de criação de cluster do HDInsight cria uma localização de armazenamento de cluster específicos em **/clusters/Finanças/**. Por exemplo, poderia ser o armazenamento para um cluster com o nome fincluster01 **/clusters/finance/fincluster01**. A propriedade e permissões para as pastas criadas pelo cluster do HDInsight é mostrado na tabela aqui.
+- Assim que a estrutura de pastas e as permissões estiverem em vigor, o processo de criação de cluster do HDInsight cria uma localização de armazenamento de cluster específicos em **/clusters/Finanças/** . Por exemplo, poderia ser o armazenamento para um cluster com o nome fincluster01 **/clusters/finance/fincluster01**. A propriedade e permissões para as pastas criadas pelo cluster do HDInsight é mostrado na tabela aqui.
 
     |Pasta  |Permissões  |Utilizador proprietário  |Grupo proprietário  | Utilizador nomeado | Permissões de utilizador nomeado | Grupo nomeado | Permissões de grupo nomeado |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -88,7 +88,7 @@ Estas definições são conhecidas a afetar um específico HDInsight casos de ut
 Conforme indicado no JIRA YARN ligado anteriormente, durante a localização de recursos de público, o localizador valida que todos os recursos de pedido são públicos, de fato, verificando as respetivas permissões no sistema de ficheiros remoto. Qualquer LocalResource que não se ajusta a condição for rejeitado para a localização. A verificação de permissões, inclui o acesso de leitura para o ficheiro para "outros". Este cenário não funciona out-of-the-box quando alojar os clusters do HDInsight no Azure Data Lake, uma vez que o Azure Data Lake nega todo o acesso a "outros" no nível de pasta de raiz.
 
 #### <a name="workaround"></a>Solução
-Conjunto de leitura-permissões de execução para **outras pessoas** através da hierarquia, por exemplo, na **/**, **/clusters** e   **/clusters/Finanças** conforme mostrado na tabela acima.
+Conjunto de leitura-permissões de execução para **outras pessoas** através da hierarquia, por exemplo, na **/** , **/clusters** e   **/clusters/Finanças** conforme mostrado na tabela acima.
 
 ## <a name="see-also"></a>Consulte também
 

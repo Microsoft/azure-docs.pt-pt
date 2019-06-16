@@ -1,24 +1,22 @@
 ---
 title: Criar/inserir dados na API de Cassandra do Azure Cosmos DB do Spark
 description: Este artigo mostra em detalhe como inserir dados de exemplo em tabelas Cassandra API do Azure Cosmos DB
-author: rockboyfor
-ms.author: v-yeche
+author: kanshiG
+ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 03/18/2019
+ms.date: 09/24/2018
 ms.openlocfilehash: aea646e7a390d5b53f0d4b388cfecd0c80fb19da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60894050"
 ---
-<!--Verify sucessfully-->
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Criar/inserir dados na API de Cassandra do Azure Cosmos DB do Spark
-
+ 
 Este artigo descreve como inserir dados de exemplo numa tabela na API de Cassandra do Azure Cosmos DB do Spark.
 
 ## <a name="cassandra-api-configuration"></a>Configuração da API de Cassandra
@@ -33,7 +31,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
@@ -139,13 +137,10 @@ select * from books;
 ## <a name="next-steps"></a>Passos Seguintes
 
 Depois de inserir dados na tabela Cassandra API do Azure Cosmos DB, avance para os seguintes artigos para executar outras operações nos dados armazenados no Cassandra API do Cosmos DB:
-
+ 
 * [operações de leitura](cassandra-spark-read-ops.md)
 * [Operações de Upsert](cassandra-spark-upsert-ops.md)
 * [Operações de eliminação](cassandra-spark-delete-ops.md)
 * [Operações de agregação](cassandra-spark-aggregation-ops.md)
 * [Operações de cópia da tabela](cassandra-spark-table-copy-ops.md)
 
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
