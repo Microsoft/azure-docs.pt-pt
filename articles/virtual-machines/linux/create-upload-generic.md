@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1ef273b65bb3a8b8536d27c70e8ba05e74faa39b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327971"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64702476"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações sobre distribuições não aprovadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -74,7 +74,7 @@ O mecanismo para recriar a imagem de initrd ou initramfs pode variar consoante a
 ### <a name="resizing-vhds"></a>Redimensionar os VHDs
 Imagens VHD no Azure tem de ter um tamanho virtual alinhado para 1 MB.  Normalmente, os VHDs criados com o Hyper-V estão alinhados corretamente.  Se o VHD não está alinhado corretamente, poderá receber uma mensagem de erro semelhante ao seguinte ao tentar criar uma imagem a partir do VHD.
 
-* O VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tem um tamanho virtual não suportado de 21475270656 bytes. O tamanho tem de ser um número inteiro (em MB).
+* O http VHD:\//\<mystorageaccount >.blob.core.windows.net/vhds/MyLinuxVM.vhd tem um tamanho virtual não suportado de 21475270656 bytes. O tamanho tem de ser um número inteiro (em MB).
 
 Neste caso, redimensione a VM utilizando a consola de Gestor de Hyper-V ou o [VHD de redimensionamento](https://technet.microsoft.com/library/hh848535.aspx) cmdlet do PowerShell.  Se não está a executar num ambiente Windows, recomendamos que utilize `qemu-img` para converter (se necessário) e redimensione o VHD.
 

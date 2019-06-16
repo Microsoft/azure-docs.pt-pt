@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64710407"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico do Linux para monitorizar métricas e registos
@@ -169,8 +169,8 @@ Esta secção opcional define destinos adicionais para que a extensão envia as 
 
 Elemento | Value
 ------- | -----
-nome | Uma cadeia de caracteres usada para fazer referência a este sink noutro local na configuração da extensão.
-tipo | O tipo de sink, que está a ser definido. Determina os outros valores (se houver) em instâncias deste tipo.
+name | Uma cadeia de caracteres usada para fazer referência a este sink noutro local na configuração da extensão.
+type | O tipo de sink, que está a ser definido. Determina os outros valores (se houver) em instâncias deste tipo.
 
 A versão 3.0 da extensão de diagnóstico do Linux suporta dois tipos de coletor: EventHub e JsonBlob.
 
@@ -257,7 +257,7 @@ Elemento | Value
 eventVolume | (opcional) Controla o número de partições criadas dentro da tabela de armazenamento. Tem de ser `"Large"`, `"Medium"`, ou `"Small"`. Se não for especificado, o valor predefinido é `"Medium"`.
 sampleRateInSeconds | (opcional) Intervalo padrão entre a coleção de métricas (unaggregated). A taxa de menor suportados exemplo é 15 segundos. Se não for especificado, o valor predefinido é `15`.
 
-#### <a name="metrics"></a>métricas
+#### <a name="metrics"></a>metrics
 
 ```json
 "metrics": {
@@ -312,13 +312,13 @@ Esta secção opcional controla a coleção de métricas. Os exemplos não proce
 Elemento | Value
 ------- | -----
 Coletores de | (opcional) Uma lista separada por vírgulas dos nomes dos sinks que LAD envia agregado resultados métrica. Todas as métricas agregadas são publicadas cada sink listada. Ver [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
-tipo | Identifica o fornecedor real da métrica.
-classe | Em conjunto com "contador", identifica a métrica específica dentro do espaço de nomes do fornecedor.
+type | Identifica o fornecedor real da métrica.
+Classe | Em conjunto com "contador", identifica a métrica específica dentro do espaço de nomes do fornecedor.
 counter | Em conjunto com "class", identifica a métrica específica dentro do espaço de nomes do fornecedor.
 counterSpecifier | Identifica a métrica específica dentro do espaço de nomes de métricas do Azure.
-condition | (opcional) Seleciona uma instância específica do objeto ao qual a métrica aplica-se ou seleciona a agregação de todas as instâncias desse objeto. Para obter mais informações, consulte o `builtin` as definições de métricas.
+condição | (opcional) Seleciona uma instância específica do objeto ao qual a métrica aplica-se ou seleciona a agregação de todas as instâncias desse objeto. Para obter mais informações, consulte o `builtin` as definições de métricas.
 sampleRate | É o intervalo de 8601 que define a taxa em que os exemplos não processados para esta métrica são recolhidos. Se não definido, o intervalo de coleta é definido pelo valor de [sampleRateInSeconds](#ladcfg). A taxa de exemplo suportadas mais curta é 15 segundos (PT15S).
-unidade | Deve ser um dessas cadeias de caracteres: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperam que os valores de dados recolhidos para corresponder esta unidade. LAD ignora este campo.
+Unidade | Deve ser um dessas cadeias de caracteres: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperam que os valores de dados recolhidos para corresponder esta unidade. LAD ignora este campo.
 displayName | A etiqueta (no idioma especificado da definição de região associados) ser anexados a esses dados de métricas do Azure. LAD ignora este campo.
 
 O counterSpecifier é um identificador arbitrário. Os consumidores de métricas, como o gráfico portal do Azure e alertas de funcionalidade, utilize counterSpecifier como a "chave" que identifica uma métrica ou uma instância de uma métrica. Para `builtin` métricas, recomendamos que utilize os valores de counterSpecifier que começam com `/builtin/`. Se está a recolher uma instância específica de uma métrica, recomendamos que anexar o identificador da instância para o valor de counterSpecifier. Alguns exemplos:
@@ -388,7 +388,7 @@ Elemento | Value
 ------- | -----
 espaço de nomes | (opcional) O espaço de nomes OMI, no qual a consulta deve ser executada. Se não for especificado, o valor predefinido é "raiz/scx", implementado pelos [fornecedores de plataformas do System Center](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 consulta | A consulta OMI a ser executado.
-tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (consulte [definições protegido](#protected-settings)).
+table | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (consulte [definições protegido](#protected-settings)).
 frequency | (opcional) O número de segundos entre a execução da consulta. Valor predefinido é 300 (5 minutos) valor mínimo é de 15 segundos.
 Coletores de | (opcional) Uma lista separada por vírgulas dos nomes dos sinks adicionais para que os resultados de métrica de exemplo em bruto devem ser publicados. Nenhuma agregação destes exemplos não processados é calculada pela extensão ou por métricas do Azure.
 
@@ -410,8 +410,8 @@ Controla a captura de ficheiros de registo. LAD captura novas linhas de texto, c
 
 Elemento | Value
 ------- | -----
-ficheiro | O nome do caminho completo do ficheiro de registo a ser observada e capturado. O nome do caminho deve nomeá um único arquivo; ela não é possível nomear um diretório ou conter os carateres universais.
-tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), no qual são escritas novas linhas de "cauda" do ficheiro.
+file | O nome do caminho completo do ficheiro de registo a ser observada e capturado. O nome do caminho deve nomeá um único arquivo; ela não é possível nomear um diretório ou conter os carateres universais.
+table | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), no qual são escritas novas linhas de "cauda" do ficheiro.
 Coletores de | (opcional) Uma lista separada por vírgulas dos nomes dos sinks adicionais para quais linhas de log enviadas.
 
 O "tabela" ou "Coletores de" ou ambos, tem de ser especificados.

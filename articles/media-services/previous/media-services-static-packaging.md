@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: a2ffc344f51c45007eb982a02b14cb2d481d752e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8665f6daa698f2e885f1fe768ad6b9c87dbbe164
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074511"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizar o empacotador de multimédia do Azure para realizar tarefas de empacotamento estáticos  
 
@@ -247,7 +247,7 @@ O código de exemplo seguinte utiliza extensões do SDK de .NET do Azure Media S
             static void SetISMFileAsPrimary(IAsset asset)
             {
                 var ismAssetFiles = asset.AssetFiles.ToList().
-                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray();
+                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase));
 
                 // The following code assigns the first .ism file as the primary file in the asset.
                 // An asset should have one .ism file.  

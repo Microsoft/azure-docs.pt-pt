@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715195"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança ao nível de linha com as Coleções de Área de Trabalho do Power BI
@@ -48,7 +48,7 @@ Seguem-se alguns aspetos a observar neste esquema:
 
 * Todas as medidas, como **Total de vendas**, são armazenados no **vendas** tabela de fatos.
 * Existem quatro tabelas de dimensão relacionada adicionais: **Item**, **tempo**, **Store**, e **Distrito**.
-* As setas nas linhas de relação indicam de que forma filtros podem circular de uma tabela para outra. Por exemplo, se um filtro está colocado em **tempo [data]**, no esquema atual, iria filtrar apenas valores a **vendas** tabela. Nenhuma outra tabela é afetada por este filtro, uma vez que todas as setas nas linhas de relação apontam para a tabela de vendas e não para longe.
+* As setas nas linhas de relação indicam de que forma filtros podem circular de uma tabela para outra. Por exemplo, se um filtro está colocado em **tempo [data]** , no esquema atual, iria filtrar apenas valores a **vendas** tabela. Nenhuma outra tabela é afetada por este filtro, uma vez que todas as setas nas linhas de relação apontam para a tabela de vendas e não para longe.
 * O **Distrito** tabela indica quem é o Gestor de cada escola:
   
   ![Linhas de tabela distrito](media/row-level-security/district-table-4.png)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113912"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Criar e instalar os ficheiros de configuração de cliente VPN para configurações P2S da autenticação de certificados nativa do Azure
@@ -94,7 +94,7 @@ Utilize os seguintes passos para configurar o cliente VPN nativo no Mac para aut
 
    O **Interface** valor é "VPN" e **tipo de VPN** valor é "IKEv2". Especifique um nome para o perfil no **nome do serviço** campo, em seguida, clique em **criar** para criar o perfil de ligação de cliente VPN.
 
-   ![rede](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![Rede](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. Na **genérico** pasta, da **Vpnsettings** ficheiro, copie o **VpnServer** valor de etiqueta. Cole este valor na **endereço do servidor** e **remoto ID** campos do perfil.
 
    ![informações do servidor](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -109,7 +109,7 @@ Utilize os seguintes passos para configurar o cliente VPN nativo no Mac para aut
    ![identidade](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. Na **Local ID** campo, especifique o nome do certificado (a partir do passo 6). Neste exemplo, é "ikev2Client.com". Em seguida, clique em **aplicar** botão para guardar as alterações.
 
-   ![aplicar](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![Aplicam-se](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Sobre o **rede** caixa de diálogo, clique em **aplicar** para guardar todas as alterações. Em seguida, clique em **Connect** para iniciar a ligação de P2S à VNet do Azure.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)

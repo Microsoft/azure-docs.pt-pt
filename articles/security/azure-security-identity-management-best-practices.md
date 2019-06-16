@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 2a669f5b46db4d5de7d1d6863b94e6c117667aee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2b57ec7727e8f5b648bcb97e5fae26c63724411c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153247"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67127211"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Melhores práticas de segurança de controlo de acesso e gestão de identidades do Azure
 Neste artigo, discutimos a uma coleção de gestão de identidades do Azure e práticas recomendadas de segurança do controlo de acesso. Essas práticas recomendadas são derivadas da nossa experiência com [do Azure AD](../active-directory/fundamentals/active-directory-whatis.md) e as experiências dos clientes, como mesmo.
@@ -113,7 +113,7 @@ As organizações que não criam uma identidade comum para estabelecer o SSO par
 
 Os utilizadores podem aceder a recursos da sua organização ao utilizar uma variedade de dispositivos e aplicações em qualquer lugar. Administrador de TI, pretende certificar-se de que estes dispositivos cumpram as normas de segurança e conformidade. Se concentrar apenas na que pode aceder a um recurso não é suficiente mais.
 
-Para balancear a segurança e produtividade, precisa pensar como um recurso é acedido antes de poder fazer uma decisão sobre o controlo de acesso. Com o acesso condicional do Azure AD, pode solucionar este requisito. Com acesso condicional, pode tomar decisões de controlo de acesso automatizados com base nas condições para aceder às suas aplicações na cloud.
+Para balancear a segurança e produtividade, precisa pensar como um recurso é acedido antes de poder fazer uma decisão sobre o controlo de acesso. Com acesso condicional do Azure AD, pode solucionar este requisito. Com acesso condicional, pode tomar decisões de controlo de acesso automatizados com base nas condições para aceder às suas aplicações na cloud.
 
 **Melhor prática**: Gerir e controlar o acesso aos recursos empresariais.  
 **Detalhe**: Configurar o Azure AD [acesso condicional](../active-directory/active-directory-conditional-access-azure-portal.md) com base na sensibilidade das aplicações para aplicações SaaS e aplicações do Azure AD – ligado, a localização e grupo.

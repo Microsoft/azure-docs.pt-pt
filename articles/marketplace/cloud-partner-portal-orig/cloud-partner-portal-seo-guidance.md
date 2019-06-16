@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler
 ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935133"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Orientação de SEO de mercado do Azure
@@ -29,8 +29,8 @@ Seguem-se os campos mais relevantes a ter em consideração.
  
 |  Campo                   | Importância | Orientação                                                                                            |
 |  --------------------    | ----------                   | ---------------                                                                   |
-| Nome da Oferta               |  Elevado      | EXACT ou próximo de uma correspondência completa com a pesquisa consulta resultará em classificação elevada.                       |
-| Nome do Publicador           |  Elevado      | EXACT ou próximo de uma correspondência completa com a pesquisa consulta resultará em classificação elevada.                       |
+| Nome da Oferta               |  Alta      | EXACT ou próximo de uma correspondência completa com a pesquisa consulta resultará em classificação elevada.                       |
+| Nome do publicador           |  Alta      | EXACT ou próximo de uma correspondência completa com a pesquisa consulta resultará em classificação elevada.                       |
 | Breve descrição        |  Médio    | Dada a nomenclatura de aplicações e o publicador nomes quase irão garantir que uma classificação alta, talvez não seja o mais relevante. Neste caso, uma descrição breve é fundamental. Mantenha o texto conciso e para o ponto. Palavras-chave e os termos de pesquisa esperado devem ser incluídos para melhor resultado.  Por exemplo "Este é o melhor POS de varejo baseado-se totalmente no Dynamics 365" será menos eficiente do que "o POS de varejo (ponto de venda) para o Dynamics 365".  | 
 | Descrição longa         |  Baixa       | Descrição oferece uma forma de entrar em mais detalhes. As descrições mais eficazes são de razoável e palavras-chave são utilizadas.  Uma descrição para ponto usando palavras-chave se beneficiarão mais do que há muito tempo, texto longo. Certifique-se de que a chaves termos, como "IoT", estão presentes na descrição.  |
 | Categorias de Produtos       | Médio     |  Categorias de produtos são determinadas por uma combinação de opções do publicador e a Microsoft. Selecione estas categorias apropriadamente para que os usuários podem facilmente encontrar as aplicações na categoria correta. |

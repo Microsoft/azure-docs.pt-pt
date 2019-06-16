@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60516703"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Consumo de recursos de gerenciamento e a carga no Service Fabric com a métrica
@@ -35,9 +35,9 @@ Digamos que deseja começar a gravar e implantar o seu serviço. Neste momento n
 
 | Métrica | Carga de instância sem monitoração de estado | Carga secundária com monitoração de estado | Carga primária com monitoração de estado | Peso |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |Elevado |
+| PrimaryCount |0 |0 |1 |Alta |
 | ReplicaCount |0 |1 |1 |Médio |
-| Contagem |1 |1 |1 |Baixa |
+| Count |1 |1 |1 |Baixa |
 
 
 Para cargas de trabalho básicas, as métricas do padrão fornecem uma distribuição decente de trabalho no cluster. No exemplo a seguir, vamos ver o que acontece quando criamos dois serviços e contar com as métricas de padrão para o balanceamento. O primeiro serviço é um serviço com monitorização de estado com três partições e uma réplica de destino definir o tamanho de três. O serviço de segundo é um serviço sem monitoração de estado com uma partição e uma contagem de instâncias de três.
@@ -143,7 +143,7 @@ Como lembrete: Se quiser apenas utilizar as métricas de padrão, não precisa t
 
 Agora, vamos percorrer cada uma destas definições mais detalhadamente e falar sobre o comportamento que afeta.
 
-## <a name="load"></a>Carregar
+## <a name="load"></a>Carregamento
 Todo o objetivo da definição de métrica é representar alguma carga. *Carga* é a quantidade de uma determinada métrica é consumido por alguma instância de serviço ou a réplica num determinado nó. Carga pode ser configurada em praticamente qualquer ponto. Por exemplo:
 
   - Carga pode ser definida quando é criado um serviço. Isso é chamado _carga padrão_.

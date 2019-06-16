@@ -18,10 +18,10 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60833072"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Resolver erros HTTP "502 gateway inválido" e "503 Serviço indisponível" no serviço de aplicações do Azure
@@ -59,7 +59,7 @@ Esta opção permite-lhe saber se a aplicação está a ter problemas. No painel
 
 Algumas das métricas que possa querer monitorizar para a sua aplicação são
 
-* Média do conjunto de trabalho de memória
+* Conjunto de trabalho de memória média
 * Tempo médio de resposta
 * Tempo de CPU
 * Conjunto de trabalho de memória
@@ -83,7 +83,7 @@ Para aceder ao diagnóstico do serviço de aplicações, navegue até à sua apl
 #### <a name="use-the-kudu-debug-console"></a>Utilizar a consola de depuração do Kudu
 Serviço de aplicações é fornecido com uma consola de depuração que pode usar para depuração, explorar, carregar ficheiros, bem como pontos finais de JSON para obter informações sobre o seu ambiente. Isso é chamado do *consola Kudu* ou o *SCM Dashboard* para a sua aplicação.
 
-Pode aceder a este dashboard ao aceder à ligação **https://&lt;o nome da aplicação >.scm.azurewebsites.net/**.
+Pode aceder a este dashboard ao aceder à ligação **https://&lt;o nome da aplicação >.scm.azurewebsites.net/** .
 
 Algumas das coisas que fornece o Kudu são:
 

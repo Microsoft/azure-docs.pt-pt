@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 513ce98703e67053ab0bcac3e6fc7a3e959f6870
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307432"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64717284"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Utilize as ferramentas remotas para resolver problemas de VM do Azure
 
 Quando resolver problemas numa máquina virtual do Azure (VM), pode ligar à VM ao utilizar as ferramentas remotas que são abordadas neste artigo em vez de utilizar o protocolo RDP (Remote Desktop).
 
-## <a name="serial-console"></a>Consola de série
+## <a name="serial-console"></a>Consola de Série
 
 Uso [consola de série de Máquina Virtual](serial-console-windows.md) para executar comandos na VM do Azure remoto.
 
@@ -43,7 +43,7 @@ psexec \\<computer>-u user -s cmd
 >* O parâmetro -s certifica-se de que o comando for chamado com a conta de sistema (permissão de administrador).
 >* PsExec utiliza as portas TCP 135 e 445. Portanto, as duas portas têm de ser aberta na Firewall.
 
-## <a name="run-commands"></a>Comandos Executar
+## <a name="run-commands"></a>Comandos de execução
 
 Ver [scripts do PowerShell de executar na sua VM do Windows com o comando executar](../windows/run-command.md) para obter mais informações sobre como utilizar a funcionalidade de executar comandos para executar scripts na VM.
 
@@ -236,7 +236,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 1. A partir de outra VM na mesma VNET, abra uma instância do **Services. msc**.
 
-2. Com o botão direito **serviços (Local)**.
+2. Com o botão direito **serviços (Local)** .
 
 3. Selecione **ligar a outro computador**.
 

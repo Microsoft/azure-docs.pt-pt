@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257292"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Resolver problemas relacionados com o Azure Data Box e pesadas de caixa de dados do Azure

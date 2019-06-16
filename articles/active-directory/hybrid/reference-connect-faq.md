@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65137793"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ do Azure Active Directory Connect
@@ -62,7 +62,7 @@ Sim, este cenário é suportado. Consulte a [vários domínios](how-to-connect-i
 **P: Pode ter vários conectores para o mesmo domínio do Active Directory no Azure AD Connect?**  
 Não, vários conectores para o mesmo domínio do AD não são suportadas. 
 
-**P: Posso mover a base de dados do Azure AD Connect da base de dados local para uma instância remota do SQL Server?**   
+**P: Posso mover a base de dados do Azure AD Connect da base de dados local para uma instância remota do SQL Server?**    
 Sim, os passos seguintes fornecem orientações gerais sobre como fazer isso. Estamos atualmente a trabalhar num documento mais detalhado.
 1. Criar cópias de segurança da base de dados LocalDB ADSync.
 A forma mais simples de fazer isso é usar o SQL Server Management Studio instalado no mesmo computador que o Azure AD Connect. Ligar à *(LocalDb). \ADSync*e, em seguida, criar cópias de segurança da base de dados do ADSync.

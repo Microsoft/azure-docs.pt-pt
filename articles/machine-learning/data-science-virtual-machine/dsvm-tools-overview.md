@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: gokuma
 ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236467"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conheça a sua máquina de Virtual de ciência de dados

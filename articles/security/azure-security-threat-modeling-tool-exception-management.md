@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 7d881454eb857080f1178f228a1f7bec36cae178
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610698"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de segurança: Gestão de exceções | Atenuações 
@@ -30,7 +30,7 @@ ms.locfileid: "60610698"
 
 ## <a id="servicedebug"></a>WCF - não inclua serviceDebug nó no ficheiro de configuração
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -54,7 +54,7 @@ Desative as informações de depuração no serviço. Pode fazê-lo ao remover o
 
 ## <a id="servicemetadata"></a>WCF - não inclua serviceMetadata nó no ficheiro de configuração
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -65,7 +65,7 @@ Desative as informações de depuração no serviço. Pode fazê-lo ao remover o
 
 ## <a id="exception"></a>Certifique-se de que a manipulação de exceção adequada é feita na ASP.NET Web API
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -183,7 +183,7 @@ Verifique os links na seção referências para obter mais detalhes sobre a mani
 
 ## <a id="messages"></a>Não expõem detalhes de segurança em mensagens de erro
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -194,7 +194,7 @@ Verifique os links na seção referências para obter mais detalhes sobre a mani
 
 ## <a id="default"></a>Implementar a página de processamento de erros de predefinição
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -205,7 +205,7 @@ Verifique os links na seção referências para obter mais detalhes sobre a mani
 
 ## <a id="deployment"></a>Definir o método de implementação de revenda no IIS
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Implementação |  
@@ -216,7 +216,7 @@ Verifique os links na seção referências para obter mais detalhes sobre a mani
 
 ## <a id="fail"></a>Exceções devem falhar com segurança
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  

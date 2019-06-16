@@ -8,10 +8,10 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790917"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obter o estado de funcionamento de recursos com a API REST 
@@ -35,7 +35,7 @@ Os seguintes cabeçalhos são necessários:
 |Cabeçalho do pedido|Descrição|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Autorização:*|Necessário. Definido como válido `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Authorization:*|Necessário. Definido como válido `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### <a name="uri-parameters"></a>Parâmetros do URI
 

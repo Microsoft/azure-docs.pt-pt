@@ -10,10 +10,10 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.openlocfilehash: 312d3abad2ee2c9e668f8b354aaba96f8a652698
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60626219"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Introdução ao IoT Hub módulo identidade e o módulo duplo usando o back-end de node. js e de dispositivo node. js
@@ -113,7 +113,7 @@ Esta aplicação cria uma identidade de dispositivo com o ID **myFirstDevice** e
 Executá-lo usando add.js de nó. Isso lhe dará uma cadeia de ligação para a sua identidade de dispositivo e outro para a sua identidade de módulo.
 
 > [!NOTE]
-> O registo de identidade do Hub IoT apenas armazena identidades de dispositivos e módulos para permitir um acesso seguro ao hub IoT. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação tiver de armazenar outros metadados específicos do dispositivo, deverá utilizar um armazenamento específico da aplicação.  Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, consulte [Guia do programador do IoT Hub](iot-hub-devguide-identity-registry.md).
+> O registo de identidade do Hub IoT apenas armazena identidades de dispositivos e módulos para permitir um acesso seguro ao hub IoT. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação tiver de armazenar outros metadados específicos do dispositivo, deverá utilizar um armazenamento específico da aplicação. Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, consulte [Guia do programador do IoT Hub](iot-hub-devguide-identity-registry.md).
 
 ## <a name="update-the-module-twin-using-nodejs-device-sdk"></a>Atualizar o módulo duplo usando o SDK de dispositivo node. js
 

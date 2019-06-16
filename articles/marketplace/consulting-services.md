@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964126"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de consultoria para o Azure Marketplace e AppSource
@@ -35,7 +35,7 @@ As lojas de marketplace estão alinhadas com os públicos-alvo e produtos cloud 
 Ofertas de serviço que são baseadas no Microsoft Dynamics 365, o Office 365 e o Power BI são elegíveis para ser listado no AppSource. Para obter mais informações, consulte [diretrizes de listagem de serviços de consultoria Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
 > [!Note]
-> Serviços no Azure Marketplace de consultoria devem tirar partido das ofertas destinadas a um * * público técnico com se concentra em *soluções técnicas do Azure e serviços.* * * Serviços no AppSource de consultoria devem tirar partido das ofertas destinadas a sua experiência no fornecimento de soluções de qualidade para o Dynamics 365, o Power BI ou o PowerApps listar ofertas de serviços de consultoria no AppSource
+> Serviços no Azure Marketplace de consultoria devem tirar partido das ofertas destinadas a um * * público técnico com se concentra em *soluções técnicas do Azure e serviços.* \* * Serviços no AppSource de consultoria devem tirar partido das ofertas destinadas a sua experiência no fornecimento de soluções de qualidade para o Dynamics 365, o Power BI ou o PowerApps listar ofertas de serviços de consultoria no AppSource
 > 
 > 
 > [!TIP]
@@ -165,8 +165,8 @@ No Portal de parceiro de Cloud, pode adicionar formatação à sua listagem usan
 * Espaço após "*" para marcadores (Ex: *(space)Content)
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>espaço para o cabeçalho (Ex: ###(space)Agenda/Deliverables)
 * Quebra de linha depois de cabeçalho
-* * * = em negrito 
-* * Italicize resumo da oferta
+* \* * = em negrito 
+* \* Italicize resumo da oferta
 
 
 ## <a name="next-steps"></a>Passos Seguintes

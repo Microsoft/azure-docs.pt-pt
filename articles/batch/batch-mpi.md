@@ -15,10 +15,10 @@ ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7a4184fa361ba863cdaf916ef4853eda8b6e8188
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595940"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utilizar tarefas de várias instâncias para executar aplicações Message Passing Interface (MPI) no Batch
@@ -195,7 +195,7 @@ Para obter os detalhes completos sobre esses e outro lote de computação variá
 >
 >
 
-## <a name="resource-files"></a>Ficheiros de recursos
+## <a name="resource-files"></a>Arquivos de recursos
 Existem dois conjuntos de ficheiros de recursos a serem considerados para tarefas de várias instâncias: **ficheiros de recursos comuns** que *todos os* tarefas transferir (ambos os principal e subtarefas de) e o **dearquivosderecursos** especificado para várias instâncias de tarefas por si só, quais *apenas primário* downloads de tarefas.
 
 Pode especificar um ou mais **ficheiros de recursos comuns** nas definições de várias instâncias para uma tarefa. Estes ficheiros de recursos comuns são transferidos a partir [armazenamento do Azure](../storage/common/storage-introduction.md) em cada nó **diretório partilhado de tarefa** pelo principal e todas as subtarefas. Pode aceder o diretório partilhado de tarefas da aplicação e a coordenação de linhas de comandos utilizando a `AZ_BATCH_TASK_SHARED_DIR` variável de ambiente. O `AZ_BATCH_TASK_SHARED_DIR` caminho é idêntico em cada nó alocada para a tarefa de várias instâncias, portanto, pode partilhar um comando único coordenação entre a primária e todas as subtarefas. Batch não "partilha" o diretório num sentido de acesso remoto, mas pode utilizá-la como uma montagem ou partilhar ponto a como mencionado anteriormente na dica de variáveis de ambiente.

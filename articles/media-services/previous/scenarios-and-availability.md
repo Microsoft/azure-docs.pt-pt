@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991436"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
@@ -171,7 +171,7 @@ Esta secção mostra detalhes sobre a disponibilidade das funcionalidades dos Se
 
 Para determinar se os Serviços de Multimédia estão disponíveis num datacenter, navegue até https://azure.microsoft.com/status/ e desloque-se até à tabela MULTIMÉDIA.
 
-### <a name="streaming-endpoints"></a>Pontos finais de transmissão em fluxo 
+### <a name="streaming-endpoints"></a>Pontos finais de transmissões em fluxo 
 
 Os clientes dos Serviços de Multimédia podem escolher um ponto final de transmissão em fluxo **Standard** ou **Premium**. Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 
@@ -207,14 +207,14 @@ A Análise de Multimédia é um conjunto de componentes de voz e visão que faci
 
 |Nome do processador de mulitmédia|Estado|Datacenters
 |---|---|---|
-|Azure Media Face Detector|Pré-visualizar|Todos|
+|Azure Media Face Detector|Pré-visualização|Todos|
 |Azure Media Indexer|GA|Todos|
-|Azure Media Motion Detector|Pré-visualizar|Todos|
-|Azure Media OCR|Pré-visualizar|Todos|
-|Azure Media Redactor|Pré-visualizar|Todos|
-|Azure Media Stabilizer|Pré-visualizar|Todos|
-|Azure Media Video Thumbnails|Pré-visualizar|Todos|
-|Azure Media Indexer 2|Pré-visualizar|Tudo, exceto a China e a região do Governo Federal|
+|Azure Media Motion Detector|Pré-visualização|Todos|
+|Azure Media OCR|Pré-visualização|Todos|
+|Azure Media Redactor|Pré-visualização|Todos|
+|Azure Media Stabilizer|Pré-visualização|Todos|
+|Azure Media Video Thumbnails|Pré-visualização|Todos|
+|Azure Media Indexer 2|Pré-visualização|Tudo, exceto a China e a região do Governo Federal|
 
 ### <a name="protection"></a>Proteção
 

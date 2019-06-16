@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9daeb5e0de9c53f16efff46e02015acfa7c521
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 6ea885dfd1dd38e0811606cd67bf0a1730b0c824
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110626"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
@@ -160,7 +160,7 @@ Ao utilizar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
 - Um objeto com o **ID de dispositivo** que corresponde ao ID do Windows cliente tem de existir.
 - O valor de **DeviceTrustType** tem de ser **Associados a um domínio**. Isto é equivalente ao estado **Associado ao Azure AD híbrido** na página Dispositivos no portal do Azure AD.
-- O valor de **Ativado** tem de ser **Verdadeiro** e **DeviceTrustLevel** para ser **Gerido** para dispositivos que são utilizados no acesso condicional.
+- O valor para **Enabled** tem de ser **True** e **DeviceTrustLevel** tem de ser **gerida** para dispositivos que são utilizados no acesso condicional.
 
 **Para verificar os detalhes do serviço:**
 

@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023451"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competências cognitivas de reconhecimento de entidades
@@ -62,14 +62,14 @@ Estes são entidades que são bem conhecidas, mas não classificadas como parte 
 | Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | pessoas      | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa o nome de uma pessoa. |
-| localizações  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma localização. |
+| locations  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma localização. |
 | organizações  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma organização. |
 | quantidades  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma quantidade. |
 | dateTimes  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa um DateTime (tal como aparece no texto) valor. |
 | urls | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa um URL |
-| e-mails | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma mensagem de e-mail |
+| mensagens de correio eletrónico | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma mensagem de e-mail |
 | namedEntities | Uma matriz de tipos complexos que contém os seguintes campos: <ul><li>category</li> <li>valor (o nome de entidade real)</li><li>deslocamento (localização onde foi encontrado no texto)</li><li>confiança (não utilizados por agora. Será definido como um valor de -1)</li></ul> |
-| entidades | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídos de texto, com os seguintes campos <ul><li> nome (o nome de entidade real. Isso representa um formulário de "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (uma ligação para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>Subtipo (disponível apenas para determinadas categorias, isso dá uma vista mais granular do tipo de entidade)</li><li> corresponde a (uma coleção complexa que contém)<ul><li>texto (o texto não processado para a entidade)</li><li>deslocamento (localização onde foi encontrado)</li><li>comprimento (o comprimento do texto de entidade não processados)</li></ul></li></ul> |
+| Entidades | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídos de texto, com os seguintes campos <ul><li> nome (o nome de entidade real. Isso representa um formulário de "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (uma ligação para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>Subtipo (disponível apenas para determinadas categorias, isso dá uma vista mais granular do tipo de entidade)</li><li> corresponde a (uma coleção complexa que contém)<ul><li>texto (o texto não processado para a entidade)</li><li>deslocamento (localização onde foi encontrado)</li><li>comprimento (o comprimento do texto de entidade não processados)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707104"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticação e autorização com coleções de área de trabalho do Power BI
@@ -41,7 +41,7 @@ O token de aplicação pode conter as seguintes declarações:
 | **ver** |A versão do token de aplicação. 0.2.0 é a versão atual. |
 | **aud** |O destinatário do token. Para utilizar as coleções de área de trabalho do Power BI: *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Uma cadeia que indica que o aplicativo que emitiu o token. |
-| **tipo** |O tipo de token de aplicação que está a ser criada. O tipo de suporte único atual é **incorporar**. |
+| **type** |O tipo de token de aplicação que está a ser criada. O tipo de suporte único atual é **incorporar**. |
 | **wcn** |O nome de coleção de área de trabalho o token está a ser emitido para. |
 | **wid** |O token de ID de área de trabalho é que está a ser emitido. |
 | **rid** |O token de ID do relatório está a ser emitido para. |
@@ -92,7 +92,7 @@ Quando utilizar tokens de incorporação, pode querer restringir a utilização 
 
 Seguem-se os âmbitos disponíveis para as coleções de área de trabalho do Power BI.
 
-|Âmbito|Descrição|
+|Scope|Descrição|
 |---|---|
 |Dataset.Read|Fornece a permissão para ler o conjunto de dados especificado.|
 |Dataset.Write|Fornece a permissão de escrita para o conjunto de dados especificado.|

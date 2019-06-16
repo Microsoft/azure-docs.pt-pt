@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190016"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078155"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 
@@ -42,16 +42,18 @@ Por exemplo: Uma única partilha pode atingir 100 000 IOPS e um único ficheiro 
 
 ### <a name="premium-filestorage-account-limits"></a>Limites de conta do Premium FileStorage
 
-Partilhas de ficheiros de Premium são aprovisionadas numa conta de armazenamento especial chamada **filestorage (pré-visualização)**. Esta conta tem destinos de escala ligeiramente diferente do que a conta de armazenamento utilizada para partilhas de ficheiros padrão. Para os alvos de dimensionamento de conta de armazenamento, consulte a tabela a [metas de dimensionamento de conta de armazenamento do Azure](#azure-storage-account-scale-targets) secção.
+Partilhas de ficheiros de Premium são aprovisionadas numa conta de armazenamento especial chamada **filestorage (pré-visualização)** . Esta conta tem destinos de escala ligeiramente diferente do que a conta de armazenamento utilizada para partilhas de ficheiros padrão. Para os alvos de dimensionamento de conta de armazenamento, consulte a tabela a [metas de dimensionamento de conta de armazenamento do Azure](#azure-storage-account-scale-targets) secção.
 
 > [!IMPORTANT]
 > Limites de conta de armazenamento se aplicam a todas as partilhas. Dimensionar até o máximo para as contas de armazenamento só está alcançável se existir apenas uma partilha por conta de armazenamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## <a name="azure-file-sync-scale-targets"></a>Alvos de dimensionamento do Azure File Sync
 
-Com o Azure File Sync, tentamos tanto quanto possível para conceber para utilização ilimitada, no entanto, isso nem sempre é possível. A tabela abaixo indica os limites de nosso teste, e os destinos são limites, na verdade, disco rígidos:
+O Azure File Sync foi desenvolvido com o objetivo de utilização ilimitada, mas a utilização ilimitada nem sempre é possível. A tabela seguinte indica os limites de testes da Microsoft e também indica os destinos são limites fixos:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -82,7 +84,7 @@ Para ajudar a planear a implementação para cada uma das etapas, abaixo estão 
 | Carregar o débito | 20 objetos por segundo |
 | Espaço de nomes Download débito * | 400 objetos por segundo |
 
-* Quando é criado um novo ponto de final de servidor, o agente do Azure File Sync não transferir os conteúdos do ficheiro. -Lo primeiro sincroniza o espaço de nomes completo e, em seguida, os acionadores em segundo plano Lembre-se para transferir os ficheiros, qualquer um em sua totalidade ou, se em camada de cloud está ativada para a política de disposição em camadas na cloud, defina o ponto final de servidor.
+\* Quando é criado um novo ponto de final de servidor, o agente do Azure File Sync não transferir os conteúdos do ficheiro. -Lo primeiro sincroniza o espaço de nomes completo e, em seguida, os acionadores em segundo plano Lembre-se para transferir os ficheiros, qualquer um em sua totalidade ou, se em camada de cloud está ativada para a política de disposição em camadas na cloud, defina o ponto final de servidor.
 
 | Sincronização em curso  |   |
 |-|--|
@@ -92,7 +94,7 @@ Para ajudar a planear a implementação para cada uma das etapas, abaixo estão 
 | Carregar o débito | objetos de 30 por segundo |
 | Débito de transferência completa * | 60 objetos por segundo |
 
-* Se cloud em camadas estiver ativada, o que é provável que observar um melhor desempenho, como apenas alguns do ficheiro de dados são transferidos. O Azure File Sync transfere apenas os dados de ficheiros em cache quando eles são alterados em qualquer um dos pontos finais. Para ficheiros em camadas ou criados recentemente, o agente não transfere os dados de ficheiro e, em vez disso, só sincroniza o espaço de nomes para todos os pontos finais do servidor. O agente também suporta parciais transferências de ficheiros em camadas como estes são acedidos pelo utilizador. 
+\* Se cloud em camadas estiver ativada, o que é provável que observar um melhor desempenho, como apenas alguns do ficheiro de dados são transferidos. O Azure File Sync transfere apenas os dados de ficheiros em cache quando eles são alterados em qualquer um dos pontos finais. Para ficheiros em camadas ou criados recentemente, o agente não transfere os dados de ficheiro e, em vez disso, só sincroniza o espaço de nomes para todos os pontos finais do servidor. O agente também suporta parciais transferências de ficheiros em camadas como estes são acedidos pelo utilizador. 
 
 > [!Note]  
 > Os números acima não são uma indicação do desempenho que irá ocorrer. O desempenho real dependerá vários fatores, conforme descrito no início desta secção.

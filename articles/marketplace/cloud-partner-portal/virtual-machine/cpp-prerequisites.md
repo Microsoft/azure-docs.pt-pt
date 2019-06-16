@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: pabutler
 ms.openlocfilehash: 258d21eae5af50b5dc0bed6887618e2999cae45a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257389"
 ---
 # <a name="virtual-machine-prerequisites"></a>Pré-requisitos de máquina virtual

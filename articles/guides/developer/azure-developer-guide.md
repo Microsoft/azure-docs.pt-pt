@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
 ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570565"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
@@ -158,7 +158,7 @@ O Azure fornece várias formas de utilizar contentores em seus aplicativos.
 
 É fundamental, não apenas saber quem está a utilizar os seus aplicativos, mas também para impedir acesso não autorizado aos seus recursos. O Azure fornece várias formas de autenticar os clientes de aplicação.
 
-- **Azure Active Directory (Azure AD)**: Com base na cloud de multi-inquilino, identidades e acessos serviço Gestão da Microsoft. Pode adicionar o início de sessão único (SSO) para seus aplicativos ao integrar com o Azure AD. Pode acessar as propriedades do diretório com o Azure AD Graph API diretamente ou a Graph API do Microsoft. Pode integrar com o suporte do Azure AD para o framework de autorização de OAuth2.0 e, em seguida, abrir ID Connect com pontos finais HTTP/REST nativos e as bibliotecas de autenticação Multiplataforma do Azure AD.
+- **Azure Active Directory (Azure AD)** : Com base na cloud de multi-inquilino, identidades e acessos serviço Gestão da Microsoft. Pode adicionar o início de sessão único (SSO) para seus aplicativos ao integrar com o Azure AD. Pode acessar as propriedades do diretório com o Azure AD Graph API diretamente ou a Graph API do Microsoft. Pode integrar com o suporte do Azure AD para o framework de autorização de OAuth2.0 e, em seguida, abrir ID Connect com pontos finais HTTP/REST nativos e as bibliotecas de autenticação Multiplataforma do Azure AD.
 
   > **Quando utilizar**: Quando deseja fornecer uma experiência SSO, trabalhar com dados baseado em gráfico ou autenticar utilizadores com base em domínio.
   > 
@@ -281,7 +281,7 @@ O Explorador de recursos do Azure é uma ótima ferramenta para visualizar os re
 
 Ao permitir o acesso aos recursos do Azure, é sempre melhor prática para fornecer aos utilizadores com o menor privilégio necessário para executar uma determinada tarefa.
 
-- **Controlo de acesso baseado em funções (RBAC)**: No Azure, pode conceder acesso a contas de utilizador (principais) com um âmbito especificado: subscrição, grupo de recursos ou recursos individuais. RBAC permite-lhe implementar um conjunto de recursos num grupo de recursos e conceder permissões a um grupo ou utilizador específico. Ele também permite-lhe limitar o acesso a apenas os recursos que pertencem ao grupo de recursos de destino. Também pode conceder acesso a um único recurso, como uma máquina virtual ou a rede virtual. Para conceder acesso, atribuir uma função para o utilizador, grupo ou principal de serviço. Existem muitas funções predefinidas, e também pode definir suas próprias funções personalizadas. Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md).
+- **Controlo de acesso baseado em funções (RBAC)** : No Azure, pode conceder acesso a contas de utilizador (principais) com um âmbito especificado: subscrição, grupo de recursos ou recursos individuais. RBAC permite-lhe implementar um conjunto de recursos num grupo de recursos e conceder permissões a um grupo ou utilizador específico. Ele também permite-lhe limitar o acesso a apenas os recursos que pertencem ao grupo de recursos de destino. Também pode conceder acesso a um único recurso, como uma máquina virtual ou a rede virtual. Para conceder acesso, atribuir uma função para o utilizador, grupo ou principal de serviço. Existem muitas funções predefinidas, e também pode definir suas próprias funções personalizadas. Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md).
 
   > **Quando utilizar**: Quando precisa de gestão de acessos detalhada para utilizadores e grupos ou quando precisa fazer um proprietário de uma subscrição de um utilizador.
   > 
@@ -291,7 +291,7 @@ Ao permitir o acesso aos recursos do Azure, é sempre melhor prática para forne
 
   > **Quando utilizar**: Quando estiver programaticamente gerir recursos do Azure ou conceder acesso para aplicações. Para obter mais informações, consulte [principal de serviço e de aplicação do Active Directory criar](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-#### <a name="tags"></a>Etiquetas
+#### <a name="tags"></a>Tags
 
 O Azure Resource Manager permite-lhe atribuir etiquetas personalizadas para recursos individuais. As etiquetas que são pares chave-valor, podem ser útil quando precisa organizar os recursos de faturação ou monitorização. Etiquetas fornecem uma maneira de controlar recursos em vários grupos de recursos. Pode atribuir as etiquetas no portal, no modelo do Azure Resource Manager ou através de programação, utilizando a API REST, a CLI do Azure ou o PowerShell. Pode atribuir várias etiquetas para cada recurso. Para obter mais informações, consulte [utilizar etiquetas para organizar os recursos do Azure](../../resource-group-using-tags.md).
 

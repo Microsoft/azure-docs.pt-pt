@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
 ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989915"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Criar e explorar automatizada experimentações de machine learning no portal do Azure (pré-visualização)
@@ -130,7 +130,7 @@ Pode obter uma ampla variedade de estatísticas de resumo em seu conjunto de dad
 
 * **Min**: o valor mínimo da coluna. As entradas em branco são apresentados para recursos cujo tipo não tem uma ordem inerente (por exemplo, booleanos).
 
-* **Máx.**: o valor máximo da coluna. Como "min", entradas em branco são apresentados para recursos com tipos irrelevantes.
+* **Máx.** : o valor máximo da coluna. Como "min", entradas em branco são apresentados para recursos com tipos irrelevantes.
 
 * **Contagem de**: o número total de entradas em falta e não em falta na coluna.
 

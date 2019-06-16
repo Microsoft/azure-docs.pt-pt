@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60393490"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análise de eventos e visualização com os registos do Azure Monitor
@@ -43,7 +43,7 @@ Depois de dados são recebidos pelos registos do Azure Monitor, o Azure tem vár
 
 Na [Portal do Azure](https://portal.azure.com), vá para o grupo de recursos em que criou a solução de análise do Service Fabric.
 
-Selecione o recurso **ServiceFabric\<nameOfOMSWorkspace\>**.
+Selecione o recurso **ServiceFabric\<nameOfOMSWorkspace\>** .
 
 No `Summary`, verá os mosaicos na forma de um gráfico para cada uma das soluções de ativadas, incluindo um para o Service Fabric. Clique nas **Service Fabric** gráfico para continuar para a solução de análise do Service Fabric.
 

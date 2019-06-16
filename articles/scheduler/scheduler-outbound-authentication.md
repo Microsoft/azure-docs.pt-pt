@@ -10,11 +10,11 @@ ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344353"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708942"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída do agendador do Azure
 
@@ -47,7 +47,7 @@ Ao adicionar a autenticação com o `ClientCertificate` modelar, especifique ess
 | Elemento | Necessário | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento principal) | O objeto de autenticação para utilizar um certificado de cliente SSL |
-| **tipo** | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| **type** | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
 | **pfx** | Sim | O conteúdo do ficheiro PFX codificada em base64 |
 | **password** | Sim | A palavra-passe para aceder ao ficheiro PFX |
 ||| 
@@ -59,7 +59,7 @@ Quando é enviado um pedido com informações de autenticação, a resposta cont
 | Elemento | Descrição | 
 |---------|-------------| 
 | **autenticação** (elemento principal) | O objeto de autenticação para utilizar um certificado de cliente SSL |
-| **tipo** | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| **type** | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
 | **certificateThumbprint** |O thumbprint do certificado |
 | **certificateSubjectName** |O nome distinto do requerente de certificado |
 | **certificateExpiration** | Data de expiração do certificado |
@@ -167,7 +167,7 @@ Ao adicionar a autenticação com o `Basic` modelar, especifique esses elementos
 | Elemento | Necessário | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento principal) | O objeto de autenticação para utilizar a autenticação básica | 
-| **tipo** | Sim | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. | 
+| **type** | Sim | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. | 
 | **username** | Sim | O nome de utilizador para autenticar | 
 | **password** | Sim | A palavra-passe para autenticar |
 |||| 
@@ -179,7 +179,7 @@ Quando é enviado um pedido com informações de autenticação, a resposta cont
 | Elemento | Descrição | 
 |---------|-------------|
 | **autenticação** (elemento principal) | O objeto de autenticação para utilizar a autenticação básica |
-| **tipo** | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. |
+| **type** | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. |
 | **username** | O nome de utilizador autenticado |
 ||| 
 
@@ -276,7 +276,7 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## <a name="active-directory-oauth"></a>Active Directory OAuth
+## <a name="active-directory-oauth"></a>OAuth do Active Directory
 
 ### <a name="request-body---active-directory-oauth"></a>Corpo - Active Directory OAuth do pedido 
 
@@ -285,7 +285,7 @@ Ao adicionar a autenticação com o `ActiveDirectoryOAuth` modelar, especifique 
 | Elemento | Necessário | Descrição |
 |---------|----------|-------------|
 | **autenticação** (elemento principal) | Sim | O objeto de autenticação para utilizar a autenticação de ActiveDirectoryOAuth |
-| **tipo** | Sim | O tipo de autenticação. Para a autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
+| **type** | Sim | O tipo de autenticação. Para a autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
 | **tenant** | Sim | O identificador do inquilino para o inquilino do Azure AD. Para localizar o identificador do inquilino para o inquilino do Azure AD, execute `Get-AzureAccount` no Azure PowerShell. |
 | **Público-alvo** | Sim | Este valor é definido como `https://management.core.windows.net/`. | 
 | **clientId** | Sim | O identificador de cliente para a aplicação do Azure AD | 
@@ -299,7 +299,7 @@ Quando é enviado um pedido com informações de autenticação, a resposta cont
 | Elemento | Descrição |
 |---------|-------------|
 | **autenticação** (elemento principal) | O objeto de autenticação para utilizar a autenticação de ActiveDirectoryOAuth |
-| **tipo** | O tipo de autenticação. Para a autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| **type** | O tipo de autenticação. Para a autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 | **tenant** | O identificador do inquilino para o inquilino do Azure AD |
 | **Público-alvo** | Este valor é definido como `https://management.core.windows.net/`. |
 | **clientId** | O identificador de cliente para a aplicação do Azure AD |

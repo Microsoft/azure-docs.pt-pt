@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190404"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137271"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição de Batch?
 
@@ -24,7 +24,7 @@ Transcrição de batch é ideal se quiser transcrição de uma grande quantidade
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="subscription-key"></a>Chave de Subscrição
+### <a name="subscription-key"></a>Chave de subscrição
 
 Com todas as funcionalidades do serviço de voz, criar uma chave de subscrição do [portal do Azure](https://portal.azure.com) seguindo nossas [guia de introdução](get-started.md). Se pretender obter transcrições de nossos modelos de linha de base, a criação de uma chave é tudo o que precisa fazer.
 
@@ -66,8 +66,8 @@ Parâmetros de configuração são fornecidos como JSON:
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<local to us, for example en-US>",
-  "name": "<user define name of the transcription batch>",
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
@@ -83,12 +83,14 @@ Parâmetros de configuração são fornecidos como JSON:
 
 ### <a name="configuration-properties"></a>Propriedades de configuração
 
-| Parâmetro | Descrição | Obrigatório / opcional |
-|-----------|-------------|---------------------|
-| `ProfanityFilterMode` | Especifica como lidar com linguagem inapropriada nos resultados de reconhecimento. Aceite os valores são `none` que desativa a filtragem de palavras ofensivas `masked` que substitui a linguagem inapropriada por asteriscos, `removed` linguagem inapropriada todos os que remove o resultado ou `tags` que adiciona as etiquetas de "linguagem inapropriada". A predefinição é `masked`. | Opcional |
-| `PunctuationMode` | Especifica como lidar com a pontuação nos resultados de reconhecimento. Aceite os valores são `none` que desativa a pontuação, `dictated` implica que pontuação explícita, `automatic` que permite que o Decodificador lidar com a pontuação, ou `dictatedandautomatic` que implica ditado marcas de pontuação ou automático. | Opcional |
- | `AddWordLevelTimestamps` | Especifica se os carimbos de nível de word devem ser adicionados à saída. Aceite os valores são `true` que permite aos carimbos de nível do word e `false` (o valor predefinido) para desabilitá-lo. | Opcional |
- | `AddSentiment` | Especifica o sentimento deve ser adicionado para a expressão. Aceite os valores são `true` que permite que o sentimento por expressão e `false` (o valor predefinido) para desabilitá-lo. | Opcional |
+Utilize estas propriedades opcionais para configurar a transcrição:
+
+| Parâmetro | Descrição |
+|-----------|-------------|
+| `ProfanityFilterMode` | Especifica como lidar com linguagem inapropriada nos resultados de reconhecimento. Aceite os valores são `none` que desativa a filtragem de palavras ofensivas `masked` que substitui a linguagem inapropriada por asteriscos, `removed` linguagem inapropriada todos os que remove o resultado ou `tags` que adiciona as etiquetas de "linguagem inapropriada". A predefinição é `masked`. |
+| `PunctuationMode` | Especifica como lidar com a pontuação nos resultados de reconhecimento. Aceite os valores são `none` que desativa a pontuação, `dictated` implica que pontuação explícita, `automatic` que permite que o Decodificador lidar com a pontuação, ou `dictatedandautomatic` que implica ditado marcas de pontuação ou automático. |
+ | `AddWordLevelTimestamps` | Especifica se os carimbos de nível de word devem ser adicionados à saída. Aceite os valores são `true` que permite aos carimbos de nível do word e `false` (o valor predefinido) para desabilitá-lo. |
+ | `AddSentiment` | Especifica o sentimento deve ser adicionado para a expressão. Aceite os valores são `true` que permite que o sentimento por expressão e `false` (o valor predefinido) para desabilitá-lo. |
 
 ### <a name="storage"></a>Armazenamento
 
@@ -100,6 +102,40 @@ Sondagem de status de transcrição pode não ser o melhor desempenho ou proporc
 
 Para obter mais detalhes, consulte [Webhooks](webhooks.md).
 
+## <a name="speaker-separation-diarization"></a>Separação de orador (Diarization)
+
+Diarization é o processo de separar oradores num trecho de áudio. Nosso pipeline do Batch suporta Diarization e é capaz de reconhecer dois oradores no gravações de canal mono.
+
+Para pedir que o seu pedido de transcrição de áudio é processado para diarization, simplesmente precisa adicionar o parâmetro relevante na solicitação HTTP, conforme mostrado abaixo.
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+Carimbos de nível do Word também teria que ser "ativado" como indicam os parâmetros no pedido acima. 
+
+O áudio correspondente irá conter os oradores identificados por um número (atualmente suportamos que apenas dois vozes, para que os oradores serão identificados como "1 orador ' e"Orador 2") seguido pela saída transcrição.
+
+Observe também que Diarization não está disponível no gravações estéreo. Além disso, todos os JSON saída irá conter a marca de orador. Se não for utilizado diarization, ele mostrará ' orador: Nulo ' no JSON de saída.
+
+Regiões suportadas estão listados abaixo.
+
+| Idioma | Localidade |
+|--------|-------|
+| Português | en-US |
+| Chinês | zh-CN |
+| Deutsch | de-DE |
+
 ## <a name="sentiment"></a>Sentimento
 
 Sentimento é um novo recurso na API de transcrição do Batch e é um recurso importante no domínio do Centro de chamada. Os clientes podem utilizar o `AddSentiment` parâmetros para os pedidos para 
@@ -110,7 +146,7 @@ Sentimento é um novo recurso na API de transcrição do Batch e é um recurso i
 4.  Identificar o que correu bem quando ativar chamadas negativas para positivo
 5.  Identificar o que, como os clientes e o que eles não gosto sobre um produto ou um serviço
 
-Sentimento é classificado por segmento de áudio em que um segmento de áudio é definido como o intervalo de tempo entre o início da expressão (deslocamento) e o silêncio de deteção de fim do fluxo de bytes. Todo o texto dentro desse segmento é utilizado para calcular o sentimento. NÃO podemos calcular quaisquer valores de sentimentos de agregação para a chamada de toda ou a voz inteiro de cada canal. Estes são deixadas para o proprietário do domínio ainda mais a aplicar.
+Sentimento é classificado por segmento de áudio em que um segmento de áudio é definido como o intervalo de tempo entre o início da expressão (deslocamento) e o silêncio de deteção de fim do fluxo de bytes. Todo o texto dentro desse segmento é utilizado para calcular o sentimento. NÃO podemos calcular quaisquer valores de sentimentos de agregação para a chamada de toda ou a voz inteiro de cada canal. Estas agregações restantes para o proprietário do domínio ainda mais a aplicar.
 
 Sentimento é aplicado no formulário léxico.
 
@@ -149,11 +185,11 @@ Um exemplo de saída JSON é semelhante a abaixo:
   ]
 }
 ```
-Os recursos utiliza um modelo de sentimento que está atualmente em Beta.
+A funcionalidade utiliza um modelo de sentimentos, que está atualmente na versão Beta.
 
 ## <a name="sample-code"></a>Código de exemplo
 
-O exemplo completo está disponível na [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) dentro do `samples/batch` subdiretório.
+Amostras completas estão disponíveis no [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) dentro do `samples/batch` subdiretório.
 
 Terá de personalizar o código de exemplo com as suas informações de subscrição, a região do serviço, o URI de SAS que aponta para o arquivo de áudio para transcreva e IDs de modelo, no caso de que pretende utilizar um modelo de idioma ou acústicos personalizado. 
 

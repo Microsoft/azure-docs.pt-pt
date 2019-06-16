@@ -3,18 +3,18 @@ title: Definir um novo tipo de dispositivo no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra-lhe como definir, enquanto construtor, um novo tipo de dispositivo na aplicação do Azure IoT Central. O utilizador define a telemetria, o estado, as propriedades e as definições para o seu tipo.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/28/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54884728533aeff0472ed99660be00478227fbcd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748752"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056775"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central
 
@@ -132,7 +132,7 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
 
      | Definição              | Value         |
      | -------------------- | -----------   |
-     | Nome a Apresentar         | Temperatura   |
+     | Nome a apresentar         | Temperatura   |
      | Nome do Campo           | temperatura   |
      | Unidades                | F             |
      | Mín.                  | 60            |
@@ -174,7 +174,7 @@ Use eventos para definir os dados de ponto no tempo que o dispositivo envia quan
 
      | Definição              | Value             |
      | -------------------- | -----------       |
-     | Nome a Apresentar         | Erro de Motor da Ventoinha   |
+     | Nome a apresentar         | Erro de Motor da Ventoinha   |
      | Nome do Campo           | fanmotorerr       |
      | Gravidade             | Erro             |
 
@@ -212,7 +212,7 @@ Pode usar o estado para definir e visualizar o estado do dispositivo ou o seu co
 
      | Definição              | Value             |
      | -------------------- | -----------       |
-     | Nome a Apresentar         | Modo da Ventoinha          |
+     | Nome a apresentar         | Modo da Ventoinha          |
      | Nome do Campo           | fanmode           |
      | Value                | 1                 |
      | Etiqueta de apresentação        | Em funcionamento         |
@@ -257,7 +257,7 @@ Utilize *definições* para permitir que um operador envie dados de configuraç�
 
     | Campo                | Value           |
     | -------------------- | -----------     |
-    | Nome a Apresentar         | Definir Temperatura |
+    | Nome a apresentar         | Definir Temperatura |
     | Nome do Campo           | setTemperature  |
     | Unidade de Medida      | F               |
     | Casas Decimais       | 1               |
@@ -287,7 +287,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
     | Campo                | Value                |
     | -------------------- | -------------------- |
-    | Nome a Apresentar         | Location             |
+    | Nome a apresentar         | Location             |
     | Nome do Campo           | localização             |
     | Valor Inicial        | Seattle, WA          |
     | Descrição          | Localização do dispositivo      |
@@ -304,7 +304,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
     | Campo                | Value                   |
     | -------------------- | ----------------------- |
-    | Nome a Apresentar         | Data da Última Assistência       |
+    | Nome a apresentar         | Data da Última Assistência       |
     | Nome do Campo           | serviceDate             |
     | Valor Inicial        | 1/1/2019                |
     | Descrição          | Última assistência           |
@@ -321,7 +321,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
     | Campo                | Value                   |
     | -------------------- | ----------------------- |
-    | Nome a Apresentar         | Versão do firmware        |
+    | Nome a apresentar         | Versão do firmware        |
     | Nome do Campo           | firmwareVersion         |
     | Tipo de Dados            | texto                    |
     | Descrição          | A versão de firmware do ar condicionado |
@@ -336,7 +336,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
     | Campo                | Value                   |
     | -------------------- | ----------------------- |
-    | Nome a Apresentar         | Número de série           |
+    | Nome a apresentar         | Número de série           |
     | Nome do Campo           | serialNumber            |
     | Tipo de Dados            | texto                    |
     | Descrição          | O número de série do ar condicionado  |
@@ -360,7 +360,7 @@ Pode utilizar _comandos_ para ativar um operador para executar comandos diretame
 
     | Campo                | Value           |
     | -------------------- | -----------     |
-    | Nome a Apresentar         | Comando Echo    |
+    | Nome a apresentar         | Comando Echo    |
     | Nome do Campo           | echo            |
     | Tempo Limite Predefinido      | 30              |
     | Tipo a Apresentar         | texto            |
@@ -386,7 +386,7 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
 
     | Definição      | Value       |
     | ------------ | ----------- |
-    | Título        | Temperatura |
+    | Cargo        | Temperatura |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas     | Temperatura (selecione **visibilidade** junto a **temperatura**) |
 
@@ -398,7 +398,7 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
 
     | Definição      | Value       |
     | ------------ | ----------- |
-    | Título        | Ventoinha eventos de Motor |
+    | Cargo        | Ventoinha eventos de Motor |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas     | Ventoinha erro entrar (selecione **visibilidade** junto a **erro de Motor de ventoinha**) |
 
@@ -410,7 +410,7 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
 
     | Definição      | Value       |
     | ------------ | ----------- |
-    | Título        | Modo da Ventoinha |
+    | Cargo        | Modo da Ventoinha |
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas | Ventoinha modo (selecione **visibilidade** junto a **modo ventoinha**) |
 
@@ -424,7 +424,7 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
 
     | Definição                 | Value         |
     | ----------------------- | ------------- |
-    | Título                   | Propriedades do dispositivo |
+    | Cargo                   | Propriedades do dispositivo |
     | Definições e Propriedades | Definir Temperatura<br/>Número de série<br/>Versão do firmware |
 
     Definições e propriedades que definiu anteriormente sobre o **definições e propriedades** páginas são mostradas na **colunas disponíveis**.

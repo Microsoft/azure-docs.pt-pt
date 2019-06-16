@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tyfox
 ms.openlocfilehash: 7c12831c43762ddc776e8d5701f002be97992cbc
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859968"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Gerir clusters de HDInsight do Azure com a CLI do Azure

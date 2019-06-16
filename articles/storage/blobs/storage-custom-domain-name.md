@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: blobs
 ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148936"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure
@@ -36,8 +36,8 @@ A tabela seguinte mostra alguns URLs de exemplo para dados de BLOBs que esteja l
 | --- | --- | --- |
 | Conta de armazenamento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blobs |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Contentor de raiz | http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/$root/myblob |
-| Web |  http://mystorageaccount. [zone].web.core.windows.net/$web/[indexdoc] ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http://www.contoso.com/$web ou http://www.contoso.com/ ou http://www.contoso.com/$web / [indexdoc] ou http://www.contoso.com/[indexdoc] |
+| Contentor de raiz | http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/ $root/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/ $root/myblob |
+| Web |  http://mystorageaccount. [zone].web.core.windows.net/$web/[indexdoc] ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web ou http://mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http://www.contoso.com/ $web ou http://www.contoso.com/ ou http://www.contoso.com/ $web / [indexdoc] ou http://www.contoso.com/ [indexdoc] |
 
 > [!NOTE]  
 > Conforme mostrado nas seções a seguir, todos os exemplos para o ponto final de serviço de BLOBs também se aplicam ao ponto de final de serviço da web.

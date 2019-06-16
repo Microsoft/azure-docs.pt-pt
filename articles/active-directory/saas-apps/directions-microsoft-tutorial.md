@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca35e1c6966365fab1a53fe9674a8f361422eea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0cd6f3a97e96f22ee32ff8f84b234e806f23e945
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899740"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutorial: Integração do Active Directory do Azure com as direções em Microsoft
 
@@ -53,7 +53,7 @@ Para configurar a integração entre as direções em Microsoft com o Azure AD, 
 
 **Para adicionar as direções no Microsoft a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -200,7 +200,7 @@ Não existe nenhum item de ação para configurar o aprovisionamento de utilizad
 
 Quando um utilizador atribuído tenta iniciar sessão para as direções em Microsoft com o painel de acesso, as direções em Microsoft verifica se o usuário existe. Se nenhuma conta de utilizador disponível ainda existe, é criado automaticamente pelas direções em Microsoft.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

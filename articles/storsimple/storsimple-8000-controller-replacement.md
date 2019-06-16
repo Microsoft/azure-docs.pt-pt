@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61482875"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Substituir um módulo de controlador do seu dispositivo StorSimple
@@ -36,7 +36,7 @@ Este tutorial explica como remover e substituir um ou ambos os módulos de contr
 
 A tabela seguinte mostra os cenários de substituição do controlador suportada.
 
-| Maiúsculas/Minúsculas | Cenário de substituição | Procedimento aplicável |
+| Caso | Cenário de substituição | Procedimento aplicável |
 |:--- |:--- |:--- |
 | 1 |Um controlador esteja em estado de falha, outro controlador é bom estado de funcionamento e o Active Directory. |[Única substituição de controlador](#replace-a-single-controller), que descreve o [lógica por trás de uma substituição de único controlador](#single-controller-replacement-logic), bem como a [passos de substituição](#single-controller-replacement-steps). |
 | 2 |Ambos os controladores falharam e requerem substituição. O chassis, discos e bastidor de disco estão em bom Estados. |[Substituição de controlador dupla](#replace-both-controllers), que descreve o [lógica por trás de uma substituição de controlador dupla](#dual-controller-replacement-logic), bem como a [passos de substituição](#dual-controller-replacement-steps). |
@@ -90,12 +90,12 @@ Conclua os seguintes passos, se um dos controladores no seu dispositivo do Micro
    
     **Figura 1** dispositivo Back do StorSimple
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
-   | 3 |Controlador 0 |
-   | 4 |Controlador 1 |
+   | 3 |Controlador 0 |
+   | 4 |Controlador 1 |
 4. No controlador com falha, remova as portas de dados a todos os cabos de rede ligada. Se estiver a utilizar um modelo 8600, também remova os cabos SAS que ligar o controlador ao controlador de EBOD.
 5. Siga os passos em [remover um controlador de](#remove-a-controller) para remover o controlador com falha.
 6. Instale a substituição de fábrica a mesma ranhura a partir do qual foi removido do controlador com falha. Isto aciona a lógica de substituição de controlador único. Para obter mais informações, consulte [único lógica de substituição de controlador](#single-controller-replacement-logic).
@@ -231,7 +231,7 @@ Se este LED é intermitente, o controlador está ativo e outro controlador está
 
 **Figura 8** inverso de bastidor principal com portas de dados e LEDs de monitorização
 
-| Label | Descrição |
+| Etiqueta | Descrição |
 |:--- |:--- |
 | 1-6 |DADOS 0 – 5 portas de rede |
 | 7 |Azul LED |

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60946577"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>O Service Fabric para Visual Studio Code
@@ -70,7 +70,7 @@ A extensão de serviços fiáveis do Service Fabric para o VS Code fornece muito
 * Recursos de infraestrutura do serviço: Criar Aplicação 
 * Recursos de infraestrutura do serviço: Publicar aplicação 
 * Recursos de infraestrutura do serviço: Implementar aplicação 
-* Recursos de infraestrutura do serviço: Remover Aplicação  
+* Recursos de infraestrutura do serviço: Remover aplicação  
 * Recursos de infraestrutura do serviço: Criar aplicação 
 * Recursos de infraestrutura do serviço: Limpar aplicação 
 
@@ -113,7 +113,7 @@ O **do Service Fabric: Implementar aplicação** comando implementa a sua aplica
 > [!NOTE]
 > Implementação de aplicações Java no cluster local não é suportada em máquinas do Windows.
 
-### <a name="service-fabric-remove-application"></a>Recursos de infraestrutura do serviço: Remover Aplicação
+### <a name="service-fabric-remove-application"></a>Recursos de infraestrutura do serviço: Remover aplicação
 O **do Service Fabric: Remover aplicação** comando remove uma aplicação do Service Fabric do cluster que foi anteriormente implementado para utilizar a extensão do VS Code. 
 
 1.  Selecione o **do Service Fabric: Remover aplicação** comando.

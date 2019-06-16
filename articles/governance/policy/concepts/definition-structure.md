@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65979557"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
@@ -167,7 +167,7 @@ Se a localização da definição é r:
 
 Utilizar **displayName** e **Descrição** para identificar a definição de política e fornecer contexto para quando é utilizado. **displayName** tem um comprimento máximo de _128_ carateres e **Descrição** um comprimento máximo de _512_ carateres.
 
-## <a name="policy-rule"></a>Regra de política
+## <a name="policy-rule"></a>regra de política
 
 A regra de política é composta por **se** e **, em seguida,** blocos. Na **se** bloco, define uma ou mais condições que especificar quando a política é imposta. Pode aplicar operadores lógicos para estas condições para definir exatamente o cenário para uma política.
 
@@ -505,7 +505,7 @@ Vários dos aliases que estão disponíveis possuem uma versão que é apresenta
 
 O alias "normal" representa o campo como um único valor. Este campo é para cenários de comparação de correspondência exata quando todo o conjunto de valores tem de ser exatamente conforme definido, nem mais, nem menos.
 
-O **[\*]** alias torna possível a comparar com o valor de cada elemento na matriz e as propriedades específicas de cada elemento. Essa abordagem torna possível comparar as propriedades do elemento de "se nenhuma das', 'se qualquer um dos", ou "se todos os de" cenários. Usando **ipRules [\*]**, um exemplo seria possível validar que cada _ação_ é _negar_, mas não se preocupar sobre quantos regras existem ou que o IP _valor_ é. Esta regra de exemplo verifica a existência de quaisquer correspondências de **ipRules [\*]. Value** para **10.0.4.1** e aplica-se a **effectType** apenas se não encontrar, pelo menos, uma correspondência:
+O **[\*]** alias torna possível a comparar com o valor de cada elemento na matriz e as propriedades específicas de cada elemento. Essa abordagem torna possível comparar as propriedades do elemento de "se nenhuma das', 'se qualquer um dos", ou "se todos os de" cenários. Usando **ipRules [\*]** , um exemplo seria possível validar que cada _ação_ é _negar_, mas não se preocupar sobre quantos regras existem ou que o IP _valor_ é. Esta regra de exemplo verifica a existência de quaisquer correspondências de **ipRules [\*]. Value** para **10.0.4.1** e aplica-se a **effectType** apenas se não encontrar, pelo menos, uma correspondência:
 
 ```json
 "policyRule": {

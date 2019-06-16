@@ -9,10 +9,10 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254672"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade da sua aplicação com o Assistente do Azure
@@ -30,7 +30,7 @@ Para fornecer redundância à aplicação, é recomendável agrupar duas ou mais
 
 Para fornecer redundância à aplicação, é recomendável agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. O assistente identifica os conjuntos de disponibilidade que contenham uma única máquina virtual e recomenda adicionar uma ou mais máquinas virtuais ao mesmo. Esta configuração garante que, durante a um evento de manutenção planeada ou, pelo menos uma máquina virtual está disponível e cumpre o SLA de máquinas virtuais do Azure. Pode escolher para criar uma máquina virtual ou para adicionar uma máquina virtual existente para o conjunto de disponibilidade.  
 
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Utilizar Managed Disks para melhorar a fiabilidade dos dados
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Utilizar o Managed Disks para melhorar a fiabilidade dos dados
 
 Máquinas virtuais que estão num conjunto de disponibilidade com discos que partilham contas de armazenamento ou unidades de escala de armazenamento não são resilientes a falhas de unidade de escala de armazenamento única durante as falhas. O assistente irá identificar esses conjuntos de disponibilidade e recomendamos migrar para Managed Disks do Azure. Isto irá garantir que os discos das máquinas virtuais diferentes no conjunto de disponibilidade estão suficientemente isolados para evitar um ponto único de falha. 
 
@@ -60,7 +60,7 @@ Se um perfil do Gestor de tráfego estiver configurado para encaminhamento geogr
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Utilizar a eliminação de forma recuperável na sua conta de armazenamento do Azure para guardar e recuperar dados após uma substituição acidental ou eliminação
 
-Ativar [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na sua conta de armazenamento, de modo a que eliminou a transição de blobs para um Estado de eliminado de forma recuperável em vez de ser permanentemente eliminado. Quando dados são substituídos, é gerado um instantâneo eliminado de forma recuperável para guardar o estado dos dados substituídos. Utilizar a eliminação de forma recuperável permite-lhe recuperar se existem eliminações acidentais ou substitui. O assistente identifica as contas de armazenamento do Azure que não tem a eliminação de forma recuperável ativada e sugere que o ative.
+Ativar [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) na sua conta de armazenamento, de modo a que eliminou a transição de blobs para um Estado de eliminado de forma recuperável em vez de ser permanentemente eliminado. Quando os dados são substituídos, é gerado um instantâneo de eliminação de forma recuperável para guardar o estado dos dados substituídos. Utilizar a eliminação de forma recuperável permite-lhe recuperar se existem eliminações acidentais ou substitui. O assistente identifica as contas de armazenamento do Azure que não tem a eliminação de forma recuperável ativada e sugere que o ative.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurar o gateway de VPN ativos-ativos para resiliência de ligação
 
@@ -72,25 +72,25 @@ O Assistente do Azure irá verificar a existência de quaisquer gateways VPN que
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de registo inválido
 
-O Assistente do Azure irá detetar as regras de alertas que tenham consultas inválidas especificadas na respetiva secção de condição. Regras de alerta de registo são criadas no Azure Monitor e são utilizadas para executar consultas de análise em intervalos especificados. Os resultados da consulta determinam se um alerta tem de ser acionado. Consultas de análise podem se tornar horas extraordinárias inválida devido a alterações em recursos referenciados, tabelas ou comandos. O assistente irá recomendar que corrija a consulta na regra de alerta para impedi-lo de obtenção de auto-desativado e certifique-se de cobertura de monitorização dos seus recursos no Azure. [Saiba mais sobre regras de alerta de resolução de problemas](https://aka.ms/aa_logalerts_queryrepair)
+O Assistente do Azure irá detetar as regras de alertas que tenham consultas inválidas especificadas na respetiva secção de condição. As regras de alerta de registo são criadas no Azure Monitor e são utilizadas para executar consultas de análise em intervalos especificados. Os resultados da consulta determinam se um alerta tem de ser acionado. As consultas de análise podem tornar-se inválidas ao longo do tempo devido a alterações em recursos, tabelas ou comandos referenciados. O assistente irá recomendar que corrija a consulta na regra de alerta para impedi-lo de obtenção de auto-desativado e certifique-se de cobertura de monitorização dos seus recursos no Azure. [Saiba mais sobre regras de alerta de resolução de problemas](https://aka.ms/aa_logalerts_queryrepair)
 
 ## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Configurar o modo de indexação consistente em sua coleção do Cosmos DB
 
 Contentores do Azure Cosmos DB configurados com o modo de indexação lento podem afetar a atualização dos resultados da consulta. O assistente irá detetar contentores configurado dessa forma e recomendamos mudar para o modo consistente. [Saiba mais sobre políticas no Cosmos DB de indexação](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
 
-## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configurar os seus contentores do Azure Cosmos DB com uma chave de partição
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configurar os contentores do Azure Cosmos DB com uma chave de partição
 
 O Assistente do Azure identificará o Azure Cosmos DB não-particionada coleções que estão prestes a atingir seus quota de armazenamento aprovisionado. Recomenda migrar essas coleções para novas coleções com uma definição de chave de partição para que eles automaticamente podem ser aumentados horizontalmente pelo serviço. [Saiba mais sobre como escolher uma chave de partição](https://aka.ms/cosmosdb/choose-partitionkey)
 
-## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Atualizar o SDK de .NET do Azure Cosmos DB para a versão mais recente do Nuget
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Atualizar o SDK .NET do Azure Cosmos DB para a versão mais recente do Nuget
 
 O Assistente do Azure identificará as contas do Azure Cosmos DB que estejam usando versões antigas do SDK do .NET e recomendável fazer a atualização para a versão mais recente do Nuget para os mais recentes correções, melhorias de desempenho e novas capacidades de funcionalidade. [Saiba mais sobre o SDK de .NET do Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Atualizar o SDK de Java do Azure Cosmos DB para a versão mais recente a partir do Maven
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Atualizar o SDK Java do Azure Cosmos DB para a versão mais recente a partir do Maven
 
 O Assistente do Azure identificará as contas do Azure Cosmos DB que estiver a utilizar as versões antigas do SDK do Java e recomendável fazer a atualização para a versão mais recente do Maven para as mais recentes correções, melhorias de desempenho e novas capacidades de funcionalidade. [Saiba mais sobre o SDK de Java do Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
-## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Atualizar o seu conector do Spark do Azure Cosmos DB para a versão mais recente a partir do Maven
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Atualizar o Conector Spark do Azure Cosmos DB para a versão mais recente a partir do Maven
 
 O Assistente do Azure identificará as contas do Azure Cosmos DB que estejam usando versões antigas do conector do Spark do Cosmos DB e recomendável fazer a atualização para a versão mais recente do Maven para as mais recentes correções, melhorias de desempenho e novas capacidades de funcionalidade. [Saiba mais sobre o conector do Spark do Cosmos DB](https://aka.ms/cosmosdb/spark-connector)
 

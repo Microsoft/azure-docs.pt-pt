@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991386"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
@@ -170,7 +170,7 @@ Ao trabalhar com APIs de gestão de custos, saber que o âmbito é fundamental. 
 5. Copie a conta de cobrança e IDs de perfil de faturação.
 6. O escopo é: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
-### <a name="invoice-sections"></a>Secções de fatura
+### <a name="invoice-sections"></a>Secções de nota fiscal
 
 1. Abra o portal do Azure e, em seguida, navegue para **gestão de custos + faturação** na lista de serviços.
 2. Selecione **secções de nota fiscal** no menu de conta de faturação.

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60454198"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
@@ -66,7 +66,7 @@ A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um 
 | Propriedade | Valor de ID de área de trabalho | Valor de chave da área de trabalho |
 |:--|:--|:--|
 | Name | WorkspaceId | WorkspaceKey |
-| Type | String | String |
+| Tipo | String | String |
 | Value | Cole o ID de área de trabalho de sua área de trabalho do Log Analytics. | Colar com a primária ou uma chave secundária da sua área de trabalho do Log Analytics. |
 | Encriptados | Não | Sim |
 
@@ -182,9 +182,9 @@ A forma mais comum para iniciar um runbook que recolhe dados de monitorização 
 | Propriedade | Value |
 |:--|:--|
 | Name | AutomationJobs-Hourly |
-| Inicia | Selecione a que qualquer altura, pelo menos, 5 minutos posterior à hora atual. |
-| Recorrência | Periódico |
-| Repetir a cada | 1 hora |
+| É iniciado | Selecione a que qualquer altura, pelo menos, 5 minutos posterior à hora atual. |
+| Periodicidade | Periódico |
+| Repetir cada | 1 hora |
 | Definir expiração | Não |
 
 Depois de criar a agenda, terá de definir os valores de parâmetro que serão utilizados sempre que esta agenda inicia o runbook.

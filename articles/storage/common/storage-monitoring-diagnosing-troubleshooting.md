@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912351"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
@@ -467,7 +467,7 @@ A causa mais comum deste erro é um cliente a desligar antes de um tempo limite 
 ### <a name="the-client-is-receiving-403-messages"></a>O cliente está a receber mensagens HTTP 403 (proibido)
 Se a aplicação cliente estiver a gerar erros HTTP 403 (Proibido), uma das causas prováveis é o cliente estar a utilizar uma Assinatura de Acesso Partilhado (SAS) expirada quando envia um pedido de armazenamento (embora outras causas possíveis incluam distorção do relógio, chaves inválidas e cabeçalhos vazios). Se uma chave de SAS expirada for a causa, não verá entradas nos dados do Registo de Armazenamento do lado do servidor. A tabela seguinte mostra um exemplo de registo do lado do cliente gerado pela biblioteca de cliente de armazenamento que ilustra este problema ocorrer:
 
-| Source | Verbosidade | Verbosidade | ID de pedido do cliente | Texto de operação |
+| source | Verbosidade | Verbosidade | ID de pedido de cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Informações |3 |85d077ab-... |A iniciar a operação com a localização primária por modo de local PrimaryOnly. |
 | Microsoft.Azure.Storage |Informações |3 |85d077ab-... |A partir de uma solicitação síncrona para <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
@@ -505,7 +505,7 @@ Pode utilizar o registo do lado do cliente da biblioteca de cliente de armazenam
 
 O registo do lado do cliente seguinte gerado pela biblioteca cliente de armazenamento ilustra o problema quando o cliente não é possível localizar o contentor para o blob está a criar. Este registo inclui detalhes sobre as seguintes operações de armazenamento:
 
-| ID do Pedido | Operação |
+| ID do pedido | Operação |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** método para eliminar o contentor de Blobs. Tenha em atenção que esta operação inclui um **HEAD** pedido para verificar a existência do contentor. |
 | e2d06d78… |**CreateIfNotExists** método para criar o contentor de Blobs. Tenha em atenção que esta operação inclui um **HEAD** pedido que verifica a existência do contentor. O **HEAD** devolve uma mensagem 404, mas continua. |
@@ -513,7 +513,7 @@ O registo do lado do cliente seguinte gerado pela biblioteca cliente de armazena
 
 Entradas de registo:
 
-| ID do Pedido | Texto de operação |
+| ID do pedido | Texto de operação |
 | --- | --- |
 | 07b26a5d-... |A partir de uma solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
@@ -568,11 +568,11 @@ A tabela seguinte mostra uma mensagem de registo do lado do servidor de exemplo 
 | Estado do pedido     | SASAuthorizationError        |
 | Código de estado de HTTP   | 404                          |
 | Tipo de autenticação| SAs                          |
-| Tipo de serviço       | Blob                         |
-| URL do pedido        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| Tipo de serviço       | Blobs                         |
+| URL do Pedido        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Cabeçalho de ID do pedido  | a1f348d5-8032-4912-93ef-b393e5252a3b |
-| ID de pedido do cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+| ID de pedido de cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
 Investigar por que a aplicação cliente está a tentar realizar uma operação para o qual ele não foram concedido permissões.
@@ -626,7 +626,7 @@ Se este problema ocorrer com freqüência, deve investigar por que o cliente est
 ### <a name="the-client-is-receiving-409-messages"></a>O cliente está a receber mensagens HTTP 409 (conflito)
 A tabela seguinte mostra um extrato de registo do lado do servidor para duas operações de cliente: **DeleteIfExists** seguido imediatamente por **CreateIfNotExists** usando o mesmo nome de contentor de Blobs. Cada operação de cliente resulta em dois pedidos enviados para o servidor, primeiro uma **GetContainerProperties** pedido para verificar se o contentor existe, seguido da **DeleteContainer** ou  **CreateContainer** pedido.
 
-| Timestamp | Operação | Resultado | Nome do contentor | ID de pedido do cliente |
+| Carimbo de data/hora | Operação | Resultado | Nome do contentor | ID de pedido de cliente |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |

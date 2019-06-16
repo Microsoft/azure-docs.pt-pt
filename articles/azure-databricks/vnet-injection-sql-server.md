@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60770794"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: Consultar um contentor de Docker do SQL Server Linux numa rede virtual a partir de um bloco de notas do Azure Databricks
@@ -64,8 +64,8 @@ Neste tutorial, ficará a saber como:
     
     |Definição|Valor sugerido|Descrição|
     |-------|---------------|-----------|
-    |Origem|Endereços IP|Endereços IP Especifica que o tráfego de entrada de uma origem específica, endereço IP será permitido ou negado por esta regra.|
-    |Endereços IP de origem|< o seu ip público\>|Introduza o seu endereço IP público. Pode encontrar o seu endereço IP público ao visitar [bing.com](https://www.bing.com/) e ao procurar por **"meu IP"**.|
+    |source|Endereços IP|Endereços IP Especifica que o tráfego de entrada de uma origem específica, endereço IP será permitido ou negado por esta regra.|
+    |Endereços IP de origem|< o seu ip público\>|Introduza o seu endereço IP público. Pode encontrar o seu endereço IP público ao visitar [bing.com](https://www.bing.com/) e ao procurar por **"meu IP"** .|
     |Intervalo de portas de origem|*|Permitir tráfego a partir de qualquer porta.|
     |Destino|Endereços IP|Endereços IP especifica esse tráfego de saída para uma origem específica de endereço IP será permitido ou negado por esta regra.|
     |Endereços IP de destino|< o seu ip público da vm\>|Introduza o endereço IP público da sua máquina virtual. Pode encontrá-lo sobre a **descrição geral** página da sua máquina virtual.|
@@ -80,7 +80,7 @@ Neste tutorial, ficará a saber como:
 
     |Definição|Valor sugerido|Descrição|
     |-------|---------------|-----------|
-    |Origem|Endereços IP|Endereços IP Especifica que o tráfego de entrada de uma origem específica, endereço IP será permitido ou negado por esta regra.|
+    |source|Endereços IP|Endereços IP Especifica que o tráfego de entrada de uma origem específica, endereço IP será permitido ou negado por esta regra.|
     |Endereços IP de origem|10.179.0.0/16|Introduza o intervalo de endereços da rede virtual.|
     |Intervalo de portas de origem|*|Permitir tráfego a partir de qualquer porta.|
     |Destino|Endereços IP|Endereços IP especifica esse tráfego de saída para uma origem específica de endereço IP será permitido ou negado por esta regra.|

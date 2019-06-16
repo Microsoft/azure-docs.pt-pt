@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 06/12/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e9cca4cd113115a1acf676b46cc65dc4ed7021fa
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150858"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144073"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado da CDN do Azure
 
@@ -50,7 +50,11 @@ Neste tutorial, ficará a saber como:
 
 Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, consulte [início rápido: Criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md).
 
-Além disso, tem de associar um domínio personalizado da CDN do Azure no ponto final da CDN. Para obter mais informações, consulte [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md) (Adicionar um domínio personalizado ao ponto final da CDN do Azure)
+Além disso, tem de associar um domínio personalizado da CDN do Azure no ponto final da CDN. Para obter mais informações, consulte [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md) (Adicionar um domínio personalizado ao ponto final da CDN do Azure) 
+
+> [!IMPORTANT]
+> Certificados geridos pelo CDN não estão disponíveis para os domínios de raiz ou vértice. Se o seu domínio personalizado da CDN do Azure é um domínio de raiz ou de vértice, tem de utilizar a traga seu próprio recurso do certificado. 
+>
 
 ---
 
@@ -178,7 +182,7 @@ Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS
 
 Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido durante um ano e será renovado automaticamente antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
 
-Normalmente, a validação automática demora alguns minutos. Se não vir o seu domínio validado ao fim de uma hora, abra um pedido de suporte.
+Validação automática demora algumas horas. Se não vir o seu domínio validado em 24 horas, abra um pedido de suporte.
 
 >[!NOTE]
 >Se tiver um registo Autorização de Autoridade de Certificação (CAA) com o seu fornecedor de DNS, tem de incluir DigiCert como AC válida. O registo CAA permite aos proprietários de domínios especificar junto dos respetivos fornecedores de DNS que ACs têm autorização para emitir certificados para os seus domínios. Se uma AC receber um pedido de certificado para um domínio que tenha um registo CAA e essa AC não estiver listada como emissora autorizada, estará proibida de emitir o certificado para esse domínio ou subdomínio. Para obter informações sobre como gerir registos CAA, veja [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/) (Gerir registos CAA). Para obter uma ferramenta de registo CAA, veja [CAA Record Helper](https://sslmate.com/caa/) (Ajuda para Registos CAA).
@@ -197,9 +201,9 @@ Depois de submeter um pedido para ativar o HTTPS no seu domínio personalizado, 
 DigiCert também envia um e-mail de verificação para endereços de e-mail adicionais. Se as informações do registo em WHOIS forem privadas, confirme que pode aprovar diretamente a partir de um dos endereços seguintes:
 
 admin@&lt;o-seu-nome-de-domínio.com&gt;  
-administrador@&lt;o-seu-nome-de-domínio.com&gt;  
-webmaster@&lt;o-seu-nome-de-domínio.com&gt;  
-hostmaster@&lt;o-seu-nome-de-domínio.com&gt;  
+administrator@&lt;your-domain-name.com&gt;  
+webmaster@&lt;your-domain-name.com&gt;  
+hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 
 Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um filtro de spam, adicione admin@digicert.com à lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.

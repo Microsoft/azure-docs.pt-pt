@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963975"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
@@ -91,7 +91,7 @@ Para obter informações sobre como ligar genericamente aplicativos que implemen
 
 Utilize o portal do Azure Active Directory para configurar o Azure AD para uma aplicação selecionada, o serviço de aprovisionamento.
 
-1. Abra o  **[portal do Azure Active Directory](https://aad.portal.azure.com)**.
+1. Abra o  **[portal do Azure Active Directory](https://aad.portal.azure.com)** .
 
 1. Selecione **aplicações empresariais** no painel à esquerda. Uma lista de todas as aplicações configuradas é apresentado.
 
@@ -179,7 +179,7 @@ Se um utilizador individual não pode ser adicionado, atualizado ou eliminado no
 
 Estas falhas podem ser resolvidas ao ajustar os valores de atributo para o utilizador afectado no sistema de origem, ou ao ajustar os mapeamentos de atributos para não causar conflitos.   
 
-### <a name="quarantine"></a>Quarentena
+### <a name="quarantine"></a>Colocar em quarentena
 
 Se a maioria ou todas as chamadas feitas no sistema de destino consistentemente falharem devido a um erro (por exemplo, para as credenciais de administrador inválido), em seguida, a tarefa de aprovisionamento entra num Estado de "quarentena". Este estado é indicado na [relatório de resumo de aprovisionamento](check-status-user-account-provisioning.md) e através de e-mail, se as notificações de e-mail foram configuradas no portal do Azure. 
 
@@ -202,13 +202,13 @@ A tabela seguinte resume as horas de sincronização para cenários comuns de ap
 | Configuração de âmbito | Os utilizadores, grupos e membros no âmbito | Tempo de sincronização inicial | Hora de sincronização incremental |
 | -------- | -------- | -------- | -------- |
 | Sincronizar os utilizadores atribuídos e apenas a grupos |  < 1,000 |  < a 30 minutos | < a 30 minutos |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |  1.000 - 10.000 | 142 - minutos 708 | < a 30 minutos |
+| Sincronizar os utilizadores atribuídos e apenas a grupos |  1\.000 - 10.000 | 142 - minutos 708 | < a 30 minutos |
 | Sincronizar os utilizadores atribuídos e apenas a grupos |   10,000 - 100,000 | 1,170 - minutos 2,340 | < a 30 minutos |
 | Sincronizar todos os utilizadores e grupos no Azure AD |  < 1,000 | < a 30 minutos  | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  1.000 - 10.000 | < 120 de 30 minutos | < a 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  1\.000 - 10.000 | < 120 de 30 minutos | < a 30 minutos |
 | Sincronizar todos os utilizadores e grupos no Azure AD |  10,000 - 100,000  | 713 - minutos 1,425 | < a 30 minutos |
 | Sincronizar todos os utilizadores no Azure AD|  < 1,000  | < a 30 minutos | < a 30 minutos |
-| Sincronizar todos os utilizadores no Azure AD | 1.000 - 10.000  | 43 - minutos de 86 | < a 30 minutos |
+| Sincronizar todos os utilizadores no Azure AD | 1\.000 - 10.000  | 43 - minutos de 86 | < a 30 minutos |
 
 
 Para a configuração **sincronização atribuído apenas grupos de utilizadores e**, pode utilizar as seguintes fórmulas para determinar a aproximado mínimo e máximo esperado **inicial sincronização** vezes:

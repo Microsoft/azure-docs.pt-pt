@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 897634ac0c30b4a2cc496c225965f465a94fe4e9
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072635"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -72,12 +72,12 @@ Venda através da Microsoft fornece melhor deteção de cliente e aquisição, p
 
 Para listar o Software como serviço (SaaS) oferece com o Marketplace comercial no Centro de parceiros, devem ser cumpridos os seguintes critérios:
 
-- A oferta tem de ser compatível com os clientes do Azure. (Muitas vezes, aplicações SaaS também estão alojadas no Azure para o melhor desempenho e compatibilidade, mas não se trata de um requisito.) 
 - A oferta tem de utilizar [do Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) para gestão de identidades e autenticação.
 - A oferta tem de utilizar [APIs de preenchimento de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) para integrar com o Azure Marketplace.
+- Para mais extensivos requisitos, consulte a [guia de publicação da oferta de SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="billing-infrastructure-costs"></a>Custos de infraestrutura de faturação
-Para ofertas de SaaS,, como o publicador, deve levar em conta as tarifas de utilização da infraestrutura do Azure e taxas de licenciamento de software como um item único custo. Esse custo é representado como uma taxa mensal fixa para o cliente. Utilização da infraestrutura do Azure é gerenciada e faturada para si, o parceiro diretamente. As tarifas de utilização da infraestrutura real não são vistas pelo cliente. Os publicadores, normalmente, optar por agrupar as tarifas de utilização da infraestrutura do Azure nos respetivos preços de licença de software. 
+#### <a name="saas-on-azure-billing-infrastructure-costs"></a>SaaS nos custos de infraestrutura de faturação do Azure
+Se a oferta de SaaS está alojada no Azure,, como o publicador, deve levar em conta as tarifas de utilização da infraestrutura do Azure e taxas de licenciamento de software como um item único custo. Esse custo é representado como uma taxa mensal fixa para o cliente. Utilização da infraestrutura do Azure é gerenciada e faturada para si, o parceiro diretamente. As tarifas de utilização da infraestrutura real não são vistas pelo cliente. Os publicadores, normalmente, optar por agrupar as tarifas de utilização da infraestrutura do Azure nos respetivos preços de licença de software. 
 
 Software taxas de licenciamento são apresentadas como uma taxa de taxa fixa de subscrição mensal, recorrentes baseado no site e não são medidas ou baseado no consumo.
 

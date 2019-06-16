@@ -10,10 +10,10 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/23/2019
 ms.openlocfilehash: e824ac81f1336644fa70cc24539284feacee3199
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244538"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
@@ -35,7 +35,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 | Limite de casos de âmbito do comutador | 25 | |
 | Variáveis por fluxo de trabalho | 250 | |
 | Carateres por expressão | 8,192 | |
-| Tamanho máximo de `trackedProperties` | 16.000 carateres |
+| Tamanho máximo de `trackedProperties` | 16\.000 carateres |
 | Dê um nome para `action` ou `trigger` | 80 carateres | |
 | Comprimento de `description` | 256 carateres | |
 | Máximo `parameters` | 50 | |
@@ -95,7 +95,7 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 
 | Name | Limite | Notas |
 | ---- | ----- | ----- |
-| Ação: Execuções por 5 minutos | 100.000 é o limite predefinido, mas 300.000 é o limite máximo. | Para alterar o limite predefinido, consulte [executar a aplicação lógica no modo de "débitos"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está em pré-visualização. Em alternativa, pode distribuir a carga de trabalho em mais do que uma aplicação de lógica, conforme necessário. |
+| Ação: Execuções por 5 minutos | 100\.000 é o limite predefinido, mas 300.000 é o limite máximo. | Para alterar o limite predefinido, consulte [executar a aplicação lógica no modo de "débitos"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está em pré-visualização. Em alternativa, pode distribuir a carga de trabalho em mais do que uma aplicação de lógica, conforme necessário. |
 | Ação: Chamadas simultâneas | ~2,500 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. |
 | Ponto final de tempo de execução: Chamadas de entrada em simultâneo | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. |
 | Ponto final de tempo de execução: Chamadas de leitura por 5 minutos  | 60,000 | É possível distribuir a carga de trabalho em mais do que uma aplicação conforme necessário. |

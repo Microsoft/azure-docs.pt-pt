@@ -1,5 +1,5 @@
 ---
-title: Acesso condicional do Azure Active Directory perguntas frequentes | Documentos da Microsoft
+title: FAQs de acesso condicional do Azure Active Directory | Documentos da Microsoft
 description: Obtenha respostas às perguntas mais frequentes sobre o acesso condicional no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21c89d9d686c4af594aa7a0fd921471105669e02
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 111daef3448533cd863d45197d45c87d8d21264b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354541"
+ms.locfileid: "67112399"
 ---
-# <a name="azure-active-directory-conditional-access-faqs"></a>Acesso condicional do Azure Active Directory FAQs
+# <a name="azure-active-directory-conditional-access-faqs"></a>FAQs de acesso condicional do Azure Active Directory
 
 ## <a name="which-applications-work-with-conditional-access-policies"></a>As aplicações que funcionam com políticas de acesso condicional?
 
@@ -61,6 +61,6 @@ Atualmente, as políticas de acesso condicional são seletivamente impostas nos 
 
 Microsoft Teams baseia no Exchange Online e SharePoint Online para cenários de produtividade básicos, como reuniões, calendários e compartilhamento de arquivos. Aplicam políticas de acesso condicional que estão definidas para estas aplicações na cloud para o Microsoft Teams quando um utilizador inicia sessão diretamente no Microsoft Teams.
 
-Microsoft Teams também é suportado em separado como uma aplicação da cloud nas políticas de acesso condicional do Azure Active Directory. Políticas de acesso condicional que estão definidas para uma aplicação de cloud aplicam-se ao Microsoft Teams quando um utilizador inicia sessão. No entanto, sem as políticas corretas em outros aplicativos como o Exchange Online e SharePoint Online os utilizadores podem ainda ser capazes de aceder diretamente a esses recursos.
+Microsoft Teams também é suportado em separado como uma aplicação da cloud nas políticas do Azure Active Directory condicional acesso. As políticas de acesso condicional que estão definidas para uma aplicação na cloud aplicam-se ao Microsoft Teams quando um utilizador inicia sessão. No entanto, sem as políticas corretas em outros aplicativos como o Exchange Online e SharePoint Online os utilizadores podem ainda ser capazes de aceder diretamente a esses recursos.
 
 Os clientes de ambiente de trabalho Microsoft Teams para Windows e Mac suportam a autenticação moderna. Autenticação moderna inclui o início de sessão com base no Azure Active Directory Authentication Library (ADAL) para aplicações de cliente do Microsoft Office em todas as plataformas.

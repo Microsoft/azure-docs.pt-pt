@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116194"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreenda os efeitos de política do Azure
@@ -88,7 +88,7 @@ Exemplo 2: Dois **campo/valor** pares para acrescentar um conjunto de marcas.
 }
 ```
 
-Exemplo 3: Único **valor do campo** emparelhe com um não -**[\*]** [alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP numa conta de armazenamento. Quando o não -**[\*]** alias é uma matriz, o efeito acrescenta o **valor** como a matriz de inteira. Se a matriz de já existir, ocorre um evento de negação do conflito.
+Exemplo 3: Único **valor do campo** emparelhe com um não - **[\*]** [alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP numa conta de armazenamento. Quando o não - **[\*]** alias é uma matriz, o efeito acrescenta o **valor** como a matriz de inteira. Se a matriz de já existir, ocorre um evento de negação do conflito.
 
 ```json
 "then": {
@@ -118,7 +118,7 @@ Exemplo 4: Único **valor do campo** emparelhe com um **[\*]** [alias](definitio
 }
 ```
 
-## <a name="deny"></a>Recusar
+## <a name="deny"></a>Negar
 
 Negar serve para impedir que um pedido de recurso que não corresponde aos padrões definidos por meio de uma definição de política e o pedido de falha.
 

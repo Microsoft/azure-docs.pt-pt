@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5b53ccdcd33e2542834769baff5b759ff7b170
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 0f007ad1d5bf99136328ec5706f7ccbb5f6593c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962363"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111234"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicações móveis, chamadas de APIs web
 
@@ -52,7 +52,7 @@ Considerações para aplicações móveis:
 
 - **Experiência do usuário é a chave**: Permitir que os utilizadores ver o valor da sua aplicação antes de fazer para início de sessão e solicitar apenas as permissões necessárias.
 - **Suporte a todas as configurações de usuário**: Muitos usuários móveis empresariais estão sob o acesso condicional e políticas de conformidade do dispositivo. Certifique-se de que suportam esses cenários-chave.
-- **Implementar o início de sessão único (SSO)**: A MSAL e plataforma de identidade do Microsoft simplificam a ativar o início de sessão único através do browser do dispositivo ou o Microsoft Authenticator (e Portal da empresa do Intune no Android).
+- **Implementar o início de sessão único (SSO)** : A MSAL e plataforma de identidade do Microsoft simplificam a ativar o início de sessão único através do browser do dispositivo ou o Microsoft Authenticator (e Portal da empresa do Intune no Android).
 
 ## <a name="specifics"></a>Informações específicas
 

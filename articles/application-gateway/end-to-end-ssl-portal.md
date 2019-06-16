@@ -9,10 +9,10 @@ ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64946800"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurar SSL ponto a ponto com o Gateway de aplicação com o portal

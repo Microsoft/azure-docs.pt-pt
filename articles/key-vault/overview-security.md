@@ -11,17 +11,17 @@ ms.date: 04/18/2019
 ms.author: barclayn
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ms.openlocfilehash: 5b32e4897e718e0e411caf9ba76b036f1352bde0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64715263"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Cofre de chaves do Azure
 
 É necessário proteger chaves de encriptação e segredos, como certificados, cadeias de ligação e palavras-passe na cloud, para que está a utilizar o Azure Key Vault. Uma vez que estiver armazenando confidenciais e dados críticos da empresa, terá de tomar medidas para maximizar a segurança dos seus cofres e os dados armazenados nas mesmas. Este artigo, falarei sobre alguns dos conceitos que deve considerar ao projetar a segurança do Azure Key Vault.
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 Quando cria um cofre de chaves numa subscrição do Azure, é automaticamente associado com o inquilino do Azure AD da subscrição. Qualquer pessoa tentar gerir ou obter conteúdo a partir de um cofre tem de ser autenticada pelo Azure AD.
 

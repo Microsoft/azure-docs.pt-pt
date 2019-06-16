@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
 ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209464"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Descrição geral do padrão de proteção contra DDoS do Azure
@@ -39,7 +39,7 @@ Padrão de proteção de DDoS capazes de atenuar os seguintes tipos de ataques:
 
 - **Ataques volumetric**: O objetivo do ataque é inundar da camada de rede com uma quantidade substancial de tráfego aparentemente legítimo. Ele inclui inundações UDP, inundações de amplificação e outras inundações de pacote falsificado. Padrão de proteção de DDoS atenua esses potenciais ataques de gigabytes multi, absorver e limpeza, com o dimensionamento de rede global do Azure, automaticamente.
 - **Ataques de protocolo**: Esses ataques compor um destino inacessível, através da exploração de um ponto fraco na camada 3 e a pilha de protocolo 4 de camada. Ele inclui, ataques de inundação SYN, ataques de reflexão e outros ataques de protocolo. Padrão de proteção contra DDoS mitiga esses ataques, diferenciar entre o tráfego mal-intencionado e legítimo, ao interagir com o cliente e a bloquear tráfego malicioso. 
-- **Ataques de camada de recursos (aplicação)**: Esses ataques pacotes de aplicação web, para interromper a transmissão de dados entre anfitriões de destino. Os ataques incluem HTTP violações de protocolo, SQL injeção, scripts entre sites e outros ataques de camada 7. Utilizar o Azure [firewall de aplicações do Gateway de aplicação web](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), com DDoS Protection padrão, para fornecer defesa contra esses ataques. Também existem ofertas de firewall de aplicação web de terceiros disponíveis na [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+- **Ataques de camada de recursos (aplicação)** : Esses ataques pacotes de aplicação web, para interromper a transmissão de dados entre anfitriões de destino. Os ataques incluem HTTP violações de protocolo, SQL injeção, scripts entre sites e outros ataques de camada 7. Utilizar o Azure [firewall de aplicações do Gateway de aplicação web](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), com DDoS Protection padrão, para fornecer defesa contra esses ataques. Também existem ofertas de firewall de aplicação web de terceiros disponíveis na [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
 Padrão de proteção contra DDoS protege os recursos numa rede virtual, incluindo endereços IP públicos associados a máquinas virtuais, balanceadores de carga e gateways de aplicação. Quando em conjunto com a firewall de aplicações web do Gateway de aplicação, DDoS Protection padrão pode fornecer completa camada 3 a 7 capacidade de mitigação de camada.
 

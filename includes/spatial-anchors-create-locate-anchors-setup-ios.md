@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 26eff7b10542843be561264c316bdcf1a63271f7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66110476"
 ---
 ## <a name="setting-up-the-library"></a>Configurar a biblioteca

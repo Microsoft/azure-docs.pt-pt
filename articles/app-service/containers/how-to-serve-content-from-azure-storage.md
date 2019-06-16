@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
 ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956022"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Ofereça conteúdo a partir do armazenamento do Azure no serviço de aplicações no Linux
@@ -62,7 +62,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 Deve fazê-lo para outros diretórios que pretende ser ligada a uma conta de armazenamento.
 
-## <a name="verify"></a>Validar
+## <a name="verify"></a>Verificar
 
 Depois de um contentor de armazenamento está ligado a uma aplicação web, pode verificar isto, executando o seguinte comando:
 

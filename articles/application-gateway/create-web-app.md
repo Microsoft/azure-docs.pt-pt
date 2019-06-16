@@ -5,14 +5,13 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 10/16/2018
-ms.date: 03/12/2019
-ms.author: v-junlch
+ms.date: 10/16/2018
+ms.author: victorh
 ms.openlocfilehash: dcf21fe111ab742074ab4fe580a021338e1f7c43
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122222"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar o serviço de aplicações com o Gateway de aplicação
@@ -27,7 +26,7 @@ O exemplo seguinte adiciona uma aplicação Web como membro do conjunto de back-
 
 ```powershell
 # FQDN of the web app
-$webappFQDN = "<enter your webapp FQDN i.e mywebsite.chinacloudsites.cn>"
+$webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
 
 # Retrieve the resource group
 $rg = Get-AzResourceGroup -Name 'your resource group name'
@@ -66,13 +65,13 @@ $gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.gi
 $webappname="mywebapp$(Get-Random)"
 
 # Creates a resource group
-$rg = New-AzResourceGroup -Name ContosoRG -Location ChinaNorth
+$rg = New-AzResourceGroup -Name ContosoRG -Location Eastus
 
 # Create an App Service plan in Free tier.
-New-AzAppServicePlan -Name $webappname -Location ChinaNorth -ResourceGroupName $rg.ResourceGroupName -Tier Free
+New-AzAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName $rg.ResourceGroupName -Tier Free
 
 # Creates a web app
-$webapp = New-AzWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location ChinaNorth -AppServicePlan $webappname
+$webapp = New-AzWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs -AppServicePlan $webappname
 
 # Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
@@ -86,13 +85,13 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName $rg.Resource
 $subnet = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 # Creates a vnet for the application gateway
-$vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location ChinaNorth -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+$vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location EastUs -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 # Retrieve the subnet object for use later
 $subnet=$vnet.Subnets[0]
 
 # Create a public IP address
-$publicip = New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location ChinaNorth -AllocationMethod Dynamic
+$publicip = New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location EastUs -AllocationMethod Dynamic
 
 # Create a new IP configuration
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -125,7 +124,7 @@ $rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic 
 $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 # Create the application gateway
-$appgw = New-AzApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location ChinaNorth -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$appgw = New-AzApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location EastUs -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 ## <a name="get-application-gateway-dns-name"></a>Obter nome de DNS de gateway de aplicação
@@ -139,7 +138,7 @@ Get-AzPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
 ```
 Name                     : publicIP01
 ResourceGroupName        : ContosoRG
-Location                 : chinanorth
+Location                 : eastus
 Id                       : /subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/publicIPAddresses/publicIP01
 Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 ResourceGuid             : 00000000-0000-0000-0000-000000000000
@@ -154,7 +153,7 @@ IpConfiguration          : {
                             Configurations/frontend1"
                             }
 DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.chinacloudapp.cn"
+                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
 ```
 
@@ -167,5 +166,3 @@ Pode restringir o acesso às suas aplicações web de uma maneira é usar [restr
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como configurar o redirecionamento ao visitar: [Configurar o redirecionamento no Gateway de aplicação com o PowerShell](redirect-overview.md).
-
-<!-- Update_Description: code update -->

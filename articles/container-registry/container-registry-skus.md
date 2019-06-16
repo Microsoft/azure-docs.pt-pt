@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
 ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65069050"
 ---
 # <a name="azure-container-registry-skus"></a>SKUs de registo de contentor do Azure
 
 O Azure Container Registry (ACR) está disponível em vários escalões de serviço, conhecidos como SKUs. Essas SKUs fornecem preços previsíveis e várias opções para consonância com os padrões de capacidade e a utilização do seu registo privado do Docker no Azure.
 
-| SKU | Gerido | Descrição |
+| SKU | Managed | Descrição |
 | --- | :-------: | ----------- |
 | **Básica** | Sim | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Registos básicos tem as mesmas capacidades programáticas como Standard e Premium (como o Azure Active Directory [integração de autenticação](container-registry-authentication.md#individual-login-with-azure-ad), [eliminação de imagem][container-registry-delete], e [webhooks][container-registry-webhook]). No entanto, o armazenamento incluído e o débito de imagem são mais adequadas para cenários de utilização mais baixos. |
 | **Standard** | Sim | Registos padrão oferecem as mesmas capacidades do básico, com maior débito de armazenamento e de imagem incluído. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |

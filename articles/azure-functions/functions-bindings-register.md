@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
 ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864555"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar as extensões de vinculação de funções do Azure

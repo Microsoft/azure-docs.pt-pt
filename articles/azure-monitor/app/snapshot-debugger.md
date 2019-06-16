@@ -13,10 +13,10 @@ ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595586"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
@@ -54,7 +54,7 @@ Acesso a instantâneos está protegido pelo controlo de acesso baseado em funç�
 Proprietários de subscrições devem atribuir a `Application Insights Snapshot Debugger` função aos utilizadores que fará uma checagem instantâneos. Esta função pode ser atribuída a utilizadores individuais ou grupos por proprietários de subscrições para o destino do recurso do Application Insights ou o grupo de recursos ou subscrição.
 
 1. Navegue para o recurso do Application Insights no portal do Azure.
-1. Clique em **controlo de acesso (IAM)**.
+1. Clique em **controlo de acesso (IAM)** .
 1. Clique nas **+ adicionar atribuição de função** botão.
 1. Selecione **Snapshot Debugger do Application Insights** partir do **funções** na lista pendente.
 1. Procure e introduza um nome para o utilizador adicione.

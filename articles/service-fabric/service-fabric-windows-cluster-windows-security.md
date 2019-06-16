@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
 ms.openlocfilehash: ccc726f54821d316c745f6af9c63d7ed13986d79
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65761934"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autónomo no Windows com segurança do Windows
@@ -57,7 +57,7 @@ O exemplo *ClusterConfig.gMSA.Windows.MultiMachine.JSON* ficheiro de configuraç
 | ClustergMSAIdentity |Configura a segurança de nó para nó. Um grupo de conta de serviço gerida. |
 | ClusterSPN |SPN registrado para a conta gMSA|
 | ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de utilizador do cliente. |
-| Identidade |Adicione o utilizador de domínio, domínio \ nomedeutilizador, para a identidade do cliente. |
+| identidade |Adicione o utilizador de domínio, domínio \ nomedeutilizador, para a identidade do cliente. |
 | IsAdmin |Defina como verdadeiro para especificar que o utilizador de domínio tem acesso de cliente de administrador ou FALSO para acesso de cliente do utilizador. |
 
 > [!NOTE]
@@ -109,7 +109,7 @@ Esse modelo está a ser preterido. A recomendação é usar a gMSA conforme deta
 | WindowsIdentities |Contém as identidades de cliente e de cluster. |
 | ClusterIdentity |Utilize um nome de grupo do computador, domain\machinegroup, para configurar a segurança de nó para nó. |
 | ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de utilizador do cliente. |  
-| Identidade |Adicione o utilizador de domínio, domínio \ nomedeutilizador, para a identidade do cliente. |  
+| identidade |Adicione o utilizador de domínio, domínio \ nomedeutilizador, para a identidade do cliente. |  
 | IsAdmin |Defina como verdadeiro para especificar que o utilizador de domínio tem acesso de cliente de administrador ou FALSO para acesso de cliente do utilizador. |  
 
 [O nó para segurança de nó](service-fabric-cluster-security.md#node-to-node-security) está definido como a definição **ClusterIdentity** se pretender utilizar um grupo de computador dentro de um domínio do Active Directory. Para obter mais informações, consulte [criar um grupo de computador no Active Directory](https://msdn.microsoft.com/library/aa545347(v=cs.70).aspx).

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60334630"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estatísticas em tempo real na CDN do Microsoft Azure
@@ -51,7 +51,7 @@ Os gráficos seguintes estão disponíveis:
 
 Cada um dos gráficos apresenta estatísticas em tempo real para o intervalo de tempo selecionado, a partir de quando a página for carregada.  Os gráficos atualizar automaticamente a cada segundo.  O **Atualizar gráfico** botão, se estiver presente, irá eliminar o gráfico, após o qual apresentará apenas os dados selecionados.
 
-## <a name="bandwidth"></a>Largura de Banda
+## <a name="bandwidth"></a>Largura de banda
 ![Gráfico de largura de banda](./media/cdn-real-time-stats/cdn-bandwidth.png)
 
 O **largura de banda** gráfico apresenta a quantidade de largura de banda utilizada para a plataforma atual ao longo do período de tempo selecionado. A parte sombreada do gráfico indica a utilização de largura de banda. A quantidade exata de largura de banda atualmente a ser utilizada é apresentada diretamente abaixo do gráfico de linha.

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65147047"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Utilizar a CLI clássica do Azure com o armazenamento do Azure
@@ -194,7 +194,7 @@ Um diretório fornece uma estrutura hierárquica opcional para uma partilha de f
 azure storage directory create myshare myDir
 ```
 
-Tenha em atenção que o caminho de diretório pode incluir vários níveis *por exemplo,*, **um / b**. No entanto, tem de se certificar de que todos os diretórios existem. Por exemplo, para o caminho **um / b**, tem de criar o diretório **uma** em primeiro lugar, em seguida, criar o diretório **b**.
+Tenha em atenção que o caminho de diretório pode incluir vários níveis *por exemplo,* , **um / b**. No entanto, tem de se certificar de que todos os diretórios existem. Por exemplo, para o caminho **um / b**, tem de criar o diretório **uma** em primeiro lugar, em seguida, criar o diretório **b**.
 
 ### <a name="upload-a-local-file-to-directory"></a>Carregar um ficheiro local para o diretório
 O exemplo seguinte carrega um ficheiro a partir **~/temp/samplefile.txt** para o **myDir** diretório. Edite o caminho do ficheiro para que ele aponta para um ficheiro válido no seu computador local:

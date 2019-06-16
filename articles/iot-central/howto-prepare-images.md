@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236477"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
@@ -59,7 +59,7 @@ A tabela seguinte resume os tamanhos de imagem, que pode usar:
 | Location | Tamanhos |
 | -------- | ------ |
 | Gestor de aplicações | 268x160 px |
-| Modelo de dispositivos | 64x64 px |
+| Modelo de dispositivo | 64x64 px |
 | Mosaicos do dashboard | O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px |
 
 Para uma melhor visualização no aplicativo, deve criar imagens que correspondem às dimensões mostradas na tabela anterior.
@@ -86,7 +86,7 @@ Sob **configurar a imagem**, selecione a **imagem** mosaico para carregar uma im
 
 **Guardar** a imagem carregada. Pode redimensioná-la no modo de edição. Selecione **feito** quando terminar.
 
-### <a name="device-template"></a>Modelo de dispositivos
+### <a name="device-template"></a>Modelo de dispositivo
 
 Para carregar uma imagem num modelo de dispositivo, navegue até **modelos de dispositivos** e escolha o modelo de dispositivo. Tem de ser um construtor para concluir essa tarefa:
 

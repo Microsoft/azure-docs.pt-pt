@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 7f60371fb533526ef5bdb154d0c08dface9c0d1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60394001"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicações Java do Service Fabric com o Visual Studio Code
@@ -62,7 +62,7 @@ Depois de criar a aplicação, pode implementá-la no cluster local.
 > [!IMPORTANT]
 > Implementação de aplicações Java no cluster local não é suportada em máquinas do Windows.
 
-1. Partir do **paleta de comandos**, selecione o **Service Fabric: Implementar o comando de aplicação (Localhost)**. O resultado do processo de instalação é enviado para o terminal integrado.
+1. Partir do **paleta de comandos**, selecione o **Service Fabric: Implementar o comando de aplicação (Localhost)** . O resultado do processo de instalação é enviado para o terminal integrado.
 
    ![Implementar a aplicação de comando no VS Code](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 

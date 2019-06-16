@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 683664b3172cb12ba6adf6c8006e9685a6d1ec35
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540303"
 ---
 # <a name="service-to-service-apps"></a>Aplicações de serviço a serviço
@@ -61,7 +61,7 @@ O fluxo abordado a seguir pressupõe que um utilizador ser autenticado no outro 
 
 Veja os exemplos de código para Daemon ou uma aplicação de servidor para cenários de Web API. E, novamente, com frequência, como novos exemplos são adicionados com frequência de verificação. [Servidor ou aplicativo de Daemon, a API Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
-## <a name="app-registration"></a>Registo de aplicações
+## <a name="app-registration"></a>Registo da aplicação
 
 * Único inquilino - para a identidade da aplicação e o utilizador delegado casos de identidade, o daemon ou aplicação de servidor têm de estar registrada no mesmo diretório no Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são utilizados para limitar o daemon ou acesso ao seus recursos do servidor. Se está a ser utilizado um tipo de identidade do utilizador delegado, a aplicação de servidor tem de selecionar as permissões pretendidas no menu pendente "Permissões para outras aplicações" no portal do Azure. Este passo não é necessário se o tipo de identidade da aplicação está a ser utilizado.
 * Multi-inquilino-First, a aplicação de daemon ou o servidor está configurado para indicar as permissões que ele requer que seja funcional. Esta lista de permissões necessárias é mostrada numa caixa de diálogo quando um utilizador ou administrador no diretório de destino dá consentimento para a aplicação, o que torna disponível para a sua organização. Apenas algumas aplicações necessitam de permissões de nível de usuário, que pode consentir qualquer utilizador na organização. Outras aplicações requerem permissões de nível de administrador, que não pode autorizar um utilizador na organização. Apenas um administrador do diretório pode dar consentimento a aplicações que exigem esse nível de permissões. Quando o utilizador ou administrador autorizar, ambas as APIs da web estão registadas no respetivo diretório.

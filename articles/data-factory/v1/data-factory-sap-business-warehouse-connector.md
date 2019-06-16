@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61258663"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-sap-business-warehouse-connector.md)
 > * [Versão 2 (versão atual)](../connector-sap-business-warehouse.md)
 
@@ -64,11 +64,11 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
+server | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
 systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
 clientId | ID de cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
-o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | string | Sim
-palavra-passe | A palavra-passe do utilizador. | string | Sim
+username | Nome de utilizador que tem acesso ao servidor SAP | string | Sim
+password | A palavra-passe do utilizador. | string | Sim
 gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP BW no local. | string | Sim
 encryptedCredential | A cadeia de credencial encriptada. | string | Não
 
@@ -308,8 +308,8 @@ PREC | Int16
 QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-CADEIA DE CARACTERES | String
-UNIDADE | String
+STRING | String
+UNIT | String
 DATS | String
 NUMC | String
 TIMS | String

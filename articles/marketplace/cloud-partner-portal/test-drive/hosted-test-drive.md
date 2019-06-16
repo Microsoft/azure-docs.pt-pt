@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939985"
 ---
 # <a name="hosted-test-drive"></a>Versão de Teste Alojada
@@ -40,8 +40,8 @@ Neste passo, irá gerar o \'Id de aplicação do Azure AD\' e \'chave de aplica�
 Fornecer os campos seguintes no \'técnico configuração\' secção:
 
 - **Tipo de teste de unidade de**: Escolha \'Microsoft Hosted (exemplo do Dynamics 365 Customer Engagement)' opção. Isto indica que a Microsoft irá alojar e manter o serviço que executa o utilizador de teste de unidade de aprovisionamento e desaprovisionamento.
-- **Versões de teste de simultâneas máx.**: Defina este campo para o número de utilizadores em simultâneo que podem ter um Test Drive do Active Directory num determinado período de tempo. Cada utilizador irá consumir uma licença do Dynamics, enquanto a unidade de teste está ativa, por isso terá de garantir que tenha, pelo menos, tantos Dynamics licenças disponíveis para os utilizadores da versão de teste. Valor recomendado de 3 a 5.
-- **Teste de unidade de duração (horas)**: Defina este campo para o número de horas dos utilizadores a que versão de teste ficará ativa para. Depois de tantas horas, o utilizador irá ser desaprovisionado do seu inquilino. Valor de 2 a 24 horas, consoante a complexidade da sua aplicação de recomendado. O usuário sempre pode pedir outro teste se ficar sem tempo e deseja acessar a unidade de teste novamente.
+- **Versões de teste de simultâneas máx.** : Defina este campo para o número de utilizadores em simultâneo que podem ter um Test Drive do Active Directory num determinado período de tempo. Cada utilizador irá consumir uma licença do Dynamics, enquanto a unidade de teste está ativa, por isso terá de garantir que tenha, pelo menos, tantos Dynamics licenças disponíveis para os utilizadores da versão de teste. Valor recomendado de 3 a 5.
+- **Teste de unidade de duração (horas)** : Defina este campo para o número de horas dos utilizadores a que versão de teste ficará ativa para. Depois de tantas horas, o utilizador irá ser desaprovisionado do seu inquilino. Valor de 2 a 24 horas, consoante a complexidade da sua aplicação de recomendado. O usuário sempre pode pedir outro teste se ficar sem tempo e deseja acessar a unidade de teste novamente.
 - **URL de instância**: Forneça um URL que o utilizador de teste de unidade será inicialmente direcionado durante o arranque a versão de teste. Isso normalmente é o URL da sua instância do Dynamics 365 que tenha a sua aplicação e dados de exemplo instalados no. Valor de exemplo: https:\//testdrive.crm.dynamics.com
 - **ID de inquilino do Azure AD**: Forneça o ID do inquilino do Azure para a sua instância do Dynamics 365. Para obter este valor, inicie sessão no portal do Azure e navegue para \'do Azure Active Directory\'  - \> selecione propriedades no painel de menu -\> copiar o ID de diretório. Valor de exemplo: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **ID de aplicação do Azure AD**: ID da aplicação do AD Azure que criou no passo 7. \ valor de exemplo: 53852862-a2ae-4e43-9461-faa49650a096

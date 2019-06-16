@@ -10,10 +10,10 @@ ms.date: 06/05/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ms.openlocfilehash: 9490772226ecdb90cdd2e0b98fe8336b91db6044
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66754479"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Adicionar blobs a objetos duplos Digital do Azure
@@ -56,9 +56,9 @@ Metadados do blob JSON está em conformidade com o modelo seguinte:
 | **parentId** | String | A entidade principal para associar o blob (espaços, dispositivos ou utilizadores) |
 | **name** |String | Um nome amigável a humanos para o blob |
 | **type** | String | O tipo de blob - não é possível utilizar *tipo* e *typeId*  |
-| **typeId** | Número inteiro | O ID de tipo de blob - não é possível utilizar *tipo* e *typeId* |
+| **typeId** | Integer | O ID de tipo de blob - não é possível utilizar *tipo* e *typeId* |
 | **subtype** | String | Não é possível utilizar o subtipo de BLOBs - *subtipo* e *subtypeId* |
-| **subtypeId** | Número inteiro | O ID de subtipo para o blob - não é possível utilizar *subtipo* e *subtypeId* |
+| **subtypeId** | Integer | O ID de subtipo para o blob - não é possível utilizar *subtipo* e *subtypeId* |
 | **description** | String | Descrição personalizada do blob |
 | **sharing** | String | Se o blob pode ser partilhado - enum [`None`, `Tree`, `Global`] |
 
@@ -114,9 +114,9 @@ Blobs individualmente retornados está em conformidade com o esquema JSON do seg
 | **name** |String | Um nome amigável a humanos para o blob |
 | **parentId** | String | A entidade principal para associar o blob (espaços, dispositivos ou utilizadores) |
 | **type** | String | O tipo de blob - não é possível utilizar *tipo* e *typeId*  |
-| **typeId** | Número inteiro | O ID de tipo de blob - não é possível utilizar *tipo* e *typeId* |
+| **typeId** | Integer | O ID de tipo de blob - não é possível utilizar *tipo* e *typeId* |
 | **subtype** | String | Não é possível utilizar o subtipo de BLOBs - *subtipo* e *subtypeId* |
-| **subtypeId** | Número inteiro | O ID de subtipo para o blob - não é possível utilizar *subtipo* e *subtypeId* |
+| **subtypeId** | Integer | O ID de subtipo para o blob - não é possível utilizar *subtipo* e *subtypeId* |
 | **sharing** | String | Se o blob pode ser partilhado - enum [`None`, `Tree`, `Global`] |
 | **description** | String | Descrição personalizada do blob |
 | **contentInfos** | Array | Especifica informações de metadados não estruturados, incluindo a versão |

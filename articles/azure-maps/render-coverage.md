@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869985"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de composição do Azure Maps
@@ -56,7 +56,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Gâmbia                           | ✓ | Ø |
 | Gana                            | ✓ | ✓ |
 | Guiné                           | ✓ | Ø |
-| Guiné Bissau                    | ✓ | Ø |
+| Guiné-Bissau                    | ✓ | Ø |
 | Quénia                            | ✓ | ✓ |
 | Lesoto                          | ✓ | ✓ |
 | Libéria                          | ✓ | Ø |
@@ -83,7 +83,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Sudão do Sul                      | ✓ | ✓ |
 | Sudão                            | ✓ | ✓ |
 | Suazilândia                        | ✓ | ✓ |
-| República Unida da Tanzânia      | ✓ | ✓ |
+| Unidos República Unida da Tanzânia      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunísia                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -112,7 +112,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
-| Domínica                  | ✓ | ✓ |
+| Dominica                  | ✓ | ✓ |
 | República Dominicana        | ✓ | ✓ |
 | Equador                   | ✓ | ✓ |
 | Ilhas Falkland (Malvinas) | ✓ | ✓ |
@@ -180,7 +180,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Quirguistão                |   | Ø |
 | República Democrática Popular do Laos |   | Ø |
 | Líbano                   | ✓ | ✓ |
-| R.A.E. de Macau                 | ✓ | ✓ |
+| RAE de Macau                 | ✓ | ✓ |
 | Malásia                  | ✓ | ✓ |
 | Maldivas                  |   | Ø |
 | Mongólia                  |   | Ø |
@@ -228,7 +228,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Palau                     |   | Ø |
 | Papua-Nova Guiné          |   | Ø |
 | Pitcairn                  |   | Ø |
-| Estado Independente de Samoa                     |   | Ø |
+| Samoa                     |   | Ø |
 | Ilhas Salomão           |   | Ø|
 | Toquelau                   |   | Ø |
 | Tonga                     |   | Ø |
@@ -274,7 +274,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Liechtenstein             | ✓ | ✓ |
 | Lituânia                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
-| Macedónia do Norte           | ✓ | ✓ |
+| Macedónia norte           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Mónaco                    | ✓ | ✓ |
@@ -285,7 +285,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Portugal                  | ✓ | ✓ |
 | Roménia                   | ✓ | ✓ |
 | Federação Russa        | ✓ | ✓ |
-| São Marino                | ✓ | ✓ |
+| San Marino                | ✓ | ✓ |
 | Sérvia                    | ✓ | ✓ |
 | Eslováquia                  | ✓ | ✓ |
 | Eslovénia                  | ✓ | ✓ |

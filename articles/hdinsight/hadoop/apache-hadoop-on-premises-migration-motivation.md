@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058570"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - motivação e benefícios
 
@@ -21,7 +21,7 @@ Este artigo é a primeira de uma série sobre melhores práticas para a migraç�
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Por que migrar para o Azure HDInsight
 
-O Azure HDInsight é uma distribuição de nuvem dos componentes do Hadoop do [Hortonworks Data Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). O Azure HDInsight torna mais fácil, rápido e rentável processar quantidades enormes de dados. HDInsight inclui as arquiteturas de código-fonte aberto mais populares, tais como:
+O Azure HDInsight é uma distribuição de nuvem de componentes do Hadoop. O Azure HDInsight torna mais fácil, rápido e rentável processar quantidades enormes de dados. HDInsight inclui as arquiteturas de código-fonte aberto mais populares, tais como:
 
 - Apache Hadoop
 - Apache Spark
@@ -90,12 +90,11 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 | **Pergunta** | **Exemplo** | **Resposta** |
 |---|---|---|
 |**tópico**: **Environment**|||
-|Tipo de distribuição de cluster|Hortonworks, Cloudera, MapR| |
 |Versão de distribuição do cluster|HDP 2.6.5, CDH 5.7|
 |Grandes componentes do sistema ao meio ambiente de dados|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Tipos de cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Número de clusters|4|
-|Número de nós do mestre|2|
+|Número de nós principais|2|
 |Número de nós de trabalho|100|
 |Número de nós de extremidade| 5|
 |Total de espaço em disco|100 TB|
@@ -156,7 +155,7 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 |Não. de administradores|2||
 |Não. de desenvolvedores|10||
 |Não. dos utilizadores finais|100||
-|Competências|Hadoop, Spark||
+|Habilidades|Hadoop, Spark||
 |Não. de recursos disponíveis para iniciativas de migração|2||
 |**tópico**: **Limitações**|||
 |Limitações atuais|Latência é elevada||
@@ -167,7 +166,7 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 |**tópico**: **Infraestrutura** |||
 |---|---|---|
 |**Pergunta**|**Exemplo**|**Resposta**|
-| Região Preferencial|E.U.A Leste||
+| Região preferencial|E.U.A Leste||
 |VNet preferido?|Sim||
 |HA / DR necessária?|Sim||
 |Integração com outros serviços em nuvem?|ADF, CosmosDB||
@@ -199,7 +198,6 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 |Partilhar metastores entre clusters diferentes?|Sim||
 |Eles possuem de desconstruir cargas de trabalho?|Substitua as tarefas do Hive com tarefas do Spark||
 |Utilizar o ADF para orquestração de dados?|Não||
-|HDInsight vs Hortonworks Data Platform no IaaS?|HDInsight||
 
 ## <a name="next-steps"></a>Passos Seguintes
 

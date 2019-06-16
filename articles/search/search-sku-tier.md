@@ -11,10 +11,10 @@ ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65539253"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
@@ -45,8 +45,8 @@ A tabela seguinte lista as camadas disponíveis. Pode encontrar mais informaçõ
 
 |Escalão | Capacidade |
 |-----|-------------|
-|Gratuito | Partilhado com outros subscritores. Não é escalonável. Limitado a três índices e a 50 MB de armazenamento. |
-|Básico | Recursos de computação dedicados para cargas de trabalho de produção em escala mais pequena. Uma partição de 2 GB e até três réplicas. |
+|Livre | Partilhado com outros subscritores. Não é escalonável. Limitado a três índices e a 50 MB de armazenamento. |
+|Básica | Recursos de computação dedicados para cargas de trabalho de produção em escala mais pequena. Uma partição de 2 GB e até três réplicas. |
 |1 Standard (S1) | Para S1 e versões posteriores, dedicado máquinas com mais capacidade de armazenamento e processamento em todos os níveis. Para S1, o tamanho da partição é 25 GB/partição (com um máximo de 300 GB por serviço). |
 |Standard 2 (S2) | É semelhante para S1, mas com partições de 100 GB (e um máximo de 1,2 TB por serviço). |
 |3 padrão (S3) | Partições de 200 GB (com um máximo de 2,4 TB por serviço). |

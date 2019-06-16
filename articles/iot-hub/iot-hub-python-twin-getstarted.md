@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569265"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos duplos (Python)
 
@@ -55,7 +55,7 @@ Para concluir este tutorial, precisa do seguinte:
 
 ## <a name="create-the-service-app"></a>Criar a aplicação de serviço
 
-Nesta secção, vai criar uma aplicação de consola Python que adiciona os metadados de localização para o dispositivo duplo associado com seu **{ID de dispositivo}**. Ele consulta, em seguida, os dispositivos duplos armazenados no hub IoT selecionar os dispositivos localizados em Redmond e, em seguida, aqueles que estiverem a comunicar uma conexão por celular.
+Nesta secção, vai criar uma aplicação de consola Python que adiciona os metadados de localização para o dispositivo duplo associado com seu **{ID de dispositivo}** . Ele consulta, em seguida, os dispositivos duplos armazenados no hub IoT selecionar os dispositivos localizados em Redmond e, em seguida, aqueles que estiverem a comunicar uma conexão por celular.
 
 1. Abra uma linha de comandos e instale o **SDK do Serviço Hub IoT do Azure para Python**. Depois de instalar o SDK, feche a linha de comandos.
 

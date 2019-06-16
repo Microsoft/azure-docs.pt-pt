@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
 ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872868"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar funções duráveis com o portal do Azure
@@ -64,7 +64,7 @@ Se estiver a criar funções duráveis do JavaScript, terá de instalar o [ `dur
 
 ## <a name="create-an-orchestrator-function"></a>Criar uma função de orquestrador
 
-1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
+1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal** e **Continuar**. Caso contrário, avance para o passo três.
 
    ![Página de início rápido das funções no portal do Azure](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 

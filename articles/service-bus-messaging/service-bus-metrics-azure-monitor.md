@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
 ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921229"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de barramento de serviço do Azure no Azure Monitor (pré-visualização)
@@ -38,7 +38,7 @@ Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://por
 
 ![][1]
 
-Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (pré-visualização)**. Para apresentar métricas filtradas para o âmbito da entidade, selecione a entidade e, em seguida, clique em **métricas (pré-visualização)**.
+Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (pré-visualização)** . Para apresentar métricas filtradas para o âmbito da entidade, selecione a entidade e, em seguida, clique em **métricas (pré-visualização)** .
 
 ![][2]
 
@@ -61,9 +61,9 @@ Conta o número de pedidos de operações de gestão e de dados.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Pedidos de entrada (pré-visualização) | O número de pedidos efetuados para o serviço do Service Bus num determinado período. <br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Pedidos com êxito (pré-visualização)|O número de pedidos com êxito efetuados para o serviço do Service Bus num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros de servidor (pré-visualização)|O número de pedidos não processadas devido a um erro no serviço do Service Bus num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Pedidos de entrada (pré-visualização) | O número de pedidos efetuados para o serviço do Service Bus num determinado período. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Pedidos com êxito (pré-visualização)|O número de pedidos com êxito efetuados para o serviço do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Erros de servidor (pré-visualização)|O número de pedidos não processadas devido a um erro no serviço do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Erros de utilizador (pré-visualizar - veja a subsecção seguinte)|O número de pedidos não processadas devido a erros de utilizador num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Pedidos limitados (pré-visualização)|O número de pedidos que foram limitado porque a utilização foi excedida.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
@@ -83,7 +83,7 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 |Mensagens de saída (pré-visualização)|O número de eventos ou mensagens recebidas do Service Bus num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 | Mensagens (pré-visualização) | Contagem de mensagens em fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
 | ActiveMessages (pré-visualização) | Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
-| Mensagens lettered em papel já era (pré-visualização) | Contagem de mensagens não-lettered mensagens em fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/>Dimensão: EntityName |
+| Mensagens lettered em papel já era (pré-visualização) | Contagem de mensagens não-lettered mensagens em fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: EntityName |
 | Mensagens agendadas (pré-visualização) | Contagem de mensagens agendadas na fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média  <br/> Dimensão: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de ligação
@@ -99,8 +99,8 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Utilização da CPU por espaço de nomes (pré-visualização)|A percentagem de utilização da CPU do espaço de nomes.<br/><br/> Unidade: Percent <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
-|Utilização de tamanho de memória por espaço de nomes (pré-visualização)|A utilização de memória de percentagem do espaço de nomes.<br/><br/> Unidade: Percent <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
+|Utilização da CPU por espaço de nomes (pré-visualização)|A percentagem de utilização da CPU do espaço de nomes.<br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
+|Utilização de tamanho de memória por espaço de nomes (pré-visualização)|A utilização de memória de percentagem do espaço de nomes.<br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 
@@ -121,7 +121,7 @@ O Azure Service Bus suporta as seguintes dimensões de métricas no Azure Monito
     3. Selecione o **espaço de nomes do service bus** da lista. 
     4. Selecione **Done** (Concluído). 
     
-        ![Selecione um espaço de nomes](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+        ![Selecionar espaço de nomes](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selecione **adicionar critérios**, e fazer as seguintes ações no **configurar lógica de sinal** página:
     1. Selecione **métricas** para **sinalizar tipo**. 
     2. Selecione um sinal. Por exemplo: **Erros (pré-visualização) do serviço**. 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 957009ec9833df2dd0f89c3745c7f3df5a3705b4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66131358"
 ---
 A tabela seguinte mostra as ligações que são suportadas nas duas versões principais do runtime das funções do Azure.
 
-| Type | 1.x | 2.x<sup>1</sup> | Acionador | Entrada | Resultado |
+| Tipo | 1.x | 2.x<sup>1</sup> | Acionador | Input | Saída |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [BD do Cosmos](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|

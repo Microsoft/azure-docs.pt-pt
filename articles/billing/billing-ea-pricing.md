@@ -16,10 +16,10 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127638"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Veja e transfira os preços do Azure da sua organização
@@ -51,7 +51,7 @@ Tem de ser o proprietário de perfil de faturação, Contribuidor, leitor ou Ger
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Transferir as folhas de preços para o período de faturação atual
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+1. Pesquisar nos **custo Management + faturação**.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Na **descrição geral** painel, encontra os links de download abaixo os encargos do mês até à data.
 1. Selecione **folha de preços do Azure**.
@@ -60,7 +60,7 @@ Tem de ser o proprietário de perfil de faturação, Contribuidor, leitor ou Ger
 ### <a name="download-price-sheets-for-billed-charges"></a>Transferir as folhas de preços para os custos de faturação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
+1. Pesquisar nos **custo Management + faturação**.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Selecione **Faturas**.
 1. Na grelha de nota fiscal, localize a linha da nota fiscal correspondente à folha de preços que pretende transferir.
@@ -78,7 +78,7 @@ Também pode usar o preço da sua organização para estimar os custos com a Cal
 
 1. Vá para o [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator).
 1. No canto superior direito, selecione **iniciar sessão**.
-1. Sob **programas e oferta** > **programa de licenciamento**, selecione **Enterprise Agreement (EA)**.
+1. Sob **programas e oferta** > **programa de licenciamento**, selecione **Enterprise Agreement (EA)** .
 1. Sob **programas e oferta** > **selecionado contrato**, selecione **nenhum selecionado**.
 
     ![Botão de csv de transferir a captura de ecrã que mostra a folha de preços](./media/billing-ea-pricing/ea-pricing-calculator-estimate.png)

@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 265a1cf0a8a5e1e099a4ec7a9f0d674e0c474dd4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65190103"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Como criar uma partilha de ficheiros do Azure premium
@@ -47,8 +47,8 @@ Cada conta de armazenamento tem de pertencer a um grupo de recursos do Azure. Um
 1. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também tem de ter entre 3 e 24 carateres de comprimento e apenas pode incluir números e letras minúsculas.
 1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
 1. Para **desempenho** selecionar **Premium**.
-1. Selecione **tipo de conta** e escolha **FileStorage (pré-visualização)**.
-1. Deixe **replicação** definido como seu valor padrão **armazenamento localmente redundante (LRS)**.
+1. Selecione **tipo de conta** e escolha **FileStorage (pré-visualização)** .
+1. Deixe **replicação** definido como seu valor padrão **armazenamento localmente redundante (LRS)** .
 
     ![Como criar uma conta de armazenamento para uma partilha de ficheiros premium](media/storage-how-to-create-premium-fileshare/premium-files-storage-account.png)
 
@@ -59,7 +59,7 @@ Quando o recurso de conta de armazenamento tiver sido criado, navegar até ele.
 
 ### <a name="create-a-premium-file-share"></a>Criar uma partilha de ficheiros premium
 
-1. No menu da esquerda para a conta de armazenamento, desloque-se para o **serviço de ficheiros** secção, em seguida, selecione **ficheiros (pré-visualização)**.
+1. No menu da esquerda para a conta de armazenamento, desloque-se para o **serviço de ficheiros** secção, em seguida, selecione **ficheiros (pré-visualização)** .
 1. Selecione **+ partilha de ficheiros** para criar uma partilha de ficheiros de premium.
 1. Introduza um nome e uma quota pretendida para a partilha de ficheiros, em seguida, selecione **criar**.
 

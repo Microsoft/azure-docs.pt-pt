@@ -16,10 +16,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7de892a0851e556c5046fe4b3691f39b42a9d237
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074759"
 ---
 # <a name="web-api-that-calls-web-apis---move-to-production"></a>API Web que chama o web APIs - mover para produção
@@ -34,4 +34,4 @@ Agora que sabe as noções básicas de como chamar APIs web a partir do seu pró
 
 | Exemplo | Plataforma | Descrição |
 |--------|----------|-------------|
-| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2.2 API Web ASP.NET Core, a área de trabalho (WPF) | API da Web do ASP.NET Core 2.2 chamar o Microsoft Graph, em si chamado a partir de um aplicativo do WPF usando a plataforma de identidade da Microsoft (v2.0) |
+| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | 2\.2 API Web ASP.NET Core, a área de trabalho (WPF) | API da Web do ASP.NET Core 2.2 chamar o Microsoft Graph, em si chamado a partir de um aplicativo do WPF usando a plataforma de identidade da Microsoft (v2.0) |

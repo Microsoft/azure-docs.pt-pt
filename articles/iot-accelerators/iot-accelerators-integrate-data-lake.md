@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61449501"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrar a solução de monitorização remota com o Azure Data Lake Store
@@ -103,7 +103,7 @@ Crie uma tarefa Azure Stream Analytics para transmitir os dados do seu hub IoT p
 
 1. Selecione a conta de Data Lake Store que criou nos passos anteriores e forneça a estrutura de pastas para transmitir dados para o arquivo.
 
-1. No campo de formato de data, digite **/streaming/ {date} / {hora}**. Deixe o formato de data padrão de DD/MM/AAAA e formato de hora de HH.
+1. No campo de formato de data, digite **/streaming/ {date} / {hora}** . Deixe o formato de data padrão de DD/MM/AAAA e formato de hora de HH.
 
     ![Forneça a estrutura de pastas](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
@@ -126,7 +126,7 @@ O Azure Stream Analytics utiliza uma linguagem de consulta do tipo SQL para espe
 
 1. Na guia visão geral, clique em **Editar consulta**.
 
-    ![Editar Consulta](./media/iot-accelerators-integrate-data-lake/stream-analytics-edit-query.png)
+    ![Editar consulta](./media/iot-accelerators-integrate-data-lake/stream-analytics-edit-query.png)
 
 1. No editor de consultas, substitua [YourOutputAlias] e [YourInputAlias] marcadores de posição pelos valores que definiu anteriormente.
 

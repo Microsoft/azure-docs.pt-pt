@@ -8,10 +8,10 @@ ms.author: cabailey
 manager: barbkess
 ms.date: 05/07/2019
 ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65079274"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Cofre de cliente para o Microsoft Azure

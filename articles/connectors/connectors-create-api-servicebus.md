@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62105585"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Mensagens do Exchange na nuvem com o Azure Service Bus e Azure Logic Apps
@@ -79,7 +79,7 @@ Confirme que a aplicação lógica tem permissões para aceder ao seu espaço de
    ![Selecione o acionador do Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Alguns acionadores pode retornar um ou de mensagens, por exemplo, o acionador **quando uma ou mais mensagens chegam a uma fila (concluir automaticamente)**. Quando estes acionadores são disparados, que elas retornam entre um e o número de mensagens especificado do acionador **número máximo de mensagem** propriedade.
+   > Alguns acionadores pode retornar um ou de mensagens, por exemplo, o acionador **quando uma ou mais mensagens chegam a uma fila (concluir automaticamente)** . Quando estes acionadores são disparados, que elas retornam entre um e o número de mensagens especificado do acionador **número máximo de mensagem** propriedade.
 
    *Todos os acionadores do Service Bus são consulta longa de acionadores*, que significa que, quando o acionador é acionado, o acionador processa todas as mensagens e, em seguida, aguarda 30 segundos para mais mensagens sejam apresentadas na subscrição de fila ou tópico. 
    Se nenhuma mensagem for apresentada a 30 segundos, a execução de Acionador é ignorada. 
@@ -90,7 +90,7 @@ Confirme que a aplicação lógica tem permissões para aceder ao seu espaço de
    1. Na última etapa em que pretende adicionar uma ação, escolha **novo passo**. 
 
       Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-      Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+      Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
    1. Na caixa de pesquisa, introduza "Do Azure Service Bus" como o filtro. 
    Abaixo da lista de ações, selecione a ação que pretende. 

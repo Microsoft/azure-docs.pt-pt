@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
 ms.openlocfilehash: c8f7198b59a0fe7ed6775736f8b97f5b5a262640
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306868"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurar os registos do Azure Monitor para um cluster

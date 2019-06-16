@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-pawal
 ms.openlocfilehash: 27138fc82515983bb07df845e1204fe04dff915a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389665"
 ---
 # <a name="how-to-return-n-best-translations"></a>Como retornar traduções múltipla
@@ -38,11 +38,11 @@ A assinatura é:
 | Parâmetro | Descrição |
 |:---|:---|
 | appId | **Necessário** se o cabeçalho de autorização é usado, deixe o campo de appid vazio ou especificar uma cadeia de caracteres que contém "Bearer" + "" + o token de acesso.|
-| text | **Necessário** uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|
+| texto | **Necessário** uma cadeia de caracteres que representa o texto a traduzir. O tamanho do texto não pode exceder os 10000 carateres.|
 | from | **Necessário** uma cadeia de caracteres que representa o código de idioma do texto a traduzir. |
 | para | **Necessário** representando o código de idioma para traduzir o texto numa cadeia de caracteres. |
 | maxTranslations | **Necessário** um inteiro que representa o número máximo de traduções para retornar. |
-| Opções | **Opcional** TranslateOptions de um objeto que contém os valores apresentados abaixo. Eles são todos opcionais e predefinido para as definições mais comuns.
+| options | **Opcional** TranslateOptions de um objeto que contém os valores apresentados abaixo. Eles são todos opcionais e predefinido para as definições mais comuns.
 
 * Categoria: O único suportado e a predefinição, a opção é "geral".
 * ContentType: O único suportado e a predefinição, a opção é "text/plain".

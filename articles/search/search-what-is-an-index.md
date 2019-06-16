@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024435"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Criar um índice básico no Azure Search
@@ -146,7 +146,7 @@ O [ *coleção de campos* ](#fields-collection) é, normalmente, a maior parte d
 Na definição do esquema, tem de especificar o nome, o tipo e os atributos de cada campo do índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar o modo de utilização do campo. As tabelas seguintes enumeram os tipos e os atributos que pode especificar.
 
 ### <a name="data-types"></a>Tipos de dados
-| Type | Descrição |
+| Tipo | Descrição |
 | --- | --- |
 | *Edm.String* |Texto que pode, opcionalmente, ser atomizado para pesquisa em texto completo (separação de palavras, Lematização e assim por diante). |
 | *Collection(Edm.String)* |Uma lista de cadeias que pode, opcionalmente, ser atomizada para pesquisa em texto completo. Não existe um limite superior teórico do número de itens numa coleção, contudo, o limite superior de 16 MB de tamanho de payload aplica-se às coleções. |
@@ -164,7 +164,7 @@ Pode encontrar mais informações detalhadas sobre os [tipos de dados suportados
 | --- | --- |
 | *Chave* |Uma cadeia que fornece o ID único de cada documento, utilizada para a procura de documentos. Todos os índices devem ter uma chave. Apenas um campo pode ser uma chave e o tipo deve ser definido para Edm.String. |
 | *Recuperável* |Especifica se um campo pode ser devolvido num resultado da pesquisa. |
-| *Filtrável* |Permite que o campo seja utilizado nas consultas de filtro.  |
+| *Filtrável* |Permite que o campo seja utilizado nas consultas de filtro. |
 | *Ordenável* |Permite a uma consulta ordenar os resultados da pesquisa através deste campo. |
 | *Facetável* |Permite a um campo ser utilizado numa estrutura de [navegação por facetas](search-faceted-navigation.md) para filtragem do utilizador auto-direcionada. Geralmente os campos com valores repetitivos que pode utilizar para agrupar vários documentos (por exemplo, vários documentos que se inserem numa única marca ou categoria de serviço) funcionam melhor como facetas. |
 | *Pesquisável* |Marca o campo como pesquisável no texto completo. |

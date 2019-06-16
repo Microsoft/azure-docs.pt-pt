@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
 ms.openlocfilehash: 4a4248efcfda76dfd8907069e167fdfa144d0365
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938508"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurar o WinRM após a criação da máquina virtual
@@ -26,7 +26,7 @@ Este artigo explica como configurar uma existente alojado no Azure máquina virt
 
 O WinRM através do protocolo HTTPS utiliza a porta 5896, que não está ativada por predefinição em VMs de Windows pré-configuradas oferecidos no Azure Marketplace. Para ativar este protocolo, utilize os seguintes passos para adicionar uma nova regra para o grupo de segurança de rede (NSG) com o [portal do Azure](https://portal.azure.com).  Para obter mais informações sobre NSGs, consulte [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Navegue para o painel **máquinas virtuais >**  <*nome da vm*>  **> definições/rede**.
+1.  Navegue para o painel **máquinas virtuais >**   <*nome da vm*>   **> definições/rede**.
 2.  Clique no nome do NSG (neste exemplo, **testvm11002**) para apresentar as respetivas propriedades:
 
     ![Propriedades do grupo de segurança de rede](./media/nsg-properties.png)

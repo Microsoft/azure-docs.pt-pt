@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478611"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure formato de ficheiro do registo de serviço de importação/exportação
@@ -101,7 +101,7 @@ properties-status ::=
 
 A tabela seguinte descreve os elementos do ficheiro de registo.  
   
-|Elemento XML|Type|Descrição|  
+|Elemento XML|Tipo|Descrição|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Representa um registo de unidade.|  
 |`Version`|Atributo de cadeia de caracteres|A versão do formato de registo.|  
@@ -111,7 +111,7 @@ A tabela seguinte descreve os elementos do ficheiro de registo.
 |`Blob/BlobPath`|String|O URI do blob.|  
 |`Blob/FilePath`|String|O caminho relativo para o ficheiro na unidade.|  
 |`Blob/Snapshot`|DateTime|A versão de instantâneo de blob, para apenas uma tarefa de exportação.|  
-|`Blob/Length`|Número inteiro|O comprimento total do blob em bytes.|  
+|`Blob/Length`|Integer|O comprimento total do blob em bytes.|  
 |`Blob/LastModified`|DateTime|A data/hora que o blob foi modificado pela última vez, para apenas uma tarefa de exportação.|  
 |`Blob/ImportDisposition`|String|A disposição de importação do blob, para apenas uma tarefa de importação.|  
 |`Blob/ImportDisposition/@Status`|Atributo de cadeia de caracteres|O estado da eliminação de importação.|  

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: geg
 ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65906501"
 ---
 # <a name="restore-azure-vms"></a>Restaurar as VMs do Azure

@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
 ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728752"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para enterprise integração B2B no Azure Logic Apps Enterprise Integration Pack
@@ -69,13 +69,13 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
     | Propriedade | Descrição |
     | --- | --- |
     | Name |Nome do contrato |
-    | Tipo de Contrato | Deve ser X12 |
-    | Parceiro do Anfitrião |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro do anfitrião representa a organização que configura o contrato. |
-    | Identidade do Anfitrião |Um identificador para o parceiro do anfitrião |
-    | Parceiro Convidado |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro convidado representa a organização que está negociando com o parceiro do anfitrião. |
-    | Identidade do Convidado |Um identificador para o parceiro convidado |
-    | Definições de Receção |Estas propriedades aplicam-se a todas as mensagens recebidas por um contrato. |
-    | Definições de Envio |Estas propriedades aplicam-se a todas as mensagens enviadas por um contrato. |  
+    | Tipo de contrato | Deve ser X12 |
+    | Parceiro do anfitrião |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro do anfitrião representa a organização que configura o contrato. |
+    | Identidade do anfitrião |Um identificador para o parceiro do anfitrião |
+    | Parceiro convidado |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro convidado representa a organização que está negociando com o parceiro do anfitrião. |
+    | Identidade do convidado |Um identificador para o parceiro convidado |
+    | Receber definições |Estas propriedades aplicam-se a todas as mensagens recebidas por um contrato. |
+    | Definições de envio |Estas propriedades aplicam-se a todas as mensagens enviadas por um contrato. |  
 
    > [!NOTE]
    > Resolução do contrato depende o qualificador do remetente e o identificador e o qualificador do destinatário e o identificador definido na mensagem de entrada e parceiro correspondentes de X12. Se alterar estes valores para o seu parceiro, atualize também o contrato.
@@ -99,9 +99,9 @@ Agora o seu contrato está pronto para lidar com mensagens de entrada que está 
 
 | Propriedade | Descrição |
 | --- | --- |
-| ISA1 (Qualificador de Autorização) |Selecione o valor de qualificador de autorização na lista pendente. |
+| ISA1 (qualificador de autorização) |Selecione o valor de qualificador de autorização na lista pendente. |
 | ISA2 |Opcional. Introduza o valor de informações de autorização. Se o valor introduzido para ISA1 for diferente de 00, introduza um mínimo de um caráter alfanumérico e um máximo de 10. |
-| ISA3 (Qualificador de Segurança) |Selecione o valor de qualificador de segurança na lista pendente. |
+| ISA3 (qualificador de segurança) |Selecione o valor de qualificador de segurança na lista pendente. |
 | ISA4 |Opcional. Introduza o valor de informações de segurança. Se o valor introduzido para ISA3 for diferente de 00, introduza um mínimo de um caráter alfanumérico e um máximo de 10. |
 
 ### <a name="acknowledgment"></a>Confirmação
@@ -123,8 +123,8 @@ Selecione um esquema para cada tipo de transação (ST1) e a aplicação do reme
 | Propriedade | Descrição |
 | --- | --- |
 | Version |Selecione o X12 versão |
-| Tipo de Transação (ST01) |Selecione o tipo de transação |
-| Aplicação do Remetente (GS02) |Selecione a aplicação de remetente |
+| Tipo de transação (ST01) |Selecione o tipo de transação |
+| Sender Application (GS02) |Selecione a aplicação de remetente |
 | Esquema |Selecione o ficheiro de esquema que pretende utilizar. Esquemas são adicionados à sua conta de integração. |
 
 > [!NOTE]
@@ -138,15 +138,15 @@ Selecione um esquema para cada tipo de transação (ST1) e a aplicação do reme
 | --- | --- |
 | Utilização de ISA11 |Especifica o separador a utilizar um conjunto de transações para: <p>Selecione **identificador padrão** para utilizar um ponto (.) para notação decimal, em vez da notação decimal do documento de entrada no EDI receber pipeline. <p>Selecione **separador de repetição** para especificar o separador de ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetidas. Por exemplo, normalmente, o acento circunflexo (^) é utilizado como separador de repetição. Para esquemas HIPAA, pode usar apenas o acento circunflexo. |
 
-### <a name="control-numbers"></a>Números de Controlo
+### <a name="control-numbers"></a>Números de controlo
 
 ![Selecione a forma de lidar com os duplicados de números de controlo](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
 | Propriedade | Descrição |
 | --- | --- |
-| Não permitir duplicados de intercâmbio de número de controlo |Bloquear intercâmbios duplicados. Verifica o número de controlo de intercâmbio (ISA13) para o número de controlo de intercâmbio recebido. Se for detetada uma correspondência, o pipeline de recebimento não processa o intercâmbio. Pode especificar o número de dias para efetuar a verificação, atribuindo um valor para *verificar a existência de duplicados ISA13 (dias)*. |
-| Não permitir duplicados de números de controlo de Grupo |Bloco de intercâmbios com números de controlo do grupo duplicado. |
-| Não permitir duplicados de números de controlo do conjunto de Transação |Bloco de intercâmbios com números de controlo do conjunto de transações duplicado. |
+| Não permitir duplicados de intercâmbio de número de controlo |Bloquear intercâmbios duplicados. Verifica o número de controlo de intercâmbio (ISA13) para o número de controlo de intercâmbio recebido. Se for detetada uma correspondência, o pipeline de recebimento não processa o intercâmbio. Pode especificar o número de dias para efetuar a verificação, atribuindo um valor para *verificar a existência de duplicados ISA13 (dias)* . |
+| Não permitir duplicados de números de controlo de grupo |Bloco de intercâmbios com números de controlo do grupo duplicado. |
+| Não permitir duplicados de números de controlo de conjunto de transações |Bloco de intercâmbios com números de controlo do conjunto de transações duplicado. |
 
 ### <a name="validations"></a>Validações
 
@@ -156,14 +156,14 @@ Quando concluir cada linha de validação, o outro é adicionado automaticamente
 
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo de Mensagem |Selecione o tipo de mensagem EDI. |
+| Tipo de mensagem |Selecione o tipo de mensagem EDI. |
 | Validação de EDI |Execute a validação de EDI em tipos de dados, conforme definido pelo esquema EDI propriedades, restrições de comprimento, elementos de dados vazia e separadores à direita. |
-| Validação Expandida |Se o tipo de dados não estiver EDI, a validação é o requisito de elemento de dados e permitido repetição, enumerações e dados de validação de comprimento de elemento (mín/máx.). |
-| Permitir Zeros à Esquerda/Direita |Manter qualquer adicionais do esquerda ou à direita zero e carateres de espaço. Não remova estes carateres. |
-| Cortar Zeros à Esquerda/Direita |Remova zero à esquerda nem à direita e carateres de espaço. |
-| Política de Separador Decimal |Gere separadores à direita. <p>Selecione **Nepovoluje** para proibir delimitadores à direita e de separadores no intercâmbio recebido. Se o intercâmbio tem delimitadores à direita e os separadores, o intercâmbio é declarado não válido. <p>Selecione **opcional** para aceitar intercâmbios com ou sem delimitadores à direita e os separadores. <p>Selecione **obrigatório** quando o intercâmbio tem de ter delimitadores à direita e os separadores. |
+| Validação expandida |Se o tipo de dados não estiver EDI, a validação é o requisito de elemento de dados e permitido repetição, enumerações e dados de validação de comprimento de elemento (mín/máx.). |
+| Permitir zeros à esquerda/direita |Manter qualquer adicionais do esquerda ou à direita zero e carateres de espaço. Não remova estes carateres. |
+| Cortar zeros à esquerda/direita |Remova zero à esquerda nem à direita e carateres de espaço. |
+| Política de separador decimal |Gere separadores à direita. <p>Selecione **Nepovoluje** para proibir delimitadores à direita e de separadores no intercâmbio recebido. Se o intercâmbio tem delimitadores à direita e os separadores, o intercâmbio é declarado não válido. <p>Selecione **opcional** para aceitar intercâmbios com ou sem delimitadores à direita e os separadores. <p>Selecione **obrigatório** quando o intercâmbio tem de ter delimitadores à direita e os separadores. |
 
-### <a name="internal-settings"></a>Definições Internas
+### <a name="internal-settings"></a>Definições internas
 
 ![Selecione as definições internas](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
 
@@ -171,10 +171,10 @@ Quando concluir cada linha de validação, o outro é adicionado automaticamente
 | --- | --- |
 | Converter formato decimal implícito "Nn" para um valor numérico 10 base |Converte um número EDI especificado com o formato "Nn" num valor numérico de base 10 |
 | Criar etiquetas XML vazias se forem permitidos separadores decimais |Selecione esta caixa de verificação para que o remetente de intercâmbio incluem etiquetas XML vazias para separadores à direita. |
-| Dividir Intercâmbio como conjuntos de transação - suspender conjuntos de transação com erro|Analisa cada transação definida num intercâmbio num documento XML separado, aplicando o envelope apropriado para o conjunto de transações. Suspende somente as transações em que a validação falhar. |
-| Dividir Intercâmbio como conjuntos de transação - suspender intercâmbio com erro|Analisa cada transação definida num intercâmbio num documento XML separado, aplicando o envelope apropriado. Suspende o intercâmbio inteiro quando um ou mais conjuntos de transação no intercâmbio a falha de validação. | 
+| Dividir intercâmbio como conjuntos de transação - suspender conjuntos transação com erro|Analisa cada transação definida num intercâmbio num documento XML separado, aplicando o envelope apropriado para o conjunto de transações. Suspende somente as transações em que a validação falhar. |
+| Dividir intercâmbio como conjuntos de transação - suspender intercâmbio com erro|Analisa cada transação definida num intercâmbio num documento XML separado, aplicando o envelope apropriado. Suspende o intercâmbio inteiro quando um ou mais conjuntos de transação no intercâmbio a falha de validação. | 
 | Preservar intercâmbio - suspender conjuntos transação com erro |Mantém o intercâmbio do utilizador intactos, cria um documento XML para o intercâmbio em lote inteiro. Suspende somente os conjuntos de transação que a falha de validação, enquanto continua a processar todos os outros conjuntos de transação. |
-| Preservar Intercâmbio - suspender intercâmbio com erro |Mantém o intercâmbio do utilizador intactos, cria um documento XML para o intercâmbio em lote inteiro. Suspenda o intercâmbio de todo um ou mais conjuntos de transação no intercâmbio a falha de validação. |
+| Preservar intercâmbio - suspender intercâmbio com erro |Mantém o intercâmbio do utilizador intactos, cria um documento XML para o intercâmbio em lote inteiro. Suspenda o intercâmbio de todo um ou mais conjuntos de transação no intercâmbio a falha de validação. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Configurar a forma como o seu contrato envia mensagens
 
@@ -217,7 +217,7 @@ Agora o seu contrato está pronto para lidar com mensagens de saída que estão 
 | Propriedade | Descrição |
 | --- | --- |
 | Version |Selecione o X12 versão |
-| Tipo de Transação (ST01) |Selecione o tipo de transação |
+| Tipo de transação (ST01) |Selecione o tipo de transação |
 | SCHEMA |Selecione o esquema a utilizar. Esquemas estão localizados na sua conta de integração. Se selecionar esquema pela primeira vez, este configura automaticamente a versão e de transação de tipo  |
 
 > [!NOTE]
@@ -231,13 +231,13 @@ Agora o seu contrato está pronto para lidar com mensagens de saída que estão 
 | --- | --- |
 | Utilização de ISA11 |Especifica o separador a utilizar um conjunto de transações para: <p>Selecione **identificador padrão** para utilizar um ponto (.) para notação decimal, em vez da notação decimal do documento de entrada no EDI receber pipeline. <p>Selecione **separador de repetição** para especificar o separador de ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetidas. Por exemplo, normalmente, o acento circunflexo (^) é utilizado como separador de repetição. Para esquemas HIPAA, pode usar apenas o acento circunflexo. |
 
-### <a name="control-numbers"></a>Números de Controlo
+### <a name="control-numbers"></a>Números de controlo
 
 ![Especificar as propriedades de número de controlo](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | Propriedade | Descrição |
 | --- | --- |
-| Número da Versão de Controlo (ISA12) |Selecione a versão de X12 padrão |
+| Número de versão do controlo (ISA12) |Selecione a versão de X12 padrão |
 | Indicador de utilização (ISA15) |Selecione o contexto de um intercâmbio.  Os valores são informações, dados de produção, ou dados de teste |
 | Esquema |Gera os segmentos GS e ST para um intercâmbio de X12 codificada que envia para o Pipeline de envio |
 | GS1 |Opcional, selecione um valor para o código funcional na lista pendente |
@@ -253,7 +253,7 @@ Agora o seu contrato está pronto para lidar com mensagens de saída que estão 
 | Prefixo |Opcional, designado para o intervalo de números de controlo de conjunto de transações usados na confirmação. Introduza um valor numérico para os dois campos intermediária e um valor de alfanumérico (se desejado) para os campos de prefixo e sufixo. Os campos intermediária são necessários e contêm os valores mínimos e máximo para o número de controlo |
 | Sufixo |Opcional, designado para o intervalo de números de controlo de conjunto de transações usados numa confirmação. Introduza um valor numérico para os dois campos meio e um valor de alfanumérico (se desejado) para os campos de prefixo e sufixo. Os campos intermediária são necessários e contêm os valores mínimos e máximo para o número de controlo |
 
-### <a name="character-sets-and-separators"></a>Conjuntos de Carateres e Separadores
+### <a name="character-sets-and-separators"></a>Conjuntos de carateres e separadores
 
 Além de definir o caráter, pode introduzir um conjunto de delimitadores diferente para cada tipo de mensagem. Se um conjunto de carateres não está especificado para um esquema de mensagem em questão, o conjunto de carateres predefinido é utilizado.
 
@@ -263,11 +263,11 @@ Além de definir o caráter, pode introduzir um conjunto de delimitadores difere
 | --- | --- |
 | Conjunto de caracteres a ser utilizado |Para validar as propriedades, o conjunto de caracteres select X12. As opções são Basic, UTF8 e expandidas. |
 | Esquema |Selecione um esquema da lista pendente. Depois de concluir cada linha, é automaticamente adicionada uma nova linha. Para o esquema selecionado, selecione o conjunto de separadores que pretende utilizar, com base nas descrições do separador abaixo. |
-| Tipo de Entrada |Selecione um tipo de entrada na lista pendente. |
-| Separador de Componente |Para separar os elementos de dados compostos, introduza um único caractere. |
-| Separador do Elemento de Dados |Para separar os elementos de dados simples dentro de elementos de dados compostos, introduza um único caractere. |
+| Tipo de entrada |Selecione um tipo de entrada na lista pendente. |
+| Separador de componente |Para separar os elementos de dados compostos, introduza um único caractere. |
+| Separador de elemento de dados |Para separar os elementos de dados simples dentro de elementos de dados compostos, introduza um único caractere. |
 | Caráter de substituição |Introduza um caráter de substituição utilizado para substituir todos os caracteres separadores nos dados payload ao gerar a saída X12 mensagem. |
-| Terminador de Segmento |Para indicar o final de um segmento EDI, introduza um único caractere. |
+| Terminador de segmento |Para indicar o final de um segmento EDI, introduza um único caractere. |
 | Sufixo |Selecione os carateres que é utilizado com o identificador de segmento. Se designar um sufixo, em seguida, o elemento de dados de terminador de segmento pode estar vazio. Se o terminador de segmento é deixado em branco, em seguida, tem de designar um sufixo. |
 
 > [!TIP]
@@ -281,12 +281,12 @@ Quando concluir cada linha de validação, o outro é adicionado automaticamente
 
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo de Mensagem |Selecione o tipo de mensagem EDI. |
+| Tipo de mensagem |Selecione o tipo de mensagem EDI. |
 | Validação de EDI |Execute a validação de EDI em tipos de dados, conforme definido pelo esquema EDI propriedades, restrições de comprimento, elementos de dados vazia e separadores à direita. |
-| Validação Expandida |Se o tipo de dados não estiver EDI, a validação é o requisito de elemento de dados e permitido repetição, enumerações e dados de validação de comprimento de elemento (mín/máx.). |
-| Permitir Zeros à Esquerda/Direita |Manter qualquer adicionais do esquerda ou à direita zero e carateres de espaço. Não remova estes carateres. |
-| Cortar Zeros à Esquerda/Direita |Remova esquerda ou à direita zero carateres. |
-| Política de Separador Decimal |Gere separadores à direita. <p>Selecione **Nepovoluje** para proibir delimitadores à direita e de separadores no intercâmbio enviado. Se o intercâmbio tem delimitadores à direita e os separadores, o intercâmbio é declarado não válido. <p>Selecione **opcional** para enviar intercâmbios com ou sem delimitadores à direita e os separadores. <p>Selecione **obrigatório** se tem de ter o intercâmbio enviado delimitadores à direita e os separadores. |
+| Validação expandida |Se o tipo de dados não estiver EDI, a validação é o requisito de elemento de dados e permitido repetição, enumerações e dados de validação de comprimento de elemento (mín/máx.). |
+| Permitir zeros à esquerda/direita |Manter qualquer adicionais do esquerda ou à direita zero e carateres de espaço. Não remova estes carateres. |
+| Cortar zeros à esquerda/direita |Remova esquerda ou à direita zero carateres. |
+| Política de separador decimal |Gere separadores à direita. <p>Selecione **Nepovoluje** para proibir delimitadores à direita e de separadores no intercâmbio enviado. Se o intercâmbio tem delimitadores à direita e os separadores, o intercâmbio é declarado não válido. <p>Selecione **opcional** para enviar intercâmbios com ou sem delimitadores à direita e os separadores. <p>Selecione **obrigatório** se tem de ter o intercâmbio enviado delimitadores à direita e os separadores. |
 
 ## <a name="find-your-created-agreement"></a>Encontrar o contrato criado
 

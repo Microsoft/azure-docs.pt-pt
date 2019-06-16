@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66153439"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
@@ -158,8 +158,8 @@ Pode obter a identidade gerida a partir do portal do Azure ou através de progra
 
 Pode encontrar as informações de identidade gerida a partir do portal do Azure -> sua fábrica de dados -> propriedades:
 
-- ID do Objeto da Identidade Gerida
-- Inquilino da Identidade Gerida
+- ID do objeto de identidade gerido
+- Inquilino de identidade gerida
 - **Geridos pelo ID da Identity Application** > Copie este valor
 
 ![Obter a identidade gerida](media/data-factory-service-identity/retrieve-service-identity-portal.png)

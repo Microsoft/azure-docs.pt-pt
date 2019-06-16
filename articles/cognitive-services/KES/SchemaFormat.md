@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814408"
 ---
 # <a name="schema-format"></a>Formato de esquema
@@ -37,11 +37,11 @@ O esquema é especificado num ficheiro JSON que descreve a estrutura de atributo
 
 Nomes de atributo são identificadores de maiúsculas e minúsculas que começam com uma letra e consistem apenas de letras (A-Z), números (0-9) e o caráter de sublinhado (\_).  O atributo de reservado "logprob" é usado para especificar as probabilidades de log natural relativa entre objetos.
 
-## <a name="attribute-type"></a>Tipo de Atributo
+## <a name="attribute-type"></a>Tipo de atributo
 
 Segue-se uma lista dos tipos de dados de atributo suportados:
 
-| Type | Descrição | Operações | Exemplo |
+| Tipo | Descrição | Operações | Exemplo |
 |------|-------------|------------|---------|
 | `String` | A cadeia de caracteres (1 a 1024 carateres) | é igual a, starts_with | "hello world" |
 | `Int32` | O número inteiro de 32 bits com sinal | é igual a, starts_with, is_between | 2016 |

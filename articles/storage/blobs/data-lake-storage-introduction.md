@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: daa5efcf1be075e81e402edff56239a7cf21db18
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939232"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
@@ -38,7 +38,7 @@ No passado, análise baseada na cloud tinha de comprometer nas áreas de desempe
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais recursos de geração 2 de armazenamento do Data Lake
 
--   **Acesso compatível do Hadoop**: Geração 2 de armazenamento do Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](data-lake-storage-abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop, incluindo [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), e [O SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acessar dados armazenados na geração 2 de armazenamento do Data Lake.
+-   **Acesso compatível do Hadoop**: Geração 2 de armazenamento do Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](data-lake-storage-abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop, incluindo [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), e [O SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) para acessar dados armazenados na geração 2 de armazenamento do Data Lake.
 
 -   **Um conjunto mais amplo de permissões de POSIX**: O modelo de segurança para a geração 2 do Data Lake suporta permissões de ACL e POSIX, juntamente com alguns extra granularidade específica de geração 2 de armazenamento do Data Lake. Definições podem ser configuradas através do Explorador de armazenamento ou por meio de estruturas como o Hive e do Spark.
 

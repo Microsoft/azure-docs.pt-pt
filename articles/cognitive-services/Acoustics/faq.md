@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1f2b4d25b39e9b3ebc6659e736d47640964251dc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61335335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693886"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Projeto Acoustics perguntas mais frequentes
 
@@ -27,7 +27,7 @@ O conjunto de Acoustics de projeto de plug-ins é um sistema de acoustics que ca
 
 Pode baixar o [Plug-in do projeto Acoustics Unity](https://www.microsoft.com/download/details.aspx?id=57346) ou o [Plug-in do projeto Acoustics Unreal](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-x-platform"></a>Oferece suporte a projeto Acoustics <x> plataforma?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Oferece suporte a projeto Acoustics &lt;x&gt; plataforma?
 
 Suporte de plataforma do projeto Acoustics evolui com base nas necessidades dos clientes. Contacte-na [fóruns de projeto Acoustics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) para se informar sobre o suporte para plataformas adicionais.
 

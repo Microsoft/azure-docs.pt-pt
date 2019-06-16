@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafa3974eb01b36015254307ba1a52a9bc221da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f970e9d43bc6dd67fe55ca9cdcfcae716c9f166a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110607"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início rápido: Criar um novo inquilino no Azure Active Directory
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
@@ -69,6 +69,6 @@ Se não quiser continuar a utilizar esta aplicação, poderá eliminar o inquili
 
 - Para adicionar grupos e membros, veja [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-- Saiba mais sobre o [acesso baseado em funções com o Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) e o [Acesso condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerir o acesso a aplicações e recursos da sua organização.
+- Saiba mais sobre [acesso baseado em funções com o Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) e [acesso condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerir o acesso de aplicações e recursos da sua organização.
 
 - Saiba mais sobre o Azure AD, incluindo [informações básicas de licenciamento, terminologia e funcionalidades associadas](active-directory-whatis.md).

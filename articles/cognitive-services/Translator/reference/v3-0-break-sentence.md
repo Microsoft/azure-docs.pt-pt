@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-pawal
 ms.openlocfilehash: 0ecb620757bc58b109747f69eb3b5afe0c56bac4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387565"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Texto do Translator API 3.0: BreakSentence
@@ -45,7 +45,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td>*Parâmetro de consulta opcionais*.<br/>Etiqueta de idioma, identificando o idioma do texto de entrada. Se não for especificado um código, deteção de idioma automática será aplicada.</td>
   </tr>
   <tr>
-    <td>Script</td>
+    <td>script</td>
     <td>*Parâmetro de consulta opcionais*.<br/>Marca de script, identificando o script utilizado pelo texto de entrada. Se não for especificado um script, será assumido o script de predefinição da linguagem.</td>
   </tr>
 </table> 

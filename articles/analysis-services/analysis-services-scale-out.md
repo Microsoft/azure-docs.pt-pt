@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65192341"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Aumentar horizontalmente o Azure Analysis Services
@@ -111,7 +111,7 @@ Códigos de status de retorno:
 |Código  |Descrição  |
 |---------|---------|
 |-1     |  Inválido       |
-|0     | A replicar        |
+|0     | Replicar        |
 |1     |  A ser reidratado       |
 |2     |   Concluído       |
 |3     |   Com Falhas      |

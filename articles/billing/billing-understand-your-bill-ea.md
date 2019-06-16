@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
 ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571203"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreender a sua fatura de contrato Enterprise do Azure
@@ -110,9 +110,9 @@ A tabela seguinte lista os termos e as descrições mostradas da nota fiscal e, 
 
 |Termo de nota fiscal|Termo de resumo de utilização|Descrição|
 |---|---|---|
-|Total estendido quantidade|Utilização Total|O custo total de pré-imposto de utilização para o período específico antes do crédito é aplicado.|
+|Total estendido quantidade|Utilização total|O custo total de pré-imposto de utilização para o período específico antes do crédito é aplicado.|
 |Utilização de alocação|Utilização de alocação|O crédito aplicado durante o período específico.|
-|Total das vendas|Utilização Excedida Total|O custo total de utilização que exceda o montante de crédito. Este é o valor não incluem impostos.|
+|Total das vendas|Utilização excedida total|O custo total de utilização que exceda o montante de crédito. Este é o valor não incluem impostos.|
 |Valor do imposto|Não aplicável|Imposto que se aplica a quantidade total das vendas para o período específico.|
 |Quantidade total|Não aplicável|A quantidade vencimento da nota fiscal depois do crédito é aplicado e imposto é adicionado.|
 

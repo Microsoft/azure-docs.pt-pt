@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935445"
 ---
 <a name="retrieve-a-specific-offer"></a>Obter uma oferta específica
@@ -41,8 +41,8 @@ Também pode obter uma versão específica da oferta, ou obter a oferta no rascu
 | **Nome**    | **Descrição**                                                                          | **Tipo de dados** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId. Por exemplo, Contoso                                                        | String        |
-| IDoferta     | GUID que identifica exclusivamente a oferta.                                                 | String        |
-| versão     | Versão da oferta que está a ser recuperada. Por predefinição, a versão mais recente da oferta é recuperada. | Número inteiro       |
+| offerId     | GUID que identifica exclusivamente a oferta.                                                 | String        |
+| version     | Versão da oferta que está a ser recuperada. Por predefinição, a versão mais recente da oferta é recuperada. | Integer       |
 | slotId      | A ranhura a partir do qual a oferta é a obter, pode ser um de:      <br/>  - `Draft` (predefinição) obtém a versão da oferta atualmente no rascunho.  <br/>  -  `Preview` obtém a versão de oferta, atualmente em pré-visualização.     <br/>  -  `Production` obtém a versão de oferta, atualmente em produção.          |      Enum |
 | versão de API | Versão mais recente da API                                                                    | Date          |
 |  |  |  |
@@ -174,8 +174,8 @@ Também pode obter uma versão específica da oferta, ou obter a oferta no rascu
 |  publisherId    | Identificador exclusivo do publicador                                                                                              |
 |  status         | Estado da oferta. Para obter a lista de valores possíveis, consulte [stav Nabídky](#offer-status) abaixo.                                  |
 |  Id             | GUID que identifica exclusivamente a oferta                                                                                         |
-|  versão        | Versão atual da oferta. A propriedade de versão não pode ser modificada pelo cliente. Ele é incrementado após cada publicação.    |
-|  definição     | Definição real da carga de trabalho                                                                                               |
+|  version        | Versão atual da oferta. A propriedade de versão não pode ser modificada pelo cliente. Ele é incrementado após cada publicação.    |
+|  Definição     | Definição real da carga de trabalho                                                                                               |
 |  changedTime    | Datetime UTC quando a oferta foi modificado pela última vez.                                                                                   |
 |  |  |
 

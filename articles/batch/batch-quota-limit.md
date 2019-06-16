@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820eddff7da3bb52ca94ea0cb7e2361d89892a4a
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595324"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080916"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -32,12 +32,13 @@ Pode executar várias cargas de trabalho do Batch numa única conta do Batch ou 
 
 Se planeja executar cargas de trabalho de produção no Batch, se pretender aumentar um ou mais das quotas acima da predefinição. Se pretender aumentar uma quota, pode abrir um online [pedido de suporte ao cliente](#increase-a-quota) sem encargos.
 
-> [!NOTE]
-> Uma quota é um limite de crédito, não uma garantia de capacidade. Se tiver necessidades de capacidade em grande escala, contacte o suporte do Azure.
-
 ## <a name="resource-quotas"></a>Quotas de recursos
-[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+Uma quota é um limite de crédito, não uma garantia de capacidade. Se tiver necessidades de capacidade em grande escala, contacte o suporte do Azure.
+
+Também tenha em atenção que as quotas não são garantidos valores. As quotas podem variar com base nas alterações de serviço do Batch ou um pedido de utilizador para alterar um valor de quota.
+
+[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de núcleos no modo de subscrição de utilizador
 
@@ -45,12 +46,14 @@ Se tiver criado uma conta do Batch com o modo de alocação de conjuntos definid
 
 ## <a name="pool-size-limits"></a>Limites de tamanho do conjunto
 
+Limites de tamanho do conjunto são definidas pelo serviço Batch. Ao contrário [quotas de recursos](#resource-quotas), não não possível alterar estes valores. Agrupamentos apenas com a comunicação entre nós e imagens personalizadas têm restrições diferentes do que a quota padrão.
+
 | **Recurso** | **Limite Máximo** |
 | --- | --- |
 | **Nós de computação em [conjunto de comunicação entre nós ativada](batch-mpi.md)**  ||
 | Modo de alocação do conjunto de serviço do batch | 100 |
 | Modo de alocação de conjuntos de subscrição de batch | 80 |
-| **Nós de computação em [conjunto criado com a imagem de VM personalizada](batch-custom-images.md)**<sup>1</sup> ||
+| **Nós de computação em [conjunto criado com a imagem de VM personalizada](batch-custom-images.md)** <sup>1</sup> ||
 | Nós dedicados | 2000 |
 | Nós de baixa prioridade | 1000 |
 
@@ -58,11 +61,13 @@ Se tiver criado uma conta do Batch com o modo de alocação de conjuntos definid
 
 ## <a name="other-limits"></a>Outros limites
 
+Definir limites adicionais pelo serviço Batch. Ao contrário [quotas de recursos](#resource-quotas), não não possível alterar estes valores.
+
 | **Recurso** | **Limite Máximo** |
 | --- | --- |
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 x número de núcleos do nó |
 | [Aplicativos](batch-application-packages.md) por conta do Batch | 20 |
-| Pacotes de aplicação por aplicação | 40 |
+| Pacotes de aplicações por aplicação | 40 |
 | Pacotes de aplicações por conjunto | 10 |
 | Duração de tarefa máximo | 180 dias<sup>1</sup> |
 
@@ -84,7 +89,7 @@ Siga estas etapas para pedir uma quota de aumentam para sua conta do Batch ou a 
 
 ### <a name="increase-cores-quota-in-batch"></a>Aumentar a quota de núcleos no Batch 
 
-1. Selecione o **ajuda + suporte** mosaico no dashboard do portal ou o ponto de interrogação (**?**) no canto superior direito do portal.
+1. Selecione o **ajuda + suporte** mosaico no dashboard do portal ou o ponto de interrogação ( **?** ) no canto superior direito do portal.
 1. Selecione **novo pedido de suporte** > **Noções básicas**.
 1. Na **Noções básicas**:
    

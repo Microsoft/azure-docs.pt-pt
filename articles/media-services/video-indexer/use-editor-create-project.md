@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
 ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518144"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utilize o editor do indexador de vídeo para criar projetos
@@ -96,7 +96,7 @@ Se clicar na seta para baixo no lado direito de cada vídeo, abrirá as informa�
 > [!TIP]
 > À medida que é seleção e ordenação sua clips, pode visualizar o vídeo no player de no lado direito da página. 
 
-![Pré-visualizar](./media/video-indexer-view-edit/preview.png)
+![Pré-visualização](./media/video-indexer-view-edit/preview.png)
 
 Lembre-se de guardar o seu projeto quando fizer alterações, selecionando **Save project**. 
 

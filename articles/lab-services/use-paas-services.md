@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
 ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833917"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Utilizar os serviços de plataforma-como-serviço (PaaS) no Azure DevTest Labs
@@ -39,7 +39,7 @@ Em grandes organizações, as equipes de desenvolvimento oferecem, normalmente, 
 
 ## <a name="customizations"></a>Personalizações
 
-#### <a name="sandbox"></a>Sandbox 
+#### <a name="sandbox"></a>Área de segurança 
 O proprietário de laboratório pode personalizar a ambientes de laboratório para alterar a função do utilizador de **leitor** ao **contribuinte** dentro do grupo de recursos. Esta capacidade está no **definições de laboratório** página sob a **configuração e políticas de** do laboratório. Esta alteração na função permite ao utilizador adicionar ou remover recursos dentro desse ambiente. Se quiser restringir ainda mais o acesso, utilize as políticas do Azure. Esta funcionalidade permite-lhe personalizar a configuração sem o acesso ao nível da subscrição ou recursos.
 
 #### <a name="custom-tokens"></a>Tokens personalizados
@@ -60,7 +60,7 @@ DevTest Labs suporta a utilização de [aninhada de modelos do Resource Manager]
 ## <a name="developer"></a>Programador
 Os desenvolvedores usar o mesmo fluxo de trabalho para criar uma VM para criar um ambiente específico. Eles selecione o ambiente versus a imagem de máquina e introduza as informações necessárias exigidas pelo modelo. Permite que cada desenvolvedor a ter um ambiente para a implementação de alterações e a depuração de loop interno melhorado. O ambiente pode ser criado em qualquer altura utilizando o modelo mais recente.  Esta funcionalidade permite que os ambientes ser destruída e recriada para ajudar a reduzir o tempo de inatividade da necessidade de criar o sistema ou recuperar de falhas de teste manualmente.  
 
-### <a name="testing"></a>A testar
+### <a name="testing"></a>Testes
 Ambientes de laboratórios DevTest permitem independentes teste de código específico e configurações de forma assíncrona. A prática comum é configurar o ambiente com o código no pedido pull individuais e começar a qualquer teste automatizado. Assim que o teste automatizado tiver executado para conclusão, o teste manual pode ser executado contra o ambiente específico. Normalmente, este processo é feito como parte do pipeline CI/CD. 
 
 ## <a name="management-experience"></a>Experiência de gestão

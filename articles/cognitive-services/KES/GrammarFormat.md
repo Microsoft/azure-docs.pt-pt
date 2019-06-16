@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814871"
 ---
 # <a name="grammar-format"></a>Formato de gramática
@@ -126,7 +126,7 @@ before <attrref uri="academic#Year" op="lt" name="year"/
 
 A tabela seguinte lista os suportados `op` valores para cada tipo de atributo.  Seu uso requer que a operação de índice correspondente a serem incluídos na definição do atributo de esquema.
 
-| Tipo de Atributo | Valor de OP | Descrição | Operação de índice
+| Tipo de atributo | Valor de OP | Descrição | Operação de índice
 |----|----|----|----|
 | String | eq | Correspondência exata da cadeia de caracteres | é igual a |
 | String | starts_with | Correspondência de prefixo de cadeia de caracteres | starts_with |

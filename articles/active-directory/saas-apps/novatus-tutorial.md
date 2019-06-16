@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 3055d91028ed6c4fcfbfcbe607350b3f5fc8bedf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37d96b6c24bd4dd4faa05a124ea16c02811ec611
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870812"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: Integração do Active Directory do Azure com Novatus
 
@@ -54,7 +54,7 @@ Para configurar a integração do Novatus com o Azure AD, terá de adicionar Nov
 
 **Para adicionar Novatus a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -188,7 +188,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Novatus. Novatu
 >Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Novatus](mailto:jvinci@novatusinc.com). 
 > 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

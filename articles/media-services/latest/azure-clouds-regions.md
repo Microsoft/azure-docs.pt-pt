@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409285"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões nos quais serviços de multimédia do Azure v3 existe
@@ -26,9 +26,9 @@ Serviços de multimédia do Azure v3 está disponível através do Azure Resourc
 
 | Funcionalidade|Regiões globais do Azure | Azure Government|Azure Alemanha|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Disponível | Indisponível | Indisponível | Indisponível |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Indisponível | Indisponível | Indisponível |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Indisponível | Indisponível | Indisponível |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Disponível | Não disponível | Não disponível | Não disponível |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Não disponível | Não disponível | Não disponível |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Não disponível | Não disponível | Não disponível |
 | [StandardEncoderPreset](encoding-concept.md) | Disponível | Disponível | Disponível | Disponível |
 | [LiveEvents](live-streaming-overview.md) | Disponível | Disponível | Disponível | Disponível |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponível | Disponível | Disponível | Disponível |

@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 5/10/2019
 ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546459"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
@@ -36,7 +36,7 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 | :-- | --: |--:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |SLA de Tempo de Atividade|99,99%|99,99%|99,99%|
-|Retenção do Backup|7 dias|35 dias|35 dias|
+|Retenção da cópia de segurança|7 dias|35 dias|35 dias|
 |CPU|Baixa|Baixa, média, alta|Médio, alto|
 |Débito de e/s (aproximado) |2,5 IOPS de por DTU| 2,5 IOPS de por DTU | 48 IOPS por DTU|
 |Latência de e/s (aproximada)|5 ms (ler), 10 ms (escrita)|5 ms (ler), 10 ms (escrita)|2 ms (leitura/escrita)|

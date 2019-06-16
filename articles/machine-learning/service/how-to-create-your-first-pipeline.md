@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66165865"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059239"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
@@ -53,7 +53,7 @@ Crie os recursos necessários para executar um pipeline:
 
 * Configurar um `DataReference` de objeto para apontar para dados que residem na ou estão acessível num arquivo de dados.
 
-* Configurar o [destinos de computação](concept-azure-machine-learning-architecture.md#compute-target) em que executará as etapas do pipeline.
+* Configurar o [destinos de computação](concept-azure-machine-learning-architecture.md#compute-targets) em que executará as etapas do pipeline.
 
 ### <a name="set-up-a-datastore"></a>Configurar um arquivo de dados
 Um arquivo de dados armazena os dados para o pipeline aceder. Cada área de trabalho tem um arquivo de dados padrão. Pode registrar os arquivos de dados adicionais. 
@@ -296,7 +296,7 @@ Quando submete o pipeline, o serviço Azure Machine Learning verifica as depend�
 > [!IMPORTANT]
 > Para impedir que os ficheiros que está a ser incluído no instantâneo, crie uma [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` de ficheiros no diretório e adicione os ficheiros ao mesmo. O `.amlignore` utiliza a mesma sintaxe de ficheiros e padrões como o [. gitignore](https://git-scm.com/docs/gitignore) ficheiro. Se existirem ambos os ficheiros, o `.amlignore` ficheiro tem precedência.
 >
-> Para obter mais informações, consulte [instantâneos](concept-azure-machine-learning-architecture.md#snapshot).
+> Para obter mais informações, consulte [instantâneos](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run

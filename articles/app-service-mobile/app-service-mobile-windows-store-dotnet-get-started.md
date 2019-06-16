@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: crdun
 ms.openlocfilehash: be579b631fd910c56f2c360d6aace5b8d35c22e5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236005"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Criar uma aplicação do Windows com um back-end do Azure

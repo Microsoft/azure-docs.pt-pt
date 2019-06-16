@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155802"
 ---
 #### <a name="to-cable-for-power"></a>Para instalar os cabos de energia
@@ -28,8 +28,8 @@ ms.locfileid: "66155802"
    | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
-   | 2 |Controlador 1 |
-   | 3 |Controlador 0 |
+   | 2 |Controlador 1 |
+   | 3 |Controlador 0 |
    | 4 |PCM 1 |
    | 5 |PDUs |
 4. Para ativar o sistema, inverta as opções de energia em ambos os PCMs para a posição de ON.

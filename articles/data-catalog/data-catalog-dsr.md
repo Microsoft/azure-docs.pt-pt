@@ -8,10 +8,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65775670"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origens de dados suportadas no catálogo de dados do Azure
@@ -46,7 +46,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Armazenamento de blobs do Azure</td>
+      <td>Armazenamento de Blobs do Azure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

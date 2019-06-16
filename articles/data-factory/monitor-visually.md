@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
 ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60717075"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorizar visualmente fábricas de dados do Azure
@@ -43,11 +43,11 @@ Vista de lista que mostra cada execução de pipeline dos seus pipelines da fáb
 | Ações | Única ação disponível para ver as execuções de atividade. |
 | Início da execução | Início da execução de pipeline data hora (MM/DD/AAAA HH: mm: SS AM/PM) |
 | Duração | Duração de execução (hh: mm:) |
-| Acionada Por | Acionador manual, o acionador de agenda |
+| Acionada por | Acionador manual, o acionador de agenda |
 | Estado | Não foi possível, foi concluída com êxito, está em curso |
 | Parâmetros | Parâmetros (nome, pares de valor) de execução de pipeline |
 | Erro | Execução de pipeline erro (if/any) |
-| ID de Execução | ID de execução do pipeline |
+| ID de execução | ID de execução do pipeline |
 
 ![Monitorizar execuções de pipeline](media/monitor-visually/pipeline-runs.png)
 
@@ -56,8 +56,8 @@ Vista de lista que mostra as execuções de atividades que correspondem a cada e
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
-| Nome da Actividade | Nome da atividade no pipeline. |
-| Tipo de Atividade | Tipo de atividade, como copiar, HDInsightSpark, HDInsightHive, etc. |
+| Nome da atividade | Nome da atividade no pipeline. |
+| Tipo de atividade | Tipo de atividade, como copiar, HDInsightSpark, HDInsightHive, etc. |
 | Início da execução | Início de execução da atividade tempo data (MM/DD/AAAA HH: mm: SS AM/PM) |
 | Duração | Duração de execução (hh: mm:) |
 | Estado | Não foi possível, foi concluída com êxito, está em curso |
@@ -94,7 +94,7 @@ Execuções de pipelines de encomenda ordem descendente/ascendente por início d
 ### <a name="add-or-remove-columns"></a>Adicionar ou remover colunas
 Faça duplo clique no cabeçalho de vista de lista e escolha as colunas que pretende apresentar na vista de lista
 
-![Colunas](media/monitor-visually/columns.png)
+![Columns](media/monitor-visually/columns.png)
 
 ### <a name="adjust-column-widths"></a>Ajustar a largura das colunas
 Aumentar e diminuir a largura das colunas na vista de lista ao pairar o rato sobre o cabeçalho de coluna

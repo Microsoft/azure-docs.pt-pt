@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59af4e20c7fe838f7c725b47e45968941fa85cb7
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 22fe71c38678ae789a93ecbc956f24f0b0ebeb01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254062"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111117"
 ---
 # <a name="protected-web-api---app-registration"></a>API - registo de aplicações web protegida
 
@@ -59,19 +59,20 @@ Os âmbitos são normalmente do formulário `resourceURI/scopeName`. Para o Micr
 
 Durante o registo de aplicação, terá de definir os seguintes parâmetros:
 
-- Um recurso de URI - por predefinição, o portal de registo de aplicação recomenda que use `api://{clientId}`. Este URI do recurso é exclusivo, mas não é humano legível. Pode alterá-la, mas certifique-se de que é exclusivo.
-- Um ou vários âmbitos
+- O recurso URI - por predefinição, o portal de registo de aplicação recomenda que use `api://{clientId}`. Este URI do recurso é exclusivo, mas não é humano legível. Pode alterá-la, mas certifique-se de que é exclusivo.
+- Um ou mais **âmbitos** (para aplicações de cliente, estes serão apresentados como **permissões delegadas** para a API Web)
+- Um ou mais **funções de aplicação** (para aplicações de cliente, estes serão apresentados como **permissões de aplicação** para a API Web)
 
 Os âmbitos são também apresentados no ecrã de consentimento que é apresentado aos utilizadores finais que utilizam a sua aplicação. Por conseguinte, terá de fornecer as cadeias de caracteres correspondentes que descrevem o âmbito:
 
 - Como visto pelo utilizador final
 - Como visto pelo administrador inquilino, que pode conceder o consentimento de administrador
 
-### <a name="how-to-expose-the-api"></a>Como expor a API
+### <a name="how-to-expose-delegated-permissions-scopes"></a>Como expor delegadas permissões (âmbitos)
 
 1. Selecione o **expor uma API** secção registo de aplicação, e:
    1. Selecione **Adicionar âmbito**.
-   1. Aceitar o URI de ID de aplicação propostas (api :// {clientId}), selecionando **guardar e continuar**.
+   1. Se solicitado, aceite o URI de ID de aplicação propostas (api :// {clientId}), selecionando **guardar e continuar**.
    1. Introduza os seguintes parâmetros:
       - Para **nome do âmbito**, utilize `access_as_user`.
       - Para **quem pode consentir**, certifique-se a **administradores e utilizadores** opção está selecionada.
@@ -81,6 +82,59 @@ Os âmbitos são também apresentados no ecrã de consentimento que é apresenta
       - Na **descrição de consentimento do utilizador**, tipo `Accesses the TodoListService Web API as a user`.
       - Manter **estado** definida como **ativado**.
       - Selecione **Adicionar âmbito**.
+
+### <a name="case-where-your-web-api-is-called-by-daemon-application"></a>Caso em que a API Web é chamada pela aplicação de daemon
+
+Este parágrafo, irá aprender a registar a sua API Web protegido para que ele pode ser chamado em segurança por aplicações de daemon:
+
+- terá de expor **permissões de aplicação**. Só irá declarar permissões de aplicação à medida que os aplicativos de daemon não interagem com usuários e, portanto, permissões delegadas não faria sentido.
+- Os administradores de inquilinos podem exigir do Azure AD para emitir tokens para a sua aplicação Web para apenas aplicativos registrados que querem aceder a uma das permissões de aplicações Web API.
+
+#### <a name="how-to-expose-application-permissions-app-roles"></a>Como expor as permissões de aplicação (funções da aplicação)
+
+Para expor as permissões de aplicação, terá de editar o manifesto.
+
+1. No registo de aplicação para a sua aplicação, clique em **manifesto**.
+1. Editar o manifesto, localizando o `appRoles` definição e adicionar uma ou várias funções de aplicação. A definição de função é fornecida no bloco JSON de exemplo abaixo.  Deixe o `allowedMemberTypes` para "Aplicação" apenas. Certifique-se de que o **id** é um guid exclusivo e **displayName** e **valor** não contêm quaisquer espaços.
+1. Guarde o manifesto.
+
+O conteúdo do `appRoles` deve ser o seguinte (o `id` pode ser qualquer GUID exclusivo)
+
+```JSon
+"appRoles": [
+    {
+    "allowedMemberTypes": [ "Application" ],
+    "description": "Accesses the TodoListService-Cert as an application.",
+    "displayName": "access_as_application",
+    "id": "ccf784a6-fd0c-45f2-9c08-2f9d162a0628",
+    "isEnabled": true,
+    "lang": null,
+    "origin": "Application",
+    "value": "access_as_application"
+    }
+],
+```
+
+#### <a name="how-to-ensure-that-azure-ad-issues-tokens-for-your-web-api-only-to-allowed-clients"></a>Como garantir que o Azure AD emite tokens para a API Web apenas ao permitia aos clientes
+
+Verifica a API Web para a função de aplicação (o que é a forma de desenvolvedor de se fazer isso). Mas ainda pode configurar o Azure Active Directory para emitir um token para a API Web apenas para aplicações que foram aprovadas pelo administrador inquilino para aceder à sua API. Para adicionar esta segurança adicional:
+
+1. Na aplicação **descrição geral** página para o seu registo de aplicação, selecione a hiperligação com o nome do seu aplicativo na **aplicação gerida no diretório local**. O título para este campo pode ser truncado. Poderia, por exemplo, leia: `Managed application in ...`
+
+   > [!NOTE]
+   >
+   > Quando seleciona esta ligação irá navegar para o **descrição geral de aplicações do Enterprise** página associada com o principal de serviço para a sua aplicação no inquilino onde criou. Pode navegar para a página de registo de aplicação com o botão voltar do seu navegador.
+
+1. Selecione o **propriedades** página no **gerir** secção das páginas de aplicativo empresarial
+1. Se pretender que o AAD para impor o acesso à sua API Web de apenas determinados clientes, defina **atribuição utiliz. necessária?** ao **Sim**.
+
+   > [!IMPORTANT]
+   >
+   > Definindo **atribuição utiliz. necessária?** ao **Sim**, AAD verificará as atribuições de função dos clientes, quando eles solicitar um token de acesso para a API Web. Se o cliente não foi possível atribuir qualquer AppRoles, AAD retornaria apenas o seguinte erro: `invalid_client: AADSTS501051: Application xxxx is not assigned to a role for the xxxx`
+   >
+   > Se mantiver **atribuição utiliz. necessária?** ao **não**, <span style='background-color:yellow; display:inline'>do Azure AD não verifique as atribuições de função quando um cliente solicita um token de acesso para a API Web</span>. Por conseguinte, qualquer cliente de daemon (ou seja, qualquer cliente com o fluxo de credenciais de cliente) ainda seria capaz de obter um token de acesso para a API simplesmente especificando seu público-alvo. Qualquer aplicativo, seria capaz de aceder à API sem ter de pedir permissão para este. Agora, isso não é, em seguida, end, como a API Web pode sempre, conforme explicado na próxima seção, certifique-se de que o aplicativo tem a função certa (que foi autorizada pelo administrador inquilino), validando em que o token de acesso tem um `roles` afirmação e o valor correto para t sua afirmação (no nosso caso `access_as_application`).
+
+1. Selecione **guardar**
 
 ## <a name="next-steps"></a>Passos Seguintes
 

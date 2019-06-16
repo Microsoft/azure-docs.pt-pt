@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: clausjor
 ms.subservice: blobs
 ms.openlocfilehash: 8e9e27f14c4ccd6f5822033baa21aaafcf96c428
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148504"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de Blobs do Azure: frequente, esporádico e de arquivo acesso
@@ -63,7 +63,7 @@ O escalão de acesso esporádico tem custos de armazenamento inferior e custos d
 
 - Conjuntos de dados de cópia de segurança e recuperação após desastre de curto prazo.
 - Conteúdo de multimédia mais antigo que já não é visualizado com frequência, mas que deverá estar disponível de imediato quando acedido.
-- Grandes conjuntos de dados que devem ser armazenados de forma económica enquanto são recolhidos mais dados para processamento futuro. (*Por exemplo,*, armazenamento a longo prazo de dados científicos, dados de telemetria não processados de uma instalação de fabrico)
+- Grandes conjuntos de dados que devem ser armazenados de forma económica enquanto são recolhidos mais dados para processamento futuro. (*Por exemplo,* , armazenamento a longo prazo de dados científicos, dados de telemetria não processados de uma instalação de fabrico)
 
 ## <a name="archive-access-tier"></a>Camada de acesso de arquivo
 
@@ -74,7 +74,7 @@ Embora seja um blob no armazenamento de arquivo, os dados de blob está offline 
 Exemplos de cenários de utilização para a camada de acesso de arquivo incluem:
 
 - Conjuntos de dados de arquivo, cópia de segurança secundária e cópia de segurança a longo prazo
-- Dados originais (não processados) que têm de ser preservados, mesmo depois de terem sido processados para a forma utilizável final. (*Por exemplo,*, ficheiros de multimédia não processados após a transcodificação noutros formatos)
+- Dados originais (não processados) que têm de ser preservados, mesmo depois de terem sido processados para a forma utilizável final. (*Por exemplo,* , ficheiros de multimédia não processados após a transcodificação noutros formatos)
 - Dados de conformidade e arquivo que têm ser armazenados durante muito tempo e que raramente são acedidos. (*Por exemplo*, filmagens de câmaras de segurança, X-raios/RMS antigos para organizações de cuidados de saúde, gravações de áudio e transcrições de cliente chamadas para serviços financeiros)
 
 ### <a name="blob-rehydration"></a>Reidratação de blobs
@@ -89,7 +89,7 @@ As camadas ao nível do blob permitem-lhe alterar a camada dos seus dados ao ní
 
 A hora da última alteração da camada de blob é exposta através do atributo **Access Tier Change Time** (Tempo de Alteração da Camada de Acesso) nas propriedades do blob. Se um blob estiver na camada de arquivo, ele não é possível substituir, para que carregar o mesmo blob não é permitido neste cenário. Pode substituir um blob numa camada de acesso frequente ou esporádico, nesse caso, o blob novo herda a camada do blob que foi substituído.
 
-BLOBs em todas as camadas de acesso de três podem coexistir na mesma conta. Um blob que não tenha uma camada atribuída explicitamente infere a camada da definição da camada de acesso da conta. Se a camada de acesso for inferida a partir da conta, consulte a **camada de acesso inferida** propriedade definida como "true" e o blob de BLOBs **camada de acesso** propriedade de blob corresponde à camada da conta. No portal do Azure, a camada de acesso inferida a propriedade é apresentada com a camada de acesso do blob (por exemplo, **acesso frequente (inferido)** ou **esporádico (inferido)**).
+BLOBs em todas as camadas de acesso de três podem coexistir na mesma conta. Um blob que não tenha uma camada atribuída explicitamente infere a camada da definição da camada de acesso da conta. Se a camada de acesso for inferida a partir da conta, consulte a **camada de acesso inferida** propriedade definida como "true" e o blob de BLOBs **camada de acesso** propriedade de blob corresponde à camada da conta. No portal do Azure, a camada de acesso inferida a propriedade é apresentada com a camada de acesso do blob (por exemplo, **acesso frequente (inferido)** ou **esporádico (inferido)** ).
 
 > [!NOTE]
 > O armazenamento de arquivo e a criação de camadas ao nível de blobs suportam apenas blobs de blocos. Também não é possível alterar a camada de um blob de bloco que tem instantâneos.

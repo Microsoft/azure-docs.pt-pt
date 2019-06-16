@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 007b6c409dde248a4dde7a15fd16b543add234bc
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64870316"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gerir os custos do AWS e a utilização no Azure
@@ -83,14 +83,14 @@ A tabela seguinte descreve as dimensões disponíveis para o grupo e filtrar por
 | Categoria do medidor | lineItem/ProductCode | Todos |   |
 | Subcategoria do medidor | lineitem/UsageType | Todos |   |
 | Operação | lineItem/operação | Todos |   |
-| Recurso | lineItem/ResourceId | Todos |   |
+| Resource | lineItem/ResourceId | Todos |   |
 | Tipo de recurso | product/instanceType | Todos | Se o produto/instanceType for nulo, lineItem/UsageType é utilizado. |
 | ResourceGuid | N/A | Todos | GUID de medidores do Azure. |
 | Nome do Serviço | produto/ProductName | Todos | Se o produto/ProductName for nulo, lineItem/ProductCode é utilizado. |
 | Camada de serviços |   |   |   |
 | ID da subscrição | lineItem/UsageAccountId | Grupo de gestão de conta e consolidado |   |
 | Nome da subscrição | N/A | Grupo de gestão de conta e consolidado | Os nomes das contas são recolhidos através da API de organização do AWS. |
-| Etiqueta | resourceTags/\* | Todos | O _utilizador:_ prefixo é removido das marcas definidas pelo utilizador para permitir que as etiquetas de entre Clouds. O _aws:_ prefixo intacto. |
+| Tag | resourceTags/\* | Todos | O _utilizador:_ prefixo é removido das marcas definidas pelo utilizador para permitir que as etiquetas de entre Clouds. O _aws:_ prefixo intacto. |
 | ID da conta de faturação | bill/PayerAccountId | Grupo de gestão |   |
 | Nome da conta de faturação | N/A | Grupo de gestão | Os nomes das contas são recolhidos através da API de organização do AWS. |
 | Fornecedor | N/A | Grupo de gestão | O AWS ou Azure. |

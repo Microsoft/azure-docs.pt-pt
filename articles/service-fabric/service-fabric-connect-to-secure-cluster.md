@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/29/2019
 ms.author: aljo
 ms.openlocfilehash: 703830778edb73781a263ae4d92529f7f79a0eb2
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306846"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ligar a um cluster seguro

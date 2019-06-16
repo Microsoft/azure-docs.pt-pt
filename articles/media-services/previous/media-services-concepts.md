@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681550"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de serviços de multimédia do Azure 
@@ -159,7 +159,7 @@ Para obter mais informações, veja os artigos seguintes:
 - [Proteger com AES-128](media-services-protect-with-aes128.md)
 - [Proteger com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
-## <a name="delivering"></a>A entregar
+## <a name="delivering"></a>Entrega
 ### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empacotamento dinâmico
 Ao trabalhar com os Media Services, é recomendado para codificar seus arquivos de mezanino para uma conjunto de MP4 de velocidade de transmissão adaptável e, em seguida, converter o conjunto para o formato desejado, com o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65541755"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize Pipelines do Azure para criar e implementar soluções HPC
@@ -26,7 +26,7 @@ Neste exemplo, iremos criar uma compilação e versão de pipeline para implemen
 
 ![Diagrama que mostra o fluxo de implementação em nosso Pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Configuração
+### <a name="setup"></a>Configurar
 
 Para seguir os passos neste artigo, terá de uma organização de DevOps do Azure e um projeto de equipe.
 
@@ -418,13 +418,13 @@ Existem vários passos envolvidos na implementação da infraestrutura. Como usa
     * **Ação**: Criar ou atualizar o grupo de recursos
     * **Grupo de recursos**: $(resourceGroupName)
     * **Localização**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
     * **Substitua os parâmetros de modelo**: - accountName $(storageAccountName)
 
 1. Carregar os artefatos do controle de origem para a conta de armazenamento. Existe uma tarefa de Pipeline do Azure para realizar isso. Como parte desta tarefa, o URL de contentor da conta de armazenamento e o Token de SAS podem ter saída a uma variável em Pipelines do Azure. Isso significa que pode ser reutilizado durante esta fase de agente.
 
     Adicionar a **cópia de ficheiros do Azure** de tarefas e defina as propriedades seguintes:
-    * **Source:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
+    * **Source:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
     * **Tipo de ligação do Azure**: Azure Resource Manager
     * **Subscrição do Azure:** Selecione a subscrição do Azure adequada
     * **Tipo de destino**: Blob do Azure
@@ -441,7 +441,7 @@ Existem vários passos envolvidos na implementação da infraestrutura. Como usa
     * **Ação**: Criar ou atualizar o grupo de recursos
     * **Grupo de recursos**: $(resourceGroupName)
     * **Localização**: $(location)
-    * **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
+    * **Template**: $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
     * **Substitua os parâmetros de modelo**: ```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 Uma prática comum é utilizar tarefas do Azure Key Vault. Se o Principal de serviço (ligação à sua subscrição do Azure) tiver uma definir as políticas de acesso adequados, pode transferir segredos a partir de um Azure Key Vault e servir como variáveis no seu pipeline. O nome do segredo do será definido com o valor associado. Por exemplo, um segredo de sshPassword poderia ser referenciado com $(sshPassword) na definição de versão.

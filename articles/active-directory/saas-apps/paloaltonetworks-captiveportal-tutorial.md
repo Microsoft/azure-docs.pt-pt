@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3651e81cd3916bccc859bc3bc010511b2a114a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095268"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de cativas de redes da Palo Alto
 
@@ -78,12 +78,12 @@ Configure e teste do Azure AD início de sessão único com o Portal de cativas 
 
 Para configurar e testar o Azure AD início de sessão único com o Portal de cativas da Palo Alto redes, conclua as seguintes tarefas:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**: Permitir que o utilizador utilizar esta funcionalidade.
-2. **[Configurar Portal de cativas da Palo Alto redes início de sessão único](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Configure as definições de início de sessão únicas no aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**: Teste do Azure AD início de sessão único com o usuário *Eduarda Almeida*.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**: Defina Eduarda Almeida para utilizar o Azure AD início de sessão único.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)** : Permitir que o utilizador utilizar esta funcionalidade.
+2. **[Configurar Portal de cativas da Palo Alto redes início de sessão único](#configure-palo-alto-networks-captive-portal-single-sign-on)** : Configure as definições de início de sessão únicas no aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)** : Teste do Azure AD início de sessão único com o usuário *Eduarda Almeida*.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)** : Defina Eduarda Almeida para utilizar o Azure AD início de sessão único.
 5. **Criar um utilizador de teste do Portal de cativas da Palo Alto redes**: Criar um utilizador de contraparte *Eduarda Almeida* da Palo Alto redes Portal cativas que está ligada ao utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**: Certifique-se de que a configuração funciona.
+6. **[Testar início de sessão único](#test-single-sign-on)** : Certifique-se de que a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -158,7 +158,7 @@ Em seguida, crie um utilizador de teste com o nome *Eduarda Almeida* no portal d
 
     1. Para **Name**, introduza **BrittaSimon**.
   
-    2. Para **nome de utilizador**, introduza **BrittaSimon\@\<your_company_domain\>**. Por exemplo, **BrittaSimon\@contoso.com**.
+    2. Para **nome de utilizador**, introduza **BrittaSimon\@\<your_company_domain\>** . Por exemplo, **BrittaSimon\@contoso.com**.
 
     3. Para **palavra-passe**, introduza uma palavra-passe. Recomendamos que mantenha um registo da palavra-passe que introduzir. Pode selecionar o **mostrar palavra-passe** caixa de verificação para apresentar a palavra-passe.
 
@@ -197,7 +197,7 @@ Em seguida, crie um utilizador com o nome *Eduarda Almeida* no Portal de cativas
 > [!NOTE]
 > Se quiser criar manualmente um utilizador, entre em contato com o [equipa de suporte da Palo Alto redes cativas Portal cliente](https://support.paloaltonetworks.com/support).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Portal de cativas de redes da Palo Alto é instalado atrás da firewall numa VM do Windows. Para testar o início de sessão único no Portal de cativas de redes da Palo Alto, inicie sessão para a VM do Windows utilizando o protocolo RDP (Remote Desktop). Na sessão do RDP, abra um browser e aceda a qualquer Web site. O URL de SSO é aberto e lhe for pedido para se autenticar. Quando a autenticação for concluída, pode acessar os Web sites.
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583870"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementar vários executáveis convidados
@@ -28,7 +28,7 @@ Embora estas instruções mostram como implementar uma aplicação com um node. 
 
 Pode utilizar o Visual Studio para produzir o pacote de aplicação que contém vários executáveis convidados. Ver [usando o Visual Studio para empacotar um aplicativo existente](service-fabric-deploy-existing-app.md). Depois de ter adicionado o primeiro executável de convidado, clique com o botão direito do rato no projeto de aplicação e selecione o **adicionar -> serviço novo do Service Fabric** para adicionar o segundo projeto executáveis de convidado para a solução. Nota: Se optar por ligar a origem no projeto do Visual Studio, compilar a solução do Visual Studio, serão Certifique-se de que o seu pacote de aplicação é atualizado com as alterações na origem. 
 
-## <a name="samples"></a>Amostras
+## <a name="samples"></a>Exemplos
 * [Exemplo para o empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomenclatura com REST](https://github.com/Azure-Samples/service-fabric-containers)
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66234246"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e as tecnologias disponíveis no Azure
@@ -69,7 +69,7 @@ Ao longo do tempo, esta lista irá alterar e a crescer, tal como o Azure faz. Le
 | [Azure&nbsp;função&nbsp;com base&nbsp;controlo de acesso](../active-directory/role-based-access-control-configure.md)|Uma funcionalidade de controlo de acesso concebido para permitir que os usuários acessem apenas os recursos são necessários para acesso com base nas respetivas funções dentro da organização.  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Um repositório de autenticação com base na cloud que oferece suporte a um diretório de multi-inquilino, com base na cloud e vários serviços de gestão de identidade no Azure.  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Um serviço de gestão de identidade que permite o controle sobre como os clientes a inscrição, início de sessão e gerem os respetivos perfis quando se utilizam aplicações baseadas no Azure.   |
-| [Serviços de domínio do Active Directory do Azure](../active-directory-domain-services/overview.md)| Uma versão baseada na cloud e gerida dos serviços de domínio do Active Directory. |
+| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)| Uma versão baseada na cloud e gerida dos serviços de domínio do Active Directory. |
 | [Autenticação Multifator do Azure](../active-directory/authentication/multi-factor-authentication.md)| Aprovisionamento de segurança que emprega várias formas diferentes de autenticação e verificação antes de permitir o acesso a informações seguras. |
 
 ## <a name="backup-and-disaster-recovery"></a>Cópia de segurança e recuperação após desastre

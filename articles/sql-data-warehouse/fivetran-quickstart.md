@@ -11,10 +11,10 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: d829ee67d516892283fa31d9180336d768170ac1
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65857006"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Comece a trabalhar rapidamente com Fivetran e o SQL Data Warehouse

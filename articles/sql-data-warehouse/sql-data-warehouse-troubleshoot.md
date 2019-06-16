@@ -11,16 +11,16 @@ ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154255"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Resolução de problemas de armazém de dados SQL do Azure
 Este artigo apresenta uma lista de perguntas de resolução de problemas comuns.
 
-## <a name="connecting"></a>A ligar
+## <a name="connecting"></a>Ligar
 | Problema                                                        | Resolução                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Falha de logon do usuário 'Início de sessão do NT AUTHORITY\ANONYMOUS'. (Microsoft SQL Server, Error: 18456) | Este erro ocorre quando um utilizador do AAD tenta ligar à base de dados mestra, mas não tem um utilizador no ramo principal.  Para corrigir este problema, ou especificar o que pretende ligar ao tempo de ligação ou adicionar o utilizador à base de dados mestra do SQL Data Warehouse.  Ver [descrição geral da segurança] [ Security overview] artigo para obter mais detalhes. |

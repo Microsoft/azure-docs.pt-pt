@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101630"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurar um serviço de escuta externo para grupos de Disponibilidade AlwaysOn no Azure
@@ -96,7 +96,7 @@ Crie o serviço de escuta do grupo de disponibilidade em duas etapas. Primeiro, 
 
 ### <a name="configure-the-cluster-resources-in-powershell"></a>Configurar os recursos de cluster no PowerShell
 1. Para o balanceamento de carga externo, tem de obter o endereço IP virtual público do serviço cloud que contenha as réplicas. Inicie sessão no portal do Azure. Navegue para o serviço cloud que contém o grupo de disponibilidade VM. Abra o **Dashboard** vista.
-2. Tome nota do endereço apresentado em **endereço IP Virtual público (VIP)**. Se sua solução abrange VNets, repita este passo para cada serviço em nuvem que contém uma VM que aloja uma réplica.
+2. Tome nota do endereço apresentado em **endereço IP Virtual público (VIP)** . Se sua solução abrange VNets, repita este passo para cada serviço em nuvem que contém uma VM que aloja uma réplica.
 3. Em uma das VMs, copie o script do PowerShell abaixo para um editor de texto e defina as variáveis para valores que apontou anteriormente.
    
         # Define variables

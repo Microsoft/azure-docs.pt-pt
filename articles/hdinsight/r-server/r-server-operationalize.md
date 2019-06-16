@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 916c4fae8eed9451080f92e97743876e89bd25ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64719737"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster de serviços de ML no Azure HDInsight
@@ -23,7 +23,7 @@ Depois de ter usado o cluster de serviços de ML no HDInsight para concluir a su
 
 * **Um cluster de serviços de ML no HDInsight**: Para obter instruções, consulte [introdução aos serviços de ML no HDInsight](r-server-get-started.md).
 
-* **Um cliente Secure Shell (SSH)**: Um cliente SSH é utilizado para ligar ao HDInsight cluster e executar comandos diretamente no cluster remotamente. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente Secure Shell (SSH)** : Um cliente SSH é utilizado para ligar ao HDInsight cluster e executar comandos diretamente no cluster remotamente. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operacionalizar o cluster de serviços de ML com configuração one box
 
@@ -150,8 +150,8 @@ Siga estes passos para desativar nós de trabalho:
 
    ![desativar os nós de trabalho](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Selecione **ações** > **anfitriões selecionados** > **DataNodes** > clique em **decommission (descontinuar)**.
-* Selecione **ações** > **anfitriões selecionados** > **NodeManagers** > clique em **decommission (descontinuar)**.
+* Selecione **ações** > **anfitriões selecionados** > **DataNodes** > clique em **decommission (descontinuar)** .
+* Selecione **ações** > **anfitriões selecionados** > **NodeManagers** > clique em **decommission (descontinuar)** .
 * Selecione **ações** > **anfitriões selecionados** > **DataNodes** > clique em **parar**.
 * Selecione **ações** > **anfitriões selecionados** > **NodeManagers** > clique em **parar**.
 * Selecione **ações** > **anfitriões selecionados** > **anfitriões** > clique em **parar todos os componentes**.

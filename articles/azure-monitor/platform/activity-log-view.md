@@ -9,10 +9,10 @@ ms.date: 05/10/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 32578f77f2b3f30d80953bdd1099d22c945c640b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66248118"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Ver e obter eventos de registo de atividade do Azure

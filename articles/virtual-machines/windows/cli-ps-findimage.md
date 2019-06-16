@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 893b71d3a1cc6ece8272cb1a372302ff384003dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500020"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693774"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Encontrar imagens de VM do Windows no Azure Marketplace com o Azure PowerShell
 
@@ -28,7 +28,7 @@ Este artigo descreve como utilizar o Azure PowerShell para localizar imagens da 
 
 Também pode procurar imagens disponíveis e as ofertas com o [do Azure Marketplace](https://azuremarketplace.microsoft.com/) loja, o [portal do Azure](https://portal.azure.com), ou o [da CLI do Azure](../linux/cli-ps-findimage.md). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -36,7 +36,7 @@ Também pode procurar imagens disponíveis e as ofertas com o [do Azure Marketpl
 
 Esta tabela mostra um subconjunto de Skus disponíveis para os publicadores e ofertas indicado.
 
-| Publicador | Oferta | Sku |
+| Fabricante | Oferta | Sku |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
@@ -48,8 +48,8 @@ Esta tabela mostra um subconjunto de Skus disponíveis para os publicadores e of
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
-| MicrosoftRServer |RServer-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2019-WS2016 |Empresarial |
+| MicrosoftRServer |RServer-WS2016 |Empresarial |
 
 ## <a name="navigate-the-images"></a>Navegar pelas imagens
 
@@ -242,7 +242,7 @@ DataDiskImages   : []
 
 ```
 
-### <a name="accept-the-terms"></a>Aceitar os termos
+### <a name="accept-the-terms"></a>Aceite os termos
 
 Para ver os termos de licença, utilize o [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) plano parâmetros do cmdlet e passe a compra. A saída fornece uma ligação para os termos para a imagem do Marketplace e mostra se tiver aceitado os termos. Certifique-se de que utilize só letras minúsculas os valores de parâmetro.
 

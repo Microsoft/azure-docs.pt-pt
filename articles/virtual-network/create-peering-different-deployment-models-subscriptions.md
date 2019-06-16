@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud;anavin
 ms.openlocfilehash: 2cdf136a01678f7fb2e594b325cd78e8e0240c70
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64683404"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um peering de rede virtual - diferentes modelos de implementação e as subscrições
@@ -28,7 +28,7 @@ Os passos para criar um peering de rede virtual são diferentes, dependendo se a
 |Modelo de implementação do Azure  | Subscrição do Azure  |
 |--------- |---------|
 |[Ambas com Resource Manager](tutorial-connect-virtual-networks-portal.md) |Mesmo|
-|[Ambas com Resource Manager](create-peering-different-subscriptions.md) |Diferente|
+|[Ambas com Resource Manager](create-peering-different-subscriptions.md) |Diferentes|
 |[Uma com Resource Manager, outra com clássica](create-peering-different-deployment-models.md) |Mesmo|
 
 Não é possível criar um peering de rede virtual entre duas redes virtuais implementadas através do modelo de implementação clássica. Este tutorial utiliza as redes virtuais existentes na mesma região. Este tutorial elementos redes virtuais na mesma região. Pode também configurar o peering entre redes virtuais em diferentes [regiões suportadas](virtual-network-manage-peering.md#cross-region). É recomendável que se familiarizar com o [peering requisitos e restrições](virtual-network-manage-peering.md#requirements-and-constraints) antes peering de redes virtuais.

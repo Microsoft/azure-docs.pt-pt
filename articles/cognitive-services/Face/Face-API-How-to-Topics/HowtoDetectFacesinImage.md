@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
 ms.openlocfilehash: 46bd1bdd55725878bc7b1bd55d5e24b78d82aada
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66124556"
 ---
 # <a name="get-face-detection-data"></a>Obter dados de deteção de rostos
@@ -27,7 +27,7 @@ Este guia mostra-lhe como para:
 - Obter as localizações de vários marcos de rostos, como pupils, mergulho e boca, numa imagem.
 - Acho que o sexo, idade, emoção e outros atributos de um rosto detetado.
 
-## <a name="setup"></a>Configuração
+## <a name="setup"></a>Configurar
 
 Este guia assume que já criada uma [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) objeto, chamado `faceClient`, com um URL de chave e o ponto final da subscrição de rostos. A partir daqui, pode utilizar a funcionalidade de deteção de face ao chamar qualquer um [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), que é utilizada neste guia, ou [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Para obter instruções sobre como configurar esta funcionalidade, consulte a [detetar rostos início rápido para o C# ](../quickstarts/csharp-detect-sdk.md).
 

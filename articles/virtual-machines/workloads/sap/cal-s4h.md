@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836862"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementar o SAP S/4HANA ou BW/4HANA no Azure
@@ -120,7 +120,7 @@ Vamos demonstrar o caminho básico para implementação aqui.
 
     d. Introduza um mestre **palavra-passe** para a solução de caracteres de oito ou nove. A palavra-passe é utilizada para os administradores dos diferentes componentes.
 
-   ![Modo do SAP CAL Basic: Criar Instância](./media/cal-s4h/s4h-pic10a.png)
+   ![Modo do SAP CAL Basic: Criar instância](./media/cal-s4h/s4h-pic10a.png)
 
 1. Clique em **Create**e na caixa de mensagem que aparece, clique em **OK**.
 

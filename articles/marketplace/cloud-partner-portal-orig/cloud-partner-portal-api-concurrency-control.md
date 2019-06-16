@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935607"
 ---
-# <a name="concurrency-control"></a>Controlo de Simultaneidade
+# <a name="concurrency-control"></a>Controlo de simultaneidade
 
 Todas as chamadas para o Portal de parceiro de Cloud publicar APIs tem de especificar explicitamente que estratégia de controlo de simultaneidade a utilizar. Falha ao fornecer o **If-Match** cabeçalho resultará numa resposta de erro de HTTP 400. Oferecemos duas estratégias para controlo de simultaneidade.
 

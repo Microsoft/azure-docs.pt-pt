@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
 ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236949"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como utilizar o Dashboard para melhorar a sua aplicação
@@ -33,7 +33,7 @@ Três problemas resolvidos no dashboard são:
 |Problema|Cor do gráfico|Explicação|
 |--|--|--|
 |Desequilíbrio de dados|-|Isto ocorre quando a quantidade de expressões de exemplo varia significativamente. Tem de ter todas as intenções _aproximadamente_ o mesmo número de expressões de exemplo -, exceto a intenção None. Ele deverá ter apenas 10% - 15% da quantidade total de expressões com na aplicação.<br><br> Se os dados são desequilibrados, mas a precisão de intenção for superior a determinado limiar, esse desequilíbrio não é reportado como um problema.<br><br>**Iniciar com este problema - poderá ser a causa raiz dos outros problemas.**|
-|Predições claras|Laranja|Isto ocorre quando a intenção superior e as pontuações da intenção seguinte estão próximas o suficiente que eles podem inverte na formação seguinte, devido a [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais expressões de exemplo adicionados à intenção. |
+|Predições claras|Orange|Isto ocorre quando a intenção superior e as pontuações da intenção seguinte estão próximas o suficiente que eles podem inverte na formação seguinte, devido a [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais expressões de exemplo adicionados à intenção. |
 |Previsões incorretas|Vermelho|Isto ocorre quando uma expressão de exemplo não está previsto para a intenção etiquetada (a intenção é no).|
 
 Previsões corretas são representados com a azul de cor.

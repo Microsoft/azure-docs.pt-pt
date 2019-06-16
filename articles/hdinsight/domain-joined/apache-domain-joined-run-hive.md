@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707370"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
@@ -78,12 +78,12 @@ As instruções podem ser encontradas em [Criar origem de dados do ODBC do Hive]
  | --- | --- |
  | Nome da Origem de Dados | Atribua um nome para a sua origem de dados |
  | Anfitrião | Introduza &lt;HDInsightClusterName>.azurehdinsight.net. Por exemplo, myHDICluster.azurehdinsight.net |
- | Porta | Utilize **443**. (Esta porta foi alterada de 563 para 443.) |
+ | Port | Utilize **443**. (Esta porta foi alterada de 563 para 443.) |
  | Base de Dados | Use **Predefinição**. |
  | Tipo de Servidor do Hive | Selecione **Servidor do Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome de Utilizador | Introduza hiveuser1@contoso158.onmicrosoft.com. Se for diferente, atualize o nome de domínio. |
+ | Nome de utilizador | Introduza hiveuser1@contoso158.onmicrosoft.com. Se for diferente, atualize o nome de domínio. |
  | Palavra-passe | Introduza a palavra-passe para hiveuser1. |
 
 Certifique-se de que clica em **Teste**, antes de guardar a origem de dados.

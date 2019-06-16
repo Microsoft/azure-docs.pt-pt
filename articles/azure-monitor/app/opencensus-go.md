@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: cdf01fbbcc8ef1f90b2e0f8973f59c46c5bf70f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60577912"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Recolher rastreios de distribuída a partir do Go (pré-visualização)
@@ -47,7 +47,7 @@ Primeiro tem de criar um recurso do Application Insights que irá gerar uma chav
    | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Geral | Tipo de aplicação que está a monitorizar |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
-   | **Localização** | EUA Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
+   | **Location** | EUA Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Clique em **Criar**.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/27/2019
 ms.author: rkarlin
 ms.openlocfilehash: 891f9fbd26b53b392ac84ed9d420b58558cd20c2
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258420"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Pré-visualização de acumular Sentinel do Azure

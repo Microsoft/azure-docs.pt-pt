@@ -1,20 +1,19 @@
 ---
-title: Configurar alertas de estado de funcionamento do serviço do Azure com OpsGenie | Documentos da Microsoft
+title: Enviar alertas de estado de funcionamento do serviço do Azure com OpsGenie através de webhooks
 description: Obtenha notificações personalizadas sobre eventos de estado de funcionamento de serviço à sua instância de OpsGenie.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.workload: Supportability
-ms.date: 11/14/2017
-ms.openlocfilehash: 79a77fff206831c0f9b3bb73ad33f951d99e2c81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067171"
 ---
-# <a name="configure-service-health-alerts-with-opsgenie"></a>Configurar alertas de estado de funcionamento do serviço com OpsGenie
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Enviar alertas de estado de funcionamento do serviço do Azure com OpsGenie através de webhooks
 
 Este artigo mostra-lhe como configurar alertas de estado de funcionamento do serviço do Azure com OpsGenie através de um webhook. Usando [OpsGenie](https://www.opsgenie.com/)da integração de estado de funcionamento de serviço do Azure, pode reencaminhar os alertas do Azure Service Health para OpsGenie. OpsGenie pode determinar as pessoas certas para notificar com base em agendas na chamada, usando o email, mensagens de texto (SMS), chamadas telefónicas, iOS e notificações Android push e escalonar alertas até que o alerta seja confirmado ou fechado.
 

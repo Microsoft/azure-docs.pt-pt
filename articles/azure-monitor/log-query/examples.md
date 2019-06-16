@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60759916"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de registo do Azure Monitor
@@ -25,7 +25,7 @@ Este artigo inclui vários exemplos de [consultas](log-query-overview.md) utiliz
 
 Consulte a [referência de linguagem de Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Aceda através de um [lição sobre a criação de consultas](get-started-queries.md) se estiver familiarizado com o Azure Monitor.
 
-## <a name="events"></a>Eventos
+## <a name="events"></a>Events
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Pesquisar eventos de nível de aplicativo descritos como "Criptográficos utilizados"
 Este exemplo pesquisa a tabela **Events** para encontrar registos em que **EventLog** é _Application_ e **RenderedDescription** contém _cryptographic_. Inclui registos das últimas 24 horas.

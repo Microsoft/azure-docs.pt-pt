@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: 5490149f199c2d7887716ceae3f035527ad33961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66170042"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação após desastre de VMs de VMware para o Azure com o PowerShell
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Defina o contexto do cofre com o cmdlet Set-ASRVaultContext. Uma vez definido, as operações subsequentes do Azure Site Recovery na sessão do PowerShell são executadas no contexto do cofre selecionado.
 
 > [!TIP]
-> O módulo do PowerShell do Azure Site Recovery (módulo Az.RecoveryServices) vem com fácil de usar aliases para a maioria dos cmdlets. Os cmdlets no módulo assumir a forma  *\<operação >-**AzRecoveryServicesAsr**\<objeto >* e possuem aliases equivalentes que assumir a forma  *\< Operação >-**ASR**\<objeto >*. Este artigo utiliza os aliases de cmdlet para facilitar a leitura.
+> O módulo do PowerShell do Azure Site Recovery (módulo Az.RecoveryServices) vem com fácil de usar aliases para a maioria dos cmdlets. Os cmdlets no módulo assumir a forma  *\<operação >-**AzRecoveryServicesAsr**\<objeto >* e possuem aliases equivalentes que assumir a forma  *\< Operação >-**ASR**\<objeto >* . Este artigo utiliza os aliases de cmdlet para facilitar a leitura.
 
 No exemplo abaixo, os detalhes do cofre do $vault variável é utilizada para especificar o contexto do cofre para a sessão do PowerShell.
 
@@ -348,7 +348,7 @@ Terá dos seguintes detalhes para proteger uma máquina virtual detetada:
 Agora replicar as seguintes máquinas virtuais com as definições especificadas nesta tabela
 
 
-|Máquina virtual  |Process Server        |Conta de Armazenamento              |Conta de armazenamento de registo  |Política           |Conta para a instalação do serviço de mobilidade|Grupo de recursos de destino  | Rede virtual de destino  |Sub-rede de destino  |
+|Máquina virtual  |Servidor de processos        |Conta de Armazenamento              |Conta de armazenamento de registo  |Política           |Conta para a instalação do serviço de mobilidade|Grupo de recursos de destino  | Rede virtual de destino  |Sub-rede de destino  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |
 |CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |   

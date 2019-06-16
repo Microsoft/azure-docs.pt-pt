@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
 ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752569"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças no Centro de segurança do Azure

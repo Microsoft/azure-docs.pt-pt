@@ -9,10 +9,10 @@ ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: c15d695e072e72c6e7be6dcf49f3ea049a9b70b7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66152393"
 ---
 Quando enviar notificações de modelos, apenas terá de fornecer um conjunto de propriedades. Neste cenário, o conjunto de propriedades contém a versão localizada da notícia atual.

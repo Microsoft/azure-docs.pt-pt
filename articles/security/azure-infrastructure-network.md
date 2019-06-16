@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60587160"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura de rede do Azure
@@ -54,7 +54,7 @@ Os routers de distribuição/acesso L3 (ARs) executam a funcionalidade de roteam
 Estes dispositivos servem como um ponto de agregação para o tráfego de L2. Eles são a camada de distribuição para os recursos de infraestrutura de L2 e podem processar grandes quantidades de tráfego. Uma vez que estes dispositivos agregam tráfego, elas exigem 802.1q funcionalidades e tecnologias de largura de banda alta, como a agregação de porta e 10GE.
 
 ### <a name="l2-host-switches"></a>Comutadores de anfitrião de L2
-Ligar anfitriões diretamente a esses comutadores. Eles podem ser montado em Bastidor comutadores ou implementações de chassis. 802.1q padrão permite que a designação de uma VLAN como uma VLAN nativa, tratando essa VLAN como normal (não marcada) delimitação de quadros do Ethernet. Em circunstâncias normais, os quadros na VLAN nativo são transmitidos e recebidos não marcados num 802.1q porta de ramal. Esta funcionalidade foi projetada para migração para o 802.1q e compatibilidade com o não-802.1q dispositivos compatíveis com. Nesta arquitetura, a infraestrutura de rede utiliza a VLAN nativa.
+Ligar anfitriões diretamente a esses comutadores. Eles podem ser montado em Bastidor comutadores ou implementações de chassis. 802\.1q padrão permite que a designação de uma VLAN como uma VLAN nativa, tratando essa VLAN como normal (não marcada) delimitação de quadros do Ethernet. Em circunstâncias normais, os quadros na VLAN nativo são transmitidos e recebidos não marcados num 802.1q porta de ramal. Esta funcionalidade foi projetada para migração para o 802.1q e compatibilidade com o não-802.1q dispositivos compatíveis com. Nesta arquitetura, a infraestrutura de rede utiliza a VLAN nativa.
 
 Esta arquitetura Especifica um padrão para a seleção de VLAN nativo. O padrão garante que, sempre que possível, que os dispositivos de AR têm uma VLAN nativa, exclusiva para cada ramal e L2Aggregation para ramais de L2Aggregation da. L2Aggregation para ramais de comutador de L2Host ter uma VLAN nativa não predefinido.
 

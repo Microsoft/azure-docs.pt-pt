@@ -6,10 +6,10 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66111462"
 ---
 Imagens de padronizada de máquinas virtuais (VM) permitem às organizações migrar para a cloud e garantir a consistência nas Implantações. Imagens incluem, geralmente, as definições predefinidas de segurança e a configuração e de software necessárias. Definir o seu pipeline de processamento de imagens exige tempo, a infraestrutura e a configuração, mas com o construtor de imagens de VM do Azure, basta indicar uma configuração simples que descrevem a sua imagem, submetê-lo para o serviço e a imagem é criada e distribuída.
@@ -39,7 +39,7 @@ O serviço de construtor de imagem do Azure vai estar disponível para pré-visu
 - EUA Leste 2
 - EUA Centro-Oeste
 - EUA Oeste
-- E.U.A. Oeste 2
+- EUA Oeste 2
 
 ## <a name="os-support"></a>Suporte do sistema operacional
 AIB oferecerá suporte a imagens de sistema operacional de bases do Azure Marketplace:

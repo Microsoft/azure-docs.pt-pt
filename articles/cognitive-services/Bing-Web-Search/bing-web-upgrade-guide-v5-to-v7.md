@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: e3d78a1b7488e7489b02e34e9733a5d741213855
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384897"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Atualização do Bing Web API de pesquisa v5 para v7

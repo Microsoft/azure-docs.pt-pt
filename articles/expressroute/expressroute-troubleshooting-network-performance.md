@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60883343"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolução de problemas de desempenho da rede
@@ -127,7 +127,7 @@ Se não tiver a certeza onde é, na verdade, o limite da cloud, a isolar os comp
 
 Se duas VNets (VNets A e B no diagrama) estão ligados para o **mesmo** circuito do ExpressRoute, pode realizar uma série de testes para isolar o problema no Azure (ou provar que não está no Azure)
  
-### <a name="test-plan"></a>Plano do teste
+### <a name="test-plan"></a>Plano de teste
 1. Execute o teste de Get-LinkPerformance entre VM1 e VM2. Este teste fornece uma visão para se o problema é local ou não. Se este teste produz latência aceitável e resultados de largura de banda, é possível marcar a rede de VNet local como bom.
 2. Partindo do princípio de local VNet o tráfego é boa, execute o teste de Get-LinkPerformance entre VM1 e VM3. Este teste exercita a ligação através da rede da Microsoft para baixo até o MSEE e para o Azure. Se este teste produz latência aceitável e resultados de largura de banda, é possível marcar a rede do Azure como bom.
 3. Se o Azure é descartado, pode executar uma seqüência semelhante de testes em sua rede corporativa. Se de que testa a bem, está na altura de trabalhar com o seu ISP ou fornecedor de serviços para diagnosticar a sua ligação WAN. Exemplo: Execute este teste entre duas filiais, ou entre seu suporte técnico e de um servidor de centro de dados. Consoante o que estiver testando, localizar pontos de extremidade (servidores, PCs, etc.) que podem exercer esse caminho.
@@ -179,7 +179,7 @@ Configuração de teste:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Região|Estimado<br/>Distância (km)|Latência|1 sessão<br/>Largura de Banda|Máximo<br/>Largura de Banda|
+|ExpressRoute<br/>Location|Azure<br/>Região|Estimado<br/>Distância (km)|Latência|1 sessão<br/>Largura de banda|Máximo<br/>Largura de banda|
 | Seattle | EUA Oeste 2        |    191 km |   5 ms | 262.0 Mbits/s |  3.74 Gbits/seg |
 | Seattle | EUA Oeste          |  1,094 km de distância |  18 ms |  82.3 Mbits/s |  3.70 Gbits/seg |
 | Seattle | EUA Central       |  2,357 km de distância |  40 ms |  38.8 Mbits/s |  2.55 Gbits/seg |

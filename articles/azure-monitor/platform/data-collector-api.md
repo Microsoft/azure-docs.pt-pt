@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
 ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922789"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de registo para o Azure Monitor com a API de Recoletor de dados HTTP (pré-visualização pública)
@@ -41,7 +41,7 @@ Todos os dados na área de trabalho do Log Analytics é armazenado como um regis
 ## <a name="create-a-request"></a>Criar um pedido
 Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclui os dados para enviar em JavaScript Object Notation (JSON).  As próximas três tabelas listam os atributos que são necessários para cada solicitação. Descrevemos cada atributo em mais detalhes posteriormente neste artigo.
 
-### <a name="request-uri"></a>URI de pedido
+### <a name="request-uri"></a>URI do pedido
 | Atributo | Propriedade |
 |:--- |:--- |
 | Método |POST |
@@ -52,7 +52,7 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 | Parâmetro | Descrição |
 |:--- |:--- |
 | CustomerID |O identificador exclusivo para a área de trabalho do Log Analytics. |
-| Recurso |O nome do recurso de API: / api/logs. |
+| Resource |O nome do recurso de API: / api/logs. |
 | Versão da API |A versão da API para utilizar com este pedido. Atualmente, é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
@@ -200,10 +200,10 @@ Esta tabela lista o conjunto completo de códigos de estado que o serviço pode 
 | 400 |Pedido incorreto |MissingLogType |Não foi especificado o tipo de registo do valor necessário. |
 | 400 |Pedido incorreto |UnsupportedContentType |O tipo de conteúdo não foi definido como **application/json**. |
 | 403 |Proibido |InvalidAuthorization |O serviço não conseguiu autenticar o pedido. Certifique-se de que a chave de ID e a ligação de área de trabalho são válidos. |
-| 404 |Não Encontrado | | Ou o URL fornecido está incorreto ou o pedido é demasiado grande. |
+| 404 |Não foi encontrado | | Ou o URL fornecido está incorreto ou o pedido é demasiado grande. |
 | 429 |Demasiados Pedidos | | O serviço está a ter um grande volume de dados da sua conta. Repita o pedido mais tarde. |
-| 500 |Erro Interno do Servidor |UnspecifiedError |O serviço obteve um erro interno. Tente novamente o pedido. |
-| 503 |Serviço Não Disponível |ServiceUnavailable |O serviço está atualmente indisponível para receber pedidos. Repita o pedido. |
+| 500 |Erro de servidor interno |UnspecifiedError |O serviço encontrou um erro interno. Tente novamente o pedido. |
+| 503 |Serviço indisponível |ServiceUnavailable |O serviço está atualmente indisponível para receber pedidos. Repita o pedido. |
 
 ## <a name="query-data"></a>Consultar dados
 Para consultar dados submetidos pelo Azure Monitor API HTTP Data Collector, pesquisa de registos com **tipo** que é igual para o **LogType** valor que especificou, anexado com **_CL**. Por exemplo, se utilizou **MyCustomLog**, em seguida, retornará a todos os registos com `MyCustomLog_CL`.

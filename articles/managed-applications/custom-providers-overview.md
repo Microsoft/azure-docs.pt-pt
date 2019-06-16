@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: evanhi
 ms.openlocfilehash: bbfb10f612690af0f4fd3683e0f58986a21048d8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65159859"
 ---
 # <a name="azure-custom-providers-preview-overview"></a>Descrição geral de fornecedores de personalizado pré-visualização do Azure
