@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83f9cc050694344cdc5f4f5a2070bc875fcba3d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776038"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071662"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como resolver problemas com o agente do Log Analytics para Linux 
 
@@ -187,6 +187,33 @@ Abaixo o plug-in de saída, anule os comentários a seção a seguir, removendo 
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Problema: Verá um erro 404 e 500 no ficheiro de registo logo após a integração
 Este é um problema conhecido que ocorre no primeiro carregamento de dados do Linux para uma área de trabalho do Log Analytics. Isso não afeta os dados que está a ser enviada ou serviço experiência.
+
+
+## <a name="issue-you-see-omiagent-using-100-cpu"></a>Problema: Verá omiagent utilização de CPU de 100%
+
+### <a name="probable-causes"></a>Causas prováveis
+Uma regressão no pacote do nss pem [v1.0.3 5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) causou um problema de desempenho grave, que nós já foi a ver surgem muito em distribuições do Red Hat/Centos 7.x. Para saber mais sobre este problema, verifique a seguinte documentação: Bug [1667121 regressão de desempenho no libcurl](https://bugzilla.redhat.com/show_bug.cgi?id=1667121).
+
+Desempenho relacionados com bugs não ocorrem o tempo todo, e elas são muito difíceis de reproduzir. Se tiver esse problema com omiagent deve utilizar o omiHighCPUDiagnostics.sh de script que irá recolher o rastreio de pilha do omiagent quando exceder um determinado limiar.
+
+1. Transferir o script <br/>
+`wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/LogCollector/source/omiHighCPUDiagnostics.sh`
+
+2. Executar diagnósticos para 24 horas com o limiar de 30% da CPU <br/>
+`bash omiHighCPUDiagnostics.sh --runtime-in-min 1440 --cpu-threshold 30`
+
+3. Pilha de chamadas será despejada em arquivo omiagent_trace, se observar muitos Curl e chamadas de função do NSS, siga os passos de resolução abaixo.
+
+### <a name="resolution-step-by-step"></a>Resolução (passo a passo)
+
+1. Atualizar o pacote nss pem [v1.0.3 5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html). <br/>
+`sudo yum upgrade nss-pem`
+
+2. Se não estiver disponível para atualização nss pem (principalmente acontece no Centos), em seguida, mudar o curl para 7.29.0-46. Se, por engano executar "yum atualização", em seguida, curl será atualizado para 7.29.0-51 e o problema acontecerá novamente. <br/>
+`sudo yum downgrade curl libcurl`
+
+3. Reinicie o OMI: <br/>
+`sudo scxadmin -restart`
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>Problema: Não está a ver todos os dados no portal do Azure
 
@@ -399,7 +426,7 @@ sudo sh ./onboard_agent.sh --purge
 
 Pode continuar reonboard depois de utilizar o `--purge` opção
 
-## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>Extensão de agente do log Analytics no portal do Azure está marcado com estado de falha: O aprovisionamento falhou
+## <a name="log-analytics-agent-extension-in-the-azure-portal-is-marked-with-a-failed-state-provisioning-failed"></a>Extensão de agente do log Analytics no portal do Azure está marcado com estado de falha: Falha no aprovisionamento
 
 ### <a name="probable-causes"></a>Causas prováveis
 * Agente do log Analytics foi removido do sistema operativo

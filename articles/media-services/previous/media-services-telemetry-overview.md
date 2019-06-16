@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60545525"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria de serviços de multimédia do Azure  
@@ -79,7 +79,7 @@ Propriedade|Value|Exemplos/notas
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>O ID da conta está incluído na chave de partição para simplificar os fluxos de trabalho em que várias contas de serviços de multimédia estiver a escrever para a mesma conta de armazenamento.
 RowKey|{seconds meia-noite} _ {valor aleatório}|01688_00199<br/><br/>A chave de linha começa com o número de segundos a meia-noite para permitir consultas de estilo de n principais dentro de uma partição. Para obter mais informações, veja [este](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) artigo. 
 Carimbo de data/hora|Data/Hora|Timestamp da tabela do Azure 2016 de auto-09-09T22:43:42.241Z
-Type|O tipo da entidade a fornecer os dados de telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Tipo de evento é apenas um valor de cadeia de caracteres.
+Tipo|O tipo da entidade a fornecer os dados de telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Tipo de evento é apenas um valor de cadeia de caracteres.
 Name|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|O tempo em que ocorreu o evento de telemetria (UTC)|2016-09-09T22:42:36.924Z<br/><br/>O tempo observado é fornecido pela entidade enviar a telemetria (por exemplo um canal). Pode haver problemas de sincronização entre os componentes, para que este valor é obter uma estimativa de tempo
 ServiceID|{serviço ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -100,10 +100,10 @@ Propriedade|Value|Exemplos
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Carimbo de data/hora|Carimbo de data/hora|Auto timestamp a partir de 2016 de tabela do Azure-09-09T22:43:42.241Z
-Type|Type|StreamingEndpoint
+Tipo|Tipo|StreamingEndpoint
 Name|Name|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceID|ID de serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 nome de anfitrião|Nome de anfitrião do ponto final|builddemoserver.origin.mediaservices.windows.net
 StatusCode|Estado HTTP de registos|200
 ResultCode|Detalhes de código de resultado|S_OK
@@ -119,10 +119,10 @@ Propriedade|Value|Exemplos/notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Carimbo de data/hora|Carimbo de data/hora|Timestamp da tabela do Azure 2016 de auto-09-09T22:43:42.241Z
-Type|Type|Canal
+Tipo|Tipo|Canal
 Name|Name|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceID|ID de serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Tipo de vídeo/áudio/text do controle|vídeo/áudio
 TrackName|Nome da faixa|vídeo/audio_1
 Velocidade de transmissão|Velocidade de transmissão do Roteiro|785000
@@ -144,10 +144,10 @@ Propriedade|Value|Exemplos/notas
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Carimbo de data/hora|Carimbo de data/hora|Timestamp da tabela do Azure 2016 de auto-09-09T22:43:42.241Z
-Type|Type|Arquivo
+Tipo|Tipo|Arquivo
 Name|Name|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
-ServiceID|ID de Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
+ServiceID|ID de serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|Url de programa|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
 TrackName|Nome da faixa|audio_1
 TrackType|Tipo de faixa|Áudio/vídeo

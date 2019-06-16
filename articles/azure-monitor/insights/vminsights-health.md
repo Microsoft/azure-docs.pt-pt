@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130445"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure
@@ -97,10 +97,10 @@ Os Estados de funcionamento definidos para uma VM são descritos na tabela a seg
 
 |Ícone |Estado de funcionamento |Significado |
 |-----|-------------|---------------|
-| |Bom Estado de Funcionamento |Estado de funcionamento está em bom estado, se for dentro as condições de estado de funcionamento definidos, indicando que nenhum problema detetado para a VM e está a funcionar conforme necessário. Com um monitor de rollup principal, rolls-up do Estado de funcionamento e ela reflete o estado de mais favorável ou pior do filho.|
-| |Crítica |Estado de funcionamento é crítico, se não se encontra na condição de estado de funcionamento definidos, que indica que foram detetados um ou mais problemas críticos, que precisam ser abordadas para restaurar o funcionamento normal. Com um monitor de rollup principal, rolls-up do Estado de funcionamento e ela reflete o estado de mais favorável ou pior do filho.|
+| |Bom estado de funcionamento |Estado de funcionamento está em bom estado, se for dentro as condições de estado de funcionamento definidos, indicando que nenhum problema detetado para a VM e está a funcionar conforme necessário. Com um monitor de rollup principal, rolls-up do Estado de funcionamento e ela reflete o estado de mais favorável ou pior do filho.|
+| |Crítico |Estado de funcionamento é crítico, se não se encontra na condição de estado de funcionamento definidos, que indica que foram detetados um ou mais problemas críticos, que precisam ser abordadas para restaurar o funcionamento normal. Com um monitor de rollup principal, rolls-up do Estado de funcionamento e ela reflete o estado de mais favorável ou pior do filho.|
 | |Aviso |Estado de funcionamento é aviso se estiver entre dois limiares para a condição de estado de funcionamento definidos, onde um indica uma *aviso* estado e a outra indica um *crítico* Estado (três limiares de estado de funcionamento podem ser configurado), ou quando é detetado um problema de não-críticas que pode causar problemas críticos, se não resolvido. Com um rollup principal monitor, se um ou mais dos filhos estão num Estado de aviso, em seguida, irá refletir o pai *aviso* estado. Se houver um filho que está numa *crítico* e outro filho num *aviso* Estado, o rollup principal mostrará um Estado de funcionamento *crítico*.|
-| |Desconhecidos |Estado de funcionamento é *desconhecido* quando não é possível calcular por vários motivos. Consulte a seguinte nota de rodapé <sup>1</sup> para obter mais detalhes e possíveis soluções para resolvê-los. |
+| |Desconhecido |Estado de funcionamento é *desconhecido* quando não é possível calcular por vários motivos. Consulte a seguinte nota de rodapé <sup>1</sup> para obter mais detalhes e possíveis soluções para resolvê-los. |
 
 <sup>1</sup> desconhecido o estado de funcionamento é causado pelos seguintes problemas:
 
@@ -120,7 +120,7 @@ Ao aceder ao estado de funcionamento a partir de uma VM do Azure com o sistema o
 
 ### <a name="aggregate-virtual-machine-perspective"></a>Ponto de vista de máquina de virtual agregado
 
-Para ver a recolha de estado de funcionamento para todas as suas máquinas virtuais num grupo de recursos, na lista de navegação no portal, selecione **do Azure Monitor** e, em seguida, selecione **máquinas virtuais (pré-visualização)**.  
+Para ver a recolha de estado de funcionamento para todas as suas máquinas virtuais num grupo de recursos, na lista de navegação no portal, selecione **do Azure Monitor** e, em seguida, selecione **máquinas virtuais (pré-visualização)** .  
 
 ![Vista do Azure Monitor de monitorização de informações de VM](./media/vminsights-health/vminsights-aggregate-health.png)
 
@@ -187,9 +187,9 @@ Estado de um critério de estado de funcionamento é definido por um dos quatro 
 
 Página de diagnóstico de estado de funcionamento tem três seções principais:
 
-* Modelo do Componente 
+* Modelo de componente 
 * Critérios de Estado de Funcionamento
-* Alterações de Estado 
+* Alterações de estado 
 
 ![Secções da página de diagnóstico de estado de funcionamento](./media/vminsights-health/health-diagnostics-page-02.png)
 
@@ -239,7 +239,7 @@ As três colunas são interligadas entre si. Quando seleciona uma instância det
 
 ![Exemplo de seleção de instância monitorizada e os resultados](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-No exemplo acima, quando seleciona **disco - d 1:**, a árvore de critérios de estado de funcionamento é filtrada para **disco - 1 D:**. O **de alteração de estado** coluna mostra a alteração de estado com base na disponibilidade dos **disco - d 1:**. 
+No exemplo acima, quando seleciona **disco - d 1:** , a árvore de critérios de estado de funcionamento é filtrada para **disco - 1 D:** . O **de alteração de estado** coluna mostra a alteração de estado com base na disponibilidade dos **disco - d 1:** . 
 
 Para ver um Estado de funcionamento atualizado, pode atualizar a página de diagnóstico de estado de funcionamento ao clicar o **atualizar** ligação.  Se existir uma atualização do Estado de funcionamento do critério de estado de funcionamento com base no intervalo de consulta predefinido, essa tarefa permite-lhe evitar espera e reflete o estado de funcionamento mais recente.  O **estado de funcionamento de critérios** é um filtro que lhe permite definir o âmbito os resultados com base no estado do Estado de funcionamento selecionado - *bom estado de funcionamento*, *aviso*, *crítico*, *Desconhecido*, e *todos os*.  O **última atualização** tempo no canto superior direito representa a última vez em quando a página de diagnóstico de estado de funcionamento foi atualizada.  
 
@@ -259,14 +259,14 @@ Alertas a partir de outros tipos de recursos ou serviços não se destinam a ser
 
 Pode filtrar esta vista ao selecionar os valores nos menus de lista pendente na parte superior da página.
 
-|colunas |Descrição | 
+|Coluna |Descrição | 
 |-------|------------| 
 |Subscrição |Selecione uma subscrição do Azure. Apenas os alertas na subscrição selecionada são incluídos na vista. | 
 |Grupo de Recursos |Selecione um grupo de recursos. Apenas os alertas com destinos no grupo de recursos selecionado estão incluídos na vista. | 
 |Tipo de recurso |Selecione um ou mais tipos de recursos. Por predefinição, apenas os alertas de destino **máquinas virtuais** é selecionado e incluído nesta vista. Esta coluna só está disponível depois de um grupo de recursos foi especificado. | 
 |Resource |Selecione um recurso. Apenas alertas com esse recurso como um destino estão incluídas na vista. Esta coluna apenas está disponível após foi especificado um tipo de recurso. | 
 |Gravidade |Opte por uma gravidade de alerta ou selecione *todos os* para incluir alertas de todas as gravidades. | 
-|Condição do Monitor |Selecione uma condição do monitor para filtrar alertas se eles tiverem sido *Fired* pelo sistema ou *resolvido* pelo sistema se a condição já não estiver ativa. Ou selecione *todos os* para incluir alertas de todas as condições. | 
+|Condição do monitor |Selecione uma condição do monitor para filtrar alertas se eles tiverem sido *Fired* pelo sistema ou *resolvido* pelo sistema se a condição já não estiver ativa. Ou selecione *todos os* para incluir alertas de todas as condições. | 
 |Estado de alerta |Selecione um Estado de alerta *New*, *confirmação*, *fechado*, ou selecione *todos os* para incluir alertas de todos os Estados. | 
 |Monitorizar serviço |Selecione um serviço ou selecione *todos os* para incluir todos os serviços. Apenas alertas a partir da *VM Insights* são suportados para esta funcionalidade.| 
 |Intervalo de tempo| Apenas os alertas acionados dentro da janela de tempo selecionado estão incluídos na vista. Os valores suportados são a última hora, últimas 24 horas, últimos 7 dias e os últimos 30 dias. | 

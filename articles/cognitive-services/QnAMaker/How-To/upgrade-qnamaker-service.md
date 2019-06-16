@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: tulasim
 ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61372361"
 ---
 # <a name="share-or-upgrade-your-qna-maker-service"></a>Partilhar ou atualizar o serviço QnA Maker
@@ -29,7 +29,7 @@ A ferramenta QnA Maker cria vários recursos do Azure. Para reduzir a gestão e 
 |Serviço|Partilhar|
 |--|--|
 |Serviços Cognitivos|X|
-|Plano do serviço de aplicações|✔|
+|plano do serviço de aplicações|✔|
 |Serviço de aplicações|X|
 |Application Insights|✔|
 |Serviço de pesquisa|✔|

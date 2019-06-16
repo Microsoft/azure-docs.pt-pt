@@ -11,10 +11,10 @@ author: mesameki
 ms.reviewer: larryfr
 ms.date: 05/30/2019
 ms.openlocfilehash: 4f1dd0bfc0637c6681b513860a63df2b8c35fe5e
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430867"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Modelo interpretability com o serviço Azure Machine Learning

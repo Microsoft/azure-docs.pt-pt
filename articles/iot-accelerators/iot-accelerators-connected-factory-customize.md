@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450439"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080489"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar a forma como a solução de fábrica ligada apresenta dados de seus servidores OPC UA
 
@@ -39,7 +39,7 @@ Este artigo descreve:
 
 ## <a name="data-sources"></a>Origens de dados
 
-A solução de fábrica ligada mostra dados dos servidores OPC UA ligados à solução. A instalação predefinida inclui vários servidores OPC UA executando uma simulação de fábrica. Pode adicionar seus próprios servidores OPC UA que [ligar através de um gateway] [ lnk-connect-cf] à sua solução.
+A solução de fábrica ligada mostra dados dos servidores OPC UA ligados à solução. A instalação predefinida inclui vários servidores OPC UA executando uma simulação de fábrica. Pode adicionar seus próprios servidores OPC UA que [ligar através de um gateway] [lnk-connect-cf] à sua solução.
 
 Pode procurar os itens de dados que envia um servidor OPC UA ligado à sua solução no dashboard:
 
@@ -79,8 +79,6 @@ O **azure-iot-connected-factory** repositório inclui um **build.ps1** script de
 
 Saiba mais sobre o acelerador de solução de fábrica ligada ao ler os artigos seguintes:
 
-* [Apresentação do acelerador da solução Fábrica Ligada][lnk-rm-walkthrough]
-* [Implementar um gateway para a fábrica ligada][lnk-connect-cf]
 * [Permissões no azureiotsolutions.com site][lnk-permissions]
 * [FAQ de Fábrica Ligada](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
@@ -93,7 +91,5 @@ Saiba mais sobre o acelerador de solução de fábrica ligada ao ler os artigos 
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
 [lnk-faq]: iot-accelerators-faq.md

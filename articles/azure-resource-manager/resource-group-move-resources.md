@@ -4,14 +4,14 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 046b8e75be0247f335bcf1d29117f5900b70aeb6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66477248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083528"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -88,7 +88,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Aplicações Lógicas
 * Machine Learning - Machine Learning Studio, serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de aprendizagem automática podem ser movidos entre subscrições.
 * Managed Disks - Managed Disks em zonas de disponibilidade não podem ser movidos para uma subscrição diferente
-* Identidade gerida - atribuído ao utilizador
 * Serviços de Multimédia
 * Monitor de - Certifique-se de que mover para a nova assinatura não excede [quotas da subscrição](../azure-subscription-service-limits.md#monitor-limits)
 * Hubs de Notificação
@@ -141,6 +140,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * ExpressRoute
 * Serviços de laboratório - laboratórios de sala de aula não podem ser movidos para um novo grupo de recursos ou subscrição. DevTest Labs podem ser movidos para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
 * Aplicações Geridas
+* Identidade gerida - atribuído ao utilizador
 * Microsoft Genomics
 * Segurança
 * Site Recovery

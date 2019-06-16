@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66252856"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual do Azure HDInsight
@@ -22,7 +22,7 @@ Este artigo explica os recursos que estão presentes quando implementar um clust
 
 Os clusters de HDInsight do Azure têm diferentes tipos de máquinas virtuais ou nós. Cada tipo de nó desempenha um papel na operação do sistema. A tabela a seguir resume esses tipos de nó e as respetivas funções em cluster.
 
-| Type | Descrição |
+| Tipo | Descrição |
 | --- | --- |
 | Nó principal |  Para todos os tipos de cluster, exceto o Apache Storm, os nós principais alojam os processos de gerenciamento da execução da aplicação distribuída. O nó principal também é o nó que pode SSH no e executar aplicativos que são coordenados e, em seguida, executar entre os recursos do cluster. O número de nós principais é fixa em dois para que todos os tipos de cluster. |
 | Nó do zooKeeper | Zookeeper coordena tarefas entre os nós que estão a fazer o processamento de dados. Também não eleição de coordenador do nó principal e mantém um registro de qual nó principal está a executar um serviço principal específico. O número de nós do ZooKeeper é fixa em três. |

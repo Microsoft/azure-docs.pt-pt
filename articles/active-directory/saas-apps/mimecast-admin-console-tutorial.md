@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123737"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Integração do Active Directory do Azure com a consola de administração de Mimecast
 
@@ -53,7 +53,7 @@ Para configurar a integração Mimecast da consola de administração para o Azu
 
 **Para adicionar a consola de administração de Mimecast partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -164,7 +164,7 @@ Para configurar o Azure AD início de sessão único com a consola de administra
     >[!NOTE]
     >O valor de URL de início de sessão e o valor de URL de fim de sessão são para a consola de administração Mimecast o mesmo.
     
-    g. Abra o certificado de base 64 transferido a partir do portal do Azure no bloco de notas, remova a primeira linha ("*--*") e a última linha ("*--*"), copie os conteúdos restantes-lo em seu área de transferência e, em seguida, cole-os para o **certificado do fornecedor de identidade (metadados)** caixa de texto.
+    g. Abra o certificado de base 64 transferido a partir do portal do Azure no bloco de notas, remova a primeira linha (" *--* ") e a última linha (" *--* "), copie os conteúdos restantes-lo em seu área de transferência e, em seguida, cole-os para o **certificado do fornecedor de identidade (metadados)** caixa de texto.
     
     h. Selecione **permitir o início de sessão único em**.
     

@@ -10,10 +10,10 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
 ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120131"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Controlar mensagens B2B com os registos do Azure Monitor
@@ -155,7 +155,7 @@ Aqui estão as descrições de propriedade para cada mensagem AS2.
 | ACK | O estado da mensagem MDN <br>Aceite = recebidos ou enviados um MDN positivo. <br>Pendente = esperando para receber ou enviar um MDN. <br>Rejeitado = recebidos ou enviados um MDN negativo. <br>Não é necessário = MDN não está definido no contrato. |
 | Direction | A direção de mensagem AS2 |
 | ID de Correlação | O ID que correlaciona todos os acionadores e ações numa aplicação lógica |
-| ID da Mensagem | O ID da mensagem AS2 dos cabeçalhos de mensagem AS2 |
+| ID da mensagem | O ID da mensagem AS2 dos cabeçalhos de mensagem AS2 |
 | Carimbo de data/hora | A hora quando a ação de AS2 processado a mensagem |
 |          |             |
 

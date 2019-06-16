@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217532"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver as funções do Azure com os serviços de multimédia
@@ -64,11 +64,11 @@ Depois de implementada a aplicação de função, poderá encontrá-entre **dos 
 2. Escolha o **C#** linguagem e **processamento de dados** cenário.
 3. Escolher **BlobTrigger** modelo. Esta função é acionada sempre que um blob é carregado para o **entrada** contentor. O **entrada** nome é especificado no **caminho**, no próximo passo.
 
-    ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
 4. Depois de selecionar **BlobTrigger**, alguns controles mais aparecem na página.
 
-    ![ficheiros](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
 4. Clique em **Criar**. 
 
@@ -76,7 +76,7 @@ Depois de implementada a aplicação de função, poderá encontrá-entre **dos 
 
 A função do Azure está associada a arquivos de código e outros ficheiros que são descritos nesta secção. Ao utilizar o portal do Azure para criar uma função **Function** e **csx** são criados para si. Terá de adicionar ou carregar um **Project** ficheiro. O resto desta secção fornece uma breve explicação de cada arquivo e mostra as respetivas definições.
 
-![ficheiros](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 

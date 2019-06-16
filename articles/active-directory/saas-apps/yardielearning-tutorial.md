@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a23b024737f6af1f6361983045037b325783518a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2555c0040c1f2b587adb57e808ed122a4d4ce808
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086706"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: Integração do Active Directory do Azure com Yardi eLearning
 
@@ -56,7 +56,7 @@ Para configurar a integração do Yardi eLearning para o Azure AD, terá de adic
 
 **Para adicionar Yardi eLearning a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -190,7 +190,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Yardi eLearning
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de eLearning Yardi](mailto:elearning@yardi.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

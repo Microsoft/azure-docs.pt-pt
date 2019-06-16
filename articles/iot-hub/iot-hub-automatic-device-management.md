@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333658"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestão automática de dispositivos de IoT em escala no portal do Azure
@@ -58,7 +58,7 @@ Antes de criar uma configuração, tem de especificar quais os dispositivos que 
 
 Existem cinco passos para criar uma configuração. As seções a seguir, percorra cada um deles. 
 
-### <a name="name-and-label"></a>Nome e Etiqueta
+### <a name="name-and-label"></a>Nome e etiqueta
 
 1. Dê um nome exclusivo que é até 128 minúsculas da configuração. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
 
@@ -66,7 +66,7 @@ Existem cinco passos para criar uma configuração. As seções a seguir, percor
 
 3. Selecione **seguinte** para mover para o passo seguinte. 
 
-### <a name="specify-settings"></a>Especificar Definições
+### <a name="specify-settings"></a>Especificar as definições
 
 Esta secção especifica o conteúdo de destino sejam definidas no gémeos de dispositivo de destino. Existem duas entradas para cada conjunto de definições. A primeira é o caminho de twin do dispositivo, o que é o caminho para a secção JSON nas propriedades pretendida do duplo que serão definidas.  O segundo é o conteúdo JSON a ser inserido nesta secção. Por exemplo, defina o caminho do dispositivo duplo e o conteúdo para o seguinte:
 
@@ -103,7 +103,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-### <a name="target-devices"></a>Dispositivos de Destino
+### <a name="target-devices"></a>Dispositivos de destino
 
 Utilize a propriedade de etiquetas de seus dispositivos duplos para os dispositivos específicos que devem receber esta configuração de destino.  Também pode visar dispositivos por dispositivo duplo de propriedades comunicadas.
 
@@ -115,7 +115,7 @@ Uma vez que várias configurações podem direcionar o mesmo dispositivo, deve d
 
 3. Selecione **seguinte** para avançar para a etapa final.
 
-### <a name="review-configuration"></a>Rever Configuração
+### <a name="review-configuration"></a>Configuração de revisão
 
 Reveja as suas informações de configuração, em seguida, selecione **submeter**.
 

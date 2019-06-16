@@ -14,10 +14,10 @@ ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104835"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
@@ -83,7 +83,7 @@ Cada propriedade de uma procura guardada é descrita na tabela seguinte.
 | consulta | Consulta seja executada. |
 
 > [!NOTE]
-> Poderá ter de utilizar os carateres de escape na consulta, se ele inclui carateres que poderão ser interpretados como JSON. Por exemplo, se a consulta foi **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, deve ser gravado no arquivo da solução como **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"**.
+> Poderá ter de utilizar os carateres de escape na consulta, se ele inclui carateres que poderão ser interpretados como JSON. Por exemplo, se a consulta foi **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , deve ser gravado no arquivo da solução como **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"** .
 
 ## <a name="alerts"></a>Alertas
 [Alertas de registo do Azure](../../azure-monitor/platform/alerts-unified-log.md) são criados pelas regras de alertas do Azure que executam consultas de registo especificado em intervalos regulares. Se os resultados da consulta corresponderem a critérios especificados, é criado um registo de alerta e uma ou mais ações são executadas usando [grupos de ação](../../azure-monitor/platform/action-groups.md).
@@ -176,7 +176,7 @@ As propriedades de recursos de ação do alerta são descritas nas tabelas segui
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| Type | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
+| Tipo | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
 | Name | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
 | Descrição | Não | Descrição opcional do alerta. |
 | Gravidade | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
@@ -271,8 +271,8 @@ As propriedades de recursos de ação do Webhook são descritas nas tabelas segu
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| tipo | Sim | Tipo de ação. Isto é **Webhook** para ações de webhook. |
-| nome | Sim | Nome a apresentar para a ação. Não é apresentado na consola do. |
+| type | Sim | Tipo de ação. Isto é **Webhook** para ações de webhook. |
+| name | Sim | Nome a apresentar para a ação. Não é apresentado na consola do. |
 | webhookUri | Sim | URI do webhook. |
 | customPayload | Não | Payload personalizado para ser enviado para o webhook. O formato depende o que o webhook está esperando. |
 
@@ -282,7 +282,7 @@ Segue-se um exemplo de uma solução que inclui os seguintes recursos:
 
 - Pesquisa guardada
 - Agenda
-- Grupo de ações
+- grupo de ação
 
 O exemplo usa [parâmetros de solução padrão]( solutions-solution-file.md#parameters) variáveis que normalmente seriam usadas numa solução em vez de embutir valores nas definições de recursos.
 

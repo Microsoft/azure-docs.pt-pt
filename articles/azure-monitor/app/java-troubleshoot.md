@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899504"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061154"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
 Perguntas ou problemas com [do Azure Application Insights no Java][java]? Eis algumas sugestões.
@@ -27,7 +27,7 @@ Perguntas ou problemas com [do Azure Application Insights no Java][java]? Eis al
 
 * Se a dependência `<version>` elemento é usar um padrão com carateres universais (por exemplo, (Maven) `<version>[2.0,)</version>` ou (Gradle) `version:'2.0.+'`), experimente especificar uma versão específica em vez disso, como `2.0.1`. Consulte a [notas de versão](https://github.com/Microsoft/ApplicationInsights-Java/releases) para a versão mais recente.
 
-## <a name="no-data"></a>Nenhuns dados
+## <a name="no-data"></a>Sem dados
 **Adicionei o Application Insights com êxito e Executei meu aplicativo, mas jamais vi dados no portal.**
 
 * Espere um minuto e clique em Atualizar. Os gráficos atualizam-se periodicamente, mas também pode atualizar manualmente. O intervalo de atualização depende o intervalo de tempo do gráfico.

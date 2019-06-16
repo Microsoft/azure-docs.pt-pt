@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60826752"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorizar e gerir pipelines do Azure Data Factory com a aplicação de monitorização e gestão
@@ -188,7 +188,7 @@ Janelas de atividade podem ter um dos seguintes Estados:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Em Curso</td><td>A Validar</td><td>Validação está em curso.</td>
+<td rowspan="2">Em curso</td><td>A validar</td><td>Validação está em curso.</td>
 </tr>
 <td>-</td>
 <td>A janela de atividade está a ser processada.</td>
@@ -200,7 +200,7 @@ Janelas de atividade podem ter um dos seguintes Estados:
 <td>Cancelado</td><td>A janela de atividade foi cancelada por ação do utilizador.</td>
 </tr>
 <tr>
-<td>Validação</td><td>A validação falhou.</td>
+<td>Validação</td><td>Falha na validação.</td>
 </tr>
 <tr>
 <td>-</td><td>A janela de atividade não conseguiu ser gerado ou validada.</td>

@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393193"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076362"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos do Azure Event Grid para o IoT Hub
 
@@ -35,7 +35,7 @@ O IoT Hub do Azure emite os seguintes tipos de evento:
 | Microsoft.Devices.DeviceDisconnected | Publicado quando um dispositivo é ligado à Internet de um hub IoT. | 
 | Microsoft.Devices.DeviceTelemetry | Publicado quando é enviada uma mensagem de telemetria para um hub IoT. |
 
-Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo estão geralmente disponíveis em todas as regiões suportadas pelo Event Grid. Eventos de telemetria do dispositivo está em pré-visualização pública e está disponível em todas as regiões, exceto E.U.A. leste, E.U.A. oeste, Europa Ocidental, [do Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
+Todos os eventos de dispositivo, exceto os eventos de telemetria do dispositivo estão geralmente disponíveis em todas as regiões suportadas pelo Event Grid. Eventos de telemetria do dispositivo está em pré-visualização pública e está disponível em todas as regiões, exceto E.U.A. leste, E.U.A. oeste, Europa Ocidental, [do Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Evento de exemplo
 
@@ -156,8 +156,8 @@ Todos os eventos contêm os mesmos dados de nível superior:
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | data | objeto | Dados de eventos do IoT Hub.  |
-| dataVersion | string | A versão de esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão de esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 Para todos os eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
 

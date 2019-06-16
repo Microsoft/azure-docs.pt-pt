@@ -1,5 +1,5 @@
 ---
-title: Configurar a gestão de sessão de autenticação com o acesso condicional do Azure Active Directory
+title: Configurar a gestão de sessão de autenticação com o Azure Active Directory condicional acesso
 description: Personalize a configuração de sessão de autenticação do Azure AD incluindo o início de sessão do utilizador na frequência e o navegador persistência da sessão.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25bf4653db2008559c1fe3f13b30c5c82a202ffd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052449"
+ms.locfileid: "67112331"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessão de autenticação com o acesso condicional
 
@@ -27,7 +27,7 @@ Nas implementações complexas, as organizações podem ter uma necessidade para
 * Utilizadores de elevado impacto
 * Aplicações empresariais
 
-Controlos de acesso condicional permitem-lhe criar políticas que se destinam a casos de utilização específicos na sua organização sem afetar todos os utilizadores.
+Controlos de acesso condicionais permitem-lhe criar políticas que se destinam a casos de utilização específicos na sua organização sem afetar todos os utilizadores.
 
 Antes de explorar detalhes sobre como configurar a política, vamos examinar a configuração predefinida.
 
@@ -95,7 +95,7 @@ Se tiver configurado a frequência de início de sessão diferente para as aplic
 
 Utilize a ferramenta de hipóteses para simular um início de sessão do utilizador para o aplicativo de destino e outras condições com base em como tiver configurado a sua política. Os controlos de gestão de sessão de autenticação apresentado no resultado da ferramenta.
 
-![E se os resultados a ferramenta de acesso condicional](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Resultados da ferramenta If e de acesso condicional](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>Implementação da política
 
@@ -103,5 +103,5 @@ Para certificar-se de que a política funciona conforme esperado, a prática rec
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Se quiser saber como configurar uma política de acesso condicional, veja o artigo [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
+* Se quiser saber como configurar uma política de acesso condicional, veja o artigo [exigir MFA para aplicações específicas com o Azure Active Directory condicional acesso](app-based-mfa.md).
 * Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja o artigo [melhores práticas para acesso condicional no Azure Active Directory](best-practices.md).

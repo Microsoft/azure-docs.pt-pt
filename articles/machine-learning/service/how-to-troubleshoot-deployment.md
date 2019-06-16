@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9d173409fc9f270f13d688999a88f9480c3eb40f
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: 0fba7c2f5a46e0c5d0e3c5fdd65a03bb77f148d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742926"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075002"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Resolver problemas de implementações de AKS e ACI de serviço do Azure Machine Learning
 
@@ -63,7 +63,7 @@ Separando a implementação de tarefas é útil se estiver a utilizar o [Webserv
     ```python
     # configure the image
     image_config = ContainerImage.image_configuration(runtime="python",
-                                                      execution_script="score.py",
+                                                      entry_script="score.py",
                                                       conda_file="myenv.yml")
 
     # create the image

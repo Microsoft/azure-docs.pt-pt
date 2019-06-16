@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 9108f83e854b51720c64c5a74a828543cc5e7688
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64875807"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapeamento de esquema na atividade de cópia
@@ -105,7 +105,7 @@ As seguintes propriedades são suportadas ao abrigo `translator`  ->  `mappings`
 
 ### <a name="alternative-column-mapping"></a>Mapeamento de colunas alternativo
 
-Pode especificar cópia atividade -> `translator`  ->  `columnMappings` para mapeamento entre os dados em forma tabela. Neste caso, a seção de "estrutura" é necessária para conjuntos de dados de entrada e saídos. Suporta de mapeamento de coluna **mapeamento todos ou subconjunto de colunas no conjunto de dados de origem "estrutura" para todas as colunas no conjunto de dados de sink "estrutura"**. Seguem-se as condições de erro que resultam numa exceção:
+Pode especificar cópia atividade -> `translator`  ->  `columnMappings` para mapeamento entre os dados em forma tabela. Neste caso, a seção de "estrutura" é necessária para conjuntos de dados de entrada e saídos. Suporta de mapeamento de coluna **mapeamento todos ou subconjunto de colunas no conjunto de dados de origem "estrutura" para todas as colunas no conjunto de dados de sink "estrutura"** . Seguem-se as condições de erro que resultam numa exceção:
 
 * Resultado não tem um nome de coluna especificado na seção de "estrutura" conjunto de dados de entrada de consulta de arquivo de dados de origem.
 * Arquivo de dados de sink (se com o esquema predefinido) não tem um nome de coluna especificado na seção de "estrutura" do conjunto de dados de saída.

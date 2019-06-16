@@ -5,21 +5,21 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/30/2019
+ms.date: 06/05/2019
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 7907504401f4b47aafe6032ea895d9647e6c303c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ea87e51e66985f860cd6d10595a32facde1dc639
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133745"
 ---
 Existe um número máximo de cada tipo de objeto do Azure Policy. Uma entrada de _Âmbito_ significa a subscrição ou o [grupo de gestão](../articles/governance/management-groups/overview.md).
 
 | Onde | O quê | Contagem máxima |
 |---|---|---|
-| Scope | Definições de política | 250 |
+| Scope | Definições de política | 500 |
 | Scope | Definições de iniciativa | 100 |
 | Inquilino | Definições de iniciativa | 1,000 |
 | Scope | Atribuições de política ou iniciativa | 100 |

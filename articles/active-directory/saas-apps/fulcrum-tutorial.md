@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 040413f2e0daccc04921f32199a3c75e8d38310e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57c95ddba28904ad24822b5ac0b01a77b4076db2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fulcrum"></a>Tutorial: Integração do Active Directory do Azure com Fulcrum
 
@@ -54,7 +54,7 @@ Para configurar a integração do Fulcrum com o Azure AD, terá de adicionar Ful
 
 **Para adicionar Fulcrum a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD início de sessão único com Fulcrum, execute os seg
     | ---------------| --------------- |
     | first_name | user.givenname |
     | last_name | user.surname |
-    | e-mail | user.mail |
+    | email | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 

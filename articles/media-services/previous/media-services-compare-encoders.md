@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465716"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação do Azure no codificadores de multimédia a pedido  
@@ -29,7 +29,7 @@ Este tópico compara as capacidades de codificação de **Media Encoder Standard
 
 A tabela seguinte compara as funcionalidades entre o Media Encoder Standard (MES) e o Media Encoder Premium Workflow (MEPW). 
 
-|Capacidade|Media Encoder Standard|Fluxo de Trabalho Premium de Codificador de Multimédia|
+|Funcionalidade|Media Encoder Standard|Fluxo de Trabalho Premium de Codificador de Multimédia|
 |---|---|---|
 |Aplicar lógica condicional durante a codificação<br/>(por exemplo, se a entrada for HD, em seguida, codificar áudio 5.1)|Não|Sim|
 |Legendagem de áudio|Não|[Sim](media-services-premium-workflow-encoder-formats.md#closed_captioning)|

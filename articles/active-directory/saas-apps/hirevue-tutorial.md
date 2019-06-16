@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7617889bfbdfecb421538cbc261dace5b4b8279c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 39aed992a2143065b0737d6a2dde3bcc9f2f958e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integração do Active Directory do Azure com HireVue
 
@@ -53,7 +53,7 @@ Para configurar a integração do HireVue com o Azure AD, terá de adicionar Hir
 
 **Para adicionar HireVue a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -107,17 +107,17 @@ Para configurar o Azure AD início de sessão único com HireVue, execute os seg
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
 
-    | Ambiente | URL |
+    | Ambiente | do IdP |
     |-------------|---|
     | Produção | `https://<companyname>.hirevue.com` |
-    | Testes    | `https://<companyname>.stghv.com` |
+    | Teste    | `https://<companyname>.stghv.com` |
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
 
     | Ambiente | URN |
     |-------------|-----|
     | Produção |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Testes    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Teste    | `urn:federation:hirevue.com:saml:sp:staging`|
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente HireVue](mailto:samlsupport@hirevue.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
@@ -195,7 +195,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no HireVue. Trabalhar com [equipa de suporte de HireVue](mailto:samlsupport@hirevue.com) para adicionar os utilizadores na plataforma HireVue. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

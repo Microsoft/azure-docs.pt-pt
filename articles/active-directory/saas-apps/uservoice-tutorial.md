@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integração do Active Directory do Azure com o UserVoice
 
@@ -53,7 +53,7 @@ Para configurar a integração do UserVoice para o Azure AD, terá de adicionar 
 
 **Para adicionar UserVoice a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -146,7 +146,7 @@ Para configurar o Azure AD início de sessão único com o UserVoice, execute os
    
     ![Editar autenticação de utilizador](./media/uservoice-tutorial/ic777521.png "editar autenticação de utilizador")
    
-    a. Clique em **início de sessão único (SSO)**.
+    a. Clique em **início de sessão único (SSO)** .
  
     b. Colar o **URL de início de sessão** valor, que copiou do portal do Azure para o **SSO remoto início de sessão** caixa de texto.
 
@@ -239,7 +239,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no UserVoice, tem de ser 
 > [!NOTE]
 > Pode utilizar quaisquer outras UserVoice utilizador conta criação ferramentas ou APIs fornecidas pelo UserVoice para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

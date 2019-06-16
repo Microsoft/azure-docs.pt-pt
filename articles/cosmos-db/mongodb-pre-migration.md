@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: roaror
 ms.openlocfilehash: 476a143555323bbb5058541000a5b1a26d23b71a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61330870"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Passos de pré-migração para migrações de dados do MongoDB à API do Azure Cosmos DB para o MongoDB
@@ -60,7 +60,7 @@ No Azure Cosmos DB, o débito é aprovisionado com antecedência e é medido em 
 Ao contrário das VMs ou servidores no local, o RUs são fáceis de aumentar vertical ou horizontalmente em qualquer altura. Pode alterar o número de RUs aprovisionadas em segundos, e é faturado apenas para o número máximo de RUs que for aprovisionado para um determinado período de uma hora. Para obter mais informações, consulte [unidades de pedido no Azure Cosmos DB](request-units.md).
 
 Seguem-se os principais fatores que afetam o número de RUs necessários:
-- **Tamanho do item (ou seja, o documento)**: À medida que aumenta o tamanho de um documento/item, o número de RUs consumidas para ler ou escrever o item/documento também aumenta.
+- **Tamanho do item (ou seja, o documento)** : À medida que aumenta o tamanho de um documento/item, o número de RUs consumidas para ler ou escrever o item/documento também aumenta.
 - **Contagem de propriedade do item**: Supondo que o [indexação predefinida](index-overview.md) em todas as propriedades, o número de RUs consumidos para escrever um item aumenta à medida que os aumentos de contagem de propriedade do item. Pode reduzir o consumo de unidades de pedido para operações de escrita por [limitar o número de propriedades indexadas](index-policy.md).
 - **Operações simultâneas**: Solicitar unidades consumidas depende também a frequência com que diferentes operações de CRUD (como escritas, leituras, atualizações, eliminações) e consultas mais complexas são executadas. Pode usar [mongostat](https://docs.mongodb.com/manual/reference/program/mongostat/) para as necessidades de simultaneidade dos seus dados do MongoDB atuais de saída.
 - **Padrões de consulta**: A complexidade de uma consulta afeta quantas unidades de pedido são consumidas pela consulta.

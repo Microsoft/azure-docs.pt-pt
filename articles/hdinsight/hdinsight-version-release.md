@@ -7,16 +7,16 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: overview
 ms.date: 04/15/2019
-ms.openlocfilehash: aa0d01bfbebd5279b5268bae9d161492f30b81de
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0868ec62517144cd54760f3d951aa0e55d78b4e3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546279"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056707"
 ---
 # <a name="hdinsight-40-overview"></a>Descrição geral do HDInsight 4.0
 
-O Azure HDInsight é um dos serviços mais populares entre os clientes empresariais para análise de Apache Hadoop e do Apache Spark de código aberto no Azure. HDInsight 4.0 é uma distribuição de nuvem de componentes do Apache Hadoop dos [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Este artigo fornece informações sobre a versão mais recente do Azure HDInsight e como atualizar.
+O Azure HDInsight é um dos serviços mais populares entre os clientes empresariais para análise de Apache Hadoop e do Apache Spark de código aberto no Azure. HDInsight 4.0 é uma distribuição de nuvem dos componentes do Apache Hadoop. Este artigo fornece informações sobre a versão mais recente do Azure HDInsight e como atualizar.
 
 ## <a name="whats-new-in-hdinsight-40"></a>O que há de novo no HDInsight 4.0?
 

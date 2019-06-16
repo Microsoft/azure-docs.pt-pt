@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fa85581829f82da9a137315e1f890aa481408d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ee28d5a9ec3a8df694cd1971be8a73ff8e976cc3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898912"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Tutorial: Integração do Active Directory do Azure com etouches
 
@@ -53,7 +53,7 @@ Para configurar a integração do etouches com o Azure AD, terá de adicionar et
 
 **Para adicionar etouches a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -121,7 +121,7 @@ Para configurar o Azure AD início de sessão único com etouches, execute os se
 
     | Name | Atributo de origem|
     | ------------------- | -------------------- |
-    | Correio Electrónico | user.mail | 
+    | Email | user.mail | 
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -234,7 +234,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no etouches. Trabalhar com [equipa de suporte de etouches cliente](https://www.etouches.com/event-software/support/customer-support/) para adicionar os utilizadores na plataforma etouches.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

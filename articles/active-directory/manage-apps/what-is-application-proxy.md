@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66403a18be8337939d457c061b07de948c3e34e8
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730876"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108167"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Com o Proxy de aplicações do Azure AD para publicar aplicações no local para os utilizadores remotos
 
@@ -65,7 +65,7 @@ Na área de trabalho digital de hoje em dia, os usuários trabalham em qualquer 
 * Serviço de avaliação da política para determinar se um utilizador e o dispositivo está em conformidade com a política estipulada pelos administradores de segurança.
 * A capacidade de conceder ou negar o acesso aos recursos organizacionais.
 
-Com o Proxy de aplicações, do Azure AD mantém controle dos usuários que precisam de aceder ao web aplicações publicadas no local e na cloud. Ele fornece um ponto de gestão central para essas aplicações. Embora não seja necessário, recomenda-se que também de ativar o acesso condicional do Azure AD. Ao definir condições para como os utilizadores autenticarem e obterem acesso, ainda mais Certifique-se que as pessoas certas tenham acesso às aplicações.
+Com o Proxy de aplicações, do Azure AD mantém controle dos usuários que precisam de aceder ao web aplicações publicadas no local e na cloud. Ele fornece um ponto de gestão central para essas aplicações. Embora não seja necessário, recomenda-se que também de permitir o acesso condicional do Azure AD. Ao definir condições para como os utilizadores autenticarem e obterem acesso, ainda mais Certifique-se que as pessoas certas tenham acesso às aplicações.
 
 **Nota:** É importante compreender que Proxy de aplicações do Azure AD destina-se como uma VPN ou substituição de proxy inverso para os utilizadores de roaming (ou remotos) que necessitam de aceder aos recursos internos. Não se destina para usuários internos na rede empresarial. Os utilizadores internos que utilizam desnecessariamente o Proxy de aplicações podem introduzir problemas de desempenho inesperados e indesejáveis.
 

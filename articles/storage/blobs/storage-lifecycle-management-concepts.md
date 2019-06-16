@@ -10,10 +10,10 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
 ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66001746"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida de armazenamento de Blobs do Azure
@@ -251,7 +251,7 @@ Filtros de limitam as ações de regras a um subconjunto de blobs na conta de ar
 
 Filtros incluem:
 
-| Nome do filtro | Tipo de filtro | Notas | É Obrigatório |
+| Nome do filtro | Tipo de filtro | Notas | É necessário |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma matriz de valores de enum predefinidos. | A versão atual suporta `blockBlob`. | Sim |
 | prefixMatch | Uma matriz de cadeias de caracteres para prefixos ser corresponder. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo tem de começar com um nome de contentor. Por exemplo, se deseja correspondência com todos os blobs em `https://myaccount.blob.core.windows.net/container1/foo/...` para uma regra, é o prefixMatch `container1/foo`. | Se não definir prefixMatch, a regra se aplica a todos os blobs na conta de armazenamento.  | Não |
@@ -262,11 +262,11 @@ Ações são aplicadas para os blobs filtrados quando for cumprida a condição 
 
 Gestão de ciclo de vida oferece suporte a disposição em camadas e eliminação de blobs e a eliminação de instantâneos de blob. Defina pelo menos uma ação para cada regra em blobs ou instantâneos de blob.
 
-| Acção        | Base de Blob                                   | Instantâneo      |
+| Ação        | Base de Blob                                   | Instantâneo      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Suporta os blobs atualmente na camada de acesso frequente         | Não suportado |
 | tierToArchive | Suporta os blobs atualmente na camada de acesso frequente ou esporádica | Não suportado |
-| eliminar        | Suportadas                                   | Suportadas     |
+| delete        | Suportadas                                   | Suportadas     |
 
 >[!NOTE]
 >Se definir mais de uma ação no mesmo blob, gerenciamento de ciclo de vida aplica-se a ação menos dispendiosa para o blob. Por exemplo, a ação `delete` é mais barato do que a ação `tierToArchive`. Ação `tierToArchive` é mais barato do que a ação `tierToCool`.

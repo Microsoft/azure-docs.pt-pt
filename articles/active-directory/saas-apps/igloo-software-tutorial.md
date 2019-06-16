@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ec322758a3c3b83e7b24cfba37daaec02fc4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df1d70f895e2e0a81344cf2a4e8e2d9963c951fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: Integração do Active Directory do Azure com o Software de Iglu
 
@@ -54,7 +54,7 @@ Para configurar a integração de Software Iglu com o Azure AD, terá de adicion
 
 **Para adicionar Iglu Software a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -179,7 +179,7 @@ Para configurar o Azure AD início de sessão único com o Software de Iglu, exe
 
     a. Como **criação do utilizador no início de sessão**, selecione **criar um novo utilizador no seu site quando iniciam sessão**.
 
-    b. Como **iniciar sessão nas definições**, selecione **botão de SAML de utilização no ecrã de "Iniciar sessão"**.
+    b. Como **iniciar sessão nas definições**, selecione **botão de SAML de utilização no ecrã de "Iniciar sessão"** .
 
     c. Clique em **Guardar**.
 

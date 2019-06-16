@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e4a9931fa6e2edf8989036eb8dbfbef3638cbbe0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 9ae2894f9f442bca1e6029b7e7d8e07824abf7fb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507528"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051735"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser utilizados no Active Directory B2C
 
@@ -98,7 +98,7 @@ Uma API web pode receber tokens de muitos tipos de clientes, incluindo aplicaç�
 6. O `access_token` e `refresh_token` são devolvidos para o servidor web.
 7. A API web é chamada com o `access_token` num cabeçalho de autorização.
 8. A API web valida o token.
-9. Proteger os dados são retornados para o servidor web.
+9. Proteger os dados são retornados ao aplicativo web.
 
 Para obter mais informações sobre códigos de autorização, tokens de atualização e os passos para obter os tokens, leia sobre o [protocolo OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 

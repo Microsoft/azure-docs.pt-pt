@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: e1b8bb3544a08b60564ceb5bd7e1666214059e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743926"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Controlar o encaminhamento e utilizar aplicações virtuais (clássico) com a CLI do Azure
@@ -72,8 +72,8 @@ Para criar a tabela de rotas e a rota necessário para a sub-rede de front-end c
    
     Parâmetros:
    
-   * **-l (ou --location)**. Região do Azure onde será criado o NSG novo. Para o nosso cenário *westus*.
-   * **-n (ou --name)**. Nome para o NSG novo. Para o nosso cenário *NSG-front-end*.
+   * **-l (ou --location)** . Região do Azure onde será criado o NSG novo. Para o nosso cenário *westus*.
+   * **-n (ou --name)** . Nome para o NSG novo. Para o nosso cenário *NSG-front-end*.
 3. Execute o seguinte comando para criar uma rota na tabela de rotas para enviar todo o tráfego destinado à sub-rede de back-end (192.168.2.0/24) para o **FW1** VM (192.168.0.4):
 
     ```azurecli
@@ -89,9 +89,9 @@ Para criar a tabela de rotas e a rota necessário para a sub-rede de front-end c
    
     Parâmetros:
    
-   * **-r (ou --nome da tabela de rota)**. Nome da tabela de rotas onde será adicionada a rota. Para o nosso cenário *UDR-front-end*.
-   * **-a (or --address-prefix)**. Prefixo de endereço para a sub-rede onde os pacotes estão destinados a. Para o nosso cenário *192.168.2.0/24*.
-   * **-t (ou --tipo de salto seguinte)**. Tipo de tráfego do objeto será enviado para. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, ou *None*.
+   * **-r (ou --nome da tabela de rota)** . Nome da tabela de rotas onde será adicionada a rota. Para o nosso cenário *UDR-front-end*.
+   * **-a (or --address-prefix)** . Prefixo de endereço para a sub-rede onde os pacotes estão destinados a. Para o nosso cenário *192.168.2.0/24*.
+   * **-t (ou --tipo de salto seguinte)** . Tipo de tráfego do objeto será enviado para. Os valores possíveis são *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, ou *None*.
    * **-p (ou --next-hop-ip-address**). Endereço IP de próximo salto. Para o nosso cenário *192.168.0.4*.
 4. Execute o seguinte comando para associar a tabela de rota criada com o **front-end** sub-rede:
 
@@ -114,7 +114,7 @@ Para criar a tabela de rotas e a rota necessário para a sub-rede de front-end c
    
     Parâmetros:
    
-   * **-t (or --vnet-name)**. Nome da VNet onde a sub-rede está localizada. Para o nosso cenário *TestVNet*.
+   * **-t (or --vnet-name)** . Nome da VNet onde a sub-rede está localizada. Para o nosso cenário *TestVNet*.
    * **-n (ou --nome da sub-rede**. Nome da sub-rede que será adicionada à tabela de rotas. Para o nosso cenário *FrontEnd*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Criar o UDR para a sub-rede de back-end

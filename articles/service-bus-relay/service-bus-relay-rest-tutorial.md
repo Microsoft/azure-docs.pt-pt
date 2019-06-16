@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
 ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62123404"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST do reencaminhamento WCF do Azure
@@ -56,7 +56,7 @@ A principal diferença entre um contrato WCF e um contrato de estilo REST é a a
 ### <a name="to-create-a-contract-with-an-interface"></a>Para criar um contrato com uma interface
 
 1. Abra o Visual Studio como administrador: clique com o botão direito no programa no menu **Iniciar** e, em seguida, clique em **Executar como administrador**.
-2. Crie um novo projeto de aplicação de consola. Clique no menu **Ficheiro** menu e selecione **Novo**, em seguida, selecione **Projeto**. Na caixa de diálogo de **Novo projeto** , clique em **Visual C#**, selecione a **Aplicação de Consola** e atribua-lhe o nome **ImageListener**. Utilize a **Localização** predefinida. Clique em **OK** para criar o projeto.
+2. Crie um novo projeto de aplicação de consola. Clique no menu **Ficheiro** menu e selecione **Novo**, em seguida, selecione **Projeto**. Na caixa de diálogo de **Novo projeto** , clique em **Visual C#** , selecione a **Aplicação de Consola** e atribua-lhe o nome **ImageListener**. Utilize a **Localização** predefinida. Clique em **OK** para criar o projeto.
 3. Para um projeto de C#, o Visual Studio cria um ficheiro `Program.cs`. Esta classe contém método `Main()` vazio, necessário para que um projeto de aplicação de consola seja criado corretamente.
 4. Adicionar as referências ao Service Bus e **System.ServiceModel.dll** ao projeto através da instalação do pacote NuGet do Service Bus. Este pacote adiciona automaticamente referências para as bibliotecas do Service Bus, bem como o **System.ServiceModel** do WCF. No Explorador de soluções, com o botão direito do **ImageListener** do projeto e, em seguida, clique em **Gerir Pacotes NuGet**. Clique no separador **Procurar** e, em seguida, procure `Microsoft Azure Service Bus`. Clique em **Instalar** e aceite os termos de utilização.
 5. Tem de adicionar explicitamente uma referência a **System.ServiceModel.Web.dll** ao projeto:
@@ -180,7 +180,7 @@ Tal como acontece com os passos anteriores, há muito pouca diferença entre a i
    
     Trata-se de uma imagem que o serviço apresenta no navegador recetor. Com o botão direito clique no projeto em seguida clique em **Adicionar**. Em seguida, clique em **Item Existente**. Utilize a caixa de diálogo **Adicionar Item Existente** para navegar para um ficheiro. jpg adequadas e, em seguida, clique em **Adicionar**.
    
-    Ao adicionar o ficheiro, certifique-se de que a opção **Todos os Ficheiros** está selecionada na lista pendente junto ao campo **Nome de ficheiro:**. O resto deste tutorial parte do princípio de que o nome da imagem é "image.jpg". Se tiver um ficheiro diferente, tem de mudar o nome da imagem ou alterar o código para compensar.
+    Ao adicionar o ficheiro, certifique-se de que a opção **Todos os Ficheiros** está selecionada na lista pendente junto ao campo **Nome de ficheiro:** . O resto deste tutorial parte do princípio de que o nome da imagem é "image.jpg". Se tiver um ficheiro diferente, tem de mudar o nome da imagem ou alterar o código para compensar.
 4. Certifique-se de que o serviço em execução pode localizar o ficheiro de imagem, em **Explorador de Soluções** clique com o botão direito no ficheiro de imagem e, em seguida, clique em **Propriedades**. No painel **Propriedades**, definir **Copiar para o diretório de saída** para **Copiar se for mais recente**.
 5. Adicione uma referência à assemblagem **System.Drawing.dll** do projeto e adicione também as seguintes instruções `using` associadas.  
    

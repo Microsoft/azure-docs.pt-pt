@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: fde10da8d46a3aa5d0163a89d1212911701c4b60
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.openlocfilehash: b8507bdbf66dc003b6f54317eb526c0e468b9f2b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66693215"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064378"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 O [ciclo de vida de desenvolvimento de base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) orienta-o sobre como gerir a sua BDC do início ao fim. Utilize estas melhores práticas para melhorar a sua base de dados de conhecimento e fornecer os melhores resultados para os utilizadores finais do seu bot de aplicação/bate-papo.
@@ -113,7 +113,7 @@ A ferramenta QnA Maker permite que os usuários [colaborar](../How-to/collaborat
 
 ## <a name="active-learning"></a>Aprendizagem ativa
 
-[Aprendizagem ativa](../How-to/improve-knowledge-base.md) faz o trabalho melhor de sugerir perguntas alternativas quando tem uma vasta gama de qualidade e a quantidade de consultas com base no utilizador. É importante permitir consultas de utilizador do cliente-aplicativos participar no ativo ciclo de comentários sem censura de aprendizado. Assim que as perguntas são sugeridas no portal do QnA Maker, pode **[filtrar por sugestões](../How-To/improve-knowledge-base.md)** , em seguida, reveja e aceite ou rejeite essas sugestões. 
+[Aprendizagem ativa](../How-to/improve-knowledge-base.md) faz o trabalho melhor de sugerir perguntas alternativas quando tem uma vasta gama de qualidade e a quantidade de consultas com base no utilizador. É importante permitir consultas de utilizador do cliente-aplicativos participar no ativo ciclo de comentários sem censura de aprendizado. Assim que as perguntas são sugeridas no portal do QnA Maker, pode **[filtrar por sugestões](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** , em seguida, reveja e aceite ou rejeite essas sugestões. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

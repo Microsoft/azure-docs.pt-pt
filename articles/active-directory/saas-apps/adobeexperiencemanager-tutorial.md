@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb066ce346d56b9b879a5e3cdcf30e7da77d94fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81032fbad21b18b0b7ca2e7662b0c4b4b6c10901
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integração do Active Directory do Azure com o Adobe Experience Manager
 
@@ -55,7 +55,7 @@ Para configurar a integração do Adobe Experience Manager com o Azure AD, terá
 
 **Para adicionar o Adobe Experience Manager a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -182,7 +182,7 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
     ![Configurar o botão único início de sessão em Guardar](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. Na **caminho** , introduza **/**.
+    a. Na **caminho** , introduza **/** .
 
     b. Na **URL de IDP** , introduza o **URL de início de sessão** valor que copiou do portal do Azure.
 
@@ -259,7 +259,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Adobe Experienc
 
 Se quiser criar manualmente os utilizadores, trabalhar com o [equipa de suporte do Adobe Experience Manager](https://helpx.adobe.com/support/experience-manager.html) para adicionar os utilizadores na plataforma do Adobe Experience Manager.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

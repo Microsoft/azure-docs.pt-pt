@@ -16,18 +16,18 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12991813f68a42f9846c1c9c9c31c01d371d1d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437446"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107643"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Início rápido: Configurar localizações com nome no Azure Active Directory
 
 Com as localizações com nome, pode etiquetar os intervalos de endereços IP fidedignos na sua organização. O Microsoft Azure AD utiliza localizações com nome para:
 - Detetar falsos positivos em [eventos de risco](concept-risk-events.md). Iniciar sessão a partir de uma localização fidedigna reduz o risco de início de sessão de um utilizador.   
-- Configurar o [acesso condicional com base na localização](../conditional-access/location-condition.md).
+- Configurar [acesso condicional com base na localização](../conditional-access/location-condition.md).
 
 Neste início rápido, vai aprender a configurar localizações com nome no seu ambiente.
 
@@ -37,15 +37,15 @@ Para concluir este guia de início rápido, necessita de:
 
 * Um inquilino do Azure AD. Inscreva-se numa [avaliação gratuita](https://azure.microsoft.com/trial/get-started-active-directory/). 
 * Um utilizador, que é um administrador global do inquilino.
-* Um intervalo de IP que está bem estabelecido e é credível na sua organização. O intervalo de IP tem de estar no formato **encaminhamento CIDR (Classless InterDomain Routing)**.
+* Um intervalo de IP que está bem estabelecido e é credível na sua organização. O intervalo de IP tem de estar no formato **encaminhamento CIDR (Classless InterDomain Routing)** .
 
 ## <a name="configure-named-locations"></a>Configurar localizações com nome
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No painel esquerdo, selecione **Azure Active Directory** e, em seguida, selecione **Acesso condicional** na secção **Segurança**.
+2. No painel esquerdo, selecione **do Azure Active Directory**, em seguida, selecione **acesso condicional** partir os **segurança** secção.
 
-    ![Separador Acesso condicional](./media/quickstart-configure-named-locations/entrypoint.png)
+    ![Separador de acesso condicional](./media/quickstart-configure-named-locations/entrypoint.png)
 
 3. Na página **Acesso Condicional**, selecione **Localizações com nome** e **Nova localização**.
 
@@ -63,6 +63,6 @@ Para concluir este guia de início rápido, necessita de:
 
 Para obter mais informações, consulte:
 
-- [Acesso do Azure AD condicional](../active-directory-conditional-access-azure-portal.md).
-- [Condições de localização no acesso condicional do Microsoft Azure AD](../conditional-access/location-condition.md)
+- [Acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md).
+- [Condições de localização no acesso condicional do Azure AD](../conditional-access/location-condition.md)
 - [Relatório de inícios de sessão arriscados](concept-risky-sign-ins.md).  

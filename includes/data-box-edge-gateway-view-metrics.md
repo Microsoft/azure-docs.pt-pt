@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66161323"
 ---
 Também pode ver as métricas para monitorizar o desempenho do dispositivo e, em alguns casos, para resolver problemas de dispositivos.
@@ -53,7 +53,7 @@ Siga os passos seguintes no portal do Azure para criar um gráfico de métricas 
 
 5. Se a métrica que selecionou tem várias instâncias, em seguida, a opção de divisão está disponível. Selecione **aplicam-se de que a divisão** e, em seguida, selecione o valor pelo qual pretende ver a divisão.
 
-    ![Aplicar divisão](media/data-box-edge-gateway-view-metrics/view-metrics-5.png)
+    ![Aplicam-se de que a divisão](media/data-box-edge-gateway-view-metrics/view-metrics-5.png)
 
 6. Se pretender agora ver a divisão apenas para algumas instâncias, pode filtrar os dados. Por exemplo, neste caso, se quiser ver o débito de rede apenas para as duas interfaces de rede ligada no seu dispositivo, poderia filtrar essas interfaces. Selecione **Adicionar filtro** e especifique o nome de interface de rede para filtragem.
 
@@ -61,7 +61,7 @@ Siga os passos seguintes no portal do Azure para criar um gráfico de métricas 
 
 7. Também pode afixar o gráfico ao dashboard para facilitar o acesso.
 
-    ![Afixar no dashboard](media/data-box-edge-gateway-view-metrics/view-metrics-7.png)
+    ![Afixar ao dashboard](media/data-box-edge-gateway-view-metrics/view-metrics-7.png)
 
 8. Para exportar os dados de gráfico numa planilha do Excel ou obter uma ligação para o gráfico que pode partilhar, selecione a opção de partilha na barra de comandos.
 

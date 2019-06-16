@@ -5,19 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077497"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
 A WAN Virtual oferece conectividade site a site em grande escala e foi criada para débito, escalabilidade e facilidade de utilização. As funcionalidades de conectividade do ExpressRoute e de ponto a site estão atualmente em Pré-visualização. CPE ramificação autoprovision de dispositivos e ligar numa WAN Virtual do Azure. Estes dispositivos estão disponíveis num ecossistema crescente de parceiros de SD-WAN e de VPN. Consulte a [preferencial a lista de parceiros](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>O que é uma ligação de ramo a WAN Virtual do Azure?
+
+Uma ligação de um dispositivo de ramo para o Azure WAN Virtual, composto por dois túneis IPsec do ativo/ativo.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Que fornecedores de dispositivos (parceiros de WAN Virtual) são suportados na altura do lançamento?
 
@@ -45,7 +49,7 @@ Sim, a WAN Virtual apresenta novos recursos do Resource Manager. Para obter mais
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Quantos dispositivos VPN se podem ligar a um único Hub?
 
-Cada hub virtual suporta até 1000 ligações. Cada ligação consiste de dois túneis que estão numa configuração ativo-ativo. Os túneis terminam num vpngateway de Hub Virtual do Azure.
+São suportados até 1000 ligações por virtual hub. Cada ligação consiste de dois túneis que estão numa configuração ativo-ativo. Os túneis terminam num vpngateway de Hub Virtual do Azure.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>O dispositivo VPN no local pode ser ligado a vários Hubs?
 
@@ -105,7 +109,7 @@ Sim.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Como é que a WAN Virtual é diferente do Gateway de Rede Virtual do Azure?
 
-O VPN de Gateway de Rede Virtual está limitado a 30 túneis. Para as conexões, deve utilizar a WAN Virtual para uma VPN de grande escala. Pode ligar-se até 1000 ligações de ramo com 2 Gbps no hub em todas as regiões, exceto na região Centro-Oeste. Para a região Centro-Oeste, estão disponíveis 20 Gbps. Estarão disponíveis 20 Gbps para mais regiões no futuro. Uma ligação é um túnel ativo-ativo do dispositivo VPN no local para o hub virtual. Pode ter um hub por região, o que significa que se pode ligar a mais de 1000 ramos nos hubs.
+O VPN de Gateway de Rede Virtual está limitado a 30 túneis. Para as conexões, deve utilizar a WAN Virtual para uma VPN de grande escala. Pode ligar-se até 1000 ligações de sucursal com 2 Gbps no hub para todas as regiões, exceto na região Oeste Central. Para a região Centro-Oeste, estão disponíveis 20 Gbps. Estarão disponíveis 20 Gbps para mais regiões no futuro. Uma ligação é um túnel ativo-ativo do dispositivo VPN no local para o hub virtual. Pode ter um hub por região, o que significa que pode ligar-se mais de 1.000 ramificações em hubs.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Como é Virtual WAN que suporta dispositivos SD-WAN?
 
@@ -118,6 +122,14 @@ Não, a WAN Virtual não precisa do ExpressRoute de cada site. Utiliza a conecti
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Há algum limite de débito de rede ao utilizar a WAN Virtual do Azure?
 
 O número de ramos está limitado a 1000 ligações por hub/região e um total de 2 Gbps no hub. A exceção é a região EUA Centro-Oeste, que tem um total de 20 Gbps. Vamos implementar 20 Gbps para outras regiões no futuro.
+
+### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Quantas ligações de VPN oferece suporte a um hub de Virtual WAN?
+
+Um hub de WAN Virtual do Azure pode suportar até 1000 ligações S2S e 10.000 ligações de P2S em simultâneo.
+
+### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>O que é o débito VPN total de um túnel VPN e uma ligação?
+
+O débito VPN total de um hub é até 20 Gbps com base na unidade de escala escolhida. Taxa de transferência é partilhada por todas as ligações existentes.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>A WAN Virtual permite que o dispositivo no local utilize vários ISP em paralelo ou trata-se sempre de um único túnel VPN?
 

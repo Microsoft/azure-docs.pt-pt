@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60611351"
 ---
 # <a name="the-azure-production-network"></a>A rede de produção do Azure
@@ -54,7 +54,7 @@ O Azure implementa recursos de firewall em vários níveis para impor a recursos
 ### <a name="azure-security-features"></a>Recursos de segurança do Azure
 O Azure implementa firewalls de software baseados em host dentro da rede de produção. Vários núcleos de segurança e recursos de firewall residem no núcleo do ambiente do Azure. Estas funcionalidades de segurança refletem uma estratégia de defesa em profundidade dentro do ambiente do Azure. Dados do cliente no Azure estão protegidos pelos firewalls seguintes:
 
-**Firewall de hipervisor (filtro de pacotes)**: Esta firewall é implementada no hipervisor e configurada pelo agente de controlador (FC) de recursos de infraestrutura. Esta firewall protege o inquilino que é executado dentro da VM contra acesso não autorizado. Por predefinição, quando é criada uma VM, todo o tráfego é bloqueado e, em seguida, o agente FC adiciona regras e exceções no filtro para permitir tráfego autorizado.
+**Firewall de hipervisor (filtro de pacotes)** : Esta firewall é implementada no hipervisor e configurada pelo agente de controlador (FC) de recursos de infraestrutura. Esta firewall protege o inquilino que é executado dentro da VM contra acesso não autorizado. Por predefinição, quando é criada uma VM, todo o tráfego é bloqueado e, em seguida, o agente FC adiciona regras e exceções no filtro para permitir tráfego autorizado.
 
 Duas categorias de regras são programadas aqui:
 

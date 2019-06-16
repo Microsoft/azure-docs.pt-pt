@@ -9,16 +9,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: srinathvasireddy
-ms.openlocfilehash: 53b9f8fb58a6e70a4bd2cd02adb9ce824466d7de
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 8a94994d697784fb9dab8027e5a43f24c135b32c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481598"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059739"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Resolver problemas de cópia de segurança do Estado do sistema
 
 Este artigo descreve as soluções para problemas que poderá encontrar ao utilizar o Backup de estado do sistema.
+
+## <a name="basic-troubleshooting"></a>Resolução de problemas básicos
+Recomendamos que efetue a abaixo validação, antes de começar a cópia de segurança do Estado do sistema de resolução de problemas:
+
+- [Certifique-se de que o agente de serviços de recuperação do Azure (MARS) da Microsoft é atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Certifique-se de que existe conectividade de rede entre o agente MARS e o Azure](https://aka.ms/AB-A4dp50)
+- Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (na consola do Serviço). Se necessário, reinicie e volte a tentar a operação
+- [Certifique-se de que 5 a 10% de espaço livre do volume está disponível na localização da pasta de rascunho](https://aka.ms/AB-AA4dwtt)
+- [Verifique se outro processo ou software antivírus está a interferir com o Azure Backup](https://aka.ms/AB-AA4dwtk)
+- [A cópia de segurança agendada falha, mas a cópia de segurança manual funciona](https://aka.ms/ScheduledBackupFailManualWorks)
+- Certifique-se de que o seu SO tem as atualizações mais recentes
+- [Certifique-se de que as unidades não suportadas e os ficheiros com atributos não suportados são excluídos da cópia de segurança](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Certifique-se de que o **Relógio do Sistema** do sistema protegido está configurado para o fuso horário correto <br>
+- [Certifique-se de que o servidor tem, pelo menos, a versão 4.5.2 ou superior do .Net Framework](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- Se estiver a tentar **registar novamente o servidor** para um cofre, então: <br>
+  - Certifique-se de que o agente foi desinstalado no servidor e que foi eliminado do portal <br>
+  - Utilize a mesma frase de acesso que foi inicialmente utilizada para registar o servidor <br>
+- Em caso de cópia de segurança offline Certifique-se de que o Azure PowerShell versão 3.7.0 está instalado no computador de origem e de cópia, antes de iniciar a operação de cópia de segurança offline
+- [Consideração ao agente de cópia de segurança está em execução numa máquina virtual do Azure](https://aka.ms/AB-AA4dwtr)
+
+### <a name="limitation"></a>Limitação
+- A Microsoft não recomenda recuperar para um hardware diferente com a recuperação do Estado do Sistema.
+- Cópia de segurança do Estado do sistema, atualmente, suporta servidores de Windows "no local", esta funcionalidade não está disponível para VMs do Azure.
 
 ## <a name="pre-requisite"></a>Pré-requisito
 

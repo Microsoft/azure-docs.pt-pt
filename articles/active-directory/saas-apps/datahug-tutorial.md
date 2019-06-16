@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08de78e598ef7fa751c5474a248f8d901c694ea8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1107369f048a006767e4b9bd642df4ffdc0708c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918380"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: Integração do Active Directory do Azure com Datahug
 
@@ -53,7 +53,7 @@ Para configurar a integração do Datahug com o Azure AD, terá de adicionar Dat
 
 **Para adicionar Datahug a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD início de sessão único com Datahug, execute os seg
 
     b. Selecione **SHA-1** partir do **algoritmo de assinatura**.
     
-    c. Clicar em **Guardar**
+    c. Clique em **Guardar**
 
     ![Opção de assinatura de Communifire](./media/datahug-tutorial/tutorial_datahug_signingoption.png)
 

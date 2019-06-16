@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 955b0e36c63b181e2fe6d2f87e7b015196fceff9
-ms.sourcegitcommit: ec7b0bf593645c0d1ef401a3350f162e02c7e9b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66455596"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem de evento do hub IoT ao seu ambiente do Time Series Insights

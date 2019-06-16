@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 19c2298c9bda03acba28496a97c89c2a53e3c44e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: fc172b5327d72687fea7d13ddb706ecc7ab630b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964909"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135355"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Partilha Azure geográficos âncoras nas sessões e dispositivos com o Azure Cosmos DB back-end
 
@@ -44,7 +44,7 @@ Vale a pena observar que, embora usará Unity e o Azure Cosmos DB neste tutorial
 
 Copiar o `Connection String` porque irá precisar das mesmas.
 
-## <a name="open-the-sample-project-in-unity"></a>Abra o projeto de exemplo no Unity
+## <a name="download-the-unity-sample-project"></a>Transfira o projeto de exemplo do Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 

@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457880"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061607"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Enviar notificações push com Notification Hubs do Azure e node. js
 
@@ -106,7 +106,7 @@ O `GcmService` objeto fornece um `send` método que pode ser utilizado para envi
 - **Payload** -a mensagem JSON ou payload de cadeia de caracteres bruta.
 - **Retorno de chamada** -a função de retorno de chamada.
 
-Para obter mais informações sobre o formato do payload, consulte a **Payload** secção a [implementação de servidor do GCM](https://developer.android.com/google/gcm/server.html#payload) documento.
+Para obter mais informações sobre o formato do payload, consulte a **Payload** secção a [implementação de servidor do GCM](https://developers.google.com/cloud-messaging/) documento.
 
 O seguinte código utiliza a `GcmService` instância exposto pelo `NotificationHubService` para enviar uma notificação push para todos os clientes registrados.
 
@@ -198,9 +198,9 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 Os trechos de código de exemplo acima permitem-lhe criar facilmente a infraestrutura de serviço para enviar notificações push para uma grande variedade de dispositivos. Agora que aprendeu as noções básicas de como utilizar os Hubs de notificação com node. js, siga estas ligações para saber mais sobre como é possível estender ainda mais esses recursos.
 
 - Consulte a referência do MSDN para [os Hubs de notificação do Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx).
-- Visite o [Azure SDK para o nó] repositório no GitHub para obter mais exemplos e detalhes de implementação.
+- Visite o [SDK do Azure para Node] repositório no GitHub para obter mais exemplos e detalhes de implementação.
 
-[Azure SDK para o nó]: https://github.com/WindowsAzure/azure-sdk-for-node
+[SDK do Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [Next Steps]: #nextsteps
 [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
 [Create a Service Namespace]: #create-a-service-namespace

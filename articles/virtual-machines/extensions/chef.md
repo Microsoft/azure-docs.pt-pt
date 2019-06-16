@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
 ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60800279"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão de VM do chef para Linux e Windows
@@ -72,12 +72,12 @@ O JSON seguinte mostra o esquema para a extensão de VM da Chef. A extensão req
 | ---- | ---- | ---- 
 | apiVersion | `2017-12-01` | a cadeia de caracteres (data) |
 | publicador | `Chef.Bootstrap.WindowsAzure` | string |
-| tipo | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
 | typeHandlerVersion | `1210.12` | a cadeia de caracteres (double) |
 
 ### <a name="settings"></a>Definições
 
-| Name | Valor / exemplo | Tipo de Dados | Necessário?
+| Name | Valor / exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | a cadeia de caracteres (url) | S |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
@@ -85,7 +85,7 @@ O JSON seguinte mostra o esquema para a extensão de VM da Chef. A extensão req
 
 ### <a name="protected-settings"></a>Definições protegidas
 
-| Name | Exemplo | Tipo de Dados | Necessário?
+| Name | Exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 1a0b6cf8ce272733c259283fdec9c215ac2b0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61442567"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu hub IoT com o protocolo MQTT
@@ -216,7 +216,7 @@ Para receber mensagens do IoT Hub, um dispositivo deve subscrever com `devices/{
 
 O dispositivo não receberá todas as mensagens do IoT Hub, até que subscreveu com êxito para o seu ponto de extremidade específicos do dispositivo, representado pelo `devices/{device_id}/messages/devicebound/#` filtro de tópico. Após o estabelecimento de uma subscrição, o dispositivo recebe mensagens de cloud para o dispositivo que foram enviadas para o mesmo após a hora da subscrição. Se o dispositivo estabelece ligação com **CleanSession** sinalizador definido como **0**, a subscrição está presentes em diferentes sessões. Neste caso, da próxima vez que o dispositivo estabelece ligação com **CleanSession 0** que recebe as mensagens pendentes, enviadas para o mesmo enquanto desligado. Se o dispositivo utiliza **CleanSession** sinalizador definido como **1** no entanto, não recebe todas as mensagens do IoT Hub até que ele assina seu ponto final do dispositivo.
 
-IoT Hub entregar mensagens com o **nome do tópico** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` quando existem propriedades da mensagem. `{property_bag}` contém pares de chave/valor com codificação url de propriedades da mensagem. Apenas as propriedades da aplicação e as propriedades do sistema definível de utilizador (por exemplo, **messageId** ou **correlationId**) estão incluídas no conjunto de propriedades. Nomes de propriedade de sistema têm o prefixo **$**, propriedades da aplicação utilizam o nome da propriedade original com nenhuma prefixo.
+IoT Hub entregar mensagens com o **nome do tópico** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` quando existem propriedades da mensagem. `{property_bag}` contém pares de chave/valor com codificação url de propriedades da mensagem. Apenas as propriedades da aplicação e as propriedades do sistema definível de utilizador (por exemplo, **messageId** ou **correlationId**) estão incluídas no conjunto de propriedades. Nomes de propriedade de sistema têm o prefixo **$** , propriedades da aplicação utilizam o nome da propriedade original com nenhuma prefixo.
 
 Quando uma aplicação de dispositivo se inscreve para um tópico com **QoS 2**, o IoT Hub concede o nível de QoS máximo 1 na **SUBACK** pacotes. Depois disso, o IoT Hub entregar mensagens ao dispositivo utilizar o QoS 1.
 

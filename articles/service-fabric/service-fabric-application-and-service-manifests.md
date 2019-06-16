@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
-ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052661"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Aplicação do Service Fabric e manifestos de serviço
 Este artigo descreve como os serviços e aplicações do Service Fabric são definidos e com a versão usando os arquivos applicationmanifest. XML e servicemanifest. XML.  Para obter exemplos mais detalhados, consulte [exemplos de manifesto de aplicação e serviço](service-fabric-manifest-examples.md).  O esquema XML para esses arquivos de manifesto está documentado no [documentação de esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -96,7 +96,7 @@ Para obter mais informações sobre como configurar o SetupEntryPoint, consulte 
 </Settings>
 ```
 
-Um serviço do Service Fabric **ponto final** é um exemplo de um recurso de infraestrutura do serviço; Um recurso de infraestrutura do serviço pode ser declarado/alterar sem alterar o código compilado. O acesso para os recursos de infraestrutura do serviço que são especificados no manifesto do serviço pode ser controlado através da **SecurityGroup** no manifesto do aplicativo. Quando um recurso de ponto final é definido no manifesto do serviço, o Service Fabric atribui portas o intervalo de portas reservado do aplicativo quando uma porta não for especificada explicitamente. Leia mais sobre [especificando ou a substituição de recursos de ponto final](service-fabric-service-manifest-resources.md).
+Um serviço do Service Fabric **ponto final** é um exemplo de um recurso de infraestrutura do serviço. Um recurso de infraestrutura do serviço pode ser declarado/alterar sem alterar o código compilado. O acesso para os recursos de infraestrutura do serviço que são especificados no manifesto do serviço pode ser controlado através da **SecurityGroup** no manifesto do aplicativo. Quando um recurso de ponto final é definido no manifesto do serviço, o Service Fabric atribui portas o intervalo de portas reservado do aplicativo quando uma porta não for especificada explicitamente. Leia mais sobre [especificando ou a substituição de recursos de ponto final](service-fabric-service-manifest-resources.md).
 
 
 <!--
@@ -163,7 +163,11 @@ Como os manifestos de serviço, **versão** atributos são cadeias de caracteres
 
 **Certificados** (não definido no exemplo anterior) declara os certificados utilizados para [configurar pontos finais HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) ou [encriptar os segredos no manifesto do aplicativo](service-fabric-application-secret-management.md).
 
-**Políticas** (não definido no exemplo anterior) descreve a recolha de registos [predefinição Run](service-fabric-application-runas-security.md), [estado de funcionamento](service-fabric-health-introduction.md#health-policies), e [acesso de segurança](service-fabric-application-runas-security.md) políticas para definir na nível de aplicativo.
+**Políticas** (não definido no exemplo anterior) descreve a recolha de registos [predefinição Run](service-fabric-application-runas-security.md), [estado de funcionamento](service-fabric-health-introduction.md#health-policies), e [acesso de segurança](service-fabric-application-runas-security.md) políticas para definir na nível de aplicativo, incluindo o facto dos serviços têm acesso ao runtime do Service Fabric.
+
+> [!NOTE] 
+> Por predefinição, aplicações do Service Fabric têm acesso ao runtime do Service Fabric, na forma de um ponto de extremidade aceitar pedidos específicos de aplicativo e variáveis de ambiente que aponta para caminhos de ficheiro no anfitrião que contém recursos de infraestrutura e os arquivos específicos do aplicativo . Considere desativar este acesso, quando a aplicação aloja o código não confiável (ou seja, código cujo provenance é desconhecido ou que sabe que o proprietário da aplicação não deve para ser seguro para execução). Para obter mais informações, consulte [melhores práticas de segurança no Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+>
 
 **Principais** (não definido no exemplo anterior) descrever os princípios de segurança (utilizadores ou grupos) necessário para [execução de serviços e recursos de serviço seguro](service-fabric-application-runas-security.md).  Principais são referenciados na **políticas** secções.
 

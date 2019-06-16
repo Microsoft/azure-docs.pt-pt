@@ -3,19 +3,19 @@ title: Instalar os contentores de voz
 titleSuffix: Azure Cognitive Services
 description: Instalar e executar contentores de voz. Conversão de voz em texto converte os fluxos de áudio em texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou apresentar. Voz converte a entrada de texto em fala sintetizada de semelhante à humana.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 763e7bc9298eee1ab602968360bbc79a58243e5b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 93ae5dd00a7be929f7aa4ac8c35a30b856f0b3ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752434"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072478"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contentores do serviço de voz
 
@@ -23,7 +23,7 @@ Contentores de voz permitem aos clientes criar uma arquitetura de aplicativos de
 
 São os contentores de dois voz **voz em texto** e **voz**. 
 
-|Função|Funcionalidades|Disponibilidade mais recente|
+|Função|Funcionalidades|mais recente|
 |-|-|--|
 |Conversão de voz em texto| <li>Converte contínuas em tempo real de voz ou lote gravações de áudio em texto com os resultados intermediários.|1.1.1|
 |Texto em Voz| <li>Converte texto em voz com som natural. com a introdução de texto sem formatação ou Speech Synthesis Markup Language (SSML). |1.1.0|
@@ -71,14 +71,13 @@ A tabela seguinte descreve os mínimos e recomendados núcleos de CPU e memória
 
 * Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
 
-
 Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
 
-**Tenha em atenção**; Mínimos e recomendados baseiam-se fora dos limites de Docker *não* recursos da máquina host. Por exemplo, é a partes de mapa de memória de contentores de voz em texto de um modelo de idioma grandes e ele _recomendado_ que todo o arquivo se encaixa na memória, o que é mais 4 a 6 GB. Além disso, a primeira execução de qualquer contêiner pode demorar mais, uma vez que os modelos estão a ser paginados na memória.
+**Tenha em atenção**; Mínimos e recomendados baseiam-se fora dos limites de Docker *não* recursos da máquina host. Por exemplo, é a partes de mapa de memória de contentores de voz em texto de um modelo de idioma grandes e ele _recomendado_ que todo o arquivo se encaixa na memória, o que é mais 4 a 6 GB. Além disso, a primeira execução de qualquer um dos contentores pode demorar mais, uma vez que os modelos estão a ser paginados na memória.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contentor com o `docker pull`
 
-Imagens de contentor para conversão de voz estão disponíveis. 
+Imagens de contentor para conversão de voz estão disponíveis.
 
 | Contentor | Repositório |
 |-----------|------------|
@@ -89,7 +88,7 @@ Imagens de contentor para conversão de voz estão disponíveis.
 
 ### <a name="language-locale-is-in-container-tag"></a>Região de idioma é na marca de contentor
 
-O `latest` Etiquetar extrai o `en-us` localidade e `jessarus` voz. 
+O `latest` Etiquetar extrai o `en-us` localidade e `jessarus` voz.
 
 #### <a name="speech-to-text-locales"></a>Conversão de voz em localidades de texto
 
@@ -118,7 +117,6 @@ A tabela seguinte lista as regiões suportadas para **voz em texto** no 1.1.1 ve
 |Coreano|`ko-kr`|
 |Português|`pt-br`|
 |Espanhol|`es-es`<br>`es-mx`|
-
 
 #### <a name="text-to-speech-locales"></a>Localidades de texto em voz
 
@@ -171,8 +169,8 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Assim que o contentor estiver no [computador anfitrião](#the-host-computer), utilize o seguinte processo para trabalhar com o contentor.
 
-1. [Execute o contentor](#run-the-container-with-docker-run), com as definições de faturas necessárias mas não utilizadas. Obter mais [exemplos](speech-container-configuration.md#example-docker-run-commands) do `docker run` comandos estão disponíveis. 
-1. [Consultar o ponto final de predição do contentor](#query-the-containers-prediction-endpoint). 
+1. [Execute o contentor](#run-the-container-with-docker-run), com as definições de faturas necessárias mas não utilizadas. Obter mais [exemplos](speech-container-configuration.md#example-docker-run-commands) do `docker run` comandos estão disponíveis.
+1. [Consultar o ponto final de predição do contentor](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Execute o contentor com `docker run`
 
@@ -194,7 +192,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 ### <a name="speech-to-text"></a>Conversão de voz em texto
@@ -204,7 +202,7 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} 
+ApiKey={BILLING_KEY}
 ```
 
 Este comando:
@@ -212,7 +210,7 @@ Este comando:
 * Execute um contentor de voz a partir da imagem de contentor
 * Aloca 2 núcleos de CPU e 2 gigabytes (GB) de memória
 * Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
-* Remove automaticamente o contentor depois sai. A imagem de contentor ainda está disponível no computador anfitrião. 
+* Remove automaticamente o contentor depois sai. A imagem de contentor ainda está disponível no computador anfitrião.
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
@@ -241,7 +239,9 @@ var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRe
 para esta chamada usando o ponto final do contentor:
 
 ```C#
-var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
+var config = SpeechConfig.FromEndpoint(
+    new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
+    "YourSubscriptionKey");
 ```
 
 #### <a name="for-python"></a>Para Python
@@ -262,9 +262,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://l
 
 O contêiner fornece o ponto final REST APIs que pode ser encontradas [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) e pode ver exemplos [aqui](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
-
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
-
 
 ## <a name="stop-the-container"></a>Parar o contentor
 
@@ -272,11 +270,11 @@ O contêiner fornece o ponto final REST APIs que pode ser encontradas [aqui](htt
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Ao executar o contentor, o contentor utiliza **stdout** e **stderr** às informações de saída que é útil para resolver os problemas que ocorrem ao iniciar ou executar o contentor. 
+Ao executar o contentor, o contentor utiliza **stdout** e **stderr** às informações de saída que é útil para resolver os problemas que ocorrem ao iniciar ou executar o contentor.
 
 ## <a name="billing"></a>Faturação
 
-O envio de contentores de voz cobrança informações para o Azure, utilizando um _voz_ recursos na sua conta do Azure. 
+O envio de contentores de voz cobrança informações para o Azure, utilizando um _voz_ recursos na sua conta do Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 30882899e5be4101ae3d77f9840d8bdef567e53f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 8c7bb080b350742d0722cdb4e07b82a6881ba05b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66676987"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073676"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>A solução de VMware a aceder ao portal CloudSimple a partir do portal do Azure
 
 Início de sessão único é suportado para acesso ao portal do CloudSimple. Depois de iniciar sessão portal do Azure, pode aceder ao portal de CloudSimple sem iniciar sessão novamente. Na primeira vez que acessar o portal de CloudSimple lhe for pedido para autorizar o [autorização de serviço CloudSimple](#consent-to-cloudsimple-service-authorization-application) aplicação.  Autorização é uma ação única.
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Apenas os utilizadores com builtin **proprietário** e **contribuinte** funções podem acessar o portal de CloudSimple.  Tem de configurar as funções na subscrição.  Para obter mais informações sobre como verificar a sua função, veja [ver atribuições de funções](https://docs.microsoft.com/azure/role-based-access-control/check-access) artigo.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9f123cdc88a3af68f7c37e44f60b588f5e8b66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dea184a09aea0b73bceb988a14400fa1d99b87b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280769"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dovetale"></a>Tutorial: Integração do Active Directory do Azure com Dovetale
 
@@ -55,7 +55,7 @@ Para configurar a integração do Dovetale com o Azure AD, terá de adicionar Do
 
 **Para adicionar Dovetale a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -124,9 +124,9 @@ Para configurar o Azure AD início de sessão único com Dovetale, execute os se
 
     | Name | Atributo de origem|
     | ---------------| --------------- |
-    | e-mail | user.mail |
+    | email | user.mail |
     | first_name | user.givenname |
-    | nome | user.userprincipalname |
+    | name | user.userprincipalname |
     | last_name | user.surname |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.

@@ -16,10 +16,10 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832595"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorizar aplicações no serviço de aplicações do Azure
@@ -53,7 +53,7 @@ Para obter mais informações sobre as quotas específicas, limites e recursos d
 
 ### <a name="quota-enforcement"></a>Imposição de quota
 
-Se uma aplicação exceder os *CPU (curto)*, *CPU (dia)*, ou *largura de banda* quota, a aplicação está parado até que repõe a quota. Durante este período, todos os pedidos recebidos resultam num erro HTTP 403.
+Se uma aplicação exceder os *CPU (curto)* , *CPU (dia)* , ou *largura de banda* quota, a aplicação está parado até que repõe a quota. Durante este período, todos os pedidos recebidos resultam num erro HTTP 403.
 
 ![mensagem de erro 403][http403]
 

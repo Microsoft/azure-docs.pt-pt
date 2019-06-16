@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: d28f6ed1957f8f6ae7ff7eb49f8ce4cbdec62266
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 230fe94820a00c276238a7f5ff189ecc817f3f96
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074049"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-sqlserver-connector.md)
 > * [Versão atual](connector-sql-server.md)
 
@@ -280,6 +280,9 @@ GO
 
 ### <a name="sql-server-as-sink"></a>SQL Server como sink
 
+> [!TIP]
+> Saiba mais sobre os comportamentos de escrita suportados, configurações e melhor prática de [melhor prática para carregar dados para o SQL Server](#best-practice-for-loading-data-into-sql-server).
+
 Para copiar dados para o SQL Server, defina o tipo de sink na atividade de cópia para **SqlSink**. As seguintes propriedades são suportadas na atividade de cópia **sink** secção:
 
 | Propriedade | Descrição | Necessário |
@@ -288,14 +291,11 @@ Para copiar dados para o SQL Server, defina o tipo de sink na atividade de cópi
 | writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são: número inteiro (número de linhas). Por predefinição, o Data Factory determinar dinamicamente o tamanho do lote apropriado com base no tamanho de linha. |Não |
 | writeBatchTimeout |Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera.<br/>Valores permitidos são: intervalo de tempo. Exemplo: "00: 30:00" (30 minutos). |Não |
 | preCopyScript |Especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados no SQL Server. Apenas ser invocado uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados carregados previamente. |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar a origem de dados na tabela de destino, por exemplo, para fazer upserts ou transformação usando sua própria lógica de negócios. <br/><br/>Tenha em atenção de que este procedimento armazenado será **invocado por lote**. Se pretender efetuar a operação que só é executado uma vez e não tem nada a fazer com os dados de origem, por exemplo, eliminar/truncar, utilize `preCopyScript` propriedade. |Não |
+| sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar a origem de dados na tabela de destino.<br/>Tenha em atenção de que este procedimento armazenado será **invocado por lote**. Se pretender efetuar a operação que só é executado uma vez e não tem nada a fazer com os dados de origem, por exemplo, eliminar/truncar, utilize `preCopyScript` propriedade. |Não |
 | storedProcedureParameters |Parâmetros do procedimento armazenado.<br/>Valores permitidos são: pares nome/valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
 | sqlWriterTableType |Especifique um nome de tipo de tabela a ser utilizado no procedimento armazenado. Atividade de cópia torna os dados que está a ser movidos disponíveis numa tabela temporária com este tipo de tabela. Código do procedimento armazenado pode então mesclar os dados a ser copiados com os dados existentes. |Não |
 
-> [!TIP]
-> Quando se copiam dados para o SQL Server, a atividade de cópia acrescenta dados para a tabela do sink por predefinição. Para efetuar uma UPSERT ou lógica de negócios adicionais, utilize o procedimento armazenado no SqlSink. Saiba mais detalhes a partir [invocar o procedimento armazenado para o Sink do SQL](#invoking-stored-procedure-for-sql-sink).
-
-**Exemplo 1: acrescentar dados**
+**Exemplo 1: anexar dados**
 
 ```json
 "activities":[
@@ -327,7 +327,7 @@ Para copiar dados para o SQL Server, defina o tipo de sink na atividade de cópi
 ]
 ```
 
-**Exemplo 2: invocar um procedimento armazenado durante a cópia para upsert**
+**Exemplo 2: invocar um procedimento armazenado durante a cópia**
 
 Saiba mais detalhes a partir [invocar o procedimento armazenado para o Sink do SQL](#invoking-stored-procedure-for-sql-sink).
 
@@ -366,80 +366,69 @@ Saiba mais detalhes a partir [invocar o procedimento armazenado para o Sink do S
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>Colunas de identidade na base de dados de destino
+## <a name="best-practice-for-loading-data-into-sql-server"></a>Prática recomendada para carregar dados para o SQL Server
 
-Esta seção fornece um exemplo que copia dados de uma tabela de origem com não existe nenhuma coluna de identidade para uma tabela de destino com uma coluna de identidade.
+Quando copiar dados no SQL Server, pode necessitar de comportamento de escrita diferentes:
 
-**Tabela de origem:**
+- **[Acrescentar](#append-data)** : meus dados de origem tem apenas novos registros;
+- **[Upsert](#upsert-data)** : meus dados de origem têm inserções e atualizações,
+- **[Substituir](#overwrite-entire-table)** : Quero recarregar a tabela de toda a dimensão sempre;
+- **[Escrever com lógica personalizada](#write-data-with-custom-logic)** : Preciso de um processamento extra antes da última inserção na tabela de destino.
+
+Consulte as secções respectivamente sobre como configurar no ADF e as práticas recomendadas.
+
+### <a name="append-data"></a>Anexar dados
+
+Este é o comportamento predefinido deste conector de sink do SQL Server e fazer do ADF **inserção em massa** para gravação eficiente à sua tabela. Além disso, pode simplesmente configurar a origem e sink em conformidade na atividade de cópia.
+
+### <a name="upsert-data"></a>Fazer upsert de dados
+
+**Opção eu** (sugeridas, especialmente quando tem dados de grande dimensão para copiar): a **abordagem de alto desempenho a maioria dos** fazer upsert é o seguinte: 
+
+- Em primeiro lugar, tirar partido de uma [tabela temporária](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) para carregamento em massa com a atividade de cópia de todos os registos. Que as operações em tabelas temporárias não são registadas, pode carregar milhões de registos em segundos.
+- Executar uma atividade de procedimento armazenado no ADF para aplicar uma [intercalar](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (ou de inserção/ATUALIZAÇÃO) declaração e uso o temp tabela como origem para executar todas as atualizações ou insere como uma única transação, reduzindo a quantidade de idas e voltas e operações de registo. No fim da atividade de procedimento armazenado, possível truncar a tabela temporária para estar preparado para o próximo ciclo de upsert. 
+
+Por exemplo, no Azure Data Factory, pode criar um pipeline com uma **atividade de cópia** em cadeia com um **atividade Stored Procedure** com êxito. O primeiro copia dados de seu arquivo de origem para uma tabela temporária da base de dados, digamos " **##UpsertTempTable**" como nome de tabela no conjunto de dados, em seguida, o último invoca um procedimento armazenado para intercalar dados de origem de tabela temporária na tabela de destino, e limpar a tabela temporária.
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+A base de dados, defina um procedimento armazenado com a lógica de intercalação, semelhante ao seguinte, que é apontada da atividade Stored Procedure acima. Partindo do princípio de destino **Marketing** tabela com três colunas: **ProfileID**, **estado**, e **categoria**, e fazer o upsert com base no **ProfileID** coluna.
 
 ```sql
-create table dbo.SourceTbl
-(
-    name varchar(100),
-    age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-**Tabela de destino:**
+**Opção II:** em alternativa, pode optar por [invocar um procedimento armazenado numa atividade de cópia](#invoking-stored-procedure-for-sql-sink), ao mesmo tempo nota essa abordagem é executada para cada linha na tabela de origem em vez de tirar partido em massa Inserir como a abordagem de predefinição na atividade de cópia, portanto, não se encaixa para upsert de grande escala.
 
-```sql
-create table dbo.TargetTbl
-(
-    identifier int identity(1,1),
-    name varchar(100),
-    age int
-)
-```
+### <a name="overwrite-entire-table"></a>Substituir tabela inteira
 
-Tenha em atenção que a tabela de destino tem uma coluna de identidade.
+Pode configurar **preCopyScript** sink de propriedade na atividade de cópia, caso em que para cada atividade de cópia executar, ADF executa o script em primeiro lugar, em seguida, execute a cópia para inserir os dados. Por exemplo, para substituir a tabela inteira com os dados mais recentes, pode especificar um script para eliminar primeiro todos os registos antes dos novos dados da origem de carregamento em massa.
 
-**Definição de JSON do conjunto de dados de origem**
+### <a name="write-data-with-custom-logic"></a>Escrever dados com lógica personalizada
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-**Definição de JSON do conjunto de dados de destino**
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-Tenha em atenção que, como sua tabela de origem e destino têm diferente esquema (o destino tem uma coluna adicional com identidade). Neste cenário, tem de especificar **estrutura** propriedade na definição de conjunto de dados de destino, que não inclui a coluna de identidade.
+Semelhante, conforme descrito em [Upsert dados](#upsert-data) secção, quando precisar de aplicar um processamento extra antes da inserção de final de origem de dados na tabela de destino, pode uma) para um dimensionamento de grande escala, carregar para uma tabela temporária, em seguida, invocar um armazenado procedimento ou b) invocar um procedimento armazenado durante a cópia.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> Invocar um procedimento armazenado do sink do SQL
 
-Quando se copiam dados na base de dados do SQL Server, um utilizador especificado procedimento armazenado poderia ser configurado e invocado com parâmetros adicionais.
+Quando se copiam dados na base de dados do SQL Server, também pode configurar e invocar um procedimento armazenado especificado pelo utilizador com parâmetros adicionais.
 
-Um procedimento armazenado pode ser utilizado quando os mecanismos de cópia interna não servem a finalidade. É normalmente utilizado quando upsert (insert + atualização) ou um processamento extra (mesclagem de colunas, procurar valores adicionais, a inserção em várias tabelas, etc.) precisa ser feito antes da última inserção de dados de origem na tabela de destino.
+> [!TIP]
+> Invocação de procedimento armazenado processa a dados linha por linha em vez de operação em massa, que não é sugerida para cópia de grande escala. Saiba mais a partir da [melhor prática para carregar dados para o SQL Server](#best-practice-for-loading-data-into-sql-server).
+
+Pode usar um procedimento armazenado quando os mecanismos de cópia interna não atendem a finalidade, por exemplo, aplicar um processamento extra antes da inserção de final de origem de dados na tabela de destino. Alguns exemplos de processamento extra são colunas de intercalação, procura de valores adicionais e a inserção em mais de uma tabela.
 
 O exemplo a seguir mostra como usar um procedimento armazenado para fazer um upsert numa tabela na base de dados do SQL Server. Partem do princípio de que dados de entrada e o sink **Marketing** cada tabela têm três colunas: **ProfileID**, **estado**, e **categoria**. Fazer o upsert com base na **ProfileID** coluna e aplicá-la apenas para uma categoria específica.
 

@@ -10,59 +10,65 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/14/2017
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8061cff8d39db66cb22a5650c7688657aa8b3554
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440799"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053918"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Ver o histórico de auditoria para funções do Azure AD no PIM
-Pode utilizar o histórico de auditoria do Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para ver todas as atribuições de utilizador e ativações dentro de um determinado período de tempo para funções de contas com privilégios. Se pretender ver o histórico de auditoria de atividade no seu inquilino, incluindo administrador, o utilizador final e atividade de sincronização, pode utilizar o [relatórios de acesso e utilização do Azure Active Directory.](../reports-monitoring/overview-reports.md)
 
-## <a name="navigate-to-audit-history"></a>Navegue para o histórico de auditorias
-Partir do [portal do Azure](https://portal.azure.com) dashboard, selecione o **Azure AD Privileged Identity Management** aplicação. A partir daí, acessar o histórico de auditoria clicando **gerir funções com privilégios** > **histórico de auditorias** no dashboard do PIM.
+Pode utilizar o histórico de auditoria do Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para ver todas as atribuições de funções e ativações durante os últimos 30 dias para funções privilegiadas todos os. Se pretender ver o histórico de auditoria de atividade no seu diretório, incluindo administrador, o utilizador final e atividade de sincronização, pode utilizar o [relatórios de atividade e de segurança do Azure Active Directory](../reports-monitoring/overview-reports.md).
 
-![Histórico de auditorias](media/azure-ad-pim-approval-workflow/image021.png)
+## <a name="view-audit-history"></a>Ver histórico de auditoria
 
-> [!NOTE]
-> Pode classificar os dados por ação e procure "Ativação aprovada"
+Siga estes passos para ver o histórico de auditoria para funções do Azure AD.
 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com um utilizador que seja um membro a [administrador com função privilegiada](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) função.
 
-## <a name="audit-history-graph"></a>Gráfico do histórico de auditoria
-Pode utilizar o histórico de auditoria para ver o total de ativações, ativações máximas por dia e ativações média por dia num gráfico de linha.  Também pode filtrar os dados por função, se houver mais de uma função no histórico de auditorias.
+1. Open **do Azure AD Privileged Identity Management**.
 
-Utilize o **tempo**, **ação**, e **função** botões para ordenar o histórico.
+1. Clique em **funções do Azure AD**.
 
-## <a name="audit-history-list"></a>Lista de histórico de auditoria
-As colunas na lista de histórico de auditoria são:
+1. Clique em **histórico de auditorias de funções de diretório**.
 
-* **Requerente** -o utilizador que pediu a ativação de função ou a alteração.  Se o valor for "Azure System", verifique o histórico de auditoria do Azure para obter mais informações.
-* **Utilizador** -o utilizador que está atribuído a uma função ou a ativação.
-* **Função** -a função atribuída ou ativada pelo utilizador.
-* **Ação** - as ações executadas pelo requerente. Isto pode incluir a atribuição, unassignment, ativação ou desativação.
-* **Tempo** - quando ocorreu a ação.
-* **Raciocinando** -se qualquer texto foi inserido no campo motivo durante a ativação, irá aparecer aqui.
-* **Expiração** - relevante apenas para a ativação de funções.
+    Dependendo do seu histórico de auditoria, um gráfico de colunas é apresentado juntamente com o total de ativações, ativações máximas por dia e ativações média por dia.
+
+    ![Histórico de auditorias de funções de diretório](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+
+    Na parte inferior da página, uma tabela é apresentada com informações sobre cada ação no histórico de auditoria disponíveis. As colunas têm o significado seguinte:
+
+    | Coluna | Descrição |
+    | --- | --- |
+    | Hora | Quando a ação ocorreu. |
+    | Requerente | Utilizador que pediu a ativação de função ou a alteração. Se o valor for **sistema de Azure**, verifique o histórico de auditoria do Azure para obter mais informações. |
+    | Ação | Ações executadas pelo requerente. Ações podem incluir atribuir, Unassign, ativar, desativar ou AddedOutsidePIM. |
+    | Membro | Utilizador que consiste em ativar ou atribuído a uma função. |
+    | Função | Função atribuída ou ativada pelo utilizador. |
+    | Reasoning | Texto que foi introduzido no campo motivo durante a ativação. |
+    | expiração | Quando uma função ativada expira. Aplica-se apenas às atribuições de funções elegíveis. |
+
+1. Para ordenar o histórico de auditoria, clique a **tempo**, **ação**, e **função** botões.
 
 ## <a name="filter-audit-history"></a>Histórico de auditoria de filtro
-Pode filtrar as informações que aparece no histórico de auditorias, clicando a **filtro** botão.  O **painel de parâmetros do gráfico de atualização** aparecerá.
 
-Depois de definir os filtros, clique em **atualização** para filtrar os dados na história.  Se os dados não aparecerem imediatamente, atualize a página.
+1. Na parte superior da página de histórico de auditoria, clique nas **filtro** botão.
 
-### <a name="change-the-date-range"></a>Alterar o intervalo de datas
-Utilize o **hoje**, **semana passada**, **último mês**, ou **personalizado** botões para alterar o intervalo de tempo do histórico de auditorias.
+    O **atualizar parâmetros do gráfico** é apresentado o painel.
 
-Quando escolhe o **personalizada** botão, terá a chance um **da** campo de data e um **para** campo de data para especificar um intervalo de datas para o histórico.  Pode introduzir as datas no formato DD/MM/AAAA ou clique nas **calendário** ícone e selecione a data de um calendário.
+1. Na **intervalo de tempo**, selecione um intervalo de tempo.
 
-### <a name="change-the-roles-included-in-the-history"></a>Alterar as funções incluídas no histórico
-Marque ou desmarque os **função** caixa de verificação junto a cada função para incluir ou exclui-lo a partir do histórico de.
+1. Na **funções**, adicionar marcas de verificação para as funções de que pretende visualizar.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+    ![Atualizar o painel de parâmetros do gráfico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
+
+1. Clique em **feito** para ver o histórico de auditoria filtrado.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Ver histórico de atividade e auditoria para funções de recursos do Azure no PIM](azure-pim-resource-rbac.md)

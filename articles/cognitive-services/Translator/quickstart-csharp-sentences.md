@@ -8,23 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 06/13/2019
 ms.author: erhopf
-ms.openlocfilehash: e8940de90b925a1ca252de3cf75acd192531edeb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 00fe7ce5558672812be7949b8474a403499de94f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514226"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67123383"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Início rápido: Utilize a API de texto do Translator para determinar a frase através de comprimentoC#
 
-Neste início rápido, irá aprender como determinar os comprimentos de sentença com .NET Core e a API de texto do Translator.
+Neste início rápido, irá aprender como determinar os comprimentos de sentença com o .NET Core, C# 7.1 ou posterior e a API de texto do Translator.
 
 Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+* C#7.1 ou posterior
 * [SDK do .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacote de NuGet Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), ou no seu editor de texto favorito
@@ -47,6 +48,18 @@ Em seguida, terá de instalar o Json.Net. A partir do diretório do seu projeto,
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
+## <a name="select-the-c-language-version"></a>Selecione o C# versão de idioma
+
+Este início rápido requer C# 7.1 ou posterior. Existem algumas formas de alterar o C# versão para o seu projeto. Neste guia, vamos mostrar-lhe como ajustar o `sentences-sample.csproj` ficheiro. Para todas as opções disponíveis, como alterar o idioma no Visual Studio, consulte [selecione o C# versão de idioma](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+
+Abra o projeto, em seguida, abra `sentences-sample.csproj`. Certifique-se de que `LangVersion` está definido para o 7.1 ou posterior. Se não existir um grupo de propriedades para a versão de idioma, adicione estas linhas:
+
+```xml
+<PropertyGroup>
+   <LangVersion>7.1</LangVersion>
+</PropertyGroup>
+```
+
 ## <a name="add-required-namespaces-to-your-project"></a>Adicionar espaços de nomes necessários ao seu projeto
 
 O `dotnet new console` comando que executou anteriormente criado um projeto, incluindo `Program.cs`. Este ficheiro é onde vai pôr o código da aplicação. Abra `Program.cs`e substitua as instruções de utilização existentes. Essas instruções Certifique-se de que tem acesso a todos os tipos necessários para criar e executar a aplicação de exemplo.
@@ -55,15 +68,38 @@ O `dotnet new console` comando que executou anteriormente criado um projeto, inc
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+// Install Newtonsoft.Json with NuGet
 using Newtonsoft.Json;
+```
+
+## <a name="create-classes-for-the-json-response"></a>Criar classes para a resposta JSON
+
+Em seguida, vamos criar uma classe que é utilizada quando anular a serialização a resposta JSON devolvido pela API de texto do Translator.
+
+```csharp
+/// <summary>
+/// The C# classes that represents the JSON returned by the Translator Text API.
+/// </summary>
+public class BreakSentenceResult
+{
+    public int[] SentLen { get; set; }
+    public DetectedLanguage DetectedLanguage { get; set; }
+}
+
+public class DetectedLanguage
+{
+    public string Language { get; set; }
+    public float Score { get; set; }
+}
 ```
 
 ## <a name="create-a-function-to-determine-sentence-length"></a>Criar uma função para determinar o comprimento da sentença
 
-Dentro de `Program` classe, crie uma função chamada `BreakSentence`. Essa classe encapsula o código usado para chamar o recurso de BreakSentence e imprima o resultado à consola.
+Dentro de `Program` classe, crie uma função chamada `BreakSentence()`. Esta função aceita quatro argumentos: `subscriptionKey`, `host`, `route`, e `inputText`.
 
 ```csharp
-static void BreakSentence()
+static public async Task BreakSentenceRequest(string subscriptionKey, string host, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -72,20 +108,12 @@ static void BreakSentence()
 }
 ```
 
-## <a name="set-the-subscription-key-host-name-and-path"></a>Definir a chave de subscrição, nome de anfitrião e caminho
-
-Adicionar estas linhas para o `BreakSentence` função. Perceberá que, juntamente com o `api-version`, pode definir o idioma de entrada. Neste exemplo é em inglês.
-
-```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/breaksentence?api-version=3.0&language=en";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-```
+## <a name="serialize-the-break-sentence-request"></a>Serializar o pedido de sentença break
 
 Em seguida, terá de criar e serializar o objeto JSON que inclua o texto. Tenha em mente, pode passar mais do que um objeto no `body` matriz.
 
 ```csharp
-System.Object[] body = new System.Object[] { new { Text = @"How are you? I am fine. What did you do today?" } };
+object[] body = new object[] { new { Text = inputText } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
@@ -115,35 +143,47 @@ Dentro do `HttpRequestMessage` irá:
 Adicione este código para o `HttpRequestMessage`:
 
 ```csharp
+// Build the request.
 // Set the method to POST
 request.Method = HttpMethod.Post;
-
-// Construct the full URI
+// Construct the URI and add headers.
 request.RequestUri = new Uri(host + route);
-
-// Add the serialized JSON object to your request
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-
-// Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request, get response
-var response = client.SendAsync(request).Result;
-var jsonResponse = response.Content.ReadAsStringAsync().Result;
-
-// Print the response
-Console.WriteLine(jsonResponse);
-Console.WriteLine("Press any key to continue.");
+// Send the request and get response.
+HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+// Read response as a string.
+string result = await response.Content.ReadAsStringAsync();
+// Deserialize the response using the classes created earlier.
+BreakSentenceResult[] deserializedOutput = JsonConvert.DeserializeObject<BreakSentenceResult[]>(result);
+foreach (BreakSentenceResult o in deserializedOutput)
+{
+    Console.WriteLine("The detected language is '{0}'. Confidence is: {1}.", o.DetectedLanguage.Language, o.DetectedLanguage.Score);
+    Console.WriteLine("The first sentence length is: {0}", o.SentLen[0]);
+}
 ```
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
-A última etapa é chamar `BreakSentence()` no `Main` função. Localize `static void Main(string[] args)` e adicionar estas linhas:
+A última etapa é chamar `BreakSentenceRequest()` no `Main` função. Localize `static void Main(string[] args)` e substituí-lo com este código:
 
 ```csharp
-BreakSentence();
-Console.ReadLine();
+static async Task Main(string[] args)
+{
+    // This is our main function.
+    // Output languages are defined in the route.
+    // For a complete list of options, see API reference.
+    string subscriptionKey = "YOUR_TRANSLATOR_TEXT_KEY_GOES_HERE";
+    string host = "https://api.cognitive.microsofttranslator.com";
+    string route = "/breaksentence?api-version=3.0";
+    // Feel free to use any string.
+    string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
+    await BreakSentenceRequest(subscriptionKey, host, route, breakSentenceText);
+}
 ```
+
+Observará que, na `Main`, está declarando `subscriptionKey`, `host`, `route`e o texto para avaliar `breakSentenceText`.
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
@@ -155,14 +195,24 @@ dotnet run
 
 ## <a name="sample-response"></a>Resposta de amostra
 
+Depois de executar o exemplo, deverá ver o seguinte impresso terminal:
+
+```bash
+The detected language is \'en\'. Confidence is: 1.
+The first sentence length is: 25
+```
+
+Esta mensagem é criada a partir de JSON não processado, que terá a seguinte aparência:
+
 ```json
 [
     {
-        "sentLen": [
-            13,
-            11,
-            22
-        ]
+        "detectedLanguage":
+        {
+            "language":"en",
+            "score":1.0
+        },
+        "sentLen":[25,32,35]
     }
 ]
 ```

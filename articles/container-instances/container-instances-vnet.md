@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712797"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentor numa rede virtual do Azure
@@ -88,7 +88,7 @@ Pode usar [criar contentor de az] [ az-container-create] implementar grupos de c
 
 Para implementar uma nova rede virtual e que o Azure crie automaticamente os recursos de rede para, especifique o seguinte quando executa [criar contentor de az][az-container-create]:
 
-* Nome da rede virtual:
+* Nome da rede virtual
 * Prefixo de endereço de rede virtual no formato CIDR
 * Nome da sub-rede
 * Prefixo de endereço de sub-rede no formato CIDR
@@ -251,7 +251,7 @@ appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-hel
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-### <a name="delete-container-instances"></a>Eliminar instâncias de contentores
+### <a name="delete-container-instances"></a>Eliminar instâncias de contentor
 
 Quando tiver terminado a trabalhar com as instâncias de contentor que criou, eliminá-los com os seguintes comandos:
 

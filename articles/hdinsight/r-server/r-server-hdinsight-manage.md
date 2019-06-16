@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 607f85c10183366e88d597d84090f49fc30aff48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64687971"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerir o cluster de serviços de ML no Azure HDInsight
@@ -23,7 +23,7 @@ Neste artigo, irá aprender a gerir um cluster existente de serviços de ML no A
 
 * **Um cluster de serviços de ML no HDInsight**: Para obter instruções, consulte [introdução aos serviços de ML no HDInsight](r-server-get-started.md).
 
-* **Um cliente Secure Shell (SSH)**: Um cliente SSH é utilizado para ligar ao HDInsight cluster e executar comandos diretamente no cluster remotamente. Para obter mais informações, consulte [utilizar o SSH com HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente Secure Shell (SSH)** : Um cliente SSH é utilizado para ligar ao HDInsight cluster e executar comandos diretamente no cluster remotamente. Para obter mais informações, consulte [utilizar o SSH com HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Permitir vários utilizadores em simultâneo
@@ -33,7 +33,7 @@ Pode ativar vários utilizadores em simultâneo para o cluster de serviços de M
 ![Utilizador simultâneo 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
 - **Nome de utilizador do cluster**: um utilizador HTTP utilizado para autenticação através do gateway do HDInsight que é utilizado para proteger os clusters do HDInsight que criou. Este utilizador HTTP é utilizado para aceder à IU do Apache Ambari, da interface do Usuário do Apache Hadoop YARN, bem como outros componentes de interface do Usuário.
-- **Nome de utilizador Secure Shell (SSH)**: um utilizador SSH para aceder ao cluster através de secure shell. Este utilizador é um utilizador no sistema Linux para todos os nós principais, nós de trabalho e nós de extremidade. Desta forma, pode utilizar o secure shell para aceder a qualquer nó num cluster remoto.
+- **Nome de utilizador Secure Shell (SSH)** : um utilizador SSH para aceder ao cluster através de secure shell. Este utilizador é um utilizador no sistema Linux para todos os nós principais, nós de trabalho e nós de extremidade. Desta forma, pode utilizar o secure shell para aceder a qualquer nó num cluster remoto.
 
 A versão do R Studio Server Community utilizada no cluster no HDInsight serviços ML aceita apenas o nome de utilizador do Linux e a palavra-passe como um mecanismo de início de sessão. Não suporta a transmissão de tokens. Então, quando tenta acessar o R Studio pela primeira vez num cluster de serviços de ML, terá de iniciar sessão duas vezes.
 

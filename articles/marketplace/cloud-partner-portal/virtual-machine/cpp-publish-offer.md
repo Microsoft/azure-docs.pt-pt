@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: pabutler
 ms.openlocfilehash: 6796c2871cf8a5928beed2ab557cefdfe8ecaae9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938602"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publicar uma oferta de máquina virtual

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 177b393b475250e5e019a5829ea17279e1b0f44c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e54d0b1ef3173fd1ec709927c7c9842b428bd3a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Tutorial: Integração do Active Directory do Azure com Supermood
 
@@ -55,7 +55,7 @@ Para configurar a integração do Supermood com o Azure AD, terá de adicionar S
 
 **Para adicionar Supermood a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -154,7 +154,7 @@ Para configurar o Azure AD início de sessão único com Supermood, execute os s
 
 1. Aceda ao seu painel de administração Supermood.co em como o administrador de segurança.
 
-1. Clique em **minha conta** (canto inferior esquerdo) e **único início de sessão (SSO)**.
+1. Clique em **minha conta** (canto inferior esquerdo) e **único início de sessão (SSO)** .
 
     ![O certificado único](./media/supermood-tutorial/tutorial_supermood_single.png)
 

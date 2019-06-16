@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119523"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhe com o SDK do servidor de back-end .NET para Aplicações Móveis do Azure
@@ -53,7 +53,7 @@ Instale a carga de trabalho do Azure através da instalação do Visual Studio p
 
 1. Abra o **novo projeto** caixa de diálogo (da **ficheiro** > **novo** > **Project...** ).
 2. Expanda **em Visual C#** e selecione **Web**.
-3. Selecione **aplicação Web do ASP.NET (.NET Framework)**.
+3. Selecione **aplicação Web do ASP.NET (.NET Framework)** .
 4. Preencha o nome do projeto. Em seguida, clique em **OK**.
 5. Selecione **aplicação móvel do Azure** na lista de modelos.
 6. Clique em **OK** para criar a solução.
@@ -104,7 +104,7 @@ Para ativar funcionalidades individuais, deve chamar os métodos de extensão no
         .MapApiControllers()
         .ApplyTo(config);
 
-O guia de introdução do servidor das chamadas do portais do Azure **UseDefaultConfiguration()**. Este equivalente à configuração do seguinte:
+O guia de introdução do servidor das chamadas do portais do Azure **UseDefaultConfiguration()** . Este equivalente à configuração do seguinte:
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package

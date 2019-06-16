@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2fce8b628798ef38889f64d9409bf586a85463b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c320944e952dbea74c41ffd3471143f6713585b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871856"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Tutorial: Integração do Active Directory do Azure com mindWireless
 
@@ -52,7 +52,7 @@ Para configurar a integração do mindWireless com o Azure AD, terá de adiciona
 
 **Para adicionar mindWireless a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD início de sessão único com mindWireless, execute o
 
 6. Além dos acima, o aplicativo mindWireless espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
-    | Name | Espaço de nomes  |  Atributo de origem|
+    | Name | Espaço de Nomes  |  Atributo de origem|
     | -------------- | --------------- | ----------------|
     | ID do Empregado | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`| user.employeeid |
 
@@ -212,7 +212,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no mindWireless. Trabalhar com [equipa de suporte de mindWireless](mailto:sdulloor@mindwireless.com) para adicionar os utilizadores na plataforma mindWireless. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

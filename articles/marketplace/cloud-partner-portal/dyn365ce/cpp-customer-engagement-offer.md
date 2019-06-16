@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: pabutler
 ms.openlocfilehash: c8a743076fa803623191b0501de4d90e415fd9c6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942481"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer"></a>Oferta do Dynamics 365 for Customer Engagement

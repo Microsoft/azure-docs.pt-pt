@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61363185"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreender o registo de identidade do IoT hub
@@ -186,10 +186,10 @@ Identidades do dispositivo são representadas como documentos JSON com as seguin
 | deviceId |atualizações necessárias, só de leitura no |Uma cadeia de maiúsculas e minúsculas (até 128 carateres de comprimento) de carateres de alfanuméricos ASCII de 7 bits mais determinados caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |necessário, só de leitura |Uma IoT hub-gerado, maiúsculas e minúsculas cadeia de caracteres até 128 carateres de comprimento. Este valor é utilizado para distinguir os dispositivos com o mesmo **deviceId**, quando tiver sido eliminados e recriados. |
 | etag |necessário, só de leitura |Uma cadeia de caracteres que representa o num ETag fraco para a identidade de dispositivo, como por [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| autenticação |opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |
-| auth.symkey |opcional |Um objeto composto que contém um site primário e uma chave secundária, armazenada em formato base64. |
-| status |obrigatório |Um indicador de acesso. Pode ser **Enabled** ou **desativado**. Se **ativado**, o dispositivo tem permissão para ligar. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto de final voltado para o dispositivo. |
-| statusReason |opcional |Uma cadeia de caracteres 128 que armazena o motivo para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
+| autenticação |Opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |
+| auth.symkey |Opcional |Um objeto composto que contém um site primário e uma chave secundária, armazenada em formato base64. |
+| status |Necessário |Um indicador de acesso. Pode ser **Enabled** ou **desativado**. Se **ativado**, o dispositivo tem permissão para ligar. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto de final voltado para o dispositivo. |
+| statusReason |Opcional |Uma cadeia de caracteres 128 que armazena o motivo para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |só de leitura |Um indicador temporal, que mostra a data e hora da última atualização de estado. |
 | connectionState |só de leitura |Um campo que indica o estado da ligação: ambos **ligado** ou **desligado**. Este campo representa a visão do IoT Hub do Estado de ligação do dispositivo. **Importante**: Este campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se no nível de protocolo pings (MQTT pings ou pings AMQP) e pode ter um atraso máximo de apenas 5 minutos. Por esses motivos, pode haver falsos positivos, como dispositivos comunicados como ligado mas que está ligado à Internet. |
 | connectionStateUpdatedTime |só de leitura |Um indicador temporal, que mostra a data e hora da última o estado de ligação foi atualizado. |
@@ -211,10 +211,10 @@ Identidades do módulo são representadas como documentos JSON com as seguintes 
 | moduleId |atualizações necessárias, só de leitura no |Uma cadeia de maiúsculas e minúsculas (até 128 carateres de comprimento) de carateres de alfanuméricos ASCII de 7 bits mais determinados caracteres especiais: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |necessário, só de leitura |Uma IoT hub-gerado, maiúsculas e minúsculas cadeia de caracteres até 128 carateres de comprimento. Este valor é utilizado para distinguir os dispositivos com o mesmo **deviceId**, quando tiver sido eliminados e recriados. |
 | etag |necessário, só de leitura |Uma cadeia de caracteres que representa o num ETag fraco para a identidade de dispositivo, como por [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| autenticação |opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |
-| auth.symkey |opcional |Um objeto composto que contém um site primário e uma chave secundária, armazenada em formato base64. |
-| status |obrigatório |Um indicador de acesso. Pode ser **Enabled** ou **desativado**. Se **ativado**, o dispositivo tem permissão para ligar. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto de final voltado para o dispositivo. |
-| statusReason |opcional |Uma cadeia de caracteres 128 que armazena o motivo para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
+| autenticação |Opcional |Um objeto composto que contém os materiais de segurança e informações de autenticação. |
+| auth.symkey |Opcional |Um objeto composto que contém um site primário e uma chave secundária, armazenada em formato base64. |
+| status |Necessário |Um indicador de acesso. Pode ser **Enabled** ou **desativado**. Se **ativado**, o dispositivo tem permissão para ligar. Se **desativado**, este dispositivo não é possível aceder a qualquer ponto de final voltado para o dispositivo. |
+| statusReason |Opcional |Uma cadeia de caracteres 128 que armazena o motivo para o estado de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |só de leitura |Um indicador temporal, que mostra a data e hora da última atualização de estado. |
 | connectionState |só de leitura |Um campo que indica o estado da ligação: ambos **ligado** ou **desligado**. Este campo representa a visão do IoT Hub do Estado de ligação do dispositivo. **Importante**: Este campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se no nível de protocolo pings (MQTT pings ou pings AMQP) e pode ter um atraso máximo de apenas 5 minutos. Por esses motivos, pode haver falsos positivos, como dispositivos comunicados como ligado mas que está ligado à Internet. |
 | connectionStateUpdatedTime |só de leitura |Um indicador temporal, que mostra a data e hora da última o estado de ligação foi atualizado. |

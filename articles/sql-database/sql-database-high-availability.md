@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 04/17/2019
-ms.openlocfilehash: ec9f5aa8163ea9bb838b1a95ab8ad49233a72643
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: a88842802759a5c3ae7af7334bbe125344c978ea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066903"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Base de dados SQL do Azure e de elevada disponibilidade
 
@@ -62,7 +62,7 @@ Por predefinição, o cluster de nós para o modelo de disponibilidade de premiu
 Uma vez que as bases de dados com redundância de zona têm réplicas em datacenters diferentes com alguma distância entre eles, a latência de rede maior pode aumentar o tempo de consolidação e, portanto, afeta o desempenho de algumas cargas de trabalho OLTP. Pode sempre regressar à configuração de zona única, desativando a definição de redundância de zona. Este processo é uma operação online semelhante para a atualização do escalão de serviço normal. No final do processo, a base de dados ou conjunto é migrado a partir de um anel com redundância de zona para um anel de zona única ou vice-versa.
 
 > [!IMPORTANT]
-> Conjuntos elásticos e bases de dados com redundância de zona estão atualmente só são suportadas nos escalões de serviço Premium e crítico para a empresa. Por predefinição, as cópias de segurança e auditoria, registos são armazenados no armazenamento RA-GRS e, portanto, podem não ser automaticamente disponíveis caso ocorra uma interrupção de toda a zona. 
+> Conjuntos elásticos e bases de dados com redundância de zona estão atualmente só são suportadas nos escalões de serviço Premium e crítico para a empresa em regiões selecionadas. Ao utilizar o escalão crítico para a empresa, configurações com redundância de zona só está disponível quando o hardware de computação Gen5 está selecionado. Para obter informações atualizadas sobre as regiões que suportam as bases de dados com redundância de zona, veja [serviços de suporte por região](../availability-zones/az-overview.md#services-support-by-region).  
 
 A versão com redundância de zona da arquitetura de elevada disponibilidade é ilustrada pelo diagrama seguinte:
 

@@ -3,20 +3,20 @@ title: Instalar e executar contentores
 titlesuffix: Face - Azure Cognitive Services
 description: Transferir, instalar e executar contentores para rosto neste tutorial passo a passo.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 05/28/2019
-ms.author: diberry
-ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.date: 06/10/2019
+ms.author: dapine
+ms.openlocfilehash: 4d3f3e64e109d0b1dc010be39b62b4f0bdc0573d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306640"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063602"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contentores de rostos
 
@@ -49,7 +49,7 @@ A tabela seguinte descreve os mínimos e recomendados núcleos de CPU e memória
 
 | Contentor | Mínimo | Recomendado | Transações por segundo<br>(No mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Face | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
+|Rostos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
 
 * Cada principal tem de ser, pelo menos, de 2,6 GHz ou mais rápido.
 * Transações por segundo (TPS).
@@ -62,7 +62,7 @@ Imagens de contentor para a API Face estão disponíveis.
 
 | Contentor | Repositório |
 |-----------|------------|
-| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
+| Rostos | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

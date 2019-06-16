@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: ebed76c82b647d11e34a17ae94edf208929f8c56
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e799e4ae745d2dc2dea91aa0094b5ffb79ae6f77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475250"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063880"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python
 
@@ -36,7 +36,7 @@ Quando são concedido acesso ao utilizar o reconhecedor de formulário, receber�
 |--|--|
 | **Nome** | Um nome descritivo para o seu recurso. Recomendamos que utilize um nome descritivo, por exemplo *MyNameFormRecognizer*. |
 | **Subscrição** | Selecione a subscrição do Azure que tenha sido concedida acesso. |
-| **Localização** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
+| **Location** | A localização da sua instância de serviço cognitivo. Localizações diferentes podem introduzir a latência, mas não tiver nenhum impacto sobre a disponibilidade de tempo de execução do seu recurso. |
 | **Escalão de preço** | O custo do seu recurso depende do escalão de preço que escolher e a sua utilização. Para obter mais informações, consulte a API [os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
 | **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que irá conter o seu recurso. Pode criar um novo grupo ou adicioná-lo a um grupo já existente. |
 
@@ -127,7 +127,7 @@ Tenha em atenção o `"modelId"` valor. Precisará das mesmas para os seguintes 
 Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabelas. Chamar o **modelar - analisar** API ao executar o script de Python que se segue. Antes de executar o comando, efetue estas alterações:
 
 1. Substitua `<Endpoint>` com o ponto final que obteve com a sua chave de subscrição do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
-1. Substitua `<File Path>` com o caminho do ficheiro ou URL da localização de formulário a partir do qual vai extrair dados.
+1. Substitua `<path to your form>` com o caminho do seu formulário (por exemplo, C:\temp\file.pdf).
 1. Substitua `<modelID>` com o ID de modelo que recebeu na secção anterior.
 1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: pdf, imagem/jpeg, png/imagem.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
@@ -138,7 +138,7 @@ Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabela
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<File Path>"
+    file_path = r"<path to your form>"
     model_id = "<modelID>"
     headers = {
         # Request headers

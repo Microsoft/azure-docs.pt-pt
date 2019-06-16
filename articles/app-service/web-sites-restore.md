@@ -16,14 +16,14 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60832512"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar uma aplicação no Azure
-Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/overview.md) que anteriormente efetuou uma cópia (consulte [volta a sua aplicação no Azure](manage-backup.md)). Pode restaurar a sua aplicação com as respetivas bases de dados ligadas no local para um estado anterior, ou criar novas aplicações com base numa das suas cópias de segurança originais da aplicação. Serviço de aplicações do Azure suporta as seguintes bases de dados para cópia de segurança e restauro:
+Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/overview.md) que anteriormente efetuou uma cópia (consulte [volta a sua aplicação no Azure](manage-backup.md)). Pode restaurar a aplicação com as suas bases de dados ligadas a pedido para um estado anterior ou criar uma nova aplicação com base em uma das cópias de segurança da sua aplicação original. Serviço de aplicações do Azure suporta as seguintes bases de dados para cópia de segurança e restauro:
 - [Base de Dados SQL](https://azure.microsoft.com/services/sql-database/)
 - [Base de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
 - [Base de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)

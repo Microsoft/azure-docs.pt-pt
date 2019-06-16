@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66126498"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum consortium de prova de autoridade
@@ -46,7 +46,7 @@ Para aqueles que são novos para a Comunidade de blockchain, a versão dessa sol
 
 Como prova da autoridade baseia-se uma lista de permitidos de autoridades de rede para manter o bom estado de funcionamento da rede, é importante fornecer um mecanismo justo fazer modificações a esta lista de permissão. Cada implementação inclui um conjunto de contratos inteligentes e portal de governação na cadeia desta lista de permitidos. Assim que uma alteração proposta atinge um voto de maioria por membros de consortium, a alteração é elaborada. Isso permite que novos participantes de consenso ser adicionado ou comprometido participantes a remover de forma transparente, o que incentiva a uma rede honesta.
 
-### <a name="admin-account"></a>Conta de admin
+### <a name="admin-account"></a>Conta de administrador
 
 Durante a implementação de nós de prova de autoridade, será perguntado para um endereço de Ethereum de administrador. Pode usar diversos mecanismos diferentes para gerar e proteger esta conta Ethereum. Assim que este endereço é adicionado como uma autoridade na rede, pode utilizar esta conta para participar na governação. Esta conta de administrador também irá ser utilizada para delegar a participação de consenso para os nós de validador que são criados como parte desta implementação. Uma vez que é utilizado apenas o endereço de Ethereum público, cada administrador tem a flexibilidade para proteger as respetivas chaves privadas de forma que se segue o modelo de segurança desejadas.
 
@@ -152,7 +152,7 @@ Depois de instalar MetaMask, navegue para o DApp de governação no browser.  Po
 #### <a name="becoming-an-admin"></a>Tornar-se um administrador
 Se for o primeiro membro implementado na rede, em seguida, vai ficar automaticamente um administrador e os nós de paridade serão listados como Validadores.  Se estiver ingressando em rede, terá de obter votado como um administrador a por uma maioria (mais de 50%) do conjunto de administrador existente.  Se optar por não se tornar um administrador, em seguida, os nós ainda irão sincronizar e validar o blockchain; No entanto, não irá participar do processo de criação de blocos. Para iniciar o processo de voto para se tornar um administrador, clique em __Nominate__ e introduza o seu endereço de Ethereum e alias.
 
-![Nomear](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
+![Nomeie os](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
 #### <a name="candidates"></a>Candidatos
 Selecionar o __candidatos__ separador mostrará a o conjunto atual de administradores do Release candidate.  Quando um candidato atingirem um voto de maioria, os administradores atuais, o candidato será é promovido para um administrador.  Votar num candidato, selecione a linha e clique em "Voto" na parte superior.  Se mudar de ideias sobre um voto, pode selecionar a Release candidate e clique em "Rescind voto".
@@ -202,7 +202,7 @@ Depois de uma subscrição está protegida, aceda ao portal do Azure. Selecione 
 
 A secção seguinte explica como configurar requisitos de espaço do primeiro membro na rede. O fluxo de implementação está dividido em cinco etapas: Noções básicas, regiões de implementação, o tamanho de rede e desempenho, Ethereum definições, Azure Monitor.
 
-#### <a name="basics"></a>Noções Básicas
+#### <a name="basics"></a>Noções básicas
 
 Sob **Noções básicas**, especifique os valores de parâmetros padrão para qualquer implementação, tais como a subscrição, grupo de recursos e propriedades de máquinas virtuais básico.
 
@@ -210,7 +210,7 @@ Segue-se uma descrição detalhada de cada parâmetro:
 
 Nome do parâmetro|Descrição|Valores permitidos|Valores predefinidos
 ---|---|---|---
-Criar uma nova rede ou de rede existente de associação?|Crie uma nova rede ou ingresse numa rede de consórcio já existente|Criar novo de junção existentes|Criar Novo
+Criar uma nova rede ou de rede existente de associação?|Crie uma nova rede ou ingresse numa rede de consórcio já existente|Criar novo de junção existentes|Criar Nova
 Endereço de e-mail (opcional)|Receberá uma notificação por e-mail quando a implementação é concluída com informações sobre a implementação.|Endereço de e-mail válido|N/D
 Nome de utilizador VM|Nome de utilizador de administrador de cada VM implementada (apenas carateres alfanuméricos)|1 e 64 carateres|N/D
 Tipo de autenticação|O método para autenticar para a máquina virtual.|Chave pública de palavra-passe ou SSH|Palavra-passe
@@ -261,8 +261,8 @@ Máquina virtual e a camada de armazenamento irão afetar o desempenho da rede. 
   SKU da máquina virtual|Camada de armazenamento|Preço|Débito|Latência
   ---|---|---|---|---
   F1|SSD Standard|Baixa|Baixa|Alta
-  D2_v3|SSD Standard|média|média|média
-  F16s|Premium SSD|Alta|Alta|Baixa
+  D2_v3|SSD Standard|Médio|Médio|Médio
+  F16s|SSD Premium|Alta|Alta|Baixa
 
 Uma implementação de exemplo é mostrada abaixo: ![tamanho e o desempenho de rede](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
@@ -275,10 +275,10 @@ Segue-se uma descrição detalhada de cada parâmetro:
   Nome do parâmetro|Descrição|Valores permitidos|Valores predefinidos
   ---|---|---|---
 ID de membro Consortium|O ID associado a cada membro participar na rede de consórcio utilizada para configurar espaços de endereços IP para evitar a colisão. No caso de uma rede privada, ID de membro deve ser exclusivo em organizações diferentes na mesma rede.  Um ID de membro exclusivo é necessário, mesmo quando a mesma organização implementa em várias regiões. Tome nota do valor deste parâmetro, uma vez que precisará para partilhá-lo com outros membros de junção para garantir que não existe nenhum colisão.|0-255|N/D
-ID da rede|O ID de rede para a rede de Ethereum consortium a ser implementado.  Cada rede Ethereum tem seu próprio ID de rede, com 1 indicador o ID para a rede pública.|5 - 999,999,999|10101010
+ID de rede|O ID de rede para a rede de Ethereum consortium a ser implementado.  Cada rede Ethereum tem seu próprio ID de rede, com 1 indicador o ID para a rede pública.|5 - 999,999,999|10101010
 Endereço de Ethereum de administrador|Endereço da conta Ethereum que é utilizado para participar no PoA governação.  Recomendamos que utilize MetaMask para gerar um endereço de Ethereum.|42 carateres alfanuméricos, começando com 0 x|N/D
-Opções Avançadas|Opções avançadas para Ethereum definições|Ativar ou desativar|Desactivar
-IP público (as opções avançadas de = Enable)|Implementa a rede por trás de um Gateway de VNet e remove o acesso de peering. Se esta opção estiver selecionada, todos os membros tem de utilizar um Gateway de VNet para a ligação para ser compatível.|VNet privada de IP público|IP Público
+Opções avançadas|Opções avançadas para Ethereum definições|Ativar ou desativar|Desativar
+IP público (as opções avançadas de = Enable)|Implementa a rede por trás de um Gateway de VNet e remove o acesso de peering. Se esta opção estiver selecionada, todos os membros tem de utilizar um Gateway de VNet para a ligação para ser compatível.|VNet privada de IP público|IP público
 Bloquear o limite de gás (opções avançadas = Enable)|O limite de gás bloco inicial da rede|Qualquer numérico|50000000
 Período de Reseal de bloqueio (seg)|A frequência com que blocos vazios serão criados quando não há nenhuma transação na rede. Uma freqüência mais alta terá finality mais rápida, mas os custos de armazenamento maior.|Qualquer numérico|15
 Contrato de permissão de transação (opções avançadas = Enable)|Bytecode para o contrato de concessão de permissões de transação. Restringe a implementação de contrato inteligente e execução para uma lista de permitidos de contas de Ethereum.|Contrato bytecode|N/D
@@ -413,7 +413,7 @@ $MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName
 New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-### <a name="service-monitoring"></a>Monitorização de serviços
+### <a name="service-monitoring"></a>Monitorização do serviço
 
 Pode localizar o seu portal do Azure Monitor ao seguir a ligação no e-mail de implementação ou ao localizar o parâmetro na saída da implementação \[OMS\_PORTAL\_URL\].
 

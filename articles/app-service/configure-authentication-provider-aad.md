@@ -16,10 +16,10 @@ ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: d687e770fae6c32ee351a597e12d1aca6094e5cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851380"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>Configurar a sua aplicação de serviço de aplicações para utilizar o início de sessão no Azure Active Directory
@@ -79,12 +79,12 @@ Pode registar clientes nativos, que proporciona maior controle sobre as permiss�
 1. Navegue para **do Azure Active Directory** no [portal do Azure].
 2. No painel de navegação esquerdo, selecione **registos das aplicações**. Clique em **novo registo de aplicação** na parte superior.
 4. Na **Create** página, introduza um **nome** para o seu registo de aplicação. Selecione **nativo** na **tipo de aplicação**.
-5. Na **URI de redirecionamento** , introduza o seu site */.auth/login/done* ponto de extremidade, usando o esquema HTTPS. Este valor deve ser semelhante à *https://contoso.azurewebsites.net/.auth/login/done*. Se criar um aplicativo do Windows, em vez disso, utilize o [SID do pacote](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI.
+5. Na **URI de redirecionamento** , introduza o seu site */.auth/login/done* ponto de extremidade, usando o esquema HTTPS. Este valor deve ser semelhante à *https://contoso.azurewebsites.net/.auth/login/done* . Se criar um aplicativo do Windows, em vez disso, utilize o [SID do pacote](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) como o URI.
 5. Clique em **Criar**.
 6. Assim que tiver sido adicionado o registo de aplicações, selecione-o para abri-lo. Encontrar o **ID da aplicação** e tome nota deste valor.
 7. Clique em **todas as definições** > **permissões obrigatórias** > **adicionar** > **selecionar uma API**.
 8. Escreva o nome da aplicação do serviço de aplicações que registrou anteriormente para procurá-lo, em seguida, selecione-o e clique em **selecione**.
-9. Selecione **acesso \<app_name >**. Em seguida, clique em **Selecionar**. Em seguida, clique em **Guardar**.
+9. Selecione **acesso \<app_name >** . Em seguida, clique em **Selecionar**. Em seguida, clique em **Guardar**.
 
 Agora que configurou uma aplicação cliente nativa que pode aceder à sua aplicação de serviço de aplicações.
 

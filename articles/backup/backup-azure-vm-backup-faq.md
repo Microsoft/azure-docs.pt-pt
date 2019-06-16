@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
 ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966315"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas mais frequentes perguntas-cópia de segurança de VMs do Azure
@@ -20,7 +20,7 @@ ms.locfileid: "65966315"
 Este artigo responde a perguntas comuns sobre o backup das VMs do Azure com o [Azure Backup](backup-introduction-to-azure-backup.md) serviço.
 
 
-## <a name="backup"></a>Criar cópia de segurança
+## <a name="backup"></a>Cópia de segurança
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quais imagens VM podem ser ativadas para cópia de segurança, quando eu criá-los?
 Quando cria uma VM, pode ativar a cópia de segurança para VMs em execução [sistemas operativos suportados](backup-support-matrix-iaas.md#supported-backup-actions)
@@ -59,7 +59,7 @@ Fornece permissões para o Azure Backup aceder ao Key Vault. Especifique as perm
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Migrei discos VM para discos geridos. As minhas cópias de segurança vão continuar a funcionar?
 Sim, as cópias de segurança funcionam perfeitamente. Não é necessário reconfigurar a nada.
 
-### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Por que motivo não vejo a minha VM no Assistente para configurar a cópia de segurança?
+### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Por que motivo não vejo a minha VM no assistente de Configuração de Cópias de Segurança?
 O assistente só apresenta VMs na mesma região que o Cofre e que não estão já a cópia de segurança.
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>A minha VM está a ser encerrado. Será uma demanda ou de um trabalho de cópia de segurança agendado?
@@ -108,7 +108,7 @@ Sim, pode utilizar cópias de segurança criadas antes de discos foram migrados 
 - Por predefinição, um trabalho VM de restauro cria uma VM não gerida.
 - No entanto, pode restaurar discos e usá-los para criar uma VM gerida.
 
-### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Como posso restaurar uma VM para um ponto de restauro antes da VM foi migrada para o managed disks?
+### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Como posso restaurar uma VM para um ponto de restauro antes de a VM ter sido migrada para discos geridos?
 Por predefinição, um trabalho VM de restauro cria uma VM com discos não geridos. Para criar uma VM com discos geridos:
 1. [Restaurar para discos não geridos](tutorial-restore-disk.md#restore-a-vm-disk).
 2. [Converta os discos restaurados em discos geridos](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).

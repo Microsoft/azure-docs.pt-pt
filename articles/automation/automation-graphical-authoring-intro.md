@@ -10,10 +10,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60740820"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Gráfico de criação na automatização do Azure
@@ -89,7 +89,7 @@ Quando um runbook ainda não foi publicado, ele tem o estado **New**. Quando é 
 
 Tem também a opção de reverter para a versão publicada do runbook. Isso gerará distância todas as alterações efetuadas uma vez que o runbook foi publicado pela última vez e substitui a versão de rascunho do runbook com a versão publicada.
 
-## <a name="activities"></a>Atividades
+## <a name="activities"></a>Actividades
 
 Atividades são os blocos de construção de um runbook. Uma atividade pode ser um cmdlet do PowerShell, um runbook subordinado ou uma atividade de fluxo de trabalho. Adicionar uma atividade ao runbook ao clicar com botão direito-lo no controlo da biblioteca e selecionar **adicionar à tela**. Pode, em seguida, clique e arraste a atividade para colocá-lo em qualquer local na tela que desejar. A localização da atividade na tela não afetam o funcionamento do runbook de qualquer forma. Pode dispor o runbook no entanto achar mais adequado visualizar a sua operação.
 
@@ -111,7 +111,7 @@ Quando especificar um valor para um parâmetro, selecione uma origem de dados pa
 
 | Origem de Dados | Descrição |
 |:--- |:--- |
-| Valor Constante |Escreva um valor para o parâmetro. Isso só está disponível para os seguintes tipos de dados: Int32, Int64, String,Boolean,DateTime,Switch. |
+| Valor constante |Escreva um valor para o parâmetro. Isso só está disponível para os seguintes tipos de dados: Int32, Int64, String,Boolean,DateTime,Switch. |
 | Saída da atividade |Saída de uma atividade que precede a atividade atual no fluxo de trabalho. São listadas todas as atividades válidas. Selecione apenas a atividade para utilizar o respetivo resultado para o valor do parâmetro. Se a atividade produz um objeto com várias propriedades, em seguida, pode digitar o nome da propriedade depois de selecionar a atividade. |
 | Entrada do Runbook |Selecione um parâmetro de entrada do runbook como entrada para o parâmetro de atividade. |
 | Recurso de variável |Selecione uma variável de automatização como entrada. |
@@ -123,7 +123,7 @@ Quando especificar um valor para um parâmetro, selecione uma origem de dados pa
 
 #### <a name="optional-additional-parameters"></a>Parâmetros adicionais opcionais
 
-Todos os cmdlets têm a opção para fornecer parâmetros adicionais. Estes são os parâmetros comuns do PowerShell ou outros parâmetros personalizados. É apresentada uma caixa de texto em que pode fornecer parâmetros usando a sintaxe do PowerShell. Por exemplo, para utilizar o **verboso** parâmetro comum, tem de especificar **"-Verbose: $True"**.
+Todos os cmdlets têm a opção para fornecer parâmetros adicionais. Estes são os parâmetros comuns do PowerShell ou outros parâmetros personalizados. É apresentada uma caixa de texto em que pode fornecer parâmetros usando a sintaxe do PowerShell. Por exemplo, para utilizar o **verboso** parâmetro comum, tem de especificar **"-Verbose: $True"** .
 
 ### <a name="retry-activity"></a>Repita a atividade
 
@@ -191,10 +191,10 @@ Crie uma ligação entre duas atividades, selecionando a atividade de origem e c
 
 Selecione a ligação para configurar as respetivas propriedades no painel de configuração. Isto inclui o tipo de ligação, o que é descrito na tabela a seguir:
 
-| Tipo de Ligação | Descrição |
+| Tipo de ligação | Descrição |
 |:--- |:--- |
 | Pipeline |A atividade de destino é executada uma vez para cada objeto de saída da atividade de origem. A atividade de destino não é executado se a atividade de origem resulta em nenhuma saída. Saída da atividade de origem está disponível como um objeto. |
-| Sequence |A atividade de destino é executada apenas uma vez. Ele recebe uma matriz de objetos da atividade de origem. Saída da atividade de origem está disponível como uma matriz de objetos. |
+| Sequência |A atividade de destino é executada apenas uma vez. Ele recebe uma matriz de objetos da atividade de origem. Saída da atividade de origem está disponível como uma matriz de objetos. |
 
 ### <a name="starting-activity"></a>Atividade de partida
 
@@ -249,7 +249,7 @@ O exemplo a seguir faz parte de um runbook que inicia um conjunto de máquinas v
 
 Um ciclo é quando um links de atividade de destino para sua atividade de origem ou de outra atividade que, eventualmente, vincula de volta para a respetiva origem. Ciclos não são permitidos atualmente na criação de gráficos. Se o runbook tem um ciclo, ele salva corretamente, mas recebe um erro quando é executada.
 
-![Cíclico](media/automation-graphical-authoring-intro/runbook-cycle.png)
+![Ciclo de](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
 ### <a name="sharing-data-between-activities"></a>Partilhar dados entre atividades
 
@@ -268,11 +268,11 @@ $ActivityOutput['Activity Label']
 $ActivityOutput['Activity Label'].PropertyName
 ```
 
-### <a name="checkpoints"></a>Pontos de Verificação
+### <a name="checkpoints"></a>Pontos de verificação
 
 Pode definir [pontos de verificação](automation-powershell-workflow.md#checkpoints) de um runbook de fluxo de trabalho de PowerShell gráfico selecionando *runbook do ponto de verificação* qualquer atividade de início. Isso faz com que um ponto de verificação ser definida depois da atividade é executada.
 
-![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Check Point](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Pontos de verificação só estão ativados em runbooks do fluxo de trabalho de PowerShell gráfico, não está disponível em runbooks gráficos. Se o runbook utiliza cmdlets do Azure, deve seguir qualquer atividade foi efetuada a verificação com um Connect-AzureRmAccount no caso do runbook está suspenso e reinicia partir deste ponto de verificação numa função de trabalho diferente.
 
@@ -326,7 +326,7 @@ Cada parâmetro de entrada é definido pelas propriedades na tabela a seguir:
 |:--- |:--- |
 | Name |O nome exclusivo do parâmetro. Isto só pode conter carateres alfanuméricos e não pode conter um espaço. |
 | Descrição |Uma descrição opcional para o parâmetro de entrada. |
-| Type |Tipo de dados esperado para o valor do parâmetro. O portal do Azure fornece um controlo apropriado para o tipo de dados para cada parâmetro ao pedir entrada. |
+| Tipo |Tipo de dados esperado para o valor do parâmetro. O portal do Azure fornece um controlo apropriado para o tipo de dados para cada parâmetro ao pedir entrada. |
 | Obrigatório |Especifica se deve ser fornecido um valor para o parâmetro. Não é possível iniciar o runbook se não fornecer um valor para cada parâmetro obrigatório que não tem um valor predefinido especificado. |
 | Valor Predefinido |Especifica qual valor é utilizado para o parâmetro se não for fornecido. Isso pode ser Null ou um valor específico. |
 

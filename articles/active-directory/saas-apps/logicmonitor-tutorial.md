@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a953ae52f37b8d48f9e2e0566325691dbb08307
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 468d55b2b96979658bc8f3e226da36dc4af1c174
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Integração do Active Directory do Azure com LogicMonitor
 
@@ -53,7 +53,7 @@ Para configurar a integração do LogicMonitor com o Azure AD, terá de adiciona
 
 **Para adicionar LogicMonitor a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -228,7 +228,7 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
 > [!NOTE]
 > Pode utilizar quaisquer outras LogicMonitor utilizador conta criação ferramentas ou APIs fornecidas pelo LogicMonitor para aprovisionar o Azure Active Directory contas de utilizador.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

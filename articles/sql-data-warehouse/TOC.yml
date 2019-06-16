@@ -215,7 +215,7 @@
       items:
         - name: Configurar a autenticação do Azure AD
           href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Acesso condicional
+        - name: Acesso Condicional
           href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Regras de rede virtual pelo PowerShell
           href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json

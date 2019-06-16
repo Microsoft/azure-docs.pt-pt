@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60323607"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
@@ -75,15 +75,15 @@ Pode exportar os dados no formato Excel clicando no símbolo de Excel à direita
 | 4xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 4xx (por exemplo, 400 pedido inválido, 403 proibido ou 404 não encontrado). |
 | 5xx                       | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado HTTP 5xx (por exemplo, 500 Erro de servidor interno ou 502 Gateway incorreto). |
 | % De acertos na cache               | Indica a percentagem de pedidos em cache que foram fornecidos diretamente a partir da cache para o autor do pedido. |
-| Acertos na Cache                | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num acertos na cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um problema de cache ocorre quando é encontrada uma versão em cache do conteúdo pedido. |
+| Acertos na cache                | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num acertos na cache (por exemplo, TCP_EXPIRED_HIT, TCP_HIT ou TCP_PARTIAL_HIT). Um problema de cache ocorre quando é encontrada uma versão em cache do conteúdo pedido. |
 | Dados transferidos (MB)     | Indica a quantidade total de dados transferidos (MB) de servidores de borda para clientes HTTP (navegadores da web) para o edge CNAME. A quantidade de dados transferidos é calculada adicionando os cabeçalhos de resposta HTTP para o corpo da resposta. Como resultado, a quantidade de dados transferidos para cada recurso é superior ao tamanho de ficheiro real. |
 | Descrição               | Identifica uma borda CNAME pelo respetivo nome de anfitrião |
 | Acertos                      | Indica o número total de pedidos na periferia CNAME |
-| Falhas                    | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta numa falha de acerto na cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma falha de acerto na cache ocorre quando o conteúdo solicitado não foi colocado em cache no servidor edge que honrou o pedido. | 
+| Falhas de acerto na                    | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta numa falha de acerto na cache (por exemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS ou TCP_MISS). Uma falha de acerto na cache ocorre quando o conteúdo solicitado não foi colocado em cache no servidor edge que honrou o pedido. | 
 | Sem Cache                  | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado de cache CONFIG_NOCACHE.  |
 | Outros                     | Indica o número total de pedidos ou os dados transferido (MB) para o edge CNAME indicado que resulta num código de estado HTTP que se encontre fora 2xx - intervalo 5xx. |
 | Plataforma                  | Indica a plataforma que processa o tráfego do CNAME edge. |
-| Não atribuído               | Indica o número total de pedidos ou os dados transferidos (MB) para o CNAME do edge para que o código de estado de cache ou o código de estado HTTP informações não tenha sido registadas.  |
+| Não atribuídos               | Indica o número total de pedidos ou os dados transferidos (MB) para o CNAME do edge para que o código de estado de cache ou o código de estado HTTP informações não tenha sido registadas.  |
 | Atribuir               | Indica o número total de pedidos ou os dados transferidos (MB) para o edge CNAME que resulta num código de estado atribuir cache.  |
 
 

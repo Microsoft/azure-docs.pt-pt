@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
 ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60808760"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Atividade ForEach no Azure Data Factory
@@ -71,12 +71,12 @@ As propriedades são descritas posteriormente neste artigo. A propriedade items 
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade para cada. | String | Sim
-tipo | Tem de ser definido como **ForEach** | String | Sim
+name | Nome da atividade para cada. | String | Sim
+type | Tem de ser definido como **ForEach** | String | Sim
 isSequential | Especifica se o loop deve ser executado em seqüência ou em paralelo.  Máximo de 20 iterações de loop pode ser executado ao mesmo tempo em paralelo). Por exemplo, se tiver uma atividade de ForEach iterar através de uma atividade de cópia com 10 origem e sink conjuntos de dados diferentes com **isSequential** definido como False, todas as cópias são executadas ao mesmo tempo. A predefinição é False. <br/><br/> Se "isSequential" estiver definido como False, certifique-se de que existe uma configuração correta para executar vários executáveis. Caso contrário, esta propriedade deve ser utilizada com cuidado para evitar conflitos de escrita. Para obter mais informações, consulte [execução paralela](#parallel-execution) secção. | Boolean | Não. A predefinição é False.
 batchCount | Contagem de lotes para ser utilizado para controlar o número de execução paralela (quando isSequential está definido como false). | Número inteiro (máximo de 50) | Não. A predefinição é 20.
 Itens | Uma expressão que devolve uma matriz JSON para ser iterado. | Expressão (que devolve uma matriz JSON) | Sim
-Atividades | As atividades a ser executado. | Lista de atividades | Sim
+Actividades | As atividades a ser executado. | Lista de atividades | Sim
 
 ## <a name="parallel-execution"></a>Execução paralela
 Se **isSequential** é definido como FALSO, a atividade itera em paralelo com um máximo de 20 iterações simultâneas. Esta definição deve ser utilizada com cuidado. Se estiver a escrever as iterações simultâneas para a mesma pasta, mas para arquivos diferentes, esta abordagem é adequada. Se as iterações simultâneas são escrever simultaneamente no mesmo ficheiro exata, essa abordagem faz com que é muito provável que um erro. 

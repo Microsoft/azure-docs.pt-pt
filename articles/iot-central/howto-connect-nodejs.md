@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60888968"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
@@ -34,7 +34,7 @@ Na aplicação do Azure IoT Central, terá de um modelo de dispositivo com as se
 
 Adicione a seguinte telemetria sobre o **medidas** página:
 
-| Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas Decimais |
+| Nome a apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas Decimais |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Humidade     | humidade    | %     | 0   | 100 | 0              |
@@ -49,7 +49,7 @@ Introduza os nomes de campos exatamente como mostrados na tabela no modelo de di
 
 Adicione o seguinte estado no **medidas** página:
 
-| Nome a Apresentar | Nome do Campo  | Valor 1 | Nome a Apresentar | Valor 2 | Nome a Apresentar |
+| Nome a apresentar | Nome do Campo  | Valor de 1 | Nome a apresentar | Valor 2 | Nome a apresentar |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
 | Modo da Ventoinha     | fanmode     | 1       | A executar      | 0       | Parada      |
 
@@ -62,7 +62,7 @@ Introduza os nomes de campos exatamente como mostrados na tabela no modelo de di
 
 Adicione o seguinte evento sobre o **medidas** página:
 
-| Nome a Apresentar | Nome do Campo  | Gravidade |
+| Nome a apresentar | Nome do Campo  | Gravidade |
 | ------------ | ----------- | -------- |
 | Sobreaquecimento  | superaquecimento    | Erro    |
 
@@ -73,9 +73,9 @@ Adicione o seguinte evento sobre o **medidas** página:
 
 Adicione as seguintes propriedades do dispositivo na **propriedades** página:
 
-| Nome a Apresentar        | Nome do Campo        | Tipo de dados |
+| Nome a apresentar        | Nome do Campo        | Tipo de dados |
 | ------------------- | ----------------- | --------- |
-| Número de série       | serialNumber      | texto      |
+| Número de Série       | serialNumber      | texto      |
 | Fabricante do dispositivo | fabricante      | texto      |
 
 Introduza os nomes de campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, não não possível apresentar as propriedades da aplicação.
@@ -84,7 +84,7 @@ Introduza os nomes de campo exatamente como mostrados na tabela no modelo de dis
 
 Adicione as seguintes **número** definições a **definições** página:
 
-| Nome a Apresentar    | Nome do Campo     | Unidades | Casas decimais | Mín. | Máx.  | Inicial |
+| Nome a apresentar    | Nome do Campo     | Unidades | Casas decimais | Mín. | Máx.  | Inicial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Ventoinha velocidade       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Definir Temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
@@ -95,13 +95,13 @@ Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispo
 
 Adicione o seguinte comando no **comandos** página:
 
-| Nome a Apresentar    | Nome do Campo     | Tempo Limite Predefinido | Tipo de Dados |
+| Nome a apresentar    | Nome do Campo     | Tempo Limite Predefinido | Tipo de Dados |
 | --------------- | -------------- | --------------- | --------- |
 | Contagem decrescente       | Contagem decrescente      | 30              | número    |
 
 Adicione o seguinte campo de entrada para o comando de contagem regressiva:
 
-| Nome a Apresentar    | Nome do Campo     | Tipo de Dados | Value |
+| Nome a apresentar    | Nome do Campo     | Tipo de Dados | Value |
 | --------------- | -------------- | --------- | ----- |
 | Contar de      | countFrom      | número    | 10    |
 

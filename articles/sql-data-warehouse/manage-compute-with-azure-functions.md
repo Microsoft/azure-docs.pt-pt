@@ -11,10 +11,10 @@ ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61083866"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Utilize as funções de Azure para gerir recursos de computação no Azure SQL Data Warehouse
@@ -53,7 +53,7 @@ Depois de implementar o modelo, deverá ver três recursos novos: um plano gratu
 
    ![Selecionar Integrate para a função](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%*. Estes valores indicam que a agenda se baseia nos valores definidos nas [Definições da Aplicação][Application Settings]. Por agora, pode ignorar este valor e alterar a agenda para a hora que preferir com base nos próximos passos.
+3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%* . Estes valores indicam que a agenda se baseia nos valores definidos nas [Definições da Aplicação][Application Settings]. Por agora, pode ignorar este valor e alterar a agenda para a hora que preferir com base nos próximos passos.
 
 4. Na área “schedule”, adicione a hora na expressão CRON que pretende que reflita a frequência com que quer aumentar verticalmente o SQL Data Warehouse. 
 

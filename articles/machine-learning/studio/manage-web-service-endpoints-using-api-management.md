@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347385"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerir os serviços de web do Azure Machine Learning Studio com a gestão de API
@@ -150,7 +150,7 @@ As operações podem ser chamadas diretamente a partir do portal do programador,
 
 4. Para **parâmetros do pedido**, tipo sua **área de trabalho** e **serviço**, tipo "2.0 para o **apiversion**e"true"para o **detalhes**. Pode encontrar suas **área de trabalho** e **service** no dashboard de serviço da web do AzureML (veja **testar o serviço web** no apêndice A).
 
-   Para **cabeçalhos de pedido**, clique em **Adicionar cabeçalho** e escreva "Content-Type" e "application/json". Clique em **Adicionar cabeçalho** novamente e escreva "Autorização" e "portador  *\<seu serviço a chave de API\>*". Pode encontrar a chave de API no dashboard do serviço web AzureML (consulte **testar o serviço web** no apêndice A).
+   Para **cabeçalhos de pedido**, clique em **Adicionar cabeçalho** e escreva "Content-Type" e "application/json". Clique em **Adicionar cabeçalho** novamente e escreva "Autorização" e "portador  *\<seu serviço a chave de API\>* ". Pode encontrar a chave de API no dashboard do serviço web AzureML (consulte **testar o serviço web** no apêndice A).
 
    Para **corpo do pedido**, tipo `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 

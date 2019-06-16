@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60947229"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery 
@@ -125,7 +125,7 @@ Para adicionar VMs manualmente:
 
     i. **Benefício Híbrido do Azure**
 
-1. Pode aplicar o mesmo valor a todas as VMs na tabela ao selecionar **Aplicar a todos** para **Número de Explorações de DR num ano**, **Duração de cada Exploração de DR (Dias)**, **Redundância de dados** e **Benefício Híbrido do Azure**.
+1. Pode aplicar o mesmo valor a todas as VMs na tabela ao selecionar **Aplicar a todos** para **Número de Explorações de DR num ano**, **Duração de cada Exploração de DR (Dias)** , **Redundância de dados** e **Benefício Híbrido do Azure**.
 
 1. Selecione **Voltar a calcular o custo** para atualizar o custo.
 
@@ -133,17 +133,17 @@ Para adicionar VMs manualmente:
 
 **Número de VMs**: O número de VMs que correspondem à configuração. Pode atualizar o número de VMs existentes se uma configuração semelhante de VMs não tiver perfis criados, mas forem protegidas.
 
-**Tamanho de IaaS (recomendação)**: O tamanho de função VM da VM compatível que a ferramenta recomenda. 
+**Tamanho de IaaS (recomendação)** : O tamanho de função VM da VM compatível que a ferramenta recomenda. 
 
-**Tamanho de IaaS (a sua seleção)**: Por predefinição, o tamanho é o mesmo que o tamanho de função VM recomendado. Pode alterar a função com base nos seus requisitos. O custo de computação baseia-se no tamanho da função VM que selecionou.
+**Tamanho de IaaS (a sua seleção)** : Por predefinição, o tamanho é o mesmo que o tamanho de função VM recomendado. Pode alterar a função com base nos seus requisitos. O custo de computação baseia-se no tamanho da função VM que selecionou.
 
 **Tipo de armazenamento**: O tipo de armazenamento que é utilizado pela VM. É armazenamento standard ou premium.
 
-**Tamanho de armazenamento total da VM (GB)**: O armazenamento total da VM.
+**Tamanho de armazenamento total da VM (GB)** : O armazenamento total da VM.
 
 **Número de explorações de DR num ano**: O número de vezes que executa explorações de DR num ano. Por predefinição, é quatro vezes por ano. Pode modificar o período para VMs específicas ou aplicar o novo valor a todas as VMs. Introduza o novo valor na linha superior e selecione **Aplicar a todos**. Com base no número de explorações de DR num ano e no período de duração de cada exploração de DR, é calculado o custo total de exploração de DR. 
 
-**Duração de cada exploração de DR (dias)**: A duração de cada exploração de DR. Por predefinição, é 7 dias a cada 90 dias, de acordo com o [benefício Recuperação Após Desastre do Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Pode modificar o período para VMs específicas ou aplicar um novo valor a todas as VMs. Introduza um novo valor na linha superior e selecione **Aplicar a todos**. O custo total de exploração de DR é calculado com base no número de explorações de DR num ano e no período de duração de cada exploração de DR.
+**Duração de cada exploração de DR (dias)** : A duração de cada exploração de DR. Por predefinição, é 7 dias a cada 90 dias, de acordo com o [benefício Recuperação Após Desastre do Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Pode modificar o período para VMs específicas ou aplicar um novo valor a todas as VMs. Introduza um novo valor na linha superior e selecione **Aplicar a todos**. O custo total de exploração de DR é calculado com base no número de explorações de DR num ano e no período de duração de cada exploração de DR.
  
 **Tipo de SO**: O tipo de sistema operativo (SO) da VM. É Windows ou Linux. Se o tipo de SO for Windows, o Benefício Híbrido do Azure pode ser aplicado a essa VM. 
 
@@ -155,7 +155,7 @@ Para adicionar VMs manualmente:
 
 **Custo de replicação de estado estável**: O custo de armazenamento para replicação.
 
-**Total de custo de exploração de DR (média)**: O custo de computação e armazenamento para as explorações de DR.
+**Total de custo de exploração de DR (média)** : O custo de computação e armazenamento para as explorações de DR.
 
 **Custo da licença do Azure Site Recovery**: A custo da licença do Site Recovery.
 

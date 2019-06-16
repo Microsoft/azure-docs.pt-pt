@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e331ea54a290bc794b04bb0d8e0ea653ef12bc19
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ffee3b8fa1d152ce94513353c5c178adb5e3cc77
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Tutorial: Integração do Active Directory do Azure com Evidence.com
 
@@ -53,7 +53,7 @@ Para configurar a integração do Evidence.com com o Azure AD, terá de adiciona
 
 **Para adicionar Evidence.com a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -207,7 +207,7 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
 
 5. O **endereço de E-Mail** do utilizador foi adicionado tem de corresponder ao nome de utilizador dos utilizadores no Azure AD que pretende conceder acesso. Se o endereço de e-mail e nome de utilizador não é o mesmo valor na sua organização, pode utilizar o **Evidence.com > atributos > início de sessão único** seção do portal do Azure para alterar o nameidenitifer enviado para Evidence.com para ser o endereço de e-mail.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

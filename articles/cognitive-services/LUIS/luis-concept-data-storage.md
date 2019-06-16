@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
 ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60812950"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento de dados e remoção nos serviços cognitivos de compreensão de idiomas (LUIS)
@@ -40,7 +40,7 @@ Eliminar usadas para treinamento de expressões de exemplo [LUIS](luis-reference
 
 ### <a name="delete-utterances-in-review-from-active-learning"></a>Eliminar expressões com revisão de aprendizagem ativa
 
-Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no  **[página de expressões de ponto final de revisão](luis-how-to-review-endpoint-utterances.md)**. A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
+Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no  **[página de expressões de ponto final de revisão](luis-how-to-review-endpoint-utterances.md)** . A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
 
 Se não quiser que as expressões de aprendizagem ativa, pode [desativar a aprendizagem ativa](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Desativar a aprendizagem ativa também desativa o registo.
 

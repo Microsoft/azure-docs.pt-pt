@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: eb68421c4f62d94eedf266a0c34a0e276eacc4a6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.date: 06/10/2019
+ms.openlocfilehash: b85277a4238351b6448c2cf29676ae3d8c118385
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077183"
 ---
 # <a name="scale-hdinsight-clusters"></a>Dimensionar clusters do HDInsight
 
@@ -21,6 +21,9 @@ HDInsight fornece elasticidade, dando-lhe a opção de aumentar verticalmente e 
 Se tiver o processamento em lotes periódicas, pode ser aumentado o cluster de HDInsight alguns minutos antes dessa operação, para que o cluster tem memória suficiente e a potência da CPU.  Mais tarde, depois do processamento é concluído e uso novamente a ficar inativo, pode reduzir verticalmente o cluster do HDInsight para menos nós de trabalho.
 
 Pode dimensionar um cluster manualmente usando um dos métodos descritos abaixo ou utilize [dimensionamento automático](hdinsight-autoscale-clusters.md) opções para fazer o sistema automaticamente ou reduza verticalmente em resposta a CPU, memória e outras métricas.
+
+> [!NOTE]  
+> Apenas clusters com o HDInsight versão 3.1.3 ou superior são suportadas. Se tiver a certeza de que a versão do seu cluster, consulte a página de propriedades.
 
 ## <a name="utilities-to-scale-clusters"></a>Utilitários para dimensionar clusters
 
@@ -47,6 +50,50 @@ Utilizar qualquer um destes métodos, pode dimensionar o cluster do HDInsight ou
 Quando **adicionar** nós para em execução HDInsight cluster (aumentar verticalmente), todas as tarefas em execução ou pendentes não serão afetados. Novas tarefas podem ser submetidas com segurança enquanto o processo de dimensionamento está em execução. Se a operação de dimensionamento falhar por algum motivo, a falha será manipulada para deixar o seu cluster num estado funcional.
 
 Se **remover** nós (reduzir verticalmente), qualquer vontade de tarefas pendentes ou em execução falharem quando a operação de dimensionamento for concluída. Esta falha é devido a alguns dos serviços reiniciar durante o processo de dimensionamento. Também é um risco de que o seu cluster pode obter bloqueado no modo de segurança durante uma operação de dimensionamento de manual.
+
+O impacto de alterar o número de nós de dados varia para cada tipo de cluster suportada pelo HDInsight:
+
+* Apache Hadoop
+
+    Pode facilmente aumentar o número de nós de trabalho num cluster do Hadoop que está a ser executado sem afetar todas as tarefas em execução ou pendentes. Também podem ser submetidas a novas tarefas enquanto a operação estiver em curso. Falhas numa operação de dimensionamento são processadas corretamente para que o cluster está sempre deixado no estado funcional.
+
+    Quando um cluster do Hadoop é reduzido, reduzindo o número de nós de dados, alguns dos serviços do cluster são reiniciados. Esse comportamento faz com que tudo em execução e tarefas pendentes a falhar após a conclusão da operação de dimensionamento. Pode, no entanto, volte a submeter as tarefas depois de concluída a operação.
+
+* Apache HBase
+
+    Pode facilmente adicionar ou remover nós ao cluster do HBase durante a execução. Servidores regionais são balanceadas automaticamente dentro de alguns minutos a concluir a operação de dimensionamento. No entanto, também manualmente pode balancear servidores regionais iniciando sessão nó principal do cluster e executar os seguintes comandos a partir de uma janela de linha de comandos:
+
+    ```bash
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
+    ```
+
+    Para obter mais informações sobre como utilizar a shell de HBase, consulte [começar com um exemplo de Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
+
+* Apache Storm
+
+    Pode facilmente adicionar ou remover nós de dados ao seu cluster do Storm, enquanto estiver em execução. No entanto, após a conclusão bem-sucedida da operação de dimensionamento, terá de reequilibrar a topologia.
+
+    Reequilíbrio pode ser feito de duas formas:
+
+  * IU da web do Storm
+  * Ferramenta de interface de linha de comandos (CLI)
+
+    Consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obter mais detalhes.
+
+    A IU da web de Storm está disponível no cluster do HDInsight:
+
+    ![Reequilíbrio de dimensionamento do HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
+    Eis um exemplo de comando da CLI para reequilibrar a topologia do Storm:
+
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Como com segurança reduzir verticalmente um cluster
 
@@ -140,13 +187,13 @@ Se o Hive tem deixadas para trás ficheiros temporários, em seguida, pode limpa
 1. Parar os serviços do Hive e certifique-se de que todas as consultas e as tarefas são concluídas.
 2. Listar o conteúdo do diretório de rascunho encontrados acima, `hdfs://mycluster/tmp/hive/` para ver se ele contém todos os ficheiros:
 
-    ```
+    ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
 
     Aqui está uma saída de exemplo quando existem ficheiros:
 
-    ```
+    ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
@@ -160,7 +207,7 @@ Se o Hive tem deixadas para trás ficheiros temporários, em seguida, pode limpa
 
     Linha de comandos de exemplo para remover ficheiros de HDFS:
 
-    ```
+    ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
@@ -173,7 +220,6 @@ Manter os três nós de trabalho é mais dispendioso do que reduzir verticalment
 #### <a name="run-the-command-to-leave-safe-mode"></a>Execute o comando sair do modo de segurança
 
 A última opção é a executar o comando de modo de segurança de saída. Se souber que o motivo para o HDFS entrar no modo seguro é devido a replicação de insuficientemente de ficheiros do ramo de registo, pode executar o seguinte comando para sair do modo de segurança:
-
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -201,4 +247,3 @@ Servidores de região são balanceadas automaticamente dentro de alguns minutos 
 
 * [Dimensionar automaticamente os clusters do HDInsight do Azure](hdinsight-autoscale-clusters.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)
-* [Dimensionar clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)

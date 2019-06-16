@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 72158b86e81fa90cb21c5af003fad05be69b470c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2104768f8842910bf83239e86106d288d7ad9baf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086333"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutorial: Integração do Active Directory do Azure com ZenQMS
 
@@ -53,7 +53,7 @@ Para configurar a integração do ZenQMS com o Azure AD, terá de adicionar ZenQ
 
 **Para adicionar ZenQMS a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

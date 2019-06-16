@@ -5,19 +5,19 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 02/02/2018
+ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: cd7fc7487a41979f37c9a55baeb0b8e172e808c4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ebea8bfd69a4df605142ab82f3efbc7d97d34529
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133150"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143954"
 ---
-No Azure Cloud Shell, configure as credenciais de implementação com o [ `az webapp deployment user set` ](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) comando. Para a implementação de FTP e Git local numa aplicação Web, é preciso este utilizador de implementação. O nome de utilizador e palavra-passe são ao nível da conta. _Eles são diferentes das credenciais da sua subscrição do Azure._
+No Azure Cloud Shell, configure as credenciais de implementação com o [ `az webapp deployment user set` ](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) comando. Utilize este utilizador de implementação de FTP e implementação de Git local numa aplicação web. O nome de utilizador e palavra-passe são ao nível da conta. _Eles são diferentes das credenciais da sua subscrição do Azure._
 
-No exemplo seguinte, substitua  *\<nome de utilizador >* e  *\<palavra-passe >*, incluindo os parênteses, com um novo nome de utilizador e palavra-passe. O nome de utilizador tem de ser exclusivo no Azure. A palavra-passe tem de ser, pelo menos, oito carateres de comprimento, com dois dos seguintes três elementos: letras, números e símbolos. 
+No exemplo seguinte, substitua  *\<nome de utilizador >* e  *\<palavra-passe >* , incluindo os parênteses, com um novo nome de utilizador e palavra-passe. O nome de utilizador tem de ser exclusivo no Azure. A palavra-passe tem de ser, pelo menos, oito carateres de comprimento, com dois dos seguintes três elementos: letras, números e símbolos.
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>

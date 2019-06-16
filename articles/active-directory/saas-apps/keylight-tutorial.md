@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407035"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração do Active Directory do Azure com LockPath Keylight
 
@@ -55,7 +55,7 @@ Para configurar a integração do LockPath Keylight com o Azure AD, terá de adi
 
 **Para adicionar LockPath Keylight a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -172,11 +172,11 @@ Para configurar o Azure AD início de sessão único com LockPath Keylight, exec
 
     j. Definir **configuração de segurança de aprovisionamento automático**, selecione **configuração de utilizador padrão**.
 
-    k. Na **atributo de correio eletrónico** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. Na **atributo de correio eletrónico** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    l. Na **atributo de nome próprio** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. Na **atributo de nome próprio** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. Na **atributo de nome de último** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. Na **atributo de nome de último** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. Clique em **Guardar**.
 
@@ -234,7 +234,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na LockPath Keylight. LockPath Keylight suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no LockPath Keylight, é criado um novo após a autenticação. Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de cliente de Keylight LockPath](https://www.lockpath.com/contact/).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

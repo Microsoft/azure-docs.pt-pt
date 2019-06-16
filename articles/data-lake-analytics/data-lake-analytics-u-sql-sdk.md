@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813539"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar o U-SQL com o SDK do Azure Data Lake U-SQL
@@ -332,7 +332,7 @@ LocalRunHelper.exe fornece as interfaces de programação de compilação local 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parâmetro|Type|Descrição|
+|Parâmetro|Tipo|Descrição|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para utilizar a consola|
 
@@ -346,8 +346,8 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |CurrentDir|string|Diretório atual|
 |DataRoot|string|Caminho de raiz de dados|
 |DebuggerMailPath|string|O caminho para o depurador mailslot|
-|GenerateUdoRedirect|booleano|Se quisermos gerar a configuração de substituição de redirecionamento de carregamento de assemblagem|
-|HasCodeBehind|booleano|Se o script contém code-behind|
+|GenerateUdoRedirect|bool|Se quisermos gerar a configuração de substituição de redirecionamento de carregamento de assemblagem|
+|HasCodeBehind|bool|Se o script contém code-behind|
 |InputDir|string|Diretório de dados de entrada|
 |MessagePath|string|Caminho do arquivo de despejo de mensagem|
 |OutputDir|string|Diretório de dados de saída|
@@ -356,7 +356,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 |ResultPath|string|Caminho do ficheiro de informação de estado de resultado|
 |RuntimeDir|string|Diretório de tempo de execução|
 |ScriptPath|string|Onde encontrar o script|
-|Raso|booleano|Superficialmente a compilação ou não|
+|Raso|bool|Superficialmente a compilação ou não|
 |TempDir|string|Diretório temporário|
 |UseDataBase|string|Especifique a base de dados a utilizar para o code-behind do registo de assembly temporário, mestre por padrão|
 |WorkDir|string|Diretório de trabalho preferencial|
@@ -364,7 +364,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **Método**
 
-|Método|Descrição|Voltar|Parâmetro|
+|Método|Descrição|devolver|Parâmetro|
 |------|-----------|------|---------|
 |public bool DoCompile()|Compilar o script de U-SQL|VERDADEIRO em caso de êxito| |
 |bool pública DoExec()|O resultado compilado de execução|VERDADEIRO em caso de êxito| |

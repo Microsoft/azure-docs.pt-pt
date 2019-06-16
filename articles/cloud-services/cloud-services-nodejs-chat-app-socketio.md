@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61433202"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar uma aplicação de chat node. js com Socket.IO num serviço Cloud do Azure
@@ -113,7 +113,7 @@ Depois de guardar as alterações ao **Server. js**, utilize os seguintes passos
    > 
    > reinstalar AzureAuthoringTools v 2.7.1 e AzureComputeEmulator v 2.7 - Certifique-se de que a versão corresponde.
 
-2. Abra um browser e navegue para **http://127.0.0.1**.
+2. Abra um browser e navegue para **http://127.0.0.1** .
 3. Quando abre a janela do browser, introduza uma alcunha e, em seguida, prima enter.
    Isso permitirá que publicar mensagens como uma alcunha específica. Para testar a funcionalidade de vários utilizador, abra janelas de navegador adicionais com o mesmo URL e introduza nicknames diferentes.
    

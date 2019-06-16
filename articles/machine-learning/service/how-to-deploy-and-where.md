@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 89539509e759da7f041ce0216397b1a9c8ff1f16
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 2c54f7192827376bb157915738ee781f45433267
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059232"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -108,6 +108,16 @@ O script contém duas funções que carregar e executam o modelo:
 * `init()`: Normalmente, esta função carrega o modelo de um objeto global. Esta função é executada apenas uma vez quando o contentor do Docker para o seu serviço web é iniciado.
 
 * `run(input_data)`: Essa função usa o modelo para prever um valor com base nos dados de entrada. Entradas e saídas para a execução normalmente usam JSON para a serialização e desserialização. Também pode trabalhar com dados binários não processados. Pode transformar os dados antes de enviar para o modelo ou antes de o devolver ao cliente.
+
+#### <a name="what-is-getmodelpath"></a>O que é get_model_path?
+Quando registra um modelo, é fornecer um nome de modelo utilizado para gerir o modelo no Registro. Utilize este nome o get_model_path API que retorna o caminho dos ficheiros de modelo no sistema de ficheiros local. Se se registra uma pasta ou uma coleção de arquivos, esta API devolve o caminho para o diretório que contém os arquivos.
+
+Ao registar um modelo, que atribua um nome que corresponde a onde o modelo é colocado, localmente ou durante a implementação de serviço.
+
+O exemplo abaixo irá devolver um caminho para um único arquivo chamado "sklearn_mnist_model.pkl" (o que foi registado com o nome "sklearn_mnist")
+```
+model_path = Model.get_model_path('sklearn_mnist')
+``` 
 
 #### <a name="optional-automatic-swagger-schema-generation"></a>(Opcional) Geração automática de esquema do Swagger
 
@@ -248,7 +258,9 @@ Neste exemplo, a configuração contém os seguintes itens:
 * O [script de entrada](#script), que é utilizada para processar pedidos web enviados para o serviço implementado
 * O ficheiro de conda que descreve os pacotes Python necessários para inferência de tipos
 
-Para obter informações sobre a funcionalidade de InferenceConfig, consulte a [configuração avançada](#advanced-config) secção.
+Para obter informações sobre a funcionalidade de InferenceConfig, consulte a [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) referência de classe.
+
+Para obter informações sobre como utilizar uma imagem personalizada do Docker com a configuração de inferência de tipos, consulte [como implementar um modelo com uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Definir a configuração da implementação
 
@@ -265,6 +277,15 @@ A tabela seguinte fornece um exemplo de criação de uma configuração de imple
 | Serviço Kubernetes do Azure | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 As secções seguintes demonstram como criar a configuração de implementação e, em seguida, utilizá-lo para implementar o serviço web.
+
+### <a name="optional-profile-your-model"></a>Opcional: Seu modelo de perfil
+Antes de implementar o seu modelo como um serviço, pode querer criar perfis para determinar os requisitos de memória e CPU otimizada.
+Pode fazê-lo através do SDK ou a CLI.
+
+Para obter mais informações, pode verificar a nossa documentação SDK aqui: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+
+Resultados de criação de perfis de modelos são emitidos como um objeto Run.
+Informações específicas sobre o esquema do modelo de perfil podem ser encontradas aqui: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
 
 ## <a name="deploy-to-target"></a>Implementar no destino
 
@@ -492,54 +513,6 @@ print(service.state)
 print(service.get_logs())
 ```
 
-<a id="advanced-config"></a>
-
-## <a name="advanced-settings"></a>Definições avançadas 
-
-**<a id="customimage"></a> Utilizar uma imagem base personalizada**
-
-Internamente, InferenceConfig cria uma imagem do Docker que contém o modelo e outros recursos necessários ao serviço. Se não for especificado, é utilizada uma imagem de base do padrão.
-
-Ao criar uma imagem para utilizar com a sua configuração de inferência de tipos, a imagem tem de cumprir os seguintes requisitos:
-
-* Ubuntu 16.04 ou superior.
-* Conda 4.5. # ou superior.
-* Python 3.5. # ou 3.6. #.
-
-Para utilizar uma imagem personalizada, defina o `base_image` propriedade da configuração da inferência de tipos para o endereço da imagem. O exemplo seguinte demonstra como utilizar uma imagem do tanto um público e privado Azure Container Registry:
-
-```python
-# use an image available in public Container Registry without authentication
-inference_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
-
-# or, use an image available in a private Container Registry
-inference_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
-inference_config.base_image_registry.address = "myregistry.azurecr.io"
-inference_config.base_image_registry.username = "username"
-inference_config.base_image_registry.password = "password"
-```
-
-A imagem seguinte URIs são para imagens fornecidas pela Microsoft e pode ser utilizado sem fornecer um valor de palavra-passe ou nome de utilizador:
-
-* `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7`
-* `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03`
-
-Para utilizar estas imagens, defina o `base_image` para o URI a partir da lista acima. Definir `base_image_registry.address` para `mcr.microsoft.com`.
-
-> [!IMPORTANT]
-> Imagens da Microsoft que utilizam CUDA ou TensorRT devem ser utilizadas apenas em serviços do Microsoft Azure.
-
-Para obter mais informações sobre o carregamento de suas próprias imagens para o Azure Container Registry, veja [enviar a sua primeira imagem para um registo de contentor do Docker privado](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
-
-Se é preparado o modelo na computação do Azure Machine Learning, utilizando __versão 1.0.22 ou superior__ do SDK do Azure Machine Learning, uma imagem é criada durante o treinamento. O exemplo seguinte demonstra como utilizar esta imagem:
-
-```python
-# Use an image built during training with SDK 1.0.22 or greater
-image_config.base_image = run.properties["AzureML.DerivedImageName"]
-```
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 Para eliminar um serviço web implementado, utilize `service.delete()`.
 Para eliminar um modelo registado, utilize `model.delete()`.
@@ -547,6 +520,7 @@ Para eliminar um modelo registado, utilize `model.delete()`.
 Para obter mais informações, consulte a documentação de referência [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ## <a name="next-steps"></a>Passos Seguintes
+* [Como implementar um modelo com uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implementação](how-to-troubleshoot-deployment.md)
 * [Proteger serviços da web do Azure Machine Learning com SSL](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implementado como um serviço web](how-to-consume-web-service.md)

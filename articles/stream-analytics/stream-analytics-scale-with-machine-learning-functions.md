@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479148"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning
@@ -72,13 +72,13 @@ Suponha que a latência da análise de sentimentos serviço web Machine Learning
 
 Segue-se uma tabela para o débito de tarefa do Stream Analytics para SUs diferentes e tamanhos de batch (num número de eventos por segundo).
 
-| tamanho de lote (latência de ML) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25.000 (500 ms) |
+| tamanho de lote (latência de ML) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25\.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 SUs** |5.000 |10,000 |40,000 |60,000 |100 000 |
-| **18 SUs** |7.500 |15,000 |60,000 |90,000 |150,000 |
+| **12 SUs** |5,000 |10,000 |40,000 |60,000 |100,000 |
+| **18 SUs** |7,500 |15,000 |60,000 |90,000 |150,000 |
 | **24 SUs** |10,000 |20,000 |80,000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25,000 |50,000 |200,000 |300,000 |500,000 |

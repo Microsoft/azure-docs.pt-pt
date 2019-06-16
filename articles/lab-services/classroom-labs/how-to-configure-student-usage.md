@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067344"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
 Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
@@ -80,19 +80,24 @@ Selecione **utilizadores** no menu da esquerda para ver a lista de utilizadores 
 Pode definir quotas de por utilizador, utilizando os seguintes passos: 
 
 1. Selecione **utilizadores** no menu da esquerda.
-2. Selecione **Quota por utilizador: ilimitado** na barra de ferramentas. 
-3. Sobre o **Quota por utilizador** página, selecione uma das seguintes opções: 
-    1. **Nenhuma**. Os utilizadores podem utilizar as suas máquinas virtuais apenas durante a hora agendada ou quando o proprietário de laboratório ativa máquinas virtuais para eles.
-    2. **Sem limite (predefinição)**. Os utilizadores podem utilizar as suas máquinas virtuais sem quaisquer restrições de tempo.
-    3. **Especifique o número de horas por utilizador**. Os utilizadores podem utilizar as suas máquinas virtuais para o número de conjunto de horas (especificadas abaixo), além da data agendada. Se selecionar esta opção, introduza o **número de horas** na caixa de texto. 
+2. Selecione **Quota por utilizador:** na barra de ferramentas. 
+3. Sobre o **Quota por utilizador** , especifique o número de horas que pretende dar a cada usuário (para estudantes): 
+    1. **0 horas (apenas para o agendamento)** . Os utilizadores podem utilizar as respetivas VMs apenas durante a hora agendada ou quando, como o proprietário de laboratório ativa de VMs para os mesmos.
+
+        ![Horas de zero - apenas hora agendada](../media/how-to-configure-student-usage/zero-hours.png)
+    1. **Número total de horas de laboratório por utilizador**. Os utilizadores podem utilizar as respetivas VMs para o número de horas (especificado para este campo) definido **além da data agendada**. Se selecionar esta opção, introduza o **número de horas** na caixa de texto. 
 
         ![Número de horas por utilizador](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Selecione **Guardar**. 
-5. Veja os valores alterados na barra de ferramentas agora: **Quota de por utilizador: &lt;número de horas&gt;**. 
+5. Veja os valores alterados na barra de ferramentas agora: **Quota de por utilizador: &lt;número de horas&gt;** . 
 
     ![Quota de por utilizador](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> Antes de enviar a ligação de registo para os alunos, professores devem definir a agenda para a classe, caso escolha 0 horas de quota ou especifique as horas de quota para o laboratório.
+>
 > O [agendada com tempo de VMs](how-to-create-schedules.md) não contam para a quota atribuída a um utilizador. A quota é para o tempo fora do horário de agenda que passa a um aluno em VMs. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar utilizadores ao carregar um ficheiro CSV

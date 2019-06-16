@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6e947dfed3169f346f43ab08225056815e8b487
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60897751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061193"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>recolhidos: Métricas de desempenho do Linux no Application Insights
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61424759"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Agir com um Runbook da automatização de um resultado de pesquisa de registos do Log Analytics
@@ -38,7 +38,7 @@ Para tomar medidas num evento e iniciar um runbook a partir de seus resultados d
 
 1. No portal do Azure, clique em **todos os serviços** e selecione **do Log Analytics**.  
 2. Selecione a área de trabalho do Log Analytics.
-3. Na área de trabalho, selecione **registos (clássico)**.  
+3. Na área de trabalho, selecione **registos (clássico)** .  
 4. Na página de pesquisa de registos, realizar uma pesquisa de registos.  
 5. Os resultados da pesquisa de registo, clique nas reticências à esquerda de um dos campos e para o pop-up, selecione **tomar medidas em**.<br><br> ![Selecione a ação demorar de resultado de pesquisa](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Selecione **executar um runbook** e selecione um runbook seja executado.  Pode selecionar qualquer runbook na conta de automatização está ligada a área de trabalho do Log Analytics.  Tenha em atenção o seguinte:
