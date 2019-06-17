@@ -15,10 +15,10 @@ ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851428"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilização avançada de autenticação e autorização no serviço de aplicações do Azure
@@ -41,7 +41,7 @@ A configuração do portal não oferece uma forma chave na mão para apresentar 
 
 Primeiro, na **autenticação / autorização** página no portal do Azure, configure cada fornecedor de identidade que pretende ativar.
 
-Na **ação a tomar quando o pedido não é autenticado**, selecione **pedidos permitir anónimos (sem ação)**.
+Na **ação a tomar quando o pedido não é autenticado**, selecione **pedidos permitir anónimos (sem ação)** .
 
 Na página de início de sessão, ou a barra de navegação ou qualquer outro local da sua aplicação, adicione uma ligação de início de sessão para cada um dos fornecedores ativou (`/.auth/login/<provider>`). Por exemplo:
 
@@ -186,7 +186,7 @@ Quando o token de acesso do seu fornecedor (não o [token de sessão](#extend-se
 - **Conta Microsoft**: Quando [configurar definições de autenticação de conta do Microsoft](configure-authentication-provider-microsoft.md), selecione o `wl.offline_access` âmbito.
 - **Azure Active Directory**: Na [ https://resources.azure.com ](https://resources.azure.com), siga os passos abaixo:
     1. Na parte superior da página, selecione **leitura/escrita**.
-    2. No navegador à esquerda, navegue até **subscrições** > **_\<subscrição\_nome_**   >  **resourceGroups** > _**\<recursos\_grupo\_nome >**_   >  **provedores** > **Microsoft. Web** > **sites** > _**\<aplicação \_name >**_ > **config** > **authsettings**. 
+    2. No navegador à esquerda, navegue até **subscrições** >   ** _\<subscrição\_nome_**   >  **resourceGroups** >  _ **\<recursos\_grupo\_nome >** _   >  **provedores** > **Microsoft. Web** > **sites** >  _ **\<aplicação \_name >** _ > **config** > **authsettings**. 
     3. Clique em **Editar**.
     4. Modifique a seguinte propriedade. Substitua  _\<aplicação\_id >_ com o ID da aplicação do Azure Active Directory do serviço pretende aceder.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Account da Microsoft e do Azure Active Directory permite-lhe iniciar sessão a partir de vários domínios. Por exemplo, permite que a Microsoft Account _outlook.com_, _live.com_, e _hotmail.com_ contas. O Azure Active Directory permite que qualquer número de domínios personalizados para as contas de início de sessão. Esse comportamento pode ser indesejável para uma aplicação interna, que não pretende qualquer pessoa com uma _outlook.com_ para acesso da conta. Para limitar o nome de domínio das contas de início de sessão, siga estes passos.
 
-Na [ https://resources.azure.com ](https://resources.azure.com), navegue até à **subscrições** > **_\<subscrição\_nome_**   >  **resourceGroups** > _**\<recursos\_grupo\_nome >**_   >  **fornecedores** > **Microsoft. Web** > **sites**  >    _**\<app\_nome >**_ > **config** > **authsettings**. 
+Na [ https://resources.azure.com ](https://resources.azure.com), navegue até à **subscrições** >   ** _\< subscrição\_ nome_**   >  **resourceGroups** >  _ **\< recursos\_ grupo\_ nome >** _   >  **fornecedores** > **Microsoft. Web** > **sites**  >    _ **\< app\_ nome >** _ > **config** > **authsettings**. 
 
 Clique em **edite**, modifique a seguinte propriedade e, em seguida, clique em **colocar**. Não se esqueça de substituir  _\<domínio\_name >_ com o domínio que pretende.
 

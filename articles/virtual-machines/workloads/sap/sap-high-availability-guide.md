@@ -18,19 +18,19 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204927"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver
 
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -189,7 +189,7 @@ Estes artigos abrangem implementações de SAP no Azure:
 
 Estas notas de SAP estão relacionadas ao tópico de SAP no Azure:
 
-| Número de nota | Título |
+| Número de nota | Cargo |
 | --- | --- |
 | [1928533] |Aplicações de SAP no Azure: Produtos suportados e o dimensionamento |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -742,7 +742,7 @@ Se pretender utilizar números diferentes para as instâncias de SAP ASCS ou SCS
 2. Todas as regras que pertencem à instância do SAP ASCS ou SCS de balanceamento de carga, altere estes valores:
 
    * Name
-   * Porta
+   * Port
    * Porta de back-end
 
    Por exemplo, se pretender alterar o número de instância do ASCS predefinido de 00 e 31, terá de efetuar as alterações para todas as portas listadas na tabela 1.
@@ -767,7 +767,7 @@ O Balanceador de carga do Azure tem um balanceador de carga interno que fecha li
 
 Para adicionar entradas de Registro em ambos os nós de cluster da instância do SAP ASCS/SCS, primeiro, adicione estas entradas de Registro do Windows em ambos os nós de cluster do Windows para o SAP ASCS/SCS:
 
-| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -778,7 +778,7 @@ _**Tabela 3:** Alterar o primeiro parâmetro de TCP/IP_
 
 Em seguida, adicione este entradas de Registro do Windows em ambos os nós de cluster do Windows para o SAP ASCS/SCS:
 
-| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -901,7 +901,7 @@ Configurar um testemunho de partilha de ficheiros do cluster envolve estas taref
 
    _**Figura 30:** Atribuir as permissões na partilha para o objeto de nome de cluster_
 
-   Certifique-se de que as permissões de incluam a autoridade para alterar os dados na partilha para o objeto de nome de cluster (no nosso exemplo, **pr1-ascs-vir$**).
+   Certifique-se de que as permissões de incluam a autoridade para alterar os dados na partilha para o objeto de nome de cluster (no nosso exemplo, **pr1-ascs-vir$** ).
 
 3. Para adicionar o objeto de nome do cluster à lista, selecione **adicionar**. Altere o filtro para verificar a existência de objetos de computador, para além dos mostrado na figura 31.
 
@@ -1133,7 +1133,7 @@ A instalação de SAP com uma instância do ASCS/SCS de elevada disponibilidade 
 1. No Gestor de DNS do Windows, crie uma entrada DNS para o nome de anfitrião virtual de instância do ASCS/SCS.
 
    > [!IMPORTANT]
-   > O endereço IP que atribuir como o nome de anfitrião virtual de instância do ASCS/SCS tem de ser o mesmo que o endereço IP que atribuiu ao balanceador de carga do Azure (**<*SID*> - lb - ascs**).  
+   > O endereço IP que atribuir como o nome de anfitrião virtual de instância do ASCS/SCS tem de ser o mesmo que o endereço IP que atribuiu ao balanceador de carga do Azure ( **<*SID*> - lb - ascs**).  
    >
    >
 
@@ -1335,7 +1335,7 @@ O **SAP PR1** grupo de cluster está em execução no nó de cluster A. Por exem
 
 _**Figura 61:** Gestor de clusters de ativação pós-falha: O SAP <*SID*> grupo de cluster está em execução no nó de cluster A_
 
-Na ferramenta de configuração e gerenciamento do SIOS DataKeeper, pode ver que os dados de disco partilhado são replicados sincronizadamente da unidade de volume de origem S no nó de cluster A para a unidade do volume de destino S no nó de cluster B. Por exemplo, são replicado desde **pr1-ascs-0 [10.0.0.40]** ao **pr1-ascs-1 [10.0.0.41]**.
+Na ferramenta de configuração e gerenciamento do SIOS DataKeeper, pode ver que os dados de disco partilhado são replicados sincronizadamente da unidade de volume de origem S no nó de cluster A para a unidade do volume de destino S no nó de cluster B. Por exemplo, são replicado desde **pr1-ascs-0 [10.0.0.40]** ao **pr1-ascs-1 [10.0.0.41]** .
 
 ![Figura 62: No SIOS DataKeeper, replicar o volume local do nó de cluster A para o nó de cluster B][sap-ha-guide-figure-5001]
 
@@ -1364,7 +1364,7 @@ _**Figura 62:** No SIOS DataKeeper, replicar o volume local do nó de cluster A 
 
    _**Figura 63**: Na ativação pós-falha Gestor de clusters, o SAP <*SID*> grupo de cluster está em execução no nó de cluster B_
 
-   O disco partilhado está agora montado num cluster de nó B. o SIOS DataKeeper é replicar os dados da unidade de volume de origem S no nó de cluster B para unidade de volume de destino S no nó de cluster A. Por exemplo, está a replicar partir **pr1-ascs-1 [10.0.0.41]** ao **pr1-ascs-0 [10.0.0.40]**.
+   O disco partilhado está agora montado num cluster de nó B. o SIOS DataKeeper é replicar os dados da unidade de volume de origem S no nó de cluster B para unidade de volume de destino S no nó de cluster A. Por exemplo, está a replicar partir **pr1-ascs-1 [10.0.0.41]** ao **pr1-ascs-0 [10.0.0.40]** .
 
    ![Figura 64: O SIOS DataKeeper replica o volume local a partir do nó de cluster B para um nó de cluster][sap-ha-guide-figure-5003]
 

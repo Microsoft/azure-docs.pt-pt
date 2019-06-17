@@ -8,10 +8,10 @@ ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64713491"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache HBase com o Azure HDInsight
@@ -219,7 +219,7 @@ Para ligar ao Apache Phoenix, tem de fornecer o endereço IP de um nó ativo do 
    ```
 
    > [!Note] 
-   > Pode obter o endereço IP do nó ativo do ZooKeeper da IU do Ambari. Aceda a **HBase** > **ligações rápidas** > **ZK\* (Active Directory)** > **Zookeeper informações**. 
+   > Pode obter o endereço IP do nó ativo do ZooKeeper da IU do Ambari. Aceda a **HBase** > **ligações rápidas** > **ZK\* (Active Directory)**  > **Zookeeper informações**. 
 
 3. Se o sqlline.py liga-se a Phoenix e faz não tempo limite, execute o seguinte comando para validar a disponibilidade e o estado de funcionamento do Phoenix:
 
