@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60794026"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego do Azure Maps
@@ -33,7 +33,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 |México     |✓         |✓         |
 |Peru       |✓         |✓         | 
 |Estados Unidos     |✓         |✓        |
-|+ Porto Rico     |✓         |✓         |
+|\+ Porto Rico     |✓         |✓         |
 |Uruguai |✓         |✓         |
 
 
@@ -46,7 +46,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 |RAE de Hong Kong     |✓         |✓         |
 |Índia   |✓         |✓         |
 |Indonésia     |✓         |✓         |
-|R.A.E. de Macau     |✓         |✓         |
+|RAE de Macau     |✓         |✓         |
 |Malásia     |✓         |✓         |
 |Nova Zelândia     |✓         |✓         |
 |Filipinas  |✓         |✓         |
@@ -69,7 +69,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 |Dinamarca     |✓         |✓         |
 |Estónia     |         | ✓        |
 |Finlândia     |✓         |✓         |
-|+ Ilhas Alanda      |✓         |✓         |
+|\+ Ilhas Alanda      |✓         |✓         |
 |França     |✓         |✓         |
 |Mónaco     |✓         |✓         |
 |Alemanha     |✓         |✓         |
@@ -89,15 +89,15 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 |Noruega     |✓         |✓         |
 |Polónia     |✓         |✓         |
 |Portugal     |✓         |✓         |
-|+ Açores e Madeira     |✓         |✓         |
+|\+ Açores e Madeira     |✓         |✓         |
 |Roménia     |✓         |✓         |
 |Federação Russa     |✓         |✓         |
-|São Marino    |✓         |✓         |
+|San Marino    |✓         |✓         |
 |Eslováquia     |✓         |✓         |
 |Eslovénia     |✓         |✓         |
 |Espanha     |✓         |✓         |
 |+Andorra     |✓         |✓         |
-|+ Ilhas de Balearic     |✓         |✓         |
+|\+ Ilhas de Balearic     |✓         |✓         |
 |+: Ilhas Canárias     |✓         |✓         |
 |Suécia     |✓         |✓         |
 |Suíça     |✓         |✓        |
@@ -106,7 +106,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 |Reino Unido     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
 |+Guernsey & Jersey     |✓         |✓         |
-|+ Ilha de Man     |✓         |✓         |
+|\+ Ilha de Man     |✓         |✓         |
 |Cidade do Vaticano   |✓         |✓         |
 
 

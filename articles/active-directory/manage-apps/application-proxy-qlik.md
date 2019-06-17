@@ -15,10 +15,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65859544"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicações e Qlik Sense 
@@ -52,11 +52,11 @@ Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a p
 ### <a name="application-2"></a>Aplicação #2: 
 Siga os passos como para a aplicação de n. º 1, com as seguintes exceções: 
 
-**Passo 5 de #**: O URL interno agora deve ser o URL de QlikSense com a porta de autenticação utilizada pela aplicação. A predefinição é **4244** para HTTPS e 4248 para HTTP. Ex: **https&#58;//demo.qlik.com:4244**</br></br> 
+**Passo 5 de #** : O URL interno agora deve ser o URL de QlikSense com a porta de autenticação utilizada pela aplicação. A predefinição é **4244** para HTTPS e 4248 para HTTP. Ex: **https&#58;//demo.qlik.com:4244**</br></br> 
 **Passo #10:** Não configurar o SSO e deixe o **início de sessão único desativado**
  
  
-## <a name="testing"></a>A testar 
+## <a name="testing"></a>Testes 
 Está agora pronto para testar seu aplicativo. O URL externo que utilizou para publicar QlikSense na aplicação de n. º 1 e o início de sessão como um utilizador atribuído a ambas as aplicações de acesso.  
 
 ## <a name="additional-references"></a>Referências adicionais

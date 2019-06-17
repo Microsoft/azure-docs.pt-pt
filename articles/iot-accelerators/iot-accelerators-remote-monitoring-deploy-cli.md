@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61447017"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota com a CLI
@@ -68,7 +68,7 @@ A implementação Básica destina-se a demonstrar a solução. Para reduzir os c
 
 Uma implementação básica cria os seguintes serviços na sua subscrição do Azure:
 
-| Contagem | Recurso                       | Type         | Utilizado para |
+| Count | Resource                       | Tipo         | Utilizado para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual do Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Alojamento de microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – escalão Standard | Gestão de dispositivos e a comunicação |
@@ -89,7 +89,7 @@ Uma implementação padrão é uma implementação de prontos para produção qu
 
 Uma implementação padrão cria os seguintes serviços na sua subscrição do Azure:
 
-| Contagem | Recurso                                     | SKU / tamanho      | Utilizado para |
+| Count | Resource                                     | SKU / tamanho      | Utilizado para |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Serviço Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Utilizar um serviço totalmente gerido Kubernetes contentor orquestração, a predefinição é 3 agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – escalão Standard | Gestão de dispositivos, comando e controlo |

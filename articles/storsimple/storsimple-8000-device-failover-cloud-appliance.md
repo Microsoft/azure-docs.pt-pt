@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584446"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Ativação pós-falha para a aplicação da Cloud do StorSimple
@@ -46,15 +46,15 @@ Execute os seguintes passos para restaurar o dispositivo para um destino StorSim
     ![Selecione o dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Selecione e clique no seu dispositivo de origem. O dispositivo de origem tem os contentores de volumes que pretende efetuar a ativação pós-falha. Aceda a **definições > contentores de volumes**.
 
-    ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
+    ![Selecione o dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
 4. Selecione um contentor de volumes que pretende efetuar a ativação pós-falha para outro dispositivo. Clique no contentor de volumes para apresentar a lista de volumes dentro deste contentor. Selecione um volume, o botão direito do mouse e clique em **tirar Offline** para colocar o volume offline.
 
-    ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
+    ![Selecione o dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
 5. Repita este processo para todos os volumes no contentor de volume.
 
-     ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
+     ![Selecione o dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
 6. Repita o passo anterior para todos os contentores de volume para efetuar a ativação pós-falha para outro dispositivo.
 
@@ -81,7 +81,7 @@ Execute os seguintes passos para restaurar o dispositivo para um destino StorSim
 
     1. Selecione o dispositivo que foi utilizado como destino para a ativação pós-falha.
 
-       ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selecione o dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Clique em **contentores de volumes**. Todos os contentores de volumes, juntamente com os volumes do dispositivo antigo, deverá ser listados.
 

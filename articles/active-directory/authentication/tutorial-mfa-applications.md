@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fdf88ed6cedaa38676a56536ff1eda7ee6bca66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a229eef3d49964e71becf066d67f60b18da6fc18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413969"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113250"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir uma implementação piloto do Azure multi-factor Authentication
 
-Neste tutorial, iremos explicar como configurar uma política de acesso condicional ao ativar o Multi-Factor Authentication do Azure (MFA do Azure) ao iniciar sessão no portal do Azure. A política é implementada e testada num grupo específico de utilizadores piloto. A implementação do MFA do Azure através do acesso condicional proporciona uma flexibilidade significativa para as organizações e os administradores em comparação com o método tradicional imposto.
+Neste tutorial, explica como configurar uma política de acesso condicional ativar multi-factor Authentication (MFA do Azure) ao iniciar sessão portal do Azure. A política é implementada e testada num grupo específico de utilizadores piloto. Implementação do MFA do Azure através do acesso condicional proporciona uma flexibilidade significativa para as organizações e os administradores em comparação comparados o método tradicional de imposto.
 
 > [!div class="checklist"]
 > * Ativar a Multi-Factor Authentication do Azure
@@ -36,7 +36,7 @@ Neste tutorial, iremos explicar como configurar uma política de acesso condicio
 ## <a name="enable-azure-multi-factor-authentication"></a>Ativar a Multi-Factor Authentication do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador Global.
-1. Procure **Azure Active Directory**, **Acesso condicional**
+1. Navegue até **do Azure Active Directory**, **acesso condicional**
 1. Selecione **Nova política**
 1. Nomeie a sua política **Piloto de MFA**
 1. Sob **utilizadores e grupos**, selecione o botão de opção **Selecionar utilizadores e grupos**
@@ -52,11 +52,11 @@ Neste tutorial, iremos explicar como configurar uma política de acesso condicio
     * Clique em **Selecionar**
 1. Ignore a secção **Sessão**
 1. Defina o botão de alternar **Ativar política** para **Ativado**
-1. Clique em **Criar**.
+1. Clique em **Criar**
 
 ## <a name="test-azure-multi-factor-authentication"></a>Testar Multi-Factor Authentication do Azure
 
-Para provar que a sua política de acesso condicional funciona, teste o início de sessão num recurso que não deve exigir a MFA e, em seguida, no portal do Azure que exige MFA.
+Para provar que a sua política de acesso condicional funciona, testar o início de sessão num recurso que não deve exigir a MFA e, em seguida, no portal do Azure que requer MFA.
 
 1. Abra uma nova janela de browser no modo InPrivate ou incógnito e navegue para [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
    * Inicie sessão com o utilizador de teste criado como parte da secção de pré-requisitos deste artigo e tenha em atenção que ele não lhe deve pedir para concluir a MFA.
@@ -70,7 +70,7 @@ Para provar que a sua política de acesso condicional funciona, teste o início 
 Se decidir que já não quer utilizar a funcionalidade que configurou como parte deste tutorial, faça a alteração seguinte.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Procure **Azure Active Directory**, **Acesso condicional**
+1. Navegue até **do Azure Active Directory**, **acesso condicional**.
 1. Selecione a política de acesso condicional que criou.
 1. Clique em **Eliminar**.
 

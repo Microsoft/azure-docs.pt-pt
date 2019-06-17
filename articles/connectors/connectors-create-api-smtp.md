@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62106155"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Enviar um e-mail da sua conta SMTP com o Azure Logic Apps
@@ -47,7 +47,7 @@ Com o Azure Logic Apps e o conector de protocolo de transferência de correio si
 1. No último passo para adicionar uma ação de SMTP onde pretende, escolha **novo passo**. 
 
    Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
 1. Na caixa de pesquisa, introduza "smtp" como o filtro. Abaixo da lista de ações, selecione a ação que pretende.
 

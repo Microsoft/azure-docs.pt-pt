@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b14dcb5f5af971b10c83ea7fd9064a08cde3ab35
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1858b3e8d659d8810c54cab96566d03c24c92adf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111283"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemplos de código do Azure Active Directory (v1.0 ponto final)
 
@@ -86,9 +86,9 @@ Mobile (UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)
 Móveis (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interativo | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Móveis (Android)           | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interativo |   [android](https://github.com/Azure-Samples/active-directory-android) |
 Móveis (iOS)           | ![iOS / Objective C ou swift](media/sample-v2-code/logo_iOS.png) | Interativo |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-Ambiente de trabalho (consola)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Nome de utilizador / palavra-passe </p>  Autenticação Integrada do Windows | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Ambiente de trabalho (consola)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Nome de utilizador / palavra-passe </p>  Autenticação integrada do Windows | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Ambiente de trabalho (consola)          | ![Consola de Java](media/sample-v2-code/logo_Java.png) | Nome de utilizador / palavra-passe | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Ambiente de trabalho (consola)           | ![.NET core / c#](media/sample-v2-code/logo_NETcore.png) | Fluxo de código do dispositivo | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Ambiente de trabalho (consola)           | ![.NET core / c#](media/sample-v2-code/logo_NETcore.png) | Fluxo de código de dispositivo | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Aplicações daemon (aceder a APIs da Web com a identidade da aplicação)
 

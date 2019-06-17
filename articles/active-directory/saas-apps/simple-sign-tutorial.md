@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc90c88d2d5b7381e3c79417b643a048d76339a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 8f175573d7be7f5b82f27762892b4e687548b183
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090863"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simple-sign"></a>Tutorial: Integração do Active Directory do Azure com início de sessão simples
 
@@ -54,7 +54,7 @@ Para configurar a integração de início de sessão simples no Azure AD, terá 
 
 **Para adicionar início de sessão simples a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no início de sessão simples. Trabalhar com [equipa de suporte de início de sessão simples](mailto:info@simplesign.io) para adicionar os utilizadores na plataforma do início de sessão simples. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

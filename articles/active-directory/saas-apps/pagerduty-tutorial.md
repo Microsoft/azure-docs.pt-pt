@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ded5854c5e669ab1982641169f13a9cb400d5d6d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b7a522aaf35303bbd87e7aafe65b1302f1b98bc0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891445"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: Integração do Active Directory do Azure com PagerDuty
 
@@ -53,7 +53,7 @@ Para configurar a integração do PagerDuty no Azure AD, terá de adicionar Page
 
 **Para adicionar PagerDuty a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -236,7 +236,7 @@ No caso do PagerDuty, aprovisionamento é uma tarefa manual.
     >[!NOTE]
     >Todos os utilizadores adicionados irão receber um convite para criar uma conta do PagerDuty.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

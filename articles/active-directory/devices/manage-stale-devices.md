@@ -17,12 +17,12 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c4aa4d3a4425c93cb495d27d0fe38d329ddea7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c61c62555b3712983d7eb5c1478ed193730ed9b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110580"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos obsoletos no Azure AD
 
@@ -54,7 +54,7 @@ Uma vez que os dispositivos obsoletos são definidos como dispositivos registado
 
 A avaliação do carimbo de data/hora da atividade é acionado por uma tentativa de autenticação de um dispositivo. O Azure AD avalia o carimbo de data/hora da atividade quando:
 
-- for acionada uma política de acesso condicional que exija [dispositivos geridos](../conditional-access/require-managed-devices.md) ou [aplicações cliente aprovadas](../conditional-access/app-based-conditional-access.md).
+- Uma necessidade de políticas de acesso condicional [dispositivos geridos](../conditional-access/require-managed-devices.md) ou [aplicações de cliente aprovadas](../conditional-access/app-based-conditional-access.md) foi acionada.
 
 - Os dispositivos Windows 10 associados ao Azure AD ou associados ao Azure AD híbrido estiverem ativos na rede. 
 

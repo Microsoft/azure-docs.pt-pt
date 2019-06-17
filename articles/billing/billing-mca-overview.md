@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60371469"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Introdução à sua conta de cobrança para um contrato de cliente da Microsoft
@@ -56,10 +56,10 @@ Pode ver a nota fiscal, transferir os documentos e alterar a definição para ob
 
 Cada perfil de Faturação tem seus próprios métodos de pagamento que são utilizados para pagar seus notas fiscais. Os seguintes métodos de pagamento são suportados:
 
-| Type             | Definição  |
+| Tipo             | Definição  |
 |------------------|-------------|
 |Créditos do Azure    |  Os créditos são aplicados automaticamente para a quantidade total de faturação na sua fatura para calcular a quantidade que terá de pagar. Para obter mais informações, consulte [acompanhar o saldo do crédito do Azure para o seu perfil de faturação](billing-mca-check-azure-credits-balance.md). |
-|Cheque ou transferência bancária | Pode pagar a quantia devida obter a fatura por meio de verificação ou durante a transmissão de transferência. As instruções de pagamento recebem da nota fiscal |
+|Transferência de verificação ou durante a transmissão | Pode pagar a quantia devida obter a fatura por meio de verificação ou durante a transmissão de transferência. As instruções de pagamento recebem da nota fiscal |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>Compras de controlo do Azure Marketplace e reserva ao aplicar políticas
 
@@ -71,8 +71,8 @@ Os planos do Azure são ativados automaticamente quando cria um perfil de fatura
 
 | Planear             | Definição  |
 |------------------|-------------|
-|Plano do Microsoft Azure   | Permitir aos utilizadores criar subscrições que podem ser executadas quaisquer cargas de trabalho. Para obter mais informações, consulte [plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Plano do Microsoft Azure para Programador/Teste | Permitir que os subscritores do Visual Studio criar as subscrições que estão limitadas para desenvolvimento ou teste de cargas de trabalho. Estas subscrições obtém benefícios, como as menores taxas e acesso a imagens de máquina de virtual exclusivo no portal do Azure. Para obter mais informações, consulte [plano do Microsoft Azure para Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Microsoft Azure Plan   | Permitir aos utilizadores criar subscrições que podem ser executadas quaisquer cargas de trabalho. Para obter mais informações, consulte [plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
+|Plano do Microsoft Azure para programação/teste | Permitir que os subscritores do Visual Studio criar as subscrições que estão limitadas para desenvolvimento ou teste de cargas de trabalho. Estas subscrições obtém benefícios, como as menores taxas e acesso a imagens de máquina de virtual exclusivo no portal do Azure. Para obter mais informações, consulte [plano do Microsoft Azure para Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Compreender as secções de nota fiscal
 
@@ -85,7 +85,7 @@ Funções na seção de nota fiscal de ter permissões para controlar quem cria 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
 

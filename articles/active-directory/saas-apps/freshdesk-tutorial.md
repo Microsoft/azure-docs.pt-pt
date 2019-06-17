@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bdeecc5682eb09ac0a65d3834ad1770258c4e0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Active Directory do Azure com o FreshDesk
 
@@ -53,7 +53,7 @@ Para configurar a integração do FreshDesk no Azure AD, terá de adicionar Fres
 
 **Para adicionar FreshDesk a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -120,7 +120,7 @@ Para configurar o Azure AD início de sessão único com o FreshDesk, execute os
     
     | Name | Atributo de origem |
     | ---------------| --------------- |
-    | Identificador de Utilizador Exclusivo | user.mail |
+    | Identificador exclusivo do utilizador | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -171,7 +171,7 @@ Para configurar o Azure AD início de sessão único com o FreshDesk, execute os
 
     ![Início de sessão único](./media/freshdesk-tutorial/IC776770.png "início de sessão único")
   
-    a. Para **único início de sessão (SSO)**, selecione **no**.
+    a. Para **único início de sessão (SSO)** , selecione **no**.
 
     b. Selecione **SAML SSO**.
 
@@ -273,7 +273,7 @@ No caso do FreshDesk, aprovisionamento é uma tarefa manual.
     >[!NOTE]
     >Pode utilizar quaisquer outras Freshdesk utilizador conta criação ferramentas ou APIs fornecidas pelo Freshdesk para aprovisionar contas de utilizador do AAD para o FreshDesk.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

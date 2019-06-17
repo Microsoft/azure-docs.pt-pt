@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
 ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951493"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introdução às tabelas temporais na base de dados SQL do Azure

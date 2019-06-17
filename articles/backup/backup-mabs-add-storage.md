@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
 ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60813000"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server

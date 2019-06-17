@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712235"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Descrição geral das zonas e registos DNS
 
@@ -28,7 +28,7 @@ Esta página explica os conceitos chave dos domínios, zonas DNS e registos DNS 
 
 ## <a name="domain-names"></a>Nomes de domínio
 
-O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio “raiz”, cujo nome é simplesmente “**.**”.  Abaixo deste domínio, surgem os domínios de nível superior, como “com”, “net”, “org”, “pt” ou “fr”.  Abaixo destes, estão os domínios de segundo nível, tais como “org.pt” ou “co.uk”. Os domínios na hierarquia de DNS são distribuídos globalmente, alojadas por servidores de nome DNS em todo o mundo.
+O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa a partir do domínio “raiz”, cujo nome é simplesmente “ **.** ”.  Abaixo deste domínio, surgem os domínios de nível superior, como “com”, “net”, “org”, “pt” ou “fr”.  Abaixo destes, estão os domínios de segundo nível, tais como “org.pt” ou “co.uk”. Os domínios na hierarquia de DNS são distribuídos globalmente, alojadas por servidores de nome DNS em todo o mundo.
 
 Uma entidade de registo de nome de domínio é uma organização que permite-lhe comprar um nome de domínio, como "contoso.com".  Comprar um nome de domínio dá-lhe o direito de controlar a hierarquia DNS com esse nome, por exemplo permitindo-lhe direcionar o nome "www.contoso.com" para o web site da sua empresa. A entidade de registo pode alojar o domínio no seus próprio servidores de nomes em seu nome ou permitem-lhe especificar os servidores de nome alternativo.
 
@@ -111,7 +111,7 @@ Várias cadeias de caracteres num registro DNS não devem ser confundidas com os
 
 ## <a name="tags-and-metadata"></a>As etiquetas e metadados
 
-### <a name="tags"></a>Etiquetas
+### <a name="tags"></a>Tags
 
 As etiquetas são uma lista de pares nome-valor e são utilizadas pelo Azure Resource Manager para recursos de etiquetas.  O Azure Resource Manager utiliza etiquetas para permitir exibições filtradas da fatura do Azure e também permite-lhe definir uma política em que as etiquetas são necessárias. Para obter mais informações sobre etiquetas, consulte [Utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -134,7 +134,7 @@ Ao nível da API de REST do DNS do Azure, Etags são especificadas usando os cab
 | Cabeçalho | Comportamento |
 | --- | --- |
 | Nenhuma |PUT sempre for concluída com êxito (sem verificações de Etag) |
-| If-match <etag> |PUT apenas é bem-sucedida se o recurso existe e Etag corresponder à |
+| If-match \<etag> |PUT apenas é bem-sucedida se o recurso existe e Etag corresponder à |
 | If-match * |PUT apenas é bem-sucedida se o recurso existe |
 | IF-none-match * |PUT apenas é bem-sucedida se o recurso não existe |
 

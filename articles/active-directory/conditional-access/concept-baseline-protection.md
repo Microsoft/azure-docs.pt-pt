@@ -1,5 +1,5 @@
 ---
-title: Políticas de proteção de linha de base do acesso condicional - Azure Active Directory
+title: Linha de base proteção políticas de acesso condicional - Azure Active Directory
 description: Políticas de acesso condicional de linha de base para proteger as organizações de ataques comuns
 services: active-directory
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca062f4024bb5b0946812e00c8ccc1254b56d333
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112595"
 ---
 # <a name="what-are-baseline-policies"></a>Quais são as políticas de linha de base?
 
 As políticas de linha de base são um conjunto de políticas predefinidas que o ajudam a proteger as organizações contra muitos ataques comuns. Esses ataques comuns podem incluir spray de palavra-passe, reprodução e phishing. Políticas de linha de base estão disponíveis em todas as edições do Azure AD. Microsoft está a disponibilizar estas políticas de proteção de linha de base para todos os utilizadores porque ataques baseados na identidade tem sido a aumentar ao longo dos últimos anos. O objetivo dessas diretivas quatro é garantir que todas as organizações têm um nível de linha de base de segurança ativada em nenhum custos adicionais.  
 
-A gestão de políticas de acesso condicional personalizada requer uma licença do Azure AD Premium.
+A gestão de políticas de acesso condicional personalizadas requer uma licença do Azure AD Premium.
 
 ## <a name="baseline-policies"></a>Políticas de linha de base
 
@@ -43,13 +43,13 @@ Devido ao poder e o acesso que as contas de administrador, deve tratá-los com c
 
 [Exigir a MFA para os administradores](howto-baseline-protect-administrators.md) é uma política de linha de base que requer autenticação multifator (MFA) para as seguintes funções de diretório, consideradas as mais privilegiadas funções do Azure AD:
 
-* Administrador Global
-* Administrator do SharePoint
+* Administrador global
+* Administrador do SharePoint
 * Administrador do Exchange
 * Administrador de acesso condicional
 * Administrador de segurança
 * Administrador de suporte técnico / administrador da palavra-passe
-* Administrador de Faturação
+* Administrador de faturação
 * Administrador de utilizadores
 
 Se sua organização tiver estas contas em uso em scripts ou código, considere substituí-los com [geridos identidades](../managed-identities-azure-resources/overview.md). Como solução temporária, pode excluir contas de usuários específicos da política de linha de base.

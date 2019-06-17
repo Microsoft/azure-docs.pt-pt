@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff1d9089f3fb2f3ebf3022b54c442e8338ab983b
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 084a045fda66087b657f26679ab1926fa3611cb8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Tutorial: Integração do Active Directory do Azure com Edcor
 
@@ -54,7 +54,7 @@ Para configurar a integração do Edcor com o Azure AD, terá de adicionar Edcor
 
 **Para adicionar Edcor a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -181,7 +181,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Edcor. Trabalhar com [equipa de suporte de Edcor](https://www.edcor.com/contact-us/) para adicionar os utilizadores na plataforma Edcor. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

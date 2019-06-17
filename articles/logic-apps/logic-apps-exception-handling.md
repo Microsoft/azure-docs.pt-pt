@@ -11,10 +11,10 @@ ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996605"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Lidar com erros e exceções no Azure Logic Apps

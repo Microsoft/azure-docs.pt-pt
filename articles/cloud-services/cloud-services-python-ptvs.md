@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125445"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções da Web e de trabalho do Python com Ferramentas de Python para Visual Studio
@@ -36,7 +36,7 @@ Este artigo fornece uma descrição geral da utilização de funções da Web e 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>O que são as funções da Web e de trabalho do Python?
-O Azure fornece três modelos de computação para executar aplicações: [Funcionalidade de aplicações Web no serviço de aplicações do Azure][execution model-web sites], [máquinas virtuais do Azure][execution model-vms], e [serviços Cloud do Azure] [execution model-cloud services]. Os três modelos suportam o Python. Os Cloud Services, que incluem funções da Web e de trabalho, fornecem uma *Plataforma como Serviço (PaaS)*. Dentro de um serviço cloud, uma função da Web fornece um servidor Web de Serviços de Informação Internet (IIS) dedicado para alojar as aplicações Web front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de execução longa ou perpétuas, independentes da interação ou intervenção do utilizador.
+O Azure fornece três modelos de computação para executar aplicações: [Funcionalidade de aplicações Web no serviço de aplicações do Azure][execution model-web sites], [máquinas virtuais do Azure][execution model-vms], e [serviços Cloud do Azure] [execution model-cloud services]. Os três modelos suportam o Python. Os Cloud Services, que incluem funções da Web e de trabalho, fornecem uma *Plataforma como Serviço (PaaS)* . Dentro de um serviço cloud, uma função da Web fornece um servidor Web de Serviços de Informação Internet (IIS) dedicado para alojar as aplicações Web front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de execução longa ou perpétuas, independentes da interação ou intervenção do utilizador.
 
 Para obter mais informações, consulte [O que é um Serviço em Nuvem?].
 

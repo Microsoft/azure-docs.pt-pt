@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a1b0763e33607367939476ca155040295de864c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 255af92dfecdf891568d7d57c17512bb178a51e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281537"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105568"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integração do Active Directory do Azure com o guarda-chuva de Cisco
 
@@ -53,7 +53,7 @@ Para configurar a integração de síntese da Cisco para o Azure AD, terá de ad
 
 **Para adicionar Cisco guarda-chuva a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

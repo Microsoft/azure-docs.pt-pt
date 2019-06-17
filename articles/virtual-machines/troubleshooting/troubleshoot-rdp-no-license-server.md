@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318957"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Servidor de licenças de ambiente de trabalho remoto não está disponível quando se liga a uma VM do Azure
@@ -63,7 +63,7 @@ Para resolver este problema, [cópia de segurança de disco do SO](../windows/sn
 
     Se não conseguir ligar à VM através de uma sessão administrativa, pode utilizar o [consola de série de Máquina Virtual no Azure](serial-console-windows.md) para aceder à VM da seguinte forma:
 
-    1. Aceder à consola de série, selecionando **suporte e resolução de problemas** > **consola de série (pré-visualização)**. Se a funcionalidade está ativada na VM, pode ligar a VM com êxito.
+    1. Aceder à consola de série, selecionando **suporte e resolução de problemas** > **consola de série (pré-visualização)** . Se a funcionalidade está ativada na VM, pode ligar a VM com êxito.
 
     2. Crie um novo canal para uma instância CMD. Introduza **CMD** para iniciar o canal e obter o nome do canal.
 
@@ -127,6 +127,6 @@ Para resolver este problema, [cópia de segurança de disco do SO](../windows/sn
 
 4. Se um servidor de licenças de ambiente de trabalho remoto está configurado e em bom estado, certifique-se de que o servidor de licenças de ambiente de trabalho remoto está ativado com CALs.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema.

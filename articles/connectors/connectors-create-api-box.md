@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 971d38fa0fbd47f0deb815577033bbe684aac32f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60312581"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Criar e gerenciar arquivos na caixa de com o Azure Logic Apps

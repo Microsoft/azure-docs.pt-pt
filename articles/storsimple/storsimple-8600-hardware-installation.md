@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630942"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Descompactar,-montar, em bastidor e instalar os cabos do dispositivo StorSimple 8600
@@ -46,7 +46,7 @@ Em seguida, conclua os seguintes passos para descompactar o seu dispositivo.
    
     **Vista descompactada do seu dispositivo de armazenamento**
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    | --- | --- |
    |   1 |Caixa de remessa |
    |   2 |Cabos SAS (na Bandeja de acessórios e cabos) |
@@ -110,7 +110,7 @@ Um conjunto de montar rails será fornecido para utilização com o CAB de basti
    
     **Anexar slides do rail para os lados do bastidor**
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    | --- | --- |
    |  1 |M 3 x 4 screws de cabeça de botão |
    |  2 |Slides de chassis |
@@ -123,7 +123,7 @@ Um conjunto de montar rails será fornecido para utilização com o CAB de basti
    
     **Anexar o assemblies do rail rack**
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    | --- | --- |
    |   1 |Afixação screw |
    |   2 |Bastidor de front-quadrado buraco post screw |
@@ -149,7 +149,7 @@ Utilizar os rails rack que apenas foram instalados, execute os seguintes passos 
    
     **Instalar os limites de flange**
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    | --- | --- |
    |   1 |Screw fastening de bastidor |
 
@@ -202,7 +202,7 @@ Para suportar esta ativação pós-falha de controlador redundantes, terá de in
    
     **Volta do seu dispositivo a mostrar as portas de dados**
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -213,12 +213,12 @@ Para suportar esta ativação pós-falha de controlador redundantes, terá de in
 
 **Cablagem para o seu dispositivo de rede**
 
-| Label | Descrição |
+| Etiqueta | Descrição |
 | --- | --- |
 | A |Rede local com acesso à Internet |
-| B |Controlador 0 |
+| B |Controlador 0 |
 | C |PCM 0 |
-| D |Controlador 1 |
+| D |Controlador 1 |
 | E |PCM 1 |
 | F |Controlador 0 de EBOD |
 | G |1 o controlador de EBOD |
@@ -252,7 +252,7 @@ Execute os seguintes passos para instalar os cabos sua porta serial.
 4. Instale os controladores de USB de série (foi fornecidos com o dispositivo) no seu computador.
 5. Configure a conexão serial da seguinte forma:
    
-   * 115.200 bauds
+   * 115\.200 bauds
    * bits de 8 dados
    * bits de 1 paragem
    * Não existem paridade

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
 ms.openlocfilehash: 297a6f9058b220d1f2e3a0ca69d018858218b774
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65909717"
 ---
 # <a name="your-marketplace-benefits"></a>Os benefícios do Marketplace

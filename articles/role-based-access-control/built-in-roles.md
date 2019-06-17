@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
 ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755120"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
@@ -190,7 +190,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Permite-lhe ver tudo, mas não faça quaisquer alterações. |
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | **NotActions** |  |
 > | *Nenhum* |  |
 > | **DataActions** |  |
@@ -1578,7 +1578,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Contribuidor do log Analytics pode ler todos os dados de monitorização e editar as definições de monitorização. Editar definições de monitorização inclui adicionar a extensão VM para VMs; ler as chaves de conta de armazenamento para poder configurar a recolha de registos do armazenamento do Azure; criar e configurar contas de automatização; Adicionar soluções; e configurar os diagnósticos do Azure em todos os recursos do Azure. |
 > | **Id** | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Automation/automationAccounts/* |  |
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lista as chaves de acesso para as contas de armazenamento. |
@@ -1605,7 +1605,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Leitor do log Analytics pode ver e procurar todos os dados de monitorização e como e vista de definições, incluindo ver a configuração dos diagnósticos do Azure em todos os recursos do Azure de monitorização. |
 > | **Id** | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Usando o novo mecanismo de pesquisa. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
@@ -1687,7 +1687,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Permite-lhe ler e executar ações nos recursos de aplicação gerida |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Solutions/applications/read | Obtém uma lista de aplicativos. |
 > | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
@@ -1704,7 +1704,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Permite-lhe ler os recursos de acesso JIT gerido de aplicação e a pedido. |
 > | **Id** | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Solutions/jitRequests/* |  |
 > | **NotActions** |  |
@@ -1798,7 +1798,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Pode ler todos os dados de monitorização e editar as definições de monitorização. Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
@@ -1853,7 +1853,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Pode ler todos os dados de monitorização (métricas, registos, etc.). Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **NotActions** |  |
@@ -1950,7 +1950,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | (Pré-visualização) Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recursos, criar pedido de suporte e leem recursos/hierarquia. |
 > | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Authorization/policyassignments/* | Criar e gerir atribuições de política |
 > | Microsoft.Authorization/policydefinitions/* | Criar e gerir definições de política |
 > | Microsoft.Authorization/policysetdefinitions/* | Criar e gerir conjuntos de políticas |
@@ -2688,7 +2688,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Permite-lhe gerir o acesso dos utilizadores aos recursos do Azure. |
 > | **Id** | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Ações** |  |
-> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | \* / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Authorization/* | Gerir a autorização |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **NotActions** |  |

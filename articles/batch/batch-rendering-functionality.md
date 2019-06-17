@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62118692"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Capacidades de composição do Azure Batch
@@ -30,7 +30,7 @@ Existe uma imagem do 2016 do Windows e uma imagem do CentOS.  Na [do Azure Marke
 
 Para um exemplo de configuração de agrupamento, consulte a [tutorial de composição de CLI do Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  O portal do Azure e o Explorador do Batch fornecem ferramentas de GUI para selecionar uma imagem de VM de composição, quando cria um conjunto.  Se utilizar uma API do Batch, em seguida, especifique os seguintes valores de propriedade para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) ao criar um agrupamento:
 
-| Publicador | Oferta | Sku | Version |
+| Fabricante | Oferta | Sku | Version |
 |---------|---------|---------|--------|
 | lote | rendering-centos73 | composição | mais recente |
 | lote | rendering-windows2016 | composição | mais recente |

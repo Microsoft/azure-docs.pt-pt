@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60725606"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Pilha de comunicações baseadas no WCF de Reliable Services

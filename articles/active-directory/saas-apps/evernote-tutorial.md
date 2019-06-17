@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4185e9f5e1b411f95afacb80499db048769ea27b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279731"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Active Directory do Azure com Evernote
 
@@ -53,7 +53,7 @@ Para configurar a integração do Evernote com o Azure AD, terá de adicionar Ev
 
 **Para adicionar Evernote a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
+1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique nas **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD início de sessão único com Evernote, execute os se
 
     a. Selecione o **asserção e resposta SAML de início de sessão** opção para **opção assinatura**.
 
-    b. Clicar em **Guardar**
+    b. Clique em **Guardar**
 
 8. Sobre o **configurar Evernote** secção, copie os URLs apropriados de acordo com seus requisitos.
 
@@ -224,7 +224,7 @@ No caso de Evernote, o aprovisionamento é uma tarefa manual.
 
     ![Consola de administração](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. Do **consola de administração**, aceda à **"Adicionar utilizadores"**.
+3. Do **consola de administração**, aceda à **"Adicionar utilizadores"** .
 
     ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
 

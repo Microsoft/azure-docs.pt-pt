@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d45b52ac6d51560f2a07de9f629d3b2ccfccb5e3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 246378771e3af3a449c111ee59c39df36de4a7ee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutorial: Integração do Active Directory do Azure com determinados SSO de administrador
 
@@ -53,7 +53,7 @@ Para configurar a integração de determinados SSO de administrador no Azure AD,
 
 **Para adicionar determinados SSO de administrador a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida em determinados SSO de administrador. Trabalhar com [equipa de suporte de SSO de administrador determinados](mailto:integrations@certain.com) para adicionar os utilizadores na plataforma determinados SSO de administrador. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

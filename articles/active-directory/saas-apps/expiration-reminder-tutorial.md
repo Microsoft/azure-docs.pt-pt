@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69cd4576d0f0722fff0825502233aa50ff1c2c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3474c576ccc08ae22ddee2955aacc4c72d25c4f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279136"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Tutorial: Integração do Active Directory do Azure com o lembrete de expiração
 
@@ -53,7 +53,7 @@ Para configurar a integração do lembrete de expiração para o Azure AD, terá
 
 **Para adicionar o lembrete de expiração da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

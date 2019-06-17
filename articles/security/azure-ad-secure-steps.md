@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236758"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119286"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger a sua infraestrutura de identidade
 
@@ -36,7 +36,7 @@ Esta lista de verificação lhe ajudarão a implantar rapidamente críticas aç�
 
 As recomendações neste documento estão alinhadas com o [pontuação de proteger a identidade](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), um automatizada de avaliação da configuração de segurança de identidade do seu inquilino do Azure AD. As organizações podem utilizar a página de pontuação de seguro de identidade no portal do Azure AD para encontrar lacunas na respetiva configuração de segurança atuais para garantir que eles seguem atuais melhores práticas da Microsoft para segurança. A implementação de cada recomendação na página de pontuação Secure irá aumentar a sua pontuação e permitem-lhe acompanhar seu progresso, além de ajudar a comparar a sua implementação em relação a outras organizações semelhantes do tamanho ou de seu setor.
 
-![Classificação de Segurança de Identidade](media/azure-ad/azure-ad-sec-steps0.png)
+![Pontuação de seguro de identidade](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de começar: Proteger as contas com privilégios com a MFA
 

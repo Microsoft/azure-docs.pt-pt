@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60703171"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho do Intelligent Insights SQL Database do Azure
@@ -85,7 +85,7 @@ Dependendo do problema de desempenho detetado, os detalhes de saída no diagnós
 | MAXDOP maior | <li>Hashes de consulta</li><li>Tempos de espera CXP</li><li>Tempos de espera</li> |
 | Pagelatch contenção | <li>Consultar os hashes de consultas, fazendo com que a contenção</li> |
 | Índice em falta | <li>Hashes de consulta</li> |
-| Nova Consulta | <li>Hash de consulta de novas consultas</li> |
+| Nova consulta | <li>Hash de consulta de novas consultas</li> |
 | Estatística de espera invulgar | <li>Tipos de espera invulgar</li><li>Hashes de consulta</li><li>Tempos de espera de consulta</li> |
 | Contenção do TempDB | <li>Consultar os hashes de consultas, fazendo com que a contenção</li><li>Atribuição de consulta para a base de dados pagelatch contenção tempo de espera geral [%]</li> |
 | Conjunto elástico insuficiência de DTU | <li>Conjunto elástico</li><li>Base de dados de consumo de DTU superior</li><li>Percentagem de DTU usado pelo consumidor superior do conjunto</li> |

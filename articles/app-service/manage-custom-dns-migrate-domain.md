@@ -17,10 +17,10 @@ ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130386"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS do Active Directory para o serviço de aplicações do Azure
@@ -121,7 +121,7 @@ Na página de registos de DNS do seu fornecedor de domínios, selecione o regist
 
 Para o `contoso.com` exemplo do domínio de raiz, Remapeie o registo A ou CNAME como nos exemplos na tabela a seguir: 
 
-| Exemplo de FQDN | Tipo de registo | Anfitrião | Value |
+| Exemplo de FQDN | Tipo de registo | Host | Value |
 | - | - | - | - |
 | contoso.com (root) | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
 | www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |

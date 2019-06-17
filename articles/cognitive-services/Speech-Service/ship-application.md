@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
 ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66808449"
 ---
 # <a name="ship-an-application"></a>Enviar uma aplicação

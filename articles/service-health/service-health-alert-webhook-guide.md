@@ -1,5 +1,5 @@
 ---
-title: Configurar notificações de estado de funcionamento para sistemas de gestão existentes do problema através de um webhook | Documentos da Microsoft
+title: Configurar notificações de estado de funcionamento do serviço do Azure para sistemas de gestão existentes do problema através de um webhook
 description: Obtenha notificações personalizadas sobre eventos de estado de funcionamento do serviço para o seu sistema de gerenciamento existente do problema.
 author: stephbaron
 ms.author: stbaron
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: ccddb1ffd86ce95b1ca5563de2f4b04c41d5737d
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 3e9a564310d750e63c9cf81d19f698e75712d09a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442433"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067181"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurar notificações de estado de funcionamento para sistemas de gestão existentes do problema através de um webhook
 

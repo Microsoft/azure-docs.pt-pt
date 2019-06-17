@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8db7ac63aaf9ae5b1b16bb233e87ace06867309
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 11453ad9132664313df2b56cb3664512628a16ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824323"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108228"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução de integração do Azure Active Directory com aplicativos de introdução
 

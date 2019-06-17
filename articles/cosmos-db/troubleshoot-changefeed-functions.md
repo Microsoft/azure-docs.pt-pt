@@ -8,10 +8,10 @@ ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734519"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e resolver problemas ao utilizar o acionador do Azure Cosmos DB nas funções do Azure

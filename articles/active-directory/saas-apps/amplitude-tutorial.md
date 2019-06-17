@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af8bba46bba103eae49ea26ffc0c653c2ccc8309
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5eba2aad0c758aeff189ba8638d92c46ed0902c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Tutorial: Integração do Active Directory do Azure com a Amplitude
 
@@ -54,7 +54,7 @@ Para configurar a integração da Amplitude para o Azure AD, terá de adicionar 
 
 **Para adicionar a Amplitude da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -153,7 +153,7 @@ Para configurar o Azure AD início de sessão único com Amplitude, execute os s
 
     b. Cópia a **URL de resposta (ACS)** valor e cole-o para o **URL de resposta** caixa de texto de **configuração básica de SAML** no portal do Azure.
 
-    c. Clicar em **Guardar**
+    c. Clique em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

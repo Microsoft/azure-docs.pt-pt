@@ -2,20 +2,19 @@
 title: Monitorizar a carga de trabalho com DMVs | Documentos da Microsoft
 description: Saiba como monitorizar a carga de trabalho com DMVs.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 04/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/12/2019
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60748782"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitorizar a carga de trabalho com DMVs
@@ -283,5 +282,3 @@ Para obter mais informações sobre DMVs, consulte [vistas de sistema][System vi
 [DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
-
-<!-- Update_Description: update meta properties, wording update -->

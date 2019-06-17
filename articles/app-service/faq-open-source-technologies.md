@@ -17,10 +17,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61270216"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de open source FAQs para aplicações Web no Azure

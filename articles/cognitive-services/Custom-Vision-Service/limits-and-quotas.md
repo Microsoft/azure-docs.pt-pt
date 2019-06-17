@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
 ms.openlocfilehash: 85abc4a50710629d3485d05115698e59a93fc96e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995636"
 ---
 # <a name="limits-and-quotas"></a>Limites e quotas
@@ -26,7 +26,7 @@ O número de imagens de formação por projeto e etiquetas por projeto devem aum
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Projetos|2|100|
-|Imagens de formação por projeto |5.000|100 000|
+|Imagens de formação por projeto |5,000|100,000|
 |Predições / mês|10,000 |Ilimitado|
 |Com as etiquetas /Project|50|500|
 |Iterações |10|10|

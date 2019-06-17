@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61131818"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analise a sua multimédia com o portal do Azure 
@@ -53,7 +53,7 @@ O **indexador de multimédia do Azure** processador de multimédia permite-lhe t
 ### <a name="language"></a>Idioma
 Linguagem natural a ser reconhecida no ficheiro multimédia. Por exemplo, inglês ou espanhol. 
 
-### <a name="captions"></a>Legendagem
+### <a name="captions"></a>legendas
 Pode escolher um formato de legenda será gerado a partir de seu conteúdo. Uma tarefa de indexação pode gerar ficheiros de legendas nos seguintes formatos:  
 
 * **SAMI**
@@ -65,7 +65,7 @@ Fechado (CC) de legenda arquivos esses formatos podem ser usados para tornar os 
 ### <a name="aib-file"></a>Ficheiro AIB
 Selecione esta opção se quiser gerar um arquivo de Blob de indexação de áudio para utilização com o servidor IFilter personalizado do SQL. Para obter mais informações, consulte [isso](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
-### <a name="keywords"></a>Palavras-chave
+### <a name="keywords"></a>palavras-chave
 Selecione esta opção se quiser gerar um ficheiro XML de palavras-chave. Este ficheiro contém palavras-chave extraído do conteúdo de discurso, com frequência e informações de deslocamento.
 
 ### <a name="job-name"></a>Nome da tarefa

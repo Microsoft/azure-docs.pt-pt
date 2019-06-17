@@ -13,14 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
+ms.date: 01/04/2019
+ms.author: jowargo
 ms.openlocfilehash: af0de9e8c18644f4ae200f6546c0dd0a41320f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457690"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Como: Enviar notificações agendadas

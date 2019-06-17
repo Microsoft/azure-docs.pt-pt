@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388364"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como aprovisionar novos inquilinos e registá-los no catálogo
@@ -84,7 +84,7 @@ Para compreender como a aplicação Wingtip Tickets implementa o aprovisionament
    * **$VenueType** = um dos tipos predefinidos de local: _blues, música clássica, dança, jazz, judo, motor de motos, multipurpose, opera, música Rock, futebol_.
    * **$DemoScenario** = **1**, *aprovisionar um inquilino individual*.
 
-2. Para adicionar um ponto de interrupção, coloque o cursor em qualquer parte na linha que diz *New-Tenant '*. Em seguida, pressione F9.
+2. Para adicionar um ponto de interrupção, coloque o cursor em qualquer parte na linha que diz *New-Tenant '* . Em seguida, pressione F9.
 
    ![Ponto de interrupção](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 

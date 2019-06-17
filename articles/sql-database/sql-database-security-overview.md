@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 6b9a5ca350377777beebda24e52bc678c976ad19
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258633"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070206"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -100,7 +100,7 @@ Base de dados SQL protege os dados dos clientes ao encriptar os dados em movimen
 
 SQL Server impõe a encriptação (SSL/TLS) em todos os momentos para todas as ligações. Isto garante que todos os dados são encriptados "em trânsito" entre o cliente e servidor, independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.
 
-Como melhor prática, recomendamos que, na ligação da sua aplicação, cadeia de caracteres que especifique uma ligação encriptada e _**não**_ confiar no certificado de servidor. Isso força o seu aplicativo para verificar o certificado de servidor e, assim, impede que a aplicação seja vulnerável a man nos ataques de tipo intermediária.
+Como melhor prática, recomendamos que, na ligação da sua aplicação, cadeia de caracteres que especifique uma ligação encriptada e _**não**_ confiar no certificado de servidor. Isso força a aplicação para verificar o certificado de servidor e, assim, impede que a aplicação seja vulnerável a man nos ataques de tipo intermediária.
 
 Por exemplo, ao utilizar o controlador ADO.NET Isso é feito por meio **Encrypt = True** e **TrustServerCertificate = False**. Se obter a cadeia de ligação do portal do Azure, terá as definições corretas.
 

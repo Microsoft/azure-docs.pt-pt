@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5e405dc4ea323a6869207de53b7577ee960924eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889374"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Active Directory do Azure com o Tableau Online
 
@@ -53,7 +53,7 @@ Para configurar a integração do Tableau Online com o Azure AD, terá de adicio
 
 **Para adicionar Tableau Online a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -229,13 +229,13 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Tableau Online.
   
     ![Criar um utilizador de teste do Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. Selecione **adicionar utilizadores para a autenticação (SAML)**. Na **endereços de e-mail de Enter** caixa de texto Adicionar britta.simon\@contoso.com
+2. Selecione **adicionar utilizadores para a autenticação (SAML)** . Na **endereços de e-mail de Enter** caixa de texto Adicionar britta.simon\@contoso.com
   
     ![Criar um utilizador de teste do Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
 3. Clique em **adicionar utilizadores**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

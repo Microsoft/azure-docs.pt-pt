@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.custom: seodec18
 ms.openlocfilehash: 33ca86fc2d13fb7f6e29c43e9a7c1d2dc6ef4169
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755232"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights

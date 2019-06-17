@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c97b09690885057370910c0c1ec062d6b3f37363
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutorial: Integração do Active Directory do Azure com Grovo
 
@@ -54,7 +54,7 @@ Para configurar a integração do Grovo com o Azure AD, terá de adicionar Grovo
 
 **Para adicionar Grovo a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -131,7 +131,7 @@ Para configurar o Azure AD início de sessão único com Grovo, execute os segui
 
     | Name | Atributo de origem|
     | ------------------- | -------------------- |    
-    | Nome Próprio          | user.givenname |
+    | Nome próprio          | user.givenname |
     | Apelido           | user.surname |
     | Endereço de E-mail       | user.mail    |
     | employeeID          | user.employeeid |

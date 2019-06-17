@@ -13,10 +13,10 @@ ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485080"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explore a análise de SaaS com o SQL Database do Azure, o SQL Data Warehouse, o Data Factory e o Power BI
@@ -87,7 +87,7 @@ Este tutorial explora análises sobre os dados de vendas de pedido de suporte. N
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Implementar o SQL Data Warehouse, fábrica de dados e armazenamento de BLOBs 
 Na aplicação Wingtip Tickets, os dados dos inquilinos de transacional são distribuídos por muitas bases de dados. O Azure Data Factory (ADF) é utilizado para orquestrar a extração, carregamento e transformação (ELT) destes dados para o armazém de dados. Para carregar dados para o SQL Data Warehouse com mais eficiência, o ADF extrai dados para ficheiros de blob intermediário e, em seguida, usa [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) para carregar os dados no armazém de dados.   
 
-Neste passo, vai implementar os recursos adicionais que utilizou no tutorial: chamada de um SQL Data Warehouse _tenantanalytics_, uma fábrica de dados do Azure chamado _dbtodwload -\<utilizador\>_  , e uma conta de armazenamento do Azure designada _wingtipstaging\<usuário\>_. A conta de armazenamento é utilizada para armazenar temporariamente os ficheiros de dados extraídos como blobs de antes de serem carregados para o armazém de dados. Este passo também implementa o esquema do armazém de dados e define os pipelines do ADF que orquestrar o processo ELT.
+Neste passo, vai implementar os recursos adicionais que utilizou no tutorial: chamada de um SQL Data Warehouse _tenantanalytics_, uma fábrica de dados do Azure chamado _dbtodwload -\<utilizador\>_  , e uma conta de armazenamento do Azure designada _wingtipstaging\<usuário\>_ . A conta de armazenamento é utilizada para armazenar temporariamente os ficheiros de dados extraídos como blobs de antes de serem carregados para o armazém de dados. Este passo também implementa o esquema do armazém de dados e define os pipelines do ADF que orquestrar o processo ELT.
 1. No ISE do PowerShell, abra *...\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e defina:
     - **$DemoScenario** = **2** implementar o armazém de dados de análise de inquilino, o armazenamento de BLOBs e o data factory 
 1. Prima **F5** para executar o script de demonstração e implementar os recursos do Azure. 
@@ -126,7 +126,7 @@ Na [Portal do Azure](https://ms.portal.azure.com) no grupo de recursos, certifiq
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
 Essa seção explora a fábrica de dados criada. Siga os passos abaixo para iniciar a fábrica de dados:
-1. No portal, clique na fábrica de dados chamada **dbtodwload -\<usuário\>**.
+1. No portal, clique na fábrica de dados chamada **dbtodwload -\<usuário\>** .
 2. Clique em **criar e monitorizar** mosaico para iniciar o designer de Data Factory num separador à parte. 
 
 ## <a name="extract-load-and-transform-data"></a>Extrair, carga e transformar dados

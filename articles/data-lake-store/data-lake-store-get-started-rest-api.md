@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60877112"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operações de gestão de conta na geração 1 de armazenamento do Azure Data Lake com a REST API
@@ -32,7 +32,7 @@ Neste artigo, aprenderá a efetuar operações de gestão de conta na geração 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](https://curl.haxx.se/)**. Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a uma conta de geração 1 de armazenamento do Data Lake.
+* **[cURL](https://curl.haxx.se/)** . Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a uma conta de geração 1 de armazenamento do Data Lake.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Como posso autenticar com o Azure Active Directory?
 Pode utilizar duas abordagens para autenticar com o Azure Active Directory.

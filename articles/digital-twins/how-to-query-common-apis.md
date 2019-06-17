@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
 ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60924741"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar APIs de duplos Digital do Azure para tarefas comuns

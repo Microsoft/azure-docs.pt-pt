@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775a03a82c1fc432e65ce45309a5af3febb448a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2053ad07e555cc04cea714524141068f1404796
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472286"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083898"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilizadores, grupos, licenciamento e funções para grandes organizações
 
@@ -52,7 +52,7 @@ Muitas organizações grandes querem opções para que os seus utilizadores obte
 
  Nome da função | Resumo das permissões
  --------- | -------------------
- **Administrador de Aplicações** | Pode adicionar e gerir aplicações empresariais e registos de aplicações, e configurar as definições de proxy de aplicações. Os administradores de aplicações podem ver as políticas de acesso condicional e os dispositivos, mas não geri-los.
+ **Administrador de Aplicações** | Pode adicionar e gerir aplicações empresariais e registos de aplicações, e configurar as definições de proxy de aplicações. Administradores da aplicação podem ver as políticas de acesso condicional e de dispositivos, mas não geri-los.
  **Administrador de Aplicações na Cloud** | Pode adicionar e gerir aplicações empresariais e registos de aplicações empresariais. Esta função tem todas as permissões do administrador do aplicações, exceto que não é possível gerir as definições de proxy de aplicações.
 **Programador de Aplicações** | Pode adicionar e atualizar os registos de aplicações, mas não pode gerir aplicações empresariais nem configurar um proxy de aplicação.
 

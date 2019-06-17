@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 30d52f1ac6a68a3202de59a0b4cab8edfb7ed042
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 28f154c4bd8bb1675eac509bd9d6dab9bb6af026
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066236"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilizar o Azure Toolkit para IntelliJ depurar aplicações do Apache Spark remotamente no HDInsight através de VPN
 
@@ -85,7 +85,7 @@ Recomendamos que crie também um cluster do Apache Spark no HDInsight do Azure, 
 
     ![Selecione o novo modelo de projeto no IntelliJ IDEA](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png)
 
-    a. Selecione **HDInsight** > **Spark no HDInsight (Scala)**.
+    a. Selecione **HDInsight** > **Spark no HDInsight (Scala)** .
 
     b. Selecione **Seguinte**.
 1. Nos próximos **novo projeto** caixa de diálogo, efetue o seguinte e, em seguida, selecione **concluir**:
@@ -94,7 +94,7 @@ Recomendamos que crie também um cluster do Apache Spark no HDInsight do Azure, 
 
     - Na lista pendente **SDK do Projeto**, selecione **Java 1.8** para o cluster do Spark 2.x ou selecione **Java 1.7** para o cluster do Spark 1.x.
 
-    - Na **versão do Spark** na lista pendente, o Assistente de criação de projeto Scala integra-se a versão apropriada para o SDK do Spark e o SDK de Scala. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Este exemplo utiliza o **Spark 2.0.2 (Scala 2.11.8)**.
+    - Na **versão do Spark** na lista pendente, o Assistente de criação de projeto Scala integra-se a versão apropriada para o SDK do Spark e o SDK de Scala. Se a versão do cluster do Spark for anterior à 2.0, selecione **Spark 1.x**. Caso contrário, selecione **Spark2.x**. Este exemplo utiliza o **Spark 2.0.2 (Scala 2.11.8)** .
   
    ![Selecione a versão SDK e do Spark do projeto](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
@@ -102,7 +102,7 @@ Recomendamos que crie também um cluster do Apache Spark no HDInsight do Azure, 
 
     a. No menu **File** (Ficheiro), selecione **Project Structure** (Estrutura do Projeto).
 
-    b. Na **estrutura do projeto** caixa de diálogo, selecione **artefactos** para ver o artefacto de predefinição que é criado. Também pode criar seu próprio artefacto selecionando o sinal de adição (**+**).
+    b. Na **estrutura do projeto** caixa de diálogo, selecione **artefactos** para ver o artefacto de predefinição que é criado. Também pode criar seu próprio artefacto selecionando o sinal de adição ( **+** ).
 
    ![Criar o JAR](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
@@ -111,7 +111,7 @@ Recomendamos que crie também um cluster do Apache Spark no HDInsight do Azure, 
 
     a. Com o botão direito no nome do projeto na árvore de projeto e, em seguida, selecione **abra as definições do módulo**. 
 
-    b. Na **estrutura do projeto** caixa de diálogo, selecione **bibliotecas**, selecione o (**+**) símbolo e, em seguida, selecione **do Maven** .
+    b. Na **estrutura do projeto** caixa de diálogo, selecione **bibliotecas**, selecione o ( **+** ) símbolo e, em seguida, selecione **do Maven** .
 
     ![Adicionar uma biblioteca](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
 
@@ -241,7 +241,7 @@ Recomendamos que crie também um cluster do Apache Spark no HDInsight do Azure, 
 1. Quando a execução do programa atinge o ponto de interrupção, verá uma **depurador** separador no painel inferior.
 
     ![Consulte o separador do depurador](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch.png)
-1. Para adicionar uma veja, selecione o (**+**) ícone.
+1. Para adicionar uma veja, selecione o ( **+** ) ícone.
 
     ![Selecione o ícone +](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
@@ -277,7 +277,6 @@ Recomendamos que crie também um cluster do Apache Spark no HDInsight do Azure, 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Utilizar o Azure Toolkit para IntelliJ para criar aplicativos de Apache Spark para um cluster do HDInsight](apache-spark-intellij-tool-plugin.md)
 * [Utilizar o Azure Toolkit para IntelliJ para depurar aplicações de Apache Spark remotamente através de SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Utilizar ferramentas do HDInsight para IntelliJ com a Sandbox da Hortonworks](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Utilizar ferramentas do HDInsight no Azure Toolkit para Eclipse para criar aplicações do Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de notas do Jupyter num cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)

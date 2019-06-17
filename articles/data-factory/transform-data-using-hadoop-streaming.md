@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60848253"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados com a atividade de transmissão em fluxo do Hadoop no Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Versão atual](transform-data-using-hadoop-streaming.md)
 
@@ -70,9 +70,9 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| nome              | Nome da atividade                     | Sim      |
+| name              | Nome da atividade                     | Sim      |
 | description       | Texto que descreve o que a atividade é utilizada para | Não       |
-| tipo              | Para a atividade de transmissão em fluxo do Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
+| type              | Para a atividade de transmissão em fluxo do Hadoop, o tipo de atividade é HDInsightStreaming | Sim      |
 | linkedServiceName | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | Mapeador de pontos            | Especifica o nome do executável o mapeador de pontos | Sim      |
 | reducer           | Especifica o nome do reducer executável | Sim      |
@@ -82,8 +82,8 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 | entrada             | Especifica o caminho WASB para o ficheiro de entrada para o mapeador de pontos. | Sim      |
 | saída            | Especifica o caminho WASB para o ficheiro de saída para o Reducer. | Sim      |
 | getDebugInfo      | Especifica quando os arquivos de log são copiados para o armazenamento do Azure utilizado pelo cluster do HDInsight (ou) especificado pelo scriptLinkedService. Valores permitidos: Nenhum, sempre, ou a falha. Valor predefinido: Nenhum. | Não       |
-| argumentos         | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
-| Define           | Especifique parâmetros como pares chave/valor para referenciar a dentro do script do Hive. | Não       | 
+| arguments         | Especifica uma matriz de argumentos para uma tarefa do Hadoop. Os argumentos são transmitidos como argumentos da linha de comandos para cada tarefa. | Não       |
+| defines           | Especifique parâmetros como pares chave/valor para referenciar a dentro do script do Hive. | Não       | 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos que explicam como transformar dados de outras formas: 

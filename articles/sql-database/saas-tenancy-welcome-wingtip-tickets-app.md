@@ -14,10 +14,10 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 963d7d44ef3ef77604fc5a9faac479a9e4c91ee6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61487383"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>A aplicação Wingtip Tickets SaaS

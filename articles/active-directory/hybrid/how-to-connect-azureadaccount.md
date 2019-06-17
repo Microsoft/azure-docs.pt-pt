@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64571410"
 ---
-# <a name="change-the-azure-ad-connector-account-password"></a>Alterar a palavra-passe de conta do conector do Azure AD
+# <a name="change-the-azure-ad-connector-account-password"></a>Alterar a palavra-passe da conta do Conector do Azure AD
 A conta do conector do Azure AD deve para ser o serviço gratuitamente. Se precisar de repor as respetivas credenciais, então este tópico é para si. Por exemplo, se um Administrador Global tiver por engano repor a palavra-passe da conta com o PowerShell.
 
 ## <a name="reset-the-credentials"></a>Repor as credenciais

@@ -12,14 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-origin.date: 04/14/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
+ms.date: 01/04/2019
+ms.author: jowargo
 ms.openlocfilehash: 0f92b49c9d77029a9624782b49eb23f7083c49aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872260"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Enviar notificações multiplataformas para os utilizadores com os Hubs de notificação
@@ -61,6 +60,10 @@ Para enviar notificações entre plataformas com os modelos, faça o seguinte:
         case "apns":
             var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
             registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
+            break;
+        case "fcm":
+            var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
+            registration = new FcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -105,10 +108,12 @@ Agora que concluiu este tutorial, saiba mais sobre os Hubs de notificação e mo
 <!-- Images. -->
 
 <!-- URLs. -->
-[Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
+[Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Push to users Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Visual Studio 2012 Express for Windows 8]: https://go.microsoft.com/fwlink/?LinkId=257546
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
+[Azure Notification Hubs]: https://go.microsoft.com/fwlink/p/?LinkId=314257
 [Notificar os utilizadores com os Hubs de notificação]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Templates]: https://go.microsoft.com/fwlink/p/?LinkId=317339
+[Notification Hub How to for Windows Store]: https://msdn.microsoft.com/library/windowsazure/jj927172.aspx

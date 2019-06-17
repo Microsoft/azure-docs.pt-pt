@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 61be963f4edc2dc50f176087f2c817c5f485588b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 01bdd54ce0f661502ba0db902b150d76092ec03a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904288"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Tutorial: Integração do Active Directory do Azure com PatentSQUARE
 
@@ -53,7 +53,7 @@ Para configurar a integração do PatentSQUARE com o Azure AD, terá de adiciona
 
 **Para adicionar PatentSQUARE a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no PatentSQUARE. Trabalhar com [equipa de suporte de PatentSQUARE](https://www.panasonic.com/jp/business/its/patentsquare.html) para adicionar os utilizadores na plataforma PatentSQUARE. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

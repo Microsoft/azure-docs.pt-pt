@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 06/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4dee0e994c9e7be9677a8f1051481850990998e9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074052"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Copiar dados de tabela de SAP com o Azure Data Factory
 
@@ -29,7 +29,13 @@ Pode copiar dados da tabela de SAP para qualquer arquivo de dados de sink suport
 
 Especificamente, este conector de SAP tabela suporta:
 
-- Copiar dados de tabela de SAP numa **SAP Business Suite com a versão 7.01 ou superior** (numa recente SAP suporte pacote pilha lançada após o ano de 2015) ou **S/4HANA**.
+- Copiar dados de tabela de SAP em:
+
+    - **SAP ECC** com a versão 7.01 ou superior (numa recente SAP suporte pacote pilha lançada após o ano de 2015)
+    - **SAP BW** com a versão 7.01 ou superior
+    - **SAP S/4HANA**
+    - **Outros produtos SAP Business Suite** com a versão 7.01 ou superior 
+
 - Copiar dados a partir de ambos **tabela de transparente de SAP** e **vista**.
 - Copiar dados utilizando **autenticação básica** ou **SNC** (proteger as comunicações de rede) se SNC estiver configurado.
 - Ligar ao **servidor de aplicativos** ou **servidor de mensagens**.
@@ -203,7 +209,7 @@ Para copiar dados de tabela do SAP, são suportadas as seguintes propriedades.
 | type                             | A propriedade de tipo deve ser definida como **SapTableSource**.       | Sim      |
 | rowCount                         | Número de linhas a serem obtidas.                              | Não       |
 | rfcTableFields                   | Campos para copiar a partir da tabela SAP. Por exemplo, `column0, column1`. | Não       |
-| rfcTableOptions                  | Opções para filtrar as linhas da tabela de SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. | Não       |
+| rfcTableOptions                  | Opções para filtrar as linhas da tabela de SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. Veja uma descrição mais abaixo desta tabela. | Não       |
 | customRfcReadTableFunctionModule | RFC função módulo personalizado que pode ser utilizado para ler dados da tabela de SAP. | Não       |
 | partitionOption                  | O mecanismo de partição para ler da tabela SAP. As opções suportadas incluem: <br/>- **Nenhum**<br/>- **PartitionOnInt** (inteiro normal ou valores de número inteiro com zero preenchimento à esquerda, como 0000012345)<br/>- **PartitionOnCalendarYear** (4 dígitos no formato "YYYY")<br/>- **PartitionOnCalendarMonth** (6 dígitos no formato "YYYYMM")<br/>- **PartitionOnCalendarDate** (8 dígitos no formato "AAAAMMDD") | Não       |
 | partitionColumnName              | O nome da coluna para particionar os dados. | Não       |
@@ -215,6 +221,18 @@ Para copiar dados de tabela do SAP, são suportadas as seguintes propriedades.
 >- Se a sua tabela SAP tem grande volume de dados, como vários milhares de milhões de linhas, utilize `partitionOption` e `partitionSetting` para dividir os dados em partições pequenas, caso em que os dados são lidos por partições e cada partição de dados é obtido a partir do seu servidor SAP através de um único Chamada RFC.<br/>
 >- Levando `partitionOption` como `partitionOnInt` por exemplo, o número de linhas em cada partição é calculado ao (total de linhas entre *partitionUpperBound* e *partitionLowerBound*) /*maxPartitionsNumber*.<br/>
 >- Se quiser executar ainda mais partições em paralelo para acelerar a cópia, é vivamente recomendado para tornar `maxPartitionsNumber` como um múltiplo do valor de `parallelCopies` (saber mais no [cópia paralela](copy-activity-performance.md#parallel-copy)).
+
+No `rfcTableOptions`, pode usar por exemplo, os seguintes comuns SAP operadores de consulta para filtrar as linhas: 
+
+| Operador | Descrição |
+| :------- | :------- |
+| EQ | Igual a |
+| NE | Não é igual a |
+| LT | Menor que |
+| LE | Menor que ou igual a |
+| GT | Maior que |
+| GE | Maior que ou igual a |
+| COMO | Como em como "Emma %" |
 
 **Exemplo:**
 

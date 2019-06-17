@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: db646c48c1332f986840d54127729c766ffb6dd7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920319"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutorial: Integração do Active Directory do Azure com Workstars
 
@@ -53,7 +53,7 @@ Para configurar a integração do Workstars com o Azure AD, terá de adicionar W
 
 **Para adicionar Workstars a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -154,7 +154,7 @@ Para configurar o Azure AD início de sessão único com Workstars, execute os s
     
     e. Na **URL de fim de sessão remoto** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure. 
 
-    f. Selecione **ID de nome** como **E-Mail (predefinição)**.
+    f. Selecione **ID de nome** como **E-Mail (predefinição)** .
 
     g. Clique em **Confirmar**.
 

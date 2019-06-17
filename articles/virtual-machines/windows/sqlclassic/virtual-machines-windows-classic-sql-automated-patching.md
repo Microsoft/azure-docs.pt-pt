@@ -17,10 +17,10 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60362140"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Patching automatizado para SQL Server em máquinas virtuais do Azure (clássico)

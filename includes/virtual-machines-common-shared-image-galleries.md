@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 3ea41a16f79f903b5ff7d2b93f74f7d3d2a0dd83
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271592"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133603"
 ---
 Galeria de imagens partilhado é um serviço que ajuda a criar a estrutura e a organização em torno de suas imagens gerenciadas. Forneça a galerias de imagem partilhada:
 
 - Gerenciado os replicação global de imagens.
 - Controle de versão e o agrupamento de imagens para uma gestão mais fácil.
-- Imagens de elevada disponibilidade com contas de armazenamento com redundância de zona (ZRS) em regiões que suportam as zonas de disponibilidade. O ZRS oferece uma maior resiliência contra falhas zonais.
+- Imagens de elevada disponibilidade com contas de armazenamento com redundância de zona (ZRS) em regiões que suportam as zonas de disponibilidade. O ZRS oferece uma melhor resiliência em relação a falhas zonais.
 - Partilha entre subscrições e até mesmo entre inquilinos do Active Directory (AD), utilizando o RBAC.
 - A dimensionar as implementações com réplicas de imagem em cada região.
 
@@ -78,15 +78,15 @@ Regiões de origem estão listados na tabela abaixo. Todas as regiões públicas
 
 | Regiões de origem |
 |---------------------|-----------------|------------------|-----------------|
-| Austrália Central   | E.U.A. central EUAP | Coreia do Sul Central    | Sul do Reino Unido 2      |
-| Austrália Central 2 | Ásia Oriental       | Coreia do Sul      | Reino Unido Oeste         |
-| Leste da Austrália      | EUA Leste         | EUA Centro-Norte | EUA Centro-Oeste |
-| Sudeste da Austrália | EUA Leste 2       | Europa do Norte     | Europa Ocidental     |
-| Sul do Brasil        | E.U.A. Leste 2 EUAP  | EUA Centro-Sul | Oeste da Índia      |
-| Canadá Central      | França Central  | Sul da Índia      | EUA Oeste         |
-| Leste do Canadá         | Sul de França    | Sudeste Asiático   | EUA Oeste         |
-| Índia Central       | Leste do Japão      | Norte do Reino Unido         | EUA Oeste 2       |
-| EUA Central          | Oeste do Japão      | Reino Unido Sul         |                 |
+| Austrália Central   | E.U.A. central EUAP | Coreia do Sul Central    | EUA Centro-Oeste |
+| Austrália Central 2 | Ásia Oriental       | Coreia do Sul      | Europa Ocidental     |
+| Leste da Austrália      | EUA Leste         | EUA Centro-Norte | Oeste da Índia      |
+| Sudeste da Austrália | EUA Leste 2       | Europa do Norte     | EUA Oeste         |
+| Sul do Brasil        | E.U.A. Leste 2 EUAP  | EUA Centro-Sul | EUA Oeste 2       |
+| Canadá Central      | França Central  | Sul da Índia      |                 |
+| Leste do Canadá         | Sul de França    | Sudeste Asiático   |                 |
+| Índia Central       | Leste do Japão      | Reino Unido Sul         |                 |
+| EUA Central          | Oeste do Japão      | Reino Unido Oeste          |                 |
 
 
 

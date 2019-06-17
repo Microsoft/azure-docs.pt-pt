@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60aacc3d4d5743187ec826fb9f544488171b1285
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 26d32c0ed471170dac3fa791ef5a77feef67b051
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900725"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Tutorial: Integração do Active Directory do Azure com Blackboard Saiba
 
@@ -54,7 +54,7 @@ Para configurar a integração do Blackboard Saiba com o Azure AD, terá de adic
 
 **Para adicionar a Blackboard saiba a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -214,7 +214,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Blackboard saiba. Aplicação de mais de blackboard suporta apenas no tempo de aprovisionamento de utilizador. Certifique-se de que configurou as afirmações conforme descrito na secção **Configuring Azure AD Single Sign-On**
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9a1b8cf0fe74554c78f2d06d601231ed2740172a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 30ab8a3fec459bef1a85c44e9a7cdb91b541fa2d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052351"
+ms.locfileid: "67111383"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Manipulação de exceções e erros com MSAL
 Exceções no Microsoft Authentication Library (MSAL) destinam-se para os programadores de aplicações resolver problemas e não para apresentar aos utilizadores finais. Mensagens de exceção não estão localizadas.
@@ -142,7 +142,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ## <a name="conditional-access-and-claims-challenges"></a>Desafios de afirmações e acesso condicionais
 Ao obter tokens silenciosamente, seu aplicativo poderá receber erros quando um [desafio de afirmações de acesso condicional](conditional-access-dev-guide.md) como a política da MFA é necessária para uma API que está a tentar aceder.
 
-O padrão para lidar com este erro é interativamente adquirir um token através de MSAL. Interativamente adquirir um token pede ao utilizador e dá a eles a oportunidade para satisfazer a política de acesso condicional necessário.
+O padrão para lidar com este erro é interativamente adquirir um token através de MSAL. Interativamente adquirir um token pede ao utilizador e dá a eles a oportunidade para satisfazer a política de acesso condicional necessária.
 
 Em certos casos, ao chamar uma API que necessitam de acesso condicional, pode receber um desafio de afirmações no erro da API. Para a instância se a política de acesso condicional é fazer com que um dispositivo gerido (Intune) o erro será algo como [AADSTS53000: O dispositivo é necessário para ser gerido para aceder a este recurso](reference-aadsts-error-codes.md) ou algo parecido. Neste caso, pode transmitir as afirmações na chamada de token de aquisição, de modo a que é pedido ao utilizador para satisfazer a política apropriada.
 
@@ -170,7 +170,7 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenRespo
 });
 ```
 
-Interativamente a adquirir o token pede ao utilizador e dá a eles a oportunidade para satisfazer a política de acesso condicional necessário.
+Interativamente a adquirir o token pede ao utilizador e dá a eles a oportunidade para satisfazer a política de acesso condicional necessária.
 
 Ao chamar uma API que necessitam de acesso condicional, pode receber um desafio de afirmações no erro da API. Neste caso, pode transmitir as afirmações devolvidas o erro como `extraQueryParameters` na chamada para adquirir tokens, de modo a que é pedido ao utilizador para satisfazer a política apropriada:
 

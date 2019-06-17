@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60329504"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Como utilizar o Twilio para voz e capacidades SMS do Azure
@@ -176,7 +176,7 @@ catch (TwilioException ex)
 Quando a aplicação inicia uma chamada para a API Twilio - por exemplo, através da **CallResource.Create** método - Twilio envia o pedido para um URL que deverá devolver uma resposta de TwiML. O exemplo na [como: Efetuar uma chamada de saída](#howto_make_call) utiliza o URL fornecido pelo Twilio [ https://twimlets.com/message ] [ twimlet_message_url] para retornar a resposta.
 
 > [!NOTE]
-> Apesar de TwiML foi concebido para utilização pelos serviços web, pode ver o TwiML no seu browser. Por exemplo, clique em [ https://twimlets.com/message ] [ twimlet_message_url] para ver vazio `<Response>` elemento; como outro exemplo, clique em [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver um `<Response>` elemento que contém um &lt;Digamos&gt; elemento.
+> Apesar de TwiML foi concebido para utilização pelos serviços web, pode ver o TwiML no seu browser. Por exemplo, clique em [ https://twimlets.com/message ] [ twimlet_message_url] para ver vazio `<Response>` elemento; como outro exemplo, clique em [ https://twimlets.com/message?Message%5B0%5D=Hello%20World ](https://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver um `<Response>` elemento que contém um &lt; Digamos&gt; elemento.
 >
 
 Em vez de contar com o URL fornecido pelo Twilio, pode criar seu próprio site URL que devolve as respostas HTTP. É possível criar o site em qualquer linguagem que retorna as respostas HTTP. Este tópico parte do princípio de que irá alojar o URL a partir de um manipulador de genérico do ASP.NET.

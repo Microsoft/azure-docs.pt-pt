@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 758ed2e44718da709acec1379cfc79936c8b7cdf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444236"
+ms.locfileid: "67083643"
 ---
 # <a name="azure-identity-management-security-overview"></a>Descrição geral da segurança de gestão de identidade do Azure
 
- Gestão de identidades é o processo de autenticação e autorização [entidades de segurança](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals). Ela também envolve a controlar informações sobre os principais (identidades). Entidades de segurança (identidades) podem incluir serviços, aplicações, utilizadores, grupos, etc. Microsoft identidades e acessos gestão soluções ajudar a TI a proteger o acesso aos recursos e aplicações em todo o datacenter Corporativo e na nuvem. Essa proteção permite níveis adicionais de validação, como o multi-factor Authentication e políticas de acesso condicional. Monitorização de atividade suspeita por meio de segurança avançadas, relatórios, auditoria e alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece logon único (SSO) a milhares de software na cloud, como aplicações de serviço (SaaS) e acesso a aplicações web que executa no local.
+ Gestão de identidades é o processo de autenticação e autorização [entidades de segurança](https://docs.microsoft.com/windows/security/identity-protection/access-control/security-principals). Ela também envolve a controlar informações sobre os principais (identidades). Entidades de segurança (identidades) podem incluir serviços, aplicações, utilizadores, grupos, etc. Microsoft identidades e acessos gestão soluções ajudar a TI a proteger o acesso aos recursos e aplicações em todo o datacenter Corporativo e na nuvem. Essa proteção permite níveis adicionais de validação, como as políticas de acesso condicional e a multi-factor Authentication. Monitorização de atividade suspeita por meio de segurança avançadas, relatórios, auditoria e alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece logon único (SSO) a milhares de software na cloud, como aplicações de serviço (SaaS) e acesso a aplicações web que executa no local.
  
 Ao tirar partido dos benefícios de segurança do Azure Active Directory (Azure AD), pode:
 

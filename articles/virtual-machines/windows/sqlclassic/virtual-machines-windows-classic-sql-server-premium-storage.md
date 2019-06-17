@@ -17,10 +17,10 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60583271"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
@@ -294,7 +294,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 Este cenário demonstra em que tem imagens personalizadas existentes que residem numa conta de armazenamento Standard. Conforme mencionado, se pretende colocar o VHD do SO no armazenamento Premium tem de copiar a imagem que existe na conta de armazenamento Standard e transferi-las para um armazenamento Premium, antes de poder ser utilizada. Se tiver uma imagem no local, pode também utilizar este método para copiá-lo diretamente para a conta de armazenamento Premium.
 
-#### <a name="step-1-create-storage-account"></a>Passo 1: Criar Conta de Armazenamento
+#### <a name="step-1-create-storage-account"></a>Passo 1: Criar conta de armazenamento
 
 ```powershell
 $mysubscription = "DansSubscription"

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 15-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 573e06f0dd57b92f7621ecf77039159a64249f18
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2d7c7cf4972b1ee0a5add3b4611dc4c8655da875
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integração do Active Directory do Azure com o Gestor de certificados do Sectigo
 
@@ -130,7 +130,7 @@ Nesta secção, é configurar o Azure AD início de sessão único com o Gestor 
 
       ![URLs de domínio do Gestor de certificados de Sectigo e único informações de início de sessão](common/both-signonurl.png)
 
-1. Na **definir a segurança de início de sessão único com o SAML** painel, na **certificado de assinatura SAML** secção, selecione **transferir** junto a **certificado (Base64)**. Selecione uma opção de download com base nos seus requisitos. Guarde o certificado no seu computador.
+1. Na **definir a segurança de início de sessão único com o SAML** painel, na **certificado de assinatura SAML** secção, selecione **transferir** junto a **certificado (Base64)** . Selecione uma opção de download com base nos seus requisitos. Guarde o certificado no seu computador.
 
     ![A opção de download de certificado (Base64)](common/certificatebase64.png)
 
@@ -162,7 +162,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
     1. Na **Name** , introduza **BrittaSimon**.
   
-    1. Na **nome de utilizador** , introduza **brittasimon\@\<seu domínio da empresa >.\< extensão\>**. Por exemplo, **brittasimon\@contoso.com**.
+    1. Na **nome de utilizador** , introduza **brittasimon\@\<seu domínio da empresa >.\< extensão\>** . Por exemplo, **brittasimon\@contoso.com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação. Anote o valor que é apresentado no **palavra-passe** caixa.
 
@@ -200,7 +200,7 @@ Nesta secção, pode conceder acesso Eduarda Almeida para o Gestor de certificad
 
 Nesta secção, vai criar um utilizador com o nome Eduarda Almeida no Gestor de certificados do Sectigo. Trabalhar com o [equipa de suporte do Gestor de certificados de Sectigo](https://sectigo.com/support) para adicionar o utilizador na plataforma do Gestor de certificados de Sectigo. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal as minhas aplicações.
 

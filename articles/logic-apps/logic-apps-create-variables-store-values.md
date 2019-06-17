@@ -11,10 +11,10 @@ ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61004589"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Criar variáveis para guardar e gerir os valores no Azure Logic Apps

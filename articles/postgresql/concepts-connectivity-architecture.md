@@ -7,10 +7,10 @@ ms.service: PostgreSQL
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.openlocfilehash: 73c23c471cb12ca3a3a7df4380779b464b8d86d4
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735740"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na base de dados do Azure para PostgreSQL

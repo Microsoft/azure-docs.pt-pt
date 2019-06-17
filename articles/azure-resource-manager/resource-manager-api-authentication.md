@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 04/05/2019
 ms.author: dugill
 ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61063297"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utilize o recurso de API do Gerenciador de autenticação para aceder a subscrições
@@ -25,7 +25,7 @@ Se for um desenvolvedor de software que precisa para criar uma aplicação que g
 
 Seu aplicativo pode acessar as APIs do Resource Manager em duas formas:
 
-1. **Acesso à aplicação de utilizador +**: para aplicações que acedam aos recursos para um utilizador com sessão iniciada. Essa abordagem funciona para aplicações, tais como aplicações web e ferramentas de linha de comando, que lidam com apenas "gestão interativa" dos recursos do Azure.
+1. **Acesso à aplicação de utilizador +** : para aplicações que acedam aos recursos para um utilizador com sessão iniciada. Essa abordagem funciona para aplicações, tais como aplicações web e ferramentas de linha de comando, que lidam com apenas "gestão interativa" dos recursos do Azure.
 2. **Acesso só de aplicação**: para aplicativos que executam os serviços de daemon e tarefas agendadas. A identidade da aplicação é concedida acesso direto aos recursos. Essa abordagem funciona para aplicações que precisam de acesso longo prazo de (automático) sem interface para o Azure.
 
 Este artigo fornece instruções passo a passo para criar uma aplicação que utiliza estes métodos de autorização. Ele mostra como fazer cada passo com a REST API ou C#. A aplicação ASP.NET MVC completa está disponível em [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
@@ -287,13 +287,13 @@ Aqui estão os identificadores de funções incorporadas usadas:
 | --- | --- |
 | Leitor |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | Contribuinte |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| Contribuinte de Máquina Virtual |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| Contribuinte de máquina virtual |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Contribuinte de rede virtual |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
-| Contribuinte de Conta de Armazenamento |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
+| Contribuinte de conta de armazenamento |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 | Contribuinte de Web site |de139f84-1756-47ae-9be6-808fbbe84772 |
-| Contribuinte de Plano Web |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| Contribuinte de plano Web |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 | Contribuinte do SQL Server |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-| Contribuinte de Base de Dados SQL |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+| Contribuinte da BD SQL |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>Atribuir função RBAC a aplicação
 Tem tudo o que precisa para atribuir a função RBAC adequada ao seu principal de serviço, utilizando o [Resource Manager criar atribuição de função](https://docs.microsoft.com/rest/api/authorization/roleassignments) API.

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
 ms.openlocfilehash: 4e9bb9bd86e22efa5dd514e742481911b09c5e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61088297"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
@@ -74,7 +74,7 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 ## <a name="workbooks"></a>Livros
 [Pastas de trabalho](../azure-monitor/app/usage-workbooks.md) são documentos interativos que fornecem informações mais detalhadas sobre os seus dados, a investigação e a colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são resolução de problemas de guias e incidente postmortem.
 
-![Livro](media/visualizations/workbook.png)
+![Pasta de trabalho](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Vantagens
 - Oferece suporte a métricas e registos.

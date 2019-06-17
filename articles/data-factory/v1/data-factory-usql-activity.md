@@ -14,14 +14,14 @@ ms.author: abnarain
 manager: craigg
 robots: noindex
 ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61248152"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-usql-activity.md)
 > * [Versão 2 (versão atual)](../transform-data-using-data-lake-analytics.md)
 
@@ -48,7 +48,7 @@ A tabela seguinte fornece descrições para as propriedades genéricas usadas na
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| **tipo** |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
+| **type** |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
 | **accountName** |Nome da conta do Azure Data Lake Analytics. |Sim |
 | **dataLakeAnalyticsUri** |URI do Azure Data Lake Analytics. |Não |
 | **subscriptionId** |Id de subscrição do Azure |Não (se não for especificado, a subscrição do data factory é utilizada). |
@@ -208,7 +208,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 
 | Propriedade            | Descrição                              | Necessário                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| tipo                | A propriedade de tipo deve ser definida como **DataLakeAnalyticsU SQL**. | Sim                                      |
+| type                | A propriedade de tipo deve ser definida como **DataLakeAnalyticsU SQL**. | Sim                                      |
 | linkedServiceName   | Referência para o Azure Data Lake Analytics registado como um serviço ligado no Data Factory | Sim                                      |
 | scriptPath          | Caminho para a pasta que contém o script de U-SQL. Nome do ficheiro diferencia maiúsculas de minúsculas. | Não (se usar o script)                   |
 | scriptLinkedService | Serviço ligado que liga o armazenamento que contém o script para a fábrica de dados | Não (se usar o script)                   |

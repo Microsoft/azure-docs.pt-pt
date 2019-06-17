@@ -1,6 +1,6 @@
 ---
 title: 'Início rápido: Criar clusters do Apache Hadoop com o Resource Manager - Azure HDInsight'
-description: Saiba como criar clusters do HDInsight.
+description: Neste início rápido, vai criar cluster do Apache Hadoop no HDInsight do Azure com o modelo do Resource Manager
 keywords: guia de introdução do hadoop, hadoop linux, início rápido do hadoop, introdução do hive, início rápido do hive
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 05/14/2019
-ms.openlocfilehash: 9084e8e0fe7707b5f115df80792cea102772b8e9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: 43eb2f6aad1b980d59b34b83547c8fc4812a763b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861652"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67057549"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Criar cluster do Apache Hadoop no HDInsight do Azure com o modelo do Resource Manager
 
@@ -85,36 +85,3 @@ Neste início rápido, aprendeu a criar um cluster do Apache Hadoop no HDInsight
 
 > [!div class="nextstepaction"]
 >[Extrair, transformar e carregar dados com o Apache Hive no HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
-
-Se estiver pronto para começar a trabalhar com os seus próprios dados e precisar de saber mais sobre a forma como o HDInsight armazena os dados ou como carregar dados para o HDInsight, consulte os seguintes artigos:
-
-* Para obter informações sobre como o HDInsight utiliza o Armazenamento do Azure, consulte [Utilizar o Armazenamento do Azure com o HDInsight](../hdinsight-hadoop-use-blob-storage.md).
-* Para obter informações sobre como criar um cluster do HDInsight com o armazenamento do Data Lake, veja [início rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* Para obter informações sobre como carregar dados para o HDInsight, veja [Upload data to HDInsight](../hdinsight-upload-data.md) (Carregar dados para o HDInsight).
-* [Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
-
-Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:
-
-* Para saber mais sobre como utilizar o Hive com HDInsight, incluindo como executar consultas do Hive a partir do Visual Studio, veja [utilizar o Apache Hive com HDInsight](hdinsight-use-hive.md).
-* Para saber mais sobre o Pig, uma linguagem utilizada para transformar dados, veja [utilizar o Apache Pig com o HDInsight](hdinsight-use-pig.md).
-* Para saber mais sobre o MapReduce, uma forma de escrever programas que processam dados no Hadoop, veja [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md) (Utilizar o MapReduce com o HDInsight).
-* Para saber mais sobre como utilizar as Ferramentas do HDInsight para o Visual Studio para analisar dados no HDInsight, consulte [Começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
-* Para saber mais sobre como utilizar as Ferramentas do HDInsight para o VSCode para analisar dados no HDInsight, consulte [Utilizar as Ferramentas do HDInsight para o Visual Studio Code](../hdinsight-for-vscode.md).
-
-
-Se gostaria de saber mais sobre como criar ou gerir um cluster do HDInsight, consulte os seguintes artigos:
-
-* Para saber mais sobre a gestão do seu cluster do HDInsight baseado em Linux, veja [clusters do HDInsight gerir com o Apache Ambari](../hdinsight-hadoop-manage-ambari.md).
-* Para saber mais sobre as opções que pode selecionar ao criar um cluster do HDInsight, consulte [Criar HDInsight no Linux utilizando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md).
-
-Para saber mais sobre a criação de cluster do HDInsight com modelos Azure Resource Manager, consulte:
-
-* [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular).
-* [Referência de modelo do Azure](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
-
-[1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
-
-[hdinsight-provision]: hdinsight-provision-linux-clusters.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md

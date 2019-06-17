@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508961"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Página única início de sessão com o fluxo implícito de OAuth 2.0 no Azure Active Directory B2C
@@ -86,7 +86,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | Não | O URI de redirecionamento de seu aplicativo, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos URIs que registou no portal de redirecionamento, exceto pelo fato de que tem de ser codificados de URL. |
 | response_mode | Não | Especifica o método a utilizar para enviar a cópia de token resultante à sua aplicação.  Para fluxos implícitos, utilize `fragment`. |
 | scope | Sim | Uma lista de âmbitos separadas por espaços. Indica um valor de âmbito único para o Azure AD ambas as permissões que estão a ser solicitada. O `openid` âmbito indica uma permissão para iniciar a sessão do utilizador e obter dados sobre o utilizador na forma de tokens de ID. O `offline_access` âmbito é opcional para aplicações web. Ele indica que o aplicativo precisa de um token de atualização de longa duração acesso a recursos. |
-| estado | Não | Um valor incluído no pedido que também é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que pretende utilizar. Normalmente, um valor exclusivo, gerado aleatoriamente, é usado, para impedir ataques de falsificação de solicitação entre sites. O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página onde estavam. |
+| state | Não | Um valor incluído no pedido que também é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que pretende utilizar. Normalmente, um valor exclusivo, gerado aleatoriamente, é usado, para impedir ataques de falsificação de solicitação entre sites. O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página onde estavam. |
 | nonce | Sim | Um valor incluído no pedido (gerado pela aplicação) que está incluído no token de ID resultante como uma afirmação. A aplicação pode, em seguida, verifique se este valor para mitigar ataques de repetição de token. Normalmente, o valor é uma cadeia aleatória, exclusiva que pode ser utilizada para identificar a origem do pedido. |
 | p | Sim | A política para executar. É o nome da política (fluxo de utilizador) que é criada no seu inquilino do Azure AD B2C. O valor de nome de política deve começar com **b2c\_1\_** . |
 | linha de comandos | Não | O tipo de interação do utilizador que é necessário. Atualmente, o único valor válido é `login`. Este parâmetro força o utilizador introduza as credenciais desse pedido. Início de sessão único não entre em vigor. |
@@ -115,7 +115,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | O período de tempo que o token de acesso é válido (em segundos). |
 | scope | Os âmbitos que o token é válido para. Também pode utilizar âmbitos para tokens de cache para utilização posterior. |
 | id_token | O token de ID que a aplicação pedida. Pode usar o token de ID para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. Para obter mais informações sobre os tokens de ID e seu conteúdo, consulte a [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). |
-| estado | Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
+| state | Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
 
 ### <a name="error-response"></a>Resposta de erro
 Respostas de erro também podem ser enviadas para o URI de redirecionamento para que a aplicação pode processar corretamente:
@@ -131,7 +131,7 @@ error=access_denied
 | --------- | ----------- |
 | error | Um código utilizado para classificar tipos de erros que ocorrem. |
 | error_description | Uma mensagem de erro específicas que pode ajudar a identificar a causa de raiz de um erro de autenticação. |
-| estado | Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos.|
+| state | Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos.|
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
 
@@ -198,7 +198,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Recomendado |O URI de redirecionamento de seu aplicativo, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos URIs que registou no portal de redirecionamento, exceto pelo fato de que tem de ser codificados de URL. |
 | scope |Necessário |Uma lista de âmbitos separadas por espaços.  Para obter os tokens, incluem todos os âmbitos que necessita para o recurso pretendido. |
 | response_mode |Recomendado |Especifica o método que é utilizado para enviar a cópia de token resultante à sua aplicação.  Pode ser `query`, `form_post`, ou `fragment`. |
-| estado |Recomendado |Um valor incluído no pedido que é devolvido na resposta de token.  Pode ser uma cadeia de caracteres de qualquer conteúdo que pretende utilizar.  Normalmente, um valor exclusivo, gerado aleatoriamente, é usado, para impedir ataques de falsificação de solicitação entre sites.  O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu. Por exemplo, a página ou a vista foi o utilizador no. |
+| state |Recomendado |Um valor incluído no pedido que é devolvido na resposta de token.  Pode ser uma cadeia de caracteres de qualquer conteúdo que pretende utilizar.  Normalmente, um valor exclusivo, gerado aleatoriamente, é usado, para impedir ataques de falsificação de solicitação entre sites.  O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu. Por exemplo, a página ou a vista foi o utilizador no. |
 | nonce |Necessário |Um valor incluído na solicitação, gerada pela aplicação, que está incluída no token de ID resultante como uma afirmação.  A aplicação pode, em seguida, verifique se este valor para mitigar ataques de repetição de token. Normalmente, o valor é uma cadeia aleatória, exclusiva que identifica a origem do pedido. |
 | linha de comandos |Necessário |Para atualizar e obter os tokens num iframe oculto, utilize `prompt=none` para garantir que o iframe não ficar preso na página de início de sessão e retorna imediatamente. |
 | login_hint |Necessário |Para atualizar e obter tokens num iframe oculto, inclua o nome de utilizador do utilizador desta sugestão para distinguir entre várias sessões, que o utilizador pode ter um determinado momento. É possível extrair o nome de utilizador de um anterior início de sessão utilizando o `preferred_username` de afirmação. |
@@ -222,7 +222,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | --- | --- |
 | access_token |O token que a aplicação pedida. |
 | token_type |O tipo de token será sempre portador. |
-| estado |Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
+| state |Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
 | expires_in |O tempo que o token de acesso é válido (em segundos). |
 | scope |Os âmbitos que o token de acesso é válido para. |
 

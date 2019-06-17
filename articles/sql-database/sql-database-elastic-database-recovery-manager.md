@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61475906"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilizar a classe RecoveryManager para corrigir problemas do mapa de partições horizontais
@@ -33,7 +33,7 @@ Para obter definições de termo, consulte [Glossário de ferramentas de bases d
 
 ## <a name="why-use-the-recovery-manager"></a>Porquê utilizar o Gestor de recuperação
 
-Num ambiente de base de dados em partição horizontal, existe um inquilino por base de dados e muitas bases de dados por servidor. Também pode haver vários servidores no ambiente. Cada base de dados é mapeado no mapa de partições horizontais, para que as chamadas podem ser encaminhadas para o servidor correto e a base de dados. Bases de dados são controladas em conformidade com um **chave de fragmentação**, e cada partição horizontal é atribuído um **intervalo de valores chave**. Por exemplo, uma chave de fragmentação pode representar os nomes de cliente de "D" para "F." O mapeamento de todas as partições horizontais (também conhecido como bases de dados) e seus intervalos de mapeamento estão contidas na **mapa de partições horizontais global (GSM)**. Cada base de dados também contém um mapa dos intervalos contidos na partição horizontal que é conhecido como o **mapa de partições horizontais local (LSM)**. Quando uma aplicação que se liga a uma partição horizontal, o mapeamento é colocado em cache com a aplicação para uma recuperação rápida. O LSM é utilizado para validar dados em cache.
+Num ambiente de base de dados em partição horizontal, existe um inquilino por base de dados e muitas bases de dados por servidor. Também pode haver vários servidores no ambiente. Cada base de dados é mapeado no mapa de partições horizontais, para que as chamadas podem ser encaminhadas para o servidor correto e a base de dados. Bases de dados são controladas em conformidade com um **chave de fragmentação**, e cada partição horizontal é atribuído um **intervalo de valores chave**. Por exemplo, uma chave de fragmentação pode representar os nomes de cliente de "D" para "F." O mapeamento de todas as partições horizontais (também conhecido como bases de dados) e seus intervalos de mapeamento estão contidas na **mapa de partições horizontais global (GSM)** . Cada base de dados também contém um mapa dos intervalos contidos na partição horizontal que é conhecido como o **mapa de partições horizontais local (LSM)** . Quando uma aplicação que se liga a uma partição horizontal, o mapeamento é colocado em cache com a aplicação para uma recuperação rápida. O LSM é utilizado para validar dados em cache.
 
 O GSM e LSM podem ficar dessincronizada pelos seguintes motivos:
 

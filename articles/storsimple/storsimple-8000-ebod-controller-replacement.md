@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60578696"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Substituir um controlador EBOD no dispositivo StorSimple
@@ -54,7 +54,7 @@ Antes de substituir o módulo de controlador EBOD com falhas no dispositivo Stor
    
      **Figura 1** módulo Back de EBOD
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |LED de falha |
    | 2 |Power LED |
@@ -86,13 +86,13 @@ O procedimento e tabela seguintes explicam como instalar um módulo de controlad
    
     **Figura 4**. Restabelecer ligação cabos
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |Bastidor principal |
    | 2 |PCM 0 |
    | 3 |PCM 1 |
-   | 4 |Controlador 0 |
-   | 5 |Controlador 1 |
+   | 4 |Controlador 0 |
+   | 5 |Controlador 1 |
    | 6 |Controlador 0 de EBOD |
    | 7 |1 o controlador de EBOD |
    | 8 |Bastidor EBOD |

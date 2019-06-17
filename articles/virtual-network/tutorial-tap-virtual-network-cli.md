@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
 ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60743195"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Trabalhar com uma rede virtual TOQUE com a CLI do Azure

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954963"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma origem de dados protegida do Sharepoint à sua base de dados de conhecimento
@@ -99,7 +99,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 -->
 ### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Conceder acesso a partir do Centro de administração do Azure Active Directory
 
-1. O Gestor de diretório Active Directory inicia sessão no portal do Azure e abre  **[aplicações empresariais](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**. 
+1. O Gestor de diretório Active Directory inicia sessão no portal do Azure e abre  **[aplicações empresariais](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** . 
 
 1. Procure `QnAMakerPortalSharepoint` select a aplicação do QnA Maker. 
 

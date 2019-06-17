@@ -10,10 +10,10 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61304345"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Ver o conteúdo de um ficheiro que está a ser controlada com controlo de alterações
@@ -34,7 +34,7 @@ Controlo de conteúdo de ficheiros permite-lhe ver os conteúdos de um ficheiro 
 2. No menu superior, selecione **editar definições de**.
 3. Selecione **conteúdo do ficheiro** e clique em **ligação**. Esta ação abre o **localização de conteúdo adicionar para controlo de alterações** painel.
 
-   ![ativar](./media/change-tracking-file-contents/enable.png)
+   ![Ativar](./media/change-tracking-file-contents/enable.png)
 
 4. Selecione a subscrição e a conta de armazenamento a utilizar para armazenar o conteúdo do ficheiro para. Se pretender ativar o controlo de conteúdo do ficheiro para todos os ficheiros de controladas existentes, selecione **nos** para **carregar conteúdo do ficheiro para todas as definições**. Pode alterar isso para cada caminho de ficheiro posteriormente.
 

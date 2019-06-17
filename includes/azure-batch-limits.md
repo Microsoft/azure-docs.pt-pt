@@ -5,31 +5,25 @@ services: batch
 author: laurenhughes
 ms.service: batch
 ms.topic: include
-ms.date: 10/11/2018
+ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 9ffb02fce41e8805dfccf1dfd6e982cf107039ec
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 22bfc3c86605f4c2eed4c022919b3643f394ea95
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66127550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080911"
 ---
 | **Recurso** | **Limite predefinido** | **Limite máximo** |
 | --- | --- | --- |
 | Contas de Batch do Azure por região por subscrição | 1-3 |50 |
-| Núcleos dedicados por conta do Batch | 10-100 | N/A<sup>1</sup> |
-| Núcleos de prioridade baixa por conta do Batch | 10-100 | N/A<sup>2</sup> |
-| Tarefas ativas e agendas de trabalhos<sup>3</sup> por conta do Batch | 100-300 | 1,000<sup>4</sup> |
-| Conjuntos por conta do Batch | 20-100 | 500<sup>4</sup> |
+| Núcleos dedicados por conta do Batch | 90-900 | Contacte o suporte |
+| Núcleos de prioridade baixa por conta do Batch | 10-100 | Contacte o suporte |
+| **[Active Directory](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)**  tarefas e agendamentos de trabalhos por conta do Batch (**concluída** tarefas não têm limite) | 100-300 | 1,000<sup>1</sup> |
+| Conjuntos por conta do Batch | 20-100 | 500<sup>1</sup> |
 
 > [!NOTE]
-> Limites predefinidos variam consoante o tipo de subscrição que vai utilizar para criar uma conta do Batch. As quotas de núcleos mostradas destinam-se a contas do Batch no modo de serviço do Batch. [Ver as quotas na sua conta do Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
+> Limites predefinidos variam consoante o tipo de subscrição que vai utilizar para criar uma conta do Batch. As quotas de núcleos mostradas destinam-se a contas do Batch no modo de serviço do Batch. [Ver as quotas na sua conta do Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
-<sup>1</sup>pode ser aumentado o número de núcleos dedicados por conta do Batch, mas o número máximo é não especificado. Para discutir as opções de aumento, contacte o suporte do Azure.
-
-<sup>2</sup>pode ser aumentado o número de núcleos de prioridade baixa por conta do Batch, mas o número máximo é não especificado. Para discutir as opções de aumento, contacte o suporte do Azure.
-
-<sup>3</sup>tarefas concluídas e agendas de tarefas não estão limitadas.
-
-<sup>4</sup>para pedir um aumento que ultrapassam este limite, contacte o suporte do Azure.
+<sup>1</sup>para pedir um aumento que ultrapassam este limite, contacte o suporte do Azure.

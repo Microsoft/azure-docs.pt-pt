@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681375"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67135345"
 ---
 ### <a name="open-the-publish-wizard"></a>Abrir o Assistente de publicação
 
@@ -45,7 +45,7 @@ Na **configurar o plano de alojamento** diálogo caixa, utilize estas definiçõ
 |-|-|-|
 |Plano do Serviço de Aplicações| MySharingServicePlan | Nome do plano de serviço de aplicações. |
 | Location | EUA Oeste | O centro de dados onde o a aplicação Web está alojada. |
-| Tamanho | Gratuito | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina que recursos de alojamento. |
+| Tamanho | Livre | O [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina que recursos de alojamento. |
 
 Selecione **OK**.
 

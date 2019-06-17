@@ -11,10 +11,10 @@ ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 613bcb05dab993989a2ae00b71fef95794953ab8
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850740"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para o SQL Data Warehouse

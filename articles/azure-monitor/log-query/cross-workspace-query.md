@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 51645f4f0c6dcc70d76ed1a20bc40f95db9d9717
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693356"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de registo entre recursos no Azure Monitor  

@@ -10,10 +10,10 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60737409"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de módulos e Runbooks de automatização do Azure
@@ -69,8 +69,8 @@ Módulos do PowerShell contêm cmdlets que podem ser utilizados nos runbooks e m
 
 4. Sobre o **Galeria de procura** página, pode pesquisar pelos seguintes campos:
 
-   * Nome do Módulo
-   * Etiquetas
+   * Nome do módulo
+   * Tags
    * Autor
    * Nome do cmdlet/DSC de recursos
 

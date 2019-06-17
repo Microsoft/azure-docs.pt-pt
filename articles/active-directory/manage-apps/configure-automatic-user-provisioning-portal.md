@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65963567"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações empresariais no portal do Azure
@@ -56,7 +56,7 @@ O **aprovisionamento** painel começa com um **modo** menu, que mostra os modos 
 
 Selecione o **automática** opção para especificar as definições de credenciais de administrador, mapeamentos, iniciar e parar e sincronização.
 
-### <a name="admin-credentials"></a>Credenciais de Administrador
+### <a name="admin-credentials"></a>Credenciais de administrador
 
 Expanda **credenciais de administrador** para introduzir as credenciais necessárias para o Azure AD ligar à API de gestão de usuário do aplicativo. A entrada necessária varia consoante a aplicação. Para saber mais sobre os requisitos para determinados aplicativos e tipos de credenciais, consulte a [tutorial de configuração para aquele aplicativo específico](user-provisioning.md).
 
@@ -96,7 +96,7 @@ Selecione o **Limpar estado atual e reiniciar a sincronização** caixa de verif
 
 Esta opção permite aos administradores de iniciar o processo de implantação aprovisionamento novamente.
 
-### <a name="synchronization-details"></a>Detalhes da Sincronização
+### <a name="synchronization-details"></a>Detalhes de sincronização
 
 Esta seção fornece detalhes adicionais sobre o funcionamento do serviço de aprovisionamento, incluindo os tempos de primeiros e últimos que serviço de aprovisionamento executou o aplicativo e o número de utilizadores e objetos de grupo que gere.
 

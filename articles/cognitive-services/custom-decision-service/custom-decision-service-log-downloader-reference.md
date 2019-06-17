@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
 ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829995"
 ---
 # <a name="logdownloader"></a>LogDownloader

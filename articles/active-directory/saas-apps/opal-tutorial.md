@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 05be19ba59c5e392ce75d465a90b0946a9160c00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0f7eb1f5662ce0b901af2fd82a75556cacbca62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870693"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Tutorial: Integração do Active Directory do Azure com Opal
 
@@ -53,7 +53,7 @@ Para configurar a integração do Opal com o Azure AD, terá de adicionar Opal a
 
 **Para adicionar Opal a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -214,7 +214,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Opal. Trabalhar com [equipa de suporte de Opal](mailto:support@workwithopal.com) para adicionar os utilizadores na plataforma Opal. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

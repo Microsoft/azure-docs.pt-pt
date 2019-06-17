@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: be8f70e36636fc090552fdc64a18f4d1829388e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db51e4020e3f16244b19c8107a17080bf85c3330
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: Integração do Active Directory do Azure com Fuze
 
@@ -54,7 +54,7 @@ Para configurar a integração do Fuze com o Azure AD, terá de adicionar Fuze a
 
 **Para adicionar Fuze a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

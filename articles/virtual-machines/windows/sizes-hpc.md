@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck;amverma
 ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755313"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tamanhos de VM de computação de elevado desempenho

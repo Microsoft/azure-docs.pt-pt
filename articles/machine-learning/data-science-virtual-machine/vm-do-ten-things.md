@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60366273"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na máquina Virtual Windows dados ciência
@@ -403,7 +403,7 @@ Se os dados residem no armazenamento de Blobs do Azure, podem ler diretamente da
 
 ![Captura de ecrã da caixa de diálogo Adicionar origem de dados](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
-No Visual Studio, pode ler os dados do armazenamento de BLOBs, fazer alguma manipulação de dados, engenharia de funcionalidades e os dados resultantes para o Azure Data Lake ou armazenamento de Blobs do Azure de saída. Quando referencia os dados no armazenamento de BLOBs, utilize **wasb: / /**; quando referencia os dados no Azure Data Lake, utilize **swbhdfs: / /**
+No Visual Studio, pode ler os dados do armazenamento de BLOBs, fazer alguma manipulação de dados, engenharia de funcionalidades e os dados resultantes para o Azure Data Lake ou armazenamento de Blobs do Azure de saída. Quando referencia os dados no armazenamento de BLOBs, utilize **wasb: / /** ; quando referencia os dados no Azure Data Lake, utilize **swbhdfs: / /**
 
 ![Captura de ecrã da consulta com a entrada WASB realçada](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 

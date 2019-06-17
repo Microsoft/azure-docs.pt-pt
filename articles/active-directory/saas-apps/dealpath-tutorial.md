@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5474af0fbc6b510d3667445bfdbe00fb45daebf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d0808361acf762ac21281493b71f7c89c9eef228
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899798"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Tutorial: Integração do Active Directory do Azure com Dealpath
 
@@ -53,7 +53,7 @@ Para configurar a integração do Dealpath com o Azure AD, terá de adicionar De
 
 **Para adicionar Dealpath a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -201,7 +201,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Dealpath. Trabalhar com [equipa de suporte de cliente Dealpath](mailto:kenter@dealpath.com) para adicionar os utilizadores na plataforma Dealpath. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

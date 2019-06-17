@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65921809"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Detete ameaças com a pré-visualização de sentinela do Azure

@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955957"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Dimensionamento automático e o ambiente de serviço de aplicações v1
@@ -93,7 +93,7 @@ Frank é muito familiarizado com a aplicação. Eles sabem que as horas de pico 
 |  | |
 | **Regra de dimensionamento automático (aumentar verticalmente)** |**Regra de dimensionamento automático (aumentar verticalmente)** |
 | **recurso:** Produção (ambiente de serviço de aplicações) |**recurso:** Produção (ambiente de serviço de aplicações) |
-| **Métrica:** % da CPU |**Métrica:** % da CPU |
+| **Métrica:** % DE CPU |**Métrica:** % DE CPU |
 | **Operação:** Superior a 60% |**Operação:** Superior a 80% |
 | **Duração:** 5 Minutos |**Duração:** 10 Minutos |
 | **Agregação de tempo:** Média |**Agregação de tempo:** Média |
@@ -102,7 +102,7 @@ Frank é muito familiarizado com a aplicação. Eles sabem que as horas de pico 
 |  | |
 | **Regra de dimensionamento automático (dimensionamento para baixo)** |**Regra de dimensionamento automático (dimensionamento para baixo)** |
 | **recurso:** Produção (ambiente de serviço de aplicações) |**recurso:** Produção (ambiente de serviço de aplicações) |
-| **Métrica:** % da CPU |**Métrica:** % da CPU |
+| **Métrica:** % DE CPU |**Métrica:** % DE CPU |
 | **Operação:** Menos de 30% |**Operação:** Menos de 20% |
 | **Duração:** 10 minutos |**Duração:** 15 minutos |
 | **Agregação de tempo:** Média |**Agregação de tempo:** Média |
@@ -209,7 +209,7 @@ Para este cenário, o Frank sabe que a taxa de erros aumenta depois de front-end
 |  |
 | **Regra de dimensionamento automático (aumentar verticalmente)** |
 | **recurso:** Conjunto de front-end |
-| **Métrica:** % da CPU |
+| **Métrica:** % DE CPU |
 | **Operação:** Superior a 60% |
 | **Duração:** 20 minutos |
 | **Agregação de tempo:** Média |
@@ -218,7 +218,7 @@ Para este cenário, o Frank sabe que a taxa de erros aumenta depois de front-end
 |  |
 | **Regra de dimensionamento automático (dimensionamento para baixo)** |
 | **recurso:** Conjunto de trabalho 1 |
-| **Métrica:** % da CPU |
+| **Métrica:** % DE CPU |
 | **Operação:** Menos de 30% |
 | **Duração:** 20 minutos |
 | **Agregação de tempo:** Média |

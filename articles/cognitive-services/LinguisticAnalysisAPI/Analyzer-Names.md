@@ -12,10 +12,10 @@ ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954713"
 ---
 # <a name="analyzer-names"></a>Nomes de analisador
@@ -31,7 +31,7 @@ A função de cada componente definida abaixo.
 Em primeiro lugar, um analisador tem um ID exclusivo; um GUID.
 Esses GUIDs devem ser alterado em ocasiões relativamente raras, mas são a única forma de descrever exclusivamente um analisador de particular.
 
-## <a name="kind"></a>Tipo
+## <a name="kind"></a>tipo
 Em seguida, cada analyzer é uma **tipo**.
 Isso define em termos muito amplas devolveu o tipo de análise e exclusivamente deve definir a estrutura de dados usada para representar essa análise.
 Atualmente, existem três tipos distintos:

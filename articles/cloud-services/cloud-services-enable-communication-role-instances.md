@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fa3885f9c273cf6aaf9173ebd3fee3d4499be34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519442"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808107"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Ativar a comunicação para instâncias de função no azure
 Funções de serviço cloud comunicam através de ligações internas e externas. Ligações externas são chamadas **pontos finais de entrada** enquanto são chamadas de ligações internas **pontos finais internos**. Este tópico descreve como modificar o [definição do serviço](cloud-services-model-and-package.md#csdef) para criar pontos finais.
 
 ## <a name="input-endpoint"></a>Ponto final de entrada
-O ponto final de entrada é usado quando deseja expor uma porta para o exterior. Especifique o tipo de protocolo e a porta do ponto de extremidade que, em seguida, aplica-se para ambas as portas externas e internas para o ponto final. Se quiser, pode especificar uma porta diferente interna para o ponto final com o [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) atributo.
+O ponto final de entrada é usado quando deseja expor uma porta para o exterior. Especifique o tipo de protocolo e a porta do ponto de extremidade que, em seguida, aplica-se para ambas as portas externas e internas para o ponto final. Se quiser, pode especificar uma porta diferente interna para o ponto final com o [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) atributo.
 
 O ponto final de entrada, pode utilizar os seguintes protocolos: **http, https, tcp, udp**.
 

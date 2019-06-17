@@ -11,17 +11,17 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873790"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Parceiros de integração de dados do SQL Data Warehouse
 Para criar a sua solução de armazém de dados, escolha entre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca a empresas parceiras da Microsoft com soluções de integração de dados oficial de suporte do Azure SQL Data Warehouse.
 
 ## <a name="data-integration-partners"></a>Parceiros de integração de dados
-| Parceiro | Descrição | Ligação do Web site/produto |
+| Partner | Descrição | Ligação do Web site/produto |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma é uma solução ETL que permite às equipes de dados integrar, enriquecer e transmitir dados de várias silos de dados para o SQL Data Warehouse tudo em tempo real. |[Página de produto][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Designer fornece um fluxo de trabalho repetível self-service para análise de dados que leva a informações mais aprofundadas em horas, não as semanas típicas de abordagens tradicionais! Designer de Alteryx ajuda a analistas de dados ao combinar a preparação de dados, a mistura de dados e Análise – Preditiva, estatística e espacial – utilizar a mesma interface de utilizador intuitiva. |[Página de produto][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|

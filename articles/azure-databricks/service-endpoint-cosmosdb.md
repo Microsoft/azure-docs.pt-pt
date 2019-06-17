@@ -1,18 +1,18 @@
 ---
 title: Implementar o Azure Databricks com um ponto de final do Cosmos DB
 description: Este tutorial descreve como implementar o Azure Databricks numa rede virtual com um ponto de extremidade de serviço ativado para o Cosmos DB.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126703"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054660"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar o Azure Databricks com um ponto de final do Cosmos DB
 
@@ -60,16 +60,16 @@ Antes de começar, faça o seguinte:
    |Subscrição|*a sua subscrição*|
    |Grupo de Recursos|*O grupo de recursos*|
    |Nome da Conta|db-vnet-service-endpoint|
-   |API|Núcleo (SQL)|
+   |API|Core (SQL)|
    |Location|EUA Oeste|
-   |Georredundância|Desativar|
-   |Escritas em várias regiões|Ativar|
+   |Redundância geográfica|Desativar|
+   |Escritas de várias regiões|Ativar|
 
    ![Adicionar um ponto de extremidade de serviço do Cosmos DB](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 
 3. Selecione o **rede** separador e configurar a rede virtual. 
 
-   a. Escolha a rede virtual que criou como pré-requisito e, em seguida, selecione *público sub-rede*. Tenha em atenção que *private-sub-rede* tem a nota *ponto final de 'Microsoft AzureCosmosDB' está em falta "*. Isto acontece porque ativada apenas o ponto de extremidade de serviço do Cosmos DB no *público sub-rede*.
+   a. Escolha a rede virtual que criou como pré-requisito e, em seguida, selecione *público sub-rede*. Tenha em atenção que *private-sub-rede* tem a nota *ponto final de 'Microsoft AzureCosmosDB' está em falta "* . Isto acontece porque ativada apenas o ponto de extremidade de serviço do Cosmos DB no *público sub-rede*.
 
    b. Certifique-se de que tenha **permitir o acesso a partir do portal do Azure** ativada. Esta definição permite-lhe acesso a sua conta do Cosmos DB no portal do Azure. Se esta opção estiver definida como **negar**, receberá erros ao tentar aceder à sua conta. 
 

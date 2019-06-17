@@ -9,10 +9,10 @@ ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597089"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
@@ -25,7 +25,7 @@ Este artigo descreve considerações importantes para uma implementação do Azu
 ## <a name="azure-file-sync-terminology"></a>Terminologia de sincronização de ficheiros do Azure
 Antes de entrar em detalhes sobre como planear uma implementação de sincronização de ficheiros do Azure, é importante compreender a terminologia.
 
-### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
+### <a name="storage-sync-service"></a>Serviço de sincronização de armazenamento
 O serviço de sincronização de armazenamento é o recurso de nível superior do Azure para o Azure File Sync. O recurso de serviço de sincronização de armazenamento é um elemento de rede do recurso de conta de armazenamento e da mesma forma pode ser implementado em grupos de recursos do Azure. Recursos de nível superior distintos do recurso de conta de armazenamento é necessário porque o serviço de sincronização de armazenamento podem criar relacionamentos de sincronização com várias contas de armazenamento através de vários grupos de sincronização. Uma subscrição pode ter vários recursos de serviço de sincronização de armazenamento implementados.
 
 ### <a name="sync-group"></a>Grupo de sincronização
@@ -110,7 +110,7 @@ Para exibir os resultados no CSV:
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
-### <a name="system-requirements"></a>Requisitos do Sistema
+### <a name="system-requirements"></a>Requisitos de Sistema
 - Um servidor com o Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019:
 
     | Version | SKUs suportados | Opções de implementação suportadas |
@@ -178,9 +178,9 @@ Para volumes que não têm a cloud em camadas ativado, o Azure File Sync suporta
 ### <a name="distributed-file-system-dfs"></a>Sistema de ficheiros distribuído (DFS)
 O Azure File Sync suporta a interoperabilidade com espaços de nomes do DFS (DFS-N) e a replicação de DFS (DFS-R).
 
-**Espaços de nomes do DFS (DFS-N)**: O Azure File Sync é totalmente suportado em servidores do DFS-N. Pode instalar o agente do Azure File Sync num ou mais membros do DFS-N para sincronizar dados entre os pontos de extremidade do servidor e o ponto final da cloud. Para obter mais informações, consulte [descrição geral de espaços de nomes DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**Espaços de nomes do DFS (DFS-N)** : O Azure File Sync é totalmente suportado em servidores do DFS-N. Pode instalar o agente do Azure File Sync num ou mais membros do DFS-N para sincronizar dados entre os pontos de extremidade do servidor e o ponto final da cloud. Para obter mais informações, consulte [descrição geral de espaços de nomes DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**A replicação de DFS (DFS-R)**: Como o DFS-R e o Azure File Sync são as duas soluções de replicação, na maioria dos casos, é recomendável substituir o DFS-R com o Azure File Sync. Existem vários cenários em que gostaria de utilizar o DFS-R e o Azure File Sync em conjunto:
+**A replicação de DFS (DFS-R)** : Como o DFS-R e o Azure File Sync são as duas soluções de replicação, na maioria dos casos, é recomendável substituir o DFS-R com o Azure File Sync. Existem vários cenários em que gostaria de utilizar o DFS-R e o Azure File Sync em conjunto:
 
 - Estiver a migrar de uma implementação de DFS-R para uma implementação do Azure File Sync. Para obter mais informações, consulte [migrar uma implementação de replicação de DFS (DFS-R) para o Azure File Sync](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Nem todos os servidor no local que necessita de uma cópia dos seus dados de ficheiro pode estar ligado diretamente à internet.
@@ -230,23 +230,23 @@ Em geral, Azure File Sync deve suportar a interoperabilidade com soluções de e
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de gestão de armazenamento hierárquico (HSM)
 Não existem outras soluções HSM devem ser utilizadas com o Azure File Sync.
 
-## <a name="region-availability"></a>Disponibilidade regional
+## <a name="region-availability"></a>Disponibilidade de região
 O Azure File Sync está disponível apenas nas seguintes regiões:
 
 | Região | Localização do Datacenter |
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
-| Sudeste da Austrália | Vitória |
+| Sudeste da Austrália | Victoria |
 | Sul do Brasil | São Paulo Estado |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
 | Índia Central | Pune |
 | EUA Central | Iowa |
-| Ásia Oriental | R.A.E. Hong Kong |
-| EUA Leste | Virginia |
-| E.U.A. Leste 2 | Virginia |
-| Coreia do Sul Central| Seul |
-| Sul da Coreia do Sul| Busan |
+| Ásia Oriental | RAE de Hong Kong |
+| EUA Leste | Virgínia |
+| E.U.A. Leste 2 | Virgínia |
+| Coreia do Sul Central| Seoul |
+| Coreia do Sul| Busan |
 | Leste do Japão | Tóquio, Saitama |
 | Oeste do Japão | Osaka |
 | EUA Centro-Norte | Illinois |
@@ -255,14 +255,14 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | Sul da Índia | Chennai |
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |
-| Oeste do R.U. | Cardiff |
+| Reino Unido Oeste | Cardiff |
 | US Gov Arizona (pré-visualização) | Arizona |
 | US Gov Texas (pré-visualização) | Texas |
-| US Gov Virgínia (pré-visualização) | Virginia |
+| US Gov Virgínia (pré-visualização) | Virgínia |
 | Europa Ocidental | Países Baixos |
 | EUA Centro-Oeste | Wyoming |
-| EUA Oeste | California |
-| E.U.A. Oeste 2 | Washington |
+| EUA Oeste | Califórnia |
+| EUA Oeste 2 | Washington |
 
 O Azure File Sync suporta a sincronização apenas com uma partilha de ficheiros do Azure que está na mesma região que o serviço de sincronização de armazenamento.
 
@@ -291,22 +291,22 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 | EUA Leste 2           | EUA Central         |
 | Leste do Japão          | Oeste do Japão         |
 | Oeste do Japão          | Leste do Japão         |
-| Coreia do Sul Central       | Sul da Coreia do Sul        |
-| Sul da Coreia do Sul         | Coreia do Sul Central      |
+| Coreia do Sul Central       | Coreia do Sul        |
+| Coreia do Sul         | Coreia do Sul Central      |
 | Europa do Norte        | Europa Ocidental        |
 | EUA Centro-Norte    | EUA Centro-Sul   |
 | EUA Centro-Sul    | EUA Centro-Norte   |
 | Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Ásia Oriental          |
-| Reino Unido Sul            | Oeste do R.U.            |
-| Oeste do R.U.             | Reino Unido Sul           |
-| US Gov - Arizona      | US Gov - Texas       |
-| US Gov - Iowa         | US Gov - Virginia    |
-| US Gov Virgini      | US Gov - Texas       |
+| Reino Unido Sul            | Reino Unido Oeste            |
+| Reino Unido Oeste             | Reino Unido Sul           |
+| Gov (US) - Arizona      | Gov (US) - Texas       |
+| US Gov - Iowa         | Gov (US) - Virginia    |
+| US Gov Virgini      | Gov (US) - Texas       |
 | Europa Ocidental         | Europa do Norte       |
-| EUA Centro-Oeste     | E.U.A. Oeste 2          |
+| EUA Centro-Oeste     | EUA Oeste 2          |
 | EUA Oeste             | EUA Leste            |
-| E.U.A. Oeste 2           | EUA Centro-Oeste    |
+| EUA Oeste 2           | EUA Centro-Oeste    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

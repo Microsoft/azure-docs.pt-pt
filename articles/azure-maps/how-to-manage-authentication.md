@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952560"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação no Azure Maps
@@ -34,7 +34,7 @@ Depois de criar uma conta do Azure Maps, tem de estabelecer uma ligação entre 
 
 1. Aceda ao painel do Azure AD e crie um registo de aplicações. Forneça um nome para o registo. Na **URL de início de sessão** caixa, forneça a home page da aplicação web / API (por exemplo, https:\//localhost/). Se já tiver um aplicativo registrado, vá para o passo 2.
 
-    ![Registo de aplicações](./media/how-to-manage-authentication/app-registration.png)
+    ![Registo da aplicação](./media/how-to-manage-authentication/app-registration.png)
 
     ![Detalhes de registo de aplicação](./media/how-to-manage-authentication/app-create.png)
 
@@ -61,17 +61,17 @@ Depois de criar uma conta do Azure Maps, tem de estabelecer uma ligação entre 
 
 Depois de associar uma conta do Azure Maps inquilino do Azure AD, pode conceder controlo de acesso ao atribuir um utilizador ou aplicação para uma ou mais funções de controlo de acesso do Azure Maps.
 
-1. Aceda a **controlo de acesso (IAM)**, selecione **atribuições de funções**e, em seguida, selecione **adicionar atribuição de função**.
+1. Aceda a **controlo de acesso (IAM)** , selecione **atribuições de funções**e, em seguida, selecione **adicionar atribuição de função**.
 
     ![RBAC de concessão](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na **adicionar atribuição de função** janela, em **função**, selecione **leitor de data de mapas do Azure (pré-visualização)**. Sob **atribuir acesso aos**, selecione **utilizador, grupo ou principal de serviço do Azure AD**. Sob **selecione**, selecione o utilizador ou aplicação. Selecione **Guardar**.
+2. Na **adicionar atribuição de função** janela, em **função**, selecione **leitor de data de mapas do Azure (pré-visualização)** . Sob **atribuir acesso aos**, selecione **utilizador, grupo ou principal de serviço do Azure AD**. Sob **selecione**, selecione o utilizador ou aplicação. Selecione **Guardar**.
 
     ![Adicionar atribuição de função](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>Ver as funções de RBAC do Azure Maps disponíveis
 
-Para ver as funções de controlo (RBAC) de acesso baseado em funções que estão disponíveis para o Azure Maps, aceda ao **controlo de acesso (IAM)**, selecione **funções**, e, em seguida, procure funções a partir do **doAzureMaps**. Estas são as funções que pode conceder acesso a.
+Para ver as funções de controlo (RBAC) de acesso baseado em funções que estão disponíveis para o Azure Maps, aceda ao **controlo de acesso (IAM)** , selecione **funções**, e, em seguida, procure funções a partir do **doAzureMaps**. Estas são as funções que pode conceder acesso a.
 
 ![Modo de exibição de funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
@@ -80,7 +80,7 @@ Para ver as funções de controlo (RBAC) de acesso baseado em funções que est�
 
 RBAC fornece controlo de acesso granular.
 
-Para ver os utilizadores e aplicações que tenham sido concedidas RBAC para o Azure Maps, aceda a **controlo de acesso (IAM)**, selecione **atribuições de funções**e, em seguida, filtrar por **Azure Maps**.
+Para ver os utilizadores e aplicações que tenham sido concedidas RBAC para o Azure Maps, aceda a **controlo de acesso (IAM)** , selecione **atribuições de funções**e, em seguida, filtrar por **Azure Maps**.
 
 ![Ver utilizadores e aplicações concedido RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 

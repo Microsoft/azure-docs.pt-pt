@@ -11,10 +11,10 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509249"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização de OAuth 2.0 no Azure Active Directory B2C
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Necessário |O URI de redirecionamento de seu aplicativo, onde as respostas enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos URIs que registou no portal de redirecionamento, exceto pelo fato de que tem de ser codificados de URL. |
 | scope |Necessário |Uma lista de âmbitos separadas por espaços. Um valor de âmbito único indica ao Azure Active Directory (Azure AD) ambas as permissões que estão a ser solicitada. Com o ID de cliente como o âmbito indica que o aplicativo precisa de um token de acesso que pode ser utilizado em relação a seu próprio serviço ou a web API, representado pelo mesmo ID de cliente.  O `offline_access` âmbito indica que o aplicativo precisa de um token de atualização de longa duração acesso a recursos. Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
 | response_mode |Recomendado |O método que utilizar para enviar o código de autorização resultante de volta à aplicação. Pode ser `query`, `form_post`, ou `fragment`. |
-| estado |Recomendado |Um valor incluído no pedido que pode ser uma cadeia de caracteres de qualquer conteúdo que pretende utilizar. Normalmente, um valor exclusivo gerado aleatoriamente é usado, para impedir ataques de falsificação de solicitação entre sites. O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu. Por exemplo, a página que o usuário estava em ou o fluxo de utilizador que está a ser executado. |
+| state |Recomendado |Um valor incluído no pedido que pode ser uma cadeia de caracteres de qualquer conteúdo que pretende utilizar. Normalmente, um valor exclusivo gerado aleatoriamente é usado, para impedir ataques de falsificação de solicitação entre sites. O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu. Por exemplo, a página que o usuário estava em ou o fluxo de utilizador que está a ser executado. |
 | p |Necessário |O fluxo de utilizador que é executado. É o nome de um fluxo de utilizador que é criado no diretório do Azure AD B2C. O valor de nome de fluxo de utilizador deve iniciar com **b2c\_1\_** . Para saber mais sobre fluxos de utilizador, veja [fluxos de utilizador do Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | linha de comandos |Opcional |O tipo de interação do utilizador que é necessário. Atualmente, o único valor válido é `login`, que força o utilizador introduza as credenciais desse pedido. Início de sessão único não irão surtir efeito. |
 
@@ -98,7 +98,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 | Parâmetro | Descrição |
 | --- | --- |
 | code |O código de autorização que solicitou a aplicação. A aplicação pode utilizar o código de autorização para pedir um token de acesso para um recurso de destino. Códigos de autorização são muito curta duração. Normalmente, esta expira após cerca de 10 minutos. |
-| estado |Consulte a descrição completa da tabela na secção anterior. Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
+| state |Consulte a descrição completa da tabela na secção anterior. Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
 
 Respostas de erro também podem ser enviadas para o URI de redirecionamento para que a aplicação pode processar corretamente:
 
@@ -113,7 +113,7 @@ error=access_denied
 | --- | --- |
 | error |Uma cadeia de código de erro que pode usar para classificar os tipos de erros que ocorrem. Também pode utilizar a cadeia de caracteres para reagir a erros. |
 | error_description |Uma mensagem de erro específicas que pode ajudar a identificar a causa de raiz de um erro de autenticação. |
-| estado |Consulte a descrição completa na tabela anterior. Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
+| state |Consulte a descrição completa na tabela anterior. Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
 
 ## <a name="2-get-a-token"></a>2. Obter um token
 Agora que comprou um código de autorização, poderá resgatá a `code` de um token para o recurso pretendido ao enviar um pedido POST para o `/token` ponto final. No Azure AD B2C, o único recurso que pode pedir um token para é a API web back-end da aplicação. A Convenção de que é utilizada para pedir um token a próprio é usar o ID de cliente da sua aplicação como o âmbito:

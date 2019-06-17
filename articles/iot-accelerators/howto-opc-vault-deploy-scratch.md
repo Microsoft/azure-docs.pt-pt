@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65835155"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>Implementar o Cofre OPC de raiz
@@ -79,7 +79,7 @@ A pasta de scripts contém alguns scripts para as tarefas frequentes:
 
 Verifique os scripts para a configuração de variáveis de ambiente. Pode definir as variáveis de ambiente globalmente no seu sistema operacional, ou utilize o script de "env-vars-setup" na pasta de scripts.
 
-### <a name="sandbox"></a>Sandbox
+### <a name="sandbox"></a>Área de segurança
 
 Os scripts partem do princípio de que configurou o ambiente de desenvolvimento com .NET Core e a Docker. Pode evitar a instalação de núcleo de .NET e instalar apenas o Docker e utilize o parâmetro da linha de comandos `--in-sandbox` (ou a forma `-s`), por exemplo:
 

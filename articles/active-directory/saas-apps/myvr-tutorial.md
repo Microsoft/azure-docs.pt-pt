@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d76c8079cf904e09a020a3eb242042ffe9e544
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 10473c820cd0dbb7c7db3f33de203ca4d636414b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096482"
 ---
 # <a name="tutorial-integrate-myvr-with-azure-active-directory"></a>Tutorial: Integrar MyVR com o Azure Active Directory
 

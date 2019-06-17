@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070360"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -276,6 +276,7 @@ Para obter mais informações, consulte [ALTER DATABASE](https://docs.microsoft.
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
+- Ativar e desativar o agente do SQL Server atualmente não é suportada na instância gerida. Agente do SQL está sempre em execução.
 - Definições de agente do SQL Server são só de leitura. O procedimento `sp_set_agent_properties` não é suportada na instância gerida. 
 - Tarefas
   - Passos da tarefa de T-SQL são suportados.
@@ -456,13 +457,13 @@ Instância de entre o service broker não é suportado:
 - `Extended stored procedures` não são suportados, que inclui `sp_addextendedproc`  e `sp_dropextendedproc`. Ver [procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, e `sp_detach_db` não são suportados. Ver [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
-## <a name="Environment"></a>Restrições de Environmet
+## <a name="Environment"></a>Restrições de ambiente
 
 ### <a name="subnet"></a>Subrede
 - Na sub-rede reservada para a sua instância gerida não é possível colocar a quaisquer outros recursos (por exemplo, máquinas virtuais). Colocar estes recursos em outras sub-redes.
 - Sub-rede tem de ter um número suficiente de disponíveis [endereços IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Mínimo é de 16, enquanto recomenda-se de ter pelo menos 32 endereços IP na sub-rede.
 - [Pontos finais de serviço não podem ser associados a sub-rede a instância gerida](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Certifique-se de que a opção de pontos finais de serviço é desabilitada quando criar a rede virtual.
-- O número e tipos de instâncias que podem ser colocados na sub-rede tem alguns [restrições e limites](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- O número de vCores e tipos de instâncias que pode implementar numa região tem alguns [restrições e limites](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Existem algumas [regras de segurança que devem ser aplicadas na sub-rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 ### <a name="vnet"></a>VNET

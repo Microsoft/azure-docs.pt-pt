@@ -9,10 +9,10 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c0ce4e882f270f5e0c789a608aaada5c6c9cba92
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66157213"
 ---
 Se tiver problemas em ligar, verifique os seguintes itens:

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: d5a4b3a07854c2664de7ec60f3677b666798a9bd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66145380"
 ---
 ### <a name="standard-and-neural-voices"></a>Vozes padrão e neurais
@@ -34,7 +34,7 @@ Utilize esta tabela para determinar a disponibilidade de vozes padrão e neurais
 | Reino Unido Sul | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
 | EUA Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Não |
-| E.U.A. Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
+| EUA Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
 
 ### <a name="custom-voices"></a>Vozes personalizadas
 
@@ -59,4 +59,4 @@ Se criou um tipo de voz personalizada, utilize o ponto final que criou. Também 
 | Reino Unido Sul | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Europa Ocidental | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | EUA Oeste | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| E.U.A. Oeste 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| EUA Oeste 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |

@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: 5cb4caa6f0f8098e68d693be6cc2f33b5ccbeb32
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752847"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Como gerir a sua conta do Marketplace comercial no Centro de parceiros 
@@ -84,7 +84,7 @@ Para configurar a sua conta de dividendos, precisa **associar a sua Account Micr
 
 Agora que sua Account Microsoft está associado, para adicionar uma conta de dividendos, terá:
 - **Escolha um método de pagamento**: Conta bancária ou PayPal
-- **Adicionar informações de pagamento**: Isto pode incluir a escolher um tipo de conta (a verificação ou poupanças), introduzir o nome do titular de conta, o número da conta e encaminhamento de número, o endereço para faturação, o número de telefone ou o endereço de e-mail de PayPal. * Para obter mais informações sobre como utilizar PayPal, como o seu método de pagamento da conta e para saber se é suportada na sua região de mercado, consulte [PayPal informações](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+- **Adicionar informações de pagamento**: Isto pode incluir a escolher um tipo de conta (a verificação ou poupanças), introduzir o nome do titular de conta, o número da conta e encaminhamento de número, o endereço para faturação, o número de telefone ou o endereço de e-mail de PayPal. \* Para obter mais informações sobre como utilizar PayPal, como o seu método de pagamento da conta e para saber se é suportada na sua região de mercado, consulte [PayPal informações](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Alterar a sua conta de dividendos pode atrasar os pagamentos pelo máximo de um ciclo de pagamento. Este atraso ocorre porque precisamos de verificar a alteração da conta, tal como fazemos quando configurar a conta de dividendos pela primeira vez. Ainda vai ser pago pela quantia total após a verificação da sua conta; qualquer pagamentos devido para pagamento atual ciclo será adicionado para o seguinte.  
@@ -174,7 +174,7 @@ Para adicionar utilizadores à sua conta do Centro de parceiros que já existem 
 
 1. Aceda a **usuários** (sob **definições da conta**) e selecione **adicionar utilizadores**.
 2. Selecione um ou mais utilizadores na lista apresentada. Pode utilizar a caixa de pesquisa para procurar utilizadores específicos.
-* Se selecionar mais do que um utilizador para adicionar à sua conta do Centro de parceiros, tem de o atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários usuários com permissões/funções diferentes, repita estes passos para cada função ou um conjunto de permissões personalizadas.
+\* Se selecionar mais do que um utilizador para adicionar à sua conta do Centro de parceiros, tem de o atribuir a mesma função ou conjunto de permissões personalizadas. Para adicionar vários usuários com permissões/funções diferentes, repita estes passos para cada função ou um conjunto de permissões personalizadas.
 3.  Quando terminar de selecionar utilizadores, clique em **adicionar selecionado**.
 5.  Na **funções** secção, especifique as funções ou permissões personalizadas para os utilizador ou utilizadores selecionados.
 6.  Selecione **Guardar**.

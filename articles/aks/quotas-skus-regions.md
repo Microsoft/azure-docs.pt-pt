@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: iainfou
 ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65901452"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas e restrições de tamanho de máquina virtual e disponibilidade das regiões no Azure Kubernetes Service (AKS)
@@ -45,7 +45,7 @@ Cada nó num cluster do AKS contém uma quantidade fixa de recursos de computaç
 
 Para obter mais informações sobre tipos de VM e os recursos de computação, consulte [tamanhos de máquinas virtuais no Azure][vm-skus].
 
-## <a name="region-availability"></a>Disponibilidade regional
+## <a name="region-availability"></a>Disponibilidade de região
 
 Para obter a lista mais recente de onde pode implementar e executar clusters, veja [disponibilidade das regiões AKS][region-availability].
 

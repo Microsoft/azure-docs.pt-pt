@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850766"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Alterar as informações de perfil para a sua conta do Azure
@@ -57,10 +57,10 @@ Devido a restrições técnicas, não é possível alterar o país/região para 
 
 Será avisado no [portal do Azure](https://portal.azure.com) para verificar ou atualizar o seu endereço de e-mail todos os 90 dias. A Microsoft envia mensagens de correio eletrónico para o seu endereço de e-mail de perfil com informações de relacionados com a conta do Azure para:
 
-- Notificações de serviço
+- Notificações do serviço
 - Alertas de segurança
 - Efeitos de faturação
-- Apoio ao cliente
+- Suporte
 - Comunicações de marketing
 - Recomendações de melhores práticas, com base na sua utilização do Azure
 
@@ -76,7 +76,7 @@ Pode alterar seu endereço de correio eletrónico de contacto com um dos seguint
 
 * Vá para o [informações de contacto](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) área no portal do Azure e introduza um endereço de e-mail. O endereço que fornece recebe as comunicações de marketing e de serviço. O endereço de e-mail no perfil de centro de conta do Azure é atualizado para corresponder a automaticamente. A atualizar o seu endereço de e-mail de perfil não atualiza o seu endereço de e-mail de início de sessão.
 
-* Na [portal do Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), selecione o ícone com suas iniciais ou de imagens. Em seguida, selecione o menu de contexto (**...** ). Em seguida, selecione **minhas informações de contacto** no menu e introduza um endereço de e-mail. O endereço que fornece recebe as comunicações de marketing e de serviço. O endereço de e-mail no seu perfil de centro de conta do Azure é atualizado para corresponder a automaticamente. A atualizar o seu endereço de e-mail de perfil não atualiza o seu endereço de e-mail de início de sessão.
+* Na [portal do Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), selecione o ícone com suas iniciais ou de imagens. Em seguida, selecione o menu de contexto ( **...** ). Em seguida, selecione **minhas informações de contacto** no menu e introduza um endereço de e-mail. O endereço que fornece recebe as comunicações de marketing e de serviço. O endereço de e-mail no seu perfil de centro de conta do Azure é atualizado para corresponder a automaticamente. A atualizar o seu endereço de e-mail de perfil não atualiza o seu endereço de e-mail de início de sessão.
 
 ![Exemplo de atualização de um endereço de e-mail no Azure](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
 

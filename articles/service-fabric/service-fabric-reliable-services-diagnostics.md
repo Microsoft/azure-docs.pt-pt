@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772963"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico dos Reliable Services com Monitorização de Estado
@@ -29,7 +29,7 @@ O nome de EventSource para a classe StatefulServiceBase de serviços fiáveis co
 
 São exemplos de ferramentas e tecnologias que ajudam na recolha de e/ou ver eventos de EventSource [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)e o [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-## <a name="events"></a>Eventos
+## <a name="events"></a>Events
 | Nome do evento | ID do Evento | Nível | Descrição do evento |
 | --- | --- | --- | --- |
 | StatefulRunAsyncInvocation |1 |Informativo |Emitida quando a tarefa de RunAsync do serviço é iniciada |
@@ -52,8 +52,8 @@ O tempo de execução do Reliable Services define as categorias de contador de d
 
 | Category | Descrição |
 | --- | --- |
-| Replicador Transacional do Service Fabric |Contadores específicos do replicador transacional do Azure Service Fabric |
-| TStore do Service Fabric |Contadores específicos de tstore do Azure Service Fabric |
+| Replicador transacional do Service Fabric |Contadores específicos do replicador transacional do Azure Service Fabric |
+| Tstore do Service Fabric |Contadores específicos de tstore do Azure Service Fabric |
 
 Replicador transacional do Service Fabric é utilizado pela [Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md) replicar transações dentro de um determinado conjunto de [réplicas](service-fabric-concepts-replica-lifecycle.md).
 
@@ -104,10 +104,10 @@ O tempo de execução do Reliable Services emite os seguintes eventos sob a `Ser
 
  Nome do contador | Descrição |
 | --- | --- |
-| Início de Operações de Transações/segundo | O número de novas transações de escrita criadas por segundo.|
-| Operações de Transações/segundo | O número de operações de adicionar/atualizar/eliminar executadas em coleções fiáveis por segundo.|
-| Bytes de Libertação de Registo/segundo | O número de bytes a libertar no disco pelo replicador transacional por segundo |
-| Operações Limitadas/segundo | O número de operações rejeitadas a cada segundo pelo replicador transacional devido à limitação. |
+| Começar a operações de transações/segundo | O número de novas transações de escrita criadas por segundo.|
+| Operações de transações/segundo | O número de operações de adicionar/atualizar/eliminar executadas em coleções fiáveis por segundo.|
+| Iniciar a remoção de Bytes/seg | O número de bytes a libertar no disco pelo replicador transacional por segundo |
+| Operações limitadas/segundo | O número de operações rejeitadas a cada segundo pelo replicador transacional devido à limitação. |
 | Média Transação ms/consolidação | Latência média de consolidação por transação em milissegundos |
 | Média Esvaziar latência (ms) | Duração média de operações de descarregamento de disco iniciadas pelo replicador transacional em milissegundos |
 
@@ -117,10 +117,10 @@ O tempo de execução do Reliable Services emite os seguintes eventos sob a `Ser
 
  Nome do contador | Descrição |
 | --- | --- |
-| Número de Itens | O número de itens no arquivo.|
+| Número de itens | O número de itens no arquivo.|
 | Tamanho do Disco | O tamanho total do disco, em bytes, dos ficheiros de ponto de verificação para o arquivo.|
-| Bytes/segundo de Escrita de Ficheiros de Ponto de Verificação | O número de bytes escritos por segundo para o ficheiro de ponto de verificação mais recente.|
-| Bytes/Segundo de Transferência de Disco da Cópia | O número de bytes de disco lidos (na réplica primária) ou nele gravados (numa réplica secundária) por segundo durante uma cópia do arquivo.|
+| Bytes de escrita de ficheiro de ponto de verificação/seg | O número de bytes escritos por segundo para o ficheiro de ponto de verificação mais recente.|
+| Copie os Bytes de transferência de disco/seg | O número de bytes de disco lidos (na réplica primária) ou nele gravados (numa réplica secundária) por segundo durante uma cópia do arquivo.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Fornecedores de EventSource na PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

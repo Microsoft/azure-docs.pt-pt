@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 247d959abadc92d70bdd60555a090986743e9322
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002081"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ligar uma conta do Google Cloud Platform
@@ -63,7 +63,7 @@ Para recolher informações de utilização e ativos, Cloudyn tem as seguintes A
 
 1. Abrir o portal da Cloudyn a partir do portal do Azure ou navegue até [ https://azure.cloudyn.com ](https://azure.cloudyn.com/) e iniciar sessão.
 2. Clique em **configurações** (símbolo de engrenagem) e, em seguida, selecione **contas da Cloud**.
-3. Na **gestão de contas**, selecione a **contas do Google** separador e, em seguida, clique em **adicionar novo +**.
+3. Na **gestão de contas**, selecione a **contas do Google** separador e, em seguida, clique em **adicionar novo +** .
 4. Na **nome da conta Google**, introduza o endereço de e-mail para a conta de cobrança, em seguida, clique em **próxima**.
 5. Na caixa de diálogo de autenticação de Google, selecione ou introduza uma conta do Google e, em seguida **permitir** cloudyn.com acesso à sua conta.
 6. Adicionar informações de pedidos de projeto que tinha anterior indicado. Eles incluem **ID do projeto**, **projeto** nome, **faturação** nome do registo, e **ficheiro faturação** prefixo de relatório, em seguida, clique em  **Guardar**.  

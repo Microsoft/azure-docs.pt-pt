@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9081e2962a225f15b64545b1db7aa18538a20b22
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Tutorial: Integração do Active Directory do Azure com Nuclino
 
@@ -54,7 +54,7 @@ Para configurar a integração do Nuclino com o Azure AD, terá de adicionar Nuc
 
 **Para adicionar Nuclino a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Para configurar o Azure AD início de sessão único com Nuclino, execute os seg
 
     ![Configuração de Nuclino](./media/nuclino-tutorial/configure4.png)
 
-    a. Selecione **baseado em SAML início de sessão único (SSO)**.
+    a. Selecione **baseado em SAML início de sessão único (SSO)** .
 
     b. Cópia **URL de ACS (precisa copiar e colá-lo para o seu fornecedor SSO)** valor e cole-o no **URL de resposta** caixa de texto do **configuração básica de SAML** secção no Azure Portal.
 
@@ -257,7 +257,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Nuclino. Nuclin
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Nuclino](mailto:contact@nuclino.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

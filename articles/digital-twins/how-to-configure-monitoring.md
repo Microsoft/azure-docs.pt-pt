@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 9765af13a22a0ae9db8a45c396e7d5a32b71b79c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5dc2587a0c127106d5afb41e20eca43919065f1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730330"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118790"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar a monitorização no duplos Digital do Azure
 
@@ -68,11 +68,11 @@ Exemplos de registo de diagnósticos:
 Para ativar os registos de diagnóstico para uma instância:
 
 1. Abra o recurso no portal do Azure.
-1. Clique em **das definições de diagnóstico**:
+1. Selecione **das definições de diagnóstico**:
 
     [![Definições de diagnóstico um](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. Clique em **ativar os diagnósticos** para recolher dados (se ainda não ativada).
+1. Selecione **ativar os diagnósticos** para recolher dados (se ainda não ativada).
 1. Preencha os campos de pedido e selecione como e onde os dados serão guardados:
 
     [![Duas definições de diagnóstico](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
@@ -101,7 +101,7 @@ Consultar o registo completo é fornecido através de [registos do Azure Monitor
 
     [![O log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. Se ainda não tiver uma **área de trabalho do Log Analytics** instância, pode criar uma área de trabalho ao clicar o **Add** botão:
+1. Se ainda não tiver uma **área de trabalho do Log Analytics** instância, pode criar uma área de trabalho ao selecionar o **Add** botão:
 
     [![Criar o OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
@@ -114,7 +114,7 @@ Para obter mais informações sobre as operações de consulta poderosa, consult
 > [!NOTE]
 > Poderá haver um atraso de 5 minutos, ao enviar eventos para **área de trabalho do Log Analytics** pela primeira vez.
 
-Registos de Monitor do Azure também fornecem erro poderosas e serviços de notificação de alerta, que podem ser visualizados clicando **diagnosticar e resolver problemas**:
+Registos de Monitor do Azure também fornecem erro poderosas e serviços de notificação de alerta, o que podem ser visualizados selecionando **diagnosticar e resolver problemas**:
 
    [![Notificações de alerta e de erro](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bc1ff022b1639c11ca244b5ea97118a0f06e7cb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f192b402aebcaeb87e068a4248c0794484e6c313
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278640"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Tutorial: Integração do Active Directory do Azure com Firstbird
 
@@ -54,7 +54,7 @@ Para configurar a integração do Firstbird com o Azure AD, terá de adicionar F
 
 **Para adicionar Firstbird a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select_azuread.png)
 
@@ -129,7 +129,7 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
     | ---------------| --------- |
     | first_name | `user.givenname` |
     | last_name | `user.surname` |
-    | e-mail | `user.mail` |
+    | email | `user.mail` |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 

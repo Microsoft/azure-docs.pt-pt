@@ -11,10 +11,10 @@ ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66511348"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure AD B2C

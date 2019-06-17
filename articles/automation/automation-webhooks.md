@@ -10,10 +10,10 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61305025"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook da automatização do Azure com um webhook
@@ -34,7 +34,7 @@ A tabela seguinte descreve as propriedades que devem ser configuradas para um we
 |:--- |:--- |
 | Name |Pode fornecer qualquer nome que pretende para um webhook, uma vez que isso não é exposto ao cliente. É utilizado apenas para si para identificar o runbook na automatização do Azure. <br> Como melhor prática, deve dar o webhook um nome relacionado com o cliente que o utiliza. |
 | do IdP |O URL do webhook é o endereço exclusivo que um cliente chama-se com um HTTP POST para iniciar o runbook associado para o webhook. É gerado automaticamente quando cria o webhook. Não é possível especificar um URL personalizado. <br> <br> O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, deve ser tratada como uma palavra-passe. Por motivos de segurança, apenas pode ver o URL no portal do Azure no momento que o webhook for criado. Anote o URL numa localização segura para utilização futura. |
-| Data de validade |Como um certificado, cada webhook tem uma data de expiração nesse momento que já não pode ser utilizado. Esta data de expiração pode ser modificada depois do webhook for criado, desde que o webhook não está expirado. |
+| Data de expiração |Como um certificado, cada webhook tem uma data de expiração nesse momento que já não pode ser utilizado. Esta data de expiração pode ser modificada depois do webhook for criado, desde que o webhook não está expirado. |
 | Enabled |Um webhook está ativado por predefinição, quando é criado. Se definido como desativado, nenhum cliente pode utilizá-lo. Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
 
 ### <a name="parameters"></a>Parâmetros
@@ -95,7 +95,7 @@ Utilize o procedimento seguinte para criar um novo webhook ligado a um runbook n
 4. Especifique um **Name**, **data de expiração** para o webhook e se devia estar ativada. Ver [detalhes de um webhook](#details-of-a-webhook) para obter mais informações estas propriedades.
 5. Clique no ícone de cópia e pressione Ctrl + C para copiar o URL do webhook. Em seguida, guarde-a num local seguro. **Depois de criar o webhook, não é possível obter o URL novamente.**
 
-   ![URL de webhook](media/automation-webhooks/copy-webhook-url.png)
+   ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
 1. Clique em **parâmetros** para fornecer valores para parâmetros do runbook. Se o runbook tiver parâmetros obrigatórios, em seguida, não é possível criar o webhook, a menos que os valores são fornecidos.
 1. Clique em **criar** para criar o webhook.
@@ -114,8 +114,8 @@ O cliente recebe um dos seguintes códigos de retornados da solicitação POST.
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite e o runbook com êxito foi colocado em fila. |
 | 400 |Pedido Inválido |O pedido não foi aceite para um dos seguintes motivos: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O token no URL é inválido.</li>  </ul> |
-| 404 |Não Encontrado |O pedido não foi aceite para um dos seguintes motivos: <ul> <li>O webhook não foi encontrado.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
-| 500 |Erro Interno do Servidor |O URL era válido, mas ocorreu um erro. Volte a submeter o pedido. |
+| 404 |Não foi encontrado |O pedido não foi aceite para um dos seguintes motivos: <ul> <li>O webhook não foi encontrado.</li> <li>O runbook não foi encontrado.</li> <li>A conta não foi encontrada.</li>  </ul> |
+| 500 |Erro de servidor interno |O URL era válido, mas ocorreu um erro. Volte a submeter o pedido. |
 
 Partindo do princípio de que a solicitação for bem-sucedida, a resposta do webhook contém o ID da tarefa no formato JSON da seguinte forma. Ele conterá uma ID de tarefa única, mas permite que o formato JSON para aperfeiçoamentos futuros potenciais.
 

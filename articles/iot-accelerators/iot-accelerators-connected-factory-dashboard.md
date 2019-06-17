@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 05befc72f512f502456f798f25b6c72571451363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067939"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Utilizar as funcionalidades no dashboard de acelerador de solução de fábrica ligada
 
@@ -42,7 +42,7 @@ Pode filtrar as informações apresentadas no dashboard ou no **localizações d
 
 ## <a name="browse-an-opc-ua-server"></a>Procurar servidores OPC UA
 
-Ao implementar o solution accelerator, Aprovisiona automaticamente um conjunto de servidores OPC UA simulados, que pode procurar a partir do dashboard. Servidores simulados tornam mais fácil para experimentar o solution accelerator sem a necessidade de implantar servidores reais. Se quiser ligar um servidor OPC UA real à solução, consulte a [ligar o seu dispositivo de OPC UA para o acelerador de solução de fábrica ligada](iot-accelerators-connected-factory-gateway-deployment.md) tutorial.
+Ao implementar o solution accelerator, Aprovisiona automaticamente um conjunto de servidores OPC UA simulados, que pode procurar a partir do dashboard. Servidores simulados tornam mais fácil para experimentar o solution accelerator sem a necessidade de implantar servidores reais.
 
 1. Clique nas **ícone de browser** na barra de navegação do dashboard:
 
@@ -111,6 +111,5 @@ Quando tiver terminado, pode eliminar o solution accelerator da sua subscrição
 
 Agora que implementou um acelerador da solução funcional, pode ler os artigos seguintes para continuar a introdução aos aceleradores de soluções de IoT:
 
-* [Instruções do acelerador de solução de fábrica ligada](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Ligar o seu dispositivo para o acelerador de solução de fábrica ligada](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Configurar o acelerador de solução de fábrica ligada](iot-accelerators-connected-factory-configure.md)
 * [Permissões no azureiotsolutions.com site](iot-accelerators-permissions.md)

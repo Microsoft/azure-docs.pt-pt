@@ -9,10 +9,10 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: bfa3e5a943ee59b1ed335f45e113a60f62572675
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735019"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy

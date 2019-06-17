@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 39b7d251f1d6d75ac22d50f1b62a3581f9d343c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0cf318161bff8950280fc5a8b007e08ef683ad18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090774"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Active Directory do Azure com Shmoop para escolas
 
@@ -55,7 +55,7 @@ Para configurar a integração do Shmoop para instituições de ensino com o Azu
 
 **Para adicionar Shmoop para instituições de ensino a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD início de sessão único com Shmoop para instituiç�
 
     | Name |  Atributo de origem|
     | --------- | --------------- |
-    | função      | user.assignedroles |
+    | role      | user.assignedroles |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -211,7 +211,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Shmoop para ins
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, entre em contato com o [equipa de suporte de Shmoop para instituições de ensino](mailto:support@shmoop.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

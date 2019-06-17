@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: ee1608c40801f568b38ace4670b0d5ea7f73003c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60392896"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
@@ -29,7 +29,7 @@ Devem ser recolhidas métricas para compreender o desempenho do seu cluster, bem
 
 Para as máquinas no seu cluster, considere os seguintes contadores de desempenho para melhor compreender a carga em cada máquina e tomar decisões no dimensionamento do cluster adequado a recolher.
 
-| Categoria do contador | Nome do Contador |
+| Categoria do contador | Nome do contador |
 | --- | --- |
 | Disco lógico | Espaço livre em disco lógico |
 | PhysicalDisk (por disco) | Média Comprimento de fila de leitura do disco |
@@ -45,8 +45,8 @@ Para as máquinas no seu cluster, considere os seguintes contadores de desempenh
 | Processor(total) | % Tempo do processador |
 | Processo (por serviço) | % Tempo do processador |
 | Processo (por serviço) | Identificador de processo |
-| Processo (por serviço) | Bytes Privados |
-| Processo (por serviço) | Número de Threads |
+| Processo (por serviço) | Bytes privados |
+| Processo (por serviço) | Contagem de threads |
 | Processo (por serviço) | Bytes virtuais |
 | Processo (por serviço) | Conjunto de trabalho |
 | Processo (por serviço) | Conjunto de trabalho - privado |
@@ -63,9 +63,9 @@ Para as máquinas no seu cluster, considere os seguintes contadores de desempenh
 
 Recolha os contadores a seguir se estiver a implementar serviços .NET ao seu cluster. 
 
-| Categoria do contador | Nome do Contador |
+| Categoria do contador | Nome do contador |
 | --- | --- |
-| Memória de .NET CLR (por serviço) | ID de Processo |
+| Memória de .NET CLR (por serviço) | ID de processo |
 | Memória de .NET CLR (por serviço) | # Total committed Bytes |
 | Memória de .NET CLR (por serviço) | # Total reservado Bytes |
 | Memória de .NET CLR (por serviço) | # Bytes in all Heaps |

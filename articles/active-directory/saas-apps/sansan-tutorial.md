@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d24c635607e41b83b33f7168be9d31e69245b06a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea824cfd5e80ce3aff06774a2e1525cf97d15f65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65868170"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091859"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>Tutorial: Integrar Sansan com o Azure Active Directory
 
@@ -82,7 +82,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     1. Na **URL de início de sessão** texto, escreva qualquer um da URL usando o seguinte padrão:
     
-    | Ambiente | URL |
+    | Ambiente | do IdP |
     |:--- |:--- |
     | Web de PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
     | Aplicação móvel nativa |`https://internal.api.sansan.com/saml2/<company name>/acs` |

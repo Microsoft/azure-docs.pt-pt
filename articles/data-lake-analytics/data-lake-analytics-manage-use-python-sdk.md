@@ -10,10 +10,10 @@ ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 82007c780a0c9ff3bb2e1a50a4826499f9df9c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811724"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerir o Azure Data Lake Analytics com Python
@@ -24,8 +24,8 @@ Este artigo descreve como gerir contas do Azure Data Lake Analytics, origens de 
 ## <a name="supported-python-versions"></a>Versões suportadas do Python
 
 * Utilize uma versão de 64 bits do Python.
-* Pode usar o padrão de distribuição da Python encontrada na  **[Python.org downloads](https://www.python.org/downloads/)**. 
-* Os desenvolvedores consideram útil para utilização a  **[distribuição Anaconda Python](https://www.anaconda.com/download/)**.  
+* Pode usar o padrão de distribuição da Python encontrada na  **[Python.org downloads](https://www.python.org/downloads/)** . 
+* Os desenvolvedores consideram útil para utilização a  **[distribuição Anaconda Python](https://www.anaconda.com/download/)** .  
 * Este artigo foi escrito com o Python versão 3.6 da distribuição de Python padrão
 
 ## <a name="install-azure-python-sdk"></a>Instalar o SDK de Python para o Azure

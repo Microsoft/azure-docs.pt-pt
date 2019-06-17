@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 19/02/2019
 ms.author: v-mohabe
 ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966801"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
@@ -57,7 +57,7 @@ Para atualizar uma subscrição ou a área de trabalho padrão:
    >
    >
 
-## <a name="onboard-non-azure-computers"></a>Inclusão de computadores não pertencentes ao Azure
+## <a name="onboard-non-azure-computers"></a>Integrar computadores não Azure
 O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. Pode adicionar computadores não pertencentes ao Azure a partir da **introdução ao** painel ou a partir do **computação** painel. Vamos explicar através de ambos os métodos.
 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Adicionar novos computadores não pertencentes ao Azure a partir de **introdução**
@@ -65,11 +65,11 @@ O Centro de Segurança pode monitorizar a postura de segurança dos seus computa
 1. Volte ao **introdução ao**.   
 2. Selecione o separador **Introdução**.
 
-   ![Não Pertencente ao Azure](./media/security-center-onboarding/non-azure.png)
+   ![Não pertencente ao Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Clique em **Configurar** em **Adicionar novos computadores não Azure**. É apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
-   ![Adicionar computador não Azure][7]
+   ![Adicionar computador não pertencente ao Azure][7]
 
 Se tiver áreas de trabalho existentes, estão listados na **adicionar novos computadores não pertencentes ao Azure**. Pode adicionar computadores a uma área de trabalho existente ou criar uma nova área de trabalho. Para criar uma nova área de trabalho, selecione a ligação **adicionar uma nova área de trabalho**.
 

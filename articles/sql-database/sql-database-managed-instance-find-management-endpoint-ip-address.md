@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60700013"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Determinar o endereço IP do ponto final de gestão

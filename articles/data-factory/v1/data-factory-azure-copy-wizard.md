@@ -15,10 +15,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d13e304b0d10e8bd34d306426f1f9164bcc6be94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567678"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistente de cópia de fábrica de dados do Azure
@@ -66,7 +66,7 @@ Captura de ecrã seguinte mostra uma consulta SQL utilizando o `Text.Format` fun
 ![Validar expressões](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtragem de dados numa pasta de Blobs do Azure
-Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base na [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** e **{personalizado}**. Por exemplo: inputfolder / {ano} / {month} / {day}.
+Pode utilizar variáveis no caminho da pasta para copiar dados de uma pasta que é determinada em tempo de execução com base na [variáveis do sistema](data-factory-functions-variables.md#data-factory-system-variables). As variáveis suportadas são: **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** e **{personalizado}** . Por exemplo: inputfolder / {ano} / {month} / {day}.
 
 Suponha que tem a entrada pastas no seguinte formato:
 
@@ -75,7 +75,7 @@ Suponha que tem a entrada pastas no seguinte formato:
     2016/03/01/03
     ...
 
-Clique nas **navegue** botão para **ficheiro ou pasta**, procure uma dessas pastas (por exemplo, 2016 -> 03 -> 01-02 >) e clique em **escolha**. Deverá ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** com **{year}**, **03** com **{month}**, **01** com **{day}** , e **02** com **{hour}** e prima a **separador** chave. Deverá ver a lista pendente para selecionar o formato para este quatro variáveis:
+Clique nas **navegue** botão para **ficheiro ou pasta**, procure uma dessas pastas (por exemplo, 2016 -> 03 -> 01-02 >) e clique em **escolha**. Deverá ver `2016/03/01/02` na caixa de texto. Agora, substitua **2016** com **{year}** , **03** com **{month}** , **01** com **{day}** , e **02** com **{hour}** e prima a **separador** chave. Deverá ver a lista pendente para selecionar o formato para este quatro variáveis:
 
 ![Usando variáveis de sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

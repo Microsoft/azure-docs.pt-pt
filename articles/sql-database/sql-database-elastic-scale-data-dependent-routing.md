@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: fe9098592fcfde2d5e23b78a3e33f2b4ebb9e2dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584969"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Utilizar o encaminhamento para encaminhar uma consulta para o banco de dados apropriado de dependente de dados

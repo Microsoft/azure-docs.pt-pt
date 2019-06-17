@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
 ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831423"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de REST de análise de texto
@@ -40,7 +40,7 @@ Entrada tem de ser JSON em texto não estruturado bruto. XML não é suportado. 
 
 Atualmente pode submeter os documentos mesmo para todas as operações de análise de texto: sentimentos, expressões-chave, deteção de idioma e identificação de entidade. (O esquema é provavelmente irá variar dependendo de cada análise no futuro.)
 
-| Elemento | Valores válidos | Necessário? | Utilização |
+| Elemento | Valores válidos | Obrigatório? | Utilização |
 |---------|--------------|-----------|-------|
 |`id` |O tipo de dados é a cadeia de caracteres, mas na prática, IDs de documento tendem a ser números inteiros. | Necessário | O sistema utiliza os IDs de fornecer ao estruturar a saída. As classificações de sentimentos, expressões-chave e códigos de idioma são geradas para cada ID no pedido.|
 |`text` | Texto não estruturado bruto, até 5,120 carateres. | Necessário | Para deteção de idioma, o texto pode ser expresso em qualquer idioma. Para a análise de sentimentos, extração de expressões-chave e identificação de entidade, o texto deve estar numa [idioma suportado](../text-analytics-supported-languages.md). |

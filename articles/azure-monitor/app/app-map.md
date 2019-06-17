@@ -14,10 +14,10 @@ ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964035"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Faça a triagem de aplicações distribuídas
@@ -58,7 +58,7 @@ Selecione **investigar falhas** para iniciar o painel de falhas.
 
 ![Captura de ecrã da experiência de falhas](media/app-map/failures.png)
 
-### <a name="investigate-performance"></a>Investigar o desempenho
+### <a name="investigate-performance"></a>Investigue o desempenho
 
 Para resolver problemas de desempenho, selecione **investigar desempenho**.
 
@@ -74,7 +74,7 @@ Selecione **vá para detalhes** para explorar a experiência de transação de p
 
 ![Captura de ecrã de detalhes da transação de ponta a ponta](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Vista no Analytics
+### <a name="view-in-analytics"></a>Ver na análise
 
 Para consultar e investigar ainda mais os seus dados de aplicações, clique em **ver na análise**.
 

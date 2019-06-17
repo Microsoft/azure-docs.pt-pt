@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 964d7af92b087bd9905113a25513e2b2f7a3df17
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 25e223fc9e8222441e70fefb3c21f951b0ba06c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922342"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Mozy Enterprise
 
@@ -52,7 +52,7 @@ Para configurar a integração do Mozy Enterprise com o Azure AD, terá de adici
 
 **Para adicionar Mozy empresarial a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -234,7 +234,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Mozy Enterprise, t
    
     e. Selecione **enviar mensagem de e-mail do utilizador instrução**.
    
-    f. Clique em **adicionar utilizador (es)**.
+    f. Clique em **adicionar utilizador (es)** .
 
      >[!NOTE]
      > Depois de criar o utilizador, será enviado um e-mail ao utilizador do Azure AD que inclui uma ligação para confirmar a conta até se tornar Active Directory.

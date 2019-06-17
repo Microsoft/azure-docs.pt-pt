@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65023754"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários de pesquisa cognitiva
@@ -66,7 +66,7 @@ Quando o *imageAction* está definido como um valor de outros, em seguida, "none
 
 | Membro de imagem       | Descrição                             |
 |--------------------|-----------------------------------------|
-| dados               | Cadeia de caracteres da imagem em formato JPEG normalizada de codificado em Base64.   |
+| data               | Cadeia de caracteres da imagem em formato JPEG normalizada de codificado em Base64.   |
 | Largura              | Largura da imagem normalizada em pixéis. |
 | Altura             | Altura da imagem normalizada em pixéis. |
 | originalWidth      | A largura original da imagem antes de normalização. |

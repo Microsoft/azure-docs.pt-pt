@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15912ce2e100a4317e775d72972ca6eacfac0d42
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343448"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080545"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilizar pontos finais de serviço de rede Virtual com o Event Hubs do Azure
 
@@ -71,13 +71,13 @@ Parâmetros do modelo:
 
 * **namespaceName**: Espaço de nomes dos Hubs de eventos.
 * **vnetRuleName**: Nome para a regra de rede Virtual a ser criada.
-* **virtualNetworkingSubnetId**: Caminho totalmente qualificado do Resource Manager para a sub-rede de rede virtual; Por exemplo, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede de predefinição de uma rede virtual.
+* **virtualNetworkingSubnetId**: Caminho totalmente qualificado do Resource Manager para a sub-rede de rede virtual; Por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede de predefinição de uma rede virtual.
 
 > [!NOTE]
 > Embora não haja nenhuma regra de negação possível, o modelo Azure Resource Manager, tem a ação padrão definida como **"Permitir"** que não restringem as ligações.
 > Ao fazer as regras de rede Virtual ou Firewalls, devemos alterar o ***"defaultAction"***
 > 
-> de
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

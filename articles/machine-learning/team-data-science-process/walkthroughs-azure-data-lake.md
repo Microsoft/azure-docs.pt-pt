@@ -12,10 +12,10 @@ ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b0599317d09a1757b3c86372cb7ed8ea78d4cdd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60804691"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Instruções de ciência de dados do Azure Data Lake com o U-SQL

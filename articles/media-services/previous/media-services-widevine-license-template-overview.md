@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d0bb72361e1bff3615f6785ac4c91a10ea773498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825546"
 ---
 # <a name="widevine-license-template-overview"></a>Descrição geral do modelo de licença do Widevine 
@@ -61,9 +61,9 @@ Um pedido de licença do Widevine é formatado como uma mensagem JSON.
 ## <a name="json-message"></a>Mensagem JSON
 | Name | Value | Descrição |
 | --- | --- | --- |
-| payload |Cadeia de caracteres codificada em Base64 |O pedido de licença enviado por um cliente. |
+| Payload |Cadeia de caracteres codificada em Base64 |O pedido de licença enviado por um cliente. |
 | content_id |Cadeia de caracteres codificada em Base64 |Identificador utilizado para derivar o ID de chave e o conteúdo chave para cada content_key_specs.track_type. |
-| fornecedor |string |Utilizado para pesquisar chaves de conteúdo e políticas. Se a entrega de chave da Microsoft é utilizada para entrega de licenças do Widevine, este parâmetro é ignorado. |
+| Fornecedor |string |Utilizado para pesquisar chaves de conteúdo e políticas. Se a entrega de chave da Microsoft é utilizada para entrega de licenças do Widevine, este parâmetro é ignorado. |
 | policy_name |string |Nome de uma política registrado anteriormente. Opcional. |
 | allowed_track_types |Enum |SD_ONLY ou SD_HD. Controles que as chaves de conteúdo são incluídos numa licença. |
 | content_key_specs |Matriz de JSON estruturas, consulte a secção "Especificações de chave Conteúdas."  |Um controlo mais refinado sobre as chaves de conteúdo para retornar. Para obter mais informações, consulte a secção "Especificações de chave Conteúdas." Apenas um dos valores allowed_track_types e content_key_specs pode ser especificado. |

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 11ebaec75b1220f39fe059ea7825cdccafda2f5d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735620"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de mobilidade de mapas do Azure
@@ -47,7 +47,7 @@ A tabela seguinte fornece informações sobre a cobertura para o serviço de mob
 | Porto Rico | San Juan |
 | Uruguai | Montevidéu, Punta del Este |
 | Estados Unidos da América | <p>Albany (NY), Albuquerque (NM), Anchorage (AK), Appleton-Oshkosh-Neenah (WI), Asheville (NC), Atenas (AH), Atlanta (GA), o Austin (TX), Bakersfield (AC), Baltimore), Bellevue (WA), Berkshire County (MA), Birmingham, (AL), Bloomington (IN), Boise (ID), Boston ( MA), Boulder (CO) Brevard County (FL), o Buffalo (NY), o Butte (TA), o cabo Cod), Centre County (PA), Champaign-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), Cheyenne (WY), (IL) de Chicago, Cincinnati (AH,) CONDADO de Citrus (FL), Cleveland (AH), Coachella Valley (AC), Colorado Springs (CO), Columbia (TN), Columbus (AH), Corpus Christi (TX), Dallas/por diante, vale a pena (TX), Dayton (AH), Delaware, Denver (CO), Des Moines (IA), Detroit (MI), Duluth (MN), El Paso (TX), Eugene (OR ), Fairbanks (AK), Fargo (ND), Fayetteville (NC), Flagstaff (AZ), Flint (MI) Fort Collins (CO), Fort Wayne (IN), Fresno (AC), Gainesville (FL), Grand bifurcações (ND), Grand Rapids (MI), verde baías (WI), Greensboro (NC), Greenville (SC), Gunnison (CO), Hampton estradas (VA ), Hanford (AC), Hartford (CT), Hernando condados (FL), Honolulu (Olá), Houston (TX), Humboldt condados (AC), Huntsville (AL), Indianápolis (IN), Ithaca (NY), Jackson (MS), Jackson (TN), Jacksonville - St. John Popular County (FL), a cidade de Johnson (TN), Jonesboro (AR), Joplin (mês), Juneau (AK), Kalamazoo (MI), cidade de Kansas (mês), Kauai (Olá), Ketchum (ID), Knoxville (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Las Vegas (NV), Lawrence (KS), Lee County (FL), Lexington (KY), Lincoln County (ou), Little Rock (AR), Los Angeles ( AC), Louisville (KY), Madison (WI), McAllen (TX), Memphis (TN), Miami (FL), Milwaukee/Waukesha (WI), Paul de Minneapolis-St. (MN), Missoula (TA), Modesto (EUA), Moline (IL), condado de Monroe (PA), Montgomery (AL), Morgantown (WV), Nashville (TN), nação Navajo), João novo (CT), New Orleans (LA), NYC NJ), Ocala (FL), Okaloosa County (FL), cidade de Oklahoma (OK), Omaha (m), Orlando (FL), Panamá Cidade (FL), Pensacola (FL), Peoria (IL), Filadélfia (PA), Phoenix (AZ), Pittsburgh (PA), Portland (ME), Portland (ou), Racine (WI), Raleigh (NC), Redding (AC), Reno & Lake Tahoe (NV), Roanoke Valley (VA - Lynchburg), Rochester (NY), Rocky parque de nacional Mountain), não autorizados Valley (ou), Roseburg (ou), Roseville (AC), Sacramento (AC), Salem (ou), Salt Lake City (UT), San Antonio (TX), San Diego ( AC), San Luis Obispo (AC), Santa Barbara (AC), Santa fé (NM), Sarasota (FL), Savannah (GA), Seacoast região (dos NH), Seattle-Tacoma-Bellevue (WA), Baía de SF área (AC), a cidade de Sioux (IA), Sioux cai (dp), Sitka (AK), Spokane (WA), Springfield (IL), Springfield (em massa), St. George (UT), St. Louis (mês), Stockton (AC), como a Syracuse-Utica (NY), Tallahassee (FL), Tampa-são Petersburgo (FL), Terre Haute (IN),! tão baixo (AH), Topeka (KS), a cidade de completas (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (AC), Volusia County (FL), Waco (TX), Washington (DC), Waterbury (CT), Wichita (KS), Wilmington (NC), Yakima (WA), condado de York (PA), Yuma County (AZ)</p>|
-| + DOS EUA Ilhas Virgens | As Ilhas Virgens * |
+| \+ DOS EUA Ilhas Virgens | As Ilhas Virgens * |
 
 
 ## <a name="asia-pacific"></a>Ásia-Pacífico
@@ -90,8 +90,8 @@ A tabela seguinte fornece informações sobre a cobertura para o serviço de mob
 | Estónia   | Estónia * |   
 | Finlândia   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola - Kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
 | França    | <p>Amberieu-en-Bugey, Amiens, Angers, Annecy, Annonay, Arras, Aubenas, Bayonne, Besançon, Blois, Bordeaux, Boulogne sur Mer, Brest, Briançon, cannes, Châlons-en-champanhe, Chartres, Clermont-Ferrand, Colmar, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Homem pelo lente, Lille, Lorient, Lyon, MACS, Marselha & Provence, Metz, Millau, Mont-de-Marsan, Montpellier, Mulhouse, Nancy, Nantes, ótimo, Nimes, Normandia, Nyons, Paris, Poitiers, Privas, Quimper, Rennes, Santa Malo, Santa Étienne, Saint-Nazaire, Saintes, Sarrebourg, Sete, Strasbourg, Tarbes, Toulouse, faz um Tour pelas</P> | 
-| + Guiana Francesa ' | Caiena |
-| + Nova Caledónia | Nouméa  |
+| \+ Guiana Francesa ' | Caiena |
+| \+ Nova Caledónia | Nouméa  |
 | Geórgia | Tbilisi | 
 | Alemanha | <p>Berlin, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, Frankfurt, Hamburg, Karlsruhe, Mainz, München - Munich, Rhein-Neckar Region, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> | 
 | Grécia | <p>Atenas, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Komotini, Kos, Larissa, Meganisi, Mykonos, Patra, Rethimno, Rhodes, Santorini, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |

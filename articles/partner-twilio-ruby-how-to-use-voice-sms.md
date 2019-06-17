@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457656"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Como utilizar o Twilio para voz e SMS capacidades em Ruby
@@ -52,16 +52,16 @@ Twilio verbos são marcas XML que informam ao Twilio o que **fazer**. Por exempl
 
 Segue-se uma lista de verbos Twilio.
 
-* **&lt;Dial&gt;**: Liga-se o autor da chamada para outro telefone.
-* **&lt;Gather&gt;**: Recolhe os dígitos numéricos introduzidos no teclado do telefone.
-* **&lt;Hangup&gt;**: Termina uma chamada.
-* **&lt;Reproduzir&gt;**: Reproduz um arquivo de áudio.
-* **&lt;Pause&gt;**: Aguarda silenciosamente um número de segundos especificado.
-* **&lt;Registo&gt;**: Regista a voz do chamador e retorna uma URL de um ficheiro que contém a gravação.
-* **&lt;Redirect&gt;**: Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
-* **&lt;Reject&gt;**: Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação
-* **&lt;Say&gt;**: Converte texto em voz, que é efetuado numa chamada.
-* **&lt;Sms&gt;**: Envia uma mensagem SMS.
+* **&lt;Dial&gt;** : Liga-se o autor da chamada para outro telefone.
+* **&lt;Gather&gt;** : Recolhe os dígitos numéricos introduzidos no teclado do telefone.
+* **&lt;Hangup&gt;** : Termina uma chamada.
+* **&lt;Reproduzir&gt;** : Reproduz um arquivo de áudio.
+* **&lt;Pause&gt;** : Aguarda silenciosamente um número de segundos especificado.
+* **&lt;Registo&gt;** : Regista a voz do chamador e retorna uma URL de um ficheiro que contém a gravação.
+* **&lt;Redirect&gt;** : Transfere o controle de uma chamada ou SMS para o TwiML numa URL diferente.
+* **&lt;Reject&gt;** : Rejeita uma chamada de entrada para o seu número do Twilio sem de faturação
+* **&lt;Say&gt;** : Converte texto em voz, que é efetuado numa chamada.
+* **&lt;Sms&gt;** : Envia uma mensagem SMS.
 
 Para obter mais informações sobre o Twilio verbos, os atributos e TwiML, consulte [TwiML][twiml]. Para obter informações adicionais sobre a API Twilio, consulte [Twilio API][twilio_api].
 

@@ -10,10 +10,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60643771"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(PRETERIDO) Pipeline de CI/CD completo para implementar uma aplicação de vários contentor no Azure Container Service com o Docker Swarm com os serviços do Azure DevOps
@@ -180,7 +180,7 @@ Serviços de DevOps do Azure permite-lhe [gerir versões em ambientes](https://w
 
 ### <a name="initial-release-setup"></a>Versão inicial do programa de configuração
 
-1. Para criar um pipeline de lançamento, clique em **versões** > **+ versão**
+1. Para criar um pipeline de lançamento, clique em **versões** >  **+ versão**
 
 1. Para configurar a origem de artefacto, clique em **artefactos** > **ligar uma origem de artefacto**. Aqui, ligar a este novo pipeline de lançamento para a compilação que definiu no passo anterior. Ao fazer isso, o ficheiro docker-Compose yml está disponível no processo de liberação.
 
@@ -219,7 +219,7 @@ O fluxo de trabalho de versão é composto por duas tarefas que adicionar.
 >Esta implementação inclui algum período de indisponibilidade porque estamos a parar os serviços antigos e novo a executar. É possível evitar isto, fazendo uma implementação de "blue-Green".
 >
 
-## <a name="step-4-test-the-cicd-pipeline"></a>Passo 4. Testar o pipeline de CI/CD
+## <a name="step-4-test-the-cicd-pipeline"></a>Passo 4: Testar o pipeline de CI/CD
 
 Agora que já com a configuração, é altura de o testar este novo pipeline de CI/CD. É a maneira mais fácil para testá-lo atualizar o código-fonte e consolidar as alterações no seu repositório do GitHub. Alguns segundos depois de enviar o código, verá uma nova compilação em execução nos serviços de DevOps do Azure. Depois de concluída com êxito, uma nova versão será acionada e irá implementar a nova versão da aplicação no cluster do Azure Container Service.
 

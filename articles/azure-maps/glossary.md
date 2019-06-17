@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575353"
 ---
 # <a name="glossary"></a>Glossário
@@ -37,11 +37,11 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="antimeridian"></a> **Antimeridian**: Também conhecido como a 180<sup>th</sup> dos meridianos é o ponto em que cumprem os graus de-180 e 180 graus de longitude. Qual é a oposta do meridiano em todo o mundo.
 
-<a name="application-programming-interface-api"></a> **Interface de programação de aplicações (API)**: Uma especificação que permite aos desenvolvedores criar aplicativos.
+<a name="application-programming-interface-api"></a> **Interface de programação de aplicações (API)** : Uma especificação que permite aos desenvolvedores criar aplicativos.
 
 <a name="api-key"></a> **Chave de API**: Ver a chave de mapas do Azure.
 
-<a name="area-of-interest-aoi"></a> **Área de interesse (AOI)**: A extensão usada para definir uma área de foco para um mapa ou a base de dados de produção.
+<a name="area-of-interest-aoi"></a> **Área de interesse (AOI)** : A extensão usada para definir uma área de foco para um mapa ou a base de dados de produção.
 
 <a name="asset-tracking"></a> **Controle de ativos**: O processo de controlar a localização de um ativo, como uma pessoa, veículo ou algum outro objeto.
 
@@ -51,7 +51,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="autosuggest"></a> **Sugestão automática**: Um recurso num aplicativo a prevê lógicas possibilidades para o que o usuário está digitando.
 
-<a name="azure-location-based-services-lbs"></a> **O Azure Location Based Services (LBS)**: O nome antigo do Azure Maps quando estava em pré-visualização.
+<a name="azure-location-based-services-lbs"></a> **O Azure Location Based Services (LBS)** : O nome antigo do Azure Maps quando estava em pré-visualização.
 
 <a name="azure-maps-key"></a> **A chave do Azure Maps**: Uma chave de mapas do Azure é uma cadeia exclusiva que é utilizada para autenticar a aplicação do Azure Maps de um utilizador ou pedido de serviço. 
 
@@ -109,7 +109,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="dbf-file"></a> **Ficheiro DBF**: Um formato de ficheiro de base de dados que é utilizado em combinação com ficheiros de formas (SHP).
 
-<a name="degree-minutes-seconds-dms"></a> **Grau minutos e segundos (DMS)**: A unidade de medida para descrever a latitude e longitude. Um grau é 1/360<sup>th</sup> de um círculo. Um grau é dividido em 60 minutos e um minuto é dividido em 60 segundos.
+<a name="degree-minutes-seconds-dms"></a> **Grau minutos e segundos (DMS)** : A unidade de medida para descrever a latitude e longitude. Um grau é 1/360<sup>th</sup> de um círculo. Um grau é dividido em 60 minutos e um minuto é dividido em 60 segundos.
 
 <a name="delaunay-triangulation"></a> **Triangulação de Delaunay**: Uma técnica para criar uma malha de triângulos contínuos, não sobrepostas a partir de um conjunto de dados de pontos. Círculo de cada triângulo circumscribing contém sem pontos do conjunto de dados no seu interior.
 
@@ -117,9 +117,9 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="destination"></a> **Destino**: Um ponto final ou a localização em que alguém está em uma viagem para.
 
-<a name="digital-elevation-model-dem"></a> **Modelo de elevação digital (DEM)**: Um conjunto de dados de elevação valores relacionados numa superfície, capturadas ao longo de uma área em intervalos regulares através de uma datum comuns. DEMs são tipicamente usadas para representar o alívio terreno.
+<a name="digital-elevation-model-dem"></a> **Modelo de elevação digital (DEM)** : Um conjunto de dados de elevação valores relacionados numa superfície, capturadas ao longo de uma área em intervalos regulares através de uma datum comuns. DEMs são tipicamente usadas para representar o alívio terreno.
 
-<a name="dijkstra's-algorithm"></a> **Algoritmo do Dijkstra '**: Um algoritmo que examina a conectividade de uma rede para localizar o caminho mais curto entre dois pontos.
+<a name="dijkstra's-algorithm"></a> **Algoritmo do Dijkstra '** : Um algoritmo que examina a conectividade de uma rede para localizar o caminho mais curto entre dois pontos.
 
 <a name="distance-matrix"></a> **Matriz de distância**: Uma matriz que contém informações de tempo e a distância de viagem entre um conjunto de origens e destinos. 
 
@@ -185,7 +185,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="great-circle-distance"></a> **Distância de grande ciclo**: A distância mais curta entre dois pontos na superfície de uma esfera.
 
-<a name="greenwich-mean-time-gmt"></a> **Hora de Greenwich (GMT)**: O tempo em que o primeiro meridiano, que percorre a Royal Observatory na Greenwich, Inglaterra.
+<a name="greenwich-mean-time-gmt"></a> **Hora de Greenwich (GMT)** : O tempo em que o primeiro meridiano, que percorre a Royal Observatory na Greenwich, Inglaterra.
 
 <a name="guid"></a> **GUID**: Um identificador exclusivo global. Uma cadeia utilizada para identificar exclusivamente uma interface, classe, biblioteca de tipos, categoria de componente ou registo.
 
@@ -273,7 +273,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="point"></a> **Point**: Geometry que representa uma única posição no mapa. 
 
-<a name="points-of-interest-poi"></a> **Pontos de interesse (POI)**: Um negócio, ponto de referência ou lugar comum de interesse.
+<a name="points-of-interest-poi"></a> **Pontos de interesse (POI)** : Um negócio, ponto de referência ou lugar comum de interesse.
 
 <a name="polygon"></a> **Polygon**: Uma geometria de sólido que representa uma área num mapa. 
 
@@ -297,7 +297,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="quadtree"></a> **Quadtree**: Uma estrutura de dados em que cada nó tem exatamente quatro filhos. O sistema de lado a lado utilizado no Azure Maps utiliza uma estrutura de quadtree, de modo a que como um utilizador amplia num nível, cada mosaico de mapa divide em quatro mosaicos secundários.  Para obter mais informações, consulte [níveis de Zoom e grelha de mosaico](zoom-levels-and-tile-grid.md) documentação para obter mais informações.
 
-<a name="queries-per-second-qps"></a> **Consultas por segundo (QPS)**: O número de consultas ou pedidos que podem ser feitos a um serviço ou a plataforma de um segundo. 
+<a name="queries-per-second-qps"></a> **Consultas por segundo (QPS)** : O número de consultas ou pedidos que podem ser feitos a um serviço ou a plataforma de um segundo. 
 
 ## <a name="r"></a>R
 
@@ -321,7 +321,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="route"></a> **Route**: Um caminho entre dois ou mais localizações, que também pode incluir informações adicionais, como instruções para marcos ao longo da rota.
 
-<a name="requests-per-second-rps"></a> **Pedidos por segundo (RPS)**: Ver [consultas por segundo (QPS)](#queries-per-second-qps). 
+<a name="requests-per-second-rps"></a> **Pedidos por segundo (RPS)** : Ver [consultas por segundo (QPS)](#queries-per-second-qps). 
 
 <a name="rss"></a> **RSS**: Acrônimo de Really Simple Syndication, resumo de Site do Framework de descrição do recurso (RDF) ou Rich Site resumo, dependendo da origem. Um simples e estruturado formato XML para a partilha de conteúdo entre sites diferentes. Os documentos RSS incluem elementos de metadados chave, como o autor, data, título, uma breve descrição e um link de hipertexto. Esta ajuda de informações que um utilizador (ou um serviço de publicador do RSS) decidir o que materiais valem a pena ainda mais investigação.
 
@@ -329,9 +329,9 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="satellite-imagery"></a> **Imagens de satélite**: Imagem for capturada, planos e satélites apontar diretamente para baixo.
 
-<a name="software-development-kit-sdk"></a> **O kit de desenvolvimento de software (SDK)**: Uma coleção de documentação, código de exemplo e aplicações de exemplo para ajudar a uma utilização de programador uma API para criar aplicações.
+<a name="software-development-kit-sdk"></a> **O kit de desenvolvimento de software (SDK)** : Uma coleção de documentação, código de exemplo e aplicações de exemplo para ajudar a uma utilização de programador uma API para criar aplicações.
 
-<a name="shapefile-shp"></a> **Ficheiro de formas (. SHP)**: Também conhecido como um ficheiro de formas ESRI, é um formato de armazenamento de dados de vetor para armazenar a localização, forma e atributos de recursos geográficos. Um ficheiro de formas é armazenado num conjunto de arquivos relacionados.
+<a name="shapefile-shp"></a> **Ficheiro de formas (. SHP)** : Também conhecido como um ficheiro de formas ESRI, é um formato de armazenamento de dados de vetor para armazenar a localização, forma e atributos de recursos geográficos. Um ficheiro de formas é armazenado num conjunto de arquivos relacionados.
 
 <a name="spherical-mercator-projection"></a> **Projeção de Mercator esférica**: Ver [Web Mercator](#web-mercator). 
 
@@ -364,7 +364,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="transformation"></a> **Transformação**: O processo de conversão de dados entre sistemas de coordenadas geográficos diferentes. Pode, por exemplo, ter alguns dados que foi capturados no Reino Unido e com base no sistema de coordenadas geográficas OSGB 1936. O Azure utiliza mapas a [EPSG:3857](https://epsg.io/3857) variante de sistema de coordenadas de referência do WGS84. Como tal, para exibir os dados corretamente, será necessário ter suas coordenadas transformadas a partir de um sistema para outro.
 
-<a name="traveling-salesmen-problem-tsp"></a> **Problema do Caixeiro Salesmen (TSP)**:  Um problema de circuito Hamiltonian em que um vendedor tem de encontrar a maneira mais eficiente para visitar uma série de paradas, em seguida, volte para a localização inicial.  
+<a name="traveling-salesmen-problem-tsp"></a> **Problema do Caixeiro Salesmen (TSP)** :  Um problema de circuito Hamiltonian em que um vendedor tem de encontrar a maneira mais eficiente para visitar uma série de paradas, em seguida, volte para a localização inicial.  
 
 <a name="trilateration"></a> **Trilateration**: O processo de determinar a posição de um ponto na superfície da terra em relação a dois outros pontos, medindo as distâncias entre todos os três pontos.
 
@@ -376,7 +376,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="vector-tile"></a> **Mosaico de vetor**: Uma especificação de dados abertos para armazenar dados de vetor geoespacial utilizando o mesmo sistema de mosaicos como o controlo do mapa. Consulte também [camada de mosaicos](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a> **Problema de roteamento de veículos (VRP)**: Uma classe de problemas em que um conjunto de rotas ordenados para uma frota de veículos é calculado ao levar em consideração como conjunto de restrições. Essas restrições podem incluir algo como janelas de tempo de entrega, vários recursos de rota e as restrições de duração de viagem.
+<a name="vehicle-routing-problem-vrp"></a> **Problema de roteamento de veículos (VRP)** : Uma classe de problemas em que um conjunto de rotas ordenados para uma frota de veículos é calculado ao levar em consideração como conjunto de restrições. Essas restrições podem incluir algo como janelas de tempo de entrega, vários recursos de rota e as restrições de duração de viagem.
 
 <a name="voronoi-diagram"></a> **Diagrama de Voronoi**: Uma partição de espaço em áreas ou células, que envolvem um conjunto de objetos geométricos (normalmente, funcionalidades de ponto). Essas células ou polígonos, tem de cumprir os critérios para os triângulos de Delaunay. Todas as localizações dentro de uma área estão mais próximos o objeto a que rodeie para qualquer outro objeto no conjunto. Diagramas de Voronoi, muitas vezes, são usados para delinear a áreas de influência dos recursos do geográficas. 
 

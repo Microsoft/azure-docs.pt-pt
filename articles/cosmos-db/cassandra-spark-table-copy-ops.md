@@ -1,19 +1,18 @@
 ---
 title: Operações de cópia da tabela na API de Cassandra do Azure Cosmos DB do Spark.
 description: Este artigo fornece detalhes sobre como copiar dados entre tabelas na API de Cassandra do Azure Cosmos DB
-author: rockboyfor
-ms.author: v-yeche
+author: kanshiG
+ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 03/18/2019
+ms.date: 09/24/2018
 ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60895186"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operações de cópia da tabela na API de Cassandra do Azure Cosmos DB do Spark
@@ -32,7 +31,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 74eee3d164e7ee3831f292568da9cf0620e576e5
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063561"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -76,7 +76,7 @@ Esta funcionalidade está disponível nas seguintes regiões do Azure:
 
 A tabela seguinte resume a capacidade de elevada disponibilidade de várias configurações de conta: 
 
-|KPI  |Região única sem zonas de disponibilidade (não-AZ)  |Região única com zonas de disponibilidade (AZ)  |Várias regiões com zonas de disponibilidade (AZ, 2 regiões) – definição da recomendado mais |
+|KPI  |Região única sem zonas de disponibilidade (não-AZ)  |Região única com zonas de disponibilidade (AZ)  |Escritas de várias regiões com zonas de disponibilidade (AZ, 2 regiões) – a maioria de configuração recomendada |
 |---------|---------|---------|---------|
 |SLA de disponibilidade de escrita     |   99,99%      |    99,99%     |  99,999%  |
 |Ler o SLA de disponibilidade   |   99,99%      |   99,99%      |  99,999%       |

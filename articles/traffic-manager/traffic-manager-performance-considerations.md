@@ -3,20 +3,20 @@ title: Considerações de desempenho para o Gestor de tráfego do Azure | Docume
 description: Compreender o desempenho no Gestor de tráfego e de como testar o desempenho do seu Web site ao utilizar o Gestor de tráfego
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: kumud
-ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 315165677bd3186bb3bdc87ed688c426776569fc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60329990"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071043"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho para o Gestor de Tráfego
 

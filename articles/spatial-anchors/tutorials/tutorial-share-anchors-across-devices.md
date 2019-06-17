@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ff9868dd7347812eb6ef566288ec364bc89b6955
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 734e1d08413867a438270660fa97bb8c5737e087
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60681547"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135387"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Partilhar as âncoras espaciais do Azure em sessões e dispositivos
 
@@ -38,7 +38,7 @@ Vale a pena observar que, embora usará Unity e uma aplicação Web do ASP.NET C
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Abra o projeto de exemplo no Unity
+## <a name="download-the-unity-sample-project"></a>Transfira o projeto de exemplo do Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 

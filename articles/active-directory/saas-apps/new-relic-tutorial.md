@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d50c4366128edb5b4bc76408eb1085817af1ce3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096260"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integração do Active Directory do Azure com o New Relic
 
@@ -52,7 +52,7 @@ Para configurar a integração de New Relic para o Azure AD, terá de adicionar 
 
 **Para adicionar o New Relic a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -227,7 +227,7 @@ Para que os utilizadores do Azure Active Directory iniciar sessão no New Relic,
 >Pode utilizar quaisquer outras New Relic utilizador conta criação ferramentas ou APIs fornecidas pelo New Relic para aprovisionar contas de utilizador do AAD.
 > 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

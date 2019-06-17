@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c9c24f5b594935c0057eb15acec09a0b27324
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 8b1461999679935587370f66349a440d588465cd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052531"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando utilizar um fornecedor de autenticação do multi-factor do Azure
 
@@ -25,7 +25,7 @@ A verificação de dois passos está disponível por predefinição para os admi
 Um fornecedor do multi-factor Auth do Azure é utilizado para tirar partido das funcionalidades fornecidas pelo Azure multi-factor Authentication para os utilizadores quem **não têm licenças**.
 
 > [!NOTE]
-> Em vigor a partir de 1 de Setembro de 2018 novos auth fornecedores já não podem ser criados. Fornecedores de autenticação existentes podem continuar a ser utilizado e atualizados. Multi-factor authentication irá continuar a estar disponível como uma funcionalidade no licenças do Azure AD Premium.
+> Em vigor a partir de 1 de Setembro de 2018 novos auth fornecedores já não podem ser criados. Fornecedores de autenticação existentes podem continuar a ser utilizado e atualizados, mas a migração já não é possível. Multi-factor authentication irá continuar a estar disponível como uma funcionalidade no licenças do Azure AD Premium.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Avisos relacionados com o SDK de MFA do Azure
 

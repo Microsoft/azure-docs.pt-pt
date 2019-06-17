@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60505466"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
@@ -104,11 +104,11 @@ Siga estas etapas para usar [registo remoto](https://support.microsoft.com/help/
 
 4.  Abra uma instância de **Services. msc**.
 
-5.  Clique em **serviços (Local)**.
+5.  Clique em **serviços (Local)** .
 
 6.  Selecione **ligar a outro computador**.
 
-7.  Introduza o **endereço de IP privado (DIP)** do problema VM.
+7.  Introduza o **endereço de IP privado (DIP)**  do problema VM.
 
 8.  Reinicie a política de local firewall.
 

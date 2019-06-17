@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b97fb1956c75332c40e242484b9d94419a45eb92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 19ced9767d77b0d7bfcec6f01425ab1089a55d54
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66242565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069235"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -48,6 +48,9 @@ Agora que a extensão está instalada, inicie sessão na sua conta do Azure DevO
    ![Selecione o projeto de equipa, o repositório e o ramo para o pipeline de compilação](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Por fim, selecione o modelo desejado para o pipeline de compilação. Neste tutorial, vamos selecionar o modelo **ASP.NET**. 
+
+> [!NOTE]
+> O conjunto de agentes para ser selecionado para este CI deve ter o Docker para Windows instalado, a menos que a instalação é feita manualmente numa tarefa anterior como parte do CI. Ver [agentes alojados de Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) artigo de uma seleção de conjuntos de agentes; Recomendamos começar com `Hosted VS2017` ou `Hosted VS2019`. 
 
 Agora tem um pipeline de compilação que pode configurar para utilizar a tarefa de compilação do emulador do Azure Cosmos DB. 
 

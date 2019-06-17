@@ -4,14 +4,14 @@ description: Mostra os tipos de recursos do Azure suportam etiquetas. Fornece de
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/10/2019
+ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ef37323fb8150e3a6b52800bfafa2585ae328c2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523226"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056880"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-using-tags.md). A coluna intitulada **suporta etiquetas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna intitulada **marca no relatório de custo** indica se esse tipo de recurso passa a etiqueta para o relatório de custos.
@@ -40,10 +40,10 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | ------------- | ----------- | ----------- |
 | aadsupportcases | Não |  Não |
 | addsservices | Não |  Não |
-| agentes | Não |  Não |
+| agents | Não |  Não |
 | anonymousapiusers | Não |  Não |
 | configuração | Não |  Não |
-| registos | Não |  Não |
+| logs | Não |  Não |
 | relatórios | Não |  Não |
 | services | Não |  Não |
 
@@ -59,7 +59,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
 | actionRules | Não |  Não |
-| alertas | Não |  Não |
+| alerts | Não |  Não |
 | alertsList | Não |  Não |
 | alertsSummary | Não |  Não |
 | alertsSummaryList | Não |  Não |
@@ -70,7 +70,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -239,7 +239,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | reservationOrders/split | Não |  Não |
 | reservationOrders/swap | Não |  Não |
 | reservas | Não |  Não |
-| recursos | Não |  Não |
+| Recursos | Não |  Não |
 | validateReservationOrder | Não |  Não |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -301,7 +301,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
 | Capacidades | Não |  Não |
-| discos | Não |  Não |
+| Discos | Não |  Não |
 | imagens | Não |  Não |
 | osImages | Não |  Não |
 | osPlatformImages | Não |  Não |
@@ -316,7 +316,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -328,13 +328,13 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
 | availabilitySets | Sim | Sim |
-| discos | Sim | Sim |
+| Discos | Sim | Sim |
 | imagens | Sim | Sim |
 | restorePointCollections | Sim | Sim |
 | restorePointCollections/restorePoints | Não |  Não |
 | sharedVMImages | Sim | Sim |
 | sharedVMImages/versions | Sim | Sim |
-| instantâneos | Sim | Sim |
+| Instantâneos | Sim | Sim |
 | virtualMachines | Sim | Sim |
 | virtualMachines/diagnosticSettings | Não |  Não |
 | virtualMachines/extensions | Sim | Sim |
@@ -351,7 +351,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | AggregatedCost | Não |  Não |
 | Saldos | Não |  Não |
 | Orçamentos | Não |  Não |
-| Encargos | Não |  Não |
+| Custos | Não |  Não |
 | CostTags | Não |  Não |
 | Créditos | Não |  Não |
 | eventos | Não |  Não |
@@ -359,7 +359,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | muitos | Não |  Não |
 | Marketplaces | Não |  Não |
 | Pricesheets | Não |  Não |
-| produtos | Não |  Não |
+| Produtos | Não |  Não |
 | ReservationDetails | Não |  Não |
 | ReservationRecommendations | Não |  Não |
 | ReservationSummaries | Não |  Não |
@@ -415,7 +415,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -451,7 +451,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| tarefas | Sim | Sim |
+| Tarefas | Sim | Sim |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -461,7 +461,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| áreas de trabalho | Sim | Não |
+| Áreas de trabalho | Sim | Não |
 | workspaces/virtualNetworkPeerings | Não |  Não |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -486,7 +486,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 | accounts/dataLakeStoreAccounts | Não |  Não |
 | accounts/storageAccounts | Não |  Não |
 | accounts/storageAccounts/containers | Não |  Não |
@@ -494,7 +494,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 | accounts/eventGridFilters | Não |  Não |
 | accounts/firewallRules | Não |  Não |
 
@@ -507,21 +507,21 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 | servers/recoverableServers | Não |  Não |
 | servers/virtualNetworkRules | Não |  Não |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 | servers/recoverableServers | Não |  Não |
 | servers/virtualNetworkRules | Não |  Não |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 | servers/advisors | Não |  Não |
 | servers/queryTexts | Não |  Não |
 | servers/recoverableServers | Não |  Não |
@@ -612,7 +612,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | myareas/areas/galleryitems | Não |  Não |
 | myareas/galleryitems | Não |  Não |
 | Registre-se | Não |  Não |
-| recursos | Não |  Não |
+| Recursos | Não |  Não |
 | retrieveresourcesbyid | Não |  Não |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -635,7 +635,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| tarefas | Sim | Sim |
+| Tarefas | Sim | Sim |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -654,7 +654,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | alertrules | Sim | Sim |
 | automatedExportSettings | Não |  Não |
 | autoscalesettings | Sim | Sim |
-| linha de base | Não |  Não |
+| Linha de base | Não |  Não |
 | calculatebaseline | Não |  Não |
 | Componentes | Sim | Sim |
 | componentes/eventos | Não |  Não |
@@ -667,7 +667,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | extendedDiagnosticSettings | Não |  Não |
 | logDefinitions | Não |  Não |
 | logprofiles | Não |  Não |
-| registos | Não |  Não |
+| logs | Não |  Não |
 | metricAlerts | Sim | Sim |
 | migrateToNewPricingModel | Não |  Não |
 | myWorkbooks | Não |  Não |
@@ -692,7 +692,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| Gráfico | Sim | Sim |
+| Graph | Sim | Sim |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -714,22 +714,22 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
 | labaccounts | Sim | Sim |
-| Utilizadores | Não |  Não |
+| utilizadores | Não |  Não |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| registos | Não |  Não |
+| logs | Não |  Não |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -742,12 +742,12 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | ------------- | ----------- | ----------- |
 | commitmentPlans | Sim | Sim |
 | webServices | Sim | Sim |
-| Áreas de trabalho | Sim | Sim |
+| Áreas de Trabalho | Sim | Sim |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 | accounts/workspaces | Sim | Sim |
 | accounts/workspaces/projects | Sim | Sim |
 | teamAccounts | Sim | Sim |
@@ -757,12 +757,12 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| áreas de trabalho | Sim | Sim |
+| Áreas de trabalho | Sim | Sim |
 | workspaces/computes | Não |  Não |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -776,14 +776,14 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | ------------- | ----------- | ----------- |
 | getEntities | Não |  Não |
 | managementGroups | Não |  Não |
-| recursos | Não |  Não |
+| Recursos | Não |  Não |
 | startTenantBackfill | Não |  Não |
 | tenantBackfillStatus | Não |  Não |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 | accounts/eventGridFilters | Não |  Não |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -798,7 +798,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | offerTypes/publishers/offers/plans/configs | Não |  Não |
 | offerTypes/publishers/offers/plans/configs/importImage | Não |  Não |
 | privategalleryitems | Não |  Não |
-| produtos | Não |  Não |
+| Produtos | Não |  Não |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -845,7 +845,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | azureFirewallFqdnTags | Não |  Não |
 | azureFirewalls | Sim | Não |
 | bgpServiceCommunities | Não |  Não |
-| ligações | Sim | Sim |
+| Ligações | Sim | Sim |
 | ddosCustomPolicies | Sim | Sim |
 | ddosProtectionPlans | Sim | Sim |
 | dnsOperationStatuses | Não |  Não |
@@ -911,7 +911,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | dispositivos | Não |  Não |
 | linkTargets | Não |  Não |
 | storageInsightConfigs | Não |  Não |
-| áreas de trabalho | Sim | Sim |
+| Áreas de trabalho | Sim | Sim |
 | workspaces/dataSources | Não |  Não |
 | workspaces/linkedServices | Não |  Não |
 | workspaces/query | Não |  Não |
@@ -922,7 +922,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | managementassociations | Não |  Não |
 | managementconfigurations | Sim | Sim |
 | soluções | Sim | Sim |
-| visualizações | Sim | Sim |
+| Modos de exibição | Sim | Sim |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -952,7 +952,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| contas | Sim | Sim |
+| accounts | Sim | Sim |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -973,7 +973,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| recursos | Não |  Não |
+| Recursos | Não |  Não |
 | subscriptionsStatus | Não |  Não |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -984,19 +984,19 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | childResources | Não |  Não |
 | eventos | Não |  Não |
 | impactedResources | Não |  Não |
-| notificações | Não |  Não |
+| Notificações | Não |  Não |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
-| implementações | Não |  Não |
+| Implementações | Não |  Não |
 | Implementações/operações | Não |  Não |
 | Ligações | Não |  Não |
 | notifyResourceJobs | Não |  Não |
 | Fornecedores | Não |  Não |
 | resourceGroups | Não |  Não |
-| recursos | Não |  Não |
-| subscrições | Não |  Não |
+| Recursos | Não |  Não |
+| Subscrições | Não |  Não |
 | Subscrições/fornecedores | Não |  Não |
 | subscriptions/resourceGroups | Não |  Não |
 | subscriptions/resourcegroups/resources | Não |  Não |
@@ -1027,7 +1027,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
 | advancedThreatProtectionSettings | Não |  Não |
-| alertas | Não |  Não |
+| alerts | Não |  Não |
 | allowedConnections | Não |  Não |
 | aplicações | Não |  Não |
 | applicationWhitelistings | Não |  Não |
@@ -1038,11 +1038,11 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | externalSecuritySolutions | Não |  Não |
 | InformationProtectionPolicies | Não |  Não |
 | jitNetworkAccessPolicies | Não |  Não |
-| monitorização | Não |  Não |
+| Monitorização | Não |  Não |
 | monitoring/antimalware | Não |  Não |
 | monitorização/linha de base | Não |  Não |
 | monitorização/correção | Não |  Não |
-| políticas | Não |  Não |
+| Políticas | Não |  Não |
 | preços | Não |  Não |
 | securityContacts | Não |  Não |
 | securitySolutions | Não |  Não |
@@ -1053,7 +1053,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | securityStatus/virtualMachines | Não |  Não |
 | securityStatuses | Não |  Não |
 | securityStatusesSummaries | Não |  Não |
-| definições | Não |  Não |
+| settings | Não |  Não |
 | tarefas | Não |  Não |
 | Topologias | Não |  Não |
 | workspaceSettings | Não |  Não |
@@ -1091,7 +1091,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | aplicações | Sim | Sim |
 | gateways | Sim | Sim |
 | Redes | Sim | Sim |
-| segredos | Sim | Sim |
+| Segredos | Sim | Sim |
 | volumes | Sim | Sim |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
@@ -1121,7 +1121,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | managedInstances/keys | Não | Não |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Não | Não |
 | managedInstances/vulnerabilityAssessments | Não | Não |
-| servidores | Sim | Sim |
+| Servidores | Sim | Sim |
 | servidores/administradores | Não |  Não |
 | servers/communicationLinks | Não |  Não |
 | servers/databases | Sim (ver nota abaixo) | Sim |
@@ -1194,7 +1194,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
 | ------------- | ----------- | ----------- |
 | providerRegistrations | Sim | Sim |
-| recursos | Sim | Sim |
+| Recursos | Sim | Sim |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |
@@ -1225,13 +1225,13 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | apiManagementAccounts/connectionAcls | Não |  Não |
 | apiManagementAccounts/connections | Não |  Não |
 | billingMeters | Não |  Não |
-| certificados | Sim | Sim |
+| Certificados | Sim | Sim |
 | connectionGateways | Sim | Sim |
-| ligações | Sim | Sim |
+| Ligações | Sim | Sim |
 | customApis | Sim | Sim |
 | deletedSites | Não |  Não |
 | functions | Não |  Não |
-| hostingEnvironments | Sim | Não |
+| hostingEnvironments | Sim | Sim |
 | hostingEnvironments/multiRolePools | Não |  Não |
 | hostingEnvironments/multiRolePools/instances | Não |  Não |
 | hostingEnvironments/workerPools | Não |  Não |

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8d6ee5d4d9db8f6c91d43f72135ba42d6735287
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bd9efbd3f0d445174f6db4395cbeee789313f6c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104771"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutorial: Integração do Active Directory do Azure com ContractWorks
 
@@ -53,7 +53,7 @@ Para configurar a integração do ContractWorks com o Azure AD, terá de adicion
 
 **Para adicionar ContractWorks a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -205,7 +205,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no ContractWorks. Trabalhar com [equipa de suporte de ContractWorks](mailto:support@contractworks.com) para adicionar os utilizadores na plataforma ContractWorks. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

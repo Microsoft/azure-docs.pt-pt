@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
 ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991796"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análise de multimédia na plataforma dos serviços de multimédia 

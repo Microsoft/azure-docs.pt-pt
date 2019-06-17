@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bdfd19d9a0e928e26ad6f01ba4b9c3f493aacb0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899759"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integração do Active Directory do Azure com o serviço de Cloud Alibaba (SSO baseado em funções)
 
@@ -54,7 +54,7 @@ Para configurar a integração do serviço em nuvem do Alibaba (SSO baseado em f
 
 **Para adicionar serviço de Cloud Alibaba (baseado em funções SSO) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -66,7 +66,7 @@ Para configurar a integração do serviço em nuvem do Alibaba (SSO baseado em f
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Alibaba Cloud Service (SSO baseado em funções)**, selecione **Alibaba Cloud Service (SSO baseado em funções)** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
+4. Na caixa de pesquisa, escreva **Alibaba Cloud Service (SSO baseado em funções)** , selecione **Alibaba Cloud Service (SSO baseado em funções)** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
 
     ![Serviço de Cloud Alibaba (SSO baseado em funções) na lista de resultados](common/search-new-app.png)
 
@@ -133,7 +133,7 @@ Para configurar o Azure AD início de sessão único com o serviço de Cloud Ali
 
 6. Além dos acima, a aplicação de serviço de nuvem Alibaba (SSO baseado em funções) espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
-    | Name | Espaço de nomes | Atributo de origem|
+    | Name | Espaço de Nomes | Atributo de origem|
     | ---------------| ------------| --------------- |
     | Função | https:\//www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
     | RoleSessionName | https:\//www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
@@ -282,11 +282,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso ao serviço de nuvem Alibaba (SSO baseado em funções).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Alibaba Cloud Service (SSO baseado em funções)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Alibaba Cloud Service (SSO baseado em funções)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Alibaba Cloud Service (SSO baseado em funções)**.
+2. Na lista de aplicações, selecione **Alibaba Cloud Service (SSO baseado em funções)** .
 
     ![A ligação de serviço de Cloud Alibaba (SSO baseado em funções) na lista de aplicações](common/all-applications.png)
 
@@ -313,7 +313,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no serviço de Cloud Alibaba (SSO baseado em funções). Trabalhar com [equipa de suporte do serviço de Cloud Alibaba (SSO baseado em funções)](https://www.aliyun.com/service/) para adicionar os utilizadores na plataforma do serviço de Cloud Alibaba (SSO baseado em funções). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Depois das configurações anteriores são concluídas, teste o serviço de nuvem de Alibaba (SSO baseado em funções) ao seguir estes passos:
 

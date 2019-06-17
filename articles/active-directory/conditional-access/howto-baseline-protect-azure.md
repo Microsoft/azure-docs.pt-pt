@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00ed40bef3f3cbe59825f546ffa39c3ebfb2e41f
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112388"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Política de linha de base: Exigir a MFA para gestão de serviço (pré-visualização)
 
@@ -40,7 +40,7 @@ Para efetuar interativo início de sessão usando [Azure Powershell](https://doc
 Connect-AzAccount
 ```
 
-Quando é executado, este cmdlet apresenta uma cadeia de token. Para iniciar sessão, essa cadeia de caracteres de copiar e colá-lo no [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) num browser. A sua sessão do PowerShell será autenticada para se ligar ao Azure.
+Quando é executado, este cmdlet apresenta uma cadeia de token. Para iniciar sessão, essa cadeia de caracteres de copiar e colá-lo no [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  num browser. A sua sessão do PowerShell será autenticada para se ligar ao Azure.
 
 Para efetuar interativo início de sessão usando [CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), execute o [início de sessão az](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) comando.
 
@@ -73,7 +73,7 @@ Para ativar esta política e proteger os seus administradores:
 
 1. Inicie sessão para o **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue até **do Azure Active Directory** > **acesso condicional**.
-1. Na lista de políticas, selecione **política de linha de base: Exigir a MFA para gestão de serviço (pré-visualização)**.
+1. Na lista de políticas, selecione **política de linha de base: Exigir a MFA para gestão de serviço (pré-visualização)** .
 1. Definir **ativar política** ao **utilizar a política imediatamente**.
 1. Adicionar exclusões utilizador ao clicar em **usuários** > **selecionar utilizadores excluídos** e escolher os utilizadores que têm de ser excluídos. Clique em **selecionar** , em seguida, **feito**.
 1. Clique em **guardar**.

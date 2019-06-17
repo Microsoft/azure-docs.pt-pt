@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
 ms.openlocfilehash: 50d7ca73e5e18f88f5d789e12fc7f26908e8b8f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125785"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar o débito de rede para máquinas virtuais do Azure

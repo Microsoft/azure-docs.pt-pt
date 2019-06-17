@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 688c33a098bb34a6b39937579e2e25591786c531
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939657"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147495"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Descompactar, ligar e desbloquear o disco do Azure Data Box
 
@@ -123,7 +123,9 @@ Siga os seguintes passos para ligar e desbloquear os discos.
     ```  
 8. Assim que o disco está desbloqueado, pode ver os conteúdos do disco.    
 
-    ![Conteúdos do Disco do Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Conteúdos do Disco do Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+Caso se depare com quaisquer problemas ao desbloquear os discos, consulte como [resolver problemas de desbloquear](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="unlock-disks-on-linux-client"></a>Desbloquear discos no cliente Linux
 
@@ -253,6 +255,9 @@ Siga os seguintes passos para ligar e desbloquear os discos.
 8. Assim que o disco estiver desbloqueado, pode ir para o ponto de montagem e ver os conteúdos do disco. Já está pronto para copiar os dados para as pastas *BlockBlob* ou *PageBlob*. 
 
     ![Conteúdos do Disco do Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+Caso se depare com quaisquer problemas ao desbloquear os discos, consulte como [resolver problemas de desbloquear](data-box-disk-troubleshoot-unlock.md). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

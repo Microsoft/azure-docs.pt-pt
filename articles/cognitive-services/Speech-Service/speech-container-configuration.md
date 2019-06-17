@@ -3,19 +3,19 @@ title: Configurar os contentores de voz
 titleSuffix: Azure Cognitive Services
 description: O contentor de voz
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.author: diberry
-ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/11/2019
+ms.author: dapine
+ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072445"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar os contentores do serviço de voz
 

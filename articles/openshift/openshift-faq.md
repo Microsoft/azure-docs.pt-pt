@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 2001b849e9c43d552889475ca237c52b141f3f04
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 32eb2c47ed46aed8e2e3755a83437a21391295c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306271"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122968"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ do Azure de Red Hat OpenShift
 
@@ -49,9 +49,13 @@ Ver [tamanhos de máquinas virtuais do Azure Red Hat OpenShift](supported-resour
 
 Por predefinição, existe a encriptação em repouso. A plataforma de armazenamento do Azure encripta automaticamente os dados antes de persistir e desencripta os dados antes da obtenção. Ver [encriptação do serviço de armazenamento do Azure para dados Inativos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) para obter detalhes.
 
-## <a name="can-i-use-prometheusgrafana-to-monitor-containers-and-manage-capacity"></a>Pode utilizar Prometheus/Grafana para monitorizar contentores e gerir a capacidade?
+## <a name="can-i-use-prometheusgrafana-to-monitor-my-applications"></a>Pode utilizar Prometheus/Grafana para monitorizar as minhas aplicações?
 
-Não, não o momento atual.
+Sim, pode implementar Prometheus em seus aplicativos de espaço de nomes e o monitor no seu espaço de nomes.
+
+## <a name="can-i-use-prometheusgrafana-to-monitor-metrics-related-to-cluster-health-and-capacity"></a>Pode utilizar Prometheus/Grafana para monitorizar métricas relacionadas com o estado de funcionamento do cluster e a capacidade?
+
+Não, não à hora atual.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>O registo do Docker está disponível externamente para poder usar ferramentas como o Jenkins?
 
@@ -80,3 +84,7 @@ Não. Todos os recursos, incluindo o mestre de cluster, executam na sua subscri�
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>É o Open Service Broker for Azure (OSBA) suportada?
 
 Sim. Pode usar o OSBA com a Azure Red Hat OpenShift. Ver [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) para obter mais informações.
+
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Eu estou tentando configurar o peering numa rede virtual numa subscrição diferente, mas introdução `Failed to get vnet CIDR` erro.
+
+Na subscrição que tem a rede virtual, certifique-se para se registar `Microsoft.ContainerService` fornecedor com o `az provider register -n Microsoft.ContainerService --wait` 

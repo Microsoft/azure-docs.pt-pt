@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
 ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61035755"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar as extensões de enlace de funções do Azure no portal manualmente
@@ -30,7 +30,7 @@ Utilize os seguintes passos para instalar ou atualizar as extensões do portal d
 
 1. Na [portal do Azure](https://portal.azure.com), localize a aplicação de funções e selecioná-lo. Escolha o **descrição geral** separador e selecione **parar**.  A parar a aplicação de funções desbloqueia a ficheiros, de modo a que podem ser feitas alterações.
 
-1. Escolha o **funcionalidades de plataforma** separador e, em **ferramentas de desenvolvimento** selecionar **ferramentas avançadas (Kudu)**. O ponto de extremidade do Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) é aberta numa nova janela.
+1. Escolha o **funcionalidades de plataforma** separador e, em **ferramentas de desenvolvimento** selecionar **ferramentas avançadas (Kudu)** . O ponto de extremidade do Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) é aberta numa nova janela.
 
 1. Na janela do Kudu, selecione **consola de depuração** > **CMD**.  
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: xingwan
 ms.openlocfilehash: a57899e36a6716a6fd59cb018119c225b7396c0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60649136"
 ---
 # <a name="region-or-sku-unavailable"></a>Região ou SKU não disponível

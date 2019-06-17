@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65834918"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Utilizar o Time Series Insights para ver a telemetria enviada a partir do solution accelerator de simulação do dispositivo
@@ -69,7 +69,7 @@ Os passos seguintes utilizam a CLI do Azure no Azure Cloud Shell para criar o gr
     | Subscrição | Selecione a sua subscrição do Azure na lista pendente. |
     | Grupo de recursos | **simulação de contoso**. Utilize o nome do seu solution accelerator. |
     | Location | Este exemplo utiliza **E.U.A. Leste**. Crie o seu ambiente na mesma região que o seu acelerador de simulação do dispositivo. |
-    | SKU |**S1** |
+    | Sku |**S1** |
     | Capacidade | **1** |
 
     ![Criar o Time Series Insights](./media/iot-accelerators-device-simulation-time-series-insights/new-time-series-insights-create.png)
@@ -98,15 +98,15 @@ Crie uma nova origem de evento para ligar ao seu hub IoT. Utilize o grupo de con
     | Definição | Value |
     | ------- | ----- |
     | Nome da origem de evento | Captura de ecrã seguinte utiliza o nome **contoso-iot-hub**. Utilize o seu próprio nome exclusivo quando concluir este passo. |
-    | Source | **Hub IoT** |
-    | Importar opção | **Utilize o IoT Hub a partir de subscrições disponíveis** |
+    | source | **Hub IoT** |
+    | Opção de Importar | **Utilize o IoT Hub a partir de subscrições disponíveis** |
     | ID da subscrição | Selecione a sua subscrição do Azure na lista pendente. |
-    | Nome do hub IoT | **Contoso-simulation7d894**. Utilize o nome do hub IoT partir do solution accelerator de simulação do dispositivo. |
-    | nome de política do hub IoT | **iothubowner** |
-    | chave de política do hub IoT | Este campo é preenchido automaticamente. |
-    | Grupo de consumidores do hub IoT | **devicesimulationtsi** |
+    | Nome do hub IOT | **Contoso-simulation7d894**. Utilize o nome do hub IoT partir do solution accelerator de simulação do dispositivo. |
+    | Nome de política do hub IOT | **iothubowner** |
+    | Chave de política do hub IOT | Este campo é preenchido automaticamente. |
+    | Grupo de consumidores do hub IOT | **devicesimulationtsi** |
     | Formato de serialização de eventos | **JSON** |
-    | Nome da propriedade de carimbo de data/hora | Deixar em branco |
+    | Nome da propriedade Timestamp | Deixar em branco |
 
     ![Criar origem de evento](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 

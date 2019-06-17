@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978994"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transações e controlo de simultaneidade otimista
@@ -33,11 +33,11 @@ O motor de base de dados do Azure Cosmos DB suporta completas de transações em
 | Executar procedimento armazenado | Escrever e ler | Transação de item multi |
 | Sistema iniciou a execução de um procedimento de intercalação | Escrita | Transação de item multi |
 | Sistema iniciou a execução da eliminação de itens com base em expiração (TTL) de um item | Escrita | Transação de item multi |
-| Ler | Ler | Transação de item único |
-| Feed de Alterações | Ler | Transação de item multi |
-| Leitura paginada | Ler | Transação de item multi |
-| Consulta paginada | Ler | Transação de item multi |
-| Executar UDF como parte da consulta paginada | Ler | Transação de item multi |
+| Leitura | Leitura | Transação de item único |
+| Feed de Alterações | Leitura | Transação de item multi |
+| Leitura paginada | Leitura | Transação de item multi |
+| Consulta paginada | Leitura | Transação de item multi |
+| Executar UDF como parte da consulta paginada | Leitura | Transação de item multi |
 
 ## <a name="multi-item-transactions"></a>Transações do item multi
 

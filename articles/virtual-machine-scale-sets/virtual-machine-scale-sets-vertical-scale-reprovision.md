@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: manayar
 ms.openlocfilehash: 3846815dabdc9e351f3d8449feb88affb9c6efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60803503"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Conjuntos de dimensionamento automático vertical com dimensionamento de máquinas virtuais

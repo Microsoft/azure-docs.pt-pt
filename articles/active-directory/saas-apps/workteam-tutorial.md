@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a59e7d9177834790b6df0f1c45a60849d3fdca0e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920290"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: Integração do Active Directory do Azure com Workteam
 
@@ -53,7 +53,7 @@ Para configurar a integração do Workteam com o Azure AD, terá de adicionar Wo
 
 **Para adicionar Workteam a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

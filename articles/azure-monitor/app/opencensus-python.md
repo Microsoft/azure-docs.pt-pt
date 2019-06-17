@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957236"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Recolher rastreios distribuídos do Python (pré-visualização)
@@ -47,7 +47,7 @@ Primeiro tem de criar um recurso do Application Insights que gerará um key(ikey
    | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Geral | Tipo de aplicação que está a monitorizar |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
-   | **Localização** | EUA Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
+   | **Location** | EUA Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Clique em **Criar**.
 
@@ -183,7 +183,7 @@ Primeiro tem de criar um recurso do Application Insights que gerará um key(ikey
 
     Uma vez que estamos apenas foram rastrear uma chamada de método, nosso mapa da aplicação não é tão interessante. Mas o mapa da aplicação pode ser dimensionado para visualizar as aplicações distribuídas muito mais:
 
-   ![Mapa da Aplicação](media/opencensus-python/application-map.png)
+   ![Mapeamento de Aplicações](media/opencensus-python/application-map.png)
 
 4. Selecione **investigar desempenho** para efetuar a análise detalhada do desempenho e determinar a causa de raiz de um desempenho lento.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e1199826601f8f2ddd82164dac1a20013d9b7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be9620b0bb19daed186cb4eb652311e58ea0adaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60262628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Active Directory do Azure com Klue
 
@@ -54,7 +54,7 @@ Para configurar a integração do Klue com o Azure AD, terá de adicionar Klue a
 
 **Para adicionar Klue a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -129,7 +129,7 @@ Para configurar o Azure AD início de sessão único com Klue, execute os seguin
     | ------------------- | -------------------- |
     | first_name          | user.givenname |
     | last_name           | user.surname |
-    | e-mail               | user.userprincipalname|
+    | email               | user.userprincipalname|
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 

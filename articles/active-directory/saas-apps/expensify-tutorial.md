@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 802b71aa73e01378f161e62ec4c22d8b470955c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 926c22c6512ae083712185a5f235737fb48ab9bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898786"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integração do Active Directory do Azure com Expensify
 
@@ -53,7 +53,7 @@ Para configurar a integração do Expensify com o Azure AD, terá de adicionar E
 
 **Para adicionar Expensify a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -195,7 +195,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Expensify. Trabalhar com [equipa de suporte de cliente Expensify](mailto:help@expensify.com) para adicionar os utilizadores na plataforma Expensify.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

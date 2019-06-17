@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61432916"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à monitorização do serviço Cloud
