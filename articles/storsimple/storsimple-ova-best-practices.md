@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630143"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Práticas recomendadas da matriz Virtual StorSimple
@@ -237,7 +237,7 @@ Quando realizar uma ativação pós-falha sua matriz virtual, tenha em atenção
   * Ocorreu uma falha durante o processo de ativação pós-falha real. Neste caso, o dispositivo de destino é marcado inutilizável. Tem de aprovisionar e configurar outra matriz virtual de destino e utilizá-la para ativação pós-falha.
   * A ativação pós-falha foi concluída após o qual o dispositivo de origem foi eliminado, mas o dispositivo de destino tem problemas e não pode aceder a quaisquer dados. Os dados ainda seja seguros na cloud e podem ser facilmente obtidos através da criação de uma matriz e, em seguida, utilizá-lo como um dispositivo de destino para a DR.
 
-### <a name="deactivate"></a>Desativar
+### <a name="deactivate"></a>desativar
 Ao desativar uma StorSimple Virtual Array, servidor de ligação entre o dispositivo e o serviço StorSimple Manager correspondente. Desativação é um **permanente** operação e não pode ser anulada. Um dispositivo desativado não pode ser registado com o serviço StorSimple Manager novamente. Para obter mais informações, aceda a [desativar e eliminar a sua matriz Virtual StorSimple](storsimple-virtual-array-deactivate-and-delete-device.md).
 
 Mantenha as seguintes práticas recomendadas em mente quando desativar a sua matriz virtual:

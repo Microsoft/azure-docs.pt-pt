@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919174"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
@@ -46,9 +46,9 @@ Além desses três contas utilizadas para executar o Azure AD Connect, também t
 
 - **Conta de Administrador Global do AD do Azure**: utilizado para criar a conta do conector do Azure AD e configurar o Azure AD.
 
-- **Conta do SA do SQL (opcional)**: utilizado para criar a base de dados ADSync ao utilizar a versão completa do SQL Server.  Este servidor de SQL pode ser local ou remoto para a instalação do Azure AD Connect.  Esta conta pode ser a mesma conta como o administrador de empresa.  Aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador do SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados.  Para obter informações sobre este veja [instalar o Azure AD Connect utilizando as permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md)
+- **Conta do SA do SQL (opcional)** : utilizado para criar a base de dados ADSync ao utilizar a versão completa do SQL Server.  Este servidor de SQL pode ser local ou remoto para a instalação do Azure AD Connect.  Esta conta pode ser a mesma conta como o administrador de empresa.  Aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador do SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados.  Para obter informações sobre este veja [instalar o Azure AD Connect utilizando as permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md)
 
-## <a name="installing-azure-ad-connect"></a>A instalar o Azure AD Connect
+## <a name="installing-azure-ad-connect"></a>Instalar Azure AD Connect
 O Assistente de instalação do Azure AD Connect oferece dois caminhos diferentes:
 
 * As definições rápidas, o assistente necessita de mais privilégios.  Isto é, de modo que possa definir a sua configuração facilmente, sem necessidade de criar os utilizadores ou configurar as permissões.
@@ -154,7 +154,7 @@ Ao atualizar de uma versão do Azure AD Connect para uma nova versão, tem as se
 
 ## <a name="more-about-the-created-accounts"></a>Mais informações sobre as contas criadas
 ### <a name="ad-ds-connector-account"></a>Conta do conector do DS AD
-Se utilizar as definições rápidas, é criada uma conta no Active Directory que é utilizada para sincronização. A conta criada está localizada no domínio de raiz de floresta no contêiner usuários e tem o seu nome prefixadas com **msol _**. A conta é criada com uma palavra-passe muito complexa que não expire. Se tiver uma política de palavra-passe no seu domínio, certifique-se de que muito e palavras-passe complexas teria permissão para esta conta.
+Se utilizar as definições rápidas, é criada uma conta no Active Directory que é utilizada para sincronização. A conta criada está localizada no domínio de raiz de floresta no contêiner usuários e tem o seu nome prefixadas com **msol _** . A conta é criada com uma palavra-passe muito complexa que não expire. Se tiver uma política de palavra-passe no seu domínio, certifique-se de que muito e palavras-passe complexas teria permissão para esta conta.
 
 ![Conta AD](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
@@ -191,7 +191,7 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina autónomo/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **máquina associados a um domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA,gMSA | **gMSA**</br>Conta do domínio |
+| **máquina associados a um domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA,gMSA | **gMSA**</br>Conta de domínio |
 | **Controlador de domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual

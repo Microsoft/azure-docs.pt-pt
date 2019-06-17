@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/04/2019
 ms.author: cynthn
 ms.openlocfilehash: 0302b29103fbe993589ee4d3f44b8a5fff5bd77c
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66735234"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Documentação de orientação para mitigar vulnerabilidades side-channel de execução especulativa no Azure

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
 ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65142684"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo no Windows Server
@@ -188,12 +188,12 @@ Como padrão, o produto recolhe telemetria sobre a utilização do Service Fabri
 
 * Número de serviços
 * Número de ServiceTypes
-* Número de Aplicações
+* Número de aplicativos
 * Número de ApplicationUpgrades
 * Número de FailoverUnits
 * Número de InBuildFailoverUnits
 * Número de UnhealthyFailoverUnits
-* Número de Réplicas
+* Número de réplicas
 * Número de InBuildReplicas
 * Número de StandByReplicas
 * Número de OfflineReplicas

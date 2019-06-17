@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231421"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto
@@ -33,35 +33,35 @@ Com o nome de entidades (NER) é a capacidade de identificar as diferentes entid
 
 Na análise de texto [versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), ligação de entidades e o reconhecimento de entidades (NER) estão disponíveis.
 
-### <a name="language-support"></a>Suporte de idioma
+### <a name="language-support"></a>Suporte de idiomas
 
 Através do entity linking em várias linguagens requer a utilização de uma base de dados de conhecimento correspondente em cada linguagem. Para a entidade de ligação na análise de texto, isso significa que todos os idiomas que é suportado pelo `entities` ponto final de ligações para o corpo da Wikipedia correspondente nesse idioma. Uma vez que o tamanho do conjunto de documentos de varia entre as linguagens, espera-se que a entidade de recolhimento da funcionalidade de ligação também podem variar.
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Tipos suportados para o reconhecimento de entidades
 
-| Type  | Subtipo | Exemplo |
+| Tipo  | Subtipo | Exemplo |
 |:-----------   |:------------- |:---------|
 | Pessoa        | N/A\*         | "Jeff", "Bill Gates"     |
 | Location      | N/A\*         | "Redmond, Washington", "Paris"  |
 | Organização  | N/A\*         | "Microsoft"   |
 | Quantidade      | Número        | "6", "six"     | 
 | Quantidade      | Percentagem    | "50%", "cinquenta por cento"| 
-| Quantidade      | Ordinal       | "2nd", "second"     | 
+| Quantidade      | Ordinal       | "2.º", "segundo"     | 
 | Quantidade      | NumberRange   | "4 a 8"     | 
 | Quantidade      | Idade           | 90 dias antigos"", "30 anos de idade"    | 
-| Quantidade      | Moeda      | "$10.99"     | 
-| Quantidade      | Dimensão     | "milhas 10", "40 cm"     | 
+| Quantidade      | Moeda      | "10,99 $"     | 
+| Quantidade      | Dimensão     | "10 milhas", "40 cm"     | 
 | Quantidade      | Temperatura   | "32 graus"    |
-| DateTime      | N/A\*         | "6 17:30, 4 de Fevereiro de 2012"      | 
-| DateTime      | Date          | "2nd de Maio de 2017", "05/02/2017"   | 
-| DateTime      | Time          | "8 am", "8:00"  | 
-| DateTime      | DateRange     | "2nd de Maio para 5 de Maio"    | 
-| DateTime      | TimeRange     | "pm de 6 a 7 pm"     | 
+| DateTime      | N/A\*         | "18:30 4 de fevereiro de 2012"      | 
+| DateTime      | Date          | "2 de maio de 2017", "02/05/2017"   | 
+| DateTime      | Hora          | "8 am", "8:00"  | 
+| DateTime      | DateRange     | "2 a 5 de maio"    | 
+| DateTime      | TimeRange     | "18:00 às 19:00"     | 
 | DateTime      | Duração      | "1 minuto e 45 segundos"   | 
-| DateTime      | Conjunto           | "cada terça-feira"     | 
-| DateTime      | TimeZone      |    | 
-| URL           | N/A\*         | "https:\//www.bing.com"    |
-| Correio Electrónico         | N/A\*         | "support@contoso.com" |
+| DateTime      | Definir           | "todas as terças"     | 
+| DateTime      | fuso horário      |    | 
+| do IdP           | N/A\*         | "https:\//www.bing.com"    |
+| Email         | N/A\*         | "support@contoso.com" |
 
 \* Consoante as entidades de entrada e extraídas, determinadas entidades podem omitir o `SubType`.  Todos os tipos de entidade suportados listados estão disponíveis apenas para os idiomas inglês, chinês simplificado, francês, alemão e espanhol.
 

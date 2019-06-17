@@ -13,10 +13,10 @@ ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762315"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
@@ -32,7 +32,7 @@ Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos an
 
 Esta secção mostra como o mapeamento de alguns termos comuns da indústria, para a API dos serviços de multimédia v3.
 
-### <a name="live-event"></a>Evento Live
+### <a name="live-event"></a>Evento em direto
 
 R **evento em direto** representa um pipeline de ingestão, transcodificação (opcionalmente) e empacotamento de transmissões em direto dos metadados do vídeo, áudio e em tempo real.
 
@@ -101,7 +101,7 @@ Pode utilizar os serviços de multimédia **manifestos dinâmica** transmitir ap
 - [Dynamic manifests](filters-dynamic-manifest-overview.md) (Manifestos dinâmicos)
 - [Filtros](filters-concept.md)
 
-## <a name="live-streaming"></a>Transmissão em fluxo em direto
+## <a name="live-streaming"></a>Transmissão em direto
 
 Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. Os **Eventos em Direto** são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um **evento em direto**, é criado um ponto de final de entrada que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. Assim que tiver o fluxo a ser encaminhados para o **evento em direto**, pode começar o evento de transmissão em fluxo através da criação de um **Asset**, **Live saída**, e **localizador de transmissão em fluxo** . **Live saída** irá arquivar a transmissão no **Asset** e disponibilizá-la para os espetadores através da **ponto final de transmissão em fluxo**. R **evento em direto** pode ser um dos dois tipos: **pass-through** e **codificação em direto**.
 
@@ -114,7 +114,7 @@ A imagem seguinte ilustra o fluxo de trabalho do tipo de pass-through:
 
 ## <a name="monitoring"></a>Monitorização
 
-### <a name="event-grid"></a>Grelha de Eventos
+### <a name="event-grid"></a>Event Grid
 
 Para ver o progresso da tarefa, deve usar **Event Grid**. Serviços de multimédia emite também os tipos de evento em direto. Com o Event Grid, as aplicações podem escutar e reagir a eventos a partir de praticamente todos os serviços do Azure, bem como de origens personalizadas. 
 

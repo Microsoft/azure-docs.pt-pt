@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64575573"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de aplicação virtual
@@ -42,7 +42,7 @@ A solução abaixo utiliza aplicações virtuais de firewall para implementar um
 ## <a name="considerations"></a>Considerações
 Pode implementar o ambiente explicado acima no Azure através de diferentes funcionalidades disponíveis hoje em dia, da seguinte forma.
 
-* **Rede virtual (VNet)**. Uma VNet do Azure funciona de forma semelhante a uma rede no local e podem ser segmentada numa ou mais sub-redes para fornecer isolamento de tráfego e separação de preocupações.
+* **Rede virtual (VNet)** . Uma VNet do Azure funciona de forma semelhante a uma rede no local e podem ser segmentada numa ou mais sub-redes para fornecer isolamento de tráfego e separação de preocupações.
 * **Aplicação virtual**. Vários parceiros fornecem aplicações virtuais no Azure Marketplace que podem ser utilizados para as três firewalls descritas acima. 
 * **(UDR) de rotas definidas pelo utilizador**. Tabelas de rotas podem conter as UDRs utilizadas pelo sistema de rede do Azure para controlar o fluxo de pacotes numa VNet. Estas tabelas de rota podem ser aplicadas a sub-redes. Um dos mais novos recursos no Azure é a capacidade de aplicar uma tabela de rotas no gatewaysubnet, fornecendo a capacidade para encaminhar todo o tráfego chegam a VNet do Azure para uma aplicação virtual a partir de uma ligação híbrida.
 * **Reencaminhamento de IP**. Por predefinição, o mecanismo de funcionamento em rede do Azure reencaminhar pacotes para placas de interface de rede virtual (NICs) apenas se o endereço IP de destino do pacote corresponde ao endereço IP de NIC. Por conseguinte, se um UDR define que deve ser enviado um pacote para uma determinada aplicação virtual, o mecanismo de funcionamento em rede do Azure seria remover esse pacote. Para garantir que o pacote é entregue a uma VM (no caso uma aplicação virtual) que não é o destino real para o pacote, tem de ativar o reencaminhamento IP para a aplicação virtual.

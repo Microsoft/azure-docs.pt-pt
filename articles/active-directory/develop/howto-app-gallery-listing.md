@@ -19,10 +19,10 @@ ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65540539"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar a aplicação na galeria de aplicações do Azure Active Directory
@@ -123,7 +123,7 @@ Segue-se que o fluxo de cliente pedida aplicativos-
 
 ![Fluxo de aplicações solicitadas pelos clientes](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Linhas cronológicas
+## <a name="timelines"></a>Linhas do tempo
 
 A linha cronológica para o processo de listagem, uma aplicação de WS-Fed na galeria ou SAML 2.0 é 7-10 dias úteis.
 

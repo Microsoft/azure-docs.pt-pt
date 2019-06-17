@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956467"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dinamicamente criar e utilizar um volume persistente com discos do Azure no Azure Kubernetes Service (AKS)
@@ -88,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Utilizar o volume persistente
 
-Assim que tiver sido criada a afirmação de volume persistente e o disco foi aprovisionado com êxito, um pod pode ser criado com acesso ao disco. O manifesto seguinte cria um pod NGINX básico que utiliza com o nome de afirmações de volume persistente *disco do azure geridos* montar o disco do Azure no caminho `/mnt/azure`. Para o Windows Server contentores (atualmente em pré-visualização no AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, tal como *'D:'*.
+Assim que tiver sido criada a afirmação de volume persistente e o disco foi aprovisionado com êxito, um pod pode ser criado com acesso ao disco. O manifesto seguinte cria um pod NGINX básico que utiliza com o nome de afirmações de volume persistente *disco do azure geridos* montar o disco do Azure no caminho `/mnt/azure`. Para o Windows Server contentores (atualmente em pré-visualização no AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, tal como *'D:'* .
 
 Crie um ficheiro denominado `azure-pvc-disk.yaml`e a cópia no manifesto do seguinte.
 

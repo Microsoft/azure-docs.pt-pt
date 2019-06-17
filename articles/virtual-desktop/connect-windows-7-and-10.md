@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 04/24/2019
 ms.author: helohr
 ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65145993"
 ---
 # <a name="connect-from-windows-10-or-windows-7"></a>Ligar a partir do Windows 10 ou Windows 7
 
-> Aplica-se a O Windows 7 e Windows 10.
+> Aplica-se a: O Windows 7 e Windows 10.
 
 Está disponível um cliente disponível para download que fornece acesso a recursos da demonstração de ambiente de Trabalho Virtual do Windows dos dispositivos que executam o Windows 7 e Windows 10.
 
@@ -51,7 +51,7 @@ Depois de subscrever um feed, o conteúdo do feed é atualizado automaticamente 
 
 Depois de subscrever, pode ver informações adicionais sobre o feed acessando o painel de detalhes.
 
-1. Na página de principal do cliente, selecione as reticências (**...** ) à direita do nome do feed.
+1. Na página de principal do cliente, selecione as reticências ( **...** ) à direita do nome do feed.
 1. No menu pendente, selecione **detalhes**.
 1. O painel de detalhes é apresentada no lado direito do cliente.
 
@@ -68,7 +68,7 @@ Se for necessário, pode iniciar uma atualização manual selecionando na **atua
 
 Esta secção irá ensiná-lo como anular a subscrição de um feed. Pode anular a subscrição para subscrever novamente com uma conta diferente ou remover os recursos do sistema.
 
-1. Na página de principal do cliente, selecione as reticências (**...** ) à direita do nome do feed.
+1. Na página de principal do cliente, selecione as reticências ( **...** ) à direita do nome do feed.
 1. No menu pendente, selecione **Unsubscribe**.
 1. Reveja e selecione **continuar** na caixa de diálogo.
 

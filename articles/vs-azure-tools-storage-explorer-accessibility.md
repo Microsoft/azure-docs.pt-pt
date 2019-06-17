@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60457271"
 ---
 # <a name="storage-explorer-accessibility"></a>Acessibilidade do Explorador de armazenamento
@@ -58,7 +58,7 @@ A definição de tema altera a cor da maioria dos elementos de interface do Usu�
 Comando       | Atalho de teclado
 --------------|--------------------
 Nova janela    | **Controle + Shift + N**
-Fechar Editor  | **Controle + F4**
+Feche o Editor  | **Controle + F4**
 Sair          | **Controle + Shift + W**
 
 ### <a name="navigation-commands"></a>Comandos de navegação
@@ -67,7 +67,7 @@ Comando                | Atalho de teclado
 -----------------------|----------------------
 Painel seguinte de foco       | **F6**
 Painel anterior de foco   | **Shift+F6**
-Explorador               | **Controle + Shift + E**
+Explorer               | **Controle + Shift + E**
 Gestão de Contas     | **Controle + Shift + A**
 Ativar/desativar barra de lado        | **Controle + B**
 Registo de Atividades           | **Controle + Shift + L**
@@ -88,15 +88,15 @@ Reduzir | **Controle +-**
 Comando | Atalho de teclado
 --------|--------------------
 Anterior    | **ALT + esquerda seta**
-Reencaminhar | **Seta de ALT + direita**
-Para Cima      | **ALT + SETA para cima**
+Partir de agora | **Seta de ALT + direita**
+Cópia de segurança      | **ALT + SETA para cima**
 
 ### <a name="editor-commands"></a>Comandos de editor
 
 Comando | Atalho de teclado
 --------|------------------
-Copiar    | **Controle + C**
-Cortar     | **Controle + X**
+cópia    | **Controle + C**
+Operações de corte     | **Controle + X**
 Colar   | **Controle + V**
 Atualizar  | **Controle + R**
 

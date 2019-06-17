@@ -9,10 +9,10 @@ ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072993"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>O Azure Container Instances e orquestradores de contentor

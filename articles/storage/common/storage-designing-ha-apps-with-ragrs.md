@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65951307"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
@@ -74,7 +74,7 @@ Estas são as outras considerações, discutiremos no restante deste artigo.
 
 *   Dados eventualmente consistente e a hora da última sincronização
 
-*   A testar
+*   Testes
 
 ## <a name="running-your-application-in-read-only-mode"></a>Execução da sua aplicação no modo só de leitura
 
@@ -202,18 +202,18 @@ A tabela seguinte mostra um exemplo de como o que pode acontecer quando atualiza
 | **tempo** | **Transação**                                            | **Replicação**                       | **Hora da última sincronização** | **Resultado** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação r: <br> Inserir o funcionário <br> entidade no principal |                                   |                    | Transação A inserido para o primário,<br> não replicadas ainda. |
-| T1       |                                                            | Transação A <br> replicar para<br> secundária | T1 | R de transações replicada para o secundário. <br>Hora da última sincronização atualizada.    |
-| T2       | Transação b:<br>Actualizar<br> Entidade Employee<br> no principal  |                                | T1                 | Transação B escrito para o servidor primário,<br> não replicadas ainda.  |
-| T3       | Transação c:<br> Actualizar <br>administrador<br>entidade de função no<br>principal |                    | T1                 | Transação C escrito para o servidor primário,<br> não replicadas ainda.  |
-| *T4*     |                                                       | Transação C <br>replicar para<br> secundária | T1         | Transação C replicado para o secundário.<br>LastSyncTime não atualizada porque <br>transação B não tem sido replicada ainda.|
+| T1       |                                                            | Transação A <br> replicar para<br> Secundário | T1 | R de transações replicada para o secundário. <br>Hora da última sincronização atualizada.    |
+| T2       | Transação b:<br>Atualizar<br> Entidade Employee<br> no principal  |                                | T1                 | Transação B escrito para o servidor primário,<br> não replicadas ainda.  |
+| T3       | Transação c:<br> Atualizar <br>Administrador<br>entidade de função no<br>Primário |                    | T1                 | Transação C escrito para o servidor primário,<br> não replicadas ainda.  |
+| *T4*     |                                                       | Transação C <br>replicar para<br> Secundário | T1         | Transação C replicado para o secundário.<br>LastSyncTime não atualizada porque <br>transação B não tem sido replicada ainda.|
 | *T5*     | Entidades de leitura <br>partir do secundário                           |                                  | T1                 | Obtém o valor obsoleto de funcionário <br> entidade porque ainda não a transação B <br> replicadas ainda. Obtém o novo valor<br> entidade de função de administrador porque tem de C<br> replicadas. Hora da última sincronização ainda não<br> foi atualizado porque a transação B<br> ainda não replicadas. Pode dizer o<br>entidade de função de administrador é inconsistente <br>uma vez que a entidade data/hora é após <br>a hora da última sincronização. |
-| *T6*     |                                                      | Transação B<br> replicar para<br> secundária | T6                 | *T6* – tem todas as transações por meio da C <br>foram replicados, a hora da última sincronização<br> é atualizado. |
+| *T6*     |                                                      | Transação B<br> replicar para<br> Secundário | T6                 | *T6* – tem todas as transações por meio da C <br>foram replicados, a hora da última sincronização<br> é atualizado. |
 
 Neste exemplo, suponha que o cliente muda para leitura da região secundária em T5. Pode lido com êxito a **função de administrador** entidade neste momento, mas a entidade contém um valor para a contagem de administradores que não é consistente com o número de **funcionário** entidades que são marcado como administradores na região secundária neste momento. O cliente simplesmente foi possível apresentar este valor, com o risco que chegou a informações inconsistentes. Em alternativa, o cliente poderia tentar determinar que o **função de administrador** está num estado potencialmente inconsistente porque as atualizações ocorreram fora de ordem e, em seguida, informam o utilizador desse fato.
 
 Reconhecer que tem dados potencialmente inconsistentes, o cliente pode utilizar o valor do *hora da última sincronização* que pode obter a qualquer momento, consultando um serviço de armazenamento. Isso informa ao tempo quando os dados na região secundária eram último consistente e quando o serviço fosse aplicada a todas as transações antes desse ponto no tempo. No exemplo mostrado acima, depois do serviço insere a **funcionário** entidade na região secundária, a hora da última sincronização estiver definida como *T1*. Ele continua a é *T1* até as atualizações de serviço a **funcionário** entidade na região secundária quando é definido como *T6*. Se o cliente obtém a hora da última sincronização quando ele lê a entidade na *T5*, ele pode compará-lo com o carimbo de hora na entidade. Se o carimbo de hora na entidade é posterior à hora da última sincronização, em seguida, a entidade está num estado inconsistente potencialmente e pode levar a que quer que esteja a ação adequada para a sua aplicação. Utilizar este campo exige que saiba quando a última atualização para o primário foi concluída.
 
-## <a name="testing"></a>A testar
+## <a name="testing"></a>Testes
 
 É importante testar seu aplicativo se comporta conforme o esperado quando encontrar erros de repetição. Por exemplo, precisa testar que o aplicativo alterna para o secundário e no modo só de leitura quando Deteta um problema e muda uma quando a região primária fique disponível novamente. Para tal, precisa de uma forma para simular erros de repetição e controle a frequência com que eles ocorrem.
 

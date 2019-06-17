@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
 ms.openlocfilehash: 2b356e2f0fe9235d49dffa7417cd3894059f9caf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60829162"
 ---
 # <a name="call-api-from-a-browser"></a>Chamar a API num browser

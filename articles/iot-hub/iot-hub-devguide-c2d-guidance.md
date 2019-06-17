@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61224783"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Orientações de comunicações da cloud para dispositivo
@@ -37,7 +37,7 @@ Aqui está uma comparação detalhada das várias opções de comunicação de c
 | Destinos | Dispositivo único usando **deviceId**, ou múltiplos dispositivos usando [tarefas](iot-hub-devguide-jobs.md). | Dispositivo único usando **deviceId**, ou múltiplos dispositivos usando [tarefas](iot-hub-devguide-jobs.md). | Dispositivo único por **deviceId**. |
 | Tamanho | Tamanho de payload do método direto máximo é 128 KB. | Máximo pretendido do tamanho de propriedades é de 8 KB. | Até 64 KB mensagens. |
 | Frequência | Elevada. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). | Média. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). | Baixo. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). |
-| Protocolo | Disponível com MQTT ou AMQP. | Disponível com MQTT ou AMQP. | Disponível em todos os protocolos. Dispositivo tem de inquirir ao utilizar o HTTPS. |
+| Protocol | Disponível com MQTT ou AMQP. | Disponível com MQTT ou AMQP. | Disponível em todos os protocolos. Dispositivo tem de inquirir ao utilizar o HTTPS. |
 
 Saiba como utilizar métodos diretos, as propriedades pretendidas e mensagens da cloud para dispositivo nos tutoriais seguintes:
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65594028"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>O Azure Active Directory latências dos relatórios
@@ -61,8 +61,8 @@ A tabela seguinte lista as informações de latência para relatórios de segura
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
-| Utilizadores em risco          | 5 minutos   | 15 minutos  | Duas horas  |
-| Inícios de sessão de risco         | 5 minutos   | 15 minutos  | Duas horas  |
+| Utilizadores em risco          | 5 minutos   | 15 minutos  | 2 horas  |
+| Inícios de sessão de risco         | 5 minutos   | 15 minutos  | 2 horas  |
 
 ## <a name="risk-events"></a>Eventos de risco
 
@@ -72,12 +72,12 @@ A tabela seguinte lista as informações de latência para eventos de risco.
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
-| Inícios de sessão de endereços IP anónimos |5 minutos |15 Minutos |Duas horas |
-| Inícios de sessão de localizações desconhecidas |5 minutos |15 Minutos |Duas horas |
-| Utilizadores com fuga de credenciais |Duas horas |4 horas |8 horas |
-| Deslocação impossível para localizações atípicas |5 minutos |Uma hora |8 horas  |
-| Inícios de sessão de dispositivos infetados |Duas horas |4 horas |8 horas  |
-| Inícios de sessão de endereços IP com atividade suspeita |Duas horas |4 horas |8 horas  |
+| Inícios de sessão de endereços IP anónimos |5 minutos |15 Minutos |2 horas |
+| Inícios de sessão de localizações desconhecidas |5 minutos |15 Minutos |2 horas |
+| Utilizadores com fuga de credenciais |2 horas |4 horas |8 horas |
+| Deslocação impossível para localizações atípicas |5 minutos |1 hora |8 horas  |
+| Inícios de sessão de dispositivos infetados |2 horas |4 horas |8 horas  |
+| Inícios de sessão de endereços IP com atividade suspeita |2 horas |4 horas |8 horas  |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

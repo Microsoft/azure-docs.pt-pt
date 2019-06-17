@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62129558"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configure grupos de disponibilidade Always On em máquinas de virtuais do Azure automaticamente: Resource Manager
@@ -206,7 +206,7 @@ Para estabelecer o RDP para um SQL Server, siga estes passos:
 1. No dashboard do portal do Azure, certifique-se de que a implementação foi concluída com êxito.
 2. Clique em **recursos**.
 3. Na **recursos** painel, clique em **sqlserver-0**, que é o nome do computador de uma das máquinas virtuais que está a executar o SQL Server.
-4. No painel **sqlserver-0**, clique em **Connect**. O browser pede-lhe se pretende abrir ou guardar o objeto de ligação remota. Clique em **Open** (Abrir).
+4. No painel **sqlserver-0**, clique em **Connect**. O browser pede-lhe se pretende abrir ou guardar o objeto de ligação remota. Clique em **aberto**.
 5. **Ligação de ambiente de trabalho remota** poderá avisá-lo que não é possível identificar o publicador desta ligação remota. Clique em **Ligar**.
 6. Segurança do Windows pede-lhe para introduzir as suas credenciais para ligar ao endereço IP do controlador de domínio primário. Clique em **utilizar outra conta**. Para **nome de utilizador**, tipo **contoso\DomainAdmin**. Esta conta que configurou ao definir o administrador do nome de utilizador no modelo. Utilize a palavra-passe complexa que escolheu quando configurou o modelo.
 7. **Ambiente de trabalho remoto** poderá avisá-lo que não foi possível autenticar o computador remoto devido a problemas com o seu certificado de segurança. Mostra o nome do certificado de segurança. Se seguiu o tutorial, o nome é **sqlserver 0.contoso.com**. Clique em **Sim**.

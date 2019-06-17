@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60477098"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Certifique-se e resolver problemas de configuração de elevada disponibilidade de escalamento horizontal de SAP HANA no SLES 12 SP3 
@@ -417,7 +417,7 @@ Mais uma verificação para SBD é a possibilidade de enviar uma mensagem para o
 sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 </code></pre>
 
-No lado VM, de destino **hso-hana-vm-s2-2** neste exemplo, encontrará a seguinte entrada **/var/log/messages.**:
+No lado VM, de destino **hso-hana-vm-s2-2** neste exemplo, encontrará a seguinte entrada **/var/log/messages.** :
 
 <pre><code>
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
@@ -473,7 +473,7 @@ Depois que tudo está configurado corretamente, pode executar o seguinte comando
 systemctl status pacemaker
 </code></pre>
 
-Parte superior da saída deverá ser semelhante ao exemplo seguinte. É importante que o estado após **Active Directory** é mostrado como **carregado** e **Active Directory (em execução)**. O estado após **carregados** tem de ser mostrado como **ativada**.
+Parte superior da saída deverá ser semelhante ao exemplo seguinte. É importante que o estado após **Active Directory** é mostrado como **carregado** e **Active Directory (em execução)** . O estado após **carregados** tem de ser mostrado como **ativada**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -802,7 +802,7 @@ Os comandos **SAPHanaSR showAttr** e **status de crm** não indicar qualquer coi
 crm configure show
 </code></pre>
 
-Na configuração do cluster, encontrar uma nova restrição de localização causada pela migração manual de recursos anteriores. Esta entrada de exemplo começa com **localização cli -**:
+Na configuração do cluster, encontrar uma nova restrição de localização causada pela migração manual de recursos anteriores. Esta entrada de exemplo começa com **localização cli -** :
 
 <pre><code>
 location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0

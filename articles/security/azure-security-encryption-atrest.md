@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/07/2019
 ms.author: barclayn
 ms.openlocfilehash: d0974b98975b8f7d09760be964024f92e9690a4e
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596382"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption-at-Rest
@@ -116,7 +116,7 @@ Modelo de encriptação do cliente refere-se a encriptação que é executada fo
 
 Modelos de encriptação do lado do servidor referem-se a encriptação é efetuada pelo serviço do Azure. Esse modelo, o fornecedor de recursos efetua as operações de encriptar e desencriptar. Por exemplo, o armazenamento do Azure podem receber dados em operações de texto sem formatação e irá efetuar a encriptação e desencriptação internamente. O fornecedor de recursos poderá utilizar as chaves de encriptação que são geridas pela Microsoft ou pelo cliente consoante a configuração fornecida.
 
-![Servidor ](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
+![Servidor](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig3.png)
 
 ### <a name="server-side-encryption-key-management-models"></a>Modelos de gestão de chaves de encriptação do lado do servidor
 
@@ -238,7 +238,7 @@ Serviços do Microsoft Azure cada suporta um ou mais da encriptação em modelos
 
 Todos os clientes utilizando a infraestrutura do Azure como um serviço (IaaS) funcionalidades podem alcançar encriptação em repouso para as suas VMs de IaaS e os discos através de encriptação de disco do Azure. Para obter mais informações sobre a encriptação de disco do Azure, consulte a [documentação do Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
-#### <a name="azure-storage"></a>Armazenamento do Azure
+#### <a name="azure-storage"></a>Storage do Azure
 
 Todos os serviços de armazenamento do Azure (armazenamento de BLOBs, armazenamento de filas, o armazenamento de tabelas e ficheiros do Azure) suportam a encriptação do lado do servidor em repouso, com alguns serviços de suporte de chaves geridas pelo cliente e a encriptação do lado do cliente.  
 
@@ -270,12 +270,12 @@ Encriptação do lado do cliente de dados SQL Database do Azure é suportada atr
 | Azure Data Factory               | Sim                | -                  | -                  |
 | Azure Data Lake Store            | Sim                | Sim, RSA de 2048 bits  | -                  |
 | **Computação**                      |                    |                    |                    |
-| Máquinas Virtuais                 | -                  | Sim, RSA de 2048 bits  | -                  |
-| Conjunto de Dimensionamento da Máquina Virtual        | -                  | Sim, RSA de 2048 bits  | -                  |
+| Virtual Machines                 | -                  | Sim, RSA de 2048 bits  | -                  |
+| Conjunto de dimensionamento de máquina virtual        | -                  | Sim, RSA de 2048 bits  | -                  |
 | **Bases de dados**                    |                    |                    |                    |
 | SQL Server em Máquinas Virtuais   | Sim                | Sim, RSA de 2048 bits  | Sim                |
 | Base de Dados SQL do Azure               | Sim                | Sim, RSA de 2048 bits  | Sim                |
-| SQL Data Warehouse do Azure         | Sim                | Sim, RSA de 2048 bits  | Sim                |
+| Azure SQL Data Warehouse         | Sim                | Sim, RSA de 2048 bits  | Sim                |
 | SQL Server Stretch Database      | Sim                | Sim, RSA de 2048 bits  | Sim                |
 | Armazenamento de Tabelas                    | Sim                | -                  | Sim                |
 | Azure Cosmos DB                  | Sim                | -                  | -                  |
@@ -287,7 +287,7 @@ Encriptação do lado do cliente de dados SQL Database do Azure é suportada atr
 | Azure Active Directory Domain Services | Sim          | Sim, RSA de 2048 bits  | -                  |
 | **Integração**                  |                    |                    |                    |
 | Service Bus                      | Sim                | -                  | Sim                |
-| Grelha de Eventos                       | Sim                | -                  | -                  |
+| Event Grid                       | Sim                | -                  | -                  |
 | Gestão de API                   | Sim                | -                  | -                  |
 | **Serviços de IoT**                 |                    |                    |                    |
 | IoT Hub                          | -                  | -                  | Sim                |
@@ -296,11 +296,11 @@ Encriptação do lado do cliente de dados SQL Database do Azure é suportada atr
 | **Suporte de dados**                        |                    |                    |                    |
 | Serviços de Multimédia                   | Sim                | -                  | Sim                |
 | **Armazenamento**                      |                    |                    |                    |
-| Armazenamento de Blobs                     | Sim                | Sim, RSA de 2048 bits  | Sim                |
+| Blob Storage                     | Sim                | Sim, RSA de 2048 bits  | Sim                |
 | Armazenamento em Disco                     | Sim                | -                  | -                  |
 | Armazenamento de Disco Gerido             | Sim                | -                  | -                  |
 | Armazenamento de Ficheiros                     | Sim                | Sim, RSA de 2048 bits  | -                  |
-| Armazenamento de Filas                    | Sim                | -                  | Sim                |
+| Armazenamento de filas                    | Sim                | -                  | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
 | Armazenamento de Arquivo                  | Sim                | Sim, RSA de 2048 bits  | -                  |
 | StorSimple                       | Sim                | -                  | Sim                |

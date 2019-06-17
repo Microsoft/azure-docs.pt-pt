@@ -12,10 +12,10 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 05/07/2019
 ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65465220"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar o ponto final público na instância gerida da base de dados do Azure SQL

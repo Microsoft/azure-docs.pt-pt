@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65916940"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
@@ -102,7 +102,7 @@ Nesta secção, irá criar um novo grupo de inscrição que utiliza a política 
 
     **Chaves de geração automática**: Esta caixa de verificação já deve ser verificada.
 
-    **Selecione como pretende atribuir dispositivos a hubs**: Selecione **personalizado (utilizar a função do Azure)**.
+    **Selecione como pretende atribuir dispositivos a hubs**: Selecione **personalizado (utilizar a função do Azure)** .
 
     ![Adicionar grupo de inscrição de alocação personalizado para o atestado de chave simétrico](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -404,7 +404,7 @@ Nesta secção, irá atualizar um exemplo de aprovisionamento com o nome **prov\
 
 Este código de exemplo simula uma sequência de arranque de dispositivo que envia a solicitação de provisionamento à sua instância do serviço aprovisionamento de dispositivos. A sequência de arranque fará com que o dispositivo de torradeira a serem reconhecidas e atribuído para o hub de IoT com a política de alocação personalizado.
 
-1. No portal do Azure, selecione o separador **Descrição Geral** do Serviço de Aprovisionamento de Dispositivos e anote o valor de **_Âmbito do ID_**.
+1. No portal do Azure, selecione o separador **Descrição Geral** do Serviço de Aprovisionamento de Dispositivos e anote o valor de **_Âmbito do ID_** .
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -509,11 +509,11 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 | Cenário | Resultado de registo do serviço de aprovisionamento | Resultados do SDK de aprovisionamento |
 | -------- | --------------------------------------------- | ------------------------ |
 | O webhook devolve 200 OK com "iotHubHostName' definido como um nome de anfitrião válido do hub IoT | Estado do resultado: Atribuído  | SDK devolve PROV_DEVICE_RESULT_OK juntamente com informações de hub |
-| O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definida como uma cadeia vazia nem nula | Estado do resultado: Com falhas<br><br> Código do erro: CustomAllocationIotHubNotSpecified (400208) | SDK devolve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| O webhook devolve 401 não autorizado | Estado do resultado: Com falhas<br><br>Código do erro: CustomAllocationUnauthorizedAccess (400209) | SDK devolve PROV_DEVICE_RESULT_UNAUTHORIZED |
-| Uma inscrição Individual foi criada para desativar o dispositivo | Estado do resultado: Desactivado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
+| O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definida como uma cadeia vazia nem nula | Estado do resultado: Com Falhas<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | SDK devolve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| O webhook devolve 401 não autorizado | Estado do resultado: Com Falhas<br><br>Código de erro: CustomAllocationUnauthorizedAccess (400209) | SDK devolve PROV_DEVICE_RESULT_UNAUTHORIZED |
+| Uma inscrição Individual foi criada para desativar o dispositivo | Estado do resultado: Desativado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
 | O webhook retorna o código de erro > = 429 | Orquestração dos pontos de distribuição tentará novamente várias vezes. A política de repetição é atualmente:<br><br>&nbsp;&nbsp;-Número de tentativas: 10<br>&nbsp;&nbsp;-Intervalo de inicial: 1s<br>&nbsp;&nbsp;-Incremento: 9s | SDK irá ignorar o erro e submeta outra mensagem de estado de get no tempo especificado |
-| O webhook devolve qualquer outro código de estado | Estado do resultado: Com falhas<br><br>Código do erro: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| O webhook devolve qualquer outro código de estado | Estado do resultado: Com Falhas<br><br>Código de erro: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

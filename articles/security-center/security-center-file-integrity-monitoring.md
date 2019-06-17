@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: v-mohabe
 ms.openlocfilehash: cc0c319357b39ddb3e88d515613273a6f7dc0867
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968810"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização no Centro de segurança do Azure da integridade de ficheiros
@@ -172,7 +172,7 @@ Sob **Editar para controlo de alterações** , pode:
 
 4. Sob **configuração da área de trabalho**, selecione um grupo em que **ativado** está definido como true.
 
-   ![Configuração da Área de Trabalho][18]
+   ![Configuração de área de trabalho][18]
 
 5. Sob **Editar para controlo de alterações** conjunto de janela **ativado** como False.
 

@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
 ms.openlocfilehash: 5091932989849943f00cb71f72378dd17af23a4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60205054"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>Início rápido: Instalação manual do SAP HANA de instância única em máquinas de virtuais do Azure
@@ -185,11 +185,11 @@ Dependendo do tipo de problema, os patches são classificados por categoria e gr
 
 São frequentemente utilizados valores para a gravidade:
 
-- Crítica
+- Crítico
 - Importante
 - Moderado
 - Baixa
-- Não Especificado
+- Não especificado
 
 O **zypper** comando procura apenas as atualizações que precisam dos pacotes instalados. Por exemplo, pode utilizar este comando:
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.openlocfilehash: 9615aebd345c957c8e401581ff94735f39ba73c6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953534"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de pedido no Azure Cosmos DB

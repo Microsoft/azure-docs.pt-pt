@@ -13,10 +13,10 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827760"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
@@ -100,7 +100,7 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 
 7. Para configurar a auditoria de escrever registos para um trabalho do Log Analytics, selecione **Log Analytics (pré-visualização)** e abra **detalhes do Log Analytics**. Selecione ou crie a área de trabalho do Log Analytics para onde os registos serão escritos e, em seguida, clique em **OK**.
 
-    ![Área de trabalho do Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Área de trabalho do log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Para configurar a auditoria de escrever registos para um hub de eventos, selecione **Hub de eventos (pré-visualização)** e abra **detalhes do Hub de eventos**. Selecione o hub de eventos em que os registos serão escritos e, em seguida, clique em **OK**. Certifique-se de que o hub de eventos está na mesma região que a sua base de dados e o servidor.
 
@@ -207,7 +207,7 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 3. Vá para a página de configuração de auditoria, mude a chave de acesso de armazenamento secundária para primária de e, em seguida, clique em **OK**. Em seguida, clique em **guardar** no topo da página de configuração da auditoria.
 4. Volte para a página de configuração de armazenamento e voltar a gerar a chave de acesso secundária (em preparação para o ciclo de atualização da chave seguinte).
 
-## <a name="additional-information"></a>Informações Adicionais
+## <a name="additional-information"></a>Informação Adicional
 
 - Para obter detalhes sobre o registo de formatar, hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
@@ -231,7 +231,7 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 
 ## <a id="subheading-7"></a>Gerir a auditoria de base de dados SQL com o Azure PowerShell
 
-**Cmdlets do PowerShell (incluindo suporte de cláusula WHERE para filtrar adicionais)**:
+**Cmdlets do PowerShell (incluindo suporte de cláusula WHERE para filtrar adicionais)** :
 
 - [Criar ou atualizar a base de dados (Set-AzSqlDatabaseAuditing) de política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Criar ou atualizar a política de auditoria de servidor (conjunto-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)

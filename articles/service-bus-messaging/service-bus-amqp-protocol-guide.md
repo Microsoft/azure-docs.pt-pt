@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60749449"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
-1.0 protocolo avançada de colocação em fila de mensagens é um protocolo de delimitação de quadros e transferência padronizado para a transferência assíncrona, segura e fiável de mensagens entre duas partes. É o principal protocolo de mensagens do Azure Service Bus e Event Hubs do Azure. Ambos os serviços também suportam HTTPS. O protocolo SBMP proprietário, que também é suportado está a ser descontinuado em favor de AMQP.
+1\.0 protocolo avançada de colocação em fila de mensagens é um protocolo de delimitação de quadros e transferência padronizado para a transferência assíncrona, segura e fiável de mensagens entre duas partes. É o principal protocolo de mensagens do Azure Service Bus e Event Hubs do Azure. Ambos os serviços também suportam HTTPS. O protocolo SBMP proprietário, que também é suportado está a ser descontinuado em favor de AMQP.
 
 AMQP 1.0 é o resultado da colaboração da indústria que juntou-se de fornecedores de middleware, como a Microsoft e a Red Hat, com muitos usuários de middleware de mensagens, como JP Morgan perseguição que representa o setor de serviços financeiros. O Fórum de padronização técnico para as especificações de protocolo e a extensão AMQP é OASIS e ele obteve uma aprovação formal como um padrão internacional como ISO/IEC 19494.
 
@@ -153,54 +153,54 @@ As setas na tabela a seguir mostram a direção do fluxo performative.
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Nenhuma acção |
-| Nenhuma acção |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Criar o remetente da mensagem (erro)
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Nenhuma acção |
-| Nenhuma acção |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Recetor/remetente da mensagem fechar
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Nenhuma acção |
-| Nenhuma acção |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
+| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
 #### <a name="send-success"></a>Enviar (êxito)
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma acção |
-| Nenhuma acção |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Enviar (erro)
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma acção |
-| Nenhuma acção |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receber
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> flow(<br/>link-credit=1<br/>) |Nenhuma acção |
-| Nenhuma acção |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| --> disposition(<br/>role=**receiver**,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma acção |
+| --> flow(<br/>link-credit=1<br/>) |Nenhuma ação |
+| Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=**receiver**,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
 
 #### <a name="multi-message-receive"></a>Receber mensagem multi
 
 | Cliente | Service Bus |
 | --- | --- |
-| --> flow(<br/>link-credit=3<br/>) |Nenhuma acção |
-| Nenhuma acção |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| Nenhuma acção |< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| Nenhuma acção |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| --> disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma acção |
+| --> flow(<br/>link-credit=3<br/>) |Nenhuma ação |
+| Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| Nenhuma ação |< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| Nenhuma ação |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
 
 ### <a name="messages"></a>Mensagens
 
@@ -214,7 +214,7 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 | --- | --- | --- |
 | durável |- |- |
 | prioridade |- |- |
-| TTL |Tempo de duração para esta mensagem |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |Tempo de duração para esta mensagem |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | primeiro acquirer |- |- |
 | Contagem de entrega |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -225,7 +225,7 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 | id da mensagem |Identificador para esta mensagem definida pelo aplicativo, de forma livre. Utilizada para a deteção de duplicados. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | id de utilizador |Identificador de utilizador definida pelo aplicativo, não interpretado pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
 | para |Identificador de destino definido pelo aplicativo, não interpretado pelo Service Bus. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| assunto |Identificador de finalidade do mensagem definida pelo aplicativo, não interpretado pelo Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificador de finalidade do mensagem definida pelo aplicativo, não interpretado pelo Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicador de caminho de resposta definida pelo aplicativo, não interpretado pelo Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificador de correlação definida pelo aplicativo, não interpretado pelo Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Definido pelo aplicativo indicador de tipo de conteúdo para o corpo, não interpretado pelo Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -270,7 +270,7 @@ Para iniciar o trabalho transacional. o controlador tem de obter um `txn-id` do 
 | --- | --- | --- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>destino =**coordenador**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()** )}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**transações-id**= {ID da transação}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Discharging uma transação
@@ -284,8 +284,8 @@ O controlador conclui o trabalho transacional, enviando um `discharge` mensagem 
 | transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Trabalho transacional<br/>em outras ligações<br/> . . . |
-| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Proprietários (txn-id = 0,<br/>falhar = false)**)}| ------> |  |
-| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Proprietários (txn-id = 0,<br/>falhar = false)** )}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()** )|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Enviar uma mensagem numa transação
 
@@ -295,8 +295,8 @@ Todo o trabalho transacional é feito com o estado de entrega transacional `tran
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
-| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{payload}| ------> |  |
-| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)** )<br/>{payload}| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Como descartar uma mensagem numa transação
 
@@ -307,7 +307,7 @@ Disposição de mensagem inclui operações como `Complete`  /  `Abandon`  /  `D
 | transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{payload}|  
-| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Recursos avançados do Service Bus
@@ -327,10 +327,10 @@ Todos os esses gestos exigem uma interação de solicitação/resposta entre o c
 
 | Operação lógica | Cliente | Service Bus |
 | --- | --- | --- |
-| Criar o caminho de resposta do pedido |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |Nenhuma acção |
-| Criar o caminho de resposta do pedido |Nenhuma acção |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
+| Criar o caminho de resposta do pedido |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |Nenhuma ação |
+| Criar o caminho de resposta do pedido |Nenhuma ação |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
 | Criar o caminho de resposta do pedido |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
-| Criar o caminho de resposta do pedido |Nenhuma acção |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
+| Criar o caminho de resposta do pedido |Nenhuma ação |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
 Ter esse par de ligações no local, a implementação de solicitação/resposta é simples: um pedido é uma mensagem enviada para uma entidade dentro da infraestrutura de mensagens que compreende este padrão. Nessa mensagem de solicitação, o *responder a* campo na *propriedades* secção está definida como o *destino* identificador para a ligação em que fornecer a resposta. A entidade de processamento processa a solicitação e, em seguida, fornece a resposta através da ligação cujo *destino* identificador corresponde a indicado *responder a* identificador.
 
@@ -361,9 +361,9 @@ A mensagem de solicitação tem as seguintes propriedades da aplicação:
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operação |Não |string |**put-token** |
-| tipo |Não |string |O tipo de token colocá-lo. |
-| nome |Não |string |O "público" às quais se aplica o token. |
+| Operação |Não |string |**put-token** |
+| type |Não |string |O tipo de token colocá-lo. |
+| name |Não |string |O "público" às quais se aplica o token. |
 | expiração |Sim |timestamp |A hora de expiração do token. |
 
 O *nome* propriedade identifica a entidade com a qual o token deve ser associado. No Service Bus é o caminho para a fila ou tópico/subscrição. O *tipo* propriedade identifica o tipo de token:
@@ -380,7 +380,7 @@ A mensagem de resposta tem segue *propriedades da aplicação* valores
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
+| status-code |Não |int |Código de resposta HTTP **[RFC2616]** . |
 | status-description |Sim |string |Descrição do Estado. |
 
 O cliente pode chamar *token de put* para qualquer entidade na infraestrutura de mensagens e repetidamente. Os tokens são um âmbito para o cliente atual e ancorados na ligação atual, que significa que o servidor remove quaisquer tokens retidos quando a conexão caiu.
@@ -403,7 +403,7 @@ Com esta funcionalidade, criar um remetente e estabelecer a ligação para o `vi
 
 | Cliente | | Service Bus |
 | --- | --- | --- |
-| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target= **{via-entity}** ,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>Propriedades = [(do mapa<br/>com.microsoft:transfer-destination-address=<br/>{entidade de destino})] ) |
 
 ## <a name="next-steps"></a>Passos Seguintes

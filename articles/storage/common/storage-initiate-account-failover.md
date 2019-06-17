@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65150023"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (pré-visualização)
@@ -55,7 +55,7 @@ Para iniciar uma ativação pós-falha de conta do portal do Azure, siga estes p
 
 3. Certifique-se de que a sua conta de armazenamento está configurada para armazenamento georredundante (GRS) ou armazenamento georredundante com acesso de leitura (RA-GRS). Se não for, em seguida, selecione **Configuration** sob **definições** para atualizar a sua conta para ser georredundante. 
 4. O **hora da última sincronização** propriedade indica a distância secundário está por trás dos principais. **Sincronização de hora da última** fornece uma estimativa da extensão de perda de dados que irá ocorrer depois de concluída a ativação pós-falha.
-5. Selecione **preparar para ativação pós-falha (pré-visualização)**. 
+5. Selecione **preparar para ativação pós-falha (pré-visualização)** . 
 6. Reveja a caixa de diálogo de confirmação. Quando estiver pronto, introduza **Sim** para confirmar e inicie a ativação pós-falha.
 
     ![Captura de ecrã que mostra diálogo de confirmação para uma conta de ativação pós-falha](media/storage-initiate-account-failover/portal-failover-confirm.png)

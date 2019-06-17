@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
 ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551033"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal

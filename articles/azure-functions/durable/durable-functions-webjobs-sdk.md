@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65872825"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
@@ -53,9 +53,9 @@ Este artigo explica como desenvolver um projeto do SDK do WebJobs 2.x (equivalen
 
 Para executar funções duráveis como WebJobs, primeiro tem de criar uma aplicação de consola. Um projeto do SDK do WebJobs é apenas um projeto de aplicação de consola com os pacotes de NuGet adequados instalado.
 
-No Visual Studio **novo projeto** caixa de diálogo, selecione **ambiente de trabalho clássico do Windows** > **aplicação de consola (.NET Framework)**. No arquivo de projeto, o `TargetFrameworkVersion` deve ser `v4.6.1`.
+No Visual Studio **novo projeto** caixa de diálogo, selecione **ambiente de trabalho clássico do Windows** > **aplicação de consola (.NET Framework)** . No arquivo de projeto, o `TargetFrameworkVersion` deve ser `v4.6.1`.
 
-O Visual Studio também tem um modelo de projeto do WebJob, que pode utilizar, selecionando **Cloud** > **WebJob do Azure (.NET Framework)**. Esse modelo instala muitos pacotes, que alguns dos quais poderá não ser necessário.
+O Visual Studio também tem um modelo de projeto do WebJob, que pode utilizar, selecionando **Cloud** > **WebJob do Azure (.NET Framework)** . Esse modelo instala muitos pacotes, que alguns dos quais poderá não ser necessário.
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
@@ -139,7 +139,7 @@ O WebJobs SDK não suporta as seguintes funcionalidades de funções do Azure:
 
 Num projeto do SDK do WebJobs, o nome do método de uma função é o nome de função. O `FunctionName` atributo é utilizado apenas nas funções do Azure.
 
-### <a name="http-trigger"></a>Accionador HTTP
+### <a name="http-trigger"></a>Acionador HTTP
 
 O SDK do WebJobs não tem um acionador HTTP. Cliente de orquestração do projeto de exemplo utiliza um acionador de temporizador:
 
@@ -222,7 +222,7 @@ Este artigo explica como desenvolver um projeto de 2.x do SDK do WebJobs. Se est
 
 A principal alteração introduzida é o uso do .NET Core em vez do .NET Framework. Para criar um projeto do SDK do WebJobs 3.x, as instruções são os mesmos, com as seguintes exceções:
 
-1. Crie uma aplicação de consola .NET Core. No Visual Studio **novo projeto** caixa de diálogo, selecione **.NET Core** > **aplicação de consola (.NET Core)**. O ficheiro de projeto Especifica que `TargetFramework` é `netcoreapp2.x`.
+1. Crie uma aplicação de consola .NET Core. No Visual Studio **novo projeto** caixa de diálogo, selecione **.NET Core** > **aplicação de consola (.NET Core)** . O ficheiro de projeto Especifica que `TargetFramework` é `netcoreapp2.x`.
 
 1. Escolha a versão de lançamento SDK de WebJobs 3.x dos pacotes seguintes:
 

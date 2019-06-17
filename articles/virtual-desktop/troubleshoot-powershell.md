@@ -8,13 +8,13 @@ ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: ad32f7ff883812830dbcf2ed900c4034bd90abfc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927511"
 ---
-# <a name="windows-virtual-desktop-powershell"></a>Windows PowerShell de área de Trabalho Virtual
+# <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
 Utilize este artigo para resolver erros e problemas ao utilizar o PowerShell com a área de Trabalho Virtual do Windows. Para obter mais informações sobre o PowerShell de serviços de ambiente de trabalho remoto, consulte [Windows Powershell de ambiente de Trabalho Virtual](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/).
 

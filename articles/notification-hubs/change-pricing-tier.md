@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: jowargo
 ms.openlocfilehash: 99ea21b3eb01a674a89c70a1b923f02e600cc3c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60234474"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Alterar o escalão de preço de um espaço de nomes de hubs de notificação do Azure

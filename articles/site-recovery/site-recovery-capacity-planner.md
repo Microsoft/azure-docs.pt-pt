@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036748"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planear a capacidade para a recuperação de desastres da VM de Hyper-V 
@@ -66,9 +66,9 @@ Pode executar a ferramenta em dois modos:
 
 4. Depois de introduzir os valores para o ambiente de origem, a saída exibida inclui:
 
-   * **Largura de banda necessária para a replicação delta (em Megabits por segundo)**: A taxa média de alteração de dados diário é calculada largura de banda de rede para a replicação delta.
-   * **Largura de banda necessária para a replicação inicial (em Megabits por segundo)**: Largura de banda de rede para a replicação inicial é calculada sobre os valores de replicação inicial que introduzir.
-   * **Armazenamento necessário (em GBs)**: O total de armazenamento do Azure necessário.
+   * **Largura de banda necessária para a replicação delta (em Megabits por segundo)** : A taxa média de alteração de dados diário é calculada largura de banda de rede para a replicação delta.
+   * **Largura de banda necessária para a replicação inicial (em Megabits por segundo)** : Largura de banda de rede para a replicação inicial é calculada sobre os valores de replicação inicial que introduzir.
+   * **Armazenamento necessário (em GBs)** : O total de armazenamento do Azure necessário.
    * **Total de IOPS no armazenamento Standard**: O número é calculado com base no tamanho de unidade IOPS 8K nas contas de armazenamento standard total. Para o planeador de rápida, o número é calculado com base em todos os discos VM de origem e os dados diários de taxa de alteração. Para o planeamento detalhado, o número é calculado com base no número total de VMs que são mapeados para VMs padrão do Azure e os dados alterados taxa nessas VMS.
    * **Número de contas de armazenamento Standard necessárias**: O número total de contas de armazenamento standard é necessário para proteger as VMs. Uma conta de armazenamento standard pode conter até 20 000 IOPS por todas as VMs no armazenamento standard. É suportado um máximo de 500 IOPS por disco.
    * **Número de discos de Blob necessários**: O número de discos que são criadas no armazenamento do Azure.
@@ -92,11 +92,11 @@ Pode executar a ferramenta em dois modos:
 
    a. Na **núcleos de processador**, especifique o número total de núcleos num servidor de origem.
 
-   b. Na **alocação de memória (em MB)**, especifique o tamanho de RAM de um servidor de origem.
+   b. Na **alocação de memória (em MB)** , especifique o tamanho de RAM de um servidor de origem.
 
    c. Na **número de NICs**, especifique o número de adaptadores de rede num servidor de origem.
 
-   d. Na **armazenamento Total (em GB)**, especifique o tamanho total do armazenamento VM. Por exemplo, se o servidor de origem tem três discos com 500 GB, o tamanho de armazenamento total é 1500 GB.
+   d. Na **armazenamento Total (em GB)** , especifique o tamanho total do armazenamento VM. Por exemplo, se o servidor de origem tem três discos com 500 GB, o tamanho de armazenamento total é 1500 GB.
 
    e. Na **número de discos ligados**, especifique o número total de discos de um servidor de origem.
 

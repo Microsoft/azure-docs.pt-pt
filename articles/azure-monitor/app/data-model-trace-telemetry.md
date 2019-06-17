@@ -13,17 +13,17 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: df85aafc81b199610c02f0faecb06e804fda24bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899294"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetria de rastreio: Modelo de dados do Application Insights
 
 Telemetria de rastreio (no [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa `printf` declarações de rastreio são pesquisados por texto de estilo. `Log4Net`, `NLog`, e outras entradas de ficheiro de registo baseados em texto são convertidas em instâncias deste tipo. O rastreio não tem medidas como uma extensibilidade.
 
-## <a name="message"></a>Mensagem
+## <a name="message"></a>Message
 
 Mensagem de rastreio.
 

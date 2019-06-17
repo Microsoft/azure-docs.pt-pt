@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61282392"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Definir funções RBAC para acesso administrativo
@@ -29,7 +29,7 @@ Para o Azure Search, as funções estão associadas a níveis de permissão que 
 
 | Função | Tarefa |
 | --- | --- |
-| Proprietário |Criar ou eliminar o serviço ou de qualquer objeto no serviço, incluindo as chaves de api, índices, indexadores, origens de dados de indexador e agendas de indexador.<p>Ver o estado do serviço, incluindo contagens e tamanho de armazenamento.<p>Adicionar ou eliminar a associação de função (apenas um proprietário pode gerir a associação de função).<p>Os administradores da subscrição e os proprietários de serviços têm associação automática na função proprietários. |
+| Owner |Criar ou eliminar o serviço ou de qualquer objeto no serviço, incluindo as chaves de api, índices, indexadores, origens de dados de indexador e agendas de indexador.<p>Ver o estado do serviço, incluindo contagens e tamanho de armazenamento.<p>Adicionar ou eliminar a associação de função (apenas um proprietário pode gerir a associação de função).<p>Os administradores da subscrição e os proprietários de serviços têm associação automática na função proprietários. |
 | Contribuinte |Mesmo nível de acesso como proprietário, menos a gestão de funções do RBAC. Por exemplo, um Contribuidor pode criar ou eliminar objetos, ou ver e voltar a gerar [chaves de api](search-security-api-keys.md), mas não podem modificar associações das funções. |
 | [Função incorporada de Contribuidor do serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalente à função de Contribuidor. |
 | Leitor |Essentials do serviço de exibição e as métricas. Os membros desta função não podem ver o índice, indexador, origem de dados ou informações da chave.  |

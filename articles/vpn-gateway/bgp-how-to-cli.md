@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65209514"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Como configurar o BGP num gateway de VPN do Azure com a CLI
@@ -225,7 +225,7 @@ As instruções seguintes continuação dos passos nas secções anteriores. Par
 
 Neste exemplo, as redes virtuais pertencem à mesma subscrição. Pode configurar ligações de VNet a VNet entre diferentes subscrições. Para obter mais informações, consulte [configurar uma ligação VNet a VNet](vpn-gateway-howto-vnet-vnet-cli.md). Certifique-se de que adicione `-EnableBgp $True` ao criar as ligações para ativar o BGP.
 
-#### <a name="1-create-a-new-resource-group"></a>1. Crie um novo grupo de recursos
+#### <a name="1-create-a-new-resource-group"></a>1. Criar um novo grupo de recursos
 
 ```azurecli
 az group create -n TestBGPRG2 -l westus

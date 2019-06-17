@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2019
 ms.author: aahi
 ms.openlocfilehash: de353c946da46b2bbe4e755e21e355f6bd18725b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827144"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias com deteção de batch e o Power BI

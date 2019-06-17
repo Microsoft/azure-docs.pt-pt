@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409603"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para elevada disponibilidade SAP através de uma partilha de ficheiros e de cluster de ativação pós-falha do Windows para as instâncias do SAP ASCS/SCS
@@ -219,7 +219,7 @@ Antes de iniciar a instalação, consulte o seguinte artigo:
 
 ## <a name="host-names-and-ip-addresses"></a>Endereços IP e nomes de anfitrião
 
-| Função de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de Disponibilidade |
+| Função de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de disponibilidade |
 | --- | --- | --- | --- |
 | Cluster do ASCS/SCS primeiro nó de cluster | ascs-1 | 10.0.6.4 | ascs-as |
 | Segundo cluster do ASCS/SCS de nós de cluster | ascs-2 | 10.0.6.5 | ascs-as |
@@ -236,7 +236,7 @@ Antes de iniciar a instalação, consulte o seguinte artigo:
 **Tabela 2**: Detalhes de instância do SAP ASCS/SCS
 
 
-| Função de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de Disponibilidade |
+| Função de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de disponibilidade |
 | --- | --- | --- | --- |
 | Primeiro nó de cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Segundo nó de cluster | sofs-2 | 10.0.6.11 | sofs-as |

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: a04dc76a110b1d126d5d826761e2e0c09c6aac47
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65520242"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 >
 > * [Versão 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Versão atual](connector-amazon-simple-storage-service.md)
@@ -42,7 +42,7 @@ Especificamente, este conector Amazon S3 oferece suporte a cópia de arquivos co
 
 Para copiar dados do Amazon S3, certificar-se de que lhe foram concedidas as permissões seguintes:
 
-- **Para a execução de atividade de cópia:**: `s3:GetObject` e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
+- **Para a execução de atividade de cópia:** : `s3:GetObject` e `s3:GetObjectVersion` para operações de objeto do Amazon S3.
 - **Para a criação de GUI da fábrica de dados**: `s3:ListAllMyBuckets` e `s3:ListBucket` / `s3:GetBucketLocation` para operações de Bucket do Amazon S3 são necessárias permissões de adicionalmente para operações como ligação de teste e procurar/navegue caminhos de ficheiros. Se não pretender conceder essas permissões, ignore a ligação de teste na página de criação do serviço ligado e especifique o caminho diretamente nas definições do conjunto de dados.
 
 Para obter detalhes sobre a lista completa de permissões do Amazon S3, consulte [especificar permissões numa política](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).

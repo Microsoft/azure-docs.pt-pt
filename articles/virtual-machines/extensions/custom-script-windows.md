@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: gwallace
 ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65408279"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script personalizado para Windows
@@ -106,7 +106,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute | string |
-| tipo | CustomScriptExtension | string |
+| type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | Timestamp (por exemplo) | 123456789 | número inteiro de 32 bits |
@@ -133,7 +133,7 @@ Utilizar definições públicas pode ser útil para depuração, mas é recomend
 
 Definições de públicas são enviadas em texto não criptografado para a VM em que o script será executado.  Definições protegidas são encriptadas com uma chave só conhecida o Azure e a VM. As definições são guardadas para a VM à medida que eles sejam encaminhados, ou seja, se as definições foram encriptadas vez salvos encriptados na VM. O certificado utilizado para desencriptar os valores criptografados é armazenado na VM e utilizado para desencriptar as definições (se necessário) em tempo de execução.
 
-## <a name="template-deployment"></a>Implementação de modelo
+## <a name="template-deployment"></a>Implementação de modelos
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON, que se encontra detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager para executar a extensão de Script personalizado durante a implementação. Os exemplos seguintes mostram como utilizar a extensão de Script personalizado:
 
@@ -290,6 +290,6 @@ Informações de caminho após o primeiro segmento URI é mantido por arquivos b
 
 <sup>1</sup> os caminhos de diretório absoluto mudam ao longo do tempo de vida da VM, mas não numa única execução da extensão CustomScript.
 
-### <a name="support"></a>Apoio ao cliente
+### <a name="support"></a>Suporte
 
 Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Também pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

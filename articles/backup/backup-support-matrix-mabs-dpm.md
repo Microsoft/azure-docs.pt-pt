@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254642"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para cópia de segurança com o Microsoft Azure Backup Server ou o System Center DPM
@@ -53,7 +53,7 @@ Para obter mais informações:
 
 ## <a name="supported-scenarios"></a>Cenários suportados 
 
-**Cenário** | **Agente** | **Localização**
+**Cenário** | **Agente** | **Location**
 --- | --- | ---
 **Cópia de segurança no local/cargas de trabalho de máquinas** | Agente de proteção do DPM/MABS é executado nas máquinas que pretende criar cópias de segurança.<br/><br/> O agente de MARS no servidor do DPM/MABS. | O DPM/MABS deve estar em execução no local.
 **Criar cópias de segurança de VMs do Azure/cargas de trabalho** | Agente de proteção do DPM/MABS no computador protegido.<br/><br/> O agente de MARS no servidor do DPM/MABS. | Tem de executar o DPM/MABS numa VM do Azure.

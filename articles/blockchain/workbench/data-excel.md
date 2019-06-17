@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: 215d8b8fbc49e9f38dc89655981edce37984163a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510676"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Ver dados do Azure Blockchain Workbench com o Microsoft Excel
@@ -38,7 +38,7 @@ Para ligar à base de dados do Blockchain Workbench:
 4. Na caixa de diálogo **Base de dados do SQL Server**:
 
     * Em **Servidor**, introduza o nome do servidor do Blockchain Workbench.
-    * Em **Base de dados (opcional)**, introduza o nome da base de dados.
+    * Em **Base de dados (opcional)** , introduza o nome da base de dados.
 
    ![Indicar o servidor de base de dados e a base de dados](./media/data-excel/provide-server-db.png)
 

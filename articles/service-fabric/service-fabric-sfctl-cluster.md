@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 7bb399472d7e0ab14e6399fc8652d2eb132a866a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60837335"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -30,19 +30,19 @@ Selecione, gerir e operar a clusters do Service Fabric.
 | --- | --- |
 | versões de código | Obtém uma lista de recursos de infraestrutura versões de código aprovisionadas num cluster do Service Fabric. |
 | config-versions | Obtém uma lista de recursos de infraestrutura versões de configuração que são aprovisionadas num cluster do Service Fabric. |
-| saúde | Obtém o estado de funcionamento de um cluster do Service Fabric. |
-| Manifesto | Obter o manifesto de cluster do Service Fabric. |
+| health | Obtém o estado de funcionamento de um cluster do Service Fabric. |
+| manifesto | Obter o manifesto de cluster do Service Fabric. |
 | operation-cancel | Cancela uma operação de índice de falhas induzidas pelo utilizador. |
 | operation-list | Obtém uma lista de operações de índice de falhas induzidas pelo utilizador filtradas pela entrada fornecida. |
-| Aprovisionar | Aprovisione os pacotes de código ou configuração de um cluster do Service Fabric. |
+| provision | Aprovisione os pacotes de código ou configuração de um cluster do Service Fabric. |
 | recover-system | Indica ao cluster do Service Fabric que ele deve tentar recuperar os serviços do sistema que estão atualmente bloqueados em perda de quórum. |
 | report-health | Envia um relatório de estado de funcionamento no cluster do Service Fabric. |
-| seleccionar | Liga-se para um ponto de extremidade do cluster do Service Fabric. |
+| Selecione | Liga-se para um ponto de extremidade do cluster do Service Fabric. |
 | show-connection | Mostre qual esta instância de sfctl está ligada ao cluster do Service Fabric. |
-| não aprovisionamento | Anular o aprovisionamento os pacotes de código ou configuração de um cluster do Service Fabric. |
-| Atualizar | Começar a atualizar a versão de código ou configuração do cluster do Service Fabric. |
+| unprovision | Anular o aprovisionamento os pacotes de código ou configuração de um cluster do Service Fabric. |
+| upgrade | Começar a atualizar a versão de código ou configuração do cluster do Service Fabric. |
 | upgrade-resume | Fazer a atualização do cluster passar para o domínio de atualização seguinte. |
-| reversão de atualização | Reverta a atualização de um cluster do Service Fabric. |
+| upgrade-rollback | Reverta a atualização de um cluster do Service Fabric. |
 | upgrade-status | Obtém o progresso da atualização do cluster atual. |
 | atualização-atualização | Atualize os parâmetros de atualização de uma atualização de cluster do Service Fabric. |
 

@@ -9,10 +9,10 @@ ms.date: 04/30/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: e0f93b0a95a228b26fae266129aea4b595b05e0f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65148364"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerir o acesso de leitura anónimo a contentores e blobs
@@ -143,7 +143,7 @@ A tabela seguinte mostra as operações que podem ser chamadas anonimamente quan
 | Obter o Blob | Pedidos anónimos permitidos | Pedidos anónimos permitidos |
 | Obter as propriedades do Blob | Pedidos anónimos permitidos | Pedidos anónimos permitidos |
 | Definir as propriedades do Blob | Apenas pedidos autorizados | Apenas pedidos autorizados |
-| Obter Metadados do Blob | Pedidos anónimos permitidos | Pedidos anónimos permitidos |
+| Obter metadados do Blob | Pedidos anónimos permitidos | Pedidos anónimos permitidos |
 | Definir metadados do Blob | Apenas pedidos autorizados | Apenas pedidos autorizados |
 | Colocar o bloco | Apenas pedidos autorizados | Apenas pedidos autorizados |
 | Obter lista de bloqueios (apenas blocos confirmados) | Pedidos anónimos permitidos | Pedidos anónimos permitidos |
@@ -155,7 +155,7 @@ A tabela seguinte mostra as operações que podem ser chamadas anonimamente quan
 | Blob de concessão | Apenas pedidos autorizados | Apenas pedidos autorizados |
 | Colocar a página | Apenas pedidos autorizados | Apenas pedidos autorizados |
 | Os intervalos obter páginas | Pedidos anónimos permitidos | Pedidos anónimos permitidos |
-| Acrescentar Blob | Apenas pedidos autorizados | Apenas pedidos autorizados |
+| Blob de acréscimo | Apenas pedidos autorizados | Apenas pedidos autorizados |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

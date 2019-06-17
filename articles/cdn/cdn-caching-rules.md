@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: magattus
 ms.openlocfilehash: 3a94b8252feb7c5c345d678579c477fce02d6e03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60679208"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Comportamento de cache com regras de colocação em cache de CDN do Azure de controlo
@@ -75,7 +75,7 @@ Para regras de colocação em cache globais e personalizadas, pode especificar a
 
 Para regras de cache personalizada, condições de correspondência de dois estão disponíveis:
  
-- **Caminho**: Esta condição corresponde ao caminho do URL, excluindo o nome de domínio e suporta o símbolo de caráter universal (\*). Por exemplo, _/myfile.html_, _//My/Folder/ *_, e _/my/images/*.jpg_. O comprimento máximo é de 260 carateres.
+- **Caminho**: Esta condição corresponde ao caminho do URL, excluindo o nome de domínio e suporta o símbolo de caráter universal (\*). Por exemplo, _/myfile.html_, _//My/Folder/ *_ , e _/my/images/*.jpg_. O comprimento máximo é de 260 carateres.
 
 - **Extensão**: Esta condição corresponde a extensão de ficheiro do arquivo solicitado. Pode fornecer uma lista separada por vírgulas de extensões de ficheiro para corresponder. Por exemplo, _. jpg_, _. mp3_, ou _PNG_. O número máximo de extensões é 50 e o número máximo de carateres por extensão é 16. 
 

@@ -19,10 +19,10 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546100"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
@@ -40,7 +40,7 @@ Esta lista contém todos os seus aplicativos para uso com o ponto de extremidade
 ## <a name="live-sdk-applications"></a>Aplicações do Live SDK
 Esta lista contém todos os seus aplicativos para uso exclusivamente com conta Microsoft. Não estão ativadas para utilização com o Azure Active Directory. Isso é onde encontrar todas as aplicações que foram anteriormente registadas com o portal de programador da MSA em `https://account.live.com/developers/applications`. Todas as funções que realizou anteriormente no `https://account.live.com/developers/applications` agora podem ser executadas neste novo portal, `https://apps.dev.microsoft.com`.
 
-## <a name="application-secrets"></a>Segredos da Aplicação
+## <a name="application-secrets"></a>Segredos da aplicação
 Segredos da aplicação são credenciais que permitem que seu aplicativo execute fiável [autenticação de cliente](https://tools.ietf.org/html/rfc6749#section-2.3) com o Azure AD. OAuth e OpenID Connect, um segredo de aplicação é frequentemente referido como um `client_secret`. No protocolo v2.0, qualquer aplicativo que recebe um token de segurança num local acessível na web (usando um `https` esquema) tem de utilizar um segredo de aplicação para identificar a próprio para o Azure AD ao resgate desse token de segurança. Além disso, qualquer cliente nativo que recebe tokens num dispositivo vai ser proibido da utilização de um segredo de aplicação para efetuar a autenticação de cliente. Isso desencoraja o armazenamento dos segredos em ambientes inseguros.
 
 Cada aplicação pode conter dois segredos da aplicação válido num determinado momento. Ao manter dois segredos, tem a capacidade de efetuar o rollover da chave de periódico em todo o ambiente da sua aplicação. Assim que tiver migrado a totalidade da sua aplicação para um novo segredo, pode eliminar o segredo antigo e aprovisionar um novo.
@@ -49,7 +49,7 @@ Neste momento, apenas dois tipos de segredos da aplicação são permitidos no p
 É necessário para carregar um certificado que contém uma chave pública.
 
 ## <a name="profile"></a>Perfil
-A seção de perfil do portal de registo de aplicação pode ser utilizada para personalizar a página de início de sessão para a sua aplicação. Neste momento é possível alterar o logótipo da aplicação de início de sessão da página, termos de URL do serviço e o URL da declaração de privacidade. O logótipo tem de ser um ficheiro de imagem GIF, PNG ou JPEG transparente com 48 x 48 ou 50 x 50 pixéis. Limite de tamanho: 15 KB. Tente alterar os valores e ver a página de início de sessão resultante!
+A seção de perfil do portal de registo de aplicação pode ser utilizada para personalizar a página de início de sessão para a sua aplicação. Neste momento é possível alterar o logótipo da aplicação de início de sessão da página, termos de URL do serviço e o URL da declaração de privacidade. O logótipo tem de ser uma imagem de pixel de 48 x 48 ou 50 x 50 transparente num arquivo GIF, PNG ou JPEG 15 KB ou mais pequeno. Tente alterar os valores e ver a página de início de sessão resultante!
 
 ## <a name="live-sdk-support"></a>Suporte do Live SDK
 Quando ativar o "Live SDK suporte", quaisquer segredos da aplicação que cria serão aprovisionados para o Azure AD e armazenamentos de dados de Account Microsoft. Isso permite que seu aplicativo integrar diretamente com o serviço Microsoft Account (login.live.com). Se quiser criar uma aplicação com o Microsoft Account diretamente (em vez de utilizar o ponto de final de v2.0 do Azure AD), certifique-se de que o suporte do SDK do Live está ativado.

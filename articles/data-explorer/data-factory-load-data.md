@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60447973"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para o Explorador de dados do Azure com o Azure Data Factory 
@@ -46,11 +46,11 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
     **Definição**  | **Descrição do campo**
     |---|---|
-    | **Nome** | Introduza um nome globalmente exclusivo para a fábrica de dados. Se receber o erro *"nome do Data factory \"LoadADXDemo\" não está disponível"*, introduza um nome diferente para a fábrica de dados. Para regras de nomenclatura dos artefactos do Data Factory, veja [regras de nomenclatura do Data Factory](/azure/data-factory/naming-rules).|
+    | **Nome** | Introduza um nome globalmente exclusivo para a fábrica de dados. Se receber o erro *"nome do Data factory \"LoadADXDemo\" não está disponível"* , introduza um nome diferente para a fábrica de dados. Para regras de nomenclatura dos artefactos do Data Factory, veja [regras de nomenclatura do Data Factory](/azure/data-factory/naming-rules).|
     | **Subscrição** | Selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. |
     | **Grupo de Recursos** | Selecione **criar novo** e introduza o nome de um novo grupo de recursos. Selecione **utilizar existente**, se tiver um grupo de recursos existente. |
     | **Versão** | Selecione **V2** |
-    | **Localização** | Selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar em outras localizações ou regiões. |
+    | **Location** | Selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar em outras localizações ou regiões. |
     | | |
 
 1. Selecione as notificações na barra de ferramentas para monitorizar o processo de criação. Depois de concluída a criação, vá para a fábrica de dados que criou. O **fábrica de dados** é aberta a página home.
@@ -158,7 +158,7 @@ Explorador de dados novo serviço ligado do Azure é criado para copiar os dados
     * O segundo mapeamento ocorre quando esses dados em tabela são ingeridos no Explorador de dados do Azure. Mapeamento é executado de acordo com a [regras de mapeamento de CSV](/azure/kusto/management/mappings#csv-mapping). Tenha em atenção que, mesmo que a origem de dados não estava no formato CSV, ADF tem de converter os dados num formato tabular, portanto, o mapeamento de CSV é o mapeamento relevante apenas nesta fase.
         * Sob **propriedades do Explorador de dados do Azure (Kusto) sink** adicionar o relevante **nome do mapeamento de ingestão** (opcional) então, esse mapeamento de coluna pode ser utilizado.
         * Se **nome do mapeamento de ingestão** não for especificado, ordem de mapeamento de "by-name" definido no **mapeamentos de coluna** secção irá ocorrer. Se o mapeamento de "by-name" falhar, o Explorador de dados do Azure tentará para ingestão de dados numa ordem de "posição por coluna" (maps por-posição como predefinição).
-    * Selecione **seguinte**
+    * Selecione **Seguinte**
 
     ![Mapeamento de colunas do conjunto de dados de destino](media/data-factory-load-data/destination-dataset-column-mapping.png)
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
 ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60589579"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever avançadas consultas no Azure Monitor
@@ -75,7 +75,7 @@ Event
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
 
-## <a name="print"></a>Imprimir
+## <a name="print"></a>Impressão
 `print` Devolve uma tabela com uma única coluna e uma única linha, que mostra o resultado de um cálculo. Isto é frequentemente utilizado em casos em que é necessário um cálculo simple. Por exemplo, para encontrar a hora atual no PST e adicionar uma coluna com EST:
 
 ```Kusto

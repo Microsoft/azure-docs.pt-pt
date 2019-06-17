@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
 ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61315644"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensagens, payloads e serialização
@@ -32,7 +32,7 @@ As propriedades de Mediador predefinidos estão listadas na tabela seguinte. Os 
  
 Os nomes de equivalentes utilizados ao nível do protocolo AMQP são listados entre parênteses. 
 
-| Nome da Propriedade                         | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Nome da propriedade                         | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (content-type)           | Opcionalmente, descreve o payload da mensagem, com um descritor seguindo o formato de RFC2045, secção 5; Por exemplo, `application/json`.                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (id de correlação)       | Permite que um aplicativo especificar um contexto para a mensagem para os fins de correlação; Por exemplo, refletindo o **MessageId** de uma mensagem que é respondida à.                                                                                                                                                                                                                                                                  |

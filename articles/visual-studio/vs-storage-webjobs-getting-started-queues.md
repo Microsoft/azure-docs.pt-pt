@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60391236"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligados (projetos de trabalho Web) de serviços
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 O SDK automaticamente serializa o objeto em JSON. Uma mensagem de fila é sempre criada, mesmo que o objeto é nulo.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou nas funções de async
-Para criar várias mensagens, verifique o tipo de parâmetro para a fila de saída **ICollector<T>**  ou **IAsyncCollector<T>**, conforme mostrado no exemplo a seguir.
+Para criar várias mensagens, verifique o tipo de parâmetro para a fila de saída **ICollector<T>**  ou **IAsyncCollector<T>** , conforme mostrado no exemplo a seguir.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -342,7 +342,7 @@ As mensagens cujo conteúdo faz com que uma função falha são chamadas *mensag
 ### <a name="automatic-poison-message-handling"></a>Processamento de mensagens não processáveis automática
 O SDK chamará uma função até 5 vezes para processar uma mensagem de fila. Se o tentar quinto falhar, a mensagem é movida para uma fila não processáveis. Pode ver como configurar o número máximo de repetições em [como definir opções de configuração](#how-to-set-configuration-options).
 
-Com o nome da fila não processáveis *{originalqueuename}*-não processáveis. Pode escrever uma função para processar mensagens da fila não processáveis por registar ou enviar uma notificação que atenção manual é necessária.
+Com o nome da fila não processáveis *{originalqueuename}* -não processáveis. Pode escrever uma função para processar mensagens da fila não processáveis por registar ou enviar uma notificação que atenção manual é necessária.
 
 No exemplo a seguir a **CopyBlob** função irão falhar quando uma mensagem de fila contém o nome de um blob que não existe. Quando isso acontece, a mensagem é movida da fila copyblobqueue para a fila de veneno copyblobqueue. O **ProcessPoisonMessage** , em seguida, regista as mensagens não processáveis.
 
@@ -544,7 +544,7 @@ No Dashboard do SDK do WebJobs, as mais recentes 100 linhas de Console de saída
 
 ![Ativar/desativar de saída](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-Num trabalho Web contínuo, registos de aplicações apresentada na/dados/tarefas/contínua/*{webjobname}*/job_log.txt no sistema de ficheiros de aplicação web.
+Num trabalho Web contínuo, registos de aplicações apresentada na/dados/tarefas/contínua/ *{webjobname}* /job_log.txt no sistema de ficheiros de aplicação web.
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!

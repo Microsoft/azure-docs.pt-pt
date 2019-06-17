@@ -11,10 +11,10 @@ ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61421227"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Recomendações de armazém de dados SQL

@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65546240"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrardo Serviço de Controlo de Acesso do Microsoft Azure
@@ -129,9 +129,9 @@ As secções seguintes descrevem as recomendações de alto nível para a migra�
 
 Cada serviço cloud da Microsoft que aceita tokens que são emitidos pelo controlo de acesso agora dá suporte, pelo menos, uma forma alternativa de autenticação. O mecanismo de autenticação corretas varia para cada serviço. Recomendamos que consulte a documentação específica para cada serviço para obter diretrizes oficiais. Para sua comodidade, cada conjunto de documentação é fornecido aqui:
 
-| Serviço | Documentação de orientação |
+| Serviço | Orientação |
 | ------- | -------- |
-| Azure Service Bus | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
+| Service Bus do Azure | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Reencaminhamento do Azure Service Bus | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Cache gerida do Azure | [Migrar para a Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | O Azure DataMarket | [Migrar para as APIs serviços cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
@@ -150,7 +150,7 @@ Cada serviço cloud da Microsoft que aceita tokens que são emitidos pelo contro
 
 2016, do SharePoint 2013 e SharePoint Online clientes há muito tempo usaram ACS para fins de autenticação na nuvem, no local e cenários híbridos. Alguns recursos do SharePoint e casos de utilização serão afetados pela desativação dos ACS, enquanto outros não irão. A tabela abaixo resume as orientações de migração para algumas das mais popular SharePoint ACS que tire partido de funcionalidades:
 
-| Funcionalidade | Documentação de orientação |
+| Funcionalidade | Orientação |
 | ------- | -------- |
 | Autenticação de utilizadores do Azure AD | Anteriormente, o Azure AD não oferecia suporte necessários para o SharePoint para a autenticação de tokens de SAML 1.1 e o ACS foi utilizado como um intermediário que efetuou o SharePoint compatíveis com formatos de token do Azure AD. Agora, pode [ligar o SharePoint diretamente ao Azure AD através do SharePoint de Galeria de aplicações do Azure AD na aplicação de local](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticação da aplicação e a autenticação de servidor a servidor no SharePoint no local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não são afetados pela desativação de ACS; sem alterações necessárias. | 
@@ -189,7 +189,7 @@ A tabela seguinte compara as funcionalidades de controlo de acesso que são rele
 
 Num alto nível *do Azure Active Directory é provavelmente a melhor opção para a sua migração se permitir que os utilizadores iniciem sessão em apenas com a Microsoft contas escolares ou*.
 
-| Capacidade | Suporte de controlo de acesso | Suporte do Azure AD |
+| Funcionalidade | Suporte de controlo de acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas de escolar ou profissional da Microsoft | Suportadas | Suportadas |
@@ -204,7 +204,7 @@ Num alto nível *do Azure Active Directory é provavelmente a melhor opção par
 | WS-Trust | Suportadas | Não suportado |
 | **Formatos de token** | | |
 | JWT | Suportado na versão Beta | Suportadas |
-| SAML 1.1 | Suportadas | Pré-visualizar |
+| SAML 1.1 | Suportadas | Pré-visualização |
 | SAML 2.0 | Suportadas | Suportadas |
 | SWT | Suportadas | Não suportado |
 | **Personalizações** | | |
@@ -240,7 +240,7 @@ No entanto, do Azure AD B2C não suporta a variedade de protocolos de autentica�
 
 A tabela seguinte compara as funcionalidades de controlo de acesso que são relevantes para aplicativos web com os que estão disponíveis no Azure AD B2C. Num alto nível, *do Azure AD B2C provavelmente é a escolha correta para a sua migração se seu aplicativo consumidor ou se ele oferece suporte a muitos tipos diferentes de contas.*
 
-| Capacidade | Suporte de controlo de acesso | Suporte do Azure AD B2C |
+| Funcionalidade | Suporte de controlo de acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas de escolar ou profissional da Microsoft | Suportadas | Suportado através de políticas personalizadas  |
@@ -319,7 +319,7 @@ Nossa recomendação para este tipo de fluxo de autenticação é migrar para o 
 
 Também pode utilizar o Azure AD para autenticação de servidor para servidor utilizando a implementação do Azure AD de concessão de credenciais de cliente OAuth. A tabela seguinte compara as funcionalidades de controlo de acesso na autenticação de servidor para servidor com as que estão disponíveis no Azure AD.
 
-| Capacidade | Suporte de controlo de acesso | Suporte do Azure AD |
+| Funcionalidade | Suporte de controlo de acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registar-se um serviço web | Criar uma entidade confiadora no portal de gestão do controlo de acesso | Criar uma aplicação web do Azure AD no portal do Azure |
 | Como registar-se um cliente | Criar uma identidade de serviço no portal de gestão de controlo de acesso | Criar outra aplicação de web do Azure AD no portal do Azure |

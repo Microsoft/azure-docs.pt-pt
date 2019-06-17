@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 1ec6a174d05f8707bbffcc9fb013a98c2eb9196c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200551"
 ---
 # <a name="access-your-security-data"></a>Aceder aos seus dados de segurança 
@@ -69,11 +69,11 @@ SecurityAlert
 | take 3
 ```
 
-| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | Nome a Apresentar                           | Descrição                                             | ExtendedProperties                                                                                                                                                             |
+| TimeGenerated           | IoTHubId                                                                                                       | DeviceId      | AlertSeverity | displayName                           | Descrição                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Elevado          | Ataque de força bruta foi concluída com êxito           | Um ataque de força bruta no dispositivo foi com êxito        |    {"Endereço de origem completo": "[\"10.165.12.18:\"]", "Nomes de utilizador": "[\"\"]", "DeviceId": "IoT-Device-Linux" }                                                                       |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Elevado          | Início de sessão local com êxito no dispositivo      | Foi detetado um início de sessão local com êxito no dispositivo     | {"Endereço remoto": "?", "Porta remota": "", "Porta Local": "", "Início de sessão de Shell": "/ bin/su", "Id do processo de início de sessão": "28207", "nome de utilizador": "atacante", "DeviceId": "IoT-Device-Linux" } |
-| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Elevado          | Falha na tentativa de início de sessão local no dispositivo  | Foi detetada uma tentativa de início de sessão local no dispositivo |  {"Endereço remoto": "?", "Porta remota": "", "Porta Local": "", "Início de sessão de Shell": "/ bin/su", "Id do processo de início de sessão": "22644", "nome de utilizador": "atacante", "DeviceId": "IoT-Device-Linux" } |
+| 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Ataque de força bruta foi concluída com êxito           | Um ataque de força bruta no dispositivo foi com êxito        |    {"Endereço de origem completo": "[\"10.165.12.18:\"]", "Nomes de utilizador": "[\"\"]", "DeviceId": "IoT-Device-Linux" }                                                                       |
+| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Início de sessão local com êxito no dispositivo      | Foi detetado um início de sessão local com êxito no dispositivo     | {"Endereço remoto": "?", "Porta remota": "", "Porta Local": "", "Início de sessão de Shell": "/ bin/su", "Id do processo de início de sessão": "28207", "nome de utilizador": "atacante", "DeviceId": "IoT-Device-Linux" } |
+| 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Falha na tentativa de início de sessão local no dispositivo  | Foi detetada uma tentativa de início de sessão local no dispositivo |  {"Endereço remoto": "?", "Porta remota": "", "Porta Local": "", "Início de sessão de Shell": "/ bin/su", "Id do processo de início de sessão": "22644", "nome de utilizador": "atacante", "DeviceId": "IoT-Device-Linux" } |
 
 ### <a name="device-summary"></a>Resumo do dispositivo
 
@@ -92,11 +92,11 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | AlertSeverity | Nome a Apresentar                           | Count |
+| IoTHubId                                                                                                       | DeviceId      | AlertSeverity | displayName                           | Count |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Elevado          | Ataque de força bruta foi concluída com êxito           | 9   |   
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Ataque de força bruta foi concluída com êxito           | 9   |   
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | Falha na tentativa de início de sessão local no dispositivo  | 242 |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Elevado          | Início de sessão local com êxito no dispositivo      | 31  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | Início de sessão local com êxito no dispositivo      | 31  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | Moeda criptografia Miner                     | 4   |
 
 ### <a name="iot-hub-summary"></a>Resumo de hub IoT
@@ -116,11 +116,11 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | AlertSeverity | Nome a Apresentar                           | CntDevices |
+| IoTHubId                                                                                                       | AlertSeverity | displayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Elevado          | Ataque de força bruta foi concluída com êxito           | 1          |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alta          | Ataque de força bruta foi concluída com êxito           | 1          |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Médio        | Falha na tentativa de início de sessão local no dispositivo  | 1          | 
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Elevado          | Início de sessão local com êxito no dispositivo      | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alta          | Início de sessão local com êxito no dispositivo      | 1          |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Médio        | Moeda criptografia Miner                     | 1          |
 
 ## <a name="security-recommendations"></a>Recomendações de segurança
@@ -151,8 +151,8 @@ SecurityRecommendation
     
 | TimeGenerated | IoTHubId | DeviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | Descrição | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativa | Foi encontrada a regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra na firewall que contém um padrão permissivo para uma vasta gama de Portas ou endereços IP | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativa | Foi encontrada a regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra na firewall que contém um padrão permissivo para uma vasta gama de Portas ou endereços IP | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativa | Foi encontrada a regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma vasta gama de endereços IP ou as portas | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio | Ativa | Foi encontrada a regra de firewall permissiva na cadeia de entrada | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma vasta gama de endereços IP ou as portas | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
 
 ### <a name="device-summary"></a>Resumo do dispositivo
 
@@ -169,11 +169,11 @@ SecurityRecommendation
 | summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
 ```
 
-| IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Count |
+| IoTHubId                                                                                                       | DeviceId      | RecommendationSeverity | Contagem |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Elevado          | 2   |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | 2   |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | 1 |  
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Elevado          | 1  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Alta          | 1  |
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | <device_name> | Médio        | 4   |
 
 

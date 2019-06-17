@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
 ms.openlocfilehash: 6113c10cd152a22bd31e7212d86925b0c2107e58
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938416"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Criar ativos técnicos para uma oferta de máquina virtual
 
 Esta secção explica como criar e configurar os recursos técnicos para uma oferta de máquina virtual (VM) para o Azure Marketplace.  Uma VM contém dois componentes: o solução de disco rígido virtual (VHD) e os discos de dados associados opcional.  
 
-- *Discos rígidos virtuais (VHDs)*, que contém o sistema operativo e a sua solução, que irá implementar na sua oferta do Azure Marketplace. O processo de preparar o VHD é diferente consoante seja um baseado em Linux, com base em Windows ou uma VM baseada em personalizado.
+- *Discos rígidos virtuais (VHDs)* , que contém o sistema operativo e a sua solução, que irá implementar na sua oferta do Azure Marketplace. O processo de preparar o VHD é diferente consoante seja um baseado em Linux, com base em Windows ou uma VM baseada em personalizado.
 - *Discos de dados* representam armazenamento dedicado e persistente para uma máquina virtual. Fazer *não* utilizar a solução de VHD (por exemplo, o `C:` unidade) para armazenar informações persistentes.
 
 Uma imagem VM contém o disco de um sistema operativo e zero ou mais discos de dados. É necessário um VHD por disco. Os discos de dados, mesmo em branco precisam de um VHD a ser criada.

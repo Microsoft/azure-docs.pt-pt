@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
 ms.openlocfilehash: e290feb278a1cddf1cfecfcb66458d8290ec122a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943596"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiões disponíveis para o seu StorSimple
@@ -80,7 +80,7 @@ Se utilizar um StorSimple 8100 ou 8600 dispositivo físico, o dispositivo está 
 | 9  | República Checa        | 24 | Japão              | 39 | Catar               | 54 | Turquia                     |
 | 10 | Dinamarca               | 25 | Quénia              | 40 | Roménia             | 55 | Ucrânia                    |
 | 11 | Egito                 | 26 | Kuwait             | 41 | Rússia              | 56 | Emirados Árabes Unidos       |
-| 12 | Finlândia               | 27 | R.A.E. de Macau          | 42 | Arábia Saudita        | 57 | Reino Unido             |
+| 12 | Finlândia               | 27 | RAE de Macau          | 42 | Arábia Saudita        | 57 | Reino Unido             |
 | 13 | França                | 28 | Malásia           | 43 | Singapura           | 58 | Estados Unidos              |
 | 14 | Alemanha               | 29 | México             | 44 | Eslováquia            | 59 | Vietname                    |
 | 15 | Grécia                | 30 | Países Baixos        | 45 | Eslovénia            | 60 | Croácia                    |

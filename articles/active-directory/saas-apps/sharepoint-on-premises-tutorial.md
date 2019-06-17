@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e85f390ee5ff74f02cb95fa4dcf1dfc1a35dad1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699866"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Active Directory do Azure com o SharePoint no local
 
@@ -53,9 +53,12 @@ Para configurar a integração do SharePoint no local com o Azure AD, terá de a
 
 **Para adicionar o SharePoint no local a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
+
+    > [!NOTE]   
+    > Se o elemento não deve estar disponível, ele também pode ser aberto por meio do fixo **todos os serviços** link na parte superior do painel de navegação à esquerda. Na seguinte descrição geral, o **do Azure Active Directory** ligação está localizada na **identidade** seção ou ele pode ser pesquisado para utilizando a caixa de texto de filtro.
 
 2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
@@ -256,11 +259,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 8. Selecione Windows Azure Active Directory, verifique os dados do diretório de leitura e clique em selecionar. Volte atrás e adicionar o Microsoft Graph e selecione os dados de diretório de leitura para o mesmo, também.  Clique em selecionar e clique em concluído.
 
-    ![Ativar Acesso](./media/sharepoint-on-premises-tutorial/readpermission.png)
+    ![Ativar o acesso](./media/sharepoint-on-premises-tutorial/readpermission.png)
 
 9. Agora, em definições necessárias, clique em **conceder permissões** e, em seguida, clique em Sim para conceder permissões.
 
-    ![Conceder Permissões](./media/sharepoint-on-premises-tutorial/grantpermission.png)
+    ![Conceder permissões](./media/sharepoint-on-premises-tutorial/grantpermission.png)
 
     > [!NOTE]
     > Verifique em notificações para determinar se as permissões concedidas com êxito.  Se não estiverem, em seguida, o AzureCP não funcionará corretamente e não será possível configurar o SharePoint no local com grupos de segurança do Azure Active Directory.

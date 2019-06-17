@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61291913"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exemplo: Modelo da base de dados de inventário do AdventureWorks para o Azure Search
@@ -43,7 +43,7 @@ Não é tão simples como mover o índice de destino para a tabela de ProductMod
 
 ## <a name="use-a-collection-data-type"></a>Utilizar um tipo de dados de coleção
 
-A abordagem"correta" é utilizar um recurso de esquema de pesquisa que não tenha um paralelo direto no modelo de base de dados: **Collection(Edm.String)**. Um tipo de dados de coleção é usado quando tem uma lista de cadeias individuais, em vez de muito longa cadeia de caracteres (única). Se tiver etiquetas ou palavras-chave, usaria um tipo de dados de coleção para este campo.
+A abordagem"correta" é utilizar um recurso de esquema de pesquisa que não tenha um paralelo direto no modelo de base de dados: **Collection(Edm.String)** . Um tipo de dados de coleção é usado quando tem uma lista de cadeias individuais, em vez de muito longa cadeia de caracteres (única). Se tiver etiquetas ou palavras-chave, usaria um tipo de dados de coleção para este campo.
 
 Definindo campos de índice de valores múltiplos de **Collection(Edm.String)** para "color", "size" e "image", as informações auxiliares são retida para facetamento e filtragem sem poluir o índice com entradas duplicadas. Da mesma forma, aplicam-se as funções de agregação para os campos numéricos do produto, indexação **minListPrice** em vez de todos os produtos **listPrice**.
 

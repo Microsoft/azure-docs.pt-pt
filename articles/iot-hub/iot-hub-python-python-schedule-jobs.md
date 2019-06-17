@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: kgremban
 ms.openlocfilehash: c15db0766da3b4c18c306106ffdd5fc75a9143aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569294"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir tarefas (Python)
 

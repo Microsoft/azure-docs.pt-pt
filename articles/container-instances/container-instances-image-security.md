@@ -10,10 +10,10 @@ ms.date: 04/29/2019
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: dc516277d79e37500e73e1aee6b88c908acb9b1c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64944000"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança do Azure Container Instances

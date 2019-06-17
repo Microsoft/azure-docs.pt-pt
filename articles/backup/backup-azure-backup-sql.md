@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60644139"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Criar cópias de segurança do SQL Server para o Azure como uma carga de trabalho do DPM
@@ -94,7 +94,7 @@ Antes de começar, certifique-se de que todos os [pré-requisitos](backup-azure-
 
 13. Escolha o agendamento de política de retenção. Os detalhes sobre como funciona a política de retenção são fornecidos no [utilização do Azure Backup para substituir o seu artigo de infraestrutura da banda](backup-azure-backup-cloud-as-tape.md).
 
-    ![Política de Retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Política de retenção](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Neste exemplo:
 

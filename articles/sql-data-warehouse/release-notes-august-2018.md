@@ -11,10 +11,10 @@ ms.date: 08/13/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912220"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>O que há de novo no Azure SQL Data Warehouse? Agosto de 2018

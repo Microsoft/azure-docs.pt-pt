@@ -9,13 +9,13 @@ ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65555950"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>Resolver problemas do Azure File Sync
+# <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
 
 Este artigo destina-se para o ajudar a resolver problemas que podem surgir com a sua implementação do Azure File Sync. Também descreveremos como recolher registos importantes do sistema, se for necessária uma investigação mais aprofundada do problema. Se não vir a resposta à sua pergunta, pode contactar-nos através dos canais seguintes (em ordem de cada vez maiores):
@@ -84,14 +84,14 @@ Se vir esta mensagem e a partilha de ficheiros do Azure atualmente não está em
 Este problema ocorre se a sua conta de utilizador não tem direitos suficientes para criar um ponto final da cloud. 
 
 Para criar um ponto final da cloud, sua conta de utilizador tem de ter as seguintes permissões de Authorization da Microsoft:  
-* Leitura: Obter definição de função
-* Escreva: Criar ou atualizar uma definição de função personalizada
-* Leitura: Obter atribuição de função
+* Leitura: Obter a definição de função
+* Escreva: Criar ou atualizar a definição de função personalizada
+* Leitura: Obter a atribuição de função
 * Escreva: Criar atribuição de função
 
 As seguintes funções incorporadas têm as permissões necessárias do Authorization da Microsoft:  
-* Proprietário
-* Administrador de Acesso dos Utilizadores
+* Owner
+* Administrador de Acesso de Utilizador
 
 Para determinar se a sua função de conta de utilizador tem as permissões necessárias:  
 1. No portal do Azure, selecione **grupos de recursos**.
@@ -153,7 +153,7 @@ Um ponto final do servidor não poderá iniciar a atividade de sincronização p
 > [!Note]  
 > Se o estado do servidor no painel servidores registados é "Aparece Offline", execute os passos documentados no [ponto final do servidor tem um Estado de funcionamento de "Sem atividade" ou "Pendente" e o estado do servidor no painel servidores registados é "Aparece offline" ](#server-endpoint-noactivity) secção.
 
-## <a name="sync"></a>Sincronizar
+## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Se tiver criado um ficheiro diretamente na minha partilha de ficheiros do Azure através de SMB ou através do portal, quanto tempo é necessário para o ficheiro para sincronizar com servidores no grupo de sincronização?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -244,15 +244,15 @@ Para ver estes erros, execute o **FileSyncErrorsReport.ps1** script do PowerShel
 
 | HRESULT | HRESULT (decimal) | Cadeia do erro | Problema | Remediação |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Não é possível sincronizar ainda uma alteração de ficheiro ou diretório porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado depois das alterações dependentes estarem sincronizadas. | Nenhuma ação necessária. |
+| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Não é possível sincronizar ainda uma alteração de ficheiro ou diretório porque uma pasta dependente ainda não está sincronizada. Este item será sincronizado depois das alterações dependentes estarem sincronizadas. | É necessária nenhuma ação. |
 | 0x7b | 123 | ERROR_INVALID_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [manipulação carateres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | O nome de ficheiro ou diretório é inválido. | Mudar o nome de ficheiro ou diretório em questão. Ver [manipulação carateres não suportados](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) para obter mais informações. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | Nenhuma ação necessária. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um ficheiro foi alterado, mas a alteração ainda não foram detectada pelo sync. Sincronização irá recuperar após esta alteração é detetada. | Nenhuma ação necessária. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um ficheiro foi alterado, mas a alteração ainda não foram detectada pelo sync. Sincronização irá recuperar após esta alteração é detetada. | É necessária nenhuma ação. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Não é possível sincronizar o ficheiro porque é atingido o limite de partilha de ficheiros do Azure. | Para resolver este problema, consulte [atingiu o limite de armazenamento da partilha de ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) secção no guia de resolução de problemas. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | Este erro pode ocorrer pelos seguintes motivos: ficheiro é encriptado por uma solução não suportada (como o EFS de NTFS), o ficheiro tem uma exclusão estado pendente ou ficheiro está localizado numa pasta de replicação só de leitura do DFS-R | Se o ficheiro é encriptado por uma solução não suportada, descriptografar o arquivo e usar uma solução de encriptação suportados. Para obter uma lista de soluções de suporte, consulte [soluções de encriptação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) secção no guia de planejamento. Se o ficheiro estiver numa exclusão estado pendente, o ficheiro será eliminado depois de todos os identificadores de ficheiros abertos são fechados. Se o ficheiro está localizado numa pasta de replicação só de leitura do DFS-R, sincronização de ficheiros do Azure não suporta pontos finais do servidor em pastas só de leitura de replicação de DFS-R. Ver [guia de planeamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para obter mais informações.
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | Nenhuma ação necessária. |
-| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, pelo que tem de ser sincronizado novamente. | Nenhuma ação necessária. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | Não é possível sincronizar um ficheiro porque está a ser utilizado. O ficheiro será sincronizado quando já não está a ser utilizado. | É necessária nenhuma ação. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um ficheiro foi alterado durante a sincronização, portanto, ele precisa ser sincronizado novamente. | É necessária nenhuma ação. |
 
 #### <a name="handling-unsupported-characters"></a>Carateres de tratamento não suportado
 Se o **FileSyncErrorsReport.ps1** script do PowerShell mostra falhas devido a carateres não suportados (0x7b de códigos de erro e 0x8007007b), deve remover ou mudar o nome de carateres com falha, os respetivo dos nomes de ficheiro. PowerShell provavelmente irá imprimir esses caracteres como pontos de interrogação ou retângulos vazios uma vez que a maior parte desses caracteres não têm nenhuma codificação visual padrão. O [ferramenta de avaliação](storage-sync-files-planning.md#evaluation-tool) pode ser utilizado para identificar os carateres que não são suportadas.
@@ -310,7 +310,7 @@ Nenhuma ação é necessária; o servidor irá tentar novamente. Se este erro pe
 | **Cadeia de erro** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
 | **Remediação necessária** | Não |
 
-Não é necessária nenhuma ação. Quando um ficheiro ou ficheiros partilhar (ponto final da cloud) é restaurado com o Azure Backup, sincronização é bloqueada até que a deteção de alteração for concluída na partilha de ficheiros do Azure. Deteção de alteração é executado imediatamente depois do restauro ser concluído e a duração baseia-se no número de ficheiros na partilha de ficheiros.
+Não é necessário realizar qualquer ação. Quando um ficheiro ou ficheiros partilhar (ponto final da cloud) é restaurado com o Azure Backup, sincronização é bloqueada até que a deteção de alteração for concluída na partilha de ficheiros do Azure. Deteção de alteração é executado imediatamente depois do restauro ser concluído e a duração baseia-se no número de ficheiros na partilha de ficheiros.
 
 <a id="-2134364065"></a>**Sincronização não é possível aceder à partilha de ficheiros do Azure especificada no ponto final da cloud.**  
 
@@ -475,7 +475,7 @@ Este erro pode acontecer se a sua organização utilizar um proxy de terminaçã
     Restart-Service -Name FileSyncSvc -Force
     ```
 
-Ao definir este valor de registo, o agente do Azure File Syn vai aceitar qualquer certificado de SSL fidedigno ao transferir dados entre o servidor e o serviço cloud.
+Ao definir este valor de registo, o agente do Azure File Sync irá aceitar qualquer certificado SSL fidedigno localmente ao transferir dados entre o servidor e o serviço em nuvem.
 
 <a id="-2147012894"></a>**Não foi possível estabelecer uma ligação com o serviço.**  
 
@@ -500,7 +500,7 @@ Ao definir este valor de registo, o agente do Azure File Syn vai aceitar qualque
 Este erro pode dever-se:
 
 - Hora do servidor está incorreta
-- Falha na eliminação do ponto final de servidor
+- Falha na eliminação de ponto final de servidor
 - Utilizado para autenticação de certificado está expirado. 
     Para verificar se o certificado está expirado, execute os seguintes passos:  
     1. Abra o snap-in MMC de certificados, selecione a conta de computador e navegue para \Personal\Certificates certificados (computador Local).
@@ -577,7 +577,7 @@ Em casos em que há muitas por erros de sincronização de ficheiros, sessões d
 | **Cadeia de erro** | ECS_E_SYNC_INVALID_PATH |
 | **Remediação necessária** | Sim |
 
-Certifique-se de que o caminho existe, encontra-se num volume NTFS local e não é um ponto de reanálise ou ponto final de servidor existente.
+Certifique-se de que o caminho existe, está num local NTFS volume e não é um ponto de reanálise ou o ponto final de servidor existente.
 
 <a id="-2134375817"></a>**Falha na sincronização porque a versão de driver de filtro não é compatível com a versão do agente**  
 

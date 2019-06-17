@@ -10,10 +10,10 @@ ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65024029"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Explorador de pesquisa para consultar dados no Azure Search 
@@ -70,7 +70,7 @@ Adicione **$count** para obter o número de correspondências encontradas num í
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>Exemplo 4 - restringir os campos nos resultados da pesquisa
 
-Adicione **$select** para limitar os resultados para os campos explicitamente nomeados de saída mais legível em **Explorador de pesquisa**. Para manter a cadeia de procura e **$count = true**, prefixo argumentos com **&**. 
+Adicione **$select** para limitar os resultados para os campos explicitamente nomeados de saída mais legível em **Explorador de pesquisa**. Para manter a cadeia de procura e **$count = true**, prefixo argumentos com **&** . 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true

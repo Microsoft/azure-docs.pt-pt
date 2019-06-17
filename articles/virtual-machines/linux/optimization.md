@@ -18,10 +18,10 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61473914"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
@@ -31,7 +31,7 @@ A criação de uma máquina virtual (VM) do Linux é fácil fazê-lo na linha de
 Este tópico pressupõe que já tem uma subscrição do Azure ([inscrição na avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e já aprovisionou uma VM na sua subscrição do Azure. Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e iniciado sessão sua subscrição do Azure com [início de sessão az](/cli/azure/reference-index) antes de [criar uma VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disco do SO do Azure
-Depois de criar uma VM do Linux no Azure, ela tem dois discos associados a ele. **/ desenvolvimento/sda** é o seu disco de SO **/desenvolvimento/sdb** é o seu disco temporário.  Não utilize o disco do SO principal (**/desenvolvimento/sda**) para qualquer coisa, exceto o sistema operativo como ele está otimizado para rápido tempo de arranque da VM e não oferecer um bom desempenho para cargas de trabalho. Pretende anexar um ou mais discos para a VM para obter persistente e otimizados de armazenamento para os seus dados. 
+Depois de criar uma VM do Linux no Azure, ela tem dois discos associados a ele. **/ desenvolvimento/sda** é o seu disco de SO **/desenvolvimento/sdb** é o seu disco temporário.  Não utilize o disco do SO principal ( **/desenvolvimento/sda**) para qualquer coisa, exceto o sistema operativo como ele está otimizado para rápido tempo de arranque da VM e não oferecer um bom desempenho para cargas de trabalho. Pretende anexar um ou mais discos para a VM para obter persistente e otimizados de armazenamento para os seus dados. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adicionar discos para destinos do tamanho e o desempenho
 Com base no tamanho VM, pode anexar até 16 discos adicionais numa série a, 32 discos numa série de D e a máquina de 64 discos numa série G - cada até 1 TB de tamanho. Adicione discos Extras conforme necessário por seus requisitos de IOps e um espaço. Cada disco tem um destino de desempenho de 500 IOps para armazenamento Standard e até 5000 IOps por disco para armazenamento Premium.
@@ -51,7 +51,7 @@ Ao lidar com alta cargas de trabalho de IOps e tiver escolhido o armazenamento S
  
 
 ## <a name="your-vm-temporary-drive"></a>A unidade temporária de VM
-Por predefinição quando cria uma VM, o Azure disponibiliza um disco de SO (**/desenvolvimento/sda**) e um disco temporário (**/desenvolvimento/sdb**).  Todos os discos adicionais, some show como **/desenvolvimento/sdc**, **/desenvolvimento/sdd**, **/desenvolvimento/sde** e assim por diante. Todos os dados no disco temporário (**/desenvolvimento/sdb**) não são duráveis e podem ser perdidas se eventos específicos, como redimensionamento de VM, a reimplementação, ou manutenção força um reinício da VM.  O tamanho e tipo de seu disco temporário está relacionado com o tamanho da VM que selecionou no momento da implementação. Todos o premium VMs (série DS, G e DS_V2), o disco temporário são apoiados por um SSD local para um desempenho adicional de até 48k de tamanho IOps. 
+Por predefinição quando cria uma VM, o Azure disponibiliza um disco de SO ( **/desenvolvimento/sda**) e um disco temporário ( **/desenvolvimento/sdb**).  Todos os discos adicionais, some show como **/desenvolvimento/sdc**, **/desenvolvimento/sdd**, **/desenvolvimento/sde** e assim por diante. Todos os dados no disco temporário ( **/desenvolvimento/sdb**) não são duráveis e podem ser perdidas se eventos específicos, como redimensionamento de VM, a reimplementação, ou manutenção força um reinício da VM.  O tamanho e tipo de seu disco temporário está relacionado com o tamanho da VM que selecionou no momento da implementação. Todos o premium VMs (série DS, G e DS_V2), o disco temporário são apoiados por um SSD local para um desempenho adicional de até 48k de tamanho IOps. 
 
 ## <a name="linux-swap-file"></a>Ficheiro de troca de Linux
 Se a sua VM do Azure é a partir de uma imagem de Ubuntu ou CoreOS, em seguida, pode utilizar CustomData para enviar uma configuração de cloud para o cloud-init. Se [carregada uma imagem personalizada do Linux](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que utiliza o cloud-init, também de configurar as partições de comutação com o cloud-init.

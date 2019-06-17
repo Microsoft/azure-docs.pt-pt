@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
 ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60728054"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuração dos Reliable Actors – KVSActorStateProvider
@@ -39,14 +39,14 @@ Por predefinição, uma seção de configuração de segurança vazio impede que
 > Em nós do Linux, certificados tem de ser formatada PEM. Para saber mais sobre localizar e configurar os certificados para Linux, veja [configurar certificados no Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="section-name"></a>Nome da secção
+### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Configuração do replicador
 Configurações do replicador configurar o replicator, que é responsável por verificar o estado de fornecedor de estado do Ator altamente confiável.
 A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre as configurações adicionais que estão disponíveis para otimizar o replicator.
 
-### <a name="section-name"></a>Nome da secção
+### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
@@ -63,7 +63,7 @@ A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser s
 Configurações de Store são utilizadas para configurar o arquivo local, que é utilizado para manter o estado que está a ser replicado.
 A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre as configurações adicionais que estão disponíveis para otimizar o armazenamento local.
 
-### <a name="section-name"></a>Nome da secção
+### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração

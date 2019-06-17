@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60742127"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure (clássicos)
@@ -87,7 +87,7 @@ Do Azure [gateway de aplicação](../application-gateway/application-gateway-int
 ### <a name="at-a-glance"></a>Síntese
 A tabela abaixo mostra cada tipo de recurso com os métodos de alocação possíveis (dinâmicos/estáticos) e a capacidade de atribuir vários endereços IP públicos.
 
-| Recurso | Dinâmica | Estático | Vários endereços IP |
+| Resource | Dinâmica | Estático | Vários endereços IP |
 | --- | --- | --- | --- |
 | Serviço cloud |Sim |Sim |Sim |
 | Instância de função de VM de IaaS ou PaaS |Sim |Não |Não |
@@ -137,7 +137,7 @@ Pode atribuir um endereço IP privado à configuração de **front-end** de um [
 ### <a name="at-a-glance"></a>Síntese
 A tabela abaixo mostra cada tipo de recurso com os métodos de alocação possíveis (dinâmicos/estáticos) e a capacidade de atribuir vários endereços IP privados.
 
-| Recurso | Dinâmica | Estático | Vários endereços IP |
+| Resource | Dinâmica | Estático | Vários endereços IP |
 | --- | --- | --- | --- |
 | VM (num *autónomo* do serviço cloud ou VNet) |Sim |Sim |Sim |
 | Instância de função de PaaS (num *autónomo* do serviço cloud ou VNet) |Sim |Não |Não |
@@ -162,7 +162,7 @@ Na maioria dos casos, os endereços IP públicos são gratuitos. Existe uma cobr
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Diferenças entre o Resource Manager e implementações clássicas
 Segue-se uma comparação de recursos de endereçamento de IP no modelo de implementação clássica e Resource Manager.
 
-|  | Recurso | Clássica | Resource Manager |
+|  | Resource | Clássica | Resource Manager |
 | --- | --- | --- | --- |
 | **Endereço IP público** |***VM*** |Conhecido como um ILPIP (apenas dinâmico) |Conhecido como um IP público (dinâmico ou estático) |
 |  ||Atribuído a uma VM de IaaS ou uma instância de função de PaaS |Associado à NIC da VM |

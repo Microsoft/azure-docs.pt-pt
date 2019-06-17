@@ -11,10 +11,10 @@ ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61474886"
 ---
 # <a name="view-a-maintenance-schedule"></a>Ver um agendamento de manutenção 
@@ -27,7 +27,7 @@ Para ver a agenda de manutenção que foi aplicada ao seu armazém de dados, con
 
 1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2.  Selecione o armazém de dados que pretende ver. 
-3.  O armazém de dados selecionada abre-se no painel de descrição geral. A agenda de manutenção que é aplicada ao armazém de dados é apresentada abaixo **agenda de manutenção (pré-visualização)**.
+3.  O armazém de dados selecionada abre-se no painel de descrição geral. A agenda de manutenção que é aplicada ao armazém de dados é apresentada abaixo **agenda de manutenção (pré-visualização)** .
 
 ![Painel de descrição geral](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

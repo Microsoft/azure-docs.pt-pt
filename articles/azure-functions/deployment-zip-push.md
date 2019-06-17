@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
 ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62111204"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementação de zip para as funções do Azure

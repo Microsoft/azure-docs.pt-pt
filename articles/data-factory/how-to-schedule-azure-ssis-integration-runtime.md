@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60522505"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Runtime de integração Azure-SSIS com base numa agenda
@@ -109,7 +109,7 @@ Se cria um acionador de terceiro que esteja agendado para ser executada diariame
 
    ![Atividade de Web do ADF sob demanda IR do SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png)
 
-5. Atribuir a identidade gerida para o ADF uma **contribuinte** função para si próprio para que as atividades Web no respetivos pipelines podem chamar a API REST para iniciar/parar IRs Azure-SSIS aprovisionado no mesmo.  Na página do ADF no portal do Azure, clique em **controlo de acesso (IAM)**, clique em **+ adicionar atribuição de função**e, em seguida, na **adicionar atribuição de função** painel, fazer as seguintes ações.
+5. Atribuir a identidade gerida para o ADF uma **contribuinte** função para si próprio para que as atividades Web no respetivos pipelines podem chamar a API REST para iniciar/parar IRs Azure-SSIS aprovisionado no mesmo.  Na página do ADF no portal do Azure, clique em **controlo de acesso (IAM)** , clique em **+ adicionar atribuição de função**e, em seguida, na **adicionar atribuição de função** painel, fazer as seguintes ações.
 
     1. Para **função**, selecione **contribuinte**. 
     2. Para **atribuir acesso aos**, selecione **utilizador, grupo ou principal de serviço do Azure AD**. 
@@ -131,7 +131,7 @@ Se cria um acionador de terceiro que esteja agendado para ser executada diariame
 2. Para testar o pipeline de terceiro, inicie o SQL Server Management Studio (SSMS). Na **ligar ao servidor** janela, fazer as seguintes ações. 
 
     1. Para **nome do servidor**, introduza  **&lt;o nome do servidor de base de dados do Azure SQL&gt;. database.windows.net**.
-    2. Selecione **Opções >>**.
+    2. Selecione **Opções >>** .
     3. Para **ligar à base de dados**, selecione **SSISDB**.
     4. Selecione **Ligar**. 
     5. Expanda **catálogos de serviços de integração** -> **SSISDB** -> sua pasta -> **projetos** -> projeto do Your SSIS -> **pacotes** . 
@@ -156,7 +156,7 @@ Agora que os seus pipelines de funcionam conforme esperado, pode criar acionador
 
     1. Para **nome**, introduza um nome para o acionador. No exemplo a seguir **ser executada diariamente,** é o nome do acionador. 
     2. Para **tipo**, selecione **agenda**. 
-    3. Para **data de início (UTC)**, introduza uma data de início e hora em UTC. 
+    3. Para **data de início (UTC)** , introduza uma data de início e hora em UTC. 
     4. Para **periodicidade**, introduza uma cadência para o acionador. No exemplo a seguir, é **diária** depois. 
     5. Para **final**, selecione **sem fim** ou introduza uma data e hora depois de selecionar **na data**. 
     6. Selecione **Activated** para ativar o acionador imediatamente depois de publicar as configurações de ADF inteiras. 
@@ -340,11 +340,11 @@ A secção seguinte fornece passos para criar um runbook do PowerShell. O script
 
    ![Iniciar a janela de runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
    
-6. Na janela de tarefas, selecione **saída** mosaico. Na janela de saída, aguarde que a mensagem **# # # concluído # # #** depois de confirmar **# # # inicial # # #**. A partir de IR Azure-SSIS demora, aproximadamente 20 minutos. Fechar **tarefa** janela e fazer uma cópia de get para **Runbook** janela.
+6. Na janela de tarefas, selecione **saída** mosaico. Na janela de saída, aguarde que a mensagem **# # # concluído # # #** depois de confirmar **# # # inicial # # #** . A partir de IR Azure-SSIS demora, aproximadamente 20 minutos. Fechar **tarefa** janela e fazer uma cópia de get para **Runbook** janela.
 
    ![Azure SSIS IR - iniciada](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
-7. Repita os dois passos anteriores utilizando **parar** como o valor de **operação**. Inicie o runbook novamente selecionando **iniciar** botão na barra de ferramentas. Introduza o seu grupo de recursos, o ADF e o IR Azure-SSIS nomes. Para **operação**, introduza **parar**. Na janela de saída, aguarde que a mensagem **# # # concluído # # #** depois de confirmar **# # # parar # # #**. A parar o IR Azure-SSIS não demorar até a reativá-la. Fechar **tarefa** janela e fazer uma cópia de get para **Runbook** janela.
+7. Repita os dois passos anteriores utilizando **parar** como o valor de **operação**. Inicie o runbook novamente selecionando **iniciar** botão na barra de ferramentas. Introduza o seu grupo de recursos, o ADF e o IR Azure-SSIS nomes. Para **operação**, introduza **parar**. Na janela de saída, aguarde que a mensagem **# # # concluído # # #** depois de confirmar **# # # parar # # #** . A parar o IR Azure-SSIS não demorar até a reativá-la. Fechar **tarefa** janela e fazer uma cópia de get para **Runbook** janela.
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Criar agendas para o runbook para iniciar/parar IR Azure-SSIS
 

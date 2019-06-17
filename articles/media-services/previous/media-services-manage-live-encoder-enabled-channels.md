@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61217265"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
@@ -218,12 +218,12 @@ Tenha em atenção que se precisar de configurações predefinidas personalizada
 
 | BitRate | Largura | Altura | MaxFPS | Perfil | Nome do Stream de saída |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Elevado |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Elevado |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Elevado |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Elevado |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Elevado |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Elevado |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Stream de áudio de saída
 

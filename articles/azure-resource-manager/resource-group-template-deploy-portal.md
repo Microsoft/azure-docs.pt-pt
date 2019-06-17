@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60520577"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
@@ -64,7 +64,7 @@ Depois de criar um grupo de recursos, pode implementar recursos para o mesmo do 
 
    Em alternativa, pode optar por criar um grupo de recursos durante a implantação de seus recursos. Selecione **criar novo** e dê um nome ao grupo de recursos.
 
-   ![Criar um novo grupo de recursos](./media/resource-group-template-deploy-portal/select-new-group.png)
+   ![Criar novo grupo de recursos](./media/resource-group-template-deploy-portal/select-new-group.png)
 
 1. Início da sua implantação. A implementação pode demorar alguns minutos. Quando a implementação estiver concluída, verá uma notificação.
 

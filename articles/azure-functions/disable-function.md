@@ -3,33 +3,29 @@ title: Como desativar funções nas funções do Azure
 description: Saiba como desativar e ativar as funções nas funções do Azure 1.x e 2.x.
 services: functions
 documentationcenter: ''
-author: tdykstra
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-origin.date: 07/24/2018
-ms.date: 08/31/2018
-ms.author: v-junlch
+author: ggailey777
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 07/24/2018
+ms.author: glenga
 ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60710580"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desativar funções nas funções do Azure
 
 Este artigo explica como desativar uma função nas funções do Azure. Para *desativar* significa que uma função tornar o tempo de execução ignorar o acionador automática que está definido para a função. Fazemos isso depende da versão de runtime e a linguagem de programação:
 
-- Funções 1.x
-  - Linguagens de script
-  - Bibliotecas de classes do c#
-- Funções 2.x
-  - Uma forma para todos os idiomas
-  - Forma opcional para bibliotecas de classes do c#
+* Funções 1.x
+  * Linguagens de script
+  * Bibliotecas de classes do c#
+* Funções 2.x
+  * Uma forma para todos os idiomas
+  * Forma opcional para bibliotecas de classes do c#
 
 ## <a name="functions-1x---scripting-languages"></a>As funções 1.x - linguagens de script
 
@@ -62,7 +58,7 @@ No segundo exemplo, a função é desativada quando existe uma definição de ap
 
 Pode editar o ficheiro no portal do Azure ou utilize o **estado de função** mudar a função **gerir** separador. O comutador portal funciona, alterando a *Function* ficheiro.
 
-![Comutador de estado de função](./media/disable-function/function-state-switch.png)
+![Comutador de estado de função](media/disable-function/function-state-switch.png)
 
 ## <a name="functions-1x---c-class-libraries"></a>As funções 1.x - bibliotecas de classes do c#
 
@@ -113,7 +109,7 @@ Este método permite-lhe ativar e desativar a função ao alterar a definição 
 
 Nas funções 2.x desativar uma função utilizando uma definição de aplicação. Por exemplo, para desativar uma função chamada `QueueTrigger`, cria uma definição de aplicação com o nome `AzureWebJobs.QueueTrigger.Disabled`e defina-o como `true`. Para ativar a função, definir a definição de aplicação `false`. Também pode utilizar o **estado de função** mudar a função **gerir** separador. O comutador funciona através da criação e a eliminar o `AzureWebJobs.<functionname>.Disabled` definição de aplicação.
 
-![Comutador de estado de função](./media/disable-function/function-state-switch.png)
+![Comutador de estado de função](media/disable-function/function-state-switch.png)
 
 ## <a name="functions-2x---c-class-libraries"></a>As funções 2.x - bibliotecas de classes do c#
 
@@ -122,4 +118,3 @@ Uma biblioteca de classes de 2.x de funções, recomendamos que utilize o métod
 ## <a name="next-steps"></a>Passos Seguintes
 
 Este artigo é sobre desabilitando disparadores automática. Para obter mais informações sobre os acionadores, veja [Acionadores e enlaces](functions-triggers-bindings.md).
-

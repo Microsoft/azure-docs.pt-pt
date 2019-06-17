@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64707823"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar tarefas do Apache Spark em execução no Azure HDInsight
@@ -24,7 +24,7 @@ Tem de ter o seguinte:
 
 * Uma subscrição do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Deve iniciar a executar o bloco de notas  **[Machine learning: Análise Preditiva em dados de inspeção de comida usando MLLib](apache-spark-machine-learning-mllib-ipython.md)**. Para obter instruções sobre como executar este bloco de notas, siga a ligação.  
+* Deve iniciar a executar o bloco de notas  **[Machine learning: Análise Preditiva em dados de inspeção de comida usando MLLib](apache-spark-machine-learning-mllib-ipython.md)** . Para obter instruções sobre como executar este bloco de notas, siga a ligação.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>Monitorizar uma aplicação na IU do YARN
 1. Inicie a IU do YARN. Clique em **Yarn** sob **dashboards de clusters**.

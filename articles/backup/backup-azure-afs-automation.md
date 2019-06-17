@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
 ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204188"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Criar cópias de segurança e restaurar ficheiros do Azure com o PowerShell
@@ -89,7 +89,7 @@ Configure o PowerShell da seguinte forma:
 
 
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 Siga estes passos para criar um cofre dos serviços de recuperação.
 

@@ -11,10 +11,10 @@ ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236447"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Cargas de trabalho de cópia de segurança do Azure
@@ -48,8 +48,8 @@ Os alertas são principalmente cenários onde os utilizadores são avisados para
 ### <a name="alert-scenarios"></a>Cenários de alerta
 Os cenários seguintes são definidos pelo serviço como cenários de alerta.
 
-  - Falhas de cópia de segurança/restauro
-  - Cópia de segurança foi concluída com êxito com avisos para agente do Azure Backup (MAB)
+  - Falhas de Cópia de Segurança/Restauro
+  - Cópia de segurança concluída com êxito com avisos para o Agente do Azure Backup (MAB)
   - Pare a proteção com reter dados/pare a proteção com eliminação de dados
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando não for gerado um alerta
@@ -63,9 +63,9 @@ As exceções acima sejam criadas, desde a compreensão que o resultado destas o
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Os alertas de soluções de cópia de segurança do Azure seguintes são mostrados aqui:
 
-  - Cópias de segurança VM do Azure
-  - Cópias de segurança de ficheiros do Azure
-  - Cópias de segurança de cargas de trabalho do Azure, como o SQL
+  - Cópias de segurança de VMs do Azure
+  - Cópias de segurança dos Ficheiros do Azure
+  - Cópias de segurança das cargas de trabalho do Azure, como o SQL
   - Agente do Azure Backup (MAB)
 
 > [!NOTE]

@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60691006"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Começar com o conector do Informix
@@ -44,7 +44,7 @@ Este conector suporta as seguintes ações de aplicação lógica:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Listar as tabelas
+## <a name="list-tables"></a>Lista de tabelas
 Criar uma aplicação lógica para qualquer operação é composto por várias etapas realizadas através do portal do Microsoft Azure.
 
 Na sua aplicação lógica, pode adicionar uma ação para tabelas de lista numa base de dados Informix. Esta ação instrui o conector para processar uma instrução de esquema do Informix, tais como `CALL SYSIBM.SQLTABLES`.
@@ -58,7 +58,7 @@ Na sua aplicação lógica, pode adicionar uma ação para tabelas de lista numa
 2. Na **acionadores** lista, selecione **periodicidade**. 
 3. Na **periodicidade** acionador, selecione **editar**, selecione **frequência** pendente para selecionar **dia**e, em seguida, selecione  **Intervalo** digitar **7**.  
 4. Selecione o **+ novo passo** caixa e, em seguida, selecione **adicionar uma ação**.
-5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - Get tabelas (pré-visualização)**.
+5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - Get tabelas (pré-visualização)** .
    
    ![](./media/connectors-create-api-informix/InformixconnectorActions.png)  
 6. Na **Informix - tabelas de Get** painel de configuração, selecione **caixa de verificação** para ativar **ligar através do gateway de dados no local**. Tenha em atenção que as definições de alterar de cloud para o local.
@@ -82,10 +82,10 @@ Este conector suporta ligações de base de dados no local e na cloud utilizando
 
 | Propriedade | Descrição |
 | --- | --- |
-| servidor |Necessário. Aceita um valor de cadeia de caracteres que representa um endereço de TCP/IP ou o alias, no formato IPv4 ou IPv6, seguido (vírgula delimitada por) por um número de porta de TCP/IP. |
-| base de dados |Necessário. Aceita um valor de cadeia de caracteres que representa um nome DRDA da base de dados relacional (RDBNAM). Informix aceita uma cadeia de caracteres de 128 bytes (a base de dados é conhecido como um nome de base de dados IBM Informix (dbname)). |
+| server |Necessário. Aceita um valor de cadeia de caracteres que representa um endereço de TCP/IP ou o alias, no formato IPv4 ou IPv6, seguido (vírgula delimitada por) por um número de porta de TCP/IP. |
+| database |Necessário. Aceita um valor de cadeia de caracteres que representa um nome DRDA da base de dados relacional (RDBNAM). Informix aceita uma cadeia de caracteres de 128 bytes (a base de dados é conhecido como um nome de base de dados IBM Informix (dbname)). |
 | autenticação |Opcional. Aceita um valor de item de lista, Basic ou o Windows (kerberos). |
-| o nome de utilizador |Necessário. Aceita um valor de cadeia de caracteres. |
+| username |Necessário. Aceita um valor de cadeia de caracteres. |
 | password |Necessário. Aceita um valor de cadeia de caracteres. |
 | gateway |Necessário. Aceita um valor de item de lista, que representa o gateway de dados no local definido para aplicações lógicas dentro do grupo de armazenamento. |
 
@@ -128,7 +128,7 @@ Pode criar uma ação da aplicação lógica para obter todas as linhas na tabel
 2. Na **acionadores** lista, selecione **periodicidade**. 
 3. Na **periodicidade** acionador, selecione **editar**, selecione **frequência** pendente para selecionar **dia**e, em seguida, selecione  **Intervalo** digitar **7**. 
 4. Selecione o **+ novo passo** caixa e, em seguida, selecione **adicionar uma ação**.
-5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - obter linhas (pré-visualização)**.
+5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - obter linhas (pré-visualização)** .
 6. Na **obter linhas (pré-visualização)** ação, selecione **Alterar ligação**.
 7. Na **conexões** painel de configuração, selecione **criar nova**. 
    
@@ -165,7 +165,7 @@ Pode criar uma ação da aplicação lógica para adicionar uma linha numa tabel
 2. Na **acionadores** lista, selecione **periodicidade**. 
 3. Na **periodicidade** acionador, selecione **editar**, selecione **frequência** pendente para selecionar **dia**e, em seguida, selecione  **Intervalo** digitar **7**. 
 4. Selecione o **+ novo passo** caixa e, em seguida, selecione **adicionar uma ação**.
-5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - Inserir linha (pré-visualização)**.
+5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - Inserir linha (pré-visualização)** .
 6. Na **obter linhas (pré-visualização)** ação, selecione **Alterar ligação**. 
 7. Na **ligações** painel de configuração, selecione para selecionar uma ligação. Por exemplo, seleccione **hisdemo2**.
    
@@ -192,7 +192,7 @@ Pode criar uma ação da aplicação lógica para obter uma linha numa tabela do
 2. Na **acionadores** lista, selecione **periodicidade**. 
 3. Na **periodicidade** acionador, selecione **editar**, selecione **frequência** pendente para selecionar **dia**e, em seguida, selecione  **Intervalo** digitar **7**. 
 4. Selecione o **+ novo passo** caixa e, em seguida, selecione **adicionar uma ação**.
-5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - obter linhas (pré-visualização)**.
+5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - obter linhas (pré-visualização)** .
 6. Na **obter linhas (pré-visualização)** ação, selecione **Alterar ligação**. 
 7. Na **ligações** painel de configurações, selecione para selecionar uma ligação existente. Por exemplo, seleccione **hisdemo2**.
    
@@ -220,7 +220,7 @@ Pode criar uma ação da aplicação lógica para alterar uma linha numa tabela 
 2. Na **acionadores** lista, selecione **periodicidade**. 
 3. Na **periodicidade** acionador, selecione **editar**, selecione **frequência** pendente para selecionar **dia**e, em seguida, selecione  **Intervalo** digitar **7**. 
 4. Selecione o **+ novo passo** caixa e, em seguida, selecione **adicionar uma ação**.
-5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - atualizar linha (pré-visualização)**.
+5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - atualizar linha (pré-visualização)** .
 6. Na **obter linhas (pré-visualização)** ação, selecione **Alterar ligação**. 
 7. Na **ligações** painel de configurações, selecione para selecionar uma ligação existente. Por exemplo, seleccione **hisdemo2**.
    
@@ -247,7 +247,7 @@ Pode criar uma ação da aplicação lógica para remover uma linha numa tabela 
 2. Na **acionadores** lista, selecione **periodicidade**. 
 3. Na **periodicidade** acionador, selecione **editar**, selecione **frequência** pendente para selecionar **dia**e, em seguida, selecione  **Intervalo** digitar **7**. 
 4. Selecione o **+ novo passo** caixa e, em seguida, selecione **adicionar uma ação**.
-5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - Eliminar linha (pré-visualização)**.
+5. Na **ações** lista, escreva **informix** no **procurar mais ações** caixa de edição e, em seguida, selecione **Informix - Eliminar linha (pré-visualização)** .
 6. Na **obter linhas (pré-visualização)** ação, selecione **Alterar ligação**. 
 7. Na **ligações** painel de configurações, selecione uma ligação existente. Por exemplo, seleccione **hisdemo2**.
    

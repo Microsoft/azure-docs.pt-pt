@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 01729971169011002fa4231f043f82f105f81cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3919243569035be41293ddc97c76a9f964cda7cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64688508"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma ligação de VPN de site a site do Azure não é possível ligar e deixa de funcionar
 
@@ -73,16 +73,16 @@ Para o modelo de implementação clássica:
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>Passo 3. Verifique se o elemento de rede VPN IPs
+### <a name="step-3-verify-the-vpn-peer-ips"></a>Passo 3: Verifique se o elemento de rede VPN IPs
 
 -   A definição de IP na **Gateway de rede Local** objeto no Azure deve corresponder o IP do dispositivo no local.
 -   A definição de IP do gateway do Azure que é definida no dispositivo no local deve corresponder o IP de gateway do Azure.
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Passo 4. Verifique o UDR e NSGs na sub-rede de gateway
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Passo 4: Verifique o UDR e NSGs na sub-rede de gateway
 
 Verificar e remover o encaminhamento definido pelo utilizador (UDR) ou grupos de segurança de rede (NSGs) na sub-rede de gateway e, em seguida, o resultado do teste. Se o problema for resolvido, Valide as definições que o UDR ou o NSG aplicado.
 
-### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Passo 5. Verifique o endereço de interface externa do dispositivo VPN no local
+### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Passo 5: Verifique o endereço de interface externa do dispositivo VPN no local
 
 - Se o endereço IP de acesso à Internet do dispositivo VPN está incluído nos **rede Local** definição no Azure, poderão ocorrer interrupções de ligação esporádicos.
 - Interface externa do dispositivo tem de ser diretamente na Internet. Não deve haver tradução de endereços de rede ou firewall entre a Internet e o dispositivo.
@@ -102,7 +102,10 @@ Verificar e remover o encaminhamento definido pelo utilizador (UDR) ou grupos de
 2. Clique no aviso de certificado.
 3. Se receber uma resposta, o gateway de VPN é considerado em bom estado. Se não receber uma resposta, o gateway não pode ser bom estado de funcionamento ou um NSG da sub-rede de gateway está a causar o problema. O texto seguinte é uma resposta de exemplo:
 
-    &lt;? versão xml = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">instância principal: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6 < / a cadeia de caracteres&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>Passo 8. Verifique se o dispositivo VPN no local tem a funcionalidade de secrecy encaminhamento perfeito ativada
 

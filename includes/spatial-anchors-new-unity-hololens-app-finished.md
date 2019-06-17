@@ -6,12 +6,12 @@ ms.date: 05/14/2019
 ms.topic: include
 ms.author: pmorgan
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 06b4d6440bb3703ea62556d82152315630438376
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 3eee0b304f36847677167ada275451c4be9e9885
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969476"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135293"
 ---
 ## <a name="putting-everything-together"></a>Colocando tudo junto
 
@@ -398,4 +398,4 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 Neste tutorial, já saiba mais sobre como utilizar o Azure âncoras geográficos numa nova aplicação Unity HoloLens. Para saber mais sobre como utilizar as âncoras espaciais do Azure numa nova aplicação Android, avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [A partir de uma nova aplicação Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app.md)
+> [A partir de uma nova aplicação Android](/azure/spatial-anchors/tutorials/tutorial-new-android-app)

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799072"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
@@ -40,15 +40,15 @@ Este artigo examina o conteúdo JSON devolvido pelos **índice de vídeo de intr
 |name|Nome da lista de reprodução.|
 |description|Descrição da lista de reprodução.|
 |userName|O nome de utilizador que criou a lista de reprodução.|
-|criado|Hora de criação da lista de reprodução.|
+|Criado|Hora de criação da lista de reprodução.|
 |privacyMode|Modo de privacidade para a lista de reprodução (público/privado).|
-|estado|A lista de reprodução (carregado, processamento, processados, com falhas, em quarentena).|
+|state|A lista de reprodução (carregado, processamento, processados, com falhas, em quarentena).|
 |isOwned|Indica se a lista de reprodução foi criada pelo utilizador atual.|
 |isEditable|Indica se o utilizador atual tem autorização para editar a lista de reprodução.|
 |isBase|Indica se a lista de reprodução é uma lista de reprodução base (um vídeo) ou uma lista de reprodução é constituído por outros vídeos (derivados).|
 |durationInSeconds|A duração total da lista de reprodução.|
 |summarizedInsights|Contém um [summarizedInsights](#summarizedinsights).
-|vídeos|Uma lista de [vídeos](#videos) construir a lista de reprodução.<br/>Se esta lista de reprodução de construído de intervalos de tempo de outros vídeos (derivados), os vídeos nesta lista irá conter apenas os dados dos intervalos de tempo incluídos.|
+|Vídeos|Uma lista de [vídeos](#videos) construir a lista de reprodução.<br/>Se esta lista de reprodução de construído de intervalos de tempo de outros vídeos (derivados), os vídeos nesta lista irá conter apenas os dados dos intervalos de tempo incluídos.|
 
 ```json
 {
@@ -78,7 +78,7 @@ Esta secção mostra o resumo das informações.
 |name|O nome do vídeo. Por exemplo, o Azure Monitor.|
 |id|O ID do vídeo. Por exemplo, 63c6d532ff.|
 |privacyMode|Sua divisão pode ter um dos seguintes modos: **Privada**, **pública**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
-|duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
+|Duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
 |thumbnailVideoId|O ID do vídeo a partir do qual foi tirada a miniatura.
 |thumbnailId|ID de miniatura do vídeo. Para obter a miniatura real, chame [Get-miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
 |faces|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
@@ -91,14 +91,14 @@ Esta secção mostra o resumo das informações.
 |emoções| Pode conter zero ou mais emoções. Para obter mais informações, consulte [emoções](#emotions).|
 |Tópicos|Pode conter zero ou mais tópicos. O [tópicos](#topics) dimensão.|
 
-## <a name="videos"></a>vídeos
+## <a name="videos"></a>Vídeos
 
 |Name|Descrição|
 |---|---|
 |accountId|VI o vídeo conta ID.|
 |id|ID do vídeo|
 |name|Nome do vídeo.
-|estado|Estado do vídeo (carregado, processamento, processados, com falhas, em quarentena).|
+|state|Estado do vídeo (carregado, processamento, processados, com falhas, em quarentena).|
 |processingProgress|O progresso do processamento durante o processamento (por exemplo, 20%).|
 |failureCode|O código de falha se processou (por exemplo, "UnsupportedFileType').|
 |failureMessage|A mensagem de falha se não foi possível processar.|
@@ -106,7 +106,7 @@ Esta secção mostra o resumo das informações.
 |externalUrl|Url externo o vídeo (se especificado pelo utilizador).|
 |do IdP|Os metadados do vídeo externo (se especificado pelo utilizador).|
 |isAdult|Indica se o vídeo foi revisado e identificado como um vídeo para adultos manualmente.|
-|informações|O objeto de informações. Para obter mais informações, consulte [insights](#insights).|
+|Insights|O objeto de informações. Para obter mais informações, consulte [insights](#insights).|
 |thumbnailId|ID de miniatura do vídeo. Para obter a chamada real de miniatura [Get-miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e transmita-o ID de vídeo e thumbnailId.|
 |publishedUrl|Um url para transmitir o vídeo.|
 |publishedUrlProxy|Um url para transmitir o vídeo de (para dispositivos da Apple).|
@@ -143,7 +143,7 @@ Esta secção mostra o resumo das informações.
     }],
 }
 ```
-### <a name="insights"></a>informações
+### <a name="insights"></a>Insights
 
 As informações são um conjunto de dimensões (por exemplo, linhas de transcrição, rostos, marcas, etc.), onde cada dimensão é uma lista de elementos exclusivos (por exemplo, face1, face2, face3), e cada elemento tem seus próprios metadados e uma lista das suas instâncias (que são os intervalos de tempo com opcional metadados adicionais).
 
@@ -312,7 +312,7 @@ Exemplo:
 |knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
 |referenceId|Se for uma celebridade do Bing, o ID do Bing.|
 |referenceType|Atualmente, apenas Bing.|
-|título|Se for uma celebridade, seu título (por exemplo "CEO da Microsoft").|
+|title|Se for uma celebridade, seu título (por exemplo "CEO da Microsoft").|
 |imageUrl|Se for uma celebridade, o seu url da imagem.|
 |instâncias|Estes são instâncias de onde o mostrador apareceu no intervalo de tempo especificado. Cada instância tem também um thumbnailsId. |
 
@@ -561,7 +561,7 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 |Name|Descrição|
 |---|---|
 |id|O ID do efeito de áudio.|
-|tipo|O tipo de efeito de áudio (por exemplo, Clapping, conversão de voz, silêncio).|
+|type|O tipo de efeito de áudio (por exemplo, Clapping, conversão de voz, silêncio).|
 |instâncias|Uma lista de intervalos de tempo em que esse efeito de áudio apareceu.|
 
 ```json
@@ -675,7 +675,7 @@ O Video Indexer identifica emoções com base nas ajudas de voz e áudio. As emo
 |Name|Descrição|
 |---|---|
 |id|O ID de emoções.|
-|tipo|O momento de emoções que foi identificado com base em conversão de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.|
+|type|O momento de emoções que foi identificado com base em conversão de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.|
 |instâncias|Uma lista de intervalos de tempo em que este emoções apareceram.|
 
 ```json

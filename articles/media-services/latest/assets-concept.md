@@ -13,13 +13,13 @@ ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65551766"
 ---
-# <a name="assets"></a>Recursos
+# <a name="assets"></a>Elementos
 
 Nos serviços de multimédia do Azure, um [Asset](https://docs.microsoft.com/rest/api/media/assets) contém informações sobre ficheiros digitais são armazenados no armazenamento do Azure (incluindo o vídeo, áudio, imagens, coleções de miniaturas, pistas de texto e ficheiros de legendagem de áudio). 
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
 ms.openlocfilehash: 21c49ad0d73721dd204a7a3899d11cf10d43521b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942084"
 ---
 # <a name="managing-users-on-the-cloud-partner-portal"></a>Gestão de utilizadores no Portal de parceiros de nuvem
@@ -40,7 +40,7 @@ Utilize os seguintes passos para adicionar utilizadores e atribuir funções par
     - Adicionar um "grupo da equipa/e-mail alias/grupo de segurança" para proteger contra o indivíduo abandonar a organização.
     - Certifique-se esse e-mail IDs fornecidos no Portal do parceiro de Cloud são monitorizados para qualquer comunicação da Microsoft.
     
-    ![Atribuir Função](./media/assignrole.png)
+    ![Atribuir função](./media/assignrole.png)
 
     **Função**: Consulte a tabela abaixo para identificar o tipo de função de utilizador adequada.
 

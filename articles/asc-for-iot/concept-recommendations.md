@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 122a1585abf43d1aedc7f329cd7e41a6228f8c3e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200676"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
@@ -37,7 +37,7 @@ Recomendações de dispositivos fornecem informações e sugestões para melhora
 
 | Gravidade | Name                                                      | Origem de Dados | Descrição                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Médio   | Portas abertas no dispositivo                                      | Agente       | Foi encontrado um ponto final de escuta no dispositivo                                                                                                                                                          |
+| Médio   | Portas abertas no dispositivo                                      | Agente       | Um ponto de final de escuta foi encontrado no dispositivo                                                                                                                                                          |
 | Médio   | Política de firewall permissiva encontrada das cadeias. | Agente       | Permitido a política de firewall foi encontrada (entrada/saída). Política de firewall deve negar todo o tráfego por predefinição e definem regras para permitir a comunicação necessária de/para o dispositivo.                               |
 | Médio   | Foi encontrada a regra de firewall permissiva na cadeia de entrada     | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma vasta gama de endereços IP ou as portas.                                                                                    |
 | Médio   | Foi encontrada a regra de firewall permissiva na cadeia de saída    | Agente       | Foi encontrada uma regra de firewall que contém um padrão de permissivo para uma vasta gama de endereços IP ou as portas.                                                                                   |
@@ -60,8 +60,8 @@ Os alertas de recomendação fornecem informações e sugestões para ações me
 
 | Gravidade | Name                                                     | Origem de Dados | Descrição                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Elevado     | Credenciais de autenticação idênticos utilizadas por vários dispositivos | IoT Hub     | Credenciais de autenticação do IoT Hub são utilizadas por vários dispositivos. Isto pode indicar um dispositivo ilegítimo representando um dispositivo legítimo. Utilização da credencial duplicados aumenta o risco de representação do dispositivo por um ator malicioso. |
+| Alta     | Credenciais de autenticação idênticos utilizadas por vários dispositivos | IoT Hub     | Credenciais de autenticação do IoT Hub são utilizadas por vários dispositivos. Isto pode indicar um dispositivo ilegítimo representando um dispositivo legítimo. Utilização da credencial duplicados aumenta o risco de representação do dispositivo por um ator malicioso. |
 | Médio   | Política de filtro IP predefinido deve ser negar                  | IoT Hub     | Configuração de filtro IP deve ter regras definidas para o tráfego permitido e deve por predefinição, negam o tráfego de todos os outros por predefinição.                                                                                                     |
 | Médio   | Regra de filtro de IP inclui grande intervalo IP                   | IoT Hub     | Um intervalo IP de origem de regra do permitir IP filtro é demasiado grande. Regras demasiado permissivas podem expor o seu hub IoT para atores maliciosos.                                                                                       |
-| Baixa      | Ativar os registos de diagnóstico no Hub IoT                       | IoT Hub     | Ativar os registos e mantenha-os para até um ano. Manter logs permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida.                                       |
+| Baixa      | Ativar registos de diagnóstico do IoT Hub                       | IoT Hub     | Ativar os registos e mantenha-os para até um ano. Manter logs permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida.                                       |
 |

@@ -13,10 +13,10 @@ ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61417588"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendações de desempenho para a base de dados SQL
@@ -77,9 +77,9 @@ Depois de aplicar esta recomendação, permite que a parametrização forçada d
 
 A recomendação "Corrigir o problema de esquema" é apresentada quando o serviço de base de dados do Azure SQL avisos uma anomalia no número de erros do SQL relacionadas com o esquema que estavam a acontecer na sua base de dados SQL. A tabela seguinte mostra os erros relacionados com problemas de esquema:
 
-| Código de erro SQL | Mensagem |
+| Código de erro SQL | Message |
 | --- | --- |
-| 201 |Procedimento ou função '*'espera o parâmetro'*', que não foi fornecido. |
+| 201 |Procedimento ou função ' *'espera o parâmetro'* ', que não foi fornecido. |
 | 207 |Nome de coluna inválido ' *'. |
 | 208 |Nome de objeto inválido ' *'. |
 | 213 |Nome de coluna ou o número de valores fornecidos não corresponde a definição da tabela. |

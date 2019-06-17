@@ -8,10 +8,10 @@ ms.topic: conceptional
 ms.date: 04/22/2019
 ms.author: alzam
 ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65509896"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configure alertas em métricas de Gateway de VPN
@@ -27,10 +27,10 @@ Este artigo ajuda-o a configurar alertas em métricas de Gateway de VPN do Azure
 |**TunnelAverageBandwidth** | Bytes/s    | 5 minutos  | Média de utilização de largura de banda de túneis criada no gateway. |
 |**TunnelEgressBytes** | Bytes | 5 minutos | Tráfego de saída em túneis criada no gateway.   |
 |**TunnelEgressPackets** | Count | 5 minutos | Contagem de pacotes de saída em túneis criadas no gateway.   |
-|**TunnelEgressPacketDropTSMismatch** | Count | 5 minutos | Contagem de pacotes de saída ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
+|**TunnelEgressPacketDropTSMismatch** | Contagem | 5 minutos | Contagem de pacotes de saída ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
 |**TunnelIngressBytes** | Bytes | 5 minutos | Tráfego de entrada em túneis criada no gateway.   |
-|**TunnelIngressPackets** | Count | 5 minutos | Contagem de pacotes de entrada em túneis criadas no gateway.   |
-|**TunnelIngressPacketDropTSMismatch** | Count | 5 minutos | Contagem de pacotes de entrada ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
+|**TunnelIngressPackets** | Contagem | 5 minutos | Contagem de pacotes de entrada em túneis criadas no gateway.   |
+|**TunnelIngressPacketDropTSMismatch** | Contagem | 5 minutos | Contagem de pacotes de entrada ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
 
 
 ## <a name="setup"></a>Configurar alertas do Azure Monitor com base nas métricas ao utilizar o portal do Azure
@@ -40,7 +40,7 @@ Os seguintes passos de exemplo irão criar um alerta num gateway para:
 - **Métrica:** TunnelAverageBandwidth
 - **Condição:** Largura de banda > 10 bytes / segundo
 - **Janela:** 5 minutos
-- **Ação do alerta:** Correio Electrónico
+- **Ação do alerta:** Email
 
 
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60195326"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
@@ -54,7 +54,7 @@ Observe que embora funções são atribuídas para gestão de conta, algumas fun
 | Funções | Gestão de direitos | Direitos de acesso de dados | Explicação |
 | --- | --- | --- | --- |
 | Nenhuma função atribuída |Nenhuma |Regidos por ACL |O utilizador não é possível utilizar o portal do Azure ou cmdlets do Azure PowerShell para procurar a geração 1 de armazenamento do Data Lake. O utilizador pode utilizar apenas as ferramentas da linha de comandos. |
-| Proprietário |Todos |Todos |A função de proprietário é um Superutilizador. Esta função pode gerir tudo e tem acesso total aos dados. |
+| Owner |Todos |Todos |A função de proprietário é um Superutilizador. Esta função pode gerir tudo e tem acesso total aos dados. |
 | Leitor |Só de leitura |Regidos por ACL |A função de leitor pode ver tudo sobre a gestão de conta, por exemplo, o que é atribuída a que função do utilizador. A função de leitor não pode efetuar quaisquer alterações. |
 | Contribuinte |Tudo, exceto adicionar e remover funções |Regidos por ACL |A função Contribuidor pode gerir alguns aspectos de uma conta, por exemplo, implementações e a criação e a gestão de alertas. A função Contribuidor não é possível adicionar ou remover funções. |
 | Administrador de Acesso de Utilizador |Adicionar e remover funções |Regidos por ACL |A função de administrador de acesso de utilizador pode gerir o acesso de utilizador para as contas. |
@@ -97,7 +97,7 @@ Para registos de auditoria da gestão de conta, ver e escolha as colunas que pre
 
 Para obter mais informações sobre como trabalhar com registos de atividades, consulte [ver registos de atividades para auditar as ações em recursos](../azure-resource-manager/resource-group-audit.md).
 
-### <a name="diagnostics-logs"></a>Registos de diagnósticos
+### <a name="diagnostics-logs"></a>Registos de diagnóstico
 Pode ativar a auditoria de acesso de dados e log de diagnóstico no portal do Azure e enviar os registos para uma conta de armazenamento de Blobs do Azure, um hub de eventos ou os registos do Azure Monitor.
 
 ![Os registos de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "os registos de diagnóstico")

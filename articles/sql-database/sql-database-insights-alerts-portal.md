@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
 ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61036062"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Criar alertas para o Azure SQL Database e o armazém de dados com o portal do Azure
@@ -55,7 +55,7 @@ Pode configurar e obtenha informações sobre como utilizar as regras de alerta
 
 3. Selecione o **Adicionar alerta de métrica (clássico)** botão e preencha os campos.
    
-    ![Adicionar Alerta](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![Adicionar alerta](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Nome** seu alerta da regra e escolha uma **Descrição**, que mostra também nos e-mails de notificação.
 5. Selecione o **métrica** que pretende monitorizar, em seguida, escolha um **condição** e **limiar** valor para a métrica. Escolha também os **período** de tempo que a regra de métrica deve ser satisfeita antes dos acionadores de alerta. Por exemplo, se usar o período de "PT5M" e o alerta procura por CPU superior a 80%, o alerta for acionado quando o **média** CPU já esteve acima de 80% durante 5 minutos. Depois de ocorre o primeiro acionador, novamente aciona quando a CPU média é inferior a 80% mais de 5 minutos. A medição de CPU ocorre a cada 1 minuto. Consulte a tabela abaixo para janelas de tempo suportado e a agregação escreva cada alertar a utilizações e não todos os alertas, use o valor médio.   
 6. Verificar **os proprietários de E-Mail...**  se pretender que os administradores e coadministradores, para ser enviado por e-mail quando o alerta é acionado.
@@ -75,17 +75,17 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 
 ## <a name="sql-database-alert-values"></a>Valores de alerta de base de dados SQL
 
-| Tipo de Recurso | Nome da Métrica | Nome Amigável | Tipo de Agregação | Janela de tempo mínimo de alerta|
+| Tipo de Recurso | Nome da Métrica | Nome amigável | Tipo de Agregação | Janela de tempo mínimo de alerta|
 | --- | --- | --- | --- | --- |
 | Base de dados SQL | cpu_percent | Percentagem de CPU | Média | 5 minutos |
 | Base de dados SQL | physical_data_read_percent | Percentagem de ES de Dados | Média | 5 minutos |
-| Base de dados SQL | log_write_percent | Percentagem de E/S de Registo | Média | 5 minutos |
+| Base de dados SQL | log_write_percent | Percentagem de e/s de registo | Média | 5 minutos |
 | Base de dados SQL | dtu_consumption_percent | Percentagem de DTU | Média | 5 minutos |
 | Base de dados SQL | armazenamento | Tamanho total da base de dados | Máximo | 30 minutos |
 | Base de dados SQL | connection_successful | Ligações com êxito | Total | 10 minutos |
 | Base de dados SQL | connection_failed | Ligações com Falhas | Total | 10 minutos |
 | Base de dados SQL | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |
-| Base de dados SQL | Deadlock | Impasses | Total | 10 minutos |
+| Base de dados SQL | Deadlock | Deadlocks | Total | 10 minutos |
 | Base de dados SQL | storage_percent | Percentagem de tamanho da Base de Dados | Máximo | 30 minutos |
 | Base de dados SQL | xtp_storage_percent | Percent(Preview) de armazenamento OLTP dentro da memória | Média | 5 minutos |
 | Base de dados SQL | workers_percent | Percentagem de funções de trabalho | Média | 5 minutos |
@@ -95,7 +95,7 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 ||||||
 | Conjunto elástico | cpu_percent | Percentagem de CPU | Média | 10 minutos |
 | Conjunto elástico | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
-| Conjunto elástico | log_write_percent | Percentagem de E/S de Registo | Média | 10 minutos |
+| Conjunto elástico | log_write_percent | Percentagem de e/s de registo | Média | 10 minutos |
 | Conjunto elástico | dtu_consumption_percent | Percentagem de DTU | Média | 10 minutos |
 | Conjunto elástico | storage_percent | Percentagem de armazenamento | Média | 10 minutos |
 | Conjunto elástico | workers_percent | Percentagem de funções de trabalho | Média | 10 minutos |
@@ -104,15 +104,15 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 | Conjunto elástico | eDTU_used | eDTU utilizado | Média | 10 minutos |
 | Conjunto elástico | storage_used | Armazenamento utilizado | Média | 10 minutos |
 ||||||               
-| SQL data warehouse | cpu_percent | Percentagem de CPU | Média | 10 minutos |
-| SQL data warehouse | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
-| SQL data warehouse | connection_successful | Ligações com êxito | Total | 10 minutos |
-| SQL data warehouse | connection_failed | Ligações com Falhas | Total | 10 minutos |
-| SQL data warehouse | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |
-| SQL data warehouse | service_level_objective | Escalão de serviço da base de dados | Total | 10 minutos |
-| SQL data warehouse | dwu_limit | limite de dwu | Máximo | 10 minutos |
-| SQL data warehouse | dwu_consumption_percent | Percentagem DWU | Média | 10 minutos |
-| SQL data warehouse | dwu_used | DWU utilizado | Média | 10 minutos |
+| O SQL data warehouse | cpu_percent | Percentagem de CPU | Média | 10 minutos |
+| O SQL data warehouse | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
+| O SQL data warehouse | connection_successful | Ligações com êxito | Total | 10 minutos |
+| O SQL data warehouse | connection_failed | Ligações com Falhas | Total | 10 minutos |
+| O SQL data warehouse | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |
+| O SQL data warehouse | service_level_objective | Escalão de serviço da base de dados | Total | 10 minutos |
+| O SQL data warehouse | dwu_limit | limite de dwu | Máximo | 10 minutos |
+| O SQL data warehouse | dwu_consumption_percent | Percentagem DWU | Média | 10 minutos |
+| O SQL data warehouse | dwu_used | DWU utilizado | Média | 10 minutos |
 ||||||
 
 

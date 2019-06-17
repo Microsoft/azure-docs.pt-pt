@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60811613"
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação para U-SQL
@@ -1067,11 +1067,11 @@ UDO é normalmente chamada explicitamente no script de U-SQL como parte das decl
 ## <a name="use-user-defined-extractors"></a>Utilizar extractors definidas pelo utilizador
 U-SQL permite-lhe importar dados externos através de uma instrução de EXTRAÇÃO. Uma instrução de EXTRAÇÃO pode utilizar extratores UDO incorporadas:  
 
-* *Extractors.Text()*: Fornece a extração dos ficheiros de texto delimitado de codificações diferentes.
+* *Extractors.Text()* : Fornece a extração dos ficheiros de texto delimitado de codificações diferentes.
 
-* *Extractors.Csv()*: Fornece a extração de valores separados por vírgulas ficheiros (CSV) de codificações diferentes.
+* *Extractors.Csv()* : Fornece a extração de valores separados por vírgulas ficheiros (CSV) de codificações diferentes.
 
-* *Extractors.Tsv()*: Fornece a extração do valor separado por tabulações (TSV) ficheiros. o das codificações diferentes.
+* *Extractors.Tsv()* : Fornece a extração do valor separado por tabulações (TSV) ficheiros. o das codificações diferentes.
 
 Pode ser útil desenvolver um extrator. Isto pode ser útil durante a importação de dados para efetuar qualquer uma das seguintes tarefas:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Utilize operadores definidos pelo utilizador
 Definido pelo utilizador outputter é outro UDO de U-SQL permite-lhe expandir a funcionalidade de U-SQL incorporada. Assim como o extrator, existem vários operadores incorporadas.
 
-* *Outputters.Text()*: Escreve dados para ficheiros de texto delimitado de codificações diferentes.
-* *Outputters.Csv()*: Escreve dados para ficheiros de valores separados por vírgulas (CSV) de codificações diferentes.
-* *Outputters.Tsv()*: Escreve dados para ficheiros de valor separado por tabulações (TSV) de codificações diferentes.
+* *Outputters.Text()* : Escreve dados para ficheiros de texto delimitado de codificações diferentes.
+* *Outputters.Csv()* : Escreve dados para ficheiros de valores separados por vírgulas (CSV) de codificações diferentes.
+* *Outputters.Tsv()* : Escreve dados para ficheiros de valor separado por tabulações (TSV) de codificações diferentes.
 
 Outputter personalizado permite-lhe escrever dados num formato personalizado definido. Isso pode ser útil para as seguintes tarefas:
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
 ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978805"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades geridas para recursos do Azure com o Service Bus 

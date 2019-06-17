@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
 ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824458"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas e limitações em serviços de multimédia do Azure v3
@@ -30,7 +30,7 @@ Este artigo descreve as quotas e limitações em serviços de multimédia do Azu
 | JobOutputs por tarefa | 20 (fixa) |
 | TransformOutputs numa transformação | 20 (fixa) |
 | Ficheiros por JobInput|10 (fixa)|
-| Tamanho do ficheiro| Em alguns cenários, existe um limite no tamanho de ficheiro máximo suportado para processamento nos serviços de multimédia. <sup>(1)</sup> |
+| Tamanho dos ficheiros| Em alguns cenários, existe um limite no tamanho de ficheiro máximo suportado para processamento nos serviços de multimédia. <sup>(1)</sup> |
 | Tarefas por conta dos Media Services | 500 000 <sup>(2)</sup> (fixa)|
 | Listar Transformações|Paginar a resposta, com 1000 Transformações por página|
 | Listar Tarefas|Paginar a resposta, com 500 Tarefas por página|

@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 861c2e86d623c46c14366f19457d1f689386a316
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577349"
 ---
 # <a name="firewall-tables-overview"></a>Descrição geral de tabelas de firewall
@@ -26,11 +26,11 @@ A tabela seguinte descreve os parâmetros numa regra de firewall.
 | Propriedade | Detalhes |
 | ---------| --------|
 | **Nome** | Um nome que identifica exclusivamente a regra de firewall e sua finalidade. |
-| **Prioridade** | Um número entre 100 e 4096, com 100 à prioridade máxima. As regras são processadas na ordem de prioridade. Quando o tráfego chega numa correspondência de regra, o processamento da regra pára. Como resultado, qualquer regra que exista com prioridades mais baixas que têm os mesmos atributos como regras com prioridades superiores não é processada.  Tenha cuidado para evitar regras em conflito. |
+| **prioridade** | Um número entre 100 e 4096, com 100 à prioridade máxima. As regras são processadas na ordem de prioridade. Quando o tráfego chega numa correspondência de regra, o processamento da regra pára. Como resultado, qualquer regra que exista com prioridades mais baixas que têm os mesmos atributos como regras com prioridades superiores não é processada.  Tenha cuidado para evitar regras em conflito. |
 | **Controlo de estado** | Controlo pode ser sem estado (nuvem privada, Internet ou VPN) ou com estado (IP público).  |
 | **Protocolo** | As opções incluem qualquer, TCP ou UDP. Se precisar deste, use qualquer. |
 | **Direção** | Indica se a regra se aplica a tráfego de entrada ou de saída. |
-| **Ação** | Permitir ou negar para o tipo de tráfego definido na regra. |
+| **ação** | Permitir ou negar para o tipo de tráfego definido na regra. |
 | **Origem** | Um endereço IP, blocos classless entre domínios de encaminhamento (CIDR) (10.0.0.0/24, por exemplo) ou qualquer um.  Especificar um intervalo, uma etiqueta de serviço ou grupo de segurança de aplicações permite-lhe criar menos regras de segurança. |
 | **Porta de origem** | Porta de rede à qual se origina o tráfego.  Pode especificar uma porta individual ou intervalo de portas, por exemplo, 443 ou 8000 8080. Especificar intervalos permite-lhe criar menos regras de segurança. |
 | **Destino** | Um endereço IP, blocos classless entre domínios de encaminhamento (CIDR) (10.0.0.0/24, por exemplo) ou qualquer um.  Especificar um intervalo, uma etiqueta de serviço ou grupo de segurança de aplicações permite-lhe criar menos regras de segurança.  |
@@ -53,7 +53,7 @@ Regras adicionais podem ser necessárias para o fluxo de tráfego na direção i
 
 Regras predefinidas seguintes são criadas em cada tabela de firewall.
 
-|Prioridade|Name|Controlo de estado|Direction|Tipo de tráfego|Protocolo|Origem|Porta de origem|Destino|Porta de destino|Ação|
+|Prioridade|Name|Controlo de estado|Direction|Tipo de tráfego|Protocol|source|Porta de origem|Destino|Porta de destino|Ação|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|permitir-all-para-internet|Com monitorização de estado|Saída|Tráfego IP ou de internet público|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Permitir|
 |65001|deny-all-from-internet|Com monitorização de estado|Entrada|Tráfego IP ou de internet público|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Negar|

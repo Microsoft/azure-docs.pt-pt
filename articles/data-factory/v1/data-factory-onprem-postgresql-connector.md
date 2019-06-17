@@ -14,14 +14,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462008"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-onprem-postgresql-connector.md)
 > * [Versão 2 (versão atual)](../connector-postgresql.md)
 
@@ -79,7 +79,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | database |Nome da base de dados PostgreSQL. |Sim |
 | schema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
-| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
+| o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do PostgreSQL no local. |Sim |
 
@@ -336,7 +336,7 @@ Ao mover dados para o PostgreSQL, os seguintes mapeamentos de servem do tipo de 
 | money | |Decimal |
 | numérico [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |String |
-| OID | |Int32 |
+| oid | |Int32 |
 | caminho | |Byte[], String |
 | pg_lsn | |Int64 |
 | ponto | |Byte[], String |

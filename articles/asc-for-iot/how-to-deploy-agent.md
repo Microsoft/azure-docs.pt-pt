@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 5c76cce5a3d9add8a1dcd8acc439a70c4a8655a9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65200572"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e implementar um agente de segurança no seu dispositivo IoT
@@ -84,16 +84,16 @@ Ver [comparação de agente de segurança](how-to-deploy-agent.md#understand-sec
 
 A lista seguinte inclui todas as plataformas atualmente suportadas.
 
-|ASC para o agente de IoT |Sistema Operativo |Arquitetura |
+|ASC para o agente de IoT |Sistema operativo |Arquitetura |
 |--------------|------------|--------------|
-|C|Ubuntu 16.04 |   X64|
-|C|Ubuntu 18.04 |   X64|
+|C|Ubuntu 16.04 |   x64|
+|C|Ubuntu 18.04 |   x64|
 |C|Debian 9 |   x64, x86|
-|C#|Ubuntu 16.04    |X64|
-|C#|Ubuntu 18.04    |X64|
-|C#|Debian 9    |X64|
+|C#|Ubuntu 16.04    |x64|
+|C#|Ubuntu 18.04    |x64|
+|C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Compilação do Windows 10 IoT Core 17763 |X64|
+|C#|Compilação do Windows 10 IoT Core 17763 |x64|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

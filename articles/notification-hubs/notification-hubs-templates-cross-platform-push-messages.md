@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 02473eb5649c7d201b6a54fd57faea997c1a21cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872110"
 ---
 # <a name="templates"></a>Modelos
@@ -131,7 +131,7 @@ Os modelos são limitados a formatos de documento XML ou JSON. Além disso, só 
 
 A tabela seguinte mostra o idioma permitido em modelos:
 
-| Expressão       | Descrição |
+| expressão       | Descrição |
 | ---------------- | --- |
 | $(prop)          | Referência a uma propriedade de evento com o nome fornecido. Nomes de propriedade não diferenciam maiúsculas de minúsculas. Esta expressão é resolvido para o valor da propriedade text ou para uma cadeia vazia se a propriedade não estiver presente. |
 | $(prop, n)       | Conforme apresentado acima, mas o texto é explicitamente recortado na n caracteres, por exemplo $(title, 20) corta o conteúdo da propriedade title em 20 carateres. |

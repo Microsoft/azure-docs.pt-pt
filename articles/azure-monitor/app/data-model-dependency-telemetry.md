@@ -13,10 +13,10 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60901030"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria de dependência: Modelo de dados do Application Insights
@@ -35,7 +35,7 @@ Identificador de uma instância de chamada de dependência. Utilizar correlaçã
 
 Comandos iniciados por essa chamada de dependência. Os exemplos são a instrução SQL e o URL de HTTP com todos os parâmetros de consulta.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Nome do tipo de dependência. Valor de cardinalidade baixa para um agrupamento lógico de dependências e a interpretação dos outros campos, como commandName e resultCode. Os exemplos são SQL, a tabela do Azure e o HTTP.
 

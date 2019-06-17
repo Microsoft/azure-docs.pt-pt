@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: kumud
 ms.openlocfilehash: 8c8fe6125d9c638fedadc3d299ff0ac0d601fd61
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64685699"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permissões de controlo de acesso baseado em funções necessárias para utilizar as capacidades do observador de rede
@@ -33,7 +33,7 @@ Controlo de acesso baseado em função do Azure (RBAC) permite-lhe atribuir apen
 | Microsoft.Network/networkWatchers/write                             | Criar ou atualizar um observador de rede                             |
 | Microsoft.Network/networkWatchers/delete                            | Eliminar um observador de rede                                       |
 
-## <a name="nsg-flow-logs"></a>Registos do fluxo do NSG
+## <a name="nsg-flow-logs"></a>Registos de fluxo NSG
 
 | Ação                                                              | Name                                                           |
 | ---------                                                           | -------------                                                  |

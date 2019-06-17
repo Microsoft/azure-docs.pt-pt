@@ -11,17 +11,17 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.openlocfilehash: 98f581eca893fc3f0cf2eae12fdcffbe0440bdd7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873700"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Parceiros de gestão de dados do SQL Data Warehouse
 Para criar a sua solução de armazém de dados, escolha entre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca a empresas parceiras da Microsoft com ferramentas de gestão de dados e soluções de suporte do Azure SQL Data Warehouse.
 
 ## <a name="data-management-partners"></a>Parceiros de gestão de dados
-| Parceiro | Descrição | Ligação do Web site/produto |
+| Partner | Descrição | Ligação do Web site/produto |
 | ------- | ----------- | -------------------- |
 | ![Armazenamento de dados de coffing][1] |**Armazenamento de dados de coffing**<br>Armazenamento de dados de coffing fornece Nexus Chameleon, uma ferramenta com dez anos de design dedicada a consulta de sistemas. Nexus está disponível como uma ferramenta de consulta para o SQL Data Warehouse. Utilize Nexus para consultar internamente e computadores e os dados de associação de nuvem em plataformas diferentes. Clique-relatório de ponto! |[Página de produto][coffing_website]<br> |
 | ![Inbrein][2] |**Inbrein MicroERD**<br>Inbrein MicroERD fornece as ferramentas que precisa para criar um modelo de dados precisos, reduzir a redundância de dados, melhorar a produtividade e observar padrões. Ao utilizar a sua interface do Usuário, que foi desenvolvido com base nas experiências de utilizador extenso, um Modelador pode trabalhar em modelos de DB facilmente e conveniente. Pode desfrutar continuamente novas e aperfeiçoadas funções de MicroERD por meio de atualizações e melhorias funcionais de linha de comandos. |[Página de produto][inbrein_website]<br> |

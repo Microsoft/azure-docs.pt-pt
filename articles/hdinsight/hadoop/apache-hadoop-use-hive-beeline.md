@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: dcfcd4b55f848e1725e286e6ef2a87a2c36e5a71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64684921"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com Apache Hive
@@ -187,7 +187,7 @@ Este exemplo baseia-se sobre como utilizar o cliente de Beeline a partir de uma 
 
     * `STORED AS TEXTFILE LOCATION` -Onde os dados são armazenados e, em que formato de ficheiro.
 
-    * `SELECT` -Seleciona uma contagem de todas as linhas em que coluna **t4** contém o valor **[erro]**. Esta consulta retorna um valor de **3** porque há três linhas que contêm este valor.
+    * `SELECT` -Seleciona uma contagem de todas as linhas em que coluna **t4** contém o valor **[erro]** . Esta consulta retorna um valor de **3** porque há três linhas que contêm este valor.
 
     * `INPUT__FILE__NAME LIKE '%.log'` -Hive tenta aplicar o esquema a todos os ficheiros no diretório. Neste caso, o diretório contém ficheiros que não corresponde ao esquema. Para impedir que os dados de lixo nos resultados, essa instrução diz ao ramo de registo que este deve devolver apenas dados de ficheiros terminados em. log.
 
@@ -243,12 +243,12 @@ Esta é uma continuação do exemplo anterior. Utilize os seguintes passos para 
 
    * **Criar tabela se não existe** -se a tabela ainda não existir, será criada. Uma vez que o **externo** palavra-chave não é utilizado, esta instrução cria uma tabela interna. Tabelas internas são armazenadas no armazém de dados de Hive e são geridas completamente do Hive.
    * **ARMAZENADOS ORC de AS** -armazena os dados no formato otimizado linhas em colunas (ORC). Formato ORC é um formato altamente otimizado e eficiente para armazenar os dados de Hive.
-   * **SUBSTITUIR INSERT... SELECIONE** -seleciona linhas do **log4jLogs** tabela que contêm **[erro]**, em seguida, insere os dados no **registos de erros** tabela.
+   * **SUBSTITUIR INSERT... SELECIONE** -seleciona linhas do **log4jLogs** tabela que contêm **[erro]** , em seguida, insere os dados no **registos de erros** tabela.
 
     > [!NOTE]  
     > Ao contrário das tabelas externas, remover uma tabela interna elimina também os dados subjacentes.
 
-3. Para guardar o ficheiro, utilize **Ctrl**+**_X**, em seguida, introduza **Y**e finalmente **Enter**.
+3. Para guardar o ficheiro, utilize **Ctrl**+ **_X**, em seguida, introduza **Y**e finalmente **Enter**.
 
 4. Utilize o seguinte para executar o ficheiro com o Beeline:
 

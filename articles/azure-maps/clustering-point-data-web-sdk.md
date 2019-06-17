@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957325"
 ---
 # <a name="clustering-point-data"></a>Clustering de ponto de dados
@@ -84,9 +84,9 @@ Consulte a caneta <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster pon
 
 Quando ocorrem eventos de mouse numa camada de conter pontos de dados em cluster, o ponto de dados em cluster será retornado para o evento como um objeto de funcionalidade de ponto de GeoJSON. Esta funcionalidade de ponto terá as seguintes propriedades:
 
-| Nome da propriedade | Type | Descrição |
+| Nome da propriedade | Tipo | Descrição |
 |---------------|------|-------------|
-| cluster | boolean | Indica se o recurso representa um cluster. |
+| Cluster | boolean | Indica se o recurso representa um cluster. |
 | cluster_id | string | Um ID exclusivo para o cluster que pode ser utilizado com a origem de dados `getClusterExpansionZoom`, `getClusterChildren`, e `getClusterLeaves` métodos. |
 | point_count | número | O número de pontos que contém o cluster. |
 | point_count_abbreviated | string | Uma cadeia de caracteres que abbreviates o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K) |

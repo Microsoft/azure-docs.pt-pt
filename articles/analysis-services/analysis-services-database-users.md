@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61023636"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
@@ -134,7 +134,7 @@ Filtros de linha definem que linhas numa tabela podem ser consultadas por membro
   
 Filtros de linha podem ser definidos apenas para funções com a leitura e de leitura e as permissões de processo. Por predefinição, se um filtro de linha não está definido para uma tabela específica, os membros podem consultar todas as linhas na tabela, a menos que a filtragem cruzada aplica-se de outra tabela.
   
- Filtros de linha necessitam de uma fórmula DAX, que deve ser avaliado como um valor de verdadeiro/falso, para definir as linhas que podem ser consultadas por membros da função em particular. Não não possível consultar as linhas não incluídas na fórmula DAX. Por exemplo, a tabela de clientes com a linha seguinte filtra expressão, *= clientes [País] = "USA"*, membros da função de vendas possam ver apenas os clientes nos EUA.  
+ Filtros de linha necessitam de uma fórmula DAX, que deve ser avaliado como um valor de verdadeiro/falso, para definir as linhas que podem ser consultadas por membros da função em particular. Não não possível consultar as linhas não incluídas na fórmula DAX. Por exemplo, a tabela de clientes com a linha seguinte filtra expressão, *= clientes [País] = "USA"* , membros da função de vendas possam ver apenas os clientes nos EUA.  
   
 Filtros de linha aplicam-se para as linhas especificadas e as linhas relacionadas. Quando uma tabela tiver várias relações, filtros aplicam-se em segurança para a relação que está ativa. Filtros de linha são cruzados com outros se filtram de linha definido para tabelas relacionadas, por exemplo:  
   
@@ -146,7 +146,7 @@ Filtros de linha aplicam-se para as linhas especificadas e as linhas relacionada
   
  O efeito líquido é que os membros podem consultar linhas de dados em que o cliente estiver nos EUA, a categoria de produto é de bicicletas e é o ano 2016. Os utilizadores não podem consultar transações fora do EUA, transações que não são bicicletas ou transações não em 2016, a menos que um membro de outra função que concede essas permissões.
   
- Pode utilizar o filtro *=FALSE()*, para negar o acesso a todas as linhas de uma tabela inteira.
+ Pode utilizar o filtro *=FALSE()* , para negar o acesso a todas as linhas de uma tabela inteira.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

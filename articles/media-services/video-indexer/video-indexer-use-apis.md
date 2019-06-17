@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799253"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
@@ -40,14 +40,14 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
 
     Selecione o separador [Products](https://api-portal.videoindexer.ai/products) (Produtos). Em seguida, selecione Authorization (Autorização) e subscreva. 
     
-    ![Aderir](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Inscrever-se](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Os utilizadores novos estão automaticamente subscritos em Autorização.
     
     Após subscrever, poderá ver a sua subscrição e as suas chaves primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. As chaves não devem estar disponíveis do lado do cliente (.js, .html, etc.).
 
-    ![Aderir](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Inscrever-se](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > O utilizador do Video Indexer pode utilizar uma chave de subscrição individual para ligar a várias contas do Video Indexer. Em seguida, pode associar estas contas do Video Indexer a diferentes contas dos Serviços de Multimédia.

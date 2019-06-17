@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60723454"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios personalizados de estado de funcionamento do Service Fabric
@@ -57,8 +57,8 @@ Uma vez o estado de funcionamento reporting design é claro, relatórios de esta
 ## <a name="health-client"></a>Cliente de estado de funcionamento
 Os relatórios de estado de funcionamento são enviados para o Gestor de estado de funcionamento através de um cliente do Estado de funcionamento, o que se encontrem dentro do cliente de recursos de infraestrutura. O Gestor de estado de funcionamento guarda relatórios no arquivo de estado de funcionamento. O cliente do Estado de funcionamento pode ser configurado com as seguintes definições:
 
-* **HealthReportSendInterval**: O atraso entre a hora que do relatório é adicionado ao cliente e a hora será enviado para o Gestor de estado de funcionamento. Utilizado para relatórios do batch numa única mensagem, em vez de enviar uma mensagem para cada relatório. A criação de batches melhora o desempenho. Predefinição: 30 segundos.
-* **HealthReportRetrySendInterval**: O intervalo no qual o cliente do Estado de funcionamento reenvia o estado de funcionamento acumulado relatórios para o Gestor de estado de funcionamento. Predefinição: 30 segundos, mínimo: 1 segundo.
+* **HealthReportSendInterval**: O atraso entre a hora que do relatório é adicionado ao cliente e a hora será enviado para o Gestor de estado de funcionamento. Utilizado para relatórios do batch numa única mensagem, em vez de enviar uma mensagem para cada relatório. A criação de batches melhora o desempenho. predefinição: 30 segundos.
+* **HealthReportRetrySendInterval**: O intervalo no qual o cliente do Estado de funcionamento reenvia o estado de funcionamento acumulado relatórios para o Gestor de estado de funcionamento. predefinição: 30 segundos, mínimo: 1 segundo.
 * **HealthOperationTimeout**: O período de tempo limite de uma mensagem de relatório enviada para o Gestor de estado de funcionamento. Se uma mensagem exceder o tempo limite, o cliente do Estado de funcionamento repete-lo até que o Gestor de estado de funcionamento confirma que o relatório tiver sido processado. Predefinição: dois minutos.
 
 > [!NOTE]

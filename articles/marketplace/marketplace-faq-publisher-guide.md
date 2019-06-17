@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
 ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65964046"
 ---
 # <a name="marketplace-faqs"></a>FAQs do Marketplace
@@ -36,7 +36,7 @@ O Azure Marketplace oferece soluções técnicas e serviços da Microsoft e de p
 
 * sistemas operativos base
 * bases de dados
-* Segurança
+* security
 * identidade
 * redes
 * blockchain

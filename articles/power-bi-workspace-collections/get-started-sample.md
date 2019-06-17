@@ -9,10 +9,10 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714501"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introdução ao exemplo de coleções de área de trabalho do Power BI
@@ -140,7 +140,7 @@ O **View** gerencia a exibição do Power BI **relatórios** e um Power BI **rel
 
 | Parte | Descrição |
 | --- | --- |
-| Título |Nome do relatório. |
+| Cargo |Nome do relatório. |
 | Cadeia de consulta |Uma ligação para o ID de relatório. |
 ```cshtml
 <div id="reports-nav" class="panel-collapse collapse">
@@ -170,7 +170,7 @@ Report.cshtml: Definir o **Model.AccessToken**e a expressão Lambda para **Power
 </div>
 ```
 
-### <a name="controller"></a>Controlador
+### <a name="controller"></a>controlador
 
 **DashboardController.cs**: Cria uma passagem de PowerBIClient uma **token de aplicação**. Um JSON Web Token (JWT) é gerada a partir da **chave de assinatura** para obter o **credenciais**. O **credenciais** são utilizados para criar uma instância de **PowerBIClient**. Assim que tiver uma instância do **PowerBIClient**, pode chamar GetReports() e GetReportsAsync().
 

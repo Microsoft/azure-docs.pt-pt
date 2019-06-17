@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
 ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922449"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço do Batch com o Active Directory
@@ -138,7 +138,7 @@ Siga estes passos no portal do Azure:
 Para se autenticar com um principal de serviço, terá de atribuir uma função RBAC para a sua aplicação. Siga estes passos.
 
 1. No portal do Azure, navegue para a conta do Batch utilizada pela sua aplicação.
-2. Na **configurações** painel para a conta do Batch, selecione **controlo de acesso (IAM)**.
+2. Na **configurações** painel para a conta do Batch, selecione **controlo de acesso (IAM)** .
 3. Clique nas **atribuições de funções** separador.
 4. Clique nas **adicionar atribuição de função** botão. 
 5. Do **função** menu pendente, escolha o o _contribuinte_ ou _leitor_ função para a sua aplicação. Para obter mais informações sobre estas funções, consulte [introdução ao controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).  

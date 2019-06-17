@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
 ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65230007"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)
@@ -57,13 +57,13 @@ Política de rede só funciona com a opção de CNI do Azure (avançado). Implem
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e Calico e as respetivas funcionalidades
 
-| Capacidade                               | Azure                      | Calico                      |
+| Funcionalidade                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plataformas suportadas                      | Linux                      | Linux                       |
 | Suporte a opções de redes             | Azure CNI                  | Azure CNI                   |
 | Conformidade com a especificação do Kubernetes | Todos os tipos de política suportados |  Todos os tipos de política suportados |
-| Funcionalidades adicionais                      | Nenhuma                       | Estendido o modelo de política consiste em política de rede Global, definir globais de rede e ponto final de anfitrião. Para obter mais informações sobre como utilizar o `calicoctl` CLI para gerir estes estendido de recursos, consulte [referência de usuário calicoctl][calicoctl]. |
-| Apoio ao cliente                                  | Suportado pelo suporte do Azure e a equipe de engenharia | Suporte da Comunidade Calico. Para obter mais informações sobre suporte pagas adicional, consulte [opções de suporte do projeto Calico][calico-support]. |
+| Recursos adicionais                      | Nenhuma                       | Estendido o modelo de política consiste em política de rede Global, definir globais de rede e ponto final de anfitrião. Para obter mais informações sobre como utilizar o `calicoctl` CLI para gerir estes estendido de recursos, consulte [referência de usuário calicoctl][calicoctl]. |
+| Suporte                                  | Suportado pelo suporte do Azure e a equipe de engenharia | Suporte da Comunidade Calico. Para obter mais informações sobre suporte pagas adicional, consulte [opções de suporte do projeto Calico][calico-support]. |
 | Registo                                  | Regras adicionada / eliminada no IPTables são registadas em cada anfitrião em */var/log/azure-npm.log* | Para obter mais informações, consulte [registos de componente de Calico][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Criar um cluster do AKS e ativar a política de rede

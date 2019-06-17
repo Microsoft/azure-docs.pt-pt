@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
 ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65955898"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
@@ -54,7 +54,7 @@ A aplicação tem de executar o **padrão**, **Premium**, ou **Isolated** escal�
 
 3. Na **adicionar uma ranhura** caixa de diálogo, dê o bloco de um nome e selecione se pretende clonar a configuração de aplicações do outro bloco de implementação existente. Clique em **adicionar** para continuar.
    
-    ![Origem da Configuração](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+    ![Origem de configuração](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     Pode clonar a configuração a partir de qualquer bloco existente. As definições que podem ser Clonadas incluem as definições da aplicação, cadeias de ligação, versões de estrutura de idioma, web sockets, versão HTTP e número de bits de plataforma.
 
@@ -80,7 +80,7 @@ Quando clona configuração a partir de outro bloco de implementação, a config
 * Definições gerais - como sockets Web do framework versão, 32/64 bits,
 * Definições da aplicação (pode ser configurado para utilizar um bloco de)
 * Cadeias de ligação (pode ser configurado para utilizar um bloco de)
-* Mapeamentos de processador
+* Mapeamentos do processador
 * Definições de monitorização e diagnósticos
 * Certificados públicos
 * Conteúdo de WebJobs
@@ -99,7 +99,7 @@ Recursos marcados com um * estão planeados devem se transformar em papeizinhos 
 * Definições de dimensionamento
 * Agendadores de WebJobs
 * Restrições de IP
-* Always On
+* Sempre Ativo
 * Definições de protocolo (HTTP**S**, versão do TLS, certificados de cliente)
 * Definições de registo de diagnóstico
 * CORS
@@ -108,7 +108,7 @@ Recursos marcados com um * estão planeados devem se transformar em papeizinhos 
 
 Para configurar uma cadeia de ligação ou definição de aplicação de adotar um bloco específico (não trocado), navegue para o **as configurações do aplicativo** página para que a ranhura, em seguida, selecione a **definição de ranhura** caixa para o elementos de configuração que devem inserir para a ranhura. Marcando um elemento de configuração como ranhura específico informa ao serviço de aplicações que não está-swap. 
 
-![Definição de bloco](./media/web-sites-staged-publishing/SlotSetting.png)
+![Definição de ranhura](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
@@ -195,7 +195,7 @@ Troca automática simplifica cenários DevOps onde pretende implementar a sua ap
 
 Para configurar a troca automática, siga estes passos:
 
-1. Navegue até à página de recursos da sua aplicação. Selecione **blocos de implementação (pré-visualização)** > *\<ranhura de origem pretendido >* > **definições da aplicação**.
+1. Navegue até à página de recursos da sua aplicação. Selecione **blocos de implementação (pré-visualização)**  >  *\<ranhura de origem pretendido >*  > **definições da aplicação**.
    
 2. Na **comutação automática**, selecione **no**, em seguida, selecione a ranhura de destino pretendida na **ranhura de troca automática**e clique em **guardar** na barra de comandos. 
    
@@ -238,7 +238,7 @@ Por predefinição, todos os pedidos de cliente para o URL de produção da apli
 
 Para encaminhar automaticamente o tráfego de produção, siga estes passos:
 
-1. Navegue até à página de recursos da sua aplicação e selecione **blocos de implementação (pré-visualização)**.
+1. Navegue até à página de recursos da sua aplicação e selecione **blocos de implementação (pré-visualização)** .
 
 2. Na **% do tráfego** coluna da ranhura de que pretende encaminhar para, especifique uma percentagem (entre 0 e 100) para representar a quantidade de tráfego total que pretende encaminhar. Clique em **Guardar**.
 
@@ -272,7 +272,7 @@ Por predefinição, os blocos de novo recebem uma regra de roteamento de `0%`, c
 
 ## <a name="delete-slot"></a>Eliminar Bloco
 
-Navegue até à página de recursos da sua aplicação. Selecione **blocos de implementação (pré-visualização)** > *\<ranhura para eliminar >* > **descrição geral**. Clique em **eliminar** na barra de comandos.  
+Navegue até à página de recursos da sua aplicação. Selecione **blocos de implementação (pré-visualização)**  >  *\<ranhura para eliminar >*  > **descrição geral**. Clique em **eliminar** na barra de comandos.  
 
 ![Eliminar um bloco de implementação](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

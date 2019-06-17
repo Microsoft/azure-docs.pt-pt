@@ -6,16 +6,16 @@ metadata:
   title: Base de dados SQL do Azure - escalabilidade
   meta.description: Learn how to scale your Azure SQL Database.
   services: sql-database
-  author: WenJason
-  manager: digimobile
+  ms.subservice: scale-out
+  author: jovanpop-msft
+  manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  origin.date: 01/25/2019
-  ms.date: 02/25/2019
-  ms.author: v-jay
+  ms.date: 01/25/2019
+  ms.author: jovanpop-msft
 sections:
   - items:
       - type: paragraph
@@ -26,22 +26,22 @@ sections:
         columns: 3
         items:
           - title: Aumentar verticalmente
-            href: /sql-database/sql-database-scale-resources
+            href: /azure/sql-database/sql-database-scale-resources
             html: <p>Facilmente adicionar ou remover recursos na sua base de dados SQL para encontrar a proporção de relação preço/desempenho melhor ou mitigar problemas de desempenho.</p>
           - title: Leia o Escalamento horizontal
-            href: /sql-database/sql-database-read-scale-out
+            href: /azure/sql-database/sql-database-read-scale-out
             html: '<p>Camada de negócio críticos fornece uma réplica do gratuito da base de dados em que pode executar relatórios, análises e outras consultas só de leitura numa cópia de dados.</p>'
           - title: Fragmentação de base de dados
-            href: /sql-database/sql-database-elastic-scale-introduction
+            href: /azure/sql-database/sql-database-elastic-scale-introduction
             html: <p>Pode usar várias partições horizontais de bases de dados para aumentar horizontalmente a base de dados para além dos limites de armazenamento para bases de dados individuais e de computação máximo.</p>
           - title: Consultas elásticas
-            href: /sql-database/sql-database-elastic-query-overview
+            href: /azure/sql-database/sql-database-elastic-query-overview
             html: <p>Consultas elásticas permitem executar padrão consultas Transact-SQL num conjunto de partições horizontais da base de dados distribuída globalmente.</p>
           - title: Transações elásticas
-            href: /sql-database/sql-database-elastic-transactions-overview
+            href: /azure/sql-database/sql-database-elastic-transactions-overview
             html: <p>Use a transação distribuída globalmente para garantir acesso transacionalmente consistente aos seus dados distribuídos.</p>
           - title: Tarefas em várias bases de dados
-            href: /sql-database/elastic-jobs-overview
+            href: /azure/sql-database/elastic-jobs-overview
             html: <p>Mantenha um conjunto de bases de dados com tarefas elásticas da base de dados de forma cruzada.</p>
   - title: Mais recursos
     items:

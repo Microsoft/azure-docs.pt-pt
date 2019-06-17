@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
 ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957479"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
-O Azure Load Balance permite-lhe dimensionar as suas aplicações e criar disponibilidade elevada para os seus serviços. Balanceador de carga pode ser utilizado para cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP. 
+O Balanceador de carga do Azure permite-lhe dimensionar as suas aplicações e criar disponibilidade elevada para os seus serviços. Balanceador de carga pode ser utilizado para cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP. 
 
 Este artigo se concentra no balanceador de carga Standard.  Para obter uma descrição geral mais geral para o Balanceador de carga do Azure, reveja [descrição geral do Balanceador de carga](load-balancer-overview.md) também.
 
@@ -204,7 +204,7 @@ SKUs não são mutáveis. Siga os passos nesta secção para mover de um recurso
 >
 >Correspondência das SKUs tem de ser utilizada para os recursos do Balanceador de carga e o IP público. Não pode ter uma mistura de recursos de SKU básico e recursos de SKU padrão. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.
 
-## <a name="region-availability"></a>Disponibilidade regional
+## <a name="region-availability"></a>Disponibilidade de região
 
 Balanceador de carga Standard está atualmente disponível em todas as regiões de cloud pública.
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922887"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligar o Configuration Manager para o Azure Monitor
@@ -49,7 +49,7 @@ No procedimento seguinte, pode conceder a *contribuinte* função na sua área d
 
 1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. Na lista de áreas de trabalho do Log Analytics, selecione a área de trabalho para modificar.
-3. No painel esquerdo, selecione **controlo de acesso (IAM)**.
+3. No painel esquerdo, selecione **controlo de acesso (IAM)** .
 4. Na página de controle (IAM) de acesso, clique em **adicionar atribuição de função** e o **adicionar atribuição de função** é apresentado o painel.
 5. Na **adicionar atribuição de função** painel, no **função** selecione na lista pendente o **contribuinte** função.  
 6. Sob o **atribuir acesso aos** na lista pendente, selecione a aplicação do Configuration Manager que criou anteriormente no AD e, em seguida, clique em **OK**.  

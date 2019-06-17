@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551745"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros nas vistas do Azure Monitor
@@ -28,7 +28,7 @@ Clique no intervalo de tempo de data na parte superior de uma vista para abrir o
 
 ![Exemplo de filtro](media/view-designer-filters/filters-example-time.png)
 
-Clique nas **+** para adicionar um filtro com filtros personalizados que estão definidos para o modo de exibição. Selecionar um valor para o filtro da lista pendente ou escreva um valor. Continue a adicionar filtros ao clicar o **+**. 
+Clique nas **+** para adicionar um filtro com filtros personalizados que estão definidos para o modo de exibição. Selecionar um valor para o filtro da lista pendente ou escreva um valor. Continue a adicionar filtros ao clicar o **+** . 
 
 
 ![Exemplo de filtro](media/view-designer-filters/filters-example-custom.png)
@@ -40,7 +40,7 @@ Se remover todos os valores para um filtro, esse filtro já não será aplicado.
 
 Criar um filtro do **filtros** separador quando [uma vista de edição](view-designer.md).  O filtro é global para o modo de exibição e aplica-se a todas as partes na vista.  
 
-![Definições de filtro](media/view-designer-filters/filters-settings.png)
+![Definições do filtro](media/view-designer-filters/filters-settings.png)
 
 A tabela seguinte descreve as definições para um filtro.
 
@@ -48,13 +48,13 @@ A tabela seguinte descreve as definições para um filtro.
 |:---|:---|
 | Nome do Campo | Nome do campo utilizado para filtrar.  Este campo tem de corresponder ao campo de summarize **consulta para valores**. |
 | Consulta para valores | Consulta seja executada para preencher a lista pendente de filtro para o utilizador.  Esta consulta tem de utilizar qualquer um [resumir](/azure/kusto/query/summarizeoperator) ou [distintos](/azure/kusto/query/distinctoperator) para fornecer valores exclusivos para um campo específico e ele corresponde do **nome do campo**.  Pode usar [ordenação](/azure/kusto/query/sortoperator) para ordenar os valores que são apresentados ao utilizador. |
-| Etiqueta | Nome para o campo que é utilizado em consultas que suporta o filtro e também é apresentado ao utilizador. |
+| Tag | Nome para o campo que é utilizado em consultas que suporta o filtro e também é apresentado ao utilizador. |
 
 ### <a name="examples"></a>Exemplos
 
 A tabela seguinte inclui alguns exemplos de filtros comuns.  
 
-| Nome do Campo | Consulta para valores | Etiqueta |
+| Nome do Campo | Consulta para valores | Tag |
 |:--|:--|:--|
 | Computador   | Heartbeat &#124; computador distinto &#124; ordenar por computador asc | Computadores |
 | EventLevelName | Event &#124; distinct EventLevelName | Gravidade |

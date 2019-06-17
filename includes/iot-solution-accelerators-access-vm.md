@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8d1f0f6ae3ffc123f1ae8318a6fbce4a9a3024fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814914"
 ---
 ## <a name="access-the-virtual-machine"></a>Aceder à máquina virtual
 
-Os passos seguintes utilizam o `az` comando no Azure Cloud Shell. Se preferir, pode [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) sobre o desenvolvimento de seu computador e execute os comandos localmente.
+Os passos seguintes utilizam a CLI do Azure no Azure Cloud Shell. Se preferir, pode [instalar a CLI do Azure](/cli/azure/install-azure-cli) sobre o desenvolvimento de seu computador e execute os comandos localmente.
 
 Os passos seguintes mostram como configurar a sua máquina virtual do Azure para permitir **SSH** acesso. O nome que escolheu para o solution accelerator é partem do princípio das etapas mostradas **contoso-simulação** – substitua este valor com o nome da sua implementação:
 

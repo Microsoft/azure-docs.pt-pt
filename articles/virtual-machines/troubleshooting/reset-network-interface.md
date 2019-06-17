@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60307334"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Como repor a interface de rede para a VM do Windows Azure 
@@ -79,7 +79,7 @@ Para repor a interface de rede, siga estes passos:
 #### <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
 1.  Aceda ao [Portal do Azure]( https://ms.portal.azure.com).
-2.  Selecione **máquinas virtuais (clássicas)**.
+2.  Selecione **máquinas virtuais (clássicas)** .
 3.  Selecione a Máquina Virtual afetados.
 4.  Selecione **endereços IP**.
 5.  Se o **atribuição de IP privado** není **estático**, altere-o para **estático**.

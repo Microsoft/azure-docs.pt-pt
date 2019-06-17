@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 7e951b9f2c2fda3c63f154b5b144addcbf65aacf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127969"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Permitir sincronização offline para a sua aplicação móvel xamarin. Android

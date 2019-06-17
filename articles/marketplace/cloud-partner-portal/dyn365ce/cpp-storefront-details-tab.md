@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
 ms.openlocfilehash: ad6a84679df09964b1bed047f3fbd236a29172b5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942307"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 para o separador de detalhes de Vitrine de envolvimento do cliente
@@ -49,7 +49,7 @@ Em que a tabela seguinte descreve os campos neste separador. Campos obrigatório
 |  Tipo de aplicação\*           | Selecione o tipo de versão de avaliação que está ativada para a aplicação no AppSource. **Gratuito** indica a sua aplicação pode ser utilizada sem custos; **Avaliação** indica que os clientes podem experimentar a aplicação durante um curto período sem custos; e **contactar-me** indica que os clientes podem solicitar uma versão de avaliação da aplicação no AppSource.  |
 | Ligação de ajuda para a sua aplicação\* | URL para a documentação online ou outro recurso de ajuda para a aplicação.  |
 | Países/regiões suportados | Uma caixa de diálogo de pop-up permite a seleção das regiões geográficas em que a aplicação está disponível.  Distribuição em todo o mundo é o padrão. |
-| Linguagens suportadas   | Selecione os idiomas que oferece suporte a sua aplicação. Atualmente apenas alguns idiomas as opções são suportadas.  (Se a sua aplicação suportar outros idiomas que não estejam na lista, continuar a publicar a sua oferta e enviar estas informações para: appsource\@microsoft.com.)  |
+| Idiomas suportados   | Selecione os idiomas que oferece suporte a sua aplicação. Atualmente apenas alguns idiomas as opções são suportadas.  (Se a sua aplicação suportar outros idiomas que não estejam na lista, continuar a publicar a sua oferta e enviar estas informações para: appsource\@microsoft.com.)  |
 | Versão da aplicação           | Número de versão da aplicação    |
 | Data de lançamento de aplicação      | Data de lançamento/publicação da aplicação |
 | Produtos a sua aplicação funciona com | Produtos ou serviços que a aplicação entre opera com. Pode listar o máximo de três produtos. Para listar um produto, clique em **+ novo** e introduza o nome de um produto na caixa de texto.  |

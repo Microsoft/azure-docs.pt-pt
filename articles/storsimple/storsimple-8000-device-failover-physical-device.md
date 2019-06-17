@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60577244"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Ativação pós-falha para um dispositivo físico da série StorSimple 8000
@@ -75,7 +75,7 @@ Execute os seguintes passos para restaurar o seu dispositivo para um dispositivo
    
    1. Selecione o dispositivo que foi utilizado como o dispositivo de destino para o processo de ativação pós-falha.
 
-       ![Selecionar dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Selecione o dispositivo](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
    2. Vá para o **contentores de volumes** painel. Todos os contentores de volumes, juntamente com os volumes do dispositivo antigo, deverá ser listados.
 

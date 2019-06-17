@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
 ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60538916"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre 3270 aplicações baseadas em tela em IBM mainframes no Azure utilizando o conector Azure Logic Apps e o IBM 3270
@@ -221,7 +221,7 @@ Suponha também que repetir essas etapas, mas inserir dados incorretos para que 
 
 * MSG-10
 * Bem-vindo do CICS
-* Vazio
+* vazio
 * WBGB_1 (input)
 * WBGB_2 (erro)
 * Empty_1
@@ -355,7 +355,7 @@ Quando terminar de todos estes passos, pode utilizar a ação que criar na sua a
    ![Selecione a ação de 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
    Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
 1. Se não existem ligações ainda, indique as informações necessárias para a sua ligação e escolha **criar**.
 
@@ -364,7 +364,7 @@ Quando terminar de todos estes passos, pode utilizar a ação que criar na sua a
    | **Nome da Ligação** | Sim | <*connection-name*> | O nome para a sua ligação |
    | **ID da conta de integração** | Sim | <*integration-account-name*> | Nome da sua conta de integração |
    | **URL de SAS de conta de integração** | Sim | <*integration-account-SAS-URL*> | URL assinatura de acesso partilhado (SAS) de sua conta de integração, que pode gerar a partir de definições da sua conta de integração no portal do Azure. <p>1. No sua integração de conta de menu, em **configurações**, selecione **URL de retorno de chamada**. <br>2. No painel da direita, copie os **URL de chamada de retorno gerado** valor. |
-   | **Servidor** | Sim | <*TN3270-server-name*> | O nome do servidor para o seu serviço TN3270 |
+   | **servidor** | Sim | <*TN3270-server-name*> | O nome do servidor para o seu serviço TN3270 |
    | **Porta** | Não | <*TN3270-server-port*> | A porta utilizada pelo seu servidor TN3270. Se deixado em branco, o conector utiliza `23` como valor predefinido. |
    | **Tipo de dispositivo** | Não | <*IBM-terminal-model*> | O nome do modelo ou o número para o terminal da IBM para emular. Se deixado em branco, o conector utiliza valores predefinidos. |
    | **Página de código** | Não | <*code-page-number*> | O número de página de código para o anfitrião. Se deixado em branco, o conector utiliza `37` como valor predefinido. |
@@ -393,7 +393,7 @@ Quando terminar de todos estes passos, pode utilizar a ação que criar na sua a
 
    **Selecione o método**
 
-   ![Selecionar método](./media/connectors-create-api-3270/select-method.png)
+   ![Selecione o método](./media/connectors-create-api-3270/select-method.png)
 
    **Selecione os parâmetros**
 

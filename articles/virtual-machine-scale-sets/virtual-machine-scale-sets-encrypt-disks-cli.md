@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: cynthn
 ms.openlocfilehash: 1264c7e4ebaf5e948e624fa49dc5fb0b4cdb31f0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64869062"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Encriptar o SO e discos de dados anexados num conjunto de dimensionamento com a CLI do Azure
@@ -96,7 +96,7 @@ keyvault_name=myuniquekeyvaultname
 az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 ```
 
-## <a name="enable-encryption"></a>Ativar encriptação
+## <a name="enable-encryption"></a>Ativar a encriptação
 
 Para encriptar as instâncias de VM num conjunto de dimensionamento, primeiro de obter algumas informações sobre o ID de recurso do Key Vault com [show de keyvault de az](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Estas variáveis são utilizadas para, em seguida, iniciar o processo de encriptação com [ativar a encriptação do az vmss](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 

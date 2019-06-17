@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 652175e99c800b8e4aa69c639f0bdb9aba838987
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544624"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Erro ao processar as melhores práticas para clientes do Azure Active Directory Authentication Library (ADAL)
@@ -52,7 +52,7 @@ Existe um conjunto de erros gerados pelo sistema operativo, que poderão necessi
 
 Fundamentalmente, há dois casos de erros de AcquireTokenSilent:
 
-| Maiúsculas/Minúsculas | Descrição |
+| Caso | Descrição |
 |------|-------------|
 | **Caso 1**: Erro pode ser resolvido com uma interativo início de sessão | Para erros causados por uma falta de tokens válidos, um pedido de interativo é necessário. Especificamente, pesquisa de cache e um token de atualização inválido/expirado exigem uma chamada de AcquireToken para resolver.<br><br>Nestes casos, o utilizador final tem de ser pedido para iniciar sessão. O aplicativo pode optar por fazer uma solicitação interativa imediatamente, depois de interação do utilizador final (por exemplo, pressionando um botão de início de sessão) ou posterior. A escolha depende do comportamento desejado do aplicativo.<br><br>Consulte o código na seção a seguir para este caso específico e os erros que diagnosticá-lo.|
 | **Caso 2**: Erro não pode ser resolvido com uma interativo início de sessão | Para a rede e erros transitórios/temporária ou outras falhas, efetuar um pedido de AcquireToken interativo não resolve o problema. Desnecessários início de sessão pedidos interativos também podem frustrar utilizadores finais. ADAL tenta automaticamente uma repetição única para a maioria dos erros de falhas de AcquireTokenSilent.<br><br>O aplicativo cliente também pode tentar uma repetição em algum momento posterior, mas quando e como fazer isso depende o comportamento do aplicativo e a experiência de utilizador final desejado. Por exemplo, o aplicativo pode fazer uma repetição AcquireTokenSilent após alguns minutos, ou em resposta a alguma ação do utilizador final. Uma repetição imediata irá resultar no aplicativo a ser limitado e não deve ser tentada.<br><br>Uma falha com o mesmo erro de repetição subsequente não significa que o cliente deve fazer uma solicitação de interativa usando o AcquireToken, como não resolver o erro.<br><br>Consulte o código na seção a seguir para este caso específico e os erros que diagnosticá-lo. |

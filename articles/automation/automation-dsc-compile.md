@@ -10,10 +10,10 @@ ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64919807"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilar configurações de DSC na configuração de estado de automatização do Azure
@@ -41,7 +41,7 @@ Assim que decidir um método de compilação, utilize os procedimentos seguintes
 
 ## <a name="compiling-a-dsc-configuration-with-the-azure-portal"></a>Compilar uma configuração de DSC com o portal do Azure
 
-1. A partir da sua conta de automatização, clique em **State configuration (DSC)**.
+1. A partir da sua conta de automatização, clique em **State configuration (DSC)** .
 1. Clique nas **configurações** separador, em seguida, clique no nome da configuração para compilar.
 1. Clique em **compilar**.
 1. Se a configuração não tem parâmetros, lhe for pedido para confirmar se deseja compilá-lo. Se a configuração tiver parâmetros, o **compilar configuração** é aberto o painel para fornecer valores de parâmetros. Consulte o seguinte [ **parâmetros básicos** ](#basic-parameters) secção para saber mais sobre os parâmetros.

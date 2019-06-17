@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721146"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões de máquina virtual e funcionalidades para Linux
 
@@ -57,7 +57,7 @@ Para fornecer a melhor experiência possível, existem versões mínimas do agen
 O agente do Linux é executado em vários sos, no entanto, a estrutura de extensões tem um limite para os sistemas operacionais que extensões. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Algumas extensões não são suportadas em todos os sos e pode emitir *51 de código de erro, o "SO não suportada"*. Consulte a documentação de extensão individuais para a capacidade de suporte.
+Algumas extensões não são suportadas em todos os sos e pode emitir *51 de código de erro, o "SO não suportada"* . Consulte a documentação de extensão individuais para a capacidade de suporte.
 
 #### <a name="network-access"></a>Acesso à rede
 
@@ -264,7 +264,7 @@ O "agente de estado do objetivo" é a versão de atualização automática.
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 
-Está disponível uma atualização de extensão, o agente Linux transferem e atualiza a extensão. Atualizações automáticas de extensão são *pequenas* ou *correção*. Pode optar ativamente por participar no ou opção de desativar as extensões *pequenas* atualiza quando Aprovisiona a extensão. O exemplo seguinte mostra como atualizar automaticamente as versões secundárias num modelo do Resource Manager com *autoUpgradeMinorVersion ": true,'*:
+Está disponível uma atualização de extensão, o agente Linux transferem e atualiza a extensão. Atualizações automáticas de extensão são *pequenas* ou *correção*. Pode optar ativamente por participar no ou opção de desativar as extensões *pequenas* atualiza quando Aprovisiona a extensão. O exemplo seguinte mostra como atualizar automaticamente as versões secundárias num modelo do Resource Manager com *autoUpgradeMinorVersion ": true,'* :
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -337,7 +337,7 @@ Os passos de resolução de problemas seguintes aplicam-se a todas as extensões
 
 1. Para verificar o registo do agente do Linux, examinar a atividade quando sua extensão foi a ser aprovisionada no */var/log/waagent.log*
 
-2. Verifique os registos de extensão real para obter mais detalhes no   */var/iniciar/azure /<extensionName>*
+2. Verifique os registos de extensão real para obter mais detalhes no */var/iniciar/azure/\<extensionName >*
 
 3. Verifique a documentação de extensão específica secções para códigos de erro, problemas etc conhecidos de resolução de problemas.
 

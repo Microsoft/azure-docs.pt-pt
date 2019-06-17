@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957306"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gerir a sua conta do Azure Maps
@@ -21,7 +21,7 @@ Pode gerir a sua conta do Azure Maps através do portal do Azure. Depois de ter 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-new-account"></a>Criar uma nova conta
+## <a name="create-a-new-account"></a>Criar uma conta nova
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 4843828c89b04e36b0bcc73dcedf9c5735b73729
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610864"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e registo | Atenuações 
@@ -36,7 +36,7 @@ ms.locfileid: "60610864"
 
 ## <a id="sensitive-entities"></a>Identificar as entidades sensíveis na sua solução e implementar a auditoria de alteração
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -47,7 +47,7 @@ ms.locfileid: "60610864"
 
 ## <a id="auditing"></a>Certifique-se de que a auditoria e Registro é aplicada a aplicação
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -58,7 +58,7 @@ ms.locfileid: "60610864"
 
 ## <a id="log-rotation"></a>Certifique-se de que a rotação do registo e a separação estão em vigor
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -69,18 +69,18 @@ ms.locfileid: "60610864"
 
 ## <a id="log-sensitive-data"></a>Certifique-se de que o aplicativo não regista dados de utilizador confidenciais
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| **Passos**                   | <p>Verifique se não iniciar quaisquer dados confidenciais que um usuário envia para o seu site. Verifique o registo intencional, bem como os efeitos colaterais causados por problemas de design. Exemplos de dados confidenciais:</p><ul><li>Credenciais de Utilizador</li><li>Número da Previdência ou outras informações de identificação</li><li>Números de cartão de crédito ou outras informações financeiras</li><li>Informações de estado de funcionamento</li><li>As chaves privadas ou outros dados que podem ser utilizados para desencriptar informações encriptadas</li><li>Informações de sistema ou aplicativo que podem ser utilizadas para atacar com mais eficiência a aplicação</li></ul>|
+| **Passos**                   | <p>Verifique se não iniciar quaisquer dados confidenciais que um usuário envia para o seu site. Verifique o registo intencional, bem como os efeitos colaterais causados por problemas de design. Exemplos de dados confidenciais:</p><ul><li>Credenciais de utilizador</li><li>Número da Previdência ou outras informações de identificação</li><li>Números de cartão de crédito ou outras informações financeiras</li><li>Informações de estado de funcionamento</li><li>As chaves privadas ou outros dados que podem ser utilizados para desencriptar informações encriptadas</li><li>Informações de sistema ou aplicativo que podem ser utilizadas para atacar com mais eficiência a aplicação</li></ul>|
 
 ## <a id="log-restricted-access"></a>Certifique-se de que a auditoria e de ficheiros de registo têm acesso restrito
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -91,7 +91,7 @@ ms.locfileid: "60610864"
 
 ## <a id="user-management"></a>Certifique-se de que os eventos de gestão de utilizador registados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -102,7 +102,7 @@ ms.locfileid: "60610864"
 
 ## <a id="inbuilt-defenses"></a>Certifique-se de que o sistema tem incorporadas defesas contra utilização indevida
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -113,7 +113,7 @@ ms.locfileid: "60610864"
 
 ## <a id="diagnostics-logging"></a>Ativar o registo de diagnóstico para aplicações web no App Service do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -124,7 +124,7 @@ ms.locfileid: "60610864"
 
 ## <a id="identify-sensitive-entities"></a>Certifique-se de que a auditoria de início de sessão está ativada no SQL Server
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -135,7 +135,7 @@ ms.locfileid: "60610864"
 
 ## <a id="threat-detection"></a>Ativar a deteção de ameaças em SQL do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -146,7 +146,7 @@ ms.locfileid: "60610864"
 
 ## <a id="analytics"></a>Utilizar a análise de armazenamento do Azure para auditar o acesso do armazenamento do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Implementação |  
@@ -157,7 +157,7 @@ ms.locfileid: "60610864"
 
 ## <a id="sufficient-logging"></a>Implementar o Registro em log suficiente
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -186,7 +186,7 @@ Segue-se um exemplo de configuração com a auditoria ativada
 
 ## <a id="audit-failure-handling"></a>Implementar o tratamento da falha de auditoria suficientes
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -213,7 +213,7 @@ Configure o WCF para notificar o programa sempre que for não é possível escre
 
 ## <a id="logging-web-api"></a>Certifique-se de que a auditoria e Registro é aplicada a Web API
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -224,7 +224,7 @@ Configure o WCF para notificar o programa sempre que for não é possível escre
 
 ## <a id="logging-field-gateway"></a>Certifique-se de que é aplicada apropriado de auditoria e registo no Gateway de campo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -235,7 +235,7 @@ Configure o WCF para notificar o programa sempre que for não é possível escre
 
 ## <a id="logging-cloud-gateway"></a>Certifique-se de que é aplicada apropriado de auditoria e registo no Gateway de Cloud
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
 | **Fase do SDL**               | Compilação |  

@@ -10,10 +10,10 @@ ms.date: 10/10/2016
 ms.author: osamam
 ms.custom: seodec18
 ms.openlocfilehash: 2b2b678cad50e45660fb763c2a1f9194500edf8d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66730211"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Encaminhamento assimétrico com vários caminhos de rede

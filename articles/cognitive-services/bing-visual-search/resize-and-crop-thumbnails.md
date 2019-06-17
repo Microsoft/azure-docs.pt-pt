@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: ba540e2f150ece453fd6054f916d6d39b2f7e93e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60513690"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Redimensionar e cortar imagens em miniatura

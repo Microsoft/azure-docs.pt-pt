@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787606"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral do dimensionamento automático em máquinas virtuais do Microsoft Azure, serviços Cloud e aplicações Web
@@ -102,7 +102,6 @@ Pode configurar o dimensionamento automático através de
 * [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Serviços suportados do dimensionamento automático
-
 | Serviço | Esquema e documentos |
 | --- | --- |
 | Aplicações Web |[Dimensionar aplicações Web](../../azure-monitor/platform/autoscale-get-started.md) |
@@ -111,7 +110,7 @@ Pode configurar o dimensionamento automático através de
 | Máquinas virtuais: Conjuntos de dimensionamento do Windows |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Máquinas virtuais: Conjuntos de dimensionamento do Linux |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Máquinas virtuais: Exemplo do Windows |[Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| Serviço da Gestão de API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| Serviço de gestão de API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre dimensionamento automático, utilize as instruções do dimensionamento automático listadas anteriormente, ou consulte os seguintes recursos:
@@ -121,3 +120,4 @@ Para saber mais sobre dimensionamento automático, utilize as instruções do di
 * [Utilizar ações de dimensionamento automático para enviar o e-mail e webhook notificações de alerta](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Resolução de problemas Autoscale de conjuntos de dimensionamento de Máquina Virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

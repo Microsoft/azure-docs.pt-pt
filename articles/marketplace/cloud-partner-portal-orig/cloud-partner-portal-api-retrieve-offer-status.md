@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935461"
 ---
 <a name="retrieve-offer-status"></a>Obter estado da oferta 
@@ -27,7 +27,7 @@ Obtém o estado atual da oferta.
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
 |  publisherId    | Identificador do publicador, por exemplo `Contoso`  |     String     |
-|  IDoferta        | GUID que identifica exclusivamente a oferta      |     String     |
+|  offerId        | GUID que identifica exclusivamente a oferta      |     String     |
 |  versão de API    | Versão mais recente da API                        |     Date       |
 |  |  |
 
@@ -128,7 +128,7 @@ Obtém o estado atual da oferta.
 |  mensagens             | Matriz de mensagens associadas à oferta                                                    |
 |  passos                | Matriz dos passos que a oferta atravessa o limite de tempo durante a publicação de uma oferta                      |
 |  estimatedTimeFrame   | Estimativa de tempo que é necessário para concluir este passo, em formato amigável                       |
-|  ID                   | Identificador do passo                                                                         |
+|  id                   | Identificador do passo                                                                         |
 |  stepName             | Nome do passo                                                                               |
 |  description          | Descrição do passo                                                                        |
 |  status               | Estado do passo. Para obter a lista de valores possíveis, consulte [passo estado](#step-status) abaixo.    |
@@ -169,7 +169,7 @@ Obtém o estado atual da oferta.
 |  **Nome**                    |    **Descrição**                           |
 |  -------------------------   |  ------------------------------------------  |
 |  NotStarted                  | Passo não foi iniciado.                        |
-|  Em Curso                  | Passo está em execução.                             |
+|  Em curso                  | Passo está em execução.                             |
 |  WaitingForPublisherReview   | Passo está à espera de aprovação do publicador.      |
 |  WaitingForApproval          | Passo está à espera de aprovação de processo.        |
 |  Bloqueado                     | Passo está bloqueado.                             |

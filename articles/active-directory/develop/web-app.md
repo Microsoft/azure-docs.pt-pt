@@ -18,13 +18,13 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65544730"
 ---
-# <a name="web-apps"></a>Aplicações Web
+# <a name="web-apps"></a>Web Apps
 
 Aplicações Web são aplicativos que autenticar um usuário num navegador da web a uma aplicação web. Neste cenário, o aplicativo web direciona o navegador do usuário para iniciar sessão-las Azure AD. O Azure AD devolve uma resposta de início de sessão por meio de navegador do usuário, que contém as afirmações sobre o utilizador num token de segurança. Este cenário suporta início de sessão utilizando os protocolos de OpenID Connect, SAML 2.0 e WS-Federation.
 
@@ -43,7 +43,7 @@ Aplicações Web são aplicativos que autenticar um usuário num navegador da we
 
 Veja os exemplos de código para o navegador da web para cenários de aplicativos web. E, novamente, com frequência, como novos exemplos são adicionados com frequência de verificação.
 
-## <a name="app-registration"></a>Registo de aplicações
+## <a name="app-registration"></a>Registo da aplicação
 
 Para registar uma aplicação web, consulte [registar uma aplicação](quickstart-register-app.md).
 
