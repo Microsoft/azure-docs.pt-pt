@@ -155,9 +155,9 @@ Using `AADClientCertificate`:
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | KeyVaultURL | url | string |
-| (opcional) Frase de acesso | password | string | 
+| (opcional) Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
-| VolumeType | Sistema operacional, dados, todos os | string |
+| VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>Implementação de modelos
 Para obter um exemplo de implementação do modelo, consulte [ criar uma nova VM do Windows criptografado da imagem da galeria](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
