@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: alkohli
 ms.openlocfilehash: bc156b8c18f46cccf6fc775b82f76383b8c43861
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66242161"
 ---
 Aqui está uma lista de contas de armazenamento suportadas e os tipos de armazenamento para o dispositivo do Data Box. Para obter uma lista completa de todos os diferentes tipos de contas de armazenamento e as respetivas funcionalidades completas, consulte [tipos de contas de armazenamento](/azure/storage/common/storage-account-overview#types-of-storage-accounts).

@@ -19,10 +19,10 @@ ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545200"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no ponto de extremidade de versão 1.0 do Azure Active Directory
@@ -67,9 +67,9 @@ As permissões no Azure AD têm várias propriedades que ajudam os utilizadores,
 | `IsEnabled` | Indica se esta permissão está disponível para utilização. | true |
 | `Type` | Indica se esta permissão requer consentimento do utilizador ou consentimento do administrador. | Utilizador |
 | `AdminConsentDescription` | É uma descrição que é apresentada aos administradores durante as experiências de consentimento de administrador | Permite que a aplicação leia e-mails nas caixas de correio do utilizador. |
-| `AdminConsentDisplayName` | É o nome amigável que é apresentado aos administradores durante a experiência de consentimento de administrador. | Ler correio do utilizador |
+| `AdminConsentDisplayName` | É o nome amigável que é apresentado aos administradores durante a experiência de consentimento de administrador. | Ler o correio do utilizador |
 | `UserConsentDescription` | É uma descrição que é apresentada aos utilizadores durante uma experiência de consentimento de utilizador. |  Permite que a aplicação leia e-mails na sua caixa de correio. |
-| `UserConsentDisplayName` | É o nome amigável que é apresentado aos utilizadores durante uma experiência de consentimento de utilizador. | Leia o seu e-mail |
+| `UserConsentDisplayName` | É o nome amigável que é apresentado aos utilizadores durante uma experiência de consentimento de utilizador. | Ler o seu correio |
 | `Value` | É a cadeia que é utilizada para identificar a permissão durante os fluxos de autorização de OAuth 2.0. `Value` também pode ser combinada com a cadeia de URI de ID da Aplicação, de modo a formar um nome de permissão completamente qualificado. | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>Tipos de consentimentos

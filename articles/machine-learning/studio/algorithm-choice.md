@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60752977"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos para o Azure Machine Learning Studio
@@ -41,7 +41,7 @@ Estas recomendações são compilados comentários e sugestões de muitos cienti
 
 ### <a name="how-to-use-the-cheat-sheet"></a>Como utilizar a folha de referência rápida
 
-Leia as etiquetas de caminho e o algoritmo no gráfico, como "para  *&lt;etiqueta do caminho&gt;*, utilize  *&lt;algoritmo&gt;*." Por exemplo, "para *velocidade*, utilize *dois classe regressão logística*." Por vezes, mais de um ramo aplica-se.
+Leia as etiquetas de caminho e o algoritmo no gráfico, como "para  *&lt;etiqueta do caminho&gt;* , utilize  *&lt;algoritmo&gt;* ." Por exemplo, "para *velocidade*, utilize *dois classe regressão logística*." Por vezes, mais de um ramo aplica-se.
 Por vezes, nenhuma delas é um ajuste perfeito. Se se destinam a ser recomendações de regra de geral, para que não se preocupe a ser exata.
 Cientistas de dados de vários que nós falamos com disse que a forma-se de que apenas para encontrar o melhor algoritmo é tentar todas elas.
 
@@ -73,7 +73,7 @@ Com base nisso, o algoritmo modifica sua estratégia de forma a alcançar a reco
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>Considerações ao escolher um algoritmo
 
-### <a name="accuracy"></a>Precisão
+### <a name="accuracy"></a>precisão
 
 Obter a resposta mais exata possível nem sempre é necessário.
 Às vezes, uma aproximação é adequada, consoante o que pretende utilizá-lo. Se for esse o caso, poderá reduzir drasticamente o seu tempo de processamento aproximando-se com o mais aproximados métodos. Outra vantagem de mais aproximados métodos é que eles naturalmente tendem a evitar overfitting.

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
 ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65231118"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
@@ -115,10 +115,10 @@ A tabela seguinte lista as ameaças STRIDE e fornece algumas mitigações de exe
 | --- | --- | --- |
 | Spoofing | Autenticação | Exigir ligações HTTPS. |
 | Adulteração | Integridade | Valide certificados SSL. |
-| Rejeição | Não repudiação | Ativar o Azure [monitorização e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
+| Rejeição | Não rejeição | Ativar o Azure [monitorização e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Divulgação de informações | Confidencialidade | Encriptar dados confidenciais Inativos utilizando [certificados de serviço](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Negação de serviço | Disponibilidade | Monitorizar métricas de desempenho para possíveis condições de negação de serviço. Implemente filtros de conexão. |
-| Elevação de privilégio | Autorização | Uso [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
+| Elevação de privilégios | Autorização | Uso [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Desenvolver no serviço de aplicações do Azure
 [Serviço de aplicações do Azure](../app-service/overview.md) é uma oferta de PaaS permite-lhe criar aplicações web e móveis para qualquer plataforma ou dispositivo e ligue-se aos dados em qualquer local e na cloud ou no local. Serviço de aplicações inclui as capacidades web e móveis que anteriormente foram entregues em separado como Web sites do Azure e serviços móveis do Azure. Também inclui novas capacidades para automatizar processos de negócio e o alojar APIs da nuvem. Como um serviço integrado único, o serviço de aplicações fornece um conjunto avançado de capacidades para a web, móveis e cenários de integração.
@@ -170,7 +170,7 @@ Neste artigo, nos concentramos nos vantagens de segurança de uma implementaçã
 - [Base de dados SQL do Azure e o armazém de dados SQL do Azure](security-paas-applications-using-sql.md)
 - [Armazenamento do Azure](security-paas-applications-using-storage.md)
 - Cache do Azure para Redis
-- Azure Service Bus
+- Service Bus do Azure
 - Firewalls de aplicações Web
 
 Ver [desenvolver aplicações seguras no Azure](abstract-develop-secure-apps.md) para perguntas de segurança e controlos, deve considerar em cada fase do ciclo de vida de desenvolvimento de software durante o desenvolvimento de aplicativos para a nuvem.

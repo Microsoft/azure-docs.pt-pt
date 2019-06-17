@@ -9,10 +9,10 @@ ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
 ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244943"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
@@ -112,10 +112,10 @@ Esta categoria contém o registo de todos os criar, operações de atualização
 ### <a name="property-descriptions"></a>Descrições das propriedades
 | Nome do elemento | Descrição |
 | --- | --- |
-| Autorização |Blob de propriedades RBAC do evento. Normalmente, inclui as propriedades de "action", "função" e "escopo". |
+| authorization |Blob de propriedades RBAC do evento. Normalmente, inclui as propriedades de "action", "função" e "escopo". |
 | Autor da chamada |Endereço de e-mail do utilizador que efetuou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. |
 | canais |Um dos seguintes valores: "Admin", "Operação" |
-| afirmações |O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Resource Manager. |
+| claims |O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Resource Manager. |
 | correlationId |Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
 | description |Descrição de texto estático de um evento. |
 | eventDataId |Identificador exclusivo de um evento. |
@@ -354,7 +354,7 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
 | --- | --- |
 | Autor da chamada | Sempre Microsoft.Insights/alertRules |
 | canais | Sempre "Admin, operação" |
-| afirmações | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, de mecanismo de alerta. |
+| claims | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, de mecanismo de alerta. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
 | description |Descrição de texto estático do evento de alerta. |
 | eventDataId |Identificador exclusivo do evento de alerta. |
@@ -464,7 +464,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
 | --- | --- |
 | Autor da chamada | Always Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Admin, operação" |
-| afirmações | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, do motor de dimensionamento automático. |
+| claims | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, do motor de dimensionamento automático. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
 | description |Descrição de texto estático do evento de dimensionamento automático. |
 | eventDataId |Identificador exclusivo do evento de dimensionamento automático. |
@@ -558,7 +558,7 @@ Esta categoria contém o registo de todos os alertas gerados pelo centro de segu
 | eventDataId |Identificador exclusivo do evento de segurança. |
 | eventName |Nome amigável do evento de segurança. |
 | category | Sempre "segurança" |
-| ID |Identificador de recurso exclusivo do evento de segurança. |
+| id |Identificador de recurso exclusivo do evento de segurança. |
 | nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" ou "Informativo" |
 | resourceGroupName |Nome do grupo de recursos para o recurso. |
 | resourceProviderName |Nome do fornecedor de recursos para o Centro de segurança do Azure. Sempre "Microsoft.Security". |
@@ -638,7 +638,7 @@ Esta categoria contém o registo de quaisquer novas recomendações que são ger
 | description |Descrição de texto estático do evento de recomendação |
 | eventDataId | Identificador exclusivo do evento de recomendação. |
 | category | Sempre "recomendação" |
-| ID |Identificador de recurso exclusivo do evento de recomendação. |
+| id |Identificador de recurso exclusivo do evento de recomendação. |
 | nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" ou "Informativo" |
 | operationName |Nome da operação.  Sempre "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Nome do grupo de recursos para o recurso. |
@@ -743,17 +743,17 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| Autorização | Matriz de propriedades RBAC do evento. Para novos recursos, esta é a ação e o âmbito do pedido que disparou a avaliação. Para obter recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
+| authorization | Matriz de propriedades RBAC do evento. Para novos recursos, esta é a ação e o âmbito do pedido que disparou a avaliação. Para obter recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
 | Autor da chamada | Para novos recursos, a identidade que iniciou uma implementação. Para os recursos existentes, o GUID da RP de informações de política do Microsoft Azure. |
 | canais | Eventos de política utilizam apenas o canal de "Operação". |
-| afirmações | O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Resource Manager. |
+| claims | O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Resource Manager. |
 | correlationId | Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
 | description | Este campo está em branco para eventos de política. |
 | eventDataId | Identificador exclusivo de um evento. |
 | eventName | "BeginRequest" ou "EndRequest". "BeginRequest" é utilizado para as avaliações auditIfNotExists e deployIfNotExists atrasadas e quando um efeito de deployIfNotExists é iniciada uma implementação do modelo. Todas as outras operações devolvem "EndRequest". |
 | category | Declara o registo de eventos de atividade como pertencentes ao "Policy". |
 | eventTimestamp | Timestamp quando o evento foi gerado pelo processamento do pedido correspondente o evento de serviço do Azure. |
-| ID | Identificador exclusivo do evento no recurso específico. |
+| id | Identificador exclusivo do evento no recurso específico. |
 | nível | Nível do evento. Auditoria utiliza "Aviso" e negar utiliza "Erro". Um erro de auditIfNotExists ou deployIfNotExists pode gerar "Aviso" ou "Erro", dependendo da gravidade. Todos os outros eventos de política utilizam "Informativo". |
 | operationId | Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName | Nome da operação e diretamente está correlacionada com o efeito de política. |
@@ -789,7 +789,7 @@ Quando o registo de atividades do Azure para uma conta de armazenamento ou o esp
 | correlationId | correlationId |  |
 | identidade | Propriedades de autorização e afirmações |  |
 | Nível | Nível |  |
-| location | N/A | Localização de onde o evento foi processado. *Esta não é a localização do recurso, mas em vez disso, em que o evento foi processado. Esta propriedade será removida numa atualização futura.* |
+| localização | N/A | Localização de onde o evento foi processado. *Esta não é a localização do recurso, mas em vez disso, em que o evento foi processado. Esta propriedade será removida numa atualização futura.* |
 | Propriedades | properties.eventProperties |  |
 | properties.eventCategory | category | Se properties.eventCategory não estiver presente, a categoria é "Administração" |
 | properties.eventName | eventName |  |

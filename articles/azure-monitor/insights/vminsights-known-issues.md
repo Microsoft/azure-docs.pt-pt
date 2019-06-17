@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
 ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65522133"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (pré-visualização)
 
 Este artigo aborda problemas conhecidos com o Azure Monitor para as VMs, uma solução no Azure que combina o estado de funcionamento, a deteção de componentes da aplicação e a monitorização do desempenho do sistema de operacional de VM do Azure. 
 
-## <a name="health"></a>Saúde 
+## <a name="health"></a>Estado de Funcionamento 
 Os seguintes são problemas conhecidos da versão atual do recurso de estado de funcionamento:
 
 - Se uma VM do Azure é removida ou eliminada, é apresentada na vista de lista de VM durante algum tempo. Além disso, o estado de uma VM removida ou eliminada de clicar abre o **diagnóstico de estado de funcionamento** ver e, em seguida, inicia um ciclo de carregamento. Selecionar o nome da VM eliminada é aberto um painel com uma mensagem a indicar que a VM tiver sido eliminada.

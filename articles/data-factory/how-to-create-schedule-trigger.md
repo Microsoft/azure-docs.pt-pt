@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
 ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65151073"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um acionador que executa um pipeline com base numa agenda
@@ -44,7 +44,7 @@ Pode criar uma **acionador de agenda** para agendar um pipeline para executar pe
 3. Na **novo acionador** página, efetue os seguintes passos: 
 
     1. Confirme que **agenda** está selecionada para **tipo**. 
-    2. Especifica a datetime de início do acionador para **data de início (UTC)**. Ele é definido como a data/hora atual por predefinição. 
+    2. Especifica a datetime de início do acionador para **data de início (UTC)** . Ele é definido como a data/hora atual por predefinição. 
     3. Especifique **periodicidade** para o acionador. Selecione um dos valores da lista pendente (cada minuto, hora a hora, diariamente, semanalmente e mensal). Introduza o multiplicador na caixa de texto. Por exemplo, se pretender que o acionador para ser executado uma vez para cada 15 minutos, selecione **cada minuto**e introduza **15** na caixa de texto. 
     4. Para o **final** campo, se não pretender especificar uma datetime de fim para o acionador, selecione **sem fim**. Para especificar um end data hora, selecione **na data**, especifique a data/hora final e clique em **aplicar**. Nenhuma execução de pipeline tem custos associados. Se estiver a testar, pode querer Certifique-se de que o pipeline é acionado apenas duas vezes. No entanto, certifique-se de que há tempo suficiente para o pipeline ser executado entre a hora de publicação e a hora de fim. O acionador só entra em vigor depois de publicar a solução no Data Factory e não quando guarda o acionador na IU.
 
@@ -361,8 +361,8 @@ A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 
 | Elemento JSON | Descrição | Valores válidos |
 |:--- |:--- |:--- |
-| **minutes** | Minutos da hora em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul>
-| **hours** | Horas do dia em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul> |
+| **minutes** | Minutos da hora em que o acionador é executado. | <ul><li>Integer</li><li>Matriz de números inteiros</li></ul>
+| **hours** | Horas do dia em que o acionador é executado. | <ul><li>Integer</li><li>Matriz de números inteiros</li></ul> |
 | **weekDays** | Dias da semana em que o acionador é executado. O valor pode ser especificado com uma frequência semanal apenas. | <ul><li>Segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira, sábado, domingo</li><li>Matriz de valores de dia (o tamanho máximo da matriz é 7)</li><li>Os valores de dia não são sensíveis às maiúsculas e minúsculas</li></ul> |
 | **monthlyOccurrences** | Dias do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Matriz de **monthlyOccurrence** objetos: `{ "day": day,  "occurrence": occurrence }`.</li><li>O atributo **day** é o dia da semana em que o acionador é executado. Por exemplo, uma propriedade **monthlyOccurrences** com um valor **day** igual a `{Sunday}` significa todos os domingos do mês. O atributo **day** é obrigatório.</li><li>O atributo **occurrence** é a ocorrência do valor **day** especificado durante o mês. Por exemplo, uma propriedade **monthlyOccurrences** com os valores **day** e **occurrence** iguais a `{Sunday, -1}` significa o último domingo do mês. O atributo **occurrence** é opcional.</li></ul> |
 | **monthDays** | Dia do mês em que o acionador é executado. O valor pode ser especificado com uma frequência mensal apenas. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Matriz de valores</li></ul> |

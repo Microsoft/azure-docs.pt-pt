@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
 ms.openlocfilehash: 7bcc1bf6b734abe202c5fec5d515604f4bf8e4a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60398710"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Suporte de plataformas de SDKs do IoT do Azure
@@ -43,22 +43,22 @@ Existem várias plataformas suportadas.
 | Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | openssl  - 1.0.2g |
 | Ubuntu 18.04 LTS    | X64  | gcc-7.3              | WolfSSL – 1.13    |
 | Ubuntu 18.04 LTS    | X64  | Clang 6.0.X          | Openssl – 1.1.0g  |
-| OSX 10.13.4         | X64  | XCode 9.4.1          | Native OSX        |
-| Windows Server 2016 | X64  | Visual Studio 14.0.X | SChannel          |
-| Windows Server 2016 | X86  | Visual Studio 14.0.X | SChannel          |
-| Debian 9 Stretch    | X64  | gcc-7.3              | OpenSSL – 1.1.0f  |
+| OSX 10.13.4         | x64  | XCode 9.4.1          | Native OSX        |
+| Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
+| Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
+| Debian 9 Stretch    | x64  | gcc-7.3              | OpenSSL – 1.1.0f  |
 
 ### <a name="python-sdk"></a>SDK Python
 
 | SO                  | Arch | Compilador   | Biblioteca TLS |
 |---------------------|------|------------|-------------|
-| Windows Server 2016 | X86  | Python 2.7 | openssl     |
-| Windows Server 2016 | X64  | Python 2.7 | openssl     |
-| Windows Server 2016 | X86  | Python 3.5 | openssl     |
-| Windows Server 2016 | X64  | Python 3.5 | openssl     |
-| Ubuntu 18.04 LTS    | X86  | Python 2.7 | openssl     |
-| Ubuntu 18.04 LTS    | X86  | Python 3.4 | openssl     |
-| Alta de MacOS Sierra   | X64  | Python 2.7 | openssl     |
+| Windows Server 2016 | x86  | Python 2.7 | openssl     |
+| Windows Server 2016 | x64  | Python 2.7 | openssl     |
+| Windows Server 2016 | x86  | Python 3.5 | openssl     |
+| Windows Server 2016 | x64  | Python 3.5 | openssl     |
+| Ubuntu 18.04 LTS    | x86  | Python 2.7 | openssl     |
+| Ubuntu 18.04 LTS    | x86  | Python 3.4 | openssl     |
+| Alta de MacOS Sierra   | x64  | Python 2.7 | openssl     |
 
 ### <a name="net-sdk"></a>SDK .NET
 
@@ -89,7 +89,7 @@ Existem várias plataformas suportadas.
 
 Os clientes podem expandir o nosso suporte de plataforma ao portar o SDK de C do IoT do Azure, especificamente, criando a camada de abstração de plataforma (PAL) do SDK. A Microsoft trabalha com parceiros para fornecer suporte alargado. Uma lista de parceiros tem portado o SDK de C para mais plataformas e a manter a PAL.
 
-| Parceiro             | Dispositivos                            | Ligação                     | Suporte |
+| Partner             | Dispositivos                            | Ligação                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE para o SDK de IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

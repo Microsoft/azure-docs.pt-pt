@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
 ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66003123"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Descrição geral das filas de mensagens não entregues do Service Bus
@@ -45,10 +45,10 @@ Aplicativos podem definir seus próprios códigos para o `DeadLetterReason` prop
 
 | Condição | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
-| Sempre |HeaderSizeExceeded |Foi excedida a quota de tamanho para este fluxo. |
+| Sempre |HeaderSizeExceeded |A quota de tamanho deste fluxo foi excedida. |
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing e SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |A mensagem expirou e foi lettered inutilizado. |
-| SubscriptionDescription.RequiresSession |Id de sessão é nulo. |Entidade de sessão ativada não permite que uma mensagem cujo identificador de sessão é nulo. |
+| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |A mensagem expirou e foi classificada como não entregue. |
+| SubscriptionDescription.RequiresSession |Id de sessão é nulo. |A entidade com sessão ativada não permite uma mensagem cujo identificador de sessão seja nulo. |
 | ! entregues fila |MaxTransferHopCountExceeded |Null |
 | Aplicação explícita lettering inutilizado |Especificado por aplicativo |Especificado por aplicativo |
 

@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e8606a0d4e203e1a910a5cd15ca83a622f5286bd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812531"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Como os utilizadores na sua organização podem convidar utilizadores convidados para uma aplicação
@@ -35,11 +35,11 @@ Depois de um convidado utilizador foi adicionado para o diretório no Azure AD, 
 Depois de uma aplicação está configurada para Self-Service, os proprietários da aplicação podem utilizar o seu próprio painel de acesso para convidar um utilizador convidado para a aplicação que pretendem partilhar. O utilizador convidado não necessariamente precisa ser adicionado ao Azure AD com antecedência. 
 
 1. Abra o painel de acesso da `https://myapps.microsoft.com`.
-2. Aponte para a aplicação, selecione as reticências (**...** ) e, em seguida, selecione **Gerir aplicação**.
+2. Aponte para a aplicação, selecione as reticências ( **...** ) e, em seguida, selecione **Gerir aplicação**.
  
    ![Captura de ecrã que mostra o submenu para aplicação de gerir para a aplicação do Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
-3. Na parte superior da lista de utilizadores, selecione **+**.
+3. Na parte superior da lista de utilizadores, selecione **+** .
    
    ![Captura de ecrã que mostra o símbolo de adição para adicionar membros à aplicação](media/add-users-iw/access-panel-manage-app-add-user.png)
    
@@ -62,7 +62,7 @@ Depois de uma aplicação está configurada para Self-Service, os proprietários
    
    ![Captura de ecrã que mostra onde pode selecionar um grupo de grupos que sou proprietário](media/add-users-iw/access-panel-groups-i-own.png)
    
-5. No topo da lista de membros do grupo, selecione **+**.
+5. No topo da lista de membros do grupo, selecione **+** .
    
    ![Captura de ecrã que mostra o símbolo de adição para adicionar membros ao grupo](media/add-users-iw/access-panel-groups-add-member.png)
    

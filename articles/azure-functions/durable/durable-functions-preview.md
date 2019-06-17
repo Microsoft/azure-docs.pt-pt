@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596074"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durável Functions 2.0 pré-visualização (funções do Azure)
@@ -154,8 +154,8 @@ Suporte de entidade envolve várias APIs. Para um, existe uma nova API para a de
 A execução de uma operação numa entidade pode chamar esses membros do objeto de contexto (`IDurableEntityContext` no .NET):
 
 * **OperationName**: obtém o nome da operação.
-* **GetInput\<T >**: obtém a entrada para a operação.
-* **GetState\<T >**: obtém o estado atual da entidade.
+* **GetInput\<T >** : obtém a entrada para a operação.
+* **GetState\<T >** : obtém o estado atual da entidade.
 * **SetState**: atualiza o estado da entidade.
 * **SignalEntity**: envia uma mensagem unidirecional para uma entidade.
 * **Self**: obtém o ID da entidade.
@@ -172,7 +172,7 @@ As operações são menos restritas que orquestrações:
 
 Entidades duráveis podem ser invocadas a partir de funções comuns através da `orchestrationClient` enlace (`IDurableOrchestrationClient` no .NET). São suportados os seguintes métodos:
 
-* **ReadEntityStateAsync\<T >**: lê o estado de uma entidade.
+* **ReadEntityStateAsync\<T >** : lê o estado de uma entidade.
 * **SignalEntityAsync**: envia uma mensagem unidirecional para uma entidade e aguarda para que elas sejam colocados em fila.
 
 Esses métodos priorizar o desempenho ao longo de consistência: `ReadEntityStateAsync` pode devolver um valor obsoleto, e `SignalEntityAsync` pode retornar antes da operação foi concluída. Por outro lado, a chamada de entidades de orquestrações (conforme descrito a seguir) é vivamente consistente.
@@ -183,7 +183,7 @@ Orquestrações podem aceder a entidades usando o objeto de contexto. Podem esco
 
 * **SignalEntity**: envia uma mensagem unidirecional para uma entidade.
 * **CallEntityAsync**: envia uma mensagem para uma entidade e aguarda uma resposta a indicar que a operação foi concluída.
-* **CallEntityAsync\<T >**: envia uma mensagem para uma entidade e aguarda uma resposta que contém um resultado do tipo T.
+* **CallEntityAsync\<T >** : envia uma mensagem para uma entidade e aguarda uma resposta que contém um resultado do tipo T.
 
 Ao utilizar a comunicação bidirecional, todas as exceções lançadas durante a execução da operação também são transmitidas de volta para a orquestração de chamada e relançadas. Por outro lado, quando utilizar disparar e esquecer, exceções não são respeitadas.
 
@@ -239,7 +239,7 @@ Podemos impõe várias restrições das seções críticas como pode ser utiliza
 A estrutura de tarefa durável suporta vários fornecedores de armazenamento hoje em dia, incluindo [armazenamento do Azure](https://github.com/Azure/durabletask/tree/master/src/DurableTask.AzureStorage), [do Azure Service Bus](https://github.com/Azure/durabletask/tree/master/src/DurableTask.ServiceBus), uma [emulador na memória](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Emulator)e um experimentais [Redis](https://github.com/Azure/durabletask/tree/redis/src/DurableTask.Redis) fornecedor. No entanto, até agora, a extensão de tarefas durável para as funções do Azure só suportado o fornecedor de armazenamento do Azure. A partir do 2.0 de funções durável, suporte para fornecedores de armazenamento alternativo está a ser adicionada, começando com o fornecedor de Redis.
 
 > [!NOTE]
-> 2.0 de funções durável só suporta os fornecedores de 2.0 compatível com .NET Standard. No momento da escrita, o fornecedor do Azure Service Bus não suporta o .NET Standard 2.0 e, portanto, não está disponível como um fornecedor de armazenamento alternativo.
+> 2\.0 de funções durável só suporta os fornecedores de 2.0 compatível com .NET Standard. No momento da escrita, o fornecedor do Azure Service Bus não suporta o .NET Standard 2.0 e, portanto, não está disponível como um fornecedor de armazenamento alternativo.
 
 ### <a name="emulator"></a>Emulador
 
@@ -279,7 +279,7 @@ O [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTask
 }
 ```
 
-O `connectionStringName` tem de referenciar o nome de uma variável de ambiente ou definição de aplicação. Essa variável de ambiente ou definição de aplicação deve conter um valor de cadeia de ligação de Redis na forma de *porta do servidor:*. Por exemplo, `localhost:6379` para ligar a um cluster de Redis local.
+O `connectionStringName` tem de referenciar o nome de uma variável de ambiente ou definição de aplicação. Essa variável de ambiente ou definição de aplicação deve conter um valor de cadeia de ligação de Redis na forma de *porta do servidor:* . Por exemplo, `localhost:6379` para ligar a um cluster de Redis local.
 
 > [!NOTE]
 > O fornecedor de Redis é atualmente experimental e só suporta aplicações de função em execução num único nó.

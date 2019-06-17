@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60633970"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple como um destino de cópia de segurança com Veeam
@@ -319,8 +319,8 @@ Eis um exemplo de uma agenda de rotação GFS para quatro semanas, mensais e anu
 | Tipo de frequência/cópia de segurança | Completo | Incremental (1 a 5 de dias)  |   
 |---|---|---|
 | Semanal (1 a 4 de semanas) | Sábado | De segunda a sexta-feira |
-| Mensalmente  | Sábado  |   |
-| Anualmente | Sábado  |   |
+| Custo  | Sábado  |   |
+| Anual | Sábado  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Atribuir volumes do StorSimple para uma tarefa de cópia de segurança Veeam
@@ -399,8 +399,8 @@ Rotação de GFS agenda semanal, mensal e anual
 | Semana de 2 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
 | Semana de 3 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
 | Semana de 4 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
-| Mensalmente | StorSimple mensalmente |   |   |   |   |   |
-| Anualmente | StorSimple anuais  |   |   |   |   |   |
+| Custo | StorSimple mensalmente |   |   |   |   |   |
+| Anual | StorSimple anuais  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Atribuir volumes do StorSimple para uma tarefa de cópia de Veeam
 

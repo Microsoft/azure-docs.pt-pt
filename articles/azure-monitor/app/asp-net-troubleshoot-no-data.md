@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299305"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059609"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
@@ -232,6 +232,27 @@ Siga estas instruções para capturar os registos de resolução de problemas pa
 3. Reinicie o processo para que essas novas configurações são captadas pelo SDK
 
 4. Quando tiver terminado, reverta essas alterações.
+
+
+## <a name="PerfView"></a> Recolher registos com PerfView
+[PerfView](https://github.com/Microsoft/perfview) é uma ferramenta gratuita de diagnóstico e análise de desempenho que ajudam a isolar a CPU, memória e outros problemas ao recolher e visualizar informações de diagnóstico a partir de várias origens.
+
+O Application Insights SDK inicie a sessão de registos de resolução de Self-problemas EventSource que podem ser capturados por PerfView.
+
+Para recolher registos, transfira PerfView e execute este comando:
+```cmd
+PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+```
+
+Pode modificar estes parâmetros conforme necessário.
+
+- **MaxCollectSec**. Defina este parâmetro para impedir que PerfView da execução indefinidamente e afetar o desempenho do seu servidor.
+- **OnlyProviders**. Defina este parâmetro para recolher apenas registos do SDK. Pode personalizar esta lista com base nas suas investigações específicas. 
+
+
+Para obter mais informações,
+- [Registar rastreios de desempenho com PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
+- [Origens de eventos do Application Insights](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="still-not-working"></a>Ainda não está a funcionar...
 * [Fórum do Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

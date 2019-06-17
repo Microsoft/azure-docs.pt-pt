@@ -8,17 +8,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.openlocfilehash: 75ff34910383b30c9fd967ff568d087c2492856f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66143229"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Base de dados do Azure para parceiros de migração do PostgreSQL
 Para suportar amplamente sua base de dados do Azure para PostgreSQL solução, pode escolher entre uma ampla variedade de ferramentas e de parceiros líderes do setor. Este artigo destaca os parceiros da Microsoft com soluções de migração que suportam a base de dados do Azure para PostgreSQL.
 
 ## <a name="migration-partners"></a>Parceiros de migração
-| Parceiro | Descrição | Ligações | Os meus vídeos |
+| Partner | Descrição | Ligações | Vídeos |
 | --- | --- | --- | --- |
 | ![Tecnologias de Scalable][1] |**SNP Technologies**<br>Tecnologias de Scalable é um fornecedor de serviços apenas na cloud, criação de soluções seguras e fiáveis para empresas do futuro. A empresa acredita em gerar valor real para a sua empresa. De idéias para a execução, tecnologias de Scalable compartilha uma finalidade em comum com clientes, para ativar o seu investimento numa vantagem.|[Website][snp_website]<br>[Twitter][snp_twitter]<br>[Contact][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>DB melhor-ajuda os clientes a tirar o máximo proveito de um serviço de base de dados do Azure gerido. A empresa oferece várias formas de começar, incluindo [Design de arquitetura do Estado do futuro](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [otimização de gestão de dados para a plataforma de dados Microsoft](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Microsoft Azure Planeamento dos serviços de implementação](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services), e [formação de preparação de plataforma de dados do Azure](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Website][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contact][dbbest_contact] | |

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: jowargo
 ms.openlocfilehash: 890577c013a96fc06acf3b05881649ad8202a083
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60872417"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em tokens (HTTP/2) para o APNS
@@ -50,7 +50,7 @@ Tenha em atenção que se tiver migrado com as credenciais de certificado de APN
 
 Para ativar a autenticação baseada em tokens, tem as seguintes propriedades da sua conta de programador da Apple:
 
-### <a name="key-identifier"></a>Identificador de Chave
+### <a name="key-identifier"></a>Identificador de chave
 
 O identificador de chave pode ser obtido a partir da página de "Chaves" na sua conta de programador da Apple
 

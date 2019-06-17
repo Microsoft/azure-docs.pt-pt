@@ -2,7 +2,7 @@
 title: Gerir segredos da aplicação do Azure Service Fabric malha | Documentos da Microsoft
 description: Gerir segredos da aplicação para que possa criar e implementar uma aplicação de malha do Service Fabric em segurança.
 services: service-fabric-mesh
-keywords: segredos
+keywords: Segredos
 author: aljo-microsoft
 ms.author: aljo
 ms.date: 4/2/2019
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
 ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506439"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerir segredos da aplicação do Service Fabric malha

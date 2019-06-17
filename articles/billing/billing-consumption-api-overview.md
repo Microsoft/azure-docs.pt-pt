@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
 ms.openlocfilehash: 16e0bdfa0fc70d5239cb4127e61891a013bf54a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60615888"
 ---
 # <a name="azure-consumption-api-overview"></a>Descrição geral da API de consumo do Azure 
@@ -109,7 +109,7 @@ A API inclui:
 
 -   **Controlo de acesso baseado em funções do Azure** -configurar políticas de acesso no [portal do Azure](https://portal.azure.com), o [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para especificar que os utilizadores ou aplicações podem obter acesso a dados de utilização da subscrição. Os autores de chamadas tem de utilizar tokens padrão do Azure Active Directory para autenticação. Adicione o autor da chamada à função seja o leitor de faturação, leitor, proprietário ou Contribuidor para obter acesso a dados de utilização de uma subscrição do Azure específica. 
 -   **Filtragem** -adaptar seus resultados de recomendação usando os seguintes filtros:
-    - Âmbito
+    - Scope
     - Período de Lookback
 -   **Informações de reserva para tipos de oferta diferente** -informações de reserva estão atualmente disponíveis para clientes empresariais e do Web Direct.
 

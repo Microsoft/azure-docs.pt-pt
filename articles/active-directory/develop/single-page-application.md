@@ -18,10 +18,10 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f6f66779bec9ed4e38e5a662c2d3728ba2034b6
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65545303"
 ---
 # <a name="single-page-applications"></a>Aplicativos de página única
@@ -49,7 +49,7 @@ Neste cenário, quando o utilizador inicia sessão, o JavaScript de front-end ut
 
 Consulte a [exemplos de código para cenários de aplicação de página única](sample-v1-code.md#single-page-applications). Certifique-se de que verifique novamente com a frequência com novos exemplos são adicionados com frequência.
 
-## <a name="app-registration"></a>Registo de aplicações
+## <a name="app-registration"></a>Registo da aplicação
 
 * Inquilino único, se estiver a criar uma aplicação apenas para a sua organização, tem de ser registado no diretório da sua empresa com o portal do Azure.
 * Multi-inquilino - se estiver criando um aplicativo que pode ser utilizado por utilizadores fora da sua organização, ela deve ser registrada no diretório da sua empresa, mas também tem de estar registrada no diretório de cada organização que irá utilizar a aplicação. Para disponibilizar a aplicação no seu diretório, pode incluir um processo de inscrição para os seus clientes, que permite autorizar a aplicação. Quando se inscrevem no seu aplicativo, serão apresentadas com uma caixa de diálogo que mostra as permissões que a aplicação requer e, em seguida, a opção para dar consentimento. Consoante as permissões necessárias, um administrador da outra organização poderá ser necessário para dar consentimento. Quando o utilizador ou administrador autorizar, o aplicativo está registado no seu diretório.

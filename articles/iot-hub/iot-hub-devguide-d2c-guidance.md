@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60885521"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Orientações de comunicações de dispositivo para a cloud
@@ -35,7 +35,7 @@ Aqui está uma comparação detalhada das várias opções de comunicação do d
 | Armazenamento e recuperação | Temporariamente armazenada pelo IoT Hub, até 7 dias. Apenas leitura sequencial. | Armazenados pelo IoT Hub no dispositivo duplo. Recuperável utilizando o [linguagem de consulta do IoT Hub](iot-hub-devguide-query-language.md). | Armazenados na conta de armazenamento do Azure fornecidos pelo usuário. |
 | Tamanho | Até mensagens de 256 KB. | Tamanho de propriedades comunicadas máximo é de 8 KB. | Tamanho máximo suportado pelo armazenamento de Blobs do Azure. |
 | Frequência | Elevada. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). | Média. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). | Baixo. Para obter mais informações, consulte [IoT Hub limita](iot-hub-devguide-quotas-throttling.md). |
-| Protocolo | Disponível em todos os protocolos. | Disponível com MQTT ou AMQP. | Estão disponíveis ao utilizar qualquer protocolo, mas requer HTTPS no dispositivo. |
+| Protocol | Disponível em todos os protocolos. | Disponível com MQTT ou AMQP. | Estão disponíveis ao utilizar qualquer protocolo, mas requer HTTPS no dispositivo. |
 
 Uma aplicação poderá ter de enviar informações tanto como um alerta ou uma série de tempo de telemetria e disponibilizá-la no dispositivo duplo. Neste cenário, pode escolher uma das seguintes opções:
 

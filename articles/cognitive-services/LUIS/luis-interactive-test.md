@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60199164"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar a sua aplicação LUIS no portal do LUIS
@@ -103,9 +103,9 @@ Utilize o procedimento seguinte para incluir o [verificação ortográfica do Bi
 
 1. Na **teste** painel, introduza uma expressão. Quando a expressão é prevista, selecione **[Inspect](#inspect-score)** por baixo da expressão que introduziu. 
 
-2. Quando o **Inspect** painel se abrir, selecione  **[comparar com publicado](#compare-with-published-version)**. 
+2. Quando o **Inspect** painel se abrir, selecione  **[comparar com publicado](#compare-with-published-version)** . 
 
-3. Quando o **publicada** painel se abrir, selecione  **[definições adicionais](#additional-settings-in-test-panel)**.
+3. Quando o **publicada** painel se abrir, selecione  **[definições adicionais](#additional-settings-in-test-panel)** .
 
 4. Na caixa de diálogo pop-up, introduza o seu **verificação ortográfica do Bing** chave do serviço. 
     ![Introduza a chave do serviço de verificação ortográfica do Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)

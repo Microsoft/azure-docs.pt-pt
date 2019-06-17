@@ -12,10 +12,10 @@ ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154558"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o seu modelo do LUIS e chaves
@@ -28,7 +28,7 @@ Se a sua aplicação exceder os limites de modelo do LUIS e os limites, consider
 
 |Área|Limite|
 |--|:--|
-| [Nome da aplicação][luis-get-started-create-app] | * Máximo de carateres de predefinido |
+| [Nome da aplicação][luis-get-started-create-app] | \* Máximo de carateres de predefinido |
 | [Teste de batch][batch-testing]| conjuntos de dados de 10, expressões de 1000 por conjunto de dados|
 | Lista explícita | 50 por aplicação|
 | Entidades externas | sem limites |
@@ -47,7 +47,7 @@ Se a sua aplicação exceder os limites de modelo do LUIS e os limites, consider
 | [Versões](luis-concept-version.md)| sem limite |
 | [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restringidas de alfanuméricos e período (.) |
 
-* Máximo de carateres de predefinido é 50 carateres. 
+\* Máximo de carateres de predefinido é 50 carateres. 
 
 <a name="intent-and-entity-naming"></a>
 

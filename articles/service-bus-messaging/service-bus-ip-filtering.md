@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64704576"
 ---
 # <a name="use-firewall-rules"></a>Utilize regras de Firewall
@@ -72,7 +72,7 @@ Parâmetros do modelo:
 > Embora não haja nenhuma regra de negação possível, o modelo Azure Resource Manager, tem a ação padrão definida como **"Permitir"** que não restringem as ligações.
 > Ao fazer as regras de rede Virtual ou Firewalls, devemos alterar o ***"defaultAction"***
 > 
-> de
+> from
 > ```json
 > "defaultAction": "Allow"
 > ```

@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60389958"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolver erros de registo do fornecedor de recursos

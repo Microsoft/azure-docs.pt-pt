@@ -14,10 +14,10 @@ ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721084"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
@@ -65,7 +65,7 @@ Verifique os [portas de saída para o Stream de métricas em direto](../../azure
 |Latência|Dados apresentados dentro de um segundo|Agregado ao longo de minutos|
 |Nenhuma retenção|Dados persistir enquanto ele está no gráfico e, em seguida, é rejeitado|[Dados retidos durante 90 dias](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |A pedido|Dados são transmitidos ao abrir o Live Metrics|Os dados são enviados sempre que o SDK está instalado e ativado|
-|Gratuito|Não tem custos para os dados do Stream em direto|Sujeito à [preços](../../azure-monitor/app/pricing.md)
+|Livre|Não tem custos para os dados do Stream em direto|Sujeito à [preços](../../azure-monitor/app/pricing.md)
 |Amostragem|Contadores e métricas de todos os selecionados são transmitidas. Falhas e de rastreamentos de pilha são objeto de amostragem. TelemetryProcessors não são aplicadas.|Eventos podem ter [amostragem](../../azure-monitor/app/api-filtering-sampling.md)|
 |Canal de controlo|Sinais de controle de filtro são enviadas para o SDK. Recomendamos que proteja este canal.|A comunicação é unidirecional, para o portal|
 

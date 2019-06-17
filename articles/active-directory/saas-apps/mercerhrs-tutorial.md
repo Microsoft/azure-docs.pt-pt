@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 8944e4533448f5787f5c85c12e4ab2747eb96e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ae074e8732898524d917f2537023c4b506cff80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65872273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutorial: Integração do Active Directory do Azure com Mercer BenefitsCentral (MBC)
 
@@ -52,7 +52,7 @@ Para configurar a integração de Mercer BenefitsCentral (MBC) para o Azure AD, 
 
 **Para adicionar Mercer BenefitsCentral (MBC) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -64,7 +64,7 @@ Para configurar a integração de Mercer BenefitsCentral (MBC) para o Azure AD, 
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Mercer BenefitsCentral (MBC)**, selecione **Mercer BenefitsCentral (MBC)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Mercer BenefitsCentral (MBC)** , selecione **Mercer BenefitsCentral (MBC)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
      ![Mercer BenefitsCentral (MBC) na lista de resultados](common/search-new-app.png)
 
@@ -158,11 +158,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso Mercer BenefitsCentral (MBC).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Mercer BenefitsCentral (MBC)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Mercer BenefitsCentral (MBC)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Mercer BenefitsCentral (MBC)**.
+2. Na lista de aplicações, selecione **Mercer BenefitsCentral (MBC)** .
 
     ![A ligação de Mercer BenefitsCentral (MBC) na lista de aplicações](common/all-applications.png)
 
@@ -184,7 +184,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida na Mercer BenefitsCentral (MBC). Trabalhar com [equipa de suporte de Mercer BenefitsCentral (MBC)](https://www.mercer.com/contact-us.html) para adicionar os utilizadores na plataforma Mercer BenefitsCentral (MBC). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

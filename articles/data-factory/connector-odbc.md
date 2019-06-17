@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60711463"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados entre arquivos de dados ODBC com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-odbc-connector.md)
 > * [Versão atual](connector-odbc.md)
 
@@ -56,7 +56,7 @@ As seguintes propriedades são suportadas para o serviço ligado do ODBC:
 | authenticationType | Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC.<br/>Valores permitidos são: **Básica** e **anônimo**. | Sim |
 | userName | Especifique o nome de utilizador se estiver a utilizar autenticação básica. | Não |
 | password | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
-| credencial | A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marca esse campo como uma SecureString. | Não |
+| credential | A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marca esse campo como uma SecureString. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo 1: usando a autenticação básica**

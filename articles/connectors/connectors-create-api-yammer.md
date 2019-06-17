@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62104736"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitorizar e gerir a sua conta do Yammer com o Azure Logic Apps
@@ -60,7 +60,7 @@ Pode usar acionadores que obtém as respostas da sua conta do Yammer e disponibi
        -ou-
 
      * Entre os passos em que pretende adicionar uma ação, mova o ponteiro do mouse sobre a seta entre passos. 
-     Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+     Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
      
        Na caixa de pesquisa, introduza "yammer" como o filtro. 
        Abaixo da lista de ações, selecione a ação que pretende.

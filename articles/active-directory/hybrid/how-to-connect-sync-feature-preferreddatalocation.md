@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473020"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: Configurar a localização de dados preferencial para os recursos do Office 365
@@ -137,7 +137,7 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
 5. Manter o **Scoping filtro** vazio, para incluir todos os objetos. Poderá ter de otimizar o filtro de âmbito, de acordo com a implementação do Azure AD Connect.
 6. Vá para o **separador de transformação**e implementar a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Source | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de destino | source | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     |Direto | preferredDataLocation | Escolha o atributo de origem | Desmarcada | Atualizar |
 
@@ -174,7 +174,7 @@ A regra de sincronização de saída permite que o valor do atributo para o flux
 
 6. Vá para o **transformação** separador e implementar a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | Source | Aplicar uma vez | Tipo de intercalação |
+    | Tipo de fluxo | Atributo de destino | source | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
     | Direto | preferredDataLocation | preferredDataLocation | Desmarcada | Atualizar |
 

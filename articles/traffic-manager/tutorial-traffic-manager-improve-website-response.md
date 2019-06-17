@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: allensu
 ms.openlocfilehash: 304beeae02da5836ba88a56d7166fc681e263501
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258363"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta do Web site utilizando o Gestor de tráfego
@@ -160,7 +160,7 @@ Adicione as duas VMs com o IIS servidores – *myIISVMEastUS* & *myIISVMWestEuro
 
     | Definição                 | Value                                              |
     | ---                     | ---                                                |
-    | Type                    | Ponto final do Azure                                   |
+    | Tipo                    | Ponto final do Azure                                   |
     | Name           | myEastUSEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP Público                          |
     | Recurso de destino          | **Escolha um endereço IP público** para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome *myIISVMEastUS-ip*. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|

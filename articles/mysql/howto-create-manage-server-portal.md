@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61459523"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Criar e gerir a base de dados do Azure para o servidor MySQL com o portal do Azure
@@ -41,7 +41,7 @@ Siga estes passos para criar uma base de dados do Azure para o servidor MySQL co
     | *Início de sessão de administrador do servidor* | myadmin (configure o nome da conta de administração) |
     | *Palavra-passe* | senha de conta de administrador de conjunto |
     | *Confirmar palavra-passe* | confirme a palavra-passe da conta de administrador |
-    | *Localização* | Sudeste Asiático (selecione entre Europa do Norte e E.U.A. oeste) |
+    | *Location* | Sudeste Asiático (selecione entre Europa do Norte e E.U.A. oeste) |
     | *Versão* | 5.7 (escolher a base de dados do Azure para a versão do servidor MySQL) |
 
 4. Clique em **escalão de preço** para especificar o nível de desempenho e a camada de serviço do novo servidor. Selecione o **fins gerais** separador. *Geração 5*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**.

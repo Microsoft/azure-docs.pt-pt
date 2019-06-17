@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: jowargo
 ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431250"
 ---
 # <a name="notification-hubs-security"></a>Segurança de Hubs de notificação

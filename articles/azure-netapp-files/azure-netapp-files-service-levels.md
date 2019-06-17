@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: b-juche
 ms.openlocfilehash: 1f9c427045c9d42f6a11cc4bcc798cfc47a4428c
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523108"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Níveis de serviços do Azure NetApp Files

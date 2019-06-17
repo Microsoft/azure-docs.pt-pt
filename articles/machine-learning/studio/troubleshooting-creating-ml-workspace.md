@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 7cc825daa29a0398793f3c6fc5ce8ee426ad79e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60193870"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Guia de resolução de problemas: Criar e ligar a uma área de trabalho do Azure Machine Learning Studio
@@ -39,7 +39,7 @@ O serviço Machine Learning tem uma conta de armazenamento para armazenar dados.
 
 Depois de criar a nova área de trabalho do Machine Learning Studio, pode iniciar sessão Machine Learning Studio, utilizando a conta da Microsoft que utilizou para criar a área de trabalho. Se encontrar a mensagem de erro, "Área de trabalho não encontrada" (semelhante à seguinte captura de ecrã), utilize os seguintes passos para eliminar os cookies do browser.
 
-![Pode ter sido eliminado ou pode não ter acesso para o visualizar.](media/troubleshooting-creating-ml-workspace/screen3.png)
+![Área de trabalho não foi encontrada](media/troubleshooting-creating-ml-workspace/screen3.png)
 
 **Para eliminar cookies do browser**
 

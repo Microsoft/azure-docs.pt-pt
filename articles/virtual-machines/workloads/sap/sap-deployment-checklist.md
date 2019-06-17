@@ -17,10 +17,10 @@ ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65236880"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Carga de trabalho SAP na lista de verificação de planejamento e implantação do Azure 
@@ -157,7 +157,7 @@ O piloto pode ser executado antes ou em paralelo para planejamento de projetos e
    3.  Certifique-se de que todos os recursos que precisam de ser encriptados são encriptados. Definir e executar processos de cópia de segurança de certificados, armazenar e aceder a esses certificados e restaurar as entidades encriptadas. 
    4.  Uso [do Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) e/ou para discos de SO, onde possível de um sistema operacional suporte o ponto de vista
    5.  Verifique que não muitas camadas de encriptação terem sido utilizadas. Faz sentido limitado para utilizar a encriptação de disco do Azure e, em seguida, no principais um dos métodos de encriptação da base de dados transparente do DBMS
-6. Testes de Desempenho
+6. Testes de desempenho
    1.  No SAP com base nas medições e de rastreio de SAP, comparar relatórios online de 10 principais para a implementação atual, quando aplicável 
    2.  No SAP com base nas medições e de rastreio de SAP, comparar tarefas de lote de 10 principais para a implementação atual, quando aplicável 
    3.  No SAP com base nas medições e de rastreio de SAP, compare as transferências de dados por meio de interfaces no sistema SAP. Concentre-se nas interfaces em que sabe que a transferência será agora entre diferentes localizações, como a mudança do local para o Azure 
@@ -183,7 +183,7 @@ Nesta fase, partimos do princípio que após um piloto com êxito ou a prova de 
 11. Executar todas as outras verificações, conforme listado na fase de prova de conceitos, antes de aplicar a carga de trabalho
 12. Como se aplica a carga de trabalho, registe o consumo de recursos desses sistemas no Azure e comparar com os registos de que obteve da sua plataforma antiga. Ajuste o dimensionamento de VM de Implantações futuras se vir que tem diferenças grandes. Tenha em atenção que, em caso de downsizing, armazenamento e larguras de banda de rede de uma VM, terá uma redução também:
     1.  [Tamanhos de máquinas de virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 
-    2.  [Tamanhos de máquinas de virtuais do Linux no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+    2.  [Tamanhos de máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Trabalhar em processos e funcionalidade de cópia do sistema. Objetivo é facilitar para que possa copiar um sistema de desenvolvimento ou um sistema de teste, por isso, em que as equipes de projeto pode obter novos sistemas rapidamente. Considere [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) como uma ferramenta efetuando tarefas.
 14. Otimizar e aprimorar sua equipe acessos de função do Azure com base, permissões e processos para certificar-se de que tem uma separação de imposto do lado. No outro lado, deseja ter todas as equipes de ativado para realizar suas tarefas na infraestrutura do Azure.
 15. Exercício, teste e procedimentos de recuperação de desastre e elevada disponibilidade documento para ativar a sua equipe para executar essas tarefas. Identificar deficiências e adaptar-se a nova funcionalidade do Azure que estiver a integrar nas suas implementações

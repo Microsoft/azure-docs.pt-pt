@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: fmegen
 ms.openlocfilehash: f34504dddaa21cc162476d1fdb462e7be5c48629
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60697918"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>API do stream sobre a entrada de áudio do SDK de voz

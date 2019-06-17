@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ms.openlocfilehash: d29b17e1a109b37a51a0e6bd2af2a7bb02b977a9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64934913"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>Como preencher o formulário de definições da oferta
@@ -20,7 +20,7 @@ ms.locfileid: "64934913"
 O formulário de definições da oferta é um formulário básico para especificar as definições da oferta.
 Os campos obrigatórios estão descritos abaixo.
 
-### <a name="offer-id"></a>ID de Oferta
+### <a name="offer-id"></a>ID de oferta
 
 `OfferId` é um identificador exclusivo para a oferta de um perfil do publicador.
 Este ID será visível em URLs de produto. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um travessão e pode ter um máximo de 50 carateres. Este campo está bloqueado assim que uma oferta entra no ar.

@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66140089"
 ---
 Nesta secção, atualize o código no seu projeto de back-end de aplicações móveis existente para enviar uma notificação push sempre que for adicionado um novo item. Este processo utiliza a tecnologia do [modelo](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) pushes de recurso dos Hubs de notificação do Azure, que permite que várias plataformas. Vários clientes forem registrados para notificações push através de modelos e um único push universal pode obter a todas as plataformas de cliente.

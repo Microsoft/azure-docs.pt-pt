@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 4160d6ce324cf419cd4b9a61b68bb39b0443321c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64694725"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
@@ -51,7 +51,7 @@ Este tópico aborda informações específicas para o serviço Azure Key Vault. 
 
  Salvo indicação em contrário na descrição da operação, o cabeçalho de pedido Accept tem de conter o tipo de suporte de dados de aplicação/json.  
 
-## <a name="response-body"></a>Corpo da Resposta  
+## <a name="response-body"></a>Corpo da resposta  
  Salvo indicação em contrário na descrição da operação, o tipo de conteúdo de corpo de resposta de operações com êxito ou falhadas será application/json e contém informações de erro detalhadas.  
 
 ## <a name="using-http-post"></a>Utilizando o HTTP POST  

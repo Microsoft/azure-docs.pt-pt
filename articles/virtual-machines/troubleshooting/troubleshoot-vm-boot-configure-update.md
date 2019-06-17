@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
 ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443862"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64684013"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Inicialização VM está bloqueada no "obtendo Windows pronto. Não desativar o seu computador"no Azure
 
@@ -121,7 +121,7 @@ Para criar um instantâneo, siga os passos em [instantâneo de um disco](../wind
 
 Utilize os passos no [despejo de recolher os](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) secção para recolher um despejo do sistema operacional quando a VM está bloqueada nos configuração.
 
-## <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
+## <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
 
 Depois de recolher o ficheiro de informação, contacte [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para analisar a causa raiz.
 

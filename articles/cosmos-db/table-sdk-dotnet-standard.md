@@ -9,10 +9,10 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.openlocfilehash: 1c9894772f440a568cbc08890feb961471d84137
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480211"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API padrão do .NET da tabela do Azure Cosmos DB: Transferir e notas de versão

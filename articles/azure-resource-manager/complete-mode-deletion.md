@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: tomfitz
 ms.openlocfilehash: 21b3972a96c1601b15c403275474d58873753b08
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712988"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminação de recursos do Azure para implementações no modo concluída
@@ -44,10 +44,10 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | ------------- | ----------- |
 | aadsupportcases | Não | 
 | addsservices | Não | 
-| agentes | Não | 
+| agents | Não | 
 | anonymousapiusers | Não | 
 | configuração | Não | 
-| registos | Não | 
+| logs | Não | 
 | relatórios | Não | 
 | services | Não | 
 
@@ -74,7 +74,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| servidores | Sim | 
+| Servidores | Sim | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Eliminação completa de modo |
@@ -243,7 +243,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | reservationOrders/split | Não | 
 | reservationOrders/swap | Não | 
 | reservas | Não | 
-| recursos | Não | 
+| Recursos | Não | 
 | validateReservationOrder | Não | 
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
@@ -305,7 +305,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
 | Capacidades | Não | 
-| discos | Não | 
+| Discos | Não | 
 | imagens | Não | 
 | osImages | Não | 
 | osPlatformImages | Não | 
@@ -332,13 +332,13 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
 | availabilitySets | Sim | 
-| discos | Sim | 
+| Discos | Sim | 
 | imagens | Sim | 
 | restorePointCollections | Sim | 
 | restorePointCollections/restorePoints | Não | 
 | sharedVMImages | Sim | 
 | sharedVMImages/versions | Sim | 
-| instantâneos | Sim | 
+| Instantâneos | Sim | 
 | virtualMachines | Sim | 
 | virtualMachines/diagnosticSettings | Não | 
 | virtualMachines/extensions | Sim | 
@@ -355,7 +355,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | AggregatedCost | Não | 
 | Saldos | Não | 
 | Orçamentos | Não | 
-| Encargos | Não | 
+| Custos | Não | 
 | CostTags | Não | 
 | Créditos | Não | 
 | eventos | Não | 
@@ -363,12 +363,12 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | muitos | Não | 
 | Marketplaces | Não | 
 | Pricesheets | Não | 
-| produtos | Não | 
+| Produtos | Não | 
 | ReservationDetails | Não | 
 | ReservationRecommendations | Não | 
 | ReservationSummaries | Não | 
 | ReservationTransactions | Não | 
-| Etiquetas | Não | 
+| Tags | Não | 
 | Termos | Não | 
 | UsageDetails | Não | 
 
@@ -455,7 +455,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| tarefas | Sim | 
+| Tarefas | Sim | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo de recurso | Eliminação completa de modo |
@@ -465,7 +465,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| áreas de trabalho | Sim | 
+| Áreas de trabalho | Sim | 
 | workspaces/virtualNetworkPeerings | Não | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -511,21 +511,21 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| servidores | Sim | 
+| Servidores | Sim | 
 | servers/recoverableServers | Não | 
 | servers/virtualNetworkRules | Não | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| servidores | Sim | 
+| Servidores | Sim | 
 | servers/recoverableServers | Não | 
 | servers/virtualNetworkRules | Não | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| servidores | Sim | 
+| Servidores | Sim | 
 | servers/advisors | Não | 
 | servers/queryTexts | Não | 
 | servers/recoverableServers | Não | 
@@ -616,7 +616,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | myareas/areas/galleryitems | Não | 
 | myareas/galleryitems | Não | 
 | Registre-se | Não | 
-| recursos | Não | 
+| Recursos | Não | 
 | retrieveresourcesbyid | Não | 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
@@ -639,7 +639,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| tarefas | Sim | 
+| Tarefas | Sim | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Tipo de recurso | Eliminação completa de modo |
@@ -658,7 +658,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | alertrules | Sim | 
 | automatedExportSettings | Não | 
 | autoscalesettings | Sim | 
-| linha de base | Não | 
+| Linha de base | Não | 
 | calculatebaseline | Não | 
 | Componentes | Sim | 
 | componentes/eventos | Não | 
@@ -671,7 +671,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | extendedDiagnosticSettings | Não | 
 | logDefinitions | Não | 
 | logprofiles | Não | 
-| registos | Não | 
+| logs | Não | 
 | metricAlerts | Sim |
 | migrateToNewPricingModel | Não | 
 | myWorkbooks | Não | 
@@ -733,7 +733,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| registos | Não | 
+| logs | Não | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Tipo de recurso | Eliminação completa de modo |
@@ -766,7 +766,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| áreas de trabalho | Sim | 
+| Áreas de trabalho | Sim | 
 | workspaces/computes | Não | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -780,7 +780,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | ------------- | ----------- |
 | getEntities | Não | 
 | managementGroups | Não | 
-| recursos | Não | 
+| Recursos | Não | 
 | startTenantBackfill | Não | 
 | tenantBackfillStatus | Não | 
 
@@ -802,7 +802,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | offerTypes/publishers/offers/plans/configs | Não | 
 | offerTypes/publishers/offers/plans/configs/importImage | Não | 
 | privategalleryitems | Não | 
-| produtos | Não | 
+| Produtos | Não | 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Tipo de recurso | Eliminação completa de modo |
@@ -849,7 +849,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | azureFirewallFqdnTags | Não | 
 | azureFirewalls | Sim | 
 | bgpServiceCommunities | Não | 
-| ligações | Sim | 
+| Ligações | Sim | 
 | ddosCustomPolicies | Sim | 
 | ddosProtectionPlans | Sim | 
 | dnsOperationStatuses | Não | 
@@ -914,7 +914,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | dispositivos | Não | 
 | linkTargets | Não | 
 | storageInsightConfigs | Não | 
-| áreas de trabalho | Sim | 
+| Áreas de trabalho | Sim | 
 | workspaces/dataSources | Não | 
 | workspaces/linkedServices | Não | 
 | workspaces/query | Não | 
@@ -925,7 +925,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | managementassociations | Não | 
 | managementconfigurations | Sim | 
 | soluções | Sim | 
-| visualizações | Sim | 
+| Modos de exibição | Sim | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Tipo de recurso | Eliminação completa de modo |
@@ -976,7 +976,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| recursos | Não | 
+| Recursos | Não | 
 | subscriptionsStatus | Não | 
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
@@ -987,19 +987,19 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | childResources | Não | 
 | eventos | Não | 
 | impactedResources | Não | 
-| notificações | Não | 
+| Notificações | Não | 
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
-| implementações | Não | 
+| Implementações | Não | 
 | Implementações/operações | Não | 
 | Ligações | Não | 
 | notifyResourceJobs | Não | 
 | Fornecedores | Não | 
 | resourceGroups | Não | 
-| recursos | Não | 
-| subscrições | Não | 
+| Recursos | Não | 
+| Subscrições | Não | 
 | Subscrições/fornecedores | Não | 
 | subscriptions/resourceGroups | Não | 
 | subscriptions/resourcegroups/resources | Não | 
@@ -1041,11 +1041,11 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | externalSecuritySolutions | Não | 
 | InformationProtectionPolicies | Não | 
 | jitNetworkAccessPolicies | Não | 
-| monitorização | Não | 
+| Monitorização | Não | 
 | monitoring/antimalware | Não | 
 | monitorização/linha de base | Não | 
 | monitorização/correção | Não | 
-| políticas | Não | 
+| Políticas | Não | 
 | preços | Não | 
 | securityContacts | Não | 
 | securitySolutions | Não | 
@@ -1094,7 +1094,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | aplicações | Sim | 
 | gateways | Sim | 
 | Redes | Sim | 
-| segredos | Sim | 
+| Segredos | Sim | 
 | volumes | Sim | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
@@ -1124,7 +1124,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | managedInstances/keys | Não |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Não |
 | managedInstances/vulnerabilityAssessments | Não |
-| servidores | Sim | 
+| Servidores | Sim | 
 | servidores/administradores | Não | 
 | servers/communicationLinks | Não | 
 | servers/databases | Sim (ver nota abaixo) | 
@@ -1197,7 +1197,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | Tipo de recurso | Eliminação completa de modo |
 | ------------- | ----------- |
 | providerRegistrations | Sim | 
-| recursos | Sim | 
+| Recursos | Sim | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo de recurso | Eliminação completa de modo |
@@ -1228,9 +1228,9 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | apiManagementAccounts/connectionAcls | Não | 
 | apiManagementAccounts/connections | Não | 
 | billingMeters | Não | 
-| certificados | Sim | 
+| Certificados | Sim | 
 | connectionGateways | Sim | 
-| ligações | Sim | 
+| Ligações | Sim | 
 | customApis | Sim | 
 | deletedSites | Não | 
 | functions | Não | 

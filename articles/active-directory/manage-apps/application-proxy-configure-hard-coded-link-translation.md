@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956900"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar os links codificados para as aplicações publicadas com o Proxy de aplicações do Azure AD
@@ -97,11 +97,11 @@ A lista completa de etiquetas de código HTML que o Proxy de aplicações suport
 * IFRAME
 * img
 * entrada
-* ligação
+* Ligação
 * MenuItem
 * meta
 * objeto
-* Script
+* script
 * source
 * Roteiro
 * vídeo
@@ -142,7 +142,7 @@ Começar a utilizar com a conversão de link é tão fácil quanto clicar num bo
 
 Agora, quando os utilizadores acedem a esta aplicação, o proxy irá analisar automaticamente para URLs internos que foram publicadas através do Proxy de aplicações no seu inquilino.
 
-## <a name="send-feedback"></a>Enviar comentários
+## <a name="send-feedback"></a>Enviar feedback
 
 Queremos que a sua ajuda para tornar esta funcionalidade funciona para todas as suas aplicações. Vamos procurar mais de 30 etiquetas em HTML e CSS. Se tiver um exemplo de ligações geradas que não estão a ser traduzidas, envie um trecho de código para [comentários de Proxy de aplicações](mailto:aadapfeedback@microsoft.com). 
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: cbaaed3fff99778bfab1feeacdab02bf8245a85a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64714693"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Registos de consulta do Azure Monitor para monitorizar clusters do HDInsight

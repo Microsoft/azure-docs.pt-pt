@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
 ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942110"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Eliminar ofertas do Azure Marketplace e AppSource ou SKUs

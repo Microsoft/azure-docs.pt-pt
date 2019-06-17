@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
 ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606856"
 ---
-# <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
+# <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
 
 O StorSimple Device Manager fornece a capacidade de **inicie um novo pedido de suporte** no painel de resumo do serviço. Se encontrar algum problema com a solução StorSimple, pode criar um pedido de serviço para obter suporte técnico. Numa sessão online com o engenheiro de suporte, também poderá iniciar uma sessão de suporte no dispositivo StorSimple. Este artigo orienta-o através de:
 
@@ -31,7 +31,7 @@ O StorSimple Device Manager fornece a capacidade de **inicie um novo pedido de s
 
 Reveja os [SLAs de suporte do StorSimple 8000 Series e informações](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar um pedido de suporte.
 
-## <a name="create-a-support-request"></a>Criar um pedido de apoio
+## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
 Dependendo da sua [plano de suporte](https://azure.microsoft.com/support/plans/), pode criar pedidos de suporte para um problema no dispositivo StorSimple diretamente a partir do painel de resumo do serviço StorSimple Device Manager. Execute os seguintes passos para criar um pedido de suporte:
 

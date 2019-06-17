@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67117880"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
 
@@ -65,13 +65,13 @@ Pode, posteriormente, alterar os nomes das colunas numa transformação selecion
 
 Sobre o **otimizar** separador para a transformação de origem, poderá ver um **origem** tipo de partição. Esta opção só está disponível quando a origem é a base de dados do Azure SQL. Isto acontece porque o Data Factory tenta estabelecer ligações paralela para executar consultas grandes em sua origem de base de dados SQL.
 
-![Definições de partição de origem](media/data-flow/sourcepart2.png "criação de partições")
+![Definições de partição de origem](media/data-flow/sourcepart3.png "criação de partições")
 
 Não é necessário criar partições de dados na sua origem de base de dados SQL, mas as partições são úteis para consultas grandes. Pode basear sua partição numa coluna ou uma consulta.
 
 ### <a name="use-a-column-to-partition-data"></a>Utilizar uma coluna para criar partições de dados
 
-Da sua tabela de origem, selecione uma coluna de partição. Também defina o número máximo de ligações.
+Da sua tabela de origem, selecione uma coluna de partição. Também defina o número de partições.
 
 ### <a name="use-a-query-to-partition-data"></a>Utilizar uma consulta para criar partições de dados
 
@@ -84,9 +84,39 @@ Escolha as definições para gerir os ficheiros na sua origem.
 ![Novas definições de origem](media/data-flow/source2.png "novas definições")
 
 * **Caminho de carateres universais**: A partir da sua pasta de origem, escolha uma série de ficheiros que correspondem a um padrão. Esta definição substitui qualquer ficheiro na sua definição de conjunto de dados.
+
+Exemplos de carateres universais:
+
+* ```*``` Representa qualquer conjunto de carateres
+* ```**``` Representa o aninhamento de diretório recursiva
+* ```?``` Substitui um caráter
+* ```[]``` Corresponde a um dos mais carateres entre colchetes
+
+* ```/data/sales/**/*.csv``` Obtém todos os ficheiros de csv em /data/sales
+* ```/data/sales/20??/**``` Obtém todos os ficheiros no século 20
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os ficheiros csv em 2004 em Dezembro, começando com X ou Y como prefixadas por um número de dígitos de 2
+
+Contentor tem de ser especificado no conjunto de dados. Seu caminho de caráter universal, por conseguinte, tem também de incluir o caminho da pasta a partir da pasta de raiz.
+
 * **Lista de ficheiros**: Este é um conjunto de ficheiros. Crie um ficheiro de texto que inclui uma lista de ficheiros de caminho relativo a processar. Apontar para este ficheiro de texto.
 * **Coluna para armazenar o nome de ficheiro**: Store o nome do ficheiro de origem numa coluna nos seus dados. Introduza um novo nome aqui para armazenar a cadeia de caracteres de nome de ficheiro.
 * **Após a conclusão**: Opte por não fazer nada com o ficheiro de origem depois dos dados de execuções de fluxo, elimine o ficheiro de origem ou mover o ficheiro de origem. Os caminhos para a movimentação são relativos.
+
+Para mover ficheiros de origem para outro pós-processamento da localização, primeiro selecione "Mover" para a operação de ficheiro. Em seguida, defina o diretório "de". Se não estiver a utilizar quaisquer carateres universais para o seu caminho, o "de" definição vai ser a mesma pasta que sua pasta de origem.
+
+Se tiver um caminho de origem wildcarded, por exemplo:
+
+```/data/sales/20??/**/*.csv```
+
+Pode especificar "de" como
+
+```/data/sales```
+
+E "para" como
+
+```/backup/priorSales```
+
+Neste caso, todos os subdiretórios abaixo /data/sales que foram origem são movidos em relação ao /backup/priorSales.
 
 ### <a name="sql-datasets"></a>Conjuntos de dados SQL
 

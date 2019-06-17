@@ -10,15 +10,14 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-origin.date: 11/08/2017
-ms.date: 03/20/2019
-ms.author: v-junlch
+ms.date: 11/08/2017
+ms.author: cshoe
 ms.openlocfilehash: 7ca3ab8e3becf884fdba460f1981430e0c66ef99
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511783"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Hubs de eventos do Azure para as funções do Azure
 
@@ -47,5 +46,3 @@ Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.co
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
-
-<!-- Update_Description: wording update -->

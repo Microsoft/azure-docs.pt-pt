@@ -16,10 +16,10 @@ ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 36c9a5d75c4a72365638619ab85d451df647feb3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939829"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
@@ -59,7 +59,7 @@ O ambiente de malha expõe um punhado de métricas que indica como os contentore
 | AllocatedCpu | CPU alocados de acordo com o modelo Azure Resource Manager | Milinúcleos |
 | AllocatedMemory | Memória alocada de acordo com o modelo Azure Resource Manager | MB |
 | ActualCpu | Utilização da CPU | Milinúcleos |
-| ActualMemory | Utilização de memória | MB |
+| ActualMemory | Utilização da memória | MB |
 | ContainerStatus | 0 - inválido: O estado do contentor é desconhecido <br> 1 - pendente: O contentor está agendado para começar <br> 2 - a partir de: O contentor está no processo de início <br> 3 - ao: O contentor foi iniciado com êxito <br> 4 - parar: O contentor está a ser parado <br> 5 - parado: O contentor foi parado com êxito | N/A |
 | ApplicationStatus | 0 - desconhecida: O estado não é recuperável <br> 1 - ready: A aplicação é executada com êxito <br> 2 - atualizar: Existe uma atualização em curso <br> 3 - criar: A aplicação está a ser criada <br> 4 - a eliminar: A aplicação está a ser eliminada <br> 5 - falha: Falha na implementação da aplicação | N/A |
 | ServiceStatus | 0 - inválido: O serviço não tem atualmente um Estado de funcionamento <br> 1 - ok: O serviço está em bom estado  <br> 2 - aviso: Pode haver um problema que requerem investigação <br> 3 - erro: Existe um problema de que precisa de investigação <br> 4 - desconhecido: O estado não é recuperável | N/A |
@@ -72,7 +72,7 @@ O ambiente de malha expõe um punhado de métricas que indica como os contentore
 Cada métrica está disponível em dimensões diferentes para que possa ver agregados em diferentes níveis. A lista atual de dimensões são os seguintes:
 
 * ApplicationName
-* ServiceName
+* serviceName
 * ServiceReplicaName
 * CodePackageName
 

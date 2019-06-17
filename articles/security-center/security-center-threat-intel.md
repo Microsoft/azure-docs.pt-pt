@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906202"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64574346"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Informações sobre ameaças e mapa de alertas de segurança
 Este artigo ajuda-o a utilizar o mapa de alertas de segurança do Centro de segurança do Azure e a segurança mapa das informações sobre ameaças baseada em eventos para resolver problemas relacionados à segurança.
+
+> [!NOTE]
+> A segurança *eventos* botão mapa vai ser descontinuado a 31 de Julho de 2019. Para obter mais informações e serviços alternativos, consulte [funcionalidades de extinção do Centro de segurança (Julho de 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+
 
 ## <a name="how-the-security-alerts-map-works"></a>Como os alertas de segurança o mapeamento funciona
 Centro de segurança fornece um mapa que o ajuda a identificar ameaças de segurança contra o ambiente. Por exemplo, pode identificar se um determinado computador faz parte de um botnet e, em que a ameaça é proveniente de. Computadores podem se tornar nós de um botnet quando os atacantes instalam ilicitamente malware que secretamente interage com o comando e controlo que gerem o botnet. 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712662"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtragem de tráfego de rede de máquina virtual
@@ -170,11 +170,11 @@ Se utilizar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagno
 
 | Propriedade                | Value                                                                              |
 |---------                |---------                                                                           |
-| Origem                  | Qualquer                                                                                |
+| source                  | Qualquer                                                                                |
 | Intervalo de portas de origem      | Qualquer                                                                                |
 | Destino             | O endereço IP da VM, um intervalo de endereços IP ou todos os endereços na sub-rede. |
 | Intervalos de portas de destino | 80                                                                                 |
-| Protocolo                | TCP                                                                                |
+| Protocol                | TCP                                                                                |
 | Ação                  | Permitir                                                                              |
 | Prioridade                | 100                                                                                |
 | Name                    | Allow-HTTP-All                                                                     |

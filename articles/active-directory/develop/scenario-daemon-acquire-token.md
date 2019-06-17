@@ -17,10 +17,10 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65075374"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicação de daemon que chama o web APIs - adquirir um token
@@ -65,7 +65,7 @@ O âmbito utilizado para credenciais de cliente deve ser sempre resourceId + "/ 
 
 > [!IMPORTANT]
 > Para MSAL (ponto final v2.0) solicitar um token de acesso a um recurso de aceitar um token de acesso da versão 1.0, o Azure AD analisa o público-alvo pretendido de âmbito do pedido Considerando tudo o que antes da última barra e utilizá-lo como o identificador de recurso.
-> Portanto, se, como o Azure SQL (**https://database.windows.net**) o recurso espera um público-alvo que termina com uma barra (para o SQL do Azure: `https://database.windows.net/`), terá de solicitar um escopo de `https://database.windows.net//.default` (Observe duas barras). Consulte também MSAL.NET problema [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Barra do url de recurso for omitida, o que causou a falha de autenticação do sql.
+> Portanto, se, como o Azure SQL ( **https://database.windows.net** ) o recurso espera um público-alvo que termina com uma barra (para o SQL do Azure: `https://database.windows.net/` ), terá de solicitar um escopo de `https://database.windows.net//.default` (Observe duas barras). Consulte também MSAL.NET problema [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Barra do url de recurso for omitida, o que causou a falha de autenticação do sql.
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient API
 
@@ -128,7 +128,7 @@ CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
 AuthenticationResult result = future.get();
 ```
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Se não tiver ainda uma biblioteca para a linguagem de sua escolha, pode querer utilizar o protocolo diretamente:
 

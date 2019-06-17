@@ -12,13 +12,13 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 2cce7203d23d5de77200fdf75ab31042d9608352
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866380"
 ---
-# <a name="supported-languages"></a>Linguagens suportadas
+# <a name="supported-languages"></a>Idiomas suportados
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -33,7 +33,7 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas na `int
 | da-DK | Dinamarquês (Dinamarca) | ja-JP | Japonês (Japão) |
 | de-DE | Alemão (Alemanha) |ko-KR | Coreano (Coreia) |
 | EN-AU | Inglês (Austrália) |nb-NO | Norueguês (Bokmål) (Noruega)  |
-| en-CA | Inglês (Canadá) | NL-NL | Neerlandês (Países Baixos)   |
+| en-CA | Inglês (Canadá) | NL-NL | Holandês (Países Baixos)   |
 | en-GB | Inglês (Reino Unido) |pl-PL | Polaco (Polónia) |
 | EN-IN | English (India) | pt-BR | Português (Brasil)  |
 | EN-NZ | Inglês (Nova Zelândia) |pt-PT | Português (Portugal)  |

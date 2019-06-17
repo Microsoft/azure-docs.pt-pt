@@ -13,10 +13,10 @@ ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
 ms.openlocfilehash: e5426bb7c8eba9d58dbf0472360c6ce0b19c9bc4
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431336"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Escalões de serviço de base de dados SQL do Azure

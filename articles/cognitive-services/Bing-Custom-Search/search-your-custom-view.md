@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
 ms.openlocfilehash: 9c0c4fc21f6f4b23b14c8020ecd7e95c63dedcbf
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388555"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chamar a sua instância de pesquisa personalizada do Bing do Portal

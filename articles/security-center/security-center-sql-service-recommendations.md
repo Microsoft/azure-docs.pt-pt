@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/27/2019
 ms.author: monhaber
 ms.openlocfilehash: bbba5f380fddb4fdec43a7414e59778135c4e0ef
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428309"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteger o serviço SQL do Azure e os dados no Centro de segurança do Azure

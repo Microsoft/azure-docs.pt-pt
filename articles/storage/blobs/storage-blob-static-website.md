@@ -10,10 +10,10 @@ ms.reviewer: seguler
 ms.date: 05/29/2019
 ms.subservice: blobs
 ms.openlocfilehash: 36cc8cebdb567cb9650ad1ad3baf72a0b5478247
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427977"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de Web site estático no armazenamento do Azure

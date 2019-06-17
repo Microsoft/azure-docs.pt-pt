@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8a2a2fffa9ed3a4dae3c0768291b7585be4bfc6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64690842"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerir a segurança de base de dados do Azure SQL para o restauro geográfico ou de ativação pós-falha
 
@@ -89,7 +89,9 @@ A última etapa é ir para o servidor de destino ou para servidores e gerar os i
 > [!NOTE]
 > Se quiser conceder acesso de utilizador para o secundário, mas não para o primário, pode fazê-lo ao alterar o início de sessão do utilizador no servidor primário, utilizando a seguinte sintaxe.
 >
-> ALTERAR INÍCIO DE SESSÃO <login name> DESATIVAR
+> ```sql
+> ALTER LOGIN <login name> DISABLE
+> ```
 >
 > DESATIVAR não altera a palavra-passe, para que pode sempre ativá-la se for necessário.
 

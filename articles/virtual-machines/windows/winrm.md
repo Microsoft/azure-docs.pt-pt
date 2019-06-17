@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 89739aa51748e7bc69fc42b8b745994bbe50e39d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7e006b8bc05d00de3e5fba20985e30fd5e96c1df
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708671"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Como configurar o acesso de WinRM para máquinas virtuais no Azure Resource Manager
 
@@ -32,7 +32,7 @@ Eis os passos que precisa de efetuar para configurar uma VM com a conectividade 
 4. Obter o URL para o seu certificado autoassinado no Cofre de chaves
 5. Referenciar o URL de certificados autoassinados durante a criação de uma VM
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="step-1-create-a-key-vault"></a>Passo 1: Criar um Key Vault
 Pode utilizar o comando para criar o Key Vault abaixo

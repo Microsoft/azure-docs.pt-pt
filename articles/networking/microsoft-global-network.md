@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2019
 ms.author: ypitsch,kumud
 ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247293"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft

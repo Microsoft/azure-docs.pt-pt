@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
 ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606735"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão do Application Insights Connector (preterido)
@@ -142,7 +142,7 @@ Componentes de perspetiva são atualizadas dependendo da consulta de pesquisa. I
 
 Os painéis do Application Insights Connector foram concebidos para permitir que passar para a aplicação selecionada do Application Insights *ao utilizar o portal do Azure*. Pode utilizar a solução como uma plataforma de monitorização de alto nível que o ajuda a resolver problemas numa aplicação. Quando vir um problema em potencial em qualquer uma das suas aplicações ligadas, pode de qualquer teste para o mesmo na pesquisa do Log Analytics ou pode passar diretamente para a aplicação Application Insights.
 
-Para dinamizar, clique nas reticências (**...** ) que aparece no final de cada linha e selecione **abrir no Application Insights**.
+Para dinamizar, clique nas reticências ( **...** ) que aparece no final de cada linha e selecione **abrir no Application Insights**.
 
 >[!NOTE]
 >**Abrir no Application Insights** não está disponível no portal do Azure.

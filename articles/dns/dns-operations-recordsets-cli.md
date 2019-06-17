@@ -3,8 +3,8 @@ title: Gerir registos DNS no DNS do Azure com a CLI do Azure | Documentos da Mic
 description: Gerir conjuntos de registos DNS e registos no DNS do Azure ao alojar o seu domínio no DNS do Azure.
 services: dns
 documentationcenter: na
-author: WenJason
-manager: digimobile
+author: vhorne
+manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
@@ -12,14 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-origin.date: 05/15/2018
-ms.date: 04/15/2019
-ms.author: v-jay
+ms.date: 05/15/2018
+ms.author: victorh
 ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61293359"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gerir registos DNS e conjuntos de registros no DNS do Azure com a CLI do Azure
@@ -256,7 +255,7 @@ Tenha em atenção que isto aplica-se apenas para o conjunto no vértice da zona
 O exemplo seguinte mostra como adicionar um servidor de nome adicionais para o conjunto no vértice da zona de registos NS:
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.cn
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Para modificar o valor de TTL de um conjunto de registos existente

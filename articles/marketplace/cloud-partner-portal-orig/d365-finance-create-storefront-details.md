@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
 ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935033"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Como preencha os detalhes de loja
@@ -55,7 +55,7 @@ Este campo determina os países/regiões em que a oferta estará disponível par
 ![Selecionar países/regiões e traduções suportadas](./media/d365-financials/image008.png)
 
 
-### <a name="supported-languages"></a>Linguagens suportadas
+### <a name="supported-languages"></a>Idiomas suportados
 
 Selecione os idiomas que oferece suporte a sua aplicação. Se a sua aplicação suportar outros idiomas que não estejam na lista, continuar a publicar a sua oferta e enviar-nos em <appsource@microsoft.com> para nos informar.
 

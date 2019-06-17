@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65e7192bdcc148ba081d0de954b51535778e750
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b25007fa8e9d547b9e5671390514b3bc10f329fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>Tutorial: Integração do Active Directory do Azure com suporte remoto de Bomgar
 
@@ -54,7 +54,7 @@ Para configurar a integração do Bomgar remota de suporte para o Azure AD, ter�
 
 **Para adicionar Bomgar remota de suporte a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Bomgar remota d
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [Bomgar remoto suporta a equipa de suporte](https://www.bomgar.com/docs/index.htm#support).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

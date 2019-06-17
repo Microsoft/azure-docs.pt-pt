@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4ae2802c5f833f168385ef46d10b6a508fdf45a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de59ce587facb94728e0652f47c7cdfce0ab4388
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60261042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integração do Active Directory do Azure com LaunchDarkly
 
@@ -54,7 +54,7 @@ Para configurar a integração do LaunchDarkly com o Azure AD, terá de adiciona
 
 **Para adicionar LaunchDarkly a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -159,7 +159,7 @@ Para configurar o Azure AD início de sessão único com [nome da aplicação], 
 
     c. Abrir o certificado transferido a partir do portal do Azure no bloco de notas, copie o conteúdo e, em seguida, cole-o para o **certificado X.509** caixa ou pode carregar diretamente o certificado ao clicar no **carregar uma**.
 
-    d. Clicar em **Guardar**
+    d. Clique em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60996522"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
@@ -75,7 +75,7 @@ Se for utilizado um delimitador de timestamp, em seguida, a propriedade TimeGene
 4. Altere o delimitador que é utilizado para identificar um novo registo e selecionar o delimitador que melhor identifique os registos no seu ficheiro de registo.
 5. Clique em **Seguinte**.
 
-### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicionar caminhos da coleção de registos
+### <a name="step-3-add-log-collection-paths"></a>Passo 3: Adicionar caminhos de recolha de registos
 Deve definir um ou mais caminhos no agente onde ele pode localizar o registo personalizado.  Pode fornecer um caminho específico e um nome para o ficheiro de registo ou pode especificar um caminho com um caráter universal para o nome. Isto suporta as aplicações que criar um novo ficheiro, por dia ou quando um ficheiro atinge um certo tamanho. Também pode fornecer vários caminhos para um único ficheiro de registo.
 
 Por exemplo, um aplicativo pode criar um ficheiro de registo por dia com a data incluída no nome do que no log20100316.txt. Um padrão para um início de sessão pode ser *log\*. txt* que seria aplicada a qualquer ficheiro de registo após a aplicação de atribuição de nomes da esquema.
@@ -97,14 +97,14 @@ A tabela seguinte fornece exemplos de padrões válidos para especificar os fich
 2. Escreva o caminho e clique nas **+** botão.
 3. Repita o processo para quaisquer caminhos adicionais.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4. Forneça um nome e descrição para o registo
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4: Forneça um nome e descrição para o registo
 O nome que especificar será utilizado para o tipo de registo, conforme descrito acima.  Sempre terminará com _CL para distingui-la como um registo personalizado.
 
 1. Escreva um nome para o registo.  O  **\_CL** sufixo é fornecido automaticamente.
 2. Adicionar opcional **Descrição**.
 3. Clique em **seguinte** para guardar a definição de registo personalizado.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passo 5. Validar que estão a ser recolhidos os registos personalizados
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passo 5: Validar que estão a ser recolhidos os registos personalizados
 Ele poderá demorar até uma hora para os dados iniciais de um registo personalizado novo para que sejam apresentadas no Monitor do Azure.  Irá iniciar a recolha de entradas dos registos encontrados no caminho especificado do ponto de que definiu o registo personalizado.  Ele não irá reter as entradas que carregou durante a criação de registo personalizado, mas ele irá recolher entradas já existentes nos ficheiros de registo que ele localiza.
 
 Assim que o Azure Monitor inicia a recolha de log personalizado, seus registos de estará disponíveis com uma consulta de registo.  Utilize o nome que deu o registo personalizado, como o **tipo** na sua consulta.
@@ -153,7 +153,7 @@ Podemos fornecer um dos ficheiros de registo e pode ver os eventos que vamos col
 
 ![Carregar e analisar um registo de exemplo](media/data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>Adicionar caminhos da coleção de registos
+### <a name="add-log-collection-paths"></a>Adicionar caminhos de recolha de registos
 Estarão localizados os ficheiros de registo em *C:\MyApp\Logs*.  Será criado um novo ficheiro por dia com um nome que inclui a data no padrão *appYYYYMMDD.log*.  Um padrão suficiente para este registo seria *C:\MyApp\Logs\\\*. log*.
 
 ![Caminho da coleção de registo](media/data-sources-custom-logs/collection-path.png)

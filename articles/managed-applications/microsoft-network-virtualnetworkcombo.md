@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: b0437338b403ff19761173d08be3938d07f13f55
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708358"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento de interface do Usuário de Microsoft.Network.VirtualNetworkCombo
 Um grupo de controlos para selecionar uma rede virtual nova ou existente.

@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 03/13/2019
 ms.author: erikre
 ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60617388"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
@@ -275,7 +275,7 @@ Ao criar o grupo de ação, vai apontar para a aplicação lógica que criou ant
 2.  Selecione **grupos de ações** partir do **definição** secção.
 3.  Selecione **adicionar um grupo de ação** partir do **grupos de ação** painel.
 4.  Adicionar e verificar os seguintes itens:
-    - Nome do grupo de ações
+    - Nome do grupo de ação
     - Nome abreviado
     - Subscrição
     - Grupo de recursos

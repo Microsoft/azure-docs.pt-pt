@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
 ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65762705"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de base de dados SQL do Azure dos termos
@@ -25,13 +25,13 @@ ms.locfileid: "65762705"
 |:---|:---|:---|
 |Nome do serviço do Azure|Base de dados SQL do Azure ou a base de dados SQL|[O serviço de base de dados do Azure SQL](sql-database-technical-overview.md)|
 |Escalão de computação|Sem servidor (pré-visualização)|[escalão de computação sem servidor](sql-database-serverless.md)
-||Aprovisionado|[escalão de computação sem servidor](sql-database-serverless.md)
+||Aprovisionada|[escalão de computação sem servidor](sql-database-serverless.md)
 |Opções de implementação |Base de dados individual|[Bases de dados individuais](sql-database-single-database.md)|
 ||Conjunto elástico|[Conjunto elástico](sql-database-elastic-pool.md)|
 ||Instância gerida|[Instância gerida](sql-database-managed-instance.md)|
-|Objetos do servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de base de dados](sql-database-servers.md)|
+|Objetos de servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de base de dados](sql-database-servers.md)|
 ||Servidor de instância gerida da base de dados SQL, o servidor de instância gerida ou o servidor de instância|[Instância gerida](sql-database-managed-instance.md)|
-Objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na base de dados do Azure SQL|
+objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na base de dados do Azure SQL|
 ||Base de dados individual|Uma base de dados criado com a opção de implementação de base de dados|
 ||Bases de dados agrupadas|Uma base de dados criada dentro ou movido para um conjunto elástico|
 ||Base de dados de instância|Uma base de dados criada dentro de uma instância gerida|

@@ -12,10 +12,10 @@ ms.date: 3/5/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 513fd93f148a8a133901a5dbb60722fbc4a7d9e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866256"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas suportados pela API de voz do Translator

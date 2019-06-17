@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ccb6944227208cee8601751cf43a53c111c09c6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65021630"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>Adicionar perfis de classificação para um índice da Azure Search
@@ -247,7 +247,7 @@ A pontuação de pesquisa é calculada com base nas propriedades de estatística
 |`magnitude` &#124; `boostingRangeEnd`|Define o valor final do intervalo sobre o qual é classificada a magnitude. O valor tem de ser um número inteiro ou o número de vírgula flutuante. Para obter classificações em estrelas de 1 a 4, isso seria 4.|  
 |`magnitude` &#124; `constantBoostBeyondRange`|Valores válidos são VERDADEIRO ou FALSO (predefinição). Quando definido como true, o aumento total irá continuar a aplicar aos documentos que tenham um valor para o campo de destino que é superior à extremidade superior do intervalo. Se for FALSO, a intensificação desta função não será aplicada aos documentos que tenham um valor para o campo de destino que esteja fora do intervalo.|  
 |`freshness`|A função de classificação de atualização é utilizada para alterar pontuações de classificação para os itens com base nos valores no `DateTimeOffset` campos. Por exemplo, um item com uma data mais recente pode ser classificado superior do que os itens mais antigos.<br /><br /> Também é possível classificar itens como eventos do calendário com datas futuras, de modo a que os itens mais próximo ao presente podem ser classificados superior que itens ainda mais no futuro.<br /><br /> Na versão atual do serviço, será corrigida numa extremidade do intervalo para a hora atual. Outra extremidade é um momento no passado, com base no `boostingDuration`. Para aumentar um intervalo de vezes que no futuro, utilize um negativo `boostingDuration`.<br /><br /> A velocidade a que o adaptativo é alterado de um máximo e mínimo intervalo é determinado pela interpolação aplicado para o perfil de classificação (consulte a figura abaixo). Para reverter o fator adaptativo aplicado, escolha um fator de aumento de menos de 1.|  
-|`freshness` &#124; `boostingDuration`|Define um período de expiração após o qual os aumentos param para um documento em particular. Ver [definir boostingDuration](#bkmk_boostdur) na seção a seguir para sintaxe e exemplos.|  
+|`freshness` &#124; `boostingDuration`|Conjuntos de um período de expiração após o qual os aumentos param para um documento em particular. Ver [definir boostingDuration](#bkmk_boostdur) na seção a seguir para sintaxe e exemplos.|  
 |`distance`|Fechar da classificação dos documentos com base em como a distância de função de classificação é usada para afetar ou relativa a uma localização geográfica de referência. A localização de referência é fornecida como parte da consulta num parâmetro (usando o `scoringParameterquery` opção de cadeias de caracteres) como um lon, o argumento de lat.|  
 |`distance` &#124; `referencePointParameter`|Um parâmetro para ser transmitido nas consultas para utilizar como localização de referência. `scoringParameter` é um parâmetro de consulta. Ver [documentos sobre pesquisa &#40;API de REST do serviço de pesquisa do Azure&#41; ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter descrições dos parâmetros de consulta.|  
 |`distance` &#124; `boostingDistance`|Um número que indica a distância em quilômetros da localização de referência onde termina o intervalo de aumento.|  

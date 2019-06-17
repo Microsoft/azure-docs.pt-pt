@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a216e720523767f428036290aea7151c2dca34
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38ce83df4d4de6d7816ee969a4fee153ad5457d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Active Directory do Azure com o LinkedIn Sales Navigator
 
@@ -58,7 +58,7 @@ Para configurar a integração do LinkedIn Sales Navigator para o Azure AD, ter�
 
 **Para adicionar o LinkedIn Sales Navigator partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD início de sessão único com o LinkedIn Sales Naviga
 
     | Name | Atributo de origem|
     | --- | --- |
-    | e-mail| user.mail |
+    | email| user.mail |
     | Departamento| user.department |
     | FirstName| user.givenname |
     | Apelido| user.surname |

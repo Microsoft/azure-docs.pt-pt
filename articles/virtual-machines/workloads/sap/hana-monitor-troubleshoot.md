@@ -15,10 +15,10 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61128970"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitorizar e resolver problemas do lado do HANA
@@ -67,7 +67,7 @@ Um alerta acionado devido a alta utilização da CPU pode ser causado por vário
 
 Consulte o [SAP HANA de resolução de problemas: Soluções e CPU relacionados faz com que](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) para passos de resolução de problemas detalhada do site.
 
-## <a name="operating-system"></a>Sistema Operativo
+## <a name="operating-system"></a>Sistema operativo
 
 Uma das verificações mais importantes para o SAP HANA no Linux é certificar-se de que as páginas enorme transparente estão desativadas, consulte [2131662 no SAP Note # – transparente enorme páginas (THP) nos servidores do SAP HANA](https://launchpad.support.sap.com/#/notes/2131662).
 
@@ -94,10 +94,10 @@ Consulte o [SAP HANA de resolução de problemas: Problemas de memória](https:/
 Consulte a [2081065 no SAP Note # – resolução de problemas de rede do SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e executar da rede passos esta nota SAP de resolução de problemas.
 
 1. Análise de tempo de ida e volta entre o servidor e cliente.
-  R. Execute o script SQL [ _HANA\_rede\_clientes_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Execute o script SQL [ _HANA\_rede\_clientes_](https://launchpad.support.sap.com/#/notes/1969700) _._
   
 2. Analise a comunicação internós.
-  R. Executar script de SQL [ _HANA\_rede\_serviços_](https://launchpad.support.sap.com/#/notes/1969700)_._
+  R. Executar script de SQL [ _HANA\_rede\_serviços_](https://launchpad.support.sap.com/#/notes/1969700) _._
 
 3. Execute o comando do Linux **ifconfig** (o resultado mostra se ocorrem quaisquer perdas de pacote).
 4. Execute o comando do Linux **tcpdump**.

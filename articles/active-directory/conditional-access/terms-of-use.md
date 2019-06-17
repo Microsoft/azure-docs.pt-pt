@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abae0a454e17e8f633f68bc5853bfb4a4b24d14
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 0534613a9df3177290e9b4b57e9830fe62f9741a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383184"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112134"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>O Azure Active Directory termos de utilização
 
@@ -115,23 +115,23 @@ Depois de finalizar os seus termos de utilização de documentos, utilize o proc
 
 1. Sob **acesso condicional**, utilize o **impor com o modelo de política de acesso condicional** lista para selecionar o modelo para aplicar os termos de utilização.
 
-   ![Modelos de acesso condicional](./media/terms-of-use/conditional-access-templates.png)
+   ![Modelos de acesso condicionais](./media/terms-of-use/conditional-access-templates.png)
 
    | Modelo | Descrição |
    | --- | --- |
    | **Acesso a aplicações na cloud para todos os convidados** | Será criada uma política de acesso condicional para todos os convidados e todas as aplicações na cloud. Esta política afeta o portal do Azure. Quando isso for criado, poderá ser necessário a fim de sessão e início de sessão. |
    | **Acesso a aplicações na cloud em todos os utilizadores** | Será criada uma política de acesso condicional para todos os utilizadores e todas as aplicações na cloud. Esta política afeta o portal do Azure. Quando isso for criado, será solicitado a fim de sessão e início de sessão. |
    | **Política personalizada** | Selecione os utilizadores, grupos e aplicações que serão aplicadas a este termos de utilização. |
-   | **Criar política de acesso condicional mais tarde** | Estes termos de utilização vão aparecer na lista de controlo de concessões durante a criação de uma política de acesso condicional. |
+   | **Criar política de acesso condicional mais tarde** | Este termos de utilização aparecerá na lista de controle de conceder ao criar uma política de acesso condicional. |
 
    >[!IMPORTANT]
-   >Os controlos de política de acesso condicional (incluindo os termos de utilização) não suportam a imposição em contas de serviço. Recomendamos excluir todas as contas de serviço da política de acesso condicional.
+   >Controlos de política de acesso condicionais (incluindo os termos de utilização) não suportam a imposição em contas de serviço. Recomendamos excluir todas as contas de serviço da política de acesso condicional.
 
-    Políticas de acesso condicional personalizadas permitem granulares termos de utilização, para baixo para uma aplicação da cloud ou um grupo de utilizadores. Para obter mais informações, consulte [início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud](require-tou.md).
+    As políticas de acesso condicional personalizadas permitem granulares termos de utilização, para baixo para uma aplicação da cloud ou um grupo de utilizadores. Para obter mais informações, consulte [início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud](require-tou.md).
 
 1. Clique em **Criar**.
 
-   Se tiver selecionado um modelo de acesso condicional personalizada, em seguida, novo é apresentado um ecrã que lhe permite criar a política de acesso condicional personalizada.
+   Se tiver selecionado um modelo de acesso condicional personalizado, em seguida, novo é apresentado um ecrã que permite-lhe criar a política de acesso condicional personalizada.
 
    ![Política personalizada](./media/terms-of-use/custom-policy.png)
 
@@ -302,12 +302,12 @@ Por predefinição, um utilizador eliminado fica num estado eliminado no Azure A
 
 ## <a name="policy-changes"></a>Alterações de política
 
-As políticas de acesso condicional entram imediatamente em vigor. Quando isto acontecer, o administrador começa a "nuvens sad" ou "Problemas de token do Azure AD". O administrador tem de terminar sessão e inicie sessão novamente para atender a nova política.
+Políticas de acesso condicional em vigor imediatamente. Quando isto acontecer, o administrador começa a "nuvens sad" ou "Problemas de token do Azure AD". O administrador tem de terminar sessão e inicie sessão novamente para atender a nova política.
 
 > [!IMPORTANT]
 > Os utilizadores abrangidos pelo âmbito definido terão de terminar e iniciar sessão de modo a satisfazerem uma nova política:
 >
-> - se for ativada uma política de acesso condicional num documento de termos de utilização
+> - uma política de acesso condicional estiver ativada em termos de utilização
 > - ou se for criado um segundo documento de termos de utilização
 
 ## <a name="b2b-guests-preview"></a>Convidados B2B (pré-visualização)

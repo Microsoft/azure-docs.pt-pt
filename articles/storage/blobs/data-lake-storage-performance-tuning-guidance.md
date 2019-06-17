@@ -10,10 +10,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 6f831dd0cde4641eb48f3c23e010f8c5e8aa3fa2
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939363"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Otimização de geração 2 de armazenamento do Azure Data Lake para o desempenho
@@ -44,7 +44,7 @@ A conectividade de rede entre a origem de dados e a geração 2 de armazenamento
 
 Depois de ter resolvido o hardware de origem e acima de afunilamentos de conectividade de rede, está pronto para configurar as suas ferramentas de ingestão. A tabela seguinte resume as definições da chave para várias ferramentas populares de ingestão e fornece desempenho aprofundadas ajuste artigos para os mesmos.  Para saber mais sobre qual ferramenta para utilizar para o seu cenário, visite [artigo](data-lake-storage-data-scenarios.md).
 
-| Ferramenta               | Definições     | Mais Detalhes                                                                 |
+| Ferramenta               | Definições     | Obter mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapeador de pontos)   | [Link](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Link](../../data-factory/copy-activity-performance.md)                          |

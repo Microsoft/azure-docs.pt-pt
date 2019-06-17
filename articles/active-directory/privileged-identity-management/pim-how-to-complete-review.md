@@ -15,10 +15,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602156"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Concluir uma revisão de acesso de funções do Azure AD no PIM
@@ -35,7 +35,7 @@ No painel de detalhes a revisão de acesso, há um número opções para gerir e
 
 ![Botões de revisão de acesso do PIM - captura de ecrã](./media/pim-how-to-complete-review/review-buttons.png)
 
-### <a name="remind"></a>Lembrar
+### <a name="remind"></a>Lembrar-
 Se uma revisão de acesso está configurada para que os utilizadores rever si próprios, o **lembrar** botão envia uma notificação. 
 
 ### <a name="stop"></a>Parar

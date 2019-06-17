@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
 ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254301"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementar um módulo de segurança no seu dispositivo IoT Edge

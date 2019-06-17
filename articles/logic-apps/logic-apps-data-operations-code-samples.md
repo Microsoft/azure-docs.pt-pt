@@ -4,18 +4,17 @@ description: Exemplos de código para definições de ação de operação de da
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
-ms.author: v-yiso
+ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-origin.date: 07/25/2018
-ms.date: 12/10/2018
+ms.date: 07/25/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128554"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Exemplos de código de operação de dados para o Azure Logic Apps
@@ -186,7 +185,7 @@ Para experimentar os [ **criar tabela HTML** exemplo de ação](../logic-apps/lo
 
 <a name="filter-array-action-example"></a>
 
-## <a name="filter-array"></a>Filtrar matriz
+## <a name="filter-array"></a>Matriz de filtro
 
 Para experimentar os [ **matriz de filtro** exemplo de ação](../logic-apps/logic-apps-perform-data-operations.md#filter-array-action), seguem-se as definições de ação, pode usar:
 
@@ -227,7 +226,7 @@ Para experimentar os [ **matriz de filtro** exemplo de ação](../logic-apps/log
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>Associar
+## <a name="join"></a>Aderir
 
 Para experimentar o [ **aderir** exemplo de ação](../logic-apps/logic-apps-perform-data-operations.md#join-action), seguem-se as definições de ação, pode usar:
 

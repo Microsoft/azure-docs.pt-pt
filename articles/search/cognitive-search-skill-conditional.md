@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: luisca
 ms.openlocfilehash: 149b701d4a1700787656448e2bdd0d92d2a93844
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65791506"
 ---
 #   <a name="conditional-skill"></a>Habilidade condicional
@@ -87,9 +87,9 @@ Como a habilidade condicional suporta a avaliação, pode usá-lo em cenários d
 ## <a name="skill-inputs"></a>Entradas de habilidades
 Entradas diferenciam maiúsculas de minúsculas.
 
-| Entrada   | Descrição |
+| Input   | Descrição |
 |-------------|-------------|
-| condition   | Esta entrada é um [avaliada campo](#evaluated-fields) que representa a condição para avaliar. Esta condição deve ser avaliado como um valor booleano (*true* ou *falso*).   <br/>  Exemplos: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| condição   | Esta entrada é um [avaliada campo](#evaluated-fields) que representa a condição para avaliar. Esta condição deve ser avaliado como um valor booleano (*true* ou *falso*).   <br/>  Exemplos: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | Esta entrada é um [avaliado o campo](#evaluated-fields) que representa o valor a devolver se a condição é avaliada como *verdadeiro*. Cadeias de caracteres de constantes devem ser devolvidas aspas ("e"). <br/>Valores de exemplo: <br/> "= 'contract'"<br/>"= $(/ documento/contractType)" <br/> "= $(/documento/entidades/\*)" <br/> |
 | whenFalse   | Esta entrada é um [avaliado o campo](#evaluated-fields) que representa o valor a devolver se a condição é avaliada como *falso*. <br/>Valores de exemplo: <br/> "= 'contract'"<br/>"= $(/ documento/contractType)" <br/> "= $(/documento/entidades/\*)" <br/>
 

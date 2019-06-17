@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
 ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128386"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma ligação de gateway VPN de VNet a VNet com o portal do Azure
@@ -190,7 +190,7 @@ Quando os gateways de rede virtual para o TestVNet1 e o TestVNet4 estiverem conc
 
      - Selecione o gateway de rede virtual à qual pretende ligar.
 
-     - **Chave partilhada (PSK)**: Neste campo, introduza uma chave partilhada para a sua ligação. Pode gerar ou criar esta chave de forma independente. Uma ligação site a site, a chave que utiliza é o mesmo para o dispositivo no local e a ligação de gateway de rede virtual. O conceito é semelhante aqui, exceto que em vez de se ligar a um dispositivo VPN, está a ligar a outro gateway de rede virtual.
+     - **Chave partilhada (PSK)** : Neste campo, introduza uma chave partilhada para a sua ligação. Pode gerar ou criar esta chave de forma independente. Uma ligação site a site, a chave que utiliza é o mesmo para o dispositivo no local e a ligação de gateway de rede virtual. O conceito é semelhante aqui, exceto que em vez de se ligar a um dispositivo VPN, está a ligar a outro gateway de rede virtual.
     
 4. Selecione **OK** para guardar as alterações.
 

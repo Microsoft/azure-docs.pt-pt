@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: b753b565b7dae6cdc244d05d051df964eda3c6f2
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620492"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
@@ -40,7 +40,7 @@ Este artigo contém as notas de versão para versão 1.8.1 o Explorador de armaz
 * No Windows, downloads de AzCopy falharia se estava a ser transferida um único arquivo ou pasta e o nome do ficheiro ou pasta tinha um caractere que era inválido para um caminho do Windows. Isto foi corrigido. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
 * Em casos extremamente raros, ao efetuar uma mudança de nome de uma partilha de ficheiros ou uma mudança de nome numa partilha de ficheiros, se as cópias para a mudança de nome falhou ou se explorar de armazenamento não foi possível confirmar o êxito das cópias com o Azure, havia a possibilidade de Explorador de armazenamento ao eliminar a o ficheiros de riginal antes da cópia se concluído. Isto foi corrigido.
 
-### <a name="new"></a>Nova
+### <a name="new"></a>Novo
 
 * A versão integrada do AzCopy foi atualizada para a versão 10.1.0.
 * CTRL / Cmd + R pode agora ser utilizado para atualizar o editor atualmente focado. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -136,7 +136,7 @@ Este artigo contém as notas de versão para versão 1.8.1 o Explorador de armaz
 - [Explorador de armazenamento do Azure 1.8.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Explorador de armazenamento do Azure 1.8.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Nova
+### <a name="new"></a>Novo
 
 * A versão integrada do AzCopy foi atualizada para a versão 10.1.0.
 * CTRL / Cmd + R pode agora ser utilizado para atualizar o editor atualmente focado. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -193,7 +193,7 @@ Este artigo contém as notas de versão para versão 1.8.1 o Explorador de armaz
 - [Explorador de armazenamento do Azure 1.7.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Explorador de armazenamento do Azure 1.7.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Nova
+### <a name="new"></a>Novo
 
 * Agora pode alterar o proprietário e o grupo proprietário ao gerir o acesso para um contentor de geração 2 do ADLS, ficheiro ou pasta.
 * No Windows, a atualização Explorador de armazenamento a partir de dentro do produto é agora uma instalação incremental. Isso deve resultar numa experiência de atualização mais rápida. Se preferir uma instalação limpa, então pode baixar o [instalador](https://azure.microsoft.com/features/storage-explorer/) por conta própria e, em seguida, instale manualmente. #1089
@@ -210,7 +210,7 @@ Este artigo contém as notas de versão para versão 1.8.1 o Explorador de armaz
 * No editor de blob, ordenar por Estado restante de dias de retenção ou foi interrompida. Isto foi corrigido. #1106
 * Após 1.5.0, o Explorador de armazenamento já não espera para cópias de lado do servidor concluir antes de o relatório de sucesso durante uma mudança de nome ou copiar e colar. Isto foi corrigido. #976
 * Quando utilizar a funcionalidade experimental do AzCopy, o comando copiado depois de clicar em "Copiar o comando para área de transferência" nem sempre era executável por conta própria. Agora, serão copiados todos os comandos necessários para executar a transferência manualmente. #1079
-* Anteriormente, os blobs de geração 2 do ADLS não estavam acessíveis a se estivesse atrás de um proxy. Isto foi devido a um erro numa nova biblioteca de rede utilizado pelo SDK de armazenamento. 1.7.0, foi efetuada uma tentativa para atenuar este problema, mas algumas pessoas podem continuar a ver problemas. Será lançada uma correção completa numa atualização futura. #1090
+* Anteriormente, os blobs de geração 2 do ADLS não estavam acessíveis a se estivesse atrás de um proxy. Isto foi devido a um erro numa nova biblioteca de rede utilizado pelo SDK de armazenamento. 1\.7.0, foi efetuada uma tentativa para atenuar este problema, mas algumas pessoas podem continuar a ver problemas. Será lançada uma correção completa numa atualização futura. #1090
 * No 1.7.0, salvar caixa de diálogo arquivo agora corretamente se lembra tiver guardado um ficheiro para a localização do último. #16
 * No painel de propriedades, o escalão de SKU de uma conta de armazenamento foi a ser apresentado como um tipo da conta. Isto foi corrigido. #654
 * Às vezes, foi impossível interromper a concessão de um blob, mesmo que introduziu corretamente o nome do blob. Isto foi corrigido. #1070
@@ -269,13 +269,13 @@ Este artigo contém as notas de versão para versão 1.8.1 o Explorador de armaz
 * Se a obter as permissões atuais para um contentor de geração 2 do ADLS, ficheiro ou pasta falha, então o erro agora é propertly apresentado no registo de atividades. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
 * O caminho temporário, criado para abrir ficheiros tem foram abreviado para reduzir a possibilidade de criar um caminho que é mais de MAX_PATH no Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
 * A caixa de diálogo Connect agora corretamente é apresentado quando não foram encontrados utilizadores com sessão iniciada e não existem recursos que tenham sido vinculados. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* 1.6.0, a guardar as propriedades de ficheiros e Blobs de HNS seria codificar o valor de cada propriedade. Isso resultou em codificação desnecessários de valores que continha apenas carateres ASCII. Agora, só irão ser codificados valores se contiverem carateres não ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 1\.6.0, a guardar as propriedades de ficheiros e Blobs de HNS seria codificar o valor de cada propriedade. Isso resultou em codificação desnecessários de valores que continha apenas carateres ASCII. Agora, só irão ser codificados valores se contiverem carateres não ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
 * Carregar uma pasta para um contentor de BLOBs não HNS falha se foi utilizada uma SAS e a SAS não tem as permissões de leitura. Isto foi corrigido. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
 * A cancelar uma transferência de AzCopy não funcionava. Isto foi corrigido. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
 * AzCopy Falha ao tentar baixar uma pasta de um contentor de BLOBs de geração 2 do ADLS, se a pasta tivesse espaços no nome. Isto foi corrigido. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * O editor do cosmos DB foi dividido em 1.6.0. Agora é fixa. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>Nova
+### <a name="new"></a>Novo
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
@@ -338,13 +338,13 @@ Este artigo contém as notas de versão para versão 1.8.1 o Explorador de armaz
 * Se a obter as permissões atuais para um contentor de geração 2 do ADLS, ficheiro ou pasta falha, então o erro agora é propertly apresentado no registo de atividades. [#965](https://www.github.com/Microsoft/AzureStorageExplorer/issues/965)
 * O caminho temporário, criado para abrir ficheiros tem foram abreviado para reduzir a possibilidade de criar um caminho que é mais de MAX_PATH no Windows. [#93](https://www.github.com/Microsoft/AzureStorageExplorer/issues/93)
 * A caixa de diálogo Connect agora corretamente é apresentado quando não foram encontrados utilizadores com sessão iniciada e não existem recursos que tenham sido vinculados. [#944](https://www.github.com/Microsoft/AzureStorageExplorer/issues/944)
-* 1.6.0, a guardar as propriedades de ficheiros e Blobs de HNS seria codificar o valor de cada propriedade. Isso resultou em codificação desnecessários de valores que continha apenas carateres ASCII. Agora, só irão ser codificados valores se contiverem carateres não ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
+* 1\.6.0, a guardar as propriedades de ficheiros e Blobs de HNS seria codificar o valor de cada propriedade. Isso resultou em codificação desnecessários de valores que continha apenas carateres ASCII. Agora, só irão ser codificados valores se contiverem carateres não ASCII. [#986](https://www.github.com/Microsoft/AzureStorageExplorer/issues/986)
 * Carregar uma pasta para um contentor de BLOBs não HNS falha se foi utilizada uma SAS e a SAS não tem as permissões de leitura. Isto foi corrigido. [#970](https://www.github.com/Microsoft/AzureStorageExplorer/issues/970)
 * A cancelar uma transferência de AzCopy não funcionava. Isto foi corrigido. [#943](https://www.github.com/Microsoft/AzureStorageExplorer/issues/943)
 * AzCopy Falha ao tentar baixar uma pasta de um contentor de BLOBs de geração 2 do ADLS, se a pasta tivesse espaços no nome. Isto foi corrigido. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * O editor do cosmos DB foi dividido em 1.6.0. Agora é fixa. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>Nova
+### <a name="new"></a>Novo
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
@@ -399,7 +399,7 @@ Este artigo contém as notas de versão para versão 1.8.1 o Explorador de armaz
 ## <a name="version-160"></a>Versão 1.6.0
 12/5/2018
 
-### <a name="new"></a>Nova
+### <a name="new"></a>Novo
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
@@ -454,7 +454,7 @@ Este artigo contém as notas de versão para versão 1.8.1 o Explorador de armaz
 ## <a name="version-150"></a>Versão 1.5.0
 10/29/2018
 
-### <a name="new"></a>Nova
+### <a name="new"></a>Novo
 
 * Agora, pode utilizar [AzCopy v10 (pré-visualização)](https://github.com/Azure/azure-storage-azcopy) para carregar e transferir Blobs. Para ativar esta funcionalidade vá para o menu "Experimental" e, em seguida, clique em "Utilizar AzCopy para melhorada Blob carregar e transferir". Quando ativada, o AzCopy será utilizado nos seguintes cenários:
    * Carregar pastas e arquivos para os contentores de BLOBs, através da barra de ferramentas ou arraste e largue.

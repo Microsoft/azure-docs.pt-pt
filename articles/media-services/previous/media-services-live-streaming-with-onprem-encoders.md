@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
 ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463811"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Trabalhar com canais que recebem transmissões com velocidade de transmissão em fluxo em direto a partir de codificadores no local
@@ -198,7 +198,7 @@ A tabela a seguir demonstra padrões suportados para inserção de legendas de �
 | --- | --- |
 | Legenda oculta CEA-708 e EIA 608 (708/608) |Legenda oculta CEA-708 e EIA 608 são legendagem padrões para os Estados Unidos e Canadá.<p><p>Atualmente, as legendas de áudio só é suportada se efetuado no fluxo de entrada codificado. Tem de utilizar um codificador de multimédia em direto que pode inserir 608 ou 708 legendas no fluxo codificado que é enviado para os serviços de multimédia. Serviços de multimédia fornece os conteúdos com inserido legendas para os seus utilizadores. |
 | TTML dentro .ismt (faixas de texto de transmissão em fluxo uniforme) |Um empacotamento dinâmico dos serviços de multimédia permite que os seus clientes para transmitir conteúdo em qualquer um dos seguintes formatos: DASH, HLS ou transmissão em fluxo uniforme. No entanto, se ingerir real de MP4 fragmentado (Smooth Streaming) com as legendas dentro .ismt (transmissão em fluxo uniforme faixas de texto), que pode fornecer o stream apenas clientes de transmissão em fluxo uniforme. |
-| SCTE-35 |SCTE 35 é um sistema de sinalização digital que serve para deixa a inserção de publicidade. Recetores Downstream use o sinal a fusão de anúncio no fluxo de tempo atribuído. SCTE 35 têm de ser enviados como um Roteiro disperso no fluxo de entrada.<p><p>Atualmente, o fluxo de entrada suportado apenas Formatar que executa diversas sinais de ad está fragmentado MP4 (transmissão em fluxo uniforme). O único suportado saída formato também é Smooth Streaming. |
+| SCTE 35 |SCTE 35 é um sistema de sinalização digital que serve para deixa a inserção de publicidade. Recetores Downstream use o sinal a fusão de anúncio no fluxo de tempo atribuído. SCTE 35 têm de ser enviados como um Roteiro disperso no fluxo de entrada.<p><p>Atualmente, o fluxo de entrada suportado apenas Formatar que executa diversas sinais de ad está fragmentado MP4 (transmissão em fluxo uniforme). O único suportado saída formato também é Smooth Streaming. |
 
 ## <a id="considerations"></a>Considerações
 Quando estiver usando um codificador em direto no local para enviar um fluxo de velocidade de transmissão para um canal, aplicam-se as seguintes restrições:

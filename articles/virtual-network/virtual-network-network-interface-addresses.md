@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
 ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506384"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para uma interface de rede do Azure
@@ -35,7 +35,7 @@ Se precisa para criar, alterar ou eliminar uma interface de rede, leia os [gerir
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 - Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
+- Se utilizar o portal, abra https://portal.azure.com e inicie sessão com a sua conta do Azure.
 - Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a versão 2.0.31 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
@@ -51,10 +51,10 @@ Pode adicionar tantas [privada](#private) e [público](#public) [IPv4](#ipv4) en
 4. Sob **configurações de IP**, selecione **+ adicionar**.
 5. Especifique o seguinte, em seguida, selecione **OK**:
 
-   |Definição|Necessário?|Detalhes|
+   |Definição|Obrigatório?|Detalhes|
    |---|---|---|
    |Name|Sim|Tem de ser exclusivo para a interface de rede|
-   |Type|Sim|Uma vez que estiver a adicionar uma configuração de IP a uma interface de rede existente, e cada interface de rede tem de ter uma [primário](#primary) configuração de IP, sua única opção é **secundário**.|
+   |Tipo|Sim|Uma vez que estiver a adicionar uma configuração de IP a uma interface de rede existente, e cada interface de rede tem de ter uma [primário](#primary) configuração de IP, sua única opção é **secundário**.|
    |Método de atribuição de endereço IP privado|Sim|[**Dinâmica**](#dynamic): O Azure atribui o endereço seguinte disponível para o intervalo de endereços de sub-rede que a interface de rede é implementada no. [**Estática**](#static): Atribuir um endereço não utilizado para o intervalo de endereços de sub-rede que a interface de rede é implementada no.|
    |Endereço IP público|Não|**Desativado:** Nenhum recurso de endereço IP público está atualmente associado à configuração de IP. **Ativado:** Selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia os [endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address) artigo.|
 6. Adicionar manualmente os endereços IP privados secundários para o sistema de operativo da máquina virtual ao concluir as instruções a [atribuir vários endereços IP aos sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config) artigo. Ver [privada](#private) endereços IP para considerações especiais antes de adicionar manualmente os endereços IP para um sistema de operativo da máquina virtual. Não adicione quaisquer endereços IP públicos para o sistema de operativo da máquina virtual.
@@ -107,14 +107,14 @@ Pode remover [privada](#private) e [público](#public) endereços IP a partir de
 
 [Privada](#private) e (opcionalmente) [pública](#public) endereços IP são atribuídos a uma ou mais configurações de IP atribuídas a uma interface de rede. Existem dois tipos de configurações de IP:
 
-### <a name="primary"></a>Primário
+### <a name="primary"></a>Primária
 
 Cada interface de rede é atribuído uma configuração de IP primária. Uma configuração de IP primária:
 
 - Tem um [privada](#private) [IPv4](#ipv4) endereço atribuído ao mesmo. Não é possível atribuir uma privada [IPv6](#ipv6) endereço para uma configuração de IP primária.
 - Também pode ter uma [público](#public) endereço IPv4 atribuído a ele. Não é possível atribuir um endereço IPv6 público a uma configuração de IP primária ou secundária. No entanto, pode atribuir um endereço IPv6 público a um balanceador de carga do Azure, que pode balancear carga de tráfego para o endereço de IPv6 privado de uma máquina virtual. Para obter mais informações, consulte [detalhes e limitações do IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
 
-### <a name="secondary"></a>Secundário
+### <a name="secondary"></a>Secundária
 
 Além de uma configuração de IP primária, uma interface de rede pode ter zero ou mais configurações de IP secundárias atribuídas ao mesmo. Uma configuração de IP secundária:
 
@@ -143,7 +143,7 @@ Existem cenários em que é necessário definir o endereço IP de uma interface 
 1. Certifique-se de que a máquina virtual está a receber um endereço dos servidores DHCP do Azure. Assim que tiver, alterar a atribuição do endereço IP de volta para o DHCP no sistema operativo e reinicie a máquina virtual.
 2. Pare (desaloque) a máquina virtual.
 3. Altere o endereço IP para a configuração de IP no Azure.
-4. Inicia a máquina virtual.
+4. Inicie a máquina virtual.
 5. [Configurar manualmente](virtual-network-multiple-ip-addresses-portal.md#os-config) os endereços IP secundários dentro do sistema operativo (e também o endereço IP primário dentro do Windows) para corresponder ao definido no Azure.
 
 Ao seguir os passos anteriores, o endereço IP privado atribuído à interface de rede no Azure e no sistema operativo de uma máquina virtual, permanecem os mesmos. Para controlar quais as máquinas virtuais na sua subscrição que tiver definido manualmente a endereços IP dentro de um sistema operativo para, considere adicionar do Azure [marca](../azure-resource-manager/resource-group-using-tags.md) às máquinas virtuais. Pode utilizar "atribuição de endereços IP: "Estáticas", por exemplo. Dessa forma, pode encontrar facilmente as máquinas virtuais na sua subscrição que tiver definido manualmente o endereço IP para o sistema operativo.
@@ -163,7 +163,7 @@ Existem limites ao número de endereços IP públicos e privados que pode atribu
 
 Endereços IP públicos e privados são atribuídos através de um dos seguintes métodos de atribuição:
 
-### <a name="dynamic"></a>Dinâmico
+### <a name="dynamic"></a>Dinâmica
 
 IPv4 privada dinâmico e IPv6 (opcionalmente) endereços são atribuídos por predefinição.
 

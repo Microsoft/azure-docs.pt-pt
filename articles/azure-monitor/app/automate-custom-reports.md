@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f22cb620bf8cf56110bec60a4dd809066393a8ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957284"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067666"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
 
@@ -92,7 +92,7 @@ availabilityResults
 
    ![Criar uma nova captura de ecrã de função](./media/automate-custom-reports/function-app-03.png)
 
-5. Selecione o  **_modelo de resumo agendada do Application Insights_**.
+5. Selecione o  **_modelo de resumo agendada do Application Insights_** .
 
      > [!NOTE]
      > Por predefinição, as aplicações de função são criadas com a versão de runtime 2.x. Deve [versão de runtime das funções do Azure de destino](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x para utilizar o Application Insights agendado o modelo de texto implícita.
@@ -120,7 +120,7 @@ availabilityResults
      > [!NOTE]
      > Se não tiver uma conta do SendGrid, pode criá-lo. Documentação do SendGrid para as funções do Azure está [aqui](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Se apenas quiser uma explicação um mínimo de como configurar o SendGrid e gerar uma chave de API for fornecido no final deste artigo. 
 
-9. Selecione **integrar** e, em clique saídas **SendGrid ($return)**.
+9. Selecione **integrar** e, em clique saídas **SendGrid ($return)** .
 
      ![Captura de ecrã da saída](./media/automate-custom-reports/function-app-09.png)
 

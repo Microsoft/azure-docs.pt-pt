@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148622"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar o Stream Analytics para a geração 1 de armazenamento do Azure Data Lake com identidades geridas
@@ -180,7 +180,7 @@ Esta funcionalidade não suporta o seguinte:
 
 1. **Acesso de multi-inquilino**: O principal de serviço criado para uma determinada tarefa do Stream Analytics irão residir no inquilino do Azure Active Directory no qual a tarefa foi criada e não pode ser utilizada em relação a um recurso que reside num inquilino do Azure Active Directory diferente. Por conseguinte, só pode utilizar o MSI nos recursos do ADLS Gen 1 que estão no mesmo inquilino do Azure Active Directory como a tarefa do Azure Stream Analytics. 
 
-2. **[Identidade de utilizador atribuída](../active-directory/managed-identities-azure-resources/overview.md)**: não é suportada. Isso significa que o utilizador não é capaz de introduzir as suas próprias principal de serviço a ser utilizado pelo seu trabalho do Stream Analytics. O principal de serviço é gerado pelo Azure Stream Analytics.
+2. **[Identidade de utilizador atribuída](../active-directory/managed-identities-azure-resources/overview.md)** : não é suportada. Isso significa que o utilizador não é capaz de introduzir as suas próprias principal de serviço a ser utilizado pelo seu trabalho do Stream Analytics. O principal de serviço é gerado pelo Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

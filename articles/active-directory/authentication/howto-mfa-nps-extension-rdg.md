@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64873432"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto usando a extensão de servidor de políticas de rede (NPS) e o Azure AD
@@ -327,7 +327,7 @@ Depois de ter autenticado com êxito usando o método de autenticação secundá
 
 Para ver os eventos de início de sessão com êxito nos registos do Visualizador de eventos do Windows, pode emitir o seguinte comando do Windows PowerShell para consultar os registos de serviços de Terminal do Windows e de segurança do Windows.
 
-Para consultar os eventos de início de sessão com êxito nos registos operacionais do Gateway _(Viewer\Applications de eventos e serviços Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_, utilize os seguintes comandos do PowerShell:
+Para consultar os eventos de início de sessão com êxito nos registos operacionais do Gateway _(Viewer\Applications de eventos e serviços Logs\Microsoft\Windows\TerminalServices-Gateway\Operational)_ , utilize os seguintes comandos do PowerShell:
 
 * `Get-WinEvent -Logname Microsoft-Windows-TerminalServices-Gateway/Operational | where {$_.ID -eq '300'} | FL`
 * Este comando apresenta os eventos do Windows que mostram o usuário cumpridos os requisitos de política de autorização de recursos (RAP de RD) e foi concedido acesso.

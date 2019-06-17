@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66130979"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
@@ -100,27 +100,27 @@ A mesma regra pode ser utilizada para a métrica comunicada ao utilizar o [parâ
 ## <a name="metric-names"></a>Nomes de métrica
 | Nome da métrica | Nome do ecrã | Descrição |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Exceções do browser |Número de exceções não identificadas emitidas no browser. |
+| `basicExceptionBrowser.count` |Exceções de browser |Contagem de exceções não identificadas emitidas no browser. |
 | `basicExceptionServer.count` |Exceções de servidor |Contagem de exceções não processadas emitidas pela aplicação |
-| `clientPerformance.clientProcess.value` |Tempo de processamento do cliente |Tempo entre a receção do último byte de um documento, até que o DOM ser carregado. Pedidos assíncronos podem continuar a ser processados. |
-| `clientPerformance.networkConnection.value` |Tempo de ligação da rede de carregamento de páginas |Tempo que o navegador é conectado à rede. Pode ser 0, se em cache. |
-| `clientPerformance.receiveRequest.value` |Tempo de resposta de receção |Tempo entre a enviar pedido para começar a receber a resposta do navegador. |
-| `clientPerformance.sendRequest.value` |Tempo de resposta de envio |Tempo decorrido ao navegador para enviar o pedido. |
-| `clientPerformance.total.value` |Tempo de carregamento de páginas do browser |Tempo entre o pedido do utilizador e o carregamento de DOM, de folhas de estilos, de scripts e de imagens. |
+| `clientPerformance.clientProcess.value` |Tempo de processamento de cliente |Tempo entre a receção do último byte de um documento, até que o DOM ser carregado. Pedidos assíncronos podem continuar a ser processados. |
+| `clientPerformance.networkConnection.value` |Tempo de ligação de rede de carregamento de página |Tempo que o navegador é conectado à rede. Pode ser 0, se em cache. |
+| `clientPerformance.receiveRequest.value` |Tempo de resposta a receber |Tempo entre a enviar pedido para começar a receber a resposta do navegador. |
+| `clientPerformance.sendRequest.value` |Enviar o tempo do pedido |Tempo decorrido ao navegador para enviar o pedido. |
+| `clientPerformance.total.value` |Tempo de carregamento de página do browser |Tempo do pedido de utilizador até que o DOM, folhas de estilo, scripts e imagens são carregadas. |
 | `performanceCounter.available_bytes.value` |Memória disponível |Memória física imediatamente disponível para um processo ou para utilização do sistema. |
-| `performanceCounter.io_data_bytes_per_sec.value` |Velocidade de E/S do Processo |Total de bytes por segundo lidos e escritos em ficheiros, na rede e em dispositivos. |
+| `performanceCounter.io_data_bytes_per_sec.value` |Taxa de e/s do processo |Total de bytes por segundo lidos e escritos em ficheiros, rede e dispositivos. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |taxa de exceções |Exceções geradas por segundo. |
 | `performanceCounter.percentage_processor_time.value` |CPU do processo |A percentagem de tempo decorrido de todos os threads de processo utilizada pelo processador para instruções de execução para o processo de aplicativos. |
-| `performanceCounter.percentage_processor_total.value` |Tempo do processador |Percentagem de tempo que o processador despende em threads não inativos. |
+| `performanceCounter.percentage_processor_total.value` |Tempo do processador |A percentagem de tempo que o processador despende em threads não inativos. |
 | `performanceCounter.process_private_bytes.value` |Bytes privados do processo |Memória atribuída exclusivamente aos processos da aplicação monitorizada. |
 | `performanceCounter.request_execution_time.value` |Tempo de execução de solicitação do ASP.NET |Tempo de execução do pedido mais recente. |
-| `performanceCounter.requests_in_application_queue.value` |Solicitações ASP.NET na fila de execução |Tamanho da fila de pedidos da aplicação. |
-| `performanceCounter.requests_per_sec.value` |Taxa de pedidos do ASP.NET |Classificação de todos os pedidos da aplicação por segundo do ASP.NET. |
+| `performanceCounter.requests_in_application_queue.value` |Solicitações ASP.NET na fila de execução |Comprimento da fila de pedido de aplicação. |
+| `performanceCounter.requests_per_sec.value` |Taxa de pedidos do ASP.NET |Taxa de todos os pedidos para a aplicação por segundo do ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Falhas de dependência |Contagem de chamadas falhadas efetuadas pela aplicação de servidor para recursos externos. |
 | `request.duration` |Tempo de resposta do servidor |Tempo entre a receção de um pedido HTTP e a conclusão do envio da resposta. |
-| `request.rate` |Taxa do pedido |Taxa de todos os pedidos para a aplicação por segundo. |
+| `request.rate` |Taxa de pedidos |Taxa de todos os pedidos para a aplicação por segundo. |
 | `requestFailed.count` |Pedidos falhados |Número de pedidos HTTP que resultaram num código de resposta > = 400 |
-| `view.count` |Visualizações da página |Contagem de pedidos de utilizador do cliente para uma página da web. Tráfego sintético é filtrado. |
+| `view.count` |Vistas de página |Contagem de pedidos de utilizador do cliente para uma página da web. Tráfego sintético é filtrado. |
 | {o nome métrico personalizado} |{O seu nome de métrica} |O valor de métrica comunicado pelo [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) ou no [parâmetro de medições de uma chamada de controlo](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
 As métricas são enviadas por módulos de telemetria diferentes:

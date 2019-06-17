@@ -18,10 +18,10 @@ ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128454"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Resolução de problemas de desempenho de aplicações lenta no serviço de aplicações do Azure
@@ -60,7 +60,7 @@ Esta opção permite-lhe saber se a aplicação está a ter problemas. No painel
 
 Algumas das métricas que possa querer monitorizar para a sua aplicação são
 
-* Média do conjunto de trabalho de memória
+* Conjunto de trabalho de memória média
 * Tempo médio de resposta
 * Tempo de CPU
 * Conjunto de trabalho de memória
@@ -136,7 +136,7 @@ Para aceder ao diagnóstico do serviço de aplicações, navegue até à sua apl
 #### <a name="use-the-kudu-debug-console"></a>Utilizar a consola de depuração do Kudu
 Serviço de aplicações é fornecido com uma consola de depuração que pode usar para depuração, explorar, carregar ficheiros, bem como pontos finais de JSON para obter informações sobre o seu ambiente. Esta consola é chamada de *consola Kudu* ou o *SCM Dashboard* para a sua aplicação.
 
-Pode aceder a este dashboard ao aceder à ligação **https://&lt;o nome da aplicação >.scm.azurewebsites.net/**.
+Pode aceder a este dashboard ao aceder à ligação **https://&lt;o nome da aplicação >.scm.azurewebsites.net/** .
 
 Algumas das coisas que fornece o Kudu são:
 

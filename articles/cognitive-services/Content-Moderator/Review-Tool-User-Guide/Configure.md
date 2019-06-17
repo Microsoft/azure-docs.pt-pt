@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61285553"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a Ferramenta de revisão
@@ -64,7 +64,7 @@ Se for um membro de mais do que um subteam, pode alternar entre esses subequipas
 
 ![Alternar entre subequipas](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Etiquetas
+## <a name="tags"></a>Tags
 
 O **etiquetas** separador permite-lhe definir as etiquetas de moderação personalizados, além das etiquetas de moderação de predefinidos&mdash;**isadult** (**um**) e **isracy**  (**r**). Quando cria uma marca personalizada, torna-se disponíveis nas revisões em conjunto com as etiquetas predefinidas. Pode alterar as etiquetas aparecem nas revisões alternando as definições de visibilidade.
 

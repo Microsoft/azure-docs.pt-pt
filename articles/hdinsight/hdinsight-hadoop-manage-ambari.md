@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
 ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258001"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU do Apache Ambari Web
@@ -159,7 +159,7 @@ O **anfitriões** página apresenta uma lista de todos os anfitriões do cluster
     |Ativar o modo de manutenção|Suprime alertas para o anfitrião. Esse modo deve ser ativado se estiver a efetuar ações que geram alertas. Por exemplo, parar e iniciar um serviço.|
     |Desativar o modo de manutenção|Devolve o host para alertar normal.|
     |Parar|Interrompe DataNode ou NodeManagers no anfitrião.|
-    |Iniciar,|Inicia DataNode ou NodeManagers no anfitrião.|
+    |Iniciar|Inicia DataNode ou NodeManagers no anfitrião.|
     |Reiniciar|Para e inicia DataNode ou NodeManagers no anfitrião.|
     |Desativar|Remove um anfitrião do cluster. **Não utilize esta ação em clusters do HDInsight.**|
     |Recommission|Adiciona um anfitrião anteriormente desativado para o cluster. **Não utilize esta ação em clusters do HDInsight.**|

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/24/2019
 ms.author: monhaber
 ms.openlocfilehash: f35f410ddc039ee264fa1de317e152cb03f391b5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241548"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptativos no Centro de segurança do Azure

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65801000"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualizar dados de Interactive Query Apache Hive com o Microsoft Power BI através da consulta direta no Azure HDInsight
@@ -27,7 +27,7 @@ Pode aproveitar o [controlador ODBC do Hive do Apache](../hadoop/apache-hadoop-c
 Antes de passar por este artigo, tem de ter os seguintes itens:
 
 * **Cluster de HDInsight**. O cluster pode ser um cluster do HDInsight com o Apache Hive ou um cluster do Interactive Query recém-lançada. Para criar clusters, veja [criar um cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. Pode baixar uma cópia a partir da [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . Pode baixar uma cópia a partir da [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>Carregar dados do HDInsight
 
@@ -49,8 +49,8 @@ O `hivesampletable` tabela do Hive vem com todos os clusters do HDInsight.
 
     |Propriedade | Valor |
     |---|---|
-    |Servidor  |Introduza o nome do cluster, por exemplo *myiqcluster.azurehdinsight.net*.|
-    |Base de dados |Introduza **predefinição** deste artigo.|
+    |Servidor |Introduza o nome do cluster, por exemplo *myiqcluster.azurehdinsight.net*.|
+    |Base de Dados |Introduza **predefinição** deste artigo.|
     |Modo de conectividade de dados |Selecione **DirectQuery** deste artigo.|
 
     ![Ligue-se do interactive query do HDInsight DirectQuery do Power BI](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)

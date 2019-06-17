@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64717496"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerir um dispositivo de limite de caixa de dados do Azure através do Windows PowerShell
@@ -43,7 +43,7 @@ Este artigo inclui os seguintes procedimentos:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Também pode carregar certificados de IoT Edge para permitir uma ligação segura entre o seu dispositivo IoT Edge e os dispositivos de downstream que podem se conectar a ele. Existem três certificados de IoT Edge (*. pem* formato) que tem de instalar:
+Também pode carregar certificados de IoT Edge para permitir uma ligação segura entre o seu dispositivo IoT Edge e os dispositivos de downstream que podem se conectar a ele. Existem três certificados de IoT Edge ( *. pem* formato) que tem de instalar:
 
 - Certificado de AC de raiz ou o proprietário da AC
 - Certificado de acesso condicional de dispositivo

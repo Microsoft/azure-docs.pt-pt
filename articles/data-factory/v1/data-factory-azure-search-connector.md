@@ -14,14 +14,14 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60567236"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados por push para um índice da Azure Search utilizando o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-azure-search-connector.md)
 > * [Versão 2 (versão atual)](../connector-azure-search.md)
 
@@ -68,7 +68,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| tipo | A propriedade de tipo deve ser definida como **AzureSearchIndex**.| Sim |
+| type | A propriedade de tipo deve ser definida como **AzureSearchIndex**.| Sim |
 | indexName | Nome do índice da Azure Search. Fábrica de dados não cria o índice. O índice tem de existir no Azure Search. | Sim |
 
 
@@ -79,7 +79,7 @@ Para a atividade de cópia, quando o sink é do tipo **AzureSearchIndexSink**, a
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica se deve intercalar ou substituir quando um documento já existe no índice. Consulte a [WriteBehavior propriedade](#writebehavior-property).| Intercalar (predefinição)<br/>Carregar| Não |
+| WriteBehavior | Especifica se deve intercalar ou substituir quando um documento já existe no índice. Consulte a [WriteBehavior propriedade](#writebehavior-property).| Intercalar (predefinição)<br/>Carregamento| Não |
 | WriteBatchSize | Carrega dados para o índice da Azure Search, quando o tamanho do buffer atinge writeBatchSize. Consulte a [WriteBatchSize propriedade](#writebatchsize-property) para obter detalhes. | 1 a 1000. Valor predefinido é 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade de WriteBehavior

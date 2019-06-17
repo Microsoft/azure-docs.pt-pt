@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399601"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para o Azure
@@ -43,7 +43,7 @@ Com estes passos completos, em seguida, pode executar uma ativação pós-falha 
 
 ![Arquitetura](./media/azure-stack-site-recovery/architecture.png)
 
-**Localização** | **Componente** |**Detalhes**
+**Location** | **Componente** |**Detalhes**
 --- | --- | ---
 **Servidor de configuração** | É executada numa única VM do Azure Stack. | Cada subscrição vai configurar uma VM do servidor de configuração. Esta VM executa os seguintes componentes do Site Recovery:<br/><br/> -Servidor de configuração: Coordena as comunicações entre no local e o Azure e gere a replicação de dados. -Servidor de processos: Atua como um gateway de replicação. Ele recebe dados de replicação, otimiza com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure.<br/><br/> Se as VMs que pretende replicar excederem os limites indicados abaixo, pode configurar um servidor de processo autônomo separado. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
 **Serviço de mobilidade** | Instalado em cada VM que pretende replicar. | Os passos neste artigo, vamos preparar uma conta para que o serviço de mobilidade é instalado automaticamente numa VM quando a replicação está ativada. Se não quiser instalar automaticamente o serviço, há inúmeros outros métodos que pode utilizar. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).

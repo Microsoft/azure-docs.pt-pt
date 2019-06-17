@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
 ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796262"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir a implementação de integração do Estado de funcionamento para o Azure Deployment Manager (pré-visualização pública)
@@ -140,7 +140,7 @@ Para percorrer um exemplo, consulte [Tutorial: Utilizar a verificação de estad
 
 Neste momento o Gestor de implementação do Azure sabe como consultar o estado de funcionamento do seu serviço e em quais fases na sua implementação para o fazer. No entanto, o Gestor de implementação do Azure também permite que para o período de tempo dessas verificações de configuração avançado. Um passo de healthCheck é executado em 3 fases sequenciais, todos os quais têm durações configuráveis: 
 
-1. Aguardar
+1. Wait
 
     1. Depois de concluída uma operação de implementação, poderão ser reiniciar VMs, reconfiguração baseadas em novos dados ou até mesmo a ser iniciada pela primeira vez. Ela também leva tempo para os serviços começar a emitir o sinais de estado de funcionamento para serem agregados pelo Estado de funcionamento de provedor de monitoramento em algo útil. Durante este processo tumultuado, talvez não faça sentido para verificar o estado de funcionamento do serviço, uma vez que a atualização ainda não atingiu um estado estável. Na verdade, o serviço pode ser oscillating entre os Estados com e sem integridade como os recursos de liquidação. 
     1. Durante a fase de espera, o estado de funcionamento do serviço não é monitorizado. Isto é utilizado para permitir que os recursos implementados o tempo para inserir antes de iniciar o processo de verificação de estado de funcionamento. 

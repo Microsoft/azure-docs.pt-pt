@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: diberry
 ms.openlocfilehash: 515b40c9976ba901787182c249228f98f1938078
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431138"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo na compreensão de idiomas

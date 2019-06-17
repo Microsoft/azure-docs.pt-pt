@@ -8,14 +8,13 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/19/2019
-ms.author: v-junlch
+ms.date: 12/07/2018
+ms.author: azfuncdf
 ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60731125"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipos de funções duráveis e recursos (funções do Azure)
@@ -132,7 +131,7 @@ public static async Task RunRemoteOrchestrator(
 public static async Task<string> StartRemoteOrchestration([ActivityTrigger] string orchestratorName)
 {
     using (var response = await HttpClient.PostAsync(
-        $"https://appB.chinacloudsites.cn/orchestrations/{orchestratorName}",
+        $"https://appB.azurewebsites.net/orchestrations/{orchestratorName}",
         new StringContent("")))
     {
         string statusUrl = await response.Content.ReadAsAsync<string>();
@@ -184,7 +183,7 @@ const request = require("request-promise-native");
 module.exports = async function(context, orchestratorName) {
     const options = {
         method: "POST",
-        uri: `https://appB.chinacloudsites.cn/orchestrations/${orchestratorName}`,
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
         body: ""
     };
 
@@ -218,5 +217,3 @@ Para começar, crie sua primeira função durável na [ C# ](durable-functions-c
 
 <!-- Media references -->
 [1]: media/durable-functions-types-features-overview/durable-concepts.png
-
-<!-- Update_Description: wording update -->

@@ -6,14 +6,13 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 08/06/2018
-ms.date: 04/16/2019
-ms.author: v-junlch
+ms.date: 8/6/2018
+ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135202"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Descrição geral do Application Gateway health monitorização
@@ -57,10 +56,10 @@ Assim que os critérios de correspondência for especificado, pode ser anexado a
 
 | Propriedade de pesquisa | Value | Descrição |
 | --- | --- | --- |
-| URL de Pesquisa |http://127.0.0.1:\<port\>/ |Caminho do URL |
+| URL de sonda |http://127.0.0.1:\<port\>/ |Caminho do URL |
 | Interval |30 |A quantidade de tempo em segundos a aguardar antes da próxima sonda de estado de funcionamento é enviada.|
 | Tempo limite |30 |A quantidade de tempo em segundos, o gateway de aplicação aguarda uma resposta de sonda antes de os marcar a sonda como mau estado de funcionamento. Se uma sonda retornar saudável, o back-end correspondente será imediatamente marcado como em bom estado.|
-| Limiar com funcionamento incorreto |3 |Controla quantas sondas para enviar no caso de falha da sonda de estado de funcionamento normal. Estas sondas de estado de funcionamento adicionais são enviadas numa rápida sucessão para determinar o estado de funcionamento do back-end rapidamente e não espere durante o intervalo de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Limiar de mau estado de funcionamento |3 |Controla quantas sondas para enviar no caso de falha da sonda de estado de funcionamento normal. Estas sondas de estado de funcionamento adicionais são enviadas numa rápida sucessão para determinar o estado de funcionamento do back-end rapidamente e não espere durante o intervalo de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 > [!NOTE]
 > A porta é a mesma porta que as definições de HTTP de back-end.
@@ -85,11 +84,11 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de esta
 | --- | --- |
 | Name |Nome da sonda. Este nome é utilizado para fazer referência a sonda nas definições de HTTP de back-end. |
 | Protocol |Protocolo utilizado para enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
-| Anfitrião |Nome de anfitrião para enviar a sonda. Aplicável apenas quando vários sites está configurada no Gateway de aplicação, caso contrário, utilize "127.0.0.1". Este valor é diferente do nome de anfitrião VM. |
-| `Path` |Caminho relativo da sonda. O caminho válido começa com "/". |
+| Host |Nome de anfitrião para enviar a sonda. Aplicável apenas quando vários sites está configurada no Gateway de aplicação, caso contrário, utilize "127.0.0.1". Este valor é diferente do nome de anfitrião VM. |
+| Caminho |Caminho relativo da sonda. O caminho válido começa com "/". |
 | Interval |Intervalo de sonda em segundos. Este valor é o intervalo de tempo entre dois sondas consecutivos. |
 | Tempo limite |Sonda de tempo limite em segundos. Se uma resposta válida não está a ser recebida durante este período de tempo limite, a sonda está marcada como falhado.  |
-| Limiar com funcionamento incorreto |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Limiar de mau estado de funcionamento |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 > [!IMPORTANT]
 > Se o Gateway de aplicação está configurado para um único site, por predefinição, o anfitrião nome deve ser especificado como '127.0.0.1', a menos que caso contrário, é configurado na sonda personalizada.
@@ -105,5 +104,3 @@ Além disso, conectividade de Internet de saída não pode ser bloqueada e o tr�
 Após a aprendizagem sobre a monitorização de estado de funcionamento do Gateway de aplicação, pode configurar uma [sonda de estado de funcionamento personalizados](application-gateway-create-probe-portal.md) no portal do Azure ou uma [sonda de estado de funcionamento personalizados](application-gateway-create-probe-ps.md) com o PowerShell e o Azure Resource Manager modelo de implementação.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
-
-<!-- Update_Description: wording update -->

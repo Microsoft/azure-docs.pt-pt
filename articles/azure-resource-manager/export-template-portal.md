@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
 ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65515388"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Exportação única e vários recurso para o modelo no portal do Azure
@@ -72,7 +72,7 @@ Para exportar um recurso:
 
 1. Selecione o recurso para exportar.
 
-   ![Selecionar o recurso](./media/export-template-portal/select-link-resource.png)
+   ![Selecione o recurso](./media/export-template-portal/select-link-resource.png)
 
 1. Para esse recurso, selecione **exportar modelo** no painel esquerdo.
 
@@ -110,7 +110,7 @@ Pode exportar o modelo que foi utilizado para implementar recursos existentes. O
 
 1. Selecione **modelo**. O modelo utilizado para esta implementação é apresentado e está disponível para download.
 
-   ![Seleccionar modelo](./media/export-template-portal/show-template-from-history.png)
+   ![Selecionar modelo](./media/export-template-portal/show-template-from-history.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

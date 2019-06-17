@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430801"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicação
@@ -38,7 +38,7 @@ Em seu código, inicializar um novo cliente público ou confidencial (ou o agent
 ## <a name="authority"></a>autoridade
 A autoridade é um URL que indica um diretório que MSAL pode pedir tokens a partir de. Autoridades de comuns são:
 
-- https://login.microsoftonline.com/&lt; inquilino&gt;/, onde &lt;inquilino&gt; é o ID de inquilino do inquilino do Azure Active Directory (Azure AD) ou um domínio associado a este inquilino do Azure AD. Utilizado apenas para iniciar sessão dos utilizadores de uma organização específica.
+- https://login.microsoftonline.com/&lt ; inquilino&gt; /, onde &lt; inquilino&gt; é o ID de inquilino do inquilino do Azure Active Directory (Azure AD) ou um domínio associado a este inquilino do Azure AD. Utilizado apenas para iniciar sessão dos utilizadores de uma organização específica.
 - https://login.microsoftonline.com/common/. Utilizado para iniciar sessão dos utilizadores com contas Microsoft pessoais e contas escolar ou profissional.
 - https://login.microsoftonline.com/organizations/. Utilizado para iniciar sessão dos utilizadores com contas profissionais e escolares.
 - https://login.microsoftonline.com/consumers/. Utilizado para iniciar sessão dos utilizadores com apenas contas pessoais da Microsoft (anteriormente conhecidas como contas do Windows Live ID).

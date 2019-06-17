@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/25/2019
 ms.author: amsriva
 ms.openlocfilehash: 2a1c7e480e896da6852949c9d765d17290e4e9ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64697169"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros de gateway inválido no Gateway de aplicação
@@ -84,10 +84,10 @@ A tabela seguinte lista os valores associados a sonda de estado de funcionamento
 
 | Propriedade de pesquisa | Value | Descrição |
 | --- | --- | --- |
-| URL de Pesquisa |`http://127.0.0.1/` |Caminho do URL |
+| URL de sonda |`http://127.0.0.1/` |Caminho do URL |
 | Interval |30 |Intervalo de sonda em segundos |
 | Tempo limite |30 |Tempo limite de sonda em segundos |
-| Limiar com funcionamento incorreto |3 |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Limiar de mau estado de funcionamento |3 |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 ### <a name="solution"></a>Solução
 
@@ -109,12 +109,12 @@ As seguintes propriedades adicionais são adicionadas:
 | Propriedade de pesquisa | Descrição |
 | --- | --- |
 | Name |Nome da sonda. Este nome é utilizado para fazer referência a sonda nas definições de HTTP de back-end. |
-| Protocolo |Protocolo utilizado para enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
-| Anfitrião |Nome de anfitrião para enviar a sonda. Aplicável apenas quando vários sites está configurada no gateway de aplicação. Isso é diferente do nome de anfitrião VM. |
+| Protocol |Protocolo utilizado para enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
+| Host |Nome de anfitrião para enviar a sonda. Aplicável apenas quando vários sites está configurada no gateway de aplicação. Isso é diferente do nome de anfitrião VM. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa com "/". A sonda é enviada ao \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\> |
 | Interval |Intervalo de sonda em segundos. Este é o intervalo de tempo entre dois sondas consecutivos. |
 | Tempo limite |Sonda de tempo limite em segundos. Se não for recebida uma resposta de válida dentro deste período de tempo limite, a sonda está marcada como falhado. |
-| Limiar com funcionamento incorreto |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Limiar de mau estado de funcionamento |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 ### <a name="solution"></a>Solução
 

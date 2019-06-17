@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65204028"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
@@ -184,7 +184,7 @@ O método tem alguns componentes principais que precisa entender:
 
    b. Selecione **Ficheiro** > **Novo** > **Projeto**.
 
-   c. Expanda **modelos**e selecione **Visual C#\#**. Este passo a passo, vai utilizar o C\#, mas pode usar qualquer linguagem .NET para desenvolver a atividade personalizada.
+   c. Expanda **modelos**e selecione **Visual C#\#** . Este passo a passo, vai utilizar o C\#, mas pode usar qualquer linguagem .NET para desenvolver a atividade personalizada.
 
    d. Selecione **biblioteca de classes** na lista de tipos de projeto à direita.
 

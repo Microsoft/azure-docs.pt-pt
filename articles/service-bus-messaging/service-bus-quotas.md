@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
 ms.openlocfilehash: f9c9059a5f66c6ba1c2e9d9dd637c0675fc7e220
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861911"
 ---
 # <a name="service-bus-quotas"></a>Quotas do Service Bus

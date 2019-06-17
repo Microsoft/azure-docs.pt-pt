@@ -16,10 +16,10 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60853061"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Melhores práticas e guia de resolução de problemas para aplicações de nó no Windows de serviço de aplicações do Azure
@@ -262,7 +262,7 @@ O `cnodeconstants` [ficheiro de origem](https://github.com/Azure/iisnode/blob/ma
 
 Ativar FREB para a sua aplicação ver o código de erro do win32 (Certifique-se de ativar FREB apenas em sites de não produção por motivos de desempenho).
 
-| Estado de Http | Subestado de HTTP | Razão possível? |
+| Http Status | Subestado de HTTP | Razão possível? |
 | --- | --- | --- |
 | 500 |1000 |Ocorreu algum problema de expedir a solicitação para o IISNODE – Verifique se node.exe foi iniciada. NODE.exe poderia ter falhou ao iniciar. Verifique a configuração de Web. config para erros. |
 | 500 |1001 |-Win32Error 0x2 - aplicação não está a responder ao URL. Verifique a regras de reescrita de URL ou verifique se a aplicação express tem as corretas rotas definidas. -Win32Error 0x6d – pipe nomeado está ocupado – Node.exe não está a aceitar pedidos porque o pipe está ocupado. Verifique a utilização elevada da cpu. -Outros erros – Verifique se node.exe falhou. |

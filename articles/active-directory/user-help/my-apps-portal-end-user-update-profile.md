@@ -14,10 +14,10 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305423"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Atualizar as suas informações de perfil e conta do portal minhas aplicações

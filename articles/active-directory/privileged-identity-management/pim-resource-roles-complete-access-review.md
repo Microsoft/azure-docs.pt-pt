@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65602266"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Concluir uma revisão de acesso de funções de recursos do Azure no PIM
@@ -44,7 +44,7 @@ No painel de detalhes da revisão de acesso, existem várias opções para gerir
 ### <a name="stop"></a>Parar
 Todas as revisões de acesso tem uma data de fim, mas pode utilizar o **parar** botão para terminá-lo no início. Todos os utilizadores que ainda não concluiu a revisão, a esta altura não será possível terminar depois de parar a revisão. Não é possível reiniciar uma revisão depois de interrompida.
 
-### <a name="reset"></a>Redefinir
+### <a name="reset"></a>Repor
 Pode redefinir uma revisão de acesso para remover todas as decisões que são feitas no mesmo. Depois de ter de repor uma revisão de acesso, todos os utilizadores são marcados como não revistos novamente. 
 
 ### <a name="apply"></a>Aplicar

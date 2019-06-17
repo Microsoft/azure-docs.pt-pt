@@ -13,10 +13,10 @@ ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
 ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776141"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch

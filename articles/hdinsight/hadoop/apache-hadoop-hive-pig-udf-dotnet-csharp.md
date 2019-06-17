@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 31738c43756da14ba6c2c92afbcb2882561c8001
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64722868"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilize C# funções definidas pelo utilizador com o Apache Hive e Apache Pig, transmissão em fluxo no Apache Hadoop no HDInsight
@@ -163,7 +163,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 
     ![Explorador de servidores que mostra a conta de armazenamento para o cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * Se esta entrada pode ser expandida, estiver a utilizar um __conta de armazenamento do Azure__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, expanda a entrada e, em seguida, faça duplo clique nas __(contentor predefinido)__.
+    * Se esta entrada pode ser expandida, estiver a utilizar um __conta de armazenamento do Azure__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, expanda a entrada e, em seguida, faça duplo clique nas __(contentor predefinido)__ .
 
     * Se esta entrada não pode ser expandida, estiver a utilizar __armazenamento do Azure Data Lake__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, clique duas vezes o __(conta de armazenamento predefinida)__ entrada.
 

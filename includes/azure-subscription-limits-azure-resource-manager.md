@@ -9,15 +9,15 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146229"
 ---
 | Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
-| VMs por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |25.000<sup>1</sup> por região. |25.000 por região. |
+| VMs por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |25\.000<sup>1</sup> por região. |25\.000 por região. |
 | Total de núcleos de VM por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
 | Núcleos de VM por série, como Dv2 e F, por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Contacte o suporte. |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por subscrição |Ilimitado. |Ilimitado. |

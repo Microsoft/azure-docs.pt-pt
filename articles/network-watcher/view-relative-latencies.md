@@ -17,10 +17,10 @@ ms.date: 12/14/2017
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939866"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Vista latência relativa a regiões do Azure a partir de localizações específicas

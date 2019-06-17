@@ -10,10 +10,10 @@ ms.author: sihhu
 author: MayMSFT
 ms.date: 05/23/2019
 ms.openlocfilehash: 525660be0f38c9458590e52cfcd575acb4cf5444
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66162061"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Comparação de dados e certifique-se a capacidade de reprodução com instantâneos (pré-visualização)
@@ -124,7 +124,7 @@ Uso [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azure
 snapshot.get_profile()
 ```
 
-||Type|Mín.|Máx.|Contagem|Contagem de em falta|Não tem em falta contagem|Percentagem em falta|Contagem de erros|Contagem de vazia|0,1% Quantile|1% Quantile|5% Quantile|25% Quantile|50% Quantile|75% Quantile|95% Quantile|99% Quantile|99,9% Quantile|média|Desvio padrão|Variância|Assimetrias|Kurtosis
+||Tipo|Mín.|Máx.|Contagem|Contagem de em falta|Não tem em falta contagem|Percentagem em falta|Contagem de erros|Contagem de vazia|0,1% Quantile|1% Quantile|5% Quantile|25% Quantile|50% Quantile|75% Quantile|95% Quantile|99% Quantile|99,9% Quantile|média|Desvio padrão|Variância|Assimetrias|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Número de caso|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||

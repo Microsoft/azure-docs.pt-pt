@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 320b8f948d08e46c43085e174dfbe838f44bac79
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fb25386ef9282a922866e39353d84f0e339caee7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479156"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67122136"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare as opções de armazenamento para utilização com clusters do HDInsight do Azure
 
@@ -34,7 +34,7 @@ A tabela seguinte resume os serviços de armazenamento do Azure que são suporta
 |Storage do Azure| Blob Storage * * | Object | Blob de blocos | Standard | Armazenamento frequente, esporádica, arquivo | Todos | Todos |
 |Armazenamento do Azure Data Lake Ger1| N/A | Hierárquica (sistema de ficheiros) | N/A | N/D | N/A | Apenas 3.6 | Tudo, exceto HBase |
 
-* * Para os clusters do HDInsight, apenas as contas de armazenamento secundário podem ser do tipo BlobStorage.
+\* * Para os clusters do HDInsight, apenas as contas de armazenamento secundário podem ser do tipo BlobStorage.
 
 Para obter mais informações sobre os tipos de conta de armazenamento do Azure, consulte [descrição geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md)
 
@@ -55,7 +55,7 @@ Pode criar um cluster com diferentes combinações de serviços para armazenamen
 | 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger2 | Não |
 | 4.0 | Armazenamento do Data Lake Ger1 | Qualquer | Não |
 
-* = Pode ser uma ou várias contas de geração 2 de armazenamento do Data Lake, desde que eles estão todos os configuração a utilizar a mesma identidade gerida para o acesso de cluster.
+\* = Pode ser uma ou várias contas de geração 2 de armazenamento do Data Lake, desde que eles estão todos os configuração a utilizar a mesma identidade gerida para o acesso de cluster.
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Utilizar o Azure Data Lake Storage Gen2 com o Apache Hadoop no HDInsight do Azure
 

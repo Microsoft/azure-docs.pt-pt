@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: aljo, subramar
 ms.openlocfilehash: e011554e61411fddca034f024c30c2270593e07b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772540"
 ---
 # <a name="resource-governance"></a>Governação de recursos
@@ -58,7 +58,7 @@ No entanto, existem duas situações em que outros processos podem disputar da C
 
 * *Combinar serviços governados e não sejam regidos e contentores*: Se um utilizador cria um serviço sem qualquer governação de recursos especificada, o tempo de execução o vê como consumir sem recursos e pode colocá-lo no nó no nosso exemplo. Neste caso, este novo processo consome efetivamente alguns CPU às custas dos serviços que já estão em execução no nó. Existem dois solução para esse problema. Um não misturar governados e não sejam regidos serviços no mesmo cluster ou utilize [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estes dois tipos de serviços não acabam no mesmo conjunto de nós.
 
-* *Quando o outro processo é iniciado no nó, fora do Service Fabric (por exemplo, um serviço de sistema operacional)*: Nesta situação, o processo de fora do Service Fabric também suporta para a CPU com os serviços existentes. A solução para esse problema é configurar as capacidades de nós corretamente a conta para a sobrecarga de SO, conforme mostrado na próxima seção.
+* *Quando o outro processo é iniciado no nó, fora do Service Fabric (por exemplo, um serviço de sistema operacional)* : Nesta situação, o processo de fora do Service Fabric também suporta para a CPU com os serviços existentes. A solução para esse problema é configurar as capacidades de nós corretamente a conta para a sobrecarga de SO, conforme mostrado na próxima seção.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuração do cluster para ativar a governação de recursos
 

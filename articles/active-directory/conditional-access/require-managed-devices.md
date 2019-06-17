@@ -1,6 +1,6 @@
 ---
-title: Como-exigir dispositivos para aceder à aplicação de cloud com o acesso condicional do Azure Active Directory geridos | Documentos da Microsoft
-description: Saiba como configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory (Azure AD) que necessitam de dispositivos geridos para aceder à aplicação de cloud.
+title: Como-exigir dispositivos para aceder à aplicação de cloud com o Azure Active Directory condicional acesso geridos | Documentos da Microsoft
+description: Saiba como configurar o Azure Active Directory (Azure AD) com base no dispositivo políticas de acesso condicional que necessitam de dispositivos geridos para aceder à aplicação de cloud.
 services: active-directory
 documentationcenter: ''
 author: MicrosoftGuyJFlo
@@ -17,12 +17,12 @@ ms.date: 06/14/2018
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f55f1058537da255a2611f544239f693615678
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 459dd981b73ae840b3fc61bd0cc83ecefb1cf393
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354796"
+ms.locfileid: "67112152"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: Exigir que os dispositivos geridos para aceder à aplicação de cloud com o acesso condicional
 

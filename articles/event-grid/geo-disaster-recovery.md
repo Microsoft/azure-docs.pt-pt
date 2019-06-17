@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: spelluru
 ms.openlocfilehash: 5b5c973a8daa8776efb0909092c569ea46902265
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66307321"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Recuperação de desastres de georreplicação do lado do servidor no Azure Event Grid
@@ -26,7 +26,7 @@ A ativação pós-falha automática do Event Grid tem diferentes RpO e Rto para 
 
 ## <a name="recovery-point-objective-rpo"></a>Objetivo de ponto de recuperação (RPO)
 - **Metadados RPO**: zero minutos. Sempre que um recurso é criado no Event Grid, de forma instantânea é replicado em várias regiões. Quando ocorre uma ativação pós-falha, sem metadados são perdidos.
-- **Dados RPO**: Se o seu sistema está em bom estado e processadas no tráfego existente no momento da ativação pós-falha regional, o RPO para eventos é cerca de 5 minutos.
+- **Dados RPO**: Se o seu sistema estiver em bom estado de funcionamento e tiver apanhado o tráfego existente no momento da ativação pós-falha regional, o RPO para eventos será de cinco minutos.
 
 ## <a name="recovery-time-objective-rto"></a>Objetivo de tempo de recuperação (RTO)
 - **RTO de metadados**: Embora em geral, ele ocorre muito mais rapidamente, no prazo de 60 minutos, o Event Grid será iniciada aceitar chamadas de criar/atualizar/eliminar para tópicos e subscrições.

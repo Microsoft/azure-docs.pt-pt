@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65233889"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-criado para a sua aplicação LUIS
@@ -56,7 +56,7 @@ The table below summarizes the currently supported domains. Support for English 
 |--|--|
 |Calendário|Calendário é qualquer coisa sobre reuniões pessoais e de compromissos, _não_ eventos públicos (como agendas de cup do mundo, calendários de eventos de Seattle ou calendários genéricos (por exemplo, que dia é hoje em dia, o que Outono começar, quando é dia de trabalho).|
 |Comunicação|Pedidos para fazer chamadas, envie textos ou mensagens instantâneas, localize e adicione a contactos e vários outros pedidos relacionados com a comunicação (geralmente de saída). Consultas de nome de contato único não pertencem ao domínio de comunicação.|
-|Correio Electrónico|O e-mail é um subdomínio do domínio de comunicação. Ela contém principalmente pedidos para enviar e receber mensagens através de e-mails.|
+|Email|O e-mail é um subdomínio do domínio de comunicação. Ela contém principalmente pedidos para enviar e receber mensagens através de e-mails.|
 |HomeAutomation|O domínio de HomeAutomation fornece intenções e entidades relacionadas para controlar os dispositivos de casa inteligentes. Principalmente suporta o comando de controle relacionados com luzes e ar-condicionado, mas tem algumas capacidades de generalização para outras aplicações electric.|
 |Notas|Domínio de nota fornece intenções e entidades para criar notas e escrever itens para os utilizadores.|
 |Locais|Locais incluem as empresas, instituições, restaurantes, espaços públicos e endereços. O domínio suporta local localizar e perguntar sobre as informações de local público, tais como localidade, horas e a distância a funcionar.|

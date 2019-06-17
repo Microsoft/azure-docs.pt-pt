@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080557"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Manipuladores de eventos no Azure Event Grid
 
@@ -78,9 +78,45 @@ Utilize o Service Bus como um manipulador de eventos para encaminhar os eventos 
 
 Tenha em conta, ao Service Bus como um manipulador está em pré-visualização pública, tem de instalar a extensão CLI ou o PowerShell quando a utilização dos mesmos para criar subscrições de eventos.
 
-### <a name="using-cli"></a>Com a CLI
+### <a name="install-extension-for-azure-cli"></a>Instalar a extensão de CLI do Azure
 
-Para a CLI do Azure, o exemplo seguinte subscreve uma liga-se e o tópico do Event Grid para uma fila do Service Bus:
+Para a CLI do Azure, terá do [extensão do Event Grid](/cli/azure/azure-cli-extensions-list).
+
+In [CloudShell](/azure/cloud-shell/quickstart):
+
+* Se tiver instalado anteriormente a extensão, atualize-o com `az extension update -n eventgrid`.
+* Se ainda não tiver instalado anteriormente a extensão, instale-o utilizando `az extension add -n eventgrid`.
+
+Para uma instalação local:
+
+1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Certifique-se de que tem a versão mais recente, verificando com `az --version`.
+1. Desinstale as versões anteriores da extensão com `az extension remove -n eventgrid`.
+1. Instalar o `eventgrid` extensão com `az extension add -n eventgrid`.
+
+### <a name="install-module-for-powershell"></a>Instalar o módulo do PowerShell
+
+Para o PowerShell, terá do [AzureRM.EventGrid módulo](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+
+In [CloudShell](/azure/cloud-shell/quickstart-powershell):
+
+* Instalar o módulo com `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Para uma instalação local:
+
+1. Abra a consola do PowerShell como administrador.
+1. Instalar o módulo com `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+Se o `-AllowPrerelease` parâmetro não estiver disponível, utilize os seguintes passos:
+
+1. Execute `Install-Module PowerShellGet -Force`.
+1. Execute `Update-Module PowerShellGet`.
+1. Feche a consola do PowerShell.
+1. Reinicie o PowerShell como administrador.
+1. Instalar o módulo `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+### <a name="using-cli-to-add-a-service-bus-handler"></a>Utilização da CLI para adicionar um manipulador de Service Bus
+
+Para a CLI do Azure, o exemplo seguinte subscreve e liga-se de um tópico do Event Grid para uma fila do Service Bus:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

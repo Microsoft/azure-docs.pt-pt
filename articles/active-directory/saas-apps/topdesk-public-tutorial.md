@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: c4052dd3b4c8f49b19193109eb5e8d2306646960
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088485"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Active Directory do Azure com TOPdesk - público
 
@@ -53,7 +53,7 @@ Para configurar a integração do TOPdesk - público para o Azure AD, terá de a
 
 **Para adicionar TOPdesk - público a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Para configurar o Azure AD início de sessão único com TOPdesk - público, exe
     
     a. Para carregar o ficheiro de metadados baixado no portal do Azure, em **metadados de Federação**, clique em **procurar**.
 
-    b. Para carregar o ficheiro de certificado, em **certificados RSA ()**, clique em **procurar**.
+    b. Para carregar o ficheiro de certificado, em **certificados RSA ()** , clique em **procurar**.
 
     c. Para carregar o ficheiro do logótipo da equipe de suporte do TOPdesk, tem em **ícone de logótipo**, clique em **procurar**.
 
@@ -276,7 +276,7 @@ Para permitir que os utilizadores do Azure AD inicie sessão no TOPdesk - públi
 > [!NOTE]
 > Pode utilizar qualquer outro TOPdesk - ferramentas de criação de conta de utilizador público ou APIs fornecidas pelo TOPdesk - público para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

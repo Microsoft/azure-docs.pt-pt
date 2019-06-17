@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306840"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511144"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces do Serviço SignalR para as Funções do Azure
 
@@ -599,8 +599,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**|| Tem de ser definido como `signalRConnectionInfo`.|
-|**direção**|| Tem de ser definido como `in`.|
+|**type**|| Tem de ser definido como `signalRConnectionInfo`.|
+|**direction**|| Tem de ser definido como `in`.|
 |**name**|| Nome da variável no código de função para o objeto de informações de ligação. |
 |**hubName**|**HubName**| Este valor tem de ser definido para o nome do hub do SignalR para que as informações de ligação são geradas.|
 |**userId**|**UserId**| Opcional: O valor do identificador de utilizador de afirmação definir o token de chave de acesso. |
@@ -612,8 +612,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**|| Tem de ser definido como `signalR`.|
-|**direção**|| Tem de ser definido como `out`.|
+|**type**|| Tem de ser definido como `signalR`.|
+|**direction**|| Tem de ser definido como `out`.|
 |**name**|| Nome da variável no código de função para o objeto de informações de ligação. |
 |**hubName**|**HubName**| Este valor tem de ser definido para o nome do hub do SignalR para que as informações de ligação são geradas.|
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da definição de aplicação que contém a cadeia de ligação de serviço SignalR (a predefinição é "AzureSignalRConnectionString") |
@@ -626,4 +626,4 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Desenvolvimento das funções do Azure e de configuração com o serviço Azure SignalR](../azure-signalr/signalr-concept-serverless-development-config.md)
+> [Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)

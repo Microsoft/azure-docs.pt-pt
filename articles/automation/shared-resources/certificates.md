@@ -10,10 +10,10 @@ ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61216082"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na automatização do Azure
@@ -35,11 +35,11 @@ Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir r
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Define as propriedades de um certificado existente, incluindo o carregamento do ficheiro de certificado e definir a palavra-passe para um ficheiro. pfx.|
 |[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Carrega um certificado de serviço para o serviço cloud especificado.|
 
-## <a name="activities"></a>Atividades
+## <a name="activities"></a>Actividades
 
 As atividades na tabela seguinte são utilizadas para aceder a certificados num runbook e configurações de DSC.
 
-| Atividades | Descrição |
+| Actividades | Descrição |
 |:---|:---|
 |Get-AutomationCertificate|Obtém um certificado a utilizar num runbook ou configuração DSC. Devolve um [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) objeto.|
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65518760"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
@@ -58,7 +58,7 @@ Planear as suas descobertas e avaliações com base nas seguintes limites:
 
 | **Entidade** | **Limite de máquina** |
 | ---------- | ----------------- |
-| Projeto    | 1,500             |
+| Project    | 1,500             |
 | Deteção  | 1,500             |
 | Avaliação | 1,500             |
 

@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64570979"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Alterar a sua subscrição pay as you go do Azure para outra oferta
@@ -30,7 +30,7 @@ Como um [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) client
 
 ## <a name="whats-supported"></a>O que é suportado:
 
-| A partir de | Para |
+| De | Para |
 | --- | --- |
 | "Pay As You Go" |[Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | "Pay As You Go" |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |

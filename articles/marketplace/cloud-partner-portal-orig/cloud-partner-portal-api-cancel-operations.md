@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935548"
 ---
 # <a name="cancel-operation"></a>Operação de cancelamento 
@@ -28,7 +28,7 @@ Pode fornecer uma lista separada por vírgulas de endereços de e-mail com a sol
 |  **Nome**    |      **Descrição**                                  |    **Tipo de dados**  |
 | ------------ |     ----------------                                  |     -----------   |
 | publisherId  |  Identificador de publicador, por exemplo, `contoso`         |   String          |
-| IDoferta      |  Identificador da oferta                                     |   String          |
+| offerId      |  Identificador da oferta                                     |   String          |
 | versão de API  |  Versão atual da API                               |    Date           |
 |  |  |  |
 
@@ -85,5 +85,5 @@ Pode fornecer uma lista separada por vírgulas de endereços de e-mail com a sol
 |  202      | Aceite. O pedido foi processado com êxito e a operação está a ser cancelada. Localização da operação de cancelamento é retornada no cabeçalho de resposta. |
 |  400      | Pedido incorreto/Malformed. O corpo da resposta de erro pode fornecer mais informações.  |
 |  403      | Acesso não autorizado. O cliente não tem acesso ao espaço de nomes especificado no pedido. |
-|  404      | Não encontrado. A entidade especificada não existe. |
+|  404      | Não foi encontrado. A entidade especificada não existe. |
 |  |  |

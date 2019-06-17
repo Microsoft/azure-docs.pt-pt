@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
 ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938246"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implementar uma VM do Azure a partir de um VHD do utilizador
@@ -42,7 +42,7 @@ Copiar o modelo Azure Resource Manager para [implementação de VHD](cpp-deploy-
 | virtualNetworkName         | Nome da rede virtual                                                    |
 | nicName                    | Nome do cartão de interface de rede para a rede virtual                     |
 | adminUserName              | Nome de utilizador da conta de administrador                                          |
-| adminPassword              | Palavra-passe do administrador                                                          |
+| adminPassword              | Palavra-passe de administrador                                                          |
 |  |  |
 
 

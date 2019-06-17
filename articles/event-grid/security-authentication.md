@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 87cfce6045ce84f83ca651472635227547c26ee9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117012"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
@@ -35,9 +35,9 @@ Como muitos outros serviços que suportam webhooks, o Event Grid requer a provar
 
 Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acionador HTTP com base em função do Azure, o código de ponto final tem de participar de um handshake de validação com o Event Grid. Event Grid suporta duas formas de validar a subscrição.
 
-1. **Handshake ValidationCode (programático)**: Se controlar o código-fonte para o ponto final, este método é recomendado. No momento da criação de subscrição de eventos, o Event Grid envia um evento de validação de subscrição para o ponto final. O esquema deste evento é semelhante a qualquer outro evento do Event Grid. A parte de dados deste evento inclui um `validationCode` propriedade. A aplicação verifica que o pedido de validação é uma subscrição de evento esperado e ecoa o código de validação para o Event Grid. Esse mecanismo de handshake é suportado em todas as versões do Event Grid.
+1. **Handshake ValidationCode (programático)** : Se controlar o código-fonte para o ponto final, este método é recomendado. No momento da criação de subscrição de eventos, o Event Grid envia um evento de validação de subscrição para o ponto final. O esquema deste evento é semelhante a qualquer outro evento do Event Grid. A parte de dados deste evento inclui um `validationCode` propriedade. A aplicação verifica que o pedido de validação é uma subscrição de evento esperado e ecoa o código de validação para o Event Grid. Esse mecanismo de handshake é suportado em todas as versões do Event Grid.
 
-2. **O handshake de ValidationURL (manual)**: Em certos casos, não é possível acessar o código-fonte do ponto de extremidade para implementar o handshake ValidationCode. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não pode responder por meio de programação com o código de validação.
+2. **O handshake de ValidationURL (manual)** : Em certos casos, não é possível acessar o código-fonte do ponto de extremidade para implementar o handshake ValidationCode. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não pode responder por meio de programação com o código de validação.
 
    A partir da versão de 2018-05-01-pré-visualização, o Event Grid suporta um handshake de validação manual. Se estiver a criar uma subscrição de evento com um SDK ou ferramenta que utiliza a versão de 2018-05-01-a pré-visualização da API ou posterior, o Event Grid envia um `validationUrl` propriedade na parte de dados do evento de validação de subscrição. Para concluir o handshake, encontrar essa URL nos dados de eventos e manualmente enviar um pedido GET para o mesmo. Pode utilizar um cliente REST ou de seu navegador da web.
 
@@ -204,7 +204,7 @@ Event Grid fornece duas funções incorporadas para gerir subscrições de event
 
 Pode [atribuir essas funções a um utilizador ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**Contribuinte de EventSubscription EventGrid (pré-visualização)**: gerir as operações de subscrição do Event Grid
+**Contribuinte de EventSubscription EventGrid (pré-visualização)** : gerir as operações de subscrição do Event Grid
 
 ```json
 [
@@ -240,7 +240,7 @@ Pode [atribuir essas funções a um utilizador ou grupo](../role-based-access-co
 ]
 ```
 
-**Leitor de EventSubscription EventGrid (pré-visualização)**: ler subscrições do Event Grid
+**Leitor de EventSubscription EventGrid (pré-visualização)** : ler subscrições do Event Grid
 
 ```json
 [

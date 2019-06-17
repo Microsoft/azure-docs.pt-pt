@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129736"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns do Azure Monitor dimensionamento automático
@@ -53,32 +53,32 @@ Pode criar um alerta para as métricas seguintes:
 
 | Nome da Métrica | Unidade |
 | --- | --- |
-| \Processor(_Total)\% Processor Time |Percent |
-| \Processor(_Total)\% Privileged Time |Percent |
-| \Processor(_Total)\% de tempo do utilizador |Percent |
+| \Processor(_Total)\% Processor Time |Percentagem |
+| \Processor(_Total)\% Privileged Time |Percentagem |
+| \Processor(_Total)\% de tempo do utilizador |Percentagem |
 | \Processor Information(_Total)\Processor Frequency |Count |
-| \System\Processes |Count |
-| Contagem de \Thread \Process ( total) |Count |
+| \System\Processes |Contagem |
+| Contagem de \Thread \Process ( total) |Contagem |
 | Contagem de \Handle \Process ( total) |Count |
-| \Memory\% Bytes dedicados em utilização |Percent |
+| \Memory\% Bytes dedicados em utilização |Percentagem |
 | \Memory\Available Bytes |Bytes |
 | Bytes de \Memory\Committed |Bytes |
 | Limite de \Memory\Commit |Bytes |
 | Bytes de \Memory\Pool bloco paginado |Bytes |
 | \Memory\Pool memória não paginável |Bytes |
-| \PhysicalDisk(_Total)\% Disk Time |Percent |
-| \PhysicalDisk(_Total)\% Disk Read Time |Percent |
-| \PhysicalDisk(_Total)\% hora de gravação em disco |Percent |
+| \PhysicalDisk(_Total)\% Disk Time |Percentagem |
+| \PhysicalDisk(_Total)\% Disk Read Time |Percentagem |
+| \PhysicalDisk(_Total)\% hora de gravação em disco |Percentagem |
 | \PhysicalDisk ( total) \Disk transferências/seg. |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Reads/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Disk Writes/sec |CountPerSecond |
 | \PhysicalDisk ( total) \Disk bytes/seg. |BytesPerSecond |
 | \Disk \PhysicalDisk ( total) Bytes lidos/seg |BytesPerSecond |
 | Escrita de \Disk \PhysicalDisk ( total) Bytes/seg |BytesPerSecond |
-| \Avg \PhysicalDisk ( total). Comprimento da Fila de Discos |Count |
+| \Avg \PhysicalDisk ( total). Comprimento da fila de disco |Count |
 | \Avg \PhysicalDisk ( total). Comprimento de fila de leitura do disco |Count |
 | \Avg \PhysicalDisk ( total). Comprimento de fila de escrita de disco |Count |
-| \LogicalDisk(_Total)\% espaço livre |Percent |
+| \LogicalDisk(_Total)\% espaço livre |Percentagem |
 | Megabytes de \Free \LogicalDisk ( total) |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO convidado VMs do Linux
@@ -95,25 +95,25 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | Nome da Métrica | Unidade |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
-| \Memory\PercentAvailableMemory |Percent |
+| \Memory\PercentAvailableMemory |Percentagem |
 | \Memory\UsedMemory |Bytes |
-| \Memory\PercentUsedMemory |Percent |
-| \Memory\PercentUsedByCache |Percent |
+| \Memory\PercentUsedMemory |Percentagem |
+| \Memory\PercentUsedByCache |Percentagem |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Bytes |
-| \Memory\PercentAvailableSwap |Percent |
+| \Memory\PercentAvailableSwap |Percentagem |
 | \Memory\UsedSwap |Bytes |
-| \Memory\PercentUsedSwap |Percent |
-| \Processor\PercentIdleTime |Percent |
-| \Processor\PercentUserTime |Percent |
-| \Processor\PercentNiceTime |Percent |
-| \Processor\PercentPrivilegedTime |Percent |
-| \Processor\PercentInterruptTime |Percent |
-| \Processor\PercentDPCTime |Percent |
-| \Processor\PercentProcessorTime |Percent |
-| \Processor\PercentIOWaitTime |Percent |
+| \Memory\PercentUsedSwap |Percentagem |
+| \Processor\PercentIdleTime |Percentagem |
+| \Processor\PercentUserTime |Percentagem |
+| \Processor\PercentNiceTime |Percentagem |
+| \Processor\PercentPrivilegedTime |Percentagem |
+| \Processor\PercentInterruptTime |Percentagem |
+| \Processor\PercentDPCTime |Percentagem |
+| \Processor\PercentProcessorTime |Percentagem |
+| \Processor\PercentIOWaitTime |Percentagem |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -127,7 +127,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\BytesTransmitted |Bytes |
 | \NetworkInterface\BytesReceived |Bytes |
 | \NetworkInterface\PacketsTransmitted |Count |
-| \NetworkInterface\PacketsReceived |Count |
+| \NetworkInterface\PacketsReceived |Contagem |
 | \NetworkInterface\BytesTotal |Bytes |
 | \NetworkInterface\TotalRxErrors |Count |
 | \NetworkInterface\TotalTxErrors |Count |
@@ -147,10 +147,10 @@ Pode alertar ou dimensionar por estas métricas.
 
 | Nome da Métrica | Unidade |
 | --- | --- |
-| CpuPercentage |Percent |
-| MemoryPercentage |Percent |
+| CpuPercentage |Percentagem |
+| MemoryPercentage |Percentagem |
 | DiskQueueLength |Count |
-| HttpQueueLength |Count |
+| HttpQueueLength |Contagem |
 | BytesReceived |Bytes |
 | BytesSent |Bytes |
 
@@ -190,3 +190,4 @@ Para conjuntos de dimensionamento VM, pode atualizar a definição de dimensiona
 > Para o Service Bus, o conceito de grupo de recursos não existe mas do Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos é normalmente no formato 'Default - ServiceBus-[Região]'. Por exemplo, "Predefinição-ServiceBus-EastUS", 'Predefinição-ServiceBus-WestUS', 'predefinido-ServiceBus-AustraliaEast"etc.
 >
 >
+

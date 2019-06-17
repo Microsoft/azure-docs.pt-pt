@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 52b132b45bd90d7d21bb072e9a94d8588d5cf301
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431163"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066826"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização pública)
 
 Para implementar o seu serviço entre várias regiões e certificar-se de que está a ser executado conforme esperado em cada região, pode utilizar o Gestor de implementação do Azure para coordenar uma implementação faseada do serviço. Tal como faria para qualquer implementação do Azure, definir os recursos para o seu serviço no [modelos do Resource Manager](resource-group-authoring-templates.md). Depois de criar os modelos, utilize o Gestor de implementação para descrever a topologia para o seu serviço e como ele deve ser implementado.
 
-Gestor de implementação é uma funcionalidade do Gestor de recursos. Se expandir as capacidades de durante a implementação. Utilize o Gestor de implementação quando tiver um serviço complexo que precisa para ser implementado em várias regiões. Ao fasear a implementação do serviço, poderá deparar-se com problemas potenciais antes de este ter sido implementado em todas as regiões. Se não precisar das precauções adicionais de uma implementação faseada, utilize a norma [opções de implementação](resource-group-template-deploy-portal.md) para o Resource Manager. Gestor de implementação integram-se perfeitamente com todas as ferramentas de terceiros existentes que oferecem suporte a implementações do Resource Manager, como a integração contínua e ofertas de entrega contínua (CI/CD). 
+Gestor de implementação é uma funcionalidade do Gestor de recursos. Se expandir as capacidades de durante a implementação. Utilize o Gestor de implementação quando tiver um serviço complexo que precisa para ser implementado em várias regiões. Ao fasear a implementação do serviço, poderá deparar-se com problemas potenciais antes de este ter sido implementado em todas as regiões. Se não precisar das precauções adicionais de uma implementação faseada, utilize a norma [opções de implementação](resource-group-template-deploy-portal.md) para o Resource Manager. Gestor de implementação integram-se perfeitamente com todas as ferramentas de terceiros existentes que oferecem suporte a implementações do Resource Manager, como a integração contínua e ofertas de entrega contínua (CI/CD).
 
 O Gestor de implementação do Azure está em pré-visualização. Ajude-na melhorar a funcionalidade fornecendo [comentários](https://aka.ms/admfeedback).
 
@@ -31,7 +31,12 @@ Para utilizar o Gestor de implementação, terá de criar quatro arquivos:
 
 Implementar o modelo de topologia antes de implementar o modelo de implementação.
 
-A referência de API de REST do Gestor de implementação do Azure pode ser encontrada [aqui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Recursos adicionais:
+
+- O [referência da API de REST do Gestor de implementação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager](./deployment-manager-tutorial.md).
+- [Tutorial: Utilizar a verificação de estado de funcionamento no Gestor de implementação do Azure](./deployment-manager-tutorial-health-check.md).
+- [Um exemplo de Gestor de implementação do Azure](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identidade e acesso
 
@@ -191,7 +196,7 @@ O modelo de implementação, vai criar uma origem de artefacto para os binários
 
 ### <a name="steps"></a>Passos
 
-Pode definir um passo para executar antes ou depois da operação de implementação. Atualmente, apenas o `wait` passo e o passo de "healthCheck" estão disponíveis. 
+Pode definir um passo para executar antes ou depois da operação de implementação. Atualmente, apenas o `wait` passo e o passo de "healthCheck" estão disponíveis.
 
 O passo de espera interrompe a implementação antes de continuar. Ele permite-lhe verificar que seu serviço está em execução conforme esperado antes de implementar a seguinte unidade de serviço. O exemplo seguinte mostra o formato geral de um passo de espera.
 
@@ -262,13 +267,13 @@ Para obter mais informações, consulte [referência de modelo de implementaçã
 
 ## <a name="parameter-file"></a>Ficheiro de parâmetros
 
-Criar dois ficheiros de parâmetros. Um ficheiro de parâmetros é utilizado na implementação da topologia de serviço e a outra é usada para a implementação de implementação. Existem alguns valores que precisa garantir que são os mesmos em ambos os ficheiros de parâmetro.  
+Criar dois ficheiros de parâmetros. Um ficheiro de parâmetros é utilizado na implementação da topologia de serviço e a outra é usada para a implementação de implementação. Existem alguns valores que precisa garantir que são os mesmos em ambos os ficheiros de parâmetro.
 
 ## <a name="containerroot-variable"></a>variável de containerRoot
 
 Com implementações com a versão, o caminho para as alterações de artefactos com cada nova versão. Na primeira vez que executa uma implementação o caminho poderá ser `https://<base-uri-blob-container>/binaries/1.0.0.0`. Na segunda vez poderá ser `https://<base-uri-blob-container>/binaries/1.0.0.1`. Gestor de implementação simplifica a obter o caminho de raiz correta para a implementação atual utilizando o `$containerRoot` variável. Este valor é alterado com cada versão e não é conhecido antes da implantação.
 
-Utilize o `$containerRoot` variável no ficheiro de parâmetros de modelo para implementar os recursos do Azure. No momento da implementação, esta variável é substituída com os valores reais da implementação. 
+Utilize o `$containerRoot` variável no ficheiro de parâmetros de modelo para implementar os recursos do Azure. No momento da implementação, esta variável é substituída com os valores reais da implementação.
 
 Por exemplo, durante a implementação cria uma origem de artefacto para os artefactos de binários.
 

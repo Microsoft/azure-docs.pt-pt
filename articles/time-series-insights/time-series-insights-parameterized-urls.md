@@ -12,10 +12,10 @@ ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66238979"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
@@ -34,7 +34,7 @@ O parâmetro `environmentId=<guid>` especifica o ID do ambiente de destino. É u
 
 Um exemplo de parâmetro de ID de ambiente é `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Time
+## <a name="time"></a>Hora
 
 Pode especificar valores de hora absolutos ou relativos com URLs parametrizados.
 

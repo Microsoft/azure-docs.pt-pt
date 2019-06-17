@@ -10,10 +10,10 @@ ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
 ms.openlocfilehash: f5fc778ee4d8f91232bc732cc276f642f748b29d
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66297561"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Criar, agendar e executar tarefas recorrentes e fluxos de trabalho com o acionador de periodicidade no Azure Logic Apps
@@ -55,7 +55,7 @@ Para as diferenças entre este acionador e o acionador de janela deslizante ou p
 
    ![Definir intervalo e a frequência](./media/connectors-native-recurrence/recurrence-trigger-details.png)
 
-   | Propriedade | Necessário | Nome JSON | Type | Descrição |
+   | Propriedade | Necessário | Nome JSON | Tipo | Descrição |
    |----------|----------|-----------|------|-------------|
    | **Intervalo** | Sim | interval | Integer | Um número inteiro que descreve a frequência com que o fluxo de trabalho é executada com base na frequência. Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", em seguida, a periodicidade é a cada 6 meses. |
    | **Frequência** | Sim | frequency | String | A unidade de tempo para a periodicidade: **Segunda**, **minuto**, **hora**, **dia**, **semana**, ou **mês** |
@@ -66,7 +66,7 @@ Para as diferenças entre este acionador e o acionador de janela deslizante ou p
 
    ![Opções de agendamento avançadas](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   | Propriedade | Necessário | Nome JSON | Type | Descrição |
+   | Propriedade | Necessário | Nome JSON | Tipo | Descrição |
    |----------|----------|-----------|------|-------------|
    | **Fuso horário** | Não | timeZone | String | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. |
    | **Start time** (Hora de início) | Não | startTime | String | Forneça uma data de início e a hora neste formato: <p>AAAA-MM-ddTHH se selecionar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não selecionar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como hora padrão do Pacífico. Em alternativa, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** A hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) na [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. [*Quais são as formas que posso usar a data de início e hora?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |

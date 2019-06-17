@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
 ms.openlocfilehash: 7b80c1148cf2716e71308d953ac445c4bb50cbc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119774"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Adicionar autenticação à sua aplicação Android

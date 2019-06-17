@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65154229"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com métricas de armazenamento do Azure e o Registro em log, o AzCopy e o analisador de mensagens
@@ -220,7 +220,7 @@ Além de utilizar as esquemas de vista de armazenamento do Azure, também pode d
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Aplicar regras de cor para a grade de análise
 Os recursos de armazenamento também incluir regras de cor, o que significa que um elemento visual identificar diferentes tipos de erros na grelha de análise da oferta. As regras de cores predefinidas aplicam-se a erros HTTP, para que serem apresentados apenas para o rastreio de rede e de registo do servidor.
 
-Para aplicar as regras de cor, selecione **as regras de cor** a partir do Friso de barra de ferramentas. Verá as regras de cor de armazenamento do Azure no menu. Para este tutorial, selecione **erros de cliente (StatusCode compreendido entre 400 e 499)**, conforme mostrado na imagem abaixo.
+Para aplicar as regras de cor, selecione **as regras de cor** a partir do Friso de barra de ferramentas. Verá as regras de cor de armazenamento do Azure no menu. Para este tutorial, selecione **erros de cliente (StatusCode compreendido entre 400 e 499)** , conforme mostrado na imagem abaixo.
 
 ![Esquema de vista de armazenamento do Azure](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -278,7 +278,7 @@ A figura a seguir mostra um pedido específico em que uma operação de obter o 
 
 Em seguida, iremos irá correlacionar este ID de pedido de cliente com os dados de registo de cliente para ver quais ações o cliente estava a demorar quando ocorreu o erro. Pode exibir uma nova vista de grelha de análise para esta sessão ver os dados de registo do cliente, que abrirá numa segunda guia:
 
-1. Em primeiro lugar, copie o valor do **ClientRequestId** campo na área de transferência. Pode fazê-lo selecionar qualquer uma das linhas, localizando os **ClientRequestId** campo, clicando com o botão direito no valor de dados e escolher **cópia 'ClientRequestId'**.
+1. Em primeiro lugar, copie o valor do **ClientRequestId** campo na área de transferência. Pode fazê-lo selecionar qualquer uma das linhas, localizando os **ClientRequestId** campo, clicando com o botão direito no valor de dados e escolher **cópia 'ClientRequestId'** .
 2. Da faixa de opções de barra de ferramentas, selecione **novo Visualizador**, em seguida, selecione **análise de grade** para abrir um novo separador. A nova guia mostra todos os dados nos seus ficheiros de registo, sem agrupamento, filtragem ou as regras de cor.
 3. Da faixa de opções de barra de ferramentas, selecione **vista de Layout**, em seguida, selecione **todas as colunas de cliente .NET** sob o **armazenamento do Azure** secção. Este esquema de vista mostra os dados do cliente log, bem como os registos de rastreio do servidor e da rede. Por predefinição é classificado no **MessageNumber** coluna.
 4. Em seguida, procurar o registo de cliente para o ID de pedido de cliente. Na faixa de opções a barra de ferramentas, selecione **encontrar mensagens**, em seguida, especifique um filtro personalizado no ID do pedido de cliente no **encontrar** campo. Utilize esta sintaxe para o filtro, especificando o seu próprio ID de pedido do cliente:

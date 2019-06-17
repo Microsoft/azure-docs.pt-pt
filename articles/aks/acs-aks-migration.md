@@ -10,10 +10,10 @@ ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
 ms.openlocfilehash: dcee8da943603fb0978caf9992be76347ca197d6
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977721"
 ---
 # <a name="migrate-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migrar do serviço de contentor do Azure (ACS) para o serviço Kubernetes do Azure (AKS)
@@ -42,13 +42,13 @@ Se estiver a migrar para uma versão mais recente do Kubernetes (por exemplo, a 
 
 ## <a name="migration-considerations"></a>Considerações sobre a migração
 
-### <a name="agent-pools"></a>Agrupamentos de agentes
+### <a name="agent-pools"></a>Conjuntos de agentes
 
 Embora o AKS gere o plano de controlo do Kubernetes, ainda definir o tamanho e número de nós para incluir no seu cluster novo. Partindo do princípio de que pretende que um mapeamento 1:1 do ACS para o AKS, convém capturar as informações de nó de ACS existentes. Utilize estes dados ao criar o novo cluster do AKS.
 
 Exemplo:
 
-| Name | Count | Tamanho da VM | Sistema operativo |
+| Name | Contagem | Tamanho da VM | Sistema operativo |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |

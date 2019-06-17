@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65519137"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar ficheiros novos e alterados com base no LastModifiedDate com a ferramenta copiar dados de forma incremental
@@ -63,7 +63,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
    
    ![Mensagem de erro de nova fábrica de dados](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-   Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_**ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+   Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_ **ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 3. Selecione o Azure **subscrição** no qual irá criar a nova fábrica de dados. 
 4. Em **Grupo de Recursos**, efetue um destes passos:
      
@@ -99,7 +99,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
 
     c. Sob **tipo de Acionador**, selecione **janela em cascata**.
     
-    d. Sob **periodicidade**, introduza **minuto (s 15)**. 
+    d. Sob **periodicidade**, introduza **minuto (s 15)** . 
     
     e. Selecione **Seguinte**. 
     

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65198448"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configurar agentes de segurança
@@ -125,12 +125,12 @@ Valores predefinidos estão disponíveis no esquema apropriado no [Github](https
 |Estatísticas de eventos ignorados |eventPriorityDroppedEventsStatistics |Baixa |Verdadeiro|Estatísticas de eventos relacionados com o agente. |
 |Estatísticas de mensagens|eventPriorityMessageStatistics |Baixa |Verdadeiro |Agente relacionadas com as estatísticas de mensagens. |
 |Hardware ligado|eventPriorityConnectedHardware |Baixa |Verdadeiro |Instantâneo de todo o hardware ligados ao dispositivo.|
-|Porta de escuta|eventPriorityListeningPorts |Elevado |Verdadeiro |Instantâneo de portas de escuta abertos no dispositivo.|
+|Porta de escuta|eventPriorityListeningPorts |Alta |Verdadeiro |Instantâneo de portas de escuta abertos no dispositivo.|
 |Criar processo |eventPriorityProcessCreate |Baixa |Falso |Criação no dispositivo do processo de auditorias.|
 |Terminar processo|eventPriorityProcessTerminate |Baixa |Falso |Finalização no dispositivo do processo de auditorias.| 
 |Informações do sistema |eventPrioritySystemInformation |Baixa |Verdadeiro |Um instantâneo de informações do sistema (por exemplo: SO ou CPU).| 
-|Usuários locais| eventPriorityLocalUsers |Elevado |Verdadeiro|Um instantâneo dos usuários registrados locais no sistema. |
-|Iniciar sessão|  eventPriorityLogin |Elevado|Falso|Auditoria os eventos de início de sessão no dispositivo (locais e remotos inícios de sessão).|
+|Usuários locais| eventPriorityLocalUsers |Alta |Verdadeiro|Um instantâneo dos usuários registrados locais no sistema. |
+|Iniciar sessão|  eventPriorityLogin |Alta|Falso|Auditoria os eventos de início de sessão no dispositivo (locais e remotos inícios de sessão).|
 |Criar ligação |eventPriorityConnectionCreate|Baixa|Falso|Audita conexões TCP criados para e do dispositivo. |
 |Configuração da firewall| eventPriorityFirewallConfiguration|Baixa|Verdadeiro|Instantâneo da configuração de firewall do dispositivo (regras de firewall). |
 |Linha de base do SO| eventPriorityOSBaseline| Baixa|Verdadeiro|Verifique o instantâneo de linha de base de SO de dispositivo.|

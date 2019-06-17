@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
 ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65405647"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e utilizar ficheiros de recursos
@@ -80,7 +80,7 @@ Ao utilizar uma conta de armazenamento ligada, não precisa criar e configurar u
 ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName);
 ```
 
-### <a name="web-endpoint"></a>Ponto final de Web
+### <a name="web-endpoint"></a>Ponto final da Web
 
 Dados que não são carregados para o armazenamento do Azure ainda podem ser utilizados para criar arquivos de recursos. Pode especificar qualquer URL HTTP válido, que contém os dados de entrada. O URL é fornecido para a API do Batch e, em seguida, os dados são utilizados para criar um arquivo de recursos.
 

@@ -9,10 +9,10 @@ ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 4a6a6249f3edca30ab3d3f9a213b4282b4323d15
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258342"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure

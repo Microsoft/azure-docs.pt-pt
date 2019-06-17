@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
 ms.openlocfilehash: ffeb60f5476a540e3da46a82c240b0dda9aa6be2
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66480475"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Atributos de segurança para o Azure Cosmos DB
