@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 326382339e2b4aeaa488d3d7f76b7ff35f9bc620
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147766"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133850"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Ativar e implementar o SSDs ultra do Azure (pré-visualização)
 
@@ -33,11 +33,12 @@ A resposta será semelhante ao formulário abaixo, onde X é a zona a utilizar p
 
 Preservar a **zonas** valor, ele representa a sua zona de disponibilidade e irá precisar dele para poder implementar um SSD ultra.
 
-|ResourceType  |Name  |Location  |Zonas  |Restrição  |Capacidade  |Value  |
+|ResourceType  |Name  |Location  |Zonas  |Restrição  |Funcionalidade  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
-|discos     |UltraSSD_LRS         |eualeste2         |X         |         |         |         |
+|Discos     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-Se não houve resposta do comando, em seguida, o registo para a funcionalidade é ainda pendente ou não aprovado ainda.
+> [!NOTE]
+> Se não houve resposta do comando, em seguida, o registo para a funcionalidade é ainda pendente ou não aprovado ainda.
 
 Agora que sabe exatamente em qual zona para implementar, siga os passos de implementação neste artigo para obter a sua primeira VMs implementadas com o ultra SSD.
 

@@ -7,22 +7,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/16/2019
-ms.author: aahi
-ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/05/2019
+ms.author: raymondl
+ms.openlocfilehash: b7683b6d5932872f8cef2f6db9a1ec7e5e4fa86d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828737"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069186"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair expressões-chave com análise de texto
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair expressões-chave com a Análise de Texto
 
 A [API de Extração de Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) avalia o texto não estruturado e, para cada documento JSON, devolve uma lista de expressões-chave. 
 
 Esta funcionalidade é útil se precisar de identificar rapidamente os pontos principais numa coleção de documentos. Por exemplo, para o texto de entrada "The food was delicious and there were wonderful staff", o serviço devolve os pontos de conversa principais: "food" e "wonderful staff".
 
-Atualmente, a Extração de Expressões-Chave suporta inglês, alemão, espanhol e japonês. Os outros idiomas estão em pré-visualização. Para obter mais informações, veja [Idiomas suportados](../text-analytics-supported-languages.md).
+Consulte a [idiomas suportados](../text-analytics-supported-languages.md) artigo para obter mais informações. 
 
 > [!TIP]
 > Análise de texto também fornece um Docker baseado em Linux imagem de contentor para extração de expressões-chave, para que possa [instalar e executar o contentor de análise de texto](text-analytics-how-to-install-containers.md) perto dos seus dados.

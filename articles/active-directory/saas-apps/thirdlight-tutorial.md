@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 67c8dcfffd78d4c0114a96622235d6548627fa92
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Integração do Active Directory do Azure com ThirdLight
 
@@ -93,7 +93,7 @@ Para configurar o Azure AD início de sessão único com ThirdLight, siga estes 
 
 2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Selecione um método de início de sessão único](common/select-saml-option.png)
+    ![Selecionar um método de início de sessão único](common/select-saml-option.png)
 
 3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
@@ -219,7 +219,7 @@ Para criar uma conta de utilizador, siga estes passos:
 > [!NOTE]
 > Pode utilizar qualquer ferramenta de criação de conta de utilizador ou API fornecidos pela ThirdLight para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 

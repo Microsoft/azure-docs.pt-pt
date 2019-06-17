@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60831797"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
@@ -130,7 +130,7 @@ static void Main()
 
 Na versão 3. *x*, o limite de ligação está predefinida para ligações de infinitas. Se por algum motivo precisar de alterar este limite, pode utilizar o [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) propriedade do [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) classe.
 
-Na versão 2. *x*, controlar o número de ligações simultâneas a um anfitrião utilizando o [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2. *x*, deve aumentar este valor da predefinição de 2 antes de iniciar seu host de WebJobs.
+Na versão 2. *x*, controlar o número de ligações simultâneas a um anfitrião utilizando o [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. 2\. *x*, deve aumentar este valor da predefinição de 2 antes de iniciar seu host de WebJobs.
 
 Saída de todos os pedidos HTTP que fizer uma função utilizando `HttpClient` fluem `ServicePointManager`. Depois de atingir o valor definido `DefaultConnectionLimit`, `ServicePointManager` começa da fila as solicitações antes de enviá-los. Suponha que sua `DefaultConnectionLimit` está definido como 2 e os pedidos de HTTP 1.000 do código faz. Inicialmente, apenas duas são permitidos pedidos por meio de para o sistema operacional. Os outros 998 são colocados em fila até que haja espaço para eles. Isso significa que seu `HttpClient` pode tempo limite porque aparenta efetuou o pedido, mas nunca foi enviado o pedido pelo sistema operacional para o servidor de destino. Pelo que poderá ver o comportamento que parece que não fazem sentido: local `HttpClient` está a demorar 10 segundos para concluir um pedido, mas o seu serviço está a devolver todos os pedidos em 200 ms. 
 
@@ -836,11 +836,11 @@ Cada log criado por um `ILogger` instância se associado ao `Category` e `Level`
 |LogLevel    |Código|
 |------------|---|
 |Rastreio       | 0 |
-|Depurar       | 1 |
+|depurar       | 1 |
 |Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
-|Crítica    | 5 |
+|Crítico    | 5 |
 |Nenhuma        | 6 |
 
 Pode filtrar forma independente cada categoria a um determinado [ `LogLevel` ](/dotnet/api/microsoft.extensions.logging.loglevel). Por exemplo, pode querer ver todos os registos para o blob acionador processamento, mas apenas `Error` e superior para todo o resto.

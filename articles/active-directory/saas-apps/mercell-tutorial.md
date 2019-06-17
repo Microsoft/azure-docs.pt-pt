@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2411a036cd56d88e261317ae523d8186b85b5a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b37e35eb0314de25dad2ce07175a774f921fe4cf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65872275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutorial: Integração do Active Directory do Azure com Mercell
 
@@ -54,7 +54,7 @@ Para configurar a integração do Mercell com o Azure AD, terá de adicionar Mer
 
 **Para adicionar Mercell a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -174,7 +174,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Mercell. Mercel
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Mercell](mailto:webmaster@mercell.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

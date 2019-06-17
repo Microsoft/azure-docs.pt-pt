@@ -11,35 +11,38 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/05/2019
-ms.openlocfilehash: b39d2c839444e3cad60d5ff08e117282ecc04d7a
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.date: 06/12/2019
+ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734762"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67116195"
 ---
-# <a name="sql-database-serverless-preview"></a>Base de dados SQL sem servidor (pré-visualização)
+# <a name="azure-sql-database-serverless-preview"></a>SQL Database do Azure sem servidor (pré-visualização)
+
+Base de dados do SQL do Azure (pré-visualização) sem servidor é um escalão de computação para bases de dados individuais que dimensiona-se automaticamente com base na demanda de carga de trabalho e listas para a quantidade de computação de computação utilizada por segundo. O escalão de computação sem servidor também automaticamente em pausa, bases de dados durante períodos Inativos quando o armazenamento apenas é faturado e retoma automaticamente as bases de dados quando a atividade devolve.
 
 ## <a name="serverless-compute-tier"></a>Escalão de serviço de computação sem servidor
 
-Base de dados SQL sem servidor (pré-visualização) é uma camada de computação de base de dados individual, que é dimensionado automaticamente de computação e cobra para a quantidade de computação utilizada por segundo. 
-
-Uma base de dados na camada de computação sem servidor é parametrizado pelo intervalo de computação que pode utilizar e um atraso de autopause.
+A camada de computação sem servidor para uma base de dados é parametrizada por um intervalo de dimensionamento automático de computação e um atraso de autopause.  A configuração destes parâmetros moldar a experiência de desempenho da base de dados e custo de computação.
 
 ![Faturação sem servidor](./media/sql-database-serverless/serverless-billing.png)
 
-### <a name="performance"></a>Desempenho
+### <a name="performance-configuration"></a>Configuração de desempenho
 
-- O número de vCores mínimo e máximo vCores é parâmetros configuráveis que definem o intervalo de capacidade de computação disponível para a base de dados. Limites de memória e e/s são proporcionais ao intervalo de vCore especificado.  
-- O atraso de autopause é um parâmetro configurável que define o período de tempo que a base de dados tem de estar inativo antes de ele automaticamente é colocada em pausa. A base de dados é retomada automaticamente quando ocorre o próximo início de sessão.
+- O **vCores mínima** e **vCores máximo** são parâmetros configuráveis que definem o intervalo de capacidade de computação disponível para a base de dados. Limites de memória e e/s são proporcionais ao intervalo de vCore especificado.  
+- O **atraso autopause** é um parâmetro configurável que define o período de tempo da base de dados tem de estar inativo antes de ele automaticamente é colocada em pausa. A base de dados é retomada automaticamente quando ocorre o próximo início de sessão ou de outra atividade.  Em alternativa, pode ser desativado autopausing.
 
-### <a name="pricing"></a>Preços
+### <a name="cost"></a>Custo
 
-- A faturação total para uma base de dados sem servidor é a soma da fatura de computação e de fatura de armazenamento.
-A faturação de computação baseia-se na quantidade de vCores utilizados e a memória utilizada por segundo.
-- A computação mínimo cobrada baseia-se a min vCores e a memória mínima.
-- Enquanto a base de dados está em pausa, apenas o armazenamento é faturado.
+- O custo de uma base de dados sem servidor é a soma do custo de computação e o custo de armazenamento.
+- Quando a utilização de computação é entre o mínimo e os limites máximos configurados, o custo de computação é baseado em vCore e de memória utilizada.
+- Quando a utilização de computação é abaixo os limites mínimo configurados, o custo de computação baseia-se na min vCores e memória mínima configurada.
+- Quando a base de dados está em pausa, o custo de computação é zero e apenas os custos de armazenamento são cobrados.
+- O custo de armazenamento é determinado da mesma forma como o escalão de computação aprovisionados.
+
+Para obter mais detalhes de custo, veja [faturação](sql-database-serverless.md#billing).
 
 ## <a name="scenarios"></a>Cenários
 
@@ -73,7 +76,7 @@ A tabela seguinte resume as diferenças entre a camada de computação sem servi
 
 Sem servidor da base de dados SQL é atualmente suportada apenas no escalão fins gerais em hardware de geração 5 no vCore modelo de compra.
 
-## <a name="autoscale"></a>Dimensionamento Automático
+## <a name="autoscaling"></a>Dimensionamento automático
 
 ### <a name="scaling-responsiveness"></a>Dimensionar a capacidade de resposta
 
@@ -98,9 +101,9 @@ Sem servidor e aprovisionado de computação bases de dados, cache entradas pode
 
 A cache SQL cresce à medida que dados são obtidos a partir do disco da mesma forma e com a mesma velocidade de e para as bases de dados aprovisionadas. Quando a base de dados estiver ocupado, a cache é permitida crescer irrestrita até ao limite máximo de memória.
 
-## <a name="autopause-and-autoresume"></a>Autopause e autoresume
+## <a name="autopausing-and-autoresuming"></a>Autopausing e autoresuming
 
-### <a name="autopause"></a>Autopause
+### <a name="autopausing"></a>Autopausing
 
 Autopausing é acionada se todas as condições seguintes forem verdadeiras durante o atraso de autopause:
 
@@ -117,7 +120,7 @@ As seguintes funcionalidades não suportam autopausing.  Ou seja, se qualquer um
 
 Autopausing é impedido temporariamente durante a implementação de algumas atualizações de serviço que requerem que a base de dados estar online.  Nesses casos, autopausing torna-se permitido novamente depois de concluída a atualização de serviço.
 
-### <a name="autoresume"></a>Autoresume
+### <a name="autoresuming"></a>Autoresuming
 
 Autoresuming é acionada se uma das seguintes condições for verdadeira, a qualquer momento:
 
@@ -148,7 +151,7 @@ A latência autoresume e autopause uma base de dados sem servidor é, geralmente
 
 ## <a name="onboarding-into-serverless-compute-tier"></a>Integração na camada de computação sem servidor
 
-Criar uma nova base de dados ou para mover a que base de dados existente para um escalão de computação sem servidor segue o mesmo padrão usados para criar uma nova base de dados aprovisionada a camada de computação e envolve os seguintes dois passos:
+Criar uma nova base de dados ou para mover a que base de dados existente para um escalão de computação sem servidor segue o mesmo padrão usados para criar uma nova base de dados aprovisionada a camada de computação e envolve os seguintes dois passos.
 
 1. Especifique o nome do objetivo de serviço. O objetivo de serviço prescreve a camada de serviços, a geração de hardware e o vCores máximo. A tabela seguinte mostra as opções de objetivo de serviço:
 
@@ -163,18 +166,20 @@ Criar uma nova base de dados ou para mover a que base de dados existente para um
    |Parâmetro|Opções de valor|Valor predefinido|
    |---|---|---|---|
    |Min vCores|Qualquer um dos {0,5, 1, 2, 4} que não exceda vCores máx.|0,5 vCores|
-   |Autopause atraso|Mínimo: 360 minutos (6 horas)<br>Máx.: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desativar autopause: -1|minutos de 360|
+   |Autopause atraso|Mínimo: 360 minutos (6 horas)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desativar autopause: -1|minutos de 360|
 
 > [!NOTE]
 > Com o T-SQL para mover uma base de dados existente para sem servidor ou alterar seu tamanho de computação não é atualmente suportada, mas pode ser feito através do portal do Azure ou o PowerShell.
 
-### <a name="create-new-serverless-database-using-azure-portal"></a>Criar nova base de dados sem servidor com o portal do Azure
+### <a name="create-new-database-in-serverless-compute-tier"></a>Criar nova base de dados na camada de computação sem servidor 
+
+#### <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
 Consulte [início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure](sql-database-single-database-get-started.md).
 
-### <a name="create-new-serverless-database-using-powershell"></a>Criar nova base de dados sem servidor com o PowerShell
+#### <a name="use-powershell"></a>Utilizar o PowerShell
 
-O exemplo seguinte cria uma nova base de dados na camada de computação sem servidor definida por objetivo de serviço com o nome GP_S_Gen5_4 com valores predefinidos para o atraso de vCores e autopause min.
+O exemplo seguinte cria uma nova base de dados na camada de computação sem servidor.  Este exemplo especifica explicitamente o min vCores, max vCores e autopause atraso.
 
 ```powershell
 New-AzSqlDatabase `
@@ -189,9 +194,11 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
-### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Mover a base de dados de computação aprovisionada no escalão de computação sem servidor
+### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Mover a base de dados da camada de computação aprovisionada no escalão de computação sem servidor
 
-O exemplo seguinte move uma base de dados existente de camada de computação aprovisionada para a camada de computação sem servidor. Este exemplo especifica explicitamente o min vCores, max vCores e autopause atraso.
+#### <a name="use-powershell"></a>Utilizar o PowerShell
+
+O exemplo seguinte move uma base de dados de camada de computação aprovisionada para a camada de computação sem servidor. Este exemplo especifica explicitamente o min vCores, max vCores e autopause atraso.
 
 ```powershell
 Set-AzSqlDatabase
@@ -206,7 +213,7 @@ Set-AzSqlDatabase
   -AutoPauseDelayInMinutes 1440
 ```
 
-### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Mover base de dados sem servidor para o escalão de computação aprovisionada
+### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Mover a base de dados da camada de computação sem servidor na camada de computação aprovisionada
 
 Uma base de dados sem servidor pode ser movido para um escalão de computação aprovisionada da mesma forma como mover uma base de dados de computação aprovisionada numa camada de computação sem servidor.
 
@@ -214,13 +221,19 @@ Uma base de dados sem servidor pode ser movido para um escalão de computação 
 
 ### <a name="maximum-vcores"></a>Máximo de vCores
 
+#### <a name="use-powershell"></a>Utilizar o PowerShell
+
 Modificar os vCores máximos é executada com o [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando no PowerShell com o `MaxVcore` argumento.
 
 ### <a name="minimum-vcores"></a>Mínimo de vCores
 
+#### <a name="use-powershell"></a>Utilizar o PowerShell
+
 Modificar os vCores min é executada com o [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando no PowerShell com o `MinVcore` argumento.
 
 ### <a name="autopause-delay"></a>Autopause atraso
+
+#### <a name="use-powershell"></a>Utilizar o PowerShell
 
 Modificar o atraso de autopause é executada com o [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando no PowerShell com o `AutoPauseDelayInMinutes` argumento.
 
@@ -228,7 +241,7 @@ Modificar o atraso de autopause é executada com o [Set-AzSqlDatabase](https://d
 
 ### <a name="resources-used-and-billed"></a>Recursos utilizados e faturadas
 
-Os recursos de uma base de dados sem servidor são encapsulados pelas entidades a seguir:
+Os recursos de uma base de dados sem servidor são encapsulados por pacote de aplicação, a instância SQL e entidades de agrupamento de recursos de utilizador.
 
 #### <a name="app-package"></a>Pacote de aplicação
 

@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 06/07/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee49ae56122fe596a4490914677d91d2f0348f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284965"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66807523"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Resolução de problemas de atividade do Active Directory do Azure regista erros de pacote de conteúdos 
 
@@ -39,7 +39,7 @@ Ao trabalhar com o pacote de conteúdos do Power BI para o Azure Active Director
 
 Este artigo fornece informações sobre as possíveis causas e como corrigir estes erros.
  
-## <a name="refresh-failed"></a>A atualização falhou 
+## <a name="refresh-failed"></a>Falha na atualização 
  
 **Como este erro aparece**: E-mail do Power BI ou no histórico de atualização do status de falha. 
 
@@ -47,7 +47,7 @@ Este artigo fornece informações sobre as possíveis causas e como corrigir est
 | Causa | Como corrigir |
 | ---   | ---        |
 | Falha de erros podem ser provocados quando as credenciais dos utilizadores a ligar ao pacote de conteúdos tem sido repor mas não atualizadas nas definições de ligação do pacote de conteúdos de atualização. | No Power BI, localize o conjunto de dados correspondente para o dashboard de registos de atividade do Azure AD (**registos de atividades de diretório Active Directory do Azure**), selecione a atualização de agenda e, em seguida, introduza as credenciais do Azure AD. |
-| Uma atualização pode falhar devido a problemas de dados no pacote de conteúdos subjacente. | [Enviar um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+| Uma atualização pode falhar devido a grandes conjuntos de dados. | Atualmente, o pacote de conteúdos do Azure AD com o Power BI pode suportar apenas conjuntos de dados pequenos (menos de 500,00 linhas) devido a algumas limitações em torno de tempos limite no serviço Power BI. Se ocorrerem erros de limitação, ou se a atualização falhar devido a problemas de tempo limite, talvez porque está a tentar obter um conjunto de dados grandes. Reduza o período de tempo na consulta e tente novamente.|
  
  
 ## <a name="failed-to-update-data-source-credentials"></a>Falha ao atualizar as credenciais de origem de dados 

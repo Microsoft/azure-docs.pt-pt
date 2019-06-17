@@ -8,42 +8,43 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61451318"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080511"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementar duplo de OPC para um projeto existente
 
-O módulo duplo de OPC é executado no IoT Edge e fornece vários serviços de borda para os serviços de registo e OPC duplo. 
+O módulo duplo de OPC é executado no IoT Edge e fornece vários serviços de borda para os serviços de registo e OPC duplo.
 
 O serviço de micro do OPC duplo facilita a comunicação entre as operadoras de fábrica e dispositivos de servidor OPC UA no chão de fábrica através de um módulo do IoT Edge do OPC duplo. O serviço micro expõe serviços OPC UA (procura, leitura, escrita e execução) através da sua API de REST. 
 
 Os microsserviços de registro de dispositivo OPC UA fornece acesso a aplicativos de OPC UA registrados e os respetivos pontos finais. Operadores e os administradores podem registar e anular o registo de novos aplicativos de OPC UA e procurar os existentes, incluindo os respetivos pontos finais. Além de gerenciamento de ponto final e de aplicativos, o serviço de registo também cataloga módulos do IoT Edge duplo OPC registados. A API de serviço dá-lhe controlo da borda módulo funcionalidade, por exemplo, iniciar ou parar a deteção de servidores (Serviços de análise) ou ativar o novo duplos de ponto de extremidade que podem ser acedidos através do serviço de micro OPC duplo.
 
-O núcleo do módulo é a identidade do Supervisor. O supervisor gere duplo de ponto final, que corresponde a pontos finais do servidor OPC UA ativados com a API de registro OPC UA correspondente. Este duplos de ponto final traduzir OPC UA JSON recebidos do serviço micro OPC duplo em execução na cloud para mensagens binárias de OPC UA, o que são enviadas através de um canal seguro com monitoração de estado para o ponto de extremidade gerenciado. O supervisor também fornece serviços de deteção que enviam eventos de deteção de dispositivo para o serviço de integração de dispositivos de OPC UA para processamento, em que esses eventos resultam em atualizações para o registo de OPC UA.  Este artigo mostra-lhe como implementar o módulo duplo de OPC para um projeto existente. 
+O núcleo do módulo é a identidade do Supervisor. O supervisor gere duplo de ponto final, que corresponde a pontos finais do servidor OPC UA ativados com a API de registro OPC UA correspondente. Este duplos de ponto final traduzir OPC UA JSON recebidos do serviço micro OPC duplo em execução na cloud para mensagens binárias de OPC UA, o que são enviadas através de um canal seguro com monitoração de estado para o ponto de extremidade gerenciado. O supervisor também fornece serviços de deteção que enviam eventos de deteção de dispositivo para o serviço de integração de dispositivos de OPC UA para processamento, em que esses eventos resultam em atualizações para o registo de OPC UA.  Este artigo mostra-lhe como implementar o módulo duplo de OPC para um projeto existente.
 
 > [!NOTE]
 > Para obter mais informações sobre os detalhes da implementação e instruções, consulte o GitHub [repositório](https://github.com/Azure/azure-iiot-opc-twin-module).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Certifique-se de que tem o PowerShell e [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) extensões instaladas.   Se não o tiver feito isso ainda, clone o repositório do GitHub.  Abra uma linha de comandos ou terminal e execute:
+Certifique-se de que tem o PowerShell e [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) extensões instaladas. Se ainda não o tiver feito, clone o repositório do GitHub. Execute os seguintes comandos do PowerShell:
 
-```bash
-git clone --recursive https://github.com/Azure/azure-iiot-components 
+```powershell
+git clone --recursive https://github.com/Azure/azure-iiot-components.git
 cd azure-iiot-components
 ```
 
 ## <a name="deploy-industrial-iot-services-to-azure"></a>Implementar os serviços de IoT industriais para o Azure
 
-1. Na linha de comandos aberta ou no terminal, execute:
+1. Na sessão do PowerShell, execute:
 
-   ```bash
-   deploy
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy.cmd
+    ```
 
 2. Siga as instruções para atribuir um nome para o grupo de recursos da implantação e um nome para o Web site.   O script implementa os microsserviços e suas dependências de plataforma do Azure para o grupo de recursos na sua subscrição do Azure.  O script também registra uma aplicação no seu inquilino do Azure Active Directory (AAD) para suportar a autenticação com base em OAUTH.  Implementação demorará alguns minutos.  Um exemplo de vista assim que a solução é implementada com êxito:
 
@@ -77,11 +78,12 @@ O script de implementação tenta registrar duas aplicações do AAD no Azure Ac
 
 Em vez de apenas os serviços e dependências também pode implementar uma demonstração de tudo-em-um.  O tudo numa demonstração contém três servidores OPC UA, o módulo duplo de OPC, todos os microsserviços e um exemplo de aplicativo Web.  Destina-se para fins de demonstração.
 
-1. Certifique-se de que tem um clone do repositório (consultar acima). Abra uma linha de comandos ou terminal na raiz do repositório e execute:
+1. Certifique-se de que tem um clone do repositório (consultar acima). Abra uma linha de comandos do PowerShell na raiz do repositório e execute:
 
-   ```bash
-   deploy -type demo
-   ```
+    ```powershell
+    set-executionpolicy -ExecutionPolicy Unrestricted -Scope Process
+    .\deploy -type demo
+    ```
 
 2. Siga as instruções para atribuir um novo nome para o grupo de recursos e um nome para o Web site.  Depois de implementado com êxito, o script irá apresentar o URL do ponto de extremidade de aplicativo web.
 
@@ -89,55 +91,55 @@ Em vez de apenas os serviços e dependências também pode implementar uma demon
 
 O script aceita os seguintes parâmetros:
 
-```bash
+```powershell
 -type
 ```
 
 O tipo de implementação (demonstração de local, vm)
 
-```bash
+```powershell
 -resourceGroupName
 ```
 
 Pode ser o nome de um existente ou um grupo de recursos.
 
-```bash
+```powershell
 -subscriptionId
 ```
 
 Opcional, o ID de subscrição onde serão possível implementar recursos.
 
-```bash
+```powershell
 -subscriptionName
 ```
 
 Ou o nome da subscrição.
 
-```bash
+```powershell
 -resourceGroupLocation
 ```
 
 Opcional, uma localização do grupo de recursos. Se for especificado, irá tentar criar um novo grupo de recursos nesta localização.
 
-```bash
+```powershell
 -aadApplicationName
 ```
 
-Um nome para a aplicação do AAD registar com. 
+Um nome para a aplicação do AAD registar com.
 
-```bash
+```powershell
 -tenantId
 ```
 
 Inquilino do AAD para utilizar.
 
-```bash
+```powershell
 -credentials
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que sabe como implementar duplo de OPC para um projeto existente, este é o passo seguinte sugerido:
+Agora que aprendeu como implementar duplo de OPC para um projeto existente, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
 > [Proteger a comunicação de cliente de OPC e OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c14362a220cc60b0b8956ca41950faecd0563b3e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bc3ea2f6fddc233a69d96c0c885ab310ed1e77c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890636"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Integração do Active Directory do Azure com o planejamento de gama Predictix
 
@@ -94,7 +94,7 @@ Para configurar do Azure AD início de sessão único com o planejamento de gama
 
 2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Selecione um método de início de sessão único](common/select-saml-option.png)
+    ![Selecionar um método de início de sessão único](common/select-saml-option.png)
 
 3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
@@ -159,7 +159,7 @@ Nesta secção, irá criar um utilizador de teste com o nome Eduarda Almeida no 
 
     1. Na **Name** , introduza **BrittaSimon**.
   
-    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >**. (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >** . (Por exemplo, BrittaSimon@contoso.com.)
 
     1. Selecione **palavra-passe de Show**e, em seguida, anote o valor no **palavra-passe** caixa.
 
@@ -171,7 +171,7 @@ Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure AD início de ses
 
 1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **planejamento de gama Predictix**.
 
-    ![Aplicações empresariais](common/enterprise-applications.png)
+    ![Aplicações Empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **planejamento de gama Predictix**.
 
@@ -198,7 +198,7 @@ Em seguida, terá de criar um utilizador com o nome Eduarda Almeida no planeamen
 > [!NOTE]
 > O titular da conta do Azure AD recebe uma mensagem de e-mail e seleciona uma ligação para confirmar a conta até se tornar Active Directory.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 27439758c9e2b909bb7179b69c7aade81429f502
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949885"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070496"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início rápido: Criar uma instância gerida da base de dados do Azure SQL
 
@@ -52,7 +52,7 @@ Os passos seguintes mostram como criar uma instância gerida.
    |**Palavra-passe**|Qualquer palavra-passe válida.|A palavra-passe tem de ter, pelo menos, 16 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Fuso horário**|Fuso horário a ser observado pela sua instância gerida.|Para obter mais informações, consulte [fusos horários](sql-database-managed-instance-timezone.md).|
    |**Agrupamento**|O agrupamento que pretende utilizar para a sua instância gerida.|Se migrar bases de dados do SQL Server, verificar o agrupamento de origem com `SELECT SERVERPROPERTY(N'Collation')` e use esse valor. Para obter informações sobre agrupamentos, veja [conjunto ou altere o agrupamento de servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
-   |**Localização**|A localização na qual pretende criar a instância gerida.|Para obter informações sobre regiões, consulte [regiões do Azure](https://azure.microsoft.com/regions/).|
+   |**Location**|A localização na qual pretende criar a instância gerida.|Para obter informações sobre regiões, consulte [regiões do Azure](https://azure.microsoft.com/regions/).|
    |**Rede virtual**|Selecione **criar nova rede virtual** ou uma rede virtual válido e uma sub-rede.| Se não estiver disponível uma rede ou sub-rede, tem de ser [modificado para satisfazer os requisitos de rede](sql-database-managed-instance-configure-vnet-subnet.md) antes de selecioná-lo como um destino para a nova instância gerida. Para obter informações sobre os requisitos para configurar o ambiente de rede para uma instância gerida, veja [configurar uma rede virtual para uma instância gerida](sql-database-managed-instance-connectivity-architecture.md). |
    |**Ativar o ponto final público**   |Verifique esta opção para ativar o ponto final público   |Para a instância gerida a estar acessíveis através do ponto final de dados públicos, **ativar o ponto final público** precisa ser verificado.| 
    |**Permitir o acesso a partir de**   |Selecione uma das opções: <ul> <li>**Serviços do Azure**</li> <li>**Internet**</li> <li>**Sem acesso**</li></ul>   |Experiência do Portal permite configurar grupo de segurança com o ponto final público. </br> </br> Com base no seu cenário, selecione uma das seguintes opções: </br> <ul> <li>Serviços do Azure - recomendados durante a ligação do Power BI ou outro serviço de multi-inquilino. </li> <li> Internet - utilização para fins de teste para lançar rapidamente uma instância gerida. Não é recomendado para utilização em ambientes de produção. </li> <li> Sem acesso - esta opção cria uma regra de segurança de negação. Terá de modificar esta regra para tornar acessíveis através de ponto final público a instância gerida. </li> </ul> </br> Para obter mais informações sobre segurança de ponto final público, consulte [usando o banco de dados do Azure SQL gerida a instância de forma segura com o ponto final público](sql-database-managed-instance-public-endpoint-securely.md).|
@@ -73,7 +73,7 @@ Os passos seguintes mostram como criar uma instância gerida.
 11. Selecione **implementação em curso** para abrir a janela instância gerida para monitorizar o progresso da implementação ainda mais. 
 
 > [!IMPORTANT]
-> Para a primeira instância numa sub-rede, o tempo de implementação é normalmente muito mais do que nas instâncias subsequentes. Não cancele a operação de implementação porque dura mais do que o esperado. Criar a segunda instância gerida na sub-rede demora apenas alguns minutos.
+> Para a primeira instância numa sub-rede, o tempo de implementação é normalmente muito mais do que nas instâncias subsequentes. Não cancele a operação de implementação porque dura mais do que o esperado.
 
 ## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Analisar os recursos e obter o nome do servidor completamente qualificado
 
@@ -81,7 +81,7 @@ Após a implementação é concluída, reveja os recursos que foram criados e re
 
 1. Abra o grupo de recursos para a sua instância gerida. Ver os respetivos recursos que foram criados por si a [criar uma instância gerida](#create-a-managed-instance) início rápido.
 
-   ![Recursos de instância geridos](./media/sql-database-managed-instance-get-started/resources.png)
+   ![Recursos de instância gerida](./media/sql-database-managed-instance-get-started/resources.png)
 
 2. Selecione a tabela de rotas para rever a tabela de rota definidas pelo utilizador (UDR) que foi criada para.
 

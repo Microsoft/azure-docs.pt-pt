@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 272d5194b2922e57aca0d63fd62c222e17a29c53
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108259"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicações do AD FS para o Azure AD 
 
@@ -46,7 +46,7 @@ Muitas organizações têm aplicações SaaS ou de linha de negócio (LOB) perso
 Para uma organização que já utiliza o AD FS, Ping ou outro fornecedor de autenticação no local, a mover aplicações para o Azure AD permite as seguintes vantagens:
 
 **Acesso mais seguro**
-- Configurar controlos de acesso granulares por aplicação, incluindo o Azure Multi-Factor Authentication, mediante a utilização do [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md). Estas políticas podem ser aplicadas a aplicações SaaS e personalizadas tal e qual como faz atualmente para o Office 365
+- Configurar os controlos de acesso granulares por aplicação, incluindo multi-factor Authentication do Azure, utilizando [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md). Estas políticas podem ser aplicadas a aplicações SaaS e personalizadas tal e qual como faz atualmente para o Office 365
 - Para detetar ameaças e ajudar proteger o início de sessão com base em machine learning e heurística que identificam o tráfego de risco, tire partido do [Azure AD Identity Protection](../active-directory-identityprotection.md)
 
 **Colaboração B2B do Azure AD**
@@ -155,7 +155,7 @@ As aplicações que pode mover facilmente hoje incluem aplicações SAML 2.0 que
 - Afirmações personalizadas. Para obter informações sobre os mapeamentos de afirmações suportadas, veja [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) (Mapeamento de afirmações no Azure Active Directory) e [Customizing claims issued in the SAML token for enterprise applications in Azure Active Directory](../develop/active-directory-saml-claims-customization.md) (Personalizar afirmações emitidas no token SAML para aplicações empresariais no Azure Active Directory).
 
 Além das afirmações personalizadas e dos elementos **NameID**, as configurações que exigem passos adicionais no Azure AD como parte da migração são:
-- Regras de autorização personalizada ou de Multi-Factor Authentication no AD FS. Pode utilizar a funcionalidade de [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md) para configurá-las.
+- Regras de autorização personalizada ou de Multi-Factor Authentication no AD FS. Configurá-los utilizando o [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md) funcionalidade.
 - Aplicações com vários pontos finais de SAML. Pode configurá-las no Azure AD através do PowerShell. (Esta capacidade não está disponível no portal).
 - Aplicações WS-Federation, como as aplicações do SharePoint, que precisam de tokens SAML da versão 1.1. Tem de configurá-las manualmente com o PowerShell.
 

@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.openlocfilehash: 546b5a213f07bfc058039f16440d2c82ec51f5cc
-ms.sourcegitcommit: f1cd389d1d7e100155b4437f84866e01c70b314a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64451526"
 ---
 # <a name="azure-data-factory-whitepapers"></a>White Papers de fábrica de dados do Azure 

@@ -1,5 +1,5 @@
 ---
-title: Início rápido - bloquear o acesso quando um risco de sessão é detetado com o acesso condicional do Azure Active Directory | Documentos da Microsoft
+title: Início rápido - bloquear o acesso quando um risco de sessão é detetado com o Azure Active Directory condicional acesso | Documentos da Microsoft
 description: Este guia de introdução, saiba como pode configurar uma política de acesso condicional do Azure Active Directory (Azure AD) para bloquear os inícios de sessão com base em riscos de sessão.
 services: active-directory
 ms.service: active-directory
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5defdf2d33d32042775271fe01aba377687ae75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8de4e785bbe2496ca38b33512da1c85f9ff76f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112768"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detetado com o acesso condicional do Azure Active Directory  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detetado com o Azure Active Directory condicional acesso  
 
 Para manter seu ambiente protegido, poderá querer impedir que os utilizadores suspeitos de início de sessão. [O Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analisa cada início de sessão e calcula a probabilidade de que um início de sessão tentar não foi efetuada pelo proprietário legítimo de uma conta de utilizador. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de início de sessão](conditions.md#sign-in-risk). Ao definir a condição de início de sessão de risco, pode configurar uma política de acesso condicional para responder aos níveis de risco de início de sessão específicos.
 
@@ -53,20 +53,20 @@ O objetivo deste passo é certificar-se de que sua conta de teste pode aceder ao
 
 O cenário neste início rápido utiliza um início de sessão num browser de Tor para gerar um detetado **inícios de sessão de endereços IP anónimos** evento de risco. O nível de risco deste evento de risco é médio. Para responder a este evento de risco, defina a condição de início de sessão de risco como média. Num ambiente de produção, deve definir a condição de início de sessão de risco para alta ou para média e alta.
 
-Esta secção mostra como criar a política de acesso condicional necessário. Na sua política, defina:
+Esta secção mostra como criar a política de acesso condicional necessária. Na sua política, defina:
 
 | Definição | Value |
 | --- | --- |
 | Utilizadores e grupos | Alain Charon  |
-| Aplicações na cloud | Todas as aplicações na cloud |
-| Risco de início de sessão | Médio |
-| Conceder | Bloquear acesso |
+| Aplicações na cloud | Todas as aplicações de cloud |
+| Início de sessão de risco | Médio |
+| Concessão | Bloquear o acesso |
 
 ![Criar política](./media/app-sign-in-risk/130.png)
 
 **Para configurar a política de acesso condicional:**
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou um administrador de acesso condicional.
 
 1. No portal do Azure, na barra de navegação esquerda, clique em **do Azure Active Directory**.
 
@@ -74,7 +74,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
 1. Na **do Azure Active Directory** página, além do **segurança** secção, clique em **acesso condicional**.
 
-   ![Acesso condicional](./media/app-sign-in-risk/03.png)
+   ![Acesso Condicional](./media/app-sign-in-risk/03.png)
 
 1. Sobre o **acesso condicional** página, na barra de ferramentas na parte superior, clique em **Add**.
 
@@ -90,7 +90,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
 1. Sobre o **utilizadores e grupos** página:
 
-   ![Acesso condicional](./media/app-sign-in-risk/107.png)
+   ![Acesso Condicional](./media/app-sign-in-risk/107.png)
 
    1. Clique em **selecionar utilizadores e grupos**e, em seguida, selecione **utilizadores e grupos**.
 
@@ -106,7 +106,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
 1. Sobre o **aplicações na Cloud** página:
 
-   ![Acesso condicional](./media/app-sign-in-risk/109.png)
+   ![Acesso Condicional](./media/app-sign-in-risk/109.png)
 
    1. Clique em **todas as aplicações na cloud**.
 
@@ -118,7 +118,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
 1. Sobre o **condições** página:
 
-   ![Nível de risco do início de sessão](./media/app-sign-in-risk/21.png)
+   ![Nível de risco de início de sessão](./media/app-sign-in-risk/21.png)
 
    1. Clique em **risco de início de sessão**.
 
@@ -136,7 +136,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
 1. Sobre o **concessão** página:
 
-   ![Acesso condicional](./media/app-sign-in-risk/105.png)
+   ![Acesso Condicional](./media/app-sign-in-risk/105.png)
 
    1. Selecione **bloquear o acesso**.
 
@@ -144,13 +144,13 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
 1. Na **ativar política** secção, clique em **no**.
 
-   ![Activar política](./media/app-sign-in-risk/18.png)
+   ![Ativar política](./media/app-sign-in-risk/18.png)
 
 1. Clique em **Criar**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um simulado início de sessão
 
-Agora que configurou a política de acesso condicional, provavelmente quer saber se funciona conforme esperado. Como primeiro passo, utilize o acesso condicional **e se a ferramenta de política** para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
+Agora que configurou a política de acesso condicional, provavelmente quer saber se ele funciona conforme esperado. Como primeiro passo, utilize o acesso condicional **e se a ferramenta de política** para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
 
 Quando executa o **e se a ferramenta de política** para este cenário, o **bloquear o acesso de nível de risco médio** deverá ser listada nas **políticas que serão aplicadas**.
 
@@ -160,7 +160,7 @@ Quando executa o **e se a ferramenta de política** para este cenário, o **bloq
 
 1. Sobre o [acesso condicional - políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) página, no menu na parte superior, clique em **e se**.  
 
-   ![What If](./media/app-sign-in-risk/14.png)
+   ![E se](./media/app-sign-in-risk/14.png)
 
 1. Clique em **usuário**, selecione **Alan Charon** no **utilizadores** página e, em seguida, clique em **selecione**.
 

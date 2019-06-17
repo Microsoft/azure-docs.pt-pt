@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808308"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre o backup de arquivos e pastas 
 
@@ -83,11 +83,11 @@ Quando mudar o nome de uma máquina Windows, todas as cópias de segurança atua
 - Se precisar de recuperar dados de cópia de segurança no cofre com o nome do servidor antigo, utilize a opção para restaurar para uma localização alternativa no Assistente para recuperar dados. [Saiba mais](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>O que é o comprimento do caminho de ficheiro máximo para cópia de segurança?
-O agente de MARS depende do NTFS e utiliza a especificação do comprimento de caminho do ficheiro limitada pela [API do Windows](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Se os ficheiros que pretende proteger são maiores do que o valor permitido, cópia de segurança da pasta principal ou a unidade de disco.  
+O agente de MARS depende do NTFS e utiliza a especificação do comprimento de caminho do ficheiro limitada pela [API do Windows](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Se os ficheiros que pretende proteger são maiores do que o valor permitido, cópia de segurança da pasta principal ou a unidade de disco.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>Que carateres são permitidos em caminhos de ficheiros?
 
-O agente de MARS depende do NTFS e permite [carateres suportados pelo](/windows/desktop/FileIO/naming-a-file#naming_conventions) em nomes/caminhos de ficheiros.
+O agente de MARS depende do NTFS e permite [carateres suportados pelo](/windows/desktop/FileIO/naming-a-file#naming-conventions) em nomes/caminhos de ficheiros.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>É apresentado o aviso "As cópias de segurança do Azure não foram configuradas para este servidor".
 Este aviso pode aparecer mesmo que configurou uma política de cópia de segurança, quando as definições do agendamento de cópia de segurança armazenadas no servidor local não são as mesmas que as definições armazenadas no Cofre de cópia de segurança.

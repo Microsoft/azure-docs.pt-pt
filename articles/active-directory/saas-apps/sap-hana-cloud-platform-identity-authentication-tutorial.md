@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e242e85525b446fcbe8a2ec05da539fb45acf487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eff07f157f6011b9b561334c00b3a4d94989ff5a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integração do Active Directory do Azure com a autenticação de identidade da plataforma de Cloud de SAP
 
@@ -72,7 +72,7 @@ Para configurar a integração de autenticação de identidade da plataforma de 
 
 **Para adicionar a autenticação de identidade da plataforma de Cloud de SAP da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -256,7 +256,7 @@ A opção de Federação de identidades está desativada por predefinição. Se 
 
 Para obter mais informações sobre como ativar ou desativar o Federação de identidades com autenticação de identidade da plataforma de Cloud de SAP, consulte "Ativar a Federação com o SAP Cloud plataforma identidade autenticação de identidade" no [configurar a Federação de identidades com o Autenticação de identidade do utilizador Store de SAP Cloud Platform](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

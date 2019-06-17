@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 59155b41906ffd401b971bee1248a225d0c33657
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237078"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072458"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de texto para discurso
 
@@ -62,7 +62,7 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 | Reino Unido Sul | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| E.U.A. Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| EUA Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
@@ -168,7 +168,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de texto
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 
-Esta é uma lista dos formatos de áudio suportados que são enviados em cada pedido como o `X-Microsoft-OutputFormat` cabeçalho. Cada incorpora uma velocidade de transmissão e o tipo de codificação. Os serviços de voz suporta KHz 24, 16 KHz, e saídas de áudio de 8 KHz.
+Esta é uma lista dos formatos de áudio suportados que são enviados em cada pedido como o `X-Microsoft-OutputFormat` cabeçalho. Cada incorpora uma velocidade de transmissão e o tipo de codificação. Os serviços de voz suporta kHz 24, 16 kHz, e saídas de áudio de 8 kHz.
 
 |||
 |-|-|
@@ -181,7 +181,7 @@ Esta é uma lista dos formatos de áudio suportados que são enviados em cada pe
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. No entanto, não suportam vozes de 24khz `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formatos de saída.
+> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. No entanto, não suportam vozes 24 kHz `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formatos de saída.
 
 ### <a name="request-body"></a>Corpo do pedido
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: c823b1b5d009d836ba3f134623a67cab0d38c180
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e6a8a25e88d4193562c818f30efd5eb017c372fd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050315"
+ms.locfileid: "67089296"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Tutorial: Integrar Syncplicity com o Azure Active Directory
 

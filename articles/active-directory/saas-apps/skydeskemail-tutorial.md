@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e0c2dc6c370e697f896e24e7d56c6eb8900601a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faaa5dcc435452d6ed9e0f2c5b481df1e352dfd2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Active Directory do Azure com o E-Mail de SkyDesk
 
@@ -53,7 +53,7 @@ Para configurar a integração de SkyDesk E-Mail com o Azure AD, terá de adicio
 
 **Para adicionar SkyDesk E-Mail a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -231,7 +231,7 @@ Clique em **acesso de utilizador** da esquerda painel no E-Mail de SkyDesk e, em
 > [!NOTE]
 > Se precisar de criar utilizadores em massa, terá de contactar o [equipa de suporte de cliente de E-Mail SkyDesk](https://www.skydesk.jp/apps/support/).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

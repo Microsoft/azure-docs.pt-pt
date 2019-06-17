@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690933"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078273"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de eventos do Azure com o Apache Storm no HDInsight (C#)
 
@@ -38,7 +38,7 @@ O pacote NuGet da Microsoft que utiliza para o seu projeto tem de corresponder a
 > [!IMPORTANT]  
 > O exemplo neste documento espera um 3.5 HDInsight ou 3.6 cluster.
 >
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. 
 
 Topologias c# também devem visar o .NET 4.5.
 
@@ -137,8 +137,8 @@ Os Hubs de eventos é a origem de dados para este exemplo. Utilize as informaç�
 
    | Name | Permissões |
    | --- | --- |
-   | escritor |Enviar |
-   | leitor |Vigiar |
+   | Escritor |Enviar |
+   | Leitor |Escutar |
 
     ![Janela de políticas de acesso de captura de ecrã de partilha](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)
 

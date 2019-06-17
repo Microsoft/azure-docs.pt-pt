@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
 ms.openlocfilehash: ccb6fc9c522e8d05d0184fc5e248d070efb9921d
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64937728"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guia de publicação de oferta de máquina virtual
@@ -41,7 +41,7 @@ Contacte-nos [amp-Test-Drive do](mailto:amp-testdrive@microsoft.com) para começ
 |---------|---------|
 | Tem um aplicativo do Marketplace   |    Um ou mais máquinas de virtuais por meio de IaaS ou SaaS.      |
 
-## <a name="interactive-demo"></a>Demo Interativa
+## <a name="interactive-demo"></a>Interactive Demo
 
 Fornecer uma experiência orientada da sua solução aos seus clientes através de uma demonstração interativa. O benefício de demonstração interativa, opção de publicação é que fornecer uma experiência de avaliação sem aprovisionar complicadas da sua solução complexa. 
 

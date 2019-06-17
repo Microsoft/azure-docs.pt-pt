@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60814144"
 ---
 # <a name="interpret-method"></a>interpretar o método
@@ -31,7 +31,7 @@ consulta    | Cadeia de texto | Consulta introduzida pelo utilizador.  Se comple
 Concluir | 0 (predefinição) ou 1 | 1 significa que as sugestões de conclusão automática são gerados com base nos dados de gramática e índice.         
 count    | Número (predefinição = 10) | Número máximo de interpretações a devolver.         
 offset   | Número (predefinição = 0) | Índice da interpretação de primeira para retornar.  Por exemplo, *contagem = 2 Desl & ocamento = 0* devolve interpretações 0 e 1. *contagem = 2 Desl & ocamento = 2* devolve interpretações, 2 e 3.       
-tempo limite  | Número (predefinição = 1000) | Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
+timeout  | Número (predefinição = 1000) | Tempo limite em milissegundos. Só foram encontradas quaisquer interpretações antes do tempo limite decorreu são devolvidas.
 
 Utilizar o *contagem* e *deslocamento* parâmetros, um grande número de resultados pode ser obtido a forma incremental através de várias solicitações.
 

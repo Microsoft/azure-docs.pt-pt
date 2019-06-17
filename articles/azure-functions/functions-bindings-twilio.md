@@ -13,11 +13,11 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6ca29af1866c5d26d3b73b26121451440c4dac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64511804"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Ligação do Twilio para as funções do Azure
 
@@ -401,8 +401,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 | propriedade de Function v1 | propriedade de Function v2 | Propriedade de atributo |Descrição|
 |---------|---------|---------|----------------------|
-|**tipo**|**tipo**| Tem de ser definido como `twilioSms`.|
-|**direção**|**direção**| Tem de ser definido como `out`.|
+|**type**|**type**| Tem de ser definido como `twilioSms`.|
+|**direction**|**direction**| Tem de ser definido como `out`.|
 |**name**|**name**| Nome da variável no código de função para a mensagem de texto Twilio SMS. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o Sid de conta do Twilio por exemplo, TwilioAccountSid. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Este valor tem de ser definido para o nome de uma definição de aplicação que contém o token de autenticação de Twilio por exemplo, TwilioAccountAuthToken. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsTwilioAuthToken". |

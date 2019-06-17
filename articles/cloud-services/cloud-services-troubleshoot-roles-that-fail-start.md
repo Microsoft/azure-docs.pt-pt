@@ -16,10 +16,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60653394"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Resolver problemas de funções do serviço Cloud que falharem ao iniciar
@@ -66,7 +66,7 @@ Pode utilizar o ambiente de trabalho remoto para aceder à função e ver inform
 2. Durante a implantação da solução com o Visual Studio, ative o ambiente de trabalho remoto. Para obter mais informações, consulte [ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure com o Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. No portal do Microsoft Azure, uma vez que a instância apresentem o estado **pronto**remoto para a instância. Para obter mais informações sobre como utilizar o ambiente de trabalho remoto com os serviços Cloud, consulte [remotamente a instâncias de função](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Entrar para a máquina virtual com as credenciais que foram especificadas durante a configuração do ambiente de trabalho remoto.
-6. Abra uma janela de comando.
+6. Abra uma janela de comandos.
 7. Digite `IPconfig`.
 8. Tenha em atenção o valor de endereço IPV4.
 9. Abra o Internet Explorer.
@@ -76,7 +76,7 @@ Navegar para o Web site agora irá devolver mensagens de erro mais explícitas:
 
 * Erro de servidor na aplicação '/'.
 * Descrição: Ocorreu uma exceção não processada durante a execução da solicitação da web atual. Consulte o rastreio de pilha para obter mais informações sobre o erro e em que foi gerado no código.
-* Detalhes da exceção: System.IO.FIleNotFoundException: Não foi possível carregar o ficheiro ou a assemblagem ' Microsoft.WindowsAzure.StorageClient, versão = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' ou uma de suas dependências. Não é possível ao sistema localizar o ficheiro especificado.
+* Detalhes da exceção: System.IO.FIleNotFoundException: Não foi possível carregar o ficheiro ou a assemblagem ' Microsoft.WindowsAzure.StorageClient, versão = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' ou uma de suas dependências. O sistema não é possível localizar o ficheiro especificado.
 
 Por exemplo:
 

@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
 ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734939"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
@@ -164,7 +164,7 @@ A alertas de registo de tirar partido das melhores com regras de ação, Aconsel
     * Uma correspondência exata: Por exemplo, a regra de ação que está a definir e a regra de ação sobrepostos são na mesma subscrição.
     * Um subconjunto: Por exemplo, a regra de ação que está a definir é uma subscrição e a regra de ação sobrepostos é num grupo de recursos dentro da subscrição.
     * Um superconjunto: Por exemplo, a regra de ação que está a definir é num grupo de recursos e a regra de ação sobrepostos está na subscrição que contém o grupo de recursos.
-    * Uma interseção: Por exemplo, a regra de ação que está a definir é "VM1" e "VM2" e a regra de ação sobrepostos é em "VM2" e 'VM3'.
+    * Uma intersecção: Por exemplo, a regra de ação que está a definir é "VM1" e "VM2" e a regra de ação sobrepostos é em "VM2" e 'VM3'.
 
     ![A sobreposição de regras de ação](media/alerts-action-rules/action-rules-overlapping.png)
 
@@ -174,7 +174,7 @@ A alertas de registo de tirar partido das melhores com regras de ação, Aconsel
     * Uma correspondência exata: Por exemplo, a regra de alerta que está a definir e a regra de ação estão na mesma subscrição.
     * Um subconjunto: Por exemplo, a regra de alerta que está a definir é uma subscrição e a regra de ação é num grupo de recursos dentro da subscrição.
     * Um superconjunto: Por exemplo, a regra de alerta que está a definir é num grupo de recursos e a regra de ação está na subscrição que contém o grupo de recursos.
-    * Uma interseção: Por exemplo, a regra de alerta que está a definir é "VM1" e "VM2" e a regra de ação é em "VM2" e 'VM3'.
+    * Uma intersecção: Por exemplo, a regra de alerta que está a definir é "VM1" e "VM2" e a regra de ação é em "VM2" e 'VM3'.
     
     ![A sobreposição de regras de ação](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 

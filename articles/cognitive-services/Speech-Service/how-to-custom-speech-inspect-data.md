@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 682f3df362a7fbb0e95a07aa8a8f3a068367eef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025821"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064044"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar os dados de voz personalizada
 
@@ -34,7 +34,7 @@ Siga estas instruções para criar um teste:
 
 1. Navegue para **voz em texto > voz personalizada > teste**.
 2. Clique em **adicionar teste**.
-3. Selecione **inspecionar qualidade (dados só de áudio)**. Dê um nome, descrição, ao teste e selecione o conjunto de dados de áudio.
+3. Selecione **inspecionar qualidade (dados só de áudio)** . Dê um nome, descrição, ao teste e selecione o conjunto de dados de áudio.
 4. Selecione até dois modelos que pretende testar.
 5. Clique em **Criar**.
 
@@ -46,7 +46,7 @@ Quando o estado de teste é *bem-sucedido*, clique no nome do item de teste para
 
 Para ajudar a inspecionar a comparação lado a lado, pode alternar vários tipos de erro incluindo inserção, exclusão e de substituição. Ao ouvir o áudio e comparar resultados de reconhecimento em cada coluna (Mostrar transcrição de etiqueta humanos e os resultados de dois modelos de voz em texto), pode decidir que modelo atenda às suas necessidades e quais melhorias são necessários.
 
-Inspecionar a qualidade de teste é útil para validar se a qualidade de um ponto de final de reconhecimento de voz é suficiente para uma aplicação.  Para um Objetiva de medida de precisão, a necessidade de áudio transcrito, siga as instruções nos testes: Avalie a precisão.
+Inspecionar a qualidade de teste é útil para validar se a qualidade de um ponto de final de reconhecimento de voz é suficiente para uma aplicação.  Para um Objetiva de medida de precisão, a necessidade de áudio transcrito, siga as instruções no [avaliar exatidão](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

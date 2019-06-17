@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
 ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942779"
 ---
 # <a name="offer-settings-tab"></a>Separador Definições de Oferta
@@ -36,7 +36,7 @@ Conforme mostrado no exemplo, o **ID da oferta** é acrescentado ao seu ID de pu
 Este identificador está relacionado com a sua conta. Depois de iniciar sessão com a sua conta organizacional, sua **ID de publicador** aparece no menu pendente.
 
 
-### <a name="name"></a>Nome*
+### <a name="name"></a>Nome *
 
 Esta cadeia apresenta como o nome da oferta no AppSource ou no Azure Marketplace. O **nome** caixa está limitada a 50 carateres. O revisor poderá ter de editar o título para acrescentar a duração e o tipo para o seu nome de oferta de oferta.
 

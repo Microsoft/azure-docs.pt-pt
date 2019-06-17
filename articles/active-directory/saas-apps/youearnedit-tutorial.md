@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb0610ac9578b1aa85ae422275d69e651b0b4cfd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1f3a3339481538cd38a1d26f97869ff55d3f6021
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Active Directory do Azure com YouEarnedIt
 
@@ -53,7 +53,7 @@ Para configurar a integração do YouEarnedIt com o Azure AD, terá de adicionar
 
 **Para adicionar YouEarnedIt a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -110,14 +110,14 @@ Para configurar o Azure AD início de sessão único com YouEarnedIt, execute os
     | Ambiente  | Padrão  |
     |:--- |:--- |
     | Produção | `https://<company name>.youearnedit.com/users/sign_in` |
-    | Sandbox  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
+    | Área de segurança  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. Na **identificador** caixa de texto, escreva um URL com os seguintes padrões:
 
     | Ambiente  | Padrão  |
     |:--- |:--- |
     | Produção | `<company name>.youearnedit.com` |
-    | Sandbox  |`<company name>.sandbox.youearnedit.com` |
+    | Área de segurança  |`<company name>.sandbox.youearnedit.com` |
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte o seu Gestor de YouEarnedIt ao sucesso dos clientes atribuído para obter estes valores.
@@ -198,7 +198,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no YouEarnedIt. Tr
 > [!NOTE]
 > YouEarnedIt esperam que o fornecedor de identidade para fornecer um endereço de correio eletrónico ou o nome de utilizador no atributo NameID. Autenticação irá falhar se um nome de utilizador correspondente ou o endereço de correio eletrónico não foi encontrado na base de dados ou não corresponde exatamente. Isso exigirá que as contas de ser importado para o sistema de YouEarnedIt antes da integração de SSO (normalmente, seja por meio de importação de API ou CSV).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

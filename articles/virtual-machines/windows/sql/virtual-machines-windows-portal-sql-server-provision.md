@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6723adb3fb8987a127eee419c9ac188c7a33d50b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076047"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como aprovisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Quando cria uma máquina virtual do SQL Server, pode selecionar uma das várias imagens pré-configuradas a partir da galeria da máquina virtual. Os passos seguintes demonstram como selecionar uma das imagens SQL Server 2017.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com) utilizando a sua conta.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) com a sua conta.
 
 1. No portal do Azure, clique em **Criar um recurso**. O portal abre a janela **Novo**.
 
@@ -141,10 +141,10 @@ Sobre o **redes** separador, configure as opções de funcionamento em rede.
 
 #### <a name="monitoring"></a>Monitorização
 
-Sobre o **monitorização** separador, configurar a monitorização e de encerramento automático. 
+Sobre o **monitorização** separador, configurar a monitorização e autoshutdown. 
 
 * Do Azure permite **de monitoramento de inicialização** por padrão com a mesma conta de armazenamento designada para a VM. Pode alterar estas definições aqui, bem como a permissão **SO convidado diagnóstico**. 
-* Pode habilitar **sistema atribuído a identidade gerida** e **encerramento automático** neste separador também. 
+* Pode habilitar **sistema atribuído a identidade gerida** e **autoshutdown** também neste separador. 
 
 ![Definições de gestão da VM do SQL Server](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
@@ -188,7 +188,7 @@ Em geral, melhore a segurança, selecionando a conectividade mais restritiva que
 
 ### <a name="authentication"></a>Autenticação
 
-Se necessitar da Autenticação do SQL Server, clique em **Ativar** em **Autenticação do SQL**.
+Se necessitar de autenticação do SQL Server, clique em **habilitar** sob **autenticação do SQL** no **definições do SQL Server** separador.
 
 ![Autenticação do SQL Server](./media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
@@ -199,13 +199,12 @@ Se ativar a Autenticação do SQL Server, especifique um **Nome de início de se
 
 Se não ativar a Autenticação do SQL Server, em seguida, pode utilizar a conta de Administrador local na VM para ligar à instância do SQL Server.
 
-![Autenticação do SQL Server](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-authentication.png)
 
 ### <a name="azure-key-vault-integration"></a>Integração do Cofre de Chaves do Azure
 
-Para armazenar segredos de segurança no Azure para a encriptação, clique em **Integração do cofre de chaves do Azure** e clique em **Ativar**.
+Para armazenar segredos de segurança no Azure para a encriptação, selecione **definições do SQL Server**e desloque para baixo até **integração do Azure key vault**. Selecione **ativar** e preencha as informações pedidas. 
 
-![Integração do Cofre de Chaves do Azure](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
+![Integração do Cofre de Chaves do Azure](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-akv.png)
 
 A tabela seguinte lista os parâmetros necessários para configurar a Integração do Cofre de Chaves do Azure.
 
@@ -220,7 +219,7 @@ Para obter mais informações, consulte o artigo [Configurar a Integração do C
 
 ### <a name="storage-configuration"></a>Configuração do armazenamento
 
-Sob **configuração de armazenamento**, selecione **alterar a configuração** para especificar os requisitos de armazenamento.
+Sobre o **definições do SQL Server** separador, em **configuração de armazenamento**, selecione **alterar a configuração** para especificar os requisitos de armazenamento.
 
 
 > [!NOTE]
@@ -239,7 +238,7 @@ Em **Armazenamento otimizado para**, selecione uma das seguintes opções:
 
 ![Configuração de armazenamento de VM do SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
 
-### <a name="sql-server-license"></a>Licença do SQL Server
+### <a name="sql-server-license"></a>SQL Server License
 Se for um cliente de Software Assurance, pode utilizar o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para trazer a sua licença do SQL Server e poupar recursos. 
 
 ![Licença de VM do SQL Server](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-license.png)
@@ -264,14 +263,16 @@ Quando ativa a cópia de segurança automatizada do SQL, pode configurar as segu
 * Realizar cópia de segurança das bases de dados do sistema
 * Configurar agenda da cópia de segurança
 
-Para encriptar a cópia de segurança, clique em **Ativar**. Em seguida, especifique a **Palavra-passe**. O Azure cria um certificado para encriptar as cópias de segurança e utiliza a palavra-passe especificada para proteger o certificado.
+Para encriptar a cópia de segurança, clique em **Ativar**. Em seguida, especifique a **Palavra-passe**. O Azure cria um certificado para encriptar as cópias de segurança e utiliza a palavra-passe especificada para proteger o certificado. Por predefinição, o agendamento definido automaticamente, mas pode criar um agendamento manual selecionando **Manual**. 
+
+![Cópias de segurança automatizadas de VM do SQL Server](media/virtual-machines-windows-portal-sql-server-provision/automated-backup.png)
 
 Para obter mais informações, consulte o artigo [Cópia de Segurança Automatizada para o SQL Server nas Virtual Machines do Azure](virtual-machines-windows-sql-automated-backup.md).
 
 
 ### <a name="r-services-advanced-analytics"></a>Serviços R (Advanced Analytics)
 
-Tem a opção para ativar [SQL Server R Services (análise avançada)](/sql/advanced-analytics/r/sql-server-r-services/). Esta opção permite-lhe utilizar a análise avançada com o SQL Server 2017. Clique em **Ativar** na janela **Definições do SQL Server**.
+Tem a opção para ativar [SQL Server R Services (análise avançada)](/sql/advanced-analytics/r/sql-server-r-services/). Esta opção permite-lhe utilizar a análise avançada com o SQL Server 2017. Selecione **habilitar** sobre o **definições do SQL Server** janela.
 
 
 ## <a name="4-review--create"></a>4. Rever + criar

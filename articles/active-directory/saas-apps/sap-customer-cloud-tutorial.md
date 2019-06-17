@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ba76692ec35ddfd0b6c8c49306d6056709d684e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 669dfaa40cfe1bc65618d8706910e19d72c233ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Tutorial: Integração do Active Directory do Azure com o SAP Cloud para o cliente
 
@@ -53,7 +53,7 @@ Para configurar a integração da Cloud do SAP para o cliente para o Azure AD, t
 
 **Para adicionar SAP Cloud para o cliente a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD início de sessão único com o SAP Cloud para o clie
 
     b. Selecione **transformação** como **origem**.
 
-    c. Partir do **transformação** lista, selecione **ExtractMailPrefix()**.
+    c. Partir do **transformação** lista, selecione **ExtractMailPrefix()** .
 
     d. Partir do **parâmetro 1** , selecione o atributo de utilizador que pretende utilizar para a sua implementação.
     Por exemplo, se pretender utilizar o campo IDdeEmpregado como identificador de utilizador exclusivo e armazenou o valor do atributo a ExtensionAttribute2, em seguida, selecione user.extensionattribute2.
@@ -248,7 +248,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida na Cloud do SAP pa
 > [!NOTE]
 > Certifique-se de que o valor de NameID deve corresponder com o campo de nome de utilizador na Cloud SAP para a plataforma de cliente.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

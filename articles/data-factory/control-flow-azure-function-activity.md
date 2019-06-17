@@ -12,10 +12,10 @@ author: sharonlo101
 ms.author: shlo
 manager: craigg
 ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727045"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividade de função do Azure no Azure Data Factory
@@ -32,7 +32,7 @@ O tipo de retorno da função do Azure tem de ser válido `JObject`. (Lembre-se 
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
-| tipo   | A propriedade de tipo tem de ser definida como: **AzureFunction** | sim |
+| type   | A propriedade de tipo tem de ser definida como: **AzureFunction** | sim |
 | url da aplicação de função | URL da aplicação de função do Azure. O formato é `https://<accountname>.azurewebsites.net`. Este URL é o valor sob **URL** secção ao visualizar a aplicação de funções no portal do Azure  | sim |
 | tecla de função | Chave de acesso para a função do Azure. Clique no **gerir** secção para obter a respetiva função e copie-o a **tecla de função** ou o **chave de anfitrião**. Saiba mais aqui: [Enlaces e acionadores de HTTP de funções do Azure](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | sim |
 |   |   |   |
@@ -41,13 +41,13 @@ O tipo de retorno da função do Azure tem de ser válido `JObject`. (Lembre-se 
 
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nome  | Nome da atividade no pipeline  | String | sim |
-| tipo  | Tipo de atividade é 'AzureFunctionActivity' | String | sim |
+| name  | Nome da atividade no pipeline  | String | sim |
+| type  | Tipo de atividade é 'AzureFunctionActivity' | String | sim |
 | Serviço ligado | O serviço de função do Azure ligado para a aplicação de funções do Azure correspondente  | Referência de serviço ligado | sim |
 | Nome da função  | Nome da função na aplicação de função do Azure que chama esta atividade | String | sim |
-| método  | Método de REST API para a chamada de função | Cadeia de caracteres de tipos suportados: "GET", "POST", "PUT"   | sim |
+| method  | Método de REST API para a chamada de função | Cadeia de caracteres de tipos suportados: "GET", "POST", "PUT"   | sim |
 | cabeçalho  | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: "cabeçalhos": {"Accept-Language": "en-us", "Content-Type": "application/json"} | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Não |
-| corpo  | corpo que é enviado com o pedido para o método da api de função  | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) ou o objeto.   | Necessário para métodos PUT/POST |
+| Corpo  | corpo que é enviado com o pedido para o método da api de função  | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) ou o objeto.   | Necessário para métodos PUT/POST |
 |   |   |   | |
 
 Ver o esquema do payload de pedido no [esquema de payload de pedido](control-flow-web-activity.md#request-payload-schema) secção.

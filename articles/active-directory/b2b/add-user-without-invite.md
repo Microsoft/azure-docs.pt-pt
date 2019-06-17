@@ -6,18 +6,18 @@ documentationcenter: ''
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: sasubram
+ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5db5eb9c0e0493d906345892fcc5f2872a3e0e14
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 81aad3ef9a4a53532d19fdb81bc48fc50931d49c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812447"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056056"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Adicionar utilizadores de convidados de colaboração B2B sem uma ligação de convite ou e-mail
 
@@ -29,7 +29,7 @@ Antes deste novo método estava disponível, pode convidar utilizadores convidad
 2. O administrador da organização de anfitrião [configura as políticas](delegate-invitations.md) que permitem Sam identificar e adicione outros utilizadores da organização parceira (Litware). (Sam tem de ser adicionado para o **autor de convites** função.)
 3. Agora, Sam pode adicionar outros utilizadores de Litware para o diretório de WoodGrove, grupos ou aplicações sem a necessidade de convites para ser resgatado. Se o Sam tem os privilégios apropriados enumeração Litware, isso acontece automaticamente.
  
-Este método original ainda funciona. No entanto, há uma pequena diferença no comportamento. Se utilizar o PowerShell, observará que uma conta de convidado agora tem um **PendingAcceptance** Estado em vez de mostrar imediatamente **aceites**. Embora o estado seja pendente, o utilizador convidado ainda pode iniciar sessão e aceder à aplicação sem clicar num link de convite de e-mail. O estado pendente significa que o utilizador não ainda passou pela [experiência de consentimento](redemption-experience.md#privacy-policy-agreement), em que aceitem os termos de privacidade da organização convite. O utilizador convidado verá este ecrã de consentimento quando iniciam sessão pela primeira vez. 
+Este método original ainda funciona. No entanto, há uma pequena diferença no comportamento. Se utilizar o PowerShell, observará que uma conta de convidado agora tem um **PendingAcceptance** Estado em vez de mostrar imediatamente **aceites**. Embora o estado seja pendente, o utilizador convidado ainda pode iniciar sessão e aceder à aplicação sem clicar num link de convite de e-mail. O estado pendente significa que o utilizador não ainda passou pela [experiência de consentimento](redemption-experience.md#consent-experience-for-the-guest), em que aceitem os termos de privacidade da organização convite. O utilizador convidado verá este ecrã de consentimento quando iniciam sessão pela primeira vez. 
 
 Se convidar um utilizador no diretório, o utilizador convidado tem de aceder ao recurso específico de inquilino do portal do Azure diretamente a URL (por exemplo, https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) para ver e aceitar os termos de privacidade.
 

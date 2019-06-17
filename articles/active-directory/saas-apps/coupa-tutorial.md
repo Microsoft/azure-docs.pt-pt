@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7b4db749d1191179b3f4f1d9bb13d77925697f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Active Directory do Azure com Coupa
 
@@ -53,7 +53,7 @@ Para configurar a integração do Coupa com o Azure AD, terá de adicionar Coupa
 
 **Para adicionar Coupa a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -114,7 +114,7 @@ Para configurar o Azure AD início de sessão único com Coupa, execute os segui
 
     | Ambiente  | do IdP |
     |:-------------|----|
-    | Sandbox | `sso-stg1.coupahost.com`|
+    | Área de segurança | `sso-stg1.coupahost.com`|
     | Produção | `sso-prd1.coupahost.com`|
     | | |
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD início de sessão único com Coupa, execute os segui
 
     | Ambiente | do IdP |
     |------------- |----|
-    | Sandbox | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Área de segurança | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
     | Produção | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 

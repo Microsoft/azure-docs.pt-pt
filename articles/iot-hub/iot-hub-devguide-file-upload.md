@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60950385"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080425"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carregar ficheiros com o IoT Hub
 
-Conforme detalhado no [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) artigo, um dispositivo pode iniciar o carregamento de ficheiros ao enviar uma notificação através de um ponto de final voltado para o dispositivo (**/devices/ {deviceId} / ficheiros**). Quando um dispositivo notifica o IoT Hub que um carregamento estiver concluído, o IoT Hub envia uma mensagem de notificação de carregamento de ficheiros através da **/messages/servicebound/filenotifications** voltado para o serviço de ponto de extremidade.
+Conforme detalhado no [pontos finais do IoT Hub](iot-hub-devguide-endpoints.md) artigo, um dispositivo pode iniciar o carregamento de ficheiros ao enviar uma notificação através de um ponto de final voltado para o dispositivo ( **/devices/ {deviceId} / ficheiros**). Quando um dispositivo notifica o IoT Hub que um carregamento estiver concluído, o IoT Hub envia uma mensagem de notificação de carregamento de ficheiros através da **/messages/servicebound/filenotifications** voltado para o serviço de ponto de extremidade.
 
 Em vez de mensagens de agente através do IoT Hub em si, o IoT Hub em vez disso, atua como um dispatcher para uma conta de armazenamento do Azure associada. Um dispositivo de solicita um token de armazenamento do IoT Hub que é específico para o ficheiro que dispositivo pretende carregar. O dispositivo utiliza o URI de SAS para carregar o ficheiro para o armazenamento e, quando o carregamento estiver concluído o dispositivo envia uma notificação de conclusão para o IoT Hub. IoT Hub verifica o carregamento de ficheiros estiver concluído e, em seguida, adiciona uma mensagem de notificação de carregamento de ficheiro para o ponto de final de notificação de ficheiro voltado para o serviço.
 
@@ -95,7 +95,7 @@ Os seguintes tópicos de referência fornecem mais informações sobre como carr
 
 Opcionalmente, quando um dispositivo notifica o IoT Hub que um carregamento estiver concluído, o IoT Hub gera uma mensagem de notificação. Essa mensagem contém a localização de armazenamento e o nome do ficheiro.
 
-Conforme explicado [pontos de extremidade](iot-hub-devguide-endpoints.md), IoT Hub entregar notificações de carregamento de ficheiros através de um ponto de extremidade de serviço com acesso à (**/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de receção de notificações de carregamento de ficheiro são iguais aos mensagens cloud para o dispositivo e têm a mesma [ciclo de vida de mensagem](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Cada mensagem obtida a partir do ponto de final de notificação de carregamento do ficheiro é um registo JSON com as seguintes propriedades:
+Conforme explicado [pontos de extremidade](iot-hub-devguide-endpoints.md), IoT Hub entregar notificações de carregamento de ficheiros através de um ponto de extremidade de serviço com acesso à ( **/messages/servicebound/fileuploadnotifications**) como mensagens. A semântica de receção de notificações de carregamento de ficheiro são iguais aos mensagens cloud para o dispositivo e têm a mesma [ciclo de vida de mensagem](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Cada mensagem obtida a partir do ponto de final de notificação de carregamento do ficheiro é um registo JSON com as seguintes propriedades:
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -125,10 +125,10 @@ Cada hub IoT tem as seguintes opções de configuração para o ficheiro a carre
 
 | Propriedade | Descrição | Intervalo e predefinido |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Controla se as notificações de carregamento de ficheiros são escritas para o ponto de final de notificações do ficheiro. |Bool. Predefinição: VERDADEIRO. |
-| **fileNotifications.ttlAsIso8601** |TTL predefinido para as notificações de carregamento do ficheiro. |ISO_8601 intervalo de até 48 horas (no mínimo 1 minuto). Predefinição: 1 hora. |
-| **fileNotifications.lockDuration** |Duração do bloqueio para a fila de notificações de carregamento do ficheiro. |5 e 300 segundos (mínimo 5 segundos). Predefinição: 60 segundos. |
-| **fileNotifications.maxDeliveryCount** |Contagem máxima de entrega para o ficheiro de carregar a fila de notificação. |1 a 100. Predefinição: 100. |
+| **enableFileUploadNotifications** |Controla se as notificações de carregamento de ficheiros são escritas para o ponto de final de notificações do ficheiro. |Bool. predefinição: VERDADEIRO. |
+| **fileNotifications.ttlAsIso8601** |TTL predefinido para as notificações de carregamento do ficheiro. |ISO_8601 intervalo de até 48 horas (no mínimo 1 minuto). predefinição: 1 hora. |
+| **fileNotifications.lockDuration** |Duração do bloqueio para a fila de notificações de carregamento do ficheiro. |5 e 300 segundos (mínimo 5 segundos). predefinição: 60 segundos. |
+| **fileNotifications.maxDeliveryCount** |Contagem máxima de entrega para o ficheiro de carregar a fila de notificação. |1 a 100. predefinição: 100. |
 
 ## <a name="additional-reference-material"></a>Material de referência adicionais
 

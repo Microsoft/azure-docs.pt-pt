@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833510"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065487"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de programadores do PowerShell de funções do Azure
 
@@ -60,7 +60,7 @@ Na raiz do projeto, há um partilhada [ `host.json` ](functions-host-json.md) fi
 
 Determinados associações exigem a presença de um `extensions.csproj` ficheiro. Enlace de extensões, necessárias na [versão 2.x](functions-versions.md) de runtime das funções, são definidos no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
 
-Em aplicações de funções do PowerShell, pode, opcionalmente, ter uma `profile.ps1` que é executada quando uma aplicação de funções começa a ser executada (caso contrário, sabe como uma  *[arranque a frio](#cold-start)*. Para obter mais informações, consulte [perfil do PowerShell](#powershell-profile).
+Em aplicações de funções do PowerShell, pode, opcionalmente, ter uma `profile.ps1` que é executada quando uma aplicação de funções começa a ser executada (caso contrário, sabe como uma  *[arranque a frio](#cold-start)* . Para obter mais informações, consulte [perfil do PowerShell](#powershell-profile).
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>Definir um script do PowerShell como uma função
 
@@ -81,10 +81,10 @@ O `TriggerMetadata` parâmetro é utilizado para fornecer informações adiciona
 $TriggerMetadata.sys
 ```
 
-| Propriedade   | Descrição                                     | Type     |
+| Propriedade   | Descrição                                     | Tipo     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, em UTC, a função foi acionada        | DateTime |
-| NomeMétodo | O nome da função que foi acionada     | string   |
+| MethodName | O nome da função que foi acionada     | string   |
 | RandGuid   | um guid exclusivo para esta execução da função | string   |
 
 Cada tipo de Acionador tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém o `InsertionTime`, `Id`, `DequeueCount`, entre outras coisas. Para obter mais informações nos metadados do acionador de fila, vá para o [documentação oficial para acionadores de fila](functions-bindings-storage-queue.md#trigger---message-metadata). Verifique a documentação sobre o [acionadores](functions-triggers-bindings.md) que está a trabalhar para ver o que vem de dentro os metadados de Acionador.
@@ -133,7 +133,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Seguem-se parâmetros válidos para chamar `Push-OutputBinding`:
 
-| Name | Type | Posição | Descrição |
+| Name | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | O nome da ligação de saída que pretende definir. |
 | **`-Value`** | Object | 2 | O valor de enlace de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
@@ -243,7 +243,7 @@ Iniciar sessão PowerShell funções funciona como o registo do PowerShell regul
 | Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Escreve _informações_ registo a nível. |
-| Depuração | **`Write-Debug`** |
+| depurar | **`Write-Debug`** |
 | Rastreio | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Para além destes cmdlets, todos os elementos escritos para o pipeline é redirecionado para o `Information` log nível e exibido com a formatação do PowerShell de predefinição.
@@ -253,7 +253,7 @@ Para além destes cmdlets, todos os elementos escritos para o pipeline é redire
 
 ### <a name="configure-the-function-app-log-level"></a>Configurar o nível de registo de aplicação de função
 
-As funções permite que defina o nível de limiar para tornar mais fácil para as funções de forma escreve os registos de controlo. Para definir o limiar para todos os rastreios escritos na consola, utilize o `logging.logLevel.default` propriedade no [ `host.json` ficheiro][referência de host. json]. Esta definição aplica-se a todas as funções na sua aplicação de função.
+As funções do Azure permite-lhe definir o nível de limiar para tornar mais fácil para as funções de forma escreve os registos de controlo. Para definir o limiar para todos os rastreios escritos na consola, utilize o `logging.logLevel.default` propriedade no [ `host.json` ficheiro][referência de host. json]. Esta definição aplica-se a todas as funções na sua aplicação de função.
 
 O exemplo seguinte define o limiar para ativar o registo verboso para todas as funções, mas define o limiar para ativar o registo de depuração para uma função chamada `MyFunction`:
 
@@ -302,7 +302,7 @@ HTTP e acionadores de webhook e HTTP de saída ligações usam os objetos reques
 
 O objeto de solicitação que é passado para o script é do tipo `HttpRequestContext`, que tem as seguintes propriedades:
 
-| Propriedade  | Descrição                                                    | Type                      |
+| Propriedade  | Descrição                                                    | Tipo                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado para o melhor tipo com base nos dados. Por exemplo, se os dados JSON, ele é passado como uma tabela de hash. Se os dados são uma cadeia de caracteres, ele é passado como uma cadeia de caracteres. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de pedido.                | Dictionary < string, string ><sup>*</sup> |
@@ -317,7 +317,7 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 O objeto de resposta que deve enviar de volta é do tipo `HttpResponseContext`, que tem as seguintes propriedades:
 
-| Propriedade      | Descrição                                                 | Type                      |
+| Propriedade      | Descrição                                                 | Tipo                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
 | **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | string                    |
@@ -598,7 +598,7 @@ Ao desenvolver funções do Azure no [modelo de alojamento sem servidor](functio
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Módulos de pacote em vez de usar `Install-Module`
 
-O script é executado em cada invocação. Evite utilizar `Install-Module` no seu script. Em alternativa utilize `Save-Module` antes de publicar para que sua função não tem a perder tempo a transferir o módulo. Se arranques a frio estejam a afetar as suas funções, considere implementar a sua aplicação de função para um [plano do App Service](functions-scale.md#app-service-plan) definida como *sempre ativo* ou uma [plano Premium](functions-scale.md#premium-plan-public-preview).
+O script é executado em cada invocação. Evite utilizar `Install-Module` no seu script. Em alternativa utilize `Save-Module` antes de publicar para que sua função não tem a perder tempo a transferir o módulo. Se arranques a frio estejam a afetar as suas funções, considere implementar a sua aplicação de função para um [plano do App Service](functions-scale.md#app-service-plan) definida como *sempre ativo* ou uma [plano Premium](functions-scale.md#premium-plan).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

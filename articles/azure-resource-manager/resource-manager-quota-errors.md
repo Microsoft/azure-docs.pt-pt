@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390230"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolver erros de quotas de recursos

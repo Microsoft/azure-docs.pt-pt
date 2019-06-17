@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
 ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706844"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca das cópias de segurança de VMs do Azure

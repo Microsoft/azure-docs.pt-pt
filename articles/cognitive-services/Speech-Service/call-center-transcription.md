@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7d844f4d2ad77f5b7cc53275a24167e5f2e71b78
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064140"
 ---
 # <a name="speech-services-for-telephony-data"></a>Serviços de voz para dados de telefonia
 
@@ -34,7 +34,7 @@ Vamos rever alguns dos recursos relacionados oferta de serviços de voz do Azure
 
 ## <a name="azure-technology-for-call-centers"></a>Tecnologia Azure centrais de chamadas
 
-Posteriores, o aspecto funcional dos serviços de fala o seu principal objetivo - quando aplicado a central de atendimento - é melhorar a experiência do cliente. Três domínios claros existem nesse aspecto 
+Para além do aspecto funcional dos serviços de voz seu principal objetivo – quando aplicado a central de atendimento – é melhorar a experiência do cliente. Três domínios claros existem nesse aspecto:
 
 * Análise de pós-chamada de ou seja, processamento de chamada gravações em lotes 
 * Processamento de análises em tempo real do sinal de áudio para extrair várias informações como a chamada está sendo executada (com o sentimento que está a ser um caso de utilização proeminente) e
@@ -48,7 +48,7 @@ Se o domínio é pós- chamada de ou em tempo real, o Azure oferece um conjunto 
 
 ### <a name="speech-to-text-stt"></a>Conversão de voz em texto (STT) 
 
-[Conversão de voz em texto](speech-to-text.md) é mais buscado após a funcionalidade em qualquer solução de call center. Uma vez que muitos dos processos de análise de downstream dependem de texto transcrito, a taxa de erros do word (WER) é de extrema importância. Um dos principais desafios no transcrição do Centro de chamada é o ruído que é predominante na central de atendimento (por exemplo – outros agentes de fala em segundo plano), a várias localidades de idioma e dialetos, bem como a baixa qualidade do sinal de telefone real. WER é altamente correlacionada com o quão bem os modelos de acústica e idioma estão treinados para uma determinada localidade, assim, a capacidade para personalizar o modelo para sua localidade é importante. Nossos modelos de 4.x de versão mais recente do Unified são a solução para precisão de transcrição e latência. Treinados com dezenas de milhares de horas de dados acústicos e de milhares de milhões de informações léxicos unificado modelos são os modelos mais precisos no mercado de dados do Centro de chamada de transcrever.
+[Conversão de voz em texto](speech-to-text.md) é mais buscado após a funcionalidade em qualquer solução de call center. Uma vez que muitos dos processos de análise de downstream dependem de texto transcrito, a taxa de erros do word (WER) é de extrema importância. Um dos principais desafios no transcrição do Centro de chamada é o ruído que é predominante na central de atendimento (por exemplo outros agentes de fala em segundo plano), a várias localidades de idioma e dialetos, bem como a baixa qualidade do sinal de telefone real. WER é altamente correlacionada com o quão bem os modelos de acústica e idioma estão treinados para uma determinada localidade, assim, a capacidade para personalizar o modelo para sua localidade é importante. Nossos modelos de 4.x de versão mais recente do Unified são a solução para precisão de transcrição e latência. Treinados com dezenas de milhares de horas de dados acústicos e de milhares de milhões de informações léxicos unificado modelos são os modelos mais precisos no mercado de dados do Centro de chamada de transcrever.
 
 ### <a name="sentiment"></a>Sentimento
 Medição do se o cliente tinha uma boa experiência é uma das áreas mais importantes de análise de voz quando aplicado ao espaço do Centro de chamada. Nosso [API do Batch transcrição](batch-transcription.md) oferece análise de sentimentos por expressão. Pode agregar o conjunto de valores de obteve como parte de uma transcrição de chamada para determinar o sentimento da chamada para os agentes e o cliente.
@@ -62,7 +62,7 @@ Algumas empresas experimentando fornecendo traduzidas transcrições de chamadas
 ### <a name="text-to-speech"></a>Conversão de Texto em Voz
 [Voz](text-to-speech.md) é outra área importante na implementação de bots que interagem com os clientes. O caminho típico é que o cliente participa como palestrante, pela voz é transcrito para texto, o texto é analisado relativamente a objetivos, uma resposta é sintetizada com base na intenção reconhecida e, em seguida, um recurso ou aparece para o cliente ou uma resposta de voz sintetizada ao falar é gerado. Claro que tudo isso deve ocorrer rapidamente – assim a latência é um componente importante no êxito desses sistemas. 
 
-Nosso latência ponto a ponto é muito baixa, considerar as várias tecnologias envolvidas, tal como [voz em texto](speech-to-text.md), [Luis](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Voz](text-to-speech.md). 
+Nosso latência ponto a ponto é muito baixa, considerar as várias tecnologias envolvidas, tal como [voz em texto](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Voz](text-to-speech.md). 
 
 Nosso novo vozes também são distinguir de voz humana. Pode usar vozes para dar o seu bot sua personalidade exclusiva.
 
@@ -79,10 +79,10 @@ Vamos agora estão de cara do processamento em lotes e os pipelines em tempo rea
 Para fotografar em massa de áudio desenvolvemos o [API do Batch transcrição](batch-transcription.md). A API de transcrição do Batch foi desenvolvida de transcrever grandes quantidades de dados de áudio de forma assíncrona. Com respeito Fotografar os dados do Centro de chamada, a nossa solução se baseia nestes pilares:
 
 * **Precisão**: Com modelos de unificação de quarta geração, podemos oferecer qualidade de transcrição unsurpassed.
-* **Latência**: Compreendemos que durante a realização de transcrições em massa, as transcrições são necessárias rapidamente. As tarefas de transcrição iniciadas no [API do Batch transcrição](batch-transcription.md) ficarão em fila imediatamente, e assim que a tarefa é executada é executado mais rapidamente do que a transcrição em tempo real.
+* **Latência**: Compreendemos que durante a realização de transcrições em massa, as transcrições são necessárias rapidamente. As tarefas de transcrição iniciadas no [API do Batch transcrição](batch-transcription.md) ficarão em fila imediatamente, e assim que a tarefa começa a ser executado é executado mais rapidamente do que a transcrição em tempo real.
 * **Segurança**: Compreendemos que chamadas podem conter dados confidenciais. Tenha a certeza de que a segurança é um dos nossos prioridades. Nosso serviço tenha obtida ISO, SOC, HIPAA, certificações de PCI.
 
-Centros de chamada de gerar grandes volumes de dados de áudio numa base diária. Se a sua empresa armazena dados de telefonia numa localização central, como o armazenamento do Azure, pode utilizar o [Batch transcrição API]((batch-transcription.md) para pedir e receber transcrições de forma assíncrona.
+Centros de chamada de gerar grandes volumes de dados de áudio numa base diária. Se a sua empresa armazena dados de telefonia numa localização central, como o armazenamento do Azure, pode utilizar o [API do Batch transcrição](batch-transcription.md) para pedir e receber transcrições de forma assíncrona.
 
 Uma solução típica utiliza estes serviços:
 
@@ -98,7 +98,7 @@ Internamente estamos a utilizar as tecnologias acima para oferecer suporte a Mic
 
 Algumas empresas devem transcreva conversas em tempo real. Transcrição em tempo real pode ser utilizada para identificar palavras-chave e acionar a procura de conteúdo e recursos relevantes para a conversa, para monitorização sentimentos, para melhorar a acessibilidade, ou para fornecer as traduções para os clientes e os agentes que não são nativos oradores.
 
-Para cenários que exigem a transcrição em tempo real, recomendamos que utilize o [SDK de voz](speech-sdk.md). Atualmente, a conversão de voz para texto está disponível no [mais de 20 linguagens](language-support.md), e o SDK está disponível no C++, C#, Java, Python, node. js e Javascript. Os exemplos estão disponíveis em cada linguagem no [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Para as mais recentes notícias e atualizações, consulte [notas de versão](releasenotes.md).
+Para cenários que exigem a transcrição em tempo real, recomendamos que utilize o [SDK de voz](speech-sdk.md). Atualmente, a conversão de voz para texto está disponível no [mais de 20 linguagens](language-support.md), e o SDK está disponível no C++, C#, Java, Python, node. js, Objective-C e JavaScript. Os exemplos estão disponíveis em cada linguagem no [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk). Para as mais recentes notícias e atualizações, consulte [notas de versão](releasenotes.md).
 
 Internamente estamos a utilizar as tecnologias acima para analisar em chamadas de cliente do Microsoft em tempo real à medida que acontecem.
 
@@ -110,7 +110,7 @@ Serviços de voz podem ser facilmente integrados em qualquer solução utilizand
 
 Vários produtos do serviço IVR ou telefonia (como Genesys ou AudioCodes) oferecem capacidades de integração que podem ser utilizadas para ativar a entrada e saída passthrough áudio para um serviço do Azure. Basicamente, um serviço do Azure personalizado pode fornecer uma interface específica de definir a sessões de chamada telefónica (por exemplo, chamar início ou fim de chamar) e expor uma API de WebSocket para receber o áudio de fluxo de entrada que é utilizado com os serviços de voz. As respostas de saída, como transcrição da conversação ou ligações com o Bot Framework, podem ser sintetizadas com o serviço de texto para voz da Microsoft e retornadas ao IVR para reprodução.
 
-Outro cenário é a integração de SIP direto. Um serviço do Azure liga a um servidor SIP, introdução, portanto, um fluxo de entrada e um fluxo de saída, que é utilizado para as fases de voz em texto e texto para voz. Para ligar ao aí exista um servidor SIP são ofertas de software comercial, como o SDK de Ozieki, ou [chamar a Equipes e a API de reuniões](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (atualmente em beta), que foram concebidos para suportar este tipo de cenário para chamadas de áudio.
+Outro cenário é a integração de SIP direto. Um serviço do Azure liga a um servidor SIP, introdução, portanto, um fluxo de entrada e um fluxo de saída, que é utilizado para as fases de voz em texto e texto para voz. Para ligar ao aí exista um servidor SIP são ofertas de software comercial, como o SDK de Ozeki, ou [a API de reuniões de Equipes chamar e](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (atualmente em beta), que foram concebidos para suportar este tipo de cenário para chamadas de áudio.
 
 ## <a name="customize-existing-experiences"></a>Personalizar experiências existentes
 

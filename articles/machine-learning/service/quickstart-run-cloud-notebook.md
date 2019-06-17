@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f47735a6e41ae14cb439e10803b82c0dbd3e64d7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015272"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67115020"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning
 
@@ -84,10 +84,12 @@ Execute um bloco de notas que as estimativas de instalador de plataforma e regis
 
 1. Selecione **01.run experiment.ipynb** para abrir o bloco de notas.
 
+1. Se vir um alerta de "Kernel não encontrado", selecione o kernel **Python 3.6 - AzureML** (aproximadamente a meio para baixo na lista) e defina o kernel.
+
 1. Clique na primeira célula de código e selecione **executar**.
 
     > [!NOTE]
-    > Células de código têm Retos antes-los. Se os colchetes estão vazios (__[]__), o código não tiver sido executado. Enquanto o código está em execução, verá um asterisco (__[*]__). Após a conclusão de código, um número **[1]** aparece.  O número indica a ordem em que as células foi executado.
+    > Células de código têm Retos antes-los. Se os colchetes estão vazios ( __[]__ ), o código não tiver sido executado. Enquanto o código está em execução, verá um asterisco ( __[*]__ ). Após a conclusão de código, um número **[1]** aparece.  O número indica a ordem em que as células foi executado.
     >
     > Uso **Shift-Enter** como um atalho para executar uma célula.
 

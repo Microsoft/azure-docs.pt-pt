@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0c1c4dcf7e4ff0c82157af83aa15544cf092e2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110851"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e o fluxo do OAuth 2.0 On-Behalf-Of
 
@@ -205,7 +205,7 @@ Neste momento, o sistema de contas Microsoft pessoa não suporta o consentimento
 
 Uma funcionalidade do portal do aplicativo é "aplicações previamente autorizadas". Dessa forma, um recurso pode indicar que um determinado aplicativo sempre tem permissão para receber determinados âmbitos. Isto é principalmente útil para tornar as ligações entre um cliente front-end e um recurso de back-end mais integrada. Um recurso pode declarar a várias aplicações previamente autorizadas - qualquer aplicação desse tipo pode pedir estas permissões num OBO fluam e recebem-las sem que o usuário fornece o consentimento.
 
-#### <a name="admin-consent"></a>Consentimento de admin
+#### <a name="admin-consent"></a>Consentimento de administrador
 
 Um administrador de inquilinos pode garantir que aplicativos tem permissão para chamar suas APIs necessários ao fornecer o consentimento de administrador para a aplicação de camada intermediária. Para fazer isso, o administrador pode encontrar a aplicação de camada intermediária no seu inquilino, abra a página de permissões necessárias e optar por conceder a permissão da aplicação. Para saber mais sobre o consentimento de administrador, veja a [documentação de permissões e consentimento](v2-permissions-and-consent.md).
 

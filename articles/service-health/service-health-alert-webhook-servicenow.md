@@ -1,23 +1,24 @@
 ---
-title: Configurar alertas de estado de funcionamento do serviço do Azure com o ServiceNow | Documentos da Microsoft
+title: Enviar alertas de estado de funcionamento do serviço do Azure com ServiceNow através de webhooks
 description: Obtenha notificações personalizadas sobre eventos de estado de funcionamento de serviço à sua instância do ServiceNow.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: e32a32e4961043e0cd967247c8c13420ca8a1969
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067109"
 ---
-# <a name="configure-service-health-alerts-with-servicenow"></a>Configurar alertas de estado de funcionamento do serviço com ServiceNow
+# <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Enviar alertas de estado de funcionamento do serviço do Azure com ServiceNow através de webhooks
 
 Este artigo mostra-lhe como integrar alertas de estado de funcionamento do serviço do Azure com ServiceNow através de um webhook. Depois de configurar a integração de webhook com a instância do ServiceNow, receber alertas por meio de sua infraestrutura de notificação existente quando é afetado por problemas de serviço do Azure. Sempre que é acionado um alerta de Azure Service Health, ele chama um webhook através da API de REST de script do ServiceNow.
 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Criar uma API de REST com script no ServiceNow
+
 1.  Certifique-se de que se inscreveram cópia de segurança e iniciado sessão na sua [ServiceNow](https://www.servicenow.com/) conta.
 
 1.  Navegue para o **serviços Web do System** secção ServiceNow e selecione **APIs de REST com script**.

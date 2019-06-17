@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fc638c515af59f6872f2dae262a6910318abdd0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110768"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
 
@@ -276,11 +276,11 @@ Defina esta opção como **todos os** ou **selecionados** com base no âmbito da
 
 ![Os utilizadores podem associar dispositivos ao Azure AD](./media/azureadjoin-plan/01.png)
 
-### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Administradores locais adicionais nos dispositivos associados do Azure AD
+### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Dispositivos associados de administradores locais adicionais no Azure AD
 
 Escolher **selecionados** e seleciona os utilizadores que pretende adicionar ao grupo de administradores local em dispositivos de todos os Azure AD associado. 
 
-![Administradores locais adicionais nos dispositivos associados do Azure AD](./media/azureadjoin-plan/02.png)
+![Dispositivos associados de administradores locais adicionais no Azure AD](./media/azureadjoin-plan/02.png)
 
 
 ### <a name="require-multi-factor-auth-to-join-devices"></a>Exigir autenticação multifator associar dispositivos
@@ -325,9 +325,9 @@ Com base no seu âmbito, um dos seguintes acontece:
 
 Existem três URLs que estão relacionados com a configuração de MDM:
 
-- URL dos termos de utilização do MDM
+- MDM URL dos termos de utilização
 
-- URL de deteção de MDM 
+- URL de deteção MDM 
 
 - URL de conformidade do MDM
 

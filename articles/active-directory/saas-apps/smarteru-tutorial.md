@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: d1b2d80a1960abb37262ef7429ee5b99665986b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07c7a15ea713bb6f73e1174a681dcccb5e79e289
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867019"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração do Active Directory do Azure com SmarterU
 
@@ -53,7 +53,7 @@ Para configurar a integração do SmarterU com o Azure AD, terá de adicionar Sm
 
 **Para adicionar SmarterU a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -210,7 +210,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no SmarterU, tem de ser a
 
 1. Na secção de utilizador, execute os seguintes passos:
 
-    ![Novo Utilizador](./media/smarteru-tutorial/adduser.png)  
+    ![Novo utilizador](./media/smarteru-tutorial/adduser.png)  
 
     a. Clique em **+ utilizador**.
 
@@ -223,7 +223,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no SmarterU, tem de ser a
 > [!NOTE]
 > Pode utilizar quaisquer outras SmarterU utilizador conta criação ferramentas ou APIs fornecidas pelo SmarterU para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

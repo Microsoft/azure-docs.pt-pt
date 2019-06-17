@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: c25aef76b5559b6d00ccf60675d61ea5ea346773
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: ac08ddf4719b8d17519c5d487a6fb824efb3139a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068856"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 

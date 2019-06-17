@@ -9,12 +9,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 21ccd7b2919714610dbd51c62701c4bb32d330d6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808826"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar o seu ambiente de desenvolvimento do Azure Red Hat OpenShift
 
@@ -22,7 +22,7 @@ Para criar e executar aplicativos do Microsoft Azure Red Hat OpenShift, precisar
 
 * Comprar instâncias reservadas de máquina virtual do Azure.
 * Instalar versão 2.0.65 (ou superior) da CLI do Azure (ou utilize o Azure Cloud Shell).
-* Inscreva-se a `openshiftmanagedcluster` funcionalidade e os fornecedores de recursos associados.
+* Inscreva-se a `AROGA` funcionalidade e os fornecedores de recursos associados.
 * Crie um inquilino do Azure Active Directory (Azure AD).
 * Crie um objeto de aplicação do Azure AD.
 * Crie um utilizador do Azure AD.
@@ -55,7 +55,7 @@ Em alternativa, pode utilizar o [Azure Cloud Shell](https://docs.microsoft.com/a
 
 ## <a name="register-providers-and-features"></a>Registar fornecedores e funcionalidades
 
-O `Microsoft.ContainerService openshiftmanagedcluster` funcionalidade, `Microsoft.Solutions`, e `Microsoft.Network` fornecedores têm de estar registados na sua subscrição manualmente antes de implementar o seu primeiro cluster do Azure Red Hat OpenShift.
+O `Microsoft.ContainerService AROGA` funcionalidade, `Microsoft.Solutions`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.KeyVault` e `Microsoft.Network` fornecedores têm de estar registados na sua subscrição manualmente antes de implementar o seu primeiro cluster do Azure Red Hat OpenShift.
 
 Para registar manualmente estes fornecedores e recursos, utilize as seguintes instruções de um shell de Bash, se instalou a CLI ou da sessão do Azure Cloud Shell (Bash) no portal do Azure:
 
@@ -65,10 +65,10 @@ Para registar manualmente estes fornecedores e recursos, utilize as seguintes in
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-1. Registre-se a funcionalidade de openshiftmanagedcluster containerservice:
+1. Registre-se a funcionalidade de containerservice AROGA:
 
     ```bash
-    az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
+    az feature register --namespace Microsoft.ContainerService -n AROGA
     ```
 
 1. Registe o fornecedor de Microsoft. Storage:

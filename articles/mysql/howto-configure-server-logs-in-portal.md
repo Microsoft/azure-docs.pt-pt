@@ -1,21 +1,21 @@
 ---
-title: Configurar e aceder aos registos de servidor da base de dados do Azure para MySQL no Portal do Azure
-description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para MySQL a partir do Portal do Azure.
+title: Configurar e aceder aos registos de consulta lenta da base de dados do Azure para MySQL no portal do Azure
+description: Este artigo descreve como configurar e aceder aos registos lentos na base de dados do Azure para MySQL do portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/29/2019
+ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052715"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e registos do servidor de acesso no portal do Azure
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Configurar e registos de consulta lenta de acesso no portal do Azure
 
-Pode configurar, listar e transfira o [base de dados do Azure para os registos do servidor MySQL](concepts-server-logs.md) do portal do Azure.
+Pode configurar, listar e transfira o [base de dados do Azure para os registos de consulta lenta MySQL](concepts-server-logs.md) do portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de procedimentos, terá de:
@@ -42,7 +42,7 @@ Configure o acesso ao registo de consulta lenta MySQL.
 6. Regressar à lista de registos ao clicar o **botão Fechar** (ícone de X) no **parâmetros do servidor** página.
 
 ## <a name="view-list-and-download-logs"></a>Ver lista e transferir registos
-Assim que começa de registo, pode ver uma lista de registos disponíveis e transferir ficheiros de registo individuais no painel de registos do servidor. 
+Assim que começa de registo, pode ver uma lista de registos de consulta lenta disponíveis e transferir ficheiros de registo individuais no painel de registos do servidor.
 
 1. Abra o portal do Azure.
 
@@ -61,9 +61,7 @@ Assim que começa de registo, pode ver uma lista de registos disponíveis e tran
 
    ![Clique em ícone de download](./media/howto-configure-server-logs-in-portal/5-download.png)
 
-
 ## <a name="next-steps"></a>Passos Seguintes
-- Ver [registos do servidor de acesso na CLI](howto-configure-server-logs-in-cli.md) para aprender a transferir os registos através de programação.
-- Saiba mais sobre [registos do servidor](concepts-server-logs.md) na base de dados do Azure para MySQL. 
+- Ver [registos de consulta lenta de acesso na CLI](howto-configure-server-logs-in-cli.md) para aprender a transferir os registos de consulta lenta por meio de programação.
+- Saiba mais sobre [lento de registos de consulta](concepts-server-logs.md) na base de dados do Azure para MySQL.
 - Para obter mais informações sobre as definições de parâmetros e o registo do MySQL, consulte a documentação do MySQL na [registos](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-

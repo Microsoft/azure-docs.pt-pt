@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d5deedb12afb1b766255ad0a9f247594ed70acaa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069291"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure
 
@@ -45,7 +45,7 @@ Muitos desenvolvedores experientes modelo utilizam este método para gerar model
     |Name|Value|
     |----|----|
     |**Grupo de recursos**|Selecione **criar novo**e especifique um nome de grupo de recursos da sua preferência. Na captura de ecrã, o nome do grupo de recursos é *mystorage1016rg*. Grupo de recursos é um contentor para recursos do Azure. Grupo de recursos torna mais fácil de gerir recursos do Azure. |
-    |**Nome**|Dê um nome exclusivo de sua conta de armazenamento. O nome da conta de armazenamento tem de ser exclusivo em todas as do Azure e conter apenas letras minúsculas e números. Nome deve ter entre 3 e 24 carateres. Se obtiver uma mensagem de erro dizendo "já estiver atribuído o nome da conta de armazenamento 'mystorage1016'", tente usar  **&lt;seu nome > armazenamento&lt;data de hoje no MMDD >**, por exemplo  **johndolestorage1016**. Para obter mais informações, consulte [regras e restrições de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
+    |**Nome**|Dê um nome exclusivo de sua conta de armazenamento. O nome da conta de armazenamento tem de ser exclusivo em todas as do Azure e conter apenas letras minúsculas e números. Nome deve ter entre 3 e 24 carateres. Se obtiver uma mensagem de erro dizendo "já estiver atribuído o nome da conta de armazenamento 'mystorage1016'", tente usar  **&lt;seu nome > armazenamento&lt;data de hoje no MMDD >** , por exemplo  **johndolestorage1016**. Para obter mais informações, consulte [regras e restrições de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
 
     Pode utilizar os valores predefinidos para as restantes propriedades.
 
@@ -64,7 +64,7 @@ Muitos desenvolvedores experientes modelo utilizam este método para gerar model
     Existem seis parâmetros definidos. Um desses parâmetros é denominado **storageAccountName**. A segunda parte realçada na captura de ecrã anterior mostra como fazer referência a esse parâmetro no modelo. Na próxima secção, vai editar o modelo de modo a utilizar um nome gerado para a conta de armazenamento.
 
     No modelo, é definido um recurso do Azure. O tipo é `Microsoft.Storage/storageAccounts`. Efetuar uma análise de como o recurso está definido e a estrutura de definição.
-6. Selecione **transferir** da parte superior do ecrã. 
+6. Selecione **transferir** da parte superior do ecrã.
 7. Abra o ficheiro zip transferido e, em seguida, guarde **Template** para o seu computador. Na próxima secção, vai utilizar uma ferramenta de implementação de modelos para editar o modelo.
 8. Selecione o separador **Parameter** (Parâmetro) para ver os valores que indicou para os parâmetros. Aponte-os, pois vai precisar dos mesmos na próxima secção, quando implementar o modelo.
 
@@ -75,6 +75,9 @@ Muitos desenvolvedores experientes modelo utilizam este método para gerar model
 ## <a name="edit-and-deploy-the-template"></a>Editar e implementar o modelo
 
 O portal do Azure pode ser utilizado para fazer algumas edições básicas aos modelos. Neste início rápido, vai utilizar uma ferramenta do portal, denominada *Template Deployment*. *Implementação do modelo* é utilizado neste tutorial, pelo que pode concluir o tutorial completo, utilizando uma interface - portal do Azure. Para editar um modelo mais complexo, considere usar [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), que fornece funcionalidades mais avançadas de edição.
+
+> [!IMPORTANT]
+> Implementação do modelo fornece uma interface para modelos simples de teste. Não é recomendado para utilizar esta funcionalidade em produção. Em vez disso, armazene os seus modelos numa conta de armazenamento do Azure ou um repositório de código fonte como GitHub.
 
 O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implementação poderá falhar se tiver introduzido um nome de conta de armazenamento que já existe. Para evitar este problema, é modificar o modelo a utilizar uma chamada de função de modelo `uniquestring()` para gerar um nome de conta de armazenamento exclusivo.
 
@@ -156,7 +159,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implementaç
     |Name|Value|
     |----|----|
     |**Grupo de recursos**|Selecione o nome do grupo de recursos que criou na última secção. |
-    |**Localização**|Selecione uma localização para a conta de armazenamento. Por exemplo, **E.U.A. Central**. |
+    |**Location**|Selecione uma localização para a conta de armazenamento. Por exemplo, **E.U.A. Central**. |
     |**Tipo de conta**|Introduza **Standard_LRS** para este início rápido. |
     |**Kind**|Introduza **StorageV2** para este início rápido. |
     |**Camada de acesso**|Introduza **frequente** para este início rápido. |

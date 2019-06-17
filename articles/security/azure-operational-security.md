@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bb0726fdddf6d20a9c8c5f20d6cec0cae68322ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67119253"
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -153,7 +153,7 @@ Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Se
 
 -   **A utilização de dados**: A Microsoft utiliza os padrões e informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção; podemos fazê-lo de acordo com os compromissos de privacidade descritos na nossa [declaração de privacidade](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
-### <a name="data-location"></a>Localização dos dados
+### <a name="data-location"></a>Localização de dados
 
 O Centro de Segurança do Azure recolhe cópias efémeras dos ficheiros de informação de falha de sistema e analisa-as para encontrar sinais de tentativas de exploração e casos em que a segurança tenha sido comprometida. O Centro de Segurança do Azure faz esta análise na mesma Geografia que a área de trabalho e elimina as cópias efémeras quando a análise estiver concluída. Os artefactos das máquinas são armazenados centralmente na mesma região que as VMs.
 
@@ -224,7 +224,7 @@ A auditoria de segurança de rede é vital para detectar vulnerabilidades de red
 
 Observador de rede atualmente tem as seguintes capacidades:
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Registos de auditoria</a>**-operações efetuadas como parte da configuração de redes com sessão iniciadas. Estes registos podem ser visualizados no portal do Azure ou obtido com ferramentas da Microsoft, como o Power BI ou ferramentas de terceiros. Registos de auditoria estão disponíveis através do portal, PowerShell, CLI e Rest API. Para obter mais informações sobre os registos de auditoria, consulte a operações de auditoria com o Resource Manager. Registos de auditoria estão disponíveis para operações feitas em todos os recursos de rede.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Registos de auditoria</a>** -operações efetuadas como parte da configuração de redes com sessão iniciadas. Estes registos podem ser visualizados no portal do Azure ou obtido com ferramentas da Microsoft, como o Power BI ou ferramentas de terceiros. Registos de auditoria estão disponíveis através do portal, PowerShell, CLI e Rest API. Para obter mais informações sobre os registos de auditoria, consulte a operações de auditoria com o Resource Manager. Registos de auditoria estão disponíveis para operações feitas em todos os recursos de rede.
 
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Fluxo de IP verifica </a>**  -verifica se um pacote é permitido ou negado com base nos parâmetros de pacote de 5 cadeias de identificação do fluxo informações (IP de destino, IP de origem, porta de destino, porta de origem e protocolo). Se o pacote for recusado por um grupo de segurança de rede, a regra e o grupo de segurança de rede negou o pacote é devolvido.
@@ -264,7 +264,7 @@ As seguintes ações realizadas por análise de armazenamento são a cobrar:
 
 Os seguintes tipos de pedidos autenticados e anónimos são registados.
 
-| Autenticados  | Anónimo|
+| Autenticado  | Anónimo|
 | :------------- | :-------------|
 | Pedidos com êxito | Pedidos com êxito |
 |Pedidos falhados, incluindo o tempo limite, limitação, rede, autorização e outros erros | Pedidos com um acesso assinatura partilhado (SAS), incluindo pedidos de falhadas e bem-sucedidas |

@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 01/19/2019
-ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/13/2019
+ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585715"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067063"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Descrição geral de consulta elástica do Azure SQL Database (pré-visualização)
 
@@ -140,7 +140,7 @@ Consulta elástica está incluída no custo de bases de dados de base de dados d
 * Ainda, o script de origens de dados externas ou tabelas externas do SSMS ou o SSDT não é suportado.
 * Importar/exportar para o SQL DB ainda não suporta origens de dados externas e tabelas externas. Se precisar de utilizar a importação/exportação, remova estes objetos antes de exportar e, em seguida, voltar a criá-los depois de importar.
 * Atualmente a consulta elástica só suporta acesso só de leitura para tabelas externas. No entanto, pode usar todas as funcionalidades T-SQL na base de dados em que a tabela externa está definida. Isso pode ser útil para, por exemplo, manter os resultados temporários, usando, por exemplo, SELECIONE < column_list > em < local_table >, ou para definir os procedimentos armazenados na base de dados consulta elástica que se referem a tabelas externas.
-* Exceto nvarchar (Max), os tipos LOB de mensagens em fila não são suportados nas definições de tabela externa. Como solução, pode criar uma vista na base de dados remoto que converte o tipo LOB em nvarchar (Max), definir sua tabela externa na vista em vez da tabela base e, em seguida, convertê-lo novamente para o tipo LOB original em suas consultas.
+* Exceto nvarchar (Max), os tipos LOB (incluindo tipos geográficos) não são suportados nas definições de tabela externa. Como solução, pode criar uma vista na base de dados remoto que converte o tipo LOB em nvarchar (Max), definir sua tabela externa na vista em vez da tabela base e, em seguida, convertê-lo novamente para o tipo LOB original em suas consultas.
 * As colunas do tipo de dados nvarchar (Max) na desativação do conjunto de resultados advanced technics utilizado na implementação de consulta elástica de criação de batches e podem afetar o desempenho de consulta para uma ordem de magnitude ou até mesmo duas ordens de magnitude não canônico em casos de utilização em que grandes quantidade de estão a ser transferidos dados não agregados como resultado da consulta.
 * Estatísticas de coluna em tabelas externas não são atualmente suportadas. Estatísticas de tabela são suportadas, mas tem de ser criadas manualmente.
 

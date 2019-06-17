@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba9deb00b885dad1d69eb38d4977aafd3d80ab91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468026"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083739"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partilhar contas com o Azure AD
 ## <a name="overview"></a>Descrição geral

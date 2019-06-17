@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
 ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65523264"
 ---
 # <a name="virtual-network--business-continuity"></a>Rede virtual – continuidade do negócio

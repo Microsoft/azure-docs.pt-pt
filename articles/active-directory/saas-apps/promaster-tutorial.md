@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 66393ffa5e8837b104e42df03ab3af5d6deea936
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0a1f58705a64a973bb91e47e6e9fce87a48ce99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Tutorial: Integração do Active Directory do Azure com ProMaster (por Inlogik)
 
@@ -53,7 +53,7 @@ Para configurar a integração do ProMaster (por Inlogik) para o Azure AD, terá
 
 **Para adicionar ProMaster (por Inlogik) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar a integração do ProMaster (por Inlogik) para o Azure AD, terá
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **ProMaster (por Inlogik)**, selecione **ProMaster (por Inlogik)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **ProMaster (por Inlogik)** , selecione **ProMaster (por Inlogik)** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
      ![ProMaster (por Inlogik) na lista de resultados](common/search-new-app.png)
 
@@ -172,11 +172,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para ProMaster (por Inlogik).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **ProMaster (por Inlogik)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **ProMaster (por Inlogik)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **ProMaster (por Inlogik)**.
+2. Na lista de aplicações, selecione **ProMaster (por Inlogik)** .
 
     ![A ligação de ProMaster (por Inlogik) na lista de aplicações](common/all-applications.png)
 
@@ -198,7 +198,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no ProMaster (por Inlogik). Trabalhar com [ProMaster (por Inlogik) a equipa de suporte](mailto:michael.boldiston@inlogik.com) para adicionar os utilizadores na plataforma ProMaster (por Inlogik). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
