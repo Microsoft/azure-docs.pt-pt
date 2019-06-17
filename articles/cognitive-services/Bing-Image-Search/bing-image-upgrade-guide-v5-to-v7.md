@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: e014910bc34d2c6aaf9904c5a3670e7d7b496e84
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384385"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Guia de atualização de API de pesquisa de imagens do Bing v7

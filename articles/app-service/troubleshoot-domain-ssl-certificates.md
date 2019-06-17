@@ -16,10 +16,10 @@ ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66136180"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Resolver problemas de domínio e problemas de certificado SSL no App Service do Azure
@@ -267,7 +267,7 @@ Este problema ocorre para um dos seguintes motivos:
 
     **Solução**: Certifique-se de que seu CNAME ou um registo está configurado corretamente. Para mapear um domínio personalizado para uma aplicação, crie um registo CNAME ou um registo. Se pretender utilizar um domínio de raiz, tem de utilizar registos a e TXT:
 
-    |Tipo de registo|Anfitrião|Aponte para|
+    |Tipo de registo|Host|Aponte para|
     |------|------|-----|
     |A|@|Endereço IP para uma aplicação|
     |TXT|@|`<app-name>.azurewebsites.net`|

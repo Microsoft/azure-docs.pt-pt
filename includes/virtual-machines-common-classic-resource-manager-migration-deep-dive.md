@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66167090"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrar recursos de IaaS do modelo de implementação clássica para Azure Resource Manager
@@ -45,7 +45,7 @@ O fluxo de trabalho de migração é o seguinte:
 >
 >
 
-### <a name="validate"></a>Validar
+### <a name="validate"></a>Validação
 A operação de validação é o primeiro passo do processo de migração. O objetivo deste passo é analisar o estado dos recursos que pretende migrar no modelo de implementação clássica. A operação avalia se os recursos são capazes de migração (êxito ou falha).
 
 Selecione a rede virtual ou um serviço em nuvem (se não estiver numa rede virtual) que pretende validar para migração. Se o recurso não puder ser migrado, o Azure lista as razões por que motivo.
@@ -117,7 +117,7 @@ Este é um passo opcional, se quiser reverter as alterações ao modelo de imple
 > Não é possível efetuar esta operação, se tiver acionado a operação de consolidação.     
 >
 
-### <a name="commit"></a>Consolidar
+### <a name="commit"></a>Consolidação
 Depois de concluída a validação, pode consolidar a migração. Recursos já não aparecem no modelo de implementação clássica e só estão disponíveis no modelo de implementação do Resource Manager. Os recursos migrados só podem ser geridos no portal novo.
 
 > [!NOTE]
@@ -147,7 +147,7 @@ Pode encontrar o modelo de implementação clássica e Resource Manager represen
 | Propriedade Availability-set |Recurso Availability-set | Especificação de conjunto de disponibilidade é uma propriedade das VMS no modelo de implementação clássica. Como parte da migração, os conjuntos de disponibilidade convertem-se num recurso de nível superior. As configurações seguintes não são suportadas: múltiplos conjuntos de disponibilidade por serviço cloud, um ou mais conjuntos de disponibilidade juntamente com VMs que não estão em nenhum conjunto de disponibilidade num serviço cloud. |
 | Configuração de rede numa VM |Interface de rede primária |A configuração de rede numa VM é representada como o recurso de interface de rede primária após a migração. Nas VMs que não estão numa rede virtual, o endereço IP é alterado durante a migração. |
 | Várias interfaces de rede numa VM |Interfaces de rede |Se uma VM tiver várias interfaces de rede associados a ele, cada interface de rede se torna um recurso de nível superior como parte da migração, juntamente com todas as propriedades. |
-| Conjunto de pontos finais com balanceamento de carga |Balanceador de carga |No modelo de implementação clássica, a plataforma atribuía um balanceador de carga implícito a cada serviço cloud. Durante a migração, é criado um recurso de balanceador de carga novo e o conjunto de pontos finais com balanceamento de carga converte-se em regras de balanceador de carga. |
+| Conjunto de pontos finais com balanceamento de carga |Load balancer |No modelo de implementação clássica, a plataforma atribuía um balanceador de carga implícito a cada serviço cloud. Durante a migração, é criado um recurso de balanceador de carga novo e o conjunto de pontos finais com balanceamento de carga converte-se em regras de balanceador de carga. |
 | Regras NAT de entrada |Regras NAT de entrada |Os pontos finais de entrada definidos na VM são convertidos em regras de tradução de endereços de rede de entrada no balanceador de carga durante a migração. |
 | Endereço VIP |Endereço IP público com o nome DNS |O endereço IP virtual se torna um endereço IP público e está associado ao balanceador de carga. Os IPs virtuais só podem ser migrados se lhes tiverem sido atribuídos pontos finais de entrada. |
 | Rede virtual |Rede virtual |A rede virtual é migrada, com todas as propriedades, para o modelo de implementação Resource Manager. É criado um grupo de recursos novo com o nome `-migrated`. |

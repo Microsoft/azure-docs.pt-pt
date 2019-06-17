@@ -9,10 +9,10 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66154556"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Criar uma conta de armazenamento para o Anfitrião do Processador de Eventos
@@ -22,7 +22,7 @@ O Anfitrião do Processador de Eventos é um agente inteligente que simplifica a
 
 2. Selecione **Armazenamento** e, em seguida, **Conta de Armazenamento – blob, ficheiro, tabela, fila**.
    
-    ![Selecionar Conta de Armazenamento](./media/event-hubs-create-storage/create-storage1.png)
+    ![Selecionar uma Conta de Armazenamento](./media/event-hubs-create-storage/create-storage1.png)
 
 3. Na página **Criar conta de armazenamento**, siga os passos seguintes: 
 

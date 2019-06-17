@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
 ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66123890"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Pré-visualização: Migrar para a versão de API 3.x para aplicações de LUIS
@@ -54,7 +54,7 @@ As alterações de objeto de resposta de V3 incluem [entidades pré-concebidas](
 
 A API de V3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 
-|Nome do parâmetro|Type|Version|Objetivo|
+|Nome do parâmetro|Tipo|Version|Objetivo|
 |--|--|--|--|
 |`query`|string|Apenas v3|**No V2**, está a expressão a ser prevista o `q` parâmetro. <br><br>**Na V3**, a funcionalidade é passada o `query` parâmetro.|
 |`show-all-intents`|boolean|Apenas v3|Devolver todos os objetivos com a pontuação correspondente no **prediction.intents** objeto. Objetivos são retornados como objetos num elemento principal `intents` objeto. Isso permite o acesso programático sem a necessidade de localizar a intenção numa matriz: `prediction.intents.give`. No V2, estes foram devolvidos numa matriz. |

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: 8521566087690523359b753b800268e75437a257
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384258"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtenha informações de imagem com a API de pesquisa de imagens do Bing

@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509212"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Sessão Web com OpenID Connect no Azure Active Directory B2C
@@ -79,7 +79,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | Não | O `redirect_uri` parâmetro do seu aplicativo, onde as respostas podem ser enviadas e recebidas pelo seu aplicativo. Tem de corresponder exatamente um do `redirect_uri` parâmetros que registou no portal do Azure, exceto pelo fato de que tem de ser codificado de URL. |
 | scope | Sim | Uma lista de âmbitos separadas por espaços. O `openid` âmbito indica uma permissão para iniciar a sessão do utilizador e obter dados sobre o utilizador na forma de tokens de ID. O `offline_access` âmbito é opcional para aplicativos web. Ele indica que a sua aplicação necessitará um *token de atualização* de expandida acesso a recursos. |
 | response_mode | Não | O método que é utilizado para enviar o código de autorização resultante para a sua aplicação. Ele pode ser uma `query`, `form_post`, ou `fragment`.  O `form_post` modo de resposta é recomendado para melhor segurança. |
-| estado | Não | Um valor incluído no pedido que também é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que pretende. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para impedir ataques de falsificação de solicitação entre sites. O estado também é usado para codificar as informações sobre o estado do utilizador no aplicativo antes do pedido de autenticação ocorreu, como a página que onde estavam. |
+| state | Não | Um valor incluído no pedido que também é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que pretende. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para impedir ataques de falsificação de solicitação entre sites. O estado também é usado para codificar as informações sobre o estado do utilizador no aplicativo antes do pedido de autenticação ocorreu, como a página que onde estavam. |
 | nonce | Sim | Um valor incluído no pedido (gerado pela aplicação) que está incluído no token de ID resultante como uma afirmação. O aplicativo, em seguida, pode verificar este valor para mitigar ataques de repetição de token. O valor normalmente é uma cadeia exclusiva aleatória que pode ser utilizada para identificar a origem do pedido. |
 | p | Sim | O fluxo de utilizador que é executado. É o nome de um fluxo de utilizador que é criado no seu inquilino do Azure AD B2C. O nome do fluxo de utilizador deve iniciar com `b2c\_1\_`. |
 | linha de comandos | Não | O tipo de interação do utilizador que é necessário. O valor só é válido neste momento é `login`, que força o utilizador introduza as credenciais desse pedido. |
@@ -101,7 +101,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | --------- | ----------- |
 | id_token | O token de ID que o aplicativo solicitou. Pode usar o token de ID para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
 | code | O código de autorização que solicitou o aplicativo, se utilizou `response_type=code+id_token`. O aplicativo pode usar o código de autorização para pedir um token de acesso para um recurso de destino. Códigos de autorização normalmente expiram após cerca de 10 minutos. |
-| estado | Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. O aplicativo deve verificar se o `state` valores no pedido e resposta são idênticos. |
+| state | Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. O aplicativo deve verificar se o `state` valores no pedido e resposta são idênticos. |
 
 Respostas de erro também podem ser enviadas para o `redirect_uri` parâmetro para que a aplicação pode processar corretamente:
 
@@ -116,7 +116,7 @@ error=access_denied
 | --------- | ----------- |
 | error | Um código que pode ser utilizado para classificar os tipos de erros que ocorrem. |
 | error_description | Uma mensagem de erro específicas que pode ajudar a identificar a causa de raiz de um erro de autenticação. |
-| estado | Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. O aplicativo deve verificar se o `state` valores no pedido e resposta são idênticos. |
+| state | Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. O aplicativo deve verificar se o `state` valores no pedido e resposta são idênticos. |
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
 

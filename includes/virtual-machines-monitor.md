@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66158230"
 ---
 Pode tirar partido das muitas oportunidades para monitorizar as suas VMs por recolher, visualizar e analisar o diagnóstico e registos de dados. Para fazer simples [monitorização](../articles/azure-monitor/overview.md) da sua VM, pode utilizar o ecrã de descrição geral para a VM no portal do Azure. Pode usar [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar os diagnósticos nas suas VMs para recolher dados de métricos adicionais. Também pode utilizar as opções de monitorização mais avançadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [do Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
@@ -33,7 +33,7 @@ Pode configurar e monitorizar a coleção de [dados de diagnóstico](https://doc
 
 Pode criar [alertas](../articles/azure-monitor/platform/alerts-overview.md) com base em métricas de desempenho específicos. Os problemas que pode ser alertado sobre exemplos de quando a utilização média da CPU excede um determinado limiar ou espaço em disco livre disponível cai abaixo de um determinado período. Alertas podem ser configurados no [portal do Azure](../articles/azure-monitor/platform/alerts-classic-portal.md), utilizando [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), ou o [da CLI do Azure](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
-## <a name="azure-service-health"></a>Estado de Funcionamento de Serviço do Azure
+## <a name="azure-service-health"></a>Azure Service Health
 
 [O Azure Service Health](../articles/service-health/service-health-overview.md) fornece orientação e suporte personalizados quando é afetado por problemas nos serviços do Azure e ajuda a preparar para a próxima a manutenção planeada. O Azure Service Health alerta-o e as suas equipas através de notificações flexíveis e direcionadas.
 

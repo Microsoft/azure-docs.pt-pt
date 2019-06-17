@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148188"
 ---
 Pode anexar vários discos de dados para uma máquina virtual do Azure. Com base nos destinos de escalabilidade e desempenho para discos de dados de uma VM, é possível determinar o número e tipo de disco que tem de cumprir os requisitos de capacidade e desempenho.
@@ -23,7 +23,7 @@ A tabela seguinte ilustra o padrão e os limites máximos do número de recursos
 > | Resource | Limite predefinido  | Limite máximo |
 > | --- | --- | --- |
 > | Discos geridos Standard | 25,000 | 50,000 |
-> | Discos geridos Standard SSD | 25,000 | 50,000 |
+> | Discos geridos de Standard SSD | 25,000 | 50,000 |
 > | Discos geridos Premium | 25,000 | 50,000 |
 > | Instantâneos de Standard_LRS | 25,000 | 50,000 |
 > | Instantâneos de Standard_ZRS | 25,000 | 50,000 |
