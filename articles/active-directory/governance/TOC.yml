@@ -27,7 +27,7 @@
           href: manage-guest-access-with-access-reviews.md
         - name: Gerir o acesso dos utilizadores com revisões
           href: manage-user-access-with-access-reviews.md
-        - name: Gerir os utilizadores excluídos do acesso condicional
+        - name: Gerir os utilizadores excluídos do Acesso Condicional
           href: conditional-access-exclusion.md
 - name: Guias de procedimentos
   expanded: true

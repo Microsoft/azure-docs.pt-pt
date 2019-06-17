@@ -42,7 +42,7 @@
           href: claims-mapping.md
         - name: Token de utilizador B2B
           href: user-token.md
-        - name: Acesso condicional para B2B
+        - name: Acesso Condicional para B2B
           href: conditional-access.md
         - name: B2B para organizações híbridas
           href: hybrid-organizations.md
@@ -51,6 +51,8 @@
     - name: Guias de procedimentos
       expanded: true
       items:
+        - name: Gerir a partilha de B2B
+          href: delegate-invitations.md
         - name: Gerir convites
           items:
             - name: Administradores que adicionam utilizadores B2B
@@ -61,8 +63,6 @@
               href: google-federation.md
             - name: Autenticação com código de acesso único
               href: one-time-passcode.md
-            - name: Políticas de partilha B2B
-              href: delegate-invitations.md
             - name: Permitir ou bloquear convites
               href: allow-deny-list.md
             - name: Adicionar utilizadores B2B sem convite

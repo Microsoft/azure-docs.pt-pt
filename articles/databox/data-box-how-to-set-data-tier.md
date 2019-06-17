@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: ea208c395e2ef69ce8f28052351643e963cceb05
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427868"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilizar o Azure Data Box ou pesadas de caixa de dados do Azure para enviar dados para a camada de blob de armazenamento do Azure adequada

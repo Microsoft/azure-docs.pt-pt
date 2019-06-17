@@ -48,16 +48,31 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: API do Azure Cosmos DB para MongoDB
-          - href: /azure/cosmos-db/table-introduction/
-            html: <p>Utilize a API de Tabelas se estiver a migrar dados do armazenamento das Tabelas do Azure para a oferta de tabelas premium do Azure Cosmos DB.</p>
-            image:
-              src: media/index/table-api.svg
-            title: API de Tabela
           - href: /azure/cosmos-db/cassandra-introduction/
             html: <p>Utilize a API para Cassandra se estiver a migrar dados do Cassandra para o serviço completamente gerido do Azure Cosmos DB.</p>
             image:
               src: media/index/cassandra-api.png
             title: API de Cassandra
+          - href: /azure/cosmos-db/table-introduction/
+            html: <p>Utilize a API de Tabelas se estiver a migrar dados do armazenamento das Tabelas do Azure para a oferta de tabelas premium do Azure Cosmos DB.</p>
+            image:
+              src: media/index/table-api.svg
+            title: API de Tabela
+          - href: /azure/cosmos-db/spark-api-introduction/
+            html: <p>Utilize o suporte incorporado do Apache Spark para executar análises dos dados armazenados numa conta do Azure Cosmos. </p>
+            image:
+              src: media/index/spark-logo.png
+            title: Análise incorporada com o Apache Spark
+          - href: /azure/cosmos-db/change-feed/
+            html: '<p>Leve a cabo análises em tempo real com um feed de alterações através da leitura da lista ordenada de documentos dentro de um contentor do Azure Cosmos DB, pela ordem em que foram modificados. </p>'
+            image:
+              src: media/index/change-feed-logo.png
+            title: Feed de alterações
+          - href: /azure/cosmos-db/etcd-api-introduction/
+            html: <p> A API Etcd permite-lhe utilizar o Azure Cosmos DB como o arquivo de back-end do Kubernetes do Azure.</p>
+            image:
+              src: media/index/etcd-logo.png
+            title: API Etcd
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph

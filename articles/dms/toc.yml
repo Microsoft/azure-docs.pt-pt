@@ -42,8 +42,10 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: Monitorizar a atividade de migração
       href: how-to-monitor-migration-activity.md
-    - name: Migrar pacotes do SSIS para o Azure
+    - name: Migrar pacotes do SSIS para a Base de Dados SQL do Azure
       href: how-to-migrate-ssis-packages.md
+    - name: Migrar pacotes do SSIS para uma instância gerida da Base de Dados SQL do Azure
+      href: how-to-migrate-ssis-packages-managed-instance.md
 - name: Recursos
   items:
     - name: Estado do cenário da migração de base de dados

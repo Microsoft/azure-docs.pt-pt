@@ -82,10 +82,10 @@
           items:
             - name: Otimizar o desempenho
               href: storage-performance.md
-        - name: Com otimização de GPU
-          displayName: NV NVv2 NC NCv2 NCv3 ND
-          href: sizes-gpu.md
+        - name: Computação acelerada
           items:
+            - name: Com otimização de GPU
+              href: sizes-gpu.md
             - name: Configurar controladores de GPU
               href: n-series-driver-setup.md
         - name: Computação de elevado desempenho

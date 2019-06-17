@@ -83,6 +83,10 @@
           href: plan-sso-deployment.md
     - name: Portais de utilizador final
       href: end-user-experiences.md
+    - name: SSO Com Um Clique
+      items:
+        - name: O que é o SSO Com Um Clique
+          href: one-click-sso-tutorial.md
 - name: Guias de procedimentos
   items:
     - name: Adicionar uma aplicação da cloud

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764293"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade Web no Azure Data Factory
@@ -63,14 +63,14 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade web | String | Sim
-tipo | Tem de ser definido como **WebActivity**. | String | Sim
-método | Método de REST API para o ponto de extremidade de destino. | cadeia de caracteres. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
+name | Nome da atividade web | String | Sim
+type | Tem de ser definido como **WebActivity**. | String | Sim
+method | Método de REST API para o ponto de extremidade de destino. | cadeia de caracteres. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
 url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
 Cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Sim, o cabeçalho Content-type é necessário. `"headers":{ "Content-Type":"application/json"}`
-corpo | Representa o payload que é enviado para o ponto final.  | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres). <br/><br/>Ver o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | É necessário para métodos POST/PUT.
+Corpo | Representa o payload que é enviado para o ponto final.  | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres). <br/><br/>Ver o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | É necessário para métodos POST/PUT.
 autenticação | Método de autenticação utilizado para chamar o ponto final. Tipos suportados são "Basic ou ClientCertificate." Para obter mais informações, consulte [autenticação](#authentication) secção. Se a autenticação não é necessária, exclua esta propriedade. | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Não
-conjuntos de dados | Lista de conjuntos de dados passados para o ponto final. | Matriz de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
+datasets | Lista de conjuntos de dados passados para o ponto final. | Matriz de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
 linkedServices | Lista de serviços ligados são transmitidos ao ponto final. | Matriz de referências de serviço ligado. Pode ser uma matriz vazia. | Sim
 
 > [!NOTE]

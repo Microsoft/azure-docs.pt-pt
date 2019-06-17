@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 'Através dos dispositivos no Azure AD, os seus utilizadores estão a obter acesso aos seus recursos empresariais. Para proteger os seus recursos empresariais, enquanto administrador de TI, pode gerir estas identidades de dispositivos no Azure AD. Isto permite garantir que os seus utilizadores estão a aceder aos seus recursos a partir de dispositivos que cumprem os seus padrões de segurança e conformidade.<br>A gestão de identidades de dispositivos é também a base para cenários de acesso condicional baseado no dispositivo. Com o acesso condicional baseado no dispositivo, pode certificar-se de que o acesso a recursos no seu ambiente é apenas possível com os dispositivos geridos.'
+  description: 'Através dos dispositivos no Azure AD, os seus utilizadores estão a obter acesso aos seus recursos empresariais. Para proteger os seus recursos empresariais, enquanto administrador de TI, pode gerir estas identidades de dispositivos no Azure AD. Isto permite garantir que os seus utilizadores estão a aceder aos seus recursos a partir de dispositivos que cumprem os seus padrões de segurança e conformidade.<br>A gestão de Identidades de Dispositivos é também a base dos cenários de Acesso Condicional baseado no dispositivo. Com o Acesso Condicional baseado no dispositivo, pode certificar-se de que o acesso aos recursos no seu ambiente é apenas possível com os dispositivos geridos.'
 sections:
   - title: Tutoriais passo-a-passo
     items:

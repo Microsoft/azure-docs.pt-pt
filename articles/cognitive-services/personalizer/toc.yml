@@ -43,6 +43,8 @@
         - name: Avaliação offline
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+    - name: Escalabilidade e desempenho
+      href: concepts-scalability-performance.md
 - name: Guias de procedimentos
   items:
     - name: Criar e configurar o Personalizador

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91d4cf874d4d98735582d2690072e6a04683c1f5
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: bcb27e24e9b53b734a24304a63c8fd91d5e94f5d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988729"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Active Directory do Azure com início de sessão do Adobe
 
@@ -53,7 +53,7 @@ Para configurar a integração do Adobe Sign para o Azure AD, terá de adicionar
 
 **Para adicionar o Adobe Sign partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -250,7 +250,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Adobe Sign, tem de ser
 >[!NOTE]
 >O titular da conta do Azure Active Directory recebe uma mensagem de e-mail que inclui uma ligação para confirmar a conta até se tornar Active Directory. 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

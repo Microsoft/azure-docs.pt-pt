@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073483"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utilizar pontos finais de serviço de rede Virtual e regras para base de dados do Azure para PostgreSQL - servidor único
@@ -51,7 +51,7 @@ Uma regra de rede virtual informa ao seu banco de dados do Azure para o servidor
 
 Até que o faça, as VMs nas suas sub-redes não consegue comunicar com a base de dados do Azure para o servidor PostgreSQL. Uma ação que estabelece a comunicação é a criação de uma regra de rede virtual. A lógica para escolher a abordagem de regra de VNet requer uma discussão de comparação e contraste que envolvem as opções de segurança concorrentes oferecidas pelo firewall.
 
-### <a name="a-allow-access-to-azure-services"></a>R. Permitir acesso aos serviços do Azure
+### <a name="a-allow-access-to-azure-services"></a>R. Permitir o acesso aos serviços do Azure
 
 O painel de segurança de ligação tem um **ON/OFF** botão assinalada como **permitir o acesso aos serviços do Azure**. O **ON** definição permite comunicações a partir de todos os endereços IP do Azure e todas as sub-redes do Azure. Estes IPs do Azure ou a sub-redes não podem ser propriedade por si. Isso **ON** definição é provavelmente mais aberta que pretende que a base de dados do Azure para a base de dados do PostgreSQL para. O recurso de regra de rede virtual oferece muito controle mais granular.
 

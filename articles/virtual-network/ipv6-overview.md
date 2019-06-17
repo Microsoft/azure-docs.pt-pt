@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
 ms.openlocfilehash: 0ec650880a45f6383b24b5ac810fc2ee745806b7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62131041"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>O que é o IPv6 para a rede Virtual do Azure? (Pré-visualização)

@@ -51,6 +51,22 @@
           href: tutorial-deploy-custom-vision.md
         - name: Armazenar dados localmente com o SQL
           href: tutorial-store-data-sql-server.md
+    - name: 4. Exemplo completo da aprendizagem automática no edge
+      items:
+        - name: Introdução
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: Configurar a máquina de desenvolvimento e os serviços do Azure
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: Gerar dados de dispositivo simulado
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Preparar e implementar um modelo do Azure Machine Learning
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: Configurar um gateway transparente
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: Criar e implementar módulos do IoT Edge
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: Enviar dados para o Hub IoT através de um gateway transparente
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Conceitos
   items:
     - name: Runtime do IoT Edge
@@ -149,6 +165,8 @@
       items:
         - name: Configurar um gateway transparente
           href: how-to-create-transparent-gateway.md
+        - name: Autenticar um dispositivo a jusante
+          href: how-to-authenticate-downstream-device.md
         - name: Ligar um dispositivo de downstream
           href: how-to-connect-downstream-device.md
         - name: Gateway de protocolo do Modbus

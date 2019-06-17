@@ -83,22 +83,26 @@
           href: sql-database-design-first-database.md
         - name: Estruturar a base de dados com o .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Migrar para a Base de Dados SQL
+    - name: Base de Dados Singleton
       items:
         - name: Migrar para uma base de dados individual/de conjunto com o DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: Migrar para uma instância gerida com o DMS
+        - name: Implementar uma base de dados distribuída geograficamente
+          href: sql-database-implement-geo-distributed-database.md
+        - name: Configurar a Sincronização de Dados SQL do Azure
+          href: sql-database-get-started-sql-data-sync.md
+    - name: Instância Gerida
+      items:
+        - name: Migrar online com o DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Configurar a replicação transacional
+          href: replication-with-sql-database-managed-instance.md
     - name: Segurança na Base de Dados SQL
       items:
         - name: Segurança de base de dados individual e de conjunto
           href: sql-database-security-tutorial.md
         - name: Segurança da instância gerida
           href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: Implementar uma base de dados distribuída geograficamente
-      href: sql-database-implement-geo-distributed-database.md
-    - name: Configurar a Sincronização de Dados SQL do Azure
-      href: sql-database-get-started-sql-data-sync.md
     - name: Machine Learning Services
       items:
         - name: Criar um modelo preditivo em R
@@ -500,8 +504,6 @@
           href: sql-database-managed-instance-find-management-endpoint-ip-address.md
         - name: Verificar a proteção de firewall incorporada
           href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-        - name: Replicação transacional
-          href: replication-with-sql-database-managed-instance.md
         - name: Configurar a deteção de ameaças
           href: sql-database-managed-instance-threat-detection.md
         - name: Ligar a aplicações
@@ -558,7 +560,7 @@
       items:
         - name: Configurar a autenticação do Azure AD
           href: sql-database-aad-authentication-configure.md
-        - name: Acesso condicional
+        - name: Acesso Condicional
           href: sql-database-conditional-access.md
         - name: Autenticação multifator do AAD
           href: sql-database-ssms-mfa-authentication.md

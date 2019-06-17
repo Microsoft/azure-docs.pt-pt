@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
 ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65953852"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelação de dados na Azure Cosmos DB

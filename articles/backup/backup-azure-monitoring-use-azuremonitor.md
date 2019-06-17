@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2d7c158b32c15fb8be153511136eafb73147afa6
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808516"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitorização em escala com o Azure Monitor
 
@@ -257,7 +257,7 @@ Este recurso é o próprio Cofre de serviço de recuperação e, por conseguinte
 Embora possa utilizar a notificação através de registos de atividades, ***serviço de cópia de segurança do Azure recomenda vivamente que utilize LA para a monitorização em escala e não registos de atividades pelos seguintes motivos***.
 
 - **Cenários limitados:** Aplicável apenas para cópias de segurança de VM do Azure e deve ser repetido para cada cofre RS.
-- **Definição de acordo com:** A atividade de cópia de segurança agendada não se ajusta com a definição mais recente de registos de atividade e se alinha com [registos de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Isso levava a inesperado impacto quando os dados bombeando através do canal de registo de atividade são alterados conforme indicado abaixo.
+- **Definição de acordo com:** A atividade de cópia de segurança agendada não se ajusta com a definição mais recente de registos de atividade e se alinha com [registos de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Isso levava a inesperado impacto quando os dados bombeando através do canal de registo de atividade são alterados conforme indicado abaixo.
 - **Problemas com canal de registo de atividade:** Foi movido para um novo modelo de bombeando os registos de atividade de cópia de segurança do Azure nos cofres dos serviços de recuperação. Infelizmente, a mudança afetou a geração de registos de atividade em Clouds soberanas do Azure. Se os utilizadores de Cloud soberanas do Azure criou ou não está configurado todos os alertas de registos de Atividades através do Azure Monitor, eles não seriam acionados. Além disso, em todas as regiões públicas do Azure, se um utilizador está a recolher registos de atividades de serviços de recuperação numa área de trabalho de análise de registo como mencionado [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), estes registos também não iria aparecer.
 
 Por conseguinte, é altamente recomendável utilizar a área de trabalho de análise de registo para monitorização e alertas em escala, para todos os a cópia de segurança do Azure de cargas de trabalho protegidas.

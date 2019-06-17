@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65604033"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Compreender os termos na sua fatura de contrato de cliente da Microsoft
@@ -59,14 +59,14 @@ O **resumo de faturação** mostra os custos em relação a faturação desde o 
 
 | Termo | Descrição |
 | --- | --- |
-| Encargos|Número total de cobranças da Microsoft para este perfil de faturação desde o último período de faturação |
+| Custos|Número total de cobranças da Microsoft para este perfil de faturação desde o último período de faturação |
 | Ficha técnica |Créditos que recebeu da devolve |
 | Aplicadas os créditos do Azure | Créditos do Azure que são automaticamente aplicados aos custos do Azure cada período de faturação |
 | Subtotal |O valor do pré-imposto de devido |
-| Impostos |O tipo e a quantidade de imposto sobre o que paga, consoante o país/região do seu perfil de faturação. Se não precisa de pagar impostos sobre, em seguida, não verá imposto na sua fatura. |
+| Imposto |O tipo e a quantidade de imposto sobre o que paga, consoante o país/região do seu perfil de faturação. Se não precisa de pagar impostos sobre, em seguida, não verá imposto na sua fatura. |
 | Poupança estimada de total |A quantidade total estimada que guardou a partir de descontos em vigor. Se aplicável, taxas de desconto em vigor estão listadas abaixo os itens de linha de compra em detalhes pela secção de nota fiscal. |
 
-### <a name="invoice-sections"></a>Secções de fatura
+### <a name="invoice-sections"></a>Secções de nota fiscal
 
 Para cada secção de notas fiscais em seu perfil de faturação, verá os custos, o montante de créditos do Azure aplicadas, impostos e a quantia total devida.
 

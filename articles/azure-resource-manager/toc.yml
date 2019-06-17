@@ -37,6 +37,9 @@
       href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
     - name: Proteger artefactos
       href: resource-manager-tutorial-secure-artifacts.md
+    - name: Integração contínua com os Pipelines do Azure
+      displayName: DevOps
+      href: resource-manager-tutorial-use-azure-pipelines.md
     - name: Utilize as práticas recomendadas de implementação segura
       displayName: adm
       href: deployment-manager-tutorial.md

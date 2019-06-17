@@ -74,8 +74,9 @@
     - name: Visibilidade ao nível do inquilino
       href: security-center-management-groups.md
     - name: Implementar recomendações de segurança
-      href: security-center-recommendations.md
       items:
+        - name: O que são as recomendações de segurança
+          href: security-center-recommendations.md
         - name: Reforçar a postura de segurança
           href: security-center-monitoring.md
         - name: Proteger as suas máquinas e aplicações
@@ -181,6 +182,8 @@
       href: /learn/browse/?term=securityS
     - name: Gerir dados de utilizadores
       href: security-center-privacy.md
+    - name: Gerir a IoT
+      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: FAQ
       href: security-center-faq.md
     - name: Azure Security

@@ -50,6 +50,10 @@
       items:
         - name: Conceitos de Laboratórios DevTest
           href: devtest-lab-concepts.md
+        - name: Melhores práticas de desenvolvimento distribuído e de colaboração
+          href: best-practices-distributive-collaborative-development-environment.md
+        - name: Integração com o Azure DevOps
+          href: devtest-lab-dev-ops.md
         - name: Cenários
           items:
             - name: Cenários populares para utilizar o DevTest Labs
@@ -92,6 +96,8 @@
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Ativar a ligação de ambiente de trabalho remoto para Linux
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
+            - name: Definir ou repor palavras-passe de máquinas virtuais
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
     - name: DevTest Labs
       items:
         - name: Especificar o grupo de recursos para as máquinas virtuais de laboratório
@@ -106,6 +112,8 @@
           href: personal-data-delete-export.md
         - name: Importar as máquinas virtuais a partir de outro laboratório
           href: import-virtual-machines-from-another-lab.md
+        - name: Configurar um laboratório para utilizar um gateway de ambiente de trabalho remoto
+          href: configure-lab-remote-desktop-gateway.md
         - name: Criar uma fábrica de imagens
           href: image-factory-create.md
           items:

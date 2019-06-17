@@ -2,7 +2,7 @@
   href: index.yml
 - name: Descrição geral
   items:
-    - name: O que é o acesso condicional?
+    - name: O que é o Acesso Condicional?
       href: overview.md
 - name: Inícios rápidos
   items:
@@ -34,7 +34,7 @@
 - name: Guias de procedimentos
   expanded: true
   items:
-    - name: Planear a sua implementação de acesso condicional
+    - name: Planear a implementação do Acesso Condicional
       href: plan-conditional-access.md
     - name: Melhores práticas
       href: best-practices.md

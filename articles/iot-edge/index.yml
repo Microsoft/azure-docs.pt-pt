@@ -64,7 +64,9 @@ landingContent:
         links:
           - text: Configurar um gateway transparente
             url: how-to-create-transparent-gateway.md
-          - text: Ligar um dispositivo de downstream
+          - text: Autenticar um dispositivo a jusante no Hub IoT do Azure
+            url: how-to-authenticate-downstream-device.md
+          - text: Ligar um dispositivo a jusante a um gateway
             url: how-to-connect-downstream-device.md
   - title: Preparar para cenários de produção
     linkLists:

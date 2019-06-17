@@ -32,7 +32,7 @@
       href: role-definitions.md
     - name: PIM para os recursos do Azure
       href: pim-azure-resource.md
-    - name: Acesso condicional para a gestão do Azure
+    - name: Acesso Condicional para a gestão do Azure
       href: conditional-access-azure-management.md
 - name: Guias de procedimentos
   items:
@@ -54,6 +54,8 @@
           href: deny-assignments.md
         - name: Portal
           href: deny-assignments-portal.md
+        - name: PowerShell
+          href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
     - name: Funções personalizadas

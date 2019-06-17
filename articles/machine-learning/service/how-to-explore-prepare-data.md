@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
 ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753054"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explore e preparar dados com a classe de conjunto de dados (pré-visualização)

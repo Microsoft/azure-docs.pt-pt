@@ -16,7 +16,7 @@ metadata:
   ms.date: 09/14/2018
   ms.author: joflore
 abstract:
-  description: 'Saiba como funciona a deteção de identidades potencialmente comprometidas e como implementar respostas automatizadas para resolvê-las. O Azure Active Directory Identity Protection é uma funcionalidade do Azure AD Premium edição P2 que lhe permite:<ul><li>Detetar potenciais vulnerabilidades que afetam as identidades da sua organização</li><li>Configurar políticas de acesso condicional para responder automaticamente a ações suspeitas relacionadas com as identidades da sua organização</li><li>Investigar incidentes suspeitos e tomar as medidas adequadas para resolvê-los</li></ul><br> Os seguintes recursos ajudam-no a começar rapidamente.'
+  description: 'Saiba como funciona a deteção de identidades potencialmente comprometidas e como implementar respostas automatizadas para resolvê-las. O Azure Active Directory Identity Protection é uma funcionalidade do Azure AD Premium edição P2 que lhe permite:<ul><li>Detetar potenciais vulnerabilidades que afetam as identidades da sua organização</li><li>Configurar políticas de Acesso Condicional para responder automaticamente a ações suspeitas relacionadas com as identidades da sua organização</li><li>Investigar incidentes suspeitos e tomar as medidas adequadas para resolvê-los</li></ul><br> Os seguintes recursos ajudam-no a começar rapidamente.'
   aside:
     image:
       alt: null
@@ -30,7 +30,7 @@ sections:
   - title: Inícios rápidos de 5 minutos
     items:
       - type: paragraph
-        text: Saiba como configurar as políticas de acesso condicional de risco de início de sessão para cenários de acesso comuns.
+        text: Saiba como configurar as políticas de Acesso Condicional de risco de início de sessão para cenários de acesso comuns.
       - type: list
         style: icon48
         items:
