@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075021"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Utilizar modelos com o Azure Machine Learning utilizando estimator
 
@@ -66,7 +66,7 @@ Parâmetro | Descrição
 
 O construtor tem outro parâmetro chamado `pip_packages` que utilizar quaisquer pacotes de pip necessário
 
-Agora que criou sua `Estimator` objeto, submeter a tarefa de preparação para ser executado na computação remota com uma chamada para o `submit` funcionar no seu [experimentação](concept-azure-machine-learning-architecture.md#experiment) objeto `experiment`. 
+Agora que criou sua `Estimator` objeto, submeter a tarefa de preparação para ser executado na computação remota com uma chamada para o `submit` funcionar no seu [experimentação](concept-azure-machine-learning-architecture.md#experiments) objeto `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -125,13 +125,13 @@ print(run.get_portal_url())
 Quando inicia um treinamento execute onde o diretório de origem é um repositório de Git local, informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, o ID de consolidação atual para o repositório é registado como parte da história.
 
 ## <a name="examples"></a>Exemplos
-Para um bloco de notas que mostra as noções básicas do padrão de calculadora, consulte:
+Para um bloco de notas que mostra as noções básicas de um padrão de calculadora, consulte:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Para um bloco de notas que prepara um scikit-saiba modelo a utilizar a Calculadora, consulte:
+Para um bloco de notas que prepara um scikit-saiba modelo ao utilizar a Calculadora, consulte:
 * [tutoriais/img-classificação-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Para blocos de notas no treinamento de modelos através de avaliadores específicos de arquitetura de aprendizagem profunda, consulte:
+Para blocos de notas no treinamento modelos utilizando estimadores específicos de arquitetura de aprendizagem profunda, consulte:
 * [How-to-use-azureml/Training-with-Deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

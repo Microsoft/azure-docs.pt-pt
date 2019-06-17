@@ -1,8 +1,8 @@
 ---
-title: Quais são os controles de acesso no acesso condicional do Azure Active Directory? | Microsoft Docs
-description: Saiba como controla o acesso no trabalho de acesso condicional do Azure Active Directory.
+title: Quais são os controlos de acesso no Azure Active Directory condicional acesso? | Microsoft Docs
+description: Saiba como controla o acesso no Azure Active Directory condicional acesso profissional.
 services: active-directory
-keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
+keywords: Acesso condicional para aplicações, acesso condicional com o Azure AD, proteger o acesso aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc30bc18921b79be3b5e5b2ae340eab29dd5bcf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.openlocfilehash: dd1ea7665daa6fd93a755cbdb20ebc63e3d63a94
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112547"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory?
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controlos de acesso no Azure Active Directory condicional acesso?
 
 Com o [acesso condicional do Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), pode controlar o acesso de utilizadores autorizados como suas aplicações na cloud. Uma política de acesso condicional, vai definir a resposta ("fazê-lo") para o motivo para acionar a política ("quando isso acontece").
 
@@ -86,7 +86,7 @@ Para obter mais informações, consulte [como exigir que os dispositivos geridos
 
 Exigir uma versão híbrida do Azure AD de dispositivo associado ao é outra opção, que tem de configurar políticas de acesso condicional com base no dispositivo. Este requisito refere-se para desktops Windows, computadores portáteis e tablets de enterprise que estão associados a um Active Directory no local. Se esta opção estiver selecionada, a sua política de acesso condicional concede tentativas de acesso para acesso com dispositivos que estão associados ao Active Directory no local e o Azure Active Directory.  
 
-Para obter mais informações, consulte [definir políticas de acesso condicional com base no dispositivo do Azure Active Directory](require-managed-devices.md).
+Para obter mais informações, consulte [configurar políticas de acesso condicional com base no dispositivo do Azure Active Directory](require-managed-devices.md).
 
 ### <a name="approved-client-app"></a>Aplicação aprovada do cliente
 
@@ -136,7 +136,7 @@ Para obter mais informações sobre esses serviços, contacte diretamente os for
 
 ### <a name="creating-custom-controls"></a>Criação de controles personalizados
 
-Para criar um controle personalizado, primeiro deve contactar o fornecedor de que pretende utilizar. Cada fornecedor de terceiros tem seu próprio processo e os requisitos para inscrever-se, subscrever ou, caso contrário, se tornam uma parte do serviço e para indicar que pretende integrar com o acesso condicional. Nesse ponto, o fornecedor fornecerá um bloco de dados no formato JSON. Estes dados permite que o fornecedor e o acesso condicional para funcionarem em conjunto para o seu inquilino, cria o novo controle e define como o acesso condicional pode dizer se os seus utilizadores executou com êxito a verificação com o fornecedor.
+Para criar um controle personalizado, primeiro deve contactar o fornecedor de que pretende utilizar. Cada fornecedor de terceiros tem seu próprio processo e os requisitos para inscrever-se, subscrever ou, caso contrário, se tornam uma parte do serviço e para indicar que pretende integrar com o acesso condicional. Nesse ponto, o fornecedor fornecerá um bloco de dados no formato JSON. Estes dados permite que o fornecedor e o acesso condicional para funcionarem em conjunto para o seu inquilino, cria o novo controle e define como o acesso condicional pode saber se os seus utilizadores tem efetuado com êxito a verificação com o fornecedor.
 
 Controles personalizados não podem ser utilizados com a automatização de Identity Protection exigir autenticação multifator ou elevar funções no Privileged Identity Manager (PIM).
 
@@ -182,6 +182,6 @@ Para saber mais, consulte:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se quiser saber como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
+- Se quiser saber como configurar uma política de acesso condicional, consulte [exigir MFA para aplicações específicas com o Azure Active Directory condicional acesso](app-based-mfa.md).
 
-- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja [Best practices for conditional access in Azure Active Directory](best-practices.md) (Melhores práticas do acesso condicional no Azure Active Directory).
+- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja a [melhores práticas para acesso condicional no Azure Active Directory](best-practices.md).

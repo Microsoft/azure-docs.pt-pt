@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130624"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuração de uma aplicação v1 do ambiente de serviço
@@ -37,7 +37,7 @@ Num alto nível, um ambiente de serviço de aplicações do Azure é composta po
 * Uma Classic(V1) ou recurso Manager(V2) Azure rede Virtual (VNet) 
 * Uma sub-rede com o serviço de ambiente de serviço de aplicações alojadas em execução no mesmo
 
-### <a name="compute-resources"></a>Calcular recursos
+### <a name="compute-resources"></a>Recursos de computação
 Utilize os recursos de computação para os seus agrupamentos de recursos de quatro.  Cada ambiente de serviço de aplicações (ASE) tem um conjunto de front-ends e três conjuntos de trabalho possíveis. Não precisa de utilizar todos os conjuntos de trabalho de três, se desejar, pode simplesmente usar um ou dois.
 
 Os anfitriões nos agrupamentos de recursos (front-ends e trabalhos) não estão diretamente acessíveis aos inquilinos. Não é possível utilizar o protocolo RDP (Remote Desktop) para se ligar aos mesmos, altere o seu aprovisionamento ou agir como um administrador nos mesmos.
@@ -139,7 +139,7 @@ No painel do ASE, há uma **definições** seção que contém diversos recursos
 
 **As definições** > **endereços IP**: Quando cria uma aplicação de IP Secure Sockets Layer (SSL) no seu ASE, precisa de um endereço IP SSL. Para obter uma, o ASE tem endereços de IP SSL que ele possui que podem ser alocados. Quando um ASE é criado, ele tem um endereço IP SSL para este fim, mas pode adicionar mais. Existe uma cobrança para endereços de SSL de IP adicionais, conforme mostrado na [preços do serviço de aplicações] [ AppServicePricing] (na secção de ligações SSL). O preço adicional é o preço de SSL de IP.
 
-**As definições** > **conjunto final de front-** / **conjuntos de trabalho**: Cada um desses painéis de conjunto de recursos oferece a capacidade para ver informações apenas sobre esse pool de recursos, além de fornecermos o controles para dimensionar completamente esse agrupamento de recursos.  
+**As definições** > **conjunto final de front-**  / **conjuntos de trabalho**: Cada um desses painéis de conjunto de recursos oferece a capacidade para ver informações apenas sobre esse pool de recursos, além de fornecermos o controles para dimensionar completamente esse agrupamento de recursos.  
 
 O painel de base para cada agrupamento de recursos fornece um gráfico com a métrica para esse pool de recursos. Assim como com os gráficos do painel do ASE, pode ir para o gráfico e configurar alertas conforme pretendido. Definir um alerta a partir do painel de ASE para um agrupamento de recursos específico faz a mesma coisa como fazê-lo do agrupamento de recursos. Do conjunto de trabalho **definições** painel, tem acesso a todas as aplicações ou planos de serviço de aplicações que estão a executar este conjunto de trabalho.
 

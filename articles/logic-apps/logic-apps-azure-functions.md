@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 06/04/2019
 ms.reviewer: klam, LADocs
 ms.openlocfilehash: 524b927ec0966199c51cdee93e920d7b847139ae
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66495154"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Chamar funções do Azure a partir do Azure Logic Apps

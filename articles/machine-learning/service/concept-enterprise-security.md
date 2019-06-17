@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151193"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059351"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança empresarial para o serviço Azure Machine Learning
 
@@ -54,15 +54,15 @@ print(primary)
 ## <a name="authorization"></a>Autorização
 
 Pode criar várias áreas de trabalho, e cada área de trabalho pode ser partilhada por várias pessoas. Quando partilha uma área de trabalho, pode controlar o acesso ao mesmo ao atribuir as seguintes funções para os utilizadores:
-* Proprietário
+* Owner
 * Contribuinte
 * Leitor
     
 A tabela seguinte lista algumas das operações de serviço principais do Azure Machine Learning e as funções que podem executá-los:
 
-| Serviço Azure Machine Learning operação | Proprietário | Contribuinte | Leitor |
+| Serviço Azure Machine Learning operação | Owner | Contribuinte | Leitor |
 | ---- |:----:|:----:|:----:|
-| Criar Área de Trabalho | ✓ | ✓ | |
+| Criar área de trabalho | ✓ | ✓ | |
 | Compartilhe a área de trabalho | ✓ | |  |
 | Criar a computação | ✓ | ✓ | |
 | Anexar computação | ✓ | ✓ | |
@@ -75,7 +75,7 @@ A tabela seguinte lista algumas das operações de serviço principais do Azure 
 | Modelos de exibição/imagens | ✓ | ✓ | ✓ |
 | Chamar o serviço web | ✓ | ✓ | ✓ |
 
-Se as funções incorporadas não são suficientes para as suas necessidades, também pode criar funções personalizadas. Tenha em atenção que as funções personalizadas só que suportamos são para operações da área de trabalho e a computação do Machine Learning. As funções personalizadas podem ter ler, escrever ou eliminar as permissões na área de trabalho e o recurso de computação nessa área de trabalho. Pode disponibilizar a função num nível de área de trabalho específica, um nível de grupo de recursos específico ou um nível de subscrição específica. Para obter mais informações, consulte [gerir utilizadores e funções numa área de trabalho do Azure Machine Learning](how-to-assign-roles.md)
+Se as funções incorporadas não são suficientes para as suas necessidades, também pode criar funções personalizadas. As funções personalizadas só que suportamos são para operações da área de trabalho e a computação do Machine Learning. As funções personalizadas podem ter ler, escrever ou eliminar as permissões na área de trabalho e o recurso de computação nessa área de trabalho. Pode disponibilizar a função num nível de área de trabalho específica, um nível de grupo de recursos específico ou um nível de subscrição específica. Para obter mais informações, consulte [gerir utilizadores e funções numa área de trabalho do Azure Machine Learning](how-to-assign-roles.md)
 
 ### <a name="securing-compute-and-data"></a>Proteger dados e computação
 Os proprietários e contribuintes podem utilizar todas as computação destinos e armazenamentos de dados que estão ligados à área de trabalho.  
@@ -85,16 +85,16 @@ Para obter mais informações sobre identidades geridas, consulte [geridos ident
 
 | Resource | Permissões |
 | ----- | ----- |
-| Área de Trabalho | Contribuinte | 
-| Conta de Armazenamento | Contribuinte de Dados do Armazenamento de Blobs | 
-| Key Vault | Acesso a todos os certificados de chaves, segredos, | 
-| Azure Container Registry | Contribuinte | 
+| Área de trabalho | Contribuinte | 
+| Conta de Armazenamento | Contribuinte de dados de Blob de armazenamento | 
+| Cofre de Chaves | Acesso a todos os certificados de chaves, segredos, | 
+| Registo de Contentores do Azure | Contribuinte | 
 | Grupo de recursos que contém a área de trabalho | Contribuinte | 
 | Grupo de recursos que contém o Cofre de chaves (se diferente daquela que contém a área de trabalho) | Contribuinte | 
 
 Recomenda-se que os administradores não revoga o acesso de a identidade gerida para os recursos mencionados acima. Acesso pode ser restaurado com a operação de ressincronização de chaves.
 
-O serviço de Machine Learning do Azure cria uma aplicação adicional (nome inicia com aml-) com o acesso de nível de Contribuidor na sua subscrição para cada região da área de trabalho. Para ex. Se tiver uma área de trabalho na região E.U.A. leste e outra área de trabalho na Europa do Norte na mesma subscrição verá 2 tais aplicativos. Isto é necessário para que os recursos de computação de serviço pode ajudar a gerir o Azure Machine Learning.
+O serviço de Machine Learning do Azure cria uma aplicação adicional (nome começa com `aml-`) com o acesso de nível de Contribuidor na sua subscrição para cada região da área de trabalho. Para ex. Se tiver uma área de trabalho na região E.U.A. leste e outra área de trabalho na Europa do Norte na mesma subscrição verá dois desses aplicativos. Isto é necessário para que os recursos de computação de serviço pode ajudar a gerir o Azure Machine Learning.
 
 
 ## <a name="network-security"></a>Segurança da rede
@@ -112,6 +112,8 @@ O serviço de Machine Learning do Azure armazena os instantâneos, saídas e reg
 Para obter mais informações sobre como colocar suas próprias chaves para os dados armazenados no armazenamento de Blobs do Azure, consulte [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
 Os dados de preparação, normalmente, também são armazenados no armazenamento de Blobs do Azure para que seja acessível a computação de treinamento. Este armazenamento não é gerenciado pelo Azure Machine Learning mas montado para computação como um sistema de ficheiros remota.
+
+Para obter informações sobre regenerar as chaves de acesso para as contas de armazenamento do Azure utilizadas com a sua área de trabalho, consulte a [regenerar chaves de acesso de armazenamento](how-to-change-storage-access-key.md) artigo.
 
 #### <a name="cosmos-db"></a>BD do Cosmos
 O serviço de Machine Learning do Azure armazena as métricas e metadados para o Cosmos DB que reside numa subscrição Microsoft gerenciada pelo serviço Azure Machine Learning. Todos os dados armazenados no Cosmos DB são encriptados em descanso ao utilizar chaves geridas da Microsoft.
@@ -149,7 +151,7 @@ Detalhes do pedido de classificação são armazenadas no AppInsights, o que é 
 
 ## <a name="data-flow-diagram"></a>Diagrama de fluxo de dados
 
-### <a name="create-workspace"></a>Criar Área de Trabalho
+### <a name="create-workspace"></a>Criar área de trabalho
 O diagrama seguinte mostra o fluxo de trabalho de área de trabalho de criar.
 Utilizador inicia sessão no Azure AD a partir de qualquer um dos clientes de serviço suportados do Azure Machine Learning (portal do Azure com a CLI, o SDK de Python,) e solicita o token do Azure Resource Manager adequado.  Utilizador, em seguida, chama o Azure Resource Manager para criar a área de trabalho.  Fornecedor de recursos para aprovisionar a área de trabalho do serviço do Azure Resource Manager contactos do Azure Machine Learning.  Recursos adicionais são criados na subscrição do cliente durante a criação da área de trabalho:
 * Cofre de chaves (para armazenar segredos)

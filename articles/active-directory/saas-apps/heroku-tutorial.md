@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78901524392c575fcb9e821650b392dcea28c8b1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a78252a48ba8e3d69c6931da688f6ad692d96f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898212"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Tutorial: Integração do Active Directory do Azure com Heroku
 
@@ -54,7 +54,7 @@ Para configurar a integração do Heroku com o Azure AD, terá de adicionar Hero
 
 **Para adicionar Heroku a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -205,7 +205,7 @@ Não existe nenhum item de ação para nesta secção. Um novo utilizador é cri
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de cliente Heroku](https://www.heroku.com/support).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

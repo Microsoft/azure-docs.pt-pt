@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711565"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o runtime de integração Azure-SSIS
@@ -66,7 +66,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
 1. Transferir, instalar e iniciar [Explorador de armazenamento do Azure](https://storageexplorer.com/).
 
-   1. Sob **(Local e ligado)**, selecione direito **contas de armazenamento** e selecione **ligar ao armazenamento do Azure**.
+   1. Sob **(Local e ligado)** , selecione direito **contas de armazenamento** e selecione **ligar ao armazenamento do Azure**.
 
       ![Ligar ao armazenamento do Azure](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
 
@@ -122,7 +122,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
 1. Para ver outros exemplos de configuração personalizada, ligue para o contentor de pré-visualização pública com o Explorador de armazenamento do Azure.
 
-   a.  Sob **(Local e ligado)**, clique com botão direito **contas de armazenamento**, selecione **ligar ao armazenamento do Azure**, selecione **utilizar uma cadeia de ligação ou um acesso partilhado URI de assinatura**e, em seguida, selecione **próxima**.
+   a.  Sob **(Local e ligado)** , clique com botão direito **contas de armazenamento**, selecione **ligar ao armazenamento do Azure**, selecione **utilizar uma cadeia de ligação ou um acesso partilhado URI de assinatura**e, em seguida, selecione **próxima**.
 
       ![Ligar ao armazenamento do Azure com a assinatura de acesso partilhado](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
 ms.openlocfilehash: 435e5f2163270672ac5f1f5695ca2fe9be22ee6b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388747"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de pré-visualização do Azure Time Series Insights

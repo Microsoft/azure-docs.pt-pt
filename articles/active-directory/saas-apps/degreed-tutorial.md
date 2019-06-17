@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6741cf58208e972c85d41f2fa657e7dd82cc4f2b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b58a315cc2eed91162f19edd5c175d71cc7c4f3c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Tutorial: Integração do Active Directory do Azure com Degreed
 
@@ -55,7 +55,7 @@ Para configurar a integração do Degreed com o Azure AD, terá de adicionar Deg
 
 **Para adicionar Degreed a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -193,7 +193,7 @@ Não existe nenhum item de ação para nesta secção. Um novo utilizador é cri
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte Degreed](mailto:admin@degreed.com).
 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

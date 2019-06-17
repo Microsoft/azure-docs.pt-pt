@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 69e51f23980aa1d4225f2e5062470f94e5ca9008
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753796"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074351"
 ---
 # <a name="azure-service-fabric-security"></a>Segurança do Azure Service Fabric 
 
@@ -205,7 +205,13 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Recomendamos que implemente uma configuração de norma da indústria, que é amplamente conhecido e bem testado, por exemplo, linhas de base de segurança Microsoft, em vez de criar uma linha de base por conta própria](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); uma opção para aprovisionar estes na sua máquina Virtual Conjuntos de dimensionamento é usar o manipulador de extensão do Azure Desired State Configuration (DSC), para configurar as VMs que estes online, para que estão a executar o software de produção.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Firewall do Azure é um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos de rede Virtual do Azure. É um firewall totalmente com monitoração de estado como um serviço com elevada disponibilidade incorporada e a escalabilidade da cloud sem restrições. ](https://docs.microsoft.com/azure/firewall/overview); isso permite que a capacidade de limitar o tráfego HTTP/S de saída para uma lista especificada de nomes de domínio completamente qualificado (FQDN), incluindo carateres universais. Esta funcionalidade não requer terminação de SSL. Seu recomendado que aproveitar [FQDN de Firewall do Azure com as etiquetas](https://docs.microsoft.com/azure/firewall/fqdn-tags) para atualizações do Windows e para ativar o tráfego de rede para o Microsoft Windows Update pontos de extremidade podem fluir através da firewall. [Implantar o Firewall do Azure através de um modelo](https://docs.microsoft.com/azure/firewall/deploy-template) fornece um exemplo para definição de modelo de recurso Microsoft.Network/azureFirewalls. Duas regras de firewall comuns para aplicações do Service Fabric é permitir que a sua rede de clusters comunicar com * download.microsoft.com, e * servicefabric.azure.com; Para obter atualizações do Windows e o código de extensão de Máquina Virtual de computação do Service Fabric.
+[Firewall do Azure é um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos de rede Virtual do Azure. É um firewall totalmente com monitoração de estado como um serviço com elevada disponibilidade incorporada e a escalabilidade da cloud sem restrições. ](https://docs.microsoft.com/azure/firewall/overview); isso permite que a capacidade de limitar o tráfego HTTP/S de saída para uma lista especificada de nomes de domínio completamente qualificado (FQDN), incluindo carateres universais. Esta funcionalidade não requer terminação de SSL. Seu recomendado que aproveitar [FQDN de Firewall do Azure com as etiquetas](https://docs.microsoft.com/azure/firewall/fqdn-tags) para atualizações do Windows e para ativar o tráfego de rede para o Microsoft Windows Update pontos de extremidade podem fluir através da firewall. [Implantar o Firewall do Azure através de um modelo](https://docs.microsoft.com/azure/firewall/deploy-template) fornece um exemplo para definição de modelo de recurso Microsoft.Network/azureFirewalls. É comuns para aplicações do Service Fabric de regras de firewall permitir que as seguintes opções para a rede virtual de clusters:
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+Estas regras de firewall complementam o permitidos saída grupos de segurança, que inclui ServiceFabric e armazenamento, como destinos permitidos da sua rede virtual.
 
 ## <a name="tls-12"></a>TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -243,6 +249,18 @@ Por predefinição, o Windows Defender antivírus está instalado no Windows Ser
 
 > [!NOTE]
 > Se não estiver a utilizar o Windows Defender, consulte a documentação do Antimalware para as regras de configuração. O Windows Defender não é suportado no Linux.
+
+## <a name="platform-isolation"></a>Isolamento de plataforma
+Por predefinição, aplicações do Service Fabric são concedidas acesso ao runtime do Service Fabric em si, que se manifesta de formas diferentes: [variáveis de ambiente](service-fabric-environment-variables-reference.md) apontando para caminhos de ficheiro no anfitrião correspondente à aplicação e Arquivos de recursos de infraestrutura, um ponto de extremidade de comunicação entre processos, que aceita solicitações específicas do aplicativo e o cliente de certificado que a aplicação a utilizar para autenticar-se de espera de recursos de infraestrutura. Na eventualidade que aloja o serviço próprio de código não confiável, é recomendado para desativar este acesso para o tempo de execução SF - a menos que explicitamente necessário. Acesso ao runtime foi removido com a seguinte declaração na secção de políticas de manifesto do aplicativo: 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e11446b961727663961e4d3fa295a9b7f64860c9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438759"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059664"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -322,7 +322,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function |Descrição|
 |---------|---------|
-| **tipo** | Necessário - tem de ser definido como `eventGridTrigger`. |
+| **type** | Necessário - tem de ser definido como `eventGridTrigger`. |
 | **direção** | Necessário - tem de ser definido como `in`. |
 | **name** | Necessário - o nome da variável no código de função para o parâmetro que recebe os dados do evento. |
 
@@ -555,7 +555,7 @@ A função de Acionador do Event Grid é executado e mostra os registos semelhan
 
 ## <a name="local-testing-with-ngrok"></a>Realização de testes com ngrok locais
 
-É outra forma de testar localmente um acionador do Event Grid automatizar a ligação de HTTP entre a Internet e o seu computador de desenvolvimento. Pode fazê-lo com uma ferramenta open-source denominada [ngrok](https://ngrok.com/):
+É outra forma de testar localmente um acionador do Event Grid automatizar a ligação de HTTP entre a Internet e o seu computador de desenvolvimento. Pode fazê-lo com uma ferramenta como o [ngrok](https://ngrok.com/):
 
 1. [Criar um ponto de extremidade ngrok](#create-an-ngrok-endpoint).
 1. [Para executar a função de Acionador do Event Grid](#run-the-event-grid-trigger-function).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integração do Active Directory do Azure com TurboRater
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD início de sessão único com TurboRater, siga os pas
 
     1. Na **URL de resposta (URL do serviço de consumidor de asserção)** , introduza um URL ao utilizar o seguinte padrão:
 
-       | Ambiente | URL |
+       | Ambiente | do IdP |
        | ---------------| --------------- |
        | Teste  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
        | Em direto  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
@@ -151,7 +151,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
     1. Na **Name** , introduza **BSimon**.
   
-    1. Na **nome de utilizador** , introduza **BSimon\@\<yourcompanydomain >.\< extensão >**. Por exemplo, **BSimon\@contoso.com**.
+    1. Na **nome de utilizador** , introduza **BSimon\@\<yourcompanydomain >.\< extensão >** . Por exemplo, **BSimon\@contoso.com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
@@ -187,7 +187,7 @@ Nesta secção, vai ativar Simon B. utilizar o Azure início de sessão único a
 
 Nesta secção, vai criar um usuário chamado Simon B. no TurboRater. Trabalhar com o [equipa de suporte de TurboRater](https://www.getitc.com/support) adicionar Simon B. como um utilizador no TurboRater. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal as minhas aplicações.
 

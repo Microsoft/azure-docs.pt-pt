@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 56ceb48be9d5cc9d1cdceed7505e2e3e918a7286
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 6dbaa24df8b2917dd3f68d3851ca4662554ad00a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399667"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053262"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Adicionar o LUIS resultados para o Application Insights com um Bot emC#
 
 Este tutorial adiciona informações de resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
 
-O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure. R [Bot Framework 4.x com tutorial de LUIS](luis-csharp-tutorial-bf-v4.md) também está disponível.
+O bot baseia-se com o Bot Framework 4.x e bot de aplicação Web do Azure. R [Bot Framework 4.x com tutorial de LUIS](luis-csharp-tutorial-bf-v4.md) também está disponível.
 
 Neste tutorial, ficará a saber como:
 
@@ -33,7 +33,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O LUIS bot de funções do **[tutorial anterior](luis-csharp-tutorial-build-bot-framework-sample.md)** com o Application Insights ativado.
+* Um bot de aplicação web de LUIS do **tutorial](luis-csharp-tutorial-bf-v4.md)** com o Application Insights ativado.
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) instalado localmente no seu computador.
 
 > [!Tip]
@@ -43,7 +43,7 @@ Todo o código neste tutorial está disponível na [repositório do GitHub do Az
 
 ## <a name="review-luis-web-app-bot"></a>Reveja o LUIS bot de funções
 
-Este tutorial parte do princípio de que tem o código que tem a seguinte aparência ou que concluiu o [outro tutorial](luis-csharp-tutorial-build-bot-framework-sample.md):
+Este tutorial parte do princípio de que tem o código que tem a seguinte aparência ou que concluiu o [outro tutorial](luis-csharp-tutorial-bf-v4.md):
 
    [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
 

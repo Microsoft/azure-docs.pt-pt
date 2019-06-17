@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118077"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de recursos para bases de dados individuais com o modelo de compra baseado em vCore
 
@@ -146,7 +146,7 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 |TempDB tamanho (GB)|32|64|128|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
-|Destino IOPS (64 KB)|250|500|1000|
+|Destino IOPS (64 KB)|500|1000|2000|
 |Limites de velocidade de registo (MBps)|2.5|5.6|10|
 |Máximo de trabalhadores simultâneos (pedidos)|75|150|300|
 |Máximo permitido de sessões|30000|30000|30000|
@@ -166,7 +166,7 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 |Memória (GB)|7|14|21|28|35|42|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1|2|3|4|5|6|
-|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Tamanho máximo de dados (GB)|650|650|650|650|650|650|
 |Tamanho máximo do registo (GB)|195|195|195|195|195|195|
 |TempDB tamanho (GB)|32|64|96|128|160|192|
@@ -190,7 +190,7 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 |Memória (GB)|49|56|63|70|112|168|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|7|8|9.5|11|20|36|
-|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Tamanho máximo de dados (GB)|650|650|650|650|1024|1024|
 |Tamanho máximo do registo (GB)|195|195|195|195|307|307|
 |TempDB tamanho (GB)|224|256|288|320|384|384|
@@ -217,7 +217,7 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 |Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Tamanho máximo do registo (GB)|307|307|307|461|461|922|922|
 |TempDB tamanho (GB)|64|128|192|256|320|384|384|
-|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|8000|16000|24000|32000|40000|48000|56000|
 |Limites de velocidade de registo (MBps)|12|24|36|48|60|72|84|
@@ -241,7 +241,7 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 |Tamanho máximo de dados (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Tamanho máximo do registo (GB)|922|922|922|1229|1229|1229|1229|
 |TempDB tamanho (GB)|384|384|384|384|384|384|384|
-|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|64000|72000|80000|96000|128000|160000|320000|
 |Limites de velocidade de registo (MBps)|96|96|96|96|96|96|96|
@@ -267,7 +267,7 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 |Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Tamanho máximo do registo (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB tamanho (GB)|64|128|256|384|384|384|384|384|
-|Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Destino IOPS (64 KB)|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|
 |Latência de e/s (aproximada)|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|2400|3200|4000|8000|

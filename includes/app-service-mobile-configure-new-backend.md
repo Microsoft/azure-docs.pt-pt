@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
 ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66455156"
 ---
 1. Transferir o cliente inícios rápidos do SDK para as seguintes plataformas:

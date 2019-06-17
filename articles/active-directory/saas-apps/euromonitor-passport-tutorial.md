@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cdf8f78a54c89ac89441a87ca0ba34d61a3d2a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d8323e771d757d35e424516da6247b940901bb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65740101"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Tutorial: Integração do Active Directory do Azure com o Euromonitor Passport
 
@@ -53,7 +53,7 @@ Para configurar a integração do Euromonitor Passport para o Azure AD, terá de
 
 **Para adicionar Euromonitor Passport a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -206,7 +206,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Euromonitor Passport. Trabalhar com [equipa de suporte do Euromonitor Passport](mailto:passport.support@euromonitor.com) para adicionar os utilizadores na plataforma Euromonitor Passport. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

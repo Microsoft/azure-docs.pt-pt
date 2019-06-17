@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc08fd5cc4abbf5d16f9d49874ec2c70cace165b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067972"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restringir o acesso a um Azure container registry através de uma rede virtual do Azure ou as regras de firewall
 
@@ -216,7 +216,7 @@ Continuar a [verificar o acesso ao registo](#verify-access-to-the-registry).
 
 ## <a name="allow-access-from-an-ip-address"></a>Permitir o acesso de um endereço IP
 
-Nesta secção, configure o seu registo de contentor para permitir o acesso a partir de uma sub-rede numa rede virtual do Azure. Passos equivalentes, com a CLI do Azure e o portal do Azure são fornecidos.
+Nesta secção, configure o seu registo de contentor para permitir o acesso a partir de um endereço IP específico ou um intervalo. Passos equivalentes, com a CLI do Azure e o portal do Azure são fornecidos.
 
 ### <a name="allow-access-from-an-ip-address---cli"></a>Permitir o acesso de um endereço IP - CLI
 
@@ -343,7 +343,7 @@ az acr network-rule remove \
   --ip-address 23.45.1.0/24
 ```
 
-#### <a name="allow-access"></a>Permitir acesso
+#### <a name="allow-access"></a>Permitir o acesso
 
 Substitua o nome do seu registo a seguir [atualização do az acr] [ az-acr-update] comando:
 ```azurecli

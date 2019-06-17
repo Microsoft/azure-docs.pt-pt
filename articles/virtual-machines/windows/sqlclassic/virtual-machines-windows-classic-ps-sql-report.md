@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609829"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utilizar o PowerShell para Criar uma VM do Azure com um Servidor de Relatórios no Modo Nativo
@@ -56,7 +56,7 @@ Este tópico descreve e orienta a implantação e configuração de um servidor 
     ![nova vm a partir da Galeria](./media/virtual-machines-windows-classic-ps-sql-report/IC692020.gif)
 5. Clique em **SQL Server 2014 RTM Standard – Windows Server 2012 R2** e, em seguida, clique na seta para continuar.
    
-    ![seguinte](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+    ![Seguinte](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
    
     Se precisar dos dados do Reporting Services controlado por recurso de subscrições, escolha **SQL Server 2014 RTM Enterprise, Windows Server 2012 R2**. Para obter mais informações sobre as edições do SQL Server e suporte de funcionalidades, consulte [funcionalidades suportadas pelas edições do SQL Server 2012](https://msdn.microsoft.com/library/cc645993.aspx#Reporting).
 6. Sobre o **configuração da Máquina Virtual** página, edite os seguintes campos:
@@ -79,7 +79,7 @@ Este tópico descreve e orienta a implantação e configuração de um servidor 
      
      * **HTTP**: As portas públicas e privadas de predefinidas são **80**. Tenha em atenção que se usar uma porta privada diferente da 80, modifique **$HTTPport = 80** no script de http.
      * **HTTPS**: As portas públicas e privadas de predefinidas são **443**. É recomendado de segurança alterar a porta privada e configurar a firewall e o servidor de relatórios para utilizar a porta privada. Para obter mais informações sobre pontos finais, consulte [como a comunicação com uma Máquina Virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenha em atenção que se utilizar uma porta sem ser a 443, altere o parâmetro **$HTTPsport = 443** no script de HTTPS.
-   * Clique em seguinte. ![seguinte](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * Clique em seguinte. ![Seguinte](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Na última página do assistente, mantenha a predefinição **instalar o agente da VM** selecionado. Os passos neste tópico não utiliza o agente da VM, mas se planeja manter esta VM, o agente da VM e extensões permitirá que aprimorar ele CM.  Para obter mais informações sobre o agente da VM, consulte [agente da VM e extensões – parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Um dos ad de extensões instaladas padrão em execução é a extensão de "BGINFO", que apresenta no ambiente de trabalho VM, informações do sistema, como o IP interno e espaço no disco livre.
 9. Clique em concluído. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. O **Status** da VM apresenta como **inicial (aprovisionamento)** durante o processo de aprovisionamento e, em seguida, é apresentado como **executar** quando a VM é aprovisionado e está pronto para uso.

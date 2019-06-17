@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66155209"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar Runtime de integração Azure-SSIS no Azure Data Factory
@@ -51,7 +51,7 @@ Quando aprovisionar o IR Azure-SSIS, o pacote de funcionalidades do Azure para S
 
     Certifique-se de que a base de dados do Azure SQL server/gerida instância não tem já uma SSISDB. O aprovisionamento de IR Azure-SSIS não suporta a utilização de um SSISDB existente.
 
-- **Rede do Azure Resource Manager virtual (opcional)**. Tem de ter uma rede virtual do Azure Resource Manager se, pelo menos, uma das seguintes condições for verdadeira:
+- **Rede do Azure Resource Manager virtual (opcional)** . Tem de ter uma rede virtual do Azure Resource Manager se, pelo menos, uma das seguintes condições for verdadeira:
 
   - Está a alojar SSISDB no servidor de base de dados do Azure SQL com pontos finais de serviço de rede virtual ou na instância gerida está numa rede virtual.
   - Se pretende ligar a dados no local arquivos de pacotes do SSIS em execução no seu ir Azure-SSIS.
@@ -137,7 +137,7 @@ Nesta seção, utiliza o portal do Azure, especificamente ADF Interface de utili
 
     e. Em **Numero de Nós**, selecione o número de nós do cluster do runtime de integração. Apenas são apresentados os números de nó suportados. Selecione um cluster grande com vários nós (aumentar horizontalmente), se pretender executar muitos pacotes em paralelo.
 
-    f. Para **licença deedição/**, selecione a edição/licença do SQL Server para o runtime de integração: Standard ou Enterprise. Selecione Enterprise, se pretender utilizar as funcionalidades avançadas/premium no seu runtime de integração.
+    f. Para **licença deedição/** , selecione a edição/licença do SQL Server para o runtime de integração: Standard ou Enterprise. Selecione Enterprise, se pretender utilizar as funcionalidades avançadas/premium no seu runtime de integração.
 
     g. Para **poupar dinheiro**, selecione a opção de Azure híbrido benefício (AHB) para o runtime de integração: Ou No. Selecione Sim, se pretender trazer a sua própria licença do SQL Server com o Software Assurance para beneficiar das reduções de custos com a utilização híbrida.
 
@@ -552,7 +552,7 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
-## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
+## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
 Nesta secção, vai utilizar o modelo Azure Resource Manager para criar o runtime de integração Azure-SSIS. Eis um exemplo passo a passo:
 

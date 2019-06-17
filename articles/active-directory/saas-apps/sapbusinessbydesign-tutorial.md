@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23669671c9aec2ebad8e03e06a0ea1b139214cad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0b830f0760b768826b2d937b4a8b2ffbd8e9e2a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Tutorial: Integração do Active Directory do Azure com o SAP Business ByDesign
 
@@ -54,7 +54,7 @@ Para configurar a integração do SAP Business ByDesign com o Azure AD, terá de
 
 **Para adicionar o SAP Business ByDesign partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD início de sessão único com o SAP Business ByDesign
 
     a. Selecione **transformação** como um **origem**.
 
-    b. Na **transformação** lista pendente, selecione **ExtractMailPrefix()**.
+    b. Na **transformação** lista pendente, selecione **ExtractMailPrefix()** .
 
     c. Na **parâmetro 1** lista pendente, selecione o atributo de utilizador que pretende utilizar para a sua implementação. Por exemplo, se pretender utilizar o campo IDdeEmpregado como identificador de utilizador exclusivo e armazenou o valor do atributo a ExtensionAttribute2, em seguida, selecione user.extensionattribute2.
 
@@ -245,7 +245,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no SAP Business By
 > [!NOTE]
 > Certifique-se de que o valor de NameID deve corresponder com o campo de nome de utilizador na plataforma do SAP Business ByDesign.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

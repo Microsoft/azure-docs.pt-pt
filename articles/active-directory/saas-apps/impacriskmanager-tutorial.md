@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 73a19fa97a898e2c51912a18f46751e855ee0303
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2c153d8e67ff952add177d8a98b7561c3165774
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60273333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: Integração do Active Directory do Azure com o Gestor de risco IMPAC
 
@@ -53,7 +53,7 @@ Para configurar a integração do Gestor de risco de IMPAC com o Azure AD, terá
 
 **Para adicionar IMPAC risco Manager a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -111,9 +111,9 @@ Para configurar o Azure AD início de sessão único com o Gestor de risco IMPAC
 
     | Ambiente | Padrão de URL |
     | ---------------|--------------- |
-    | Para Produção |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
+    | Para produção |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Para teste e treinamento  |`https://staging.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
-    | Para Desenvolvimento  |`https://dev.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
+    | Para o desenvolvimento  |`https://dev.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Para o controle de qualidade |`https://QA.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Para teste |`https://test.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | | |
@@ -126,9 +126,9 @@ Para configurar o Azure AD início de sessão único com o Gestor de risco IMPAC
 
     | Ambiente | Padrão de URL |
     | ---------------|--------------- |
-    | Para Produção |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
+    | Para produção |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Para teste e treinamento  |`https://staging.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
-    | Para Desenvolvimento  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
+    | Para o desenvolvimento  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Para o controle de qualidade |`https://QA.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Para teste |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | | |

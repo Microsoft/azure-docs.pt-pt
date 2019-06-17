@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
 ms.openlocfilehash: ba772ddfa0d3c29e2d4631d1c4a23555cba36556
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60729851"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamanhos de VM com capacidade de vCPU restrita

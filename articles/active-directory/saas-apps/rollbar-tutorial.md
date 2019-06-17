@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c3546dbadf64786b398610c19ee7f8e9e740d51
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d76f4e9d61d8fd210fe9332084f9f44d19e54eed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: Integração do Active Directory do Azure com Rollbar
 
@@ -53,7 +53,7 @@ Para configurar a integração do Rollbar com o Azure AD, terá de adicionar Rol
 
 **Para adicionar Rollbar a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -245,7 +245,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Rollbar, tem de ser ap
 
 1. Utilizador recebe um convite e depois de aceitar são criados no sistema.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -5,37 +5,53 @@ services: log-analytics
 author: MGoedtel
 ms.service: log-analytics
 ms.topic: include
-ms.date: 05/16/2018
+ms.date: 06/10/2019
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c5fedc59c80c68fc222693a67664ef60ddd210a9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66238586"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133697"
 ---
-Os limites seguintes aplicam-se aos recursos do Azure Log Analytics por subscrição.
+Os limites seguintes aplicam-se a cada área de trabalho do Log Analytics no atual baseado no consumo escalão de preço introduzido em Abril de 2018:
 
-| Resource | Limite predefinido | Comentários
-| --- | --- | --- |
-| Número de áreas de trabalho gratuitas por subscrição | 10 | Não é possível aumentar este limite. |
-| Número de áreas de trabalho pagas por subscrição | N/A | Está limitado pelo número de recursos dentro de um grupo de recursos e o número de grupos de recursos por subscrição. | 
+|     | Por GB de 2018 |
+| --- | --- | 
+| Volume de dados recolhido por dia | Nenhuma |
+| Período de retenção de dados | 30 para 730 dias<sup>1</sup> |
+
+Os limites seguintes aplicam-se para cada área de trabalho do Log Analytics o mais recente legado escalões de preço:
+
+|  | Livre | Autónomo (por GB) | Por nó (OMS) |
+| --- | --- | --- | --- | --- | --- |--- |
+| Volume de dados recolhido por dia |500 MB<sup>2</sup> |Nenhuma |Nenhuma |
+| Período de retenção de dados |7 dias | 30 para 730 dias<sup>1</sup> | 30 para 730 dias<sup>1</sup> |
+
+Os limites seguintes aplicam-se para cada área de trabalho do Log Analytics a legada mais antiga escalões de preço:
+
+|  | Standard | Premium | 
+| --- | --- | --- | --- | --- | --- |--- |
+| Volume de dados recolhido por dia | Nenhuma | Nenhuma | 
+| Período de retenção de dados |30 dias | 365 dias |
+
+<sup>1</sup>retenção de dados para além dos 31 dias está disponível para encargos adicionais. Saiba mais sobre [preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+
+<sup>2</sup>quando a sua área de trabalho atinge o limite de transferência de dados diário 500 MB, a análise de dados é parada e retomada no início do dia seguinte. Os dias são baseados no fuso horário UTC.
 
 >[!NOTE]
->A partir de 2 de Abril de 2018, novas áreas de trabalho numa nova subscrição utilizam automaticamente o *por GB* plano de preços. Para as subscrições existentes criadas antes 2 de Abril, ou uma subscrição que estava associada a uma inscrição de Enterprise Agreement já existente, pode continuar a escolha de entre três escalões de preço para novas áreas de trabalho. 
+>Consoante o tempo que estava usando o Log Analytics, poderá ter acesso aos escalões de preços legado. Saiba mais sobre [legado do Log Analytics escalões de preço](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 
 >
 
-Os limites seguintes aplicam-se para cada área de trabalho do Log Analytics.
+Os limites seguintes aplicam-se aos recursos de Log Analytics do Azure (áreas de trabalho), por subscrição.
 
-|  | Livre | Standard | Premium | Autónomo | OMS | Por GB |
-| --- | --- | --- | --- | --- | --- |--- |
-| Volume de dados recolhido por dia |500 MB<sup>1</sup> |Nenhuma |Nenhum | Nenhum | Nenhum | Nenhuma
-| Período de retenção de dados |7 dias |1 mês |12 meses | 1 mês<sup>2</sup> | 1 mês<sup>2</sup>| 1 mês<sup>2</sup>|
+| Escalão de preço    | Número de áreas de trabalho por subscrição | Comentários
+| --- | --- | --- |
+| Escalão gratuito  | 10 | Não é possível aumentar este limite. |
+| Todas as camadas que não seja gratuito | N/A | Está limitado pelo número de recursos dentro de um grupo de recursos e o número de grupos de recursos por subscrição. | 
 
-<sup>1</sup>quando os clientes atingem o seu limite de transferência de dados diário 500 MB, a análise de dados é parada e retomada no início do dia seguinte. Os dias são baseados no fuso horário UTC.
-
-<sup>2</sup>o período de retenção de dados para o autónomo, OMS e planos de preços por GB, pode ser aumentado para 730 dias.
+Os limites seguintes aplicam-se às APIs de análise do registo:
 
 | Category | Limits | Comentários
 | --- | --- | --- |

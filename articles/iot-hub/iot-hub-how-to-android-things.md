@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: yizhon
 ms.openlocfilehash: 8e36cee9857c00fcb618a8491595432fb0fd60fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60400138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64571277"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Desenvolver para a plataforma Android coisas com os SDKs do Azure
 

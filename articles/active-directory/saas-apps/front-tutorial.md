@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6c050bd7cc620776d4e9cb5afd8d11637d11ab4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fb5685338ee3d8888f99cc36f4868ef897de5a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278851"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: Integração do Active Directory do Azure com a frente
 
@@ -52,7 +52,7 @@ Para configurar a integração de frente com o Azure AD, terá de adicionar Fron
 
 **Para adicionar Front a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -188,11 +188,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para a frente.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **front-**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **front-** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **front-**.
+2. Na lista de aplicações, selecione **front-** .
 
     ![A ligação de frente na lista de aplicações](common/all-applications.png)
 

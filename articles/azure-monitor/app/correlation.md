@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 030259f7773435760c09afd25ca674b63bb1b3ca
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901124"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073244"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -35,7 +35,7 @@ Cada operação de saída, como uma chamada HTTP para outro componente, é repre
 
 Pode criar uma vista da operação lógica distribuída através de `operation_Id`, `operation_parentId`, e `request.id` com `dependency.id`. Estes campos também definem a ordem de causalidade das chamadas de telemetria.
 
-Num ambiente de microsserviços, os rastreios a partir de componentes podem aceder a itens de armazenamento diferente. Todos os componentes podem ter sua própria chave de instrumentação no Application Insights. Para obter telemetria para o funcionamento lógico, tem de consultar dados a partir de todos os itens de armazenamento. Quando o número de itens de armazenamento é enorme, terá uma dica sobre onde procurar seguinte. O modelo de dados do Application Insights define dois campos para resolver este problema: `request.source` e `dependency.target`. O primeiro campo identifica o componente a solicitação de dependência e o segundo identifica que componente devolveu a resposta da chamada de dependência.
+Num ambiente de microsserviços, os rastreios a partir de componentes podem aceder a itens de armazenamento diferente. Todos os componentes podem ter sua própria chave de instrumentação no Application Insights. Para obter telemetria para o funcionamento lógico, a experiência de Usuário do aplicativo Insights consulta dados a partir de todos os itens de armazenamento. Quando o número de itens de armazenamento é enorme, terá uma dica sobre onde procurar seguinte. O modelo de dados do Application Insights define dois campos para resolver este problema: `request.source` e `dependency.target`. O primeiro campo identifica o componente a solicitação de dependência e o segundo identifica que componente devolveu a resposta da chamada de dependência.
 
 ## <a name="example"></a>Exemplo
 
@@ -51,12 +51,12 @@ Pode analisar a telemetria resultante executando uma consulta:
 
 Nos resultados, tenha em atenção que todos os itens de telemetria partilham raiz `operation_Id`. Quando uma chamada Ajax é feita a partir da página, um novo ID exclusivo (`qJSXU`) é atribuído para a telemetria de dependência e o ID da visualização de página é utilizado como `operation_ParentId`. O pedido de servidor, em seguida, utiliza o ID de Ajax como `operation_ParentId`.
 
-| itemType   | nome                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Página de ações                |              | STYz               | STYz         |
-| dependência | GET /Home/estoque           | qJSXU        | STYz               | STYz         |
-| pedido    | GET Home/estoque            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| dependência | OBTER /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
+| Dependência | GET /Home/estoque           | qJSXU        | STYz               | STYz         |
+| request    | GET Home/estoque            | KqKwlrSt9PA= | qJSXU              | STYz         |
+| Dependência | OBTER /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
 Quando a chamada `GET /api/stock/value` é feita para um serviço externo, deseja saber a identidade desse servidor, para que possa definir o `dependency.target` campo adequadamente. Quando o serviço externo não suporta a monitorização, `target` está definido como o nome de anfitrião do serviço (por exemplo, `stock-prices-api.com`). No entanto, se o serviço identifica-se ao devolver um cabeçalho HTTP predefinido, `target` contém a identidade de serviço que permite-Application Insights criar um rastreio distribuído através da consulta de telemetria a partir desse serviço.
 

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.openlocfilehash: 37c9a11b806ff49fce27120d03f67182037dc693
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64726881"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory
@@ -253,11 +253,11 @@ Nesta secção, vai criar dois serviços ligados na sua fábrica de dados.
     | Propriedade | Value |
     | --- | --- |
     | Name | Introduza `HDinisghtLinkedService`.|
-    | Type | Selecione **HDInsight a pedido**. |
+    | Tipo | Selecione **HDInsight a pedido**. |
     | Serviço Ligado do Storage do Azure | Selecione `HDIStorageLinkedService`. |
     | Tipo de cluster | Selecione **hadoop** |
     | Time to live | Forneça a duração para o qual pretende que o cluster do HDInsight para estar disponível antes de ser eliminado automaticamente.|
-    | ID do principal de serviço | Forneça o ID de aplicação do principal de serviço do Azure Active Directory que criou como parte dos pré-requisitos. |
+    | ID de principal de serviço | Forneça o ID de aplicação do principal de serviço do Azure Active Directory que criou como parte dos pré-requisitos. |
     | Chave de principal de serviço | Forneça a chave de autenticação para o principal de serviço do Azure Active Directory. |
     | Prefixo do nome do cluster | Forneça um valor que terá o prefixo para todos os tipos de cluster que são criados pela fábrica de dados. |
     |Subscrição |Selecione a sua subscrição na lista pendente.|

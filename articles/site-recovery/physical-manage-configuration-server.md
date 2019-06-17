@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119735"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres do servidor físico
@@ -108,7 +108,7 @@ Execute o ficheiro de instalação da seguinte forma:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Type | Descrição| Valores|
+|Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
 | /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
 |/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|

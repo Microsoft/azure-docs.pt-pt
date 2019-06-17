@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336971"
 ---
 # <a name="json-search-syntax"></a>Sintaxe de Pesquisa JSON
@@ -33,7 +33,7 @@ ms.locfileid: "61336971"
 }
 ```
 
-Os nomes de nó num caminho de consulta (_v0 ', ' v1,..._ ) servem como identificadores de nó que podem ser referenciados no objeto de consulta; os nomes de borda (_e0, e1,..._ ) no caminho representam os tipos das margens correspondentes. Podemos usar um asterisco _*_ como um nome de nó ou de extremidade (exceto para o nó inicial, que tem de obter) para declarar que existem não existem restrições sobre esse elemento. Por exemplo, um caminho de consulta `/v0/*/v1/e1/*/` obtém os caminhos do gráfico sem restringir o tipo de limite _(v0, v1)_. Enquanto isso, a consulta não tem restrições no destino (o último nó) do caminho seja.
+Os nomes de nó num caminho de consulta (_v0 ', ' v1,..._ ) servem como identificadores de nó que podem ser referenciados no objeto de consulta; os nomes de borda (_e0, e1,..._ ) no caminho representam os tipos das margens correspondentes. Podemos usar um asterisco _*_ como um nome de nó ou de extremidade (exceto para o nó inicial, que tem de obter) para declarar que existem não existem restrições sobre esse elemento. Por exemplo, um caminho de consulta `/v0/*/v1/e1/*/` obtém os caminhos do gráfico sem restringir o tipo de limite _(v0, v1)_ . Enquanto isso, a consulta não tem restrições no destino (o último nó) do caminho seja.
 
 Quando um caminho contém apenas um nó, digamos _v0_, a consulta simplesmente retornará todas as entidades que satisfazem as restrições. Um objeto de restrição aplicadas para o nó inicial é chamado um *a partir de objeto de consulta*, cuja especificação é dado da seguinte forma.
 

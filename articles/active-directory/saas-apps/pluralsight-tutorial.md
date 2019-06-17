@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d184a1099b525fa5d819532cefa5dd6750e6c358
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutorial: Integração do Active Directory do Azure com a Pluralsight
 
@@ -54,7 +54,7 @@ Para configurar a integração da Pluralsight para o Azure AD, terá de adiciona
 
 **Para adicionar Pluralsight a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -115,7 +115,7 @@ Para configurar o Azure AD início de sessão único com a Pluralsight, execute 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o URL de resposta real. Contacte [equipa de suporte de cliente do Pluralsight](mailto:support@pluralsight.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. Aplicação de Pluralsight espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+5. Aplicação de Pluralsight espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos de utilizador** caixa de diálogo.
     ![image](common/edit-attribute.png)
 
     >[!NOTE]
@@ -125,9 +125,9 @@ Para configurar o Azure AD início de sessão único com a Pluralsight, execute 
     
     | Name | Atributo de origem|
     | --------------- | --------- |
-    | Nome  | user.givenname  |
+    | Nome próprio  | user.givenname  |
     | Apelido  | user.surname  |
-    | Correio Electrónico  | user.mail  |
+    | Email  | user.mail  |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -210,7 +210,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Pluralsight. Pluralsight suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir na Pluralsight, uma nova é criada após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

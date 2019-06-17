@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60756550"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos de sistema de borda de caixa de dados do Azure
@@ -60,7 +60,7 @@ Utilize a seguinte tabela para a configuração da porta para os servidores que 
 
 | Porta não. | Dentro ou para fora | Âmbito de porta | Necessário | Orientação |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberto para o aprovisionamento do IoT Edge. Esta configuração é necessária quando usar scripts manuais ou do Azure IoT dispositivo aprovisionamento DPS (serviço).|
+| TCP 443 (HTTPS)| horizontalmente       | WAN        | Sim      | Saída aberto para o aprovisionamento do IoT Edge. Esta configuração é necessária quando usar scripts manuais ou do Azure IoT dispositivo aprovisionamento DPS (serviço).|
 
 Para obter informações completas, aceda a [Firewall e regras de configuração de porta para a implementação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

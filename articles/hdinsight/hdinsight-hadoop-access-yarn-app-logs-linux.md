@@ -8,19 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0a3411cc4cc32c3e54583ab81ee98f2e151d4384
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0c5ecfba97c61288d08681006645eab0bdd23f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059459"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Registos de aplicações do Apache Hadoop YARN de acesso no HDInsight baseado em Linux
 
 Saiba como aceder aos registos para [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) aplicativos (ainda outro recurso Negociador) num [Apache Hadoop](https://hadoop.apache.org/) cluster no Azure HDInsight.
-
-> [!IMPORTANT]  
-> Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. Linux é o único sistema operativo utilizado no HDInsight versão 3.6 ou superior. Para obter mais informações, consulte [controlo de versões de componente de HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="YARNTimelineServer"></a>Servidor de linha cronológica do YARN
 
@@ -37,9 +34,9 @@ Servidor de linha cronológica do YARN inclui o seguinte tipo de dados:
 
 YARN suporta vários modelos de programação ([Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) sendo um deles) ao desassociar a gestão de recursos de agendamento/monitorização de aplicações. YARN utiliza um global *ResourceManager* (RM), por função de trabalho-nó *NodeManagers* (NMs) e por aplicativo *ApplicationMasters* (AMs). O AM por aplicação negocia recursos (CPU, memória, disco e rede) para executar a aplicação com o RM. O RM funciona com NMs para conceder estes recursos, o que são concedidos como *contentores*. O AM é responsável por rastrear o progresso dos contentores atribuído pelo RM. Um aplicativo pode exigir o número de contentores dependendo da natureza do aplicativo.
 
-Cada aplicativo pode consistir em várias *tentativas de aplicativo*. Se uma aplicação falhar, pode ser repetida como uma nova tentativa. Cada tentativa é executado num contentor. De certa forma, um contentor fornece o contexto para a unidade básica de trabalho realizado por uma aplicação YARN. Todo o trabalho é feito no contexto de um contentor é executado no nó de trabalho único no qual o contentor foi alocado. Ver [Apache Hadoop YARN conceitos] [ YARN-concepts] para referência ainda mais.
+Cada aplicativo pode consistir em várias *tentativas de aplicativo*. Se uma aplicação falhar, pode ser repetida como uma nova tentativa. Cada tentativa é executado num contentor. De certa forma, um contentor fornece o contexto para a unidade básica de trabalho realizado por uma aplicação YARN. Todo o trabalho é feito no contexto de um contentor é executado no nó de trabalho único no qual o contentor foi alocado. Ver [Apache Hadoop YARN conceitos](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html) para referência ainda mais.
 
-Registos de aplicações (e os registos de contentor associado) são essenciais na depuração de aplicativos problemáticos do Hadoop. O YARN fornece uma estrutura legal para recolher, Agregar e armazenar os registos de aplicações com o [Log agregação] [ log-aggregation] funcionalidade. A funcionalidade de agregação de Log torna os registos da aplicação ao aceder ao mais determinístico. Ele agrega registos em todos os contentores num nó de trabalho e armazena-as como um ficheiro de registo de agregados por nó de trabalho. O registo é armazenado no sistema de ficheiros predefinido após a conclusão de uma aplicação. Seu aplicativo pode usar centenas ou milhares de contentores, mas os registos para todos os contentores executados num nó de trabalho única sempre são agregados para um único arquivo. Portanto, há apenas 1 registo por nó de trabalho utilizado pela sua aplicação. Agregação de registo está ativada por predefinição em clusters de HDInsight versão 3.0 e superior. Registos agregados estão localizados no armazenamento de predefinido para o cluster. O caminho seguinte é o caminho do HDFS para os registos:
+Registos de aplicações (e os registos de contentor associado) são essenciais na depuração de aplicativos problemáticos do Hadoop. O YARN fornece uma estrutura legal para recolher, Agregar e armazenar os registos de aplicações com o [agregação de Log](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/) funcionalidade. A funcionalidade de agregação de Log torna os registos da aplicação ao aceder ao mais determinístico. Ele agrega registos em todos os contentores num nó de trabalho e armazena-as como um ficheiro de registo de agregados por nó de trabalho. O registo é armazenado no sistema de ficheiros predefinido após a conclusão de uma aplicação. Seu aplicativo pode usar centenas ou milhares de contentores, mas os registos para todos os contentores executados num nó de trabalho única sempre são agregados para um único arquivo. Portanto, há apenas 1 registo por nó de trabalho utilizado pela sua aplicação. Agregação de registo está ativada por predefinição em clusters de HDInsight versão 3.0 e superior. Registos agregados estão localizados no armazenamento de predefinido para o cluster. O caminho seguinte é o caminho do HDFS para os registos:
 
     /app-logs/<user>/logs/<applicationId>
 
@@ -73,7 +70,5 @@ IU de ResourceManager do YARN é executado no nó principal do cluster. Ele é a
     É apresentada uma lista de ligações para os registos YARN.
 
 [YARN-timeline-server]:https://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
-[log-aggregation]:https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
-[YARN-concepts]:https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/

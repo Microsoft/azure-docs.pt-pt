@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: f8dd11e7fb0b9fda0e0f1c7d3f794f6bfd766cdf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231460"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103260"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integração do Active Directory do Azure com Everbridge
 
@@ -228,7 +228,7 @@ Ative a Eduarda Almeida utilizar o Azure início de sessão único ao conceder a
 
 Nesta secção, vai criar o utilizador de teste Eduarda Almeida na Everbridge. Para adicionar os utilizadores na plataforma Everbridge, trabalhar com o [equipa de suporte de Everbridge](mailto:support@everbridge.com). Os utilizadores tem de ser criados e ativados no Everbridge antes de utilizar o início de sessão único. 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Teste a configuração do Azure AD única início de sessão com o painel de acesso.
 

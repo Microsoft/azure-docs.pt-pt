@@ -10,10 +10,10 @@ ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: ec8cd06be78bbd8df0bca390696e736c3a6ee075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61465886"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Carregamento de recursos no Azure Media Clipper  

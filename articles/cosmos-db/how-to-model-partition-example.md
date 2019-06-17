@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4bb99c8cbec88d23f9297dcbe8b13cc69cd0006c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240988"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070675"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como a partição e o modelo de dados no Azure Cosmos DB com um exemplo real
 
@@ -479,7 +479,7 @@ Portanto, para otimizar este último pedido, apresentamos um contentor de tercei
 
 Este contentor particionado `type`, que será sempre `post` no nosso itens. Isso garante que todos os itens neste contentor ficará sem ser na mesma partição.
 
-Para alcançar a desnormalização, temos apenas conectar-se sobre o pipeline anteriormente apresentamos para expedir as mensagens para esse novo contentor do feed de alterações. Uma coisa importante para bare em mente é que temos de certificar-se de que apenas armazenamos as postagens mais recentes 100; caso contrário, o conteúdo do contentor pode aumentar o tamanho máximo de uma partição. Isso é feito chamando uma [pós-acionador](stored-procedures-triggers-udfs.md#triggers) sempre que um documento for adicionado no contentor:
+Para alcançar a desnormalização, temos apenas conectar-se sobre o pipeline anteriormente apresentamos para expedir as mensagens para esse novo contentor do feed de alterações. Uma coisa importante ter em mente é que temos de certificar-se de que apenas armazenamos as postagens mais recentes 100; caso contrário, o conteúdo do contentor pode aumentar o tamanho máximo de uma partição. Isso é feito chamando uma [pós-acionador](stored-procedures-triggers-udfs.md#triggers) sempre que um documento for adicionado no contentor:
 
 ![Desnormalização de mensagens para o contentor de feed](./media/how-to-model-partition-example/denormalization-3.png)
 

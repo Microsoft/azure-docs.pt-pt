@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 67cbd37becb1fe87a7f4f554f574b6e5219c9243
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399942"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure 
@@ -104,7 +104,7 @@ Para executar uma ativação pós-falha de teste para teste de aplicativos, prec
 
 Se pretender ligar a VMs do Azure com RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela.
 
-**Ativação pós-falha** | **Localização** | **Ações**
+**Ativação pós-falha** | **Location** | **Ações**
 --- | --- | ---
 **VM do Azure a executar o Windows** | No computador local antes da ativação pós-falha | Para aceder à VM do Azure através da internet, ative o protocolo RDP e certifique-se de que as regras TCP e UDP estão adicionadas para **pública**, e que o RDP é permitido para todos os perfis de **Firewall do Windows**  >  **Aplicações permitidas**.<br/><br/> Para aceder à VM do Azure através de uma ligação site a site, ative o RDP na máquina e certifique-se de que o RDP é permitido na **Firewall do Windows** -> **aplicações e funcionalidades permitidas**, para **Domínio e privadas** redes.<br/><br/>  Certifique-se de que o sistema operativo de política de SAN está definido como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Certifique-se de que não há Windows atualizações pendentes na VM quando aciona uma ativação pós-falha. Atualização do Windows pode começar quando efetuar a ativação pós-falha, e não será possível iniciar sessão na VM enquanto a atualização for concluída.
 **VM do Azure a executar o Windows** | VM do Azure após a ativação pós-falha |  [Adicione um endereço IP público](https://aka.ms/addpublicip) para a VM.<br/><br/> As regras de grupo de segurança de rede na ativação pós-falha VM (e a sub-rede do Azure à qual está ligado) tem de permitir ligações de entrada para a porta RDP.<br/><br/> Verifique **diagnósticos de arranque** para verificar uma captura de ecrã da VM.<br/><br/> Se não conseguir ligar, verifique que a VM está em execução e revisá-los [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).

@@ -11,10 +11,10 @@ ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244437"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso de serviços cognitivos com um conjunto de capacidades no Azure Search 
@@ -143,7 +143,7 @@ Para estimar os custos associados a indexação de pesquisa cognitiva, comece co
 + 1000 PDFs.
 + Seis páginas cada.
 + Uma imagem por página (6.000 imagens).
-+ 3.000 carateres por página.
++ 3\.000 carateres por página.
 
 Suponha que um pipeline que consiste de aberturas de documentos de cada extração PDF, imagens e texto, reconhecimento ótico de carateres (OCR) de imagens e reconhecimento de entidades de organizações.
 

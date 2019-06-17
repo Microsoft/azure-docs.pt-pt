@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
 ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62098867"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o servidor de cópia de segurança do Azure
@@ -49,7 +49,7 @@ Proteger cargas de trabalho com o Azure Backup Server tem muitos nuances. O arti
 ### <a name="using-an-on-premises-server"></a>Utilizar um servidor no local
 Se não pretender executar o servidor de base no Azure, pode executar o servidor numa VM de Hyper-V, uma VM de VMware ou num host físico. Os requisitos mínimos recomendados para o hardware de servidor são dois núcleos e 4 GB de RAM. Os sistemas operativos suportados estão listados na tabela a seguir:
 
-| Sistema Operativo | Plataforma | SKU |
+| Sistema operativo | Plataforma | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials (MABS V3 e posterior) |
 | Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials (MABS V2 e posterior) |

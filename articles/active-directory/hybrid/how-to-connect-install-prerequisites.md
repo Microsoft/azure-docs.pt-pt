@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f7219578932a259f48b0109d433dcba9ff28d1f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 1d17823c4ef4917f9f312b8f2f327e2b0395cfa3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109440"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -48,6 +48,9 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
 * É recomendado [ativar a Reciclagem do Active Directory](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Servidor do Azure AD Connect
+>[!IMPORTANT]
+>O servidor do Azure AD Connect contém dados de identidade críticos e deve ser tratado como um componente de camada 0, conforme documentado no [o modelo de camada administrativa do Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
+
 * O Azure AD Connect não pode ser instalado no Small Business Server ou Windows Server Essentials, antes de 2019 (Windows Server Essentials 2019 é suportado). O servidor tem de utilizar Windows Server standard ou superior.
 * Instalar o Azure AD Connect num controlador de domínio não é recomendável por práticas de segurança e as definições mais restritivas que podem impedir que o Azure AD Connect instalar corretamente
 * O servidor do Azure AD Connect tem de ter uma GUI completa instalada. É **nepodporuje** para instalar no server core.
@@ -138,7 +141,7 @@ Para obter mais informações quando tiver problemas de conectividade, consulte 
 O Azure AD Connect depende do Microsoft PowerShell e .NET Framework 4.5.1. Precisa esta versão ou uma versão posterior instalado no seu servidor. Dependendo da versão do Windows Server, efetue o seguinte:
 
 * Windows Server 2012R2
-  * Microsoft PowerShell está instalado por predefinição. Não é necessária nenhuma ação.
+  * Microsoft PowerShell está instalado por predefinição. Não é necessário realizar qualquer ação.
   * .NET framework 4.5.1 e versões posteriores são oferecidas por meio do Windows Update. Certifique-se de que instalou as atualizações mais recentes para o Windows Server, no painel de controlo.
 * Windows Server 2008 R2 e Windows Server 2012
   * A versão mais recente do Microsoft PowerShell está disponível no **Windows Management Framework 4.0**, disponível no [Microsoft Download Center](https://www.microsoft.com/downloads).
@@ -210,8 +213,8 @@ A tabela abaixo mostra os requisitos mínimos para o computador de sincronizaç�
 
 | Número de objetos no Active Directory | CPU | Memória | Tamanho de disco rígido |
 | --- | --- | --- | --- |
-| Menos de 10 000 |1.6 GHz |4 GB |70 GB |
-| 10,000–50,000 |1.6 GHz |4 GB |70 GB |
+| Menos de 10 000 |1.6 GHz |4GB |70 GB |
+| 10,000–50,000 |1.6 GHz |4GB |70 GB |
 | 50,000–100,000 |1.6 GHz |16 GB |100 GB |
 | Para 100 000 ou mais objetos é necessária a versão completa do SQL Server | | | |
 | 100,000–300,000 |1.6 GHz |32 GB |300 GB |

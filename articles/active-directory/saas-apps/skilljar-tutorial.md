@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: ea7982290cdcd51ba09ca97aa3f23086222516df
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e4df5e259ce1cf2cd10d6ec514fa9091a6bd2d76
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Tutorial: Integração do Active Directory do Azure com Skilljar
 
@@ -54,7 +54,7 @@ Para configurar a integração do Skilljar com o Azure AD, terá de adicionar Sk
 
 **Para adicionar Skilljar a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Skilljar. Skill
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Skilljar](https://support.skilljar.com/hc/).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

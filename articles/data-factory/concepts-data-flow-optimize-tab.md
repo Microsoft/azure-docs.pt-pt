@@ -1,20 +1,19 @@
 ---
 title: Separador otimizar o fluxo de dados de mapeamento de fábrica de dados do Azure
-description: Otimizar o mapeamento de fluxos de dados com configurações de partição do guia de otimização de fábrica de dados do Azure
+description: Otimizar o Azure Data Factory mapeamento de fluxos de dados usando a guia de otimizar com definições de partição
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262293"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075089"
 ---
-# <a name="mapping-data-flow-transformation-optimize-tab"></a>Separador de otimizar a transformação de fluxo de dados de mapeamento
+# <a name="mapping-data-flow-transformation-optimize-tab"></a>Mapeamento de dados a transformação de fluxo otimizar separador
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +50,8 @@ Tem de criar uma expressão que fornece um intervalo fixo de valores dentro de s
 ### <a name="key"></a>Chave
 
 Se tiver uma boa compreensão da cardinalidade dos seus dados, a chave de criação de partições pode ser uma estratégia de partição seja segura. Chave de criação de partições, irá criar partições para cada valor exclusivo em sua coluna. Não é possível definir o número de partições porque o número será baseado em valores exclusivos nos dados.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+[Guia de desempenho do fluxo de dados de mapeamento](concepts-data-flow-performance.md)
+[fluxo de dados de monitorização](concepts-data-flow-monitoring.md)

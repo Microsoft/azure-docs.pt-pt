@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bd4899374c06246ddd4d5fa81d0f6e3a6a1e7017
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075010"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de evento em direto
 
@@ -26,9 +26,9 @@ Nos serviços de multimédia do Azure, um [evento em direto](https://docs.micros
 
 ## <a name="types-comparison"></a>Comparação de tipos 
 
-A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
+A tabela seguinte compara as funcionalidades dos tipos de evento em direto.
 
-| Funcionalidade | Evento em direto de pass-through | Padrão de eventos em direto |
+| Funcionalidade | Evento em direto de pass-through | Padrão ou Premium1080p de eventos em direto |
 | --- | --- | --- |
 | Velocidade de transmissão única entrada é codificada em múltiplas velocidades de transmissão na cloud |Não |Sim |
 | Resolução máxima de vídeo para feed de contribuição |4K (4096 x 2160 em 60 quadros por segundo) |1080p (1920 x 1088 em 30 quadros por segundo)|
@@ -42,7 +42,8 @@ A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
 | Suportado vídeo bitová hloubka, entrada e saída|Até 10 bits incluindo HDR 10/HLG|8 bits|
 | Codecs de áudio de entrada suportadas|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
 | Codecs de áudio de saída suportados|Mesmo que a entrada|AAC-LC|
-| Resolução máxima de vídeo de vídeo de saída|Mesmo que a entrada|720p (em 30 quadros por segundo)|
+| Resolução máxima de vídeo de vídeo de saída|Mesmo que a entrada|Standard - 720p, Premium1080p - 1080p|
+| Taxa máxima de quadros de vídeo de entrada|60 quadros por segundo|Padrão ou Premium1080p - 30 quadros por segundo|
 | Protocolos de entrada|RTMP, MP4 fragmentado (Smooth Streaming)|RTMP, MP4 fragmentado (Smooth Streaming)|
 | Preço|Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Vídeo em direto"|Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Vídeo em direto"|
 | Tempo de execução máximo| 24 horas x 365 dias, em direto lineares | Até 24 horas|
@@ -50,34 +51,50 @@ A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
 | Suporte para a inserção de slates|Não|Não|
 | Suporte para ad sinalização através da API| Não|Não|
 | Suporte para ad sinalização por meio de mensagens do SCTE 35 em banda|Sim|Sim|
-| Capacidade de recuperar de paralisações breves no feed de contribuição|Sim|Não (evento em direto começará slating após 6 + segundos sem dados de entrada)|
+| Capacidade de recuperar de paralisações breves no feed de contribuição|Sim|Parcial|
 | Suporte para não-uniforme GOPs de entrada|Sim|Não – entrada deve ter resolvido duração GOP|
 | Suporte para entrada de taxa de quadros de variável|Sim|Não – entrada deve ser corrigida taxa de quadros. Secundárias variações são pela tolerar, por exemplo, durante o plano de movimento elevada. Mas o feed de contribuição não é possível remover a taxa de quadros (por exemplo, para 15 quadros por segundo).|
 | Auto-shutoff de evento em direto quando a introdução do feed é perdido|Não|Após 12 horas, se não houver nenhum LiveOutput em execução|
 
 ## <a name="system-presets"></a>Predefinições do sistema
 
-Ao utilizar a codificação em direto (com o Evento em Direto definido como **Standard**), a predefinição da codificação define a forma como a transmissão em fluxo recebida é codificada em múltiplas velocidades de transmissão ou camadas. Atualmente, o único valor permitido para a configuração predefinida é *Default720p* (predefinição).
+As resoluções e velocidades de transmissão contidas na saída do codificador em direto é determinado através da [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Se utilizar um **padrão** live encoder (LiveEventEncodingType.Standard), em seguida, o *Default720p* configuração predefinida especifica um conjunto de pares de taxa de bits/resolução 6 descrito abaixo. Caso contrário, se utilizar um **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), em seguida, o *Default1080p* specifiesthe predefinida de saída do conjunto de pares de taxa de bits/resolução. 
 
-**Default720p** irá codificar o vídeo para as camadas de 6 seguintes.
+### <a name="output-video-streams-for-default720p"></a>Fluxos de vídeo de saída para Default720p
 
-### <a name="output-video-stream"></a>Stream de vídeo de saída
+**Default720p** irá codificar o vídeo de entrada para as camadas de 6 seguintes.
 
 | BitRate | Largura | Altura | MaxFPS | Perfil | Nome do Stream de saída |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Elevado |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Elevado |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Elevado |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Elevado |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Elevado |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Elevado |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
 
 > [!NOTE]
-> Se precisar de utilizar uma predefinição de codificação em direto personalizada, contacte amshelp@microsoft.com. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Confirme que há apenas uma camada a 720p e seis camadas no máximo.
+> Se precisar de personalizar a predefinição de codificação em direto, abra um pedido de suporte através do Portal do Azure. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Confirme que há apenas uma camada a 720p e seis camadas no máximo. Também especifica que está a solicitar uma predefinição de um codificador em direto Standard.
 
-### <a name="output-audio-stream"></a>Stream de áudio de saída
+### <a name="output-video-streams-for-default1080p"></a>Fluxos de vídeo de saída para Default1080p
 
-Áudio está codificado para estéreo AAC-LC em 128 kbps, taxa de amostragem de 48 kHz.
+**Default1080p** irá codificar o vídeo de entrada para as camadas de 6 seguintes.
+
+| BitRate | Largura | Altura | MaxFPS | Perfil | Nome do Stream de saída |
+| --- | --- | --- | --- | --- | --- |
+| 5500 |1920 |1080 |30 |Alta |Video_1920x1080_5500kbps |
+| 3000 |1280 |720 |30 |Alta |Video_1280x720_3000kbps |
+| 1600 |960 |540 |30 |Alta |Video_960x540_1600kbps |
+| 800 |640 |360 |30 |Alta |Video_640x360_800kbps |
+| 400 |480 |270 |30 |Alta |Video_480x270_400kbps |
+| 200 |320 |180 |30 |Alta |Video_320x180_200kbps |
+
+> [!NOTE]
+> Se precisar de personalizar a predefinição de codificação em direto, abra um pedido de suporte através do Portal do Azure. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Certifique-se de que existe apenas uma camada em 1080p e no máximo, 6 camadas. Também especifica que está a solicitar uma predefinição de um codificador em direto de Premium1080p.
+
+### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Stream de áudio de saída para Default720p e Default1080p
+
+Para ambos *Default720p* e *Default1080p* configurações predefinidas, de áudio está codificado para estéreo AAC-LC em 128 kbps, taxa de 48 kHz de amostragem.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

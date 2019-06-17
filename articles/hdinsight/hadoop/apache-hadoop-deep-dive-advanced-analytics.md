@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: ac0edf2de4337154b665b8f3898134a7c2fd1f4c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712392"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Aprofunde-se-análises avançadas
@@ -23,7 +23,7 @@ HDInsight fornece a capacidade para obter informações valiosas de grandes quan
 
 ## <a name="advanced-analytics-process"></a>Processo de análise avançada
 
-![Processo](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
 
 Depois que identificou o problema de negócios e começaram a recolher e processar os dados, tem de criar um modelo que representa a pergunta que pretende prever. Seu modelo irá utilizar um ou mais algoritmos de machine learning para tornar o tipo de predição que melhor se adequa às suas necessidades empresariais.  A maioria dos seus dados deve ser usada para preparar o seu modelo, com o restante utilizado para testar ou avaliá-lo. 
 

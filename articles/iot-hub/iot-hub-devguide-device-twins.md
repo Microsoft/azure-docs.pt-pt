@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 883e81572218e39d84ad8793423b02468d49d00a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/10/2019
+ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055366"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e utilizar dispositivos duplos no IoT Hub
 

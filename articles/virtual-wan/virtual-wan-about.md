@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 06/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460221"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077549"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
-WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramo automatizada e otimizado para e através do Azure. Regiões do Azure servem como fontes que pode optar por ligar seus ramos para. Assim que os ramos estão ligados, pode aproveitar o backbone do Azure para estabelecer conectividade ramo-para-VNet e o ramo de ramo. Para obter uma lista de parceiros e localizações que suportam Virtual WAN VPN, consulte a [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) artigo.
+WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramo automatizada e otimizado para e através do Azure. Regiões do Azure servem como fontes que pode optar por ligar seus ramos para. Pode aproveitar o backbone do Azure também ligar ramos e desfrute de conectividade de ramificação-para-VNet. Temos uma lista de parceiros que oferecem suporte a automação de conectividade com a VPN de WAN Virtual do Azure. Para obter mais informações, consulte a [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) artigo.
 
 WAN Virtual do Azure reúne vários serviços de conectividade de cloud do Azure como site-site VPN (disponível em geral), ExpressRoute (pré-visualização), o utilizador de ponto-para-site VPN (pré-visualização) numa única interface operacional. Conectividade para VNets do Azure é estabelecida através de ligações de rede virtual.
 

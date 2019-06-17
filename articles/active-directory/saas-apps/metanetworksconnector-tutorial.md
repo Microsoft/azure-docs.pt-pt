@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ae0b8bb6dec4b129a4965426789819e119a25c53
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 82097b075ab86c4de5ab45e3110c9bc192ac7edb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991510"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Active Directory do Azure com o conector de redes de metadados
 
@@ -54,7 +54,7 @@ Para configurar a integração do conector de redes de Meta no Azure AD, terá d
 
 **Para adicionar Meta redes conector a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD início de sessão único com o conector de redes de 
     
 7. Além disso, anteriormente, a Meta de conector de redes espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
     
-    | Name | Atributo de origem | Espaço de nomes|
+    | Name | Atributo de origem | Espaço de Nomes|
     | ---------------| --------------- | -------- |
     | FirstName | user.givenname | |
     | Apelido | user.surname | |
@@ -268,7 +268,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado no conector de red
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente de conector de redes de Meta](mailto:support@metanetworks.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

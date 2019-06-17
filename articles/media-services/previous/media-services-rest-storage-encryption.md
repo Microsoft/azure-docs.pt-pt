@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 30ac6a94142c9b9d987fb3fd32b3483cc6dc130c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867600"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento 
@@ -120,7 +120,7 @@ Seguem-se os passos gerais para gerar chaves de conteúdo associado a recursos q
     EncryptedContentKey | Vamos criar um novo valor de chave conteúdo que é um valor de 256 bits (32 bytes). A chave for encriptada com o certificado X.509 encriptação de armazenamento que obtemos dos serviços de multimédia do Microsoft Azure ao executar um pedido HTTP GET para os métodos de GetProtectionKey e GetProtectionKeyId. Por exemplo, consulte o seguinte código do .NET: os **EncryptSymmetricKeyData** método definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Esta é a proteção da chave ID para o certificado X.509 encriptação de armazenamento que foi utilizado para encriptar a nossa chave de conteúdo.
     ProtectionKeyType | Este é o tipo de encriptação da chave de proteção que foi usada para criptografar a chave de conteúdo. Este valor é StorageEncryption(1) para o nosso exemplo.
-    Soma de verificação |A MD5 calculada soma de verificação para a chave de conteúdo. Ele é calculado ao encriptar o ID de conteúdo com a chave de conteúdo. O código de exemplo demonstra como calcular a soma de verificação.
+    Checksum |A MD5 calculada soma de verificação para a chave de conteúdo. Ele é calculado ao encriptar o ID de conteúdo com a chave de conteúdo. O código de exemplo demonstra como calcular a soma de verificação.
 
 
 ### <a name="retrieve-the-protectionkeyid"></a>Obter o ProtectionKeyId

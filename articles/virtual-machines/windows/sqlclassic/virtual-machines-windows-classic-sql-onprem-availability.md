@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: d3e56f1741a9cfd3f2d9f786c2ce22eb6a946ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61481623"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Expandir no local grupos de disponibilidade Always On para o Azure
@@ -42,7 +42,7 @@ Esta secção mostra-lhe como utilizar o **Assistente para adicionar Azure répl
 > [!IMPORTANT]
 > O **Assistente para adicionar Azure réplica** só suporta máquinas virtuais criadas com o modelo de implementação clássica. Novas implementações de VM devem utilizar o modelo mais recente do Gestor de recursos. Se estiver a utilizar VMs com o Resource Manager, em seguida, tem de adicionar manualmente a réplica secundária do Azure, utilizando commmands de Transact-SQL (não mostrados aqui). Este assistente não irá funcionar no cenário do Resource Manager.
 
-1. Partir do SQL Server Management Studio, expanda **elevada disponibilidade Always On** > **grupos de disponibilidade** > **[nome do seu grupo de disponibilidade]**.
+1. Partir do SQL Server Management Studio, expanda **elevada disponibilidade Always On** > **grupos de disponibilidade** >  **[nome do seu grupo de disponibilidade]** .
 2. Com o botão direito **réplicas de disponibilidade**, em seguida, clique em **Adicionar réplica**.
 3. Por predefinição, o **adicionar réplicas ao Assistente do grupo de disponibilidade** é apresentado. Clique em **Seguinte**.  Se tiver selecionado o **não mostrar esta página novamente** opção na parte inferior da página durante uma inicialização anterior deste assistente, este ecrã não será apresentada.
    

@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130760"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como Criar um ASE do ILB Utilizando Modelos do Azure Resource Manager
@@ -58,12 +58,12 @@ Uma vez a *azuredeploy* foi preenchido ficheiro para um ASE de ILB, o ASE de ILB
 Depois do Azure Resource Manager modelo é submetido irá demorar algumas horas até que o ASE de ILB a ser criada.  Uma vez concluída a criação, o ASE de ILB serão apresentados no portal do UX na lista de ambientes de serviço de aplicações para a subscrição que disparou a implementação.
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>A carregar e configurar o certificado SSL "Predefinido"
-Depois de criar o ASE de ILB, um certificado SSL deve ser associado com o ASE, como o certificado SSL do "padrão" utiliza para estabelecer ligações SSL para aplicações.  Continuando com o exemplo hipotético do Contoso Corporation, se o ASE predefinido DNS é de sufixo *interna contoso.com*, em seguida, uma ligação ao *https://some-random-app.internal-contoso.com* requer um certificado SSL que é válido para o **.internal contoso.com*. 
+Depois de criar o ASE de ILB, um certificado SSL deve ser associado com o ASE, como o certificado SSL do "padrão" utiliza para estabelecer ligações SSL para aplicações.  Continuando com o exemplo hipotético do Contoso Corporation, se o ASE predefinido DNS é de sufixo *interna contoso.com*, em seguida, uma ligação ao *https://some-random-app.internal-contoso.com* requer um certificado SSL que é válido para o * *.internal contoso.com*. 
 
 Existem diversas formas de obter um certificado SSL válido, incluindo o ACS internas, adquirir um certificado de um emissor externo e utilizar um certificado autoassinado.  Independentemente da origem do certificado SSL, os seguintes atributos de certificado têm de ser configurados corretamente:
 
-* *Assunto*:  Este atributo deve ser definido como **.your-raiz-domínio-here.com*
-* *Nome alternativo do requerente*:  Este atributo tem de incluir **.your-raiz-domínio-here.com*, e **Here-raiz-domínio-here.com*.  O motivo para a segunda entrada é que as ligações SSL ao site SCM/Kudu associadas a cada aplicação serão efetuadas através de um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
+* *Assunto*:  Este atributo deve ser definido como * *.your-raiz-domínio-here.com*
+* *Nome alternativo do requerente*:  Este atributo tem de incluir * *.your-raiz-domínio-here.com*, e **Here-raiz-domínio-here.com*.  O motivo para a segunda entrada é que as ligações SSL ao site SCM/Kudu associadas a cada aplicação serão efetuadas através de um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
 
 Com um certificado SSL válido em mãos, são necessárias duas etapas preparatórias adicionais.  O certificado SSL deve ser convertido/guardado como ficheiro. pfx.  Lembre-se de que o ficheiro. pfx tem de incluir todos os intermediários e certificados de raiz e, também tem de ser protegido com uma palavra-passe.
 
@@ -91,7 +91,7 @@ Os parâmetros nos *azuredeploy* arquivo estão listados abaixo:
 * *existingAseLocation*:  Cadeia de texto que contém a região do Azure em que o ASE de ILB foi implementado.  Por exemplo:  "Sul dos E.U.A.".
 * *pfxBlobString*:  O based64 codificado representação de cadeia de caracteres do arquivo. pfx.  Usando o trecho de código mostrado anteriormente, seria copiar a cadeia de caracteres contida no "exportedcert.pfx.b64" e cole-a no como o valor do *pfxBlobString* atributo.
 * *palavra-passe*:  A palavra-passe utilizada para proteger o ficheiro. pfx.
-* *certificateThumbprint*:  Thumbprint do certificado.  Se recuperar esse valor a partir do Powershell (por exemplo, *$certificate. Thumbprint* do trecho de código anterior), pode usar o valor como-é.  No entanto se copiar o valor na caixa de diálogo de certificado do Windows, não se esqueça de retirar os espaços estranhos.  O *certificateThumbprint* deve ser algo semelhante:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateThumbprint*:  O thumbprint do certificado.  Se recuperar esse valor a partir do Powershell (por exemplo, *$certificate. Thumbprint* do trecho de código anterior), pode usar o valor como-é.  No entanto se copiar o valor na caixa de diálogo de certificado do Windows, não se esqueça de retirar os espaços estranhos.  O *certificateThumbprint* deve ser algo semelhante:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
 * *certificateName*:  Utilizado um identificador de cadeia de caracteres amigável seus próprios escolher para identidade o certificado.  O nome é utilizado como parte do identificador exclusivo do Azure Resource Manager para o *Microsoft.Web/certificates* entidade que representa o certificado SSL.  O nome **tem** terminar com o seguinte sufixo: \_yourASENameHere_InternalLoadBalancingASE.  Este sufixo é utilizado pelo portal como um indicador de que o certificado é utilizado para proteger um ASE com ILB ativado.
 
 Um exemplo abreviado *azuredeploy* é mostrado abaixo:
@@ -130,7 +130,7 @@ Uma vez a *azuredeploy* ficheiro tiver sido preenchido, o certificado SSL predef
 
 Depois do Azure Resource Manager modelo é submetido irá demorar aproximadamente quarenta minutos por ASE front-end para aplicar a alteração.  Por exemplo, com um ASE de predefinição em tamanho normal utilizando dois front-ends, o modelo irá demorar aproximadamente uma hora e vinte minutos a concluir.  Enquanto o modelo está em execução o ASE não será capaz de dimensionada.  
 
-Assim que o modelo for concluída, aplicações num ASE de ILB podem ser acedidas através de HTTPS e as ligações esteja protegidas com o certificado SSL predefinido.  O certificado SSL predefinido será utilizado quando as aplicações no ASE de ILB são resolvidas utilizando uma combinação de nome de anfitrião predefinido além disso, o nome da aplicação.  Por exemplo *https://mycustomapp.internal-contoso.com* utilizaria o certificado SSL predefinido para **.internal contoso.com*.
+Assim que o modelo for concluída, aplicações num ASE de ILB podem ser acedidas através de HTTPS e as ligações esteja protegidas com o certificado SSL predefinido.  O certificado SSL predefinido será utilizado quando as aplicações no ASE de ILB são resolvidas utilizando uma combinação de nome de anfitrião predefinido além disso, o nome da aplicação.  Por exemplo *https://mycustomapp.internal-contoso.com* utilizaria o certificado SSL predefinido para * *.internal contoso.com*.
 
 No entanto, assim como aplicações em execução no serviço de multi-inquilino público, os desenvolvedores podem também configurar nomes de anfitrião personalizado para aplicações individuais e, em seguida, configurar os enlaces de certificado de SNI SSL exclusivos para aplicações individuais.  
 

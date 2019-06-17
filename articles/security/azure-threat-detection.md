@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 2a6a0e6219a45821e2a4416a4e563aa6edb86eba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611023"
+ms.locfileid: "67127176"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção de ameaças avançada do Azure
 
@@ -37,7 +37,7 @@ Identity Protection utiliza algoritmos de machine learning adaptáveis e heurís
 
 O Azure Active Directory Identity Protection é mais do que uma monitorização e a ferramenta de relatório. Com base em eventos de risco, Identity Protection calcula um nível de risco de utilizador para cada utilizador, para que possam configurar políticas baseadas no risco para proteger automaticamente as identidades da sua organização.
 
-Estas políticas com base no risco, além de outros [controlos de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) que são fornecidos pelo Azure Active Directory e [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), automaticamente pode bloquear ou oferecer ações de remediação adaptável que inclua reposições de palavra-passe e a imposição de multi-factor authentication.
+Estas políticas com base no risco, além de outros [controla o acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) que são fornecidos pelo Azure Active Directory e [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), automaticamente pode bloquear ou oferecer ações de remediação adaptável que inclua reposições de palavra-passe e a imposição de multi-factor authentication.
 
 ### <a name="identity-protection-capabilities"></a>Capacidades de proteção de identidade
 

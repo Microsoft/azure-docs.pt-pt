@@ -11,10 +11,10 @@ ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 0c2f9a2a3d431e2948c7d50541b576b23c3ece6a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66507545"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Controlar o comportamento do utilizador no Azure Active Directory B2C com o Application Insights

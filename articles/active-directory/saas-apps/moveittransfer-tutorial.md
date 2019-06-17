@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 76f1f0d99b47b0a57f97f4fcdf721a78a77ba9b4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integração do Active Directory do Azure com transferência de MOVEit - integração do Azure AD
 
@@ -52,7 +52,7 @@ Para configurar a integração de transferência de MOVEit - integração do Azu
 
 **Para adicionar a transferência de MOVEit - integração do Azure AD a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -141,7 +141,7 @@ Para configurar o Azure AD início de sessão único com transferência de MOVEi
 
     ![Lado de secção na aplicação de definições](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
-3. Clique em **início de sessão único** link, que está sob **políticas de segurança-autenticação de utilizador >**.
+3. Clique em **início de sessão único** link, que está sob **políticas de segurança-autenticação de utilizador >** .
 
     ![Lado de políticas na aplicação de segurança](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
@@ -238,7 +238,7 @@ O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na tran
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o [MOVEit transferência - equipa de suporte de cliente de integração do Azure AD](https://community.ipswitch.com/s/support).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

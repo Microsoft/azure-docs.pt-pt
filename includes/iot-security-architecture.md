@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66166330"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança de Internet das coisas (IoT)
@@ -181,10 +181,10 @@ Em cada uma das categorias descritas na arquitetura do IoT do Azure, neste exemp
 
 | **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
-| Dispositivo |D |Atribuir a identidade para o dispositivo e autenticar o dispositivo |Substituir parte do dispositivo ou de dispositivo por algum outro dispositivo. Como sabe que quem está conversando no dispositivo certo? |Autenticar o dispositivo, através do protocolo Transport Layer Security (TLS) ou IPSec. Infraestrutura deve suporta a utilização de chave pré-partilhada (PSK) nesses dispositivos que não é possível processar a criptografia assimétrica completa. Tire partido do Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+| Dispositivo |S |Atribuir a identidade para o dispositivo e autenticar o dispositivo |Substituir parte do dispositivo ou de dispositivo por algum outro dispositivo. Como sabe que quem está conversando no dispositivo certo? |Autenticar o dispositivo, através do protocolo Transport Layer Security (TLS) ou IPSec. Infraestrutura deve suporta a utilização de chave pré-partilhada (PSK) nesses dispositivos que não é possível processar a criptografia assimétrica completa. Tire partido do Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Aplicam-se à prova de violações mecanismos para o dispositivo, por exemplo, ao permitir que o disco rígido para impossível extrair as chaves e outros materiais de criptografia do dispositivo. |O risco é se alguém a adulteração é o dispositivo (interferência físico). Como está claro, que o dispositivo não foram violados. |A redução de mais eficiente é uma funcionalidade de module (TPM) de plataforma fidedigna que permite o armazenamento de chaves em especial no chip circuitos, do qual as chaves não não possível ler, mas só podem ser utilizadas para operações de criptografia que utilizam a chave, mas nunca divulgar a chave. Encriptação de memória do dispositivo. Gestão de chaves para o dispositivo. O código de assinatura. |
 || E |Com o controlo de acesso do dispositivo. Esquema de autorização. |Se o dispositivo permitir a execução de ações individuais com base nos comandos a partir de uma origem externa ou até mesmo comprometidos sensores, ele permite que o ataque de execução de operações do contrário, não acessíveis. |Ter o esquema de autorização para o dispositivo |
-| Gateway de campo |D |Autenticar o gateway de campo para o Gateway de nuvem (como o certificado com base em, PSK, ou afirmação.) |Se alguém pode falsificar o Gateway de campo, em seguida, ele pode apresentar em si como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações principais de armazenamento e de atestado de dispositivos em geral – melhor caso é usar o TPM. Extensão de 6LowPAN para IPSec oferecer suporte a redes de Sensor sem fios (WSN). |
+| Gateway de campo |S |Autenticar o gateway de campo para o Gateway de nuvem (como o certificado com base em, PSK, ou afirmação.) |Se alguém pode falsificar o Gateway de campo, em seguida, ele pode apresentar em si como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações principais de armazenamento e de atestado de dispositivos em geral – melhor caso é usar o TPM. Extensão de 6LowPAN para IPSec oferecer suporte a redes de Sensor sem fios (WSN). |
 || TRID |Proteger o Gateway de campo contra adulteração (TPM)? |Spoofing de ataques que fazer com que o pensamento de gateway de cloud que está falando ao gateway de campo pode resultar em divulgação e violação de dados |Do memória encriptação, TPM, a autenticação. |
 || E |Mecanismo de controlo de acesso para o Gateway de campo | | |
 

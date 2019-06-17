@@ -2,19 +2,20 @@
 title: Ética e de utilização responsável - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Essas diretrizes são destinadas para ajudar a implementar a personalização de uma forma que ajuda a criar a confiança na sua empresa e o serviço. Certifique-se de que colocar em pausa para pesquisa, aprenda e cuidadoso no impacto de personalização na vida das pessoas. Em caso de dúvida, buscam a documentação de orientação.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a5bdee7ec99367d004260bd77e3b0695a1877dd6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239870"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055528"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Diretrizes para implementação responsável de Personalizer
 

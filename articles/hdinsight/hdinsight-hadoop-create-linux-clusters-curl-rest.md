@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: acf121c2954b3f324682578dd3ab2b4d8b1f63f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059408"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Criar clusters do Apache Hadoop com a API de REST do Azure
 
@@ -22,9 +22,6 @@ ms.locfileid: "64707347"
 Saiba como criar um cluster de HDInsight com um modelo Azure Resource Manager e a API de REST do Azure.
 
 API REST do Azure permite-lhe efetuar operações de gestão nos serviços alojados na plataforma do Azure, incluindo a criação de novos recursos, tais como clusters do HDInsight.
-
-> [!IMPORTANT]  
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 > [!NOTE]  
 > Os passos neste documentam utilização a [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) utilitário para comunicar com a API de REST do Azure.
@@ -215,7 +212,7 @@ Neste exemplo é utilizado nos passos neste documento. Substituir o exemplo *val
 >
 > Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-to-your-azure-subscription"></a>Inicie sessão na subscrição do Azure
+## <a name="sign-in-to-your-azure-subscription"></a>Inicie sessão na sua subscrição do Azure
 
 Siga os passos documentados em [introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) e ligue à sua subscrição com o `az login` comando.
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: kasing
 ms.openlocfilehash: 9311a43f18086bea0d981ff91c27ab3f2551edd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64728476"
 ---
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]
 

@@ -2,15 +2,17 @@
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: jroth
-ms.openlocfilehash: cab85410ec0cc0d63b27cd03daf6a398daeb4f68
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.date: 6/15/2019
+ms.author: victorh
+ms.openlocfilehash: ed0a73e6a47e08b974dc9900ead2da9b9a2690a8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66149960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080003"
 ---
+**Zonas DNS públicas**
+
 | Resource | Limite predefinido |
 | --- | --- |
 | Zonas por subscrição |100 <sup>1</sup> |

@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66755093"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ligar a e indexar o conteúdo de indexadores do Azure Search a utilizar o Azure SQL Database
@@ -290,7 +290,7 @@ Indexador SQL expõe várias definições de configuração:
 | Definição | Tipo de dados | Objetivo | Valor predefinido |
 | --- | --- | --- | --- |
 | queryTimeout |string |Define o tempo limite de execução da consulta SQL |5 minutos ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |booleano |Faz com que a consulta SQL utilizada pela política máximo para omita a cláusula ORDER BY. Consulte [máximo política](#HighWaterMarkPolicy) |false |
+| disableOrderByHighWaterMarkColumn |bool |Faz com que a consulta SQL utilizada pela política máximo para omita a cláusula ORDER BY. Consulte [máximo política](#HighWaterMarkPolicy) |false |
 
 Estas definições são utilizadas no `parameters.configuration` objeto na definição do indexador. Por exemplo, para definir o tempo limite de consulta para 10 minutos, criar ou atualizar o indexador com a seguinte configuração:
 

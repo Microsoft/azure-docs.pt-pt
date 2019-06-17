@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 472e494d445ae4a22c988076994649543ec1f7f8
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66508121"
 ---
 # <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Sessão e a configuração de início de sessão única no Azure Active Directory B2C

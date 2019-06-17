@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: tulasim
 ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693238"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta com a API de GenerateAnswer e metadados
@@ -67,7 +67,7 @@ O **URL do pedido** tem o seguinte formato:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|Propriedade de pedido HTTP|Name|Type|Objetivo|
+|Propriedade de pedido HTTP|Name|Tipo|Objetivo|
 |--|--|--|--|
 |Parâmetro de rota de URL|ID da base de dados de conhecimento|string|O GUID de sua base de dados de conhecimento.|
 |Parâmetro de rota de URL|Anfitrião de ponto final do QnAMaker|string|O nome de anfitrião do ponto final implementado na sua subscrição do Azure. Isto estará disponível sob o **definições** página depois de publicar a base de dados de conhecimento. |
@@ -78,7 +78,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 
 O corpo JSON tem várias definições:
 
-|Propriedade de corpo JSON|Necessário|Type|Objetivo|
+|Propriedade de corpo JSON|Necessário|Tipo|Objetivo|
 |--|--|--|--|
 |`question`|Necessário|string|Uma pergunta do utilizador sejam enviados para a sua base de dados de conhecimento.|
 |`top`|Opcional|inteiro|O número de resultados classificados a incluir na saída. O valor predefinido é 1.|

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc90d62f889bfd9f439a7e8955f049c6c979746
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 09270d89ecaff02716d9916527d21ba2c5d30716
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437044"
+ms.locfileid: "67107538"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas mais frequentes sobre em torno de relatórios do Azure Active Directory
 
@@ -131,7 +131,7 @@ Este artigo contém respostas para perguntas mais frequentes sobre o Azure Activ
 
 ---
 
-## <a name="conditional-access"></a>Acesso condicional
+## <a name="conditional-access"></a>Acesso Condicional
 
 **P: O que há de novo com esta funcionalidade?**
 
@@ -147,7 +147,7 @@ Este artigo contém respostas para perguntas mais frequentes sobre o Azure Activ
     
 **P: Quais são todos os valores possíveis para o estado de acesso condicional?**
 
-**R:** Estado do acesso condicional pode ter os seguintes valores:
+**R:** Estado de acesso condicional pode ter os seguintes valores:
 
 * **Não foram aplicados**: Isso significa que não havia nenhuma política de acesso condicional com o utilizador e a aplicação no âmbito. 
 * **Êxito**: Isso significa que não havia uma política de acesso condicional com o utilizador e a aplicação no âmbito e políticas de acesso condicional serem satisfeitas com êxito. 

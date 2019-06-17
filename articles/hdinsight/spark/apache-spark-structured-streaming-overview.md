@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
 ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64711319"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Descrição geral do Apache Spark transmissão em fluxo estruturada
@@ -38,7 +38,7 @@ Na transmissão em fluxo estruturada, os dados chegam o sistema e imediatamente 
 
 Os dados nos resultados de tabelas podem conter apenas os dados que há de novos desde o último tempo a consulta foi processados (*acrescentar modo*), ou a tabela pode ser completamente atualizada sempre que houver novos dados, para a tabela inclui todos os dados de saída uma vez que começou a consulta de transmissão em fluxo (*modo de conclusão*).
 
-### <a name="append-mode"></a>Modo de acrescentar
+### <a name="append-mode"></a>Modo de acréscimo
 
 Em acréscimo modo, apenas as linhas que foram adicionados à tabela de resultados, uma vez que a última execução de consulta estão presentes na tabela de resultados e escritos no armazenamento externo. Por exemplo, a consulta mais simples apenas copia todos os dados da tabela de entrada para a tabela de resultados inalterada. Sempre que um intervalo de Acionador decorrido, os novos dados são processados e as linhas que representam os novos dados são apresentados na tabela de resultados. 
 

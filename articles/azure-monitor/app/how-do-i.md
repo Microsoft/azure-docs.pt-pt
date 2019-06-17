@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
 ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60902111"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?

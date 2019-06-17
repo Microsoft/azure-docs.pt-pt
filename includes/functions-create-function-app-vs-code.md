@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
-ms.openlocfilehash: 79dbee33928fbc7560d0ea27be3af25cc510e996
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 894ca0e78dfb75dffc124d3d25aa7a8e72adf627
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132290"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065530"
 ---
 ## <a name="create-an-azure-functions-project"></a>Criar um projeto das Funções do Azure
 
@@ -26,6 +26,9 @@ O modelo do projeto das Funções do Azure no Visual Studio Code cria um projeto
 
 1. Selecione a linguagem para o seu projeto de aplicação de funções. Neste artigo, é utilizado o JavaScript.
     ![Escolher linguagem do projeto](./media/functions-create-function-app-vs-code/create-function-app-project-language.png)
+
+1. Selecione um modelo para a primeira função para o seu projeto. Forneça um nome para a função.
+    ![Escolha a primeira função](./media/functions-create-function-app-vs-code/create-function-app-project-first-function.png)
 
 1. Quando lhe for pedido, escolha **Adicionar à área de trabalho**.
 

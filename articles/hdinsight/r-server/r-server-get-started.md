@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 465b53e1c5f56c5c05c860ebd69a825141f7e703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706070"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introdução aos Serviços ML no Azure HDInsight
@@ -22,7 +22,7 @@ O Azure HDInsight permite-lhe criar um cluster dos Serviços ML. Esta opção pe
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**: Antes de começar este tutorial, tem de ter uma subscrição do Azure. Para obter mais informações, veja [Get Microsoft Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Obter a avaliação gratuita do Microsoft Azure).
-* **Um cliente Secure Shell (SSH)**: Um cliente SSH é utilizado para ligar ao HDInsight cluster e executar comandos diretamente no cluster remotamente. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente Secure Shell (SSH)** : Um cliente SSH é utilizado para ligar ao HDInsight cluster e executar comandos diretamente no cluster remotamente. Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>

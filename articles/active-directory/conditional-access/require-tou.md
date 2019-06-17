@@ -1,6 +1,6 @@
 ---
-title: Início rápido - necessitam de termos de utilização para ser aceite antes de aceder a aplicações na cloud que estão protegidas pelo acesso condicional do Azure Active Directory | Documentos da Microsoft
-description: Este guia de introdução, saiba como pode exigir que os seus termos de utilização são aceites antes do acesso a aplicações na cloud selecionada é concedido pelo acesso condicional do Azure Active Directory.
+title: Início rápido - necessitam de termos de utilização para ser aceite antes de aceder a aplicações na cloud que estão protegidas pelo Azure Active Directory condicional acesso | Documentos da Microsoft
+description: Este guia de introdução, saiba como pode exigir que os seus termos de utilização são aceites antes do acesso a aplicações na cloud selecionada é concedido pelo Azure Active Directory condicional acesso.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a3523a050a021f3a98c144efe14d692704fba63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112221"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud
 
-Antes de aceder a determinadas aplicações na cloud no seu ambiente, pode querer obter consentimento de utilizadores na forma de aceitar os termos de utilização (ToU). Acesso condicional do Azure Active Directory (Azure AD) fornece-lhe:
+Antes de aceder a determinadas aplicações na cloud no seu ambiente, pode querer obter consentimento de utilizadores na forma de aceitar os termos de utilização (ToU). Acesso condicional do Azure Active Directory (Azure AD) fornecem-lhe:
 
 - Um método simples para configurar os termos de utilização
 - A opção para exigir a aceitar os termos de utilização por meio de uma política de acesso condicional  
@@ -57,7 +57,7 @@ Esta secção fornece os passos para criar um exemplo de termos de utilização.
 
 1. Tipo **meu termos de utilização**e, em seguida, guarde o documento no seu computador como **mytou.pdf**.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou um administrador de acesso condicional.
 
 1. No portal do Azure, na barra de navegação esquerda, clique em **do Azure Active Directory**.
 
@@ -65,7 +65,7 @@ Esta secção fornece os passos para criar um exemplo de termos de utilização.
 
 1. Na **do Azure Active Directory** página, além do **segurança** secção, clique em **acesso condicional**.
 
-   ![Acesso condicional](./media/require-tou/03.png)
+   ![Acesso Condicional](./media/require-tou/03.png)
 
 1. Na **Manage** secção, clique em **termos de utilização**.
 
@@ -95,7 +95,7 @@ Esta secção fornece os passos para criar um exemplo de termos de utilização.
 
 ## <a name="create-your-conditional-access-policy"></a>Criar a sua política de acesso condicional
 
-Esta secção mostra como criar a política de acesso condicional necessário. O cenário neste início rápido utiliza:
+Esta secção mostra como criar a política de acesso condicional necessária. O cenário neste início rápido utiliza:
 
 - Portal do Azure como marcador de posição para uma aplicação de cloud que requer o termos de utilização a ser aceites. 
 - O utilizador de exemplo para testar a política de acesso condicional.  
@@ -154,7 +154,7 @@ Na sua política, defina:
 
 1. Sobre o **concessão** página:
 
-   ![Conceder](./media/require-tou/111.png)
+   ![Concessão](./media/require-tou/111.png)
 
    1. Selecione **conceder acesso**.
 
@@ -164,13 +164,13 @@ Na sua política, defina:
 
 1. Na **ativar política** secção, clique em **no**.
 
-   ![Activar política](./media/require-tou/18.png)
+   ![Ativar política](./media/require-tou/18.png)
 
 1. Clique em **Criar**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um simulado início de sessão
 
-Agora que configurou a política de acesso condicional, provavelmente quer saber se funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
+Agora que configurou a política de acesso condicional, provavelmente quer saber se ele funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
 
 Para inicializar o que se o conjunto de ferramentas de avaliação da política,:
 
@@ -188,7 +188,7 @@ Clicar **e se** cria um relatório de simulação, que mostra:
 
 1. Sobre o [acesso condicional - políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) página, no menu na parte superior, clique em **e se**.  
 
-   ![What If](./media/require-tou/14.png)
+   ![E se](./media/require-tou/14.png)
 
 1. Clique em **usuários**, selecione **Isabella Simonsen**e, em seguida, clique em **selecionar**.
 

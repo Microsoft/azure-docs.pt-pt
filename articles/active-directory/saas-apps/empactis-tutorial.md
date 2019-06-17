@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: d4d9e988f54abc52eedf0dfc26c78a2d16f72032
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 94e326a2c8f75f2b498ddc603d5a0895baf71b3d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813180"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empactis"></a>Tutorial: Integração do Active Directory do Azure com Empactis
 
@@ -53,7 +53,7 @@ Para configurar a integração do Empactis com o Azure AD, terá de adicionar Em
 
 **Para adicionar Empactis a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -178,7 +178,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Empactis. Trabalhar com [equipa de suporte de Empactis](mailto:support@empactis.com) para adicionar os utilizadores na plataforma Empactis. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

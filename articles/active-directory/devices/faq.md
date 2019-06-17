@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af10596fb1ddf4a4f9eba2b8265eb77221a19f4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353130"
+ms.locfileid: "67110653"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -49,7 +49,7 @@ Apenas os seguintes dispositivos estão listados na **dispositivos dos utilizado
 
 ### <a name="q-i-see-the-device-record-under-the-user-info-in-the-azure-portal-and-i-see-the-state-as-registered-on-the-device-am-i-set-up-correctly-to-use-conditional-access"></a>P. Posso ver o registo de dispositivo sob as informações de utilizador no portal do Azure. E posso ver o estado como registrado no dispositivo. Estou configuro corretamente para utilizar o acesso condicional?
 
-**R:** O estado de associação de dispositivo, apresentado por **deviceID**, tem correspondência com o estado do Azure AD e cumprir quaisquer critérios de avaliação para o acesso condicional. Para obter mais informações, consulte [exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos](../conditional-access/require-managed-devices.md).
+**R:** O estado de associação de dispositivo, apresentado por **deviceID**, tem correspondência com o estado do Azure AD e satisfazer quaisquer critérios de avaliação para o acesso condicional. Para obter mais informações, consulte [exigir dispositivos para aceder à aplicação de cloud com o acesso condicional geridos](../conditional-access/require-managed-devices.md).
 
 ---
 
@@ -263,7 +263,7 @@ Associação ao Azure AD híbrido tem precedência sobre o estado do Azure AD re
 
 **Observações:**
 
-- Os utilizadores incluídos na sua política de acesso condicional tem um [uma versão suportada do Office para macOS](../conditional-access/technical-reference.md#client-apps-condition) para aceder aos recursos. 
+- Os utilizadores incluídos na sua necessidade de política de acesso condicional uma [uma versão suportada do Office para macOS](../conditional-access/technical-reference.md#client-apps-condition) para aceder aos recursos. 
 
 - Durante a primeira tentativa de acesso, os utilizadores são-lhe pedidos para inscrever o dispositivo com o portal da empresa.
 

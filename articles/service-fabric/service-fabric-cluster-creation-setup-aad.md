@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 02/15/2019
 ms.author: aljo
 ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62125141"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
@@ -85,7 +85,7 @@ Depois de iniciar sessão com êxito para o Azure AD no Service Fabric Explorer,
 
 ![Caixa de diálogo de certificado SFX][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>Razão
+#### <a name="reason"></a>Reason
 O utilizador não foi atribuído uma função na aplicação de cluster do Azure AD. Portanto, a autenticação do Azure AD falha no cluster do Service Fabric. Service Fabric Explorer retrocede para autenticação de certificados.
 
 #### <a name="solution"></a>Solução
@@ -104,7 +104,7 @@ Ao tentar iniciar sessão Azure AD no Service Fabric Explorer, a página devolve
 
 ![Não corresponde ao endereço de resposta SFX][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>Razão
+#### <a name="reason"></a>Reason
 A aplicação de cluster (web) que representa o Service Fabric Explorer tenta autenticar no Azure AD e como parte do pedido fornece o URL de retorno de redirecionamento. Mas o URL não está listado na aplicação do Azure AD **URL de resposta** lista.
 
 #### <a name="solution"></a>Solução

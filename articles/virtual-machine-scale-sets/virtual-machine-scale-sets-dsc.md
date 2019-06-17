@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
 ms.openlocfilehash: 24a37d352413ff9ac55ce8e189691988383950f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64728445"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Utilizar o dimensionamento de máquinas virtuais conjuntos com a extensão DSC do Azure
 [Os conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-overview.md) pode ser utilizado com o [Azure Desired State Configuration (DSC)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) manipulador de extensão. Os conjuntos de dimensionamento de máquinas virtuais proporcionam uma forma de implementar e gerir um grande número de máquinas virtuais e podem dimensionar de forma elástica e terminar em resposta a carregar. DSC é utilizado para configurar as VMs à medida que ficam online, para que estão a executar o software de produção.

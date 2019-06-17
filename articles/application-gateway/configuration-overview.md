@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 55c7670821ee6c6f5b924bf18b5f7ad01d4b6d51
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66431295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073966"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -74,6 +74,9 @@ Para o SKU de v1, as rotas definidas pelo utilizador (UDRs) são suportadas na s
 Para o SKU de v2, as UDRs não são suportadas na sub-rede de Gateway de aplicação. Para obter mais informações, consulte [SKU do Gateway de aplicação do Azure v2](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
+> As UDRs não são suportadas para o SKU da v2.  Se necessitar de UDRs deve continuar a implementar o SKU de v1.
+
+> [!NOTE]
 > Utilizar as UDRs na sub-rede de Gateway de aplicação faz com que o estado de funcionamento no [vista de estado de funcionamento do back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) a aparecer como "Desconhecido". Também faz com que a geração de registos do Gateway de aplicação e métricas para efetuar a ativação. Recomendamos que não use as UDRs na sub-rede de Gateway de aplicação para que pode ver o estado de funcionamento do back-end, registos e métricas.
 
 ## <a name="front-end-ip"></a>IP de front-end
@@ -84,7 +87,7 @@ Um IP público não é necessário para um ponto final interno não exposto à i
 
 Apenas 1 endereço IP público ou 1 endereço IP privado é suportado. Escolha o IP de front-end ao criar o gateway de aplicação.
 
-- Para um IP público, pode criar um novo endereço IP público ou utilizar um IP público existente na mesma localização que o gateway de aplicação. Se criar um novo IP público, o tipo de endereço IP que selecionou (estático ou dinâmico) não é possível alterar mais tarde. Para obter mais informações, consulte [estático vs. o endereço IP público dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Para um IP público, pode criar um novo endereço IP público ou utilizar um IP público existente na mesma localização que o gateway de aplicação. Se criar um novo IP público, o tipo de endereço IP que selecionou (estático ou dinâmico) não é possível alterar mais tarde. Para obter mais informações, consulte [estático vs. o endereço IP público dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
 - Para um IP privado, pode especificar um endereço IP privado da sub-rede em que o gateway de aplicação é criado. Se não for especificada, é selecionado automaticamente um endereço IP arbitrário da sub-rede. Para obter mais informações, consulte [criar um gateway de aplicação com um balanceador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -124,7 +127,7 @@ Escolha HTTP ou HTTPS:
 
 - Se optar por HTTP, o tráfego entre o cliente e o gateway de aplicação é não encriptado.
 
-- Escolha o HTTPS se desejar [terminação de SSL](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) ou [encriptação SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). O tráfego entre o cliente e o gateway de aplicação é encriptado. E termina a ligação de SSL no gateway de aplicação. Se pretender que a encriptação SSL ponto a ponto, tem de escolher o HTTPS e configurar o **HTTP de back-end** definição. Isto garante que o tráfego é criptografado novamente quando ele viaja do gateway de aplicação para o back-end.
+- Escolha o HTTPS se desejar [terminação de SSL](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) ou [encriptação SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). O tráfego entre o cliente e o gateway de aplicação é encriptado. E termina a ligação de SSL no gateway de aplicação. Se pretender que a encriptação SSL ponto a ponto, tem de escolher o HTTPS e configurar o **HTTP de back-end** definição. Isto garante que o tráfego é criptografado novamente quando ele viaja do gateway de aplicação para o back-end.
 
 Para configurar a encriptação de SSL de ponto-a-ponto e terminação de SSL, tem de adicionar um certificado para o serviço de escuta para ativar o gateway de aplicação derivar uma chave simétrica. Isso é ditado pela especificação de protocolo SSL. A chave simétrica é utilizada para encriptar e desencriptar o tráfego enviado para o gateway. O certificado do gateway tem de estar no formato Personal Information Exchange (PFX). Este formato permite-lhe exportar a chave privada que o gateway utiliza para encriptar e desencriptar o tráfego.
 
@@ -172,7 +175,7 @@ Quando cria um gateway de aplicação com o portal do Azure, criar uma regra pre
 
 ### <a name="rule-type"></a>Tipo de regra
 
-Ao criar uma regra, é escolher entre [ *básica* e *baseado no caminho*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rule).
+Ao criar uma regra, é escolher entre [ *básica* e *baseado no caminho*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
 - Escolha básico, se quiser reencaminhar todos os pedidos no serviço de escuta associado (por exemplo, *blog<i></i>.contoso.com/\*)* para um único conjunto de back-end.
 - Escolha baseado no caminho se quiser encaminhar os pedidos de caminhos de URL específicos para conjuntos de back-end específicos. O padrão de caminho é aplicado apenas para o caminho do URL, não para seus parâmetros de consulta.
@@ -245,7 +248,7 @@ Para obter mais informações sobre o redirecionamento, consulte:
 Esta definição adiciona, remove ou cabeçalhos de solicitação e resposta HTTP enquanto o pedido de atualizações e pacotes de resposta se mover entre o cliente e os conjuntos de back-end. Só pode configurar esse recurso através do PowerShell. Portal do Azure e o suporte da CLI ainda não disponíveis. Para obter mais informações, consulte:
 
  - [Descrição geral de cabeçalhos HTTP de reescrever](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configurar a reescrita de cabeçalho HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-your-http-header-rewrite-rule-configuration)
+ - [Configurar a reescrita de cabeçalho HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
 ## <a name="http-settings"></a>Definições de HTTP
 

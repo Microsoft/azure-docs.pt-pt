@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9a6f162a10408469669cf40b29efc6d2903944
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 612bdd2a5813237f05e9a30a0c90c3b643ece4b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111449"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -61,7 +61,7 @@ Muitos aplicativos web modernos baseiam-se que as aplicações de página única
 
 Este fluxo de autenticação não inclui os cenários de aplicativos usando estruturas de JavaScript de várias plataformas, como o Bombardeador e React nativas, já que exigem mais capacidades para interação com as plataformas nativas.
 
-## <a name="authorization-code"></a>Código de autorização
+## <a name="authorization-code"></a>código de autorização
 A MSAL suporta o [concessão do código de autorização de OAuth 2](v2-oauth2-auth-code-flow.md), que podem ser utilizadas nas aplicações que são instaladas num dispositivo para obter acesso a recursos protegidos, como as APIs web. Isto permite-lhe adicionar iniciar sessão e a API de acesso às suas aplicações móveis e de Desktops. 
 
 Quando os utilizadores iniciam sessão às aplicações web (web sites), o aplicativo web recebe um código de autorização.  O código de autorização é resgatado para adquirir um token para chamar as APIs web. No ASP.NET / aplicações web, o objetivo apenas de núcleo do ASP.NET `AcquireTokenByAuthorizationCode` é adicionar um token para a cache de tokens, para que, em seguida, pode ser utilizado pelo aplicativo (normalmente, os controladores) que simplesmente obter um token para utilizar uma API `AcquireTokenSilent`.
@@ -124,7 +124,7 @@ A MSAL suporta o [fluxo de código de dispositivo do OAuth 2](v2-oauth2-device-c
 
 Ao utilizar o fluxo de código de dispositivo, o aplicativo obtém tokens através de um processo de dois passos especialmente concebida para estes dispositivos/OS. Exemplos de tais aplicativos são aplicativos executados em dispositivos iOT ou ferramentas de linha de comandos (CLI). 
 
-![Fluxo de código do dispositivo](media/msal-authentication-flows/device-code.png)
+![Fluxo de código de dispositivo](media/msal-authentication-flows/device-code.png)
 
 1. Sempre que for necessária a autenticação de utilizador, a aplicação fornece um código e pede ao utilizador para utilizar outro dispositivo (por exemplo, um smartphone ligados à internet) para navegar para uma URL (por exemplo, https://microsoft.com/devicelogin), onde o usuário será solicitado para introduzir o código. Que terminar, a página da web direciona o utilizador através de uma experiência de autenticação normal, incluindo pedidos de consentimento e a autenticação multifator, se necessário.
 
@@ -138,10 +138,10 @@ Ao utilizar o fluxo de código de dispositivo, o aplicativo obtém tokens atrav�
   - ou, quaisquer contas profissionais e escolares (`https://login.microsoftonline.com/organizations/`).
 - Contas pessoais da Microsoft ainda não são suportadas pelo ponto final v2.0 do Azure AD (não é possível utilizar o `/common` ou `/consumers` inquilinos).
 
-## <a name="integrated-windows-authentication"></a>Autenticação Integrada do Windows
+## <a name="integrated-windows-authentication"></a>Autenticação integrada do Windows
 A MSAL suporta a autenticação integrada do Windows (IWA) para o ambiente de trabalho ou aplicativos móveis que são executados num domínio associado ou do Azure AD associado a um computador Windows. Utilizar o IWA, esses aplicativos podem adquirir um token automaticamente (sem qualquer interação da interface do Usuário do usuário). 
 
-![Autenticação Integrada do Windows](media/msal-authentication-flows/integrated-windows-authentication.png)
+![Autenticação integrada do Windows](media/msal-authentication-flows/integrated-windows-authentication.png)
 
 1. Adquirir um token com a autenticação integrada do Windows.
 2. Utiliza o token para fazer pedidos do recurso.

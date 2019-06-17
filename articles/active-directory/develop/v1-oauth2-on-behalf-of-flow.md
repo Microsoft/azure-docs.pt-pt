@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110982"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Serviço a serviço chama essa identidade de utilizador delegada de utilização no fluxo em-nome-de
 
@@ -112,10 +112,10 @@ Ao usar um segredo partilhado, um pedido de token de acesso de serviço para ser
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | grant_type |Necessário | O tipo de pedido de token. Um pedido OBO utiliza um JSON Web Token (JWT) para que o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| asserção |Necessário | O valor do token de acesso utilizado no pedido. |
+| assertion |Necessário | O valor do token de acesso utilizado no pedido. |
 | client_id |Necessário | O ID de aplicação atribuído para o serviço de chamada durante o registo com o Azure AD. Para localizar o ID de aplicação no portal do Azure, selecione **do Active Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
 | client_secret |Necessário | A chave registada para o serviço de chamada no Azure AD. Este valor deve ter sido apontado no momento do registo. |
-| Recurso |Necessário | A aplicação de URI de ID do serviço de recebimento (recurso protegido). Para localizar o URI de ID de aplicação no portal do Azure, selecione **do Active Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **todas as definições**e, em seguida, selecione **propriedades**. |
+| resource |Necessário | A aplicação de URI de ID do serviço de recebimento (recurso protegido). Para localizar o URI de ID de aplicação no portal do Azure, selecione **do Active Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **todas as definições**e, em seguida, selecione **propriedades**. |
 | requested_token_use |Necessário | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
 | scope |Necessário | Lista de âmbitos para o pedido de token separados por um espaço. Para o OpenID Connect, o escopo **openid** tem de ser especificado.|
 
@@ -146,11 +146,11 @@ Um pedido de token de acesso de serviço para serviço com um certificado conté
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | grant_type |Necessário | O tipo de pedido de token. Um pedido OBO usa um token de acesso do JWT, portanto, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| asserção |Necessário | O valor do token utilizado no pedido. |
+| assertion |Necessário | O valor do token utilizado no pedido. |
 | client_id |Necessário | O ID de aplicação atribuído para o serviço de chamada durante o registo com o Azure AD. Para localizar o ID de aplicação no portal do Azure, selecione **do Active Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
 | client_assertion_type |Necessário |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Necessário | Um JSON Web Token que crie e inicie sessão com o certificado é registado como as credenciais para a sua aplicação. Ver [credenciais de certificado](active-directory-certificate-credentials.md) para saber mais sobre o formato de asserção e sobre como registar o seu certificado.|
-| Recurso |Necessário | A aplicação de URI de ID do serviço de recebimento (recurso protegido). Para localizar o URI de ID de aplicação no portal do Azure, selecione **do Active Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **todas as definições**e, em seguida, selecione **propriedades**. |
+| resource |Necessário | A aplicação de URI de ID do serviço de recebimento (recurso protegido). Para localizar o URI de ID de aplicação no portal do Azure, selecione **do Active Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **todas as definições**e, em seguida, selecione **propriedades**. |
 | requested_token_use |Necessário | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
 | scope |Necessário | Lista de âmbitos para o pedido de token separados por um espaço. Para o OpenID Connect, o escopo **openid** tem de ser especificado.|
 
@@ -187,7 +187,7 @@ Uma resposta de êxito é uma resposta JSON OAuth 2.0 com os seguintes parâmetr
 | scope |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
-| Recurso |A aplicação de URI de ID do serviço de recebimento (recurso protegido). |
+| resource |A aplicação de URI de ID do serviço de recebimento (recurso protegido). |
 | access_token |O token de acesso solicitado. O serviço de chamada pode utilizar este token para autenticar para o serviço de recebimento. |
 | id_token |O token de ID de pedido. O serviço de chamada pode utilizar este token para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
 | refresh_token |O token de atualização para o token de acesso solicitado. O serviço de chamada pode utilizar este token para solicitar outro token de acesso após o token de acesso atual expira. |
@@ -256,10 +256,10 @@ Um pedido de serviço a serviço para uma asserção de SAML contém os seguinte
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
 | grant_type |Necessário | O tipo de pedido de token. Para um pedido que utiliza um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| asserção |Necessário | O valor do token de acesso utilizado no pedido.|
+| assertion |Necessário | O valor do token de acesso utilizado no pedido.|
 | client_id |Necessário | O ID de aplicação atribuído para o serviço de chamada durante o registo com o Azure AD. Para localizar o ID de aplicação no portal do Azure, selecione **do Active Directory**, escolha o diretório e, em seguida, selecione o nome da aplicação. |
 | client_secret |Necessário | A chave registada para o serviço de chamada no Azure AD. Este valor deve ter sido apontado no momento do registo. |
-| Recurso |Necessário | A aplicação de URI de ID do serviço de recebimento (recurso protegido). Este é o recurso que será o público-alvo do SAML token. Para localizar o URI de ID de aplicação no portal do Azure, selecione **do Active Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **todas as definições**e, em seguida, selecione **propriedades**. |
+| resource |Necessário | A aplicação de URI de ID do serviço de recebimento (recurso protegido). Este é o recurso que será o público-alvo do SAML token. Para localizar o URI de ID de aplicação no portal do Azure, selecione **do Active Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **todas as definições**e, em seguida, selecione **propriedades**. |
 | requested_token_use |Necessário | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
 | requested_token_type | Necessário | Especifica o tipo de pedido de token. O valor pode ser **urn: ietf:params:oauth:token-tipo: saml2** ou **urn: ietf:params:oauth:token-tipo: saml1** dependendo dos requisitos do recurso acedido. |
 
@@ -278,7 +278,7 @@ A resposta contém um token SAML com codificação UTF8 e Base64url.
 | scope |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
-| Recurso |A aplicação de URI de ID do serviço de recebimento (recurso protegido). |
+| resource |A aplicação de URI de ID do serviço de recebimento (recurso protegido). |
 | access_token |O parâmetro que retorna a asserção de SAML. |
 | refresh_token |O token de atualização. O serviço de chamada pode utilizar este token para solicitar outro token de acesso após a asserção de SAML atual expira. |
 

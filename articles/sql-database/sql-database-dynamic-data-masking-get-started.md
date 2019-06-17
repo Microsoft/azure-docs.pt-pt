@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1db1535779d180994c9ce4350d11f4c696da9e3e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61075570"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64721547"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos da base de dados SQL
 
@@ -43,9 +43,9 @@ Máscara de dados dinâmica pode ser configurada pelo administrador de base de d
 
 | Função de máscara | A máscara de lógica |
 | --- | --- |
-| **Predefinição** |**Máscara de completa, de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou Xs menos se o tamanho do campo for inferior a 4 carateres para tipos de dados de cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Utilizar um valor de zero para tipos de dados numéricos (bigint, bits, decimal, int, dinheiro, numérico, smallint, smallmoney, tinyint, número de vírgula flutuante, real).<br/>• Utilizar 01-01-1900 para tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, tempo).<br/>• Para variante do SQL, o valor predefinido do tipo atual é utilizado.<br/>• Para o documento XML <masked/> é utilizado.<br/>• Utilizar um valor em branco para tipos de dados especial (tabela de timestamp, chamado hierarchyid, GUID, binário, imagem, tipos espaciais do varbinary). |
+| **Predefinição** |**Máscara de completa, de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou Xs menos se o tamanho do campo for inferior a 4 carateres para tipos de dados de cadeia de caracteres (nchar, ntext, nvarchar).<br/>• Utilizar um valor de zero para tipos de dados numéricos (bigint, bits, decimal, int, dinheiro, numérico, smallint, smallmoney, tinyint, número de vírgula flutuante, real).<br/>• Utilizar 01-01-1900 para tipos de dados de data/hora (data, datetime2, datetime, datetimeoffset, smalldatetime, tempo).<br/>• Para variante do SQL, o valor predefinido do tipo atual é utilizado.<br/>• Para o documento XML \<mascarados / > é usada.<br/>• Utilizar um valor em branco para tipos de dados especial (tabela de timestamp, chamado hierarchyid, GUID, binário, imagem, tipos espaciais do varbinary). |
 | **Cartão de crédito** |**A máscara de método, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia de caracteres constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **E-mail** |**A máscara de método, que expõe a primeira letra e substitui o domínio com XXX.com** usando um prefixo de cadeia de caracteres constante na forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
+| **e-mail** |**A máscara de método, que expõe a primeira letra e substitui o domínio com XXX.com** usando um prefixo de cadeia de caracteres constante na forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
 | **Número aleatório** |**A máscara de método, que gera um número aleatório** , de acordo com os limites selecionados e os tipos de dados reais. Se dos limites designados forem iguais, a função de máscara é um número constante.<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
 | **Texto personalizado** |**Método, que expõe os primeiro e último carateres de máscara** e adiciona uma cadeia de caracteres de preenchimento personalizado no meio. Se a cadeia de caracteres original é menor do que o prefixo exposto e o sufixo, apenas a cadeia de preenchimento é utilizada. <br/>prefix[padding]suffix<br/><br/>![Painel de navegação](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 

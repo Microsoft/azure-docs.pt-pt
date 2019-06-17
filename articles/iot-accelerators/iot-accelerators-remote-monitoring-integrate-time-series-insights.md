@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443034"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a Monitorização Remota
@@ -89,15 +89,15 @@ Crie uma nova origem de evento para ligar ao seu hub IoT. Certifique-se de que u
     | Definição | Value |
     | ------- | ----- |
     | Nome da origem de evento | Captura de ecrã seguinte utiliza o nome **contosorm-iot-hub**. Utilize o seu próprio nome exclusivo quando concluir este passo. |
-    | Origem | **Hub IoT** |
+    | source | **Hub IoT** |
     | Opção de Importar | **Utilize o IoT Hub a partir de subscrições disponíveis** |
     | ID da subscrição | Selecione a sua subscrição do Azure na lista pendente. |
-    | Nome do hub IoT | **contosorma57a6**. Utilize o nome do hub IoT partir da sua solução de monitorização remota. |
-    | nome de política do hub IoT | **iothubowner** Certifique-se de que a diretiva usada é uma política de proprietário. |
-    | chave de política do hub IoT | Este campo é preenchido automaticamente. |
-    | Grupo de consumidores do hub IoT | **timeseriesinsights** |
+    | Nome do hub IOT | **contosorma57a6**. Utilize o nome do hub IoT partir da sua solução de monitorização remota. |
+    | Nome de política do hub IOT | **iothubowner** Certifique-se de que a diretiva usada é uma política de proprietário. |
+    | Chave de política do hub IOT | Este campo é preenchido automaticamente. |
+    | Grupo de consumidores do hub IOT | **timeseriesinsights** |
     | Formato de serialização de eventos | **JSON**     | 
-    | Nome da propriedade de carimbo de data/hora | Deixar em branco |
+    | Nome da propriedade Timestamp | Deixar em branco |
 
     ![Criar origem de evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -136,7 +136,7 @@ A próxima etapa é configurar o microsserviços do Azure Stream Analytics Manag
 
 1. Escolha o **ContosoRM** grupo de recursos.
 
-1. Encontre o Azure Stream Analytics (ASA) tarefa na lista de recursos de transmissão em fluxo. O nome de recurso começa com **streamingjobs -**.
+1. Encontre o Azure Stream Analytics (ASA) tarefa na lista de recursos de transmissão em fluxo. O nome de recurso começa com **streamingjobs -** .
 
 1. Na parte superior, clique no botão para parar o ASA tarefas de transmissão em fluxo.
 

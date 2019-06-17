@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62126369"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementar e monitorizar os módulos do IoT Edge em escala no portal do Azure
@@ -50,7 +50,7 @@ Para obter mais informações sobre dispositivos duplos e etiquetas, consulte [c
 
 Existem cinco passos para criar uma implementação. As seções a seguir, percorra cada um deles. 
 
-### <a name="step-1-name-and-label"></a>Passo 1: Nome e Etiqueta
+### <a name="step-1-name-and-label"></a>Passo 1: Nome e etiqueta
 
 1. Dê um nome exclusivo que é até 128 minúsculas de sua implementação. Evite espaços e os seguintes carateres inválidos: `& ^ [ ] { } \ | " < > /`.
 1. Pode adicionar etiquetas como pares chave-valor para ajudar a monitorizar as suas implementações. Por exemplo, **HostPlatform** e **Linux**, ou **versão** e **3.0.1**.
@@ -116,7 +116,7 @@ SELECT deviceId FROM devices
   WHERE properties.reported.lastDesiredStatus.code = 200
 ```
 
-### <a name="step-5-target-devices"></a>Passo 5: Dispositivos de Destino
+### <a name="step-5-target-devices"></a>Passo 5: Dispositivos de destino
 
 Utilize a propriedade de etiquetas dos seus dispositivos para os dispositivos específicos que devem receber esta implementação de destino. 
 
@@ -126,7 +126,7 @@ Uma vez que várias implementações podem direcionar o mesmo dispositivo, deve 
 1. Introduza um **condição de destino** para determinar quais os dispositivos que serão visados para esta implementação. A condição baseia-se nas etiquetas de twin do dispositivo ou o dispositivo duplo propriedades comunicadas e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Selecione **seguinte** para avançar para a etapa final.
 
-### <a name="step-6-review-deployment"></a>Passo 6: Rever Implementação
+### <a name="step-6-review-deployment"></a>Passo 6: Implementação de revisão
 
 Reveja as suas informações de implantação, em seguida, selecione **submeter**.
 

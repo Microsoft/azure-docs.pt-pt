@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706093"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de ligações híbridas de reencaminhamento do Azure
 
@@ -155,10 +155,10 @@ Se a conexão WebSocket falhar devido ao caminho de ligação híbrida não a se
 
 | Código | Erro          | Descrição
 | ---- | -------------- | -------------------------------------------------------------------
-| 404  | Não Encontrado      | O caminho de ligação híbrida é inválido ou o URL de base tem um formato incorreto.
+| 404  | Não foi encontrado      | O caminho de ligação híbrida é inválido ou o URL de base tem um formato incorreto.
 | 401  | Não autorizado   | O token de segurança está em falta ou tem um formato incorreto ou é inválido.
 | 403  | Proibido      | O token de segurança não é válido para este caminho para esta ação.
-| 500  | Erro Interno | Ocorreu um erro no serviço.
+| 500  | Erro interno | Ocorreu um erro no serviço.
 
 Se a conexão WebSocket é intencionalmente encerrada pelo serviço após ele foi inicialmente configurado, o motivo para se o fizer, é comunicado com um código de erro de protocolo WebSocket adequado juntamente com uma mensagem de erro descritivo que também inclui um ID de controlo. O serviço não será desligado o canal de controlo sem encontrar uma condição de erro. Qualquer encerramento correto é controlado de cliente.
 
@@ -222,7 +222,7 @@ Se houver um erro, o serviço pode responder a da seguinte forma:
 | Código | Erro          | Descrição
 | ---- | -------------- | -----------------------------------
 | 403  | Proibido      | O URL não é válido.
-| 500  | Erro Interno | Ocorreu um erro no serviço
+| 500  | Erro interno | Ocorreu um erro no serviço
 
  Depois da ligação for estabelecida, o servidor encerra o WebSocket quando o remetente WebSocket é encerrada para baixo, ou com os seguintes Estados:
 
@@ -253,7 +253,7 @@ Quando concluir corretamente, este handshake intencionalmente ocorre uma falha c
 | Código | Erro          | Descrição                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Proibido      | O URL não é válido.                |
-| 500  | Erro Interno | Ocorreu um erro no serviço. |
+| 500  | Erro interno | Ocorreu um erro no serviço. |
 
 #### <a name="request-message"></a>Mensagem de pedido
 
@@ -384,9 +384,9 @@ Se houver um erro, o serviço pode responder a da seguinte forma:
 
 | Código | Erro           | Descrição
 | ---- | --------------- | -----------------------------------
-| 400  | Pedido Inválido | Ação não reconhecida ou URL não é válido.
+| 400  | Pedido inválido | Ação não reconhecida ou URL não é válido.
 | 403  | Proibido       | O URL tiver expirado.
-| 500  | Erro Interno  | Ocorreu um erro no serviço
+| 500  | Erro interno  | Ocorreu um erro no serviço
 
  Depois da ligação for estabelecida, o servidor encerra o WebSocket quando socket HTTP do cliente é desligado ou com os seguintes Estados:
 
@@ -434,7 +434,7 @@ O pedido pode conter arbitrários cabeçalhos HTTP extra, incluindo definidos na
 
 As opções de parâmetros de cadeia de caracteres de consulta são os seguintes:
 
-| Param          | Necessário? | Descrição
+| Param          | Obrigatório? | Descrição
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sim       | Para a função de remetente, o parâmetro tem de ser `sb-hc-action=connect`.
 | `{path}`       | Sim       | (veja o parágrafo a seguir)
@@ -453,10 +453,10 @@ Se a conexão WebSocket falhar devido ao caminho de ligação híbrida não regi
 
 | Código | Erro          | Descrição
 | ---- | -------------- | -------------------------------------------------------------------
-| 404  | Não Encontrado      | O caminho de ligação híbrida é inválido ou o URL de base tem um formato incorreto.
+| 404  | Não foi encontrado      | O caminho de ligação híbrida é inválido ou o URL de base tem um formato incorreto.
 | 401  | Não autorizado   | O token de segurança está em falta ou tem um formato incorreto ou é inválido.
 | 403  | Proibido      | O token de segurança não é válido para este caminho e para esta ação.
-| 500  | Erro Interno | Ocorreu um erro no serviço.
+| 500  | Erro interno | Ocorreu um erro no serviço.
 
 Se a conexão WebSocket é intencionalmente encerrada pelo serviço depois que ele foi inicialmente configurado, o motivo para se o fizer, é comunicado com um código de erro de protocolo WebSocket adequado juntamente com uma mensagem de erro descritivo que também inclui um ID de controlo .
 
@@ -482,7 +482,7 @@ O pedido pode conter arbitrários cabeçalhos HTTP extra, incluindo definidos na
 
 As opções de parâmetros de cadeia de caracteres de consulta são os seguintes:
 
-| Param          | Necessário? | Descrição
+| Param          | Obrigatório? | Descrição
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sim\*     | O serviço de escuta tem de fornecer um válido, com codificação URL Shared Access tokens do Service Bus para o espaço de nomes ou a ligação híbrida que confere a **enviar** certo.
 
@@ -491,7 +491,7 @@ O token também pode ser executado em ambos os `ServiceBusAuthorization` ou `Aut
 Uma vez que o serviço de forma eficaz age como um proxy, mesmo que não como um proxy HTTP true, ou adiciona uma `Via` cabeçalho ou annotates existente `Via` cabeçalho em conformidade com [RFC7230, secção 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 O serviço adiciona o nome de anfitrião do espaço de nomes do reencaminhamento para `Via`.
 
-| Código | Mensagem  | Descrição                    |
+| Código | Message  | Descrição                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | O pedido tiver sido manipulado por, pelo menos, um serviço de escuta.  |
 | 202  | Aceite | O pedido foi aceite por, pelo menos, um serviço de escuta. |
@@ -500,12 +500,12 @@ Se houver um erro, o serviço pode responder a da seguinte forma. Se a resposta 
 
 | Código | Erro           | Descrição
 | ---- | --------------- |--------- |
-| 404  | Não Encontrado       | O caminho de ligação híbrida é inválido ou o URL de base tem um formato incorreto.
+| 404  | Não foi encontrado       | O caminho de ligação híbrida é inválido ou o URL de base tem um formato incorreto.
 | 401  | Não autorizado    | O token de segurança está em falta ou tem um formato incorreto ou é inválido.
 | 403  | Proibido       | O token de segurança não é válido para este caminho e para esta ação.
-| 500  | Erro Interno  | Ocorreu um erro no serviço.
+| 500  | Erro interno  | Ocorreu um erro no serviço.
 | 503  | Gateway incorrecto     | O pedido não poderia ser encaminhado para qualquer serviço de escuta.
-| 504  | Tempo Limite do Gateway | O pedido foi encaminhado para um serviço de escuta, mas o serviço de escuta não reconhecer recibo no tempo necessário.
+| 504  | Tempo limite do gateway | O pedido foi encaminhado para um serviço de escuta, mas o serviço de escuta não reconhecer recibo no tempo necessário.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

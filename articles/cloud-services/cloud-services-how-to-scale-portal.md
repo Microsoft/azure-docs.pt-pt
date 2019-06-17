@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61435321"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um serviço em nuvem no portal

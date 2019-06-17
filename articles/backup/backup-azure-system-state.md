@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
 ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60782725"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Criar cópias de segurança do Estado do sistema Windows na implementação do Resource Manager
@@ -95,7 +95,7 @@ Agora que criou um cofre, configure-o para fazer backup de estado do sistema Win
 
     ![Painel Abrir objetivo de cópia de segurança](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
-2. No menu pendente **Onde está a carga de trabalho em execução?**, selecione **No local**.
+2. No menu pendente **Onde está a carga de trabalho em execução?** , selecione **No local**.
 
     Seleciona **No local** porque o seu Windows Server ou computador Windows é um computador físico que não está no Azure.
 

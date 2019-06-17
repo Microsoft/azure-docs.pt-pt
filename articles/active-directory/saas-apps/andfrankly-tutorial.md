@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9190d288902a100313150688a767ecb452191447
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3f4359570cdf701b11ee468b43068f6a1ead429
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: Integração do Active Directory do Azure com & francamente
 
@@ -53,7 +53,7 @@ Para configurar a integração de & francamente com o Azure AD, precisa adiciona
 
 **Para adicionar & francamente partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

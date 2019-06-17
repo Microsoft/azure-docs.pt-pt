@@ -2,7 +2,7 @@
 title: Exigir a política de proteção de acesso à aplicação de cloud com o acesso condicional no Azure Active Directory | Documentos da Microsoft
 description: Saiba como requerer a política de proteção de acesso à aplicação de cloud com o acesso condicional no Azure Active Directory.
 services: active-directory
-keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
+keywords: Acesso condicional para aplicações, acesso condicional com o Azure AD, proteger o acesso aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,12 +18,12 @@ ms.date: 4/4/2019
 ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2250449c0ef342332945b80cb10cb9a02885b259
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 51d209eceec2c7172cf34dc689079e669760149e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60356074"
+ms.locfileid: "67112746"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Exigir a política de proteção de acesso à aplicação de cloud com o acesso condicional (pré-visualização)
 
@@ -37,15 +37,15 @@ Com o [acesso condicional do Azure AD](overview.md), pode ajustar como os utiliz
 
 Pode usar [políticas de proteção de aplicações do Intune](https://docs.microsoft.com/intune/app-protection-policy) para ajudar a proteger dados da sua empresa. Políticas de proteção de aplicações do Intune não necessitam de uma solução de gestão (MDM) de dispositivos móveis. Pode proteger os dados da sua empresa com ou sem inscrição de dispositivos numa solução de gestão de dispositivos.
 
-Acesso condicional do Azure Active Directory restringe o acesso às suas aplicações na cloud para aplicações de cliente Intune comunicou com o Azure AD como receber uma política de proteção de aplicações. Por exemplo, pode restringir o acesso ao Exchange Online para o Outlook que tem uma política de proteção de aplicações do Intune.
+Acesso do Azure Active Directory condicional restringe o acesso às suas aplicações na cloud para aplicações de cliente Intune comunicou com o Azure AD como receber uma política de proteção de aplicações. Por exemplo, pode restringir o acesso ao Exchange Online para o Outlook que tem uma política de proteção de aplicações do Intune.
 
 Na terminologia de acesso condicional, estas aplicações de cliente são conhecidas por ser política protegida com uma *política de proteção de aplicações*.  
 
-![Acesso condicional](./media/app-protection-based-conditional-access/05.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/05.png)
 
 Para obter uma lista de aplicações protegidas de política de cliente, consulte [requisito de política de proteção de aplicações](technical-reference.md#approved-client-app-requirement).
 
-Pode combinar políticas de acesso condicional com base na proteção de aplicações com outras políticas, como [políticas de acesso condicional com base no dispositivo](require-managed-devices.md). Dessa forma, pode fornecer flexibilidade em como proteger os dados para dispositivos pessoais e empresariais.
+Pode combinar políticas de acesso condicional com base na aplicação-proteção com outras políticas, como [políticas de acesso condicional com base no dispositivo](require-managed-devices.md). Dessa forma, pode fornecer flexibilidade em como proteger os dados para dispositivos pessoais e empresariais.
 
 ## <a name="benefits-of-app-protection-based-conditional-access-requirement"></a>Benefícios do requisito de acesso condicional com base em proteção de aplicações
 
@@ -68,7 +68,7 @@ Este artigo pressupõe que esteja familiarizado com:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para criar uma política de acesso condicional com base em proteção de aplicações, tem de:
+Para criar uma política de acesso condicional com base na proteção da aplicação, tem de:
 
 - Tem um Enterprise Mobility + Security ou uma subscrição do Azure Active Directory premium + Intune.
 - Certifique-se de que os utilizadores estão licenciados para o Enterprise Mobility + Security ou do Azure AD + Intune.
@@ -77,7 +77,7 @@ Para criar uma política de acesso condicional com base em proteção de aplica�
 
 ## <a name="app-protection-based-policy-for-exchange-online"></a>Política de proteção com base em aplicações para o Exchange Online
 
-Este cenário é constituído por uma política de acesso condicional com base em proteção de aplicações para acesso ao Exchange Online.
+Este cenário é constituído por uma política de acesso condicional aplicações com base em proteção de acesso ao Exchange Online.
 
 ### <a name="scenario-playbook"></a>Playbook de cenário
 
@@ -101,7 +101,7 @@ Quaisquer políticas de proteção de aplicações do Intune tem de estar num ap
 
 Para a política de acesso condicional neste passo, configure os seguintes componentes:
 
-![Acesso condicional](./media/app-protection-based-conditional-access/01.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/01.png)
 
 1. Introduza o nome da sua política de acesso condicional.
 
@@ -109,28 +109,28 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 3. Na **aplicações na Cloud**, selecione **Office 365 Exchange Online**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/07.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/07.png)
 
 4. Na **condições**, configure **plataformas de dispositivos** e **aplicações de cliente (pré-visualização)** :
 
     a. Na **plataformas de dispositivos**, selecione **Android** e **iOS**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/03.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/03.png)
 
     b. Na **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes de autenticação moderna**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/91.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/91.png)
 
 5. Sob **controlos de acesso**, selecione **necessitam de política de proteção de aplicações (pré-visualização)** .
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/05.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/05.png)
  
 
 **Passo 2: Configurar uma política de acesso condicional do Azure AD para o Exchange Online com o ActiveSync (EAS)**
 
 Para a política de acesso condicional neste passo, configure os seguintes componentes:
 
-![Acesso condicional](./media/app-protection-based-conditional-access/06.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/06.png)
 
 1. Introduza o nome da sua política de acesso condicional.
 
@@ -139,23 +139,23 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 3. Na **aplicações na Cloud**, selecione **Office 365 Exchange Online**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/07.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/07.png)
 
 4. Na **condições**, configure **aplicações de cliente (pré-visualização)** . 
 
     a. Na **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/92.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/92.png)
 
     b. Sob **controlos de acesso**, selecione **necessitam de política de proteção de aplicações (pré-visualização)** .
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/05.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/05.png)
 
 
 **Passo 3: Configurar a política de proteção de aplicações do Intune para iOS e os aplicativos de cliente Android**
 
 
-![Acesso condicional](./media/app-protection-based-conditional-access/09.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/09.png)
 
 Para obter mais informações, consulte [proteger aplicações e dados com o Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
@@ -163,7 +163,7 @@ Para obter mais informações, consulte [proteger aplicações e dados com o Mic
 
 ## <a name="app-protection-based-or-compliant-device-policy-for-exchange-online"></a>Política de dispositivo em conformidade ou com base em proteção de aplicações para o Exchange Online
 
-Este cenário é constituído por uma política de acesso condicional de dispositivo em conformidade ou com base em proteção de aplicações para acesso ao Exchange Online.
+Este cenário é composta por um aplicação com base em proteção ou em conformidade do dispositivo de política de acesso condicional para o acesso ao Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Playbook de cenário
@@ -184,7 +184,7 @@ Este cenário pressupõe que:
 
 Para a política de acesso condicional neste passo, configure os seguintes componentes:
 
-![Acesso condicional](./media/app-protection-based-conditional-access/62.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/62.png)
 
 1. Introduza o nome da sua política de acesso condicional.
 
@@ -192,17 +192,17 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 3. Na **aplicações na Cloud**, selecione **Office 365 Exchange Online**. 
 
-     ![Acesso condicional](./media/app-protection-based-conditional-access/07.png)
+     ![Acesso Condicional](./media/app-protection-based-conditional-access/07.png)
 
 4. Na **condições**, configure **plataformas de dispositivos** e **aplicações de cliente (pré-visualização)** . 
  
     a. Na **plataformas de dispositivos**, selecione **Android** e **iOS**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/03.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/03.png)
 
     b. Na **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes de autenticação moderna**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/91.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/91.png)
 
 5. Sob **controlos de acesso**, selecione as seguintes opções:
 
@@ -212,7 +212,7 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
    - **Exigir um dos controlos selecionados**   
  
-     ![Acesso condicional](./media/app-protection-based-conditional-access/11.png)
+     ![Acesso Condicional](./media/app-protection-based-conditional-access/11.png)
 
 
 
@@ -220,7 +220,7 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 Para a política de acesso condicional neste passo, configure os seguintes componentes:
 
-![Acesso condicional](./media/app-protection-based-conditional-access/06.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/06.png)
 
 1. Introduza o nome da sua política de acesso condicional.
 
@@ -228,13 +228,13 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 3. Na **aplicações na Cloud**, selecione **Office 365 Exchange Online**. 
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/07.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/07.png)
 
 4. Na **condições**, configure **aplicações de cliente (pré-visualização)** . 
 
     Na **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/92.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/92.png)
 
 5. Sob **controlos de acesso**, selecione as seguintes opções:
 
@@ -244,14 +244,14 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
    - **Exigir um dos controlos selecionados**
 
-     ![Acesso condicional](./media/app-protection-based-conditional-access/11.png)
+     ![Acesso Condicional](./media/app-protection-based-conditional-access/11.png)
 
 
 
 **Passo 3: Configurar a política de proteção de aplicações do Intune para iOS e os aplicativos de cliente Android**
 
 
-![Acesso condicional](./media/app-protection-based-conditional-access/09.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/09.png)
 
 Para obter mais informações, consulte [proteger aplicações e dados com o Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
@@ -261,7 +261,7 @@ Para obter mais informações, consulte [proteger aplicações e dados com o Mic
 
 ## <a name="app-protection-based-and-compliant-device-policy-for-exchange-online"></a>Política de dispositivo compatível e com base em proteção de aplicações para o Exchange Online
 
-Este cenário é constituído por uma política de acesso condicional de dispositivo em conformidade e proteção-baseado na aplicação para acesso ao Exchange Online.
+Neste cenário consiste num dispositivo em conformidade e proteção-baseado na aplicação de política de acesso condicional para o acesso ao Exchange Online.
 
 
 ### <a name="scenario-playbook"></a>Playbook de cenário
@@ -286,7 +286,7 @@ Quaisquer políticas de proteção de aplicações do Intune são ativadas antes
 
 Para a política de acesso condicional neste passo, configure os seguintes componentes:
 
-![Acesso condicional](./media/app-protection-based-conditional-access/01.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/01.png)
 
 1. Introduza o nome da sua política de acesso condicional.
 
@@ -294,17 +294,17 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 3. Na **aplicações na Cloud**, selecione **Office 365 Exchange Online**. 
 
-     ![Acesso condicional](./media/app-protection-based-conditional-access/07.png)
+     ![Acesso Condicional](./media/app-protection-based-conditional-access/07.png)
 
 4. Na **condições**, configure **plataformas de dispositivos** e **aplicações de cliente (pré-visualização)** . 
  
     a. Na **plataformas de dispositivos**, selecione **Android** e **iOS**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/03.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/03.png)
 
     b. Na **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes de autenticação moderna**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/91.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/91.png)
 
 5. Sob **controlos de acesso**, selecione as seguintes opções:
 
@@ -314,7 +314,7 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
    - **Exigir todos os controlos selecionados**   
  
-     ![Acesso condicional](./media/app-protection-based-conditional-access/13.png)
+     ![Acesso Condicional](./media/app-protection-based-conditional-access/13.png)
 
 
 
@@ -322,7 +322,7 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 Para a política de acesso condicional neste passo, configure os seguintes componentes:
 
-![Acesso condicional](./media/app-protection-based-conditional-access/06.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/06.png)
 
 1. Introduza o nome da sua política de acesso condicional.
 
@@ -330,13 +330,13 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 3. Na **aplicações na Cloud**, selecione **Office 365 Exchange Online**. 
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/07.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/07.png)
 
 4. Na **condições**, configure **aplicações de cliente (pré-visualização)** . 
 
     Na **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes do Exchange ActiveSync**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/92.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/92.png)
 
 5. Sob **controlos de acesso**, selecione as seguintes opções:
 
@@ -346,7 +346,7 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
    - **Exigir todos os controlos selecionados**   
  
-     ![Acesso condicional](./media/app-protection-based-conditional-access/13.png)
+     ![Acesso Condicional](./media/app-protection-based-conditional-access/13.png)
 
 
 
@@ -354,7 +354,7 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 **Passo 3: Configurar a política de proteção de aplicações do Intune para iOS e os aplicativos de cliente Android**
 
 
-![Acesso condicional](./media/app-protection-based-conditional-access/09.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/09.png)
 
 Para obter mais informações, consulte [proteger aplicações e dados com o Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
@@ -384,7 +384,7 @@ Quaisquer políticas de proteção de aplicações do Intune são necessárias a
 
 **Observações**
 
-- Pode utilizar este cenário se pretende suportar ambas as políticas de acesso condicional com base na aplicação e em proteção de aplicações.
+- Pode utilizar este cenário se pretende suportar ambas as políticas de acesso condicional de com base na aplicação e em proteção da aplicação.
 - Nesta *ou* políticas, aplicações com um requisito de política de proteção de aplicações são avaliados para acesso ao primeiro antes do requisito de aplicações aprovadas do cliente.
 
 ### <a name="configuration"></a>Configuração
@@ -393,7 +393,7 @@ Quaisquer políticas de proteção de aplicações do Intune são necessárias a
 
 Para a política de acesso condicional neste passo, configure os seguintes componentes:
 
-![Acesso condicional](./media/app-protection-based-conditional-access/62.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/62.png)
 
 1. Introduza o nome da sua política de acesso condicional.
 
@@ -401,17 +401,17 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
 3. Na **aplicações na Cloud**, selecione **Office 365 Exchange Online**. 
 
-     ![Acesso condicional](./media/app-protection-based-conditional-access/02.png)
+     ![Acesso Condicional](./media/app-protection-based-conditional-access/02.png)
 
 4. Na **condições**, configure **plataformas de dispositivos** e **aplicações de cliente (pré-visualização)** . 
  
     a. Na **plataformas de dispositivos**, selecione **Android** e **iOS**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/03.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/03.png)
 
     b. Na **aplicações de cliente (pré-visualização)** , selecione **aplicações móveis e clientes de ambiente de trabalho** e **clientes de autenticação moderna**.
 
-    ![Acesso condicional](./media/app-protection-based-conditional-access/91.png)
+    ![Acesso Condicional](./media/app-protection-based-conditional-access/91.png)
 
 5. Sob **controlos de acesso**, selecione as seguintes opções:
 
@@ -421,13 +421,13 @@ Para a política de acesso condicional neste passo, configure os seguintes compo
 
    - **Exigir um dos controlos selecionados**
  
-     ![Acesso condicional](./media/app-protection-based-conditional-access/12.png)
+     ![Acesso Condicional](./media/app-protection-based-conditional-access/12.png)
 
 
 **Passo 2: Configurar a política de proteção de aplicações do Intune para iOS e os aplicativos de cliente Android**
 
 
-![Acesso condicional](./media/app-protection-based-conditional-access/09.png)
+![Acesso Condicional](./media/app-protection-based-conditional-access/09.png)
 
 Para obter mais informações, consulte [proteger aplicações e dados com o Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
 
@@ -436,5 +436,5 @@ Para obter mais informações, consulte [proteger aplicações e dados com o Mic
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se quiser saber como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
+- Se quiser saber como configurar uma política de acesso condicional, consulte [exigir MFA para aplicações específicas com o Azure Active Directory condicional acesso](app-based-mfa.md).
 - Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, consulte [melhores práticas para acesso condicional no Azure Active Directory](best-practices.md). 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866457"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-create-datasets.md)
 > * [Versão atual](concepts-datasets-linked-services.md)
 
@@ -69,9 +69,9 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-nome | Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](naming-rules.md). |  Sim |
-tipo | Tipo de conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipos de conjunto de dados](#dataset-type). | Sim |
-estrutura | Esquema do conjunto de dados. Para obter detalhes, consulte [esquema de conjunto de dados](#dataset-structure-or-schema). | Não |
+name | Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](naming-rules.md). |  Sim |
+type | Tipo de conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipos de conjunto de dados](#dataset-type). | Sim |
+structure | Esquema do conjunto de dados. Para obter detalhes, consulte [esquema de conjunto de dados](#dataset-structure-or-schema). | Não |
 typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: O Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo de conjunto de dados](#dataset-type). | Sim |
 
 ### <a name="data-flow-compatible-dataset"></a>Conjunto de dados compatível do fluxo de dados
@@ -114,8 +114,8 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-nome | Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](naming-rules.md). |  Sim |
-tipo | Tipo de conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipos de conjunto de dados](#dataset-type). | Sim |
+name | Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](naming-rules.md). |  Sim |
+type | Tipo de conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipos de conjunto de dados](#dataset-type). | Sim |
 schema | Esquema do conjunto de dados. Para obter detalhes, consulte [fluxo de dados compatíveis com conjuntos de dados](#dataset-type). | Não |
 typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: O Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo de conjunto de dados](#dataset-type). | Sim |
 
@@ -182,10 +182,10 @@ Cada coluna na estrutura contém as seguintes propriedades:
 
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-nome | Nome da coluna. | Sim
-tipo | Tipo de dados da coluna. Data Factory suporta os seguintes tipos de dados intermediárias, como os valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleano, cadeia de caracteres, Guid, Datetime, Datetimeoffset e período de tempo** | Não
-cultura | . Com base em NET cultura a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
-Formato | Formatar a cadeia de caracteres a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte a [data de personalizado e cadeias de caracteres de formato de tempo](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar datetime. | Não
+name | Nome da coluna. | Sim
+type | Tipo de dados da coluna. Data Factory suporta os seguintes tipos de dados intermediárias, como os valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleano, cadeia de caracteres, Guid, Datetime, Datetimeoffset e período de tempo** | Não
+culture | . Com base em NET cultura a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
+format | Formatar a cadeia de caracteres a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte a [data de personalizado e cadeias de caracteres de formato de tempo](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar datetime. | Não
 
 ### <a name="example"></a>Exemplo
 No exemplo a seguir, vamos supor que a origem de dados de Blob está num formato CSV e contém três colunas: ID de utilizador, nome e lastlogindate. Eles são do tipo Int64, cadeia e Datetime com um formato de datetime personalizadas com nomes abreviados de francês para o dia da semana.

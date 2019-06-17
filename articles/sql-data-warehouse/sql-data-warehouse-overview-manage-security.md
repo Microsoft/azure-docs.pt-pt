@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61126945"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger uma base de dados no SQL Data Warehouse

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2dbf27301e738978e7f03d2423a4d23fd63c97b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113502"
 ---
 # <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
 
@@ -152,7 +152,6 @@ As palavras-passe são repetidas nas seguintes situações:
    * Operação de palavra-passe, por exemplo, expiração de palavra-passe de alterar qualquer força de self-service de administrador
    * Reposição de qualquer senha de autoatendimento de administrador que são originados pelo [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com)
    * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [portal do Azure](https://portal.azure.com)
-   * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [Centro de administração do Microsoft 365](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Operações de repetição de escrita não suportado
 
@@ -162,6 +161,7 @@ Palavras-passe são *não* repetição de escrita em qualquer uma das seguintes 
    * Qualquer utilizador final a repor a sua própria palavra-passe com o PowerShell versão 1, versão 2 ou o Azure AD Graph API
 * **Operações de administrador não suportado**
    * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição da versão 1, versão 2 ou o Azure AD Graph API do PowerShell
+   * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [Centro de administração do Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
 > Não é suportada a utilização da caixa de seleção "o utilizador deve alterar palavra-passe no próximo início de sessão" nas ferramentas administrativas de Active Directory no local, como o Active Directory utilizadores e computadores ou centro de administração do Active Directory. Quando alterar uma palavra-passe no local não verificar esta opção.

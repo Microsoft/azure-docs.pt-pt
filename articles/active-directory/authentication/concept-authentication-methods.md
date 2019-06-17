@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66119355"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
@@ -30,12 +30,12 @@ A Microsoft recomenda administradores assegura aos usuários para selecionar mai
 | --- | --- |
 | Palavra-passe | MFA e o SSPR |
 | Perguntas de segurança | Apenas a SSPR |
-| Endereço de correio eletrónico | Apenas a SSPR |
-| Aplicação do Microsoft Authenticator | MFA e pré-visualização pública para SSPR |
+| Endereço de e-mail | Apenas a SSPR |
+| Aplicação Microsoft Authenticator | MFA e pré-visualização pública para SSPR |
 | Token OATH de Hardware | Pré-visualização pública para a MFA e o SSPR |
 | SMS | MFA e o SSPR |
 | Chamada de voz | MFA e o SSPR |
-| Palavras-passe da aplicação | MFA apenas em determinados casos |
+| Palavras-passe de aplicações | MFA apenas em determinados casos |
 
 ![Métodos de autenticação em uso no ecrã de início de sessão](media/concept-authentication-methods/overview-login.png)
 
@@ -60,41 +60,41 @@ Se utilizar perguntas de segurança, recomendamos que utilize-os em conjunto com
 
 ### <a name="predefined-questions"></a>Perguntas predefinidas
 
-* Em que localidade conheceu o seu primeiro cônjuge/companheiro(a)?
-* Em que localidade se conheceram os seus pais?
-* Em que localidade mora o seu irmão/irmã mais próximo?
-* Em que localidade nasceu o seu pai?
+* Em que localidade alcançou seu primeiro cônjuge/parceiro?
+* Em que Localidade se cumpria seus pais?
+* Em que localidade sua irmã mais próximo?
+* Em que Localidade se nasceu seu pai?
 * Em que localidade teve o seu primeiro emprego?
-* Em que localidade nasceu a sua mãe?
-* Onde estava (localidade) na Passagem de Ano de 2000?
-* Qual é o apelido do seu professor/professora preferido na secundária?
-* Qual é o nome de uma universidade a que se candidatou, mas que não frequentou?
-* Qual é o nome do local onde organizou a sua primeira festa de casamento?
-* Qual é o segundo nome do seu pai?
-* Qual é o seu prato preferido?
-* Qual é o primeiro e último nome da sua avó materna?
-* Qual é o segundo nome da sua mãe?
+* Em que Localidade se nasceu sua mãe?
+* Estava (localidade) na passagem de ano 2000?
+* O que é o apelido do seu professor/professora preferido na secundária?
+* O que é o nome de uma faculdade, mas que não participaram?
+* O que é o nome do local onde organizou a sua primeira festa de casamento?
+* O que é o nome do meio do seu pai?
+* O que é o seu prato preferido?
+* O que é sua avó do primeiro e último nome?
+* O que é o nome do meio da sua mãe?
 * O que é o mês de nascimento e ano de seu irmão mais antigo? (por exemplo, de Novembro de 1985)
-* Qual é o segundo nome do seu irmão/irmã mais velho?
-* Qual é o primeiro e último nome do seu avô paterno?
-* Qual é o segundo nome do seu irmão/irmã mais novo?
-* Qual foi a escola que frequentou durante o sexto ano?
-* Qual era o primeiro e último nome do seu melhor amigo de infância?
-* Qual era o primeiro e último nome do seu primeiro amor?
-* Qual era o apelido do seu professor/professora preferido da primária?
+* O que é o nome do meio de seu irmão mais antigo?
+* O que é seu avô paterno do primeiro e último nome?
+* O que é o nome do meio de seu irmão mais jovem?
+* Quais escola que frequentou durante o sexto ano?
+* Qual era o nome próprio e apelido do seu melhor amigo de infância?
+* Qual era o nome próprio e apelido do seu primeiro amor?
+* Qual era o apelido do seu professor professora preferido?
 * Qual era a marca e modelo do seu primeiro carro ou motociclo?
-* Como se chamava a primeira escola que frequentou?
+* Qual era o nome da primeira escola que frequentou?
 * Qual era o nome do hospital em que nasceu?
-* Qual era o nome da rua da sua primeira casa de infância?
+* Qual era o nome da Rua da sua primeira casa de infância?
 * Qual era o nome do seu herói de infância?
 * Qual era o nome do seu peluche preferido?
 * Qual era o nome do seu primeiro animal de estimação?
-* Qual era a sua alcunha de infância?
+* Qual era sua alcunha de infância?
 * Qual era o seu desporto preferido na secundária?
-* Qual foi o seu primeiro emprego?
-* Quais eram os quatro últimos algarismos do seu número de telefone de infância?
-* Quando era criança, o que queria ser quando crescesse?
-* Como se chama a maior celebridade que já conheceu?
+* Qual era o seu primeiro emprego?
+* Quais eram os últimos quatro dígitos do seu número de telefone de infância?
+* Quando era criança, o que quis ser quando crescesse?
+* Quem é a maior celebridade que já conheceu?
 
 Todas as perguntas de segurança predefinidas são traduzidas e localizadas para o conjunto completo de idiomas do Office 365 com base na localidade do navegador do usuário.
 
@@ -113,13 +113,13 @@ O comprimento máximo de uma pergunta de segurança personalizada é 200 carater
 * Qualquer conjunto de caracteres pode ser usado para definir as perguntas e respostas, incluindo os caracteres Unicode.
 * O número de perguntas definidas tem de ser maior que ou igual ao número de perguntas que foram necessárias para se registar.
 
-## <a name="email-address"></a>Endereço de correio eletrónico
+## <a name="email-address"></a>Endereço de e-mail
 
 Endereço de e-mail está disponível **apenas na palavra-passe self-service do Azure AD repor**.
 
 A Microsoft recomenda a utilização de uma conta de e-mail que não requer que a senha do usuário do Azure AD para aceder.
 
-## <a name="microsoft-authenticator-app"></a>Aplicação do Microsoft Authenticator
+## <a name="microsoft-authenticator-app"></a>Aplicação Microsoft Authenticator
 
 A aplicação Microsoft Authenticator oferece um nível adicional de segurança para o seu trabalho do Azure AD ou a conta escolar ou a sua conta Microsoft.
 
@@ -180,7 +180,7 @@ Depois de todos os erros tiverem sido preparados, o administrador, em seguida, p
 
 Os utilizadores podem ter uma combinação de até cinco tokens de hardware OATH ou aplicações de autenticação como a aplicação Microsoft Authenticator configurada para utilização em qualquer altura.
 
-## <a name="mobile-phone"></a>Telemóvel
+## <a name="mobile-phone"></a>Número de telemóvel
 
 Duas opções estão disponíveis para os utilizadores com celulares.
 
@@ -193,7 +193,7 @@ Para funcionarem corretamente, os números de telefone tem de ser no formato *+ 
 >
 > Reposição de palavra-passe não suporta extensões telefónicas. Até mesmo no formato + 1 4255551234 X 12345, as extensões são removidas antes da chamada é feita.
 
-### <a name="text-message"></a>Mensagem SMS
+### <a name="text-message"></a>Mensagem de texto
 
 Um SMS é enviado para o número de telemóvel contendo um código de verificação. Introduza o código de verificação fornecido na interface de início de sessão para continuar.
 
@@ -220,7 +220,7 @@ O atributo de telefone do office é gerido pelo seu administrador.
 >
 > Reposição de palavra-passe não suporta extensões telefónicas. Até mesmo no formato + 1 4255551234 X 12345, as extensões são removidas antes da chamada é feita.
 
-## <a name="app-passwords"></a>Palavras-passe de Aplicação
+## <a name="app-passwords"></a>Palavras-passe de aplicação
 
 Determinadas aplicações não baseadas no browser não suporta a autenticação multifator, se um utilizador tiver sido ativado para autenticação multifator e a tentativa de utilizar aplicações não baseadas no browser, eles não conseguem autenticar. Uma palavra-passe de aplicação permite que os utilizadores continuam a autenticar
 

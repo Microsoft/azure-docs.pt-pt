@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b922e048b2787eedfc0bfc40e553e79f433277dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16b87018b86d9734a066d2cb5361602c9be0f00c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Tutorial: Integração do Active Directory do Azure com PlanGrid
 
@@ -53,7 +53,7 @@ Para configurar a integração do PlanGrid com o Azure AD, terá de adicionar Pl
 
 **Para adicionar PlanGrid a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -186,7 +186,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no PlanGrid. Trabalhar com [equipa de suporte de PlanGrid](mailto:help@plangrid.com) para adicionar os utilizadores na plataforma PlanGrid. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

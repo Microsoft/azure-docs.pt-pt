@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bf21e8cb69091c222b73bb939b3a36caf097c299
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238857"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144162"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager (pré-visualização pública)
 
-Saiba como utilizar o [Gestor de Implementações do Azure](./deployment-manager-overview.md) para implementar as suas aplicações em várias regiões. Para utilizar o Gestor de implementação, terá de criar dois modelos:
+Saiba como utilizar o [Gestor de Implementações do Azure](./deployment-manager-overview.md) para implementar as suas aplicações em várias regiões. Se preferir uma abordagem mais rápida, [guia de início rápido do Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) cria as configurações necessárias na sua subscrição e personaliza os artefactos para implementar uma aplicação em várias regiões. O início rápido executa as mesmas tarefas, como ele faz neste tutorial.
+
+Para utilizar o Gestor de implementação, terá de criar dois modelos:
 
 * **Um modelo de topologia**: descreve os recursos do Azure que compõem as suas aplicações e onde os implementar.
 * **Um modelo de lançamento**: descreve os passos a seguir durante a implementação das aplicações.
@@ -44,7 +46,10 @@ Este tutorial abrange as seguintes tarefas:
 > * Implementar a versão mais recente
 > * Limpar recursos
 
-A referência de API de REST do Gestor de implementação do Azure pode ser encontrada [aqui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Recursos adicionais:
+
+* O [referência da API de REST do Gestor de implementação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Tutorial: Utilizar a verificação de estado de funcionamento no Gestor de implementação do Azure](./deployment-manager-tutorial-health-check.md).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

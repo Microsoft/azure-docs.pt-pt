@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60861119"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrar analytics a partir do Excel para o Azure Machine Learning Studio
@@ -72,7 +72,7 @@ Quando Aplicamos as recomendações, obtivemos o mesmo desempenho de linha de ba
 |  | Excel | Studio (inicial) | Studio com menos quadrados |
 | --- |:---:|:---:|:---:|
 | Valor com nome |Actuals (numérico) |Mesmo |Mesmo |
-| Aprendiz |Excel-dados > análise -> regressão |Regressão linear. |Regressão linear |
+| Aprendiz |Excel-dados > análise -> regressão |Regressão linear. |Regressão Linear |
 | Opções de aprendiz |N/A |Predefinições |quadrados do menos comuns<br />L2 = 0.005 |
 | Conjunto de dados |26 linhas, funcionalidades de 3, 1 etiqueta. Todos os numérica. |Mesmo |Mesmo |
 | Divisão: Preparar |Excel com base em com as linhas primeiro 18, testadas nas 8 pela última vez linhas. |Mesmo |Mesmo |
@@ -119,7 +119,7 @@ Se quiser experimentar regressão, um bom conjunto de dados para tentar é o dat
 | --- | --- | --- | --- | --- | --- |
 | Árvore de decisões elevada |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | Regressão linear (gradiente descendente) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
-| Regressão de rede neural |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
+| Regressão da Rede Neural |1.548195 |2.114617 |0.177517 |0.047774 |0.952226 |
 | Regressão linear (quadrados de menos comum) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Principais pedidas

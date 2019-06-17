@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b0b3921640ebf6ed21860cfac75ffca195096db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e8b61bc01e729472c140253f8f936b6ec0dd1b0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Active Directory do Azure com o representante
 
@@ -53,7 +53,7 @@ Para configurar a integração do representante no Azure AD, terá de adicionar 
 
 **Para adicionar o representante da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -274,7 +274,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no representante, tem de 
 
 5. O titular da conta do AAD recebe uma mensagem de e-mail e segue uma ligação para confirmar a respetiva conta até se tornar Active Directory. Pode utilizar quaisquer outras representante utilizador conta criação ferramentas ou APIs fornecidas pelo representante para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

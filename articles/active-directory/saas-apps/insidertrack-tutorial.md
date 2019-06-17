@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 876e9f95c5f1cdca3e0b41a16d77aee52fccb837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 414b2862d91f54ed5df96e4e814c7a634dfc7cbe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271890"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Tutorial: Integração do Active Directory do Azure com a faixa de informações privilegiadas
 
@@ -53,7 +53,7 @@ Para configurar a integração do Insider Roteiro para o Azure AD, terá de adic
 
 **Para adicionar Insider Track a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

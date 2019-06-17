@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: b49f55caee39d7d01329bb9f3493180f6da56cb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64696275"
 ---
-# <a name="azure-key-vault-service-limits"></a>Limites do serviço Azure Key Vault
+# <a name="azure-key-vault-service-limits"></a>Limites de serviço do Azure Key Vault
 
 Aqui estão os limites de serviço para o Azure Key Vault.
 

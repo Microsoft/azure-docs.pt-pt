@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e020cbc9c18db2142ee7f52cdac22a3518683fce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695810"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078338"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Apache Hive com o Apache Hadoop no HDInsight com REST
 
@@ -24,9 +24,6 @@ Saiba como utilizar a API de REST do WebHCat para executar consultas do Apache H
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um Hadoop baseado em Linux em clusters do HDInsight versão 3.4 ou superior.
-
-  > [!IMPORTANT]  
-  > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 * Um cliente REST. Este documento usa o Windows PowerShell e [Curl](https://curl.haxx.se/) exemplos.
 
@@ -141,7 +138,7 @@ Este documento também usa o Windows PowerShell e [Jq](https://stedolan.github.i
 
    * `ROW FORMAT` -Como os dados estiverem formatados. Os campos em cada registo são separados por um espaço.
    * `STORED AS TEXTFILE LOCATION` -Onde os dados são armazenados (o diretório/dados de exemplo) e que são armazenados como texto.
-   * `SELECT` -Seleciona uma contagem de todas as linhas em que coluna **t4** contém o valor **[erro]**. Esta declaração devolve um valor de **3** porque há três linhas que contêm este valor.
+   * `SELECT` -Seleciona uma contagem de todas as linhas em que coluna **t4** contém o valor **[erro]** . Esta declaração devolve um valor de **3** porque há três linhas que contêm este valor.
 
      > [!NOTE]  
      > Tenha em atenção que os espaços entre declarações HiveQL são substituídos pelo `+` caráter quando utilizado com o Curl. Valores com aspas simples que contém um espaço como, por exemplo, o delimitador, não devem ser substituídos por `+`.

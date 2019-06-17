@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835516"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808403"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
 Este artigo descreve a funcionalidade de sistema operativo de linha de base comum, que está disponível para todas as aplicações do Windows em execução no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui o ficheiro, rede e acesso ao Registro e os registos de diagnóstico e eventos. 
@@ -65,7 +65,7 @@ Em seu núcleo, o serviço de aplicações é um serviço em execução sobre a 
 
 - A aplicação poderão emitir um erro que indica que não existe espaço suficiente no disco.
 - Poderá ver erros no disco ao navegar para a consola Kudu.
-- Implementação a partir do VSTS ou o Visual Studio pode falhar com `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- A implementação de DevOps do Azure ou o Visual Studio poderá falhar com `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Seu aplicativo talvez sofram com um desempenho lento.
 
 <a id="NetworkDrives"></a>

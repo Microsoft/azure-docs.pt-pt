@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242926c0821e4951d2a2bd2f858f63691baf1017
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: ae7c823b9aea262556081354a108ac9509a284ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307231"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67110675"
 ---
 # <a name="deploy-a-secure-workstation"></a>Implementar uma estação de trabalho segura
 
@@ -102,9 +102,9 @@ Para reforçar ainda mais o processo de associação de dispositivos para o Azur
 
 No portal do Azure, navegue até **do Azure Active Directory** > **mobilidade (MDM e MAM)**  > **Microsoft Intune**. Alterar a definição **âmbito do utilizador MDM** ao **todos os** e escolha **guardar** como permitiremos que qualquer dispositivo para ser gerido pelo Intune nesse cenário. Mais informações podem ser encontradas no artigo [guia de introdução do Intune: Configurar a inscrição automática para dispositivos Windows 10](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). Iremos criar políticas de configuração e de conformidade do Intune num passo posterior.
 
-#### <a name="azure-ad-conditional-access"></a>Acesso condicional ao Azure AD
+#### <a name="azure-ad-conditional-access"></a>Acesso Condicional no Azure AD
 
-Acesso condicional do Azure AD pode ajudar a manter estas tarefas administrativas com privilégios em dispositivos em conformidade. Os utilizadores que definimos como membros do **proteger os utilizadores da estação de trabalho** grupo será necessário para efetuar a autenticação multifator ao iniciar sessão em aplicações na cloud. Iremos seguir as diretrizes de práticas recomendadas e excluir as nossas contas de acesso de emergência da política. Informações adicionais podem ser encontradas no artigo [gerir contas de acesso de emergência no Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+De acesso condicional do AD do Azure pode ajudar a manter estas tarefas administrativas com privilégios em dispositivos em conformidade. Os utilizadores que definimos como membros do **proteger os utilizadores da estação de trabalho** grupo será necessário para efetuar a autenticação multifator ao iniciar sessão em aplicações na cloud. Iremos seguir as diretrizes de práticas recomendadas e excluir as nossas contas de acesso de emergência da política. Informações adicionais podem ser encontradas no artigo [gerir contas de acesso de emergência no Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
 Para configurar o acesso condicional do portal do Azure, navegue para **do Azure Active Directory** > **acesso condicional** > **nova política**.
 
@@ -122,7 +122,7 @@ Para configurar o acesso condicional do portal do Azure, navegue para **do Azure
       * Para vários controles - **exigir todos os controlos selecionados**
 * Ativar política - **no**
 
-As organizações, opcionalmente, podem criar políticas para bloquear os países em que os utilizadores não seriam aceder a recursos da empresa. Obter mais informações sobre as políticas de acesso condicional com base na localização de IP podem ser encontradas no artigo [o que é a condição de localização no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+As organizações, opcionalmente, podem criar políticas para bloquear os países em que os utilizadores não seriam aceder a recursos da empresa. Obter mais informações sobre políticas de acesso condicional com base na localização de IP podem ser encontradas no artigo [o que é a condição de localização no Azure Active Directory condicional acesso?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 ## <a name="intune-configuration"></a>Configuração do Intune
 

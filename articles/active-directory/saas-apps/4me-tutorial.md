@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11cc42f9ed7e427620b22ce65365183bc62cc0be
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 58d535c7f19adec470f1fbc9b8d88429ea6e0e26
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65884568"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Tutorial: Integração do Active Directory do Azure com 4me
 
@@ -54,7 +54,7 @@ Para configurar a integração do 4me com o Azure AD, terá de adicionar 4me a p
 
 **Para adicionar 4me a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD início de sessão único com 4me, execute os seguint
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
 
-    | Ambiente| URL|
+    | Ambiente| do IdP|
     |---|---|
     | PRODUÇÃO | `https://<SUBDOMAIN>.4me.com`|
     | QA| `https://<SUBDOMAIN>.4me.qa`|
@@ -116,7 +116,7 @@ Para configurar o Azure AD início de sessão único com 4me, execute os seguint
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
 
-    | Ambiente| URL|
+    | Ambiente| do IdP|
     |---|---|
     | PRODUÇÃO | `https://<SUBDOMAIN>.4me.com`|
     | QA| `https://<SUBDOMAIN>.4me.qa`|
@@ -253,7 +253,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na 4me. 4me suport
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de 4me](mailto:support@4me.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

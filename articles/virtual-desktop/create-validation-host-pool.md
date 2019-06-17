@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070666"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um conjunto de anfitriões para validar as atualizações de serviço
 
@@ -71,7 +71,7 @@ Em pré-visualização, as atualizações de serviço ocorrem em aproximadamente
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que criou um conjunto de anfitrião de validação, opcionalmente, pode preencher o conjunto de anfitrião de validação com RemoteApps. Para saber mais sobre como gerir aplicações na área de Trabalho Virtual do Windows, veja o tutorial de grupos de aplicações de gerir.
+Agora que criou um conjunto de anfitrião de validação, pode aprender a implementar e ligar a uma ferramenta de gestão para gerir recursos de área de Trabalho Virtual do Microsoft.
 
 > [!div class="nextstepaction"]
-> [Gerir o tutorial de grupos de aplicações](./manage-app-groups.md)
+> [Implementar um tutorial de ferramenta de gestão](./manage-resources-using-ui.md)

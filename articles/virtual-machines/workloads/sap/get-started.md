@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/05/2019
+ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7539244429978f7cf639d2e49c532b5d19da385d
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 8b4ed11b5a0f463afee0dae149820bb546db0c53
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733464"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058710"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utilize o Azure para alojar e executar cenários de carga de trabalho SAP
 

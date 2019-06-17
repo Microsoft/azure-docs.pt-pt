@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f8be215f1a972539aff47347395f041d89d4e81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddf337cc5573b4821f279d85aa43988ff4705874
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285223"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Tutorial: Integração do Active Directory do Azure com Accredible
 
@@ -53,7 +53,7 @@ Para configurar a integração do Accredible com o Azure AD, terá de adicionar 
 
 **Para adicionar Accredible a partir da galeria, siga os passos abaixo:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

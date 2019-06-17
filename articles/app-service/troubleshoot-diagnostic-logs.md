@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c21a923f06a768c0a9a0f2843a24583df7a7821d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059658"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar registo de diagnósticos para aplicações no serviço de aplicações do Azure
 ## <a name="overview"></a>Descrição geral
@@ -38,7 +38,7 @@ Pode ativar ou desativar os seguintes tipos de registos:
 * **Falha do rastreio de pedido** -informações detalhadas sobre pedidos com falhas, incluindo um rastreamento dos componentes do IIS, usado para processar o pedido e o tempo decorrido em cada componente. É útil se pretender melhorar o desempenho do site ou isolar um erro HTTP específico. Uma pasta é gerada para cada erro de sistema de ficheiros da aplicação. Políticas de retenção de ficheiros são os mesmos que o registo acima de erro detalhado.
 * **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o [formato de ficheiro de registo expandido de W3C](/windows/desktop/Http/w3c-logging). É útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
 
-### <a name="application-diagnostics"></a>Application diagnostics
+### <a name="application-diagnostics"></a>Diagnóstico de aplicação
 Diagnóstico de aplicação permite-lhe capturar informações produzidas por um aplicativo web. As aplicações ASP.NET podem utilizar o [Trace](/dotnet/api/system.diagnostics.trace) classe para registar informações no registo de diagnóstico de aplicação. Por exemplo:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -75,7 +75,7 @@ Para **registo de servidor Web**, pode selecionar **armazenamento** ou **sistema
 
 Se armazenar os registos no sistema de ficheiros, os ficheiros podem ser acedidos por FTP ou transferiu como um arquivo Zip com a CLI do Azure.
 
-Por predefinição, os registos não são automaticamente eliminados (com exceção do **registo de aplicação (sistema de ficheiros)**). Para eliminar automaticamente os registos, defina o **período de retenção (dias)** campo.
+Por predefinição, os registos não são automaticamente eliminados (com exceção do **registo de aplicação (sistema de ficheiros)** ). Para eliminar automaticamente os registos, defina o **período de retenção (dias)** campo.
 
 > [!NOTE]
 > Se [regenerar chaves de acesso da conta de armazenamento](../storage/common/storage-create-storage-account.md), tem de repor a configuração de registo correspondente para utilizar as chaves atualizadas. Para efetuar este procedimento:
@@ -93,7 +93,7 @@ Embora ambas as localizações de armazenamento fornecem as mesmas informações
 > Informações armazenadas na **armazenamento de BLOBs** só pode ser acedido através de um cliente de armazenamento ou um aplicativo que pode trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Explorador de armazenamento que podem ser utilizadas para explorar o armazenamento de BLOBs e o HDInsight pode aceder a dados armazenados no armazenamento de Blobs. Também pode escrever uma aplicação que acede ao armazenamento do Azure ao utilizar uma da [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Como: Registos de transferências
+## <a name="download"></a> Como: Transferir registos
 Informações de diagnóstico armazenadas no sistema de ficheiros de aplicação podem ser acedidas diretamente com o FTP. Também pode ser transferido como um arquivo Zip com a CLI do Azure.
 
 Segue-se a estrutura de diretório que os registos são armazenados em:
@@ -192,12 +192,12 @@ Ao iniciar sessão para o armazenamento de BLOBs, os dados são armazenados no f
 | Date |A data e hora em que ocorreu o evento |
 | Nível |Nível do evento (por exemplo, erro, aviso, informações) |
 | ApplicationName |O nome da aplicação |
-| Id da Instância |Instância da aplicação que ocorreu o evento |
+| InstanceId |Instância da aplicação que ocorreu o evento |
 | EventTickCount |A data e hora em que ocorreu o evento, no formato de escala (maior precisão) |
 | EventId |O ID do evento deste evento<p><p>Predefinição é 0 se nenhum especificado |
-| PID |ID de Processo |
+| PID |ID de processo |
 | NIF |O ID de thread do thread que produziu o evento |
-| Mensagem |Mensagem de detalhes do evento |
+| Message |Mensagem de detalhes do evento |
 
 Os dados armazenados num blob teria uma aparência semelhantes ao seguinte exemplo:
 
@@ -205,7 +205,7 @@ Os dados armazenados num blob teria uma aparência semelhantes ao seguinte exemp
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Para o ASP.NET Core, o registo é conseguido utilizando o [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) fornecedor este registo adicional do fornecedor depósitos ficheiros para o contentor de Blobs. Para obter mais informações, consulte [ASP.NET Core, iniciar sessão no Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
+> Para o ASP.NET Core, o registo é conseguido utilizando o [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) fornecedor este registo adicional do fornecedor depósitos ficheiros para o contentor de Blobs. Para obter mais informações, consulte [ASP.NET Core, iniciar sessão no Azure](/aspnet/core/fundamentals/logging).
 >
 >
 
@@ -221,7 +221,7 @@ Rastreios de pedido falhado são armazenados nos arquivos XML chamados **. XML d
 ### <a name="detailed-error-logs"></a>Registos de erros detalhados
 Registos de erros detalhados são documentos HTML que fornecem informações mais detalhadas sobre os erros HTTP que ocorreram. Uma vez que eles são simplesmente os documentos HTML, eles podem ser exibidos num navegador da web.
 
-### <a name="web-server-logs"></a>Registos de servidores Web
+### <a name="web-server-logs"></a>Registos do servidor Web
 Os registos do servidor web são formatados com o [formato de ficheiro de registo expandido de W3C](/windows/desktop/Http/w3c-logging). Estas informações podem ser lidos com um editor de texto ou analisado com o uso, como utilitários [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]

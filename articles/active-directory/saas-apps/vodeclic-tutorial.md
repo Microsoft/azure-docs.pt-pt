@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: c9c860bf994dfeef57e8fd86329ed3a2b3f85e4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990546"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integração do Active Directory do Azure com Vodeclic
 
@@ -53,7 +53,7 @@ Para configurar a integração do Vodeclic com o Azure AD, terá de adicionar Vo
 
 **Para adicionar Vodeclic a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -193,7 +193,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Vodeclic. Traba
 > [!NOTE]
 > De acordo com requisitos de aplicações, poderá ter de obter o seu computador adicionado a uma lista de permissões. Para que isso aconteça, precisa compartilhar seu endereço IP público com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

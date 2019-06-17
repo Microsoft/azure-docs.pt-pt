@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: de2b60ef280ceebdc97ea7dfc208df1cea3956c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3358ad473ede9e8d78a835e8c68e690e5340638
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Tutorial: Integração do Active Directory do Azure com SpaceIQ
 
@@ -53,7 +53,7 @@ Para configurar a integração do SpaceIQ com o Azure AD, terá de adicionar Spa
 
 **Para adicionar SpaceIQ a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -132,7 +132,7 @@ Para configurar o Azure AD início de sessão único com SpaceIQ, execute os seg
 
 1. Assim que tiver iniciado a sessão, clique no sinal de quebra-cabeça no canto superior direito, em seguida, clique em **integrações**
 
-    ![Definições de conta](./media/spaceiq-tutorial/setting1.png) 
+    ![Definições da conta](./media/spaceiq-tutorial/setting1.png) 
 
 1. Sob **aprovisionamento todos os & SSO**, clique nas **Azure** mosaico para adicionar uma instância do Azure como o IDP.
 

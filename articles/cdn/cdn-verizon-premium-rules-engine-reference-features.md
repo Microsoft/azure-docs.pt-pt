@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: dab0b11a350a10a209d67ddc69db5531a2cc292c
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481478"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080775"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>CDN do Azure de funcionalidades do motor de regras de Premium da Verizon
 
@@ -338,7 +338,7 @@ Para duplicar a cadeia de consulta de "no-cache" comportamento na página de col
 
 A utilização de exemplo seguinte para esta funcionalidade fornece um pedido de exemplo e a chave de cache padrão:
 
-- **Pedido de exemplo:** http://wpc.0001.&lt; domínio&gt;/800001/Origin/folder/asset.htm?sessionid=1234 & idioma = EN & userid = 01
+- **Pedido de exemplo:** http://wpc.0001.&lt ; domínio&gt; /800001/Origin/folder/asset.htm?sessionid=1234 & idioma = EN & userid = 01
 - **Padrão cache-chave:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Incluir
@@ -516,8 +516,8 @@ O formato para especificar cabeçalhos de solicitação e resposta é definido d
 
 Tipo de cabeçalho|Formato|Exemplos
 -|-|-
-Cabeçalho do pedido|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
-Cabeçalho de Resposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Cabeçalho do pedido|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
+Cabeçalho de Resposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informações da chave:
 
@@ -999,7 +999,7 @@ Informações da chave:
     - server
     - informações finais
     - codificação de transferência
-    - Atualizar
+    - upgrade
     - vary
     - via
     - aviso

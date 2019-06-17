@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/12/2019
 ms.author: juliako
-ms.openlocfilehash: f04ae727957d988e75ea0984d0005a6a140ca63f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
-ms.translationtype: MT
+ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67114676"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 
@@ -54,14 +54,14 @@ Ver um exemplo de código do .NET no [MediaV3LiveApp](https://github.com/Azure-S
 
 ![codificação em direto](./media/live-streaming/live-encoding.svg)
 
-Ao utilizar a codificação em direto com os Serviços de Multimédia, configuraria o codificador em direto no local para enviar um vídeo de velocidade de transmissão única como o feed de contribuição para o Evento em Direto (através dos protocolos RTMP ou Fragmented-Mp4.) O Evento em Direto codifica essa transmissão em fluxo de velocidade única recebia numa [transmissão de vídeo em fluxo de velocidade múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e disponibiliza-a para entrega nos dispositivos de reprodução através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar este tipo de Evento em Direto, especifique o tipo de codificação como **Standard** (LiveEventEncodingType.Standard).
+Ao utilizar a codificação em direto com os Serviços de Multimédia, configuraria o codificador em direto no local para enviar um vídeo de velocidade de transmissão única como o feed de contribuição para o Evento em Direto (através dos protocolos RTMP ou Fragmented-Mp4.) Poderia, em seguida, configurar um evento em direto, de modo que ele codifica essa entrada velocidade de transmissão única transmitir para um [vários transmissão em fluxo vídeo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)e disponibiliza a saída para entrega ao reproduzir os dispositivos através de protocolos como MPEG-DASH, HLS e a facilitar Transmissão em fluxo.
 
-Pode enviar o feed de contribuição em resoluções até 1080p a uma velocidade de 30 fotogramas/segundo, com o codec de vídeo H.264/AVC e o codec de áudio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Veja o artigo [Live Event types comparison](live-event-types-comparison.md) (Comparação de tipos de Eventos em Direto) para obter mais detalhes.
+Quando usa a codificação em direto, pode enviar a contribuição feed apenas em resoluções à resolução de 1080p numa taxa de quadros de 30 quadros/segundo, com o codec de vídeo H.264/AVC e AAC (AAC-LC, HE-AACv1 ou HE-AACv2) codec de áudio. Tenha em atenção que o pass-through eventos em direto pode suportar as resoluções até 4K em 60 quadros por segundo. Veja o artigo [Live Event types comparison](live-event-types-comparison.md) (Comparação de tipos de Eventos em Direto) para obter mais detalhes.
 
-Ao utilizar a codificação em direto (com o Evento em Direto definido como **Standard**), a predefinição da codificação define a forma como a transmissão em fluxo recebida é codificada em múltiplas velocidades de transmissão ou camadas. Para obter informações, veja [System presets](live-event-types-comparison.md#system-presets) (Predefinições do sistema).
+As resoluções e velocidades de transmissão contidas na saída do codificador em direto é determinado pela configuração predefinida. Se utilizar um **padrão** live encoder (LiveEventEncodingType.Standard), em seguida, o *Default720p* configuração predefinida especifica um conjunto de pares de taxa de bits/resolução 6, do 720p em 3.5Mbps até 192 p em 200 kbps. Caso contrário, se utilizar um **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), em seguida, o *Default1080p* configuração predefinida especifica um conjunto de pares de taxa de bits/resolução 6, do 1080p em 3.5Mbps para baixo até 180 p em 200 kbps. Para obter informações, veja [System presets](live-event-types-comparison.md#system-presets) (Predefinições do sistema).
 
 > [!NOTE]
-> Atualmente, o único valor de predefinição permitido para o tipo Standard do Evento em Direto é *Default720p*. Se precisar de utilizar uma predefinição de codificação em direto personalizada, contacte amshelp@microsoft.com. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Confirme que há apenas uma camada a 720p e seis camadas no máximo.
+> Se precisar de personalizar a predefinição de codificação em direto, abra um pedido de suporte através do portal do Azure. Deve especificar a tabela de resolução e velocidades de transmissão pretendida. Certifique-se de que existe apenas uma camada de 720p (se a pedir uma configuração predefinida de um codificador em direto Standard) ou em 1080p (se a pedir uma configuração predefinida de um codificador em direto Premium1080p) e no máximo, 6 camadas.
 
 ## <a name="live-event-creation-options"></a>Opções de criação de evento em direto
 
@@ -93,6 +93,14 @@ Pode utilizar URLs intuitivos ou não intuitivos.
 
     O token de acesso tem de ser exclusivo no seu centro de dados. Se a sua aplicação tem de utilizar um URL personalizado, recomenda-se sempre criar uma nova instância GUID para o token de acesso (em vez de reutilizar qualquer GUID existente). 
 
+    Utilizar as APIs seguintes para ativar o URL de intuitivos e definir o token de acesso para um GUID válido (por exemplo `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    
+    |Idioma|Ativar o URL personalizado|Definir o token de acesso|
+    |---|---|---|
+    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura de URL de ingestão em direto
 
 A cadeia *aleatória* abaixo é um número hexadecimal de 128 bits (que é composto por 32 carateres de 0-9 e a-f).<br/>

@@ -9,10 +9,10 @@ ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: ac0747dcff4e74363a58dc9aaf6da4dbd4c6a1c7
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427596"
 ---
 O Azure Data Factory é um serviço multi-inquilino que tem os seguintes limites predefinidos no local para se certificar de subscrições de cliente estão protegidas de cargas de trabalho entre si. Para aumentar os limites até o máximo para a sua subscrição, contacte o suporte.
@@ -38,7 +38,7 @@ O Azure Data Factory é um serviço multi-inquilino que tem os seguintes limites
 | Intervalo de Acionador de janela em cascata mínimo | 15 min | 15 min |
 | Tempo limite máximo para a atividade do pipeline é executado | 7 dias | 7 dias |
 | Bytes por objeto para objetos do pipeline<sup>3</sup> | 200 KB | 200 KB |
-| Bytes por objeto para o conjunto de dados e objetos do serviço ligado<sup>3</sup> | 100 KB | 2.000 KB |
+| Bytes por objeto para o conjunto de dados e objetos do serviço ligado<sup>3</sup> | 100 KB | 2\.000 KB |
 | Unidades de integração de dados<sup>1</sup> por execução de atividade de cópia | 256 | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Escrever chamadas de API | 2500/h<br/><br/> Este limite é imposto pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Chamadas de API de leitura | 12,500/h<br/><br/> Este limite é imposto pelo Azure Resource Manager, não o Azure Data Factory. | [Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -66,7 +66,7 @@ O Azure Data Factory é um serviço multi-inquilino que tem os seguintes limites
 | Conjuntos de dados dentro de uma fábrica de dados |5,000 |[Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Setores simultâneos por conjunto de dados |10 |10 |
 | Bytes por objeto para objetos do pipeline<sup>1</sup> |200 KB |200 KB |
-| Bytes por objeto para dados de definir e objetos do serviço de ligado<sup>1</sup> |100 KB |2.000 KB |
+| Bytes por objeto para dados de definir e objetos do serviço de ligado<sup>1</sup> |100 KB |2\.000 KB |
 | Núcleos de cluster a pedido do Azure HDInsight numa subscrição<sup>2</sup> |60 |[Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Unidades de movimento de dados por execução de atividade de cópia da cloud<sup>3</sup> |32 |[Contacte o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Número de execuções de atividades do pipeline de tentativas |1,000 |MaxInt (32 bits) |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407967"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Tutorial: Integração do Active Directory do Azure com TextMagic
 
@@ -54,7 +54,7 @@ Para configurar a integração do TextMagic com o Azure AD, terá de adicionar T
 
 **Para adicionar TextMagic a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -114,12 +114,12 @@ Para configurar o Azure AD início de sessão único com TextMagic, execute os s
 
 6. Além dos acima, o aplicativo TextMagic espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
-    | Name |   Atributo de origem| Espaço de nomes  |
+    | Name |   Atributo de origem| Espaço de Nomes  |
     | --------------- | --------------- | --------------- |
-    | Empresa | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | firstName               | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastName            | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | telefone               | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Empresa | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | telefone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -166,13 +166,13 @@ Para configurar o Azure AD início de sessão único com TextMagic, execute os s
 
     ![Configuração de TextMagic](./media/textmagic-tutorial/config2.png)
 
-    a. Na **ID de entidade do fornecedor de identidade:** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
+    a. Na **ID de entidade do fornecedor de identidade:**  caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
 
-    b. Na **fornecedor de identidade SSO URL:** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+    b. Na **fornecedor de identidade SSO URL:**  caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
 
-    c. Na **fornecedor de identidade SLO URL:** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
+    c. Na **fornecedor de identidade SLO URL:**  caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
 
-    d. Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado público x509:** caixa de texto.
+    d. Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado público x509:**  caixa de texto.
 
     e. Clique em **Guardar**.
 
@@ -194,7 +194,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**. Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension** . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -231,7 +231,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 Aplicação suporta **Just-in de aprovisionamento de utilizadores de tempo** e depois dos utilizadores de autenticação serão criados no aplicativo automaticamente. Tem de preencher as informações de uma vez no primeiro início de sessão para ativar a conta secundárias no sistema.
 Não existe nenhum item de ação para nesta secção.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

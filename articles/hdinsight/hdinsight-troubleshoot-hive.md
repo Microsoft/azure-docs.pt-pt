@@ -8,10 +8,10 @@ ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
 ms.openlocfilehash: 43886a132f2f3cf75f0ec7a0b2dc0680a0f69589
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64712476"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Resolver problemas do Apache Hive com o Azure HDInsight

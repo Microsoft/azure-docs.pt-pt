@@ -16,11 +16,11 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 29a45c0d32e35b5d321670bf25334a2976b93e56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693667"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar o seu dispositivo da série StorSimple 8000
 

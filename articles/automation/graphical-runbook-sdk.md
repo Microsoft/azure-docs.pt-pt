@@ -10,10 +10,10 @@ ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61303221"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Utilizar o SDK de runbook gráfico de automatização do Azure

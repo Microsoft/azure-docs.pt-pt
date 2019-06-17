@@ -9,10 +9,10 @@ ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 0dbd5a886e2369d29a568eca47dda5558f43c8cd
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479136"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carregar dados para as tarefas do Apache Hadoop no HDInsight

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: e1951a65c48c32f2ce4af722400d03c20dfa684b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e624520a9d1f39bc8115ac72e9df0398065928f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279082"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: Integração do Active Directory do Azure com os laboratórios Fluxx
 
@@ -53,7 +53,7 @@ Para configurar a integração de Fluxx laboratórios com o Azure AD, terá de a
 
 **Para adicionar Fluxx laboratórios a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -154,7 +154,7 @@ Para configurar o Azure AD início de sessão único com laboratórios Fluxx, ex
 
     a. Selecione o **SAML SSO** caixa de verificação.
 
-    b. Na **caminho do pedido** caixa de texto, tipo **saml/auth/**.
+    b. Na **caminho do pedido** caixa de texto, tipo **saml/auth/** .
 
     c. Na **caminho de retorno de chamada** caixa de texto, tipo **/auth/saml/callback**.
 

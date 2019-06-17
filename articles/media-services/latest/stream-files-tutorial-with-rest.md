@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 15b2408113d8bd19d2e988643442ac5e3b305237
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149214"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055299"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Um ficheiro remoto com base no URL de codificar e transmitir o vídeo - REST
 
@@ -236,7 +236,7 @@ Depois de concluída a tarefa de codificação, a próxima etapa é tornar o ví
 
 O processo de criação de um **localizador de transmissão em fluxo** é chamado de publicação. Por predefinição, o **localizador de transmissão em fluxo** é válido, imediatamente após fazer as chamadas à API e dura até serem eliminada, a menos que configure o início opcional e de horas de fim. 
 
-Ao criar um [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators), terá de especificar o pretendido **StreamingPolicyName**. Neste exemplo, vai transmitir conteúdo pronto a enviar (ou não encriptado), por isso é utilizada a política de transmissão de pronto a enviar predefinida (**PredefinedStreamingPolicy.ClearStreamingOnly**).
+Ao criar um [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators), tem de especificar o pretendido **StreamingPolicyName**. Neste exemplo, irá ser transmissão em fluxo conteúdo em Limpar (ou não encriptada), para que o predefinidos limpar política de transmissão em fluxo "Predefined_ClearStreamingOnly" é utilizado.
 
 > [!IMPORTANT]
 > Quando utilizar uma [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, deve conceber um conjunto limitado dessas políticas para a sua conta dos Serviços de Multimédia e utilizá-las novamente para os StreamingLocators sempre que são necessárias as mesmas opções de encriptação e os mesmos protocolos. 
@@ -343,7 +343,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure. 
 
 1. Abra um browser e navegue para [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Na caixa **URL:**, cole o URL criado. 
+2. Na caixa **URL:** , cole o URL criado. 
 3. Prima **Atualizar Leitor**.
 
 O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não deve ser utilizado num ambiente de produção. 

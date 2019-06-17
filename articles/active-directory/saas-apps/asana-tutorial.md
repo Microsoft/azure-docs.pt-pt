@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7cf1b583189810b61ea349a29698ff6f12c39699
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Active Directory do Azure com Asana
 
@@ -55,7 +55,7 @@ Para configurar a integração do Asana para o Azure AD, terá de adicionar Asan
 
 **Para adicionar Asana a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -208,7 +208,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Asana.
 
 3. Clique em **Enviar convite**. O novo utilizador irá receber um e-mail para a conta de e-mail. utilizador terá de criar e validar a conta.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

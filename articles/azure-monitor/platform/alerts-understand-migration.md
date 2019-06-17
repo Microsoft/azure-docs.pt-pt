@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: b5a13254fc9dfd58db83a1bc8b9dd071cfbbdab2
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 9d872a6d753a206dcfb03761e50e5854db4f146e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071595"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Compreender como funciona a ferramenta de migração
 
@@ -55,10 +55,11 @@ Todos os alertas clássicos em contas de armazenamento podem ser migrados, excet
 - PercentTimeoutError
 - AnonymousThrottlingError
 - SASThrottlingError
+- ThrottlingError
 
 Alerta clássica de regras em percentagem métricas devem ser migradas com base na [o mapeamento entre as métricas de armazenamento antigos e novos](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Limiares precisará ser modificado adequadamente porque a nova métrica disponível é absoluto.
 
-Regras de alerta clássicas em AnonymousThrottlingError e SASThrottlingError têm de ser divididas em dois novos alertas porque não existe nenhuma métrica combinada que fornece a mesma funcionalidade. Limiares tem de ser adaptada adequadamente.
+Regras de alerta clássicas em AnonymousThrottlingError, SASThrottlingError e ThrottlingError têm de ser divididas em dois novos alertas porque não existe nenhuma métrica combinada que fornece a mesma funcionalidade. Limiares tem de ser adaptada adequadamente.
 
 ## <a name="rollout-phases"></a>Fases de implementação
 
@@ -97,7 +98,7 @@ Atualmente um subconjunto de subscrições é marcado como pronta para migraçã
 
 Qualquer utilizador que tenha a função incorporada de Contribuidor de monitorização ao nível da subscrição pode acionar a migração. Os utilizadores que têm uma função personalizada com as seguintes permissões também podem acionar a migração:
 
-- * / leitura
+- \* / leitura
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*

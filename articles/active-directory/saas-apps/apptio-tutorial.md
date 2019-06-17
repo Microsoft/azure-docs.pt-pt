@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f239c7ab92ad2de4391468b646ff08fb61721517
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f4de13651bf98529cfba6cd81e9eccccb187f27
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864222"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Tutorial: Integração do Active Directory do Azure com Apptio
 
@@ -53,7 +53,7 @@ Para configurar a integração do Apptio com o Azure AD, terá de adicionar Appt
 
 **Para adicionar Apptio a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -120,7 +120,7 @@ Para configurar o Azure AD início de sessão único com Apptio, execute os segu
     | -------------- | -------------------- |
     | FullName       | user.displayname |
     | mail           | user.mail |
-    | função           | user.assignedrole |
+    | role           | user.assignedrole |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -213,7 +213,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Apptio. Trabalhar com [equipa de suporte de Apptio](https://www.apptio.com/about/contact) para adicionar os utilizadores na plataforma Apptio. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

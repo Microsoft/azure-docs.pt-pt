@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653395"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069517"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Ligações híbridas do serviço de aplicações do Azure #
 
@@ -41,7 +41,6 @@ Quando a aplicação faz um pedido DNS que corresponde a um ponto de final de li
 > [!NOTE]
 > Isso significa que deve tentar utilizar sempre um nome DNS para a sua ligação híbrida. Algum software de cliente não faz uma pesquisa de DNS se o ponto de extremidade usa um endereço IP em vez disso.
 >
-
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Benefícios da ligação híbrida de serviço de aplicações ###
 
@@ -140,7 +139,7 @@ Para adicionar uma ou mais ligações híbridas ao seu HCM:
 2. Selecione **configurar outra ligação híbrida**.
 ![Captura de ecrã do configurar novas ligações híbridas][8]
 
-1. Inicie sessão com a sua conta do Azure.
+1. Inicie sessão com a sua conta do Azure para obter as suas ligações híbridas com as suas subscrições. O HCM não continuar a utilizar a sua conta do Azure, além disso. 
 1. Escolha uma subscrição.
 1. Selecione as ligações híbridas que pretende que o HCM para reencaminhamento.
 ![Captura de ecrã de ligações híbridas][9]
@@ -226,7 +225,9 @@ O estado de "Ligado" significa que pelo menos um HCM está configurado com essa 
 
 O principal motivo pelo qual os clientes não é possível ligar ao ponto de extremidade é porque o ponto final foi especificado, utilizando um endereço IP em vez de um nome DNS. Se a sua aplicação não é possível alcançar o ponto de final desejado e utilizou um endereço IP, mude para utilizar um nome DNS que é válido no anfitrião onde o HCM está em execução. Também pode verificar que o nome DNS resolve-se corretamente no anfitrião onde o HCM está em execução. Confirme que existe conectividade do anfitrião onde o HCM está em execução para o ponto final de ligação híbrida.  
 
-No serviço de aplicações, a ferramenta de tcpping pode ser invocada a partir da consola de ferramentas avançadas (Kudu). Essa ferramenta pode informar se tiver acesso a um ponto final TCP, mas ele não informa se tem acesso a um ponto de final de ligação híbrida. Quando utiliza a ferramenta na consola em relação a um ponto de final de ligação híbrida, apenas confirma que utiliza uma combinação de anfitrião: porta.  
+No serviço de aplicações, o **tcpping** ferramenta de linha de comandos pode ser invocada a partir da consola de ferramentas avançadas (Kudu). Essa ferramenta pode informar se tiver acesso a um ponto final TCP, mas ele não informa se tem acesso a um ponto de final de ligação híbrida. Quando utiliza a ferramenta na consola em relação a um ponto de final de ligação híbrida, apenas confirma que utiliza uma combinação de anfitrião: porta.  
+
+Se tiver um cliente de linha de comandos para o ponto final, pode testar a conectividade a partir da consola de aplicação. Por exemplo, pode testar o acesso a pontos finais de servidor web com o curl.
 
 ## <a name="biztalk-hybrid-connections"></a>Ligações Híbridas do BizTalk ##
 
