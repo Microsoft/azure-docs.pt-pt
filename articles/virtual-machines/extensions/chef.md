@@ -70,16 +70,16 @@ O JSON seguinte mostra o esquema para a extensão de VM da Chef. A extensão req
 
 | Name | Valor / exemplo | Tipo de Dados
 | ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | a cadeia de caracteres (data) |
+| apiVersion | `2017-12-01` | string (data) |
 | publicador | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | a cadeia de caracteres (double) |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Definições
 
 | Name | Valor / exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | a cadeia de caracteres (url) | S |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
 | settings/runlist | `recipe[mycookbook::default]` | string | S |
 
