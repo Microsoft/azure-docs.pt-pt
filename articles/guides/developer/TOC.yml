@@ -83,7 +83,7 @@
     - name: Planear
       items:
         - name: Arquiteturas de aplicações Web
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: Arquiteturas de VMs
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/'
         - name: Ligar a redes no local
