@@ -109,7 +109,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
-| Timestamp (por exemplo) | 123456789 | número inteiro de 32 bits |
+| timestamp (por exemplo) | 123456789 | número inteiro de 32 bits |
 | commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (por exemplo) | examplestorageacct | string |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
