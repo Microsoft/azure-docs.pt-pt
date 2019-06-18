@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
 ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952676"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
@@ -30,7 +30,7 @@ Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e eli
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 - Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
+- Se utilizar o portal, abra https://portal.azure.com e inicie sessão com a sua conta do Azure.
 - Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a versão 2.0.41 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
@@ -45,7 +45,7 @@ Prefixos de endereços IP públicos têm um custo. Para obter detalhes, consulte
 3. Sob **prefixo de endereço IP público**, selecione **criar**.
 4. Introduza ou selecione os valores para as seguintes definições em **criar prefixo de endereço IP público**, em seguida, selecione **criar**:
 
-   |Definição|Necessário?|Detalhes|
+   |Definição|Obrigatório?|Detalhes|
    |---|---|---|
    |Subscrição|Sim|Tem de existir na mesma [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) como o recurso que pretende associar o endereço IP público a.|
    |Grupo de recursos|Sim|Pode existir na mesma ou diferentes, [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) como o recurso que pretende associar o endereço IP público a.|
@@ -68,7 +68,7 @@ Depois de criar um prefixo, tem de criar o endereços IP estáticos a partir do 
 3. Quando for apresentada nos resultados da pesquisa, selecione-o e clique em **+ adicionar endereço IP** na seção de visão geral.
 4. Introduza ou selecione os valores para as seguintes definições sob **Criar endereço IP público**. Uma vez que é um prefixo para o Standard SKU, IPv4 e estático, só precisa de fornecer as seguintes informações:
 
-   |Definição|Necessário?|Detalhes|
+   |Definição|Obrigatório?|Detalhes|
    |---|---|---|
    |Name|Sim|O nome do endereço IP público tem de ser exclusivo no grupo de recursos que selecionar.|
    |Tempo limite de inatividade (minutos)|Não|O número de minutos para manter uma ligação TCP ou HTTP aberta sem depender de clientes para enviar mensagens keep-alive. |
@@ -100,7 +100,7 @@ Em alternativa, pode utilizar a CLI e PS comandos abaixo, com a-- prefixo do ip 
 
 Para executar tarefas em prefixos de endereço IP públicos, sua conta tem de ser atribuída ao [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-| Acção                                                            | Name                                                           |
+| Ação                                                            | Name                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | Ler um prefixo de endereço IP público                                |
 | Microsoft.Network/publicIPPrefixes/write                          | Criar ou atualizar um prefixo de endereço IP público                    |

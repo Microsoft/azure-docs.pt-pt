@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098541"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070401"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a SQL Database, avançada de segurança de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -78,7 +78,7 @@ O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para 
 No modelo de vCore, pode escolher entre gerações de hardware.
 
 - **Gen4** CPUs lógicas baseiam-se no Intel E5-2673 v3 (Haswell) físicas de processadores de 2,4 GHz, SSD anexado, núcleos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
-- **Gen5** CPUs lógicas são baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, core com hyper-threading de lógica e tamanhos entre 8 e 80 núcleos de computação.
+- **Gen5** CPUs lógicas são baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, core com hyper-threading de lógica e tamanhos entre 4 e 80 núcleos de computação.
 
 Encontrar mais informações sobre a diferença entre gerações de hardware no [geridos limites de recursos de instância](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
@@ -240,5 +240,5 @@ A tabela seguinte mostra várias propriedades, acessíveis através de Transact 
 - Para obter mais informações sobre a configuração de VNet, veja [geridos a configuração de VNet de instância](sql-database-managed-instance-connectivity-architecture.md).
 - Para um início rápido que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-get-started.md).
 - Para um tutorial sobre como utilizar o Azure Database Migration Service (DMS) para a migração, consulte [geridos de migração de instância com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, consulte [SQL Database do Azure Monitor, através da análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)
+- Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, veja [SQL Database do Azure Monitor, com o Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - Para obter informações sobre preços, consulte [gerida de base de dados SQL a preços de instância](https://azure.microsoft.com/pricing/details/sql-database/managed/).

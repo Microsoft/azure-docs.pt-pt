@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128988"
 ---
 1. Para ver as etiquetas de um recurso ou grupo de recursos, procura por etiquetas existentes na descrição geral. Se não tiver aplicado etiquetas anteriormente, a lista estará vazia.
@@ -46,7 +46,7 @@ Em massa atribuir etiquetas a vários recursos:
 
      ![Atribuir etiquetas](./media/resource-manager-tag-resources/assign-tags.png)
 
-1. Depois de cada nome e valor, selecione **+**. Quando terminar, selecione **atribuir**.
+1. Depois de cada nome e valor, selecione **+** . Quando terminar, selecione **atribuir**.
 
      ![Selecione atribuir](./media/resource-manager-tag-resources/select-assign.png)
 
@@ -66,7 +66,7 @@ Para ver todos os recursos com uma etiqueta:
 
 1. Para um acesso rápido, Afixe a vista ao dashboard.
 
-     ![Afixar no dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+     ![Afixar ao dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
 
 1. A vista está disponível a partir do dashboard.
 

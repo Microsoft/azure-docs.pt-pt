@@ -16,10 +16,10 @@ ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65779547"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
@@ -107,8 +107,8 @@ A tabela seguinte é uma referência de outros formatos de dados que deve dar su
 API | Formato de dados padrão | Outros formatos
 --------|---------------------|--------------
 /instance | json | texto
-/scheduledevents | json | nenhum
-/attested | json | nenhum
+/scheduledevents | json | Nenhum
+/attested | json | Nenhum
 
 Para aceder a um formato de resposta não predefinido, especifique o formato de pedido como um parâmetro de cadeia de caracteres de consulta no pedido. Por exemplo:
 
@@ -344,7 +344,7 @@ Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 atestado | Consulte [atestado dados](#attested-data) | 2018-10-01
 identidade | Identidades geridas para recursos do Azure. Consulte [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instância | Consulte [API de instância](#instance-api) | 2017-04-02
+instance | Consulte [API de instância](#instance-api) | 2017-04-02
 scheduledevents | Consulte [eventos agendados](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>Instância de API
@@ -357,7 +357,7 @@ Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente do Azure onde a VM está em execução no | 2018-10-01
 customData | Consulte [dados personalizados](#custom-data) | 2019-02-01
-location | Região do Azure a VM está em execução | 2017-04-02
+localização | Região do Azure a VM está em execução | 2017-04-02
 name | Nome da VM | 2017-04-02
 oferta | Oferecem informações para a imagem VM e está presente apenas para imagens implementada a partir de Galeria de imagens do Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
@@ -365,11 +365,11 @@ placementGroupId | [Grupo de colocação](../../virtual-machine-scale-sets/virtu
 plano | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) que contém o nome, o produto e o publisher para uma VM se a uma imagem do Marketplace do Azure | 2018-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução | 2017-04-02
 platformFaultDomain | [Domínio de falha](manage-availability.md) a VM está em execução | 2017-04-02
-fornecedor | Fornecedor da VM | 2018-10-01
+Fornecedor | Fornecedor da VM | 2018-10-01
 publicKeys | [Coleção de chaves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuído à VM e caminhos | 2018-04-02
 publicador | Publicador da imagem VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
-sku | SKU específica para a imagem VM | 2017-04-02
+SKU | SKU específica para a imagem VM | 2017-04-02
 subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
 tags | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
 version | Versão da imagem VM | 2017-04-02
@@ -606,7 +606,7 @@ Verification successful
 
 Dados | Descrição
 -----|------------
-Valor de uso único | Cadeia de caracteres opcional com o pedido fornecido pelo utilizador. Se nenhum valor de uso único foi fornecido no pedido, o carimbo de hora UTC atual é devolvido
+nonce | Cadeia de caracteres opcional com o pedido fornecido pelo utilizador. Se nenhum valor de uso único foi fornecido no pedido, o carimbo de hora UTC atual é devolvido
 plano | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM na mesma é uma imagem do Azure Marketplace, contém o nome, produto e fabricante
 timestamp/createdOn | O carimbo de hora em que o primeiro documento assinado foi criado
 timestamp/expiresOn | O carimbo de hora em que o documento assinado expira
@@ -687,7 +687,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### <a name="custom-data"></a>Dados Personalizados
+### <a name="custom-data"></a>Dados personalizados
 Serviço de metadados de instância permite-lhe para a VM ter acesso aos respetivos dados personalizados. Os dados binários devem ser inferior a 64 KB e são fornecidos para a VM na forma codificada em base64.
 
 Dados personalizados do Azure podem ser inseridos para a VM através de REST APIs, Cmdlets do PowerShell, Interface de linha de comandos (CLI do Azure) ou um modelo ARM.
@@ -723,7 +723,7 @@ My custom data.
 Idioma | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Ir Para  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

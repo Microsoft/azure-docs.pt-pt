@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60576191"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utilizar a ferramenta de diagnóstico do StorSimple para resolver problemas de dispositivos de série 8000
@@ -420,7 +420,7 @@ Aqui está uma tabela que descreve quais os parâmetros Windows PowerShell vári
 | Name                    | O nome amigável do dispositivo, conforme configurado através do portal do Azure durante a implementação do dispositivo. O nome amigável do padrão é o número de série do dispositivo. |
 | Modelo                   | O modelo do dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
 | serialNumber            | O número de série do dispositivo é atribuído na fábrica e é de 15 carateres de comprimento. Por exemplo, indica 8600 SHX0991003G44HT:<br> 8600 – é o modelo do dispositivo.<br>SHX – é o site de produção.<br> 0991003 - é um produto específico. <br> G44HT-os últimos 5 dígitos são aumentados para criar os números de série exclusivos. Isso pode não ser um conjunto seqüencial.|
-| TimeZone                | O fuso horário do dispositivo como configurado no portal do Azure durante a implementação do dispositivo.|
+| fuso horário                | O fuso horário do dispositivo como configurado no portal do Azure durante a implementação do dispositivo.|
 | CurrentController       | O controlador de que está ligado por meio da interface do Windows PowerShell do dispositivo StorSimple.|
 | ActiveController        | O controlador que está ativa no seu dispositivo e é o controle todas as operações de rede e disco. Isso pode ser controlador 0 ou 1 do controlador.  |
 | Controller0Status       | O estado do controlador 0 no seu dispositivo. O estado de controlador pode ser normal, no modo de recuperação ou inacessível.|

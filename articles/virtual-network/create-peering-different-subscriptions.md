@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
 ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66122021"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um peering de rede virtual - Gestor de recursos, subscrições diferentes
@@ -29,7 +29,7 @@ Os passos para criar um peering de rede virtual são diferentes, dependendo se a
 |--------- |---------|
 |[Ambas com Resource Manager](tutorial-connect-virtual-networks-portal.md) |Mesmo|
 |[Uma com Resource Manager, outra com clássica](create-peering-different-deployment-models.md) |Mesmo|
-|[Uma com Resource Manager, outra com clássica](create-peering-different-deployment-models-subscriptions.md) |Diferente|
+|[Uma com Resource Manager, outra com clássica](create-peering-different-deployment-models-subscriptions.md) |Diferentes|
 
 Não é possível criar um peering de rede virtual entre duas redes virtuais implementadas através do modelo de implementação clássica. Se precisar de ligar redes virtuais que foram ambas criadas por meio do modelo de implementação clássica, pode utilizar do Azure [Gateway de VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ligar as redes virtuais.
 
@@ -57,11 +57,11 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
     - **Localização**: *E.U.A. leste*
 4. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetA*. Selecione **myVnetA** quando for apresentada nos resultados da pesquisa. 
 5. Selecione **controlo de acesso (IAM)** na vertical lista de opções no lado esquerdo.
-6. Sob **myVnetA - controlo de acesso (IAM)**, selecione **+ adicionar atribuição de função**.
+6. Sob **myVnetA - controlo de acesso (IAM)** , selecione **+ adicionar atribuição de função**.
 7. Selecione **contribuinte de rede** no **função** caixa.
 8. Na **selecionar** caixa, selecione *UserB*, ou escreva o endereço de e-mail do User-b para pesquisá-la.
 9. Selecione **Guardar**.
-10. Sob **myVnetA - controlo de acesso (IAM)**, selecione **propriedades** na vertical lista de opções no lado esquerdo. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
+10. Sob **myVnetA - controlo de acesso (IAM)** , selecione **propriedades** na vertical lista de opções no lado esquerdo. Copiar o **ID de recurso**, que é utilizado num passo posterior. O ID de recurso é semelhante ao seguinte exemplo: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 11. Terminar sessão no portal como UserA, em seguida, inicie sessão como utilizador b.
 12. Conclua os passos 2 a 3, introduzir ou selecionar os seguintes valores no passo 3:
 

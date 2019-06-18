@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: 73384868deb8f0e33b233e363c42a12adbcbe402
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66237554"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelação de dados na pré-visualização do Azure Time Series Insights

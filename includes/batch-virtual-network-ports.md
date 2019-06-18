@@ -16,10 +16,10 @@ ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127518"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
@@ -64,14 +64,14 @@ Não é necessário especificar NSGs ao nível da sub-rede porque o Batch config
 
 **Regras de segurança de entrada**
 
-| Endereços IP de origem | Etiqueta de serviço de origem | Portas de origem | Destino | Portas de destino | Protocol | Acção |
+| Endereços IP de origem | Etiqueta de serviço de origem | Portas de origem | Destino | Portas de destino | Protocol | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | `BatchNodeManagement` [Etiqueta de serviço](../articles/virtual-network/security-overview.md#service-tags) | * | Qualquer | 29876-29877 | TCP | Permitir |
 | Utilizador IPs de origem para aceder remotamente a nós de computação e/ou a sub-rede de nó de computação para tarefas de várias instâncias do Linux, se necessário. | N/A | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Permitir |
 
 **Regras de segurança de saída**
 
-| Source | Portas de origem | Destino | Etiqueta do serviço de destino | Protocol | Acção |
+| source | Portas de origem | Destino | Etiqueta do serviço de destino | Protocol | Ação |
 | --- | --- | --- | --- | --- | --- |
 | Qualquer | 443 | [Etiqueta de serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (na mesma região que a sua conta do Batch e a VNet)  | Qualquer | Permitir |
 
@@ -97,13 +97,13 @@ Configure o tráfego de entrada na porta 3389 para Windows se tiver de permitir 
 
 **Regras de segurança de entrada**
 
-| Endereços IP de origem | Portas de origem | Destino | Portas de destino | Protocol | Acção |
+| Endereços IP de origem | Portas de origem | Destino | Portas de destino | Protocol | Ação |
 | --- | --- | --- | --- | --- | --- |
 Qualquer <br /><br />Apesar de isto necessitar efetivamente de "permitir todos", o serviço Batch aplica uma regra ACL ao nível de cada nó que filtra todos os endereços IP de serviço não pertencentes ao Batch. | * | Qualquer | 10100, 20100, 30100 | TCP | Permitir |
 | Opcional, para permitir o acesso RDP em nós de computação. | * | Qualquer | 3389 | TCP | Permitir |
 
 **Regras de segurança de saída**
 
-| Source | Portas de origem | Destino | Portas de destino | Protocol | Acção |
+| source | Portas de origem | Destino | Portas de destino | Protocol | Ação |
 | --- | --- | --- | --- | --- | --- |
 | Qualquer | * | Qualquer | 443  | Qualquer | Permitir |

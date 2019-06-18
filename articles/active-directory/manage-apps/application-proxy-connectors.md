@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113090"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
@@ -85,7 +85,7 @@ Grupos de conectores tornam mais fácil de gerenciar grandes Implantações. Ele
 
 Para saber mais sobre os grupos de conector, veja [publicar aplicações em redes separadas e localizações de utilização de grupos de conector](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>Planeamento de Capacidade 
+## <a name="capacity-planning"></a>Planeamento da Capacidade 
 
 É importante certificar-se de que tenha se planejado capacidade suficiente entre conectores para processar o volume de tráfego esperado. Recomendamos que cada grupo de conectores tem, pelo menos, dois conectores para fornecer elevada disponibilidade e escala. Ter três conectores é ideal, caso precise de uma máquina em qualquer ponto de serviço. 
 

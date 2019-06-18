@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: v-mohabe
 ms.openlocfilehash: c23c9a2b9af1947c397b96431ae3c3bcd0e30aaa
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968299"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Melhorar a sua pontuação segura no Centro de segurança do Azure

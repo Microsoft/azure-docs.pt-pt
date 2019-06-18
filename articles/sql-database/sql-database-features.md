@@ -13,10 +13,10 @@ ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 05/10/2019
 ms.openlocfilehash: 4d8d2fd9a7408bb77939c9a1c8fdd67251282f49
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479215"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Base de dados SQL do Azure e do SQL Server

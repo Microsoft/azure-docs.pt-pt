@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
 ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64718906"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Como monitorizar a disponibilidade do cluster com os registos do Ambari e o Azure Monitor
@@ -58,7 +58,7 @@ Para ver uma lista de definições de alerta e os respetivos Estados, clique a *
 
 Ambari oferece muitos alertas predefinidas relacionados com a disponibilidade, incluindo:
 
-| Nome do Alerta                        | Descrição                                                                                                                                                                           |
+| Nome do alerta                        | Descrição                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Resumo do Estado de funcionamento do DataNode           | Este alerta de nível de serviço é acionada se existirem DataNodes mau estado de funcionamento                                                                                                                |
 | O estado de funcionamento do NameNode alta disponibilidade | Este alerta de nível de serviço é acionado se o Active Directory NameNode ou NameNode de reserva não está em execução.                                                                              |

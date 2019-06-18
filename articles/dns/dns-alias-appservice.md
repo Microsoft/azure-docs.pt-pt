@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60790747"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Alojar aplicações da web do Azure com balanceamento de carga no vértice da zona
@@ -43,7 +43,7 @@ Crie um grupo de recursos para conter todos os recursos usados neste artigo.
 Crie dois planos de serviço de aplicações Web no seu grupo de recursos utilizando a seguinte tabela para obter informações de configuração. Para obter mais informações sobre como criar um plano do serviço de aplicações, consulte [gerir um plano do serviço de aplicações no Azure](../app-service/app-service-plan-manage.md).
 
 
-|Name  |Sistema Operativo  |Location  |Escalão de Preço  |
+|Name  |Sistema operativo  |Location  |Escalão de Preço  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|EUA Leste|Programador/teste D1 partilhado|
 |ASP-02     |Windows|EUA Central|Programador/teste D1 partilhado|
@@ -87,7 +87,7 @@ Agora, pode criar os pontos finais para as duas aplicações web.
 3. Clique em **Adicionar**.
 4. Utilize a tabela seguinte para configurar os pontos de extremidade:
 
-   |Type  |Name  |Destino  |Location  |Definições de Cabeçalho Personalizadas|
+   |Tipo  |Name  |Destino  |Location  |Definições personalizadas do cabeçalho|
    |---------|---------|---------|---------|---------|
    |Ponto final externo     |End-01|Endereço IP que registou para a aplicação-01|EUA Leste|anfitrião:\<o URL que registou para a aplicação-01\><br>Exemplo: **anfitrião: a aplicação-01.azurewebsites.net**|
    |Ponto final externo     |End-02|Endereço IP que registou para a aplicação-02|EUA Central|anfitrião:\<o URL que registou para a aplicação-02\><br>Exemplo: **anfitrião: a aplicação-02.azurewebsites.net**
@@ -104,9 +104,9 @@ Quando a zona DNS estiver pronta, pode adicionar um registo de alias para o vér
 2. Clique em **Conjunto de registos**.
 3. Adicione o conjunto utilizando a seguinte tabela de registos:
 
-   |Name  |Type  |Conjunto de registos de alias  |Alias type  |Recurso do Azure|
+   |Name  |Tipo  |Conjunto de registos de alias  |Alias type  |Recursos do Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|Sim|Recurso do Azure|Gestor de tráfego - seu perfil|
+   |@     |A|Sim|Recursos do Azure|Gestor de tráfego - seu perfil|
 
 ## <a name="add-custom-hostnames"></a>Adicionar nomes de anfitriões personalizados
 

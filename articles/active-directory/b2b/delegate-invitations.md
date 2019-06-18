@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11dda7fc3760f468c094fb4cf4484a27895f83b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65812680"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permita uma colaboração B2B externa e gerir quem pode convidar convidados
@@ -48,7 +48,7 @@ Por predefinição, todos os usuários, inclusive convidados, podem convidar uti
    - **Os administradores e utilizadores na função de autor do convite de convidado podem convidar**: Para permitir que os administradores e utilizadores na função de "Autor de convite" convidar participantes, definir esta política como **Sim**.
    - **Os membros podem convidar**: Para permitir que os membros de não-administrador do seu diretório convidar convidados, definir esta política como **Sim**.
    - **Os convidados podem convidar**: Para permitir que os convidados convidar outros convidados, defina esta política como **Sim**.
-   - **Ativar o código de acesso de uso individual de E-Mail para convidados (pré-visualização)**: Para obter mais informações sobre a funcionalidade de código de acesso único, consulte [autenticação de código de acesso único por E-Mail (pré-visualização)](one-time-passcode.md).
+   - **Ativar o código de acesso de uso individual de E-Mail para convidados (pré-visualização)** : Para obter mais informações sobre a funcionalidade de código de acesso único, consulte [autenticação de código de acesso único por E-Mail (pré-visualização)](one-time-passcode.md).
    - **Restrições de colaboração**: Para obter mais informações sobre como permitir ou bloquear convites a domínios específicos, consulte [permitir ou bloquear convites aos utilizadores B2B de organizações específicos](allow-deny-list.md).
 
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Atribuir a função de utilizador que convida convidados a um utilizador

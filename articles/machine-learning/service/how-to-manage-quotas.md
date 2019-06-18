@@ -12,10 +12,10 @@ ms.author: nigup
 ms.date: 05/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 8754eedc8284aab01006ea71bfd870064b91ea17
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851129"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerir e solicitar as quotas para recursos do Azure
@@ -75,7 +75,7 @@ Recursos disponíveis:
 <sup>1</sup> a duração máxima refere-se até ao momento em que iniciar uma execução e quando ele for concluída. Execuções concluídas mantêm-se indefinidamente; dados de execuções não concluídas dentro da duração máxima não estão acessíveis.
 <sup>2</sup> tarefas num nó de baixa prioridade podem ser pre-empted sempre que existe uma restrição de capacidade. Recomenda-se para implementar o ponto de verificação no seu trabalho.
 
-### <a name="container-instances"></a>Instâncias de contentores
+### <a name="container-instances"></a>Instâncias de contentor
 
 Também existe um limite no número de instâncias de contentor que pode acelerar num determinado período de tempo (hora a hora de âmbito) ou em sua assinatura inteira.
 
@@ -95,7 +95,7 @@ Ver a sua quota para vários recursos, como máquinas virtuais, armazenamento, r
 
 1. Na lista de subscrições, selecione a subscrição cujo quota que procura.
 
-   **Há uma limitação:**, especificamente para ver a quota de computação do Azure Machine Learning. Conforme mencionado acima, esse quota é separada da quota de computação na sua subscrição.
+   **Há uma limitação:** , especificamente para ver a quota de computação do Azure Machine Learning. Conforme mencionado acima, esse quota é separada da quota de computação na sua subscrição.
 
 1. No painel esquerdo, selecione **serviço Machine Learning** e, em seguida, selecione qualquer área de trabalho na lista apresentada
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 5e08b72c93734c9fc693e342397bb6cffaa36f8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60871438"
 ---
 # <a name="azure-powershell-samples-for-azure-notification-hubs"></a>Exemplos do Azure PowerShell para os Hubs de notificação do Azure

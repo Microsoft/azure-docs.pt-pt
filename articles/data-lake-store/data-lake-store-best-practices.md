@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60878959"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar a geração 1 de armazenamento do Azure Data Lake
@@ -45,7 +45,7 @@ Principais de serviço do Azure Active Directory são normalmente utilizados por
 
 ### <a name="enable-the-data-lake-storage-gen1-firewall-with-azure-service-access"></a>Ativar a firewall de geração 1 de armazenamento do Data Lake com acesso de serviço do Azure
 
-Geração 1 de armazenamento do Data Lake suporta a opção de ativar um firewall e limitar o acesso apenas aos serviços do Azure, o que é recomendado para um vetor de ataque menor de intrusões externos. Firewall pode ser ativada na conta de geração 1 do Data Lake Storage no portal do Azure através da **Firewall** > **ativar Firewall (ON)** > **permitir o acesso ao Azure serviços** opções.
+Geração 1 de armazenamento do Data Lake suporta a opção de ativar um firewall e limitar o acesso apenas aos serviços do Azure, o que é recomendado para um vetor de ataque menor de intrusões externos. Firewall pode ser ativada na conta de geração 1 do Data Lake Storage no portal do Azure através da **Firewall** > **ativar Firewall (ON)**  > **permitir o acesso ao Azure serviços** opções.
 
 ![Definições de geração 1 de armazenamento do Data Lake da firewall](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "definições na geração 1 de armazenamento do Data Lake da Firewall")
 

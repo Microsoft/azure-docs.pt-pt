@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606420"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
@@ -297,12 +297,12 @@ Utilize estas definições:
 
 | Definição |Aplica-se a| Value |
 |----|---|---|
-| Nome do cluster |sempre| yourclustername |
-| Runtime do Databricks |sempre| Qualquer tempo de execução não ML (ML não 4.x, 5.x) |
-| Versão de Python |sempre| 3 |
-| Trabalhos |sempre| 2 ou superior |
-| Tipos de VM de nós de trabalho <br>(determina o número máximo de iterações simultâneas) |ML automatizada<br>apenas| Com otimização de memória VM preferida |
-| Ativar o Dimensionamento Automático |ML automatizada<br>apenas| Desmarque a opção |
+| Nome do cluster |Sempre| yourclustername |
+| Runtime do Databricks |Sempre| Qualquer tempo de execução não ML (ML não 4.x, 5.x) |
+| Versão de Python |Sempre| 3 |
+| Funções de trabalho |Sempre| 2 ou superior |
+| Tipos de VM de nós de trabalho <br>(determina o número máximo de iterações simultâneas) |ML Automatizado<br>apenas| Com otimização de memória VM preferida |
+| Ativar o Dimensionamento Automático |ML Automatizado<br>apenas| Desmarque a opção |
 
 Aguarde até que o cluster está em execução antes de prosseguir.
 
@@ -311,7 +311,7 @@ Quando o cluster estiver em execução, [criar uma biblioteca](https://docs.data
 
 1. Escolher **apenas uma** opção (outra instalação do SDK não são suportadas)
 
-   |SDK&nbsp;pacote&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;pacote&nbsp;extras|source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para o Databricks| Carregar Python ovo ou PyPI | azureml-sdk[databricks]|
    |Para o Databricks - com-<br> funcionalidades de ML automatizadas| Carregar Python ovo ou PyPI | azureml-sdk[automl_databricks]|
@@ -378,7 +378,7 @@ Para utilizar este ficheiro a partir do código, utilize `ws=Workspace.from_conf
 
 Pode criar o ficheiro de configuração de três formas:
 
-* **Siga os passos em [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md#sdk)**: R *config* ficheiro é criado na sua biblioteca de blocos de notas do Azure. O ficheiro contém as informações de configuração para a área de trabalho. Pode transferir ou copiar o *config* para outros ambientes de desenvolvimento.
+* **Siga os passos em [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md#sdk)** : R *config* ficheiro é criado na sua biblioteca de blocos de notas do Azure. O ficheiro contém as informações de configuração para a área de trabalho. Pode transferir ou copiar o *config* para outros ambientes de desenvolvimento.
 
 * **Transfira o ficheiro**: Na [portal do Azure](https://ms.portal.azure.com), selecione **transferir config** do **descrição geral** secção da área de trabalho.
 

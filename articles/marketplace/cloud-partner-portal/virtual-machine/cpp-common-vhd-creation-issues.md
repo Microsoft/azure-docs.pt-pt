@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
 ms.openlocfilehash: d8b532793282db18d6182237bb921bc118ea717b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938438"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (FAQ)

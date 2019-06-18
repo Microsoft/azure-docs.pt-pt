@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62130607"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilizar um balanceador de carga interno com um ambiente de serviço de aplicações
@@ -53,7 +53,7 @@ Existem algumas coisas que não pode fazer ao utilizar um ASE de ILB. Esses elem
 ## <a name="creating-an-ilb-ase"></a>Criar um ASE de ILB
 Criar um ASE de ILB não é muito diferente da criação de um ASE normalmente. Para ver um debate mais aprofundado sobre a criação de um ASE, veja [como criar um ambiente de serviço de aplicações][HowtoCreateASE]. O processo para criar um ASE de ILB é o mesmo entre criar uma VNet durante a criação do ASE ou ao selecionar uma VNet já existente. Para criar um ASE de ILB: 
 
-1. No portal do Azure, selecione **criar um recurso -> Web + Mobile-ambiente de serviço de aplicações >**.
+1. No portal do Azure, selecione **criar um recurso -> Web + Mobile-ambiente de serviço de aplicações >** .
 2. Selecione a sua subscrição.
 3. Selecione ou crie um grupo de recursos.
 4. Selecione ou crie uma VNet.
@@ -108,7 +108,7 @@ O endereço IP para o ILB está listado nas suas propriedades como o endereço I
 
 ![][4]
 
-## <a name="using-an-ilb-ase"></a>Utilizando um ILB de ASE
+## <a name="using-an-ilb-ase"></a>Utiliza um ASE de ILB
 #### <a name="network-security-groups"></a>Grupos de Segurança de Rede
 Um ASE de ILB permite que o isolamento de rede para as suas aplicações. As aplicações não são acessíveis ou até mesmo conhecidos pela internet. Essa abordagem é excelente para o alojamento de sites de intranet, como aplicações de linha de negócio. Quando precisar de restringir o acesso mais adiante, pode usar Groups(NSGs) de segurança de rede para controlar o acesso ao nível da rede. 
 

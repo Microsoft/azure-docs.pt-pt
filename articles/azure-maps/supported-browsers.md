@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 84c5dbcf5073ba8c0ae662af019cde590a9adf10
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686652"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browsers suportados por SDK web
@@ -29,7 +29,7 @@ if(!atlas.isSupported()) {
 }
 ```
 
-## <a name="desktop"></a>Ambiente de trabalho
+## <a name="desktop"></a>Desktop
 
 O SDK de Web de mapas do Azure suporta os seguintes browsers de ambiente de trabalho:
 
@@ -40,7 +40,7 @@ O SDK de Web de mapas do Azure suporta os seguintes browsers de ambiente de trab
 
 Consulte também [direcionar os navegadores herdados](#Target-Legacy-Browsers) mais adiante neste artigo.
 
-## <a name="mobile"></a>Telemóvel
+## <a name="mobile"></a>móvel
 
 O SDK de Web de mapas do Azure suporta os seguintes browsers para dispositivos móveis:
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f446ec6bce138a072a214a9e9cd7880ad215ad3b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: ba6673b5fda6af8c9bd3ef53dff33fe63f41e26d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133498"
 ---
 Este artigo utiliza cmdlets do PowerShell. Para executar os cmdlets, pode utilizar o Azure Cloud Shell. O Azure Cloud Shell é um shell interativo gratuito que tenha as ferramentas comuns do Azure pré-instalada e está configurado para utilizar com a sua conta. Basta clicar em **Copiar** para copiar o código, colá-lo no Cloud Shell e então prima Enter para executá-lo. Existem algumas formas de iniciar o Cloud Shell:
 
@@ -24,6 +24,6 @@ Este artigo utiliza cmdlets do PowerShell. Para executar os cmdlets, pode utiliz
 | Clique no botão **Cloud Shell**, no menu do canto superior direito do portal do Azure. | [![Cloud Shell no portal](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-**Executar localmente o PowerShell**
+**Executar localmente o Azure PowerShell**
 
-Também pode instalar e executar os cmdlets do PowerShell do Azure localmente no seu computador. Cmdlets do PowerShell são atualizados com frequência. Se não estiver a executar a versão mais recente, os valores especificados nas instruções poderão falhar. Para localizar a versão do PowerShell que está a executar localmente, utilize o `Get-Module -ListAvailable Az` cmdlet. Para instalar ou atualizar, veja [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).
+Também pode instalar e executar os cmdlets do PowerShell do Azure localmente no seu computador. Cmdlets do PowerShell são atualizados com frequência. Se não estiver a executar a versão mais recente, os valores especificados nas instruções poderão falhar. Para encontrar as versões instaladas do PowerShell no seu sistema, utilize o `Get-Module -ListAvailable Az` cmdlet. Para instalar ou atualizar, veja [instalar o módulo Azure PowerShell](/powershell/azure/install-az-ps).

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60255125"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Ligar o Operations Manager para o Azure Monitor
@@ -64,7 +64,7 @@ Antes de começar, reveja os seguintes requisitos.
 
 As informações abaixo lista as informações de configuração de proxy e de firewall necessárias para o agente do Operations Manager, servidores de gestão e consola de operações comunicar com o Azure Monitor. Tráfego a partir de cada componente é de saída a partir da sua rede para o Azure Monitor.   
 
-|Recurso | Número da porta| Inspeção de HTTP Direto|  
+|Resource | Número da porta| Inspeção de HTTP Direto|  
 |---------|------|-----------------------|  
 |**Agente**|||  
 |\*.ods.opinsights.azure.com| 443 |Sim|  
@@ -202,7 +202,7 @@ Existem algumas formas diferentes, pode verificar que o Azure Monitor para integ
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Para confirmar a integração na consola de Operações
 
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
-1. Selecione **Pacotes de Gestão** e, na caixa de texto **Procurar:**, digite **Assistente** ou **Inteligência**.
+1. Selecione **Pacotes de Gestão** e, na caixa de texto **Procurar:** , digite **Assistente** ou **Inteligência**.
 1. Consoante as soluções que tiver ativado, pode ver um pacote de gestão correspondente listado nos resultados da pesquisa.  Por exemplo, se tiver ativado a solução Gestão de Alertas, o pacote de gestão Microsoft System Center Advisor Alert Management será apresentado na lista.
 1. Na vista **Monitorização**, navegue até à vista **Operations Management Suite\Estado de Funcionamento**.  Selecione um servidor de Gestão no painel **Estado do Servidor de Gestão** e, no painel **Vista de Detalhes**, confirme se o valor da propriedade **URI do serviço de Autenticação** corresponde ao ID da Área de Trabalho do Log Analytics.
    
@@ -229,7 +229,7 @@ Pacotes de gestão para as soluções tiver ativado o que se integram com o Oper
     >  
 
 1. Abra a consola de Operações do Operations Manager com uma conta que seja um membro da função Administradores do Operations Manager.
-1. Em **Administração**, selecione o nó **Pacotes de Gestão** e, na caixa **Procurar:**, escreva **Assistente** e verifique se os seguintes pacotes de gestão ainda estão a ser importados no grupo de gestão:
+1. Em **Administração**, selecione o nó **Pacotes de Gestão** e, na caixa **Procurar:** , escreva **Assistente** e verifique se os seguintes pacotes de gestão ainda estão a ser importados no grupo de gestão:
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno

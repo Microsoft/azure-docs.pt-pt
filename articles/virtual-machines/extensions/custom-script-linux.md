@@ -114,7 +114,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (por exemplo) | python MyPythonScript.py \<my param1 > | string |
+| commandToExecute (por exemplo) | Python MyPythonScript.py \<my param1 > | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (por exemplo) | false | boolean |
 | timestamp (por exemplo) | 123456789 | número inteiro de 32 bits |

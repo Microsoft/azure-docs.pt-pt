@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60838120"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar a sua base de dados MySQL através de importar e exportar
@@ -90,7 +90,7 @@ O exemplo seguinte importa a tabela a partir de um ficheiro CSV:
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>Dados do SQL, exportar e importar assistentes a partir do painel do navegador
 Utilize um Assistente para exportar ou importar SQL gerado a partir do MySQL Workbench ou gerado do comando mysqldump. Aceder a estes assistentes a partir do **navegador** painel ou ao selecionar **servidor** no menu principal. Em seguida, selecione **exportar dados** ou **importação de dados**. 
 
-#### <a name="data-export"></a>Exportação de Dados
+#### <a name="data-export"></a>Exportação de dados
 ![Dados do MySQL Workbench exportar com o painel do navegador](./media/concepts-migrate-import-export/p2.png)
 
 Pode utilizar o **exportar dados** separador para exportar os dados do MySQL. 

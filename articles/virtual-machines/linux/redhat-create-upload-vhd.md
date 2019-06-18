@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: szark
 ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65966105"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
@@ -904,7 +904,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
     c.  Defina o BIOS para arrancar a partir do CD.
 
-1. Inicia a máquina virtual. Quando o guia de instalação for apresentada, prima **separador** para configurar as opções de arranque.
+1. Inicie a máquina virtual. Quando o guia de instalação for apresentada, prima **separador** para configurar as opções de arranque.
 
 1. ENTER `inst.ks=<the location of the kickstart file>` no final das opções de inicialização e prima **Enter**.
 

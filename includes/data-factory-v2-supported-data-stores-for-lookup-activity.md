@@ -9,10 +9,10 @@ ms.date: 05/24/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 2b250f9f722bb1992d72b0555207a64dbc2dd972
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66271501"
 ---
 | Categoria | Arquivo de dados |
@@ -22,7 +22,7 @@ ms.locfileid: "66271501"
 | &nbsp; |[Explorador de dados do Azure](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Armazenamento do Azure Data Lake Ger1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Geração 2 Lake armazenamento de dados do Azure](../articles/data-factory/connector-azure-data-lake-storage.md) |
-| &nbsp; |[Base de dados do Azure para MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
+| &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Base de Dados do Azure para MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Base de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Ficheiros do Azure](../articles/data-factory/connector-azure-file-storage.md) |

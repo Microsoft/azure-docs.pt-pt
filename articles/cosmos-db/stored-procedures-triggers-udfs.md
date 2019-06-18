@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 40d120fe5fcc79721923d3493e74b5195ecc129c
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965698"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, acionadores e funções definidas pelo utilizador
@@ -73,7 +73,7 @@ Pode optar por garantir que as suas funções de JavaScript concluir dentro do t
 
 As funções JavaScript também estão sujeitos aos [aprovisionado a capacidade de débito](request-units.md). Funções do JavaScript poderiam acabar usando um grande número de unidades de pedido dentro de pouco tempo e podem ser limitado taxa se for atingido o limite de capacidade de débito aprovisionado. É importante observar que os scripts consumam débito adicionais além das operações gasto de débito da base de dados em execução, embora essas operações de base de dados são um pouco mais baratos do que executar as mesmas operações do cliente.
 
-## <a name="triggers"></a>Ativadores
+## <a name="triggers"></a>Acionadores
 
 Esta secção descreve os dois tipos de acionadores:
 

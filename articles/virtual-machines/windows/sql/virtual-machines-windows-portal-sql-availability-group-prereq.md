@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591925"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Concluir os pré-requisitos para a criação de grupos de disponibilidade Always On em máquinas virtuais do Azure
@@ -85,11 +85,11 @@ Para criar a rede virtual:
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Espaço de endereços** |10.33.0.0/24 |
-   | **Nome da sub-rede** |Administração |
+   | **Nome da sub-rede** |administrador |
    | **Intervalo de endereços da sub-rede** |10.33.0.0/29 |
    | **Subscrição** |Especifique a subscrição que pretende utilizar. **Subscrição** está em branco se tiver apenas uma subscrição. |
    | **Grupo de recursos** |Escolher **utilizar existente** e escolha o nome do grupo de recursos. |
-   | **Localização** |Especifique a localização do Azure. |
+   | **Location** |Especifique a localização do Azure. |
 
    O intervalo de endereços de espaço e sub-rede endereço pode ser diferente da tabela. Consoante a sua subscrição, o portal sugere um espaço de endereços disponíveis e o intervalo de endereços de sub-rede correspondente. Se nenhum espaço de endereços suficiente estiver disponível, utilize uma subscrição diferente.
 
@@ -131,7 +131,7 @@ A tabela seguinte resume as definições de configuração de rede:
 | **Intervalo de endereços da sub-rede** |Este valor depende dos intervalos de endereços disponíveis na sua subscrição. Um valor de típico é 10.0.1.0/24. |
 | **Subscrição** |Especifique a subscrição que pretende utilizar. |
 | **Grupo de Recursos** |**SQL-HA-RG** |
-| **Localização** |Especifique a mesma localização que escolheu para o grupo de recursos. |
+| **Location** |Especifique a mesma localização que escolheu para o grupo de recursos. |
 
 ## <a name="create-availability-sets"></a>Criar conjuntos de disponibilidade
 
@@ -182,7 +182,7 @@ A tabela seguinte mostra as definições para essas duas máquinas:
 | **Palavra-passe** |Contoso!0000 |
 | **Subscrição** |*A sua subscrição* |
 | **Grupo de recursos** |SQL-HA-RG |
-| **Localização** |*Sua localização* |
+| **Location** |*Sua localização* |
 | **Tamanho** |DS1_V2 |
 | **Armazenamento** | **Utilizar discos geridos** - **Sim** |
 | **Rede virtual** |autoHAVNET |
@@ -206,7 +206,7 @@ Nos passos seguintes, configurar o **ad-principal-dc** máquinas como controlado
 1. No portal, abra a **SQL-HA-RG** recursos de grupo e selecione o **ad-principal-dc** máquina. No **ad-principal-dc**, clique em **Connect** para abrir um ficheiro RDP para acesso de ambiente de trabalho remoto.
 
     ![Ligar a uma máquina virtual](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
-2. Inicie sessão com a sua conta de administrador configurada (**\DomainAdmin**) e palavra-passe (**Contoso! 0000**).
+2. Inicie sessão com a sua conta de administrador configurada ( **\DomainAdmin**) e palavra-passe (**Contoso! 0000**).
 3. Por predefinição, o **Gestor de servidor** dashboard deve ser apresentado.
 4. Clique nas **para adicionar funções e funcionalidades** link no dashboard.
 

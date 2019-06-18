@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 34857108cf7f0580c380ffbd4bbcedb5cd5a807a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6fc00bf0dfb83f349da91989a579f31be2027ff0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66245032"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071672"
 ---
 # <a name="overview-of-azure-activity-log"></a>Descrição geral do registo de atividades do Azure
 
@@ -30,10 +30,10 @@ Há um único registo de atividades para cada subscrição do Azure. Ele fornece
 
 
 > [!NOTE]
-> O registo de atividades do Azure é principalmente para atividades que ocorrem no Azure Resource Manager. Não regista ugresources usando o modelo de clássica/RDFE. Alguns tipos de recursos clássicos têm um fornecedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft. classiccompute). Se interage com um tipo de recurso clássico através do Azure Resource Manager com estes fornecedores de recursos de proxy, as operações aparecem no registo de atividades. Se interage com um tipo de recurso clássico fora de proxies do Azure Resource Manager, suas ações só são registadas no registo de operação. O registo de operação pode ser navegado numa seção à parte do portal.
+> O registo de atividades do Azure é principalmente para atividades que ocorrem no Azure Resource Manager. Não controla a recursos com o modelo de clássica/RDFE. Alguns tipos de recursos clássicos têm um fornecedor de recursos de proxy no Azure Resource Manager (por exemplo, Microsoft. classiccompute). Se interage com um tipo de recurso clássico através do Azure Resource Manager com estes fornecedores de recursos de proxy, as operações aparecem no registo de atividades. Se interage com um tipo de recurso clássico fora de proxies do Azure Resource Manager, suas ações só são registadas no registo de operação. O registo de operação pode ser navegado numa seção à parte do portal.
 
 ## <a name="activity-log-retention"></a>Retenção do registo de atividade
-Eventos de registo de atividade são armazenados durante 90 dias. Para armazenar estes dados por períodos mais longos, [reuni-los no Azure Monitor](activity-log-collect.md) ou [exportá-lo para o armazenamento ou Hubs de eventos](activity-log-export.md).
+Depois de criado, entradas de registo de Atividades não serem modificadas ou eliminadas pelo sistema. Além disso, não é possível alterá-los na interface do ou por meio de programação. Eventos de registo de atividade são armazenados durante 90 dias. Para armazenar estes dados por períodos mais longos, [reuni-los no Azure Monitor](activity-log-collect.md) ou [exportá-lo para o armazenamento ou Hubs de eventos](activity-log-export.md).
 
 ## <a name="view-the-activity-log"></a>Ver o registo de atividade
 Ver o registo de atividade para todos os recursos a partir da **Monitor** menu no portal do Azure. Ver o registo de atividade para um recurso específico do **registo de atividades** opção no menu desse recurso. Também pode obter registos de registo de atividades com o PowerShell, CLI ou REST API.  Ver [modo de exibição e obter a atividade de Azure registar eventos](activity-log-view.md).

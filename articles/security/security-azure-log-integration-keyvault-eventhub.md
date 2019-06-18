@@ -12,10 +12,10 @@ ms.date: 05/28/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ms.openlocfilehash: 5614cc6fa01ddd10d670fdf429051a8e024550fc
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66298192"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registos do Azure: Processar os eventos do Azure Key Vault através dos Hubs de eventos

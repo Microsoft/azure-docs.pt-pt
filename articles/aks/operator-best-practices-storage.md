@@ -5,13 +5,13 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65072651"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Melhores práticas para armazenamento e cópias de segurança no Azure Kubernetes Service (AKS)
@@ -34,12 +34,12 @@ Aplicativos geralmente exigem a diferentes tipos e velocidades de armazenamento.
 
 A tabela seguinte descreve os tipos de armazenamento disponível e as respetivas funcionalidades:
 
-| Caso de utilização | Plug-in do volume | Leitura/escrita uma vez | Muitos só de leitura | Leitura/escrita muitos |
-|----------|---------------|-----------------|----------------|-----------------|
-| Configuração partilhada       | Ficheiros do Azure   | Sim | Sim | Sim |
-| Dados estruturados de aplicação        | Discos do Azure   | Sim | Não  | Não  |
-| Dados da aplicação, partilhas só de leitura | [Dysk (pré-visualização)][dysk] | Sim | Sim | Não  |
-| Dados não estruturados, operações de sistema de ficheiros | [BlobFuse (pré-visualização)][blobfuse] | Sim | Sim | Sim |
+| Caso de utilização | Plug-in do volume | Leitura/escrita uma vez | Muitos só de leitura | Leitura/escrita muitos | Suporte a contentores do Windows Server |
+|----------|---------------|-----------------|----------------|-----------------|--------------------|
+| Configuração partilhada       | Ficheiros do Azure   | Sim | Sim | Sim | Sim |
+| Dados estruturados de aplicação        | Discos do Azure   | Sim | Não  | Não  | Sim |
+| Dados da aplicação, partilhas só de leitura | [Dysk (pré-visualização)][dysk] | Sim | Sim | Não  | Não |
+| Dados não estruturados, operações de sistema de ficheiros | [BlobFuse (pré-visualização)][blobfuse] | Sim | Sim | Sim | Não |
 
 Os dois principais tipos de armazenamento fornecida para os volumes de AKS são apoiados por discos do Azure ou de ficheiros do Azure. Para melhorar a segurança, ambos os tipos de armazenamento utilizam o Azure Storage Service Encryption (SSE) por padrão, que criptografa dados em repouso. Atualmente não não possível encriptar discos com o Azure Disk Encryption ao nível do nó do AKS.
 

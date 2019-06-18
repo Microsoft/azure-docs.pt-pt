@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65441633"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página da sua organização do Azure Active Directory início de sessão
@@ -27,7 +27,7 @@ Utilize o logótipo e esquemas de cores personalizada da sua organização para 
 >Adicionar a imagem corporativa personalizada tem de utilizar o Azure Active Directory Premium 1, 2 de Premium ou básicas editions, ou ter uma licença do Office 365. Para obter mais informações sobre as edições e licenciamento, consulte [Inscreva-se para o Azure AD Premium](active-directory-get-started-premium.md).<br><br>As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de início de sessão do Azure AD
-Pode personalizar sua do Azure AD início de sessão páginas, que são apresentados quando os utilizadores iniciam sessão aplicações de inquilino específico da sua organização, tal como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), ou quando passar uma variável de domínio, tal como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+Pode personalizar sua do Azure AD início de sessão páginas, que são apresentados quando os utilizadores iniciam sessão aplicações de inquilino específico da sua organização, tal como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), ou quando passar uma variável de domínio, tal como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
 A imagem corporativa personalizada deixa de aparecer imediatamente quando os utilizadores aceda a sites como www\.office.com. Em vez disso, o utilizador tem início de sessão antes da imagem corporativa personalizada é apresentada.
 

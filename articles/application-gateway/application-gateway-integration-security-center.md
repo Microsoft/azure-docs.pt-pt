@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: victorh
 ms.openlocfilehash: 10f115b64f0bd3f7e557da2bedbf3327d0ef483d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62122302"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Descrição geral da integração entre o Gateway de aplicação e o Centro de segurança do Azure
@@ -38,7 +38,7 @@ Clicar em quaisquer recomendações sobre firewall de aplicações web abre uma 
 
 Navegue para **todos os serviços** > **segurança + identidade** > **Centro de segurança** e, no **Centro de segurança - descrição geral do**, clique em **aplicativos**. No **Centro de segurança - aplicativos**, a tabela contém uma lista de aplicações que o Centro de segurança detetado na sua subscrição.
 
-![aplicações Web][3]
+![Aplicações Web][3]
 
 Ao clicar num aplicativo web com um problema crítico, obtém a **estado de funcionamento de segurança de aplicação** página. Na imagem abaixo, o aplicativo web que não está protegido por uma firewall de aplicações web. 
 
@@ -70,7 +70,7 @@ Centro de segurança controla os aplicativos adicionados a um gateway de aplica�
 
 ![página de adicionar firewall de aplicações Web][5]
 
-## <a name="security-alerts"></a>Alertas de Segurança
+## <a name="security-alerts"></a>Alertas de segurança
 
 No Centro de segurança, navegue até **detecção** > **alertas de segurança**.  Aqui, poderá encontrar alertas de WAF dos seus gateways de aplicação. Alertas são divididos por regra de WAF.
 

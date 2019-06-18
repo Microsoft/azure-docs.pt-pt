@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60634907"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilizar o serviço StorSimple Device Manager para gerir volumes (atualização 3 ou posterior)
@@ -48,7 +48,7 @@ Os volumes afixados localmente são totalmente aprovisionados; Por conseguinte, 
 
 Quando cria um volume localmente afixado, o espaço disponível para a criação de volumes em camadas é reduzido. O inverso também é verdade: Se tiver de volumes em camadas existentes, o espaço disponível para criar localmente volumes afixados será inferior aos limites máximos indicados acima. Para obter mais informações sobre volumes locais, consulte a [perguntas mais frequentes sobre os volumes afixados localmente](storsimple-8000-local-volume-faq.md).
 
-### <a name="tiered-volumes"></a>Volumes em camadas
+### <a name="tiered-volumes"></a>Volumes escalonados
 
 Volumes em camadas são volumes de aprovisionamento dinâmico no qual os dados acedidos com frequência permanecem locais no dispositivo e menos dados utilizados com frequência é automaticamente em camadas para a cloud. Aprovisionamento dinâmico é uma tecnologia de Virtualização na qual armazenamento disponível parece exceder os recursos físicos. Em vez de reservar capacidade de armazenamento suficiente com antecedência, StorSimple utiliza o aprovisionamento dinâmico para alocar espaço apenas suficiente para satisfazer os requisitos atuais. A natureza flexível do armazenamento na cloud facilita essa abordagem porque o StorSimple pode aumentar ou diminuir o armazenamento na cloud para atender às necessidades em mudança.
 

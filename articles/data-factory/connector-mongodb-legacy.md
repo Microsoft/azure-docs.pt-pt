@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61400479"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiar dados do MongoDB com o Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versão atual](connector-mongodb.md)
 
@@ -183,7 +183,7 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são utilizados entre tipos
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| String |String |
+| Cadeia |String |
 | UUID |Guid |
 | Object |Renormalized em colunas com "_" como separador aninhada de nivelamento |
 

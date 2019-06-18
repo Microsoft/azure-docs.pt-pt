@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66159752"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -72,7 +72,7 @@ Este comando produz resultados semelhantes a tabela seguinte:
 
 | userid | username | partição | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | AC |
+| 1 | Chris | Partition1 | CA |
 | 3 | Christine | Partition1 | WA |
 | 2 | Jessie | Partition2 | NM |
 | 4 | Steven | Partition2 | TX |
@@ -87,7 +87,7 @@ Os resultados ter um aspeto semelhantes a tabela seguinte:
 
 | userid | username | partição | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | AC |
+| 1 | Chris | Partition1 | CA |
 | 3 | Christine | Partition1 | WA |
 
 #### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Obter entidades para um valor específico numa coluna de específico
@@ -106,7 +106,7 @@ Esta consulta devolve um registo.
 | userid | 1 |
 | username | Chris |
 | PartitionKey | Partition1 |
-| RowKey      | AC |
+| RowKey      | CA |
 
 #### <a name="retrieve-entities-using-a-custom-filter"></a>Obter entidades utilizando um filtro personalizado 
 
@@ -123,7 +123,7 @@ Esta consulta devolve um registo.
 | userid | 1 |
 | username | Chris |
 | PartitionKey | Partition1 |
-| RowKey      | AC |
+| RowKey      | CA |
 
 ### <a name="updating-entities"></a>A atualização de entidades 
 

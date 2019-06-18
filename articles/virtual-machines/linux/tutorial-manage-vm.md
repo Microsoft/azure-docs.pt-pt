@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdb01802ec5b20ce57955a4e74e9de8108f4d96d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077021"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -50,11 +50,11 @@ az group create --name myResourceGroupVM --location eastus
 
 O grupo de recursos é especificado ao criar ou modificar uma VM, o que pode ser visto ao longo deste tutorial.
 
-## <a name="create-virtual-machine"></a>Criar máquina virtual
+## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
 Crie uma máquina virtual com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm). 
 
-Quando cria uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. O exemplo seguinte cria uma VM chamada *myVM* que executa o Ubuntu Server. Uma conta de utilizador chamada *azureuser* é criada na VM, as chaves SSH são geradas caso não existam na localização predefinida da chave (*~/.ssh*):
+Quando cria uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. O exemplo seguinte cria uma VM chamada *myVM* que executa o Ubuntu Server. Uma conta de utilizador chamada *azureuser* é criada na VM, as chaves SSH são geradas caso não existam na localização predefinida da chave ( *~/.ssh*):
 
 ```azurecli-interactive
 az vm create \
@@ -155,14 +155,14 @@ Um tamanho de máquina virtual determina a quantidade de recursos de computaçã
 
 A tabela seguinte categoriza tamanhos em casos de utilização.  
 
-| Type                     | Tamanhos           |    Descrição       |
+| Tipo                     | Tamanhos comuns           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Fins gerais](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
-| [Com otimização de computação](sizes-compute.md)   | Fs, F             | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
-| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
-| [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)      | Ls                | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NC            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
-| [Elevado desempenho](sizes-hpc.md) | H, A8-11          | As nossas mais poderosas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. 
+| [Fins gerais](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU-para-memória equilibrada. Ideal para desenvolvimento/teste e aplicações e soluções de dados pequenas a médias.  |
+| [Com otimização de computação](sizes-compute.md)   | Fsv2          | CPU-para-memória elevada. É adequado para aplicações de tráfego médio, dispositivos de rede e processos em lote.        |
+| [Com otimização de memória](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Memória-para-núcleo elevada. É ideal para bases de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Com otimização de armazenamento](sizes-storage.md)      | Lsv2, Ls              | Débito e E/S de disco elevados. Ideal para bases de dados de Macrodados, SQL e NoSQL.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | VMs especializadas destinadas a composição gráfica e edição de vídeo exigentes.       |
+| [Elevado desempenho](sizes-hpc.md) | H        | As nossas mais poderosas VMs com CPU, com interfaces de rede de alto débito (RDMA) opcionais. |
 
 
 ### <a name="find-available-vm-sizes"></a>Localizar todos os tamanhos de VM disponíveis
@@ -252,7 +252,7 @@ Uma VM do Azure pode ter um de vários estados de energia. Este estado represent
 
 ### <a name="power-states"></a>Estados de energia
 
-| Estado de Energia | Descrição
+| Estado de energia | Descrição
 |----|----|
 | A iniciar | Indica que a máquina virtual está a iniciar. |
 | A executar | Indica que a máquina virtual está em execução. |

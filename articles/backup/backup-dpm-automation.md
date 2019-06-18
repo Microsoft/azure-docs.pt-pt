@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
 ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66127748"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure em servidores do Data Protection Manager (DPM) com o PowerShell
@@ -46,7 +46,7 @@ Para começar, [transferir o Azure PowerShell mais recente](/powershell/azure/in
 
 As seguintes tarefas de configuração e registo podem ser automatizadas com o PowerShell:
 
-* Criar um cofre dos Serviços de Recuperação 
+* Criar um cofre dos Serviços de Recuperação
 * Instalar o agente de cópia de segurança do Azure
 * Registar com o serviço de cópia de segurança do Azure
 * Definições de rede

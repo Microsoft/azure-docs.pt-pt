@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472614"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório do Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
@@ -32,13 +32,13 @@ A folha do Resumo no local proporciona uma descrição geral do ambiente do VMwa
 
 **Número médio de discos por máquina virtual compatível**: O número médio de discos calculado em todas as VMs compatíveis.
 
-**Média de tamanho do disco (GB)**: O tamanho do disco médio calculado em todas as VMs compatíveis.
+**Média de tamanho do disco (GB)** : O tamanho do disco médio calculado em todas as VMs compatíveis.
 
-**Desired RPO (minutos)**: A recuperação de predefinição objetivo de ponto ou o valor transmitido para o parâmetro "DesiredRPO" no momento da geração de relatórios para calcular a largura de banda necessária.
+**Desired RPO (minutos)** : A recuperação de predefinição objetivo de ponto ou o valor transmitido para o parâmetro "DesiredRPO" no momento da geração de relatórios para calcular a largura de banda necessária.
 
-**Desired largura de banda (Mbps)**: O valor que transmitiu para o parâmetro "Bandwidth" no momento da geração de relatórios para calcular o RPO alcançável.
+**Desired largura de banda (Mbps)** : O valor que transmitiu para o parâmetro "Bandwidth" no momento da geração de relatórios para calcular o RPO alcançável.
 
-**Alterações a dados típicas observadas por dia (GB)**: A alteração a dados média registada em dias de criação de todos os perfis. Este número é utilizado como uma das entradas para decidir o número de servidores de configuração e de servidores de processos adicionais a utilizar na implementação.
+**Alterações a dados típicas observadas por dia (GB)** : A alteração a dados média registada em dias de criação de todos os perfis. Este número é utilizado como uma das entradas para decidir o número de servidores de configuração e de servidores de processos adicionais a utilizar na implementação.
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -199,9 +199,9 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **Conta de armazenamento**: O nome que utiliza o prefixo da conta de armazenamento sugerido.
 
-**Picos de R/W IOPS (com fator de crescimento)**: O pico carga de trabalho IOPS de leitura/escrita no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30 por cento). Tenha em conta que o total de IOPS de leitura/escrita de uma VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
+**Picos de R/W IOPS (com fator de crescimento)** : O pico carga de trabalho IOPS de leitura/escrita no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30 por cento). Tenha em conta que o total de IOPS de leitura/escrita de uma VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
 
-**Alterações a dados de pico em Mbps (com fator de crescimento)**: O pico das alterações a dados no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30 por cento). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
+**Alterações a dados de pico em Mbps (com fator de crescimento)** : O pico das alterações a dados no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30 por cento). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
 
 **Tamanho da VM do Azure**: O tamanho mapeado ideal serviços Cloud do Azure máquinas virtuais para esta VM no local. O mapeamento baseia-se na memória da VM no local, no número de discos/núcleos/NICs e IOPS de leitura/escrita. A recomendação é sempre o tamanho de VM do Azure mais baixo que corresponda a todas as características da VM no local.
 
@@ -211,7 +211,7 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **Núcleos**: O número de núcleos de CPU na VM.
 
-**Memória (MB)**: A quantidade de RAM na VM.
+**Memória (MB)** : A quantidade de RAM na VM.
 
 **NICs**: O número de NICs na VM.
 
@@ -251,9 +251,9 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 * O total de alterações a dados por dia ultrapassa o limite de alterações suportadas por dia de 2 GB por um Servidor de Processos.
 
 
-**Picos de R/W IOPS (com fator de crescimento)**: A pico carga de trabalho IOPS no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30 por cento). Tenha em conta que o total de IOPS de leitura/escrita da VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
+**Picos de R/W IOPS (com fator de crescimento)** : A pico carga de trabalho IOPS no disco (a predefinição é o percentil 95), incluindo o fator de crescimento futuro (a predefinição é 30 por cento). Tenha em conta que o total de IOPS de leitura/escrita da VM nem sempre é a soma de IOPS de leitura/escrita dos discos individuais da mesma, porque o pico destas operações da VM é o pico da soma de IOPS de leitura/escrita dos discos individuais da VM durante todos os minutos do período de criação de perfis.
 
-**Alterações a dados de pico em Mbps (com fator de crescimento)**: O pico das alterações a dados no disco (a predefinição 95 º percentil) incluindo o fator de crescimento futuro (predefinição 30 por cento). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
+**Alterações a dados de pico em Mbps (com fator de crescimento)** : O pico das alterações a dados no disco (a predefinição 95 º percentil) incluindo o fator de crescimento futuro (predefinição 30 por cento). Tenha em conta que o total de alterações a dados da VM nem sempre é a soma das alterações a dados dos discos individuais da mesma, porque o pico de alterações a dados da VM é o pico da soma das alterações a dados dos respetivos discos individuais durante todos os minutos do período de criação de perfis.
 
 **Número de discos**: O número total de VMDKs na VM.
 
@@ -261,7 +261,7 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **Núcleos**: O número de núcleos de CPU na VM.
 
-**Memória (MB)**: A quantidade de RAM na VM.
+**Memória (MB)** : A quantidade de RAM na VM.
 
 **NICs**: O número de NICs na VM.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pabutler
 ms.openlocfilehash: aaeb347c5b8ba6cd992054cd6ab5464f44b3a08c
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64942034"
 ---
 # <a name="update-a-power-bi-app-offer"></a>Atualizar uma oferta de aplicação do Power BI

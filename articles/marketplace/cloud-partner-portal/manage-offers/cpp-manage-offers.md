@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
 ms.openlocfilehash: 8a03ce94971d704aa38c1be5d7cfbb3c24bd2f82
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64943363"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Gerir o Azure e ofertas do Marketplace do AppSource

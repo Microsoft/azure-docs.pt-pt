@@ -11,10 +11,10 @@ ms.date: 05/22/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244513"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestão da carga de trabalho com classes de recursos no Azure SQL Data Warehouse

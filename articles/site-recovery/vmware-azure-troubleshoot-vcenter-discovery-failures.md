@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: v-doglov
 ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60565196"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Resolver problemas de falhas de deteção do vCenter

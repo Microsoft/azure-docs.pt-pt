@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: d0a12bde119e9dae3f950603fac4bce060bb5f91
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66172269"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Depurar problemas de aplicação do Proxy de aplicações 
@@ -39,7 +39,7 @@ Este fluxograma orienta-o através dos passos para depuração alguns dos proble
 
 ![Fluxograma que mostra os passos para depurar uma aplicação](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | Acção | Descrição | 
+|  | Ação | Descrição | 
 |---------|---------|---------|
 |1 | Abra um browser, aceder à aplicação e introduza as suas credenciais | Tente utilizar as suas credenciais para iniciar sessão para a aplicação e verifique a existência de quaisquer erros relacionados com o usuário, como [não é possível aceder esta aplicação empresarial](application-proxy-sign-in-bad-gateway-timeout-error.md). |
 |2 | Certifique-se de atribuição de utilizadores para a aplicação | Certifique-se de sua conta de utilizador tem permissão para aceder à aplicação a partir de dentro da rede empresarial e, em seguida, testar a iniciar sessão aplicação ao seguir os passos em [testar o aplicativo](application-proxy-add-on-premises-application.md#test-the-application). Se o início de sessão problemas persistirem, veja [como resolver erros de início de sessão](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-troubleshoot-sign-in-errors).  |

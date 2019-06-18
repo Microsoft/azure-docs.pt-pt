@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: a2322636aab2e0f38e29063d958cb670b5e062f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 9bafad5d28ef25f7f7bebe3899f288d0dfa72acb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050408"
+ms.locfileid: "67090265"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Tutorial: Integração do Active Directory do Azure com SmartDraw
 

@@ -11,10 +11,10 @@ ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: 6df29543df2b7b2609582f7e8dd9a0629182760c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60995794"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Atualizações do esquema para o Azure Logic Apps - 1 de Junho de 2016

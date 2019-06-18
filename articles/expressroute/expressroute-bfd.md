@@ -9,10 +9,10 @@ ms.date: 8/17/2018
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60367684"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD através do ExpressRoute

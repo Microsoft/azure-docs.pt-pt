@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60851556"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Como configurar a sua aplicação de serviço de aplicações para utilizar o início de sessão do Twitter
@@ -35,7 +35,7 @@ Para concluir o procedimento neste tópico, tem de ter uma conta do Twitter que 
 3. Escreva o **Name** e uma **Descrição** para a nova aplicação. Colar em seu aplicativo **URL** para o **site** valor. Em seguida, para o **URL de chamada de retorno**, cole a **URL de retorno de chamada** que copiou anteriormente. Este é o gateway de aplicação móvel acrescentado com o caminho */.auth/login/twitter/callback*. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Certifique-se de que está a utilizar o esquema HTTPS.
 4. Na parte inferior da página, leia e aceite os termos. Em seguida, clique em **criar a sua aplicação do Twitter**. Isso registra a aplicação apresenta os detalhes da aplicação.
 5. Clique no **definições** separador, verificação **permitir que esta aplicação a ser utilizado para iniciar sessão com o Twitter**, em seguida, clique em **definições de atualização de**.
-6. Selecione o **chaves e Tokens de acesso** separador. Tome nota dos valores das **chave de consumidor (chave de API)** e **segredo de consumidor (segredo de API)**.
+6. Selecione o **chaves e Tokens de acesso** separador. Tome nota dos valores das **chave de consumidor (chave de API)** e **segredo de consumidor (segredo de API)** .
    
    > [!NOTE]
    > O segredo de consumidor é uma credencial de segurança importantes. Não partilhe este segredo com qualquer pessoa ou distribuí-la com a sua aplicação.

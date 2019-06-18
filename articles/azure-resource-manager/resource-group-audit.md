@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606661"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Ver registos de atividades para monitorizar as ações em recursos
@@ -53,7 +53,7 @@ Pode recuperar informações de registos de atividade através do portal, PowerS
 
 1. Tenha em atenção que os filtros foram alterados concentrar-se em erros de implementação nas últimas 24 horas. São apresentadas apenas as operações que correspondem aos filtros.
 
-    ![Filtros de vista](./media/resource-group-audit/view-filters.png)
+    ![Ver filtros](./media/resource-group-audit/view-filters.png)
 
 1. Para se concentrar em operações específicas, alterar os filtros ou aplicar novas etiquetas. Por exemplo, a imagem seguinte mostra um novo valor para o **Timespan** e **tipo de recurso** está definido como contas de armazenamento. 
 

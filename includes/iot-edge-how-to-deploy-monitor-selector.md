@@ -9,10 +9,10 @@ ms.date: 6/15/2018
 ms.author: chrisgre
 ms.custom: include file
 ms.openlocfilehash: f24566769a4d92d7d3fd7847b999dd732404db37
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66151749"
 ---
 > [!div class="op_single_selector"]

@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61438201"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Ligação para as funções do Azure de saída dos Hubs de notificação
@@ -255,8 +255,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** |n/d| Tem de ser definido para "notificationHub". |
-|**direção** |n/d| Tem de ser definido para "Sair". | 
+|**type** |n/d| Tem de ser definido para "notificationHub". |
+|**direction** |n/d| Tem de ser definido para "Sair". | 
 |**name** |n/d| Nome da variável no código de função para a mensagem do hub de notificação. |
 |**tagExpression** |**TagExpression** | Expressões de etiqueta permitem que especifique que notificações ser entregue a um conjunto de dispositivos que se registraram para receber notificações que correspondem à expressão de etiqueta.  Para obter mais informações, consulte [expressões de encaminhamento e a etiqueta](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nome do recurso de hub de notificação no portal do Azure. |

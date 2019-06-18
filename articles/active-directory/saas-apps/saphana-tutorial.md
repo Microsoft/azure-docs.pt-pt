@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 231b9b6d217a9ad1fe5f4a6478f5e8799257b92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: Integração do Active Directory do Azure com o SAP HANA
 
@@ -64,7 +64,7 @@ Para configurar a integração do SAP HANA no Azure AD, terá de adicionar SAP H
 
 **Para adicionar o SAP HANA a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -135,7 +135,7 @@ Para configurar o Azure AD início de sessão único com o SAP HANA, execute os 
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
-    b. Partir do **transformação** lista, selecione **ExtractMailPrefix()**.
+    b. Partir do **transformação** lista, selecione **ExtractMailPrefix()** .
 
     c. Partir do **parâmetro 1** lista, selecione **user.mail**.
 
@@ -260,7 +260,7 @@ Se precisar de criar manualmente um utilizador, siga os passos seguintes:
 
 6. Guarde o utilizador.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

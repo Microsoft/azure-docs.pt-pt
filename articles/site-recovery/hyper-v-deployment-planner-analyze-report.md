@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60772896"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analisar o relatório do Azure Site Recovery Deployment Planner
@@ -33,13 +33,13 @@ A folha de cálculo de resumo no local proporciona uma descrição geral do ambi
 
 **Número médio de discos por máquina virtual compatível**: O número médio de discos calculado em todas as VMs compatíveis.
 
-**Média de tamanho do disco (GB)**: O tamanho do disco médio calculado em todas as VMs compatíveis.
+**Média de tamanho do disco (GB)** : O tamanho do disco médio calculado em todas as VMs compatíveis.
 
-**Desired RPO (minutos)**: A recuperação de predefinição objetivo de ponto ou o valor transmitido para o parâmetro "DesiredRPO" no momento da geração de relatórios para calcular a largura de banda necessária.
+**Desired RPO (minutos)** : A recuperação de predefinição objetivo de ponto ou o valor transmitido para o parâmetro "DesiredRPO" no momento da geração de relatórios para calcular a largura de banda necessária.
 
-**Desired largura de banda (Mbps)**: O valor que transmitiu para o parâmetro "Bandwidth" no momento da geração de relatórios para estimar o objetivo de ponto de recuperação alcançável (RPO).
+**Desired largura de banda (Mbps)** : O valor que transmitiu para o parâmetro "Bandwidth" no momento da geração de relatórios para estimar o objetivo de ponto de recuperação alcançável (RPO).
 
-**Alterações a dados típicas observadas por dia (GB)**: A alteração a dados média registada em dias de criação de todos os perfis.
+**Alterações a dados típicas observadas por dia (GB)** : A alteração a dados média registada em dias de criação de todos os perfis.
 
 ## <a name="recommendations"></a>Recomendações 
 A folha de recomendações do relatório de Hyper-V para o Azure tem os seguintes detalhes de acordo com o RPO pretendido selecionado:
@@ -195,9 +195,9 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **Conta de armazenamento**: O nome que utiliza o prefixo da conta de armazenamento sugerido.
 
-**Picos de R/W IOPS (com fator de crescimento)**: O pico carga de trabalho IOPS de leitura/escrita no disco (a predefinição é o percentil 95), juntamente com o fator de crescimento futuro (a predefinição é 30 por cento). O IOPS de leitura/escrita total das VMs não é sempre a soma do IOPS de leitura/escrita dos discos individuais das mesmas. O pico do IOPS de leitura/escrita das VMs é o pico da soma do IOPS de leitura/escrita dos discos individuais das mesmas durante cada minuto do período de criação de perfis.
+**Picos de R/W IOPS (com fator de crescimento)** : O pico carga de trabalho IOPS de leitura/escrita no disco (a predefinição é o percentil 95), juntamente com o fator de crescimento futuro (a predefinição é 30 por cento). O IOPS de leitura/escrita total das VMs não é sempre a soma do IOPS de leitura/escrita dos discos individuais das mesmas. O pico do IOPS de leitura/escrita das VMs é o pico da soma do IOPS de leitura/escrita dos discos individuais das mesmas durante cada minuto do período de criação de perfis.
 
-**Alterações a dados de pico em MB/s (com fator de crescimento)**: O pico das alterações a dados no disco (a predefinição é o percentil 95), juntamente com o fator de crescimento futuro (a predefinição é 30 por cento). O total de alterações a dados das VMs não é sempre a soma das alterações a dados dos discos individuais das mesmas. O pico das alterações a dados das VMs é o pico da soma das alterações a dados dos discos individuais das mesmas durante cada minuto do período de criação de perfis.
+**Alterações a dados de pico em MB/s (com fator de crescimento)** : O pico das alterações a dados no disco (a predefinição é o percentil 95), juntamente com o fator de crescimento futuro (a predefinição é 30 por cento). O total de alterações a dados das VMs não é sempre a soma das alterações a dados dos discos individuais das mesmas. O pico das alterações a dados das VMs é o pico da soma das alterações a dados dos discos individuais das mesmas durante cada minuto do período de criação de perfis.
 
 **Tamanho da VM do Azure**: O tamanho mapeado ideal da VM de serviços Cloud do Azure para esta VM no local. O mapeamento baseia-se na memória da VM no local, no número de discos/núcleos/NICs e no IOPS de leitura/escrita. A recomendação é sempre o tamanho de VM do Azure mais baixo que corresponda a todas as características da VM no local.
 
@@ -207,7 +207,7 @@ Por exemplo, se as características da carga de trabalho de um disco o colocarem
 
 **Núcleos**: O número de núcleos de CPU na VM.
 
-**Memória (MB)**: A quantidade de RAM na VM.
+**Memória (MB)** : A quantidade de RAM na VM.
 
 **NICs**: O número de NICs na VM.
 
@@ -252,9 +252,9 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 * O armazenamento de instantâneos calculado excede o limite de armazenamento de instantâneos suportado de 10 TB.
 
-**Picos de R/W IOPS (com fator de crescimento)**: A pico carga de trabalho IOPS no disco (a predefinição é o percentil 95), juntamente com o fator de crescimento futuro (a predefinição é 30 por cento). O IOPS de leitura/escrita total da VM não é sempre a soma do IOPS de leitura/escrita dos discos individuais da mesma. O pico do IOPS de leitura/escrita da VM é o pico da soma do IOPS de leitura/escrita dos discos individuais da mesma durante cada minuto do período de criação de perfis.
+**Picos de R/W IOPS (com fator de crescimento)** : A pico carga de trabalho IOPS no disco (a predefinição é o percentil 95), juntamente com o fator de crescimento futuro (a predefinição é 30 por cento). O IOPS de leitura/escrita total da VM não é sempre a soma do IOPS de leitura/escrita dos discos individuais da mesma. O pico do IOPS de leitura/escrita da VM é o pico da soma do IOPS de leitura/escrita dos discos individuais da mesma durante cada minuto do período de criação de perfis.
 
-**(MB/s) de alterações a dados de pico (com fator de crescimento)**: O pico das alterações a dados no disco (a predefinição é o percentil 95), juntamente com o fator de crescimento futuro (a predefinição é 30 por cento). Tenha em conta que o total de alterações a dados da VM não é sempre a soma das alterações a dados dos discos individuais da mesma. O pico das alterações a dados das VMs é o pico da soma das alterações a dados dos discos individuais das mesmas durante cada minuto do período de criação de perfis.
+**(MB/s) de alterações a dados de pico (com fator de crescimento)** : O pico das alterações a dados no disco (a predefinição é o percentil 95), juntamente com o fator de crescimento futuro (a predefinição é 30 por cento). Tenha em conta que o total de alterações a dados da VM não é sempre a soma das alterações a dados dos discos individuais da mesma. O pico das alterações a dados das VMs é o pico da soma das alterações a dados dos discos individuais das mesmas durante cada minuto do período de criação de perfis.
 
 **Número de discos**: O número total de VHDs na VM.
 
@@ -262,7 +262,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 **Núcleos**: O número de núcleos de CPU na VM.
 
-**Memória (MB)**: A quantidade de RAM na VM.
+**Memória (MB)** : A quantidade de RAM na VM.
 
 **NICs**: O número de NICs na VM.
 
@@ -298,13 +298,13 @@ A folha de cálculo fornece o requisito de espaço livre de armazenamento total 
 
 **Anfitrião Hyper-V**: A lista de servidores de Hyper-V com perfis criados. Se um servidor fizer parte de um cluster Hyper-V, todos os nós do cluster são agrupados em conjunto.
 
-**Volume (caminho VHD)**: Cada volume de um anfitrião de Hyper-V, onde existem VHDs/VHDXs. 
+**Volume (caminho VHD)** : Cada volume de um anfitrião de Hyper-V, onde existem VHDs/VHDXs. 
 
-**Espaço livre disponível (GB)**: O espaço livre disponível no volume.
+**Espaço livre disponível (GB)** : O espaço livre disponível no volume.
 
-**Total de espaço de armazenamento necessário no volume (GB)**: O espaço de total de armazenamento livre necessário no volume para a replicação inicial com êxito e a replicação de diferenças. 
+**Total de espaço de armazenamento necessário no volume (GB)** : O espaço de total de armazenamento livre necessário no volume para a replicação inicial com êxito e a replicação de diferenças. 
 
-**Total de armazenamento adicional a ser aprovisionado no volume para a replicação com êxito (GB)**: Ele recomenda o total de espaço adicional que tem de ser aprovisionado no volume para a replicação inicial com êxito e a replicação delta.
+**Total de armazenamento adicional a ser aprovisionado no volume para a replicação com êxito (GB)** : Ele recomenda o total de espaço adicional que tem de ser aprovisionado no volume para a replicação inicial com êxito e a replicação delta.
 
 ## <a name="initial-replication-batching"></a>Criação de batches na replicação inicial 
 
@@ -327,21 +327,21 @@ Depois de seguir a recomendação de requisito de armazenamento no local para ca
 
 **Comentários**: Se qualquer ação é necessária para um volume específico de uma VM, o comentário é fornecido aqui. Por exemplo, se não estiver disponível num volume espaço livre suficiente, o comentário diz "Adicionar armazenamento adicional para proteger esta VM".
 
-**Volume (caminho VHD)**: O nome do volume onde residem os VHDs da VM. 
+**Volume (caminho VHD)** : O nome do volume onde residem os VHDs da VM. 
 
-**Espaço livre disponível no volume (GB)**: O espaço livre em disco disponível no volume para a VM. Ao calcular o espaço livre disponível nos volumes, considera o espaço em disco utilizado para a replicação de diferenças pelas VMs dos batches anteriores cujos VHDs estão no mesmo volume. 
+**Espaço livre disponível no volume (GB)** : O espaço livre em disco disponível no volume para a VM. Ao calcular o espaço livre disponível nos volumes, considera o espaço em disco utilizado para a replicação de diferenças pelas VMs dos batches anteriores cujos VHDs estão no mesmo volume. 
 
 Por exemplo, VM1, VM2 e VM3 residem num volume, digamos E:\VHDpath. Antes da replicação, o espaço livre no volume é 500 GB. A VM1 faz parte do Batch 1, a VM2 do Batch 2 e a VM3 do Batch 3. Para a VM1, o espaço livre disponível é 500 GB. Para a VM2, o espaço livre disponível é 500 – o espaço em disco necessário para a replicação delta da VM1. Se a VM1 precisar de 300 GB de espaço para a replicação delta, o espaço livre disponível para a VM2 será 500 GB – 300 GB = 200 GB. Da mesma forma, a VM2 precisa de 300 GB para a replicação de diferenças. O espaço livre disponível para a VM3 será 200 GB - 300 GB = -100 GB.
 
-**Armazenamento necessário no volume para a replicação inicial (GB)**: O espaço de armazenamento livre necessário no volume para a VM para a replicação inicial.
+**Armazenamento necessário no volume para a replicação inicial (GB)** : O espaço de armazenamento livre necessário no volume para a VM para a replicação inicial.
 
-**Armazenamento necessário no volume para a replicação de diferenças (GB)**: O espaço de armazenamento livre necessário no volume para a VM para a replicação de diferenças.
+**Armazenamento necessário no volume para a replicação de diferenças (GB)** : O espaço de armazenamento livre necessário no volume para a VM para a replicação de diferenças.
 
-**Armazenamento adicional necessário com base no deficit para evitar a falha de replicação (GB)**: O espaço de armazenamento adicional necessário no volume para a VM. É o requisito máximo de espaço de armazenamento para a replicação inicial e a replicação delta menos o espaço livre disponível no volume.
+**Armazenamento adicional necessário com base no deficit para evitar a falha de replicação (GB)** : O espaço de armazenamento adicional necessário no volume para a VM. É o requisito máximo de espaço de armazenamento para a replicação inicial e a replicação delta menos o espaço livre disponível no volume.
 
-**Largura de banda mínima necessária para a replicação inicial (Mbps)**: A largura de banda mínima necessária para a replicação inicial para a VM.
+**Largura de banda mínima necessária para a replicação inicial (Mbps)** : A largura de banda mínima necessária para a replicação inicial para a VM.
 
-**Largura de banda mínima necessária para a replicação de diferenças (Mbps)**: A largura de banda mínima necessária para a replicação para a VM.
+**Largura de banda mínima necessária para a replicação de diferenças (Mbps)** : A largura de banda mínima necessária para a replicação para a VM.
 
 ### <a name="network-utilization-details-for-each-batch"></a>Detalhes de utilização de rede para cada batch 
 Cada tabela de batch fornece um resumo da utilização de rede do batch.

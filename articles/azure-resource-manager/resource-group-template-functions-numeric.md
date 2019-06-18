@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128647"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funções numéricas para modelos Azure Resource Manager
@@ -228,7 +228,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="float" />
 
-## <a name="float"></a>flutuante
+## <a name="float"></a>float
 `float(arg1)`
 
 Converte o valor flutuante ponto número. Só usar essa função ao transmitir parâmetros personalizados a um aplicativo, como uma aplicação lógica.
@@ -322,7 +322,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>máx.
+## <a name="max"></a>max
 `max (arg1)`
 
 Devolve o valor máximo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.
@@ -386,7 +386,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>mín.
+## <a name="min"></a>min.
 `min (arg1)`
 
 Devolve o valor mínimo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.

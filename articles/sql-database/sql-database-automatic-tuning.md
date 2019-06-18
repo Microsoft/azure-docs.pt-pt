@@ -13,10 +13,10 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61415780"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
@@ -32,7 +32,7 @@ Otimização automática da base de dados do SQL do Azure pode ser um dos recurs
 - Ajuste de desempenho automatizado de bases de dados SQL do Azure
 - Verificação automatizada de ganhos de desempenho
 - Reversão automática e correção automática
-- Histórico da otimização
+- Histórico da Otimização
 - Ajuste de scripts do T-SQL de ação para as implementações manuais
 - Monitorização de desempenho da carga de trabalho proativa
 - Aumentar horizontalmente a capacidade em centenas de milhares de bases de dados

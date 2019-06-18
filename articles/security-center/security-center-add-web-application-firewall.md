@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
 ms.openlocfilehash: 63852ccab842f11f30bcbe695206fedf72931911
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60706294"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adicionar uma firewall de aplicações web no Centro de segurança do Azure
@@ -59,7 +59,7 @@ Centro de segurança recomenda que Aprovisiona uma WAF para ajudar na defesa con
 2. Selecione **finalizar proteção de aplicação**. É aberto um painel novo. Pode ver que existe uma aplicação web que tem de ter o seu tráfego reencaminhado.
 3. Selecione a aplicação web. É aberto um painel que lhe dá as etapas para finalizar a configuração de firewall de aplicações web. Conclua os passos e, em seguida, selecione **restringir o tráfego**. Centro de segurança, em seguida, faz a cópia de segurança com ligações para.
 
-   ![Restringir tráfego][6]
+   ![Restringir o tráfego][6]
 
 > [!NOTE]
 > Pode proteger várias aplicações web no Centro de segurança com a adição desses aplicativos para as implementações existentes do WAF.

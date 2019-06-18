@@ -9,10 +9,10 @@ ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: cff1bbefc3c54f7f9c02c646bd9eef528fe28c73
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64939574"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Gráficos de métricas de resolução de problemas

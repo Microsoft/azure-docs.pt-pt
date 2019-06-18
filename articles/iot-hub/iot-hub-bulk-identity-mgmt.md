@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/11/2019
 ms.author: robinsh
 ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65796367"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e Exportar identidades de dispositivos do IoT Hub em massa

@@ -11,10 +11,10 @@ ms.date: 06/05/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 6b90ba89f17b42f4d92c666c3f539fcad3e3227c
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66733531"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do Facebook com o Azure Active Directory B2C

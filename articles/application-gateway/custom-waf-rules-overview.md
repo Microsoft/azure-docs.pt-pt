@@ -8,10 +8,10 @@ ms.service: application-gateway
 ms.date: 6/5/2019
 ms.author: victorh
 ms.openlocfilehash: d35e1dc96f65e51ab14c4962d1824334cbdb1616
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66752023"
 ---
 # <a name="custom-rules-for-web-application-firewall"></a>Regras personalizadas para o Firewall de aplicação Web

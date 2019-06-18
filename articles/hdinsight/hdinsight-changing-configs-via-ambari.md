@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60698993"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utilizar o Apache Ambari para otimizar as configurações de cluster do HDInsight
@@ -269,7 +269,7 @@ As secções seguintes descrevem otimizações adicionais relacionados com o Hiv
 
 O tipo de associação padrão no Hive é um *shuffle associação*. No ramo de registo, mapeadores especiais a entrada de leitura e emitem um par de chave/valor de associação a um arquivo intermediário. Hadoop ordena e intercala estes pares numa fase de shuffle. Neste estágio shuffle é Caro. Selecionar a associação correta com base nos seus dados pode melhorar significativamente o desempenho.
 
-| Tipo de União | Quando | Como | Definições do Hive | Comentários |
+| Tipo de associação | Quando | Como | Definições do Hive | Comentários |
 | -- | -- | -- | -- | -- |
 | Shuffle associação | <ul><li>Escolha do padrão</li><li>Sempre funciona</li></ul> | <ul><li>Lê a partir da parte de uma das tabelas</li><li>Buckets e ordena na chave de junção</li><li>Envia um bucket para cada reduce</li><li>A associação é feita no lado do Reduza</li></ul> | Não existem Hive significativo definição necessários | Funciona sempre |
 | Associação de mapa | <ul><li>Uma tabela se encaixa na memória</li></ul> | <ul><li>Lê a pequena tabela para tabela de hash de memória</li><li>Fluxos por meio da parte do arquivo grande</li><li>Associa cada registo da tabela de hash</li><li>As associações são pelo mapeador autónomo</li></ul> | `hive.auto.confvert.join=true` | Muito rápida, mas limitado |

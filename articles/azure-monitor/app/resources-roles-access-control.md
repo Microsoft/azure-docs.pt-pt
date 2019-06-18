@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60373697"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controlo de acesso no Application Insights
@@ -77,7 +77,7 @@ Para ver informações sobre o controlo de acesso baseado em função do Azure t
 
 ![Lista de funções de utilizador de controle de captura de ecrã de acesso](./media/resources-roles-access-control/0003-user-roles.png)
 
-#### <a name="select-a-role"></a>Selecionar uma função
+#### <a name="select-a-role"></a>Selecione uma função
 
 Sempre que aplicável criamos uma ligação para a documentação de referência oficial associada.
 
@@ -88,16 +88,16 @@ Sempre que aplicável criamos uma ligação para a documentação de referência
 | [Contribuinte de componentes de informações de aplicação](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Pode editar recursos do Application Insights, testes web e alertas. |
 | [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Pode ver, mas não altera nada. |
 | [Snapshot Debugger do Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Fornece a permissão de utilizador para utilizar as funcionalidades do Snapshot Debugger do Application Insights. Tenha em atenção que esta função está incluída nas funções de nem o proprietário nem contribuinte. |
-| Contribuinte de Gestão de Versões de Implementação de Serviço do Azure | Função de Contribuidor para serviços de implantação através de implementação de serviço do Azure. |
+| Contribuinte de gestão de versão de implementação de serviço do Azure | Função de Contribuidor para serviços de implantação através de implementação de serviço do Azure. |
 | [Data Purger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Função especial para remover dados pessoais. Consulte nossos [documentação de orientação para os dados pessoais](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) para obter mais informações.   |
 | Administrador do ExpressRoute | Pode criar o eliminar e gerir as rotas express.|
 | [Contribuidor do log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Contribuidor do log Analytics pode ler todos os dados de monitorização e editar as definições de monitorização. Editar definições de monitorização inclui adicionar a extensão VM para VMs; ler as chaves de conta de armazenamento para poder configurar a recolha de registos do armazenamento do Azure; criar e configurar contas de automatização; Adicionar soluções; e configurar os diagnósticos do Azure em todos os recursos do Azure.  |
-| [Leitor do log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | O Leitor do Log Analytics pode visualizar e procurar todos os dados de monitorização assim como visualizar as definições de monitorização, incluindo a visualização da configuração de diagnósticos Azure em todos os recursos do Azure. |
+| [Leitor do log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Leitor do log Analytics pode ver e procurar todos os dados de monitorização e como e vista de definições, incluindo ver a configuração dos diagnósticos do Azure em todos os recursos do Azure de monitorização. |
 | masterreader | Permite que um utilizador ver tudo, mas não faça alterações. |
 | [Contribuidor de monitorização](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) | Pode ler todos os dados de monitorização e atualizar as definições de monitorização. |
 | [Monitorização de métricas de publicador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-metrics-publisher) | Permite a publicação de métricas em recursos do Azure. |
 | [Leitor de monitorização](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) | Pode ler todos os dados de monitorização. |
-| Contribuinte da Política de Recursos (pré-visualização) | Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recursos, criar pedido de suporte e recursos/hierarquia de leitura.  |
+| Contribuinte de política de recurso (pré-visualização) | Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recursos, criar pedido de suporte e recursos/hierarquia de leitura.  |
 | [Administrador de Acesso de Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) | Permite que um utilizador gerir o acesso para outros utilizadores aos recursos do Azure.|
 | [Contribuinte de Web site](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#website-contributor) | Permite-lhe gerir sites (não planos web), mas não aceder-lhes....|
 

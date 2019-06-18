@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
 ms.openlocfilehash: 406af03ab81b279be4f0d72dcca4ec8ec0e4ee55
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304658"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Criar uma infraestrutura completa de máquina virtual Linux no Azure com o Terraform

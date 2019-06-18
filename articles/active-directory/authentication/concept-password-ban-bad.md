@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65977313"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar palavras-passe incorretas na sua organização
@@ -26,7 +26,7 @@ Líderes da indústria a informá-lo para não utilizar a mesma palavra-passe em
 
 A Microsoft está sempre a trabalhar para estar um passo à frente dos cibercriminosos. Portanto a equipa do Azure AD Identity Protection continuamente procure palavras-passe comprometidas e comumente utilizadas. Eles bloqueiam, em seguida, essas palavras-passe que são consideradas muito comuns em que é chamado a lista de palavra-passe banidas global. Os cibercriminosos também utilizam estratégias semelhantes em seus ataques, portanto Microsoft não publica o conteúdo desta lista publicamente. Estas palavras-passe vulneráveis é bloqueados antes de se tornarem uma ameaça real aos clientes da Microsoft. Para obter mais informações sobre os esforços de segurança atual, consulte a [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="custom-banned-password-list"></a>Lista de palavras-passe banidas personalizada
+## <a name="custom-banned-password-list"></a>Lista de palavra-passe de banida personalizado
 
 Algumas organizações poderão querer tirar ainda mais a etapa de segurança um adicionando suas próprias personalizações na parte superior da lista de palavra-passe banidas global em que a Microsoft chama a lista de palavras-passe banidas personalizado. Clientes empresariais, como a Contoso, em seguida, pode optar por bloquear variantes de seus nomes de marca, termos específicos da empresa ou outros itens.
 

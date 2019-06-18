@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989078"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurar clientes OpenVPN para o Gateway de VPN do Azure
@@ -129,7 +129,7 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
 15. Navegue para o ficheiro de perfil e clique duas vezes ou pick **aberto**.
 16. Clique em **Add** sobre o **VPN adicionar** janela.
   
-    ![Importar do ficheiro](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
+    ![Importar de ficheiro](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
 17. Pode ligar ao ativar a VPN **ON** no **as definições de rede** página, ou no ícone de rede na Bandeja do sistema.
 
 ## <a name="next-steps"></a>Passos Seguintes

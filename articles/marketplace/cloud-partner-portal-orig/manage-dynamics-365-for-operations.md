@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: a9ada25641e2a56beb9083b145a507c8fd41a46f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64935127"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Como criar o Dynamics 365 para operações oferecem através do portal de parceiro de Cloud
@@ -41,7 +41,7 @@ Existem quatro formas principais para a criação de um do Dynamics 365 para a o
 
 O formulário de definições da oferta é um formulário básico para especificar as definições da oferta. Os diferentes campos são descritos abaixo.
 
-### <a name="offer-id"></a>ID de Oferta
+### <a name="offer-id"></a>ID de oferta
 
 Este é um identificador exclusivo para a oferta de um perfil do publicador. Este ID será visível em URLs de produto. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um travessão e pode ter um máximo de 50 carateres. Este campo está bloqueado assim que uma oferta entra no ar.
 
@@ -82,7 +82,7 @@ Selecione \'Sim\' ou \'não\'.
 
 Selecione \'Sim\' ou \'não\'.
 
-### <a name="product-version"></a>Versão do Produto
+### <a name="product-version"></a>Versão do produto
 
 Selecione o novo AX. Por fim clique em Guardar.
 

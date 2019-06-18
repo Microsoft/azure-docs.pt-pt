@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 05/21/2019
+ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93eb0fba91ce5064d04a340e8b3e5b984ee73081
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1dcdbbf0a2a71fa38b6eacd6a8d179cdad979937
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059286"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -62,6 +62,19 @@ Enquanto a criação de modelo é automatizada, também pode [Saiba como importa
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
+
+## <a name="time-series-forecasting"></a>Previsão de séries de tempo
+Criação de previsões é parte integrante de qualquer empresa, quer seja a pedido de receita, inventário, vendas ou cliente. Automatizado ml utiliza uma série de combinado técnicas e abordagens para recomendar uma série de tempo de alta qualidade de previsão. Série de tempo de experimentações no ml automatizada são tratadas como um problema de multivariada. Últimos séries de tempo valores são "articulados" para se tornar dimensões adicionais para o regressor foi, juntamente com outros indicadores. 
+
+Esta abordagem, ao contrário dos métodos de série de tempo clássicas, tem uma vantagem de incorporação naturalmente de várias variáveis contextuais e a respetiva relação entre si durante o treinamento. Em aplicativos de previsão do mundo real, vários fatores podem influenciar uma previsão. Por exemplo, quando a previsão de vendas, interações de tendências históricas, taxa de câmbio e preço todos os unidade em conjunto, o resultado de vendas. Um benefício adicional é que todas as recentes inovações feitas em modelos de regressão aplicam-se imediatamente a previsão.
+
+Até que ponto para o futuro a previsão deverão expandir-se (horizonte previsão) faz parte da especificação de previsão básica. Definir o parâmetro necessário de `max_horizon` na experimentação define o número de períodos de unidade (com base no intervalo de tempo dos seus dados de preparação, semanais, mensais por exemplo, o forecaster deve prever horizontalmente. 
+
+ML automatizada aprende um modelo único, mas, muitas vezes, internamente, ser também autor para todos os itens no horizontes de conjunto de dados e de predição. Mais dados, portanto, estão disponíveis para estimar os parâmetros de modelo e generalização a série que não foram visto torna-se possível. 
+
+Recursos extraídos dos dados de treinamento têm um papel fundamental. ML automatizada efetua os passos de pré-processamento padrão e gera as funcionalidades de séries de tempo adicionais (por exemplo, ano, mês, dia da semana, etc.) para capturar os efeitos sazonais e maximizar a precisão de previsão. 
+
+Se é apropriado para o seu cenário, pode direcionar ML automatizada para criar lags (`target_lags`) ou janela sem interrupção de agregação de dados (`target_rolling_window_size`) do seu destino (`y_value`) últimos valores. 
 
 ## <a name="preprocessing"></a>O pré-processamento
 
@@ -160,6 +173,7 @@ ML automatizada também está disponível em outras soluções da Microsoft, tai
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Seleção automática de modelos e formação em aplicações .NET com o Visual Studio e Visual Studio Code com ML.NET automatizadas ML (pré-visualização).|
 |[HDIsnight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Aumentar horizontalmente as suas tarefas de formação de ML automáticas, no Spark em clusters do HDInsight em paralelo.|
 |[PowerBI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoca os modelos de aprendizagem automática diretamente no Power BI (pré-visualização).|
+|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Crie novos modelos de aprendizagem sobre os seus dados em clusters de grandes volumes de dados do SQL Server 2019.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

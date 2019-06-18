@@ -14,10 +14,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143309"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
@@ -385,7 +385,7 @@ Online | O nó ligado ao serviço Data Factory.
 Offline | O nó está offline.
 A atualizar | O nó está a ser atualizados automaticamente.
 Limitado | Devido a problema de conectividade. Pode ser devido a problema de 8050 de porta HTTP, o problema de conectividade de barramento de serviço ou o problema de sincronização de credenciais.
-Inativa | O nó está numa configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo, quando ele não é possível ligar a outros nós.
+Inativo | O nó está numa configuração diferente da configuração dos outros nós da maioria.<br/><br/> Um nó pode ficar inativo, quando ele não é possível ligar a outros nós.
 
 A tabela seguinte fornece os Estados possíveis de uma **gateway lógico**. O estado do gateway depende de Estados de nós de gateway.
 
@@ -511,7 +511,7 @@ Esta secção descreve como criar e registar um gateway com cmdlets do PowerShel
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. No Azure PowerShell, mude para a pasta: *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Execute *RegisterGateway.ps1* associadas com a variável local **$Key** conforme mostrado no comando seguinte. Este script regista o agente de cliente instalado no seu computador com o gateway lógico que criou anteriormente.
+1. No Azure PowerShell, mude para a pasta: *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Execute *RegisterGateway.ps1* associadas com a variável local **$Key** conforme mostrado no comando seguinte. Este script regista o agente de cliente instalado no seu computador com o gateway lógico que criou anteriormente.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

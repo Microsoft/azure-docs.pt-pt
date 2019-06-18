@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60724517"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como um destino de cópia de segurança com Exec de cópia de segurança
@@ -313,8 +313,8 @@ Eis um exemplo de uma agenda de rotação GFS para quatro semanas, mensais e anu
 | Tipo de frequência/cópia de segurança | Completo | Incremental (1 a 5 de dias)  |   
 |---|---|---|
 | Semanal (1 a 4 de semanas) | Sábado | De segunda a sexta-feira |
-| Mensalmente  | Sábado  |   |
-| Anualmente | Sábado  |   |
+| Custo  | Sábado  |   |
+| Anual | Sábado  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Atribuir volumes do StorSimple para uma tarefa de cópia de segurança de Exec de cópia de segurança
@@ -387,8 +387,8 @@ A tabela seguinte mostra como configurar as cópias de segurança para executar 
 | Semana de 2 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
 | Semana de 3 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
 | Semana de 4 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
-| Mensalmente | StorSimple mensalmente |   |   |   |   |   |
-| Anualmente | StorSimple anuais  |   |   |   |   |   |
+| Custo | StorSimple mensalmente |   |   |   |   |   |
+| Anual | StorSimple anuais  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Atribuir volumes do StorSimple para um arquivo de Exec de cópia de segurança e a tarefa de eliminação de duplicados

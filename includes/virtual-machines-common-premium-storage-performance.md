@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64736981"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67113547"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium do Azure: conceber o elevado desempenho
 
@@ -98,7 +98,7 @@ Em seguida, medir os requisitos de desempenho máximo da sua aplicação durante
 | Min. Latência | | | |
 | Latência média | | | |
 | Um máximo de CPU | | | |
-| CPU Média | | | |
+| CPU média | | | |
 | Um máximo de Memória | | | |
 | Médio da memória | | | |
 | Profundidade de fila | | | |
@@ -178,10 +178,10 @@ Eis um exemplo sobre como é possível calcular o IOPS e largura de banda/débit
 
 | Requisito da aplicação | Tamanho de e/s | IOPS | Largura de banda/débito |
 | --- | --- | --- | --- |
-| IOPS Máx. |8 KB |5.000 |40 MB por segundo |
+| IOPS máx |8 KB |5,000 |40 MB por segundo |
 | Débito máximo |1024 KB |200 |200 MB por segundo |
 | Débito máximo do + IOPS elevado |64 KB |3,200 |200 MB por segundo |
-| IOPS máx + alto débito |32 KB |5.000 |160 MB por segundo |
+| IOPS máx + alto débito |32 KB |5,000 |160 MB por segundo |
 
 Para obter o IOPS e largura de banda superior ao valor máximo de um disco de armazenamento premium única, utilize vários discos premium repartidos em conjunto. Por exemplo, da faixa de dois discos de P30 para obter um IOPS combinado de IOPS 10 000 ou de um débito combinado de 400 MB por segundo. Conforme explicado na próxima seção, tem de utilizar um tamanho VM que suporte o combinado IOPS e débito de disco.
 
@@ -199,7 +199,7 @@ Alta de dimensionamento de VMs estão disponíveis em tamanhos diferentes com um
 | Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco VM | Um máximo de Discos de dados | Tamanho da cache | IOPS | Limites de e/s de Cache de largura de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB por segundo |4000 IOPS e 33 MB por segundo |
-| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2.000 MB por segundo |5000 IOPS e 50 MB por segundo |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2\.000 MB por segundo |5000 IOPS e 50 MB por segundo |
 
 Para ver uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md) ou [tamanhos de VM do Linux](../articles/virtual-machines/linux/sizes.md). Escolha um tamanho de VM que pode satisfazer e dimensionar-se aos seus requisitos de desempenho do aplicativo desejado. Além disso, tenha em conta considerações importantes sobre a seguir ao escolher tamanhos de VM.
 
@@ -235,8 +235,8 @@ Armazenamento Premium do Azure oferece três tamanhos de disco que estão atualm
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16,384 giB (TiB de 16)    | 32.767 giB (32 TiB)    |
-| IOPs por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15 000              | 20,000              |
+| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16,384 giB (TiB de 16)    | 32\.767 giB (32 TiB)    |
+| IOPs por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12\.500              | 15,000              | 20,000              |
 | Débito por disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |MiB 125 por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
 
 Quantos discos que escolher depende do disco de tamanho de escolhida. Poderia usar um disco de P50 único ou vários discos de P10 para atender às necessidades da sua aplicação. Tenha em considerações de conta listadas abaixo, ao fazer a escolha.
@@ -271,7 +271,7 @@ Para saber mais sobre como funciona o BlobCache, consulte o interior [armazename
 
 | **Tipo de disco** | **Definição de cache predefinida** |
 | --- | --- |
-| Disco do SO |Leitura/Escrita |
+| Disco do SO |ReadWrite |
 | Disco de dados |ReadOnly |
 
 Seguem-se as definições de cache de disco recomendado para discos de dados,
@@ -280,7 +280,7 @@ Seguem-se as definições de cache de disco recomendado para discos de dados,
 | --- | --- |
 | Nenhuma |Configure o cache do anfitrião como nenhum para discos de só de escrita e de escrita intensiva. |
 | ReadOnly |Configure o cache do anfitrião como só de leitura para os discos só de leitura e de leitura / escrita. |
-| Leitura/Escrita |Configure o cache do anfitrião como ReadWrite apenas se o seu aplicativo manipula corretamente a escrita de dados em cache para discos persistentes quando necessário. |
+| ReadWrite |Configure o cache do anfitrião como ReadWrite apenas se o seu aplicativo manipula corretamente a escrita de dados em cache para discos persistentes quando necessário. |
 
 *ReadOnly*  
 Ao configurar a colocação em cache em dados de armazenamento Premium discos de só de leitura, pode obter a baixa latência de leitura e obter muito elevada IOPS de leitura e de débito para a sua aplicação. Isso é devido a duas razões,

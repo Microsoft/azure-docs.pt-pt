@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/27/2019
 ms.author: anuragm
 ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66306959"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
@@ -46,13 +46,13 @@ Para configurar a proteção para uma base de dados do SQL Server numa máquina 
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
-| Base de dados SQL não existe. | A base de dados foi eliminado ou renomeado. | Verifique se a base de dados foi acidentalmente eliminado ou renomeado.<br/><br/> Se a base de dados foi eliminado acidentalmente, para continuar a cópias de segurança, restaure a base de dados para a localização original.<br/><br/> Se eliminar a base de dados e não precisa de futuras cópias de segurança, em seguida, no cofre dos serviços de recuperação, clique em [parar cópia de segurança com "Delete/manter dados"](manage-monitor-sql-database-backup.md).
+| A base de dados SQL não existe. | A base de dados foi eliminado ou renomeado. | Verifique se a base de dados foi acidentalmente eliminado ou renomeado.<br/><br/> Se a base de dados foi eliminado acidentalmente, para continuar a cópias de segurança, restaure a base de dados para a localização original.<br/><br/> Se eliminar a base de dados e não precisa de futuras cópias de segurança, em seguida, no cofre dos serviços de recuperação, clique em [parar cópia de segurança com "Delete/manter dados"](manage-monitor-sql-database-backup.md).
 
 ## <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
-| Cadeia de registos está quebrada. | A base de dados ou a VM é feita com a solução de cópia de segurança outro, que trunca a cadeia de registos.|<ul><li>Verifique se a outra solução de cópia de segurança ou de script está a ser utilizado. Se assim for, pare a solução de cópia de segurança. </li><li>Se a cópia de segurança foi uma cópia de segurança do registo ad hoc, acione uma cópia de segurança completa para iniciar uma nova cadeia de registos. Para backups de log agendadas, é necessária nenhuma ação como o serviço de cópia de segurança do Azure irá acionar automaticamente uma cópia de segurança completa para corrigir este problema.</li>|
+| A cadeia de registos está quebrada. | A base de dados ou a VM é feita com a solução de cópia de segurança outro, que trunca a cadeia de registos.|<ul><li>Verifique se a outra solução de cópia de segurança ou de script está a ser utilizado. Se assim for, pare a solução de cópia de segurança. </li><li>Se a cópia de segurança foi uma cópia de segurança do registo ad hoc, acione uma cópia de segurança completa para iniciar uma nova cadeia de registos. Para backups de log agendadas, é necessária nenhuma ação como o serviço de cópia de segurança do Azure irá acionar automaticamente uma cópia de segurança completa para corrigir este problema.</li>|
 
 ## <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -82,7 +82,7 @@ Para configurar a proteção para uma base de dados do SQL Server numa máquina 
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
-| Restauro falhou uma vez que não foi possível colocar offline a base de dados. | Ao fazer uma restauração, a base de dados de destino tem de ser colocados offline. O Azure Backup não é possível trazer esses dados offline. | Utilize os detalhes adicionais no menu do erro portal do Azure para restringir as causas de raiz. Para obter mais informações, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| O restauro falhou, porque não foi possível colocar a base de dados offline. | Ao fazer uma restauração, a base de dados de destino tem de ser colocados offline. O Azure Backup não é possível trazer esses dados offline. | Utilize os detalhes adicionais no menu do erro portal do Azure para restringir as causas de raiz. Para obter mais informações, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ##  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
@@ -94,14 +94,14 @@ Para configurar a proteção para uma base de dados do SQL Server numa máquina 
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
-| A cópia de segurança do registo utilizada para recuperação contém alterações registadas em massa. Ele não pode ser usado para parar um ponto anterior no tempo de acordo com as diretrizes SQL. | Quando uma base de dados está no modo de recuperação com sessão iniciada em massa, não não possível recuperar os dados entre uma transação de registadas em massa e próxima de log de transação. | Escolha outro ponto no tempo de recuperação. [Saiba mais](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+| A cópia de segurança do registo utilizada para recuperação contém alterações registadas em massa. Não pode ser utilizada para parar num ponto no tempo arbitrário de acordo com as diretrizes SQL. | Quando uma base de dados está no modo de recuperação com sessão iniciada em massa, não não possível recuperar os dados entre uma transação de registadas em massa e próxima de log de transação. | Escolha outro ponto no tempo de recuperação. [Saiba mais](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
 
 
 ## <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
-| Preferência de cópia de segurança para SQL grupo de Disponibilidade AlwaysOn não puderem ser alcançada como alguns nós do grupo de disponibilidade não estão registados. | Nós necessários para efetuar cópias de segurança não estão registadas ou estão inacessíveis. | <ul><li>Certifique-se de que todos os nós necessários para efetuar cópias de segurança desta base de dados registados e bom estado de funcionamento e, em seguida, repita a operação.</li><li>Preferência de cópia de segurança de alteração no grupo de disponibilidade Always.</li></ul> |
+| Não é possível respeitar a preferência de cópia de segurança do Grupo de Disponibilidade AlwaysOn do SQL, uma vez que alguns nós do Grupo de Disponibilidade não estão registados. | Nós necessários para efetuar cópias de segurança não estão registadas ou estão inacessíveis. | <ul><li>Certifique-se de que todos os nós necessários para efetuar cópias de segurança desta base de dados registados e bom estado de funcionamento e, em seguida, repita a operação.</li><li>Preferência de cópia de segurança de alteração no grupo de disponibilidade Always.</li></ul> |
 
 ## <a name="vmnotinrunningstateusererror"></a>VMNotInRunningStateUserError
 

@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61066050"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio evolui de uma experimentação para um serviço Web
@@ -67,7 +67,7 @@ Nesse processo de conversão, a experimentação de preparação não é descart
 >
 
 ### <a name="the-web-service"></a>O serviço Web
-Quando estiver satisfeito que sua experimentação preditiva estiver pronta, pode implementar o serviço como um serviço de Web clássico ou um serviço Web novo com base no Azure Resource Manager. Para operacionalizar o seu modelo ao implementar-o como um *serviço Web clássico de Aprendizado de máquina*, clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]**. Para implementar como *serviço nova Web do Machine Learning*, clique em **implementar serviço Web** e selecione **implementar o Web Service [novo]**. Os utilizadores agora podem enviar dados para o seu modelo usando o REST API do serviço Web e receber os resultados de volta. Para obter mais informações, veja [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Como consumir um serviço Web do Azure Machine Learning).
+Quando estiver satisfeito que sua experimentação preditiva estiver pronta, pode implementar o serviço como um serviço de Web clássico ou um serviço Web novo com base no Azure Resource Manager. Para operacionalizar o seu modelo ao implementar-o como um *serviço Web clássico de Aprendizado de máquina*, clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]** . Para implementar como *serviço nova Web do Machine Learning*, clique em **implementar serviço Web** e selecione **implementar o Web Service [novo]** . Os utilizadores agora podem enviar dados para o seu modelo usando o REST API do serviço Web e receber os resultados de volta. Para obter mais informações, veja [How to consume an Azure Machine Learning Web service](consume-web-services.md) (Como consumir um serviço Web do Azure Machine Learning).
 
 ## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>O cenário não típico: criar um serviço Web não preditiva
 Se a sua experimentação não preparar um modelo de Análise Preditiva, em seguida, não precisa de criar uma experimentação de preparação e de uma experimentação de classificação – há apenas uma experimentação e pode implementá-la como um serviço Web. O Machine Learning Studio Deteta se a sua experimentação contém um modelo preditivo analisando os módulos que utilizou.

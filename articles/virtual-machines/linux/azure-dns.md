@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
 ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62127094"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais do Linux no Azure
@@ -72,7 +72,7 @@ Vários DNS diferentes, colocação em cache, como pacotes dnsmasq, estão dispo
 **Ubuntu (utiliza resolvconf)**
   * Instale o pacote de dnsmasq ("sudo apt-get install dnsmasq").
 
-**SUSE (utiliza netconf)**:
+**SUSE (utiliza netconf)** :
 1. Instale o pacote de dnsmasq ("sudo zypper instalação dnsmasq").
 2. Ative o serviço de dnsmasq ("systemctl ativar dnsmasq.service").
 3. Inicie o serviço de dnsmasq ("systemctl início dnsmasq.service").

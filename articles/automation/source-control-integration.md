@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64574120"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
@@ -93,7 +93,7 @@ Controlo de origem requer algumas permissões mínimas para tokens de acesso pes
 
 Para obter mais informações sobre como criar um token de acesso pessoal no GitHub, visite [criar um token de acesso pessoal para a linha de comandos](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Âmbito  |Descrição  |
+|Scope  |Descrição  |
 |---------|---------|
 |**repo** (repositório)     |         |
 |repo:status     | Estado de consolidação de acesso         |
@@ -107,7 +107,7 @@ Para obter mais informações sobre como criar um token de acesso pessoal no Git
 
 Para obter mais informações sobre como criar um token de acesso pessoal nos repositórios do Azure, visite [autenticar o acesso com tokens de acesso pessoal](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
 
-|Âmbito  |
+|Scope  |
 |---------|
 |Código (ler)     |
 |Projeto e a equipa (ler)|

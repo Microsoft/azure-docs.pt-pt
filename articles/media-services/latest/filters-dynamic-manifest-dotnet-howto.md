@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
 ms.openlocfilehash: 2bcb8762b94347f4409507fb89a18cb6c9d0dacd
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66494301"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com o SDK .NET dos Media Services

@@ -1,5 +1,5 @@
 ---
-title: Limites no Azure Cosmos DB
+title: Limites no Azure Cosmos DB
 description: Este artigo descreve os limites no Azure Cosmos DB.
 author: arramac
 ms.author: arramac
@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
 ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969496"
 ---
-# <a name="limits-in-azure-cosmos-db"></a>Limites no Azure Cosmos DB
+# <a name="limits-in-azure-cosmos-db"></a>Limites no Azure Cosmos DB
 
 Este artigo fornece uma descrição geral dos limites no serviço do Azure Cosmos DB.
 
@@ -23,8 +23,8 @@ Depois de criar uma conta do Cosmos do Azure com a sua subscrição, pode gerir 
 
 | Resource | Limite predefinido |
 | --- | --- |
-| RUs máximos por contentor ([modo de aprovisionamento do débito dedicado](databases-containers-items.md#azure-cosmos-containers)) | 1.000.000 por padrão. Pode aumentá-la por [preencher um pedido de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou contactar-nos através de [pergunte o Cosmos DB](mailto:askcosmosdb@microsoft.com) |
-| RUs máximos por base de dados ([modo de aprovisionamento de taxa de transferência partilhada](databases-containers-items.md#azure-cosmos-containers)) | 1.000.000 por padrão. Pode aumentá-la por [preencher um pedido de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou contactar-nos através de [pergunte o Cosmos DB](mailto:askcosmosdb@microsoft.com) |
+| RUs máximos por contentor ([modo de aprovisionamento do débito dedicado](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 por padrão. Pode aumentá-la por [preencher um pedido de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou contactar-nos através de [pergunte o Cosmos DB](mailto:askcosmosdb@microsoft.com) |
+| RUs máximos por base de dados ([modo de aprovisionamento de taxa de transferência partilhada](databases-containers-items.md#azure-cosmos-containers)) | 1\.000.000 por padrão. Pode aumentá-la por [preencher um pedido de suporte do Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou contactar-nos através de [pergunte o Cosmos DB](mailto:askcosmosdb@microsoft.com) |
 | Máximo RU por chave de partição (lógicas) | 10,000 |
 | Máximo de armazenamento em todos os itens por chave de partição (lógicas)| 10 GB |
 | Número máximo de chaves de partição (lógicas) diferente | Ilimitado |

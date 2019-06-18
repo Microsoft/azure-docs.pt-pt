@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf054cb3a965e94f7f18e39065d744b4376b6527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Active Directory do Azure com Form.com
 
@@ -52,7 +52,7 @@ Para configurar a integração do Form.com com o Azure AD, terá de adicionar Fo
 
 **Para adicionar Form.com a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Para configurar o Azure AD início de sessão único com Form.com, execute os se
 
 ### <a name="configure-formcom-single-sign-on"></a>Configurar Form.com Single Sign-On
 
-Para configurar o início de sessão único num **Form.com** lado, terá de enviar o transferido **certificado (Base64)**, **Url de metadados de Federação de aplicação** e apropriado copiados URLs a partir de O portal do Azure [equipa de suporte de Form.com](https://form.com/about/company/contact-us/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **Form.com** lado, terá de enviar o transferido **certificado (Base64)** , **Url de metadados de Federação de aplicação** e apropriado copiados URLs a partir de O portal do Azure [equipa de suporte de Form.com](https://form.com/about/company/contact-us/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 

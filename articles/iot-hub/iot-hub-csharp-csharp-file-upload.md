@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65864421"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub com .NET
@@ -29,7 +29,7 @@ Este tutorial baseia-se sobre o código no [enviar mensagens da Cloud para o dis
 O [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md) e [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-csharp-csharp-c2d.md) artigos mostram a básica funcionalidade de mensagens dispositivo-para-cloud e na cloud para o dispositivo do IoT Hub. O [configurar o encaminhamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contêm imagens
-* Os meus vídeos
+* Vídeos
 * Dados de vibração amostrados em alta frequência
 * Alguma forma de dados pré-processados
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60825613"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilize a análise de multimédia do Azure para converter o conteúdo de texto em ficheiros de vídeo digital texto  
@@ -107,12 +107,12 @@ A saída contém os seguintes atributos:
 | --- | --- |
 | Escala temporal |"ticks" por segundo do vídeo |
 | Offset |tempo de deslocamento de carimbos. Na versão 1.0 de APIs de vídeo, ela sempre será 0. |
-| Taxa de fotogramas |Quadros por segundo do vídeo |
+| Framerate |Quadros por segundo do vídeo |
 | Largura |largura do vídeo em pixéis |
 | Altura |altura do vídeo em pixéis |
-| Fragmentos |matriz de segmentos baseados no tempo de vídeo para o qual os metadados é segmentado |
+| Fragments |matriz de segmentos baseados no tempo de vídeo para o qual os metadados é segmentado |
 | start |hora de início de um fragmento de "ticks" |
-| duração |comprimento de um fragmento de "ticks" |
+| Duração |comprimento de um fragmento de "ticks" |
 | interval |intervalo de cada evento dentro do fragmento de determinado |
 | eventos |matriz que contém regiões |
 | Região |objeto que representa detetado palavras ou frases |

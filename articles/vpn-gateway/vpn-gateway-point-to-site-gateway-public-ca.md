@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65827460"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transição para um certificado de gateway de AC público para P2S
@@ -44,7 +44,7 @@ Apenas os gateways mais antigos são afetados por esta alteração. Se o certifi
    * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Se *ServerCertRotCn* e *ServerCertIssuerCn* são "DigiCert Global AC de raiz", não são afetadas por esta atualização e não precisa de continuar com os passos neste artigo. No entanto, se eles mostram algo mais, o seu certificado de gateway faz parte da atualização e será transferido.
 
-### <a name="classic"></a>Clássico
+### <a name="classic"></a>Clássica
 
 1. Num computador cliente, navegue até ao caminho `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Na pasta do ID de Gateway, pode ver o certificado.
 2. Na guia Geral para o certificado, certifique-se de que a autoridade emissora é "DigiCert Global AC de raiz". Se tiver mais nada que não esta autoridade emissora, o seu certificado de gateway faz parte da atualização e será transferido.

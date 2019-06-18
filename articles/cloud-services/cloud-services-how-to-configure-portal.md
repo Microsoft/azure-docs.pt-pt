@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: jeconnoc
 ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61435874"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar os serviços Cloud
@@ -58,7 +58,7 @@ Pode adicionar alertas ao seu serviço cloud. Clique em **configurações** > **
 
 A partir daqui, pode configurar um alerta. Com o **métrica** caixa suspensa, pode configurar um alerta para os seguintes tipos de dados.
 
-* Leitura de disco
+* Leitura do disco
 * Escrita de disco
 * Entrada de rede
 * Saída de rede
@@ -101,7 +101,7 @@ Poderá ter de reconfigurar o seu serviço cloud através do [a configuração d
     ![Transferência](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Depois de atualizar o ficheiro de configuração de serviço, carregar e aplicar as atualizações de configuração:
 
-    ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Carregamento](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o ficheiro. cscfg e clique em **OK**.
 
 ## <a name="next-steps"></a>Passos Seguintes

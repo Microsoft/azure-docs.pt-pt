@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60584867"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Escolher o melhor opção de SQL Server no Azure
@@ -25,7 +25,7 @@ ms.locfileid: "60584867"
 No Azure, pode ter suas cargas de trabalho do SQL Server em execução numa infraestrutura alojada (IaaS) ou em execução como um serviço hospedado ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)). No PaaS, tem várias opções de implementação e camadas de serviço dentro de cada opção de implementação. A questão principal que precisa de pedir ao decidir entre PaaS ou IaaS é que pretende gerir a sua base de dados, aplicar patches, efetuar cópias de segurança ou pretende delegar essas operações para o Azure?
 Consoante a resposta, tem as seguintes opções:
 
-- [Base de dados SQL do Azure](sql-database-technical-overview.md): Um totalmente gerida da base de dados motor de SQL, com base na mais recente estável Enterprise Edition do SQL Server. Este é um relacional da base de dados-como-serviço (DBaaS) alojada na cloud do Azure que se enquadra na categoria do setor de *plataforma-como-serviço (PaaS)*. Base de dados SQL tem várias opções de implementação, cada um dos quais se baseia em hardware e software que é propriedade, alojado e mantido pela Microsoft normalizado. Com base de dados SQL, pode usar recursos internos e funcionalidades que requerem uma ampla configuração quando utilizado no SQL Server (no local ou numa máquina virtual do Azure). Ao utilizar a Base de Dados SQL, paga apenas o que utilizar, dispondo de opções para aumentar verticalmente ou horizontalmente para obter um maior desempenho sem interrupções. Base de dados SQL tem as funcionalidades adicionais que não estão disponíveis no SQL Server, como elevada disponibilidade incorporada, inteligência e gestão. Base de dados SQL do Azure oferece as seguintes opções de implementação:
+- [Base de dados SQL do Azure](sql-database-technical-overview.md): Um totalmente gerida da base de dados motor de SQL, com base na mais recente estável Enterprise Edition do SQL Server. Este é um relacional da base de dados-como-serviço (DBaaS) alojada na cloud do Azure que se enquadra na categoria do setor de *plataforma-como-serviço (PaaS)* . Base de dados SQL tem várias opções de implementação, cada um dos quais se baseia em hardware e software que é propriedade, alojado e mantido pela Microsoft normalizado. Com base de dados SQL, pode usar recursos internos e funcionalidades que requerem uma ampla configuração quando utilizado no SQL Server (no local ou numa máquina virtual do Azure). Ao utilizar a Base de Dados SQL, paga apenas o que utilizar, dispondo de opções para aumentar verticalmente ou horizontalmente para obter um maior desempenho sem interrupções. Base de dados SQL tem as funcionalidades adicionais que não estão disponíveis no SQL Server, como elevada disponibilidade incorporada, inteligência e gestão. Base de dados SQL do Azure oferece as seguintes opções de implementação:
   
   - Como um [base de dados individual](sql-database-single-database.md) com seu próprio conjunto de recursos geridos através de um servidor de base de dados SQL. Uma base de dados é semelhante a um [bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) no SQL Server. Esta opção é otimizada para desenvolvimento de aplicativos modernos de novas aplicações na cloud.
   - Uma [conjunto elástico](sql-database-elastic-pool.md), que é uma coleção de bases de dados com um conjunto partilhado de recursos geridos através de um servidor de base de dados SQL. Bases de dados individuais podem ser movidas para dentro e fora de um conjunto elástico. Esta opção é otimizada para desenvolvimento de aplicativos modernos de aplicações na cloud novas com a aplicação SaaS multi-inquilino.
@@ -107,7 +107,7 @@ Atualmente, **base de dados SQL** é vendido como um serviço e está disponíve
 
 - Com o banco de dados único de base de dados SQL, pode escolher uma camada de serviços que se adeque às suas necessidades de uma vasta gama de preços a partir de 5$ / mês para o escalão básico.
 - Pode criar [conjuntos elásticos](sql-database-elastic-pool.md) partilhar recursos entre instâncias da base de dados para reduzir os custos e a utilização de acomodar picos.
-- Com a instância gerida da base de dados SQL, também pode trazer a sua própria licença. Para obter mais informações sobre bring-your-own licenciamento, consulte [mobilidade de licenças através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/) ou utilize [Calculadora do benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) para ver como **Poupe até 40%**.
+- Com a instância gerida da base de dados SQL, também pode trazer a sua própria licença. Para obter mais informações sobre bring-your-own licenciamento, consulte [mobilidade de licenças através do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/) ou utilize [Calculadora do benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) para ver como **Poupe até 40%** .
 
 Além disso, é-lhe faturado o tráfego de Internet de saída a [taxas de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/) regulares. Pode ajustar os escalões de serviço e tamanhos de forma a satisfazer necessidades variadas de débito de seu aplicativo de computação dinamicamente.
 

@@ -4,16 +4,16 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 228f445dda2724985154723a292adb8215a5ad68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9798e5f76881be38fb27e1f428565caba6e50bf2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342511"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135121"
 ---
 Open **definições de criação** ao selecionar **ficheiro** > **definições de criação**.
 
-Na **plataforma** secção, selecione **Android**. Alterar o **sistema de compilação** para **Gradle** e selecione **exportar projeto**.
+Na **plataforma** secção, selecione **Android**. Alteração a **sistema de compilação** para **Gradle** e certifique-se a **exportar projeto** caixa de verificação não tem uma marca de verificação.
 
 Selecione **plataforma de comutador** para alterar a plataforma para **Android**. Unity poderá pedir-lhe para instalar componentes de suporte do Android que estejam em falta.
 

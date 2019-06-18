@@ -2,19 +2,18 @@
 title: Limiar de processo configurável com base em regras no Azure Stream Analytics
 description: Este artigo descreve como utilizar os dados de referência para obter uma solução de alertas que tem regras de limiar configurável com base no Azure Stream Analytics.
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
-manager: digimobile
+author: zhongc
+ms.author: zhongc
+manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 08/20/2018
+ms.date: 04/30/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60761731"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Processar regras baseadas no limiar no Azure Stream Analytics configuráveis
@@ -47,6 +46,7 @@ Estes dados de referência de exemplo mostram como uma regra baseada em limiar p
 - Tenha em atenção a regra tem um **operador** campo, o que é interpretado dinamicamente a sintaxe de consulta mais tarde `AVGGREATEROREQUAL`. 
 - A regra filtra os dados numa determinada chave de dimensão `2` com o valor `C1`. Outros campos são uma cadeia vazia, que indica que não para filtrar o fluxo de entrada por esses campos de evento. Poderia configurar regras de CPU adicionais para filtrar os outros campos conforme necessário.
 - Nem todas as colunas são incluídos no evento de alerta de saída. Neste caso, `includedDim` número de chaves `2` está ativada `TRUE` para representar que número 2 do campo de dados de eventos no fluxo será incluído nos eventos de saída elegíveis. Os outros campos não estão incluídos na saída do alerta, mas pode ser ajustada a lista de campos.
+
 
 ```json
 {
@@ -292,4 +292,3 @@ Neste exemplo de saída JSON mostra de dados foi produzido um único evento de a
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
-<!--Update_Description: updat meta properties, wording update-->

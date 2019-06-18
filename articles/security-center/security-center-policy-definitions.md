@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/19/2019
 ms.author: monhaber
 ms.openlocfilehash: 25ed9cb624474d5da56d385f4e9c155918ec8eab
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428328"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Políticas de segurança do Azure monitorizadas pelo centro de segurança
@@ -79,7 +79,7 @@ Para saber mais sobre as diretivas internas que são monitorizadas pelo centro d
 |\[Pré-visualização]: As contas preteridas com permissões de proprietário devem ser removidas da sua subscrição|As contas preteridas que têm permissões de proprietário devem ser removidas da sua subscrição. As contas preteridas foram bloqueadas de iniciar sessão.|
 |\[Pré-visualização]: As contas preteridas devem ser removidas da sua subscrição|As contas preteridas devem ser removidas das suas subscrições. As contas preteridas foram bloqueadas de iniciar sessão.|
 |\[Pré-visualização]: As contas externas com permissões de proprietário devem ser removidas da sua subscrição|As contas externas com permissões de proprietário devem ser removidas da sua subscrição para impedir o acesso de permissões.|
-|\[Pré-visualização]: Contas externas com escrita permissões devem ser removidas da sua subscrição|As contas externas que tenham escrevem as permissões devem ser removidas da sua subscrição para impedir o acesso não monitorizado.|
+|\[Pré-visualização]: As contas externas com permissões de escrita devem ser removidas da sua subscrição|As contas externas que tenham escrevem as permissões devem ser removidas da sua subscrição para impedir o acesso não monitorizado.|
 |\[Pré-visualização]: As contas externas com permissões de leitura devem ser removidas da sua subscrição|As contas externas que tem permissões de leitura devem ser removidas da sua subscrição para impedir o acesso não monitorizado.|
 
 

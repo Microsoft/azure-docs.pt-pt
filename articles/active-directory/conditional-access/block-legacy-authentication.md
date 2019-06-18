@@ -1,8 +1,8 @@
 ---
 title: Como bloquear antigos de autenticação para o Azure Active Directory (Azure AD) com acesso condicional | Documentos da Microsoft
-description: Saiba como melhorar a sua postura de segurança bloqueando antigos de autenticação através do acesso condicional do Azure AD.
+description: Saiba como melhorar a sua postura de segurança bloqueando antigos de autenticação a utilizar o acesso condicional do Azure AD.
 services: active-directory
-keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
+keywords: Acesso condicional para aplicações, acesso condicional com o Azure AD, proteger o acesso aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,19 +18,19 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112711"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Autenticação de legado de bloco para o Azure AD com o acesso condicional   
 
 Conceder acesso fácil aos seus utilizadores para as suas aplicações na cloud, Azure Active Directory (Azure AD) oferece suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação. No entanto, os protocolos legados não suportam autenticação multifator (MFA). MFA é, em muitos ambientes, um requisito comum para roubo de identidade de endereço. 
 
 
-Se o ambiente está pronto para autenticação de legado do bloco para melhorar a proteção do seu inquilino, pode realizar esse objetivo com o acesso condicional. Este artigo explica como pode configurar políticas de acesso condicional desse bloco antigos de autenticação para o seu inquilino.
+Se o ambiente está pronto para autenticação de legado do bloco para melhorar a proteção do seu inquilino, pode realizar esse objetivo com o acesso condicional. Este artigo explica como pode configurar políticas de acesso condicional a bloquear antigos de autenticação para o seu inquilino.
 
 
 
@@ -72,7 +72,7 @@ Numa política de acesso condicional, pode definir uma condição que está asso
 
 Para bloquear o acesso para estas aplicações, tem de selecionar **bloquear o acesso**.
 
-![Bloquear acesso](./media/block-legacy-authentication/02.png)
+![Bloquear o acesso](./media/block-legacy-authentication/02.png)
 
 
 ### <a name="select-users-and-cloud-apps"></a>Selecione utilizadores e aplicações na cloud
@@ -81,9 +81,9 @@ Se deseja bloquear antigos de autenticação para a sua organização, provavelm
 
 - Todos os utilizadores
 
-- Todas as aplicações na cloud
+- Todas as aplicações de cloud
 
-- Bloquear acesso
+- Bloquear o acesso
  
 
 ![Atribuições](./media/block-legacy-authentication/03.png)
@@ -140,6 +140,6 @@ Se bloquear antigos de autenticação com a outra condição de clientes, també
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se não estiver familiarizado com a configuração de políticas de acesso condicional ainda, veja [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md) para obter um exemplo.
+- Se não estiver familiarizado com a configuração de políticas de acesso condicional ainda, veja [exigir a MFA para aplicações específicas com o Azure Active Directory condicional acesso](app-based-mfa.md) para obter um exemplo.
 
 - Para obter mais informações sobre o suporte de autenticação moderna, consulte [como a autenticação moderna funciona para aplicações de cliente do Office 2013 e Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

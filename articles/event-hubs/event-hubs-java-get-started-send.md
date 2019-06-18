@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 0487cac6a0cf7d37befdf0d7cfab33ad6a62cf7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60822914"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Enviar eventos para ou receber eventos dos Hubs de eventos do Azure com Java
@@ -206,7 +206,7 @@ A biblioteca de cliente de Java dos Hubs de eventos está disponível para uso e
 </dependency>
 ```
 
-Para diferentes tipos de ambientes de compilação, pode obter explicitamente os mais recente ficheiros JAR do [repositório Central Maven] [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22].  
+Para diferentes tipos de ambientes de compilação, pode obter explicitamente os mais recente ficheiros JAR do [repositório Central Maven] [https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22 ].  
 
 1. Para o exemplo que se segue, comece por criar um novo projeto Maven para uma consola/aplicação shell no seu ambiente de desenvolvimento Java favorito. A classe é chamada `ErrorNotificationHandler`.     
    

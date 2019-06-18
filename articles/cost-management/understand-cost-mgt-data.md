@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65969066"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
@@ -41,7 +41,7 @@ As seguintes informações são apresentadas suportado atualmente [o Microsoft A
 | **Pay as you go** | [Rede de parceiros da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
 | **Pay as you go** | [Versão de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
 | **Pay as you go** | [Azure no Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
-| **Pay as you go** | [Azure para estudantes](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pay as you go** | [Microsoft Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
 | **Pay as you go** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
@@ -56,7 +56,7 @@ A tabela seguinte mostra as ofertas não suportadas.
 | **Fornecedor de soluções cloud (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Fornecedor de soluções cloud (CSP)** | O Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Fornecedor de soluções cloud (CSP)** | Azure Alemanha no CSP para a Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **Pay as you go**                 | Azure para Estudantes Iniciantes | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Pay as you go**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
 | **Pay as you go**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Planos de suporte** | Suporte Padrão                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Planos de suporte** | Suporte direto profissional         | Default_2014-09-01 | MS-AZR-0042P |

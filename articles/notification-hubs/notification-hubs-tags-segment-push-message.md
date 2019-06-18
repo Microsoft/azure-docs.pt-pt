@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: jowargo
 ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457826"
 ---
 # <a name="routing-and-tag-expressions"></a>Expressões de encaminhamento e a etiqueta
@@ -35,7 +35,7 @@ A única forma de destino de notificação específica é associar etiquetas a e
 2. **Etiqueta**: todos os registos que contêm a marca especificada recebem a notificação.
 3. **Expressão de etiqueta**: todos os registos cujo conjunto de marcas corresponde a expressão especificada ao recebem a notificação.
 
-## <a name="tags"></a>Etiquetas
+## <a name="tags"></a>Tags
 
 Uma etiqueta pode ser qualquer cadeia de caracteres, até 120 carateres, contendo de alfanuméricos e os seguintes carateres não alfanuméricos: '_', ' @', '#', '. ',':', '-'. O exemplo seguinte mostra uma aplicação a partir do qual pode receber notificações de alerta sobre os grupos de música específico. Neste cenário, uma forma simples de notificações de rota é registos de etiqueta com etiquetas que representam as diferentes faixas, como na imagem seguinte:
 

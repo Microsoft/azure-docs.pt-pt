@@ -15,10 +15,10 @@ ms.topic: article
 ms.author: jowargo
 ms.date: 01/04/2019
 ms.openlocfilehash: 43a691ff9025cdb39786f965be6a2fca1b33bd3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61458458"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como utilizar os Hubs de notificação do Python

@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 31522436de97062432af2afe101f85d376243a38
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957264"
 ---
 # <a name="view-azure-maps-api-usage"></a>Ver a utilização de API do Azure Maps
@@ -42,7 +42,7 @@ Continue para a secção seguinte, se precisar de personalizar nestes gráficos 
 
       ![Painel de métricas de mapas do Azure](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Em seguida, pode selecionar o *intervalo de tempo* ao clicar em **últimas 24 horas (automático)**. Por predefinição, o intervalo de tempo é definido como 24 horas. Depois de clicar, verá todos os intervalos de tempo selecionável. Pode selecionar o *granularidade de tempo* e optar por mostrar o tempo como *local* ou *GMT* no mesmo menu pendente. Clique em **Aplicar**.
+5. Em seguida, pode selecionar o *intervalo de tempo* ao clicar em **últimas 24 horas (automático)** . Por predefinição, o intervalo de tempo é definido como 24 horas. Depois de clicar, verá todos os intervalos de tempo selecionável. Pode selecionar o *granularidade de tempo* e optar por mostrar o tempo como *local* ou *GMT* no mesmo menu pendente. Clique em **Aplicar**.
 
     ![Intervalo de tempo de métricas de mapas do Azure](media/how-to-view-api-usage/time-range.png)
 

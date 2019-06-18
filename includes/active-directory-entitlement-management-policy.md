@@ -9,10 +9,10 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
 ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113395"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Política: Para os utilizadores no seu diretório
@@ -95,7 +95,7 @@ Na seção Request, especifique as definições de aprovação quando os utiliza
 
 1. Na **tempo limite do pedido de aprovação (dias)** caixa, especifique a quantidade de tempo aprovadores para rever um pedido. Se não os aprovadores revê-lo neste número de dias, o pedido expira e o utilizador terá de enviar outro pedido para o pacote de acesso.
 
-### <a name="policy-expiration"></a>Política: Expiração
+### <a name="policy-expiration"></a>Política: expiração
 
 Na secção de expiração, especifique quando expira a atribuição de um utilizador para o pacote de acesso.
 
@@ -115,7 +115,7 @@ Na secção de expiração, especifique quando expira a atribuição de um utili
 
     ![Pacote de acesso - definições de política de expiração](./media/active-directory-entitlement-management-policy/policy-expiration.png)
 
-### <a name="policy-enable-policy"></a>Política: Activar política
+### <a name="policy-enable-policy"></a>Política: Ativar política
 
 1. Se pretender que o pacote de acesso que se tornarão imediatamente disponíveis para os utilizadores a política, clique em **Sim** para ativar a política.
 

@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61457387"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(PRETERIDO) Ativar o acesso público a uma aplicação do Azure Container Service
@@ -38,10 +38,10 @@ Em primeiro lugar, é necessário abrir a porta que queremos.
    | Campo | Descrição |
    | --- | --- |
    | Name |Um nome descritivo da sonda. |
-   | Porta |A porta do contentor para testar. |
+   | Port |A porta do contentor para testar. |
    | Caminho |(Quando estiver no modo HTTP) O caminho relativo do site para a sonda. HTTPS não suportado. |
    | Interval |A quantidade de tempo entre a sonda tenta, em segundos. |
-   | Limiar com funcionamento incorreto |Número de sonda consecutiva tenta antes de considerar o contentor de mau estado de funcionamento. |
+   | Limiar de mau estado de funcionamento |Número de sonda consecutiva tenta antes de considerar o contentor de mau estado de funcionamento. |
 6. De volta às propriedades do Balanceador de carga do agente, clique em **regras de balanceamento de carga** e, em seguida **Add**.
    
     ![Regras do Balanceador de carga de serviço de contentor do Azure](./media/container-service-enable-public-access/add-balancer-rule.png)
@@ -50,8 +50,8 @@ Em primeiro lugar, é necessário abrir a porta que queremos.
    | Campo | Descrição |
    | --- | --- |
    | Name |Um nome descritivo do Balanceador de carga. |
-   | Porta |A porta de entrada pública. |
-   | Porta back-end |A porta interna público do contentor para encaminhar o tráfego para. |
+   | Port |A porta de entrada pública. |
+   | Porta de back-end |A porta interna público do contentor para encaminhar o tráfego para. |
    | Conjunto back-end |Os contentores neste conjunto será o destino para este Balanceador de carga. |
    | Sonda |A sonda utilizada para determinar se um destino na **conjunto back-end** está em bom estado. |
    | Persistência da sessão |Determina como o tráfego de um cliente deve ser tratado durante a sessão.<br><br>**Nenhum**: Solicitações sucessivas do mesmo cliente podem ser processadas por qualquer contentor.<br>**Cliente IP**: Solicitações sucessivas do mesmo IP de cliente são processadas pelo mesmo contentor.<br>**Cliente IP e protocolo**: Solicitações sucessivas da mesma combinação de IP e protocolo de cliente são processadas pelo mesmo contentor. |
@@ -74,9 +74,9 @@ Em seguida, precisamos de adicionar uma regra de segurança que encaminha o trá
    | --- | --- |
    | Name |Um nome descritivo da regra de firewall. |
    | Prioridade |Classificação de prioridade para a regra. Menor o número maior será a prioridade. |
-   | Origem |Restringir o intervalo de endereços IP recebido para ser permitido ou negado por esta regra. Uso **qualquer** não especificar uma restrição. |
+   | source |Restringir o intervalo de endereços IP recebido para ser permitido ou negado por esta regra. Uso **qualquer** não especificar uma restrição. |
    | Serviço |Selecione um conjunto de serviços predefinidos, que esta regra de segurança destina-se. Caso contrário, utilize **personalizado** para criar seus próprios. |
-   | Protocolo |Restringir o tráfego com base na **TCP** ou **UDP**. Uso **qualquer** não especificar uma restrição. |
+   | Protocol |Restringir o tráfego com base na **TCP** ou **UDP**. Uso **qualquer** não especificar uma restrição. |
    | Intervalo de portas |Quando **serviço** é **personalizado**, especifica o intervalo de portas que afeta esta regra. Pode utilizar uma porta única, tal como **80**, ou um intervalo, como **1024 1500**. |
    | Ação |Permitir ou negar o tráfego que cumpre os critérios. |
 

@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65989297"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Configurar o início de sessão único para aplicações externas à galeria na plataforma de identidade da Microsoft
@@ -64,11 +64,11 @@ Ao adicionar uma aplicação desta forma, é possível fornecer uma experiência
 - **Com base em palavra-passe**
 - **Ligado**
 
-![Selecione um método de início de sessão único](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Selecionar um método de início de sessão único](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 Para obter mais informações sobre estas opções, consulte as secções seguintes deste artigo.
 
-## <a name="saml-based-single-sign-on"></a>Início de sessão único baseado em SAML
+## <a name="saml-based-single-sign-on"></a>Baseado em SAML início de sessão único
 
 Selecione o **SAML** opção para configurar a autenticação baseada no SAML para o aplicativo. (Esta opção requer que a aplicação suporta SAML 2.0). O **definir a segurança de início de sessão único com o SAML** é apresentada a página.
 
@@ -125,7 +125,7 @@ Os dois campos seguintes são necessários:
 
 Os seguintes três campos são opcionais:
 
-- **Inicie sessão no URL (iniciado por SP apenas)**. Este valor indica onde o utilizador acede para iniciar sessão nesta aplicação. Se o aplicativo é executado SSO iniciado por SP, em seguida, quando um utilizador navega para este URL, o SP faz o redirecionamento necessário para o Azure AD para autenticar e iniciar a sessão do utilizador. Se especificar este campo, o Azure AD utiliza este URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se omitir este campo, do Azure AD em vez disso, realiza IdP iniciada pelo início de sessão durante inicializações de aplicações do Office 365, o painel de acesso do Azure AD ou o URL de SSO do Azure AD (que pode copiar a partir da **Dashboard** página).
+- **Inicie sessão no URL (iniciado por SP apenas)** . Este valor indica onde o utilizador acede para iniciar sessão nesta aplicação. Se o aplicativo é executado SSO iniciado por SP, em seguida, quando um utilizador navega para este URL, o SP faz o redirecionamento necessário para o Azure AD para autenticar e iniciar a sessão do utilizador. Se especificar este campo, o Azure AD utiliza este URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se omitir este campo, do Azure AD em vez disso, realiza IdP iniciada pelo início de sessão durante inicializações de aplicações do Office 365, o painel de acesso do Azure AD ou o URL de SSO do Azure AD (que pode copiar a partir da **Dashboard** página).
 
 - **Estado de reencaminhamento**. Pode especificar um Estado de reencaminhamento no SAML para instruir o aplicativo para onde redirecionar os utilizadores após a autenticação. O valor é, normalmente, um URL ou URL do caminho que direciona os utilizadores para uma localização específica no aplicativo.
 
@@ -141,7 +141,7 @@ Para ver ou editar as afirmações enviadas no token SAML para o aplicativo:
 
 - Vá para o **atributos de utilizador e afirmações** cabeçalho e selecione o **editar** ícone. O **atributos de utilizador e afirmações** é apresentada a página.
 
-![Atributos e afirmações de utilizador](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Atributos de utilizador e afirmações](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 Poderá ter de editar as declarações emitidas no SAML token por dois motivos:
 
@@ -183,7 +183,7 @@ Para atribuir um novo utilizador ou grupo à sua aplicação:
 
 1. Na barra lateral do aplicativo, selecione **utilizadores e grupos**. O  **\<nome da aplicação >-os utilizadores e grupos** é apresentada a página, que mostra a lista atual dos utilizadores e grupos atribuídos.
 2. Selecione **adicionar utilizadores**. O **atribuições adicionar** é apresentada a página.
-3. Selecione **utilizadores e grupos (\<número > selecionados)**. O **utilizadores e grupos** é apresentada a página, que mostra uma lista de utilizadores e grupos.
+3. Selecione **utilizadores e grupos (\<número > selecionados)** . O **utilizadores e grupos** é apresentada a página, que mostra uma lista de utilizadores e grupos.
 4. Tipo ou desloque-se para encontrar o utilizador ou grupo que pretende atribuir a partir da lista.
 5. Selecione cada utilizador ou grupo que pretende adicionar e, em seguida, selecione o **selecione** botão. O **utilizadores e grupos** desaparece da página.
 6. Na **adicionar atribuições** página, selecione **atribuir**. O  **<application name> -os utilizadores e grupos** é apresentada a página com os utilizadores adicionais apresentados na lista.
@@ -213,7 +213,7 @@ Selecione esta opção para configurar [baseado em palavra-passe de início de s
 
 Depois de selecionar **baseado em palavra-passe**, lhe for pedido para introduzir o URL baseada na web e página de entrada da aplicação.
 
-![Início de sessão único baseado em palavra-passe](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Com base em palavra-passe de início de sessão único](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Em seguida, efetue estes passos:
 

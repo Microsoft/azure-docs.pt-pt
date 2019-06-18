@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ce51f4df50de50cef06bba699ca7c6f76bc5d166
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65833172"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Editar e gerir um pacote de acesso existente na gestão de direitos do Azure AD (pré-visualização)
@@ -146,7 +146,7 @@ O Azure AD pode atribuir automaticamente os utilizadores acesso a um site do Sha
 
 1. Na lista de funções de recursos, localize a função de recursos que pretende remover.
 
-1. Clique nas reticências (**...** ) e, em seguida, clique em **remover função de recursos**.
+1. Clique nas reticências ( **...** ) e, em seguida, clique em **remover função de recursos**.
 
     Os utilizadores que tenham atribuições existentes para o pacote de acesso terão automaticamente o respetivo acesso revogado a esta função de recursos, quando este é removido.
 

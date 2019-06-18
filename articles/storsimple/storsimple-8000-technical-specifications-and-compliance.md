@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606929"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>As especificações técnicas e a conformidade do dispositivo StorSimple
@@ -41,7 +41,7 @@ A inclusão EBOD utiliza um PCM W 580 e bastidor principal utiliza um PCM W 764.
 | Inrush máximo atual |20 A |20 A |
 | Correção de fator de energia |> 95% nominal tensão de entrada |> 95% nominal tensão de entrada |
 | Harmonics |Cumpre EN61000-3-2 |Cumpre EN61000-3-2 |
-| Resultado |Tensão de modo de espera de 5 v \@ 2.0 A |Tensão de modo de espera de 5 v \@ 2.7 A |
+| Saída |Tensão de modo de espera de 5 v \@ 2.0 A |Tensão de modo de espera de 5 v \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
 | Armazenamento frequente conectável |Sim |Sim |

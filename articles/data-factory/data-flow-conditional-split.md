@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
 ms.openlocfilehash: f9fd346d4c4eaed0797d564fe52dd44e9f0e240a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65795651"
 ---
 # <a name="mapping-data-flow-conditional-split-transformation"></a>Mapeamento de fluxo de dados condicional dividir transformação

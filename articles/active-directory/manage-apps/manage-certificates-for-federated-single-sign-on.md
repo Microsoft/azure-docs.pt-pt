@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824749"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir certificados para início de sessão único federado no Azure Active Directory
@@ -30,11 +30,11 @@ Este artigo é relevante apenas para aplicações que estão configuradas para u
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificado gerado automaticamente para as aplicações de galeria e externas à Galeria
 
-Quando adicionar um novo aplicativo a partir da Galeria e configurar um SAML com base no início de sessão (selecionando **início de sessão único** > **SAML** da página de descrição geral da aplicação), o Azure AD gera um certificado para a aplicação que é válido durante três anos. Para transferir o certificado do Active Directory como um certificado de segurança (**. cer**) ficheiro, retorno a essa página (**baseado em SAML início de sessão**) e selecione uma ligação de transferência no **decertificadodeassinaturadeSAML** cabeçalho. Pode escolher entre o certificado não processado (binário) ou o certificado de (base 64 codificada texto) de Base64. Para aplicações de galeria, esta secção também poderá mostrar uma ligação para transferir o certificado de como metadados de Federação XML (uma **. XML** ficheiro), dependendo do requisito da aplicação.
+Quando adicionar um novo aplicativo a partir da Galeria e configurar um SAML com base no início de sessão (selecionando **início de sessão único** > **SAML** da página de descrição geral da aplicação), o Azure AD gera um certificado para a aplicação que é válido durante três anos. Para transferir o certificado do Active Directory como um certificado de segurança ( **. cer**) ficheiro, retorno a essa página (**baseado em SAML início de sessão**) e selecione uma ligação de transferência no **decertificadodeassinaturadeSAML** cabeçalho. Pode escolher entre o certificado não processado (binário) ou o certificado de (base 64 codificada texto) de Base64. Para aplicações de galeria, esta secção também poderá mostrar uma ligação para transferir o certificado de como metadados de Federação XML (uma **. XML** ficheiro), dependendo do requisito da aplicação.
 
 ![SAML active assinatura certificado opções de transferência](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
-Também pode transferir um certificado ativo ou inativo, selecionando o **certificado de assinatura SAML** do cabeçalho **editar** ícone (um lápis), que exibe o **decertificadodeassinaturadeSAML** página. Selecione as reticências (**...** ) junto ao certificado que pretende transferir e, em seguida, escolha qual formato de certificado que pretende. Tem a opção adicional para transferir o certificado no formato de correio avançado de privacidade (. PEM). Este formato é idêntico para Base64, mas com uma **. pem** extensão, que não é reconhecido no Windows como um formato de certificado.
+Também pode transferir um certificado ativo ou inativo, selecionando o **certificado de assinatura SAML** do cabeçalho **editar** ícone (um lápis), que exibe o **decertificadodeassinaturadeSAML** página. Selecione as reticências ( **...** ) junto ao certificado que pretende transferir e, em seguida, escolha qual formato de certificado que pretende. Tem a opção adicional para transferir o certificado no formato de correio avançado de privacidade (. PEM). Este formato é idêntico para Base64, mas com uma **. pem** extensão, que não é reconhecido no Windows como um formato de certificado.
 
 ![Opções de transferência do certificado (ativas e Inativas) de assinatura SAML](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
@@ -88,7 +88,7 @@ Em seguida, transferir o novo certificado no formato correto, carregue-o para a 
 
 3. Siga as instruções no [gerado automaticamente o certificado para aplicações de galeria e externas à galeria](#auto-generated-certificate-for-gallery-and-non-gallery-applications) secção anteriormente. Este passo transfere o certificado no formato de codificação necessário para carregamento para a aplicação.
 
-4. Quando quiser acumulam para o novo certificado, volte para o **certificado de assinatura SAML** página e, na linha do certificado salvo recentemente, selecione as reticências (**...** ) e selecione **ativar o certificado**. O estado do novo certificado é alterado para **Active Directory**, e o certificado anteriormente ativo é alterado para um Estado de **Inactive**.
+4. Quando quiser acumulam para o novo certificado, volte para o **certificado de assinatura SAML** página e, na linha do certificado salvo recentemente, selecione as reticências ( **...** ) e selecione **ativar o certificado**. O estado do novo certificado é alterado para **Active Directory**, e o certificado anteriormente ativo é alterado para um Estado de **Inactive**.
 
 5. Continue a seguir instruções de configuração de início de sessão SAML do aplicativo que apresentado anteriormente, para que pode carregar o tipo de assinatura de SAML de certificado no formato de codificação correto.
 
@@ -116,7 +116,7 @@ Se um certificado está prestes a expirar, poderá renová-lo usando um procedim
 
 2. Se o aplicativo pode fazer o roll ao longo de um certificado, defina o novo certificado para o Active Directory ao seguir estes passos:
    1. Volte para o **certificado de assinatura SAML** página.
-   2. Na linha do certificado salvo recentemente, selecione as reticências (**...** ) e, em seguida, selecione **ativar o certificado**.
+   2. Na linha do certificado salvo recentemente, selecione as reticências ( **...** ) e, em seguida, selecione **ativar o certificado**.
    3. Ignore os dois passos seguintes.
 
 3. Se a aplicação só poderá lidar com um certificado ao mesmo tempo, escolha um intervalo de tempo de inatividade para executar o passo seguinte. (Caso contrário, se o aplicativo não obtenha automaticamente o novo certificado, mas pode lidar com mais de um certificado de assinatura, pode executar o passo seguinte em qualquer altura.)

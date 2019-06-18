@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62128105"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK de node. js de aplicações móveis
@@ -404,7 +404,7 @@ Utilizar a SQL Database do Azure como um arquivo de dados é idêntica em todos 
 1. Na **grupo de recursos** , introduza o mesmo nome que a sua aplicação.
 1. A predefinição é selecionado o plano do serviço de aplicações. Se pretender alterar o seu plano do serviço de aplicações:
 
-   a. Selecione **plano do App Service** > **+ criar novo**.
+   a. Selecione **plano do App Service** >  **+ criar novo**.
 
    b. Forneça um nome do novo plano de serviço de aplicações e selecione uma localização adequada.
 
@@ -422,7 +422,7 @@ Aprovisionamento de aplicações de Mobile back-end pode demorar alguns minutos.
 > [!NOTE]
 > Se já tiver uma base de dados na mesma localização tal como as aplicações móveis de back-end, em vez disso, pode selecionar **utilizar uma base de dados existente** e, em seguida, selecione essa base de dados. Não é recomendada a utilização de uma base de dados numa localização diferente devido às latências maiores.
 
-1. No novo Mobile Apps back-end, selecione **configurações** > **aplicação móvel** > **dados** > **+ adicionar**.
+1. No novo Mobile Apps back-end, selecione **configurações** > **aplicação móvel** > **dados** >  **+ adicionar**.
 1. Na **adicionar ligação de dados** painel, selecione **base de dados do SQL - configurar definições necessárias** > **criar uma nova base de dados**. Introduza o nome da nova base de dados do **nome** caixa.
 1. Selecione **servidor**. Na **novo servidor** painel, introduza um nome de servidor exclusivo na **nome do servidor** caixa e forneça um servidor adequado, início de sessão de administrador e a palavra-passe. Certifique-se de que **permitir que os serviços do azure ao servidor de acesso** está selecionada. Selecione **OK**.
 

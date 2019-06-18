@@ -13,10 +13,10 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 ms.openlocfilehash: 76962975705ff53a292f41a0a54e42c5f2991a2c
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002607"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração contínua e entrega (CI/CD) no Azure Data Factory
@@ -947,7 +947,7 @@ Aqui estão algumas diretrizes para utilizar quando cria o ficheiro de parâmetr
 
 * Apenas as propriedades e todas as propriedades, no caminho `typeProperties` parametrizados, com os valores predefinidos respectivos. Por exemplo, a partir do esquema de hoje, existem duas propriedades sob **IntegrationRuntimes** as propriedades de tipo: `computeProperties` e `ssisProperties`. Ambos os tipos de propriedade são criados com seus valores padrão respectivos e tipos (objeto).
 
-#### <a name="triggers"></a>Ativadores
+#### <a name="triggers"></a>Acionadores
 
 * Em `typeProperties`, duas propriedades são parametrizadas. A primeira é `maxConcurrency`, que é especificado para ter um valor predefinido e o tipo seria `string`. Tem o nome de parâmetro padrão de `<entityName>_properties_typeProperties_maxConcurrency`.
 * O `recurrence` propriedade também é parametrizada. Sob a mesma, todas as propriedades nesse nível são especificadas para ser parametrizado como cadeias de caracteres, com valores padrão e os nomes de parâmetros. Uma exceção é o `interval` propriedade, que é parametrizada como tipo de número e com o nome do parâmetro com o sufixo `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, o `freq` propriedade é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, o `freq` propriedade é parametrizada sem um valor predefinido. O nome é baixou e o sufixo. Por exemplo, `<entityName>_freq`.

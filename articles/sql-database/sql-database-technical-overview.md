@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073620"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL
@@ -39,11 +39,11 @@ A ilustração seguinte mostra estas opções de implementação:
 
 A Base de Dados SQL partilha a base de código com o [motor de bases de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Com a estratégia da cloud prioritária da Microsoft, as mais recentes capacidades do SQL Server são lançadas primeiro na Base de Dados SQL e, depois, no próprio SQL Server. Esta abordagem disponibiliza-lhe as últimas capacidades do SQL Server sem sobrecarga em termos de aplicação de patches ou atualizações - com estas funcionalidades novas testadas em milhões de bases de dados. Para obter informações sobre as novas capacidades quando são anunciadas, veja:
 
-- **[Mapa do Azure para a base de dados SQL](https://azure.microsoft.com/roadmap/?category=databases)**:
+- **[Mapa do Azure para a base de dados SQL](https://azure.microsoft.com/roadmap/?category=databases)** :
 
   Um local onde encontrará as novidades e futuras.
 
-- **[Blogue de base de dados SQL do Azure](https://azure.microsoft.com/blog/topics/database)**:
+- **[Blogue de base de dados SQL do Azure](https://azure.microsoft.com/blog/topics/database)** :
 
   Um lugar onde os membros blog sobre as funcionalidades e notícias da base de dados SQL da Equipe do produto SQL Server.
 
@@ -110,20 +110,20 @@ As zonas de disponibilidade do Azure é um play sobre o problema de elevada disp
 
 Na verdade, o contrato de nível de serviço de disponibilidade de 99,99% líder da indústria do Azure [(SLA)](https://azure.microsoft.com/support/legal/sla/), com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 x 7. A plataforma do Azure totalmente gerencia cada base de dados e não garantias de nenhuma perda de dados e alta porcentagem de disponibilidade de dados. O Azure gere automaticamente a aplicação de patches, as cópias de segurança, a replicação, a deteção de falhas, falhas potenciais subjacentes de hardware, software ou rede, a implementação de correções de erros, as ativações pós-falha, as atualizações da base de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. Disponibilidade de Premium é obtida com a integração de computação e armazenamento num único nó para o desempenho e, em seguida, implementar a tecnologia semelhante para grupos de Disponibilidade AlwaysOn nos bastidores. Para uma discussão completa sobre as capacidades de elevada disponibilidade da base de dados do Azure SQL, consulte [disponibilidade de base de dados SQL](sql-database-high-availability.md). Além disso, a Base de Dados SQL proporciona funcionalidades de [continuidade de negócio e escalabilidade global](sql-database-business-continuity.md):
 
-- **[Cópias de segurança automáticas](sql-database-automated-backups.md)**:
+- **[Cópias de segurança automáticas](sql-database-automated-backups.md)** :
 
   Base de dados SQL efetua automaticamente completas, diferenciais e backups de log de transação de bases de dados SQL do Azure que lhe permite restaurar para qualquer ponto no tempo. Para bases de dados individuais e bases de dados agrupadas, pode configurar a base de dados SQL para armazenar cópias de segurança completa da base de dados para o armazenamento do Azure para retenção de cópia de segurança de longo prazo. Para obter instâncias geridas, também pode efetuar cópias de segurança apenas de cópia para retenção de cópia de segurança de longo prazo.
 
-- **[Restauros de ponto no tempo](sql-database-recovery-using-backups.md)**:
+- **[Restauros de ponto no tempo](sql-database-recovery-using-backups.md)** :
 
   Todas as opções de implementação de base de dados SQL suportam a recuperação para qualquer ponto no tempo dentro do período de retenção de cópia de segurança automática para qualquer base de dados SQL do Azure.
-- **[Georreplicação ativa](sql-database-active-geo-replication.md)**:
+- **[Georreplicação ativa](sql-database-active-geo-replication.md)** :
 
   Base de dados e bases de dados agrupadas permitem-lhe configurar até quatro secundárias bases de dados legíveis em qualquer um mesmo ou distribuídas globalmente datacenters do Azure.  Por exemplo, se tiver uma aplicação SaaS com uma base de dados de catálogo que tem um volume elevado de transações só de leitura simultâneas, utilize a georreplicação ativa para permitir uma escala de leitura global e remover estrangulamentos na base de dados principal que se devam a cargas de trabalho de leitura. Para obter instâncias geridas, utilize grupos de ativação pós-falha automática.
-- **[Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md)**:
+- **[Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md)** :
 
   Todas as opções de implementação de base de dados SQL permitem-lhe utilizar grupos de ativação pós-falha para ativar a elevada disponibilidade e balanceamento de carga numa escala global, incluindo georreplicação transparente e ativação pós-falha de grandes conjuntos de bases de dados, conjuntos elásticos e instâncias geridas. Grupos de ativação pós-falha permitem a criação de aplicações SaaS distribuídas globalmente com uma administração mínima sobrecarga deixando todas as monitorização complexa, encaminhamento e orquestração de ativação pós-falha para a base de dados SQL.
-- **[Bases de dados com redundância de zona](sql-database-high-availability.md)**:
+- **[Bases de dados com redundância de zona](sql-database-high-availability.md)** :
 
   Base de dados SQL permite-lhe premium de aprovisionar ou bases de dados de críticas de negócios ou conjuntos elásticos em várias zonas de disponibilidade. Uma vez que estas bases de dados e os conjuntos elásticos têm várias réplicas redundantes para elevada disponibilidade, a colocação destas réplicas em várias zonas de disponibilidade permite uma maior resiliência, incluindo a capacidade de recuperar automaticamente de falhas à escala do datacenter sem perda de dados.
 
@@ -191,16 +191,16 @@ A Base de Dados SQL participa em auditorias regulares e foi certificada por vár
 
 Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo. A Base de Dados SQL permite-lhe dedicar-se ao que sabe fazer melhor: criar aplicações excelentes. Pode gerir e programar na Base de Dados SQL com as ferramentas e as competências que já tem.
 
-- **[O portal do Azure](https://portal.azure.com/)**:
+- **[O portal do Azure](https://portal.azure.com/)** :
 
   Uma aplicação baseada na web para gerir todos os serviços do Azure
-- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**:
+- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)** :
 
   Uma aplicação de cliente gratuita e transferível para gerir qualquer infraestrutura SQL, do SQL Server à base de dados SQL
-- **[SQL Server Data Tools no Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**:
+- **[SQL Server Data Tools no Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** :
 
   Um aplicativo de cliente gratuita e transferível para o desenvolvimento de bancos de dados relacionais do SQL Server, bases de dados SQL do Azure, pacotes do Integration Services, modelos de dados do Analysis Services e relatórios do Reporting Services.
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**:
+- **[Visual Studio Code](https://code.visualstudio.com/docs)** :
 
   Um editor de código gratuito, transferível e código aberto para Windows, macOS e Linux que suporta extensões, incluindo o [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, base de dados do Azure SQL e SQL Data Warehouse.
 

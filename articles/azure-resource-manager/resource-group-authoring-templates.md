@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tomfitz
 ms.openlocfilehash: e3b8b6b969568fc15558002c268cdc4a16c2fadd
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66431236"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
@@ -506,7 +506,7 @@ Define os recursos com a seguinte estrutura:
 | apiVersion |Sim |Versão da API REST para utilizar para criar o recurso. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
 | type |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). Para um recurso de subordinado, o formato do tipo depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
 | name |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. Para um recurso de subordinado, o formato do nome depende se tem aninhados dentro do recurso pai ou definido fora o recurso principal. Ver [recursos subordinados](#child-resources). |
-| location |Varia |Georreplicação-localizações suportadas do recurso fornecido. Pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que está perto dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exigem uma localização, mas alguns tipos (por exemplo, uma atribuição de função) não precisam de uma localização. |
+| localização |Varia |Georreplicação-localizações suportadas do recurso fornecido. Pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que está perto dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exigem uma localização, mas alguns tipos (por exemplo, uma atribuição de função) não precisam de uma localização. |
 | tags |Não |Etiquetas de associado ao recurso. Aplica etiquetas para organizar logicamente os recursos na sua subscrição. |
 | comentários |Não |Suas anotações para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
 | cópia |Não |Se for necessário mais de uma instância, o número de recursos para criar. O modo predefinido é paralelo. Especifique o modo serial quando não quiser que todos os ou os recursos necessários para implementar ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |

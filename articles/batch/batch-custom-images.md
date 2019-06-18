@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
 ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64706323"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada para criar um conjunto de máquinas virtuais 
@@ -27,7 +27,7 @@ Com uma imagem personalizada poupa tempo na preparação de nós de computação
 
 Com uma imagem personalizada configurada para o seu cenário, pode fornecer várias vantagens:
 
-- **Configurar o sistema operacional (SO)**. Pode personalizar a configuração do disco do sistema operativo da imagem. 
+- **Configurar o sistema operacional (SO)** . Pode personalizar a configuração do disco do sistema operativo da imagem. 
 - **Pré-instalação aplicações.** Pré-instale aplicações no disco do SO, o que é mais eficiente e menos propenso a erros de instalação de aplicativos depois de aprovisionar nós de computação através de uma tarefa de início.
 - **Economizar tempo de reinício de VMs.** Instalação de aplicativos normalmente requer a reinicialização da VM, que é um processo demorado. Pode salvar a hora de reinício através da pré-instalação de aplicativos. 
 - **Copie grandes quantidades de dados uma vez.** Fazer parte de dados estáticos da imagem personalizada gerida através de cópia para discos de dados de uma imagem gerida. Isso só precisa ser feito uma vez e disponibiliza a cada nó do conjunto de dados.
@@ -41,7 +41,7 @@ Com uma imagem personalizada configurada para o seu cenário, pode fornecer vár
   - Para criar um conjunto com a imagem usando as APIs do Batch, especifique a **ID de recurso** da imagem, que é o formato `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Para utilizar o portal, utilize o **nome** da imagem.  
   - O recurso de imagem gerida deve existir durante a vida útil do conjunto para permitir que o vertical e pode ser removido depois do conjunto ser eliminado.
 
-- **Autenticação do Azure Active Directory (AAD)**. A API do cliente do Batch tem de utilizar autenticação do AAD. Suporte do Azure Batch para AAD está documentado no [soluções de serviço do Batch de autenticar com o Active Directory](batch-aad-auth.md).
+- **Autenticação do Azure Active Directory (AAD)** . A API do cliente do Batch tem de utilizar autenticação do AAD. Suporte do Azure Batch para AAD está documentado no [soluções de serviço do Batch de autenticar com o Active Directory](batch-aad-auth.md).
 
 ## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
 

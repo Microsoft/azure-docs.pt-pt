@@ -9,10 +9,10 @@ editor: edprice
 tags: ''
 keywords: ''
 ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64925680"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Definir se um aplicativo desenvolvedores controlado distribuição (ADCD) na IBM zD & T v1
@@ -165,7 +165,7 @@ Quando o passo de configuração anterior estiver concluído, o **criar uma imag
 
 7. No ecrã seguinte, forneça as credenciais para a VM (ou seja, não a ztadmin credencial).
 
-8. No painel de propriedades, introduza o número de **processadores Central (CPs)**, a quantidade de **(GB) de memória do sistema**e o **diretório implementação** para a imagem em execução. Como essa é uma demonstração, mantenha as coisas pequenas.
+8. No painel de propriedades, introduza o número de **processadores Central (CPs)** , a quantidade de **(GB) de memória do sistema**e o **diretório implementação** para a imagem em execução. Como essa é uma demonstração, mantenha as coisas pequenas.
 
 9. Certifique-se a caixa está selecionada para **automaticamente o problema IPL comando para z/OS, depois de implementar**.
 

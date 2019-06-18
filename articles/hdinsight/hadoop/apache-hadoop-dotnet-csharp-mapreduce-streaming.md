@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64727375"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Utilize C# com o MapReduce de transmissão em fluxo no Apache Hadoop no HDInsight
@@ -154,7 +154,7 @@ Depois de criar a aplicação, crie-o para produzir o `/bin/Debug/reducer.exe` f
 
     ![Explorador de servidores que mostra a conta de armazenamento para o cluster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * Se esta entrada pode ser expandida, estiver a utilizar um __conta de armazenamento do Azure__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, expanda a entrada e, em seguida, faça duplo clique nas __(contentor predefinido)__.
+    * Se esta entrada pode ser expandida, estiver a utilizar um __conta de armazenamento do Azure__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, expanda a entrada e, em seguida, faça duplo clique nas __(contentor predefinido)__ .
 
     * Se esta entrada não pode ser expandida, estiver a utilizar __armazenamento do Azure Data Lake__ como armazenamento predefinido para o cluster. Para ver os ficheiros no armazenamento padrão para o cluster, clique duas vezes o __(conta de armazenamento predefinida)__ entrada.
 

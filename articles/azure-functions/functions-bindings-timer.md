@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 3b4ed6d1ba83e2adb96bcfac986381dccbbef56f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 0a202621a9da031815ebbff3b121ea7f5e1eccfe
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416186"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062180"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador das funções do Azure 
 
@@ -45,8 +45,9 @@ Veja o exemplo de idioma específico:
 * [C#](#c-example)
 * [Script do c# (.csx)](#c-script-example)
 * [F#](#f-example)
-* [JavaScript](#javascript-example)
 * [Java](#java-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>Exemplo do c#
 
@@ -117,6 +118,21 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
     log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
+### <a name="java-example"></a>Exemplo de Java
+
+A seguinte função de exemplo aciona e executa a cada cinco minutos. O `@TimerTrigger` anotação na função define a agenda com o mesmo formato de cadeia de caracteres que [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 
 O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta. R [objeto timer](#usage) é passado para a função.
@@ -148,19 +164,37 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="java-example"></a>Exemplo de Java
+### <a name="python-example"></a>Exemplo de Python
 
-A seguinte função de exemplo aciona e executa a cada cinco minutos. O `@TimerTrigger` anotação na função define a agenda com o mesmo formato de cadeia de caracteres que [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+O exemplo seguinte utiliza um acionador de temporizador de enlace cuja configuração é descrita no *Function* ficheiro. O real [função Python](functions-reference-python.md) que utiliza a ligação está descrita com o  *__init__. PY* ficheiro. O objeto passado para a função é do tipo [azure.functions.TimerRequest objeto](/python/api/azure-functions/azure.functions.timerrequest). A lógica da função escreve os registos que indica se a invocação atual é devido a uma ocorrência de agendamento em falta. 
 
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
+Eis a vinculação de dados a *Function* ficheiro:
+
+```json
+{
+    "name": "mytimer",
+    "type": "timerTrigger",
+    "direction": "in",
+    "schedule": "0 */5 * * * *"
 }
+```
+
+Aqui está o código de Python:
+
+```python
+import datetime
+import logging
+
+import azure.functions as func
+
+def main(mytimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.datetime.utcnow().replace(
+        tzinfo=datetime.timezone.utc).isoformat()
+
+    if mytimer.past_due:
+        logging.info('The timer is past due!')
+
+    logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
 ## <a name="attributes"></a>Atributos
@@ -187,7 +221,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definido para "timerTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**type** | n/d | Tem de ser definido para "timerTrigger". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido para "in". Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o objeto de timer no código de função. | 
 |**schedule**|**ScheduleExpression**|R [expressão CRON](#cron-expressions) ou uma [TimeSpan](#timespan) valor. A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado num plano do serviço de aplicações. Pode colocar a expressão de agendamento numa definição de aplicação e definir esta propriedade para a aplicação encapsulado em do nome da definição **%** sinais, tal como neste exemplo: "% ScheduleAppSetting %". |
@@ -226,7 +260,7 @@ O Azure utiliza as funções do [NCronTab](https://github.com/atifaziz/NCrontab)
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Type  |Exemplo  |Quando acionado  |
+|Tipo  |Exemplo  |Quando acionado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00 em que hh significa a cada hora (uma vez por hora)|
 |Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 todos os dias, onde mm significa a cada minuto da hora (60 vezes por dia)|

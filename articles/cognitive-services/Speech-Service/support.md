@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072364"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
@@ -64,7 +64,7 @@ Estouro de pilha é o canal preferido para questões relacionadas com desenvolvi
 
 Se não conseguir encontrar uma resposta para o seu problema através da pesquisa, submeta uma nova pergunta para Stack Overflow. Utilize uma das etiquetas seguintes quando formular a pergunta:
 
-|Componente/área  |Etiquetas  |
+|Componente/área  |Tags  |
 |---------|---------|
 |Reconhecimento de Voz |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Síntese de fala |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
@@ -83,7 +83,7 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 Exemplos, muitas vezes, são lançados como código-fonte aberto. Para perguntas e questões, crie uma *problema* no respetivo repositório do GitHub. Pode submeter um pedido pull, demasiado. A lista seguinte contém ligações para os repositórios de exemplo:
 
 * [SDK de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Dispositivos de voz SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Pode criar um relatório de erros, o pedido de funcionalidade, ou fazer uma pergunta geral e partilhar as melhores práticas. Para relatórios de bugs, siga o modelo fornecido:
 

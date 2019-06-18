@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60631911"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de série StorSimple 8000, elevada disponibilidade e os requisitos de rede
@@ -63,11 +63,11 @@ O dispositivo StorSimple é um dispositivo bloqueado. No entanto, as portas tem 
 
 | N º de porta<sup>1,2</sup> | Dentro ou para fora | Âmbito de porta | Necessário | Notas |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Saída |WAN |Não |<ul><li>Porta de saída é utilizada para acesso à Internet para obter atualizações.</li><li>O proxy da web de saída é configurável de utilizador.</li><li>Para permitir atualizações do sistema, esta porta tem também de estar aberta para o IPs fixos do controlador.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Saída |WAN |Sim |<ul><li>Porta de saída é utilizada para aceder aos dados na cloud.</li><li>O proxy da web de saída é configurável de utilizador.</li><li>Para permitir atualizações do sistema, esta porta tem também de estar aberta para o IPs fixos do controlador.</li><li>Esta porta também é usada em ambos os controladores para coleta de lixo.</li></ul> |
-| UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor DNS baseado na Internet. |
-| UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor NTP baseado na Internet. |
-| TCP 9354 |Saída |WAN |Sim |A porta de saída é utilizada pelo dispositivo StorSimple para comunicar com o serviço StorSimple Device Manager. |
+| TCP 80 (HTTP)<sup>3</sup> |horizontalmente |WAN |Não |<ul><li>Porta de saída é utilizada para acesso à Internet para obter atualizações.</li><li>O proxy da web de saída é configurável de utilizador.</li><li>Para permitir atualizações do sistema, esta porta tem também de estar aberta para o IPs fixos do controlador.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |horizontalmente |WAN |Sim |<ul><li>Porta de saída é utilizada para aceder aos dados na cloud.</li><li>O proxy da web de saída é configurável de utilizador.</li><li>Para permitir atualizações do sistema, esta porta tem também de estar aberta para o IPs fixos do controlador.</li><li>Esta porta também é usada em ambos os controladores para coleta de lixo.</li></ul> |
+| UDP 53 (DNS) |horizontalmente |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor DNS baseado na Internet. |
+| UDP 123 (NTP) |horizontalmente |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor NTP baseado na Internet. |
+| TCP 9354 |horizontalmente |WAN |Sim |A porta de saída é utilizada pelo dispositivo StorSimple para comunicar com o serviço StorSimple Device Manager. |
 | 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder aos dados através de iSCSI. |
 | 5985 |Em |LAN |Não |Porta de entrada é utilizada pelo StorSimple Snapshot Manager para comunicar com o dispositivo StorSimple.<br>Esta porta também é usada quando ligar remotamente ao Windows PowerShell para StorSimple através de HTTP. |
 | 5986 |Em |LAN |Não |Esta porta é utilizada quando ligar remotamente ao Windows PowerShell para StorSimple através de HTTPS. |
@@ -96,7 +96,7 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede com capacidade de nuvem |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação |Interfaces de rede com capacidade de nuvem |
 | `https://*.backup.windowsazure.com` |Registo de dispositivo |Apenas dados 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificados |Interfaces de rede com capacidade de nuvem |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento do Azure e monitorização |Interfaces de rede com capacidade de nuvem |
@@ -108,7 +108,7 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 
 | Padrão de URL | Componente/funcionalidade | IPs de dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede com capacidade de nuvem |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação |Interfaces de rede com capacidade de nuvem |
 | `https://*.backup.windowsazure.us` |Registo de dispositivo |Apenas dados 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificados |Interfaces de rede com capacidade de nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento do Azure e monitorização |Interfaces de rede com capacidade de nuvem |

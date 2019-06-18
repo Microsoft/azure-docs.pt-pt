@@ -10,10 +10,10 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: c95af40c3fa3f9dad2bfb5ea4a1b9f585c636928
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60881221"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integração do controlo de origem na automatização do Azure - legado
@@ -42,7 +42,7 @@ Se já tiver uma conta do GitHub e um repositório de que pretende associar a au
 
    | **Parâmetro** | **Descrição** |
    |:--- |:--- |
-   | Escolher Origem |Selecione a origem. Atualmente, apenas **GitHub** é suportada. |
+   | Escolher origem |Selecione a origem. Atualmente, apenas **GitHub** é suportada. |
    | Autorização |Clique nas **autorizar** botão para conceder acesso de automatização do Azure para o seu repositório do GitHub. Se tiver sessão iniciada sua conta do GitHub numa janela diferente, em seguida, são utilizadas as credenciais dessa conta. Assim que a autorização for bem sucedida, a página mostrará o seu nome de utilizador do GitHub sob **propriedade de autorização**. |
    | Escolher repositório |Selecione um repositório do GitHub a partir da lista de repositórios disponíveis. |
    | Escolher ramo |Selecione um ramo a partir da lista de ramos disponíveis. Apenas os **mestre** ramo é apresentado se ainda não criou quaisquer ramos. |

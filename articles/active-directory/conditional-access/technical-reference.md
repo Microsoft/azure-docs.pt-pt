@@ -1,6 +1,6 @@
 ---
-title: Referência de definições de acesso condicional do Azure Active Directory | Documentos da Microsoft
-description: Obtenha uma visão geral das definições suportadas em políticas de acesso condicional do Azure Active Directory.
+title: Referência de definições de acesso condicional de diretório Active Directory do Azure | Documentos da Microsoft
+description: Obtenha uma visão geral das definições suportadas numa política do Azure Active Directory condicional acesso.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823551"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112114"
 ---
-# <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional de diretório Active Directory do Azure
 
 Pode usar [acesso condicional do Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) para controlar os utilizadores autorizados como pode aceder aos seus recursos.
 
@@ -140,18 +140,18 @@ Para implementar automaticamente esta extensão para navegadores de Chrome, crie
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
-| Type | REG_SZ (String) |
+| Tipo | REG_SZ (String) |
 | Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Para o Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
-| Type | REG_SZ (String) |
+| Tipo | REG_SZ (String) |
 | Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Esses navegadores suportam a autenticação do dispositivo, permitindo ao dispositivo ser identificados e validadas em relação uma política. A verificação de dispositivo falha se o browser está em execução no modo privado.
@@ -164,7 +164,7 @@ Na sua política de acesso condicional, pode selecionar **aplicações móveis e
 
 Esta definição não tem um impacto em tentativas de acesso do seguintes de aplicações móveis e clientes de ambiente de trabalho:
 
-| Aplicações do cliente | Serviço de destino | Plataforma |
+| Aplicações de cliente | Serviço de destino | Plataforma |
 | --- | --- | --- |
 | Aplicação do Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | Aplicação de correio/calendário/pessoas, 2016 do Outlook, Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online | Windows 10 |
@@ -252,7 +252,7 @@ Esta definição aplica-se para as seguintes aplicações de cliente:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para uma descrição geral do acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
-- Se estiver pronto para configurar políticas de acesso condicional no seu ambiente, veja a [práticas para o acesso condicional no Azure Active Directory recomendadas](best-practices.md).
+- Se estiver pronto para configurar políticas de acesso condicional no seu ambiente, veja a [práticas recomendadas para o acesso condicional no Azure Active Directory](best-practices.md).
 
 <!--Image references-->
 [1]: ./media/technical-reference/01.png

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65595180"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
@@ -236,7 +236,7 @@ As cadeias de ligação da conta do Storage do Azure para o projeto da função 
 2. Clique no separador **Definições**. Na caixa pendente **Configuração do serviço**, selecione **Nuvem**.
 
     ![Configuração da nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Selecione a entrada **StorageConnectionString**, verá um botão de reticências (**…**) na extremidade direita da linha. Clique no botão de reticências para abrir a caixa de diálogo **Criar Cadeia de Ligação da Conta do Storage**.
+3. Selecione a entrada **StorageConnectionString**, verá um botão de reticências ( **…** ) na extremidade direita da linha. Clique no botão de reticências para abrir a caixa de diálogo **Criar Cadeia de Ligação da Conta do Storage**.
 
     ![Abrir a caixa Criar cadeia de ligação](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. Na caixa de diálogo **Criar Cadeia de Ligação de Armazenamento**, clique em **Sua subscrição**, selecione a conta do Storage que criou anteriormente e, em seguida, clique em **OK**. Se ainda não tiver sessão iniciada, ser-lhe-ão solicitadas as credenciais da conta do Azure.
@@ -326,7 +326,7 @@ Após criar a solução, deverá consultar o código que é exclusivo para os pr
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Criar uma solução do Visual Studio do serviço em nuvem
 1. No Visual Studio, selecione **Novo Projeto** no menu **Ficheiro**.
-2. No painel esquerdo da caixa de diálogo **Novo Projeto**, expanda **Visual c#**, escolha os modelos **Nuvem** e, em seguida, escolha o modelo **Serviço em Nuvem do Azure**.
+2. No painel esquerdo da caixa de diálogo **Novo Projeto**, expanda **Visual c#** , escolha os modelos **Nuvem** e, em seguida, escolha o modelo **Serviço em Nuvem do Azure**.
 3. Nomeie o projeto e a solução ContosoAdsCloudService e clique em **OK**.
 
     ![Novo Projeto](./media/cloud-services-dotnet-get-started/newproject.png)
@@ -389,7 +389,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
     ![Nova cadeia de ligação](./media/cloud-services-dotnet-get-started/scall.png)
 6. Guarde as alterações.
 7. Siga o mesmo procedimento para adicionar uma cadeia de ligação de armazenamento nas propriedades da função ContosoAdsWorker.
-8. Ainda na janela de propriedades **ContosoAdsWorker [Função]**, adicione outra cadeia de ligação:
+8. Ainda na janela de propriedades **ContosoAdsWorker [Função]** , adicione outra cadeia de ligação:
 
    * Nome: ContosoAdsDbConnectionString
    * Escreva: String

@@ -9,10 +9,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: dabce19d60a380b47d3583dedb5c11303f416ce7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65978713"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligar uma aplicação MongoDB ao Azure Cosmos DB
@@ -32,7 +32,7 @@ Este tutorial fornece duas formas de obter informações da cadeia de ligação:
 1. Num browser da Internet, inicie sessão para o [portal do Azure](https://portal.azure.com).
 2. Na **do Azure Cosmos DB** painel, selecione a API. 
 3. No painel esquerdo do painel de conta, clique em **guia de introdução**. 
-4. Escolha a sua plataforma (**.NET**, **node. js**, **Shell de MongoDB**, **Java**, **Python**). Se não vir o controlador ou a ferramenta listada, não se preocupe, vamos continuar a documentar mais fragmentos de código de ligação. Comentário abaixo sobre o que gostaria de ver. Para saber como criar sua própria ligação, leia [obter informações de cadeia de ligação da conta](#GetCustomConnection).
+4. Escolha a sua plataforma ( **.NET**, **node. js**, **Shell de MongoDB**, **Java**, **Python**). Se não vir o controlador ou a ferramenta listada, não se preocupe, vamos continuar a documentar mais fragmentos de código de ligação. Comentário abaixo sobre o que gostaria de ver. Para saber como criar sua própria ligação, leia [obter informações de cadeia de ligação da conta](#GetCustomConnection).
 5. Copie e cole o fragmento de código na sua aplicação MongoDB.
 
     ![Painel de início rápido](./media/connect-mongodb-account/QuickStartBlade.png)

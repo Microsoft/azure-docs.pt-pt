@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60585513"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementar um serviço de divisão / intercalação para mover dados entre bases de dados em partição horizontal
@@ -142,7 +142,7 @@ Se a função de trabalho falha a ficar online, mas a função da web for conclu
    Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
    ```
 
-* Certifique-se de que o nome do servidor não começa com **https://**.
+* Certifique-se de que o nome do servidor não começa com **https://** .
 * Certifique-se de que o servidor de BD SQL do Azure permite que os serviços do Azure ligar ao mesmo. Para tal, abra a sua base de dados no portal e certifique-se de que o **permitir acesso aos serviços do Azure** definição está definida como **no**\*\*.
 
 ## <a name="test-the-service-deployment"></a>Testar a implementação do serviço

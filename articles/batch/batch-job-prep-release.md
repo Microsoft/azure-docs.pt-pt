@@ -3,7 +3,7 @@ title: Criar tarefas para preparar trabalhos e tarefas de conclua em nós de com
 description: Utilize tarefas de preparação de ao nível da tarefa para minimizar a transferência de dados para nós de computação do Azure Batch e tarefas de limpeza de nó após conclusão da tarefa de lançamento.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 02/27/2017
-ms.date: 06/29/2018
-ms.author: v-junlch
-ms.custom: H1Hack27Feb2017
+ms.date: 02/27/2017
+ms.author: lahugh
+ms.custom: seodec18
 ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60776209"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Nós de computação de execução de tarefa de preparação e tarefas de lançamento no Batch
@@ -59,7 +58,7 @@ Pode querer manter uma cópia de ficheiros de registo que suas tarefas geram, ou
 > 
 > 
 
-## <a name="job-preparation-task"></a>Tarefa de preparação de Trabalho
+## <a name="job-preparation-task"></a>Tarefa de preparação
 Antes da execução de tarefas de um trabalho, o Batch executa a tarefa de preparação em cada nó de computação que esteja agendada para executar uma tarefa. Por predefinição, o serviço Batch aguarda que a tarefa de preparação ser concluída antes de executar as tarefas agendadas para serem executadas no nó. No entanto, pode configurar o serviço não de espera. Se o nó for reiniciado, a tarefa de preparação é executado novamente, mas também pode desativar esse comportamento.
 
 A tarefa de preparação é executada apenas em nós que estão agendados para executar uma tarefa. Isto impede que a execução desnecessária de uma tarefa de preparação, no caso de um nó não está atribuído uma tarefa. Isto pode ocorrer quando o número de tarefas para uma tarefa é inferior ao número de nós num conjunto. Também se aplica quando [a execução da tarefa em simultâneo](batch-parallel-node-tasks.md) é ativado, que deixa a alguns if de inatividade de nós a contagem de tarefas é inferior a total possíveis tarefas simultâneas. Por não executar a tarefa de preparação em nós inativos, pode gastar menos dinheiro em custos de transferência de dados.
@@ -69,7 +68,7 @@ A tarefa de preparação é executada apenas em nós que estão agendados para e
 > 
 > 
 
-## <a name="job-release-task"></a>Tarefa de lançamento de Trabalho
+## <a name="job-release-task"></a>Tarefa de libertação
 Depois de uma tarefa é marcada como concluída, a tarefa de libertação é executada em cada nó no conjunto que executou, pelo menos, uma tarefa. Marcar uma tarefa como concluída ao emitir um pedido para terminar. O serviço Batch, em seguida, define o estado da tarefa *terminar*termina todas as tarefas em execução ou Active Directory associadas à tarefa e é executada a tarefa de libertação. A tarefa, em seguida, passa para o *concluída* estado.
 
 > [!NOTE]
@@ -196,11 +195,11 @@ Esta postagem do Fórum MSDN fornece uma descrição geral dos vários métodos 
 
 Escrito por um dos membros da equipa do Azure Batch, ele aborda várias técnicas que pode utilizar para implementar aplicações e dados em nós de computação.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[azure_storage]: https://www.azure.cn/home/features/storage/
-[portal]: https://portal.azure.cn
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
+[azure_storage]: https://azure.microsoft.com/services/storage/
+[portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -226,5 +225,3 @@ Escrito por um dos membros da equipa do Azure Batch, ele aborda várias técnica
 [net_list_tasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listtasks.aspx
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
-
-<!-- Update_Description: wording update -->

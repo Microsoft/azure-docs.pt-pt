@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 570330f47d2c610032c9c6646231c2320b2257be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64732672"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67119127"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Cópia de segurança e recuperação após desastre para discos IaaS do Azure
 
@@ -148,7 +148,7 @@ Utilize os seguintes passos para ativar as cópias de segurança das suas VMs ao
 
     b. Sobre o **cofres dos serviços de recuperação** menu, clique em **Add** e siga os passos para criar um novo cofre na mesma região que a VM. Por exemplo, se a sua VM está na região E.U.A. oeste, escolha E.U.A. oeste para o cofre.
 
-1.  Certifique-se a replicação de armazenamento para o Cofre recém-criado. Aceder ao Cofre sob **cofres dos serviços de recuperação** e aceda à **definições** > **configuração de cópia de segurança**. Certifique-se a **armazenamento georredundante** opção está selecionada por predefinição. Essa opção assegura que o Cofre é replicado automaticamente para um datacenter secundário. Por exemplo, o Cofre na região E.U.A. oeste é replicado automaticamente para E.U.A. Leste.
+1.  Certifique-se a replicação de armazenamento para o Cofre recém-criado. Aceder ao Cofre sob **cofres dos serviços de recuperação** e aceda à **propriedades** > **configuração de cópia de segurança** > **Update** . Certifique-se a **armazenamento georredundante** opção está selecionada por predefinição. Essa opção assegura que o Cofre é replicado automaticamente para um datacenter secundário. Por exemplo, o Cofre na região E.U.A. oeste é replicado automaticamente para E.U.A. Leste.
 
 1.  Configurar a política de cópia de segurança e selecione a VM na mesma interface de Usuário.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65991766"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
@@ -42,7 +42,7 @@ Para enviar mensagens para a fila, escreva uma aplicação de consola C# com o V
 
 ### <a name="create-a-console-application"></a>Criar uma aplicação de consola
 
-Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplicação de Consola (.NET Core))**.
+Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplicação de Consola (.NET Core))** .
 
 ### <a name="add-the-service-bus-nuget-package"></a>Adicionar o pacote NuGet do Service Bus
 

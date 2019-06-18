@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: eeed0718a1feb170dbbaa783ec0a840c7829c02e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390004"
 ---
 # <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Como utilizar os retornos de chamada de sessão com um modelo de aprendiz de conversação

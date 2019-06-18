@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60758669"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gerir o cluster aumentar horizontalmente para acomodar a pedido de alteração
@@ -26,7 +26,7 @@ Este artigo mostra como gerir o cluster Escalamento horizontal, também conhecid
 
 No portal do Azure, aceda ao seu recurso de cluster do Data Explorer. Sob o **configurações** cabeçalho, selecione **aumentar horizontalmente**. Sobre o **configurar** separador, selecione **ativar o dimensionamento automático**.
 
-   ![Ativar dimensionamento automático](media/manage-cluster-scaling/enable-autoscale.png)
+   ![Ativar o dimensionamento automático](media/manage-cluster-scaling/enable-autoscale.png)
 
 O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes, siga o elemento gráfico.
 
@@ -52,7 +52,7 @@ O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes, sig
     | **Duração (em minutos)** | Escolha uma quantidade apropriada de tempo para o sistema consultar novamente quando o cálculo de métricas. Comece com o padrão de 10 minutos. |
     |  |  |
 
-    **Ação**
+    **ação**
 
     | Definição | Valor e descrição |
     | --- | --- |

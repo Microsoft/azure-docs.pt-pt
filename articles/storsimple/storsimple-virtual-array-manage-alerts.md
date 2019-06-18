@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60302810"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o StorSimple Device Manager para gerir os alertas para a matriz Virtual StorSimple
@@ -130,7 +130,7 @@ As tabelas seguintes listam alguns dos alertas StorSimple que poderá encontrar,
 
 | Texto de alerta | Evento | Obter mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| Dispositivo <*nome do dispositivo*> não está ligado à cloud. |O dispositivo com o nome não é possível ligar à cloud. |Não foi possível ligar à cloud. Isto pode dever-se a um dos seguintes motivos:<ul><li>Pode haver um problema com as definições de rede no seu dispositivo.</li><li>Pode haver um problema com as credenciais da conta de armazenamento.</li></ul>Para obter mais informações sobre como resolver problemas de conectividade, vá para o [da IU web local](storsimple-ova-web-ui-admin.md) do dispositivo. |
+| Dispositivo <*nome do dispositivo*> não está ligado à cloud. |O dispositivo com o nome não é possível ligar à cloud. |Não foi possível ligar para a cloud. Isto pode dever-se a um dos seguintes motivos:<ul><li>Pode haver um problema com as definições de rede no seu dispositivo.</li><li>Pode haver um problema com as credenciais da conta de armazenamento.</li></ul>Para obter mais informações sobre como resolver problemas de conectividade, vá para o [da IU web local](storsimple-ova-web-ui-admin.md) do dispositivo. |
 
 ### <a name="configuration-alerts"></a>Alertas de configuração
 

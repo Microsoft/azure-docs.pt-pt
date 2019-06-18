@@ -18,10 +18,10 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60651714"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -327,7 +327,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>Preparar a infraestrutura no cluster de SOFS utilizando outro anfitrião Global SAP
 
-Pode configurar o SOFS segundo (por exemplo, o SOFS segundo cluster função com  **\<SAPGlobalHost2 >** e um diferentes **Volume2** para a segunda  **\< SID2 >**).
+Pode configurar o SOFS segundo (por exemplo, o SOFS segundo cluster função com  **\<SAPGlobalHost2 >** e um diferentes **Volume2** para a segunda  **\< SID2 >** ).
 
 ![Figura 4: Múltiplos SID SOFS é o mesmo que o nome de anfitrião SAP GLOBAL 2][sap-ha-guide-figure-8015]
 

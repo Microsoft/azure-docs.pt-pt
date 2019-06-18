@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66137078"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE com um modelo Azure Resource Manager
@@ -69,12 +69,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 Demora cerca de uma hora para o ASE a ser criada. Em seguida, o ASE aparece no portal na lista dos ASEs para a subscrição que disparou a implementação.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Carregar e configurar o certificado SSL "predefinido"
-Um certificado SSL deve ser associado com o ASE como o certificado SSL de "predefinição" que é utilizado para estabelecer ligações SSL para aplicações. Se for de sufixo DNS predefinido o ASE *interna contoso.com*, uma ligação ao https://some-random-app.internal-contoso.com requer um certificado SSL que é válido para o **.internal contoso.com*. 
+Um certificado SSL deve ser associado com o ASE como o certificado SSL de "predefinição" que é utilizado para estabelecer ligações SSL para aplicações. Se for de sufixo DNS predefinido o ASE *interna contoso.com*, uma ligação ao https://some-random-app.internal-contoso.com requer um certificado SSL que é válido para o * *.internal contoso.com*. 
 
 Obter um certificado SSL válido ao utilizar autoridades de certificação internas, adquirir um certificado de um emissor externo ou utilizar um certificado autoassinado. Independentemente da origem do certificado SSL, os seguintes atributos de certificado tem de ser configurados corretamente:
 
-* **Assunto**: Este atributo deve ser definido como **.your-raiz-domínio-here.com*.
-* **Nome alternativo do requerente**: Este atributo tem de incluir **.your-raiz-domínio-here.com* e **Here-raiz-domínio-here.com*. Ligações de SSL ao site SCM/Kudu associadas a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
+* **Assunto**: Este atributo deve ser definido como * *.your-raiz-domínio-here.com*.
+* **Nome alternativo do requerente**: Este atributo tem de incluir * *.your-raiz-domínio-here.com* e **Here-raiz-domínio-here.com*. Ligações de SSL ao site SCM/Kudu associadas a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
 
 Com um certificado SSL válido em mãos, são necessárias duas etapas preparatórias adicionais. Converta/guarde o certificado SSL como um ficheiro .pfx. Lembre-se de que o ficheiro. pfx tem de incluir todos os intermediário e certificados de raiz. Proteja-o com uma palavra-passe.
 
@@ -111,7 +111,7 @@ Os parâmetros nos *azuredeploy* arquivo estão listados aqui:
 * *existingAseLocation*: Cadeia de texto que contém a região do Azure em que o ASE de ILB foi implementado.  Por exemplo: "Sul dos E.U.A.".
 * *pfxBlobString*: A representação de cadeia com codificação based64 do ficheiro. pfx. Utilize o fragmento de código mostrado anteriormente e copie a cadeia de caracteres contida no "exportedcert.pfx.b64". Cole-a no como o valor do *pfxBlobString* atributo.
 * *palavra-passe*: A palavra-passe utilizada para proteger o ficheiro. pfx.
-* *certificateThumbprint*: Thumbprint do certificado. Se recuperar esse valor a partir do PowerShell (por exemplo, *$certificate. Thumbprint* do trecho de código anterior), pode usar o valor como está. Se copiar o valor da caixa de diálogo de certificado do Windows, não se esqueça de retirar os espaços estranhos. O *certificateThumbprint* deve ser algo semelhante AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *certificateThumbprint*: O thumbprint do certificado. Se recuperar esse valor a partir do PowerShell (por exemplo, *$certificate. Thumbprint* do trecho de código anterior), pode usar o valor como está. Se copiar o valor da caixa de diálogo de certificado do Windows, não se esqueça de retirar os espaços estranhos. O *certificateThumbprint* deve ser algo semelhante AF3143EB61D43F6727842115BB7F17BBCECAECAE.
 * *certificateName*: Utilizado um identificador de cadeia de caracteres amigável seus próprios escolher para identidade o certificado. O nome é utilizado como parte do identificador exclusivo do Resource Manager para o *Microsoft.Web/certificates* entidade que representa o certificado SSL. O nome *tem* terminar com o seguinte sufixo: \_yourASENameHere_InternalLoadBalancingASE. O portal do Azure utiliza este sufixo como um indicador de que o certificado é utilizado para proteger um ASE com ILB ativado.
 
 Um exemplo abreviado *azuredeploy* é mostrado aqui:
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 Demora cerca de 40 minutos por front-end de ASE para aplicar a alteração. Por exemplo, para um ASE de tamanho padrão que utiliza dois front-ends, o modelo demora aproximadamente uma hora e 20 minutos a concluir. Enquanto o modelo está em execução, não é possível dimensionar o ASE.  
 
-Após a conclusão do modelo, as aplicações no ASE de ILB podem ser acedidas através de HTTPS. As ligações são protegidas com o certificado SSL predefinido. O certificado SSL predefinido é utilizado quando aplicações num ASE de ILB são resolvidas ao utilizar uma combinação de nome da aplicação e o nome de anfitrião predefinido. Por exemplo, https://mycustomapp.internal-contoso.com utiliza o certificado SSL predefinido para **.internal contoso.com*.
+Após a conclusão do modelo, as aplicações no ASE de ILB podem ser acedidas através de HTTPS. As ligações são protegidas com o certificado SSL predefinido. O certificado SSL predefinido é utilizado quando aplicações num ASE de ILB são resolvidas ao utilizar uma combinação de nome da aplicação e o nome de anfitrião predefinido. Por exemplo, https://mycustomapp.internal-contoso.com utiliza o certificado SSL predefinido para * *.internal contoso.com*.
 
 No entanto, assim como aplicações que são executadas no serviço público multi-inquilino, os desenvolvedores podem configurar nomes de anfitrião personalizado para aplicações individuais. Também pode configurar exclusivos enlaces de certificado de SNI SSL para aplicações individuais.
 

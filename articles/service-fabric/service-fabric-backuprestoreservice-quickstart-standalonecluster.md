@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 154efffcb1f86907fefecc060419c1d9450470f8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f992aed6eba775052483b1657d04dead18b2b2ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059168"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Cópia de segurança periódica e restauro no Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ O Service Fabric fornece um conjunto de APIs para alcançar a seguinte funcional
 - Gestão de retenção de cópias de segurança (breve)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Cluster do Service Fabric com recursos de infraestrutura versão 6.2 e versões posteriores. O cluster deve ser configurado no Windows Server. Consulte este [artigo](service-fabric-cluster-creation-for-windows-server.md) para obter os passos transferir o pacote necessário.
+* Cluster do Service Fabric com recursos de infraestrutura versão 6.4 ou superior. Consulte este [artigo](service-fabric-cluster-creation-for-windows-server.md) para obter os passos transferir o pacote necessário.
 * Certificado X.509 para a encriptação dos segredos necessárias para se ligar ao armazenamento para armazenar cópias de segurança. Consultar [artigo](service-fabric-windows-cluster-x509-security.md) saber como adquirir ou para criar um certificado X.509 autoassinado.
 
 * Aplicação de Service Fabric Reliable com monitoração de estado criada com o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos destinados a .net Core 2.0, a aplicação deve ser criada usando o Service Fabric SDK versão 3.1 ou posterior.

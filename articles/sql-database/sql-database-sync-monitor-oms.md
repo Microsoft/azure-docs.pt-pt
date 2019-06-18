@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
 ms.openlocfilehash: 6e94aac47ce5b45e700e2413d2e86d5f36596348
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60614917"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorizar a sincronização de dados SQL com os registos do Azure Monitor 
@@ -68,7 +68,7 @@ Certifique-se de que configurou os seguintes procedimentos:
 
 -   Uma conta de automatização do Azure
 
--   Área de trabalho do Log Analytics
+-   Área de trabalho do log Analytics
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Runbook do PowerShell para obter o Log de sincronização de dados SQL 
 

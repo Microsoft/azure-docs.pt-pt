@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113211"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar eventos de risco para o acionador multi-factor Authentication e alterações de palavra-passe
 
 Neste tutorial, vai ativar funcionalidades do Azure Active Directory (Azure AD) Identity Protection, uma funcionalidade do Azure AD Premium P2 que é mais do que apenas uma ferramenta de monitorização e relatórios. Para proteger as identidades da sua organização, pode configurar políticas baseadas em risco que respondam automaticamente aos comportamentos de risco. Estas políticas podem bloquear ou iniciar imediatamente a remediação, incluindo a exigência de alteração da palavra-passe e a imposição do Multi-Factor Authentication.
 
-As políticas do Azure AD Identity Protection podem ser utilizadas em acréscimo às políticas de acesso condicional existentes, como uma camada adicional de proteção. Os utilizadores poderão nunca acionar um comportamento de risco que requeira uma destas políticas mas, como administrador, sabe que eles estão protegidos.
+O Azure AD Identity Protection políticas podem ser utilizadas para além das políticas de acesso condicional existentes como uma camada extra de proteção. Os utilizadores poderão nunca acionar um comportamento de risco que requeira uma destas políticas mas, como administrador, sabe que eles estão protegidos.
 
 Alguns itens que podem acionar um evento de risco incluem:
 
@@ -73,7 +73,7 @@ A Microsoft trabalha com investigadores, entidades responsáveis pela aplicaçã
 1. Em **Acesso**, escolha **Permitir acesso** e selecione **Exigir alteração da palavra-passe**.
 1. Clique em "Selecionar"
 1. Defina Impor Política como **Ativado**.
-1. Clicar em **Guardar**
+1. Clique em **Guardar**
 
 ### <a name="enable-risk-based-multi-factor-authentication"></a>Ativar a Multi-Factor Authentication baseada em risco
 
@@ -85,7 +85,7 @@ A maioria dos utilizadores tem um comportamento normal que pode ser controlado. 
 1. Em **Acesso**, escolha **Permitir acesso** e, em seguida, selecione **Exigir autenticação multifator**.
 1. Clique em "Selecionar"
 1. Defina Impor Política como **Ativado**.
-1. Clicar em **Guardar**
+1. Clique em **Guardar**
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

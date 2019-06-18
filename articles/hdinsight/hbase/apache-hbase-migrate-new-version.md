@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: ashishth
 ms.openlocfilehash: a152b815daeefa4c199af9b159eee8e5783971e2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65143326"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster do Apache HBase para uma nova versão
@@ -31,7 +31,7 @@ Antes de atualizar o Apache HBase, certifique-se de que as versões de HBase nos
 
 Aqui está uma matriz de compatibilidade da versão de exemplo. Y indica a compatibilidade e N indica uma incompatibilidade potencial:
 
-| Tipo de compatibilidade | Versão principal| Versão secundária | Correção |
+| Tipo de compatibilidade | Versão principal| Versão secundária | Patch |
 | --- | --- | --- | --- |
 | Compatibilidade de durante a transmissão de cliente-servidor | N | S | S |
 | Compatibilidade de-servidor | N | S | S |

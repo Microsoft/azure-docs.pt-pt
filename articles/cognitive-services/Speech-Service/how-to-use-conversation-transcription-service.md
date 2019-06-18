@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jhakulin
-ms.openlocfilehash: 80ec606fee30c239d47bca94188d3b9cbb7c82d5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: f0838d345abfcfdf69ca6ea44d3206c23010b457
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604407"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67073094"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcrição de vários participantes conversas com o SDK de voz
 
@@ -32,7 +32,7 @@ O SDK de voz **ConversationTranscriber** API permite-lhe a transcrição de reun
 
 * [Saiba como utilizar a voz para texto com o SDK de voz.](quickstart-csharp-dotnet-windows.md)
 * [Obtenha a sua subscrição de avaliação de conversão de voz.](https://azure.microsoft.com/try/cognitive-services/)
-* 1.5.1 na versão do SDK de voz ou posterior é necessária.
+* 1\.5.1 na versão do SDK de voz ou posterior é necessária.
 
 ## <a name="create-voice-signatures-for-participants"></a>Criar assinaturas de voz para os participantes
 
@@ -43,7 +43,7 @@ A primeira etapa é criar assinaturas de voz para os participantes da conversa. 
 * O ficheiro de onda de áudio de entrada para a criação de assinaturas de voz deve estar em exemplos de 16 bits, taxa de amostragem 16 kHz e um formato de canal único (Mono).
 * O comprimento recomendado para cada amostra de áudio é entre 30 segundos e dois minutos.
 
-O exemplo seguinte mostra duas formas diferentes de criar a assinatura de voz [com a API de REST.] (https://aka.ms/cts/signaturegenservice) de C#:
+O exemplo seguinte mostra duas formas diferentes de criar a assinatura de voz por [com a API REST](https://aka.ms/cts/signaturegenservice) de C#:
 
 ```csharp
 class Program

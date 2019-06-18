@@ -16,10 +16,10 @@ ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65412818"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação no serviço de aplicações do Azure com o Visual Studio
@@ -684,7 +684,7 @@ Além disso, não precisa usar o ASP.NET ou `System.Diagnostics` registos de ras
 Para obter mais informações sobre como analisar os registos do servidor web, consulte os seguintes recursos:
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Uma ferramenta para ver os dados nos registos de servidor web (*. log* ficheiros).
+  Uma ferramenta para ver os dados nos registos de servidor web ( *. log* ficheiros).
 * [Resolução de problemas de desempenho do IIS ou erros de aplicações com LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Uma introdução à ferramenta Analisador de registos que pode usar para analisar registos do servidor web.
 * [Mensagens de blogue por Robert McMurray sobre a utilização do LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

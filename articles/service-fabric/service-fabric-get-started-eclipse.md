@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.openlocfilehash: c33ecce5610dbef0dce13aa95f04ae4f0620603b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60950350"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse
@@ -62,7 +62,7 @@ Se já tiver o plug-in do Service Fabric instalado, instale a versão mais recen
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Criar uma aplicação do Service Fabric no Eclipse
 
-1.  No Eclipse, aceda a **File (Ficheiro)** > **New (Novo)** > **Other (Outro)**. Selecione **Service Fabric Project** (Projeto do Service Fabric) e clique em **Next** (Seguinte).
+1.  No Eclipse, aceda a **File (Ficheiro)**  > **New (Novo)**  > **Other (Outro)** . Selecione **Service Fabric Project** (Projeto do Service Fabric) e clique em **Next** (Seguinte).
 
     ![Página 1 de Novo Projeto do Service Fabric][create-application/p1]
 
@@ -217,7 +217,7 @@ Em primeiro lugar, faça eventuais alterações à aplicação e, em seguida, re
 
 Para atualizar a aplicação com o Eclipse, pode criar um perfil de configuração de execução duplicado. Em seguida, utilize-o para atualizar a sua aplicação, conforme necessário.
 
-1.  Aceda a **Run (Executar)** > **Run Configurations (Configurações de Execução)**. No painel do lado esquerdo, clique na seta pequena à esquerdo de **Gradle Project** (Projeto Gradle).
+1.  Aceda a **Run (Executar)**  > **Run Configurations (Configurações de Execução)** . No painel do lado esquerdo, clique na seta pequena à esquerdo de **Gradle Project** (Projeto Gradle).
 2.  Clique com o botão direito do rato em **ServiceFabricDeployer** e selecione **Duplicate** (Duplicado). Introduza um novo nome para esta configuração, como, por exemplo, **ServiceFabricUpgrader**.
 3.  No painel direito, no separador **Arguments** (Argumentos), altere **-Pconfig='deploy'** para **-Pconfig='upgrade'** e clique em **Apply** (Aplicar).
 

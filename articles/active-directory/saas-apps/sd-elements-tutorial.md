@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e6deb8b31559b8c5add06f1771cd69df0c1f136
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867587"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091353"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Integração do Active Directory do Azure com SD elementos
 
@@ -53,7 +53,7 @@ Para configurar a integração de elementos de SD no Azure AD, terá de adiciona
 
 **Para adicionar elementos de SD a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -249,7 +249,7 @@ O objetivo desta secção é criar um utilizador chamado Eduarda Almeida em elem
 
     ![Criar um utilizador de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
 
-    a. Na **email** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    a. Na **email** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com** .
 
     b. Na **nome próprio** caixa de texto, introduza o nome de utilizador, como **Eduarda**.
 
@@ -259,7 +259,7 @@ O objetivo desta secção é criar um utilizador chamado Eduarda Almeida em elem
 
     e. Clique em **criar utilizador**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

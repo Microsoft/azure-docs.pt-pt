@@ -2,18 +2,17 @@
 title: Padrões de design de tabela de armazenamento do Azure | Documentos da Microsoft
 description: Utilize padrões para soluções de serviço de tabela do Azure.
 services: storage
-author: WenJason
+author: tamram
 ms.service: storage
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62101438"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
@@ -349,7 +348,7 @@ Pode voltar para o valor de hora de data usando o seguinte código:
 
 A consulta de tabela tem o seguinte aspeto:  
 
-`https://myaccount.table.core.chinacloudapi.cn/EmployeeExpense(PartitionKey='empid')?$top=10`  
+`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  

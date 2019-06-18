@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66129788"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métrica clássicas com o Azure Monitor
@@ -21,13 +21,13 @@ Alertas de métricas clássicas no Azure Monitor oferecem uma forma de ser notif
 
 1. Na [portal](https://portal.azure.com/), localize o recurso que pretende monitorizar e, em seguida, selecioná-lo.
 
-2. Na **monitorização** secção, selecione **alertas (clássico)**. O texto e o ícone podem variar um pouco para recursos diferentes. Se não encontrar **alertas (clássico)** aqui, poderá encontrá-lo na **alertas** ou **regras de alerta**.
+2. Na **monitorização** secção, selecione **alertas (clássico)** . O texto e o ícone podem variar um pouco para recursos diferentes. Se não encontrar **alertas (clássico)** aqui, poderá encontrá-lo na **alertas** ou **regras de alerta**.
 
     ![Monitorização](media/alerts-classic-portal/AlertRulesButton.png)
 
 3. Selecione o **Adicionar alerta de métrica (clássico)** de comandos e, em seguida, preencha os campos.
 
-    ![Adicionar Alerta](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
+    ![Adicionar alerta](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
 
 4. **Nome** sua regra de alerta. Em seguida, escolha uma **Descrição**, que também é apresentado em e-mails de notificação.
 

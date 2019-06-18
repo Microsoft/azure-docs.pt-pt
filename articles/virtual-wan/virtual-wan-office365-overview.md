@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
 ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458607"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685271"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Plano de controlo do Office 365 em WAN Virtual
 
@@ -26,7 +26,7 @@ Os clientes WAN virtual com determinados dispositivos SDWAN podem configurar pol
 Utilizar esta funcionalidade em Virtual WAN, os clientes podem agora especificar as categorias de tráfego do Office 365 que confiam para abertas de internet direta. Este fidedigno proxies do O365 tráfego irá ignorar e a rota diretamente a partir da localização de utilizador para o POP de Microsoft mais próximo. Isso evita hauling-back de tráfego e de cabelo pining, assim, fornecer a experiência de usuário ideal e guardar os custos da WAN. 
 
 ### <a name="what-are-the-office-365-traffic-categories"></a>Quais são as categorias de tráfego do Office 365?
-Pontos finais do Office 365 representam os endereços de rede e sub-redes. Pontos de extremidade podem ser URLs, intervalos de endereços IP ou IP. URLs podem ser um FQDN como *account.office.net*, ou como um URL de caráter universal **. office365.com*. Pontos finais são separados em três categorias - **otimizar**, **permitir**, e **predefinido**, consoante o nível de importância. Mais detalhes sobre as categorias de ponto final [aqui](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
+Pontos finais do Office 365 representam os endereços de rede e sub-redes. Pontos de extremidade podem ser URLs, intervalos de endereços IP ou IP. URLs podem ser um FQDN como *account.office.net*, ou como um URL de caráter universal * *. office365.com*. Pontos finais são separados em três categorias - **otimizar**, **permitir**, e **predefinido**, consoante o nível de importância. Mais detalhes sobre as categorias de ponto final [aqui](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles#BKMK_Categories).
 
 ### <a name="which-office-365-traffic-category-is-recommended-by-microsoft-for-direct-internet-breakout"></a>Que categoria de tráfego do Office 365 é recomendada pela Microsoft para direto abertas de internet?
 O **otimizar** categoria é os pontos de extremidade de rede mais críticos e é necessária para ignorar a quebra SSL e inspecionar e outros dispositivos de segurança de rede. Ele deve ter a saída de Internet direta perto dos utilizadores. Estes pontos finais representam cenários do Office 365, o mais sensíveis a desempenho, latência e disponibilidade de rede. Esta categoria inclui um conjunto pequeno (na ordem de ~ 10) de chave de um conjunto definido de sub-redes IP e URLs dedicadas às cargas de trabalho principal do Office 365 como o Exchange Online, SharePoint Online, Skype para empresas Online e Microsoft Teams. 

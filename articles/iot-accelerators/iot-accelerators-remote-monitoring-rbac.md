@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61443136"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurar os controlos de acesso baseado em funções no solution accelerator monitorização remota
@@ -25,7 +25,7 @@ Ao implementar a solução de monitorização remota em primeiro lugar, existem 
 
 Nenhum utilizador dos **administrador** função tem acesso total à solução, incluindo as seguintes permissões abaixo. Um utilizador a **só de leitura** função apenas terá acesso para ver a solução.
 
-| Permissão            | Administração | Só de Leitura |
+| Permissão            | administrador | Só de Leitura |
 |----------------       |-------|-----------|
 | Solução de vista         | Sim   | Sim       |
 | Alarmes de atualização         | Sim   | Não        |
@@ -91,7 +91,7 @@ Os passos seguintes descrevem como adicionar uma função a uma aplicação no A
 
 1. Encontrar o **registo de aplicações** para a sua solução no portal do Azure. O nome da aplicação é o nome da sua solução de monitorização remota. Na captura de ecrã seguinte, são os nomes de exibição de solução e aplicativo **contoso-rm4**.
 
-    ![Registo de aplicações](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Registo da aplicação](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
 
 1. Selecione a aplicação e, em seguida, clique em **manifesto**. Pode ver os dois existente [funções de aplicação](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) definidas para a aplicação:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd68edcc727ab08ed9d3ba765bbe795e88de5fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069259"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Artefactos seguros em implementações de modelo do Azure Resource Manager
 
@@ -75,9 +75,9 @@ Transfira o [ficheiro BACPAC](https://armtutorials.blob.core.windows.net/sqlexte
 
     * **Subscrição**: Selecione a sua subscrição do Azure.
     * **Grupo de recursos**: Selecione **criar novo** e atribua um nome. Um grupo de recursos é um contentor para recursos do Azure para o efeito de gestão. Neste tutorial, pode utilizar o mesmo grupo de recursos para a conta de armazenamento e a base de dados do SQL do Azure. Anote este nome de grupo de recursos, irá precisar dele quando criar a base de dados do SQL do Azure mais tarde nos tutoriais.
-    * **Localização**: Selecione uma região. Por exemplo, **E.U.A. Central**. 
+    * **Localização**: Selecione uma região. Por exemplo, **E.U.A. Central**.
     * **Tipo de conta de armazenamento**: Utilize o valor predefinido, que é **Standard_LRS**.
-    * **Localização**: Utilize o valor predefinido, que é **[resourceGroup (). location]**. Isso significa que usar a localização do grupo de recursos para a conta de armazenamento.
+    * **Localização**: Utilize o valor predefinido, que é **[resourceGroup (). location]** . Isso significa que usar a localização do grupo de recursos para a conta de armazenamento.
     * **Eu concordo com os termos e condições a utilizar acima**: (selecionado)
 3. Selecione **Comprar**.
 4. Selecione o ícone de notificação (o ícone de sino) no canto superior direito do portal para ver o estado de implementação.
@@ -87,7 +87,7 @@ Transfira o [ficheiro BACPAC](https://armtutorials.blob.core.windows.net/sqlexte
 
 ### <a name="create-a-blob-container"></a>Criar um contentor de BLOBs
 
-Um contentor de BLOBs é necessária para poder carregar todos os ficheiros. 
+Um contentor de BLOBs é necessária para poder carregar todos os ficheiros.
 
 1. Selecione a conta de armazenamento para abri-la. Deverá ver apenas uma conta de armazenamento listada no grupo de recursos. O nome da sua conta de armazenamento é diferente daquele mostrado na captura de ecrã seguinte.
 
@@ -99,8 +99,8 @@ Um contentor de BLOBs é necessária para poder carregar todos os ficheiros.
 3. Selecione **+ contentor** da parte superior para criar um novo contentor.
 4. Introduza os seguintes valores:
 
-    * **Nome**: introduza **sqlbacpac**. 
-    * **Nível de acesso público**: Utilize o valor predefinido, **privado (sem acesso anónimo)**.
+    * **Nome**: introduza **sqlbacpac**.
+    * **Nível de acesso público**: Utilize o valor predefinido, **privado (sem acesso anónimo)** .
 5. Selecione **OK**.
 6. Selecione **sqlbacpac** para abrir o contentor criado recentemente.
 
@@ -237,7 +237,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, implementou um servidor de SQL, uma base de dados SQL e importar um ficheiro BACPAC com o SAS token. Para saber como implementar recursos do Azure em várias regiões e como utilizar práticas de implementação seguras, veja
+Neste tutorial, implementou um servidor de SQL, uma base de dados SQL e importar um ficheiro BACPAC com o SAS token. Para saber como criar um Pipeline do Azure para desenvolver e implementar modelos do Resource Manager continuamente, consulte
 
 > [!div class="nextstepaction"]
-> [Utilizar o Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Integração contínua com o Pipeline do Azure](./resource-manager-tutorial-use-azure-pipelines.md)

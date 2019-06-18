@@ -12,10 +12,10 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60827906"
 ---
 # <a name="translator-speech-api-languages"></a>API de voz de tradutor: Languages
@@ -132,13 +132,13 @@ Langagues {voz (object, opcional), texto (object, opcional), tts (object, opcion
 
 ### <a name="headers"></a>Cabeçalhos
 
-|Cabeçalho|Descrição|Type|
+|Cabeçalho|Descrição|Tipo|
 :--|:--|:--|
 X-RequestId|Valor gerado pelo servidor para identificar o pedido e utilizada para fins de resolução de problemas.|string|
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Descrição|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|
 |versão de API    |Versão da API do pedido pelo cliente. Valores permitidos são: `1.0`.|consulta|string|
 |scope  |Conjuntos de idiomas suportados ou vozes para devolver ao cliente. Este parâmetro for especificado como uma lista separada por vírgulas de palavras-chave. As palavras-chave seguintes estão disponíveis:<ul><li>`speech`: Fornece o conjunto de idiomas suportados para transcrição de voz.</li><li>`tts`: Fornece o conjunto de vozes suportado para conversão de voz de texto.</li><li>`text`: Fornece o conjunto de idiomas suportados para a tradução de texto.</li></ul>Se não for especificado um valor, o valor de `scope` assume a predefinição `text`.|consulta|string|
@@ -147,7 +147,7 @@ X-RequestId|Valor gerado pelo servidor para identificar o pedido e utilizada par
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Razão|
+|Código de estado de HTTP|Reason|
 |:--|:--|
 |400|Pedido incorreto. Verifique os parâmetros de entrada para garantir que são válidos. O objeto de resposta inclui uma descrição mais detalhada do erro.|
 |429|Demasiados pedidos.|

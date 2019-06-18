@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5def46b6c12dc08c273ea7334516b63b7606477f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: c371254f344b321969dcc9b3c36212b7536aa95a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452828"
+ms.locfileid: "67109009"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário do Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>Em risco (utilizador)
@@ -34,7 +34,7 @@ Um início de sessão a partir de uma localização geográfica que não é comu
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
 Um módulo de segurança do Azure Active Directory que fornece uma vista consolidada de eventos de risco e potenciais vulnerabilidades que afetam as identidades da organização.
 
-### <a name="conditional-access"></a>Acesso condicional
+### <a name="conditional-access"></a>Acesso Condicional
 Uma política para proteger o acesso aos recursos. Regras de acesso condicional são armazenadas no Azure Active Directory e são avaliadas pelo Azure AD antes de conceder acesso ao recurso.  Regras de exemplo incluem restringir o acesso com base na localização do utilizador, o estado de funcionamento do dispositivo ou o método de autenticação de utilizador.
 
 ### <a name="credentials"></a>Credenciais

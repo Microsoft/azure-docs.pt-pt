@@ -15,10 +15,10 @@ ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60478655"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitetura de armazenamento do SAP HANA (instâncias grandes)
@@ -40,9 +40,9 @@ Consulte a tabela seguinte em termos de alocação de armazenamento. A tabela li
 | S384 | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S384m | 12 000 GB | 2,050 GB | 2,050 GB | 2040 GB |
 | S384xm | GB DE 16.000 | 2,050 GB | 2,050 GB | 2040 GB |
-| S384xxm |  20.000 GB | 3100 GB | 2,050 GB | 3100 GB |
-| S576m | 20.000 GB | 3100 GB | 2,050 GB | 3100 GB |
-| S576xm | 31,744 GB | 4,096 GB | 2.048 GB | 4,096 GB |
+| S384xxm |  20\.000 GB | 3100 GB | 2,050 GB | 3100 GB |
+| S576m | 20\.000 GB | 3100 GB | 2,050 GB | 3100 GB |
+| S576xm | 31,744 GB | 4,096 GB | 2\.048 GB | 4,096 GB |
 | S768m | 28,000 GB | 3100 GB | 2,050 GB | 3100 GB |
 | S768xm | 40,960 GB | 6,144 GB | 4,096 GB | 6,144 GB |
 | S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |

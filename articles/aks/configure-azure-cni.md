@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497203"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061080"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar redes do Azure CNI no Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como utilizar *Azure CNI* rede a fim de criar e utilizar 
 
 * A rede virtual para o cluster do AKS têm de permitir conectividade de internet de saída.
 * Não crie mais de um cluster do AKS na mesma sub-rede.
-* Não podem utilizar clusters do AKS `169.254.0.0/16`, `172.30.0.0/16`, ou `172.31.0.0/16` intervalo de endereços do serviço para o Kubernetes.
+* Não podem utilizar clusters do AKS `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, ou `192.0.2.0/24` intervalo de endereços do serviço para o Kubernetes.
 * O principal de serviço utilizado pelo cluster do AKS tem de ter, pelo menos, [contribuinte de rede](../role-based-access-control/built-in-roles.md#network-contributor) permissões na sub-rede na sua rede virtual. Se pretender definir um [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de contribuinte de rede incorporada, são necessárias as seguintes permissões:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -100,7 +100,7 @@ Quando cria um cluster do AKS, os seguintes parâmetros são configuráveis para
 * Não tem de estar no intervalo de endereços IP de rede virtual do cluster
 * Não pode sobrepor com outras redes virtuais com as quais elementos da rede virtual do cluster
 * Não pode sobrepor com qualquer IPs no local
-* Não tem de estar dentro dos intervalos `169.254.0.0/16`, `172.30.0.0/16`, ou `172.31.0.0/16`
+* Não tem de estar dentro dos intervalos `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, ou `192.0.2.0/24`
 
 Embora seja tecnicamente possível especificar um intervalo de endereços do serviço dentro da mesma rede virtual como o seu cluster, ao fazê-lo por isso, não é recomendado. Um comportamento imprevisível poderá resultar se os intervalos IP sobrepostos são utilizados. Para obter mais informações, consulte a [FAQ](#frequently-asked-questions) seção deste artigo. Para obter mais informações sobre serviços do Kubernetes, consulte [serviços] [ services] na documentação do Kubernetes.
 

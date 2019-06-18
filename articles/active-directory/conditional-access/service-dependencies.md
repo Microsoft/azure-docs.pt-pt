@@ -1,8 +1,8 @@
 ---
-title: Quais são as dependências do serviço de acesso condicional do Azure Active Directory? | Microsoft Docs
-description: Saiba como as condições são usadas no acesso condicional do Azure Active Directory para acionar uma política.
+title: Quais são as dependências do serviço no Azure Active Directory condicional acesso? | Microsoft Docs
+description: Saiba como as condições são usadas no Azure Active Directory condicional acesso para acionar uma política.
 services: active-directory
-keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
+keywords: Acesso condicional para aplicações, acesso condicional com o Azure AD, proteger o acesso aos recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -18,14 +18,14 @@ ms.date: 03/18/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f727fc7133ebc9ee124e63253e8a266862b0d908
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 54e5de5fdb03cfaff4d4ed53da94b512f30db58a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60354384"
+ms.locfileid: "67112087"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Quais são as dependências do serviço de acesso condicional do Azure Active Directory? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Quais são as dependências do serviço no Azure Active Directory condicional acesso? 
 
 
 Com as políticas de acesso condicional, pode especificar requisitos de acesso aos Web sites e serviços. Por exemplo, os seus requisitos de acesso podem incluir a exigir autenticação multifator (MFA) ou [dispositivos geridos](require-managed-devices.md). 

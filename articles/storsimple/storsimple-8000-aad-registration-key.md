@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60309875"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utilize a nova autenticação para o StorSimple
@@ -61,7 +61,7 @@ Se utilizar um dispositivo da série StorSimple 8000, utilize a tabela seguinte 
 | Se o dispositivo estiver em execução| Execute a ação seguinte                                    |
 |--------------------------|------------------------|
 | Atualização 5 ou posterior e o dispositivo está offline. <br> Verá um alerta que o URL não está na lista de permissões.|1. Modificar as regras de firewall para incluir o URL de autenticação. Ver [URLs de autenticação](#url-changes-for-aad-authentication).<br>2. [Obter a chave de registo do AAD do serviço](#aad-based-registration-keys).<br>3. [Ligar à interface do Windows PowerShell do dispositivo da série StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Utilize `Redo-DeviceRegistration` cmdlet para registar o dispositivo através do Windows PowerShell. Fornece a chave de que obteve no passo anterior.|
-| Atualização 5 ou posterior e o dispositivo online.| Não é necessário realizar qualquer ação.                                       |
+| Atualização 5 ou posterior e o dispositivo online.| nenhuma ação necessária.                                       |
 | Atualização 4 ou anterior e o dispositivo está offline. |1. Modificar as regras de firewall para incluir o URL de autenticação.<br>2. [Transferir a atualização 5 por meio do servidor de catálogo](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Aplicar a atualização 5 o método de correção](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Obter a chave de registo do AAD do serviço](#aad-based-registration-keys).<br>5. [Ligar à interface do Windows PowerShell do dispositivo da série StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Utilize `Redo-DeviceRegistration` cmdlet para registar o dispositivo através do Windows PowerShell. Fornece a chave de que obteve no passo anterior.|
 | Atualização 4 ou anterior e o dispositivo está online. |Modificar as regras de firewall para incluir o URL de autenticação.<br> Instale atualização 5 através do portal do Azure.              |
 | Reposição de fábrica para uma versão antes da atualização 5.      |O portal mostra uma chave de registo com base do AAD, enquanto o dispositivo está a executar o software mais antiga. Siga os passos no cenário anterior para quando o dispositivo é executar a atualização 4 ou anterior.              |

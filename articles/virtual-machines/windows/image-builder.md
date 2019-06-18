@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines-windows
 manager: jeconnoc
 ms.openlocfilehash: 01109aa83c12bda9b1d21ec25784d663f8abf700
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65159724"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Pré-visualização: Criar um VM do Windows com o construtor de imagens do Azure

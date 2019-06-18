@@ -17,10 +17,10 @@ ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: bcc970375120f76e4ec8a90f487d251296f92dba
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65957914"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar uma aplicação de serviço de aplicações no portal do Azure
@@ -31,7 +31,7 @@ Este tópico explica como configurar definições comuns para aplicações web, 
 
 No serviço de aplicações, utilize as definições da aplicação como variáveis de ambiente. Na [portal do Azure], navegue até à página de gestão da sua aplicação. No menu à esquerda da aplicação, clique em **Configuration** > **configurações de aplicativo**.
 
-![Definições da Aplicação](./media/configure-common/open-ui.png)
+![Definições da aplicação](./media/configure-common/open-ui.png)
 
 Para os desenvolvedores ASP.NET e ASP.NET Core, as definições de configuração de aplicações no serviço de aplicações são como defini-las na `<appSettings>` no *Web. config*, mas os valores no serviço de aplicações de substituição nos *Web. config*. Pode manter as definições de desenvolvimento (por exemplo, MySQL palavra-passe local) *Web. config*, mas seguros no serviço de aplicações de segredos de produção (por exemplo, senha de base de dados MySQL do Azure). O mesmo código utiliza as definições de desenvolvimento quando depurar localmente, e utiliza os segredos de produção quando implementada no Azure.
 
@@ -92,7 +92,7 @@ Definições da aplicação têm a formatação do JSON seguinte:
 
 Na [portal do Azure], navegue até à página de gestão da aplicação. No menu à esquerda da aplicação, clique em **Configuration** > **configurações de aplicativo**.
 
-![Definições da Aplicação](./media/configure-common/open-ui.png)
+![Definições da aplicação](./media/configure-common/open-ui.png)
 
 Para os desenvolvedores ASP.NET e ASP.NET Core, cadeias de ligação da definição no serviço de aplicações são como defini-las na `<connectionStrings>` no *Web. config*, mas os valores definidos no serviço de aplicações de substituição nos *Web. config*. Pode manter as definições de desenvolvimento (por exemplo, um ficheiro de base de dados) *Web. config* e seguro no serviço de aplicações de segredos de produção (por exemplo, credenciais de base de dados SQL). O mesmo código utiliza as definições de desenvolvimento quando depurar localmente, e utiliza os segredos de produção quando implementada no Azure.
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60860513"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalar atualização 4 no dispositivo StorSimple
@@ -45,7 +45,7 @@ Execute os seguintes passos para atualizar o seu dispositivo para [atualização
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Certifique-se de que o seu dispositivo está em execução **StorSimple 8000 Series Update 4 (6.3.9600.17820)**. O **última atualização data** também deve ser modificado.
+Certifique-se de que o seu dispositivo está em execução **StorSimple 8000 Series Update 4 (6.3.9600.17820)** . O **última atualização data** também deve ser modificado.
 
 * Agora verá que as atualizações de modo de manutenção estão disponíveis (esta mensagem poderá continuar a ser apresentado até 24 horas depois de instalar as atualizações). Atualizações do modo de manutenção são atualizações disruptivas que resultam em tempo de inatividade do dispositivo e só podem ser aplicadas através da interface do Windows PowerShell do seu dispositivo.
 
@@ -76,10 +76,10 @@ Tem de transferir e instalar as seguintes correções na ordem determinada e as 
 
 | Encomenda | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Atualização de software |Normal <br></br>Não disruptivas |~ 25 minutos |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |Driver de LSI e atualizações de firmware <br> Atualização de firmware USM (versão 3.38) |Normal <br></br>Não disruptivas |~ 3 horas <br> (inclui 2A. + 2B. + 2C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pacote de atualizações de segurança do SO <br> Baixe o Windows Server 2012 R2 |Normal <br></br>Não disruptivas |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pacote de atualizações do SO <br> Baixe o Windows Server 2012 R2 |Normal <br></br>Não disruptivas |- |SecondOrderUpdate|
+| 1. |KB4011839 |Atualização de software |Regular <br></br>Não disruptivas |~ 25 minutos |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |Driver de LSI e atualizações de firmware <br> Atualização de firmware USM (versão 3.38) |Regular <br></br>Não disruptivas |~ 3 horas <br> (inclui 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pacote de atualizações de segurança do SO <br> Baixe o Windows Server 2012 R2 |Regular <br></br>Não disruptivas |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pacote de atualizações do SO <br> Baixe o Windows Server 2012 R2 |Regular <br></br>Não disruptivas |- |SecondOrderUpdate|
 
 Também poderá instalar atualizações de firmware do disco na parte superior de todas as atualizações mostradas nas tabelas anteriores. Pode verificar se tem as atualizações de firmware do disco ao executar o `Get-HcsFirmwareVersion` cmdlet. Se estiver a executar estas versões de firmware: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, em seguida, não é necessário instalar estas atualizações.
 

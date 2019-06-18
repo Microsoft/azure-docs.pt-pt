@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 7375fb2763ad83e049b1ef30a623f164e059a792
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61479461"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>Garante a confiabilidade de tarefa do Stream Analytics durante as atualizações de serviço

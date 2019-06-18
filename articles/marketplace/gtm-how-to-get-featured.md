@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5194bdcd5b77b0527ccdefc1af85bf03bdac2cab
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64938180"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Como obter destaque no AppSource e o Azure Marketplace

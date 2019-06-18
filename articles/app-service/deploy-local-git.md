@@ -15,10 +15,10 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65956046"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
@@ -114,7 +114,7 @@ No painel de navegação esquerdo da página da aplicação, clique em **Deploym
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Clique em **Pipelines do Azure (pré-visualização)** > **continuar**.
+Clique em **Pipelines do Azure (pré-visualização)**  > **continuar**.
 
 ![](media/app-service-deploy-local-git/pipeline-builds.png)
 

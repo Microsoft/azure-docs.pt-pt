@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60597116"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migração de dimensionamento de VMs com o Azure Site Recovery
@@ -30,7 +30,7 @@ Antes de começar, terá de efetuar os passos seguintes:
 - Certifique-se de que uma política de replicação é criada e associada ao servidor de configuração
 - Certifique-se de que adicionou a conta de administrador da VM para o servidor de configuração (que será utilizado para replicar no local, VMs)
 - Certifique-se de que os artefactos de destino no Azure são criados
-    - Grupo de Recursos de Destino
+    - Grupo de recursos de destino
     - Conta de armazenamento de destino (e seu grupo de recursos) - criar uma conta de armazenamento premium se planeia migrar para discos geridos premium
     - Conta de armazenamento de cache (e seu grupo de recursos) - criar uma conta de armazenamento standard na mesma região que o Cofre
     - Segmentar a rede Virtual para a ativação pós-falha (e seu grupo de recursos)

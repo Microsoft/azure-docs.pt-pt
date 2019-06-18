@@ -9,10 +9,10 @@ ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60347489"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
@@ -80,7 +80,7 @@ São suportados os seguintes Estados de alerta.
 | Estado | Descrição |
 |:---|:---|
 | Novo | O problema apenas foi detetado e ainda não foi revisto. |
-| Confirmado | Um administrador tiver revisto o alerta e começou a trabalhar no mesmo. |
+| Reconhecido | Um administrador tiver revisto o alerta e começou a trabalhar no mesmo. |
 | Fechado | O problema foi resolvido. Após um alerta ter sido fechado, pode abri-lo novamente ao alterá-la para outro Estado. |
 
 **Estado de alerta** é diferente e independente do **monitorizar condição**. Estado de alerta estiver definido pelo utilizador. Condição do monitor está definida pelo sistema. Quando um alerta é acionado, a condição do monitor do alerta estiver definida como *disparado*. Quando a condição subjacente que causou o alerta acionar limpa, a condição do monitor está definida como *resolvido*. O estado do alerta não é alterado até que o utilizador o altere. Saiba mais [como alterar o estado dos seus alertas e grupos inteligentes](https://aka.ms/managing-alert-smart-group-states).
@@ -110,12 +110,12 @@ Selecione os seguintes valores na parte superior da página de alertas para abri
 
 | Value | Descrição |
 |:---|:---|
-| Alertas totais | O número total de alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a vista de todos os alertas com nenhum filtro. |
+| Total de alertas | O número total de alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a vista de todos os alertas com nenhum filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criadas a partir os alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a lista de grupos inteligente na vista de todos os alertas.
-| Regras de alertas totais | O número total de regras de alerta do grupo de recursos e subscrição selecionados. Selecione este valor para abrir a vista de regras filtrado com base na subscrição selecionada e o grupo de recursos.
+| Total de regras de alerta | O número total de regras de alerta do grupo de recursos e subscrição selecionados. Selecione este valor para abrir a vista de regras filtrado com base na subscrição selecionada e o grupo de recursos.
 
 
-## <a name="manage-alert-rules"></a>Gere regras do alerta
+## <a name="manage-alert-rules"></a>Gerir regras de alerta
 Clique em **gerir regras de alerta** para mostrar o **regras** página. **Regras** é um único local para gerir todas as regras de alerta nas suas subscrições do Azure. Ele apresenta uma lista de todas as regras de alerta e pode ser ordenado com base nos recursos de destino, grupos de recursos, o nome da regra ou estado. Regras de alerta também podem ser editadas, ativadas ou desativadas a partir desta página.  
 
  ![regras de alertas](./media/alerts-overview/alerts-preview-rules.png)
@@ -148,7 +148,7 @@ Pode filtrar a vista ao selecionar os seguintes valores nos menus de lista pende
 | Subscrição | Selecione até cinco subscrições do Azure. Apenas os alertas nas subscrições selecionadas estão incluídos na vista. |
 | Grupo de recursos | Selecione um grupo de recursos. Apenas os alertas com destinos no grupo de recursos selecionado estão incluídos na vista. |
 | Tipo de recurso | Selecione um ou mais tipos de recursos. Apenas os alertas com destinos do tipo selecionado estão incluídos na vista. Esta coluna só está disponível depois de um grupo de recursos foi especificado. |
-| Recurso | Selecione um recurso. Apenas alertas com esse recurso como um destino estão incluídas na vista. Esta coluna apenas está disponível após foi especificado um tipo de recurso. |
+| Resource | Selecione um recurso. Apenas alertas com esse recurso como um destino estão incluídas na vista. Esta coluna apenas está disponível após foi especificado um tipo de recurso. |
 | Gravidade | Selecione uma gravidade de alerta ou selecione *todos os* para incluir alertas de todas as gravidades. |
 | Condição do monitor | Selecione uma condição do monitor ou selecione *todos os* para incluir alertas de condições. |
 | Estado de alerta | Selecione um Estado de alerta ou selecione *todos os* para incluir a alertas dos Estados. |
@@ -160,7 +160,7 @@ Selecione **colunas** na parte superior da página para selecionar as colunas a 
 ## <a name="alert-detail-page"></a>Página de detalhes de alerta
 A página de detalhes de alerta é apresentada quando seleciona um alerta. Ele fornece detalhes do alerta e permite-lhe alterar o seu estado.
 
-![Detalhes do alerta](media/alerts-overview/alert-detail2.png)
+![Detalhes de alerta](media/alerts-overview/alert-detail2.png)
 
 A página de detalhes de alerta inclui as secções seguintes.
 

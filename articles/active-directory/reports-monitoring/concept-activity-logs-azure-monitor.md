@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65896858"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividades do Azure AD no Azure Monitor
@@ -80,7 +80,7 @@ A tabela seguinte contém uma estimativa do custo, dependendo do tamanho do inqu
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | Auditoria | 100,000 | 1,5&nbsp;milhões | 90 GB | $1,93 | $23,12 |
 | Auditoria | 1,000 | 15,000 | 900 MB | $0,02 | $0,24 |
-| Inícios de sessão | 1,000 | 34 800 | 4 GB | $0,13 | $1,56 |
+| Inícios de sessão | 1,000 | 34 800 | 4GB | $0,13 | $1,56 |
 | Inícios de sessão | 100,000 | 15&nbsp;milhões | 1,7 TB | $35,41 | $424,92 |
  
 
@@ -104,7 +104,7 @@ A tabela seguinte contém os custos estimados por mês para um hub de eventos b�
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Auditoria | 100,000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | $10,83 |
 | Auditoria | 1,000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 $ |
-| Inícios de sessão | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
+| Inícios de sessão | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3\.611.520 | $11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Monitor do Azure regista as considerações de custo
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60632510"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um energia e refrigeração módulo no seu dispositivo StorSimple
@@ -61,7 +61,7 @@ Siga estas instruções quando estiver pronto para remover um energia e refriger
    
      **Figura 1** painel de frente do dispositivo  
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |Botão de sem som |
    | 2 |Energia do sistema |
@@ -74,7 +74,7 @@ Siga estas instruções quando estiver pronto para remover um energia e refriger
    
      **Figura 2** Back do PCM com indicadores LED
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |Falha de energia de AC |
    | 2 |Falha na ventoinha |
@@ -88,12 +88,12 @@ Siga estas instruções quando estiver pronto para remover um energia e refriger
    
      **Figura 3** inverso de dispositivo com módulos de plug-ins 
    
-   | Label | Descrição |
+   | Etiqueta | Descrição |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
-   | 3 |Controlador 0 |
-   | 4 |Controlador 1 |
+   | 3 |Controlador 0 |
+   | 4 |Controlador 1 |
 5. Desativar o PCM com falhas e desligue o cabo de alimentação de energia. Agora pode remover o PCM.
 6. Entender o bloqueio temporário e o lado do identificador PCM entre o thumb e forefinger e compactá-las em conjunto para abrir o identificador.
    

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61094658"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de repetição no SDK de serviços de multimédia para .NET  
@@ -64,7 +64,7 @@ A tabela seguinte mostra para os códigos de erro de exceção WebException a l�
 | UnknownError |Sim |Sim |Sim |Não |
 | ReceiveFailure |Sim |Sim |Sim |Não |
 | RequestCanceled |Sim |Sim |Sim |Não |
-| Tempo Limite (excedido) |Sim |Sim |Sim |Não |
+| Tempo limite |Sim |Sim |Sim |Não |
 | ProtocolError <br/>A repetição em ProtocolError é controlada pela manipulação de código de estado HTTP. Para obter mais informações, consulte [códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Sim |Sim |Sim |Sim |
 
 ### <a name="HTTPStatusCode"></a> Códigos de estado de erro HTTP

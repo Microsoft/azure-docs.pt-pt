@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60628919"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recolher contadores de desempenho de aplicações do Linux no Azure Monitor 
@@ -50,9 +50,9 @@ As entradas no ficheiro de autenticação estão descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--|:--|
-| Porta | Representa a porta atual que está a escutar a instância do MySQL. Porta 0 Especifica que as propriedades seguintes são utilizadas para a instância predefinida. |
+| Port | Representa a porta atual que está a escutar a instância do MySQL. Porta 0 Especifica que as propriedades seguintes são utilizadas para a instância predefinida. |
 | Endereço de enlace| Endereço-atual MySQL bind. |
-| o nome de utilizador| Utilizador MySQL utilizado para utilizar para monitorizar a instância do servidor MySQL. |
+| username| Utilizador MySQL utilizado para utilizar para monitorizar a instância do servidor MySQL. |
 | Palavra-passe de codificada em Base64| Palavra-passe do utilizador de monitorização MySQL codificado em Base64. |
 | AutoUpdate| Especifica se pretende reanalisar para alterações no arquivo cnf e substituir o ficheiro de autenticação do MySQL OMI quando o fornecedor do MySQL OMI é atualizado. |
 
@@ -82,7 +82,7 @@ A tabela seguinte fornece detalhes sobre a sintaxe para a utilização de mycimp
 | AutoUpdate *falsa ou verdadeira* | mycimprovauth autoupdate false | Define o ficheiro de autenticação ou não será atualizado automaticamente no reiniciar ou atualizar. |
 | predefinição *palavra-passe do endereço de enlace de nome de utilizador* | mycimprovauth padrão 127.0.0.1 raiz pwd | Define a instância predefinida no OMI MySQL de ficheiro de autenticação.<br>O campo de palavra-passe deve ser introduzido no texto sem formatação – a palavra-passe no ficheiro de autenticação de OMI do MySQL estará Base 64 codificada. |
 | eliminar *predefinido ou port_num* | mycimprovauth 3308 | Elimina a instância especificada por qualquer um dos padrão ou por número de porta. |
-| ajuda | ajuda de mycimprov | Mostra uma lista de comandos a utilizar. |
+| Obter ajuda | ajuda de mycimprov | Mostra uma lista de comandos a utilizar. |
 | Impressão | mycimprov impressão | Mostra uma fácil ler MySQL OMI o ficheiro de autenticação. |
 | Atualizar port_num *palavra-passe do endereço de enlace de nome de utilizador* | mycimprov atualização 3307 127.0.0.1 raiz pwd | Atualiza a instância especificada ou adiciona a instância, se não existir. |
 
@@ -116,7 +116,7 @@ Esses privilégios podem ser concedidos ao executar os seguintes comandos de con
 
 Depois de configurar o agente do Log Analytics para Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
 
-| Nome do Objeto | Nome do Contador |
+| Nome do objeto | Nome do contador |
 |:--|:--|
 | Base de Dados MySQL | Espaço em disco, em Bytes |
 | Base de Dados MySQL | Tabelas |
@@ -152,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Depois de configurar o agente do Log Analytics para Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
 
-| Nome do Objeto | Nome do Contador |
+| Nome do objeto | Nome do contador |
 |:--|:--|
 | Apache HTTP Server | Operadores de ocupado |
 | Apache HTTP Server | Funções de trabalho ociosas |

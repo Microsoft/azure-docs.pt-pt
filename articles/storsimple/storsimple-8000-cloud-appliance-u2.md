@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: df7866d4f87f55523e8139232e48d81cb17c80e4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62117338"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
@@ -62,7 +62,7 @@ A tabela seguinte mostra algumas diferenças fundamentais entre a StorSimple Clo
 
 |  | Dispositivo físico | Aplicação da cloud |
 | --- | --- | --- |
-| **Localização** |Reside no datacenter. |É executado no Azure. |
+| **Location** |Reside no datacenter. |É executado no Azure. |
 | **Interfaces de rede** |Possui seis interfaces de rede: DADOS 0 a 5 de dados. |Tem apenas uma interface de rede: DADOS 0. |
 | **Registo** |Registado durante o passo de configuração inicial. |O registo é uma tarefa separada. |
 | **Chave de encriptação dos dados do serviço** |Volte a gerá-la no dispositivo físico e, em seguida, atualize a aplicação da cloud com a nova chave. |Não é possível voltar a gerar a chave a partir da aplicação da cloud. |

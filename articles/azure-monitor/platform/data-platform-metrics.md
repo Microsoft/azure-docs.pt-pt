@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64867971"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
@@ -52,7 +52,7 @@ Dados recolhidos pelo Azure monitorizar as métricas são armazenados num banco 
 * Algumas métricas podem ter várias dimensões, conforme descrito em [métricas multidimensionais](#multi-dimensional-metrics). Métricas personalizadas podem ter até 10 dimensões.
 
 ## <a name="multi-dimensional-metrics"></a>Métricas multidimensionais
-Um dos desafios para dados de métrica é que ela muitas vezes tem informações limitadas para fornecer contexto para valores recolhidos. O Azure Monitor resolve esse desafio com métricas multidimensionais. As dimensões de uma métrica são pares nome-valor que transportar dados adicionais para descrever o valor de métrica. Por exemplo, uma métrica _espaço em disco disponível_ poderia ter uma dimensão chamada _unidade_ com valores _c:_, _D:_, que permitiria a visualização o espaço em disco disponível em todas as unidades de ou para cada unidade individualmente.
+Um dos desafios para dados de métrica é que ela muitas vezes tem informações limitadas para fornecer contexto para valores recolhidos. O Azure Monitor resolve esse desafio com métricas multidimensionais. As dimensões de uma métrica são pares nome-valor que transportar dados adicionais para descrever o valor de métrica. Por exemplo, uma métrica _espaço em disco disponível_ poderia ter uma dimensão chamada _unidade_ com valores _c:_ , _D:_ , que permitiria a visualização o espaço em disco disponível em todas as unidades de ou para cada unidade individualmente.
 
 O exemplo abaixo ilustra dois conjuntos de dados para uma métrica hipotética chamada _débito de rede_. O primeiro conjunto de dados não tem dimensões. O segundo conjunto de dados mostra os valores com duas dimensões, _endereço IP_ e _direção_:
 

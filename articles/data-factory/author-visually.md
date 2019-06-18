@@ -13,10 +13,10 @@ ms.author: shlo
 ms.reviewer: ''
 manager: craigg
 ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65507798"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
@@ -78,7 +78,7 @@ Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica d
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Utilizar um inquilino diferente do Azure Active Directory
 
-Pode criar um repositório de Git de repositórios do Azure no inquilino do Azure Active Directory diferente. Para especificar um inquilino do Azure AD, tem de ter permissões de administrador para a subscrição do Azure que está a utilizar.
+Pode criar um repositório Git do Azure Repos num inquilino diferente do Azure Active Directory. Para especificar um inquilino do Azure AD, tem de ter permissões de administrador para a subscrição do Azure que está a utilizar.
 
 ### <a name="use-your-personal-microsoft-account"></a>Utilizar a sua conta Microsoft pessoal
 
@@ -209,7 +209,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 | **Ramo de colaboração**                                 | O ramo de colaboração do GitHub que serve para publicação. Por padrão, ele é a Mestra. Altere esta definição caso queira publicar recursos a partir de outro ramo.                                                                                                                                                                                                                                                               |                    |
 | **Pasta raiz**                                          | A pasta de raiz no seu ramo de colaboração do GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
 | **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
-| **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar Existente                                                                                                                                                                                                     |                    |
+| **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar existente                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório público): Experiência do Usuário baseada em telas de criação
 
@@ -243,7 +243,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 | **Ramo de colaboração**                                 | O ramo de colaboração do GitHub que serve para publicação. Por padrão, ele é a Mestra. Altere esta definição caso queira publicar recursos a partir de outro ramo.                                                                                                                                                                                                                                                               |                    |
 | **Pasta raiz**                                          | A pasta de raiz no seu ramo de colaboração do GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
 | **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
-| **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar Existente                                                                                                                                                                                                     |                    |
+| **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar existente                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Enterprise): Experiência do Usuário baseada em telas de criação
 
@@ -269,7 +269,7 @@ Para obter informações sobre as expressões suportadas, consulte [expressões 
 ## <a name="provide-feedback"></a>Enviar comentários
 Selecione **comentários** para comentar sobre as funcionalidades ou para notificar a Microsoft sobre problemas com a ferramenta:
 
-![Feedback](media/author-visually/provide-feedback.png)
+![Comentários](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre monitorização e gestão de pipelines, consulte [monitorizar e gerir pipelines de forma programática](monitor-programmatically.md).

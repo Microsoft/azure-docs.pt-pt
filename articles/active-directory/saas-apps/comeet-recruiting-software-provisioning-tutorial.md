@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: zchia
 ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65470399"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configurar o Software de recrutamento Comeet para aprovisionamento automático de utilizadores
@@ -45,7 +45,7 @@ Antes de configurar o Software de recrutamento Comeet para aprovisionamento auto
 
 **Para adicionar o Software de recrutamento Comeet a partir da Galeria de aplicações do Azure AD, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, selecione **Azure Active Directory**.
+1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -108,11 +108,11 @@ Este guias de secção os passos para configurar o Azure AD do serviço de aprov
 
 7. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar-se a Software de recrutamento Comeet. Se a ligação falhar, certifique-se de que a conta de Software de recrutamento Comeet tem permissões de administrador e tente novamente.
 
-    ![Token](common/provisioning-testconnection-token.png)
+    ![Certificado de](common/provisioning-testconnection-token.png)
 
 8. Na **notificação por E-Mail** campo, introduza o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação - **enviar uma notificação por e-mail quando uma falha ocorre**.
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+    ![E-Mail de notificação](common/provisioning-notification-email.png)
 
 9. Clique em **Guardar**.
 

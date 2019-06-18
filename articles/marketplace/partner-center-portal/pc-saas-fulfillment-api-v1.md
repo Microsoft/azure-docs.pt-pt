@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
 ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258943"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>APIs de preenchimento de SaaS versão 1 (preterido)
@@ -67,7 +67,7 @@ Quando um utilizador é redirecionado para o site de um ISV, o URL contém um to
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do cliente, preferencialmente, um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Este campo correlaciona todos os eventos da operação de cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | tipo de conteúdo       | Sim          | `application/json`                                        |
-| Autorização      | Sim          | O JSON web token (JWT) token de portador.                    |
+| authorization      | Sim          | O JSON web token (JWT) token de portador.                    |
 | x-ms-marketplace-token| Sim| O parâmetro de consulta token no URL quando o utilizador é redirecionado para o Web site de ISVS SaaS do Azure. **Nota:** Este token só é válido durante uma hora. Além disso, o URL descodificar o valor do token do navegador antes de o utilizar.|
 |  |  |  |
   
@@ -85,7 +85,7 @@ Quando um utilizador é redirecionado para o site de um ISV, o URL contém um to
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
-| ID                 | String        | ID da subscrição SaaS.          |
+| id                 | String        | ID da subscrição SaaS.          |
 | subscriptionName| String| Nome da subscrição SaaS definida pelo utilizador no Azure ao subscrever o serviço SaaS.|
 | OfferId            | String        | ID de oferta que o utilizador inscrito. |
 | planId             | String        | ID do plano nos quais o utilizador inscrito.  |
@@ -137,7 +137,7 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 | x-ms-correlationid     |   Não         | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Este valor é para correlacionar a todos os eventos da operação de cliente com eventos do lado do servidor. Se não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | If-Match/If-None-Match |   Não         |   Validador de valor de ETag forte.                                                          |
 | content-type           |   Sim        |    `application/json`                                                                   |
-|  Autorização         |   Sim        |    O JSON web token (JWT) token de portador.                                               |
+|  authorization         |   Sim        |    O JSON web token (JWT) token de portador.                                               |
 | x-ms-marketplace-session-mode| Não | Sinalizador para ativar o modo de execução ao subscrever uma oferta SaaS. Se definido, a subscrição não será cobrada. Isto é útil para cenários de teste de ISV. Defina-o como **'dryrun'**|
 |  |  |  |
 
@@ -202,7 +202,7 @@ O ponto de extremidade de alteração permite ao utilizador converter o seu plan
 | x-ms-correlationid      | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Este valor é para correlacionar a todos os eventos da operação de cliente com eventos do lado do servidor. Se não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | If-Match /If-None-Match | Não           | Validador de valor de ETag forte.                              |
 | content-type            | Sim          | `application/json`                                        |
-| Autorização           | Sim          | O JSON web token (JWT) token de portador.                    |
+| authorization           | Sim          | O JSON web token (JWT) token de portador.                    |
 |  |  |  |
 
 *Corpo*
@@ -264,7 +264,7 @@ A ação de eliminação no ponto de extremidade subscribe permite que um utiliz
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do cliente. Recomendamos um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Este valor é para correlacionar a todos os eventos da operação de cliente com eventos do lado do servidor. Se não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| Autorização      | Sim          | O JSON web token (JWT) token de portador.                    |
+| authorization      | Sim          | O JSON web token (JWT) token de portador.                    |
 |  |  |  |
 
 *Códigos de resposta*
@@ -314,7 +314,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do cliente. Recomendamos um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Este valor é para correlacionar a todos os eventos da operação de cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| Autorização      | Sim          | O JSON web token (JWT) token de portador.                    |
+| authorization      | Sim          | O JSON web token (JWT) token de portador.                    |
 |  |  |  | 
 
 *Corpo da resposta*
@@ -331,7 +331,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 
 | **Parameter name** (Nome do parâmetro) | **Tipo de dados** | **Descrição**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| ID                 | String        | ID da operação.                                                                      |
+| id                 | String        | ID da operação.                                                                      |
 | status             | Enum          | Estado da operação, um dos seguintes: `In Progress`, `Succeeded`, ou `Failed`.          |
 | resourceLocation   | String        | Ligação para a subscrição que foi criada ou modificada. Isto ajuda o cliente para obter a operação de mensagem de estado atualizado. Este valor não está definido para `Unsubscribe` operações. |
 | Criado            | DateTime      | Hora de criação de operação em UTC.                                                           |
@@ -382,7 +382,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do cliente, preferencialmente, um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Este valor é para correlacionar a todos os eventos da operação de cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| Autorização      | Sim          | O JSON web token (JWT) token de portador.                                                                    |
+| authorization      | Sim          | O JSON web token (JWT) token de portador.                                                                    |
 |  |  |  |
 
 *Corpo da resposta*
@@ -401,7 +401,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | String        | Recursos de subscrição de ID de SaaS no Azure.    |
+| id                     | String        | Recursos de subscrição de ID de SaaS no Azure.    |
 | offerId                | String        | ID de oferta que o utilizador inscrito.         |
 | planId                 | String        | ID do plano nos quais o utilizador inscrito.          |
 | saasSubscriptionName   | String        | Nome da subscrição SaaS.                |
@@ -454,7 +454,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do cliente. Recomendamos um GUID. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
 | x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Este valor é para correlacionar a todos os eventos da operação de cliente com eventos do lado do servidor. Se este valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| Autorização      | Sim          | O JSON web token (JWT) token de portador.                    |
+| authorization      | Sim          | O JSON web token (JWT) token de portador.                    |
 |  |  |  |
 
 *Corpo da resposta*
@@ -473,7 +473,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID                     | String        | Recursos de subscrição de ID de SaaS no Azure    |
+| id                     | String        | Recursos de subscrição de ID de SaaS no Azure    |
 | offerId                | String        | ID de oferta que o utilizador inscrito         |
 | planId                 | String        | ID do plano nos quais o utilizador inscrito          |
 | saasSubscriptionName   | String        | Nome da subscrição de SaaS                |
@@ -523,13 +523,13 @@ Um webhook de SaaS é utilizado para a notificação de alterações de forma pr
 
 | **Parameter name** (Nome do parâmetro)     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| ID  | String       | ID exclusivo para a operação acionada.                |
+| id  | String       | ID exclusivo para a operação acionada.                |
 | activityId   | String        | Um valor de cadeia de caracteres exclusivo para o pedido de controlo do serviço. Isto é utilizado para qualquer reconciliations.               |
 | subscriptionId                     | String        | Recursos de subscrição de ID de SaaS no Azure.    |
 | offerId                | String        | ID de oferta que o utilizador inscrito. É fornecido apenas com a ação "Update".        |
 | publisherId                | String        | ID de publicador da oferta SaaS         |
 | planId                 | String        | ID do plano nos quais o utilizador inscrito. É fornecido apenas com a ação "Update".          |
-| ação                 | String        | A ação que está disparando esta notificação. Valores possíveis - ativar, eliminar, atualização de suspensão, o restabelecimento,          |
+| action                 | String        | A ação que está disparando esta notificação. Valores possíveis - ativar, eliminar, atualização de suspensão, o restabelecimento,          |
 | timeStamp                 | String        | Valor de TImestamp em UTC em que esta notificação foi acionada.          |
 |  |  |  |
 

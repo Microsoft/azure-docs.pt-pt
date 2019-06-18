@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66299711"
 ---
 | Resource | Limite de máximo/predefinido |
@@ -42,4 +42,4 @@ ms.locfileid: "66299711"
 | 40 Gbps * |10 |100 |
 | Gbps de 100 * |10 |100 |
 
-* Apenas a Direct ExpressRoute
+\* Apenas a Direct ExpressRoute

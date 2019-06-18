@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0acef783b4877b5b1787f142aec6cc3588293f83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823355"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111463"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Lista de verificação do Microsoft identity platform integração
 
@@ -33,7 +33,7 @@ Se estiver apenas começando, veja a [documentação](index.yml) para saber mais
 
 Utilize a lista de verificação seguinte para se certificar de que seu aplicativo com eficiência é integrado com o [plataforma de identidade do Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 
-### <a name="basics"></a>Noções Básicas
+### <a name="basics"></a>Noções básicas
 
 |   |   |
 |---|---|
@@ -45,7 +45,7 @@ Utilize a lista de verificação seguinte para se certificar de que seu aplicati
 |---|---|
 | ![Caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Certifique-se de que as informações associadas à conta que utilizou para se registrar e gerir aplicações estão atualizadas. |
 
-### <a name="branding"></a>Personalização
+### <a name="branding"></a>Imagem corporativa
 
 |   |   |
 |---|---|
@@ -89,7 +89,7 @@ Utilize a lista de verificação seguinte para se certificar de que seu aplicati
 | ![Caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Registre-se o conjunto completo de permissões que a sua aplicação necessita para que os administradores podem conceder autorização facilmente ao seu inquilino. Uso [consentimento incremental](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) em tempo de execução para ajudar os utilizadores a compreender por que a aplicação está a pedir permissões que podem se ou confundir os usuários quando solicitada na primeira inicialização. |
 | ![Caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Implementar um [limpar a experiência de início de sessão único](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Ele é um requisito de segurança de privacidade e torna-se para uma boa experiência de utilizador. |
 
-### <a name="testing"></a>A testar
+### <a name="testing"></a>Testes
 
 |   |   |
 |---|---|

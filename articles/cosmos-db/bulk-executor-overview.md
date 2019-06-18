@@ -8,20 +8,20 @@ ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: e4357007ec1cfac2cf6a10d339c6b3aa3ae41488
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257107"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB em massa executor descrição geral da biblioteca
  
-O Azure Cosmos DB é um serviço de base de dados rápida, flexível e distribuído globalmente que foi concebido para dimensionar horizontalmente para dar suporte a: 
+O Azure Cosmos DB é um serviço de base de dados rápido, flexível e distribuído globalmente concebido para ampliar elasticamente de forma a suportar: 
 
-* Grande de leitura e escrita de débito (milhões de operações por segundo).  
-* Armazenar grandes volumes de (a centenas de terabytes ou até mesmo mais) dados transacionais e operacionais, com latência de milissegundo previsível.  
+* O débito de leitura e escrita elevado (milhões de operações por segundo).  
+* O armazenamento de grandes volumes (centenas de terabytes ou até mesmo mais) de dados transacionais e operacionais, com uma latência de milissegundos previsível.  
 
-A biblioteca de executor em massa ajuda-o a tirar partido deste armazenamento e débito em massa. A biblioteca de executor em massa permite-lhe efetuar em massa APIs de atualização de operações no Azure Cosmos DB através da importação em massa e em massa. Pode ler mais sobre os recursos da biblioteca de executor em massa nas seções a seguir. 
+A biblioteca de executor em massa ajuda-o a tirar partido deste armazenamento e débito massivo. A biblioteca de executor em massa permite-lhe realizar operações em massa no Azure Cosmos DB através de APIs de importação em massa e de atualização em massa. Pode ler mais sobre as funcionalidades da biblioteca de executor em massa nas seções a seguir. 
 
 > [!NOTE] 
 > Atualmente, a biblioteca de executor em massa suporta a importação e operações de atualização e esta biblioteca é suportada pelo apenas para contas de API de SQL do Azure Cosmos DB e a API do Gremlin.

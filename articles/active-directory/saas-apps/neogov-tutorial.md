@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 060492d2ed551ed0e90aaf3c1a373572c0c0ab73
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b8e208c8e5f1136ef5029e03b59a2f09e113dc3f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096352"
 ---
 # <a name="tutorial-integrate-neogov-with-azure-active-directory"></a>Tutorial: Integrar NEOGOV com o Azure Active Directory
 
@@ -85,7 +85,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
     | Ambiente | Padrão de URL |
     | -- | -- |
     | Produção | `https://www.neogov.com/` |
-    | Sandbox | `https://www.uat.neogov.net/` |
+    | Área de segurança | `https://www.uat.neogov.net/` |
     | | |
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
@@ -93,7 +93,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
     | Ambiente | Padrão de URL |
     | -- | -- |
     | Produção | `https://login.neogov.com/authentication/saml/consumer` |
-    | Sandbox | `https://login.uat.neogov.net/authentication/saml/consumer` |
+    | Área de segurança | `https://login.uat.neogov.net/authentication/saml/consumer` |
     | | |
 
 1. Aplicação de NEOGOV espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Aplicação NEOGOV espera **nameidentifier** seja mapeado com **user.objectid**, por isso terá de editar o mapeamento do atributo clicando no **editar** ícone e alterar o mapeamento do atributo.

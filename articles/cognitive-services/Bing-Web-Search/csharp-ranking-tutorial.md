@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
 ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384847"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Criar um cliente de pesquisa de aplicação de consola em c#

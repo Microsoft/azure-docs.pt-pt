@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
 ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65596257"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformação de um fluxo de dados de sink
@@ -27,7 +27,7 @@ Para todos os campos de entrada de sink, ative **automática mapa**. Para escolh
 
 ![Opções no separador de mapeamento](media/data-flow/sink2.png "sink 2")
 
-## <a name="output"></a>Resultado 
+## <a name="output"></a>Saída 
 Para armazenamento de Blobs do Azure ou tipos de sink de armazenamento do Data Lake, saída os dados transformados para uma pasta. Spark gera arquivos de dados de saída particionada com base no esquema de particionamento que utiliza a transformação de sink. 
 
 Pode definir o esquema de particionamento do **otimizar** separador. Se pretender que o Data Factory para intercalar o resultado num único arquivo, selecione **única partição**.

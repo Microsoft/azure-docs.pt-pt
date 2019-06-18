@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
 ms.openlocfilehash: 16770ea0a320b3d9f081cc21a102ab050a6467f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60736806"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitorização de métricas e registos no serviço de porta de entrada do Azure
@@ -31,14 +31,14 @@ As métricas são uma funcionalidade para determinados recursos do Azure que lhe
 
 | Métrica | Nome a apresentar de métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
-| RequestCount | Número de Pedidos | Contagem | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de pedidos de cliente servido por porta de entrada.  |
+| RequestCount | Número de Pedidos | Count | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de pedidos de cliente servido por porta de entrada.  |
 | RequestSize | Tamanho do pedido | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como pedidos de clientes para a porta de entrada. |
 | ResponseSize | Tamanho de resposta | Bytes | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O número de bytes enviados como respostas da porta de entrada para os clientes. |
 | TotalLatency | Latência total | Milissegundos | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | O tempo calculado no pedido de cliente recebidos pela porta da frente até que o cliente confirmados o último byte de resposta de porta de entrada. |
-| BackendRequestCount | Contagem de pedidos de back-end | Contagem | HttpStatus</br>HttpStatusGroup</br>Back-end | O número de pedidos enviados do porta de entrada para o back-ends. |
+| BackendRequestCount | Contagem de pedidos de back-end | Count | HttpStatus</br>HttpStatusGroup</br>Back-end | O número de pedidos enviados do porta de entrada para o back-ends. |
 | BackendRequestLatency | Latência de pedido de back-end | Milissegundos | Back-end | O tempo calculado a partir do quando o pedido foi enviado pela porta de entrada para o back-end até que a porta da frente recebido o último byte de resposta de back-end. |
 | BackendHealthPercentage | Percentagem de estado de funcionamento do back-end | Percentagem | Back-end</br>BackendPool | A percentagem de estado de funcionamento com êxito as sondas de porta de entrada para o back-ends. |
-| WebApplicationFirewallRequestCount | Contagem de pedidos de Firewall de aplicação Web | Contagem | PolicyName</br>RuleName</br>Ação | O número de pedidos de clientes processados pela segurança de camada de aplicativo de porta de entrada. |
+| WebApplicationFirewallRequestCount | Contagem de pedidos de Firewall de aplicação Web | Count | PolicyName</br>RuleName</br>Ação | O número de pedidos de clientes processados pela segurança de camada de aplicativo de porta de entrada. |
 
 ## <a name="activity-log"></a>Registos de atividades
 

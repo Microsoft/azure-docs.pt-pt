@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 74c24e05d974c4b3bb15a242185b645231f74580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65792773"
 ---
 # <a name="azure-storage-security-overview"></a>Descrição geral da segurança de armazenamento do Azure
@@ -85,7 +85,7 @@ O Azure Disk Encryption para máquinas virtuais ajuda-o a segurança organizacio
 
 Encriptação de disco para VMs funciona para sistemas operativos Linux e Windows. Também utiliza o Key Vault para o ajudar a salvaguardar, gerir e auditar a utilização das suas chaves de encriptação de disco. Todos os dados em seus discos VM são encriptados em descanso através da tecnologia de encriptação de norma da indústria nas suas contas de armazenamento do Azure. A solução de encriptação de disco para o Windows baseia [Microsoft BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx), e a solução do Linux é baseada em [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-Saber mais
+Saiba mais
 
 * [Azure Disk Encryption para Windows e máquinas virtuais Linux IaaS](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
@@ -123,6 +123,6 @@ Saiba mais:
 
 Utiliza o Azure Disk Encryption [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para ajudar a controlar e gerir chaves de encriptação de disco e segredos na sua subscrição do Cofre de chaves. Também garante que todos os dados nos discos da máquina virtual são encriptados em inatividade no armazenamento do Azure. Deve utilizar o Cofre de chaves para chaves e a utilização da política de auditoria.
 
-Saber mais
+Saiba mais
 
 * [O que é o Azure Key Vault?](../key-vault/key-vault-overview.md)

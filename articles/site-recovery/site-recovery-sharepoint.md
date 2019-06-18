@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61472116"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas para recuperação após desastre com o Azure Site Recovery
@@ -65,7 +65,7 @@ Para a criação deste artigo, máquinas virtuais VMware com o Windows Server 20
 **Hyper-V** | Sim | Sim
 **VMware** | Sim | Sim
 **Servidor físico** | Sim | Sim
-**Azure** | ND | Sim
+**Azure** | N/D | Sim
 
 ### <a name="sharepoint-versions"></a>Versões do SharePoint
 São suportadas as seguintes versões de servidor do SharePoint.
@@ -93,7 +93,7 @@ Siga [esta orientação](site-recovery-vmware-to-azure.md) para iniciar a replic
 
 ## <a name="networking-configuration"></a>Configuração de rede
 
-### <a name="network-properties"></a>Propriedades da rede
+### <a name="network-properties"></a>Propriedades de rede
 
 * Para a aplicação e as VMs de camada Web, configure as definições de rede no portal do Azure para que as VMs são anexadas à rede certa DR após a ativação pós-falha.
 

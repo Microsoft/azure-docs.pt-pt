@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65029764"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Exceções e códigos de erro de algoritmo de & referência do módulo
@@ -1192,7 +1192,7 @@ Veja os artigos seguintes para obter ajuda com consultas do Hive para machine le
   
  Se existir uma mensagem SQL gerado comunicada pela exceção de módulo, agir com base no erro comunicado. Por exemplo, as mensagens de erro incluem, por vezes, obter instruções específicas sobre a probabilidade de erro:
 + *Não existe esse coluna ou a base de dados em falta*, indicando que pode ter escrito um nome de coluna errado. Se tiver a certeza de que o nome de coluna está correto, tente utilizar parênteses ou aspas delimitar o identificador de coluna.
-+ *Erro de lógica SQL junto \<palavra-chave SQL\>*, indicando que poderá ter um erro de sintaxe antes da palavra-chave especificada
++ *Erro de lógica SQL junto \<palavra-chave SQL\>* , indicando que poderá ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de exceção|  

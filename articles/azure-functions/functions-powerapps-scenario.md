@@ -13,10 +13,10 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65786120"
 ---
 # <a name="call-a-function-from-powerapps"></a>Chamar uma função a partir do PowerApps
@@ -82,7 +82,7 @@ Agora, está pronto para criar a aplicação no PowerApps e adicionar os dados d
 
     **(B) painel meio**, que mostra o ecrã que está a trabalhar no
 
-    **Painel direito (C)**, onde define opções como o layout e origens de dados
+    **Painel direito (C)** , onde define opções como o layout e origens de dados
 
     **(D) propriedade** na lista pendente, onde pode selecionar as propriedades que as fórmulas se aplicam a
 

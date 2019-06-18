@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66116917"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Como criar uma VNet clássica, utilizando a CLI do Azure
@@ -32,12 +32,12 @@ Pode utilizar a CLI do Azure para gerir os seus recursos do Azure na linha de co
             info:    network vnet create command OK
    
    * **--vnet**. Nome da VNet a ser criada. Para o cenário, *TestVNet*
-   * **-e (ou --espaço de endereços)**. Espaço de endereços da VNet. Para o cenário, *192.168.0.0*
-   * **-i (ou - cidr)**. Máscara de rede no formato CIDR. Para o cenário *16*.
+   * **-e (ou --espaço de endereços)** . Espaço de endereços da VNet. Para o cenário, *192.168.0.0*
+   * **-i (ou - cidr)** . Máscara de rede no formato CIDR. Para o cenário *16*.
    * **-n (ou --nome da sub-rede**). Nome da sub-rede primeiro. Para o cenário *front-end*.
-   * **-p (ou --ip de início de sub-rede)**. Endereço IP inicial para a sub-rede ou espaço de endereços da sub-rede. Para o cenário *192.168.1.0*.
-   * **-r (ou --cidr de sub-rede)**. Máscara de rede no formato CIDR para a sub-rede. Para o cenário *24*.
-   * **-l (ou --location)**. Região do Azure onde a VNet é criada. Para o cenário *E.U.A. Central*.
+   * **-p (ou --ip de início de sub-rede)** . Endereço IP inicial para a sub-rede ou espaço de endereços da sub-rede. Para o cenário *192.168.1.0*.
+   * **-r (ou --cidr de sub-rede)** . Máscara de rede no formato CIDR para a sub-rede. Para o cenário *24*.
+   * **-l (ou --location)** . Região do Azure onde a VNet é criada. Para o cenário *E.U.A. Central*.
 3. Para criar uma sub-rede, execute o **criar a sub-rede de vnet de rede do azure** comando:
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
@@ -55,8 +55,8 @@ Pode utilizar a CLI do Azure para gerir os seus recursos do Azure na linha de co
             info:    network vnet subnet create command OK
    
    * **-t (or --vnet-name**. Nome da VNet onde a sub-rede será criada. Para o cenário *TestVNet*.
-   * **-n (ou --name)**. Nome da nova sub-rede. Para o cenário *back-end*.
-   * **-a (or --address-prefix)**. Bloco CIDR da sub-rede. Para o cenário *192.168.2.0/24*.
+   * **-n (ou --name)** . Nome da nova sub-rede. Para o cenário *back-end*.
+   * **-a (or --address-prefix)** . Bloco CIDR da sub-rede. Para o cenário *192.168.2.0/24*.
 4. Para ver as propriedades da nova vnet, execute o **show de vnet de rede do azure** comando:
    
             azure network vnet show

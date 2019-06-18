@@ -12,10 +12,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
 ms.openlocfilehash: b4c22caae86e20b8379db2b7feffb1ca82001239
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753153"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Criar e aceder a conjuntos de dados (pré-visualização) no Azure Machine Learning

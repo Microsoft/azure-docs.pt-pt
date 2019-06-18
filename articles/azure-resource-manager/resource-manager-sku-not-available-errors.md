@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/19/2018
 ms.author: tomfitz
 ms.openlocfilehash: 1dd0532452c3558e53f0236998953d2055ed328c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60390771"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Resolver erros de SKU não disponível

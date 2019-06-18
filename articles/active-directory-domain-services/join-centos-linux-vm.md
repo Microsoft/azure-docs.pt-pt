@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: mstephen
 ms.openlocfilehash: 23046dc356097a7b8cdbbc91c05a6419fc52d19f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246078"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Junte-se a uma máquina virtual CentOS Linux a um domínio gerido

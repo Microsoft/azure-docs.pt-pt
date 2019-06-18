@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 67caaa2c6c9bd615d0b88bdd5de3442b46aa32cb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403498"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64415170"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Gerir um dispositivo de Gateway de caixa de dados do Azure através do Windows PowerShell
 

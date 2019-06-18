@@ -11,27 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 432703b5acb4cd56dac9b25edf99165ca26b0aa0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
-ms.locfileid: "60197141"
+ms.locfileid: "67118277"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Compreender negar atribuições para recursos do Azure
 
-Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo ou principal de serviço num determinado âmbito para efeitos de negar o acesso. Negar atribuições impedir que os utilizadores de executarem ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Alguns recursos de fornecedores no Azure incluem agora negar atribuições.
-
-De certa forma, negar atribuições são diferentes de atribuições de funções. Negar atribuições podem excluir entidades de segurança e impedir a herança para âmbitos subordinados. Negar atribuições também se aplicam ao [administrador de subscrição clássica](rbac-and-directory-admin-roles.md) atribuições.
+Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo ou principal de serviço num determinado âmbito para efeitos de negar o acesso. Negar atribuições impedir que os utilizadores de executarem ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso.
 
 Este artigo descreve como negar atribuições são definidas.
 
-> [!NOTE]
-> Neste momento, a única maneira que pode adicionar seus próprios negar atribuições é através da utilização do Azure esquemas. Para obter mais informações, consulte [proteger os recursos novos com bloqueios de recursos do Azure esquemas](../governance/blueprints/tutorials/protect-new-resources.md).
+## <a name="how-deny-assignments-are-created"></a>Como negar atribuições são criadas
+
+Negar atribuições são criadas e geridas pelo Azure para proteger os recursos. Por exemplo, planos de gráficos do Azure e Azure aplicações geridas por utilização negar atribuições para proteger os recursos gerenciados pelo sistema. Para obter mais informações, consulte [proteger os recursos novos com bloqueios de recursos do Azure esquemas](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="compare-role-assignments-and-deny-assignments"></a>Comparar as atribuições de funções e as atribuições de negação
+
+Negar atribuições seguem um padrão semelhante como negar atribuições, mas também tem algumas diferenças.
+
+| Funcionalidade | Atribuição de função | Atribuição de negação |
+| --- | --- | --- |
+| Conceder acesso | :heavy_check_mark: |  |
+| Negar o acesso |  | :heavy_check_mark: |
+| Podem ser criados diretamente | :heavy_check_mark: |  |
+| Aplicam-se a um âmbito | :heavy_check_mark: | :heavy_check_mark: |
+| Excluir entidades de segurança |  | :heavy_check_mark: |
+| Impedir a herança para âmbitos subordinados |  | :heavy_check_mark: |
+| Aplicar a [administrador de subscrição clássica](rbac-and-directory-admin-roles.md) atribuições |  | :heavy_check_mark: |
 
 ## <a name="deny-assignment-properties"></a>Propriedades de atribuição de negação
 
@@ -54,14 +67,24 @@ Este artigo descreve como negar atribuições são definidas.
 > | `ExcludePrincipals[i].Type` | Não | String[] | Uma matriz de tipos de objeto representado pelo Direi ExcludePrincipals [i]. |
 > | `IsSystemProtected` | Não | Boolean | Especifica se negar atribuição foi criada pelo Azure e não pode ser editada ou eliminada. Atualmente, todos negar atribuições são protegido do sistema. |
 
-## <a name="system-defined-principal"></a>Principal de definidos pelo sistema
+## <a name="the-all-principals-principal"></a>O principal de todos os principais
 
-Para suporte negar atribuições, o **System-Defined Principal** foi introduzido. Este principal de representa todos os utilizadores, grupos, os principais de serviço e identidades geridas num diretório do Azure AD. Se o ID de principal é um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo de principal é `SystemDefined`, o principal representa todas as entidades. `SystemDefined` pode ser combinado com `ExcludePrincipals` para negar a todos os principais, exceto alguns usuários. `SystemDefined` tem as seguintes restrições:
+Para suporte negar atribuições, um principal de definidos pelo sistema de mensagens em fila com o nome *todos os principais* foi introduzido. Este principal de representa todos os utilizadores, grupos, os principais de serviço e identidades geridas num diretório do Azure AD. Se o ID de principal é um zero GUID `00000000-0000-0000-0000-000000000000` e o tipo de principal é `SystemDefined`, o principal representa todas as entidades. Na saída do Azure PowerShell, todos os principais é semelhante ao seguinte:
+
+```azurepowershell
+Principals              : {
+                          DisplayName:  All Principals
+                          ObjectType:   SystemDefined
+                          ObjectId:     00000000-0000-0000-0000-000000000000
+                          }
+```
+
+Todas as entidades podem ser combinadas com `ExcludePrincipals` para negar a todos os principais, exceto alguns usuários. Todos os principais tem as seguintes restrições:
 
 - Pode ser utilizada apenas num `Principals` e não é possível utilizar `ExcludePrincipals`.
 - `Principals[i].Type` tem de ser definido como `SystemDefined`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Vista de negar atribuições para recursos do Azure no portal do Azure](deny-assignments-portal.md)
+* [Lista negar atribuições para recursos do Azure no portal do Azure](deny-assignments-portal.md)
 * [Compreender as definições de funções para recursos do Azure](role-definitions.md)

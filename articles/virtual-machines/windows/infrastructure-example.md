@@ -17,10 +17,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60540407"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Infraestrutura do Azure de exemplo passo a passo para VMs do Windows
@@ -55,8 +55,8 @@ Todos os anteriores, siga essas convenções de nomenclatura:
 * Adventure Works Cycles utiliza **[carga de trabalho do IT]-[local]-[recursos do Azure]** como um prefixo
   * Neste exemplo, "**azos**" (Store de Online do Azure) é o nome da carga de trabalho de TI e "**utilizar**" (E.U.A. Leste 2) é a localização
 * Redes virtuais utilizam AZOS-USE-VN **[número]**
-* Conjuntos de disponibilidade utilizam azos-use-como-**[função]**
-* Nomes de máquina virtual utilizam azos-use-vm -**[vmname]**
+* Conjuntos de disponibilidade utilizam azos-use-como- **[função]**
+* Nomes de máquina virtual utilizam azos-use-vm - **[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Contas e subscrições do Azure
 Adventure Works Cycles está a utilizar a subscrição do Enterprise, com o nome Adventure Works Enterprise Subscription, para fornecer a faturação para esta carga de trabalho IT.

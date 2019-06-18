@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: f0ae734ac8814cc605ce03756fde5545c77c837d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 18aeaccef724ba94a9c18240fb77ea33897e8d26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063875"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como utilizar tópicos do Service Bus e as subscrições com PHP
 
@@ -51,7 +51,23 @@ O único requisito para criar uma aplicação PHP que acede ao serviço de Blobs
 Este artigo descreve como utilizar funcionalidades de serviço que podem ser chamadas dentro de um aplicativo PHP localmente ou em código em execução dentro de uma função da web do Azure, a função de trabalho ou o Web site.
 
 ## <a name="get-the-azure-client-libraries"></a>Obter bibliotecas de cliente do Azure
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+
+### <a name="install-via-composer"></a>Instalar através do compositor
+1. Crie um ficheiro denominado **Composer. JSON** na raiz do seu projeto e adicione o seguinte código ao mesmo:
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. Baixe **[composer.phar] [Compositor phar]** na raiz do projeto.
+3. Abra uma linha de comandos e execute o seguinte comando na raiz do projeto
+   
+    ```
+    php composer.phar install
+    ```
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar a sua aplicação para utilizar o Service Bus
 Para utilizar as APIs de barramento de serviço:
@@ -67,7 +83,7 @@ O exemplo seguinte mostra como incluir o ficheiro de Carregador automático e a 
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 

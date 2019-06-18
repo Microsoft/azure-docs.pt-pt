@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
 ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65850403"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalar e utilizar Istio no Azure Kubernetes Service (AKS)
@@ -195,7 +195,7 @@ Bash
 kubectl get crds | grep 'istio.io' | wc -l
 ```
 
-Powershell
+PowerShell
 
 ```powershell
 (kubectl get crds | Select-String -Pattern 'istio.io').Count
@@ -324,7 +324,7 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
   --set kiali.enabled=true
 ```
 
-Powershell
+PowerShell
 
 ```powershell
 helm install install/kubernetes/helm/istio --name istio --namespace istio-system `
@@ -517,7 +517,7 @@ Bash
 kubectl get crds -o name | grep 'istio.io' | xargs -n1 kubectl delete
 ```
 
-Powershell
+PowerShell
 ```powershell
 kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete $_ }
 ```

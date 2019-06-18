@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60629310"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos de sistema da Matriz Virtual StorSimple
@@ -94,10 +94,10 @@ A tabela seguinte lista as portas que têm de ser aberta na firewall para permit
 
 | **N º de porta<sup>1</sup>** | **Dentro ou para fora** | **Âmbito de porta** | **Necessário** | **Notas** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Saída |WAN |Não |Porta de saída é utilizada para acesso à Internet para obter atualizações. <br></br>O proxy da web de saída é configurável de utilizador. |
-| TCP 443 (HTTPS) |Saída |WAN |Sim |Porta de saída é utilizada para aceder aos dados na cloud. <br></br>O proxy da web de saída é configurável de utilizador. |
-| UDP 53 (DNS) |Saída |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor DNS baseado na Internet. <br></br> Tenha em atenção que se implementar um servidor de ficheiros, recomendamos que utilize o servidor DNS local. |
-| UDP 123 (NTP) |Saída |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor NTP baseado na Internet.<br></br> Tenha em atenção que se implementar um servidor de ficheiros, recomendamos que a sincronização de hora com os controladores de domínio do Active Directory. |
+| TCP 80 (HTTP) |horizontalmente |WAN |Não |Porta de saída é utilizada para acesso à Internet para obter atualizações. <br></br>O proxy da web de saída é configurável de utilizador. |
+| TCP 443 (HTTPS) |horizontalmente |WAN |Sim |Porta de saída é utilizada para aceder aos dados na cloud. <br></br>O proxy da web de saída é configurável de utilizador. |
+| UDP 53 (DNS) |horizontalmente |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor DNS baseado na Internet. <br></br> Tenha em atenção que se implementar um servidor de ficheiros, recomendamos que utilize o servidor DNS local. |
+| UDP 123 (NTP) |horizontalmente |WAN |Em alguns casos; consulte as notas. |Esta porta é necessária apenas se estiver a utilizar um servidor NTP baseado na Internet.<br></br> Tenha em atenção que se implementar um servidor de ficheiros, recomendamos que a sincronização de hora com os controladores de domínio do Active Directory. |
 | TCP 80 (HTTP) |Em |LAN |Sim |Esta é a porta de entrada para a interface do Usuário local no dispositivo StorSimple para gestão local. <br></br> Tenha em atenção que a interface do Usuário local a aceder através de HTTP será automaticamente redirecionada para HTTPS. |
 | TCP 443 (HTTPS) |Em |LAN |Sim |Esta é a porta de entrada para a interface do Usuário local no dispositivo StorSimple para gestão local. |
 | TCP 3260 (iSCSI) |Em |LAN |Não |Esta porta é utilizada para aceder aos dados através de iSCSI. |
@@ -123,7 +123,7 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 
 | Padrão de URL | Componente/funcionalidade |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de Autenticação|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acesso<br>Service Bus do Azure<br>Serviço de autenticação|
 | `http://*.backup.windowsazure.com` |Registo de dispositivo |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação de certificados |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento do Azure e monitorização |

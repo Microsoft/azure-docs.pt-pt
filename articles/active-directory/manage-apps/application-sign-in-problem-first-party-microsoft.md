@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 7ee8802aeb2a760e255ab4f5e99010dfedc45e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956855"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108305"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao iniciar sessão para uma aplicação da Microsoft
 
@@ -67,7 +67,7 @@ Seguem-se alguns problemas comuns pessoal se deparar com seus usuários que não
 
   * Certifique-se **multi-factor Authentication** não está a bloquear o acesso dos utilizadores. [Verificar o estado da autenticação multifator de um usuário](#check-a-users-multi-factor-authentication-status) ou [verificar informações de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info)
 
-  * Certifique-se de um **política de acesso condicional** ou **Identity Protection** política não está a bloquear o acesso de utilizador. [Verificar uma política de acesso condicional específico](#problems-with-conditional-access-policies) ou [Verifique a política de acesso condicional de uma aplicação específica](#check-a-specific-applications-conditional-access-policy) ou [desativar uma política de acesso condicional específico](#disable-a-specific-conditional-access-policy)
+  * Certifique-se de um **política de acesso condicional** ou **Identity Protection** política não está a bloquear o acesso de utilizador. [Verificar uma política de acesso condicional específica](#problems-with-conditional-access-policies) ou [Verifique a política de acesso condicional de uma aplicação específica](#check-a-specific-applications-conditional-access-policy) ou [desativar uma política de acesso condicional específica](#disable-a-specific-conditional-access-policy)
 
   * Certifique-se de que um usuário **informações de contacto de autenticação** está atualizada para permitir que as políticas de acesso condicional ou de multi-factor Authentication sejam impostas. [Verificar o estado da autenticação multifator de um usuário](#check-a-users-multi-factor-authentication-status) ou [verificar informações de contacto de autenticação de um utilizador](#check-a-users-authentication-contact-info)
 
@@ -419,9 +419,9 @@ Para atribuir uma licença a um grupo, siga estes passos:
 
 ## <a name="problems-with-conditional-access-policies"></a>Problemas com políticas de acesso condicional
 
-### <a name="check-a-specific-conditional-access-policy"></a>Verificar uma política de acesso condicional específico
+### <a name="check-a-specific-conditional-access-policy"></a>Verificar uma política de acesso condicional específica
 
-Para verificar ou validar uma política de acesso condicional único:
+Para verificar ou validar uma única política de acesso condicional:
 
 1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
@@ -474,9 +474,9 @@ Para verificar ou validar um único aplicativo atualmente configurado a polític
      >
      >
 
-### <a name="disable-a-specific-conditional-access-policy"></a>Desativar uma política de acesso condicional específico
+### <a name="disable-a-specific-conditional-access-policy"></a>Desativar uma política de acesso condicional específica
 
-Para verificar ou validar uma política de acesso condicional único:
+Para verificar ou validar uma única política de acesso condicional:
 
 1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
 
@@ -512,7 +512,7 @@ Acesso da aplicação pode ser bloqueado porque não ocorreu a operação de con
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Efetuar a operação de consentimento de nível de administrador para qualquer aplicação
 
--   Para **apenas os aplicativos desenvolvidos com o modelo de aplicativo V1**, pode forçar esta consentimento de nível de administrador para ocorrer ao adicionar "**? = prompt de administrador\_consentimento**" ao final de um início de sessão da aplicação no URL.
+-   Para **apenas os aplicativos desenvolvidos com o modelo de aplicativo V1**, pode forçar esta consentimento de nível de administrador para ocorrer ao adicionar " **? = prompt de administrador\_consentimento**" ao final de um início de sessão da aplicação no URL.
 
 -   Para **qualquer aplicativo desenvolvido usando o modelo de aplicação V2**, pode impor este consentimento de nível de administrador para ocorrer ao seguir as instruções no **solicitar as permissões de um administrador do diretório** secção do [utilizando o ponto de extremidade de consentimento do admin](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 

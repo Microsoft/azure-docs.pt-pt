@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60551995"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure utilizando o controlo de acesso baseado em funções
@@ -36,7 +36,7 @@ Com baseada em funções controlo de acesso (RBAC), pode atribuir utilizadores a
 
 * subscrição
 * grupo de recursos
-* Recurso
+* resource
 
 As permissões de que atribuição são herdadas da subscrição para baixo para o recurso. O dashboard publicado é um recurso. Por conseguinte, pode já ter utilizadores atribuídos a funções para a subscrição que também funcionam para o dashboard publicado. 
 

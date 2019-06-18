@@ -8,10 +8,10 @@ ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
 ms.openlocfilehash: 865e0679ed05823d115baeb9eea3c01d7fb5f2a5
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428473"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora

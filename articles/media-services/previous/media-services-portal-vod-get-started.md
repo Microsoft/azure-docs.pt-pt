@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 5df666dc2bd574c168d6b5f65dd6a909564a921f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64868431"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução à entrega de conteúdos a pedido com o portal do Azure
@@ -101,8 +101,8 @@ Para monitorizar o progresso da tarefa de codificação, na parte superior da p�
 ## <a name="publish-content"></a>Publicar conteúdo
 Para fornecer ao seu utilizador um URL que ele possa utilizar para transmitir ou transferir o seu conteúdo, tem primeiro de publicar o elemento mediante a criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Serviços de Multimédia do Azure suportam dois tipos de localizadores: 
 
-* **Localizadores de transmissão em fluxo (OnDemandOrigin)**. Os localizadores de transmissão em fluxo são utilizados para transmissões em velocidade adaptável. Alguns exemplos de transmissões em fluxo de velocidade adaptável incluem HLS, Smooth Streaming e MPEG-DASH. Para criar um localizador de transmissão em fluxo, o seu elemento tem de incluir um ficheiro .ism. 
-* **Localizadores progressivos (assinatura de acesso partilhado)**. Os localizadores progressivos são utilizados para entregar vídeos através de transferências progressivas.
+* **Localizadores de transmissão em fluxo (OnDemandOrigin)** . Os localizadores de transmissão em fluxo são utilizados para transmissões em velocidade adaptável. Alguns exemplos de transmissões em fluxo de velocidade adaptável incluem HLS, Smooth Streaming e MPEG-DASH. Para criar um localizador de transmissão em fluxo, o seu elemento tem de incluir um ficheiro .ism. 
+* **Localizadores progressivos (assinatura de acesso partilhado)** . Os localizadores progressivos são utilizados para entregar vídeos através de transferências progressivas.
 
 Para compilar um URL de transmissão em fluxo HLS, acrescente *(format=m3u8-aapl)* ao URL.
 

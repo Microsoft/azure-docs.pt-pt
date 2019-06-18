@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
 ms.openlocfilehash: 5e755a528d91d6321f431f256eafdcb01e67d601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60399053"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP

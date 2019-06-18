@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec18
 ms.openlocfilehash: 62c3b35f80300a38213b089567c3f63a8a2ce8db
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235060"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente do Time Series Insights com o portal do Azure

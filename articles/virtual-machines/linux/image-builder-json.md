@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65538298"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens do Azure 
@@ -59,7 +59,7 @@ A localização é a região onde a imagem personalizada será criada. Para a pr
 - EUA Leste 2
 - EUA Centro-Oeste
 - EUA Oeste
-- E.U.A. Oeste 2
+- EUA Oeste 2
 
 
 ```json
@@ -76,7 +76,7 @@ Esta secção opcional pode ser utilizada para garantir que as dependências sã
 
 Para obter mais informações, consulte [definir as dependências de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
-## <a name="identity"></a>Identidade
+## <a name="identity"></a>identidade
 Por predefinição, suporta de construtor de imagens utilizando scripts ou copiar ficheiros a partir de várias localizações, como o armazenamento do GitHub e o Azure. Para as utilizar, têm de ser acessíveis publicamente.
 
 Também pode utilizar uma identidade gerida de Azure User-Assigned, definida por si, para permitir o acesso de construtor de imagens armazenamento do Azure, desde que a identidade recebeu um mínimo de "Leitor de dados de Blob de armazenamento" na conta de armazenamento do Azure. Isso significa que não é necessário tornar os blobs de armazenamento acessíveis externamente ou Tokens de SAS de configuração.
