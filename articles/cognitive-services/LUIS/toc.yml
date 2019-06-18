@@ -85,12 +85,24 @@
           displayName: roles
         - name: Extrair dados sem formulário
           href: luis-tutorial-pattern-any.md
-    - name: Utilizar o Bot Framework V4
+    - name: Utilizar com o bot
       items:
         - name: 'Com C#'
-          href: luis-csharp-tutorial-bf-v4.md
+          items:
+            - name: 1. Criar bot básico
+              href: luis-csharp-tutorial-bf-v4.md
+              displayName: 'bot framework, framework, sdk, abs'
+            - name: 2. Adicionar Telemetria ao Application Insights
+              href: luis-tutorial-bot-csharp-appinsights.md
+              displayName: 'Application insight, kusto'
         - name: Com o Node.js
-          href: luis-nodejs-tutorial-bf-v4.md
+          items:
+            - name: 1. Criar bot básico
+              displayName: 'bot framework, framework, sdk, abs'
+              href: luis-nodejs-tutorial-bf-v4.md
+            - name: 2. Adicionar Telemetria ao Application Insights
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-nodejs-appinsights.md
 - name: Amostras
   items:
     - name: Exemplos de código
@@ -200,14 +212,6 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: Com o serviço de Voz
           href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-        - name: Bot com o Application Insights
-          items:
-            - name: Node.js
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-nodejs-appinsights.md
-            - name: 'C#'
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-csharp-appinsights.md
     - name: Melhorar a precisão da predição
       items:
         - name: Utilizar o dashboard

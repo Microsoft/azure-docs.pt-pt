@@ -4,6 +4,11 @@
   items:
     - name: O que é o Apache Storm no HDInsight?
       href: apache-storm-overview.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Criar a topologia do Apache Storm no HDInsight
+      href: ./apache-storm-quickstart.md
 - name: Introdução
   items:
     - name: Criar um cluster do Apache Storm

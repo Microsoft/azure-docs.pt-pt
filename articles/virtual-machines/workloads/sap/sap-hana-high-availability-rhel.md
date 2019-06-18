@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922138"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
@@ -28,18 +28,18 @@ ms.locfileid: "64922138"
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[2292690]:https://launchpad.support.sap.com/#/notes/2292690
-[2455582]:https://launchpad.support.sap.com/#/notes/2455582
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[2292690]: https://launchpad.support.sap.com/#/notes/2292690
+[2455582]: https://launchpad.support.sap.com/#/notes/2455582
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
@@ -109,7 +109,7 @@ Para implementar o modelo, siga estes passos:
     * **Tamanho do sistema de SAP**: Introduza o número de SAPS que irá fornecer o novo sistema. Se não tiver certeza SAPS quantos requer que o sistema, peça ao seu parceiro de tecnologia de SAP ou integrador de sistemas.
     * **Disponibilidade do sistema**: Selecione **HA**.
     * **Chave de nome de utilizador administrador, a palavra-passe de administrador ou SSH**: Um novo utilizador é criado que pode ser utilizado para iniciar sessão máquina.
-    * **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID, normalmente, é semelhante **/subscriptions/\<ID da subscrição > /resourceGroups/\<nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual > /subnets/ \<nome da sub-rede >**. Deixe em branco, se quiser criar uma nova rede virtual
+    * **ID de sub-rede**: Se pretender implementar a VM para uma VNet já existente em que tem uma sub-rede definida a VM deve ser atribuída para nomear o ID dessa sub-rede. O ID, normalmente, é semelhante **/subscriptions/\<ID da subscrição > /resourceGroups/\<nome do grupo de recursos > /providers/Microsoft.Network/virtualNetworks/\<nome da rede virtual > /subnets/ \<nome da sub-rede >** . Deixe em branco, se quiser criar uma nova rede virtual
 
 ### <a name="manual-deployment"></a>Implementação manual
 
@@ -191,11 +191,11 @@ Para obter mais informações sobre as portas necessárias para o SAP HANA, leia
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]**: A etapa se aplica a todos os nós.
-* **[1]**: A etapa se aplica ao nó 1 apenas.
-* **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[A]** : A etapa se aplica a todos os nós.
+* **[1]** : A etapa se aplica ao nó 1 apenas.
+* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
-1. **[A]**  Configurar o layout de disco: **Gestor de volumes lógicos (LVM)**.
+1. **[A]**  Configurar o layout de disco: **Gestor de volumes lógicos (LVM)** .
 
    Recomendamos que utilize LVM para volumes que armazenam dados e ficheiros de registo. O exemplo seguinte parte do princípio de que as máquinas virtuais tem quatro discos de dados que ligados, que são utilizados para criar dois volumes.
 
@@ -352,9 +352,9 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]**: A etapa se aplica a todos os nós.
-* **[1]**: A etapa se aplica ao nó 1 apenas.
-* **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[A]** : A etapa se aplica a todos os nós.
+* **[1]** : A etapa se aplica ao nó 1 apenas.
+* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[A]**  Configurar a firewall
 
@@ -443,9 +443,9 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]**: A etapa se aplica a todos os nós.
-* **[1]**: A etapa se aplica ao nó 1 apenas.
-* **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[A]** : A etapa se aplica a todos os nós.
+* **[1]** : A etapa se aplica ao nó 1 apenas.
+* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[A]**  Configurar a firewall
 

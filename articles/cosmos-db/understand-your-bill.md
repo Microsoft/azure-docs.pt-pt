@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65965631"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a sua fatura do Azure Cosmos DB
@@ -28,7 +28,7 @@ Este artigo utiliza alguns exemplos para ajudar a compreender os detalhes que co
 
 * Vamos supor que configurar um débito de 1.000 RU/seg num contêiner, e existe durante 24 horas * 30 dias do mês = 720 horas total.  
 
-* 1.000 RU/seg é de 10 unidades de 100 RU/seg por hora por cada hora, os contentores existe (ou seja, 1000/100 = 10). 
+* 1\.000 RU/seg é de 10 unidades de 100 RU/seg por hora por cada hora, os contentores existe (ou seja, 1000/100 = 10). 
 
 * Multiplicar 10 unidades por hora pelo custo de US $0.008 (por 100 RU/seg por hora) = 0,08 us $ por hora. 
 
@@ -214,7 +214,7 @@ Vejamos outro exemplo, o qual pretende calcular proativamente a sua fatura antes
 |----|----|----|----|
 |Tipo de Operação| Pedidos/seg| Média RU/pedido| RUs necessário|
 |Escrita| 100 | 5 | 500|
-|Ler| 400| 1| 400|
+|Leitura| 400| 1| 400|
 
 Total de RU/s: 500 + 400 = 900 custo por hora: 900/100 * US $0.008 = US $0.072 esperado custo mensal de débito (assumindo 31 dias): $0.072 * 24 * 31 = us $53.57
 

@@ -115,12 +115,8 @@
       href: visualizations.md
     - name: Integrações de parceiros
       href: platform/partners.md
-    - name: Transição de portal do OMS
-      items:
-        - name: Descrição geral
-          href: platform/oms-portal-transition.md
-        - name: Perguntas comuns
-          href: platform/oms-portal-faq.md
+    - name: Descontinuação do portal do OMS
+      href: platform/oms-portal-transition.md
     - name: FAQ
       items:
         - name: Log Analytics
@@ -249,6 +245,8 @@
               items:
                 - name: Extensão de VM do Log Analytics
                   href: platform/vmext-troubleshoot.md
+                - name: Agente do Windows do Log Analytics
+                  href: platform/agent-windows-troubleshoot.md
                 - name: Agente do Linux do Log Analytics
                   href: platform/agent-linux-troubleshoot.md
         - name: Origens de dados do agente
@@ -985,6 +983,8 @@
           href: app/nuget.md
         - name: Suporte da plataforma
           href: app/platforms.md
+        - name: Substituições de ponto final
+          href: app/custom-endpoints.md
     - name: Modelo de dados do Application Insights
       items:
         - name: Descrição geral

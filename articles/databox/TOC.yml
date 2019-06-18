@@ -111,8 +111,16 @@
           items:
             - name: Gerir através do portal do Azure
               href: data-box-portal-ui-admin.md
-            - name: Resolver problemas do Data Box Disk
-              href: data-box-disk-troubleshoot.md
+            - name: Resolução de problemas
+              items:
+                - name: Desbloquear problemas
+                  href: data-box-disk-troubleshoot-unlock.md
+                - name: Problemas de cópia de dados
+                  href: data-box-disk-troubleshoot-data-copy.md
+                - name: Problemas de validação
+                  href: data-box-disk-troubleshoot.md
+                - name: Carregar problemas
+                  href: data-box-disk-troubleshoot-upload.md
             - name: Contactar o Suporte
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box Heavy
