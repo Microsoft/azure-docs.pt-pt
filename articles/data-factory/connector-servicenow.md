@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60203419"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copiar dados do ServiceNow com o Azure Data Factory
@@ -110,14 +110,14 @@ Para copiar dados do ServiceNow, defina o tipo de origem na atividade de cópia 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **ServiceNowSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Actual.alm_asset"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Actual.alm_asset"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 Tenha em atenção o seguinte ao especificar o esquema e na coluna do ServiceNow na consulta, e **consultar [sugestões de desempenho](#performance-tips) no implicação de desempenho de cópia**.
 
 - **Esquema:** especifique o esquema `Actual` ou `Display` da consulta de ServiceNow, o que pode analisá-los como parâmetro da `sysparm_display_value` como VERDADEIRO ou falso quando chamar [APIs restful do ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Coluna:** o nome da coluna para o valor real sob `Actual` esquema é `[column name]_value`, enquanto para o valor de apresentação sob `Display` esquema é `[column name]_display_value`. Tenha em atenção o nome da coluna tem de mapear para o esquema a ser utilizado na consulta.
 
-**Consulta de exemplo:**
+**Consulta de exemplo:** 
 `SELECT col_value FROM Actual.alm_asset` OR 
 `SELECT col_display_value FROM Display.alm_asset`
 

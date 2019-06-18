@@ -14,10 +14,10 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61061378"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Monitorizar operações assíncronas do Azure

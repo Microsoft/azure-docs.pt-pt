@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90000f34ff247fdd5939dc19971c170aa4b70386
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824649"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Desativar utilizador-inícios de sessão de uma aplicação empresarial no Azure Active Directory
@@ -32,7 +32,7 @@ ms.locfileid: "65824649"
 1. Sobre o **do Azure Active Directory** -  ***directoryname*** painel (ou seja, o Azure AD para o diretório que está a gerir), selecione **aplicações empresariais**.
 1. Sobre o **aplicações empresariais - todas as aplicações** painel, verá uma lista de aplicações pode gerir. Selecione uma aplicação.
 1. Sobre o ***appname*** painel (ou seja, o painel com o nome da aplicação selecionada no título), selecione **propriedades**.
-1. Sobre o ***appname*** - **propriedades** painel, selecione **não** para **ativado para os utilizadores para início de sessão?**.
+1. Sobre o ***appname*** - **propriedades** painel, selecione **não** para **ativado para os utilizadores para início de sessão?** .
 1. Selecione o **guardar** comando.
 
 ## <a name="next-steps"></a>Passos Seguintes

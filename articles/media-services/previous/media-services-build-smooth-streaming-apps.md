@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65949625"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como criar um Smooth Streaming de aplicativos da Windows Store  

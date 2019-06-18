@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65988689"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>O que é a pontuação de seguro de identidade no Azure Active Directory?
@@ -26,7 +26,7 @@ Qual é o nível de segurança do seu inquilino do Azure AD? Se não sabe como r
 
 A pontuação de seguro de identidade é o número entre 1 e 223 que funciona como um indicador de como alinhados estiver com recomendações de melhores práticas da Microsoft para segurança. Cada ação de melhoria na pontuação de seguro de identidade é adequada para a configuração específica.  
 
-![Pontuação segura](./media/identity-secure-score/identity-secure-score-overview.png)
+![Classificação de segurança](./media/identity-secure-score/identity-secure-score-overview.png)
 
 A classificação ajuda a:
 
@@ -106,7 +106,7 @@ Para ver o histórico da pontuação, vá para o [Centro de segurança do Micros
 
 O [seguras da Microsoft pontuação](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contém cinco controle distinto e categorias de pontuação:
 
-- Identidade
+- identidade
 - Dados
 - Dispositivos
 - Infraestrutura

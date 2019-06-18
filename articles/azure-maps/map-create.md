@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 222fc5e9083c03ff0d4e31927363c5f517cf32a9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62108604"
 ---
 # <a name="create-a-map"></a>Criar um mapa

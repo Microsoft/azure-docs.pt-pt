@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 53ab1e28c5864b403d52bf5e73f0c5c41b8f18a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61478458"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Pré-visualização da utilização da unidade para uma tarefa de exportação
@@ -26,12 +26,12 @@ Pode utilizar os seguintes parâmetros ao utilizar o `PreviewExport` comando da 
 
 |Parâmetro da linha de comandos|Descrição|  
 |--------------------------|-----------------|  
-|**/logdir:**<LogDirectory\>|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos para este diretório. Se não for especificado nenhum diretório de registo, será utilizado o diretório atual como o diretório de registo.|  
-|**/sn:**<StorageAccountName\>|Necessário. O nome da conta de armazenamento para a tarefa de exportação.|  
-|**/sk:**<StorageAccountKey\>|Necessário se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
-|**/csas:**<ContainerSas\>|Necessário se e apenas se não for especificada uma chave de conta de armazenamento. O contentor de SAS para listar os blobs para ser exportado na tarefa de exportação.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|Necessário. Caminho para o XML que contêm lista de caminhos dos BLOBs de ficheiros ou prefixos de caminho para os blobs ser exportada de Blobs. O formato de ficheiro utilizado na `BlobListBlobPath` elemento no [colocar tarefa](/rest/api/storageimportexport/jobs) operação de REST API do serviço de importação/exportação.|  
-|**/DriveSize:**<DriveSize\>|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação *por exemplo,*, 500 GB, 1,5 TB.|  
+|**/logdir:** <LogDirectory\>|Opcional. O diretório de registo. Ficheiros de registo verboso serão escritos para este diretório. Se não for especificado nenhum diretório de registo, será utilizado o diretório atual como o diretório de registo.|  
+|**/sn:** <StorageAccountName\>|Necessário. O nome da conta de armazenamento para a tarefa de exportação.|  
+|**/sk:** <StorageAccountKey\>|Necessário se e apenas se não for especificado um SAS de contentor. A chave de conta para a conta de armazenamento para a tarefa de exportação.|  
+|**/csas:** <ContainerSas\>|Necessário se e apenas se não for especificada uma chave de conta de armazenamento. O contentor de SAS para listar os blobs para ser exportado na tarefa de exportação.|  
+|**/ExportBlobListFile:** <ExportBlobListFile\>|Necessário. Caminho para o XML que contêm lista de caminhos dos BLOBs de ficheiros ou prefixos de caminho para os blobs ser exportada de Blobs. O formato de ficheiro utilizado na `BlobListBlobPath` elemento no [colocar tarefa](/rest/api/storageimportexport/jobs) operação de REST API do serviço de importação/exportação.|  
+|**/DriveSize:** <DriveSize\>|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação *por exemplo,* , 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Exemplo de linha de comandos
 

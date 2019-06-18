@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 0424b21c60d4ae86f7802d1b3ca2a0d7bbe35759
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 499b7f5761c97f6986ca0291af2242d694b609d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101741"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: Integração do Active Directory do Azure com GetThere
 
@@ -52,7 +52,7 @@ Para configurar a integração do GetThere com o Azure AD, terá de adicionar Ge
 
 **Para adicionar GetThere a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD início de sessão único com GetThere, execute os se
 
 6. Além dos acima, o aplicativo GetThere espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
-    | Name |  Atributo de origem |  Espaço de nomes |
+    | Name |  Atributo de origem |  Espaço de Nomes |
     | ---------------| --------------- | --------------- |
     | Sitename | "O valor de acordo com a sua organização fornecer" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Nome de utilizador |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |

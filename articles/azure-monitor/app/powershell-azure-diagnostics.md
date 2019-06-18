@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
 ms.openlocfilehash: 3c0decaa89b4ecc503157a32fcb1e5b4d249ccfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60254620"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Utilizar o PowerShell para configurar o Application Insights para uma aplicação Web do Azure

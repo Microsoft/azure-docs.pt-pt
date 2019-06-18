@@ -7,10 +7,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 9e6324a15f06286ab66f2dadfe48593416f3eeb6
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66495730"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Resolver problemas com o Azure HDInsight

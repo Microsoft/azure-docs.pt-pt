@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
 ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65851151"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
@@ -64,7 +64,7 @@ O Azure adiciona rotas de sistema predefinidas adicionais para diferentes capaci
 |Gateway de rede virtual|Prefixos anunciados no local através do BGP ou configurados no gateway de rede local     |Gateway de rede virtual      |Todos|
 |Predefinição                |Vários                               |VirtualNetworkServiceEndpoint|Apenas a sub-rede na qual está ativado um ponto final de serviço.|
 
-* **Peering de rede virtual (VNet)**: Quando cria uma peering entre duas redes virtuais de rede virtual, é adicionada uma rota para cada intervalo de endereços dentro do espaço de endereço de cada rede virtual que é criado um peering para. Saiba mais sobre o [peering de rede virtual](virtual-network-peering-overview.md).<br>
+* **Peering de rede virtual (VNet)** : Quando cria uma peering entre duas redes virtuais de rede virtual, é adicionada uma rota para cada intervalo de endereços dentro do espaço de endereço de cada rede virtual que é criado um peering para. Saiba mais sobre o [peering de rede virtual](virtual-network-peering-overview.md).<br>
 * **Gateway de rede virtual**: Uma ou mais rotas com *gateway de rede Virtual* listado como o tipo de próximo salto são adicionados quando um gateway de rede virtual é adicionado a uma rede virtual. A origem também é *gateway de rede virtual*, porque o gateway adiciona as rotas à sub-rede. Se o seu gateway de rede no local trocar de rotas de protocolo [BGP](#border-gateway-protocol) (Border Gateway Protocol) com um gateway de rede virtual do Azure, é adicionada uma rota a cada rota propagada a partir do gateway de rede no local. Recomenda-se que resuma as rotas no local para os intervalos de endereços maiores possíveis, para que sejam propagadas para um gateway de rede virtual do Azure o menor número possível de rotas. Existem limites ao número de rotas que pode propagar para um gateway de rede virtual do Azure. Para obter mais detalhes, veja [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).<br>
 * **VirtualNetworkServiceEndpoint**: Os endereços IP públicos para determinados serviços são adicionados à tabela de rotas pelo Azure ao ativar a um ponto final de serviço para o serviço. Os pontos finais de serviço são ativados para sub-redes individuais dentro de uma rede virtual, pelo que a rota só é adicionada à tabela de rotas de uma sub-rede para a qual o ponto final esteja ativado. Os endereços IP públicos dos serviços do Azure mudam periodicamente. O Azure gere os endereços na tabela de rotas automaticamente quando os mesmos são modificados. Saiba mais sobre os [pontos finais de serviço de rede virtual](virtual-network-service-endpoints-overview.md) e os serviços para os quais pode criar pontos finais de serviço.<br>
 

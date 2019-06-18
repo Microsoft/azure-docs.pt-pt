@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: v-pawal
 ms.topic: reference
 ms.openlocfilehash: 79dc5baacb19143f2b31de7f3822af382c2e6cf4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384048"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes

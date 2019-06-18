@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
 ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65922145"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
@@ -49,7 +49,7 @@ Pode permitir a recuperação de sites gerir as atualizações das seguintes for
 
 Quando ativar a replicação para uma VM a partir de qualquer [da vista de VM](azure-to-azure-quickstart.md) ou [partir do Cofre de serviços de recuperação](azure-to-azure-how-to-enable-replication.md), pode permitir a recuperação de sites gerir atualizações para a extensão de recuperação de sites ou geri-lo manualmente.
 
-![Definições de extensão](./media/azure-to-azure-autoupdate/enable-rep.png)
+![Definições da extensão](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Ativar/desativar a extensão de atualizar as definições no interior do Cofre
 
@@ -520,7 +520,7 @@ Se houver um problema com as atualizações automáticas, verá uma notificaçã
 
 Se não foi possível ativar as atualizações automáticas, consulte os seguintes erros comuns e as ações recomendadas:
 
-- **Erro**: Não tem permissões para criar uma conta Run As do Azure (principal de serviço) e conceder a função de Contribuinte ao principal de serviço.
+- **Erro**: Não tem permissões para criar uma conta Run As do Azure (principal de serviço) e conceder a função de contribuinte ao principal de serviço.
 
    **Ação recomendada**: Certifique-se de que a conta com sessão iniciada é atribuída como contribuinte e tente novamente. Consulte a secção de permissões necessárias na [utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) para obter mais informações sobre a atribuição de permissões.
  

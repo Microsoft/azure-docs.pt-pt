@@ -3,18 +3,18 @@ title: Configurar regras e ações no Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra-lhe, como construtor, como configurar regras baseadas em telemetria e ações na sua aplicação Azure IoT Central.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 01/28/2019
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2bd22dec13e2dba63c512276a0b36d4fc50e05f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ced4f5e2fd0fbf829f72cff2413998398a7a09
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066002"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
 

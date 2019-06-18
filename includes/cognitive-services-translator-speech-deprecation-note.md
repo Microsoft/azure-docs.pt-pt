@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/13/2018
 ms.author: nitinme
 ms.openlocfilehash: 88ba6d35d87d87324214d58e681de5cb33f13a9f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66120930"
 ---
 > [!NOTE] 

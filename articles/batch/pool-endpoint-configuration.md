@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616862"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071520"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desativar o acesso remoto a nós num conjunto do Azure Batch de computação
 
@@ -27,7 +27,7 @@ A configuração de ponto final consiste num ou mais [conjuntos de tradução (N
 Cada configuração de conjuntos NAT inclui um ou mais [regras de grupo (NSG) de segurança de rede](/rest/api/batchservice/pool/add#networksecuritygrouprule). Cada regra NSG permite ou nega determinado tráfego de rede para o ponto final. Pode optar por permitir ou negar todo o tráfego, tráfego identificado por uma [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) (por exemplo, "Internet"), ou tráfego a partir de sub-redes ou endereços IP específicos.
 
 ### <a name="considerations"></a>Considerações
-* A configuração de ponto final do conjunto faz parte do conjunto [configuração de rede](/rest/api/batchservice/pool/add#NetworkConfiguration). A configuração de rede, opcionalmente, pode incluir configurações para ingressar em conjunto para um [rede virtual do Azure](batch-virtual-network.md). Se configurar o conjunto numa rede virtual, pode criar as regras do NSG que utilizam as definições de endereço na rede virtual.
+* A configuração de ponto final do conjunto faz parte do conjunto [configuração de rede](/rest/api/batchservice/pool/add#networkconfiguration). A configuração de rede, opcionalmente, pode incluir configurações para ingressar em conjunto para um [rede virtual do Azure](batch-virtual-network.md). Se configurar o conjunto numa rede virtual, pode criar as regras do NSG que utilizam as definições de endereço na rede virtual.
 * Pode configurar várias regras NSG quando configurar um conjunto NAT. As regras são verificadas por ordem de prioridade. Quando for aplicada uma regra, não são testadas mais regras para correspondência.
 
 

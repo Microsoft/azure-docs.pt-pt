@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62120743"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia para programadores do funções do Azure

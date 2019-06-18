@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 571a72d396c003bab363682559464715b180458a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 6c4636fe370a4046b1c5020aee249529f1498639
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081393"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155518"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutorial: Criar e implementar módulos personalizados do IoT Edge
 
@@ -386,7 +386,7 @@ Para adicionar o diretório para o contentor do módulo, modificamos o Dockerfil
 2. Modifique o ficheiro, de modo que ela se pareça com o exemplo seguinte:
 
    ```dockerfile
-   FROM ubuntu:xenial  
+   FROM ubuntu:xenial
 
    WORKDIR /app
 

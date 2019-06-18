@@ -8,10 +8,10 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgan
 ms.openlocfilehash: 271e3c31c3e08d170add84ca4995f4876d4d3a33
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66753768"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: Recuperação após desastre de Azure para o Azure

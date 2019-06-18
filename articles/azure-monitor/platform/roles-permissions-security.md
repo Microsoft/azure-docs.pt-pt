@@ -9,10 +9,10 @@ ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 4949391aded58f27ba8acd5c9ec437e8933f9843
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243425"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Começar com as funções, permissões e segurança com o Azure Monitor

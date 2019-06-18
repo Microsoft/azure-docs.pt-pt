@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 11d0a0a67d1ce5049166cab3d9ca3e4903b6b460
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05387d2fd9b38ffa8137668e01b6d7cff3346ac8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integração do Active Directory do Azure com Teamphoria
 
@@ -53,7 +53,7 @@ Para configurar a integração do Teamphoria com o Azure AD, terá de adicionar 
 
 **Para adicionar Teamphoria a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -229,7 +229,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Teamphoria, tem de
 
     d. Clique em **convite 1 utilizador**. Utilizador tem de aceitar o convite a ser criados no sistema.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

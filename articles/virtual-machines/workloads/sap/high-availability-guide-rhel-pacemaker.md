@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
 ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992154"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Como configurar Pacemaker no Red Hat Enterprise Linux no Azure
@@ -28,14 +28,14 @@ ms.locfileid: "65992154"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 

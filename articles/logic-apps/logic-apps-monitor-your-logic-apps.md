@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
 ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61325282"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorizar o estado, configurar o registo de diagnóstico e ative alertas para o Azure Logic Apps
@@ -139,7 +139,7 @@ Para refinar a sua consulta por adicionar um filtro, escolha **+ adicionar**.
    Este exemplo utiliza a palavra "status" para encontrar eventos de falha sob **AzureDiagnostics**.
    Aqui o filtro para **status_s** já está selecionada.
 
-   ![Selecione um filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
+   ![Selecione o filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
 7. Na barra esquerda, selecione o valor do filtro que pretende utilizar e escolha **aplicar**.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
 ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64690038"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Melhores práticas de desempenho do Apache Phoenix
@@ -31,21 +31,21 @@ A chave primária definida numa tabela no Phoenix determina como os dados são a
 
 Por exemplo, uma tabela de contactos tem o nome próprio último nome, número de telefone e endereço, todos da mesma família de colunas. É possível definir uma chave primária com base num número crescente de sequência:
 
-|rowkey|       endereço|   telefone| firstName| lastName|
+|rowkey|       Endereço|   telefone| firstName| lastName|
 |------|--------------------|--------------|-------------|--------------|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dinis|
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji|
 
 No entanto, se consultar frequentemente por apelido esta chave primária não executar bem, uma vez que cada consulta requer a análise da tabela completa para ler o valor de cada lastName. Em vez disso, pode definir uma chave primária no lastName, firstName e colunas de número da Previdência social. Esta última coluna é para eliminar a ambiguidade dois residentes no mesmo endereço com o mesmo nome, como um pai e filho.
 
-|rowkey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|rowkey|       Endereço|   telefone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John|Dinis| 111 |
 |  8396|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
 
 Com esta nova chave primária a linha chaves geradas pelo Phoenix seria:
 
-|rowkey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|rowkey|       Endereço|   telefone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dinis| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |
@@ -54,7 +54,7 @@ Na primeira linha acima, os dados para o rowkey são representados como mostrado
 
 |rowkey|       key|   value| 
 |------|--------------------|---|
-|  Dole-John-111|endereço |1111 San Gabriel Dr.|  
+|  Dole-John-111|Endereço |1111 San Gabriel Dr.|  
 |  Dole-John-111|telefone |1-425-000-0002|  
 |  Dole-John-111|firstName |John|  
 |  Dole-John-111|lastName |Dinis|  
@@ -113,7 +113,7 @@ Ao conceber os índices:
 
 Por exemplo, no exemplo contacte tabela foi possível criar um índice secundário no apenas a coluna de socialSecurityNum. Este índice secundário seria acelerar as consultas que filtrar por valores socialSecurityNum, mas a obter outros valores de campo exigirá outro ler com base na tabela principal.
 
-|rowkey|       endereço|   telefone| firstName| lastName| socialSecurityNum |
+|rowkey|       Endereço|   telefone| firstName| lastName| socialSecurityNum |
 |------|--------------------|--------------|-------------|--------------| ---|
 |  Dole-John-111|1111 San Gabriel Dr.|1-425-000-0002|    John|Dinis| 111 |
 |  Raji-Calvin-222|5415 San Gabriel Dr.|1-230-555-0191|  Calvin|Raji| 222 |

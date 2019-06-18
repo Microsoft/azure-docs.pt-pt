@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 80c2a1f4b9b724058b8b573f265a3cb2a99302a0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305967"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar a Máquina Virtual do Azure com c# e um modelo do Resource Manager

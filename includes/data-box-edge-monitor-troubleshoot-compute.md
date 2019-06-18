@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404080"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "67125638"
 ---
 Num limite de caixa de dados dispositivo que tenha a função de computação configurada, um subconjunto de docker os comandos estão disponíveis para monitorizar ou módulos de resolução de problemas. Para ver uma lista de comandos disponíveis, [ligar à interface do PowerShell](#connect-to-the-powershell-interface) e utilizar o `dkrdbe` função.
 
@@ -37,7 +37,7 @@ Commands:
 ```
 A tabela seguinte inclui uma breve descrição dos comandos disponíveis para `dkrdbe`:
 
-|command  |Descrição |
+|Comando  |Descrição |
 |---------|---------|
 |`image`     | Gerir imagens       |
 |`images`     | Listar imagens         |

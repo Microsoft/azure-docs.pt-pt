@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6874258c31d4dd7d2a0aa0042624ee57616c0a89
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 16a556264cda3ed4eb93e8fb738765ddcb379f69
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234274"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068580"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption
 
@@ -39,7 +39,7 @@ Para o Windows Server 2008 R2, tem de ter o .NET Framework 4.5 instalado antes d
 ## <a name="bkmk_LinuxPrereq"></a> Pré-requisitos adicionais para VMs de IaaS Linux 
 
 - O Azure Disk Encryption para o Linux requer 7 GB de RAM na VM para ativar a encriptação de disco de SO no [suportadas imagens](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Quando o processo de encriptação de disco do SO estiver concluído, a VM pode ser configurada para executar com menos memória.
-- O Azure Disk Encryption requer o módulo de vfat estar presente no sistema.  A remoção ou desativação este módulo a partir da imagem predefinida irá impedir que o sistema de conseguir ler o volume de chave e obter a chave necessária para desbloquear os discos nas reinicializações subseqüentes. Passos de proteção do sistema que remover o módulo de vfat do sistema não são compatíveis com o Azure Disk Encryption. 
+- O Azure Disk Encryption requer o dm-crypt e módulos de vfat ser presentes no sistema. A remoção ou desativação vfat a partir da imagem predefinida irá impedir que o sistema de ler o volume de chave e obter a chave necessária para desbloquear os discos nas reinicializações subseqüentes. Passos de proteção do sistema que remover o módulo de vfat do sistema não são compatíveis com o Azure Disk Encryption. 
 - Antes de ativar a encriptação, os discos de dados sejam encriptados tem de estar corretamente listado em /etc/fstab. Utilize um nome de dispositivo de bloco persistente para esta entrada, como nomes no formato "/ desenvolvimento/sdX" não podem ser confiados para ser associado com o mesmo disco em reinícios, particularmente depois de é aplicada a encriptação de dispositivo. Para obter mais detalhes sobre esse comportamento, consulte: [Resolver problemas relacionados com alterações de nome de dispositivo de VM do Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Certifique-se de que as definições de /etc/fstab. estão configuradas corretamente para a montagem. Para configurar estas definições, execute o comando mount - a ou reinicie a VM e acionar a remontagem dessa forma. Quando terminar, verifique a saída do comando lsblk para verificar que a unidade ainda está instalada. 
   - Se o ficheiro de /etc/fstab. não montar a unidade corretamente antes de ativar a encriptação, Azure Disk Encryption não será capaz de montá-la corretamente.
@@ -61,9 +61,9 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 **Política de grupo:**
  - A solução Azure Disk Encryption utiliza o protetor de chave externo do BitLocker para VMs de IaaS do Windows. Para VMs associados ao domínio, não enviar por push as políticas de grupo que impõem protetores TPM. Para informações sobre a política de grupo para "Permitir BitLocker sem um TPM compatível", consulte [referência de política de grupo de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  Política do BitLocker em máquinas de virtuais associados a um domínio com a política de grupo personalizado tem de incluir a definição seguinte: [Configurar o armazenamento de usuário do bitlocker informações de recuperação -> chave de recuperação permitem 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). O Azure Disk Encryption irá falhar quando as definições de política de grupo personalizado para o BitLocker são incompatíveis. Nas máquinas que não tinham a definição de política correta, aplicar a nova política, forçar a nova política de atualização (gpupdate.exe /force) e, em seguida, reiniciar poderá ser necessário.
+-  Política do BitLocker em máquinas de virtuais associados a um domínio com a política de grupo personalizado tem de incluir a definição seguinte: [Configurar o armazenamento de usuário do BitLocker informações de recuperação -> chave de recuperação permitem 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). O Azure Disk Encryption irá falhar quando as definições de política de grupo personalizado para o BitLocker são incompatíveis. Nas máquinas que não tinham a definição de política correta, aplicar a nova política, forçar a nova política de atualização (gpupdate.exe /force) e, em seguida, reiniciar poderá ser necessário.
 
-- O Azure Disk Encryption irá falhar se o algoritmo AES-CBC, que é utilizado pelo Bitlocker bloqueia a diretiva de grupo ao nível do domínio.
+- O Azure Disk Encryption irá falhar se o algoritmo AES-CBC, que é utilizado pelo BitLocker bloqueia a diretiva de grupo ao nível do domínio.
 
 
 ## <a name="bkmk_PSH"></a> O Azure PowerShell
@@ -243,7 +243,7 @@ Uso [atualização do Cofre de chaves de az](/cli/azure/keyvault#az-keyvault-upd
 3. Selecione **ativar o acesso às máquinas de virtuais do Azure para a implantação** e/ou **ativar o acesso ao Azure Resource Manager para a implementação de modelo**, se for necessário. 
 4. Clique em **Guardar**.
 
-![Cofre de chaves do Azure, as políticas de acesso avançadas](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
+    ![Cofre de chaves do Azure, as políticas de acesso avançadas](./media/azure-security-disk-encryption/keyvault-portal-fig4.png)
 
 
 ## <a name="bkmk_KEK"></a> Configurar uma chave de encriptação de chave (opcional)

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 6/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 421f255353a3cf0b6cc000677c91d0f8c84cbc73
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c90e466bb7798fae3008dd72a4a4a0e2a0e7a0b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125776"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -23,9 +23,10 @@ Este artigo disponibiliza as notas de versão das versões suportadas do agente 
 ## <a name="supported-versions"></a>Versões suportadas
 São suportadas as seguintes versões para o agente do Azure File Sync:
 
-| Etapa | Número de versão do agente | Data de lançamento | Estado |
+| Etapa | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
-| Rollup de - de atualização de Maio de 2019 [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de Maio de 2019 | Suportado (versão recomendada) |
+| Rollup de - de atualização de Junho de 2019 [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de Junho de 2019 | Suportado (versão recomendada) |
+| Rollup de - de atualização de Maio de 2019 [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de Maio de 2019 | Suportadas |
 | V6 Versão - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de Abril de 2019 | Suportadas |
 | Rollup de - de atualização de Abril de 2019 [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de Abril de 2019 | Suportadas |
 | Rollup de - de atualização de Março de 2019 [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de Março de 2019 | Suportadas |
@@ -41,6 +42,14 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-6200"></a>Versão do agente 6.2.0.0
+As notas de versão seguintes destinam-se a versão 6.2.0.0 do agente do Azure File Sync disponibilizada 13 de Junho de 2019. Estas notas são adicionais as notas de versão enumeradas para a versão 6.0.0.0.
+
+Lista dos problemas corrigidos nesta versão:  
+- Depois de criar um ponto final do servidor, utilização elevada da CPU pode ocorrer quando o recolhimento de segundo plano está a transferir ficheiros para o servidor
+- Sincronização e na cloud, criação de camadas de operações podem falhar com o erro ECS_E_SERVER_CREDENTIAL_NEEDED devido à expiração do token
+- Recupera um um ficheiro pode falhar se o URL para transferir o ficheiro contém carateres reservados 
 
 ## <a name="agent-version-6100"></a>Versão do agente 6.1.0.0
 As notas de versão seguintes destinam-se a versão 6.1.0.0 do agente do Azure File Sync disponibilizada 6 de Maio de 2019. Estas notas são adicionais as notas de versão enumeradas para a versão 6.0.0.0.

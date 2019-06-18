@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66135782"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicação com o modelo Azure Resource Manager
@@ -155,15 +155,15 @@ Para implementar o modelo Azure Resource Manager que transferiu com a CLI do Azu
 
 1. Se nunca tiver utilizado a CLI do Azure, veja [Install and configure the Azure CLI (Instalar e configurar a CLI do Azure)](/cli/azure/install-azure-cli) e siga as instruções até ao ponto onde poderá selecionar a sua conta e subscrição do Azure.
 
-1. Se necessário, execute o `az group create` comando para criar um grupo de recursos, conforme mostrado no seguinte fragmento de código. Repare no resultado do comando. A lista apresentada depois do resultado explica os parâmetros utilizados.  Para obter mais informações sobre os grupos de recursos, veja [Descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+1. Se necessário, execute o `az group create` comando para criar um grupo de recursos, conforme mostrado no seguinte fragmento de código. Repare no resultado do comando. A lista apresentada depois do resultado explica os parâmetros utilizados. Para obter mais informações sobre os grupos de recursos, veja [Descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
     ```azurecli
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (ou --name)**. Nome do novo grupo de recursos. Para o nosso cenário, o nome é *appgatewayRG*.
+    **-n (ou --name)** . Nome do novo grupo de recursos. Para o nosso cenário, o nome é *appgatewayRG*.
     
-    **-l (ou --location)**. Região do Azure onde é criado o novo grupo de recursos. Para o nosso cenário, ele possui *westus*.
+    **-l (ou --location)** . Região do Azure onde é criado o novo grupo de recursos. Para o nosso cenário, ele possui *westus*.
 
 1. Execute o `az group deployment create` cmdlet para implementar a nova rede virtual com o modelo e o parâmetro de ficheiros que transferiu e alterou no passo anterior. A lista apresentada depois do resultado explica os parâmetros utilizados.
 

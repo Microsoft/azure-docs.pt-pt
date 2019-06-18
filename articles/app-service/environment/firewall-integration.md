@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766531"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058056"
 ---
 # <a name="locking-down-an-app-service-environment"></a>O bloqueio de um ambiente de serviço de aplicações
 
@@ -30,6 +30,21 @@ Há um número de dependências de entrada que tenha um ASE. Não é possível e
 As dependências de saída do ASE quase que totalmente são definidas com FQDNs, que não têm endereços estáticos por trás delas. A falta de endereços estáticos significa que grupos de segurança de rede (NSGs) não pode ser utilizados para bloquear o tráfego de saída do ASE. Os endereços são alterados com frequência suficiente uma não é possível configurar regras com base na resolução atual e usá-lo para criar NSGs. 
 
 A solução para proteger os endereços de saída está em utilização de um dispositivo de firewall que pode controlar o tráfego de saída com base nos nomes de domínio. Firewall do Azure pode restringir o tráfego de HTTP e HTTPS de saída com base no FQDN do destino.  
+
+## <a name="system-architecture"></a>Arquitetura do sistema
+
+Implementar um ASE com o tráfego de saída passar por um dispositivo de firewall exige a alteração de rotas na sub-rede do ASE. Rotas funcionam num nível IP. Se não for cuidadoso ao definir as rotas, pode forçar o tráfego de resposta TCP para outro endereço de origem. Isso é chamado de encaminhamento assimétrico e será interrompida TCP.
+
+Tem de existir rotas definidas para que o tráfego de entrada para o ASE pode responder por volta que da mesma forma, o tráfego foi recebida. Isso é verdadeiro para pedidos de gestão de entrada e é verdadeiro para pedidos de aplicação de entrada.
+
+O tráfego de e para um ASE deve concordar com as seguintes convenções
+
+* O tráfego para o SQL do Azure, o armazenamento e o Hub de eventos não são suportadas com o uso de um dispositivo de firewall. Este tráfego têm de ser enviado diretamente a esses serviços. A forma de fazer isso acontecer é configurar pontos finais de serviço para os três serviços. 
+* É necessário definir regras da tabela de rota que enviam tráfego de entrada de gestão de onde ele veio.
+* É necessário definir regras da tabela de rota que enviam tráfego de entrada de aplicativo de volta de onde ele veio. 
+* Todos os outros tráfegos deixando o ASE podem ser enviados para o seu dispositivo de firewall com uma regra de tabela de rota.
+
+![ASE com o fluxo de ligação de Firewall do Azure][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configurar a Firewall do Azure com o seu ASE 
 
@@ -68,8 +83,6 @@ Os passos acima irão permitir que o ASE para operar sem problemas. Ainda tem de
 Se as aplicações têm dependências, terá de ser adicionado à Firewall do Azure. Crie regras de aplicações para permitir tráfego HTTP/HTTPS e regras de rede para todo o resto. 
 
 Se sabe o intervalo de endereços que o tráfego de pedido de aplicação serão provenientes, pode adicionar que à tabela de rotas que está atribuído a sub-rede do ASE. Se o intervalo de endereços for grande ou não especificado, em seguida, pode utilizar uma aplicação de rede, como o Gateway de aplicação para que tenha um endereço para adicionar à sua tabela de rota. Para obter detalhes sobre como configurar um Gateway de aplicação com o ASE de ILB, leia [integrar o ASE de ILB com um Gateway de aplicação](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
-
-![ASE com o fluxo de ligação de Firewall do Azure][5]
 
 Esta utilização do Gateway de aplicação é apenas um exemplo de como configurar o seu sistema. Se seguir esse caminho, em seguida, precisaria adicionar uma rota para a tabela de rotas de sub-rede do ASE, para que o tráfego de resposta enviado para o Gateway de aplicação teria aceder aí diretamente. 
 

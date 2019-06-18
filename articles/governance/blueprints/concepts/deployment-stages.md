@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d7000813b51fb9c9aae9a21cbded3ae0028e83f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60684697"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fases da implementação de um esquema

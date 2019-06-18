@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: shlo
 ms.openlocfilehash: 6ec43b06ce266b9ceaddb5dd21cbf52f509d6596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60764310"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade de Webhook no Azure Data Factory
@@ -56,14 +56,14 @@ Pode utilizar uma atividade de hook de web para controlar a execução de pipeli
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade de hook de web | String | Sim |
-tipo | Tem de ser definido como **WebHook**. | String | Sim |
-método | Método de REST API para o ponto de extremidade de destino. | cadeia de caracteres. Tipos suportados: "POST" | Sim |
+name | Nome da atividade de hook de web | String | Sim |
+type | Tem de ser definido como **WebHook**. | String | Sim |
+method | Método de REST API para o ponto de extremidade de destino. | cadeia de caracteres. Tipos suportados: "POST" | Sim |
 url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres). | Sim |
 Cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: "cabeçalhos": {"Accept-Language": "en-us", "Content-Type": "application/json"}. | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Sim, o cabeçalho Content-type é necessário. "headers":{ "Content-Type":"application/json"} |
-corpo | Representa o payload que é enviado para o ponto final. | O corpo transmitido para a chamada de retorno do URI deve ser um JSON válido. Ver o esquema do payload de pedido no [esquema de payload de pedido](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) secção. | Sim |
+Corpo | Representa o payload que é enviado para o ponto final. | O corpo transmitido para a chamada de retorno do URI deve ser um JSON válido. Ver o esquema do payload de pedido no [esquema de payload de pedido](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) secção. | Sim |
 autenticação | Método de autenticação utilizado para chamar o ponto final. Tipos suportados são "Básico" ou "ClientCertificate." Para obter mais informações, consulte [autenticação](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) secção. Se a autenticação não é necessária, exclua esta propriedade. | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Não |
-tempo limite | O tempo que a atividade de espera que o &#39;o callBackUri&#39; para ser invocada. O tempo que a atividade de espera que "o callBackUri' ser invocada. Valor predefinido é 10mins ("00: 10:00"). O formato é o período de tempo ou seja, d.hh:mm:ss | String | Não |
+timeout | O tempo que a atividade de espera que o &#39;o callBackUri&#39; para ser invocada. O tempo que a atividade de espera que "o callBackUri' ser invocada. Valor predefinido é 10mins ("00: 10:00"). O formato é o período de tempo ou seja, d.hh:mm:ss | String | Não |
 
 ## <a name="additional-notes"></a>Notas adicionais
 

@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 06/12/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 27315bf562f7b221b19747aca4809f2be5fd1121
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152219"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147463"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>Tutorial: Automatizar compilações de imagem de contentor quando uma imagem de base é atualizada num Azure container registry 
 
@@ -69,9 +69,23 @@ Frequentemente, uma imagem de base é atualizada pelo responsável pela manuten�
 
 Quando uma imagem de base é atualizada, será necessário recompilar todas as imagens de contentor no seu registo baseadas nas mesmas para incluir as novas funcionalidades e correções. O ACR Tasks permite compilar automaticamente as imagens quando é atualizada a imagem de base de um contentor.
 
+### <a name="tasks-triggered-by-a-base-image-update"></a>Tarefas acionadas por uma atualização da imagem base
+
+* Atualmente, para compilações de imagem de um Dockerfile, uma tarefa ACR Deteta dependências em imagens de base no mesmo registo de contentor do Azure, um repositório público do Docker Hub ou um repositório público no registo de contentor do Microsoft. Se a imagem base especificada no `FROM` instrução reside em um desses locais, a tarefa ACR adiciona um gancho para garantir que a imagem é reconstruída sempre que é atualizado a sua base.
+
+* Quando cria uma tarefa ACR com o [az acr tarefa criar] [ az-acr-task-create] comando, por predefinição, a tarefa é *ativada* para o acionador por uma atualização da imagem base. Ou seja, o `base-image-trigger-enabled` propriedade está definida como True. Se pretender desativar esse comportamento numa tarefa, atualize a propriedade como False. Por exemplo, execute o seguinte [atualização de tarefa az acr] [ az-acr-task-update] comando:
+
+  ```azurecli
+  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  ```
+
+* Para ativar uma tarefa do ACR determinar e controlar as dependências de uma imagem de contentor, que incluem sua imagem base, primeiro tem de disparar a tarefa **, pelo menos, uma vez**. Por exemplo, acionar a tarefa manualmente com o [execução da tarefa az acr] [ az-acr-task-run] comando.
+
+* Para acionar uma tarefa na atualização da imagem base, a imagem base tem de ter uma *estável* marcar, tais como `node:9-alpine`. Este tipo de etiquetagem é normal para uma imagem de base que é atualizada com o sistema operacional e o framework patches para a versão estável mais recente. Se a imagem base é atualizada com uma nova marca de versão, a mesma não aciona uma tarefa. Para obter mais informações sobre a marcação de imagem, consulte a [práticas recomendadas](https://blogs.msdn.microsoft.com/stevelasker/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/). 
+
 ### <a name="base-image-update-scenario"></a>Cenário de atualização da imagem de base
 
-Este tutorial orienta-o através de um cenário de atualização da imagem de base. O [exemplo de código][code-sample] inclui dois Dockerfiles: uma imagem da aplicação e uma imagem que é especificada como a sua base. Nas próximas secções, vai criar uma tarefa do ACR para acionar automaticamente uma compilação da imagem da aplicação quando uma nova versão da imagem de base é enviada para o seu registo de contentor.
+Este tutorial orienta-o através de um cenário de atualização da imagem de base. O [exemplo de código][code-sample] inclui dois Dockerfiles: uma imagem da aplicação e uma imagem que é especificada como a sua base. As secções seguintes, vai criar uma tarefa ACR que aciona automaticamente uma compilação da imagem de aplicação quando uma nova versão da imagem base é emitida para o mesmo registo de contentor.
 
 [Dockerfile-app][dockerfile-app]: Um pequeno aplicativo de web do node. js, que renderiza uma página web estática, exibindo a versão do node. js em que se baseia. A cadeia de versão é simulada: apresenta o conteúdo de uma variável de ambiente, `NODE_VERSION`, definido na imagem de base.
 
@@ -79,7 +93,7 @@ Este tutorial orienta-o através de um cenário de atualização da imagem de ba
 
 Nas próximas secções, vai criar uma tarefa, atualizar o valor `NODE_VERSION` no Dockerfile da imagem de base e, em seguida, utilizar o ACR Tasks para compilar a imagem de base. Quando a tarefa do ACR envia a nova imagem de base para o registo, aciona automaticamente uma compilação da imagem da aplicação. Opcionalmente, pode executar a imagem de contentor da aplicação localmente para ver as diferentes cadeias de versão nas imagens da compilação.
 
-Neste tutorial, o sua tarefa ACR cria e envia uma imagem de contentor único especificada no Dockerfile. Também pode executar tarefas de ACR [tarefas de vários passos](container-registry-tasks-multi-step.md), com um ficheiro YAML para definir os passos para criar, emitir e, opcionalmente, pode testar vários contentores.
+Neste tutorial, o sua tarefa ACR cria e envia uma imagem de contentor do aplicativo especificada no Dockerfile. Também pode executar tarefas de ACR [tarefas de vários passos](container-registry-tasks-multi-step.md), com um ficheiro YAML para definir os passos para criar, emitir e, opcionalmente, pode testar vários contentores.
 
 ## <a name="build-the-base-image"></a>Compilar a imagem de base
 
@@ -108,21 +122,17 @@ az acr task create \
 > [!IMPORTANT]
 > Se anteriormente tiver criado tarefas durante a pré-visualização com o comando `az acr build-task`, essas tarefas têm de ser recriadas com o comando [az acr task][az-acr-task].
 
-Esta tarefa é semelhante à tarefa rápida criada no [tutorial anterior](container-registry-tutorial-build-task.md). Dá instruções ao ACR Tasks para acionar uma compilação da imagem quando as consolidações são enviadas por push para o repositório especificado por `--context`.
-
-A diferença está no seu comportamento, pois também aciona uma compilação da imagem quando a *imagem de base* é atualizada. O Dockerfile especificado pelo argumento `--file`, [Dockerfile-app][dockerfile-app], suporta a especificação de uma imagem a partir do mesmo registo que a sua base:
+Esta tarefa é semelhante à tarefa rápida criada no [tutorial anterior](container-registry-tutorial-build-task.md). Dá instruções ao ACR Tasks para acionar uma compilação da imagem quando as consolidações são enviadas por push para o repositório especificado por `--context`. Enquanto o Dockerfile utilizado para criar a imagem no tutorial anterior Especifica uma imagem de base de pública (`FROM node:9-alpine`), o Dockerfile nesta tarefa, [Dockerfile-app][dockerfile-app], especifica uma imagem de base da mesma registo:
 
 ```Dockerfile
 FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
 ```
 
-Quando executa uma tarefa, o ACR Tasks deteta as dependências de uma imagem. Se a imagem de base especificada na instrução `FROM` residir no mesmo registo ou num repositório público do Hub do Docker, adicionará um hook para garantir que esta imagem é recompilada sempre que a imagem de base é atualizada.
+Esta configuração torna mais fácil simular um patch de framework na imagem base mais tarde neste tutorial.
 
 ## <a name="build-the-application-container"></a>Compilar o contentor de aplicação
 
-Para ativar o ACR Tasks para determinar e controlar dependências de uma imagem de contentor (que incluem a imagem de base), **terá** primeiro de acionar a tarefa **pelo menos uma vez**.
-
-Utilize [az acr task run][az-acr-task-run] para acionar manualmente a tarefa e compilar a imagem da aplicação:
+Uso [execução da tarefa az acr] [ az-acr-task-run] manualmente disparar a tarefa e criar a imagem de aplicação. Este passo garante que a tarefa controla a dependência da imagem de aplicação na imagem base.
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -134,21 +144,27 @@ Depois de concluída a tarefa, tome nota do **ID de Execução** (por exemplo, "
 
 Se estiver a trabalhar localmente (não estiver no Cloud Shell) e tiver o Docker instalado, execute o contentor para ver a aplicação composta num browser, antes de recompilar a imagem de base. Se estiver a utilizar o Cloud Shell, ignore esta secção (o Cloud Shell não suporta `az acr login` nem `docker run`).
 
-Em primeiro lugar, inicie sessão no registo de contentor com [az acr login][az-acr-login]:
+Primeiro, autenticar para o seu registo de contentor com o [início de sessão az acr][az-acr-login]:
 
 ```azurecli
 az acr login --name $ACR_NAME
 ```
 
-Agora, execute o contentor localmente com `docker run`. Substitua **\<run-id\>** pelo ID de Execução encontrado no resultado do passo anterior (por exemplo, "da6").
+Agora, execute o contentor localmente com `docker run`. Substitua **\<run-id\>** pelo ID de Execução encontrado no resultado do passo anterior (por exemplo, "da6"). Este exemplo atribui o contentor `myapp` e inclui o `--rm` parâmetro para remover o contentor quando, impedi-lo.
 
-```azurecli
-docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
+```bash
+docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
 Navegue para `http://localhost:8080` no browser, deverá ver o número de versão do Node.js composto na página Web, semelhante ao que se segue. Num passo posterior, pode efetuar o bump da versão ao adicionar um “a” na cadeia de versão.
 
 ![Captura de ecrã da aplicação de exemplo composta no browser][base-update-01]
+
+Para parar e remover o contentor, execute o seguinte comando:
+
+```bash
+docker stop myapp
+```
 
 ## <a name="list-the-builds"></a>Listar as compilações
 
@@ -221,7 +237,7 @@ Se quiser executar o passo seguinte opcional de execução do contentor recentem
 Se estiver a trabalhar localmente (não estiver no Cloud Shell) e tiver o Docker instalado, execute a nova imagem da aplicação depois de concluída a sua compilação. Substitua `<run-id>` pelo ID DE EXECUÇÃO que obteve no passo anterior. Se estiver a utilizar o Cloud Shell, ignore esta secção (o Cloud Shell não suporta `docker run`).
 
 ```bash
-docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
+docker run -d -p 8081:80 --name updatedapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
 Navegue para http://localhost:8081 no browser, deverá ver o número de versão do Node.js atualizado (com o “a”) na página Web:
@@ -229,6 +245,12 @@ Navegue para http://localhost:8081 no browser, deverá ver o número de versão 
 ![Captura de ecrã da aplicação de exemplo composta no browser][base-update-02]
 
 O que é importante ter em atenção é que atualizou a imagem de **base** com um novo número de versão, mas a imagem da **aplicação** da última compilação apresenta a nova versão. O ACR Tasks captou a alteração para a imagem de base e recompilou automaticamente a imagem da aplicação.
+
+Para parar e remover o contentor, execute o seguinte comando:
+
+```bash
+docker stop updatedapp
+```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -258,8 +280,9 @@ Neste tutorial, aprendeu a utilizar uma tarefa para acionar automaticamente comp
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr#az-acr-run
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-update]: /cli/azure/acr/task#az-acr-task-update
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr

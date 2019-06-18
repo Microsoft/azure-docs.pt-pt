@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 2fbf29385b9a14cf5d4a9df621f0767a32079587
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61020996"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
@@ -80,17 +80,17 @@ Por exemplo, se um proxy, tem um modelo de rota, como `/pets/{petId}`, o URL de 
 #### <a name="additional-request-parameters"></a>Parâmetros de pedido adicionais
 Além de parâmetros de modelo de rota, os seguintes valores podem ser utilizados em valores de configuração:
 
-* **{request.method}**: O método HTTP que é utilizado na solicitação original.
-* **{request.headers.\<HeaderName\>}**: Um cabeçalho que pode ser lidos a partir do pedido original. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira ler. Se o cabeçalho não está incluído na solicitação, o valor será a cadeia vazia.
-* **{request.querystring.\<ParameterName\>}**: Um parâmetro de cadeia de caracteres de consulta que pode ser lidos a partir do pedido original. Substitua *\<ParameterName\>* com o nome do parâmetro que pretende ler. Se o parâmetro não está incluído na solicitação, o valor será a cadeia vazia.
+* **{request.method}** : O método HTTP que é utilizado na solicitação original.
+* **{request.headers.\<HeaderName\>}** : Um cabeçalho que pode ser lidos a partir do pedido original. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira ler. Se o cabeçalho não está incluído na solicitação, o valor será a cadeia vazia.
+* **{request.querystring.\<ParameterName\>}** : Um parâmetro de cadeia de caracteres de consulta que pode ser lidos a partir do pedido original. Substitua *\<ParameterName\>* com o nome do parâmetro que pretende ler. Se o parâmetro não está incluído na solicitação, o valor será a cadeia vazia.
 
 ### <a name="response-parameters"></a>Parâmetros de resposta de back-end de referência
 
 Parâmetros de resposta podem ser utilizados como parte de modificar a resposta ao cliente. Os seguintes valores podem ser utilizados em valores de configuração:
 
-* **{backend.response.statusCode}**: O código de estado HTTP devolvido na resposta de back-end.
-* **{backend.response.statusReason}**: A frase de razão HTTP que é devolvida na resposta de back-end.
-* **{backend.response.headers.\<HeaderName\>}**: Um cabeçalho que pode ser lidos da resposta de back-end. Substitua *\<HeaderName\>* com o nome do cabeçalho que pretende ler. Se o cabeçalho não está incluído na resposta, o valor será a cadeia vazia.
+* **{backend.response.statusCode}** : O código de estado HTTP devolvido na resposta de back-end.
+* **{backend.response.statusReason}** : A frase de razão HTTP que é devolvida na resposta de back-end.
+* **{backend.response.headers.\<HeaderName\>}** : Um cabeçalho que pode ser lidos da resposta de back-end. Substitua *\<HeaderName\>* com o nome do cabeçalho que pretende ler. Se o cabeçalho não está incluído na resposta, o valor será a cadeia vazia.
 
 ### <a name="use-appsettings"></a>Definições da aplicação de referência
 
@@ -189,8 +189,8 @@ Proxies ler todas as cadeias de caracteres fora de um JSON de ficheiros, usando 
 O objeto de requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
 * **backend.request.method**: O método HTTP que é utilizado para chamar o back-end.
-* **backend.request.querystring.\<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada para o back-end. Substitua *\<ParameterName\>* com o nome do parâmetro que pretende definir. Se não for fornecida a cadeia vazia, o parâmetro não está incluído no pedido de back-end.
-* **backend.request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada para o back-end. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira definir. Se fornecer a cadeia vazia, o cabeçalho não está incluído no pedido de back-end.
+* **backend.request.querystring.\<ParameterName\>** : Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada para o back-end. Substitua *\<ParameterName\>* com o nome do parâmetro que pretende definir. Se não for fornecida a cadeia vazia, o parâmetro não está incluído no pedido de back-end.
+* **backend.request.headers.\<HeaderName\>** : Um cabeçalho que pode ser definido para a chamada para o back-end. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira definir. Se fornecer a cadeia vazia, o cabeçalho não está incluído no pedido de back-end.
 
 Valores podem referenciar as definições da aplicação e os parâmetros do pedido de cliente original.
 
@@ -222,7 +222,7 @@ O objeto de requestOverrides define as alterações efetuadas à resposta que é
 * **response.statusCode**: O código de estado HTTP a ser devolvida ao cliente.
 * **response.statusReason**: A frase de razão HTTP a ser devolvida ao cliente.
 * **response.body**: A representação de cadeia de caracteres do corpo a ser devolvida ao cliente.
-* **response.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a resposta ao cliente. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira definir. Se fornecer a cadeia vazia, o cabeçalho não está incluído na resposta.
+* **response.headers.\<HeaderName\>** : Um cabeçalho que pode ser definido para a resposta ao cliente. Substitua *\<HeaderName\>* com o nome do cabeçalho que queira definir. Se fornecer a cadeia vazia, o cabeçalho não está incluído na resposta.
 
 Valores podem referenciar as definições da aplicação, parâmetros de pedido do cliente original e os parâmetros da resposta de back-end.
 

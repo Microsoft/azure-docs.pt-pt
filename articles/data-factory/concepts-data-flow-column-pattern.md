@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
-ms.sourcegitcommit: 087ee51483b7180f9e897431e83f37b08ec890ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66430765"
 ---
 # <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Padrões de coluna de fluxos de dados de mapeamento de fábrica de dados do Azure

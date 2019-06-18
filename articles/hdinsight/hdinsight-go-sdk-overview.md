@@ -8,10 +8,10 @@ ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
 ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65466208"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK para Go (pré-visualização)
@@ -375,7 +375,7 @@ Para desativar o OMS no seu cluster:
 extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Cluster Name")
 ```
 
-## <a name="script-actions"></a>Ações do script
+## <a name="script-actions"></a>Ações de script
 
 HDInsight fornece uma função de configuração chamada ações de script que invoca scripts personalizados para personalizar o cluster.
 

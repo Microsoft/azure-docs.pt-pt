@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
 ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64872017"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Descrição geral da segurança de máquinas virtuais do Azure

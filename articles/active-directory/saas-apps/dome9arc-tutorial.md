@@ -1,109 +1,84 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o arco de Dome9 | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Dome9 arco.
+title: 'Tutorial: Integração do Active Directory do Azure com o arco de Dome9 do CloudGuard de ponto de verificação | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e verifique o ponto de CloudGuard Dome9 arco.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86112c6d1c720787af80a9846b5c94ec59895ecb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdaaab8257d3a79130902e1ba0466f9cf15484f4
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862075"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147171"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integração do Active Directory do Azure com Dome9 arco
+# <a name="tutorial-integrate-check-point-cloudguard-dome9-arc-with-azure-active-directory"></a>Tutorial: Integrar o arco de Dome9 CloudGuard de ponto de verificação com o Azure Active Directory
 
-Neste tutorial, saiba como integrar o arco de Dome9 com o Azure Active Directory (Azure AD).
-Integrar o arco de Dome9 no Azure AD fornece as seguintes vantagens:
+Neste tutorial, irá aprender como integrar o arco de Dome9 do CloudGuard de ponto de verificação com o Azure Active Directory (Azure AD). Quando integrar o arco de Dome9 do CloudGuard de ponto de verificação com o Azure AD, pode:
 
-* Pode controlar no Azure AD que tenha acesso ao Dome9 arco.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada em arco de Dome9 (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controlar no Azure AD que tenha acesso ao verificar o ponto de CloudGuard Dome9 arco.
+* Permita que os utilizadores ser automaticamente sessão iniciada em verificar ponto CloudGuard Dome9 arco com as suas contas do Azure AD.
+* Gira as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Dome9 arco, terá dos seguintes itens:
+Para começar, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Arco de Dome9 logon único habilitado subscrição
+* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
+* Verifique ponto CloudGuard Dome9 arco início de sessão único (SSO) ativada subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Verifique o ponto CloudGuard Dome9 arco suporta **SP e IDP** iniciada SSO.
 
-* Suporta o arco de Dome9 **SP** e **IDP** iniciada SSO
+## <a name="adding-check-point-cloudguard-dome9-arc-from-the-gallery"></a>Adicionando o arco de Dome9 do CloudGuard de ponto de verificação da Galeria
 
-## <a name="adding-dome9-arc-from-the-gallery"></a>Adicionando Dome9 arco da Galeria
+Para configurar a integração do arco Dome9 do CloudGuard ponto de verificação para o Azure AD, terá de adicionar arco Dome9 do CloudGuard ponto de verificação a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-Para configurar a integração do arco Dome9 com o Azure AD, terá de adicionar Dome9 arco a partir da Galeria à sua lista de aplicações de SaaS geridas.
-
-**Para adicionar Dome9 arco a partir da galeria, execute os seguintes passos:**
-
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
-
-    ![O botão do Azure Active Directory](common/select-azuread.png)
-
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
-
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
-
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
-
-    ![O novo botão de aplicativo](common/add-new-app.png)
-
-4. Na caixa de pesquisa, escreva **Dome9 arco**, selecione **Dome9 arco** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
-
-     ![Arco de Dome9 na lista de resultados](common/search-new-app.png)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar nova aplicação, selecione **nova aplicação**.
+1. Na **adicionar a partir da galeria** secção, escreva **verificar o ponto de CloudGuard Dome9 arco** na caixa de pesquisa.
+1. Selecione **verificar o ponto de CloudGuard Dome9 arco** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com o arco de Dome9 com base num utilizador de teste **Eduarda Almeida**.
-Para início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Dome9 arco tem de ser estabelecida.
+Configurar e testar o SSO do Azure AD com verificar ponto CloudGuard Dome9 arco com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em arco Dome9 do CloudGuard ponto de verificação.
 
-Para configurar e testar o Azure AD início de sessão único com o arco de Dome9, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o arco de Dome9 do CloudGuard de ponto de verificação, conclua os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Dome9 arco início de sessão único](#configure-dome9-arc-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste de arco Dome9](#create-dome9-arc-test-user)**  - para ter um equivalente da Eduarda Almeida em arco Dome9 que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Configurar a verificar o ponto de CloudGuard Dome9 arco](#configure-check-point-cloudguard-dome9-arc)**  para configurar as definições de SSO no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com B.Simon.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar B.Simon utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de verificar o ponto CloudGuard Dome9 arco](#create-check-point-cloudguard-dome9-arc-test-user)**  ter um equivalente de B.Simon em verificar ponto CloudGuard Dome9 arco que está ligado à representação de utilizador do Azure AD.
+6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com o arco de Dome9, execute os seguintes passos:
+1. Na [portal do Azure](https://portal.azure.com/), na **verificar o ponto de CloudGuard Dome9 arco** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único** .
+1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
+1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Dome9 arco** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar a configuração SAML do básico](common/edit-urls.png)
 
 4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
-
-    ![Dome9 arco domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
 
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://secure.dome9.com/`
 
@@ -114,18 +89,16 @@ Para configurar o Azure AD início de sessão único com o arco de Dome9, execut
 
 5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![Dome9 arco domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
-
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e URL de resposta real. Contacte [equipa de suporte de cliente de arco Dome9](mailto:support@dome9.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e URL de resposta real. Contacte [equipa de suporte de verificar o ponto CloudGuard Dome9 arco cliente](mailto:Dome9@checkpoint.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-6. Aplicação de arco Dome9 espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+6. Aplicação do ponto de verificação CloudGuard Dome9 arco espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir a caixa de diálogo de atributos do utilizador.
 
     ![image](common/edit-attribute.png)
 
-7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
+7. Além dos acima, o aplicativo de verificar o ponto CloudGuard Dome9 arco espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir: 
 
     | Name |  Atributo de origem|
     | ---------------| --------------- |
@@ -149,39 +122,33 @@ Para configurar o Azure AD início de sessão único com o arco de Dome9, execut
 
     g. Clique em **Guardar**.
 
-8. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (Base64)** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+   ![O link de download de certificado](common/certificatebase64.png)
 
-9. Sobre o **configurar Dome9 arco** secção, copie os URLs apropriados de acordo com seus requisitos.
+1. Sobre o **configurar a verificar o ponto de CloudGuard Dome9 arco** secção, copie o URL adequado com base nos seus requisitos.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+### <a name="configure-check-point-cloudguard-dome9-arc"></a>Configurar o arco de Dome9 CloudGuard de ponto de verificação
 
-    b. Azure Ad Identifier
-
-    c. URL de fim de sessão
-
-### <a name="configure-dome9-arc-single-sign-on"></a>Configurar Dome9 arco início de sessão único
-
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Dome9 arco como um administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa em verificar ponto CloudGuard Dome9 arco como administrador.
 
 2. Clique nas **definições de perfil** no canto superior direito e clique em **definições da conta**. 
 
-    ![Configuração de arco Dome9](./media/dome9arc-tutorial/configure1.png)
+    ![Verifique a configuração do ponto CloudGuard Dome9 em arco](./media/dome9arc-tutorial/configure1.png)
 
 3. Navegue para **SSO** e, em seguida, clique em **ATIVAR**.
 
-    ![Configuração de arco Dome9](./media/dome9arc-tutorial/configure2.png)
+    ![Verifique a configuração do ponto CloudGuard Dome9 em arco](./media/dome9arc-tutorial/configure2.png)
 
 4. Na secção de configuração de SSO, execute os seguintes passos:
 
-    ![Configuração de arco Dome9](./media/dome9arc-tutorial/configure3.png)
+    ![Verifique a configuração do ponto CloudGuard Dome9 em arco](./media/dome9arc-tutorial/configure3.png)
 
-    a. Introduza o nome da empresa no **ID da conta** caixa de texto. Este valor é a ser utilizado na resposta de que URL mencionado na secção URL portal do Azure.
+    a. Introduza o nome da empresa no **ID da conta** caixa de texto. Este valor é a ser utilizado no URL de resposta mencionado no portal do Azure **configuração básica de SAML** secção.
 
-    b. Na **emissor** caixa de texto, cole o valor de **identificador do Azure Ad**, que tenha copiado o formulário do portal do Azure.
+    b. Na **emissor** caixa de texto, cole o valor de **do Azure AD identificador**, que tenha copiado o formulário do portal do Azure.
 
     c. Na **url de ponto final de Idp** caixa de texto, cole o valor de **URL de início de sessão**, que tenha copiado o formulário do portal do Azure.
 
@@ -189,67 +156,46 @@ Para configurar o Azure AD início de sessão único com o arco de Dome9, execut
 
     e. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Na **utilizador** propriedades, siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso Dome9 arco.
+Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único, concedendo acesso para verificar o ponto de CloudGuard Dome9 arco.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Dome9 arco**.
+1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicações, selecione **verificar o ponto de CloudGuard Dome9 arco**.
+1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **Dome9 arco**.
+1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação de arco Dome9 na lista de aplicações](common/all-applications.png)
+    ![A ligação de adicionar utilizador](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
+1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
+1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+### <a name="create-check-point-cloudguard-dome9-arc-test-user"></a>Criar utilizador de teste de verificar o ponto CloudGuard Dome9 arco
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
-
-### <a name="create-dome9-arc-test-user"></a>Criar utilizador de teste Dome9 arco
-
-Para permitir que os utilizadores do Azure AD iniciem sessão arco Dome9, tem de ser aprovisionados no aplicativo. Arco de Dome9 suporta o aprovisionamento de just-in-time, mas para que isso funcione corretamente, o utilizador tem de selecionar particular **função** e atribuir o mesmo para o usuário.
+Permitir que os utilizadores do Azure AD entrar para verificar o ponto de CloudGuard Dome9 arco, tem de ser aprovisionados no aplicativo. Verifique o ponto de CloudGuard Dome9 arco suporta o aprovisionamento de just-in-time, mas para que isso funcione corretamente, o utilizador tem de selecionar particular **função** e atribuir o mesmo para o usuário.
 
    >[!Note]
-   >Para **função** criação e outros detalhes de contacto [equipa de suporte de cliente de arco Dome9](https://dome9.com/about/contact-us/).
+   >Para **função** criação e outros detalhes de contacto [equipa de suporte de verificar o ponto CloudGuard Dome9 arco cliente](mailto:Dome9@checkpoint.com).
 
 **Para Aprovisionar uma conta de utilizador manualmente, execute os seguintes passos:**
 
-1. Inicie sessão no site da sua empresa Dome9 arco como administrador.
+1. Inicie sessão no site da sua empresa em verificar ponto CloudGuard Dome9 arco como um administrador.
 
 2. Clique nas **utilizadores e funções** e, em seguida, clique em **utilizadores**.
 
@@ -263,9 +209,9 @@ Para permitir que os utilizadores do Azure AD iniciem sessão arco Dome9, tem de
 
     ![Adicionar o funcionário](./media/dome9arc-tutorial/user3.png)
 
-    a. Na **E-Mail** caixa de texto, como o tipo de e-mail do utilizador Brittasimon@contoso.com.
+    a. Na **E-Mail** caixa de texto, como o tipo de e-mail do utilizador B.Simon@contoso.com.
 
-    b. Na **nome próprio** caixa de texto, tipo primeiro nome do utilizador, como a Eduarda.
+    b. Na **nome próprio** caixa de texto, tipo primeiro nome do utilizador, como o B.
 
     c. Na **Apelido** apelido tipo do utilizador, como Simon, caixa de texto.
 
@@ -273,11 +219,9 @@ Para permitir que os utilizadores do Azure AD iniciem sessão arco Dome9, tem de
 
     e. Clique em **criar**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
-
-Quando clica no mosaico de arco Dome9 no painel de acesso, deve ser automaticamente sessão iniciada no arco de Dome9 para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o mosaico de verificar o ponto CloudGuard Dome9 arco no painel de acesso, deve ser automaticamente conectado a verificar ponto CloudGuard Dome9 em arco para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
@@ -286,4 +230,3 @@ Quando clica no mosaico de arco Dome9 no painel de acesso, deve ser automaticame
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dfda00aca403f7f95f0c56d1db28c3c609bebd2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080662"
 ---
 # <a name="routing-events-and-messages"></a>Encaminhar eventos e mensagens
 
@@ -21,7 +21,7 @@ Soluções de IoT unam-se, muitas vezes, vários serviços poderosos que incluem
 
 ## <a name="route-types"></a>Tipos de rota  
 
-Os gémeos Digital do Azure oferece duas maneiras de integrar eventos de IoT para outros serviços do Azure ou para aplicativos de negócios:
+Os gémeos Digital do Azure oferece duas formas de ligar eventos de IoT com outros serviços do Azure ou aplicativos de negócios:
 
 * **Eventos de roteamento duplos Digital do Azure**: Um objeto a geográficos no gráfico que são alterados, os dados telemétricos recebidos, ou uma função definida pelo utilizador que cria uma notificação com base nas condições predefinidas pode acionar eventos de duplos Digital do Azure. Os utilizadores podem enviar estes eventos para [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [tópicos do Service bus do Azure](https://azure.microsoft.com/services/service-bus/), ou [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para processamento adicional.
 

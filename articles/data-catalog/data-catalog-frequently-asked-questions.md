@@ -9,10 +9,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61004046"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas mais frequentes sobre o catálogo de dados do Azure
@@ -68,7 +68,7 @@ Para registar os seus dados no catálogo de dados:
 As propriedades específicas diferem de origem de dados à origem de dados, mas, em geral, o serviço de publicação do catálogo de dados extrai as seguintes informações:
 
 * Nome do elemento
-* Tipo de Recurso
+* Tipo de recurso
 * Descrição do recurso
 * Nomes de atributo/colunas
 * Tipos de dados de atributo/colunas

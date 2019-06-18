@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dd84f9b3b68d7a34903241caed7f1f93e685fb57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 548cd3de6d2eff9f2077ca66b66d5c60aa84f7e2
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138972"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154210"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Ligação de base de dados do Azure SQL segura do serviço de aplicações com uma identidade gerida
 
@@ -52,7 +52,7 @@ Este artigo continua onde ficou [Tutorial: Criar uma aplicação ASP.NET no Azur
 
 ## <a name="enable-managed-identities"></a>Ativar identidades geridas
 
-Para ativar uma identidade gerida na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando seguinte, substitua *\<nome da aplicação>*.
+Para ativar uma identidade gerida na sua aplicação do Azure, utilize o comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) no Cloud Shell. No comando seguinte, substitua *\<nome da aplicação>* .
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -77,13 +77,22 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Conceder acesso à base de dados à identidade
 
-Em seguida, vai conceder acesso à base de dados à identidade gerida da sua aplicação com o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) no Cloud Shell. No comando seguinte, substitua *\<server_name>* e <principalid_from_last_step>. Escreva um nome de administrador em *\<admin_user>*.
+Em seguida, vai conceder acesso à base de dados à identidade gerida da sua aplicação com o comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) no Cloud Shell. No comando seguinte, substitua *\<server_name>* e <principalid_from_last_step>. Escreva um nome de administrador em *\<admin_user>* .
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
 A identidade gerida tem agora acesso ao servidor da Base de Dados SQL do Azure.
+
+> [!IMPORTANT]
+> Para simplificar, este passo configura a identidade do Azure AD gerido como o administrador de base de dados SQL. O método tem as seguintes limitações:
+>
+> - Acesso administrativo da aplicação não seguir as melhores práticas de segurança.
+> - Uma vez que a identidade gerida é específica de aplicação, é possível utilizar a mesma identidade gerida para ligar à base de dados SQL, de outra aplicação.
+> - A identidade gerida não pode iniciar sessão na base de dados do SQL interativamente, portanto, é impossível conceder acesso a identidades geridas de aplicações adicionais. 
+>
+> Para melhorar a segurança e para administrar contas do Azure AD na base de dados SQL, siga os passos indicados em [conceder privilégios mínimos à identidade](#grant-minimal-privileges-to-identity).
 
 ## <a name="modify-connection-string"></a>Modificar a cadeia de ligação
 

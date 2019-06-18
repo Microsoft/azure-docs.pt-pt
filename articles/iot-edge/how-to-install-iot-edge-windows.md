@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: f67f24cab907c3fe9998704e0a0a85d5b29f60a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66808859"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
 
@@ -86,7 +86,7 @@ Este exemplo demonstra uma instalação manual com contentores do Windows:
 3. O **Deploy IoTEdge** comando verifica se o seu computador Windows é uma versão suportada, ativa a funcionalidade de contentores e, em seguida, transfere o tempo de execução moby e o runtime do IoT Edge. Por predefinição através de contentores do Windows, o comando. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -95,7 +95,7 @@ Este exemplo demonstra uma instalação manual com contentores do Windows:
 5. O **Initialize IoTEdge** comando configura o runtime do IoT Edge no seu computador. A comando assume a predefinição de aprovisionamento manual com contentores do Windows. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge
    ```
 
@@ -135,7 +135,7 @@ O exemplo seguinte demonstra uma instalação automática com contentores do Win
 3. O **Deploy IoTEdge** comando verifica se o seu computador Windows é uma versão suportada, ativa a funcionalidade de contentores e, em seguida, transfere o tempo de execução moby e o runtime do IoT Edge. Por predefinição através de contentores do Windows, o comando. 
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
@@ -144,7 +144,7 @@ O exemplo seguinte demonstra uma instalação automática com contentores do Win
 6. O **Initialize IoTEdge** comando configura o runtime do IoT Edge no seu computador. A comando assume a predefinição de aprovisionamento manual com contentores do Windows. Utilizar o `-Dps` sinalizador para utilizar o serviço de aprovisionamento de dispositivos em vez de aprovisionamento manual.
 
    ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
@@ -172,7 +172,7 @@ Para os ficheiros de instalação do IoT Edge mais recentes, juntamente com as v
 Para instalar com componentes offline, utilize o `-OfflineInstallationPath` parâmetro como parte da Deploy-IoTEdge de comandos e forneça o caminho absoluto para o diretório de ficheiros. Por exemplo,
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Deploy-IoTEdge -OfflineInstallationPath C:\Downloads\iotedgeoffline
 ```
 
@@ -189,7 +189,7 @@ Get-Service iotedge
 Examine os registos do serviço dos últimos 5 minutos. Se acabado de instalar o runtime do IoT Edge, poderá ver uma lista de erros de tempo entre a execução **Deploy IoTEdge** e **Initialize IoTEdge**. Estes erros são esperados, como o serviço está a tentar iniciar antes de a ser configurado. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 Lista de módulos em execução. Depois de uma nova instalação, o único módulo deve vir em execução seja **edgeAgent**. Depois de [implementar módulos IoT Edge](how-to-deploy-modules-portal.md), irá ver outras pessoas. 
@@ -233,7 +233,7 @@ Para obter mais informações, consulte [atualizar o daemon de segurança de IoT
 Este exemplo mostra uma instalação que aponta para um ficheiro de configuração existente e utiliza os contentores do Windows: 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
 Update-IoTEdge
 ```
 
@@ -269,10 +269,10 @@ O comando de implementar IoTEdge transfere e implementa o Daemon de segurança d
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** ou **Linux** | Se não for especificado nenhum sistema operacional de contentor, o Windows é o valor predefinido.<br><br>Para contentores do Windows, o IoT Edge utiliza o motor do contentor de moby incluído na instalação. Para contentores do Linux, tem de instalar um mecanismo de contentor antes de iniciar a instalação. |
-| **Proxy** | URL de Proxy | Inclua este parâmetro se o seu dispositivo precisa passar por um servidor proxy para a internet. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
+| **Proxy** | URL de proxy | Inclua este parâmetro se o seu dispositivo precisa passar por um servidor proxy para a internet. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Caminho do diretório | Se este parâmetro estiver incluído, o instalador irá verificar o diretório listado para o cab do IoT Edge e os arquivos de MSI de tempo de execução do VC necessários para a instalação. Todos os ficheiros não foi encontrados no diretório são transferidos. Se ambos os ficheiros estão no diretório, é possível instalar o IoT Edge sem uma ligação à internet. Também pode utilizar este parâmetro para utilizar uma versão específica. |
 | **InvokeWebRequestParameters** | A tabela de hash de parâmetros e valores | Durante a instalação, várias solicitações da web são feitas. Utilize este campo para definir parâmetros para essas solicitações da web. Este parâmetro é útil para configurar as credenciais para os servidores proxy. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | nenhum | Este sinalizador permite que o script de implementação reiniciar a máquina sem pedir confirmação, se necessário. |
+| **RestartIfNeeded** | Nenhum | Este sinalizador permite que o script de implementação reiniciar a máquina sem pedir confirmação, se necessário. |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -296,18 +296,18 @@ O comando Initialize IoTEdge configura o IoT Edge com a sua cadeia de ligação 
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** ou **Linux** | Se não existir um contentor especificado do sistema operacional, o Windows é o valor predefinido. Para contentores do Windows, um mecanismo de contentor será incluído na instalação. Para contentores do Linux, tem de instalar um mecanismo de contentor antes de iniciar a instalação. |
-| **Proxy** | URL de Proxy | Inclua este parâmetro se o seu dispositivo precisa passar por um servidor proxy para a internet. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
+| **Proxy** | URL de proxy | Inclua este parâmetro se o seu dispositivo precisa passar por um servidor proxy para a internet. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | A tabela de hash de parâmetros e valores | Durante a instalação, várias solicitações da web são feitas. Utilize este campo para definir parâmetros para essas solicitações da web. Este parâmetro é útil para configurar as credenciais para os servidores proxy. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Caminho do diretório | Se este parâmetro estiver incluído, o instalador irá verificar o diretório listado para o cab do IoT Edge e os arquivos de MSI de tempo de execução do VC necessários para a instalação. Todos os ficheiros não foi encontrados no diretório são transferidos. Se ambos os ficheiros estão no diretório, é possível instalar o IoT Edge sem uma ligação à internet. Também pode utilizar este parâmetro para utilizar uma versão específica. |
-| **RestartIfNeeded** | nenhum | Este sinalizador permite que o script de implementação reiniciar a máquina sem pedir confirmação, se necessário. |
+| **RestartIfNeeded** | Nenhum | Este sinalizador permite que o script de implementação reiniciar a máquina sem pedir confirmação, se necessário. |
 
 
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |
-| **Force** | nenhum | Este sinalizador força a desinstalação, no caso da anterior tentativa de desinstalação foi concluída com êxito. 
-| **RestartIfNeeded** | nenhum | Este sinalizador permite que o script de desinstalação reiniciar a máquina sem pedir confirmação, se necessário. |
+| **Force** | Nenhum | Este sinalizador força a desinstalação, no caso da anterior tentativa de desinstalação foi concluída com êxito. 
+| **RestartIfNeeded** | Nenhum | Este sinalizador permite que o script de desinstalação reiniciar a máquina sem pedir confirmação, se necessário. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

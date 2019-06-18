@@ -9,10 +9,10 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61451604"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implantação de dependências para o desenvolvimento local

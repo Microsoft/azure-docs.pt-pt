@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ff71eb7d1386226e29b3f0846e0894a553f978e5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754226"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059678"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
@@ -53,7 +53,7 @@ Este cenário é semelhante ao anterior. Talvez um aplicativo é movido, ou a m�
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Alojar aplicações com balanceamento de carga no vértice da zona
 
-O protocolo DNS impede a atribuição de registos CNAME no vértice da zona. Por exemplo, se o seu domínio é contoso.com; Pode criar registos CNAME para somelable.contoso.com; mas não é possível criar o CNAME para contoso.com em si.
+O protocolo DNS impede a atribuição de registos CNAME no vértice da zona. Por exemplo, se o seu domínio é contoso.com; Pode criar registos CNAME para somelabel.contoso.com; mas não é possível criar o CNAME para contoso.com em si.
 Esta restrição apresenta um problema para os proprietários da aplicação que tenham aplicações com balanceamento de carga por trás [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md). Uma vez que a utilização de um perfil do Gestor de tráfego requer a criação de um registo CNAME, não é possível apontar para o perfil do Gestor de tráfego do vértice da zona.
 
 Esse problema foi resolvido com registos de alias. Ao contrário de registos CNAME, os registos de alias são criados no vértice da zona e proprietários de aplicativos podem utilizá-lo para apontar o respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Os proprietários dos aplicativos de apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS.

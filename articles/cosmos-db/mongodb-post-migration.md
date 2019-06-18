@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: roaror
 ms.openlocfilehash: c0c761fef481a1fdaa027f1329e9a4e72d62985a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61331221"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Passos de pós-migração otimização quando utilizar a API do Azure Cosmos DB para o MongoDB 

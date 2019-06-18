@@ -9,10 +9,10 @@ ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60395072"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e ver dados de diagnósticos no Armazenamento do Azure

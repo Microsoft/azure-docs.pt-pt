@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ms.openlocfilehash: 2126408222433e6339723dc2da0d2611bb234fe8
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66734150"
 ---
 # <a name="status-monitor-v2"></a>Monitor de Estado v2

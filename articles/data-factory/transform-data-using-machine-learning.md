@@ -12,14 +12,14 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60928078"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Versão atual](transform-data-using-machine-learning.md)
 
@@ -126,9 +126,9 @@ O fragmento JSON seguinte define uma atividade de execução de lote do Azure Ma
 
 | Propriedade          | Descrição                              | Necessário |
 | :---------------- | :--------------------------------------- | :------- |
-| nome              | Nome da atividade no pipeline     | Sim      |
+| name              | Nome da atividade no pipeline     | Sim      |
 | description       | Texto que descreve o que faz a atividade.  | Não       |
-| tipo              | Para a atividade de U-SQL do Data Lake Analytics, é o tipo de atividade **AzureMLBatchExecution**. | Sim      |
+| type              | Para a atividade de U-SQL do Data Lake Analytics, é o tipo de atividade **AzureMLBatchExecution**. | Sim      |
 | linkedServiceName | Serviço ligado do serviços ligados para o Azure Machine Learning. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | webServiceInputs  | Chaves, pares de valor, mapear os nomes das entradas de serviço Web do Azure Machine Learning. Tem de corresponder os parâmetros de entrada definidos no publicados do Azure Machine Learning Web Service. O valor é um par de propriedades de serviços ligados do armazenamento do Azure e o caminho do ficheiro, especificar as localizações de Blob de entrada. | Não       |
 | webServiceOutputs | Chaves, pares de valor, mapear os nomes das saídas de serviço Web do Azure Machine Learning. Tem de corresponder os parâmetros de saída definidos no publicados do Azure Machine Learning Web Service. O valor é um serviços ligados do armazenamento do Azure e o caminho do ficheiro localizações de Blobs do par de propriedades, especificando a saída. | Não       |

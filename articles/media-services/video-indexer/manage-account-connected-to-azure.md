@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799523"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerir uma conta do Video Indexer ligada ao Azure
@@ -56,17 +56,17 @@ O **definições** página permite-lhe definir o dimensionamento automático de 
 
 Dimensionamento automático não dimensiona abaixo 1 RU ou acima do limite predefinido de conta de Media Services. Para aumentar o limite, crie um pedido de serviço. Para obter informações sobre as quotas e limitações e como abrir um pedido de suporte, consulte [Quotas e limitações](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Aderir](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Inscrever-se](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Erros e avisos
 
 Se a conta tem de alguns ajustes, verá relevantes erros e avisos sobre a configuração da conta a **definições** página. As mensagens contêm links para exatas locais no portal do Azure em que precisa de fazer alterações. Esta secção fornece mais detalhes sobre as mensagens de aviso e erro.
 
-* Grelha de Eventos
+* Event Grid
 
     Tem de registar o fornecedor de recursos de EventGrid no portal do Azure. Na [portal do Azure](https://portal.azure.com/), aceda à **subscrições** > [subscrição] > **ResourceProviders** > **Microsoft.EventGrid**. Se não estiver da **registada** de estado, clique em **registar**. Demora alguns minutos para se registar. 
 
-* Ponto final de Transmissão em fluxo
+* Ponto final de transmissão em fluxo
 
     Certifique-se a conta de serviços de suporte de dados subjacente tem a predefinição **ponto final de transmissão em fluxo** num estado iniciado. Caso contrário, não será capaz de ver vídeos desta conta dos serviços de multimédia ou em Video Indexer.
 

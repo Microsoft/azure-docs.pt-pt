@@ -13,10 +13,10 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
 ms.openlocfilehash: 7ff93dffe2dd82bdbba204b4235a297b337438f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60784103"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar o depurador de instantâneos para aplicações de .NET no serviço de aplicações do Azure
@@ -25,7 +25,7 @@ Depurador de instantâneos trabalha atualmente para aplicações ASP.NET e ASP.N
 
 ## <a id="installation"></a> Ativar o depurador de instantâneos
 Para ativar o depurador de instantâneos para uma aplicação, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço do Azure, aqui estão as instruções para ativar o Snapshot Debugger em outras plataformas suportadas:
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Serviços em Nuvem do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços do Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais ou físicos no local](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)

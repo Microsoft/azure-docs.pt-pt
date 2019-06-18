@@ -10,10 +10,10 @@ ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
 ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64728311"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerir a Simultaneidade no Armazenamento do Microsoft Azure
@@ -106,7 +106,7 @@ A tabela seguinte resume as operações de BLOBs, tal como a cabeçalhos condici
 | Obter o Blob |Sim |Sim |
 | Obter as propriedades do Blob |Sim |Sim |
 | Definir as propriedades do Blob |Sim |Sim |
-| Obter Metadados do Blob |Sim |Sim |
+| Obter metadados do Blob |Sim |Sim |
 | Definir metadados do Blob |Sim |Sim |
 | Blob de concessão (*) |Sim |Sim |
 | Blob de instantâneo |Sim |Sim |
@@ -163,7 +163,7 @@ As seguintes operações de BLOBs podem utilizar as concessões para gerir a sim
 * Obter o Blob
 * Obter as propriedades do Blob
 * Definir as propriedades do Blob
-* Obter Metadados do Blob
+* Obter metadados do Blob
 * Definir metadados do Blob
 * Eliminar Blob
 * Colocar o bloco
@@ -238,12 +238,12 @@ A tabela seguinte resume como as operações de entidade de tabela utilizam valo
 | Operação | Devolve o valor de ETag | Requer o cabeçalho de pedido de If-Match |
 |:--- |:--- |:--- |
 | Consultar entidades |Sim |Não |
-| Inserir Entidade |Sim |Não |
+| Inserir a entidade |Sim |Não |
 | Atualizar a entidade |Sim |Sim |
-| Intercalar Entidade |Sim |Sim |
-| Eliminar Entidade |Não |Sim |
-| Inserir ou Substituir Entidade |Sim |Não |
-| Inserir ou Intercalar Entidade |Sim |Não |
+| Entidade de intercalação |Sim |Sim |
+| Eliminar entidade |Não |Sim |
+| Inserir ou substituir a entidade |Sim |Não |
+| Inserir ou intercalar a entidade |Sim |Não |
 
 Tenha em atenção que o **Insert ou entidade de substituir** e **Insert ou intercalar entidade** fazer operações *não* efetuar qualquer verificação de simultaneidade, porque eles não enviar um valor de ETag para a tabela serviço.  
 

@@ -15,10 +15,10 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60733322"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificar com uma escada gerado automaticamente a velocidade de transmissão

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f30e19a351f7b25f995a85cfd566bcba091ac27
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65597825"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Como: Integrar registos do Azure Active Directory com o Splunk através do Azure Monitor

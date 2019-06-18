@@ -17,10 +17,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835656"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Azure
@@ -150,7 +150,7 @@ Para o SAP HANA de cópia de segurança e restaurar estratégias, deve ler o doc
 ### <a name="business-one-client-server"></a>Servidor de um cliente de negócios
 Para esses componentes considerações de armazenamento não são a principal preocupação. No entanto, deseja ter uma plataforma confiável. Portanto, deve usar o armazenamento Premium do Azure para esta VM, mesmo para o VHD base. O dimensionamento da VM, com os dados fornecidos na [guia de requisitos de Hardware um do SAP Business](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Para o Azure, precisa concentrar-se e calcular com os requisitos indicados no capítulo 2.4 do documento. Como calcular os requisitos, é necessário compará-los nos seguintes documentos para localizar a VM ideal para:
 
-- [Tamanhos de máquinas de virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+- [Tamanhos de máquinas virtuais do Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [Nota SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
 Compare o número de CPUs e memória necessários para o que é descrito pela Microsoft. Tenha também o débito de rede em mente ao escolher as VMs.

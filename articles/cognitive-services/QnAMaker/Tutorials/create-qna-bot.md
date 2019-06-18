@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 06/11/2019
 ms.author: tulasim
-ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053236"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Crie um QnA Bot com o Azure Bot Service v4
 
@@ -55,9 +55,9 @@ Crie um bot como uma aplicação de cliente para a base de dados de conhecimento
     |Location|`west us`|Localização de recursos do Azure o bot.|
     |Escalão de preço|`F0`|O escalão gratuito para o Azure bot service.|
     |Nome da aplicação|`my-tutorial-kb-bot-app`|Esta é uma aplicação web para suportar o seu bot apenas. Não deve ser o mesmo nome como o serviço QnA Maker já está a utilizar. Não é suportada a partilha a aplicação de web do QnA Maker com qualquer outro recurso.|
-    |Idioma SDK|C#|Esta é a linguagem de programação subjacente utilizada pelo bot framework SDK. As opções são C# ou node. js.|
+    |Idioma SDK|C#|Esta é a linguagem de programação subjacente utilizada pelo bot framework SDK. As opções são [ C# ](https://github.com/Microsoft/botbuilder-dotnet) ou [node. js](https://github.com/Microsoft/botbuilder-js).|
     |Chave de autenticação do QnA|**Não altere**|Este valor é preenchido por si.|
-    |Plano do serviço de aplicações/localização|**Não altere**|Para este tutorial, a localização não é importante.|
+    |Plano de serviço de aplicações/localização|**Não altere**|Para este tutorial, a localização não é importante.|
     |Storage do Azure|**Não altere**|Dados de conversação são armazenados em tabelas de armazenamento do Azure.|
     |Application Insights|**Não altere**|O registo é enviado para o Application Insights.|
     |ID de aplicação da Microsoft|**Não altere**|Utilizador do Active Directory e a palavra-passe é necessária.|

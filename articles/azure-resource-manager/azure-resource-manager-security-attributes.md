@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002263"
 ---
 # <a name="security-attributes-for-azure-resource-manager"></a>Atributos de segurança para o Azure Resource Manager

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aee12e9cdf98d1e3a7ab0a49caf8639e9e585455
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fecfc00cfae3a4407f815d27a3f48d6c3bfc92a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280164"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103802"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Tutorial: Integração do Active Directory do Azure com EasyTerritory
 
@@ -53,7 +53,7 @@ Para configurar a integração do EasyTerritory com o Azure AD, terá de adicion
 
 **Para adicionar EasyTerritory a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

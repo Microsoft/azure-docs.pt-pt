@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 79e9952aefc44b7c490bb9fe375487c1a3335fc8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901502"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Integração do Active Directory do Azure com Predictix ordenação
 
@@ -94,7 +94,7 @@ Para configurar o Azure AD início de sessão único com Predictix ordenação, 
 
 2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Selecione um método de início de sessão único](common/select-saml-option.png)
+    ![Selecionar um método de início de sessão único](common/select-saml-option.png)
 
 3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
@@ -155,7 +155,7 @@ Nesta secção, irá criar um utilizador de teste com o nome Eduarda Almeida no 
 
     1. Na **Name** , introduza **BrittaSimon**.
   
-    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >**. (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >** . (Por exemplo, BrittaSimon@contoso.com.)
 
     1. Selecione **mostrar palavra-passe**e, em seguida, anote o valor que está a **palavra-passe** caixa.
 
@@ -167,7 +167,7 @@ Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure AD início de ses
 
 1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Predictix ordenação**:
 
-    ![Aplicações empresariais](common/enterprise-applications.png)
+    ![Aplicações Empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **ordenação Predictix**.
 
@@ -191,7 +191,7 @@ Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure AD início de ses
 
 Em seguida, terá de criar um utilizador com o nome Eduarda Almeida na Predictix ordenação. Trabalhar com o [Predictix ordenação a equipa de suporte](https://www.predix.io/support/) para adicionar utilizadores. Os utilizadores têm de ser criado e ativado antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 

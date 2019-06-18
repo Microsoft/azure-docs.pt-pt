@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65794397"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é uma base de dados na base de dados do Azure SQL
@@ -32,7 +32,7 @@ A opção de implementação de base de dados cria uma base de dados na base de 
 
 Pode criar sua primeira aplicação numa base de dados pequena e individual em baixo custo na camada de computação sem servidor (pré-visualização) ou um tamanho de computação pequena na camada de computação aprovisionada. Alterar o [escalão de computação ou o serviço](sql-database-single-database-scale.md) manual ou programaticamente em qualquer altura para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
-## <a name="single-databases-and-elastic-pools"></a>Conjuntos elásticos e bases de dados individuais
+## <a name="single-databases-and-elastic-pools"></a>Bases de dados individuais e conjuntos elásticos
 
 Uma base de dados pode ser movido para dentro ou fora de um [conjunto elástico](sql-database-elastic-pool.md) para partilha de recursos. Para muitas empresas e aplicações, ser capaz de criar bases de dados individuais e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. Conjuntos elásticos foram concebidos para resolver este problema. O conceito é simples. Alocar recursos de desempenho para um conjunto em vez de uma base de dados individual e pagar para os recursos de desempenho coletivo do conjunto em vez de desempenho de base de dados.
 

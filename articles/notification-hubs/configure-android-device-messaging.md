@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: 0d79e53f731c20777ffa2fb57b3b8149fe4e60ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60239951"
 ---
 # <a name="configure-android-device-messaging-adm-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurar definições de Android Device Messaging (ADM) para um hub de notificação no portal do Azure

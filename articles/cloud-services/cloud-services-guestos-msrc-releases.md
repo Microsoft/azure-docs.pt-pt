@@ -14,10 +14,10 @@ ms.workload: tbd
 ms.date: 6/6/2019
 ms.author: raiye
 ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66743042"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
@@ -1715,36 +1715,36 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3002657]: https://support.microsoft.com/kb/3002657
 [3035126]: https://support.microsoft.com/kb/3035126
 
-[3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
-[3046002]:https://support.microsoft.com/kb/3046002
-[3057134]:https://support.microsoft.com/kb/3057134
-[3055642]:https://support.microsoft.com/kb/3055642
-[3057191]:https://support.microsoft.com/kb/3057191
-[3050514]:https://support.microsoft.com/kb/3050514
-[3057263]:https://support.microsoft.com/kb/3057263
-[3051768]:https://support.microsoft.com/kb/3051768
-[3061518]:https://support.microsoft.com/kb/3061518
+[3049563]: https://support.microsoft.com/kb/3049563
+[3057110]: https://support.microsoft.com/kb/3057110
+[3046002]: https://support.microsoft.com/kb/3046002
+[3057134]: https://support.microsoft.com/kb/3057134
+[3055642]: https://support.microsoft.com/kb/3055642
+[3057191]: https://support.microsoft.com/kb/3057191
+[3050514]: https://support.microsoft.com/kb/3050514
+[3057263]: https://support.microsoft.com/kb/3057263
+[3051768]: https://support.microsoft.com/kb/3051768
+[3061518]: https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
-[3042553]:https://support.microsoft.com/kb/3042553
-[3046306]:https://support.microsoft.com/kb/3046306
-[3046269]:https://support.microsoft.com/kb/3046269
-[3049576]:https://support.microsoft.com/kb/3049576
-[3046482]:https://support.microsoft.com/kb/3046482
-[3045711]:https://support.microsoft.com/kb/3045711
-[3048010]:https://support.microsoft.com/kb/3048010
-[3047234]:https://support.microsoft.com/kb/3047234
-[3045755]:https://support.microsoft.com/kb/3045755
-[3030377]:https://support.microsoft.com/kb/3030377
-[3039976]:https://support.microsoft.com/kb/3039976
+[3038314]: https://support.microsoft.com/kb/3038314
+[3042553]: https://support.microsoft.com/kb/3042553
+[3046306]: https://support.microsoft.com/kb/3046306
+[3046269]: https://support.microsoft.com/kb/3046269
+[3049576]: https://support.microsoft.com/kb/3049576
+[3046482]: https://support.microsoft.com/kb/3046482
+[3045711]: https://support.microsoft.com/kb/3045711
+[3048010]: https://support.microsoft.com/kb/3048010
+[3047234]: https://support.microsoft.com/kb/3047234
+[3045755]: https://support.microsoft.com/kb/3045755
+[3030377]: https://support.microsoft.com/kb/3030377
+[3039976]: https://support.microsoft.com/kb/3039976
 
-[3058515]:https://support.microsoft.com/kb/3058515
-[3033890]:https://support.microsoft.com/kb/3033890
-[3059317]:https://support.microsoft.com/kb/3059317
-[3057839]:https://support.microsoft.com/kb/3057839
-[3062577]:https://support.microsoft.com/kb/3062577
-[3063858]:https://support.microsoft.com/kb/3063858
+[3058515]: https://support.microsoft.com/kb/3058515
+[3033890]: https://support.microsoft.com/kb/3033890
+[3059317]: https://support.microsoft.com/kb/3059317
+[3057839]: https://support.microsoft.com/kb/3057839
+[3062577]: https://support.microsoft.com/kb/3062577
+[3063858]: https://support.microsoft.com/kb/3063858
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

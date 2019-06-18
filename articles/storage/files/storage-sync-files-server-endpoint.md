@@ -9,10 +9,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 31bb71f016dd7f9dd37c766ece25caf8f300754b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64686959"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adicionar ou remover um ponto de extremidade do servidor de sincronização de ficheiros do Azure

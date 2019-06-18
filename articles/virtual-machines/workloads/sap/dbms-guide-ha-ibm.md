@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64689702"
 ---
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[1612105]:https://launchpad.support.sap.com/#/notes/1612105
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[1612105]: https://launchpad.support.sap.com/#/notes/1612105
 
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [db2-hadr-11.1]:https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html
@@ -337,9 +337,9 @@ Quando utiliza Pacemaker para ativação pós-falha em caso de falha de nó, ter
 
 Os seguintes itens são prefixados com ambos:
 
-- **[A]**: Aplicável a todos os nós
-- **[1]**: Aplicável apenas ao nó 1 
-- **[2]**: Aplicável apenas ao nó 2
+- **[A]** : Aplicável a todos os nós
+- **[1]** : Aplicável apenas ao nó 1 
+- **[2]** : Aplicável apenas ao nó 2
 
 **[A]**  Pré-requisitos para a configuração de Pacemaker:
 1. Encerre ambos os servidores de base de dados com o utilizador db2\<sid > com db2stop.
@@ -595,8 +595,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **Migrar recursos de CRM \<res_name > <host>:** Cria as restrições de localização e pode causar problemas de obtenção de controlo
-- **recursos de CRM claro \<res_name >**: Limpa a restrições de localização
-- **limpeza de recursos de CRM \<res_name >**: Limpa todos os erros do recurso
+- **recursos de CRM claro \<res_name >** : Limpa a restrições de localização
+- **limpeza de recursos de CRM \<res_name >** : Limpa todos os erros do recurso
 
 ### <a name="test-the-fencing-agent"></a>O agente de delimitação por barreiras de teste
 

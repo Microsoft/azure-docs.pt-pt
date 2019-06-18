@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: 4f59f68c1598f737ea7cb3a0e8046fc0779ed9d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 57ba55ce284030a4103077553b0dcfce01a93678
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113796"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67125747"
 ---
 O agente de sincronização de ficheiros do Azure é atualizado regularmente para adicionar novas funcionalidades e para resolver problemas. Recomendamos que configure o Microsoft Update para obter atualizações para o agente de sincronização de ficheiros do Azure, como eles estão disponíveis.
 
@@ -31,7 +31,7 @@ Existem quatro aprovação e teste de formas de instalar as atualizações de ag
 #### <a name="automatic-agent-lifecycle-management"></a>Gerenciamento de ciclo de vida de automática do agente
 Com a versão do agente 6, a equipe de sincronização de ficheiros introduziu uma funcionalidade de atualização automática do agente. Pode selecionar qualquer um dos dois modos e especifique uma janela de manutenção no qual deve ser tentada a atualização no servidor. Esta funcionalidade foi projetada para ajudá-lo com a gestão de ciclo de vida de agente fornecendo um guardrail que impede o agente de expiração ou permitindo uma e sem complicações, mantenha-se a definição atual.
 1. O **predefinição** irá tentar impedir que o agente de expiração. Dentro de 21 dias após a data de expiração de postagem de um agente, o agente irá tentar a atualização automática. Iniciará uma tentativa de atualizar uma vez por semana dentro de 21 dias antes da expiração e na janela de manutenção selecionado. **Esta opção não elimina a necessidade de colocar patches comuns do Microsoft Update.**
-2. Opcionalmente, pode selecionar que o agente irão atualizar automaticamente em si, assim como uma nova versão de agente fica disponível. Isso também ocorrem durante a janela de manutenção selecionado e permitir que o seu servidor beneficiar de aprimoramentos e novos recursos assim que estiverem em disponibilidade geral. Esta é a definição recomendada, livre que fornecerão as versões do agente principais, bem como patches regulares de atualização para o seu servidor.
+2. Opcionalmente, pode selecionar que o agente irão atualizar automaticamente em si, assim como uma nova versão do agente é disponibilizada (atualmente não é aplicável a servidores em cluster). Esta atualização irá ocorrer durante a janela de manutenção selecionado e permitir que o seu servidor beneficiar de aprimoramentos e novos recursos assim que estiverem em disponibilidade geral. Esta é a definição recomendada, livre que fornecerão as versões do agente principais, bem como patches regulares de atualização para o seu servidor. Cada agente lançada está na qualidade de disponibilidade geral. Se selecionar esta opção, a Microsoft irá vôo a versão mais recente do agente para. Servidores em cluster são excluídos. Depois de concluída a distribuição de pacotes piloto, o agente também estará disponível no [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257) aka.ms/AFS/agent.
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Garantias de gerenciamento de ciclo de vida e a alteração do agente
 O Azure File Sync é um serviço em nuvem, que cria continuamente novos recursos e melhorias. Isso significa que uma versão de agente do Azure File Sync específica só pode ser suportada por um período limitado. Para facilitar a implementação, as seguintes regras de garantem que tem suficiente tempo e a notificação para acomodar o agente atualizações/melhoramentos em seu processo de gestão de alteração:

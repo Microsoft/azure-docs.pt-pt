@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/201
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 89034b04c6b38c0873f890e55693c6e15e6a8d93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3677e45738c368d8438872da740a362a8048a63
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069405"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155538"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
 
@@ -156,7 +156,7 @@ Poderá demorar algum tempo para o novo domínio personalizado sejam refletidas 
 ![Registo CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> R **nota Secure** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
+> R **não proteger** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
 
 Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um erro de verificação na parte inferior da página.
 
@@ -240,7 +240,7 @@ Poderá demorar algum tempo para o novo domínio personalizado sejam refletidas 
 ![Registo A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> R **nota Secure** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
+> R **não proteger** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para adicionar um enlace SSL, consulte [vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md).
 
 Se tiver perdido um passo ou escrito algo mal em algum momento acima, verá um erro de verificação na parte inferior da página.
 

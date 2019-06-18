@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 95c59d3e5504058e27cdb4eda311c3917d6c834a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65912223"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>O que há de novo no Azure SQL Data Warehouse? junho de 2018

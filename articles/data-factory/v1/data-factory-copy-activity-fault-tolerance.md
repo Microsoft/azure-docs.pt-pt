@@ -13,15 +13,15 @@ ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 3a255b21e8bfd7d78954603e9aa6e5ca39cee95b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60566080"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicionar a tolerância a falhas na atividade de cópia, Ignorar linhas incompatíveis
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-copy-activity-fault-tolerance.md)
 > * [Versão 2 (versão atual)](../copy-activity-fault-tolerance.md)
 

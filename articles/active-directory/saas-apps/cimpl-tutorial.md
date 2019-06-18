@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8896922cf3f95439b76e12faf9577ca6570fbdf7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 098c305f507d57a7e34dcb33d9c6bb3a3392e23f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Tutorial: Integração do Active Directory do Azure com Cimpl
 
@@ -53,7 +53,7 @@ Para configurar a integração do Cimpl com o Azure AD, terá de adicionar Cimpl
 
 **Para adicionar Cimpl a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Cimpl. Trabalhar com suporte de Cimpl **+1 866-982-8250** para adicionar os utilizadores na conta Cimpl.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

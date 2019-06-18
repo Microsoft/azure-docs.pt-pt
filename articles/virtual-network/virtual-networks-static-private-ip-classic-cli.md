@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62107983"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurar endereços IP privados para uma máquina virtual (clássico) com a CLI clássica do Azure
@@ -64,10 +64,10 @@ Para criar uma nova VM com o nome *DNS01* num novo serviço cloud com o nome *Te
         info:    OK
         info:    vm create command OK
    
-   * **-l (ou --location)**. Região do Azure onde a VM será criada. Para o nosso cenário *centralus*.
-   * **-n (ou - vm-name)**. Nome da VM a ser criada.
-   * **-w (ou ----nome de rede virtual)**. Nome da VNet onde a VM será criada. 
-   * **-S (ou --ip estático)**. Endereço de IP privado estático para a VM.
+   * **-l (ou --location)** . Região do Azure onde a VM será criada. Para o nosso cenário *centralus*.
+   * **-n (ou - vm-name)** . Nome da VM a ser criada.
+   * **-w (ou ----nome de rede virtual)** . Nome da VNet onde a VM será criada. 
+   * **-S (ou --ip estático)** . Endereço de IP privado estático para a VM.
    * **TestService**. Nome do serviço cloud em que a VM será criada.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Imagem utilizada para criar a VM.
    * **adminuser**. Administrador local para a VM do Windows.

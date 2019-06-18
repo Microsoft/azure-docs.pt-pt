@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/02/2019
-ms.openlocfilehash: 8a0397440e2b10bf1ad6b4f1be999888e09bad8f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 06/12/2019
+ms.openlocfilehash: a1ccfd23338e2ee18c335fe8bd9869ecdf9c2f08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67120808"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Início rápido: Criar cluster do Apache Kafka no HDInsight do Azure com o PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) é uma plataforma de transmissão em fluxo distribuída e de código-fonte aberto. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
@@ -23,14 +23,11 @@ Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]  
-> Só os recursos dentro da mesma rede virtual podem aceder à API Kafka. Neste guia de início rápido, irá aceder ao cluster diretamente através de SSH. Para ligar outros serviços, redes ou máquinas virtuais ao Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede.
->
-> Para obter mais informações, veja o documento [Ligar ao Apache Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
+Só os recursos dentro da mesma rede virtual podem aceder à API Kafka. Neste guia de início rápido, irá aceder ao cluster diretamente através de SSH. Para ligar outros serviços, redes ou máquinas virtuais ao Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede. Para obter mais informações, veja o documento [Ligar ao Apache Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * O PowerShell [módulo Az](https://docs.microsoft.com/powershell/azure/overview) instalado.
 
@@ -132,19 +129,13 @@ New-AzHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]  
-> A criação do cluster do HDInsight pode demorar até 20 minutos.
+A criação do cluster do HDInsight pode demorar até 20 minutos.
 
-> [!TIP]  
-> O parâmetro `-DisksPerWorkerNode` configura a escalabilidade do Kafka no HDInsight. O Kafka no HDInsight utiliza o disco local das máquinas virtuais no cluster para armazenar dados. O Kafka recebe um fluxo intensivo de dados de E/S, pelo que o [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) é utilizado para garantir um elevado débito e uma maior capacidade de armazenamento por nó. 
->
-> O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM utilizado pelos nós de trabalho (mediadores do Kafka). Os discos Premium são utilizados automaticamente com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard. Pode definir o tipo de VM com o parâmetro `-WorkerNodeSize`. Para obter mais informações sobre parâmetros, consulte a [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentação.
+O parâmetro `-DisksPerWorkerNode` configura a escalabilidade do Kafka no HDInsight. O Kafka no HDInsight utiliza o disco local das máquinas virtuais no cluster para armazenar dados. O Kafka recebe um fluxo intensivo de dados de E/S, pelo que o [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) é utilizado para garantir um elevado débito e uma maior capacidade de armazenamento por nó.
 
+O tipo de disco gerido pode ser __Standard__ (HDD) ou __Premium__ (SSD). O tipo de disco depende do tamanho da VM utilizado pelos nós de trabalho (mediadores do Kafka). Os discos Premium são utilizados automaticamente com as VMs das séries DS e GS. Todos os outros tipos de VM utilizam discos Standard. Pode definir o tipo de VM com o parâmetro `-WorkerNodeSize`. Para obter mais informações sobre parâmetros, consulte a [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentação.
 
-> [!IMPORTANT]  
-> Se planeia utilizar mais do que 32 nós de trabalho (seja durante a criação do cluster ou ao dimensionar o cluster após a criação), tem de utilizar o parâmetro `-HeadNodeSize` para especificar um tamanho de VM com pelo menos 8 núcleos e 14 GB de RAM.
->
-> Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+Se planeia utilizar mais do que 32 nós de trabalho (seja durante a criação do cluster ou ao dimensionar o cluster após a criação), tem de utilizar o parâmetro `-HeadNodeSize` para especificar um tamanho de VM com pelo menos 8 núcleos e 14 GB de RAM. Para obter mais informações sobre tamanhos de nós e custos associados, veja os [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
@@ -202,16 +193,13 @@ Nesta secção, recebe as informações do anfitrião da API REST do Apache Amba
 
     Quando lhe for pedido, introduza o nome do cluster do Kafka.
 
-3. Para definir uma variável de ambiente com as informações do anfitrião Zookeeper, utilize o comando seguinte:
+3. Para definir uma variável de ambiente com informações do anfitrião Zookeeper, utilize o comando abaixo. O comando obtém todos os anfitriões Zookeeper, em seguida, devolve apenas as primeiras duas entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
     Quando lhe for pedido, introduza a palavra-passe da conta do início de sessão do cluster (não a conta SSH).
-
-    > [!NOTE]  
-    > Este comando obtém todos os anfitriões do Zookeeper e devolve apenas as primeiras duas entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
 
 4. Para verificar se a variável de ambiente está definida corretamente, utilize o comando seguinte:
 
@@ -257,15 +245,13 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
 
     * Cada partição é replicada em três nós de trabalho no cluster.
 
-        > [!IMPORTANT]  
-        > Se tiver criado o cluster numa região do Azure que fornece três domínios de falha, utilize um fator de replicação de 3. Caso contrário, utilize um fator de replicação de 4.
+        Se tiver criado o cluster numa região do Azure que fornece três domínios de falha, utilize um fator de replicação de 3. Caso contrário, utilize um fator de replicação de 4.
         
         Nas regiões com três domínios de falha, um fator de replicação de 3 permite que as réplicas sejam distribuídas pelos domínios de falha. Nas regiões com dois domínios de falha, um fator de replicação de 4 distribui as réplicas uniformemente pelos domínios.
         
         Para obter informações sobre o número de domínios de falha numa região, consulte o documento [Disponibilidade das máquinas virtuais Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-        > [!IMPORTANT]   
-        > O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
+        O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
 
         Para garantir a elevada disponibilidade, utilize o [ferramenta de reequilíbrio de partições do Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
 
@@ -324,8 +310,7 @@ Utilize os seguintes passos para armazenar os registos no tópico de teste criad
    
     Este comando obtém os registos do tópico e apresenta-os. A utilização de `--from-beginning` indica ao consumidor para iniciar a partir do início da transmissão em fluxo, para que todos os registos sejam obtidos.
 
-    > [!NOTE]  
-    > Se estiver a utilizar uma versão antiga do Kafka, substitua `--bootstrap-server $KAFKABROKERS` por `--zookeeper $KAFKAZKHOSTS`.
+    Se estiver a utilizar uma versão antiga do Kafka, substitua `--bootstrap-server $KAFKABROKERS` por `--zookeeper $KAFKAZKHOSTS`.
 
 4. Utilize __Ctrl + C__ para parar o consumidor.
 

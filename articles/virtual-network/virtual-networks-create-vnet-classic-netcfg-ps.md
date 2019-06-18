@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 45c4eb02d76578a5a214ff5719a6dff3becec88c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60870001"
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>Criar uma rede virtual (clássica) através de um ficheiro de configuração de rede com o PowerShell

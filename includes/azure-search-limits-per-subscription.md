@@ -9,17 +9,17 @@ ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 1e147e8bd9260cd1ece60b70641968a229995ec1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160489"
 ---
 Pode criar vários serviços numa subscrição. Cada um deles pode ser aprovisionado num escalão específico. Está limitado apenas pelo número de serviços permitidas em cada escalão. Por exemplo, pode criar até 12 serviços no escalão básico e outro serviços 12 no escalão S1 dentro da mesma subscrição. Para obter mais informações sobre as camadas, consulte [escolher um SKU ou camada para o Azure Search](../articles/search/search-sku-tier.md).
 
 Limites do serviço máximo podem ser tratados mediante pedido. Se precisar de mais serviços na mesma subscrição, contacte o suporte do Azure.
 
-| Resource            | Gratuito<sup>1</sup> | Básico | S1  | S2 | S3 | S3&nbsp;HD | L1 | ERROS DE L2 |
+| Resource            | Gratuito<sup>1</sup> | Básica | S1  | S2 | S3 | S3&nbsp;HD | L1 | ERROS DE L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
 | Serviços máximos    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | Dimensionamento máximo em unidades de pesquisa (SU)<sup>2</sup> |N/A |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |

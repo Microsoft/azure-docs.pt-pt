@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60318193"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar a máquina de origem da instalação push do agente de mobilidade
@@ -27,7 +27,7 @@ Em cada máquina do Windows que pretende proteger, faça o seguinte:
     - Na chave do Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione um DWORD novo: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**.
     -  Para fazer isso num prompt de comando, execute o seguinte comando:  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
-3. Na Firewall do Windows no computador que pretende proteger, selecione **permitir uma aplicação ou funcionalidade através da Firewall**. Ativar **de ficheiros e partilha de impressoras** e **Windows Management Instrumentation (WMI)**. Para computadores que pertençam a um domínio, pode configurar as definições de firewall utilizando um objeto de diretiva de grupo (GPO).
+3. Na Firewall do Windows no computador que pretende proteger, selecione **permitir uma aplicação ou funcionalidade através da Firewall**. Ativar **de ficheiros e partilha de impressoras** e **Windows Management Instrumentation (WMI)** . Para computadores que pertençam a um domínio, pode configurar as definições de firewall utilizando um objeto de diretiva de grupo (GPO).
 
    ![Definições de firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
 

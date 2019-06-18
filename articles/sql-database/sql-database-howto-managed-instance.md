@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60340796"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Como utilizar uma instância gerida na base de dados do Azure SQL

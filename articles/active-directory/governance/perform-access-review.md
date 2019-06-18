@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66113247"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Rever o acesso a grupos ou as revisões de acesso a aplicações no Azure AD

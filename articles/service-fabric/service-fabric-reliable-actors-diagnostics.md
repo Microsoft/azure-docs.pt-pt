@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60726575"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnóstico e monitorização do desempenho dos Reliable Actors
@@ -29,7 +29,7 @@ O nome do fornecedor EventSource para o tempo de execução do Reliable Actors �
 
 São exemplos de ferramentas e tecnologias que ajudam na recolha de e/ou ver eventos de EventSource [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md), [registo semântico](https://msdn.microsoft.com/library/dn774980.aspx)e o [ Biblioteca do Microsoft TraceEvent](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
-### <a name="keywords"></a>Palavras-chave
+### <a name="keywords"></a>palavras-chave
 Todos os eventos que pertencem a EventSource de Atores fiáveis são associados a um ou mais palavras-chave. Isto permite a filtragem de eventos que são recolhidos. Os bits de palavra-chave seguintes são definidos.
 
 | bit | Descrição |
@@ -102,9 +102,9 @@ O tempo de execução do Reliable Actors publica os seguintes contadores de dese
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Método de Ator do Service Fabric |Invocações/Segundo |Número de vezes que o método de serviço de atores é invocado por segundo |
-| Método de Ator do Service Fabric |Média em milissegundos por invocação |Tempo que demora a executar o método do serviço de atores em milissegundos |
-| Método de Ator do Service Fabric |Exceções geradas/Segundo |Número de vezes que o serviço de atores método emitiu uma exceção por segundo |
+| Método de Ator do Service Fabric |Chamadas/seg |Número de vezes que o método de serviço de atores é invocado por segundo |
+| Método de Ator do Service Fabric |Média em milissegundos por invocação |Tempo decorrido para executar o método de serviço de ator em milissegundos |
+| Método de Ator do Service Fabric |Exceções iniciadas/seg |Número de vezes que o serviço de atores método emitiu uma exceção por segundo |
 
 ### <a name="concurrency-events-and-performance-counters"></a>Eventos de simultaneidade e contadores de desempenho
 O tempo de execução do Reliable Actors emite os seguintes eventos relacionados com [simultaneidade](service-fabric-reliable-actors-introduction.md#concurrency).
@@ -117,9 +117,9 @@ O tempo de execução do Reliable Actors publica os seguintes contadores de dese
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator do Service Fabric |Número de chamadas de atores a aguardar pela obtenção do bloqueio por ator |Número de pendentes a aguardar para adquirir o bloqueio por ator que impõe simultaneidade turnos de chamadas de ator |
-| Ator do Service Fabric |Média em milissegundos por espera de bloqueio |Tempo decorrido (em milissegundos) para adquirir o bloqueio por ator que impõe simultaneidade turnos |
-| Ator do Service Fabric |Média em milissegundos com o bloqueio de ator ativado |Tempo (em milissegundos) para o qual o bloqueio por ator é mantido |
+| Ator do Service Fabric |n. º de chamadas de atores a aguardar que o bloqueio de ator |Número de pendentes a aguardar para adquirir o bloqueio por ator que impõe simultaneidade turnos de chamadas de ator |
+| Ator do Service Fabric |Média em milissegundos por bloqueio espera |Tempo decorrido (em milissegundos) para adquirir o bloqueio por ator que impõe simultaneidade turnos |
+| Ator do Service Fabric |Média em milissegundos bloqueio de ator ativado |Tempo (em milissegundos) para o qual o bloqueio por ator é mantido |
 
 ### <a name="actor-state-management-events-and-performance-counters"></a>Eventos de gestão do Estado de ator e contadores de desempenho
 O tempo de execução do Reliable Actors emite os seguintes eventos relacionados com [gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md).
@@ -133,8 +133,8 @@ O tempo de execução do Reliable Actors publica os seguintes contadores de dese
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator do Service Fabric |Média em milissegundos por operação de estado de gravação |Tempo que demora a guardar o estado do ator em milissegundos |
-| Ator do Service Fabric |Média em milissegundos por operação de estado de carregamento |Tempo decorrido para carregar o estado de ator em milissegundos |
+| Ator do Service Fabric |Média em milissegundos por guardar a operação de estado |Tempo decorrido ao guardar o estado do ator em milissegundos |
+| Ator do Service Fabric |Média em milissegundos por operação de estado de carregamento |Tempo decorrido para carregar o estado do ator em milissegundos |
 
 ### <a name="events-related-to-actor-replicas"></a>Eventos relacionados com réplicas de ator
 O tempo de execução do Reliable Actors emite os seguintes eventos relacionados com [réplicas de ator](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
@@ -156,16 +156,16 @@ O tempo de execução do Reliable Actors publica os seguintes contadores de dese
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator do Service Fabric |Média em milissegundos de OnActivateAsync |Tempo decorrido para executar o método OnActivateAsync em milissegundos |
+| Ator do Service Fabric |Média em milissegundos de OnActivateAsync |Tempo que demora a executar o método OnActivateAsync em milissegundos |
 
 ### <a name="actor-request-processing-performance-counters"></a>Contadores de desempenho de processamento do pedido de ator
 Quando um cliente invoca um método por meio de um objeto de proxy de ator, resulta numa mensagem de solicitação a ser enviada através da rede para o serviço de ator. O serviço processa a mensagem de solicitação e envia uma resposta de volta ao cliente. O tempo de execução do Reliable Actors publica os seguintes contadores de desempenho relacionados com o processamento do pedido de ator.
 
 | Nome da categoria | Nome do contador | Descrição |
 | --- | --- | --- |
-| Ator do Service Fabric |N.º de pedidos pendentes |Número de pedidos em processamento no serviço |
+| Ator do Service Fabric |n. º de pedidos pendentes |Número de pedidos em processamento no serviço |
 | Ator do Service Fabric |Média em milissegundos por pedido |Tempo decorrido (em milissegundos) pelo serviço para processar um pedido |
-| Ator do Service Fabric |Média em milissegundos para a desserialização do pedido |Tempo decorrido (em milissegundos) para anular a serialização de mensagem de pedido de ator quando recebido no serviço |
+| Ator do Service Fabric |Média em milissegundos para desserialização do pedido |Tempo decorrido (em milissegundos) para anular a serialização de mensagem de pedido de ator quando recebido no serviço |
 | Ator do Service Fabric |Média em milissegundos para a serialização da resposta |Tempo decorrido (em milissegundos) para serializar a mensagem de resposta de ator no serviço antes da resposta é enviada ao cliente |
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 83a5d4c1d9c0475609a506fbfe6ae23bd9e236fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 837ba4043fe27c15f75c4d401878dfdb3328b82f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865508"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Tutorial: Integração do Active Directory do Azure com Versal
 
@@ -53,7 +53,7 @@ Para configurar a integração do Versal com o Azure AD, terá de adicionar Vers
 
 **Para adicionar Versal a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -188,7 +188,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Versal. Siga os [utilizador de teste de criação de um SAML](https://support.versal.com/hc/articles/115011672887-Creating-a-SAML-test-user) guia de suporte para criar o utilizador Eduarda Almeida na sua organização. Os utilizadores tem de ser criados e ativados no Versal antes de utilizar o início de sessão único. 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com um curso de Versal incorporado no seu Web site.
 Consulte a [incorporar cursos organizacional](https://support.versal.com/hc/en-us/articles/203271866-Embedding-organizational-courses) **SAML Single Sign-On** guia de suporte para obter instruções sobre como incorporar um curso de Versal com suporte para o Azure AD início de sessão único. 

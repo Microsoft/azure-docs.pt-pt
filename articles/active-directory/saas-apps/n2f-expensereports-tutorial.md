@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 7380cf6727817d99edbedf5552c8bea42f177074
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7b38f26261625c6db8acb6653b3cd9353fdcc2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744423"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: Relatórios de despesas de integração do Active Directory do Azure com N2F-
 
@@ -52,7 +52,7 @@ Para configurar a integração do N2F - relatórios de despesas no Azure AD, tem
 
 **Para adicionar N2F - relatórios de despesas a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -235,14 +235,14 @@ Para permitir que utilizadores do Azure AD iniciar sessão no N2F - relatórios 
 
     c. Na **Name** caixa de texto, introduza o nome de utilizador, como **BrittaSimon**.
 
-    d. Escolher **função de Gestor direto (N + 1)**, e **divisão** de acordo com seus requisitos de organização.
+    d. Escolher **função de Gestor direto (N + 1)** , e **divisão** de acordo com seus requisitos de organização.
 
     e. Clique em **para validar e enviar convite**.
 
     > [!NOTE]
     > Se estiver com problemas ao adicionar o utilizador, entre em contato com [N2F - equipa de suporte de relatórios de despesas](mailto:support@n2f.com)
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
 ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61485828"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em várias bases de dados SQL do Azure
@@ -96,7 +96,7 @@ Neste exercício adiciona esquema (a origem de dados externa e definições de t
 
     ![Criar origem de dados externa](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   As tabelas externas que fazem referência a tabelas de inquilino são definidas com **distribuição = SHARDED(VenueId)**. Isso encaminha uma consulta para um determinado *VenueId* na base de dados apropriadas e melhora o desempenho para muitos cenários conforme mostrado na próxima seção.
+   As tabelas externas que fazem referência a tabelas de inquilino são definidas com **distribuição = SHARDED(VenueId)** . Isso encaminha uma consulta para um determinado *VenueId* na base de dados apropriadas e melhora o desempenho para muitos cenários conforme mostrado na próxima seção.
 
     ![criar tabelas externas](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: 1639b8066f3c9943bc42f5151fcb456585441baf
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64866237"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Suporte de idioma e região para a API de pesquisa Visual do Bing
@@ -34,7 +34,7 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 > - Receita, compras e páginas, incluindo informações estão disponíveis no mercado en-US apenas.
 
 
-## <a name="countriesregions"></a>Países/Regiões
+## <a name="countriesregions"></a>Países/regiões
 
 |País/região|Código|
 |-------|----|

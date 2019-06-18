@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472165"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Voltar a proteger efetuar a ativação pós-falha de VMs do Azure para a região primária
@@ -84,7 +84,7 @@ Na maioria dos casos, o Azure Site Recovery não replica os dados completos para
 1.  Se a origem de dados da VM é eliminado, danificada ou inacessível devido a algum motivo, como o grupo de recursos alterar/eliminar, em seguida, durante o runtime de integração completa de nova proteção irá acontecer porque não existe nenhum dado disponível na região de origem para utilizar.
 2.  Se a origem de dados da VM está acessível apenas diferenciais são calculados comparando os dois discos os e, em seguida, transferidas. Verifique a tabela para obter o tempo estimado abaixo 
 
-|* * Situação de exemplo * * | * * Tempo decorrido para voltar a proteger * * |
+|\* * Situação de exemplo * * | \* * Tempo decorrido para voltar a proteger * * |
 |--- | --- |
 |Região de origem tem 1 VM com disco standard do 1 TB<br/>-Apenas os dados de 127 GB são utilizados e o restante do disco está vazio<br/>-Tipo de disco é padrão com 60 de MiB/S débito<br/>-Sem alteração de dados após a ativação pós-falha| Tempo aproximado 45 minutos – 1,5 horas<br/> -Durante a nova proteção, recuperação de sites irá preencher a soma de verificação de dados inteira que o levará a 127 GB / 45 MB ~ 45 minutos<br/>-Algum tempo sobrecarga é necessário para o Site Recovery automaticamente a escala é de 20 a 30 minutos<br/>-Sem custos de saída |
 |Região de origem tem 1 VM com disco standard do 1 TB<br/>-Apenas os dados de 127 GB são utilizados e o restante do disco está vazio<br/>-Tipo de disco é padrão com 60 de MiB/S débito<br/>-Alterações de dados 45 GB após a ativação pós-falha| Tempo aproximado horas 1 – 2 horas<br/>-Durante a nova proteção, recuperação de sites irá preencher a soma de verificação de dados inteira que o levará a 127 GB / 45 MB ~ 45 minutos<br/>-Transferir o tempo para aplicar as alterações de 45 GB 45 GB / 45 MBps ~ 17 minutos<br/>-Custos de saída seria apenas para 45 GB de dados não para a soma de verificação|

@@ -11,10 +11,10 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256136"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas com base em log e pré-agregados no Application Insights

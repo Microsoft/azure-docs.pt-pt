@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901772"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: Integração do Active Directory do Azure com TalentLMS
 
@@ -54,7 +54,7 @@ Para configurar a integração do TalentLMS com o Azure AD, terá de adicionar T
 
 **Para adicionar TalentLMS a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -139,7 +139,7 @@ Para configurar o Azure AD início de sessão único com TalentLMS, execute os s
 
     ![Definições de conta &](./media/talentlms-tutorial/IC777296.png "conta & definições")
 
-1. Clique em **início de sessão único (SSO)**,
+1. Clique em **início de sessão único (SSO)** ,
 
 1. Na secção de início de sessão único, execute os seguintes passos:
 
@@ -242,7 +242,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no TalentLMS, tem de ser 
 > [!NOTE]
 > Pode utilizar quaisquer outras TalentLMS utilizador conta criação ferramentas ou APIs fornecidas pelo TalentLMS para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60610730"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: Gestão de configuração | Atenuações 
@@ -36,7 +36,7 @@ ms.locfileid: "60610730"
 
 ## <a id="csp-js"></a>Implementar a política de segurança de conteúdos (CSP) e desativar inline javascript
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -68,7 +68,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="xss-filter"></a>Ativar o Filtro XSS do navegador
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -79,7 +79,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="trace-deploy"></a>Aplicativos ASP.NET tem de desativar o rastreio e a depuração antes da implantação
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -90,7 +90,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="js-trusted"></a>Acesso de terceiros javascripts da apenas origens confiáveis
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -101,7 +101,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="ui-defenses"></a>Certifique-se de que as páginas ASP.NET autenticadas incorporam Redressing de interface do Usuário ou defesas jacking de clique
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -136,7 +136,7 @@ Código de Web. config para sites que só deve ser estruturado por páginas no m
 
 ## <a id="cors-aspnet"></a>Certifique-se de que apenas as origens confiáveis são permitidas se CORS está ativado em aplicativos da Web ASP.NET
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -167,7 +167,7 @@ Tenha em atenção que é fundamental para garantir que a lista de origens no at
 
 ## <a id="validate-aspnet"></a>Ativar o atributo de ValidateRequest em páginas ASP.NET
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -193,7 +193,7 @@ Tenha em atenção de que essa funcionalidade de validação do pedido não é s
 
 ## <a id="local-js"></a>Utilizar alojado localmente versões mais recentes das bibliotecas de JavaScript
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -204,7 +204,7 @@ Tenha em atenção de que essa funcionalidade de validação do pedido não é s
 
 ## <a id="mime-sniff"></a>Desativar a detecção automática de MIME
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -269,7 +269,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="standard-finger"></a>Remover os cabeçalhos de servidor padrão no Windows Azure Web Sites, para evitar a impressão digital
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -280,7 +280,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="firewall-db"></a>Configurar uma Firewall do Windows para acesso ao motor de base de dados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -291,7 +291,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="cors-api"></a>Certifique-se de que apenas as origens confiáveis são permitidas se CORS está ativado na ASP.NET Web API
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -387,7 +387,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -479,7 +479,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="config-sensitive"></a>Encriptar secções dos arquivos de configuração da API Web que contêm dados confidenciais
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Implementação |  
@@ -490,7 +490,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="admin-strong"></a>Certifique-se de que todas as interfaces de administrador são protegidas com credenciais seguras
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Implementação |  
@@ -501,7 +501,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="unknown-exe"></a>Certifique-se de que o código desconhecido não pode executar em dispositivos
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -512,7 +512,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="partition-iot"></a>Encriptar o SO e partições adicionais do dispositivo de IoT com pouco cacifo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -523,7 +523,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="min-enable"></a>Certifique-se de que apenas as mínimo serviços/funcionalidades estão ativadas nos dispositivos
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Implementação |  
@@ -534,7 +534,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="field-bit-locker"></a>Encriptar o SO e partições adicionais do Gateway de campo de IoT com pouco cacifo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase do SDL**               | Implementação |  
@@ -545,7 +545,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="default-change"></a>Certifique-se de que as credenciais de início de sessão padrão do gateway de campo são alteradas durante a instalação
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase do SDL**               | Implementação |  
@@ -556,7 +556,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="cloud-firmware"></a>Certifique-se de que o Gateway de nuvem implementa um processo para manter o firmware de dispositivos ligados atualizado
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -567,7 +567,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="controls-policies"></a>Certifique-se de que os dispositivos têm controlos de segurança de ponto de extremidade configurados de acordo com as políticas organizacionais
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -578,7 +578,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="secure-keys"></a>Certifique-se a gestão segura das chaves de acesso de armazenamento do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Implementação |  
@@ -589,7 +589,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="cors-storage"></a>Certifique-se de que apenas as origens confiáveis são permitidas se CORS está ativado no armazenamento do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -600,7 +600,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 
 ## <a id="throttling"></a>Ativar o serviço do WCF, limitação de recursos
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -623,7 +623,7 @@ Segue-se um exemplo de configuração com a otimização ativadas:
 
 ## <a id="info-metadata"></a>Divulgação de informações do WCF por meio de metadados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  

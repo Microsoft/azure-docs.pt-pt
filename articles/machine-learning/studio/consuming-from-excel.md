@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
 ms.openlocfilehash: ef1d8f1a72c5936ff661636c4c51acf439a0a5ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60773795"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Consumir um serviço de Web do Azure Machine Learning Studio a partir do Excel

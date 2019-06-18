@@ -7,11 +7,11 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65073788"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar a partir do GitHub para o Azure Kubernetes Service (AKS) com a integração contínua Jenkins e implementação
@@ -48,6 +48,9 @@ Para concluir este tutorial, precisa destes itens:
 ## <a name="prepare-your-app"></a>Preparar a sua aplicação
 
 Neste artigo, vai utilizar um exemplo de aplicação de voto do Azure que contém uma interface da web hospedada em pods de um ou mais e um segundo pod Redis de alojamento para o armazenamento de dados temporário. Antes de integrar o Jenkins e o AKS para Implantações automatizadas, primeiro manualmente preparar e implementar a aplicação de voto do Azure no seu cluster do AKS. Esta implementação manual é a versão da aplicação e permite-lhe ver a aplicação em ação.
+
+> [!NOTE]
+> O exemplo de aplicação de voto do Azure utiliza um pod de Linux está agendado para ser executada num nó de Linux. O fluxo descrito neste artigo também funciona para um pod do Windows Server agendado num nó do Windows Server.
 
 Bifurcar o repositório de GitHub seguinte para o aplicativo de exemplo - [ https://github.com/Azure-Samples/azure-voting-app-redis ](https://github.com/Azure-Samples/azure-voting-app-redis). Para bifurcar o repositório para a sua própria conta do GitHub, selecione o botão **Fork** no canto superior direito.
 

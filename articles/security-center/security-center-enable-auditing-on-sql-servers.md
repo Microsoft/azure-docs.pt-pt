@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 5b41af83122d74fc766e6c5179d98803979269f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60704661"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Ativar auditoria e deteção de ameaças em servidores SQL no Centro de segurança do Azure

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
 ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61078360"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utilizar o Snapshot Manager do StorSimple para ver e gerir volumes
@@ -44,7 +44,7 @@ Este tutorial explica como pode montar, inicializar e formatar os volumes e, em 
 > 
 > 
 
-## <a name="mount-volumes"></a>Montar volumes
+## <a name="mount-volumes"></a>Volumes de montagem
 Utilize o procedimento seguinte para montar, inicializar e formatar volumes do StorSimple. Este procedimento utiliza a gestão de discos, um utilitário de sistema para o gerenciamento de discos rígidos e os volumes de correspondente ou partições. Para obter mais informações sobre a gestão de discos, aceda a [gestão de discos](https://technet.microsoft.com/library/cc770943.aspx) no site da Microsoft TechNet.
 
 #### <a name="to-mount-volumes"></a>Montar volumes

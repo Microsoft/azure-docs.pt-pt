@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: db431d7815cfcc006563bd6da438154ef77ae6e2
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66814888"
 ---
 ## <a name="cli-shell"></a>Shell CLI

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ff026743ccda0a47ce176db51dbc7913376f46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8bc292be68879a608df6662418bb9f59c758f660
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988002"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integração do Active Directory do Azure com Bersin
 
@@ -53,7 +53,7 @@ Para configurar a integração do Bersin com o Azure AD, terá de adicionar Bers
 
 **Para adicionar Bersin a partir da Galeria**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -189,7 +189,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Bersin. Trabalhar com o [equipa de suporte de Bersin](mailto:USBersinServiceClient@deloitte.com) para adicionar os utilizadores a plataforma de Bersin ou o domínio que tem de ser adicionado a uma lista de permissões para a plataforma de Bersin. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de Bersin. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 01a70bfbb169090fbdf4b5f8e00af6895f69c964
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Active Directory do Azure com o SAP NetWeaver
 
@@ -54,7 +54,7 @@ Para configurar a integração do SAP NetWeaver no Azure AD, terá de adicionar 
 
 **Para adicionar o SAP NetWeaver partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -196,7 +196,7 @@ Para configurar o Azure AD início de sessão único com o SAP NetWeaver, execut
 
     ![image](./media/sapnetweaver-tutorial/nameidattribute1.png)
 
-    b. Partir do **transformação** lista, selecione **ExtractMailPrefix()**.
+    b. Partir do **transformação** lista, selecione **ExtractMailPrefix()** .
 
     c. Partir do **parâmetro 1** lista, selecione **user.userprinicipalname**.
 
@@ -353,7 +353,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no SAP NetWeaver. Inicie funcionam à sua equipa de especialistas de SAP internamente ou trabalhar com o seu parceiro SAP da organização para adicionar os utilizadores na plataforma do SAP NetWeaver.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 1. Assim que o fornecedor de identidade do Azure AD foi ativado, tente aceder ao URL para verificar o SSO abaixo (não haverá nenhuma linha de comandos para o nome de utilizador e palavra-passe)
 

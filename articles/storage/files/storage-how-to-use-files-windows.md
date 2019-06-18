@@ -9,10 +9,10 @@ ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64926265"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows

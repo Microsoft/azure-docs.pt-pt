@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66150770"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referência da API gerida para instâncias geridas da base de dados SQL do Azure

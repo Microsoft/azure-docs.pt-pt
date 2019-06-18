@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65606501"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
@@ -29,7 +29,7 @@ Este artigo descreve os detalhes de integração e a utilizar o mapa de serviço
 >Se já tiver implementado o mapa de serviço, agora também pode ver seus mapas no Azure Monitor para as VMs, que inclui recursos adicionais para monitorizar o estado de funcionamento da VM e o desempenho. Para obter mais informações, consulte [do Azure Monitor para descrição geral de VMs](../../azure-monitor/insights/vminsights-overview.md).
 
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Ativar o mapa de serviço
@@ -146,24 +146,24 @@ Determinados processos atendem a funções específicas em máquinas: servidores
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicações](media/service-map/role-application-server.png) | Servidor de aplicações |
-| ![Servidor de bases de dados](media/service-map/role-database.png) | Servidor de bases de dados |
+| ![Servidor de base de dados](media/service-map/role-database.png) | Servidor de base de dados |
 | ![Servidor LDAP](media/service-map/role-ldap.png) | Servidor LDAP |
 | ![Servidor SMB](media/service-map/role-smb.png) | Servidor SMB |
 
 ![Ícones de função](media/service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>Ligações com falhas
+## <a name="failed-connections"></a>Ligações falhadas
 Ligações falhadas são exibidas no mapa de serviço mapas para processos e computadores, com uma linha vermelha tracejada que indica que é um sistema de cliente que está a conseguir chegar a um processo ou a porta. Ligações falhadas forem comunicadas a partir de qualquer sistema com um agente de mapa de serviço implementado se esse sistema for a tentar a falha de ligação. Mapa de serviço mede este processo ao observar os sockets TCP que não obedeçam a estabelecer uma ligação. Esta falha pode resultar de uma firewall, uma configuração incorreta no cliente ou servidor ou um serviço remoto indisponível.
 
-![Ligações com falhas](media/service-map/failed-connections.png)
+![Ligações falhadas](media/service-map/failed-connections.png)
 
 Noções sobre ligações falhadas podem ajudar na resolução de problemas, validação da migração, a análise de segurança e a compreensão arquitetônica gerais. Ligações falhadas, às vezes, são inofensivos, mas, muitas vezes, apontam diretamente para um problema, como um ambiente de ativação pós-falha, de repente, tornando-se inacessível ou duas camadas da aplicação que está a ser não é possível comunicar com o após a migração para a cloud.
 
-## <a name="client-groups"></a>Grupos de Clientes
+## <a name="client-groups"></a>Grupos de clientes
 Grupos de clientes são caixas no mapa, que representam computadores cliente que não têm os agentes de dependência. Um único grupo de cliente representa os clientes para uma máquina ou processo individual.
 
-![Grupos de Clientes](media/service-map/client-groups.png)
+![Grupos de clientes](media/service-map/client-groups.png)
 
 Para ver os endereços IP dos servidores num grupo de cliente, selecione o grupo. O conteúdo do grupo está listado na **das propriedades do grupo de cliente** painel.
 
@@ -174,10 +174,10 @@ Grupos de portas de servidor são caixas que representam as portas de servidor n
 
 ![Grupos de portas de servidor](media/service-map/server-port-groups.png)
 
-## <a name="context-menu"></a>Menu de contexto
+## <a name="context-menu"></a>Menu Contexto
 Ao clicar no botão de reticências (...) na parte superior direita de qualquer servidor apresenta o menu de contexto para esse servidor.
 
-![Ligações com falhas](media/service-map/context-menu.png)
+![Ligações falhadas](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Carregar mapa do servidor
 Clicar **carregar mapa do servidor** leva-o para um novo mapa com o servidor selecionado como a nova máquina de foco.
@@ -316,7 +316,7 @@ Para levar em conta o impacto de agrupamento, são fornecidas informações sobr
 | `LinksFailed` |O número de ligações de rede física que falharam durante a janela de tempo de criação de relatórios. Estas informações estão atualmente disponíveis apenas para ligações de saída. |
 | `LinksLive` |O número de ligações de rede física que foram abertas no final da janela de tempo de criação de relatórios|
 
-#### <a name="metrics"></a>Métrica
+#### <a name="metrics"></a>Métricas
 
 Para além das métricas de contagem de ligação, informações sobre o volume de dados enviados e receberam numa determinada ligação lógica ou a porta de rede também inclui as seguintes propriedades do registo:
 
@@ -510,5 +510,5 @@ Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query
 Consulte a [secção do documento de mapa de serviço de configuração de resolução de problemas]( service-map-configure.md#troubleshooting).
 
 
-## <a name="feedback"></a>Feedback
+## <a name="feedback"></a>Comentários
 Tem comentários para nós sobre o mapa de serviço ou esta documentação?  Visite nosso [página do Uservoice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde pode sugerir funcionalidades ou sugestões existentes de votos.

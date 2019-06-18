@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: 83149a8422db25106a97b1711c0ae9ce3c6603eb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: b463e2bd3df0c38bf446745a2eade221b00324da
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072526"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Início rápido: Criar um Assistente de virtual de voz em primeiro lugar, com o SDK de voz, o Java
 
@@ -30,11 +30,11 @@ Este início rápido requer:
 * Sistema operativo: (64-bit) do Windows, Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10.13 ou posterior
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+* Uma chave de subscrição do Azure para os serviços de voz no **westus2** região. Crie esta subscrição no [portal do Azure](https://portal.azure.com).
 * Um bot pré-configuradas criado com o Bot Framework versão 4.2 ou superior. O bot têm de subscrever o novo canal de "Fala de linha direta" para receber as entradas de voz.
 
     > [!NOTE]
-    > Em pré-visualização, o canal direto de linha de voz atualmente, só suporta o **westus2** região.
+    > Direto de linha de voz (pré-visualização) só está atualmente disponível na **westus2** região.
 
     > [!NOTE]
     > A versão de avaliação de 30 dias para o padrão descrito em do escalão de preço [experimentar gratuitamente os serviços de voz](get-started.md) é restringido aos **westus** (não **westus2**) e, portanto, não é compatível com o Direct Voz da linha. Escalão gratuito e standard **westus2** subscrições são compatíveis.
@@ -156,8 +156,8 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
-    final String subscriptionKey = "YourSubscriptionKey"; // your subscription key
-    final String region = "YourServiceRegion"; // Your service region. Currently assumed to be westus2
+    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
     final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.

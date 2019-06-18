@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65832587"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
@@ -33,7 +33,7 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 | Name                     | Valores                      |
 | ------------------------ | --------------------------- |
 | Cor                    | White, vermelho, azul            |
-| Brilho               | 0 a 100                    |
+| Brilho               | 0 e 100                    |
 | Estimado restante da vida | Contagem decrescente de 10.000 horas |
 
 *Telemetria*
@@ -123,7 +123,7 @@ Nesta secção, adiciona um novo **temperatura interna** tipo de telemetria para
 
 1. Copie os seguintes ficheiros para a nova pasta a partir da cópia transferida de microsserviços de simulação do dispositivo:
 
-    | Source | Destino |
+    | source | Destino |
     | ------ | ----------- |
     | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
     | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |

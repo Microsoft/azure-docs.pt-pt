@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 92fee850b6ba013c759d3441219f1946a0faedb3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: aa6e93ef7e403f1b230814b7afa20d2e8e68b71a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984148"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64718663"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
 As quotas de vCPU para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais são dispostas em duas camadas para cada subscrição, em cada região. A primeira camada é o Total Regional vCPUs e a segunda camada é os vários tamanho famílias núcleos de VMS, como o vCPUs de série D. Sempre que uma nova VM é implementada a vCPUs para a VM não pode exceder a quota de vCPU para a família de tamanho VM ou a quota de total regional vCPU. Se qualquer um das quotas são excedido, a implementação da VM será não ser permitida. Também existe uma quota para o número geral de máquinas virtuais na região. Os detalhes sobre cada uma destas quotas podem ser vistos na **utilização + quotas** secção a **subscrição** página no [portal do Azure](https://portal.azure.com), ou pode consultar os valores usando PowerShell.
 
- [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)] 
+ [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)] 
  
 ## <a name="check-usage"></a>Verificar utilização
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4f917c45030ad70a2ab76fed877bd822d1902f82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64927286"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
@@ -169,7 +169,7 @@ A tabela seguinte mostra a frequência de recolha de dados para os tipos de alte
 | Registo do Windows | 50 minutos |
 | Ficheiro do Windows | 30 minutos |
 | Ficheiro do Linux | 15 minutos |
-| Serviços Windows | 10 segundos para 30 minutos</br> Predefinição: 30 minutos |
+| Serviços Windows | 10 segundos para 30 minutos</br> predefinição: 30 minutos |
 | Dos daemons do Linux | 5 minutos |
 | Software do Windows | 30 minutos |
 | Software do Linux | 5 minutos |
@@ -263,7 +263,7 @@ Clicar numa alteração ou evento apresenta as informações detalhadas sobre es
 
 ![imagem dos detalhes de controlo de alterações](./media/change-tracking/change-tracking-details.png)
 
-## <a name="search-logs"></a>Pesquisar registos
+## <a name="search-logs"></a>Registos de pesquisa
 
 Além dos detalhes que são fornecidos no portal, pesquisas podem ser feitas com os registos. Com o **controlo de alterações** clique aberto, da página **do Log Analytics**, esta ação abre o **registos** página.
 

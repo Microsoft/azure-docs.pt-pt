@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: f96171e1c75676a185edf4a1901ef65b7181135a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64721005"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>Analisar registos do Apache Hadoop
@@ -32,22 +32,22 @@ Quando cria um cluster do HDInsight, seis tabelas são criadas automaticamente p
 * ambariserverlog
 * ambariagentlog
 
-Os nomes de ficheiro de tabela são **u\<ClusterName > DDMonYYYYatHHMMSSsss\<TableName >**.
+Os nomes de ficheiro de tabela são **u\<ClusterName > DDMonYYYYatHHMMSSsss\<TableName >** .
 
 Estas tabelas contêm os seguintes campos:
 
 * ClusterDnsName
 * ComponentName
 * EventTimestamp
-* Anfitrião
+* Host
 * MALoggingHash
-* Mensagem
+* Message
 * N
 * PreciseTimeStamp
 * Função
 * RowIndex
 * Inquilino
-* CARIMBO DE DATA/HORA
+* TIMESTAMP
 * TraceLevel
 
 ### <a name="tools-for-accessing-the-logs"></a>Ferramentas para acessar os registos

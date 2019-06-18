@@ -17,10 +17,10 @@ ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835538"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementação de DBMS de máquinas virtuais do SQL Server do Azure para SAP NetWeaver
@@ -28,7 +28,7 @@ ms.locfileid: "60835538"
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
-[965908]:https://launchpad.support.sap.com/#/notes/965908
+[965908]: https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
@@ -50,12 +50,12 @@ ms.locfileid: "60835538"
 [1757928]:https://launchpad.support.sap.com/#/notes/1757928
 [1758182]:https://launchpad.support.sap.com/#/notes/1758182
 [1758496]:https://launchpad.support.sap.com/#/notes/1758496
-[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1772688]: https://launchpad.support.sap.com/#/notes/1772688
 [1814258]:https://launchpad.support.sap.com/#/notes/1814258
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241

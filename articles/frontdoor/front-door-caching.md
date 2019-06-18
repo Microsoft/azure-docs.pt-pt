@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65962911"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Colocação em cache com o serviço de porta de entrada do Azure

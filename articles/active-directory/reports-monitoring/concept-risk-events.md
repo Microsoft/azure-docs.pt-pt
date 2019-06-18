@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4afcbffa778c902c1b32979c69ca91ab0955f739
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682937"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107685"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 

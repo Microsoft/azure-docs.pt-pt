@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60345795"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Ter um alerta de métrica clássico notificar um sistema não pertencente ao Azure através de um webhook
@@ -74,11 +74,11 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 | status |S |Ativado, resolvido |O estado do alerta com base nas condições que definir. |
 | context |S | |O contexto do alerta. |
 | timestamp |S | |A hora em que o alerta foi acionado. |
-| ID |S | |Cada regra de alerta tem um ID exclusivo. |
-| nome |S | |O nome do alerta. |
+| id |S | |Cada regra de alerta tem um ID exclusivo. |
+| name |S | |O nome do alerta. |
 | description |S | |Uma descrição do alerta. |
 | conditionType |S |Métrica, eventos |Dois tipos de alertas são suportados: métricas e eventos. Alertas de métricas são baseadas em condições de métricas. Alertas de eventos baseiam-se num evento no registo de atividades. Utilize este valor para verificar se o alerta é com base numa métrica ou num evento. |
-| condition |S | |Os campos específicos para verificar se baseia a **conditionType** valor. |
+| condição |S | |Os campos específicos para verificar se baseia a **conditionType** valor. |
 | MetricName |Para alertas de métricas | |O nome da métrica que define o que a regra monitoriza. |
 | metricUnit |Para alertas de métricas |Bytes, BytesPerSecond, contagem, CountPerSecond, por cento, segundos |A unidade permitida na métrica. Ver [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Para alertas de métricas | |O valor real da métrica que causou o alerta. |
@@ -88,7 +88,7 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 | Operador |Para alertas de métricas | |O operador que é utilizado para comparar os dados de métricos atuais para o limiar definido. |
 | subscriptionId |S | |O ID de subscrição do Azure. |
 | resourceGroupName |S | |O nome do grupo de recursos para o recurso afetado. |
-| nomeRecurso |S | |O nome de recurso do recurso afetado. |
+| resourceName |S | |O nome de recurso do recurso afetado. |
 | resourceType |S | |O tipo de recurso do recurso afetado. |
 | resourceId |S | |O ID de recurso do recurso afetado. |
 | resourceRegion |S | |A região ou a localização do recurso afetado. |
@@ -106,3 +106,4 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem SMS através do Twilio a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Saiba como [utilizar uma aplicação lógica para enviar uma mensagem numa fila do Azure a partir de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+

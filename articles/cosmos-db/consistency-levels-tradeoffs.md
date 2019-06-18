@@ -8,10 +8,10 @@ ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65990232"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
@@ -55,7 +55,7 @@ A tabela a seguir define a relação entre a durabilidade de dados e o modelo de
 |1|Único ou vários mestres|Qualquer nível de consistência|< A 240 minutos|< 1 semana|
 |>1|Único do controlador|Sessão, prefixo consistente, Eventual|< a 15 minutos|< a 15 minutos|
 |>1|Único do controlador|Estagnação Limitada|*K* & *T*|< a 15 minutos|
-|>1|Único do controlador|Segura|0|< a 15 minutos|
+|>1|Único do controlador|Forte|0|< a 15 minutos|
 |>1|Com vários mestres|Sessão, prefixo consistente, Eventual|< a 15 minutos|0|
 |>1|Com vários mestres|Estagnação Limitada|*K* & *T*|0|
 

@@ -16,10 +16,10 @@ ms.date: 06/22/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 2b34f6bcbf37a48fb49a2a64d727fc9330b0d735
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60627257"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Obter a lista atual de Verizon POP da CDN do Azure

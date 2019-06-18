@@ -9,10 +9,10 @@ ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: ca0c45b5d74140e0398595070df71da669caab53
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66160093"
 ---
 O conceito de computação do Azure unidade (ACU) fornece uma forma de comparar o desempenho de computação (CPU) nos SKUs do Azure. Isto ajudará a identificar facilmente que SKU é mais provável de satisfazer as suas necessidades de desempenho.  A ACU está atualmente normalizada numa VM Pequena (Standard_A1) de 100 e todos os outros SKUs representam aproximadamente a velocidade máxima a que esse SKU consegue executar um teste de desempenho padrão. 
@@ -24,7 +24,7 @@ O conceito de computação do Azure unidade (ACU) fornece uma forma de comparar 
 
 <br>
 
-| Família de SKU | ACU \ vCPU | vCPU: Núcleo |
+| Família de SKU | ACU \ vCPU | vCPU: Principal |
 | --- | --- |---|
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
 | [A1 - A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
@@ -52,8 +52,8 @@ O conceito de computação do Azure unidade (ACU) fornece uma forma de comparar 
 | [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175** | 2:1 |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160 - 180 | 2:1\*\*\* |
 
-* As ACUs usar tecnologia Intel® Turbo para aumentar a frequência de CPU e fornecer um aumento de desempenho.  A quantidade do aumento de desempenho pode variar consoante o tamanho da VM, carga de trabalho e outras cargas de trabalho em execução no mesmo anfitrião.
+\* As ACUs usar tecnologia Intel® Turbo para aumentar a frequência de CPU e fornecer um aumento de desempenho.  A quantidade do aumento de desempenho pode variar consoante o tamanho da VM, carga de trabalho e outras cargas de trabalho em execução no mesmo anfitrião.
 
-* * As ACUs usar a tecnologia de AMD® Boost para aumentar a frequência de CPU e fornecer um aumento de desempenho.  A quantidade do aumento de desempenho pode variar consoante o tamanho da VM, carga de trabalho e outras cargas de trabalho em execução no mesmo anfitrião.
+\* * As ACUs usar a tecnologia de AMD® Boost para aumentar a frequência de CPU e fornecer um aumento de desempenho.  A quantidade do aumento de desempenho pode variar consoante o tamanho da VM, carga de trabalho e outras cargas de trabalho em execução no mesmo anfitrião.
 
 Com tecnologia Hyper-Threading e capaz de executar a virtualização aninhada

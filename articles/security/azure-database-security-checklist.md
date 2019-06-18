@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62121696"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança de base de dados do Azure
@@ -34,7 +34,7 @@ Estas incluem:
 -   Utilize a gestão de acesso
 -   Encriptação de dados
 -   Auditoria da Base de Dados SQL
--   Deteção de ameaças da Base de Dados SQL
+-   Deteção de ameaças da base de dados SQL
 
 ## <a name="introduction"></a>Introdução
 A computação em nuvem requer novos paradigmas de segurança que não estão familiarizadas para muitos utilizadores da aplicação, os administradores de banco de dados e programadores. Como resultado, algumas organizações são reticentes quanto ao implementar uma infraestrutura de nuvem para gestão de dados devido a riscos de segurança percetível. No entanto, grande parte esta preocupação pode ser minimizada por meio de uma melhor compreensão dos recursos de segurança incorporada no Microsoft Azure e base de dados do Microsoft Azure SQL.

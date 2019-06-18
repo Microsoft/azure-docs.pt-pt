@@ -16,10 +16,10 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60591327"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilizar modelos de início rápido do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
@@ -105,7 +105,7 @@ O Always On (AG) serviço de escuta requer um balanceador de carga de Azure inte
    | **Endereço IP privado** | Especifique um endereço IP disponível na sub-rede. |
    | **Subscrição** |Se tiver várias subscrições, este campo poderá ser apresentada. Selecione a subscrição que pretende associar este recurso. Normalmente é a mesma subscrição que todos os recursos para o grupo de disponibilidade. |
    | **Grupo de recursos** |Selecione o grupo de recursos que as instâncias do SQL Server estão em. |
-   | **Localização** |Selecione a localização do Azure que as instâncias do SQL Server estão em. |
+   | **Location** |Selecione a localização do Azure que as instâncias do SQL Server estão em. |
    | &nbsp; | &nbsp; |
 
 6. Selecione **Criar**. 

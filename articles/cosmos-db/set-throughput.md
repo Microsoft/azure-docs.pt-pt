@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389240"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067510"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -87,7 +87,7 @@ Pode obter o débito mínimo de um contentor ou uma base de dados por meio de pr
 
 Ao utilizar o SDK de .NET, o [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) método permite-lhe obter o débito mínimo de um contentor ou uma base de dados. 
 
-Pode dimensionar o débito aprovisionado de um contentor ou uma base de dados em qualquer altura. 
+Pode dimensionar o débito aprovisionado de um contentor ou uma base de dados em qualquer altura. Quando uma operação de dimensionamento é efetuada para aumentar o débito, pode demorar mais tempo devido às tarefas de sistema para aprovisionar os recursos necessários. Pode verificar o estado da operação de dimensionamento no portal do Azure ou programaticamente com os SDKs. Ao utilizar o SDK do .net, pode obter o estado da operação de dimensionamento com o `DocumentClient.ReadOfferAsync` método.
 
 ## <a name="comparison-of-models"></a>Comparação dos modelos
 

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234009"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058553"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -36,24 +36,26 @@ Atualmente, os espaços de desenvolvimento do Azure works melhores ao depurar um
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Erro "Falha ao criar o controlador de espaços de desenvolvimento do Azure"
 
+### <a name="reason"></a>Reason
 Poderá ver este erro quando algo dá errado com a criação do controlador. Se for um erro transitório, elimine e recrie o controlador para corrigi-lo.
 
-### <a name="try"></a>Experimente:
+### <a name="try"></a>Experimente
 
-Para eliminar o controlador, utilize a CLI do Azure Dev espaços. Não é possível fazê-lo no Visual Studio ou no Cloud Shell. Para instalar a CLI AZDS, primeiro de instalar a CLI do Azure e, em seguida, execute este comando:
+Elimine o controlador:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Tem de utilizar a CLI do Azure Dev espaços para eliminar um controlador. Não é possível eliminar um controlador a partir do Visual Studio. Também não é possível instalar a CLI do Azure Dev espaços no Azure Cloud Shell para que não é possível eliminar um controlador a partir do Azure Cloud Shell.
+
+Se não tiver a CLI de espaços de desenvolvimento do Azure instalada, pode primeiro instalá-lo com o seguinte comando, em seguida, eliminar seu controlador:
 
 ```cmd
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
-E, em seguida, execute este comando para eliminar o controlador:
-
-```cmd
-azds remove -g <resource group name> -n <cluster name>
-```
-
-Recriar o controlador pode ser feito na CLI ou do Visual Studio. Siga as instruções nos tutoriais como se a iniciar pela primeira vez.
-
+Recriar o controlador pode ser feito na CLI ou do Visual Studio. Consulte a [da equipe de desenvolvimento](quickstart-team-development.md) ou [desenvolver com .NET Core](quickstart-netcore-visualstudio.md) inícios rápidos para obter exemplos.
 
 ## <a name="error-service-cannot-be-started"></a>Erro "serviço não pode ser iniciado."
 
@@ -408,4 +410,7 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 ## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Ativar espaços de desenvolvimento a falhar quando conjuntos de nós do Windows são adicionados a um cluster do AKS
 
 ### <a name="reason"></a>Reason
-Atualmente, os espaços de desenvolvimento do Azure destina-se para execução no Linux pods e nós apenas. Neste momento, não é possível ativar os espaços de desenvolvimento do Azure num cluster do AKS com um conjunto de nós do Windows.
+Atualmente, os espaços de desenvolvimento do Azure destina-se para execução no Linux pods e nós apenas. Quando tiver um cluster do AKS com um conjunto de nós do Windows, certifique-se de que os pods de espaços de desenvolvimento do Azure estão agendadas de apenas em nós do Linux. Se um pod de espaços de desenvolvimento do Azure está agendado para ser executada num nó do Windows, esse pod não será iniciado e ativar os espaços de desenvolvimento irá falhar.
+
+### <a name="try"></a>Experimente
+[Adicionar um taint](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) ao seu cluster do AKS para garantir que o Linux pods não estão agendados para ser executada num nó do Windows.

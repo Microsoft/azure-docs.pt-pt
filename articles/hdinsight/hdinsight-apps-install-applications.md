@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
 ms.openlocfilehash: b916cbf690544d5887569e052a0456ca952140c8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409544"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações do Apache Hadoop de terceiros no Azure HDInsight

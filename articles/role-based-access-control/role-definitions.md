@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/06/2019
+ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 04ceac3b06972687ef6cdeac4dad1f07fea611cb
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754901"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074013"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Compreender as definições de funções para recursos do Azure
 
@@ -225,7 +225,7 @@ Funções incorporadas têm `AssignableScopes` definido como o âmbito de raiz (
 | Função está disponível para atribuição numa única subscrição | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | Função está disponível para atribuição em duas subscrições | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
 | Função está disponível para atribuição apenas no grupo de recursos de rede | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| Função está disponível para atribuição em todos os âmbitos | `"/"` |
+| Função está disponível para atribuição em todos os âmbitos (aplica-se funções incorporadas apenas a) | `"/"` |
 
 Para obter informações sobre `AssignableScopes` para funções personalizadas, consulte [funções personalizadas para recursos do Azure](custom-roles.md).
 

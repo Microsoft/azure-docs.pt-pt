@@ -5,24 +5,24 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 3/11/2019
+ms.date: 06/13/2019
 ms.author: victorh
-ms.openlocfilehash: 2b88454f06d2e2d42298e52feeaa26ae9d1a4902
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.openlocfilehash: 8f39c9707fef013c162e407a7e3ccaa67f2cabfc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730253"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080592"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Tutorial: Criar uma zona privada do DNS do Azure com o Azure PowerShell
+
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 Este tutorial explica-lhe os passos para criar a sua primeira zona DNS privada e o registo com o Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
-
-Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais autorizadas a resolver registos na zona.  São denominadas *redes virtuais de resolução*. Também pode especificar redes virtuais para as quais o DNS do Azure mantém registos de nomes de anfitrião sempre que uma VM for criada, mudar de IP ou for eliminada.  Chamamos a isto uma *rede virtual de registo*.
+Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Para publicar uma zona DNS privada na sua rede virtual, especifique a lista de redes virtuais autorizadas a resolver registos na zona.  Estes são denominados *ligado* redes virtuais. Quando o registo automático está ativado, o DNS do Azure também atualiza os registos de zona sempre que uma máquina virtual for criado, as alterações seu "endereço IP, ou é eliminada.
 
 Neste tutorial, ficará a saber como:
 
@@ -53,9 +53,9 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-private-zone"></a>Criar uma zona DNS privada
 
-Uma zona DNS é criada com o cmdlet `New-AzDnsZone`, com um valor de *Privado* para o parâmetro **ZoneType**. O exemplo seguinte cria uma zona DNS denominada **private.contoso.com** no grupo de recursos chamado **MyAzureResourceGroup** e disponibiliza a zona DNS para a rede virtual denominada  **MyAzureVnet**.
+Uma zona DNS é criada ao utilizar o cmdlet `New-AzPrivateDnsZone`.
 
-Se o parâmetro **ZoneType** for omitido, a zona é criada como uma zona pública, pelo que é necessário para criar uma zona privada. 
+O exemplo seguinte cria uma rede virtual denominada **myAzureVNet**. Em seguida, ele cria uma zona DNS com o nome **private.contoso.com** no **MyAzureResourceGroup** grupo de recursos, liga a zona DNS para o **MyAzureVnet** rede virtual, e permite que o registo automático.
 
 ```azurepowershell
 $backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
@@ -66,28 +66,29 @@ $vnet = New-AzVirtualNetwork `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzDnsZone -Name private.contoso.com -ResourceGroupName MyAzureResourceGroup `
-   -ZoneType Private `
-   -RegistrationVirtualNetworkId @($vnet.Id)
+$zone = New-AzPrivateDnsZone -Name private.contoso.com -ResourceGroupName MyAzureResourceGroup
+
+$link = New-AzPrivateDnsVirtualNetworkLink -ZoneName private.contoso.com `
+  -ResourceGroupName MyAzureResourceGroup -Name "mylink" `
+  -VirtualNetworkId $vnet.id -EnableRegistration
 ```
 
-Se quiser criar uma zona apenas para resolução de nomes (criação de nomes de anfitrião não automática), pode utilizar o parâmetro *ResolutionVirtualNetworkId* em vez do parâmetro *RegistrationVirtualNetworkId*.
-
-> [!NOTE]
-> Não poderá ver os registos de nomes de anfitrião criados automaticamente. No entanto, mais tarde, vai testar para garantir que existem.
+Se quiser criar uma zona apenas para resolução de nomes (nenhum registo automático de nome de anfitrião), pode omitir o `-EnableRegistration` parâmetro.
 
 ### <a name="list-dns-private-zones"></a>Listar as zonas DNS privadas
 
-Ao omitir o nome da zona de `Get-AzDnsZone`, pode enumerar todas as zonas de um grupo de recursos. Esta operação devolve uma matriz de objetos de zona.
+Ao omitir o nome da zona de `Get-AzPrivateDnsZone`, pode enumerar todas as zonas de um grupo de recursos. Esta operação devolve uma matriz de objetos de zona.
 
 ```azurepowershell
-Get-AzDnsZone -ResourceGroupName MyAzureResourceGroup
+$zones = Get-AzPrivateDnsZone -ResourceGroupName MyAzureResourceGroup
+$zones
 ```
 
-Ao omitir o nome da zona e o nome do grupo de recursos de `Get-AzDnsZone`, pode enumerar todas as zonas na subscrição do Azure.
+Ao omitir o nome da zona e o nome do grupo de recursos de `Get-AzPrivateDnsZone`, pode enumerar todas as zonas na subscrição do Azure.
 
 ```azurepowershell
-Get-AzDnsZone
+$zones = Get-AzPrivateDnsZone
+$zones
 ```
 
 ## <a name="create-the-test-virtual-machines"></a>Criar as máquinas virtuais de teste
@@ -118,12 +119,12 @@ Este processo irá demorar alguns minutos a concluir.
 
 ## <a name="create-an-additional-dns-record"></a>Criar um registo DNS adicional
 
-Pode criar conjuntos de registos com o cmdlet `New-AzDnsRecordSet`. O exemplo seguinte cria um registo com o nome relativo **db** na zona DNS **private.contoso.com**, no grupo de recursos **MyAzureResourceGroup**. É o nome completamente qualificado do conjunto de registos **db.private.contoso.com**. O tipo de registo é "A", com o endereço IP "10.2.0.4" e o TTL é de 3600 segundos.
+Pode criar conjuntos de registos com o cmdlet `New-AzPrivateDnsRecordSet`. O exemplo seguinte cria um registo com o nome relativo **db** na zona DNS **private.contoso.com**, no grupo de recursos **MyAzureResourceGroup**. O nome completamente qualificado do conjunto de registos está **db.private.contoso.com**. O tipo de registo é "A", com o endereço IP "10.2.0.4" e o TTL é de 3600 segundos.
 
 ```azurepowershell
-New-AzDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
+New-AzPrivateDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
-   -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.2.0.4")
+   -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
 
 ### <a name="view-dns-records"></a>Ver os registos DNS
@@ -131,9 +132,8 @@ New-AzDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
 Para listar os registos DNS na sua zona, execute:
 
 ```azurepowershell
-Get-AzDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzureResourceGroup
+Get-AzPrivateDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
-Lembre-se de que não verá os registos A criados automaticamente para as duas máquinas virtuais de teste.
 
 ## <a name="test-the-private-zone"></a>Testar a zona privada
 
@@ -155,10 +155,13 @@ Repita para myVM02.
 ### <a name="ping-the-vms-by-name"></a>Enviar pings para as VMs por nome
 
 1. Na linha de comandos do Windows PowerShell para myVM02, envie um ping myVM01 com o nome de anfitrião registado automaticamente:
+
    ```
    ping myVM01.private.contoso.com
    ```
+
    Deverá ver um resultado semelhante ao seguinte:
+
    ```
    PS C:\> ping myvm01.private.contoso.com
 
@@ -174,11 +177,15 @@ Repita para myVM02.
        Minimum = 0ms, Maximum = 1ms, Average = 0ms
    PS C:\>
    ```
+
 2. Agora, envie um ping para o nome **db** criado anteriormente:
+
    ```
    ping db.private.contoso.com
    ```
+
    Deverá ver um resultado semelhante ao seguinte:
+
    ```
    PS C:\> ping db.private.contoso.com
 
@@ -190,7 +197,7 @@ Repita para myVM02.
 
    Ping statistics for 10.2.0.4:
        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
-   Approximate round trip times in milli-seconds:
+   Approximate round trip times in milliseconds:
        Minimum = 0ms, Maximum = 0ms, Average = 0ms
    PS C:\>
    ```
@@ -210,7 +217,3 @@ Em seguida, pode saber mais sobre zonas DNS privadas.
 
 > [!div class="nextstepaction"]
 > [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md)
-
-
-
-

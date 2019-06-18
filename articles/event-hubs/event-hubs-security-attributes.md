@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 50f19d50f211972c2042c69a1e3177ffb4a47624
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247203"
 ---
 # <a name="common-security-attributes-for-azure-event-hubs"></a>Atributos comuns de segurança para os Hubs de eventos do Azure

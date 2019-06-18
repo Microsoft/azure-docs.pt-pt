@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f7b4be0ff3997e27dd5b5321dd44b5006ae52102
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66358112"
 ---
 # <a name="cloudsimple-service-overview"></a>Descrição geral do serviço de CloudSimple

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 904a6a2af4c92c374d5afe4148f50e853e5d1fb2
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66479606"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON com o Apache Hive no HDInsight do Azure

@@ -14,15 +14,15 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61462416"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para Oracle no local com o Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
 > * [Versão 1](data-factory-onprem-oracle-connector.md)
 > * [Versão 2 (versão atual)](../connector-oracle.md)
 
@@ -55,7 +55,7 @@ O gateway é necessário, mesmo que o Oracle está hospedado numa infraestrutura
 
 Este conector Oracle suporta duas versões de controladores:
 
-- **Microsoft driver para Oracle (recomendado)**: A partir Data Management Gateway versão 2.7, um controlador de Microsoft para Oracle é instalado automaticamente com o gateway. Não precisa de instalar ou atualizar o driver para estabelecer conectividade a Oracle. Também pode assistir a melhor desempenho de cópia utilizando este controlador. Estas versões de bases de dados do Oracle são suportados:
+- **Microsoft driver para Oracle (recomendado)** : A partir Data Management Gateway versão 2.7, um controlador de Microsoft para Oracle é instalado automaticamente com o gateway. Não precisa de instalar ou atualizar o driver para estabelecer conectividade a Oracle. Também pode assistir a melhor desempenho de cópia utilizando este controlador. Estas versões de bases de dados do Oracle são suportados:
   - R1 Oracle 12c (12.1)
   - Oracle 11g R1, R2 (11.1, 11.2)
   - Oracle 10g R1, R2 (10.1, 10.2)
@@ -102,7 +102,7 @@ A tabela seguinte descreve os elementos JSON que são específicos para o servi�
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |O **tipo** propriedade tem de ser definida como **OnPremisesOracle**. |Sim |
+| type |O **tipo** propriedade tem de ser definida como **OnPremisesOracle**. |Sim |
 | driverType | Especifique qual driver para utilizar para copiar dados de ou para uma base de dados Oracle. Valores permitidos são **Microsoft** e **ODP** (predefinição). Ver [suportada a instalação e a versão](#supported-versions-and-installation) para obter detalhes de driver. | Não |
 | connectionString | Especifique as informações necessárias para ligar à instância de base de dados do Oracle para o **connectionString** propriedade. | Sim |
 | gatewayName | O nome do gateway que é utilizado para ligar ao servidor Oracle no local. |Sim |
@@ -183,7 +183,7 @@ Na atividade de cópia, quando a origem é o **OracleSource** tipo, as seguintes
 | writeBatchTimeout |O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite. |**timespan**<br/><br/> Exemplo: 30: 00:00 (30 minutos) |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge o valor de **writeBatchSize**. |Número inteiro (número de linhas) |Não (predefinição: 100) |
 | sqlWriterCleanupScript |Especifica uma consulta para a atividade de cópia executar, para que os dados de um setor específico é limpo. |Uma instrução de consulta. |Não |
-| sliceIdentifierColumnName |Especifica o nome de coluna para a atividade de cópia preencher com um identificador de setor geradas automaticamente. O valor para **sliceIdentifierColumnName** é utilizado para limpar os dados de um setor específico quando voltar a executar. |O nome da coluna de uma coluna com o tipo de dados do **binary(32)**. |Não |
+| sliceIdentifierColumnName |Especifica o nome de coluna para a atividade de cópia preencher com um identificador de setor geradas automaticamente. O valor para **sliceIdentifierColumnName** é utilizado para limpar os dados de um setor específico quando voltar a executar. |O nome da coluna de uma coluna com o tipo de dados do **binary(32)** . |Não |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemplos JSON para copiar dados de e para a base de dados Oracle
 
@@ -571,7 +571,7 @@ O pipeline contém uma atividade de cópia que tenha configurado para utilizar o
     1. Abra o ficheiro de configuração de máquina para o .NET 2.0 a partir da pasta < disco do sistema\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Procure **fornecedor de dados do Oracle para .NET**. Deverá conseguir localizar uma entrada, conforme mostrado no exemplo a seguir sob **System. data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Copie esta entrada para o arquivo Machine config na seguinte pasta .NET 4.0: < disco do sistema\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Em seguida, altere a versão para 4.xxx.x.x.
-* Instalar < caminho de instalação ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll no cache de global assembly (GAC) executando **gacutil /i [provider path]**.
+* Instalar < caminho de instalação ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll no cache de global assembly (GAC) executando **gacutil /i [provider path]** .
 
 ### <a name="problem-2-datetime-formatting"></a>Problema 2: Formatação de data/hora
 
@@ -601,23 +601,23 @@ Ao mover dados do Oracle, são utilizados os seguintes mapeamentos do tipo de da
 | BLOB |Byte[]<br/>(com suporte apenas no Oracle 10g e versões posteriores ao utilizar um controlador Microsoft) |
 | CHAR |String |
 | CLOB |String |
-| DATA |DateTime |
-| NÚMERO DE VÍRGULA FLUTUANTE |Número decimal, cadeia de caracteres (se precisão > 28) |
-| NÚMERO INTEIRO |Número decimal, cadeia de caracteres (se precisão > 28) |
+| DATE |DateTime |
+| FLOAT |Decimal, String (se precisão > 28) |
+| INTEGER |Decimal, String (se precisão > 28) |
 | INTERVALO DE ANO PARA MÊS |Int32 |
 | DIA DO INTERVALO COMO SEGUNDO |TimeSpan |
-| LONGA |String |
-| HÁ MUITO TEMPO NÃO PROCESSADOS |Byte[] |
+| LONG |String |
+| LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NÚMERO |Número decimal, cadeia de caracteres (se precisão > 28) |
+| NUMBER |Decimal, String (se precisão > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| CARIMBO DE DATA/HORA |DateTime |
-| TIMESTAMP COM O FUSO HORÁRIO LOCAL |DateTime |
-| TIMESTAMP COM O FUSO HORÁRIO |DateTime |
-| NÚMERO INTEIRO NÃO ASSINADO |Number |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 

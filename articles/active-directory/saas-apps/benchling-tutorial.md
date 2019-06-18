@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 9b3725f217ef261df7bc8d9821edf972bfe58806
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57d234578f1ecdd020e5f147a8614b715f954c3b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862437"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benchling"></a>Tutorial: Integração do Active Directory do Azure com Benchling
 
@@ -55,7 +55,7 @@ Para configurar a integração do Benchling com o Azure AD, terá de adicionar B
 
 **Para adicionar Benchling a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD início de sessão único com Benchling, execute os s
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Correio Electrónico | user.mail |
+    | Email | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -212,7 +212,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Benchling. Benchling suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Benchling, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

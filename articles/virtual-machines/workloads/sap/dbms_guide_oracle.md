@@ -17,10 +17,10 @@ ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60835265"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
@@ -30,7 +30,7 @@ ms.locfileid: "60835265"
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
-[1114181]:https://launchpad.support.sap.com/#/notes/1114181
+[1114181]: https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
@@ -39,7 +39,7 @@ ms.locfileid: "60835265"
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
@@ -55,23 +55,23 @@ ms.locfileid: "60835265"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2039619]: https://launchpad.support.sap.com/#/notes/2039619
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2171857]:https://launchpad.support.sap.com/#/notes/2171857
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2171857]: https://launchpad.support.sap.com/#/notes/2171857
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -319,7 +319,7 @@ Oracle software é suportado pelo Oracle para ser executado no Microsoft Azure. 
 
 As seguintes notas de SAP estão relacionados com o SAP no Azure.
 
-| Número de nota | Título |
+| Número de nota | Cargo |
 | --- | --- |
 | [1928533] |Aplicações de SAP no Azure: Produtos suportados e tipos de VM do Azure |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -397,9 +397,9 @@ A configuração de desempenho é o seguinte:
 | \oracle\<SID > \oraarch* | Premium | Nenhuma | Não é preciso |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não é preciso |
 
-* (n + 1): tablespaces de sistema, TEMP e DESFAZER de alojamento. O padrão de e/s de sistema e desfazer tablespaces são diferentes dos outros tablespaces que aloja os dados de aplicação. Sem colocação em cache é a melhor opção para o desempenho das tablespaces sistema e desfazer.
+\* (n + 1): tablespaces de sistema, TEMP e DESFAZER de alojamento. O padrão de e/s de sistema e desfazer tablespaces são diferentes dos outros tablespaces que aloja os dados de aplicação. Sem colocação em cache é a melhor opção para o desempenho das tablespaces sistema e desfazer.
 
-* oraarch: agrupamento de armazenamento não é necessário a partir de um ponto de vista do desempenho. Ele pode ser usado para obter mais espaço.
+\* oraarch: agrupamento de armazenamento não é necessário a partir de um ponto de vista do desempenho. Ele pode ser usado para obter mais espaço.
 
 Se mais IOPS forem necessárias, recomendamos que utilize agrupamentos de armazenamento do Windows (apenas disponível no Windows Server 2012 e posterior) para criar um dispositivo lógico grande ao longo de vários discos montados. Esta abordagem simplifica a administração sobrecarga para gerir o espaço em disco e ajuda a evitar o esforço de distribuição de arquivos manualmente em vários discos montados.
 
@@ -471,7 +471,7 @@ Configuração mínima:
 | /Oracle/\<SID > / oraarch | Standard | Nenhuma | Não é preciso |
 | Página inicial do Oracle, saptrace,... | Disco do SO | | Não é preciso |
 
-* Remoção: O stripe LVM ou MDADM usando RAID0
+\* Remoção: O stripe LVM ou MDADM usando RAID0
 
 A seleção de disco para o alojamento de registos de Refazer online da Oracle deve ser conduzida por requisitos de IOPS. É possível armazenar todos os sapdata1... n (tablespaces) num único disco montado, desde que o volume, IOPS e débito satisfazem os requisitos. 
 
@@ -488,11 +488,11 @@ Configuração de desempenho:
 | /oracle/\<SID>/oraarch* | Premium | Nenhuma | Não é preciso |
 | Página inicial do Oracle, saptrace,... | Disco do SO | Não é preciso |
 
-* Remoção: O stripe LVM ou MDADM usando RAID0
+\* Remoção: O stripe LVM ou MDADM usando RAID0
 
-* (n + 1): tablespaces de sistema, TEMP e DESFAZER de alojamento: O padrão de e/s de sistema e desfazer tablespaces são diferentes dos outros tablespaces que aloja os dados de aplicação. Sem colocação em cache é a melhor opção para o desempenho das tablespaces sistema e desfazer.
+\* (n + 1): tablespaces de sistema, TEMP e DESFAZER de alojamento: O padrão de e/s de sistema e desfazer tablespaces são diferentes dos outros tablespaces que aloja os dados de aplicação. Sem colocação em cache é a melhor opção para o desempenho das tablespaces sistema e desfazer.
 
-* oraarch: agrupamento de armazenamento não é necessário a partir de um ponto de vista do desempenho.
+\* oraarch: agrupamento de armazenamento não é necessário a partir de um ponto de vista do desempenho.
 
 
 Se mais IOPS forem necessárias, recomendamos que utilize LVM (Gestor de volumes lógicos) ou MDADM para criar um grande volume de lógico ao longo de vários discos montados. Para obter mais informações, consulte [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md) sobre as diretrizes e ponteiros sobre como tirar partido LVM ou MDADM. Esta abordagem simplifica a sobrecarga de administração de gerir o espaço em disco e ajuda a evitar o esforço de distribuição de arquivos manualmente em vários discos montados.

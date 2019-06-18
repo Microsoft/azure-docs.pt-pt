@@ -16,17 +16,17 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3fb7fbba7ec48da580d2a630ae51aa20b3307848
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65074624"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Aplicação que inicia sessão dos utilizadores da Web – iniciar sessão
 
 Saiba como adicionar início de sessão para o código para a sua aplicação web que os utilizadores inicia sessão.
 
-## <a name="sign-in"></a>início de sessão
+## <a name="sign-in"></a>Iniciar sessão
 
 O código que temos no artigo anterior [configuração do código da aplicação](scenario-web-app-sign-user-app-configuration.md) é tudo o que precisa para implementar a fim de sessão. Depois do utilizador tem sessão iniciada para a sua aplicação, que provavelmente pretende ativá-las terminar sessão. ASP.NET core processa a fim de sessão para.
 
@@ -124,7 +124,7 @@ public void SignOut()
 }
 ```
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 Se não quiser utilizar o ASP.NET Core ou ASP.NET, pode examinar a documentação do protocolo, o que está disponível a partir [abrir ID Connect](./v2-protocols-oidc.md).
 

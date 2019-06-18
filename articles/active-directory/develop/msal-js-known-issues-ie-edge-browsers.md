@@ -18,10 +18,10 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c57ed956ec50c8bac26720a27894c07353928336
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873904"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problemas conhecidos em browsers do Internet Explorer e o Microsoft Edge com msal
@@ -46,7 +46,7 @@ Segue-se a causa para a maioria desses problemas. O armazenamento de sessão e o
     - [Bug 13861050](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861050/)
     - [Bug 13861663](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861663/)
 
-### <a name="update-fix-available-in-msaljs-023"></a>Actualização: Correção disponível no msal 0.2.3
+### <a name="update-fix-available-in-msaljs-023"></a>Atualização: Correção disponível no msal 0.2.3
 Correções para os problemas de ciclo de redirecionamento de autenticação que tenham sido publicados nos [msal 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Ativar o sinalizador `storeAuthStateInCookie` a configuração de msal para aproveitar esta correção. Por padrão, esse sinalizador estiver definido como false.
 
 Quando o `storeAuthStateInCookie` sinalizador estiver ativado, msal irá utilizar os cookies do browser para armazenar o estado do pedido necessário para a validação dos fluxos de autenticação.

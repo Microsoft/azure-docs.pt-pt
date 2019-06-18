@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 71feb455457fdf75fb19121bac1927b42fe38b67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f614838ae44b5c4263bc9eac81e43fd13f87baa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865367"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: Integração do Active Directory do Azure com Wdesk
 
@@ -53,7 +53,7 @@ Para configurar a integração do Wdesk com o Azure AD, terá de adicionar Wdesk
 
 **Para adicionar Wdesk a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -254,7 +254,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Wdesk, tem de ser apro
 
     ![Criar um utilizador de teste do Azure AD](./media/wdesk-tutorial/createuser5.png)
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b29dec76fb6b1f9883c5c594d4719c9f3032089e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069383"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre o funcionamento em rede para um ambiente de serviço de aplicações #
 
@@ -58,24 +58,32 @@ Quando aumenta ou reduzir verticalmente, são adicionadas novas funções do tam
 
 ### <a name="ase-inbound-dependencies"></a>Dependências de entrada do ASE ###
 
-O ASE de entrada de acesso são dependências:
+Apenas para o ASE operar, o ASE requer as seguintes portas estejam abertas:
 
 | Utilizar | De | Para |
 |-----|------|----|
 | Gestão | Endereços de gestão do serviço de aplicações | Sub-rede do ASE: 454, 455 |
 |  Comunicação interna do ASE | Sub-rede do ASE: Todas as portas | Sub-rede do ASE: Todas as portas
-|  Permitir que o Balanceador de carga do Azure de entrada | Balanceador de carga do Azure | Sub-rede do ASE: Todas as portas
-|  Aplicação de endereços IP atribuída | Aplicação endereços atribuída | Sub-rede do ASE: Todas as portas
+|  Permitir que o Balanceador de carga do Azure de entrada | Balanceador de carga do Azure | Sub-rede do ASE: 16001
 
-O tráfego de entrada de gestão fornece o comando e controlo do ASE, além de monitoramento do sistema. Os endereços de origem para este tráfego estão listados na [endereços de gestão do ASE] [ ASEManagement] documento. A configuração de segurança de rede tem de permitir o acesso de todos os IPs nas portas 454 e 455. Se bloquear o acesso a partir desses endereços, o seu ASE se tornará mau estado de funcionamento e, em seguida, torne-se suspensa.
+Existem 2 outras portas que podem mostrar como abertas numa verificação de porta, 7654 e 1221. Eles respondem com um endereço IP e nada mais. Eles podem ser bloqueados se assim o desejar. 
+
+O tráfego de entrada de gestão fornece o comando e controlo do ASE, além de monitoramento do sistema. Os endereços de origem para este tráfego estão listados na [endereços de gestão do ASE] [ ASEManagement] documento. A configuração de segurança de rede tem de permitir o acesso dos endereços de gestão do ASE nas portas 454 e 455. Se bloquear o acesso a partir desses endereços, o seu ASE se tornará mau estado de funcionamento e, em seguida, torne-se suspensa. O tráfego TCP que chega nas portas 454 e 455 deve voltar a partir do mesmo VIP ou terá um problema de encaminhamento assimétrico. 
 
 Dentro da sub-rede do ASE, existem muitas portas utilizadas para comunicação de componente interno e pode alterar. Isto requer que todas as portas na sub-rede do ASE esteja acessível a partir da sub-rede do ASE. 
 
-Para a comunicação entre o Balanceador de carga do Azure e a sub-rede do ASE o mínimo de portas que precisa de estar abertas é 454, 455 e 16001. A porta 16001 é utilizado para manter o tráfego ativo entre o Balanceador de carga e o ASE. Se estiver a utilizar um ASE de ILB, em seguida, pode bloquear o tráfego para baixo para apenas o 454, 455, 16001 portas.  Se estiver a utilizar um ASE externo, em seguida, terá de levar em conta as portas de acesso de aplicação normal.  Se estiver a utilizar endereços atribuída de aplicação, terá de abri-lo para todas as portas.  Quando lhe for atribuído um endereço de uma aplicação específica, em seguida, o Balanceador de carga utilizará as portas que não são conhecidas de com antecedência para enviar o tráfego HTTP e HTTPS para o ASE.
+Para a comunicação entre o Balanceador de carga do Azure e a sub-rede do ASE o mínimo de portas que precisa de estar abertas é 454, 455 e 16001. A porta 16001 é utilizado para manter o tráfego ativo entre o Balanceador de carga e o ASE. Se estiver a utilizar um ASE de ILB, em seguida, pode bloquear o tráfego para baixo para apenas o 454, 455, 16001 portas.  Se estiver a utilizar um ASE externo, em seguida, terá de levar em conta as portas de acesso de aplicação normal.  
 
-Se estiver a utilizar endereços IP atribuída de aplicação, terá de permitir o tráfego de IPs atribuídos às suas aplicações para a sub-rede do ASE.
+Precisa se preocupar com as outras portas são as portas de aplicação:
 
-O tráfego TCP que chega nas portas 454 e 455 deve voltar a partir do mesmo VIP ou terá um problema de encaminhamento assimétrico. 
+| Utilizar | Portas |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio depuração remota  |  4020, 4022, 4024 |
+|  Implementar serviço Web | 8172 |
+
+Se bloquear as portas de aplicação, o ASE pode funcionar, mas a aplicação não pode.  Se estiver a utilizar endereços IP da aplicação atribuída com um ASE externo, terá de permitir o tráfego de IPs atribuídos às suas aplicações para a sub-rede do ASE nas portas apresentados no portal do ASE > página de endereços IP.
 
 ### <a name="ase-outbound-dependencies"></a>Dependências de saída do ASE ###
 
@@ -83,15 +91,15 @@ Para acesso de saída, um ASE depende da existência de vários sistemas externo
 
 O ASE comunica horizontalmente para endereços acessível da internet nas portas seguintes:
 
-| Port | Utilizações |
+| Utilizações | Portas |
 |-----|------|
-| 53 | DNS |
-| 123 | NTP |
-| 80/443 | CRL, atualizações do Windows, as dependências do Linux, serviços do Azure |
-| 1433 | SQL do Azure | 
-| 12000 | Monitorização |
+| DNS | 53 |
+| NTP | 123 |
+| 8CRL, atualizações do Windows, as dependências do Linux, serviços do Azure | 80/443 |
+| SQL do Azure | 1433 | 
+| Monitorização | 12000 |
 
-A lista completa de dependências de saída são listados no documento que descreve [bloquear o tráfego de saída do ambiente de serviço de aplicações](./firewall-integration.md). Se o ASE perder o acesso às respetivas dependências, deixa de funcionar. Quando isso acontece o tempo suficiente, o ASE está suspensa. 
+As dependências de saída são listadas no documento que descreve [bloquear o tráfego de saída do ambiente de serviço de aplicações](./firewall-integration.md). Se o ASE perder o acesso às respetivas dependências, deixa de funcionar. Quando isso acontece o tempo suficiente, o ASE está suspensa. 
 
 ### <a name="customer-dns"></a>Cliente DNS ###
 
@@ -165,12 +173,12 @@ Se as entradas necessárias num NSG, para um ASE para a função permitir o trá
 
 A porta DNS não tem de ser adicionado como o tráfego para o DNS não é afetado pelas regras do NSG. Estas portas não incluem as portas que as suas aplicações requerem para utilização com êxito. As portas de acesso de aplicação normal são:
 
-| Utilizar | De | Para |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | Utilizador configurável |  80, 443 |
-|  FTP/FTPS    | Utilizador configurável |  21, 990, 10001-10020 |
-|  Visual Studio depuração remota  |  Utilizador configurável |  4020, 4022, 4024 |
-|  Implementar serviço Web | Utilizador configurável | 8172 |
+| Utilizar | Portas |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio depuração remota  |  4020, 4022, 4024 |
+|  Implementar serviço Web | 8172 |
 
 Quando os requisitos de entrada e de saída são levados em conta, os NSGs devem ter um aspeto semelhantes para os NSGs mostrados neste exemplo. 
 

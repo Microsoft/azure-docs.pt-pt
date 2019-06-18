@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
 ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66258737"
 ---
 # <a name="sfctl-node"></a>sfctl node
@@ -30,10 +30,10 @@ Gerir os nós que formam um cluster.
 | --- | --- |
 | Desativar | Desative um nó de cluster do Service Fabric com a intenção de Desativação especificada. |
 | Ativar | Ative um nó de cluster do Service Fabric que está atualmente desativado. |
-| saúde | Obtém o estado de funcionamento de um nó do Service Fabric. |
-| Informações | Obtém as informações sobre um nó específico no cluster do Service Fabric. |
+| health | Obtém o estado de funcionamento de um nó do Service Fabric. |
+| info | Obtém as informações sobre um nó específico no cluster do Service Fabric. |
 | list | Obtém a lista de nós no cluster do Service Fabric. |
-| carregar | Obtém as informações de carga de um nó do Service Fabric. |
+| load | Obtém as informações de carga de um nó do Service Fabric. |
 | remove-state | Notifica o Service Fabric que o estado persistente num nó foi permanentemente removido ou perdido. |
 | report-health | Envia um relatório de estado de funcionamento no nó do Service Fabric. |
 | restart | Reinicia um nó de cluster do Service Fabric. |

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62110035"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processos no Azure para reativação pós-falha

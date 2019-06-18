@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
 ms.openlocfilehash: bc72da98800ef85ef14be0882ba856fbf01386b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630024"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Utilize o StorSimple Snapshot Manager para administrar a sua solução StorSimple
@@ -53,7 +53,7 @@ Pode utilizar o Snapshot Manager do StorSimple para monitorizar e gerir tarefas 
 | Snapshot Manager do StorSimple utilização menus e funcionalidades:<ul><li>Barra de menus</li><li>Barra de ferramentas</li><li>Painel de âmbito</li><li>Painel de resultados</li><li>Painel de ações</li><li>Navegação do teclado e atalhos</li></ul> |[Interface de utilizador do Snapshot Manager do StorSimple](storsimple-use-snapshot-manager.md) |
 | Utilize os recursos comuns do MMC, incluídos no Snapshot Manager do StorSimple:<ul><li>Vista</li><li>Janela novo a partir daqui</li><li>Atualizar</li><li>Exportar lista</li><li>Ajuda</li></ul> |[Utilizar as ações do menu MMC no Snapshot Manager do StorSimple](storsimple-snapshot-manager-mmc-menu.md) |
 | Adicionar ou substituir um dispositivo<br>Ligar um dispositivo<br>Certifique-se de grupos de volumes importados<br>Atualizar dispositivos ligados<br>Autenticar um dispositivo<br>Ver detalhes do dispositivo<br>Eliminar uma configuração de dispositivo<br>Alterar uma senha de dispositivo<br>Substituir um dispositivo com falhas<br> |[Utilizar o Snapshot Manager do StorSimple para ligar e gerir os dispositivos do StorSimple](storsimple-snapshot-manager-manage-devices.md) |
-| Montar volumes<br>Ver informações sobre volumes<br>Eliminar um volume<br>Reanalisar volumes<br>Configurar e efetuar cópias de segurança de um volume básico<br>Configurar e um volume espelhado dinâmico de cópia de segurança |[Utilizar o Snapshot Manager do StorSimple para ver e gerir volumes](storsimple-snapshot-manager-manage-volumes.md) |
+| Volumes de montagem<br>Ver informações sobre volumes<br>Eliminar um volume<br>Reanalisar volumes<br>Configurar e efetuar cópias de segurança de um volume básico<br>Configurar e um volume espelhado dinâmico de cópia de segurança |[Utilizar o Snapshot Manager do StorSimple para ver e gerir volumes](storsimple-snapshot-manager-manage-volumes.md) |
 | Ver grupos de volume<br>Criar um grupo de volume<br>Fazer cópias de segurança de um grupo de volume<br>Editar um grupo de volume<br>Eliminar um grupo de volume |[Utilizar o Snapshot Manager do StorSimple para criar e gerir grupos de volumes](storsimple-snapshot-manager-manage-volume-groups.md) |
 | Criar uma política de cópia de segurança <br>Editar uma política de cópia de segurança<br>Eliminar uma política de cópia de segurança |[Utilizar o Snapshot Manager do StorSimple para criar e gerir políticas de cópia de segurança](storsimple-snapshot-manager-manage-backup-policies.md) |
 | Ver e gerir tarefas de cópia de segurança agendadas<br>Ver e gerir tarefas de cópia de segurança recentes<br>Ver e gerir tarefas de cópia de segurança atualmente em execução |[Utilizar o Snapshot Manager do StorSimple para ver e gerir tarefas de cópia de segurança](storsimple-snapshot-manager-manage-backup-jobs.md) |

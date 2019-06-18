@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
 ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66357737"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server com o NetApp serviço ficheiros do Azure para aplicações SAP
@@ -34,15 +34,15 @@ ms.locfileid: "66357737"
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
-[2205917]:https://launchpad.support.sap.com/#/notes/2205917
-[1944799]:https://launchpad.support.sap.com/#/notes/1944799
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2205917]: https://launchpad.support.sap.com/#/notes/2205917
+[1944799]: https://launchpad.support.sap.com/#/notes/1944799
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -258,7 +258,7 @@ Siga os passos em [Pacemaker no SUSE Linux Enterprise Server no Azure a configur
 
 Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
 
-1. **[A] ** Instalar o conector SUSE
+1. **[A]**  Instalar o conector SUSE
 
    <pre><code>sudo zypper install sap-suse-cluster-connector
    </code></pre>
@@ -285,7 +285,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    Summary        : SUSE High Availability Setup for SAP Products
    </code></pre>
 
-2. **[A] ** Agentes de recursos de atualização SAP  
+2. **[A]**  Agentes de recursos de atualização SAP  
    
    Um patch para o pacote de agentes do recurso é necessário para utilizar a nova configuração, o que é descrita neste artigo. Pode verificar, se o patch já estiver instalado com o seguinte comando
 
@@ -305,7 +305,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-3. **[A] ** Configurar a resolução de nomes de anfitrião
+3. **[A]**  Configurar a resolução de nomes de anfitrião
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
    Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
@@ -328,7 +328,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 ## <a name="prepare-for-sap-netweaver-installation"></a>Preparar para a instalação do SAP NetWeaver
 
-1. **[A] ** Criar os diretórios partilhados
+1. **[A]**  Criar os diretórios partilhados
 
    <pre><code>sudo mkdir -p /sapmnt/<b>QAS</b>
    sudo mkdir -p /usr/sap/trans
@@ -343,7 +343,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo chattr +i /usr/sap/<b>QAS</b>/ERS<b>01</b>
    </code></pre>
 
-2. **[A] ** Configurar autofs
+2. **[A]**  Configurar autofs
 
    <pre><code>
    sudo vi /etc/auto.master
@@ -370,7 +370,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
       sudo service autofs restart
      </code></pre>
 
-3. **[A] ** Configurar TROCAR ficheiros
+3. **[A]**  Configurar TROCAR ficheiros
 
    <pre><code>sudo vi /etc/waagent.conf
    
@@ -392,7 +392,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 ### <a name="installing-sap-netweaver-ascsers"></a>Instalar o SAP NetWeaver ASCS/ERS
 
-1. **[1] ** Criar um recurso IP virtual e uma sonda de estado de funcionamento para a instância do ASCS
+1. **[1]**  Criar um recurso IP virtual e uma sonda de estado de funcionamento para a instância do ASCS
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    
@@ -446,7 +446,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    chgrp sapsys /usr/sap/<b>QAS</b>/ASCS<b>00</b>
    </code></pre>
 
-3. **[1] ** Criar um recurso IP virtual e uma sonda de estado de funcionamento para a instância ERS
+3. **[1]**  Criar um recurso IP virtual e uma sonda de estado de funcionamento para a instância ERS
 
    <pre><code>
    sudo crm node online <b>anftstsapcl2</b>
@@ -491,7 +491,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    #      vip_QAS_ERS  (ocf::heartbeat:IPaddr2):     <b>Started anftstsapcl2</b>
    </code></pre>
 
-4. **[2] ** Instalar ERS do SAP NetWeaver
+4. **[2]**  Instalar ERS do SAP NetWeaver
 
    Instalar o SAP NetWeaver ERS como raiz no segundo nó com um nome de anfitrião virtual que mapeia para o endereço IP da configuração de front-end de Balanceador de carga para ERS, por exemplo <b>anftstsapers</b>, <b>10.1.1.21</b> e o número de instância que utilizou para a sonda do Balanceador de carga, por exemplo <b>01</b>.
 
@@ -511,7 +511,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    </code></pre>
 
 
-5. **[1] ** Adapt ASCS/SCS e ERS perfis de instância
+5. **[1]**  Adapt ASCS/SCS e ERS perfis de instância
  
    * Perfil do ASCS/SCS
 
@@ -547,7 +547,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    # Autostart = 1
    </code></pre>
 
-6. **[A] ** Configurar Keep Alive de
+6. **[A]**  Configurar Keep Alive de
 
    A comunicação entre o servidor de aplicações SAP NetWeaver e ASCS/SCS é encaminhada através de um balanceador de carga de software. O Balanceador de carga desliga ligações inativas após um tempo limite configurável. Para impedir que isto terá de definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as definições do sistema Linux. Leia [1410736 de nota SAP] [ 1410736] para obter mais informações.
 
@@ -558,14 +558,14 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
 
-7. **[A] ** Configurar os utilizadores SAP após a instalação
+7. **[A]**  Configurar os utilizadores SAP após a instalação
 
    <pre><code>
    # Add sidadm to the haclient group
    sudo usermod -aG haclient <b>qas</b>adm
    </code></pre>
 
-8. **[1] ** Adicionar os serviços do ASCS e ERS SAP para o ficheiro de sapservice
+8. **[1]**  Adicionar os serviços do ASCS e ERS SAP para o ficheiro de sapservice
 
    Adicione os ASCS entrada para o segundo nó de serviço e copiar a entrada do serviço ERS para o primeiro nó.
 
@@ -574,7 +574,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo ssh <b>anftstsapcl2</b> "cat /usr/sap/sapservices" | grep ERS<b>01</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
-9. **[1] ** Criam os recursos de cluster SAP
+9. **[1]**  Criam os recursos de cluster SAP
 
 Se utilizar a arquitetura de servidor de 1 de colocar em fila (ENSA1), defina os recursos da seguinte forma:
 
@@ -660,7 +660,7 @@ O passos abaixo partem do princípio de que instalou o servidor de aplicações 
 Os seguintes itens são prefixados com ambos **[A]** - aplicável para PAS e AAS, **[P]** – apenas aplicável a PAS ou **[S]** – apenas aplicável a AAS.
 
 
-1. **[A] ** Configurar sistema operativo
+1. **[A]**  Configurar sistema operativo
 
    Reduza o tamanho da cache modificado. Para obter mais informações, consulte [desempenho de escrita de baixa no SLES 11/12 servidores com grandes RAM](https://www.suse.com/support/kb/doc/?id=7010287).
 
@@ -671,7 +671,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicável para PAS e AAS
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A] ** Configurar a resolução de nomes de anfitrião
+1. **[A]**  Configurar a resolução de nomes de anfitrião
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
    Substitua o endereço IP e o nome de anfitrião nos seguintes comandos
@@ -692,7 +692,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicável para PAS e AAS
    <b>10.1.1.16 anftstsapa02</b>
    </code></pre>
 
-1. **[A] ** Criar o diretório de /sapmnt
+1. **[A]**  Criar o diretório de /sapmnt
 
    <pre><code>
    sudo mkdir -p /sapmnt/<b>QAS</b>
@@ -702,21 +702,21 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicável para PAS e AAS
    sudo chattr +i /usr/sap/trans
    </code></pre>
 
-1. **[P] ** Criar o diretório PAS
+1. **[P]**  Criar o diretório PAS
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>02</b>
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>02</b>
    </code></pre>
 
-1. **[S] ** Criar o diretório de AAS
+1. **[S]**  Criar o diretório de AAS
 
    <pre><code>
    sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>03</b>
    sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
    </code></pre>
 
-1. **[P] ** Configurar autofs em PAS
+1. **[P]**  Configurar autofs em PAS
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -741,7 +741,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicável para PAS e AAS
    sudo service autofs restart
    </code></pre>
 
-1. **[P] ** Configurar autofs em AAS
+1. **[P]**  Configurar autofs em AAS
 
    <pre><code>sudo vi /etc/auto.master
    
@@ -766,7 +766,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicável para PAS e AAS
    sudo service autofs restart
    </code></pre>
 
-1. **[A] ** Configurar TROCAR ficheiros
+1. **[A]**  Configurar TROCAR ficheiros
 
    <pre><code>
    sudo vi /etc/waagent.conf
@@ -803,16 +803,16 @@ Neste exemplo, SAP NetWeaver está instalado no SAP HANA. Pode usar cada base de
 
 Siga estes passos para instalar um servidor de aplicações SAP.
 
-1. **[A] ** Servidor de aplicativos de preparação, siga os passos no capítulo [preparação de servidor de aplicação SAP NetWeaver](high-availability-guide-suse-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) acima para preparar o servidor de aplicações.
+1. **[A]**  Servidor de aplicativos de preparação, siga os passos no capítulo [preparação de servidor de aplicação SAP NetWeaver](high-availability-guide-suse-netapp-files.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) acima para preparar o servidor de aplicações.
 
-2. **[A] ** Servidor de aplicativos de instalar o SAP NetWeaver instalar um servidor de aplicações SAP NetWeaver primário ou adicional.
+2. **[A]**  Servidor de aplicativos de instalar o SAP NetWeaver instalar um servidor de aplicações SAP NetWeaver primário ou adicional.
 
    Pode utilizar o parâmetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que um utilizador não raiz ligar ao sapinst.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-3. **[A] ** Arquivo seguro do SAP HANA de atualização
+3. **[A]**  Arquivo seguro do SAP HANA de atualização
 
    Atualize o arquivo seguro do SAP HANA para apontar para o nome virtual da configuração do SAP HANA System Replication.
 

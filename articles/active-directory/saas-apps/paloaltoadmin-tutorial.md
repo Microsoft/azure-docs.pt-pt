@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f45b0779693433f1b1fad3c5bfd4323eacb9a63b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd0ca3bb356319f4661e24b192a5f7e776d14cd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870176"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Active Directory do Azure com o da Palo Alto Networks - interface do Usuário de administrador
 
@@ -54,7 +54,7 @@ Para configurar a integração da Palo Alto Networks - interface do Usuário de 
 
 **Para adicionar da Palo Alto Networks - interface do Usuário de administração da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -308,7 +308,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Da Palo Alto Networks - interface do Usuário de administrador suporta o aprovisionamento de utilizador de just-in-time. Se um utilizador já não existir, será criado automaticamente no sistema após uma autenticação com êxito. Não é necessária ação do utilizador para criar o utilizador.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

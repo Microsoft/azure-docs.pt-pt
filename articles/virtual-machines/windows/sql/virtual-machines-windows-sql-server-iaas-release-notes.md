@@ -13,16 +13,33 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ee3aeb9f44d1b98d6307c6a72d1e4786ea1ec664
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787503"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076891"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server nas notas de versão da Máquina Virtual do Azure
 
 Azure permite-lhe implementar uma máquina virtual com uma imagem do SQL Server incorporado. Este artigo resume as novas funcionalidades e melhorias nas versões recentes do [SQL Server em máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). O artigo também apresenta uma lista de atualizações de conteúdo relevantes não diretamente relacionadas com o lançamento, mas publicadas no mesmo intervalo de tempo. Para aprimoramentos a outros serviços do Azure, consulte [as atualizações de serviço](https://azure.microsoft.com/updates)
+
+## <a name="may-2019"></a>Maio de 2019
+
+### <a name="service-improvements"></a>Melhorias de serviço
+
+| Melhorias de serviço | Detalhes |
+| --- | --- |
+| **Novo gerenciamento de VM do SQL Server no portal do Azure** | Existe agora uma nova forma de gerir a sua VM do SQL Server no portal do Azure. Para obter mais informações, consulte [gerir a VM do SQL Server no portal do Azure](virtual-machines-windows-sql-manage-portal.md).  | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>Melhorias de documentação
+
+| Documentação | Detalhes |
+| --- | --- |
+| **Novo gerenciamento de portal da VM do SQL Server** | Uma dezena de artigos foram atualizados para a experiência de portal de gestão de VM do SQL Server. | 
+| &nbsp; | &nbsp; |
+
 
 ## <a name="april-2019"></a>Abril de 2019
 
@@ -33,9 +50,6 @@ Azure permite-lhe implementar uma máquina virtual com uma imagem do SQL Server 
 | **Expandir o suporte para o SQL Server 2008/2008 R2** | [Expandir o suporte](virtual-machines-windows-sql-server-2008-eos-extend-support.md) para o SQL Server 2008 e SQL Server 2008 R2 ao migrar *como-é* para uma VM do Azure. | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>Melhorias de documentação
-
-Nenhuma
 
 ## <a name="march-2019"></a>Março de 2019
 

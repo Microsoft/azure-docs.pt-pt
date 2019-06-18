@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9dcc353d634d66d4bb972ed5ac7607a5cc823b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eef826f2987ca6e8d78841344359ea276e0f0fc3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869333"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pexip"></a>Tutorial: Integração do Active Directory do Azure com Pexip
 
@@ -53,7 +53,7 @@ Para configurar a integração do Pexip com o Azure AD, terá de adicionar Pexip
 
 **Para adicionar Pexip a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -180,7 +180,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Pexip. Trabalhar com [equipa de suporte de Pexip](https://support.videxio.com) para adicionar os utilizadores na plataforma Pexip. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

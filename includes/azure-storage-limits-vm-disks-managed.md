@@ -9,10 +9,10 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66148156"
 ---
 **Discos geridos de HDD padrão**
@@ -28,5 +28,5 @@ ms.locfileid: "66148156"
 
 | Resource | Limite predefinido |
 | --- | --- |
-| IOPS máximo por VM |80.000 IOPS com GS5 VM |
-| Débito máximo por VM |2.000 MB/s com GS5 VM |
+| IOPS máximo por VM |80\.000 IOPS com GS5 VM |
+| Débito máximo por VM |2\.000 MB/s com GS5 VM |

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60899759"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
@@ -104,7 +104,7 @@ Em ambos os casos, o alerta não só indica os sintomas é detetado, mas também
 
 Cliente Samtec disse: "Durante uma funcionalidade recente transferência, encontrámos uma base de dados em dimensionamento, que estava atingindo seus limites de recursos e esgotando. Conjunto de alertas de deteção proativa com a literalmente vamos foram Triar o problema, muito quase em tempo real conforme anunciado. Este alerta juntamente com os alertas de plataforma do Azure ajudou-na quase instantaneamente corrigir o problema. Total de tempo de inatividade < 10 minutos."
 
-## <a name="live-metrics-stream"></a>Live Metrics Stream
+## <a name="live-metrics-stream"></a>Stream de métricas em direto
 Implementar a compilação mais recente pode ser uma experiência ansioso. Se existirem quaisquer problemas, que pretende saber sobre eles de imediato, para que pode de volta se necessário. Stream de métricas em direto fornece as principais métricas com uma latência de cerca de um segundo.
 
 ![Métricas em direto](./media/devops/0040.png)
@@ -133,7 +133,7 @@ Por exemplo, é fácil:
 * Controle as sessões e tempos de resposta para utilizadores específicos permitir que as equipes de suporte e operações fornecer suporte ao cliente instantânea.
 * Determine as funcionalidades de aplicação utilizada com frequência, responder às perguntas da priorização de funcionalidade.
 
-Cliente DNN disse: "Application Insights nos proporcionou com a parte em falta da equação por ser capaz de combinação, ordenar, consulta e filtrar dados conforme necessário. Permitir que a nossa equipa usar seus próprios ingenuidade e a experiência para encontrar dados com uma linguagem de consulta poderosa permitiu-nos encontrar informações e resolver problemas sequer Sabíamos que tínhamos. Muito interessantes respostas provenientes de perguntas a partir *"eu admirar se...".*"
+Cliente DNN disse: "Application Insights nos proporcionou com a parte em falta da equação por ser capaz de combinação, ordenar, consulta e filtrar dados conforme necessário. Permitir que a nossa equipa usar seus próprios ingenuidade e a experiência para encontrar dados com uma linguagem de consulta poderosa permitiu-nos encontrar informações e resolver problemas sequer Sabíamos que tínhamos. Muito interessantes respostas provenientes de perguntas a partir *"eu admirar se...".* "
 
 ## <a name="development-tools-integration"></a>Integração de ferramentas de desenvolvimento
 ### <a name="configuring-application-insights"></a>Configuração do Application Insights

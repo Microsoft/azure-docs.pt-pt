@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
 ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61336522"
 ---
 # <a name="similarity-method"></a>Método de semelhança
@@ -47,12 +47,12 @@ Name | Descrição
 
 ## <a name="successerror-conditions"></a>Condições de erros/com êxito
 
-Estado de HTTP | Razão | Resposta
+Estado de HTTP | Reason | Resposta
 -----------|----------|--------
 **200**         |Êxito | Número de vírgula flutuante
 **400**         | Pedido incorreto ou a pedido inválido | Mensagem de erro      
 **500**         |Erro de servidor interno | Mensagem de erro
-**Atingiu o tempo limite**     | O pedido excedeu o limite de tempo.  | Mensagem de erro
+**Atingiu o tempo limite**     | O pedido excedeu o tempo limite.  | Mensagem de erro
 
 <br>
 

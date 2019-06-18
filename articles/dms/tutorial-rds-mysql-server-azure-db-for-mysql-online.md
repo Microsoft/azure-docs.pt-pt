@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: e971fd160a43be088f6d3c4a9fb6fddc7dd769b0
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 09b90f4b53750b94c0ecee7290d6b5405c984ff9
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415677"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154875"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o RDS MySQL para o banco de dados do Azure para MySQL online com o DMS
 
@@ -116,7 +116,7 @@ Para concluir este tutorial, precisa de:
         WHERE
           KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
           AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-      AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+      AND KCU.REFERENCED_TABLE_SCHEMA = ('SchemaName') Queries
       GROUP BY SchemaName;
     ```
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
 ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65620427"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
@@ -37,15 +37,15 @@ Monitor de desempenho de rede (NPM) é um conjunto de recursos, cada um dos quai
 
 Monitor de desempenho, o Monitor do ExpressRoute e o Monitor de conectividade do serviço estão a monitorizar recursos em NPM e são descritos abaixo.
 
-## <a name="performance-monitor"></a>Monitor de Desempenho
+## <a name="performance-monitor"></a>Monitorização de Desempenho
 
 Monitor de desempenho é parte do NPM e é a monitorização de rede para ambientes no local, híbridos e na cloud. Pode monitorizar a conectividade de rede em sucursais e escritórios, localizações de loja, datacenters e clouds. Pode detectar problemas de rede antes dos usuários se queixam. As principais vantagens são:
 
-* Monitorizar a perda e latência em várias sub-redes e definir alertas
+* Monitorize perdas e latência em várias sub-redes e definir alertas
 * Monitorizar todos os caminhos (incluindo caminhos redundantes) na rede
 * Resolver problemas de rede transitórios e de ponto no tempo, o que são difíceis de replicar
 * Determine o segmento específico na rede, que é responsável pela diminuição do desempenho
-* Monitorizar o estado de funcionamento da rede, sem precisar do SNMP
+* Monitorizar o estado de funcionamento da rede, sem a necessidade de SNMP
 
 ![Mapa de topologia do NPM](./media/network-monitoring-overview/npm-topology-map.png) 
 
@@ -75,7 +75,7 @@ Para obter mais informações, veja os artigos seguintes:
 * [Configurar o Monitor de Desempenho de Rede para o ExpressRoute](../expressroute/how-to-npm.md)
 * [Mensagem de blogue](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
+## <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
 Com a monitorização de conectividade do serviço, pode agora testar a acessibilidade de aplicativos e detectar afunilamentos de desempenho no local, redes de deteção de carrier e centros de dados de cloud/privadas.
 
@@ -91,7 +91,7 @@ Para obter mais informações, veja os artigos seguintes:
 * [Configurar o Monitor de desempenho de rede para a monitorização de pontos finais de serviço](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Mensagem de blogue](https://aka.ms/svcendptmonitor)
 
-## <a name="traffic-analytics"></a>Análises de Tráfego
+## <a name="traffic-analytics"></a>Análise de Tráfego
 Análise de tráfego é uma solução baseada na cloud que fornece visibilidade para a atividade de utilizador e da aplicação nas suas redes na cloud. Registos de fluxo de NSG são analisados para fornecer informações sobre:
 
 * Fluxos de tráfego nas suas redes entre o Azure e Internet, regiões de cloud pública, VNETs e sub-redes

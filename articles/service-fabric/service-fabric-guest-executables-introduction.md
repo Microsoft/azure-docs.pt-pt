@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/15/2018
 ms.author: aljo
 ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60946676"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Implementar um executável existente no Service Fabric
@@ -35,7 +35,7 @@ Existem diversas vantagens em executar um convidado executável num cluster do S
 * Densidade. Pode executar vários aplicativos num cluster, o que elimina a necessidade de cada aplicativo seja executado em seu próprio hardware.
 * Capacidade de Deteção: Com o REST é possível chamar o serviço de nomenclatura de recursos de infraestrutura do serviço de mensagens em fila para localizar outros serviços do cluster. 
 
-## <a name="samples"></a>Amostras
+## <a name="samples"></a>Exemplos
 * [Exemplo para o empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomenclatura com REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 

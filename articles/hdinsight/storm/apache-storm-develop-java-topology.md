@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 89cee70c9d7c5dffdb3078756cf4fa94d7cd1a9a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695650"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67078227"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia do Apache Storm no Java
 
-Saiba como criar uma topologia baseada em Java para [Apache Storm](https://storm.apache.org/). Aqui, vai criar uma topologia do Storm que implementa um aplicativo de contagem de palavras. Utilizar [Apache Maven](https://maven.apache.org/) para compilar e empacotar o projeto. Em seguida, aprenderá como definir a topologia através da [Apache Storm fluxo](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) framework.
+Saiba como criar uma topologia baseada em Java para [Apache Storm](https://storm.apache.org/). Aqui, vai criar uma topologia do Storm que implementa um aplicativo de contagem de palavras. Utilizar [Apache Maven](https://maven.apache.org/) para compilar e empacotar o projeto. Em seguida, aprenderá como definir a topologia através da [Apache Storm fluxo](https://storm.apache.org/releases/2.0.0/flux.html) framework.
 
 Depois de concluir os passos neste documento, pode implementar a topologia ao Apache Storm no HDInsight.
 
@@ -621,7 +621,7 @@ Existe um intervalo de 5 segundos entre emissões de palavras e contagens. O **W
 
 ## <a name="convert-the-topology-to-flux"></a>Converter a topologia de fluxo
 
-[Fluxo](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) é uma nova estrutura disponível com o Storm 0.10.0 e superior, que permite que separe a configuração da implementação. Os componentes ainda são definidos em Java, mas a topologia é definida com um ficheiro YAML. Pode empacotar uma definição de topologia de padrão com seu projeto ou utilizar um ficheiro autónomo ao submeter a topologia. Ao submeter a topologia de Storm, pode utilizar variáveis de ambiente ou ficheiros de configuração para preencher valores na definição de topologia do YAML.
+[Fluxo](https://storm.apache.org/releases/2.0.0/flux.html) é uma nova estrutura disponível com o Storm 0.10.0 e superior, que permite que separe a configuração da implementação. Os componentes ainda são definidos em Java, mas a topologia é definida com um ficheiro YAML. Pode empacotar uma definição de topologia de padrão com seu projeto ou utilizar um ficheiro autónomo ao submeter a topologia. Ao submeter a topologia de Storm, pode utilizar variáveis de ambiente ou ficheiros de configuração para preencher valores na definição de topologia do YAML.
 
 O ficheiro YAML define os componentes a utilizar para a topologia e os dados de fluxo entre eles. Pode incluir um ficheiro YAML como parte do ficheiro jar ou pode utilizar um ficheiro YAML externo.
 

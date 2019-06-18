@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66235048"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no seu ambiente do Time Series Insights

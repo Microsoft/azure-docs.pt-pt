@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: shared-resources
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/13/2019
+ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa7f5d3fb38eb1dbca51dec9b73dca3c998436aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60500400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67063464"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerir módulos na automatização do Azure
 
-A automatização do Azure fornece a capacidade de importar os módulos do PowerShell para sua conta de automatização a ser utilizada pelos runbooks do PowerShell com base. Estes módulos podem ser módulos personalizados que criou, da galeria do PowerShell, ou os módulos AzureRM e Az para o Azure.
+A automatização do Azure fornece a capacidade de importar os módulos do PowerShell para sua conta de automatização a ser utilizada pelos runbooks do PowerShell com base. Estes módulos podem ser módulos personalizados que criou, da galeria do PowerShell, ou os módulos AzureRM e Az para o Azure. Quando cria uma conta de automatização alguns módulos são importados por predefinição.
 
 ## <a name="import-modules"></a>Importar módulos
 
@@ -50,6 +50,22 @@ Para importar um módulo da galeria do PowerShell, aceda a https://www.powershel
 Também pode importar módulos da galeria do PowerShell diretamente a partir da sua conta de automatização. Na sua conta de automatização, selecione **módulos** sob **recursos partilhados**. Na página de módulos, clique em **Galeria de procura**. Esta ação abre o **Galeria de procura** página. Pode utilizar esta página para a galeria do PowerShell para um módulo de pesquisa. Selecione o módulo que pretende importar e clique em **importar**. Sobre o **importe** página, clique em **OK** para iniciar o processo de importação.
 
 ![Importar de galeria do PowerShell do portal do Azure](../media/modules/gallery-azure-portal.png)
+
+## <a name="delete-modules"></a>Eliminar módulos
+
+Se tiver problemas com um módulo ou terá de reverter para uma versão anterior de um módulo, pode eliminá-la a partir da sua conta de automatização. Não é possível eliminar a versão original dos [predefinido módulos](#default-modules) que são importados quando cria uma conta de automatização. Se o módulo que pretende eliminar é uma versão mais recente de um da [predefinido módulos](#default-modules) instalado, ele irá reverter para a versão que foi instalada com a sua conta de automatização. Caso contrário, será removido qualquer módulo que eliminar da sua conta de automatização.
+
+### <a name="azure-portal"></a>Portal do Azure
+
+No portal do Azure, navegue até à sua conta de automatização e selecione **módulos** sob **recursos partilhados**. Selecione o módulo que pretende remover. Sobre o **módulo** página, clcick **eliminar**. Se este módulo é um da [predefinido módulos](#default-modules) ele será revertido para a versão que estava presente quando a conta de automatização foi criada.
+
+### <a name="powershell"></a>PowerShell
+
+Para remover um módulo através do PowerShell, execute o seguinte comando:
+
+```azurepowershell-interactive
+Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
+```
 
 ## <a name="internal-cmdlets"></a>Cmdlets de interno
 
@@ -209,6 +225,37 @@ Recomendamos que considere o seguinte quando cria um módulo do PowerShell para 
 * O módulo deve estar totalmente incluído num pacote com xcopy. Módulos de automatização do Azure são distribuídos nas sandboxes da automatização quando os runbooks precisam executar. Os módulos tem de funcionar independentemente do anfitrião que estão a executar. Deve ser capaz de zipar e mover de um pacote do módulo e tê-lo a funcionar normalmente quando importados para o ambiente do PowerShell de outro anfitrião. Por ordem para que isso aconteça, o módulo não deve depender de quaisquer ficheiros fora da pasta do módulo. Esta pasta é a pasta que é zipada quando o módulo é importado para a automatização do Azure. O módulo também não deve depender quaisquer definições de registo única num anfitrião, como essas configurações definidas quando um produto é instalado. Todos os ficheiros no módulo devem ter um caminho de menos de 140 carateres. Caminhos com mais de 140 carateres causará problemas de importação de runbook. Se não for seguida esta melhor prática, o módulo não será utilizável na automatização do Azure.  
 
 * Se a referência à [módulos do Azure Powershell Az](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) no seu módulo, certifique-se de que não está a referenciar também `AzureRM`. O `Az` módulo não pode ser utilizado em conjunto com o `AzureRM` módulos. `Az` é suportado em runbooks, mas não são importados por predefinição. Para saber mais sobre o `Az` módulos e considerações a ter em conta, consulte [suporte de módulo de Az na automatização do Azure](../az-modules.md).
+
+## <a name="default-modules"></a>Módulos padrão
+
+A tabela seguinte lista os módulos que são importados por predefinição, quando é criada uma conta de automatização. Os módulos listados abaixo podem ter versões mais recentes dos mesmos importados, mas a versão original não pode ser removida da sua conta de automatização, mesmo se eliminar uma versão mais recente dos mesmos.
+
+|nome do módulo|Version|
+|---|---|
+| AuditPolicyDsc | 1.1.0.0 |
+| Azure | 1.0.3 |
+| Azure.Storage | 1.0.3 |
+| AzureRM.Automation | 1.0.3 |
+| AzureRM.Compute | 1.2.1 |
+| AzureRM.Profile | 1.0.3 |
+| AzureRM.Resources | 1.0.3 |
+| AzureRM.Sql | 1.0.3 |
+| AzureRM.Storage | 1.0.3 |
+| ComputerManagementDsc | 5.0.0.0 |
+| GPRegistryPolicyParser | 0.2 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
+| Microsoft.PowerShell.Utility |  |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
+| PSDscResources | 2.9.0.0 |
+| SecurityPolicyDsc | 2.1.0.0 |
+| StateConfigCompositeResources | 1 |
+| xDSCDomainjoin | 1.1 |
+| xPowerShellExecutionPolicy | 1.1.0.0 |
+| xRemoteDesktopAdmin | 1.1.0.0 |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

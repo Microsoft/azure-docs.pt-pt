@@ -17,28 +17,28 @@ ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60836133"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
-[1114181]:https://launchpad.support.sap.com/#/notes/1114181
-[1409604]:https://launchpad.support.sap.com/#/notes/1409604
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
-[2171857]:https://launchpad.support.sap.com/#/notes/2171857
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1114181]: https://launchpad.support.sap.com/#/notes/1114181
+[1409604]: https://launchpad.support.sap.com/#/notes/1409604
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2039619]: https://launchpad.support.sap.com/#/notes/2039619
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2171857]: https://launchpad.support.sap.com/#/notes/2171857
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2233094]: https://launchpad.support.sap.com/#/notes/2233094
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 [deployment-guide]:deployment-guide.md
 [deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
 [planning-guide]:planning-guide.md
@@ -83,7 +83,7 @@ Existem outros artigos disponíveis na carga de trabalho SAP no Azure. Começar 
 
 As seguintes notas de SAP estão relacionados com o SAP no Azure em relação à área de abrangidas neste documento.
 
-| Número de nota | Título |
+| Número de nota | Cargo |
 | --- | --- |
 | [1928533] |Aplicações de SAP no Azure: Produtos suportados e tipos de VM do Azure |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |

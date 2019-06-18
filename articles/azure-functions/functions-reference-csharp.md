@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
 ms.openlocfilehash: 44a9368f82e95641d3df893ba0958c6bf8cf696f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64724972"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador do Azure funções c# script (. csx)
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Este artigo é uma introdução ao desenvolvimento das funções do Azure com o script c# (*. csx*).
+Este artigo é uma introdução ao desenvolvimento das funções do Azure com o script c# ( *. csx*).
 
 As funções do Azure suporta c# e c# script linguagens de programação. Se estiver à procura de documentação de orientação [usando a linguagem c# num projeto de biblioteca de classes do Visual Studio](functions-develop-vs.md), consulte [referência para programadores sobre c#](functions-dotnet-class-library.md).
 

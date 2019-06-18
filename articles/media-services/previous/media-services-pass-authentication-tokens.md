@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: dwgeo
 ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463230"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam tokens para o serviço de entrega de chave de serviços de multimédia do Azure
@@ -29,7 +29,7 @@ Os clientes costumam perguntar como um jogador pode passar tokens para o serviç
 
 - Por meio do cabeçalho de autorização de HTTP.
     > [!NOTE]
-    > O prefixo de "Bearer" é esperado pelas especificações de OAuth 2.0. Um player de exemplo com a configuração de token está alojado no leitor de multimédia do Azure [página de demonstração](https://ampdemo.azureedge.net/). Para definir a origem do vídeo, escolha **(JWT Token) do AES** ou **AES (SWT Token)**. O token é passado com o cabeçalho de autorização.
+    > O prefixo de "Bearer" é esperado pelas especificações de OAuth 2.0. Um player de exemplo com a configuração de token está alojado no leitor de multimédia do Azure [página de demonstração](https://ampdemo.azureedge.net/). Para definir a origem do vídeo, escolha **(JWT Token) do AES** ou **AES (SWT Token)** . O token é passado com o cabeçalho de autorização.
 
 - Por meio da adição de um URL de consulta parâmetro com "token = tokenvalue."  
     > [!NOTE]

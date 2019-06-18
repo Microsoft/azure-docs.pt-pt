@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
 ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60926084"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de conectividade e telemetria de dispositivo

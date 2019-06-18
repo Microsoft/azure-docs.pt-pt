@@ -9,10 +9,10 @@ ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65506978"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
@@ -23,7 +23,7 @@ Operações de atualização de dados podem demorar algum tempo dependendo de v�
 
 A API de REST para o Azure Analysis Services permite operações de atualização de dados a ser executadas assincronamente. Ao utilizar a API REST, as ligações HTTP de longa execução de aplicativos de cliente não necessárias. Também existem outros recursos internos de confiabilidade, como repetições automática e em lote consolidações.
 
-## <a name="base-url"></a>URL Base
+## <a name="base-url"></a>URL de base
 
 O URL base segue este formato:
 
@@ -104,7 +104,7 @@ Não é necessário especificar parâmetros. O padrão é aplicado.
 | `CommitMode`     | Enum  | Determina se os objetos serão consolidados em lotes ou apenas quando terminar. Incluem modos: partialBatch transacional, do padrão,.  |  transacional       |
 | `MaxParallelism` | Int   | Este valor determina o número máximo de threads para executar comandos de processamento em paralelo. Este valor alinhado com a propriedade MaxParallelism que pode ser definida no TMSL [de sequência de comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) ou usando outros métodos.       | 10        |
 | `RetryCount`     | Int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
-| `Objects`        | Matriz | Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partition" ao processar uma partição. Se forem especificados não existem objetos, o modelo de todo é atualizado. |   A todo o modelo de processo      |
+| `Objects`        | Array | Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partition" ao processar uma partição. Se forem especificados não existem objetos, o modelo de todo é atualizado. |   A todo o modelo de processo      |
 
 CommitMode é igual ao partialBatch. É utilizado ao fazer uma carga inicial de grandes conjuntos de dados que o processo poderá demorar horas. Se a operação de atualização falhar após a confirmação com êxito um ou mais lotes, serão permanecem confirmados, os lotes consolidados com êxito (ele não irá reverter lotes consolidadas com êxito).
 
@@ -188,8 +188,8 @@ Os valores de `syncstate`:
 
 - 0: A replicar. Ficheiros de base de dados estão a ser replicados para uma pasta de destino.
 - 1: Reativar. A base de dados está a ser reativado na instância (s) do servidor só de leitura.
-- 2: Concluído. A operação de sincronização foi concluída com êxito.
-- 3: Falhou. A operação de sincronização falhou.
+- 2: Concluir. A operação de sincronização foi concluída com êxito.
+- 3: Não foi possível. A operação de sincronização falhou.
 - 4: A finalizar. A operação de sincronização foi concluída, mas está a efetuar os passos de limpeza.
 
 ## <a name="code-sample"></a>Exemplo de código

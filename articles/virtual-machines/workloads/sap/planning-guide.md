@@ -18,10 +18,10 @@ ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65409776"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
@@ -34,14 +34,14 @@ ms.locfileid: "65409776"
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
-[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1409604]: https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
-[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619720]: https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
@@ -53,24 +53,24 @@ ms.locfileid: "65409776"
 [1772688]:https://launchpad.support.sap.com/#/notes/1772688
 [1814258]:https://launchpad.support.sap.com/#/notes/1814258
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
-[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1909114]: https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
-[1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[1984787]: https://launchpad.support.sap.com/#/notes/1984787
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -1001,7 +1001,7 @@ Infraestrutura como um serviço do Azure não é uma rua unidirecional de apenas
 
 Durante o período de tempo da transferência os VHDs ou os discos geridos não pode estar ativos. Mesmo quando o download de discos, que estão montados para VMs, a VM tem de ser desligado e desalocada. Se apenas pretender transferir o conteúdo de base de dados que, em seguida, deve ser utilizado para configurar um novo sistema no local e se for aceitável durante o tempo de download e a configuração do novo sistema que o sistema no Azure, ainda pode estar operacional , poderia evitar um longo período de indisponibilidade, efetuando uma cópia de segurança do banco de dados compactado para um disco e acabou de baixar esse disco utilizado em vez de transferirem também a VM de base do sistema operacional.
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 
 * Transferir um disco gerido  
   Tem primeiro de obter acesso ao blob subjacente do disco gerido. Em seguida, pode copiar o blob subjacente para uma nova conta de armazenamento e transferir o blob a partir desta conta de armazenamento.
@@ -1061,7 +1061,7 @@ Discos de dados podem ser armazenados como arquivos VHD numa conta de armazename
 
 Discos de dados também podem ser discos geridos. Neste caso, o disco gerido é utilizado para criar um novo disco gerido antes de estar ligado à máquina virtual. O nome do disco gerido tem de ser exclusivo dentro de um grupo de recursos.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 Pode utilizar os cmdlets do Azure PowerShell para copiar um VHD, conforme mostrado na [este artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo disco gerido, utilize New-AzDiskConfig e New-AzDisk, conforme mostrado no exemplo a seguir.
 
@@ -1089,7 +1089,7 @@ As edições Professional do exploradores de armazenamento do Azure podem ser en
 
 A cópia de um VHD numa conta de armazenamento em si é um processo, o que leva apenas alguns segundos (semelhante ao hardware de SAN, criação de instantâneos com a cópia lenta e copiar ao gravar). Depois de ter uma cópia do ficheiro VHD, pode anexá-lo a uma máquina virtual ou utilizá-la como uma imagem para anexar cópias do VHD para máquinas virtuais.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 ```powershell
 # attach a vhd to a vm
@@ -1135,7 +1135,7 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copiar os discos entre contas de armazenamento do Azure
 Não é possível efetuar esta tarefa no portal do Azure. Pode utilizar cmdlets do Azure PowerShell, CLI do Azure ou um navegador de armazenamento de terceiros. Os cmdlets do PowerShell ou comandos da CLI, podem criar e gerir blobs, que incluem a capacidade de forma assíncrona copiar blobs entre contas de armazenamento e entre regiões dentro da subscrição do Azure.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 Também pode copiar VHDs entre subscrições. Para obter mais informações, leia [este artigo][storage-powershell-guide-full-copy-vhd].
 
 O fluxo básico de lógica de cmdlet PS tem esta aparência:
@@ -1332,7 +1332,7 @@ Poderá ser necessário configurá-la nas suas máquinas virtuais para permitir 
 > ![Windows][Logo_Windows] Windows
 >
 > Por predefinição, o Firewall do Windows dentro de uma VM implementada do Azure está ativada. Agora tem de permitir que a porta de SAP sejam abertas, caso contrário, a GUI do SAP não será capaz de se ligar.
-> Para tal:
+> Para efetuar este procedimento:
 >
 > * Abrir controlo\sistema e segurança \ Firewall para **definições avançadas**.
 > * Agora, com o botão direito em regras de entrada e escolheu **nova regra**.
@@ -1374,7 +1374,7 @@ A pressuposição é de que criou uma imagem de VM, conforme descrito em algumas
 
 A sequência de eventos para implementar o cenário tem esta aparência:
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 * Criar um novo grupo de recursos para cada cenário de treinamento/demonstração
 
@@ -1633,8 +1633,8 @@ Na tabela a seguir SAP típico portas de comunicação são listadas. Basicament
 | --- | --- | --- | --- | --- |
 | Dispatcher |sapdp`<nn>` consulte * |3201 |3200 - 3299 |SAP Dispatcher, utilizado pelo SAP GUI para Windows e o Java |
 | Servidor de mensagens |sapms`<sid`> consulte * * |3600 |sapms gratuita`<anySID`> |sid = SAP-System-ID |
-| Gateway |sapgw`<nn`> consulte * |3301 |gratuito |Gateway SAP, utilizado para comunicação CPIC e RFC |
-| Router SAP |sapdp99 |3299 |gratuito |Nomes de serviço de CI (instância central) apenas podem ser reatribuídos no /etc/services para um valor arbitrário após a instalação. |
+| Gateway |sapgw`<nn`> consulte * |3301 |Gratuito |Gateway SAP, utilizado para comunicação CPIC e RFC |
+| Router SAP |sapdp99 |3299 |Gratuito |Nomes de serviço de CI (instância central) apenas podem ser reatribuídos no /etc/services para um valor arbitrário após a instalação. |
 
 *) nn = número de instância do SAP
 
@@ -1658,7 +1658,7 @@ Configurar suas impressoras de rede de TCP/IP com base no local na VM do Azure e
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Para tal:
+> Para efetuar este procedimento:
 >
 > * Algumas impressoras de rede são fornecidos com um Assistente de configuração que torna fácil de configurar a sua impressora numa VM do Azure. Se nenhum software de assistente tiver sido distribuído com a impressora, a forma manual para configurar a impressora é criar uma nova porta de impressora TCP/IP.
 > * Abra o painel de controlo -> dispositivos e impressoras -> Adicionar uma impressora

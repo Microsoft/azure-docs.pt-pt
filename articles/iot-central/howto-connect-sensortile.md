@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
 ms.openlocfilehash: 8c1b4a4ab834b2203a7e0b6e4e9e366c3fc38774
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65472201"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>Ligar o dispositivo de SensorTile.box à sua aplicação do Azure IoT Central

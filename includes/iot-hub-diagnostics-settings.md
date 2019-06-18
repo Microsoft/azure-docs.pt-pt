@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 3893b79cee96c3928897f64f3601ebe4c490ebdd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66146337"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Ativar o registo com as definições de diagnóstico
@@ -25,14 +25,14 @@ ms.locfileid: "66146337"
 
 3. Selecione **ativar os diagnósticos**.
 
-   ![Ativar diagnósticos](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
+   ![Ativar os diagnósticos](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
 4. Dê um nome às definições de diagnóstico.
 
 5. Escolha onde pretende enviar os registos. Pode selecionar qualquer combinação das três opções:
 
    * Arquivar numa conta de armazenamento
-   * Transmitir em fluxo para um hub de eventos
+   * Stream para um hub de eventos
    * Enviar para o Log Analytics
 
 6. Escolher as operações que pretende monitorizar e ativar os registos para essas operações. As operações que podem reportar as definições de diagnóstico são:
@@ -42,7 +42,7 @@ ms.locfileid: "66146337"
    * Mensagens da cloud para dispositivo
    * Operações de identidade de dispositivo
    * Carrega o ficheiro
-   * Encaminhamento de mensagens
+   * Roteamento de mensagens
    * Operações de cloud para o dispositivo duplo
    * Operações de gémeos de dispositivo para a cloud
    * Operações de duplo

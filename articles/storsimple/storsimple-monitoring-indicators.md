@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60630658"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizar o StorSimple indicadores de monitorização para gerir o seu dispositivo
@@ -239,7 +239,7 @@ A tabela seguinte descreve as várias condições de alarme.
 | Falha de controlo de energia de unidade |Aviso – sem perda de energia de unidade |S1 |Falha do módulo |
 | Falha de controlo de energia de unidade |Falhas – crítica; Falha de energia de unidade |S1 |Falha do módulo |
 | Disco removido |Aviso |Nenhuma |Falha do módulo |
-| Energia insuficiente disponível |Aviso |nenhum |Falha do módulo |
+| Energia insuficiente disponível |Aviso |Nenhum |Falha do módulo |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre [StorSimple componentes de hardware e o estado](storsimple-8000-monitor-hardware-status.md).

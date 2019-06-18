@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27028a4e95abd2f190dd1f37bb877ed28fe8aade
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a26207e4b031cd93be8c7e5eec43c72582fcda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338363"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Tutorial: Integração do Active Directory do Azure com UNIFI
 
@@ -54,7 +54,7 @@ Para configurar a integração do UNIFI com o Azure AD, terá de adicionar UNIFI
 
 **Para adicionar UNIFI a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

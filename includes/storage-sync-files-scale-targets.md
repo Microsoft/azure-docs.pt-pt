@@ -9,10 +9,10 @@ ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 2614c9290bf31813d59ee753a31622bccf0682b8
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66114532"
 ---
 | Resource | Destino | Limite de disco rígido |
@@ -26,7 +26,7 @@ ms.locfileid: "66114532"
 | Objetos de sistema (diretórios e arquivos) por grupo de sincronização de ficheiros | objetos de milhões de 25 | Não |
 | Número máximo de ficheiro objetos de sistema (diretórios e arquivos) num diretório | 1 milhão de objetos | Sim |
 | Máximo de objeto (diretórios e arquivos) descritor tamanho de segurança | 64 KiB | Sim |
-| Tamanho do ficheiro | 100 GiB | Não |
+| Tamanho dos ficheiros | 100 GiB | Não |
 | Tamanho mínimo do ficheiro para um ficheiro para ser colocado em camadas | 64 KiB | Sim |
 | Sessões de sincronização simultâneas | Agente de v4 e posterior: O limite varia com base nos recursos de sistema disponíveis. <BR> Agente de v3: Duas sessões de sincronização do Active Directory por processador ou um máximo de oito sessões de sincronização do Active Directory por servidor. | Sim
 

@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4a94560bcb66c2ed59f78eef4f6a08b3f0227dc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af91dc09f8ed68d7bd4f2378c13d99eb67c52e9e
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057639"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155637"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Preparar e implementar um modelo do Azure Machine Learning
 
@@ -98,7 +98,7 @@ Criar um novo projeto e carregue os ficheiros para o bloco de notas.
 
 ## <a name="run-azure-notebooks"></a>Execute blocos de notas do Azure
 
-Agora que esse projeto é criado, execute o **01 turbofan\_regression.ipynb** bloco de notas.
+Agora que o projeto estiver criado, execute o **01 turbofan\_regression.ipynb** bloco de notas.
 
 1. Na página de projeto turbofan, selecione **01 turbofan\_regression.ipynb**.
 

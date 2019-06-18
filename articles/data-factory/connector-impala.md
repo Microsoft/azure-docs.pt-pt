@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f86931aad4eab697e4a0d2dfc47a6d4ff5bfc256
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61401217"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copiar dados do Impala com o Azure Data Factory (pré-visualização)

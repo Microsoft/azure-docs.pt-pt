@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49e5b6f52b92889ccc7c46f091ea1b90d43b0307
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3b16d928e2e4fc4b5376d30b81eb39e5a46e54b0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704787"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: Integração do Active Directory do Azure com o LinkedIn elevar
 
@@ -58,7 +58,7 @@ Para configurar a integração do LinkedIn elevar para o Azure AD, terá de adic
 
 **Para adicionar a LinkedIn elevar a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

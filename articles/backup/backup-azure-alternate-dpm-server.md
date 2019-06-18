@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: kasinh
 ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60650902"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
@@ -65,7 +65,7 @@ Para recuperar dados de um servidor de cópia de segurança do Azure:
      Identificar se um **notificação** são enviados, uma vez que a recuperação for concluída com êxito.
 
      ![Notificações de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. O **resumo** tela lista as opções de escolhido até agora. Assim que clicar em **"Recuperar"**, os dados são recuperados para o local apropriado no local.
+9. O **resumo** tela lista as opções de escolhido até agora. Assim que clicar em **"Recuperar"** , os dados são recuperados para o local apropriado no local.
 
     ![Resumo de opções de recuperação do DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 

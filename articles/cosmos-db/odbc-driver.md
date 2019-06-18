@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: 352cd23f00e911b895e52aacaced1bfba38f7f84
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257258"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligar ao Azure Cosmos DB com ferramentas de análise de BI com o controlador ODBC

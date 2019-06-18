@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: d03cfd49887adf1f6a4650e374d3e13eeca735a4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65077474"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Colocalização de tabela na base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)

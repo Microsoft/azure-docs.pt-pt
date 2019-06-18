@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 4022c95bfda8cbdaed75876793bfbba4254a5c54
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65410255"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---hyperscale-citus-preview"></a>Extensões do PostgreSQL na base de dados do Azure para PostgreSQL - Hiperescala (Citus) (pré-visualização)

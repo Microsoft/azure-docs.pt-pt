@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: b3c8fca1dd93f379860cc3b084fbb14d4a0c6380
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577364"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Descrição geral de nós CloudSimple
@@ -48,7 +48,7 @@ Os seguintes nós de tipos estão disponíveis para compra ou de reserva.
 
 Os limites de nó seguintes aplicam-se em nuvens privadas.
 
-| Recurso | Limite |
+| Resource | Limite |
 |----------|-------|
 | Número mínimo de nós para criar uma nuvem privada | 3 |
 | Número máximo de nós num Cluster numa nuvem privada | 16 |

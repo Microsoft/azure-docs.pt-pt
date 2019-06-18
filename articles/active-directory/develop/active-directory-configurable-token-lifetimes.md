@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc81f0a5c75d9aeee39f0633521d692c8d30c474
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67111811"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização)
 
@@ -79,7 +79,7 @@ Uma política de duração do token é um tipo de objeto de política que conté
 ### <a name="configurable-token-lifetime-properties"></a>Propriedades de duração do token configurável
 | Propriedade | Cadeia de caracteres de propriedade de política | Afeta | Predefinição | Mínimo | Máximo |
 | --- | --- | --- | --- | --- | --- |
-| Duração do Token de acesso |AccessTokenLifetime |Tokens de acesso, os tokens de ID, SAML2 tokens |Uma hora |10 minutos |1 dia |
+| Duração do Token de acesso |AccessTokenLifetime |Tokens de acesso, os tokens de ID, SAML2 tokens |1 hora |10 minutos |1 dia |
 | Atualizar Token máxima tempo inativo |MaxInactiveTime |Tokens de atualização |90 dias |10 minutos |90 dias |
 | Idade de máxima Token de atualização de fator único |MaxAgeSingleFactor |Tokens (para todos os utilizadores) de atualização |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
 | Idade máxima Token do multi-factor atualização |MaxAgeMultiFactor |Tokens (para todos os utilizadores) de atualização |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |

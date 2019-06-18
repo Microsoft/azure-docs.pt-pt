@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61244349"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utilizar rotas de mensagens e os pontos finais personalizados para mensagens de dispositivo para a cloud

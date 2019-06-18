@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
 ms.openlocfilehash: a1c8f151a4c6459064d92ff2efb44fa8b74f8fc1
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "63761458"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar pontos finais IPv6 no exemplo de script de rede virtual (pré-visualização)

@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/11/2019
+ms.openlocfilehash: 7172c1c4c31a47500eaba28ab6ed21e54674b80a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077712"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Azure Stream Analytics para o processamento de dados a partir de dispositivos da IoT
-Neste tutorial, vai aprender a criar uma lógica de processamento da transmissão para recolher dados em dispositivos IoT (Internet das Coisas). Vamos analisar um caso real de utilização da Internet das Coisas (IoT) para mostrar como deve construir a solução rapidamente e de forma económica.
+
+Neste tutorial, saiba como criar a lógica de processamento de fluxo para recolher dados de dispositivos Internet das coisas (IoT). Vamos analisar um caso real de utilização da Internet das Coisas (IoT) para mostrar como deve construir a solução rapidamente e de forma económica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 * [Subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/)
 * A consulta de exemplos e os ficheiros de dados estão disponíveis para transferência em [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 
 ## <a name="scenario"></a>Cenário
+
 A Contoso, uma empresa de automatização industrial, automatizou por completo o processo de fabrico. Nesta fábrica, as máquinas têm sensores que emitem transmissões de dados em tempo real. Neste cenário, um gestor do piso de produção pretende ter conhecimentos aprofundados e em tempo real sobre os sensores de dados e tomar medidas relativamente aos mesmos. Vamos utilizar a Linguagem SAQL (Stream Analytics Query Language) para os dados do sensor para descobrir padrões interessantes na transmissão de entrada de dados.
 
 Aqui, os dados estão a ser gerados a partir de um dispositivo Sensor Tag da Texas Instruments. O payload dos dados está no formato JSON e tem o seguinte aspeto:

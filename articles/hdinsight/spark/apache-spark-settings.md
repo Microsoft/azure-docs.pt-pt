@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 77f4ec9cce5d02ea4cbcc4968d02773a13edfe5b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64681308"
 ---
 # <a name="configure-apache-spark-settings"></a>Configurar as definições do Apache Spark
@@ -148,6 +148,6 @@ Existem várias definições de configuração de núcleos que precisa de monito
 
 * [Componentes do Apache Hadoop e versões disponíveis com o HDInsight?](../hdinsight-component-versioning.md)
 * [Gerir os recursos de um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
-* [Configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka e muito mais](../hdinsight-hadoop-provision-linux-clusters.md)
+* [Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html)
 * [Em execução do Apache Spark no Apache Hadoop YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)

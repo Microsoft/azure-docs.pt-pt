@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66388488"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB

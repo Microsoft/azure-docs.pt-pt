@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 86efbaa053e087885f0dbfea24000781d41ac5d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a2096004a7b389f627c528a8dfb4768ac001f390
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057716"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155631"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -35,7 +35,7 @@ Nesta secção, vamos criar os certificados autoassinados com uma imagem de Dock
 2. Abra uma linha de comandos e execute o seguinte comando para criar um diretório na VM.
 
     ```cmd
-    mkdir C:\edgecertificates
+    mkdir c:\edgeCertificates
     ```
 
 3. Inicie **Docker para Windows** do menu Iniciar do Windows.
@@ -56,22 +56,20 @@ Nesta secção, vamos criar os certificados autoassinados com uma imagem de Dock
 9. Na janela de terminal do Visual Studio Code, execute o contentor de createcertificates.
 
     ```cmd
-    docker run --name createcertificates --rm -v
-    C:\edgeCertificates:/edgeCertificates createcertificates
-    /edgeCertificates
+    docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
 10. Docker solicitará acesso para o **c:\\**  unidade. Selecione **partilhá-lo**.
 
 11. Forneça as credenciais quando lhe for pedido.
 
-12. Uma vez a contentor estiver concluída em execução, a verificação para os seguintes ficheiros no **c:\\edgecertificates**:
+12. Uma vez a contentor estiver concluída em execução, a verificação para os seguintes ficheiros no **c:\\edgeCertificates**:
 
-    * C:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device.cert.pem
-    * C:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
-    * C:\\edgeCertificates\\private\\new-edge-device.key.pem
+    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pem
+    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
+    * c:\\edgeCertificates\\private\\new-edge-device.key.pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Carregar certificados para o Azure Key Vault
 
@@ -86,8 +84,7 @@ Para armazenar nosso certificados de forma segura e torná-los acessíveis a par
 3. No computador de desenvolvimento, carregue os certificados para o Key Vault. Substitua **\<subscriptionId\>** e **\<keyvaultname\>** com as suas informações de recursos.
 
     ```powershell
-    C:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1
-    -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
+    c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
     ```
 
 4. Se lhe for pedido, inicie sessão no Azure.
@@ -145,7 +142,7 @@ Em seguida, execute o script para criar a máquina virtual para o seu dispositiv
 1. Abra uma janela do PowerShell e navegue para o **EdgeVM** diretório.
 
     ```powershell
-    cd C:\source\IoTEdgeAndMlSample\EdgeVM”
+    cd c:\source\IoTEdgeAndMlSample\EdgeVM
     ```
 
 2. Execute o script para criar a máquina virtual.
@@ -210,7 +207,7 @@ No início deste artigo, nós carregamos certificados para o Key Vault para que 
 1. ASet a subscrição do Azure que pretende utilizar para comandos da CLI do Azure.
 
     ```bash
-    az account set --subscription <subscription id>
+    az account set --subscription <subscriptionId>
     ```
 
 1. Crie um diretório na VM para os certificados.

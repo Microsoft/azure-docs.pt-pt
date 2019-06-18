@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64922811"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmissão em fluxo de dados de diagnóstico do Azure no caminho de acesso frequente ao utilizar os Hubs de eventos
@@ -45,7 +45,7 @@ Hubs de eventos receber dados de diagnóstico do Azure são suportados nos servi
 * Espaço de nomes do Hubs de eventos aprovisionado por artigo, [introdução aos Hubs de eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Ligar o diagnóstico do Azure para o sink de Hubs de eventos
-Por predefinição, diagnóstico do Azure sempre envia registos e métricas para uma conta de armazenamento do Azure. Um aplicativo também pode enviar dados para os Hubs de eventos, adicionando um novo **coletores** secção sob a **PublicConfig** / **WadCfg** elemento do *. wadcfgx* ficheiro. No Visual Studio, o *.wadcfgx* arquivo é armazenado no seguinte caminho: **Projeto de serviço de nuvem** > **funções** > **(RoleName)** > **diagnostics.wadcfgx** ficheiro.
+Por predefinição, diagnóstico do Azure sempre envia registos e métricas para uma conta de armazenamento do Azure. Um aplicativo também pode enviar dados para os Hubs de eventos, adicionando um novo **coletores** secção sob a **PublicConfig** / **WadCfg** elemento do *. wadcfgx* ficheiro. No Visual Studio, o *.wadcfgx* arquivo é armazenado no seguinte caminho: **Projeto de serviço de nuvem** > **funções** >  **(RoleName)**  > **diagnostics.wadcfgx** ficheiro.
 
 ```xml
 <SinksConfig>
@@ -202,7 +202,7 @@ O exemplo seguinte mostra como um desenvolvedor pode limitar a quantidade de dad
 Neste exemplo, o coletor é aplicado aos registos e é filtrado apenas para o rastreio de nível de erro.
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implementar e atualizar uma configuração de aplicação e o diagnóstico de serviços Cloud
-O Visual Studio fornece o caminho mais fácil de implementar a aplicação e a configuração de sink de Hubs de eventos. Para ver e editar o ficheiro, abra a *.wadcfgx* do ficheiro no Visual Studio, editá-lo e guardá-lo. O caminho é **projeto de serviço em nuvem** > **funções** > **(RoleName)** > **diagnostics.wadcfgx**.  
+O Visual Studio fornece o caminho mais fácil de implementar a aplicação e a configuração de sink de Hubs de eventos. Para ver e editar o ficheiro, abra a *.wadcfgx* do ficheiro no Visual Studio, editá-lo e guardá-lo. O caminho é **projeto de serviço em nuvem** > **funções** >  **(RoleName)**  > **diagnostics.wadcfgx**.  
 
 Neste momento, todos os implementação e implementação de atualização de ações no Visual Studio, Visual Studio Team System e todos os comandos ou scripts que são baseados nas MSBuild e utilize o **/t: publicar** destino incluem o *.wadcfgx* no processo de empacotamento. Além disso, Implantações e atualizações de implementar o ficheiro para o Azure com a extensão de agente de diagnóstico do Azure adequada nas suas VMs.
 

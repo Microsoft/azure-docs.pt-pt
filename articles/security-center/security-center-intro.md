@@ -3,7 +3,7 @@ title: O que é o Centro de Segurança do Azure? | Microsoft Docs
 description: Saiba mais sobre o Centro de Segurança do Azure, as suas capacidades principais e como funciona.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 6/06/2019
+ms.author: v-mohabe
+ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910249"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064332"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -88,7 +88,7 @@ Mitigar a segurança torna o Centro de segurança de alertas um pouco mais fáci
 
 O coração do valor do Centro de segurança do Azure está nas suas recomendações. As recomendações são adaptadas para as preocupações de segurança específico encontradas em suas cargas de trabalho e o Centro de segurança faz o trabalho de administrador de segurança para, por não apenas encontrar seu vulnerabilidades, mas o fornecimento de instruções específicas sobre como removê-las.
 
-![Recomendações do Centro de Segurança](media/security-center-intro/sc-recommendations.png)
+![Recomendações do Centro de segurança](media/security-center-intro/sc-recommendations.png)
 
 Dessa forma, o Centro de segurança permite que não só para definir políticas de segurança, mas como aplicar uma configuração segura padrões todos os seus recursos.
 
@@ -125,6 +125,10 @@ Centro de segurança ajuda-o a limitar a exposição a ataques de força bruta. 
 ### <a name="protect-data-services"></a>Proteger serviços de dados
 
 Centro de segurança inclui capacidades que o ajudam a realizar a classificação automática dos seus dados no Azure SQL. Também pode obter avaliações de vulnerabilidades em potencial em serviços do Azure SQL e armazenamento e recomendações sobre como atenuá-las.
+
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Proteger híbridas e de IoT na cloud cargas de trabalho (pré-visualização)
+
+Centro de segurança do Azure para IoT (Internet das coisas) simplifica a proteção de cargas de trabalho híbridas ao fornecer visibilidade unificada e controle, prevenção de ameaças adaptativas e a deteção de ameaças inteligente e resposta em cargas de trabalho em execução no edge, no local, numa Azure e noutras clouds. Para obter mais informações, consulte [Centro de segurança do Azure para IoT (pré-visualização)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>A proteger mais rapidamente
 

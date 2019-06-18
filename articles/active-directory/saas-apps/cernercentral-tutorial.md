@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3595a946d930ca83b5d2f1f3d82b775bf8eb4855
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d530ce802b6735ffe0b45abdc97fe99a1a7e619b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712682"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Tutorial: Integração do Active Directory do Azure com o Cerner Central
 
@@ -55,7 +55,7 @@ Para configurar a integração do Cerner Central para o Azure AD, terá de adici
 
 **Para adicionar Cerner Central a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 

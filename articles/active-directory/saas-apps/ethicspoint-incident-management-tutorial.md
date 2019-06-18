@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76a43acb1cf0c514111e89f1a3f4408f4c51e091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integração do Active Directory do Azure com gestão de incidentes EthicsPoint (EPIM)
 
@@ -53,7 +53,7 @@ Para configurar a integração da gestão de incidentes EthicsPoint (EPIM) para 
 
 **Para adicionar gerenciamento de incidentes EthicsPoint (EPIM) a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar a integração da gestão de incidentes EthicsPoint (EPIM) para 
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **gestão de incidentes EthicsPoint (EPIM)**, selecione **gestão de incidentes EthicsPoint (EPIM)** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
+4. Na caixa de pesquisa, escreva **gestão de incidentes EthicsPoint (EPIM)** , selecione **gestão de incidentes EthicsPoint (EPIM)** no painel de resultados, em seguida, clique em **Add** botão para adicionar o aplicação.
 
      ![Gestão de incidentes EthicsPoint (EPIM) na lista de resultados](common/search-new-app.png)
 
@@ -166,11 +166,11 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso à gestão de incidentes EthicsPoint (EPIM).
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **EthicsPoint incidente gestão (EPIM)**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **EthicsPoint incidente gestão (EPIM)** .
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **gestão de incidentes EthicsPoint (EPIM)**.
+2. Na lista de aplicações, selecione **gestão de incidentes EthicsPoint (EPIM)** .
 
     ![A ligação de gestão de incidentes EthicsPoint (EPIM) na lista de aplicações](common/all-applications.png)
 

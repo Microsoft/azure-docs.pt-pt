@@ -9,10 +9,10 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: 48fb9d8eaf2003834a420b48d649c830c608fd6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60712990"
 ---
 # <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>Gerir alertas do SCOM, Nagios no Azure Monitor e do Zabbix

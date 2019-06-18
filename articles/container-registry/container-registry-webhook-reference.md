@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61331346"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência do webhook de registo de contentor do Azure
@@ -40,7 +40,7 @@ Acionado quando uma imagem de contentor é emitidos via push para um repositóri
 
 ### <a name="push-event-payload"></a>Payload de evento de push
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
 |`id`|String|O ID do evento de webhook.|
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
@@ -50,7 +50,7 @@ Acionado quando uma imagem de contentor é emitidos via push para um repositóri
 
 ### <a name="target"></a>target
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo. Mesmo que o campo de comprimento.|
@@ -61,7 +61,7 @@ Acionado quando uma imagem de contentor é emitidos via push para um repositóri
 
 ### <a name="request"></a>Pedido
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`id`|String|O ID do pedido que deu início ao evento.|
 |`host`|String|O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião HTTP em solicitações de entrada.|
@@ -104,7 +104,7 @@ Acionado quando um gráfico do Helm é emitido para um repositório de Webhook.
 
 ### <a name="chart-push-event-payload"></a>Payload de evento de push de gráfico
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
 |`id`|String|O ID do evento de webhook.|
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
@@ -113,7 +113,7 @@ Acionado quando um gráfico do Helm é emitido para um repositório de Webhook.
 
 ### <a name="helm_target"></a>target
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|
@@ -154,7 +154,7 @@ Acionada por um Webhook quando um repositório de imagens ou manifesto é elimin
 
 ### <a name="delete-event-payload"></a>Eliminar o payload do evento
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
 |`id`|String|O ID do evento de webhook.|
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
@@ -164,7 +164,7 @@ Acionada por um Webhook quando um repositório de imagens ou manifesto é elimin
 
 ### <a name="delete_target"></a> Destino
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`digest`|String|O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2.|
@@ -172,7 +172,7 @@ Acionada por um Webhook quando um repositório de imagens ou manifesto é elimin
 
 ### <a name="delete_request"></a> Pedido
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`id`|String|O ID do pedido que deu início ao evento.|
 |`host`|String|O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião HTTP em solicitações de entrada.|
@@ -216,7 +216,7 @@ Acionada por um Webhook quando um gráfico do Helm ou repositório é eliminado.
 
 ### <a name="chart-delete-event-payload"></a>Payload de evento de eliminação de gráfico
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |-------------|----------|-----------|
 |`id`|String|O ID do evento de webhook.|
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
@@ -225,7 +225,7 @@ Acionada por um Webhook quando um gráfico do Helm ou repositório é eliminado.
 
 ### <a name="chart_delete_target"></a> Destino
 
-|Elemento|Type|Descrição|
+|Elemento|Tipo|Descrição|
 |------------------|----------|-----------|
 |`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo.|

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65907251"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
@@ -117,9 +117,9 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Hora de expiração |`se=2015-04-30T02%3A23%3A26Z` |Especificado no fuso horário UTC. |
 | Resource |`sr=b` |O recurso é um blob. |
 | Permissões |`sp=rw` |As permissões concedidas a SAs incluem Read (r) e escrita (w). |
-| Intervalo de IPs |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do qual será aceita um pedido. |
+| Intervalo de IP |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do qual será aceita um pedido. |
 | Protocol |`spr=https` |São permitidos apenas os pedidos através de HTTPS. |
-| Assinatura |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Utilizado para autorizar o acesso para o blob. A assinatura é um HMAC calculada com uma cadeia de caracteres para assinar e a chave a utilizar o algoritmo SHA256 e, em seguida, codificados usando a codificação Base64. |
+| assinatura |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Utilizado para autorizar o acesso para o blob. A assinatura é um HMAC calculada com uma cadeia de caracteres para assinar e a chave a utilizar o algoritmo SHA256 e, em seguida, codificados usando a codificação Base64. |
 
 ### <a name="account-sas-uri-example"></a>Exemplo de URI de SAS de conta
 
@@ -133,7 +133,7 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 | --- | --- | --- |
 | URI do recurso |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |O Blob ponto final de serviço, com parâmetros para obter as propriedades do serviço (quando chamado com GET) ou definir as propriedades do serviço (quando chamado conjunto). |
 | Serviços |`ss=bf` |A SAS se aplica aos serviços Blob e ficheiro |
-| Tipos de recursos |`srt=s` |A SAS se aplica a operações de nível de serviço. |
+| Tipos de recurso |`srt=s` |A SAS se aplica a operações de nível de serviço. |
 | Permissões |`sp=rw` |As permissões de concedem acesso para ler e operações de escrita. |
 
 Considerando que permissões são restritas para o nível de serviço, as operações acessíveis com esta SAS são **obter propriedades do serviço Blob** (ler) e **definir propriedades do serviço Blob** (escrita). No entanto, com um URI de recurso diferente, o mesmo token SAS poderia também ser utilizado para delegar o acesso ao **obter estatísticas do serviço Blob** (ler).

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60609506"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de IaaS de três camadas para UK OFFICIAL
@@ -154,7 +154,7 @@ Nestas VNets continuam a ser geridas como recursos separados, mas aparecem como 
 
 **Grupos de segurança de rede**: [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contêm listas de controlo de acesso que permitem ou negam o tráfego numa VNet. Podem ser utilizados NSGs para proteger o tráfego numa sub-rede ou o nível VM individual.
 
-**Serviços de domínio do Active Directory (AD DS)**: Esta arquitetura fornece um dedicado [serviços de domínio do Active Directory](https://technet.microsoft.com/library/hh831484.aspx) implementação.
+**Serviços de domínio do Active Directory (AD DS)** : Esta arquitetura fornece um dedicado [serviços de domínio do Active Directory](https://technet.microsoft.com/library/hh831484.aspx) implementação.
 
 **Registo e auditoria**: [Registo de atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) operações de capturas de tomar os recursos na sua subscrição, tais como quem a iniciou a operação, aquando da ocorrência da operação, o estado da operação e os valores de outras propriedades que podem ajudá-lo a pesquisar o operação. Registo de atividades do Azure é um serviço de plataforma do Azure que captura todas as ações numa assinatura. Os registos podem ser arquivados ou exportados se necessário.
 
@@ -178,7 +178,7 @@ Nestas VNets continuam a ser geridas como recursos separados, mas aparecem como 
 
 **Arquivo de log**: Armazenamento de dados de registo pode ser configurado para escrever para uma conta de armazenamento do Azure centralizado para arquivamento e um período de retenção definida. Os registos podem ser processados através de registos do Azure Monitor ou por sistemas SIEM de terceiros.
 
-### <a name="identity"></a>Identidade
+### <a name="identity"></a>identidade
 
 **Serviços de domínio do Active Directory**: Esta arquitetura fornece uma implementação de serviços de domínio do Active Directory no Azure. Para obter recomendações específicas sobre a implementação do Active Directory no Azure, veja os artigos seguintes:
 

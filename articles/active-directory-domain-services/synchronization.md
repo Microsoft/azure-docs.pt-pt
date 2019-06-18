@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mstephen
 ms.openlocfilehash: 295a991e610e76971413a2abdba1e2fcc5f9eba6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66246693"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronização num domínio gerido do Azure AD Domain Services
@@ -60,7 +60,7 @@ Os seguintes objetos ou atributos não estão sincronizados com o seu inquilino 
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Como atributos específicos são sincronizados com o seu domínio gerido
 A tabela seguinte lista alguns atributos comuns e descreve como eles são sincronizados com o seu domínio gerido.
 
-| Atributo no seu domínio gerido | Source | Notas |
+| Atributo no seu domínio gerido | source | Notas |
 |:--- |:--- |:--- |
 | UPN |Atributo UPN do utilizador no inquilino do Azure AD |O atributo UPN no seu inquilino do Azure AD é sincronizado como está ao seu domínio gerido. Por conseguinte, a forma mais fiável para iniciar sessão no seu domínio gerido está a utilizar o UPN. |
 | SAMAccountName |MailNickname do usuário de atributo no seu inquilino do Azure AD ou gerado automaticamente |O atributo SAMAccountName é obtido a partir do atributo mailNickname no seu inquilino do Azure AD. Se várias contas de utilizador tem o mesmo atributo mailNickname, SAMAccountName é gerado automaticamente. Se mailNickname ou prefixo UPN do utilizador tiver mais de 20 carateres, SAMAccountName é gerado automaticamente para satisfazer o limite de 20 carateres nos atributos de SAMAccountName. |

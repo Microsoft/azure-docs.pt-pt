@@ -16,10 +16,10 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: e3da856efd7d44f15f9de27c9e38375d40dc211d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60850958"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Como configurar a sua aplicação de serviço de aplicações para utilizar o Microsoft Account login
@@ -44,7 +44,7 @@ Este tópico mostra-lhe como configurar o serviço de aplicações do Azure para
     > [!IMPORTANT]
     > A palavra-passe é uma credencial de segurança importantes. Não partilhe a palavra-passe com qualquer pessoa ou distribuí-la dentro de um aplicativo de cliente.
     
-8. Clicar em **Guardar**
+8. Clique em **Guardar**
 
 ## <a name="secrets"> </a>Adicionar informações Account Microsoft à sua aplicação de serviço de aplicações
 1. De volta a [portal do Azure], navegue até à sua aplicação, clique em **definições** > **autenticação / autorização**.

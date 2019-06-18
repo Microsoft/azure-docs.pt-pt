@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fbc4dd9ea596f32c0cd38ba04ccba5619207fe
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 953ee8aae12c4c3359eca7a601aca5a86d243c75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>Tutorial: Integração do Active Directory do Azure com utenção Jones Factiva
 
@@ -53,7 +53,7 @@ Para configurar a integração do utenção Jones Factiva com o Azure AD, terá 
 
 **Para adicionar utenção Jones Factiva a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -178,7 +178,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no utenção Jones Factiva. Trabalhar com [equipa de suporte de utenção Jones Factiva](https://www.dowjones.com/contact/) para adicionar os utilizadores na plataforma utenção Jones Factiva. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

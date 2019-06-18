@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
 ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65799851"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta do Video Indexer ligada ao Azure
@@ -145,7 +145,7 @@ Na caixa de diálogo, forneça as seguintes informações:
 |Nome do grupo de recursos de serviços de multimédia do Azure|O nome para o grupo de recursos no qual criou a conta de Media Services.|
 |Nome de recurso do serviço de suporte de dados|O nome da conta de Media Services do Azure que criou na secção anterior.|
 |ID da aplicação|O Azure AD ID da aplicação (com permissões para a conta de Media Services especificada) que criou na secção anterior.|
-|Chave da Aplicação|A chave da aplicação do Azure AD que criou na secção anterior. |
+|Chave da aplicação|A chave da aplicação do Azure AD que criou na secção anterior. |
 
 ## <a name="considerations"></a>Considerações
 

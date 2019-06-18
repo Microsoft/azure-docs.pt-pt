@@ -8,10 +8,10 @@ ms.service: marketplace
 ms.topic: how-to
 ms.date: 05/30/2019
 ms.openlocfilehash: df8ab370e8874e07f8985ecfb3a772848a2e2b21
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65806285"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Contas de trabalho da empresa e o Centro de parceiros

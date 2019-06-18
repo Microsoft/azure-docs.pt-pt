@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61463026"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
-[1877727]:https://launchpad.support.sap.com/#/notes/1877727
-[2343511]:https://launchpad.support.sap.com/#/notes/2343511
-[2350235]:https://launchpad.support.sap.com/#/notes/2350235
-[2562184]:https://launchpad.support.sap.com/#/notes/2562184
-[2628497]:https://launchpad.support.sap.com/#/notes/2628497
-[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[1877727]: https://launchpad.support.sap.com/#/notes/1877727
+[2343511]: https://launchpad.support.sap.com/#/notes/2343511
+[2350235]: https://launchpad.support.sap.com/#/notes/2350235
+[2562184]: https://launchpad.support.sap.com/#/notes/2562184
+[2628497]: https://launchpad.support.sap.com/#/notes/2628497
+[2445033]: https://launchpad.support.sap.com/#/notes/2445033
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -51,7 +51,7 @@ Este guia descreve como configurar o conector do Azure para SAP LaMa, criar máq
 
 As seguintes notas de SAP estão relacionadas para o tópico de LaMa de SAP no Azure:
 
-| Número de nota | Título |
+| Número de nota | Cargo |
 | --- | --- |
 | [2343511] |Conector do Microsoft Azure para a gestão de paisagem de SAP (LaMa) |
 | [2350235] |SAP paisagem gestão 3.0 - Enterprise edition |
@@ -99,11 +99,11 @@ O Principal de serviço não tem permissões para aceder aos seus recursos do Az
 Abrir o site de SAP LaMa e navegue para a infraestrutura. Aceda ao separador gestores de nuvem e clique em Adicionar. Selecione a placa de Cloud do Microsoft Azure e clique em seguinte. Introduza as seguintes informações:
 
 * Etiqueta: Escolha um nome para a instância do conector
-* Nome de Utilizador: ID da Aplicação Principal de Serviço
+* Nome de utilizador: ID da Aplicação Principal de Serviço
 * Palavra-passe: Chave de Principal de serviço/palavra-passe
 * URL: Mantenha a predefinição https://management.azure.com/
 * Intervalo de monitorização (segundos): Deve ser pelo menos 300
-* ID da subscrição: ID de subscrição do Azure
+* ID de subscrição: ID de subscrição do Azure
 * ID do inquilino do Azure Active Directory: ID do inquilino do Active Directory
 * Anfitrião do proxy: Nome de anfitrião do proxy se SAP LaMa necessita um proxy para estabelecer ligação à internet
 * Porta de proxy: Porta TCP do proxy
@@ -385,7 +385,7 @@ Uso *as1-di-0* para o *nome de anfitrião da instância de PAS* na caixa de diá
    Certifique-se de que a partilha de /sapmnt no ASCS/SCS tem acesso total para SAP_AS1_GlobalAdmin
 
 * Erro no passo *ativar proteção de arranque para clonagem*
-  * Falha ao abrir o ficheiro '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0 "causa: Não existe esse ficheiro ou diretório
+  * Falha ao abrir o ficheiro '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0 "causa: Ficheiro ou diretório inexistente
   * Solução  
     A conta de computador do servidor de aplicativos precisa de acesso de escrita para o perfil
 

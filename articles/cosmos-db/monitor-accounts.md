@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 02bbde9a2d744c79cc8a7e95b0732b775c4dc695
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241630"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Monitorizar as métricas de desempenho e armazenamento no Azure Cosmos DB

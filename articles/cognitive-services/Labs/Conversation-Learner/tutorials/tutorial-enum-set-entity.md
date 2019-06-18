@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 1393d0bd1c31a2c9c24652e260ef7f3182d91367
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66476497"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quando utilizar entidades de Enumeração e ações de conjunto de entidades

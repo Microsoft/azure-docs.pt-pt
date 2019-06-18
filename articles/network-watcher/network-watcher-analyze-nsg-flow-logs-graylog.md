@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
 ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "60625284"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerir e analisar a rede registos de fluxo do grupo de segurança no Azure com o observador de rede e o Graylog
@@ -231,7 +231,7 @@ Pode clicar o título do dashboard para vê-lo, mas agora está vazio, uma vez q
 
 3. Selecione qualquer parâmetro pretendido na qual pretende visualizar (neste exemplo, o IP de origem está selecionado). Para mostrar a lista de possíveis widgets, clique na seta pendente azul à esquerda do campo, em seguida, selecione **valores rápidas** para gerar o widget. Deverá ver algo semelhante à imagem seguinte:
 
-   ![IP de origem](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
+   ![IP de Origem](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
 
 4. A partir daí, pode selecionar o **adicionar ao dashboard** no canto superior direito do widget e selecione o dashboard correspondente para adicionar.
 

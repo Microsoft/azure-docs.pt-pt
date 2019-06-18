@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6e0adc6b4abbb58504b6f56c8def72440ad370d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61414373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061395"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Ligar o Excel para uma base de dados na base de dados SQL do Azure e criar um relatório
 
@@ -37,9 +37,9 @@ Irá também precisar de uma cópia do Excel. Este artigo utiliza o [Microsoft E
    ![Selecione a origem de dados: Ligar o Excel à base de dados SQL.](./media/sql-database-connect-excel/excel_data_source.png)
 
    É aberto o Assistente de Ligação de Dados.
-3. Na caixa de diálogo **Ligar ao Servidor de Bases de Dados**, escreva o **Nome do servidor** da Base de Dados SQL à qual pretende ligar, no formato <*servername*>**. database.windows.net**. Por exemplo, **msftestserver.database.windows.net**. Opcionalmente, introduza o nome da sua base de dados. Selecione **OK** para abrir a janela de credenciais. 
+3. Na caixa de diálogo **Ligar ao Servidor de Bases de Dados**, escreva o **Nome do servidor** da Base de Dados SQL à qual pretende ligar, no formato <*servername*> **. database.windows.net**. Por exemplo, **msftestserver.database.windows.net**. Opcionalmente, introduza o nome da sua base de dados. Selecione **OK** para abrir a janela de credenciais. 
 
-   ![server-name.png](media/sql-database-connect-excel/server-name.png)
+   ![Ligar a caixa de diálogo de servidor de base de dados](media/sql-database-connect-excel/server-name.png)
 
 4. Na **base de dados do SQL Server** caixa de diálogo, selecione **base de dados** à esquerda lado e, em seguida, introduza no seu **nome de utilizador** e **palavra-passe** para o Servidor de base de dados SQL que quer ligar. Selecione **Connect** para abrir o **navegador**. 
 
@@ -68,7 +68,7 @@ Agora que estabeleceu a ligação, tem várias opções diferentes com a forma d
 
 > [!TIP]
 > Se pretender ligar outros livros do Excel e folhas de cálculo para a base de dados, selecione o **dados** separador e selecione **origens recentes** para iniciar o **origens recentes** caixa de diálogo. A partir daí, escolha a ligação que criou na lista e, em seguida, clique em **aberto**.
-> ![Ligações recentes](media/sql-database-connect-excel/recent-connections.png)
+> ![Caixa de diálogo de origens recente](media/sql-database-connect-excel/recent-connections.png)
 
 ## <a name="create-a-permanent-connection-using-odc-file"></a>Criar uma ligação permanente de ficheiro. odc
 
@@ -78,7 +78,7 @@ Para guardar os detalhes de ligação permanentemente, pode criar um ficheiro. o
    1. Selecione **procurar mais** para abrir o **selecionar origem de dados** caixa de diálogo.   
    2. Selecione o **+NewSqlServerConnection.odc** do ficheiro e, em seguida, selecione **abrir** para abrir o **Assistente de ligação de dados**.
 
-      ![Nova Ligação](media/sql-database-connect-excel/new-connection.png)
+      ![Nova caixa de diálogo de ligação](media/sql-database-connect-excel/new-connection.png)
 
 2. Na **Assistente de ligação de dados**, escreva o nome do servidor e as credenciais da sua base de dados SQL. Selecione **Seguinte**. 
    1. Selecione a base de dados que contém os dados da lista pendente. 
@@ -93,7 +93,7 @@ Para guardar os detalhes de ligação permanentemente, pode criar um ficheiro. o
 
 4. Selecione como pretende importar os seus dados. Optamos por fazer uma tabela dinâmica. Também pode modificar as propriedades da ligação, selecionando **propriedades**. Selecione **OK** quando pronto. Se não tiver optado por guardar a palavra-passe com o ficheiro, em seguida, será solicitado que introduza as credenciais. 
 
-    ![Importar dados](media/sql-database-connect-excel/import-data2.png)
+    ![Importar Dados](media/sql-database-connect-excel/import-data2.png)
 
 5. Certifique-se de que a nova ligação foi guardada, expandindo a **dados** separador e selecionando **ligações existentes**. 
 

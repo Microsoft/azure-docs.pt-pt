@@ -11,10 +11,10 @@ ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: bff913efb38c9e5589c795386dfbbc480d799a37
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65411447"
 ---
 # <a name="import-from-web-url-via-http-module"></a>Importar a partir do URL da Web através do módulo HTTP

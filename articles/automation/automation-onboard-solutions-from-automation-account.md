@@ -10,17 +10,17 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66133192"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário
 
 A automatização do Azure fornece soluções para gerenciar atualizações de segurança do sistema operativo, controlar as alterações e inventário o que é instalado nos seus computadores. Existem várias formas de carregar máquinas, pode integrar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), [a partir de várias máquinas de navegação](automation-onboard-solutions-from-browse.md), de sua conta de automatização ou por [runbook](automation-onboard-solutions.md). Este artigo abrange a inclusão destas soluções a partir da sua conta de automatização.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Azure a https://portal.azure.com
 
@@ -47,7 +47,7 @@ Selecione **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**. A ár
 
 ![Carregar atualização solução](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Configuração de Âmbito
+## <a name="scope-configuration"></a>Configuração de âmbito
 
 Cada solução utiliza uma configuração de âmbito dentro da área de trabalho para os computadores que obtém a solução de destino. A configuração de âmbito é um grupo de um ou mais pesquisas guardadas que é utilizado para limitar o âmbito da solução para computadores específicos. Para acessar as configurações de âmbito, na sua conta de automatização sob **recursos relacionados**, selecione **área de trabalho**. Em seguida, na área de trabalho sob **ORIGENS de dados de área de trabalho**, selecione **configurações de âmbito**.
 

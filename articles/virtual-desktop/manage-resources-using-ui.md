@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c4332f4aac40fb15c5612dfbc673727935e66717
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3635cd422e4c7a064d3317401b734f3bc6ccb6c6
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057590"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136450"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementar uma ferramenta de gerenciamento
+# <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementar uma ferramenta de gestão
 
 A ferramenta de gestão fornece uma interface de utilizador (IU) para gerir recursos do Microsoft Virtual Desktop Preview. Neste tutorial, irá aprender como implantar e ligue-se à ferramenta de gestão.
 
@@ -29,11 +29,14 @@ Essa ferramenta de gestão é um exemplo. Microsoft irá fornecer atualizações
 
 ## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>O que precisa para executar o modelo Azure Resource Manager
 
-Antes de implementar o modelo Azure Resource Manager, terá de um utilizador do Azure Active Directory da conta que:
+Antes de implementar o modelo Azure Resource Manager, terá de um utilizador do Azure Active Directory para implementar o gerenciamento da interface do Usuário. Este utilizador tem de:
 
-- Desativou Azure multi-factor Authentication (MFA)
+- Tenha desativado os Azure multi-factor Authentication (MFA)
 - Tem permissão para criar recursos na sua subscrição do Azure
-- Tem permissões para ler o seu inquilino de área de Trabalho Virtual do Windows
+- Tem permissão para criar uma aplicação do Azure AD. Siga estes passos para verificar se o seu utilizador tem o [permissões obrigatórias](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+
+Depois de implementar o modelo Azure Resource Manager, desejará iniciar a gestão da interface do Usuário para validar. Este utilizador tem de:
+- Ter uma atribuição de função para ver ou editar o seu inquilino de área de Trabalho Virtual do Windows
 
 ## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Executar o modelo Azure Resource Manager para aprovisionar o gerenciamento da interface do Usuário
 

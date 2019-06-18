@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/02/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 4a8a241df38c258dc1747f04c6079d29ee25b3ae
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65968856"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlos de aplicações adaptáveis no Centro de Segurança do Azure
@@ -47,7 +47,7 @@ Controlos de aplicações adaptáveis ajudam a definir um conjunto de aplicaçõ
 
 É apresentada a página **Controlos de aplicação adaptável**.
 
-![controlos](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
+![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
 A secção **Grupos de VMs** contém três separadores:
 

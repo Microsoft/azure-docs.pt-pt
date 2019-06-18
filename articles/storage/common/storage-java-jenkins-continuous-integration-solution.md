@@ -10,10 +10,10 @@ custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
 ms.openlocfilehash: d9ef6f5056fdbd7187c92c98d1c884a5314c29a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65153671"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilizar o armazenamento do Azure com uma solução de integração contínua Jenkins
@@ -118,7 +118,7 @@ Os passos seguintes mostram para configurar uma etapa de compilação para trans
 1. Na **crie** secção de configuração da tarefa, selecione **Adicionar passo de compilação** e selecione **transferir a partir do armazenamento de Blobs do Azure**.
 2. Para **nome da conta de armazenamento**, selecione a conta de armazenamento a utilizar.
 3. Para **nome do contentor**, especifique o nome do contentor que tem os blobs que pretende transferir. Pode utilizar variáveis de ambiente.
-4. Para **nome do Blob**, especifique o nome do blob. Pode utilizar variáveis de ambiente. Além disso, pode utilizar um asterisco como caráter universal depois de especificar o letter(s) inicial do nome do blob. Por exemplo, **project\\*** de especificar todos os blobs cujos nomes começam com **projeto**.
+4. Para **nome do Blob**, especifique o nome do blob. Pode utilizar variáveis de ambiente. Além disso, pode utilizar um asterisco como caráter universal depois de especificar o letter(s) inicial do nome do blob. Por exemplo, **project\\** * de especificar todos os blobs cujos nomes começam com **projeto**.
 5. [Opcional] Para **caminho de transferência**, especifique o caminho na máquina do Jenkins em que pretende transferir ficheiros do armazenamento de Blobs do Azure. Variáveis de ambiente também podem ser utilizadas. (Se não fornecer um valor para **caminho de transferência**, os ficheiros de armazenamento de Blobs do Azure serão transferidos para a área de trabalho da tarefa.)
 
 Se tiver outros itens que pretende transferir a partir do armazenamento de Blobs do Azure, pode criar passos de compilação adicional.
@@ -137,7 +137,7 @@ Esta seção fornece uma descrição geral dos componentes do serviço de Blobs.
   
     (O formato acima aplica-se para a cloud do Azure global. Se estiver a utilizar uma cloud do Azure diferente, utilize o ponto final dentro de [Portal do Azure](https://portal.azure.com) para determinar o ponto de final do URL.)
   
-    No formato acima, `storageaccount` representa o nome da sua conta de armazenamento `container_name` representa o nome do seu contentor, e `blob_name` representa o nome do seu blob, respectivamente. Dentro do nome do contentor, pode ter vários caminhos, separados por uma barra, **/**. O nome do contentor de exemplo utilizado para este tutorial foi **MyJob**, e **${CRIE\_ID} / ${COMPILAR\_número}** foi utilizado para o caminho virtual comum, resultando no blob de ter um URL o formato seguinte:
+    No formato acima, `storageaccount` representa o nome da sua conta de armazenamento `container_name` representa o nome do seu contentor, e `blob_name` representa o nome do seu blob, respectivamente. Dentro do nome do contentor, pode ter vários caminhos, separados por uma barra, **/** . O nome do contentor de exemplo utilizado para este tutorial foi **MyJob**, e **${CRIE\_ID} / ${COMPILAR\_número}** foi utilizado para o caminho virtual comum, resultando no blob de ter um URL o formato seguinte:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

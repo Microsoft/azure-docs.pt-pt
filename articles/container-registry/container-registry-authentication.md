@@ -10,10 +10,10 @@ ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9682b9b832a8fd7374cb84e8cc6faad69df15945
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61333880"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo privado de contentor do Docker
@@ -70,7 +70,7 @@ Depois de iniciar sessão, Docker coloca em cache as credenciais, pelo que não 
 > Pode voltar a gerar a palavra-passe de um principal de serviço ao executar o [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest) comando.
 >
 
-## <a name="admin-account"></a>Conta de admin
+## <a name="admin-account"></a>Conta de administrador
 
 Cada registo de contentor inclui uma conta de utilizador de administrador, o que está desativada por predefinição. Pode permitir que o utilizador de administrador e gerir as respetivas credenciais no portal do Azure ou ao utilizar a CLI do Azure ou outras ferramentas do Azure.
 

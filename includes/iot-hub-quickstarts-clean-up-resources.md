@@ -9,10 +9,10 @@ ms.date: 06/19/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 94cd178b925b0b55f0ed6ed38ed821820bb1e072
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66117404"
 ---
 Se avançar para o próximo artigo recomendado, pode manter os recursos que já criou e reutilizá-los.
@@ -27,7 +27,7 @@ Para eliminar um grupo de recursos por nome:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-2. Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos que contém o seu Hub IoT. 
+2. Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos que contém o seu Hub IoT. 
 
 3. À direita do seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 

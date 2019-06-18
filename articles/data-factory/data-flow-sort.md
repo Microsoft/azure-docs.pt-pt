@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.openlocfilehash: d0482d1081c16dc89e7371c4c33de9b2bb4e4c2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61348392"
 ---
 # <a name="azure-data-factory-data-flow-sort-transformations"></a>Transformações de tipo de fluxo de dados de fábrica de dados do Azure

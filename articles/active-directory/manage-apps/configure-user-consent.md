@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65824850"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurar a forma como os utilizadores finais autorizam uma aplicação no Azure Active Directory

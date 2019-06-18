@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
 ms.openlocfilehash: a88ad25e335026d5172c7997f62629d5ada46f6e
-ms.sourcegitcommit: 18a0d58358ec860c87961a45d10403079113164d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66693307"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Estado do Terraform Store no armazenamento do Azure

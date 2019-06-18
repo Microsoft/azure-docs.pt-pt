@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64708684"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
@@ -84,8 +84,8 @@ Em que:
 
 As chaves criptográficas no Cofre de chaves são representadas como objetos de chave do JSON Web [JWK]. As especificações de JWK/JWA bases também são expandidas para permitir que os tipos de chave de exclusivos para a implementação de Cofre de chaves. Por exemplo, a importar chaves com o empacotamento de específicas do fornecedor do HSM, possibilita o transporte seguro de chaves que só podem ser utilizadas nos HSMs do Cofre de chave.  
 
-- **As chaves "Soft"**: Uma chave processados no software pelo Key Vault, mas é encriptada em descanso ao utilizar uma chave de sistema que está num HSM. Os clientes podem importar uma chave existente (curva elíptica) RSA ou EC ou solicitar que o Cofre de chaves gerar um.
-- **Chaves de "Disco rígidas"**: Uma chave processada num HSM (módulo de Hardware de segurança). Estas chaves são protegidas em um dos mundos de segurança do Key Vault HSM (há um universo de segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, de forma suave ou ao exportar a partir de um dispositivo compatível do HSM. Os clientes também podem solicitar o Key Vault para gerar uma chave. Este tipo de chave adiciona o atributo de T para o JWK obter para transportar o material de chave HSM.
+- **As chaves "Soft"** : Uma chave processados no software pelo Key Vault, mas é encriptada em descanso ao utilizar uma chave de sistema que está num HSM. Os clientes podem importar uma chave existente (curva elíptica) RSA ou EC ou solicitar que o Cofre de chaves gerar um.
+- **Chaves de "Disco rígidas"** : Uma chave processada num HSM (módulo de Hardware de segurança). Estas chaves são protegidas em um dos mundos de segurança do Key Vault HSM (há um universo de segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, de forma suave ou ao exportar a partir de um dispositivo compatível do HSM. Os clientes também podem solicitar o Key Vault para gerar uma chave. Este tipo de chave adiciona o atributo de T para o JWK obter para transportar o material de chave HSM.
 
      Para obter mais informações sobre dos limites geográficos, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -330,7 +330,7 @@ Existem atributos adicionais de só de leitura que estão incluídos na resposta
 > [!Note] 
 > Se um certificado do Key Vault expira, seja endereçável chave e segredo tornar-se inoperáveis.  
 
-#### <a name="tags"></a>Etiquetas
+#### <a name="tags"></a>Tags
 
  Cliente especificado dicionário de pares chave-valor, semelhantes às etiquetas em chaves e segredos.  
 

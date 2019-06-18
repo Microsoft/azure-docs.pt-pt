@@ -9,10 +9,10 @@ ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65603105"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço importar/exportar do Azure?
@@ -29,7 +29,7 @@ Considere utilizar o serviço importar/exportar do Azure quando carregar ou tran
 
 * **Migração de dados para a cloud**: Mover grandes quantidades de dados para o Azure rapidamente e económica.
 * **Distribuição de conteúdo**: Envie dados rapidamente para sites dos seus clientes.
-* **cópia de segurança**: Fazer cópias de segurança dos seus dados no local para armazenar no armazenamento do Azure.
+* **Cópia de segurança**: Fazer cópias de segurança dos seus dados no local para armazenar no armazenamento do Azure.
 * **Recuperação de dados**: Recuperar a grande quantidade de dados armazenados no armazenamento e tê-lo entregue para a sua localização no local.
 
 ## <a name="importexport-components"></a>Componentes de importação/exportação
@@ -112,7 +112,7 @@ Num alto nível, uma tarefa de exportação envolve os seguintes passos:
 
 Para obter instruções passo a passo sobre a exportação de dados, aceda a [exportar dados de Blobs do Azure](storage-import-export-data-from-blobs.md).
 
-## <a name="region-availability"></a>Disponibilidade regional 
+## <a name="region-availability"></a>Disponibilidade de região 
 
 O serviço importar/exportar do Azure suporta a cópia de dados de e para todas as contas de armazenamento do Azure. Pode enviar unidades de disco para uma das localizações indicadas. Se a sua conta de armazenamento é na localização do Azure que não é especificada aqui, uma localização alternativa de envio é fornecida quando criou a tarefa.
 
@@ -123,12 +123,12 @@ O serviço importar/exportar do Azure suporta a cópia de dados de e para todas 
 |---------|---------|---------|---------|
 |EUA Leste    | Europa do Norte        | Índia Central        |US Gov - Iowa         |
 |EUA Oeste     |Europa Ocidental         | Sul da Índia        | US DoD Leste        |
-|EUA Leste 2    | Ásia Oriental        |  Oeste da Índia        | US DoD Central        |
-|E.U.A. Oeste 2     | Sudeste Asiático        | Canadá Central        | Leste da China         |
-|EUA Central     | Leste da Austrália        | Leste do Canadá        | Norte da China        |
+|EUA Leste 2    | Ásia Oriental        |  Oeste da Índia        | US DoD Centro        |
+|EUA Oeste 2     | Sudeste Asiático        | Canadá Central        | Leste da China         |
+|EUA Central     | Leste da Austrália        | Leste do Canadá        | China Norte        |
 |EUA Centro-Norte     |  Sudeste da Austrália       | Sul do Brasil        | Reino Unido Sul        |
 |EUA Centro-Sul     | Oeste do Japão        |Coreia do Sul Central         | Alemanha Central        |
-|EUA Centro-Oeste     |  Leste do Japão       | US Gov - Virginia        | Nordeste da Alemanha        |
+|EUA Centro-Oeste     |  Leste do Japão       | Gov (US) - Virginia        | Alemanha Nordeste        |
 
 
 ## <a name="security-considerations"></a>Considerações de segurança

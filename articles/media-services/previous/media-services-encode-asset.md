@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61464186"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Descrição geral e comparação do Azure no codificadores de multimédia a pedido 

@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "61388647"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e conjuntos numa aplicação SaaS multi-inquilino
@@ -178,7 +178,7 @@ Como alternativa ao aumento vertical do conjunto, crie um segundo conjunto e mov
    1. Clique em **adicionar bases de dados** para ver uma lista de bases de dados no servidor que pode ser adicionado ao *Pool2*.
    1. Selecione qualquer 10 bancos de dados movê-las para o novo conjunto e, em seguida, clique em **selecione**. Se esteve executando o gerador de carga, o serviço já sabe que o seu perfil de desempenho requer um conjunto maior do que o tamanho do padrão de 50 Edtus e recomenda começando com uma definição de eDTU de 100.
 
-      ![recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![Recomendação](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
    1. Para este tutorial, deixe a predefinição em 50 eDTUs e clique em **selecione** novamente.
    1. Selecione **OK** para criar o conjunto de novas e para mover bases de dados selecionadas para o mesmo.

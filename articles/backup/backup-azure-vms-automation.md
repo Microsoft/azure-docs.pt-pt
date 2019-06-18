@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
 ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66255016"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Criar cópias de segurança e restaurar VMs do Azure com o PowerShell
@@ -84,7 +84,7 @@ Para começar:
     No resultado do comando, o **RegistrationState** deve ser alterado para **registado**. Se não, basta executar o **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet novamente.
 
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 Os seguintes passos levá-lo através da criação de um cofre dos serviços de recuperação. Um cofre dos serviços de recuperação é diferente de um cofre de cópia de segurança.
 

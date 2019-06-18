@@ -9,10 +9,10 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "64577049"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Descrição geral de nuvem privada CloudSimple
@@ -26,7 +26,7 @@ CloudSimple transforma e estende as cargas de trabalho do VMware para nuvens pú
 * Com CloudSimple, se beneficiar de um modelo de consumo na cloud que reduz o custo total de propriedade. Ele também oferece a pedido provisionamento, pay-como--crescer e a otimização de capacidade.
 * CloudSimple é totalmente compatível com:
   * Ferramentas existentes
-  * Competências
+  * Habilidades
   * Processos
 * Este compatibilidade permite que as equipes a gerenciar cargas de trabalho na cloud do Azure, sem interromper as suas políticas:
   * Rede
@@ -119,7 +119,7 @@ O ambiente de nuvem privada foi desenvolvido para eliminar a ter um ponto único
 
 Tabela a seguir mostra os limites de nó nos recursos de uma nuvem privada.
 
-| Recurso | Limite |
+| Resource | Limite |
 |----------|-------|
 | Número mínimo de nós para criar uma nuvem privada | 3 |
 | Número máximo de nós num cluster numa nuvem privada | 16 |

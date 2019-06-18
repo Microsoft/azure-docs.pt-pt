@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 01d39cfd5b87f9547659c79f3b748c7b23a87c77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6df24cd663165095b6681df1e7e62c35770573c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102865"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Tutorial: Integração do Active Directory do Azure com o sistema de auditoria com base em explicação
 
@@ -54,7 +54,7 @@ Para configurar a integração do sistema de auditoria com base em explicação 
 
 **Para adicionar explicação com base no sistema de auditoria a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -171,7 +171,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado no sistema de auditoria com base em explicação. Sistema de auditoria com base em explicação suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no sistema de auditoria com base em explicação, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

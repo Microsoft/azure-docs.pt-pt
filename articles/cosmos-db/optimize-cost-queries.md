@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.openlocfilehash: 2d1ac054abf4bb8228bdb5cc20d79cb751af7a33
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65967435"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
