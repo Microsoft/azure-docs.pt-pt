@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 05/02/2019
+ms.date: 06/16/2019
 ms.topic: hub-page
-ms.openlocfilehash: 027d6c862deb9efeaa8d30dd6acbc814ac230c80
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: aacd85f0f6a583869fe9c879d63b31e7d7d3cccd
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464474"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163810"
 ---
 <div id="main" class="v2">
 <h1>Documentação dos Serviços Cognitivos do Azure</h1>
