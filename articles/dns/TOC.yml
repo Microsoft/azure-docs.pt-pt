@@ -4,6 +4,8 @@
   items:
     - name: O que é o DNS do Azure?
       href: dns-overview.md
+    - name: O que é o DNS Privado do Azure?
+      href: private-dns-overview.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -20,7 +22,7 @@
     - name: Criar registos DNS personalizados para uma aplicação web
       href: dns-web-sites-custom-domain.md
     - name: Criar zona e um registo DNS privados
-      href: private-dns-getstarted-powershell.md
+      href: private-dns-portal.md
     - name: Registos de alias para o Gestor de Tráfego
       href: tutorial-alias-tm.md
     - name: Registos de alias para Endereços IP Públicos
@@ -33,6 +35,12 @@
       href: cli-samples.md
 - name: Conceitos
   items:
+    - name: DNS Privado
+      items:
+        - name: FAQ - DNS Privado
+          href: dns-faq-private.md
+        - name: Cenários de DNS privado
+          href: private-dns-scenarios.md
     - name: Zonas e registos
       href: dns-zones-records.md
     - name: Registos de alias
@@ -41,10 +49,6 @@
       href: dns-domain-delegation.md
     - name: FAQ
       href: dns-faq.md
-    - name: Utilizar zonas DNS privadas
-      href: private-dns-overview.md
-    - name: Cenários de DNS privado
-      href: private-dns-scenarios.md
     - name: Métricas e alertas de DNS
       href: dns-alerts-metrics.md
     - name: DNS Inverso
@@ -53,8 +57,12 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procedimento
   items:
-    - name: Criar zona e registo de DNS privado - CLI do Azure
-      href: private-dns-getstarted-cli.md
+    - name: DNS Privado
+      items:
+        - name: Criar uma zona privada - CLI
+          href: private-dns-getstarted-cli.md
+        - name: Criar uma zona privada - PowerShell
+          href: private-dns-getstarted-powershell.md
     - name: Registos de alias para aplicações web de carga balanceada
       href: dns-alias-appservice.md
     - name: Gerir zonas DNS
