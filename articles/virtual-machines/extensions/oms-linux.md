@@ -62,7 +62,7 @@ A tabela seguinte realça os pacotes necessários para as distribuições suport
 |Glibc |    Biblioteca de C do GNU | 2.5-12 
 |OpenSSL    | Bibliotecas de OpenSSL | 1.0.x ou 1.1.x |
 |Curl | cliente de web de cURL | 7.15.5 |
-|Ctypes de Python | | 
+|Python-ctypes | | 
 |PAM | Módulos de autenticação conectável | | 
 
 >[!NOTE]
@@ -136,7 +136,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A 
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
-| tipo | OmsAgentForLinux |
+| type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
 | workspaceId (por exemplo) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
