@@ -37,9 +37,9 @@ Esta extensão oferece suporte a OSs seguintes:
 
 | Distribuição | Version |
 |---|---|
-| Windows 10 (até versão 1803)| Principal |
-| Windows Server 2016 | Principal |
-| Windows Server 2012R2 | Principal |
+| Windows 10 (até versão 1803)| Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012R2 | Core |
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
