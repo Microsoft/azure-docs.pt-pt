@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8dff2a54e5ac6626314a7b3faaedc8214a27680b
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 4605fd0296af6ac3c0d37c52c93d8a4a0903232b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866395"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165206"
 ---
 # <a name="azure-vmware-solution-by-cloudsimple"></a>Solução VMware no Azure da CloudSimple
 
@@ -22,4 +22,4 @@ Bem-vindo à Solução VMware no Azure da CloudSimple. Encontrará detalhes sobr
 - Veja a [Descrição geral](cloudsimple-vmware-solutions-overview.md) para saber mais sobre a Solução VMware no Azure da CloudSimple.
 - Selecione [Descrição geral da cloud privada da CloudSimple](cloudsimple-private-cloud.md) para saber mais sobre a solução de cloud privada da CloudSimple.
 - Selecione [Nós](cloudsimple-node.md) para saber mais sobre os nós da CloudSimple.
-- Selecione [Inicializar e comprar capacidade](quickstart-create-cloudsimple-service.md) para começar a utilizar a Solução VMware no Azure da CloudSimple.
+- Selecione [Inicializar e aprovisionar capacidade](quickstart-create-cloudsimple-service.md) para começar a utilizar a Solução VMware no Azure da CloudSimple.

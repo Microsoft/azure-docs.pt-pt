@@ -10,7 +10,7 @@
     - name: Início Rápido
       expanded: true
       items:
-        - name: Inicializar e comprar capacidade
+        - name: Capacidade de inicialização e aprovisionamento
           href: quickstart-create-cloudsimple-service.md
         - name: Configurar o ambiente de cloud privada
           href: quickstart-create-private-cloud.md
@@ -62,7 +62,7 @@
           href: access-cloudsimple-portal.md
         - name: Gerir nós
           items:
-            - name: Comprar nós
+            - name: Nós de aprovisionamento
               href: create-nodes.md
         - name: Gerir recursos de cloud privada
           items:

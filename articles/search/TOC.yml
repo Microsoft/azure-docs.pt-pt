@@ -31,6 +31,14 @@
       href: search-get-started-python.md
 - name: Tutoriais
   items:
+    - name: Criar a sua primeira aplicação
+      items:
+        - name: 1 - Página de pesquisa básica
+          href: tutorial-csharp-create-first-app.md
+        - name: 2 - Adicionar paginação de resultados
+          href: tutorial-csharp-paging.md
+        - name: 3 - Adicionar escrita antecipada
+          href: tutorial-csharp-type-ahead-and-suggestions.md
     - name: Indexar a Base de Dados SQL do Azure
       href: search-indexer-tutorial.md
     - name: Indexar blobs de JSON do Azure

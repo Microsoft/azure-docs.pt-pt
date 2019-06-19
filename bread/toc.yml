@@ -358,6 +358,9 @@
         - name: Utilizar o Kubernetes
           tocHref: /azure/container-service/kubernetes/
           topicHref: /azure/container-service/kubernetes/
+    - name: Bastion
+      tocHref: /azure/bastion/
+      topicHref: /azure/bastion/
     - name: BD do Cosmos
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
