@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 06/14/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3469e4f7fe1c234a6df694d7bdd6d9e2c46407a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072421"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204879"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto para discurso?
 
@@ -26,13 +25,13 @@ Tecnologia de texto para discurso permite que os criadores de conteúdo interagi
 
 ### <a name="standard-voices"></a>Vozes padrão
 
-Vozes padrão são criadas usando técnicas de estatísticas de síntese Paramétrica e/ou de síntese de concatenação. Estes vozes são altamente inteligível e soam bastante naturais. É possível habilitar facilmente seus aplicativos falar em mais de 45 idiomas, com uma vasta gama de opções de voz. Estes vozes fornecem precisão pronúncia elevada, incluindo suporte para abreviaturas, expansões de acrônimos, interpretações de data/hora, polyphones e muito mais. Utilize a voz como método padrão para melhorar a acessibilidade de seus aplicativos e serviços, permitindo que os utilizadores interajam com o seu conteúdo poder ouvi-lo.
+Vozes padrão são criadas usando técnicas de estatísticas de síntese Paramétrica e/ou de síntese de concatenação. Estes vozes são altamente inteligível e som natural. É possível habilitar facilmente seus aplicativos falar em mais de 45 idiomas, com uma vasta gama de opções de voz. Estes vozes fornecem precisão pronúncia elevada, incluindo suporte para abreviaturas, expansões de acrônimos, interpretações de data/hora, polyphones e muito mais. Utilize a voz como método padrão para melhorar a acessibilidade de seus aplicativos e serviços, permitindo que os utilizadores interajam com o seu conteúdo poder ouvi-lo.
 
 ### <a name="neural-voices"></a>Vozes neurais
 
-Vozes neurais usam redes neurais profundas para superar os limites dos sistemas de texto para voz tradicionais em correspondentes aos padrões de estresse e intonation num idioma falado e resumir as unidades de conversão de voz numa voz de computador. Voz Standard divide prosody em separado de análise linguística e passos de predição acústico que são regidos pelos modelos independentes. Isso pode resultar na síntese de voz muffled, buzzy. Nossa capacidade neural faz síntese de voz e de predição de prosody simultaneamente, que resulta numa voz mais fluida e com o som natural.
+Vozes neurais usam redes neurais profundas para superar os limites dos sistemas de texto para voz tradicionais em correspondentes aos padrões de estresse e intonation num idioma falado e resumir as unidades de conversão de voz numa voz de computador. Voz Standard divide prosody em separado de análise linguística e passos de predição acústico que são regidos pelos modelos independentes, que podem resultar em síntese de voz muffled. Nossa capacidade neural faz síntese de voz e de predição de prosody simultaneamente, que resulta numa voz mais fluida e com o som natural.
 
-Vozes neurais podem ser utilizados para tornar as interações com chatbots e assistentes virtual mais natural e envolventes converter textos digital, como o e-livros em audiobooks e melhorar a sistemas de navegação no carro. Com o prosody natural de semelhante à humana e articulation clara de palavras, o vozes neurais reduzem significativamente fadiga escuta quando interage com os sistemas de IA. 
+Vozes neurais podem ser utilizados para tornar as interações com chatbots e assistentes virtual mais natural e envolventes converter textos digital, como o e-livros em audiobooks e melhorar a sistemas de navegação no carro. Com o prosody natural de semelhante à humana e articulation clara de palavras, o vozes neurais reduzem significativamente fadiga escuta quando interage com os sistemas de IA.
 
 Vozes neurais oferecem suporte a estilos diferentes, tais como neutra e cheerful. Por exemplo, a voz Jessa (en-US) compatível com o protocolo cheerfully, que está otimizado para conversação quente, feliz. Pode ajustar a saída de voz, como o tom, o argumento de venda e acelerar usando [Speech Synthesis Markup Language](speech-synthesis-markup.md). Para obter uma lista completa de vozes disponíveis, consulte [idiomas suportados](language-support.md#text-to-speech).
 
@@ -41,6 +40,26 @@ Para saber mais sobre os benefícios de vozes neurais, veja [serviço de texto p
 ### <a name="custom-voices"></a>Vozes personalizadas
 
 Personalização de voz permite-lhe criar uma voz reconhecível, um do-única para sua marca. Para criar o seu tipo de voz personalizada, fazer uma gravação de studio e carregar os scripts associados como os dados de treinamento. O serviço, em seguida, cria um modelo de voz única ajustado para a gravação. Pode utilizar este tipo de voz personalizada para sintetizar voz. Para obter mais informações, consulte [vozes personalizadas](how-to-customize-voice-font.md).
+
+## <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
+
+Speech Synthesis Markup Language (SSML) é uma linguagem de marcação baseada em XML que permite aos programadores especificar como entrado de texto é convertida em fala sintetizada com o serviço de texto para voz. Em comparação com texto sem formatação, SSML permite aos programadores ajustar o argumento de venda, pronúncia, fala taxa, o volume e mais a saída de texto para voz. Pontuação normal, como colocar em pausa após um período ou usando o intonation correto quando uma sentença termina com um ponto de interrogação são manipulados automaticamente.
+
+Todas as entradas de texto enviadas para o serviço de texto para voz tem de ser estruturadas como SSML. Para obter mais informações, consulte [Speech Synthesis Markup Language](speech-synthesis-markup.md).
+
+### <a name="pricing-note"></a>Nota de preços
+
+Ao utilizar o serviço de texto para voz, é-lhe cobrada para cada caractere que é convertido para conversão de voz, incluindo a pontuação. Enquanto o próprio documento SSML não está sujeitos a faturação, elementos opcionais que são utilizados para ajustar a forma como o texto é convertido para conversão de voz, como fonemas e pitch, são contabilizados como caracteres faturáveis. Aqui está uma lista do que é a cobrar:
+
+* Texto passado para o serviço de texto para discurso no corpo do pedido SSML
+* Todas as marcações dentro do campo de texto do corpo do pedido no formato SSML, exceto para `<speak>` e `<voice>` etiquetas
+* Letras, pontuação, espaços, tabulações, marcação e todos os caracteres de espaço em branco
+* Cada ponto de código definido em Unicode
+
+Para obter informações detalhadas, consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+> [!IMPORTANT]
+> Cada caractere de idioma chinês, japonês e coreano é contabilizado como dois caracteres para faturação.
 
 ## <a name="core-features"></a>Principais recursos
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 2a6319565aa05f34ce31a14c5fc57e591248f4ee
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: cb8b188f8d5313852ce57481031faafc28e247b3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399698"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204330"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -50,6 +50,17 @@ Antes de começar, verifique se o abaixo:
 **Sistemas operativos suportados** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux não é atualmente suportado.
 **Versões suportadas do SQL Server** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versões suportadas do .NET** | .NET framework 4.5.2 e superior instalado na VM
+
+### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Suporte para o SQL Server 2008 e SQL Server 2008 R2
+
+Cópia de segurança do Azure anunciou recentemente o suporte para [término do suporte ao SQL Servers](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) -SQL Server 2008 e SQL Server 2008 R2. A solução está atualmente em pré-visualização para o término do suporte ao SQL Server e suporta a seguinte configuração:
+
+1. SQL Server 2008 e SQL Server 2008 R2 em execução no Windows 2008 R2 SP1
+2. .NET framework 4.5.2 e acima tem de ser instalado na VM
+3. Não é suportada a cópia de segurança para a FCI e bases de dados espelhadas
+
+Todas as outras [considerações e limitações de recursos](#feature-consideration-and-limitations) aplicam-se a essas versões também. O cliente não será cobrado para esta funcionalidade até o momento está em disponibilidade geral.
+
 
 ## <a name="feature-consideration-and-limitations"></a>Funcionalidade considerações e limitações
 
@@ -114,9 +125,19 @@ Diferencial | Primária
 Registar |  Secundária
 Apenas de cópia completa |  Secundária
 
-## <a name="fix-sql-sysadmin-permissions"></a>Corrigir permissões de administrador do sistema do SQL
+## <a name="set-vm-permissions"></a>Definir permissões de VM
 
-  Se precisa corrigir as permissões devido **UserErrorSQLNoSysadminMembership** erro, execute os passos abaixo:
+  Quando executar a deteção num SQL Server, o Azure Backup faz o seguinte:
+
+* Adiciona a extensão de AzureBackupWindowsWorkload.
+* Cria uma conta NT SERVICE\AzureWLBackupPluginSvc para detetar as bases de dados na máquina virtual. Esta conta é utilizada para uma cópia de segurança e restaurar e necessita de permissões de administrador do sistema do SQL.
+* Deteta as bases de dados que estão em execução numa VM, o Azure Backup utiliza a conta NT AUTHORITY\SYSTEM. Esta conta tem de ser um público início de sessão no SQL.
+
+Se não tiver criado a VM do SQL Server no Azure Marketplace ou se estiver num SQL 2008 e 2008 R2, poderá receber um **UserErrorSQLNoSysadminMembership** erro.
+
+Para conceder permissões no caso de **SQL 2008** e **2008 R2** em execução no Windows 2008 R2, consulte [aqui](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+
+Para todas as outras versões, corrigi permissões com seguintes passos:
 
   1. Utilize uma conta com permissões de administrador do sistema do SQL Server para iniciar sessão para o SQL Server Management Studio (SSMS). A menos que precise permissões especiais, autenticação do Windows deverá funcionar.
   2. No SQL Server, abra a **inícios de sessão/segurança** pasta.
@@ -146,8 +167,72 @@ Apenas de cópia completa |  Secundária
 > [!NOTE]
 > Se o SQL Server tem várias instâncias do SQL Server instalada, tem de adicionar permissão de administrador do sistema para **NT Service\AzureWLBackupPluginSvc** de conta para todas as instâncias SQL.
 
+### <a name="give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2"></a>Conceder permissões de administrador do sistema do SQL para SQL 2008 e SQL 2008 R2
+
+Adicione **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc** inícios de sessão para a instância do SQL Server:
+
+1. Aceda a instância do SQL Server no pesquisador de objetos.
+2. Navegue para a segurança -> inícios de sessão
+3. Clique com o botão direito do rato sobre os inícios de sessão e clique em *novo início de sessão...*
+
+    ![Novo início de sessão com o SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+
+4. Vá até a guia Geral e introduza **NT AUTHORITY\SYSTEM** como o nome de início de sessão.
+
+    ![nome de início de sessão para o SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+
+5. Aceda a *funções de servidor* e escolha *público* e *sysadmin* funções.
+
+    ![Escolha de funções no SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+
+6. Aceda a *estado*. *Concessão* a permissão para ligar ao motor de base de dados e fazer logon como *ativado*.
+
+    ![Conceder permissões no SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+
+7. Clique em OK.
+8. Repetir a mesma seqüência de etapas (1 a 7 acima) para adicionar o início de sessão do NT Service\AzureWLBackupPluginSvc a instância do SQL Server. Se o início de sessão já existir, certificar-se de que tem a função de servidor sysadmin e em estado tem de conceder a permissão para ligar ao motor de base de dados e de início de sessão como ativado.
+9. Depois de conceder permissão, **voltar a detetar bds** no portal do: Cofre **->** infraestrutura de cópia de segurança **->** carga de trabalho na VM do Azure:
+
+    ![Redeteção de DBs no Portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+
+Em alternativa, pode automatizar conceder as permissões ao executar os seguintes comandos do PowerShell no modo de administrador. O nome da instância está definido como MSSQLSERVER por predefinição. Alterar a instância de argumento no script do nome se precisa de ser:
+
+```powershell
+param(
+    [Parameter(Mandatory=$false)] 
+    [string] $InstanceName = "MSSQLSERVER"
+)
+if ($InstanceName -eq "MSSQLSERVER")
+{
+    $fullInstance = $env:COMPUTERNAME   # In case it is the default SQL Server Instance
+}
+else
+{
+    $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
+}
+try
+{ 
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+try
+{ 
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+```
+
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Saiba mais sobre](backup-sql-server-database-azure-vms.md) backup bancos de dados do SQL Server.
-- [Saiba mais sobre](restore-sql-database-azure-vm.md) restaurar cópia de segurança de bases de dados do SQL Server.
-- [Saiba mais sobre](manage-monitor-sql-database-backup.md) gerir cópia de segurança de bases de dados do SQL Server.
+* [Saiba mais sobre](backup-sql-server-database-azure-vms.md) backup bancos de dados do SQL Server.
+* [Saiba mais sobre](restore-sql-database-azure-vm.md) restaurar cópia de segurança de bases de dados do SQL Server.
+* [Saiba mais sobre](manage-monitor-sql-database-backup.md) gerir cópia de segurança de bases de dados do SQL Server.

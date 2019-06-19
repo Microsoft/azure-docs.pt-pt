@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: diberry
 ms.openlocfilehash: 4ada2e36f067db685944c683de8cc36d3bbf8cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123554"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184561"
 ---
 Na secção **Gerir** (menu superior direito), na página **Chaves e pontos finais** (menu à esquerda), selecione o URL de **ponto final** na parte inferior da página. Esta ação abre outro separador de browser com o URL de ponto final na barra de endereço. 
 

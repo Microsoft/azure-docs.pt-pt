@@ -9,15 +9,15 @@ ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
 ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153714"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184922"
 ---
 1. Inicie sessão no [portal do Azure](http://portal.azure.com).
 
-1. No painel esquerdo, selecione **criar um recurso**. Procure **Digital Twins** e selecione **Digital Twins (pré-visualização)**. Selecione **criar** para iniciar o processo de implantação.
+1. No painel esquerdo, selecione **criar um recurso**. Procure **Digital Twins** e selecione **Digital Twins (pré-visualização)** . Selecione **criar** para iniciar o processo de implantação.
 
    ![Seleções para criar uma nova instância de duplos Digital](./media/create-digital-twins-portal/create-digital-twins.png)
 
@@ -37,4 +37,4 @@ ms.locfileid: "66153714"
 
     Modificar a **gestão de API** URL nesse formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. A aplicação irá utilizar o URL modificado como URL base para aceder à sua instância. Copie este URL modificado para um ficheiro temporário. Precisará na próxima seção.
 
-    ![API de gestão](./media/create-digital-twins-portal/digital-twins-management-api.png)
+    ![API de Gestão](./media/create-digital-twins-portal/digital-twins-management-api.png)

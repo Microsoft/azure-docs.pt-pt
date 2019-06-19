@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
 ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145508"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184552"
 ---
 1. Inicie o Visual Studio 2017.
 
@@ -19,7 +19,7 @@ ms.locfileid: "66145508"
 
    ![Ativar o desenvolvimento do ambiente de trabalho .NET](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. Em seguida, vamos criar um projeto. Na barra de menus, selecione **ficheiro > novo > projeto**. Quando for apresentada a caixa de diálogo, do painel esquerdo expandir estas secções **instalada > Visual C# > área de trabalho do Windows** e selecione **a aplicação de consola (.NET Framework)**. Nome este projeto *helloworld*.
+1. Em seguida, vamos criar um projeto. Na barra de menus, selecione **ficheiro > novo > projeto**. Quando for apresentada a caixa de diálogo, do painel esquerdo expandir estas secções **instalada > Visual C# > área de trabalho do Windows** e selecione **a aplicação de consola (.NET Framework)** . Nome este projeto *helloworld*.
 
     ![Criar Uma Aplicação de Consola do Visual C# (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Criar Uma Aplicação de Consola do Visual C# (.NET Framework)")
 

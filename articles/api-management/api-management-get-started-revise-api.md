@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203618"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Utilizar revisões para efetuar alterações sem interrupções de forma segura
 Quando a API está pronta e começa a ser utilizada pelos programadores, poderá ter de fazer alterações a essa API e ao mesmo tempo não interromper os autores de chamadas da sua API. É também útil dar a conhecer aos programadores as alterações que efetuou. É possível fazê-lo na Gestão de API do Azure com **revisões**. Para obter mais informações, veja [Versões e revisões](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) e [Controlo de versões de API com a Gestão de API do Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -50,7 +50,7 @@ Neste tutorial, ficará a saber como:
 4. Selecione **+ Adicionar Revisão**
 
     > [!TIP]
-    > Também pode selecionar **Adicionar Revisão** no menu de contexto (**...**) da API.
+    > Também pode selecionar **Adicionar Revisão** no menu de contexto ( **...** ) da API.
 
 5. Forneça uma descrição da nova revisão, para ajudar a lembrar para que será utilizada.
 6. Selecione **Criar**
@@ -82,7 +82,7 @@ Neste tutorial, ficará a saber como:
 
     ![O menu de revisão no ecrã de revisão.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 
-2. Abra o menu de contexto (**...**) para **Revisão 2**.
+2. Abra o menu de contexto ( **...** ) para **Revisão 2**.
 3. Selecione **Tornar Atual**.
 4. Selecione **Publicar no Registo de Alterações Públicas para esta API**, se quiser publicar notas sobre esta alteração. Forneça uma descrição para a sua alteração que os programadores veem, por exemplo: **Revisões de teste. Foi adicionada a nova operação "test".**
 5. **Revisão 2** é agora atual.

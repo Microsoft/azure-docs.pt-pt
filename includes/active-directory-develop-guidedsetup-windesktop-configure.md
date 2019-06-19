@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121624"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184435"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
@@ -40,11 +40,11 @@ Para registar a sua aplicação e adicionar as informações de registo da aplic
 1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
 1. Selecione **novo registo**.
    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `Win-App-calling-MsGraph`.
-   - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
+   - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)** .
    - Selecione **Registar** para criar a aplicação.
 1. Na lista de páginas da aplicação, selecione **Autenticação**.
    1. Na **URIs de redirecionamento** secção, na lista de URIs de redirecionamento:
-   1. Na **tipo** coluna select **cliente público (móvel e ambiente de trabalho)**.
+   1. Na **tipo** coluna select **cliente público (móvel e ambiente de trabalho)** .
    1. Introduza `urn:ietf:wg:oauth:2.0:oob` no **URI de REDIRECIONAMENTO** coluna.
 1. Selecione **Guardar**.
 1. Vá para o Visual Studio, abra a *App.xaml.cs* do ficheiro e, em seguida, substitua `Enter_the_Application_Id_here` com o ID da aplicação que acabou de registar e copiados.

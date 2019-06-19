@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 7a57ab6e8f742cb44425ef703986e61529672264
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda9594d97500075e6b018e1e8c9ff5816fe3590
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102224"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164961"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Tutorial: Integração do Active Directory do Azure com Fuse
 
@@ -104,7 +104,7 @@ Para configurar o Azure AD início de sessão único com Fuse, execute os seguin
 
     ![Combinar o domínio e URLs únicas início de sessão em informações](common/sp-signonurl.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<tenant name>.fusionuniversal.com/`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://{tenantname}.fuseuniversal.com/`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de combinar](mailto:support@fusion-universal.com) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.

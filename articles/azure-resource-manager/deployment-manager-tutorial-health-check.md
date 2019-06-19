@@ -4,21 +4,16 @@ description: Utilize modelos do Resource Manager com o Gestor de Implementaçõe
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/31/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae44872f209550b1387a5c7e99ee4e0a07c558a0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d6832346fb25ee09d97575c755cb2d85eb73cbe
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061034"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206611"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Utilizar a verificação de estado de funcionamento no Azure Deployment Manager (pré-visualização pública)
 

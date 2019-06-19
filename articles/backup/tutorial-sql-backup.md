@@ -6,14 +6,14 @@ author: dcurwin
 manager: ''
 ms.service: backup
 ms.topic: tutorial
-ms.date: 05/22/2019
+ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfe48fb1bf6a361ce79d0ddc5281a6380a5367e4
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 5fbbd2cf999ab8ba3183879bd9b417353aa5edd0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016483"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203485"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -33,7 +33,7 @@ Este artigo mostra-lhe como fazer cópias de segurança de uma base de dados do 
 Antes de fazer cópias de segurança da base de dados do SQL Server, verifique as seguintes condições:
 
 1. Identificar ou [criar](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) um cofre de serviços de recuperação na mesma região ou região do que a VM que aloja a instância do SQL Server.
-2. [Verifique as permissões de VM](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) necessários para fazer backup de bancos de dados SQL.
+2. [Verifique as permissões de VM](backup-azure-sql-database.md#set-vm-permissions) necessários para fazer backup de bancos de dados SQL.
 3. Certifique-se de que a VM tem [conectividade de rede](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Verifique se as bases de dados do SQL Server são nomeados de acordo com [diretrizes de nomenclatura](#verify-database-naming-guidelines-for-azure-backup) para cópia de segurança do Azure.
 5. Certifique-se de que não tem quaisquer outras soluções de cópia de segurança ativadas para a base de dados. Desative todos os outros backups do SQL Server antes de configurar este cenário. Pode ativar a cópia de segurança do Azure para uma VM do Azure, juntamente com a cópia de segurança do Azure para uma base de dados do SQL Server em execução na VM sem quaisquer conflitos.
@@ -61,7 +61,7 @@ Cópia de segurança do Azure faz uma série de coisas quando configurar a cópi
 - Para detetar as bases de dados na máquina virtual, o Azure Backup cria a conta **NT SERVICE\AzureWLBackupPluginSvc**. Esta conta é utilizada para cópia de segurança e restauro e necessita de permissões de administrador do sistema do SQL.
 - Tira partido de cópia de segurança do Azure a **NT AUTHORITY\SYSTEM** de conta para deteção/consulta de base de dados, para que esta conta tem de ser um início de sessão público no SQL.
 
-Se não criar a VM do SQL Server no Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto ocorrer [siga estas instruções](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Se não criar a VM do SQL Server no Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto ocorrer [siga estas instruções](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Verifique se as diretrizes de nomenclatura de base de dados para cópia de segurança do Azure
 
@@ -114,7 +114,7 @@ Detete as bases de dados em execução na VM.
     - O Azure Backup cria a conta de serviço **NT Service\AzureWLBackupPluginSvc** na VM.
       - Todas as operações de cópia de segurança e restauro, utilize a conta de serviço.
       - **NT Service\AzureWLBackupPluginSvc** necessita de permissões de administrador do sistema do SQL. Todas as VMs do SQL Server criado no Azure Marketplace são fornecidos com o **SqlIaaSExtension** instalado. O **AzureBackupWindowsWorkload** extensão utiliza o **SQLIaaSExtension** para obter automaticamente as permissões necessárias.
-    - Se não criar a VM no marketplace, a VM não tem o **SqlIaaSExtension** instalado, e a operação de deteção falha com a mensagem de erro **UserErrorSQLNoSysAdminMembership**. Siga os [instruções](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) para corrigir este problema.
+    - Se não criar a VM no marketplace, a VM não tem o **SqlIaaSExtension** instalado, e a operação de deteção falha com a mensagem de erro **UserErrorSQLNoSysAdminMembership**. Siga os [instruções](backup-azure-sql-database.md#set-vm-permissions) para corrigir este problema.
 
         ![Selecione a VM e a base de dados](./media/backup-azure-sql-database/registration-errors.png)
 

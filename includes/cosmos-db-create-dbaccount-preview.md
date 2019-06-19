@@ -9,11 +9,11 @@ ms.date: 11/24/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: 3915df46495e754843009a761e9a07aa2daddae2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153757"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184799"
 ---
 1. Numa nova janela do browser, inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso** > **Bases de dados** > **Azure Cosmos DB**.
@@ -27,7 +27,7 @@ ms.locfileid: "66153757"
     Subscrição|*A sua subscrição*|Selecione a subscrição do Azure que quer utilizar para esta conta do Azure Cosmos DB. 
     Grupo de Recursos|Criar novo<br><br>*Introduzir um nome exclusivo*|Selecione **Criar Novo** e, em seguida, introduza um novo nome de grupo de recursos para a sua conta. Para simplificar, pode utilizar o mesmo nome como nome da sua conta. 
     Nome da Conta|*Introduzir um nome exclusivo*|Introduza um nome exclusivo para identificar a sua conta do Azure Cosmos DB. Uma vez que *documents.azure.com* é anexado ao ID que indicar para criar o seu URI, utilize um ID exclusivo.<br><br>O ID só pode conter letras minúsculas, números e o caráter de hífen (-) e tem de ter entre 3 a 31 carateres de comprimento....
-    API|Núcleo (SQL)|A API determina o tipo de conta a criar. O Azure Cosmos DB oferece cinco APIs: SQL (base de dados do documento), Gremlin (base de dados do gráfico), MongoDB (base de dados do documento), API de tabela e API de Cassandra. Atualmente, cada uma das APIs exige que crie uma conta separada. <br><br>Selecione **Core (SQL)** porque este artigo irá criar uma base de dados de documentos e consultas com sintaxe SQL. <br><br>[Saiba mais sobre a API SQL](../articles/cosmos-db/documentdb-introduction.md)|
+    API|Core (SQL)|A API determina o tipo de conta a criar. O Azure Cosmos DB oferece cinco APIs: SQL (base de dados do documento), Gremlin (base de dados do gráfico), MongoDB (base de dados do documento), API de tabela e API de Cassandra. Atualmente, cada uma das APIs exige que crie uma conta separada. <br><br>Selecione **Core (SQL)** porque este artigo irá criar uma base de dados de documentos e consultas com sintaxe SQL. <br><br>[Saiba mais sobre a API SQL](../articles/cosmos-db/documentdb-introduction.md)|
     Location|*Selecione a região mais próxima dos seus utilizadores*|Selecione a localização geográfica para alojar a sua conta do Azure Cosmos DB. Utilize a localização mais próxima dos seus utilizadores para lhes dar o acesso mais rápido aos dados.
     Ativar redundância geográfica| Deixar em branco | Esta ação cria uma versão replicada da base de dados numa segunda região (emparelhada). Deixe este campo em branco.  
     Escritas de várias regiões| Deixar em branco | Isto permite que cada uma das suas regiões de base de dados para ser de leitura e a região de escrita. Deixe este campo em branco.  

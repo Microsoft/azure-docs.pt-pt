@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66168202"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184728"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 
@@ -98,7 +98,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
 9. Na página **Configuração do Microsoft Integration Runtime Concluída**, selecione **Concluir**.
 
-10. Na página **Registar o Integration Runtime (Autoalojado)**, cole a chave que guardou na secção anterior e selecione **Registar**. 
+10. Na página **Registar o Integration Runtime (Autoalojado)** , cole a chave que guardou na secção anterior e selecione **Registar**. 
 
     ![Registar o integration runtime](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
@@ -106,7 +106,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     ![Registado com êxito](media/data-factory-create-install-integration-runtime/registered-successfully.png)
 
-12. Na página **Novo Nó de Integration Runtime (Autoalojado)**, selecione **Seguinte**. 
+12. Na página **Novo Nó de Integration Runtime (Autoalojado)** , selecione **Seguinte**. 
 
     ![Página Novo Nó de Integration Runtime](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
 
@@ -114,7 +114,7 @@ Nesta secção, vai criar um integration runtime autoalojado e vai associá-lo a
 
     ![Página de Cala de Comunicação da Intranet](media/data-factory-create-install-integration-runtime/intranet-communication-channel-page.png)
 
-14. Na página **Registar Integration Runtime (Autoalojado)**, selecione **Configuration Manager**.
+14. Na página **Registar Integration Runtime (Autoalojado)** , selecione **Configuration Manager**.
 
 15. Quando o nó for ligado ao serviço cloud, verá a página seguinte:
 

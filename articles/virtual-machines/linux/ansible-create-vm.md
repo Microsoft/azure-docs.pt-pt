@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ce99b537dd5958c2bec43759c58a9c182dd05142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ff0d3508f1d418a189fab0dfe5803280a20f9a00
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237014"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190129"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Início rápido: Configurar máquinas virtuais do Linux no Azure com o Ansible
 
@@ -105,7 +105,7 @@ As interfaces de rede virtual ligam a sua máquina virtual a uma rede virtual, a
 A seção a seguir numa seção de manual de comunicação do Ansible de exemplo cria uma placa de interface de rede virtual com o nome `myNIC` ligado para os recursos de rede virtual que criou:
 
 ```yaml
-- name: Create virtual network inteface card
+- name: Create virtual network interface card
   azure_rm_networkinterface:
     resource_group: myResourceGroup
     name: myNIC
@@ -184,7 +184,7 @@ Esta secção apresenta o manual de procedimentos completo de exemplo do Ansible
           access: Allow
           priority: 1001
           direction: Inbound
-  - name: Create virtual network inteface card
+  - name: Create virtual network interface card
     azure_rm_networkinterface:
       resource_group: myResourceGroup
       name: myNIC
@@ -270,7 +270,7 @@ Esta secção mostra-lhe como executar o manual de procedimentos de exemplo do A
    TASK [Create Network Security Group that allows SSH] **********************
    changed: [localhost]
 
-   TASK [Create virtual network inteface card] *******************************
+   TASK [Create virtual network interface card] *******************************
    changed: [localhost]
 
    TASK [Create VM] **********************************************************

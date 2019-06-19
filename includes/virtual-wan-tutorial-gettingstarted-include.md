@@ -9,13 +9,13 @@ ms.date: 09/12/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a5563d0bab76d11af895165a28fc0544864cfcd1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150826"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184166"
 ---
-Na página **Redes alargadas (WANs)**, selecione o WAN que criou. No menu à esquerda, selecione a página **Introdução**. Esta página mostra a ordem na qual deve criar os seus recursos WAN virtuais. Tem de concluir os passos 1 a 4, para criar um WAN funcional. Pode criar sites e hubs em qualquer ordem, uma vez que não dependem uns dos outros. No entanto, tem de ter os sites e os hubs criados antes de os associar.
+Na página **Redes alargadas (WANs)** , selecione o WAN que criou. No menu à esquerda, selecione a página **Introdução**. Esta página mostra a ordem na qual deve criar os seus recursos WAN virtuais. Tem de concluir os passos 1 a 4, para criar um WAN funcional. Pode criar sites e hubs em qualquer ordem, uma vez que não dependem uns dos outros. No entanto, tem de ter os sites e os hubs criados antes de os associar.
 
 Os passos são: 
 

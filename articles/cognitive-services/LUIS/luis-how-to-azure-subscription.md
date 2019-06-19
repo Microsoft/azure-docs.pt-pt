@@ -9,29 +9,28 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 06/18/2019
 ms.author: diberry
-ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198655"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204148"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>A utilizar chaves de subscrição com a sua aplicação LUIS
 
-Não é necessário criar chaves de subscrição para utilizar as suas consultas de ponto final de 1000 primeiro gratuito. Assim que as consultas de ponto de extremidade são usadas, criar um recurso do Azure no [portal do Azure](https://portal.azure.com), em seguida, atribuir esse recurso para uma aplicação LUIS no [portal de LUIS](https://www.luis.ai).
-
-Se receber um _fora da quota_ erro na forma de um HTTP 403 ou 429, terá de criar uma chave e atribuí-la à sua aplicação. 
+Quando utilizar a compreensão de idiomas (LUIS) pela primeira vez, não é necessário criar chaves de subscrição. É-lhe dada consultas de ponto final de 1000 para começar. 
 
 Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os sistemas de produção, utilize um [pago](https://aka.ms/luis-price-tier) escalão. Não utilize o [chave de criação](luis-concept-keys.md#authoring-key) para consultas de ponto final na produção.
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Criar o recurso de tempo de execução do ponto final de predição no portal do Azure
 
-Saiba mais com o [criar uma aplicação](get-started-portal-build-app.md) início rápido.
+Criar a [recurso de ponto final de predição](get-started-portal-deploy-app.md#create-the-endpoint-resource) no portal do Azure. Este recurso só deve ser utilizado para consultas de previsão de ponto final. Não utilize este recurso para criação de alterações para a aplicação.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -49,7 +48,7 @@ Saiba mais com o [criar uma aplicação](get-started-portal-build-app.md) iníci
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Atribuir a chave de recurso a aplicação do LUIS no Portal do LUIS
 
-Saiba mais com o [implementação](get-started-portal-deploy-app.md) início rápido.
+Sempre que criar um novo recurso para o LUIS, precisa [atribuir o recurso à aplicação LUIS](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). Depois do que é atribuído, não terá de repetir este passo, a menos que crie um novo recurso. Pode criar um novo recurso para expandir as regiões da sua aplicação ou para suportar um número superior de consultas de previsão.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -155,10 +154,30 @@ Para fins de automatização, como um pipeline CI/CD, talvez queira automatizar 
     ![Verifique se o seu escalão de pagamento do LUIS](./media/luis-usage-tiers/updated.png)
 1. Não se esqueça de [atribuir esta chave de ponto final](#assign-endpoint-key) sobre o **publicar** página e utilizá-lo em todas as consultas de ponto final. 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>Como corrigir erros de fora da quota, quando a chave excede a utilização do escalão de preço
-Cada escalão permite pedidos de ponto final à sua conta do LUIS a uma taxa específica. Se a taxa de pedidos é maior do que a taxa de permitidos da sua conta com tráfego limitado por minuto ou por mês, pedidos de recebem um erro HTTP de "429: Demasiados pedidos."
+## <a name="fix-http-status-code-403-and-429"></a>Corrigir o código de estado HTTP 403 e 429
 
-Cada escalão permite acumulativos pedidos por mês. Se o total de pedidos é maiores que a taxa de permitidas, os pedidos de recebem um erro HTTP de "403: proibido".  
+Obtém o erro 403 e 429 códigos de estado quando exceder as transações por segundo ou transações por mês para o escalão de preço.
+
+### <a name="when-you-receive-an-http-403-error-status-code"></a>Quando receber um código de estado de erro HTTP 403
+
+Quando usar todas essas gratuita 1000 endpoint consultas ou exceder a quota do seu escalão de preço mensal transações, receberá um código de estado de erro HTTP 403. 
+
+Para corrigir este erro, precisa [alterar o escalão de preço](luis-how-to-azure-subscription.md#change-pricing-tier) para um escalão superior ou [criar um novo recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-la à sua aplicação](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+As soluções para este erro incluem:
+
+* Na [portal do Azure](https://portal.azure.com), no seu idioma Noções básicas sobre recursos, no **gestão de recursos -> escalão de preço**, altere o escalão de preço para um escalão mais elevado de TPS. Não precisa de fazer qualquer coisa no portal do Language Understanding, se o seu recurso já está atribuído à sua aplicação de compreensão de idiomas.
+*  Se a sua utilização exceder o escalão de preço mais elevado, adicione mais recursos de compreensão de idiomas com um balanceador de carga à frente-los. O [contentor de compreensão de idiomas](luis-container-howto.md) com Kubernetes ou o Docker Compose pode ajudar com isso.
+
+### <a name="when-you-receive-an-http-429-error-status-code"></a>Quando receber um código de estado de erro HTTP 429
+
+Este código de estado é retornado quando suas transações por segundo excede o escalão de preço.  
+
+As soluções incluem:
+
+* Pode [aumentar o escalão de preço](#change-pricing-tier), se não estiver no escalão mais alto.
+* Se a sua utilização exceder o escalão de preço mais elevado, adicione mais recursos de compreensão de idiomas com um balanceador de carga à frente-los. O [contentor de compreensão de idiomas](luis-container-howto.md) com Kubernetes ou o Docker Compose pode ajudar com isso.
+* Pode de porta seus pedidos de aplicação de cliente com um [política de repetição](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) implementar mesmo quando receber este código de estado. 
 
 ## <a name="viewing-summary-usage"></a>Ver utilização de resumo
 Pode ver informações de utilização do LUIS no Azure. O **descrição geral** página mostra informações de resumo recentes, incluindo chamadas e erros. Se fizer um LUIS pedido de ponto final, em seguida, imediatamente Assista a **página de descrição geral**, aguarde cinco minutos para a utilização a aparecer.

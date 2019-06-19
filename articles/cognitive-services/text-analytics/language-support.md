@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 704a1193eb47f9346900c6c8a003122c30c8ab44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417324"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203976"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte de idioma e região para a API de análise de texto
 
@@ -31,7 +31,14 @@ Se tiver conteúdo expressado numa linguagem com menos frequência utilizada, po
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Análise de sentimentos, extração de expressões-chave e o reconhecimento de entidades
 
-Para a análise de sentimentos, extração de expressões-chave e reconhecimento de entidades, a lista de idiomas suportados é mais seletiva conforme os analisadores são refinados para acomodar as regras de idiomas adicionais.
+Para a análise de sentimentos, extração de expressões-chave e reconhecimento de entidades, a lista de idiomas suportados é mais seletiva conforme os analisadores são refinados para acomodar as regras de idiomas adicionais. Suporte para o conjunto completo de [tipos de entidade](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) está limitado a idiomas seguintes: 
+* Português
+* Chinês simplificado
+* Francês
+* Alemão
+* Espanhol
+
+Apenas os `Person`, `Location` e `Organization` entidades nomeadas são devolvidas para os outros idiomas.
 
 ## <a name="language-list-and-status"></a>Lista de idioma e o Estado
 
@@ -64,7 +71,7 @@ Suporte de idiomas é inicialmente lançado em pré-visualização, graduando pa
 
 \* Suporte de idiomas está em pré-visualização
 
-\*\* Com o nome de entidades e [ligação de entidades](how-tos/text-analytics-how-to-entity-linking.md) estão disponíveis para este idioma.    
+\*\* [Com o nome de entidades](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e [ligação de entidades](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) estão disponíveis para este idioma.    
 
 ## <a name="see-also"></a>Consulte também
 

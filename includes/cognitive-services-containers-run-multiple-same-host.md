@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2019
 ms.openlocfilehash: 327654ca06a3997855d904414fa4258491ee6c88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124347"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184534"
 ---
 ### <a name="run-multiple-containers-on-the-same-host"></a>Executar vários contentores no mesmo anfitrião
 

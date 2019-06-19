@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925306"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206054"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Utilizar o serviço de cópia de dados para copiar dados para o Azure Data Box (pré-visualização)
 
@@ -59,11 +59,11 @@ Para copiar dados com o serviço de cópia de dados, terá de criar uma tarefa:
     |-------------------------------|---------|
     |**Nome da tarefa**                       |Um único nome de menos de 230 carateres para a tarefa. Estes carateres não são permitidos no nome da tarefa: \<, \>, \|, \?, \*, \\, \:, \/, e \\\.         |
     |**Localização de origem**                |Forneça o caminho SMB para a origem de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |**Nome de Utilizador**                       |Nome de utilizador no `\\<DomainName><UserName>` formato para aceder à origem de dados.        |
+    |**Nome de Utilizador**                       |Nome de utilizador no `\\<DomainName><UserName>` formato para aceder à origem de dados. Se está a ligar a um administrador local, terá permissões de segurança explícito. Com o botão direito na pasta, selecione **propriedades** e, em seguida, selecione **segurança**. Isso deve adicionar administrador local no **segurança** separador.       |
     |**Palavra-passe**                       |Palavra-passe para aceder à origem de dados.           |
     |**Conta de armazenamento de destino**    |Selecione a conta de armazenamento de destino para carregar dados a partir da lista.         |
     |**Tipo de destino**       |Selecione o tipo de armazenamento de destino na lista: **Blob de blocos**, **BLOBs de páginas**, ou **ficheiros do Azure**.        |
-    |**Contentor/partilha de destino**    |Introduza o nome do contentor ou Compartilhe o que deseja carregar dados na sua conta de armazenamento de destino. O nome pode ser um nome de partilha ou um nome de contentor. Por exemplo, usar `myshare` ou `mycontainer`. Também pode introduzir o nome no formato `sharename\directory_name` ou `containername\virtual_directory_name`.        |
+    |**Contentor/partilha de destino**    |Introduza o nome do contentor ou Compartilhe o que deseja carregar dados na sua conta de armazenamento de destino. O nome pode ser um nome de partilha ou um nome de contentor. Por exemplo, utilize `myshare` ou `mycontainer`. Também pode introduzir o nome no formato `sharename\directory_name` ou `containername\virtual_directory_name`.        |
     |**Copiar ficheiros correspondentes padrão**    | Pode introduzir o padrão de correspondência do nome de ficheiro das seguintes duas formas:<ul><li>**Utilize expressões com carateres universais:** Apenas `*` e `?` são suportados em expressões de caráter universal. Por exemplo, a expressão `*.vhd` corresponde a todos os ficheiros que tenham o `.vhd` extensão. Da mesma forma, `*.dl?` corresponde a todos os ficheiros com qualquer um da extensão `.dl` ou que inicie com `.dl`, como `.dll`. Da mesma forma, `*foo` corresponde a todos os arquivos cujos nomes terminam com `foo`.<br>Pode introduzir diretamente a expressão com carateres universais no campo. Por predefinição, o valor introduzido no campo é tratado como uma expressão com carateres universais.</li><li>**Use expressões regulares:** Baseadas em POSIX expressões regulares são suportadas. Por exemplo, a expressão regular `.*\.vhd` irá corresponder a todos os ficheiros que tenham o `.vhd` extensão. Para expressões regulares, forneça o `<pattern>` diretamente como `regex(<pattern>)`. Para obter mais informações sobre expressões regulares, aceda a [linguagem de expressão Regular - uma referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Otimização de ficheiros**              |Quando esta funcionalidade está ativada, os arquivos menores do que 1 MB são incluídos durante a ingestão. Esta remessa acelera a cópia de dados para ficheiros pequenos. Também economiza uma quantidade significativa de tempo quando o número de ficheiros excede o número de diretórios muito.        |
  

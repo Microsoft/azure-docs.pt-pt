@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 05/18/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1bcd885d744cd2c97b0941b5a3bb498d68b5f644
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 06/18/2018
+ms.author: aahi
+ms.openlocfilehash: 6f7740ebd09a1fde564613c38ab12513ca51fece
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796311"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204902"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Início rápido: Obtenha informações de imagem com o SDK de pesquisa Visual do Bing para node. js
 

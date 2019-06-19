@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
 ms.openlocfilehash: 9469fd6a1ffc61e90948178b105abd9f83e55fde
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146045"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184551"
 ---
 1. Inicie o Eclipse.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: b656bbb7c5924f14b300f0352551530bb47f2a53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa3548a71e403728cbec4b8df2b0dce1cf6abde7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097121"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: Integração do Active Directory do Azure com o Connect do Mitel MiCloud
 
@@ -210,7 +210,7 @@ Crie um utilizador na sua conta MiCloud estabelecer ligação com os seguintes d
 * **Endereço de E-Mail da empresa:** `brittasimon@<yourcompanydomain>.<extension>`   
 (Exemplo: [ brittasimon@contoso.com ](mailto:brittasimon@contoso.com))
 
-* **Nome de utilizador:** `brittasimon@<yourcompanydomain>.<extension> `  
+* **Nome de utilizador:** `brittasimon@<yourcompanydomain>.<extension>`  
 (Exemplo: [ brittasimon@contoso.com ](mailto:brittasimon@contoso.com); nome de utilizador normalmente é o mesmo endereço de e-mail empresarial do utilizador)
 
 **NOTA:** Nome de utilizador de MiCloud ligar-se o utilizador tem de ser idêntico ao endereço de e-mail do utilizador no Azure.

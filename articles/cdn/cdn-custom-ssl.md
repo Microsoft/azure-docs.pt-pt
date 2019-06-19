@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e9cca4cd113115a1acf676b46cc65dc4ed7021fa
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 6a41df70340da626a849804155ca245d95b6da46
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144073"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190510"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado da CDN do Azure
 
@@ -189,10 +189,10 @@ Validação automática demora algumas horas. Se não vir o seu domínio validad
 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>O domínio personalizado não está mapeado para o ponto final da CDN
 
-Se a entrada do registo CNAME para o seu ponto final já não existir ou contiver o subdomínio cdnverify, siga o resto das instruções neste passo.
-
 >[!NOTE]
->E-mail de validação de propriedade de domínio personalizado está atualmente indisponível para **CDN do Azure da Akamai** perfis. Esta funcionalidade encontra-se na nossa lista de pendências. 
+>E-mail de validação de propriedade de domínio personalizado está atualmente indisponível para **CDN do Azure da Akamai** perfis. Se estiver a utilizar **CDN do Azure da Akamai**, seu domínio personalizado tem de ser mapeado para o ponto final de cdn com um registo CNAME conforme indicado anteriormente.  Esta funcionalidade encontra-se na nossa lista de pendências. 
+
+Se a entrada de registo CNAME contiver o subdomínio cdnverify, siga o resto das instruções neste passo.
 
 Depois de submeter um pedido para ativar o HTTPS no seu domínio personalizado, a AC DigiCert valida a propriedade do seu domínio ao contactar o seu registo, de acordo com o domínio [WHOIS](http://whois.domaintools.com/) informações do registo. O contacto é feito por endereço de e-mail (por predefinição) ou pelo número de telefone indicado no registo em WHOIS. Antes de o HTTPS estar ativo no domínio personalizado, tem de concluir a validação do domínio. Tem seis dias úteis para aprovar o domínio. Os pedidos que não forem aprovados ao fim de seis dias úteis são cancelados automaticamente. 
 

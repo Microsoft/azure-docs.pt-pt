@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 881c829424124cca843beb7005306edd53be2673
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231421"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203979"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto
 
@@ -31,7 +31,7 @@ Ligação de entidades é a capacidade de identificar e desambiguar a identidade
 ### <a name="named-entity-recognition-ner"></a>O reconhecimento de entidades (NER)
 Com o nome de entidades (NER) é a capacidade de identificar as diferentes entidades em texto e categorize-as em classes predefinidas. As classes de entidades de suportados estão listadas abaixo.
 
-Na análise de texto [versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), ligação de entidades e o reconhecimento de entidades (NER) estão disponíveis.
+Na análise de texto [versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), ligação de entidades e o reconhecimento de entidades (NER) estão disponíveis para várias linguagens. Consulte a [suporte de idiomas](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) artigo para obter mais informações. 
 
 ### <a name="language-support"></a>Suporte de idiomas
 

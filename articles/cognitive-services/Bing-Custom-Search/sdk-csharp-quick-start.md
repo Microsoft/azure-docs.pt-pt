@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: Chamar o seu ponto final de pesquisa personalizada do Bing com o C# SDK | Documentos da Microsoft'
 titleSuffix: Azure Cognitive Services
-description: Configurar a aplicação da consola C# no SDK de Pesquisa Personalizada.
+description: Utilizar o SDK de pesquisa personalizada do Bing para C# para procurar a sua instância de pesquisa personalizada.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 09/06/2018
+ms.date: 06/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9e13edce77819d5ef8cfc3b6becff9fb82224a83
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0381df439d0c0904e8741bb1f31b179566c72ec5
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595955"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206166"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Início rápido: Chamar o seu ponto final de pesquisa personalizada do Bing com o C# SDK 
 
@@ -27,7 +27,7 @@ Utilize este guia de introdução para começar a pedir os resultados da pesquis
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
 - Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
-- O pacote de [Pesquisa Personalizada do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)instalado. 
+- O [pesquisa personalizada do Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) pacote NuGet. 
     - Partir **Explorador de soluções** no Visual Studio, clique no projeto e selecione **gerir pacotes NuGet** no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Quando instala o pacote de Pesquisa Personalizada do NuGet também instala as assemblagens seguintes:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure

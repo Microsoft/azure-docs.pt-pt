@@ -9,11 +9,11 @@ ms.date: 05/14/2019
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66154493"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184502"
 ---
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -64,7 +64,7 @@ O Azure de base de dados para o PostgreSQL – Hiperescala (Citus) (pré-visuali
 
 Quando cria a base de dados do Azure para o servidor PostgreSQL, uma base de dados predefinida com o nome **citus** é criado. Para ligar ao seu servidor de base de dados, terá de uma cadeia de ligação e a palavra-passe de administrador.
 
-1. Obter a cadeia de ligação. Na página de grupo de servidor clique a **cadeias de ligação** item de menu. (Está sob **definições**.) Localize a cadeia de marcado  **C++ (libpq)**. É o formato:
+1. Obter a cadeia de ligação. Na página de grupo de servidor clique a **cadeias de ligação** item de menu. (Está sob **definições**.) Localize a cadeia de marcado  **C++ (libpq)** . É o formato:
 
    ```
    host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require

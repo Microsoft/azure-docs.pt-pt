@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a034e7dc06defd701b58ec283ee161f5557c075d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095452"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164156"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Tutorial: Integrar o Console de infraestrutura de nuvem do Oracle com o Azure Active Directory
 
@@ -92,7 +92,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
       > [!NOTE]
       > Se o **identificador** e **URL de resposta** valores não obter polulated automática, em seguida, preencha os valores manualmente de acordo com seus requisitos.
 
-      Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: ` https://console.<REGIONNAME>.oraclecloud.com/`
+      Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://console.<REGIONNAME>.oraclecloud.com/`
 
       > [!NOTE]
       > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente da consola do Oracle Cloud infraestrutura](https://www.oracle.com/support/advanced-customer-support/products/cloud.html) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.

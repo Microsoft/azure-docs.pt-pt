@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/01/2018
+ms.date: 06/18/2019
 ms.author: ghogen
-ms.openlocfilehash: 6f697c91851e7ddc95f84239987bb4378bafd094
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85afae087b1b1e572759943142412743744ee806
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798640"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203423"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Tutorial: Ligar à API com serviços ligados no Visual Studio de pesquisa de notícias do Bing eC#
 
@@ -26,13 +26,13 @@ Este artigo fornece detalhes para utilizar a funcionalidade de Serviço Ligado d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versão 15.7 ou posterior, com a carga de trabalho de desenvolvimento para a Web instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio de 2019, com a carga de trabalho de desenvolvimento para a Web instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Adicionar suporte ao seu projeto para a API de Pesquisa de Notícias do Bing
 
-1. Crie um novo projeto Web ASP.NET Core com o nome MyWebApplication. Utilize o modelo de projeto **Aplicação Web (Model-View-Controller)**, com todas as predefinições. É importante que atribua o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto. 
+1. Crie um novo projeto Web ASP.NET Core com o nome MyWebApplication. Utilize o modelo de projeto **Aplicação Web (Model-View-Controller)** , com todas as predefinições. É importante que atribua o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto. 
 
 1. No **Explorador de Soluções**, escolha **Adicionar** > **Serviço Ligado**.
    É apresentada a página Serviço Ligado, com os serviços que pode adicionar ao seu projeto.

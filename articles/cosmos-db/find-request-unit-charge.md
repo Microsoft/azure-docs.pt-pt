@@ -4,14 +4,14 @@ description: Saiba como encontrar a unidade de pedido custos (RU) para qualquer 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 07ca6278da6dd1f50f017f389c2c1389a42196f4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416047"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163826"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontre as cobranças de unidades de pedido no Azure Cosmos DB
 
@@ -297,8 +297,9 @@ Para obter mais informações, consulte [início rápido: Criar uma aplicação 
 Para saber mais sobre como otimizar seu consumo de RU, veja estes artigos:
 
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)
-* [Otimizar o débito aprovisionado de custo no Azure Cosmos DB](optimize-cost-throughput.md)
+* [Otimizar o débito aprovisionado no Azure Cosmos DB](optimize-cost-throughput.md)
 * [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
 * [Dimensione globalmente o débito aprovisionado](scaling-throughput.md)
 * [Débito de aprovisionar em contentores e bases de dados](set-throughput.md)
 * [Débito de aprovisionamento para um contentor](how-to-provision-container-throughput.md)
+* [Monitor e de depuração com métricas na Azure Cosmos DB](use-metrics.md)

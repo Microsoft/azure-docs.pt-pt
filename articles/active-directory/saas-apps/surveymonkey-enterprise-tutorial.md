@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55438e2a853094bc26b3cb672687733f206f104
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10d43de00c9daefdb86a92d92ebe2cfe39fd3248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089589"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Enterprise do SurveyMonkey
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD início de sessão único com o SurveyMonkey Enterpri
 
     ![Domínio de empresa do SurveyMonkey e URLs únicas início de sessão em informações](common/both-signonurl.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  ` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
 
 6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 

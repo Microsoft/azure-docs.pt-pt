@@ -3,20 +3,20 @@ title: Pontuação de confiança - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A pontuação de confiança indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792753"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165143"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
@@ -46,7 +46,7 @@ A tabela seguinte indica típica confiança associada para uma determinada class
 |0|Nenhuma correspondência, para que a resposta não é devolvida.|"Quanto o serviço custa"|
 
 ## <a name="choose-a-score-threshold"></a>Escolha um limiar de pontuação
-A tabela acima mostra as classificações que espera-se na maioria dos KBs. No entanto, uma vez que cada KB é diferente e tem diferentes tipos de palavras, objetivos e metas, que é recomendável testar e escolha o limiar que melhor funcione para si. Por predefinição o limiar é definido como 0, para que todos os possíveis respostas são devolvidas. O limiar recomendado que deve funcionar para a maioria dos KBs, for **50**.
+A tabela acima mostra as classificações que espera-se na maioria dos KBs. No entanto, uma vez que cada KB é diferente e tem diferentes tipos de palavras, objetivos e metas-é recomendável testar e escolha o limiar que melhor funcione para si. Por predefinição o limiar é definido como 0, para que todos os possíveis respostas são devolvidas. O limiar recomendado que deve funcionar para a maioria dos KBs, for **50**.
 
 Ao escolher o limiar, tenha em atenção o equilíbrio entre a precisão e a cobertura e ajustar o limiar com base nos seus requisitos.
 
@@ -56,6 +56,12 @@ Ao escolher o limiar, tenha em atenção o equilíbrio entre a precisão e a cob
 
 > [!NOTE]
 > Versões mais recentes do QnA Maker incluem melhoramentos de lógica de classificação e afetam o limiar. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limiar, se necessário. Pode verificar a sua versão de serviço do QnA [aqui](https://www.qnamaker.ai/UserSettings)e veja como obter as atualizações mais recentes [aqui](../How-To/troubleshooting-runtime.md).
+
+## <a name="set-threshold"></a>Limiar definido 
+
+Definir a pontuação de limiar como uma propriedade do [corpo JSON da API de GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Isso significa que, defini-lo para cada chamada à GenerateAnswer. 
+
+A partir de bot framework, defina a pontuação como parte do objeto de opções com [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
 Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta de utilizador, pode adicionar a consulta de utilizador para a base de dados de conhecimento como uma alternativa pergunta em que a resposta. Também pode utilizar maiúsculas e minúsculas [alterações de palavras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos para palavras-chave em seu KB.

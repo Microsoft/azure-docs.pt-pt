@@ -11,11 +11,11 @@ ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
 ms.openlocfilehash: 40c1be20df845b975c023616e38cbb932c985735
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66157875"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184697"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipa com o Azure Dev Spaces
 
@@ -58,7 +58,7 @@ Em primeiro lugar, tem de implementar uma linha de base dos nossos serviços. Es
 
 1. Clone o [aplicação de exemplo de espaços de desenvolvimento](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. O ramo remoto de Check-out *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
-1. Selecione o _dev_ espaço: `azds space select --name dev`. Quando lhe for pedido para selecionar um espaço de desenvolvimento principal, selecione  _\<none\>_.
+1. Selecione o _dev_ espaço: `azds space select --name dev`. Quando lhe for pedido para selecionar um espaço de desenvolvimento principal, selecione  _\<none\>_ .
 1. Navegue para o _mywebapi_ diretório e execute: `azds up -d`
 1. Navegue para o _webfrontend_ diretório e execute: `azds up -d`
 1. Execute `azds list-uris` para ver o ponto final público para _webfrontend_

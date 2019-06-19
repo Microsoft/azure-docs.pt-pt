@@ -7,26 +7,26 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523316"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206664"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Criar principais de serviço e atribuições de funções com o PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar principais de serviço e as atribuições de funções com o PowerShell
 
-Principais de serviço são identidades que pode criar no Azure Active Directory para atribuir funções e permissões para um fim específico. No Windows Virtual Desktop Preview, pode criar um serviço principal para:
+Principais de serviço são identidades que podem ser criados no Azure Active Directory para atribuir funções e permissões para um fim específico. No Windows Virtual Desktop Preview, pode criar um serviço principal para:
 
-- Automatizar tarefas de gestão de área de Trabalho Virtual do Windows específicas
-- Utilizar como credenciais em vez de utilizadores necessário de MFA durante a execução de qualquer modelo de Windows Virtual Desktop Azure Resource Manager
+- Automatize tarefas de gestão de área de Trabalho Virtual do Windows específicas.
+- Utilizar como credenciais em vez de utilizadores necessário de MFA durante a execução de qualquer modelo do Azure Resource Manager para a área de Trabalho Virtual do Windows.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Criar um principal de serviço no Azure Active Directory
-> * Criar uma atribuição de função na área de Trabalho Virtual do Windows
-> * Inicie sessão no ambiente de Trabalho Virtual do Windows com o principal de serviço
+> * Crie um principal de serviço no Azure Active Directory.
+> * Crie uma atribuição de função na área de Trabalho Virtual do Windows.
+> * Inicie sessão para a área de Trabalho Virtual do Windows com o principal de serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ Antes de poder criar principais de serviço e as atribuições de funções, ter
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Criar um principal de serviço no Azure Active Directory
 
-Assim que tiver concluído os pré-requisitos na sessão do PowerShell, execute os seguintes cmdlets do PowerShell para criar um serviço de multi-inquilino principal no Azure.
+Depois de ter concluído os pré-requisitos na sessão do PowerShell, execute os seguintes cmdlets do PowerShell para criar um serviço multi-inquilino principal no Azure.
 
 ```powershell
 Import-Module AzureAD
@@ -72,18 +72,18 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>Inicie sessão com o principal de serviço
 
-Depois de criar uma atribuição de função para o serviço principal, deve agora fazer-se de que o principal de serviço pode iniciar sessão na área de Trabalho Virtual do Windows, execute o seguinte cmdlet:
+Depois de criar uma atribuição de função para o serviço principal, certifique-se de que o principal de serviço pode iniciar sessão na área de Trabalho Virtual do Windows, execute o seguinte cmdlet:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
 ```
 
-Uma vez iniciar sessão, certifique-se de que tudo funciona testando alguns cmdlets do Windows PowerShell de ambiente de Trabalho Virtual com o principal de serviço.
+Depois de iniciar sessão, certifique-se de que tudo funciona testando alguns cmdlets do PowerShell de ambiente de trabalho virtuais Windows com o principal de serviço.
 
 ## <a name="view-your-credentials-in-powershell"></a>Ver as suas credenciais no PowerShell
 
-Antes de terminar a sessão do PowerShell, deve ver as suas credenciais e anotá-las para referência futura. A palavra-passe é especialmente importante, porque não será possível recuperá-la depois de fechar esta sessão do PowerShell.
+Antes de terminar a sessão do PowerShell, veja as suas credenciais e anotá-las para referência futura. A palavra-passe é especialmente importante, porque não será possível recuperá-la depois de fechar esta sessão do PowerShell.
 
 Seguem-se as credenciais de três que deve escrever para baixo e os cmdlets que precisa para ser executada para obtê-los:
 
@@ -93,13 +93,13 @@ Seguem-se as credenciais de três que deve escrever para baixo e os cmdlets que 
     $svcPrincipalCreds.Value
     ```
 
-- ID do Inquilino:
+- ID do inquilino:
 
     ```powershell
     $aadContext.TenantId.Guid
     ```
 
-- ID da Aplicação:
+- ID da aplicação:
 
     ```powershell
     $svcPrincipal.AppId
@@ -107,7 +107,7 @@ Seguem-se as credenciais de três que deve escrever para baixo e os cmdlets que 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de criado o principal de serviço e atribuído ele uma função no seu inquilino de área de Trabalho Virtual do Windows, pode usá-lo para criar um conjunto de anfitrião. Para saber mais sobre conjuntos de anfitrião, avance para o tutorial para criar um agrupamento de anfitrião na área de Trabalho Virtual do Windows.
+Depois de ter criado o principal de serviço e atribuído ele uma função no seu inquilino de área de Trabalho Virtual do Windows, pode usá-lo para criar um conjunto de anfitrião. Para saber mais sobre conjuntos de anfitrião, avance para o tutorial para criar um agrupamento de anfitrião na área de Trabalho Virtual do Windows.
 
  > [!div class="nextstepaction"]
  > [Tutorial de conjunto de anfitrião de área de Trabalho Virtual do Windows](./create-host-pools-azure-marketplace.md)
