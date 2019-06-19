@@ -41,10 +41,10 @@ A extensão de agente do observador de rede pode ser configurada para as distrib
 | Ubuntu | 12+ |
 | Debian | 7 e 8 |
 | Red Hat | 6 e 7 |
-| Oracle Linux | 6.8 + e 7 |
+| Oracle Linux | 6.8+ e 7 |
 | SUSE Linux Enterprise Server | 11 e 12 |
 | OpenSUSE Leap | 42.3+ |
-| CentOS | 6.5 + e 7 |
+| CentOS | 6.5+ e 7 |
 | CoreOS | 899.17.0+ |
 
 
