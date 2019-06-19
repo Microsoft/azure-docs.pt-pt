@@ -70,14 +70,17 @@
     - name: Funcionalidade do SO
       href: operating-system-functionality.md
     - name: Segurança
-      href: overview-security.md
       items:
+        - name: Recomendações
+          href: security-recommendations.md
         - name: Autenticação e autorização
           href: overview-authentication-authorization.md
         - name: SO e aplicação de patches do tempo de execução
           href: overview-patch-os-runtime.md
         - name: Atributos de segurança
           href: app-service-security-attributes.md
+        - name: Descrição geral da segurança
+          href: overview-security.md
     - name: Funcionalidades de rede
       href: networking-features.md
     - name: IPs de entrada e de saída

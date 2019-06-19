@@ -7,18 +7,108 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/16/2019
+ms.date: 06/17/2019
 ms.topic: hub-page
-ms.openlocfilehash: aacd85f0f6a583869fe9c879d63b31e7d7d3cccd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d7234ca2441310867aa2f60936de0e3f44342ee8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163810"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204009"
 ---
 <div id="main" class="v2">
 <h1>Documentação dos Serviços Cognitivos do Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Aprenda a criar algoritmos inteligentes em aplicações, websites e bots para que possam ver, ouvir, falar, compreender e interpretar as necessidades dos utilizadores através de métodos naturais de comunicação. Os tutoriais, inícios rápidos, referências de API e exemplos mostram-lhe como.</p>
+
+
+<h2>APIs Serviços Cognitivos</h2>
+<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>API de Imagem</h3>
+                        <p><a href="/azure/cognitive-services/computer-vision/">Imagem Digitalizada</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Serviço de Visão Personalizada</a></p>
+                        <p><a href="/azure/cognitive-services/face/">API Face</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Reconhecedor de Formato&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Reconhecedor de Tinta Digital&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>API de Voz</h3>
+                        <p><a href="/azure/cognitive-services/speech-service">Serviços de Voz</a></p>
+                        <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Reconhecimento de Orador&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/speech/home"><span>API de Voz do Bing&nbsp;<sup style="font-size:70%">A DESCONTINUAR</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/translator-speech/"><span>Tradução de Voz&nbsp;<sup style="font-size:70%">A DESCONTINUAR</sup></span></a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>API de Linguagem</h3>
+                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">Criador de FAQ</a></p>
+                        <p><a href="/azure/cognitive-services/text-analytics/">Análise de Texto</a></p>
+                        <p><a href="/azure/cognitive-services/translator/">Tradução de Texto</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>API de Pesquisa</h3>
+                        <p><a href="/azure/cognitive-services/bing-news-search/">Pesquisa de Notícias do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/Bing-Video-Search/">Pesquisa de Vídeos do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/">Pesquisa na Web do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/Bing-Autosuggest">Sugestão Automática do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-custom-search">Pesquisa Personalizada do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-entities-search/">Pesquisa de Entidades do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search">Pesquisa de Imagens do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search">Pesquisa Visual do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">Verificação de Ortografia do Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Pesquisa de Negócio Local do Bing&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>API de Decisão</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Detetor de Anomalias&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizador&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>
+
+<h2>Introdução</h2>
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/azure/cognitive-services/welcome/">
@@ -286,89 +376,4 @@ ms.locfileid: "67163810"
     </li>
 </ul>
 
-<h2>APIs Serviços Cognitivos</h2>
-<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>API de Imagem</h3>
-                        <p><a href="/azure/cognitive-services/computer-vision/">Imagem Digitalizada</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Serviço de Visão Personalizada</a></p>
-                        <p><a href="/azure/cognitive-services/face/">API Face</a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Reconhecedor de Formato&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Reconhecedor de Tinta Digital&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>API de Voz</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">Serviços de Voz</a></p>
-                        <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Reconhecimento de Orador&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/speech/home"><span>API de Voz do Bing&nbsp;<sup style="font-size:70%">A DESCONTINUAR</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/translator-speech/"><span>Tradução de Voz&nbsp;<sup style="font-size:70%">A DESCONTINUAR</sup></span></a></p>
-                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>API de Linguagem</h3>
-                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
-                        <p><a href="/azure/cognitive-services/qnamaker/index">Criador de FAQ</a></p>
-                        <p><a href="/azure/cognitive-services/text-analytics/">Análise de Texto</a></p>
-                        <p><a href="/azure/cognitive-services/translator/">Tradução de Texto</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>API de Pesquisa</h3>
-                        <p><a href="/azure/cognitive-services/bing-news-search/">Pesquisa de Notícias do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/Bing-Video-Search/">Pesquisa de Vídeos do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/bing-web-search/">Pesquisa na Web do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/Bing-Autosuggest">Sugestão Automática do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/bing-custom-search">Pesquisa Personalizada do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/bing-entities-search/">Pesquisa de Entidades do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/bing-image-search">Pesquisa de Imagens do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/bing-visual-search">Pesquisa Visual do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">Verificação de Ortografia do Bing</a></p>
-                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Pesquisa de Negócio Local do Bing&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>API de Decisão</h3>
-                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Detetor de Anomalias&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
-                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizador&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-</div>
+
