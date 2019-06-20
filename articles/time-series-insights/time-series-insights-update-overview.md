@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: anshan
+ms.reviewer: dpalled
 ms.workload: big-data
 ms.topic: overview
 ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bcf0155be87a5b36c6b850fa889e23a340ac7ec
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: fa6ddba1ee6c170fed5e2c96591fb8e8174047ab
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237517"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165283"
 ---
 # <a name="azure-time-series-insights-preview"></a>Pré-visualização do Azure Time Series Insights
 

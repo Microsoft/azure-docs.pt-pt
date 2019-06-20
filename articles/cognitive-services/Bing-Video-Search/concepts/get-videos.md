@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 2eaefcf9af6188867bfd692fad891a70fcadb076
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 71d7ebb8cb797e2166fc91fdfdefdba5f22d82ec
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386508"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272696"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Procurar vídeos com a API de pesquisa de vídeos do Bing
 

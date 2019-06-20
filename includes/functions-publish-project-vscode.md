@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66132236"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184056"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
@@ -27,7 +27,7 @@ Este artigo pressupõe que está a criar uma nova aplicação de funções.
 
 1. Na **Azure: As funções** área, selecione a implementar no ícone de aplicação de funções.
 
-    ![Definições da aplicação de funções](./media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Definições da Aplicação de funções](./media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Se não sessão iniciada, deverá **iniciar sessão no Azure**. Também pode **criar uma conta gratuita do Azure**. Depois de concluída com êxito de início de sessão do navegador, volte ao Visual Studio Code. 
 
@@ -43,9 +43,9 @@ Este artigo pressupõe que está a criar uma nova aplicação de funções.
 
     Quando pressiona Enter, os seguintes recursos do Azure são criados na sua subscrição:
 
-    * **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)**: Contém todos os recursos do Azure criados. O nome é baseado no nome da aplicação de função.
-    * **[Conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md)**: É criada uma conta de armazenamento standard com um nome exclusivo com base no nome da aplicação de função.
-    * **[Plano de alojamento](../articles/azure-functions/functions-scale.md)**: Plano de consumo é criado na região E.U.A. oeste para alojar a sua aplicação de função sem servidor.
+    * **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** : Contém todos os recursos do Azure criados. O nome é baseado no nome da aplicação de função.
+    * **[Conta de armazenamento](../articles/storage/common/storage-quickstart-create-account.md)** : É criada uma conta de armazenamento standard com um nome exclusivo com base no nome da aplicação de função.
+    * **[Plano de alojamento](../articles/azure-functions/functions-scale.md)** : Plano de consumo é criado na região E.U.A. oeste para alojar a sua aplicação de função sem servidor.
     * **Aplicação de funções**: Seu projeto será implementado e é executado nesta nova aplicação de função.
 
     Depois de criar a aplicação de funções, é apresentada uma notificação e o pacote de implementação é aplicado. Selecione **vista de saída** na notificação para ver a criação e os resultados de implementação, incluindo os recursos do Azure que criou.

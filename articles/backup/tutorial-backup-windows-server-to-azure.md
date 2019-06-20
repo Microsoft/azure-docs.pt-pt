@@ -2,20 +2,20 @@
 title: Cópia de Segurança do Windows Server para o Azure
 description: Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação.
 services: backup
-author: saurabhsensharma
-manager: shivamg
+author: dcurwin
+manager: carmonm
 keywords: cópia de segurança do windows server; cópia de segurança do windows server; cópia de segurança e recuperação após desastre
 ms.service: backup
 ms.topic: tutorial
 ms.date: 8/22/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 907a10314f27428d4d4b867abb71e2046208650b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722761"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273953"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 
@@ -33,7 +33,7 @@ Pode utilizar o Azure Backup para proteger o Windows Server de danos, ataques e 
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 Antes de fazer uma cópia de segurança do Windows Server, tem de criar um local para as cópias de segurança ou restaurar pontos, para serem armazenadas. O [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um contentor do Azure que armazena as cópias de segurança do Windows Server. Siga os passos abaixo para criar um cofre dos Serviços de Recuperação no portal do Azure. 
 
@@ -67,8 +67,8 @@ O agente dos Serviços de Recuperação do Microsoft Azure (MARS) cria uma assoc
 
 3. No menu **Objetivo de Cópia de Segurança**:
 
-   * para **Onde está a ser executada a carga de trabalho?**, selecione **No local**, 
-   * para **Pretende efetuar uma cópia de segurança?**, selecione **Ficheiros e pastas** e clique em **Estado do Sistema**
+   * para **Onde está a ser executada a carga de trabalho?** , selecione **No local**, 
+   * para **Pretende efetuar uma cópia de segurança?** , selecione **Ficheiros e pastas** e clique em **Estado do Sistema**
 
    ![fornecer informações para o cofre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
 
@@ -116,7 +116,7 @@ Utilize o agente dos Serviços de Recuperação do Microsoft Azure para agendar 
 
 5. Clique em **Seguinte**.
 
-6. Na página **Especificar Agendamento de Cópia de Segurança (Estado do Sistema)**, especifique a hora do dia ou semana nos quais as cópias de segurança devem ser acionadas para o Estado do Sistema e clique em **Seguinte**.
+6. Na página **Especificar Agendamento de Cópia de Segurança (Estado do Sistema)** , especifique a hora do dia ou semana nos quais as cópias de segurança devem ser acionadas para o Estado do Sistema e clique em **Seguinte**.
 
 7. Na página **Selecionar Política de Retenção (Estado do Sistema)** página, selecione a Política de Retenção para a cópia de segurança do Estado do Sistema e clique em **Seguinte**.
 
@@ -147,7 +147,7 @@ Tem de estabelecer o agendamento quando forem executadas tarefas de cópia de se
 Neste tutorial, utilizou o portal do Azure para: 
  
 > [!div class="checklist"] 
-> * Criar um cofre dos Serviços de Recuperação  
+> * Criar um cofre dos Serviços de Recuperação 
 > * Transfira o agente dos Serviços de Recuperação do Microsoft Azure 
 > * Instalar o agente 
 > * Configurar cópia de segurança do Windows Server 

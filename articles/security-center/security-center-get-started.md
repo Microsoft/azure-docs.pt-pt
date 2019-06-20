@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4464796e655cefd28f858cb732ff3d5721a7aa47
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60908330"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206821"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início rápido: Carregar sua subscrição do Azure para o Centro de segurança Standard
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o escalão Gratuito oferece segurança limitada apenas para os recursos do Azure, o escalão Standard expande estas capacidades para o local e para outras clouds. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode experimentar o Centro de segurança Standard sem encargos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -74,10 +74,10 @@ Quando o aprovisionamento automático está ativado, o Centro de Segurança inst
 Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
 
 1. No menu principal do Centro de Segurança, selecione **Política de Segurança**.
-2. Na linha da subscrição, selecione **Editar definições >**.
+2. Na linha da subscrição, selecione **Editar definições >** .
 3. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Ativar**.
 4. Selecione **Guardar**.
-****
+---
   ![Ativar o aprovisionamento automático][6]
 
 Com estas novas informações sobre as VMs do Azure, o Centro de Segurança pode fornecer Recomendações adicionais relacionadas com o estado de atualização do sistema de estado, configurações de segurança do SO, proteção de ponto final, bem como gerar Alertas de segurança adicionais.
@@ -88,14 +88,14 @@ Com estas novas informações sobre as VMs do Azure, o Centro de Segurança pode
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com inícios rápidos e tutoriais posteriores, continue a executar o escalão Standard e mantenha o aprovisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
 
 1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
-2. Na linha da subscrição para a qual quer voltar como gratuita, selecione **Editar definições >**.
+2. Na linha da subscrição para a qual quer voltar como gratuita, selecione **Editar definições >** .
 3. Selecione **Escalão de preço** e **Gratuito** para alterar a subscrição do escalão Standard para o escalão Gratuito.
 5. Selecione **Guardar**.
 
 Se pretender desativar aprovisionamento automático:
 
 1. Regresse ao menu principal do Centro de Segurança e selecione **Política de segurança**.
-2. Na linha da subscrição para a qual quer desativar o aprovisionamento automático, selecione **Editar definições >**.
+2. Na linha da subscrição para a qual quer desativar o aprovisionamento automático, selecione **Editar definições >** .
 3. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Desativar**.
 4. Selecione **Guardar**.
 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7a9eedfe851bb8b5519d0831f47cf6787345a1f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80dcdd666c1067f2fc9415a663f26b82d1335d5f
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233427"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135267"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Início rápido: Criar uma aplicação de HoloLens com o Azure âncoras espaciais, em C++ /CLI WinRT e DirectX
 
@@ -32,7 +32,7 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Uma máquina Windows com <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> instalada com o **desenvolvimento da plataforma Universal do Windows** carga de trabalho e o **Windows 10 SDK (10.0.17763.0 ou mais recente)** componente, e <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
+- Uma máquina Windows com <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> instalado com o **desenvolvimento da plataforma Universal do Windows** carga de trabalho e o **Windows 10 SDK (10.0.17763.0 ou mais recente)** componente, e <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
 - O [C++ c++ /CLI WinRT Visual Studio extensão (VSIX)](https://aka.ms/cppwinrt/vsix) para o Visual Studio deve ser instalada a partir do [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 - Um dispositivo de HoloLens com [modo de programador](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativada. Este artigo requer um dispositivo de HoloLens com o [atualização do Windows 10 de Outubro de 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (também conhecido como RS5). Para atualizar para a versão mais recente no HoloLens, abra a **definições** aplicação, aceda à **atualização e segurança**, em seguida, selecione o **procurar atualizações** botão.
 - A aplicação tem de definir o **spatialPerception** capacidade no seu manifesto AppX.

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: b7228fdf1bb67ff8029412174a883a3a0b123cfc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ef32fb9615d36d68da613c4cb1b443dfd928e807
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126208"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137385"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>O que é o Enterprise Security Package no Azure HDInsight
 

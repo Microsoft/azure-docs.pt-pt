@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 91894f8fffc319b3dfd21d4c95d5a40cad351741
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024376"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273801"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial REST: Indexar e pesquisar dados semiestruturados (JSON blobs) no Azure Search
 
@@ -127,7 +127,7 @@ A resposta deve ser semelhante a:
 
 ## <a name="create-an-index"></a>Criar um índice
     
-A segunda está [criar o índice API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), criar um índice da Azure Search que armazena todos os dados pesquisáveis. Um índice especifica todos os parâmetros e os respetivos atributos.
+A segunda está [criar o índice API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), criar um índice da Azure Search que armazena todos os dados pesquisáveis. Um índice especifica todos os parâmetros e os respetivos atributos.
 
 O URL para esta chamada é `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Substitua `[service name]` pelo nome do seu serviço de pesquisa.
 

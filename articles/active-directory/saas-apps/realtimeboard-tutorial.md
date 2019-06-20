@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com RealtimeBoard | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e RealtimeBoard.
+title: 'Tutorial: Integração do Active Directory do Azure com Miro | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Miro.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: a37fc1c0-4bae-4173-989b-00de53a0076f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,185 +13,128 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 06/17/2019
 ms.author: jeedes
-ms.openlocfilehash: b68f7d0a6b5e60ffab2232a9d6ba502e37801410
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3fa1a3fff38903dc22ab60a6d1b68d611011f5c3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67093082"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274752"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Tutorial: Integração do Active Directory do Azure com RealtimeBoard
+# <a name="tutorial-integrate-miro-with-azure-active-directory"></a>Tutorial: Integrar Miro com o Azure Active Directory
 
-Neste tutorial, saiba como integrar RealtimeBoard com o Azure Active Directory (Azure AD).
-Integrar RealtimeBoard no Azure AD fornece as seguintes vantagens:
+Neste tutorial, irá aprender como integrar Miro com o Azure Active Directory (Azure AD). Quando integrar Miro com o Azure AD, pode:
 
-* Pode controlar no Azure AD que tenha acesso ao RealtimeBoard.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para RealtimeBoard (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controlar no Azure AD que tenha acesso ao Miro.
+* Permita que os utilizadores ser automaticamente sessão iniciada para Miro com as suas contas do Azure AD.
+* Gira as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com RealtimeBoard, terá dos seguintes itens:
+Para começar, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* RealtimeBoard logon único habilitado subscrição
+* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
+* Miro início de sessão único (SSO) ativado na subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Suporta Miro **SP e IDP** iniciou o SSO e suporta **Just In Time** aprovisionamento de utilizadores.
 
-* Suporta RealtimeBoard **SP** e **IDP** iniciada SSO
+## <a name="adding-miro-from-the-gallery"></a>Adicionando Miro da Galeria
 
-* Suporta RealtimeBoard **Just In Time** aprovisionamento de utilizadores
+Para configurar a integração do Miro com o Azure AD, terá de adicionar Miro a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-## <a name="adding-realtimeboard-from-the-gallery"></a>Adicionando RealtimeBoard da Galeria
-
-Para configurar a integração do RealtimeBoard com o Azure AD, terá de adicionar RealtimeBoard a partir da Galeria à sua lista de aplicações de SaaS geridas.
-
-**Para adicionar RealtimeBoard a partir da galeria, execute os seguintes passos:**
-
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
-
-    ![O botão do Azure Active Directory](common/select-azuread.png)
-
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
-
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
-
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
-
-    ![O novo botão de aplicativo](common/add-new-app.png)
-
-4. Na caixa de pesquisa, escreva **RealtimeBoard**, selecione **RealtimeBoard** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
-
-     ![RealtimeBoard na lista de resultados](common/search-new-app.png)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar nova aplicação, selecione **nova aplicação**.
+1. Na **adicionar a partir da galeria** secção, escreva **Miro** na caixa de pesquisa.
+1. Selecione **Miro** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com RealtimeBoard com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no RealtimeBoard deve ser estabelecido.
+Configurar e testar o SSO do Azure AD com Miro com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Miro.
 
-Para configurar e testar o Azure AD início de sessão único com RealtimeBoard, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com Miro, conclua os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar RealtimeBoard Single Sign-On](#configure-realtimeboard-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste RealtimeBoard](#create-realtimeboard-test-user)**  - para ter um equivalente da Eduarda Almeida na RealtimeBoard que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Configurar Miro](#configure-miro)**  para configurar as definições de SSO no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com B.Simon.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar B.Simon utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Miro](#create-miro-test-user)**  para ter um equivalente de B.Simon no Miro que está ligado à representação de utilizador do Azure AD.
+6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com RealtimeBoard, execute os seguintes passos:
+1. Na [portal do Azure](https://portal.azure.com/), na **Miro** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
+1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
+1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **RealtimeBoard** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar a configuração SAML do básico](common/edit-urls.png)
 
 4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, executar o passo seguinte:
-
-    ![RealtimeBoard domínio e URLs únicas início de sessão em informações](common/idp-identifier.png)
 
     Na **identificador** caixa de texto, escreva um URL:  `https://realtimeboard.com`
 
 5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![image](common/both-preintegrated-signon.png)
-
     Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://realtimeboard.com/sso/saml`
 
-6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **XML de metadados de Federação** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+   ![O link de download de certificado](common/metadataxml.png)
 
-7. Sobre o **configurar RealtimeBoard** secção, copie os URLs apropriados de acordo com seus requisitos.
+1. Sobre o **configurar Miro** secção, copie o URL adequado com base nos seus requisitos.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+### <a name="configure-miro"></a>Configurar Miro
 
-    b. Identificador do Azure AD
+Para configurar o início de sessão único num **Miro** lado, terá de enviar o transferido **XML de metadados de Federação** e apropriado copiados URLs do portal do Azure para a equipa de suporte Miro. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados
 
-    c. URL de fim de sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-### <a name="configure-realtimeboard-single-sign-on"></a>Configurar RealtimeBoard Single Sign-On
+Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
 
-Para configurar o início de sessão único num **RealtimeBoard** lado, terá de enviar o transferido **XML de metadados de Federação** e apropriado copiados URLs do portal do Azure para RealtimeBoard a equipa de suporte. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
-
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Na **utilizador** propriedades, siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para RealtimeBoard.
+Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único ao conceder acesso para Miro.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **RealtimeBoard**.
+1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicações, selecione **Miro**.
+1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **RealtimeBoard**.
+1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação de RealtimeBoard na lista de aplicações](common/all-applications.png)
+    ![A ligação de adicionar utilizador](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
+1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
+1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+### <a name="create-miro-test-user"></a>Criar utilizador de teste Miro
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+Nesta secção, um usuário chamado B.Simon é criado na Miro. Miro suporta o aprovisionamento de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Miro, uma nova é criada quando tentar acessar Miro.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+### <a name="test-sso"></a>Teste SSO
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
-
-### <a name="create-realtimeboard-test-user"></a>Criar utilizador de teste RealtimeBoard
-
-Nesta secção, um usuário chamado Eduarda Almeida é criado na RealtimeBoard. RealtimeBoard suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no RealtimeBoard, é criado um novo após a autenticação.
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
-
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
-
-Quando clica no mosaico RealtimeBoard no painel de acesso, deve ser automaticamente sessão iniciada no RealtimeBoard para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o mosaico Miro no painel de acesso, deve ser automaticamente sessão iniciada no Miro para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
@@ -200,4 +143,3 @@ Quando clica no mosaico RealtimeBoard no painel de acesso, deve ser automaticame
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
