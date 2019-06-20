@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: e1e82d7f7b6b8bf9bfef56b569db2db097b914ab
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 98810af66b0be6d925229b7e05dc01f62106e7cd
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64728742"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou eliminar um endereço IP público
@@ -35,7 +35,7 @@ Saiba mais sobre um endereço IP público e como criar, alterar e eliminar um. U
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 - Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
-- Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
+- Se utilizar o portal, abra https://portal.azure.com e inicie sessão com a sua conta do Azure.
 - Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a versão 2.0.31 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
@@ -50,7 +50,7 @@ Endereços IP públicos têm um custo nominal. Para ver os preços, leia os [pre
 3. Sob **endereço IP público**, selecione **criar**.
 4. Introduza ou selecione os valores para as seguintes definições em **Criar endereço IP público**, em seguida, selecione **criar**:
 
-   |Definição|Necessário?|Detalhes|
+   |Definição|Obrigatório?|Detalhes|
    |---|---|---|
    |Name|Sim|O nome tem de ser exclusivo no grupo de recursos que selecionar.|
    |SKU|Sim|Endereços IP de todos os públicos criados antes da introdução de SKUs são **básica** endereços IP públicos de SKU. Não é possível alterar o SKU depois do endereço IP público é criado. Uma máquina virtual autónoma, máquinas virtuais dentro de um conjunto de disponibilidade ou conjuntos de dimensionamento de máquina virtual pode utilizar o básico ou Standard SKUs. Não é permitida a mistura de SKUs entre máquinas virtuais dentro de conjuntos de disponibilidade ou conjuntos de dimensionamento. **Básico** SKU: Se estiver a criar um endereço IP público numa região que suporta zonas de disponibilidade, o **zona de disponibilidade** definição está definida como *nenhum* por predefinição. Pode optar por selecionar uma zona de disponibilidade para garantir uma zona específica para seu endereço IP público. **Padrão** SKU: Um IP público de SKU padrão pode ser associado a uma máquina virtual ou um load balancer front-end. Se estiver a criar um endereço IP público numa região que suporta zonas de disponibilidade, o **zona de disponibilidade** definição está definida como *redundância de zona* por predefinição. Para obter mais informações sobre as zonas de disponibilidade, consulte a **zona de disponibilidade** definição. O SKU standard é necessário se associar o endereço para um balanceador de carga Standard. Para saber mais sobre balanceadores de carga standard, veja [Balanceador de carga standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando atribui um endereço IP público de SKU standard a uma interface de rede de máquina virtual, tem de permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até criar e associar um grupo de segurança de rede e permitir explicitamente o tráfego pretendido.|

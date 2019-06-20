@@ -7,19 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/11/2019
+ms.openlocfilehash: db14f8240dea95eb073a0a653c2798f02fbb7c35
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479148"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67162589"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning Studio
 É simples configurar uma tarefa do Stream Analytics e executar alguns dados de exemplo através do mesmo. O que podemos fazer quando for necessário executar a mesma tarefa com o maior volume de dados? Ela requer a compreender como configurar a tarefa do Stream Analytics, para que ele pode ser dimensionada. Neste documento, vamos nos concentrar nos aspetos de especiais de dimensionar tarefas do Stream Analytics com as funções de Machine Learning. Para obter informações sobre como dimensionar tarefas do Stream Analytics em geral, consulte o artigo [Dimensionar tarefas](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>O que é uma função do Azure Machine Learning no Stream Analytics?
-Uma função de Machine Learning no Stream Analytics pode ser utilizada como uma chamada de função regulares no idioma de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, os pedidos de serviço da Web do Azure Machine Learning. Serviços web Machine Learning suportam "criação de batches" várias linhas, a chamada de mini-batch, a mesma API chamada de serviço web, para melhorar a produtividade geral. Para obter mais informações, consulte [serviços da Web do Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
+Uma função de Machine Learning no Stream Analytics pode ser utilizada como uma chamada de função regulares no idioma de consulta do Stream Analytics. No entanto, nos bastidores, as chamadas de função são, na verdade, os pedidos de serviço Web do Azure Machine Learning Studio. Serviços web Machine Learning suportam "criação de batches" várias linhas, a chamada de mini-batch, a mesma API chamada de serviço web, para melhorar a produtividade geral. Para obter mais informações, consulte [serviços de Web do Azure Machine Learning Studio](../machine-learning/studio/consume-web-services.md). Suporte para o Azure Machine Learning Studio no Stream Analytics está em pré-visualização.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurar uma tarefa de Stream Analytics com as funções de Machine Learning
 Ao configurar uma função de Machine Learning tarefa do Stream Analytics, há dois parâmetros a serem considerados, o tamanho de lote das chamadas de função do Machine Learning e as unidades de transmissão em fluxo (SUs) aprovisionadas para a tarefa do Stream Analytics. Para determinar os valores adequados para o SUs, primeiro uma decisão deve ser feita entre a latência e débito, ou seja, a latência da tarefa do Stream Analytics e débito de cada SU. SUs sempre podem ser adicionados a uma tarefa para aumentar o débito de uma consulta do Stream Analytics também particionada, embora SUs adicionais aumentam o custo de executar a tarefa.
@@ -72,7 +72,7 @@ Suponha que a latência da análise de sentimentos serviço web Machine Learning
 
 Segue-se uma tabela para o débito de tarefa do Stream Analytics para SUs diferentes e tamanhos de batch (num número de eventos por segundo).
 
-| tamanho de lote (latência de ML) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25\.000 (500 ms) |
+| tamanho de lote (latência de ML) | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |

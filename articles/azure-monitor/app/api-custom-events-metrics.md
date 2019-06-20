@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478417"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154769"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric foi preterido no SDK do .NET. As métricas devem sempre ser pré-agregados num período de tempo antes de serem enviados. Utilize uma das sobrecargas GetMetric(..) para obter um objeto de métrica para aceder a recursos de agregação de pré-lançamento do SDK. Se estiver a implementar sua própria lógica de agregação de pré-lançamento, pode utilizar o método do controle (ITelemetry metricTelemetry) para enviar as agregações resultantes. Se seu aplicativo requer o envio de um item de telemetria separado em cada ocasião sem agregação para sempre, é provável que tenha um caso de utilização para a telemetria de evento; Ver TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric não é o método preferencial para o envio de métricas. As métricas devem sempre ser pré-agregados num período de tempo antes de serem enviados. Utilize uma das sobrecargas GetMetric(..) para obter um objeto de métrica para aceder a recursos de agregação de pré-lançamento do SDK. Se estiver a implementar sua própria lógica de agregação de pré-lançamento, pode utilizar o método trackmetric () para enviar as agregações resultantes. Se seu aplicativo requer o envio de um item de telemetria separado em cada ocasião sem agregação para sempre, é provável que tenha um caso de utilização para a telemetria de evento; Ver TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 O Application Insights pode gráfico de métricas que não estão anexadas a eventos específicos. Por exemplo, pode monitorar um comprimento de fila em intervalos regulares. Com a métrica, as medidas individuais são menos interessantes que as variações e tendências e os gráficos estatísticos por isso, são úteis.
 

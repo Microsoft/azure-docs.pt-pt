@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65788601"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
@@ -42,11 +42,11 @@ Obter mais detalhes sobre atualizações de cluster podem ser encontradas [aqui]
 
 | EventId | Name | Category | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Actualizar | Foi iniciada uma atualização de cluster | CM | Informativo |
-| 29628 | ClusterUpgradeCompleted | Actualizar | Uma atualização do cluster foi concluída | CM | Informativo | 
-| 29629 | ClusterUpgradeRollbackStarted | Actualizar | Uma atualização do cluster foi iniciado para reversão  | CM | Aviso | 
-| 29630 | ClusterUpgradeRollbackCompleted | Actualizar | Uma atualização do cluster foi concluída de reversão | CM | Aviso | 
-| 29631 | ClusterUpgradeDomainCompleted | Actualizar | Um domínio de atualização concluiu a atualização durante uma atualização do cluster | CM | Informativo | 
+| 29627 | ClusterUpgradeStarted | Atualizar | Foi iniciada uma atualização de cluster | CM | Informativo |
+| 29628 | ClusterUpgradeCompleted | Atualizar | Uma atualização do cluster foi concluída | CM | Informativo | 
+| 29629 | ClusterUpgradeRollbackStarted | Atualizar | Uma atualização do cluster foi iniciado para reversão  | CM | Aviso | 
+| 29630 | ClusterUpgradeRollbackCompleted | Atualizar | Uma atualização do cluster foi concluída de reversão | CM | Aviso | 
+| 29631 | ClusterUpgradeDomainCompleted | Atualizar | Um domínio de atualização concluiu a atualização durante uma atualização do cluster | CM | Informativo | 
 
 ## <a name="node-events"></a>Eventos de nó
 
@@ -73,7 +73,7 @@ Obter mais detalhes sobre atualizações de cluster podem ser encontradas [aqui]
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | Ciclo de vida | Foi criada uma nova aplicação | CM | Informativo | 
 | 29625 | ApplicationDeleted | Ciclo de vida | Um aplicativo existente foi eliminado | CM | Informativo | 
-| 23083 | ApplicationProcessExited | Ciclo de vida | Um processo dentro de um aplicativo saiu | Alojamento | Informativo | 
+| 23083 | ApplicationProcessExited | Ciclo de vida | Um processo dentro de um aplicativo saiu | Hospedagem | Informativo | 
 
 **Eventos de atualização de aplicação**
 
@@ -81,11 +81,11 @@ Obter mais detalhes sobre as atualizações de aplicações podem ser encontrada
 
 | EventId | Name | Category | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Actualizar | Foi iniciada uma atualização da aplicação | CM | Informativo | 
-| 29622 | ApplicationUpgradeCompleted | Actualizar | Uma atualização da aplicação foi concluída | CM | Informativo | 
-| 29623 | ApplicationUpgradeRollbackStarted | Actualizar | Uma atualização da aplicação foi iniciada para reversão |CM | Aviso | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Actualizar | Uma atualização da aplicação foi concluída de reversão | CM | Aviso | 
-| 29626 | ApplicationUpgradeDomainCompleted | Actualizar | Um domínio de atualização concluiu a atualização durante uma atualização da aplicação | CM | Informativo | 
+| 29621 | ApplicationUpgradeStarted | Atualizar | Foi iniciada uma atualização da aplicação | CM | Informativo | 
+| 29622 | ApplicationUpgradeCompleted | Atualizar | Uma atualização da aplicação foi concluída | CM | Informativo | 
+| 29623 | ApplicationUpgradeRollbackStarted | Atualizar | Uma atualização da aplicação foi iniciada para reversão |CM | Aviso | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Atualizar | Uma atualização da aplicação foi concluída de reversão | CM | Aviso | 
+| 29626 | ApplicationUpgradeDomainCompleted | Atualizar | Um domínio de atualização concluiu a atualização durante uma atualização da aplicação | CM | Informativo | 
 
 ## <a name="service-events"></a>Eventos do serviço
 
@@ -129,14 +129,14 @@ Obter mais detalhes sobre as atualizações de aplicações podem ser encontrada
 | 16831 | BuildIdleReplicaStarted | Ciclo de vida | Réplica primária foi iniciada a criação de réplica inativa | Replicação | Informativo |
 | 16832 | BuildIdleReplicaCompleted | Ciclo de vida | Réplica primária tiver concluído a criação de réplica inativa | Replicação | Informativo |
 | 16833 | BuildIdleReplicaFailed | Ciclo de vida | Réplica primária falha na criação de réplica inativa | Replicação | Aviso |
-| 16834 | PrimaryReplicationQueueFull | Saúde | Fila de replicação de réplica primária está cheia | Replicação | Aviso |
-| 16835 | PrimaryReplicationQueueWarning | Saúde | Fila de replicação de réplica primária está quase completo | Replicação | Aviso |
-| 16836 | PrimaryReplicationQueueWarningMitigated | Saúde | Fila de replicação de réplica primária não há problema | Replicação | Informativo |
-| 16837 | SecondaryReplicationQueueFull | Saúde | Fila de replicação de réplica secundária está cheia | Replicação | Aviso |
-| 16838 | SecondaryReplicationQueueWarning | Saúde | Fila de replicação de réplica secundária é quase completo | Replicação | Aviso |
-| 16839 | SecondaryReplicationQueueWarningMitigated | Saúde | Fila de replicação de réplica secundária não há problema | Replicação | Informativo |
-| 16840 | PrimaryFaultedSlowSecondary | Saúde | Réplica primária sofre uma réplica secundária lenta | Replicação | Aviso |
-| 16841 | ReplicatorFaulted | Saúde | Réplica tem falhas | Replicação | Aviso |
+| 16834 | PrimaryReplicationQueueFull | Estado de Funcionamento | Fila de replicação de réplica primária está cheia | Replicação | Aviso |
+| 16835 | PrimaryReplicationQueueWarning | Estado de Funcionamento | Fila de replicação de réplica primária está quase completo | Replicação | Aviso |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Estado de Funcionamento | Fila de replicação de réplica primária não há problema | Replicação | Informativo |
+| 16837 | SecondaryReplicationQueueFull | Estado de Funcionamento | Fila de replicação de réplica secundária está cheia | Replicação | Aviso |
+| 16838 | SecondaryReplicationQueueWarning | Estado de Funcionamento | Fila de replicação de réplica secundária é quase completo | Replicação | Aviso |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Estado de Funcionamento | Fila de replicação de réplica secundária não há problema | Replicação | Informativo |
+| 16840 | PrimaryFaultedSlowSecondary | Estado de Funcionamento | Réplica primária sofre uma réplica secundária lenta | Replicação | Aviso |
+| 16841 | ReplicatorFaulted | Estado de Funcionamento | Réplica tem falhas | Replicação | Aviso |
 
 ## <a name="container-events"></a>Eventos de contentor
 
@@ -144,9 +144,9 @@ Obter mais detalhes sobre as atualizações de aplicações podem ser encontrada
 
 | EventId | Name | Descrição |Origem (tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContainerActivated | Um contentor foi iniciada | Alojamento | Informativo | 1 |
-| 23075 | ContainerDeactivated | Um contentor foi parado | Alojamento | Informativo | 1 |
-| 23082 | ContainerExited | Um contentor saiu - Verifique o sinalizador de UnexpectedTermination | Alojamento | Informativo | 1 |
+| 23074 | ContainerActivated | Um contentor foi iniciada | Hospedagem | Informativo | 1 |
+| 23075 | ContainerDeactivated | Um contentor foi parado | Hospedagem | Informativo | 1 |
+| 23082 | ContainerExited | Um contentor saiu - Verifique o sinalizador de UnexpectedTermination | Hospedagem | Informativo | 1 |
 
 ## <a name="health-reports"></a>Relatórios de estado de funcionamento
 
@@ -269,8 +269,8 @@ Aqui está uma lista completa dos eventos fornecidos pelo Service Fabric anterio
 | 29629 | ClusterUpgradeRollback | CM | Informativo |
 | 29630 | ClusterUpgradeRollbackComplete | CM | Informativo |
 | 29631 | ClusterUpgradeDomainComplete | CM | Informativo |
-| 23074 | ContainerActivated | Alojamento | Informativo |
-| 23075 | ContainerDeactivated | Alojamento | Informativo |
+| 23074 | ContainerActivated | Hospedagem | Informativo |
+| 23075 | ContainerDeactivated | Hospedagem | Informativo |
 | 29620 | ApplicationCreated | CM | Informativo |
 | 29621 | ApplicationUpgradeStart | CM | Informativo |
 | 29622 | ApplicationUpgradeComplete | CM | Informativo |

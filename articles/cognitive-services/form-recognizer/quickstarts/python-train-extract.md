@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: e799e4ae745d2dc2dea91aa0094b5ffb79ae6f77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b405c643f642a8b3f950848fe8cba65207cb5cb3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063880"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271418"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python
 
@@ -83,40 +83,59 @@ Receberá um `200 (Success)` resposta com esta saída JSON:
 
 ```json
 {
-  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
-  "trainingDocuments": [
-    {
-      "documentName": "Invoice_1.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_2.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_3.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_4.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_5.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
+  "parameters": {
+    "Endpoint": "{Endpoint}",
+    "Content-Type": "application/json",
+    "Ocp-Apim-Subscription-Key": "{API key}",
+    "body": {},
+    "trainRequest": {
+      "source": "/input/data",
+      "sourceFilter": {
+        "prefix": "",
+        "includeSubFolders": false
+      }
     }
-  ],
-  "errors": []
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
+        "trainingDocuments": [
+          {
+            "documentName": "0.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "1.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "2.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "3.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          },
+          {
+            "documentName": "4.pdf",
+            "pages": 1,
+            "errors": [],
+            "status": "success"
+          }
+        ],
+        "errors": []
+      }
+    }
+  }
 }
 ```
 

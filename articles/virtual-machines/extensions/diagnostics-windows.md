@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 520211f3499931281d3ac86a1da1144564a8bb48
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd2bcc9284c24f9fa6a02556d7101c1b788ee71e
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980759"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154997"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utilizar o PowerShell para ativar o Diagnóstico do Azure numa máquina virtual com o Windows
 
 Diagnóstico do Azure é o recurso no Azure que permite a recolha de dados de diagnóstico num aplicativo implantado. Pode utilizar a extensão de diagnóstico para recolher dados de diagnóstico, como contadores de desempenho ou registos de aplicações a partir de uma máquina virtual (VM) do Azure que está a executar o Windows. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Ativar a extensão de diagnóstico, se usar o modelo de implementação do Resource Manager
 Pode ativar a extensão de diagnóstico enquanto cria uma VM do Windows por meio do modelo de implementação Azure Resource Manager ao adicionar a configuração da extensão para o modelo do Resource Manager. Ver [criar uma máquina virtual do Windows com monitorização e diagnóstico com o modelo Azure Resource Manager](diagnostics-template.md).
@@ -65,16 +65,16 @@ O [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Ativar a extensão de diagnóstico, se usar o modelo de implementação clássica
 Pode utilizar o [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet para ativar uma extensão de diagnóstico numa VM que tenha criado por meio do modelo de implementação clássica. O exemplo seguinte mostra como criar uma nova VM através do modelo de implementação clássica com a extensão de diagnóstico ativada.
 
-    $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
+    $VM = New-AzVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
-    $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
+    $VM = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 
 Para ativar a extensão de diagnóstico numa VM existente que foi criada por meio do modelo de implementação clássica, utilize o [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet para obter a configuração da VM. Em seguida, atualize a configuração da VM para incluir a extensão de diagnóstico através da [AzureVMDiagnosticsExtension conjunto](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet. Por fim, aplicar a configuração atualizada para a VM utilizando [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm).
 
-    $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
-    $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
+    $VM = Get-AzVM -ServiceName $Service_Name -Name $VM_Name
+    $VM_Update = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    Update-AzVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>Exemplo de configuração de diagnósticos
 O seguinte XML pode ser utilizado para a configuração pública de diagnóstico com os scripts acima. Este exemplo de configuração irá transferir vários contadores de desempenho para a conta de armazenamento de diagnósticos, juntamente com os erros da aplicação, segurança e canais de sistema nos registos de eventos do Windows e os erros dos logs de infraestrutura de diagnósticos.

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: b29f3168b7ecc1ec8f783a7ce7a6dea83318fa14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455706"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164457"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -247,8 +247,7 @@ A tabela seguinte descreve as propriedades para a criação de uma saída do Azu
 | ID da Conta | O nome ou o ponto final do URI de conta do Azure Cosmos DB. |
 | Chave de conta | A chave de acesso partilhado para a conta do Azure Cosmos DB. |
 | Base de Dados | O nome de base de dados do Azure Cosmos DB. |
-| Padrão do nome de coleção | O nome da coleção ou o padrão para as coleções a ser utilizado. <br />Pode construir o formato de nome de coleção, utilizando o token {partition} opcional, onde as partições começam do 0. Dois exemplos:  <br /><ul><li> _MyCollection_: Uma coleção com o nome "MyCollection" tem de existir.</li>  <li> _MyCollection {partition}_ : Com base na coluna de particionamento.</li></ul> As coleções de coluna de criação de partições tem de existir: "MyCollection0," "MyCollection1", "MyCollection2", e assim por diante. |
-| Chave de partição | Opcional. Precisará disto apenas se estiver a utilizar um token {partition} no seu padrão de nome de coleção.<br /> A chave de partição é o nome do campo em eventos de saída que é utilizado para especificar a chave de partições da saída nas coleções.<br /> Para saída única coleção, pode usar qualquer coluna de saída arbitrário. Um exemplo é PartitionId. |
+| Nome da coleção | Nome da coleção no Azure Cosmos DB. O Azure Cosmos DB são os contentores ilimitados a abordagem recomendada para a partição dos dados, como o Azure Cosmos DB automaticamente dimensiona-se partições com base na carga de trabalho. |
 | ID do documento |Opcional. O nome do campo em eventos de saída que é utilizado para especificar a chave primária no qual insert ou update baseiam-se operações.
 
 ## <a name="azure-functions"></a>Funções do Azure

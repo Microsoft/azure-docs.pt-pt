@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: d7a0c29ad3386fcdf85292b6e2852842a971c076
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6949824f598194456837544526223b823dcfc3e5
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60948868"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273343"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Início rápido: Criar a primeira instância de pesquisa personalizada do Bing
 
@@ -46,7 +46,7 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
 
 5. Clique em **publicar** para publicar as alterações ao ambiente de produção e atualizar pontos de extremidade da instância.
 
-6.  Clique no **produção** separador. sob **pontos de extremidade**, cópia seu **ID de configuração personalizada**. Vai precisar deste ID para chamar a API de pesquisa personalizada, acrescentando-o para o `customconfig=` parâmetro em suas chamadas de consulta.
+6.  Clique no **produção** separador sob **pontos de extremidade**e copie seu **ID de configuração personalizada**. Vai precisar deste ID para chamar a API de pesquisa personalizada, acrescentando-o para o `customconfig=` parâmetro em suas chamadas de consulta.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

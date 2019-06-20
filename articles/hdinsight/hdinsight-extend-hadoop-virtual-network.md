@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 4bfbce7dd985f3ebf67fde671d83acf30623b641
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/17/2019
+ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055408"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163650"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -211,13 +211,13 @@ Para ligar ao Apache Ambari e outras páginas da web através da rede virtual, u
 
 ## <a id="networktraffic"></a> Controlar o tráfego de rede
 
-### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>Controlar o tráfego de entrada para clusters do HDInsight
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Técnicas para controlar o tráfego de entrada e saído para clusters do HDInsight
 
 Tráfego de rede num redes virtuais do Azure pode ser controlado através dos seguintes métodos:
 
 * **Grupos de segurança de rede** (NSG) permitem-lhe filtrar o tráfego de entrada e saído para a rede. Para obter mais informações, consulte a [filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md) documento.
 
-* **Aplicações virtuais de rede** replicar a funcionalidade dos dispositivos, tais como firewalls e roteadores. Para obter mais informações, consulte a [aplicações de rede](https://azure.microsoft.com/solutions/network-appliances) documento.
+* **Aplicações virtuais de rede** (NVA) pode ser utilizado com apenas o tráfego de saída. NVAs replicar a funcionalidade dos dispositivos, tais como firewalls e roteadores.  Para obter mais informações, consulte a [aplicações de rede](https://azure.microsoft.com/solutions/network-appliances) documento.
 
 Como um serviço gerido, HDInsight requer acesso sem restrições para o estado de funcionamento do HDInsight e dos serviços de gestão para o tráfego de entrada e saído da VNET. Quando utilizar NSGs, certifique-se de que esses serviços ainda consegue comunicar com o cluster do HDInsight.
 

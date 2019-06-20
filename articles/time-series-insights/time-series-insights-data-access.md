@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53489ef9c1264fa31b06f4660e545e6efbd1f616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 69180e17714b7d7004e63dce0de82a50e1f0b3af
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237039"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164626"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
@@ -36,7 +36,7 @@ Siga estes passos para conceder acesso a dados para um principal de utilizador.
 
     [![um de acesso de dados](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. Escolher **selecionar utilizador**. Procure o endereço de e-mail ou nome de utilizador localizar o utilizador que pretende adicionar. Clique em **selecione** para confirmar a seleção.
+1. Escolher **selecionar utilizador**. Procure o endereço de e-mail ou nome de utilizador localizar o utilizador que pretende adicionar. Selecione **selecione** para confirmar a seleção.
 
     [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
@@ -76,7 +76,7 @@ Siga estes passos para conceder acesso de convidado para um ambiente do Time Ser
 
     [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. Escolher **selecionar utilizador**. Procure o endereço de e-mail do utilizador convidado que convidou para localizar o utilizador que pretende adicionar. Clique em **selecione** para confirmar a seleção.
+1. Escolher **selecionar utilizador**. Procure o endereço de e-mail do utilizador convidado que convidou para localizar o utilizador que pretende adicionar. Em seguida, **selecione** para confirmar a seleção.
 
     [![dados e acesso-nove](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 

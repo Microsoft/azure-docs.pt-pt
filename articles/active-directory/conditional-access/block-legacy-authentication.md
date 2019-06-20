@@ -2,37 +2,27 @@
 title: Como bloquear antigos de autenticação para o Azure Active Directory (Azure AD) com acesso condicional | Documentos da Microsoft
 description: Saiba como melhorar a sua postura de segurança bloqueando antigos de autenticação a utilizar o acesso condicional do Azure AD.
 services: active-directory
-keywords: Acesso condicional para aplicações, acesso condicional com o Azure AD, proteger o acesso aos recursos da empresa, políticas de acesso condicional
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: conceptual
+ms.date: 06/17/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/25/2019
-ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a638b501ea04db787ca366aa015850d94eb475ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2120466652db363206ec20c2303ad56670228c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112711"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164790"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Autenticação de legado de bloco para o Azure AD com o acesso condicional   
 
 Conceder acesso fácil aos seus utilizadores para as suas aplicações na cloud, Azure Active Directory (Azure AD) oferece suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação. No entanto, os protocolos legados não suportam autenticação multifator (MFA). MFA é, em muitos ambientes, um requisito comum para roubo de identidade de endereço. 
 
-
 Se o ambiente está pronto para autenticação de legado do bloco para melhorar a proteção do seu inquilino, pode realizar esse objetivo com o acesso condicional. Este artigo explica como pode configurar políticas de acesso condicional a bloquear antigos de autenticação para o seu inquilino.
-
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,8 +30,6 @@ Este artigo pressupõe que está familiarizado com:
 
 - O [conceitos básicos](overview.md) de acesso condicional do Azure AD 
 - O [melhores práticas](best-practices.md) para configurar políticas de acesso condicional no portal do Azure
-
-
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -57,12 +45,21 @@ Como pode impedir a aplicações que utilizam autenticação legada de aceder a 
 
 Políticas de acesso condicional são aplicadas após o primeiro--factor authentication foi concluído. Por conseguinte, acesso condicional não se destina como uma defesa de linha de primeira para cenários como denial-of-service (DoS) distribuídos, mas pode utilizar os sinais desses eventos (por exemplo, o nível de risco de início de sessão, a localização do pedido e assim por diante) para determinar o acesso.
 
-
-
-
 ## <a name="implementation"></a>Implementação
 
 Esta secção explica como configurar uma política de acesso condicional para bloquear antigos de autenticação. 
+
+### <a name="identify-legacy-authentication-use"></a>Identificar a utilização de autenticação
+
+Antes de pode bloquear a autenticação no seu diretório, terá de compreender primeiro se os utilizadores têm aplicações que utilizam a autenticação e como ele afeta o seu diretório global. Registos do Azure AD início de sessão podem ser utilizados para compreender se estiver a utilizar autenticação.
+
+1. Navegue para o **portal do Azure** > **do Azure Active Directory** > **inícios de sessão**.
+1. Adicionar a coluna de aplicação de cliente se não for apresentado, clicando em **colunas** > **aplicações de cliente**.
+1. Filtrar por **aplicação de cliente** > **outros clientes** e clique em **aplicar**.
+
+Filtragem será apenas mostrar que iniciar sessão tenta que foram feitas pelos protocolos de autenticação. Clicar em cada tentativa de início de sessão individual, mostrarei detalhes adicionais. O **aplicação de cliente** no **informações básicas** separador indica qual protocolo de autenticação foi utilizado.
+
+Estes registos irão indicar os utilizadores que ainda são dependendo antigos de autenticação e as aplicações que estiver a utilizar protocolos legados para fazer pedidos de autenticação. Para os utilizadores que não são apresentados nestes registos e forem confirmados como para não estar a utilizar autenticação, implemente uma política de acesso condicional para estes utilizadores apenas.
 
 ### <a name="block-legacy-authentication"></a>Bloquear a autenticação legada 
 

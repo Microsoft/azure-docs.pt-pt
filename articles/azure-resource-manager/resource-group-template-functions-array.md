@@ -16,7 +16,7 @@ ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66128708"
@@ -136,8 +136,8 @@ Devolve o primeiro valor não nulo de parâmetros. Objetos vazios, prázdná pol
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |int, string, matriz ou objeto |O primeiro valor para testar os null. |
-| argumentos adicionais |Não |int, string, matriz ou objeto |Valores adicionais para testar os null. |
+| arg1 |Sim |int, string, array ou object |O primeiro valor para testar os null. |
+| argumentos adicionais |Não |int, string, array ou object |Valores adicionais para testar os null. |
 
 ### <a name="return-value"></a>Valor de retorno
 

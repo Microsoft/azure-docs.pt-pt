@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108209"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164942"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão única
 
@@ -61,9 +61,9 @@ Existem duas formas principais em que pode permitir que os utilizadores o iníci
 
 Utilizar o Azure AD para SSO baseado em palavra-passe requer a implementação de uma extensão de browser que irá obter as credenciais de forma segura e preencher os formulários de início de sessão. Definir um mecanismo para implementar a extensão em escala com [browsers suportados](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). As opções incluem:
 
-- [Política de grupo para o Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [O System Center Configuration Manager (SCCM) para o Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [Utilizador controlado por transferência e configuração para o Chrome, o Firefox, o Microsoft Edge ou o IE ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Política de grupo para o Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [O System Center Configuration Manager (SCCM) para o Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Utilizador controlado por transferência e configuração para o Chrome, o Firefox, o Microsoft Edge ou o IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Para obter mais informações, consulte [como para configurar a palavra-passe única iniciar sessão](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 
