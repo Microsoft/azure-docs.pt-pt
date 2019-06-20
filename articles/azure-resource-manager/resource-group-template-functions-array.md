@@ -58,7 +58,7 @@ Converte o valor para uma matriz.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| convertToArray |Sim |int, string, matriz ou objeto |O valor a converter numa matriz. |
+| convertToArray |Sim |int, string, array ou object |O valor a converter numa matriz. |
 
 ### <a name="return-value"></a>Valor de retorno
 
