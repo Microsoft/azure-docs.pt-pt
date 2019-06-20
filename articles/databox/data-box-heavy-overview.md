@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f71d9b4400041db50cb3e24940e922acde55edc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991694"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271755"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>O que é o Azure Data Box Heavy? (pré-visualização)
 
@@ -62,14 +62,14 @@ O dispositivo de dados de caixa pesada tem as seguintes funcionalidades nesta ve
 
 | Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
-| Peso                                                  | ~ 500 lbs.                |
+| Peso                                                  | ~ 500 lbs. <br>Dispositivo no bloqueio rodas para transporte|
 | Dimensões                                              | Largura: Altura de 26 polegadas: 28 de polegadas de comprimento: polegadas 48 |
 | Espaço em rack                                              | Não pode ser montado em bastidor|
-| Cabos necessários                                         | 4 X alicerçada às próprias incluídos nos cabos de energia do 120 V/10 A (NEMA 5-15) <br> Dispositivo suporta power do até 240 V e tem receptacles de power C-13 <br> Utilize os cabos de rede compatíveis com [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-|Power                                                    | 4 energia incorporados fornecimento unidades (PSUs) partilhadas por nós de dispositivo|
+| Cabos necessários                                         | 4 alicerçada às próprias 120 V / 10 A energia cabos (NEMA 5-15) incluídos <br> Dispositivo suporta power do até 240 V e tem receptacles de power C-13 <br> Utilize os cabos de rede compatíveis com [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
+| Power                                                    | 4 energia incorporados fornecimento unidades (PSUs) partilhadas por nós de dispositivo <br> desenho de energia típico watt 1200|
 | Capacidade de armazenamento                                        | ~ 1 PB não processado, 70 discos de 14 TB <br> Capacidade utilizável de 770 TB|
-|Número de nós                                          | 2 nós independentes por dispositivo (500 TB cada) |
-| Interfaces de rede por nó                             | 4 interfaces de rede por nó <br> MGMT, DATA3 <ul><li> Interfaces de 2 x 1 GbE </li><li> MGMT é para a gestão, o utilizador não configurável, utilizada para a configuração inicial </li><li> DATA3 é uma interface de dados configurável pelo utilizador, o anfitrião configuração protocolo DHCP (Dynamic) por predefinição</li><li>Interfaces de rede de 1 GbE também podem ser configurados como interfaces de 10 GbE</li></ul>Dados1, interfaces de dados de DATA2 <ul><li>Interfaces de 2 x 40 GbE </li><li> DHCP por predefinição ou estática, interfaces de dados configuráveis do utilizador</li>|
+| Número de nós                                          | 2 nós independentes por dispositivo (500 TB cada) |
+| Interfaces de rede por nó                             | 4 interfaces de rede por nó <br><br> MGMT, DATA3 <ul><li> Interfaces de 2 x 1 GbE </li><li> MGMT é para gestão e configuração inicial, o utilizador não configurável </li><li> DATA3 é configurável pelo utilizador e Dynamic Host Configuration Protocol (DHCP) por predefinição</li><li>As interfaces de rede de 1 GbE também podem ser configuradas como interfaces de 10 GbE</li></ul>Dados1, interfaces de dados de DATA2 <ul><li>Interfaces de 2 x 40 GbE </li><li> Utilizador configurável para DHCP (predefinição) ou estática</li></ul>|
 
 
 ## <a name="components"></a>Componentes
@@ -99,7 +99,7 @@ Um fluxo típico inclui os seguintes passos:
 
 Ao longo deste processo, receberá uma notificação por e-mail sobre todas as alterações de estado.
 
-## <a name="region-availability"></a>Disponibilidade regional
+## <a name="region-availability"></a>Disponibilidade de região
 
 Dados de caixa pesada pode transferir os dados com base na região em que o serviço é implementado, país/região ao qual o dispositivo é enviado e a conta de armazenamento do Azure onde transferir os dados de destino.
 
@@ -113,7 +113,7 @@ Dados de caixa pesada pode transferir os dados com base na região em que o serv
 
 Para obter as informações mais atualizadas sobre a disponibilidade de região para dados de caixa pesada, aceda a [produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-## <a name="sign-up"></a>Aderir
+## <a name="sign-up"></a>Inscrever-se
 
 O Data Box Heavy está em pré-visualização e precisa de inscrever-se. Siga os passos seguintes para se inscrever para dados de caixa pesado:
 

@@ -10,11 +10,11 @@ ms.author: banders
 manager: dougeby
 ms.custom: include file
 ms.openlocfilehash: 1ffa56caebf16b588dffaba249a844915f9f44c7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66120606"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184001"
 ---
 ## <a name="view-cost-data"></a>Ver dados de custos
 
@@ -44,7 +44,7 @@ Clique com o botão direito do rato na barra Fornecedor (Azure) e desagregue at�
 
 A imagem seguinte mostra os custos dos recursos do Azure em que a Contoso incorreu. O total foi $3.309. Neste exemplo, cerca de metade dos custos destinou-se a VM Standard_A1 e a outra metade dos custos, aproximadamente, destinou-se a várias instâncias de VM.
 
-![tipos de recurso](./media/cost-management-create-account-view-data/actual-cost-04.png)
+![tipos de recursos](./media/cost-management-create-account-view-data/actual-cost-04.png)
 
 Clique com o botão direito do rato num tipo de recurso e selecione **Entidades de Custos** para ver as entidades dos custos e os serviços que consumiram o recurso. Na imagem de exemplo seguinte o Armazenamento Localmente Redundante é definido como o Tipo de recurso. Contoso | Azure/armazenamento consumido $15,65. Engenharia | Armazenamento do Azure consumido $164,25. Infraestrutura Partilhada | Azure/Armazenamento consumido $116,58. O custo total dos serviços é de $296.
 

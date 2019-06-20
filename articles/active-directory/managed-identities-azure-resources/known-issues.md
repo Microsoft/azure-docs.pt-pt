@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 1eb5600a9793963a722967e1bbe702cf3b2f670e
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950469"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147121"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ e problemas conhecidos com identidades geridas para recursos do Azure
 
@@ -84,8 +84,8 @@ Não. Identidades geridas não suportam atualmente directory em vários cenário
 
 ### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Que permissões RBAC do Azure são necessárias para uma identidade gerida num recurso? 
 
-- Identidade gerida atribuído de sistema: Precisa escrever permissões sobre o recurso. Por exemplo: Microsoft.Compute/virtualMachines/write ou esta ação está incluída no recurso específicas funções incorporadas, como [contribuinte de Máquina Virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- Identidade gerida atribuído ao utilizador: Precisa escrever permissões sobre o recurso. Por exemplo: Microsoft.Compute/virtualMachines/write. Para além [operador de identidade gerida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) atribuição de função através de a identidade gerida. 
+- Identidade gerida atribuído de sistema: Precisa escrever permissões sobre o recurso. Para exampl, para máquinas virtuais tem Microsoft.Compute/virtualMachines/write. Esta ação está incluída no recurso específicas funções incorporadas, como [contribuinte de Máquina Virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identidade gerida atribuído ao utilizador: Precisa escrever permissões sobre o recurso. Por exemplo, para máquinas virtuais, precisa Microsoft.Compute/virtualMachines/write. Para além [operador de identidade gerida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) atribuição de função através de a identidade gerida.
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Como reiniciar as identidades geridas para a extensão de recursos do Azure?
 No Windows e determinadas versões do Linux, se a extensão de parar, o cmdlet seguinte pode ser usado para reiniciar manualmente:

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: danlep
 ms.openlocfilehash: 5fa4d76656f6000745291230025a50d3e1fb6fc4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66152270"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184818"
 ---
 ### <a name="regions-and-resource-availability"></a>Regiões e disponibilidade de recursos
 

@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 309ef92b33d5bbdf8e8aed6b162ed9428a669c87
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119347"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184729"
 ---
 ## <a name="verify-the-output"></a>Verificar a saída
 O pipeline cria automaticamente a pasta de saída no contentor de blobs adftutorial. Em seguida, copia o ficheiro emp.txt da pasta de entrada para a pasta de saída. 
 
 1. No portal do Azure, na página do contentor **adftutorial**, clique em **Atualizar** para ver a pasta de saída. 
     
-    ![Actualizar](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    ![Atualizar](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 2. Clique em **saída** na lista de pastas. 
 2. Confirme se o ficheiro **emp.txt** foi copiado para a pasta de saída. 
 
-    ![Actualizar](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    ![Atualizar](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Pode limpar os recursos que criou no Guia de Introdução de duas formas. Pode eliminar o [grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md), que inclui todos os recursos no grupo de recursos. Se quiser manter os outros recursos intactos, elimine apenas a fábrica de dados que criou neste tutorial.

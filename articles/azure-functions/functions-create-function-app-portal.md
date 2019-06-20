@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad9c50953447c1effee48eec5b0cb9f64386e6cc
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61342441"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155580"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar uma aplicação de funções a partir do portal do Azure
 
@@ -27,7 +27,7 @@ As Aplicações das Funções do Azure utilizam a infraestrutura do Serviço de 
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-Quando criar uma aplicação de funções, indique um **Nome da aplicação** válido, que contenha apenas letras, números e hífenes. O caráter de sublinhado (**_**) não é um caráter permitido.
+Quando criar uma aplicação de funções, indique um **Nome da aplicação** válido, que contenha apenas letras, números e hífenes. O caráter de sublinhado ( **_** ) não é um caráter permitido.
 
 Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. O nome da sua conta do Storage tem de ser exclusivo no Azure. 
 
@@ -52,4 +52,7 @@ Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+Enquanto o portal do Azure torna mais fácil criar e experimentar as funções, recomendamos [desenvolvimento local](functions-develop-local.md). Depois de criar uma aplicação de funções no portal, ainda assim será preciso adicionar uma função. 
+
+> [!div class="nextstepaction"]
+> [Adicionar uma função acionada por HTTP](functions-create-first-azure-function.md#create-function)

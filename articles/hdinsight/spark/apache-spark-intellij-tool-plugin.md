@@ -5,17 +5,17 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 94cc41890778e842cb2e4bd6e06b90361cbef1cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d03fbcc59b0340e8a99d71f9b08f4405a89b30f3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066444"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274017"
 ---
-# <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utilizar o Azure Toolkit para IntelliJ para criar aplicativos de Apache Spark para um cluster do HDInsight
+# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Tutorial: Utilizar o Azure Toolkit para IntelliJ para criar aplicativos de Apache Spark para um cluster do HDInsight
 
 Utilizar o Azure Toolkit para IntelliJ Plug-in para desenvolver [Apache Spark](https://spark.apache.org/) aplicativos escritos em [Scala](https://www.scala-lang.org/)e, em seguida, enviá-los para um cluster do Spark do HDInsight diretamente a partir de desenvolvimento integrado do IntelliJ (IDE ambiente). Pode utilizar o plug-in de diversas formas:
 

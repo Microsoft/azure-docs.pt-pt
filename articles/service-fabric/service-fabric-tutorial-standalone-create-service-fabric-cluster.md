@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1bcb7f9fadc79db0db17336f07f6d58302433c1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f978087a935bcf6ac78760fee5842573eb3a326e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717973"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274109"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar o cluster do Service Fabric
 
-Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, vai criar um cluster autónomo alojado no AWS e instale uma aplicação no mesmo.
+Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Esta série de tutoriais, criar um cluster autónomo hospedado no AWS ou do Azure e instalar uma aplicação para o mesmo.
 
 Este tutorial é a segunda parte de uma série. Este tutorial explica os passos para criar um cluster autónomo do Service Fabric.
 
@@ -37,7 +37,7 @@ Na segunda parte da série, saiba como:
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Transfira o pacote do Service Fabric para o Windows Server
 
-O Service Fabric fornece um pacote de configuração para criar clusters autónomos do Service Fabric.  [Transfira o pacote de configuração](https://go.microsoft.com/fwlink/?LinkId=730690) para o seu computador local.  Depois de transferir com êxito, faça uma cópia sobre a ligação de RDP para a instância de EC2 e cole-a no Ambiente de trabalho.
+O Service Fabric fornece um pacote de configuração para criar clusters autónomos do Service Fabric.  [Transfira o pacote de configuração](https://go.microsoft.com/fwlink/?LinkId=730690) para o seu computador local.  Assim que tiver transferido com êxito copiá-lo através da ligação de RDP para a VM e cole-o na área de trabalho.
 
 Selecione o ficheiro zip, abra o menu de contexto e selecione **Extrair Todos** > **Extrair**.  À medida que extrai os ficheiros, irá gerar uma pasta no ambiente de trabalho com o mesmo nome de ficheiro do zip.
 

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: 69460a111e6fd879807b4025d6832b3ac515a9b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1b201957a33acd609eed8a2373c8201bdefe9d7d
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "64691996"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associar um endereço IP público a uma máquina virtual
@@ -43,7 +43,7 @@ Pode utilizar o [portal do Azure](#azure-portal), o Azure [interface de linha de
    > [!NOTE]
    > Endereços IP públicos são associados a configurações de IP para uma interface de rede. Na imagem anterior, a interface de rede tem uma configuração de IP. Se a interface de rede tinha várias configurações de IP, todos eles seriam apresentados na lista e deverá selecionar a configuração de IP que pretende associar o endereço IP público para.
 
-5. Selecione **Enabled**, em seguida, selecione **endereço IP (*configurar definições necessárias*)**. Escolha um endereço IP público existente, que fecha automaticamente a **escolher endereço IP público** caixa. Se não tiver quaisquer endereços IP públicos disponíveis listados, terá de criar uma. Para saber como, veja [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address). Selecione **guardar**, conforme mostrado na imagem que se segue e, em seguida, feche a caixa para a configuração de IP.
+5. Selecione **Enabled**, em seguida, selecione **endereço IP (*configurar definições necessárias*)** . Escolha um endereço IP público existente, que fecha automaticamente a **escolher endereço IP público** caixa. Se não tiver quaisquer endereços IP públicos disponíveis listados, terá de criar uma. Para saber como, veja [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address). Selecione **guardar**, conforme mostrado na imagem que se segue e, em seguida, feche a caixa para a configuração de IP.
 
    ![Ativar o endereço IP público](./media/associate-public-ip-address-vm/enable-public-ip-address.png)
 

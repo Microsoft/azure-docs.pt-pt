@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88fb243af7628b159a2255c2cdae2ab86f39ca1e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556098"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275481"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Criar um pipeline CI/CD para .NET com projetos de DevOps do Azure
 
@@ -44,17 +44,13 @@ Projetos de DevOps cria um pipeline CI/CD no Azure DevOps. Pode criar uma nova o
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecione um exemplo de aplicação e serviço do Azure
 
-1. Selecione a aplicação de exemplo do .NET. Os exemplos de .NET incluem uma escolha da arquitetura de ASP.NET open source ou da arquitetura de .NET Core para várias plataformas.
+1. Selecione o exemplo de aplicação **.NET**. Os exemplos de .NET incluem uma escolha da arquitetura de ASP.NET open source ou da arquitetura de .NET Core para várias plataformas.
 
     ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. Selecione a estrutura da aplicação .NET Core.  
-    Este exemplo corresponde a uma aplicação MVC ASP.NET Core.
+2. Este exemplo corresponde a uma aplicação MVC ASP.NET Core. Selecione o **.NET Core** estrutura de aplicativo, em seguida, selecione **próxima**.    
     
-2. Selecione **Seguinte**.  
-    A aplicação Web no Windows é o destino de implementação do padrão.  Opcionalmente, pode escolher Aplicação Web no Linux ou Aplicação Web para Contentores.  A estrutura da aplicação, que escolheu anteriormente, dita o tipo de destino da implementação do serviço do Azure disponível aqui.  
-    
-3. Deixe o serviço predefinido e, em seguida, selecione **seguinte**.
+3. Selecione **aplicação de Web do Windows** como destino de implantação, em seguida, selecione **próxima**. Opcionalmente, pode escolher outros serviços do Azure para a sua implementação. A estrutura da aplicação, que escolheu anteriormente, dita o tipo do destino de implementação de serviço do Azure disponível aqui.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma subscrição do Azure 
 

@@ -1,19 +1,19 @@
 ---
 title: Fazer cópias de segurança de várias VMs do Azure com o PowerShell
 description: Este tutorial apresenta detalhes sobre cópia de segurança de várias VMs do Azure para um cofre de serviços de recuperação com o Azure PowerShell.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 2a35435f56a4bb09a8a1958fbc175ef7c889c380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7cbe2cca37ce237409042e40b4a60311aed2446c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127670"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273986"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer uma cópia de segurança de VMs do Azure com o PowerShell
 
@@ -48,7 +48,7 @@ Neste tutorial, ficará a saber como:
     ```
 
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 R [cofre dos serviços de recuperação](backup-azure-recovery-services-vault-overview.md) é um contentor lógico que armazena dados de cópia de segurança de recursos protegidos, como as VMs do Azure. Quando é executada uma tarefa de cópia de segurança, ele cria um ponto de recuperação no interior do Cofre de serviços de recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 

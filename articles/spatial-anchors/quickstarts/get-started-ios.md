@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b8ee1bdfece35d774cdc79595a495b0b3719a836
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56360238db8632e74a95c057a7fe643b5cea3151
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234125"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206824"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Início rápido: Criar uma aplicação iOS com o Azure âncoras espaciais, em Objective-C ou Swift
 
@@ -62,7 +62,7 @@ Navegue para `iOS/Objective-C/`.
 cd ./iOS/Objective-C/
 ```
 
-***
+---
 
 Executar `pod install --repo-update` para instalar os CocoaPods para o projeto.
 
@@ -80,7 +80,7 @@ open ./SampleSwift.xcworkspace
 open ./SampleObjC.xcworkspace
 ```
 
-***
+---
 
 ## <a name="configure-account-identifier-and-key"></a>Configurar o identificador de conta e chave
 
@@ -102,7 +102,7 @@ Localize a `SpatialAnchorsAccountKey` campo e substitua `Set me` com a chave de 
 
 Localize a `SpatialAnchorsAccountId` campo e substitua `Set me` com o identificador de conta.
 
-***
+---
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Implementar a aplicação no seu dispositivo iOS
 

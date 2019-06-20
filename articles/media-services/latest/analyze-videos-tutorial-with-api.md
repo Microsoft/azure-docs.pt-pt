@@ -1,5 +1,5 @@
 ---
-title: Analisar vídeos com os serviços de multimédia com .NET - Azure | Documentos da Microsoft
+title: Analisar vídeos com os Serviços de Multimédia do Azure | Microsoft Docs
 description: Siga os passos deste tutorial para analisar vídeos com os Serviços de Multimédia do Microsoft Azure.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2c26ba24f0262f7cf43f80b4f4deae464581d08d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415633"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273887"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Tutorial: Analisar vídeos com os serviços de multimédia v3 através do .NET
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Analisar vídeos com os serviços de multimédia v3
+
+> [!NOTE]
+> Mesmo que o tutorial utiliza a [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) exemplos, os passos gerais são os mesmos para [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), ou outro suportado [SDKs](media-services-apis-overview.md#sdks) .
 
 Este tutorial mostra-lhe como analisar vídeos com os Serviços de Multimédia do Microsoft Azure. Existem muitos cenários em que pode querer obter mais informações sobre conteúdos de áudio ou vídeos gravados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem executar o processamento de voz em texto para converter gravações de suporte de clientes num catálogo pesquisável, com índices e dashboards. Em seguida, o atacante pode obter informações sobre a sua empresa, como uma lista de queixas comuns, fontes de tais reclamações e outras informações úteis.
 
 Este tutorial mostrar-lhe como:    
-
+ 
 > [!div class="checklist"]
 > * Transferir a aplicação de exemplo descrita no tópico
 > * Examinar o código que analisa o vídeo especificado

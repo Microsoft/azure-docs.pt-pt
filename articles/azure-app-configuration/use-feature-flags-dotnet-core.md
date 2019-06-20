@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 577cb55ce381976a6d623b272b920d0d1bf2eeb9
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144006"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274143"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Utilizar os sinalizadores de recurso numa aplicação ASP.NET Core
 
@@ -189,10 +189,10 @@ public class HomeController : Controller
 
 ## <a name="controller-actions"></a>Ações do controlador
 
-Controladores do MVC, vai utilizar o `Feature` de atributo para controlar se uma classe de controlador inteiro ou uma ação específica está ativada. O seguinte procedimento `HomeController` controlador requer `FeatureA` ser *no* antes de qualquer ação que contém a classe de controlador pode ser executada:
+Controladores do MVC, vai utilizar o `FeatureGate` de atributo para controlar se uma classe de controlador inteiro ou uma ação específica está ativada. O seguinte procedimento `HomeController` controlador requer `FeatureA` ser *no* antes de qualquer ação que contém a classe de controlador pode ser executada:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
     ...
@@ -202,7 +202,7 @@ public class HomeController : Controller
 O seguinte procedimento `Index` ação requer `FeatureA` ser *no* antes de ser executado:
 
 ```csharp
-[Feature(MyFeatureFlags.FeatureA)]
+[FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {
     return View();
@@ -218,6 +218,25 @@ Em modos de exibição do MVC, pode usar um `<feature>` marca para processar con
 ```html
 <feature name="FeatureA">
     <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
+
+Para exibir conteúdo alternativo quando não são cumpridos os requisitos do `negate` atributo pode ser utilizado.
+
+```html
+<feature name="FeatureA" negate="true">
+    <p>This will be shown if 'FeatureA' is disabled.</p>
+</feature>
+```
+
+A funcionalidade `<feature>` marca também pode ser utilizada para mostrar o conteúdo se quaisquer ou todas as funcionalidades numa lista estão ativadas.
+
+```html
+<feature name="FeatureA, FeatureB" requirement="All">
+    <p>This can only be seen if 'FeatureA' and 'FeatureB' are enabled.</p>
+</feature>
+<feature name="FeatureA, FeatureB" requirement="Any">
+    <p>This can be seen if 'FeatureA', 'FeatureB', or both are enabled.</p>
 </feature>
 ```
 

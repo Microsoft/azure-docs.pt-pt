@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Efetua uma pesquisa de notícias com Ruby - API de REST de pesquisa de notícias do Bing'
+title: 'Início rápido: Realizar uma pesquisa de notícias com Ruby e a API de REST de pesquisa do Bing notícias'
 titlesuffix: Azure Cognitive Services
 description: Utilize este guia de introdução para enviar um pedido para a API de REST do Search do Bing notícias com Ruby e receber uma resposta JSON.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/19/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9ed658c6613d270ab3de67a8800263d677d70bac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5db8d9055ff973c3de1b995340d77004d889aa3d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539882"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272727"
 ---
 # <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Início rápido: Executar uma pesquisa de notícias com Ruby e a API de REST de pesquisa do Bing notícias
 

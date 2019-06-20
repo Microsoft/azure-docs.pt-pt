@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: sngun
 ms.openlocfilehash: e7fc8f57c0fe290809354ce19fe92337178a84b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151281"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184802"
 ---
 Quando tiver terminado com a sua aplicação web e a conta do Azure Cosmos DB, pode eliminar os recursos do Azure que criou para que não incorra mais custos. Para eliminar os recursos:
 

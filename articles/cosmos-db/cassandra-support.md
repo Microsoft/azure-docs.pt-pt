@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6fc9f1a5c32fc9ffa1e1e6ebe525b72030fe803
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60895084"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155659"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funcionalidades do Apache Cassandra suportadas pela API para Cassandra do Azure Cosmos DB 
 
@@ -74,6 +74,8 @@ A API para Cassandra do Azure Cosmos DB suporta os seguintes tipos de dados de C
 A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
 
 * Certificado de  
+* Funções de agregação
+  * Mín, Máx, média, contagem
 * Funções de conversão de blobs 
   * typeAsBlob(valor)  
   * blobAsType(valor)
@@ -88,7 +90,8 @@ A API para Cassandra do Azure Cosmos DB suporta as seguintes funções de CQL:
   * toDate(carimbo de data/hora)  
   * toUnixTimestamp(carimbo de data/hora)  
   * toTimestamp(data)  
-  * toUnixTimestamp(data)  
+  * toUnixTimestamp(data) 
+  
 
 
 ## <a name="cassandra-query-language-limits"></a>Limites da Linguagem de Consulta do Cassandra
@@ -154,11 +157,11 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mapeamento de consistência 
 
-A API para Cassandra do Azure Cosmos DB permite que haja consistência em operações de leitura. Todas as operações de escrita, independentemente da consistência da conta, são sempre escritas com SLAs de desempenho de escrita.
+A API para Cassandra do Azure Cosmos DB permite que haja consistência em operações de leitura.  O mapeamento de consistência é detalhado [aqui [(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Gestão de permissões e funções
 
-O Azure Cosmos DB suporta o controlo de acesso baseado em funções (RBAC) e palavras-passe/chave de leitura/escrita e só de leitura que podem ser obtidas através do [portal do Azure](https://portal.azure.com). O Azure Cosmos DB ainda não suporta utilizadores e funções para atividades de plano de dados. 
+O Azure Cosmos DB suporta o controlo de acesso baseado em funções (RBAC) para aprovisionamento, a rotação das chaves, a visualização de métricas e leitura / escrita e só de leitura palavras-passe/chaves que podem ser obtidas através da [portal do Azure](https://portal.azure.com). O Azure Cosmos DB ainda não suporta utilizadores e funções para atividades CRUD. 
 
 ## <a name="planned-support"></a>Suporte planeado 
 * O nome da região no comando create keyspace é ignorado no presente – A distribuição de dados é implementada na plataforma Cosmos DB subjacente e exposta através do portal ou do PowerShell da conta. 

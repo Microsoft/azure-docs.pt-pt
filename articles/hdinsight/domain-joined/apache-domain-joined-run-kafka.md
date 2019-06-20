@@ -1,18 +1,18 @@
 ---
-title: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package - Azure
-description: Saiba como configurar as políticas do Apache Ranger para Kafka no Azure HDInsight com o Pacote de Segurança Enterprise.
+title: Tutorial - configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package - Azure
+description: Tutorial – Saiba como configurar políticas do Apache Ranger para o Kafka no HDInsight do Azure com o Enterprise Security Package.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 01/14/2019
-ms.openlocfilehash: 6434f7cae3c3fa402efad00b2f6bfb0bc405f9e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/18/2019
+ms.openlocfilehash: 3a7d3a5d066db349bd3002b244d3a9f88777369b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730244"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274344"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (pré-visualização)
 
@@ -117,7 +117,7 @@ Para criar dois tópicos, `salesevents` e `marketingspend`:
    ```
 
    > [!Note]  
-   > Antes de continuar, terá de configurar o ambiente de desenvolvimento, se ainda não o tiver feito. Precisará de componentes, como o Java JDK, Apache Maven e um cliente SSH com scp. Para obter mais detalhes, consulte [instruções de configuração](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
+   > Antes de continuar, terá de configurar o ambiente de desenvolvimento, se ainda não o tiver feito. Precisará de componentes, como o Java JDK, Apache Maven e um cliente SSH com scp. Para obter mais informações, consulte [instruções de configuração](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
    
 1. Transfira os [exemplos de consumidor produtor associados a um domínio do Apache Kafka](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer).
 

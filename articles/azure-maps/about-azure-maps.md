@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8092cd169f93a6815e52517d805941ac7ddcbbc0
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 2368d097cc0bfe82d0b869c3c8eb48760cc41616
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66807507"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275121"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
-Mapas do Azure é uma coleção de serviços geoespaciais, desagregado pelos dados de mapeamento mais recentes disponíveis dar contexto geográfico preciso para as suas aplicações web e móveis. Mapas do Azure consiste em REST APIs para a composição **Maps** em vários estilos e imagens de satélite, **pesquisa** para endereços, locais e pontos de interesse em todo o mundo; **Encaminhamento** ponto a ponto, multipoint, otimização de multipoint, isochrone, veículos comerciais, tráfego influenciada e matriz encaminhamento; ver o fluxo de tráfego de líderes do setor e incidentes; **Mobilidade** serviços pedir trânsito público, partilha de bicicletas, partilha scooter e carro partilhar informações para planear a tirar partido da alternativos modos de transporte e dados em tempo real; estabelecimento de localização do utilizador através de rotas **Geolocalização**; e a localização para a converter **fusos horários**, bem como a obter a hora num local. Além disso, o Azure Maps oferece serviços para **barreira geográfica**, mapa **dados** armazenamento - informações de localização no Azure; de alojamento e **operações geográficos** fornecendo local inteligência através da análise de dados geoespaciais. Serviços de mapas do Azure estão disponíveis diretamente como REST APIs ou através de um nosso robusto **Web SDK** ou **Android SDK**. Essas ferramentas permitem que os desenvolvedores para desenvolver rapidamente e soluções de escala que integram informações de localização em soluções do Azure a partir da cloud do Azure. Inscreva-se sua livre [conta do Azure Maps](https://azure.microsoft.com/services/azure-maps/) hoje e no desenvolvimento de início!
+Mapas do Azure é uma coleção de serviços geoespaciais, underpinned pelos dados de mapeamento mais recentes disponíveis dar contexto geográfico preciso para as suas aplicações web e móveis. Mapas do Azure consiste em REST APIs para a composição **Maps** em vários estilos e imagens de satélite, **pesquisa** para endereços, locais e pontos de interesse em todo o mundo; **Encaminhamento** ponto a ponto, multipoint, otimização de multipoint, isochrone, veículos comerciais, tráfego influenciada e matriz encaminhamento; ver o fluxo de tráfego de líderes do setor e incidentes; **Mobilidade** serviços pedir trânsito público, partilha de bicicletas, partilha scooter e carro partilhar informações para planear a tirar partido da alternativos modos de transporte e dados em tempo real; estabelecimento de localização do utilizador através de rotas **Geolocalização**; e a localização para a converter **fusos horários**, bem como a obter a hora num local. Além disso, o Azure Maps oferece serviços para **barreira geográfica**, mapa **dados** armazenamento - informações de localização no Azure; de alojamento e **operações geográficos** fornecendo local inteligência através da análise de dados geoespaciais. Serviços de mapas do Azure estão disponíveis diretamente como REST APIs ou através de um nosso robusto **Web SDK** ou **Android SDK**. Essas ferramentas permitem que os desenvolvedores para desenvolver rapidamente e soluções de escala que integram informações de localização em soluções do Azure a partir da cloud do Azure. Inscreva-se sua livre [conta do Azure Maps](https://azure.microsoft.com/services/azure-maps/) hoje e no desenvolvimento de início!
 
 O vídeo seguinte explica o Azure Maps detalhadamente:
 
@@ -151,12 +151,12 @@ Certifique-se de que a localização do seu endereço IP atual não está dos n�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre as novas funcionalidades do Azure Maps:
-
-> [!div class="nextstepaction"]
-> [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/) (Matriz de Rota, Isocrones, pesquisa de IP e mais)
-
 Experimente uma aplicação de exemplo que mostra os mapas do Azure:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Criar uma aplicação web](quick-demo-map-app.md)
+
+Mantenha-se atualizado sobre o Azure Maps: 
+
+> [!div class="nextstepaction"]
+> [Blogue de mapas do Azure](https://azure.microsoft.com/blog/topics/azure-maps/)

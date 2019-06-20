@@ -9,11 +9,11 @@ ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 28d003e123069c47d87d81570b4a5b69b3b9d64b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66128226"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184629"
 ---
 1. Para criar um recurso do serviço Azure SignalR, primeiro inicie sessão para o [portal do Azure](https://portal.azure.com). No lado do canto superior esquerdo da página, selecione **+ criar um recurso**. Na **pesquisar no Marketplace** texto, digite **serviço SignalR**.
 
@@ -28,7 +28,7 @@ ms.locfileid: "66128226"
     | Grupo de recursos | Criar um grupo de recursos com o nome *SignalRTestResources*| Selecione ou crie um grupo de recursos para o seu recurso SignalR. Este grupo é útil para organizar os vários recursos que pode querer eliminar ao mesmo tempo, eliminando o grupo de recursos. Para obter mais informações, consulte [Utilizar grupos de recursos para gerir os seus recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md). |
     | Location | *EUA Leste* | Utilize **Localização** para especificar a localização geográfica onde o seu recurso SignalR está alojado. Para obter o melhor desempenho, recomendamos que crie o recurso na mesma região que os outros componentes da sua aplicação. |
     | Escalão de preço | *Gratuito* | Atualmente, **gratuito** e **padrão** opções estão disponíveis. |
-    | Afixar no dashboard | ✔ | Selecione esta caixa para que o recurso afixado ao dashboard para que seja mais fácil encontrar. |
+    | Afixar ao dashboard | ✔ | Selecione esta caixa para que o recurso afixado ao dashboard para que seja mais fácil encontrar. |
 
 4. Selecione **Criar**. A implementação pode demorar alguns minutos a concluir.
 

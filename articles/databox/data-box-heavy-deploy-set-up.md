@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 06/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: d4cdc9b6c31c62080fed5a8528577fef72c01c3f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427939"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271720"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Tutorial: Instalar os cabos e ligue ao seu Azure dados caixa pesadas (pré-visualização)
 
@@ -79,7 +79,7 @@ Siga os passos seguintes para instalar os cabos do dispositivo.
 Num de nós do dispositivo, siga os passos seguintes para o cabo de rede.
 
 1. Utilize um cabo de rede CAT 6 RJ-45 (cabo azul na imagem) para ligar o computador anfitrião à porta de gestão de 1 Gbps.
-2. Utilize um cabo do Twinax QSFP + cobre (cabos pretas na figura a) para ligar, pelo menos, uma interface de rede de 40 Gbps (preferidas mais de 1 Gbps) para dados. Se utilizar um comutador de 10 Gbps, utilize um cabo de cobre Twinax SFP + com um QSFP + SFP + adaptador (adaptador qsa independente) para ligar a 40 Gbps interface para os dados de rede.
+2. Utilize um QSFP + cabo (fiber ou cobre) para ligar, pelo menos, uma interface de rede de 40 Gbps (preferidas mais de 1 Gbps) para dados. Se utilizar um comutador de 10 Gbps, utilize um cabo de SFP + com um QSFP + SFP + adaptador (adaptador qsa independente) para ligar a interface de rede Gbps 40 para dados.
 
     ![Portas de caixa pesada dados instalou os cabos](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

@@ -17,12 +17,12 @@ ms.date: 06/04/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8e6873a1ef44e8919d08d24dbab88c63ebb45bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57c5b7a6044de0413c07538e5f1e6034e210d529
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110507"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155226"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade de dispositivo?
 
@@ -33,7 +33,7 @@ Num mundo “mobile-first, cloud-first”, o Azure Active Directory (Azure AD) p
 
 Através dos dispositivos no Azure AD, os seus utilizadores estão a obter acesso aos seus recursos empresariais. Para proteger os ativos corporativos, como um administrador de TI, que pretende gerir estas identidades de dispositivos. Isto permite garantir que os seus utilizadores estão a aceder aos seus recursos a partir de dispositivos que cumprem os seus padrões de segurança e conformidade.
 
-Gestão de identidades de dispositivo também é a base para [acesso condicional com base no dispositivo](../conditional-access/require-managed-devices.md). Com o acesso condicional com base no dispositivo, pode certificar-se de que o acesso a recursos no seu ambiente apenas é possível com os dispositivos geridos.
+Gestão de identidades de dispositivo também é a base para [acesso condicional com base no dispositivo](../conditional-access/require-managed-devices.md). Com o acesso condicional baseado no dispositivo, pode certificar-se de que o acesso a recursos no seu ambiente é apenas possível com os dispositivos geridos.
 
 ## <a name="getting-devices-in-azure-ad"></a>Introdução de dispositivos no Azure AD
 
@@ -44,7 +44,7 @@ Para obter um dispositivo no Azure AD, tem duas opções:
 
 **Registar** um dispositivo no Azure AD permite-lhe gerir a identidade do mesmo. Quando é registado um dispositivo, o registo do Azure (AD) fornece ao dispositivo uma identidade que é utilizada para o autenticar quando um utilizador inicia sessão no Azure AD. Pode utilizar a identidade para ativar ou desativar o dispositivo.
 
-Ao serem combinados com uma solução de gestão de dispositivos móveis (MDM), como o Microsoft Intune, os atributos do dispositivo no Azure AD são atualizados com informações adicionais sobre o mesmo. Isto permite-lhe criar regras de acesso condicional que impõem o acesso a partir de dispositivos para cumprir as normas de segurança e conformidade. Para obter mais informações sobre como inscrever dispositivos no Microsoft Intune, consulte [o que é a inscrição de dispositivos?](https://docs.microsoft.com/intune/device-enrollment)
+Ao serem combinados com uma solução de gestão de dispositivos móveis (MDM), como o Microsoft Intune, os atributos do dispositivo no Azure AD são atualizados com informações adicionais sobre o mesmo. Isto permite criar regras de acesso condicional que impõem o acesso a partir de dispositivos para cumprir as normas de segurança e conformidade. Para obter mais informações sobre como inscrever dispositivos no Microsoft Intune, consulte [o que é a inscrição de dispositivos?](https://docs.microsoft.com/intune/device-enrollment)
 
 **Associar** um dispositivo é uma extensão ao registo. Isto significa que a associação lhe dá todas as vantagens de registar o dispositivo e, para além disso, também altera o estado local do mesmo. A alteração do estado local permite aos seus utilizadores iniciarem sessão num dispositivo com uma conta escolar ou profissional da organização em vez de uma conta pessoal.
 
@@ -71,6 +71,7 @@ O objetivo dos dispositivos associados ao Azure AD é simplificar:
 - As implementações de dispositivos detidos pela organização no Windows
 - O acesso a aplicações e recursos da organização a partir de qualquer dispositivo Windows
 - A gestão baseada na cloud de dispositivos detidos pela organização
+- Os utilizadores iniciem sessão nos seus dispositivos com o seu Azure AD ou do Active Directory sincronizado contas escolares ou.
 
 ![Dispositivos registados no Azure AD](./media/overview/02.png)
 
@@ -137,12 +138,10 @@ Como regra geral, deve utilizar:
 - Dispositivos associados ao Azure AD:
    - Para dispositivos que sejam detidos pela sua organização
    - Para dispositivos que **não** estão associados a um AD no local
-   - Para registar dispositivos no Azure AD manualmente
    - Para alterar o estado local de um dispositivo
 - Dispositivos híbridos associados ao Azure AD para dispositivos que estejam associados a um AD no local
    - Para dispositivos que sejam detidos pela sua organização
    - Para dispositivos que estão associados a um AD no local
-   - Para registar dispositivos no Azure AD automaticamente
    - Para alterar o estado local de um dispositivo
 
 ## <a name="license-requirements"></a>Requisitos de licença

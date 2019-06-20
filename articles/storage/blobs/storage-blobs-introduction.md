@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 450e3b0a25f4be90aea26adfd4c35efc3077af57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e216503cac2db55115bd4c1b5bf0e2f6e50355fc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071398"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190843"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao Armazenamento de blobs do Azure
 
@@ -56,7 +56,7 @@ O armazenamento do Azure suporta três tipos de blobs:
 
 * **Blobs de blocos** armazenar dados de texto e binário, até 4,7 TB. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente.
 * **Blobs de acréscimo** são constituídos por blocos, como blobs de blocos, mas estão otimizados para operações de acréscimo. Os blobs de acréscimo são ideais para cenários como os dados de registo a partir de máquinas virtuais.
-* **Blobs de páginas** acesso aleatório de armazenamento de ficheiros até 8 TB de tamanho. Os blobs de páginas arquivo que os ficheiros de disco rígido virtual (VHD) servem como discos de máquinas virtuais do Azure. Para obter mais informações sobre blobs de páginas, consulte [blobs de páginas de descrição geral do Azure](storage-blob-pageblob-overview.md)
+* **Blobs de páginas** acesso aleatório de armazenamento de ficheiros até 8 TB de tamanho. Blobs de páginas armazenam ficheiros de disco rígido virtual (VHD) e servem como discos de máquinas virtuais do Azure. Para obter mais informações sobre blobs de páginas, consulte [blobs de páginas de descrição geral do Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de blobs, veja [Noções básicas sobre Blobs de blocos, Blobs de acréscimo e Blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

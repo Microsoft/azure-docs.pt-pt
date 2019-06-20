@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f8189b5a90f7e9114ec39a874cc60912ac2bb0ce
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a0ca2adebe662c72eb476e800e17092ddbba34a0
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873005"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275606"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Início rápido: Utilizar a Cache do Azure para Redis com Python
 
@@ -66,6 +66,9 @@ True
 >>> r.get('foo')
 b'bar'
 ```
+
+> [!IMPORTANT]
+> Para Redis versão é a 3.0 ou superior, a verificação de certificado SSL é aplicada. ssl_ca_certs tem de ser explicitamente definido quando se liga ao Redis. Em caso de Linux de RH, ssl_ca_certs podem ser encontradas no "/ etc/pki/tls/certs/ca-bundle.crt" módulo de certificado.
 
 ## <a name="create-a-python-script"></a>Criar um script Python
 
@@ -113,7 +116,7 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-web-app-howto/cache-delete-resource-group.png)
 

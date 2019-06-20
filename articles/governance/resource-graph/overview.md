@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4724789dd1a0893c5ef4ab112306c185f0e87da7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162068"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274378"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Descrição geral do serviço de gráfico de recursos do Azure
 
@@ -71,7 +71,7 @@ Gráfico de recursos regula consultas no nível do usuário. A resposta do servi
 - `x-ms-user-quota-remaining` (int): A quota de recursos restantes para o utilizador. Este valor é mapeado para a contagem de consulta.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo de quota de um utilizador é reposto
 
-Para obter mais informações, consulte [Gestor de recursos de limitação de pedidos](../../azure-resource-manager/resource-manager-request-limits.md).
+Para obter mais informações, consulte [orientações para pedidos limitados](./concepts/guidance-for-throttled-requests.md).
 
 ## <a name="running-your-first-query"></a>Executar a primeira consulta
 

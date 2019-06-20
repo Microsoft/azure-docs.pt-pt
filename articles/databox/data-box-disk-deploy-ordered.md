@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 06/17/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 5f8fd9b2ecb58b34476bf8ecca7aa08dfc446040
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603178"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273403"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicite um disco de caixa de dados do Azure
 
@@ -49,7 +49,12 @@ Antes de começar, certifique-se de que:
 
 ## <a name="order-data-box-disk"></a>Encomendar o Data Box Disk
 
-Execute os seguintes passos no [portal do Azure](https://aka.ms/azuredataboxfromdiskdocs) para encomendar o Data Box Disk.
+Inicie sessão no:
+
+- O portal do Azure neste URL: https://portal.azure.com para ordem disco Data Box.
+- Ou, no portal do Azure Government neste URL: https://portal.azure.us. Para obter mais detalhes, aceda a [ligue-se ao utilizar o portal do Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
+Siga os passos seguintes para ordem disco Data Box.
 
 1. No canto superior esquerdo do portal, clique em **+ Criar um recurso**e procure *Azure Data Box*. Clique em **Azure Data Box**.
     

@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8b340eeaaae41815482f4dfed4168dfd8367aba9
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60876244"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143897"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Descrição geral do serviço Azure esquemas
 
@@ -109,7 +109,7 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 Todas as permissões acima estão incluídas no **proprietário** função. O **contribuinte** função tem permissões de esquema de esquema e eliminação de criação, mas não tem permissões de atribuição do esquema. Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> O principal de serviço do Azure Blueprint requer a função **Proprietário** na subscrição atribuída para ativar a implementação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação.
+> Se utilizar um sistema-atribuídas a identidade gerida, o principal de serviço para o esquema do Azure requer o **proprietário** função na subscrição atribuída para ativar a implementação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se utilizar um atribuído ao utilizador a identidade gerida, apenas o utilizador a criar a atribuição do esquema precisa **proprietário** permissões.
 
 ## <a name="video-overview"></a>Descrição geral do vídeo
 

@@ -1,24 +1,17 @@
 ---
 title: Implementação Resource Manager e implementação clássica | Microsoft Docs
 description: Descreve as diferenças entre o modelo de implementação Resource Manager e o modelo de implementação clássica (ou Gestão de Serviço).
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: c8aafa2dc2798aee5576dab4781b42d4aa67ddd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 773d369f23154a510624169b9329555a1f865320
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128497"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206318"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Gestor de recursos do Azure vs. de implementação clássica: Compreender os modelos de implementação e o estado dos seus recursos
 
@@ -109,7 +102,7 @@ A solução clássica para alojar uma máquina virtual inclui:
 
 A tabela seguinte descreve as alterações na forma como os fornecedores de Computação, Rede e Armazenamento interagem:
 
-| Item | Clássico | Resource Manager |
+| Item | Clássica | Resource Manager |
 | --- | --- | --- |
 | Serviço em Nuvem para Máquinas Virtuais |O Serviço em Nuvem era um contentor para manter máquinas virtuais que exigiam Disponibilidade a partir de plataforma e o Balanceamento de Carga. |O Serviço em Nuvem já não é um objeto necessário para criar uma Máquina Virtual com o novo modelo. |
 | Redes Virtuais |Uma rede virtual é opcional para a máquina virtual. Se for incluída, não pode ser implementada com o Resource Manager. |A máquina virtual requer uma rede virtual que tenha sido implementada com o Resource Manager. |

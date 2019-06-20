@@ -1,5 +1,5 @@
 ---
-title: O que é DNS privado do Azure?
+title: O que é o DNS Privado do Azure?
 description: Uma visão geral do DNS privado que aloja o serviço no Microsoft Azure.
 services: dns
 author: vhorne
@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: a8548b4972d5853f09630ae3e9ded05ed6fee32b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 7012bbe98e41a3eb273b26e7e4ade705a6eaf8e1
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076401"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147570"
 ---
-# <a name="what-is-azure-private-dns"></a>O que é DNS privado do Azure?
+# <a name="what-is-azure-private-dns"></a>O que é o DNS Privado do Azure?
 
 > [!IMPORTANT]
 > O DNS privado do Azure está atualmente em pré-visualização pública.
@@ -64,21 +64,11 @@ O DNS do Azure fornece as seguintes capacidades:
 
 O DNS do Azure tem as seguintes limitações:
 
-* Rede virtual de apenas um registo é permitido por zona privada.
-* Até 10 resolução redes virtuais são permitidas por zona privada. Este limite será removido quando esta funcionalidade está disponível em geral.
-* Uma rede virtual específica pode ser ligada a apenas uma zona privada como uma rede virtual de registo.
-* Uma rede virtual específica pode ser ligada para zonas privadas do até 10 como uma rede virtual de resolução. Este limite será removido quando esta funcionalidade está disponível em geral.
-* Se especificar uma rede virtual de registo, os registos DNS para as VMs da rede virtual que estão registados para a zona privada não são visíveis ou recuperáveis a partir do Azure Powershell e APIs de CLI do Azure. Os registos VM, de fato, estão registados e serão resolvido com êxito.
-* Inversa de DNS de funciona apenas para o espaço IP privados na rede virtual de registo.
-* DNS inverso para um IP privado que não está registado na zona privada (por exemplo, um IP privado para uma máquina virtual numa rede virtual que está ligada como uma rede virtual de resolução a privada zona) devolve *internal.cloudapp.net* como o sufixo DNS. No entanto, este sufixo não é possível resolver.
-* A rede virtual tem de ser totalmente vazia na primeira vez que o liga a uma zona privada como uma rede virtual de registo ou resolução. No entanto, a rede virtual, em seguida, pode estar vazio para a ligação futuras como um registo ou resolução de rede virtual para outras zonas privadas.
-* Atualmente, o reencaminhamento condicional não é suportado (por exemplo, para ativar a resolução entre redes do Azure e local). Para obter informações sobre como os clientes podem obter este cenário através de outros mecanismos, consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* Uma rede virtual específica pode ser ligada a apenas uma zona privada, como se o registo automático de registos de DNS de VM está ativado. No entanto pode ligar várias redes virtuais a uma única zona DNS.
 * Inversa DNS funciona apenas para o espaço IP privados na rede virtual ligado
 * DNS inverso para um IP privado para uma rede virtual ligado devolve "internal.cloudapp.net" como o sufixo predefinido para a máquina virtual. Para as redes virtuais que estejam ligadas a uma zona privada com o registo automático ativado, DNS inverso para um IP privado devolve 2 FQDNs, uma com o padrão o sufixo *internal.cloudapp.net* e outra com o sufixo de zona privada.
-* Reencaminhamento condicional não é suportado. Por exemplo, para habilitar a resolução entre redes do Azure e no local. Saiba como pode ativar este cenário através de outros mecanismos. Consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Reencaminhamento condicional não é suportado nativamente no momento. Para habilitar a resolução entre redes do Azure e no local. Consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
-
-
 ## <a name="pricing"></a>Preços
 
 Para obter informações sobre preços, consulte [preços de DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).

@@ -1,17 +1,18 @@
 ---
-title: Configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package - Azure
-description: Saiba como configurar políticas do Apache Ranger para o HBase no HDInsight do Azure com o Enterprise Security Package.
+title: Tutorial - configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package - Azure
+description: Tutorial – Saiba como configurar políticas do Apache Ranger para o HBase no HDInsight do Azure com o Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
-ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 06/18/2019
+ms.openlocfilehash: 04592ba307cd696c20778d4a79f03be2eb0ac987
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926099"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274393"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package
 
@@ -109,7 +110,7 @@ Criar uma política Ranger **sales_user1** e **marketing_user1**.
    |Tabela de HBase   |  Clientes |
    |Família de colunas de HBase   |  Nome do contacto |
    |HBase Column   |  * |
-   |Selecionar Grupo  | |
+   |Selecionar grupo  | |
    |Selecionar Utilizador  | sales_user1 |
    |Permissões  | Leitura |
 
@@ -133,7 +134,7 @@ Criar uma política Ranger **sales_user1** e **marketing_user1**.
    |Tabela de HBase   |  Clientes |
    |Família de colunas de HBase   |  Contacto |
    |HBase Column   |  * |
-   |Selecionar Grupo  | |
+   |Selecionar grupo  | |
    |Selecionar Utilizador  | marketing_user1 |
    |Permissões  | Leitura |
 
@@ -159,7 +160,7 @@ Com base em políticas do Ranger configuradas, **sales_user1** pode ver todos os
    kinit sales_user1
    ```
 
-2. Abra a shell de hbase e a tabela de análise `Customers`.
+2. Abra a shell de HBase e a tabela de análise `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -201,7 +202,7 @@ Com base em políticas do Ranger configuradas, **sales_user1** pode ver todos os
    kinit marketing_user1
    ```
 
-2. Abra a shell de hbase e a tabela de análise `Customers`:
+2. Abra a shell de HBase e a tabela de análise `Customers`:
 
     ```hbaseshell
     hbase shell

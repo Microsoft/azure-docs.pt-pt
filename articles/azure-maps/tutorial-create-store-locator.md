@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0d7ca38ecb66dbf92678eae4da7d8706f68cbaa2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574397"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273813"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de arquivo com o Azure Maps
 
@@ -93,7 +93,7 @@ Existem várias maneiras de expor o conjunto de dados para a aplicação. Uma ab
 
 Outra abordagem é converter este conjunto de dados num arquivo de texto simples que o navegador pode analisar facilmente. O próprio ficheiro pode ser hospedado com o restante do aplicativo. Esta opção mantém as coisas simples, mas é uma boa opção apenas para conjuntos de dados menores porque o utilizador transfere todos os dados. Utilizamos o arquivo de texto simples para este conjunto de dados porque o tamanho do ficheiro de dados é inferior a 1 MB.  
 
-Para converter a pasta de trabalho para um arquivo de texto simples, guarde o livro como um ficheiro delimitado por tabulação. Cada coluna é delimitada por um caractere de tabulação, que faz com que as colunas mais fácil de analisar no nosso código. Poderia usar o formato de valores separados por vírgulas (CSV), mas essa opção exige mais lógica de análise. Qualquer campo que tenha uma vírgula em torno dele poderia ser colado entre aspas. Para exportar esses dados como um arquivo delimitado por tabulação no Excel, selecione **guardar como**. Na **guardar como tipo** na lista pendente, selecione **texto (separador delimited)(*.txt)**. Nomeie o arquivo *ContosoCoffee.txt*. 
+Para converter a pasta de trabalho para um arquivo de texto simples, guarde o livro como um ficheiro delimitado por tabulação. Cada coluna é delimitada por um caractere de tabulação, que faz com que as colunas mais fácil de analisar no nosso código. Poderia usar o formato de valores separados por vírgulas (CSV), mas essa opção exige mais lógica de análise. Qualquer campo que tenha uma vírgula em torno dele poderia ser colado entre aspas. Para exportar esses dados como um arquivo delimitado por tabulação no Excel, selecione **guardar como**. Na **guardar como tipo** na lista pendente, selecione **texto (separador delimited)(*.txt)** . Nomeie o arquivo *ContosoCoffee.txt*. 
 
 <br/>
 <center>
@@ -432,7 +432,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
 
         //Use subscriptionKeyCredential to create a pipeline
         const pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
-            retryOptions: { maxTries: 4 }, // Retry options
+            retryOptions: { maxTries: 4 } // Retry options
         });
 
         //Create an instance of the SearchURL client.
@@ -707,21 +707,6 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
         var camera = map.getCamera();
         var listPanel = document.getElementById('listPanel');
 
-        //Get all the shapes that have been rendered in the bubble layer.
-        var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
-
-        data.forEach(function(shape) {
-            if (shape instanceof atlas.Shape) {
-                //Calculate the distance from the center of the map to each shape, and then store the data in a distance property.  
-                shape.distance = atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles');
-            }
-        });
-
-        //Sort the data by distance.
-        data.sort(function(x, y) {
-            return x.distance - y.distance;
-        });
-
         //Check to see whether the user is zoomed out a substantial distance. If they are, tell the user to zoom in and to perform a search or select the My Location button.
         if (camera.zoom < maxClusterZoomLevel) {
             //Close the pop-up window; clusters might be displayed on the map.  
@@ -747,6 +732,25 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
             </div>
             */
 
+            //Get all the shapes that have been rendered in the bubble layer. 
+            var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
+
+            //Create an index of the distances of each shape.
+            var distances = {};
+
+            data.forEach(function (shape) {
+                if (shape instanceof atlas.Shape) {
+
+                    //Calculate the distance from the center of the map to each shape and store in the index. Round to 2 decimals.
+                    distances[shape.getId()] = Math.round(atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles') * 100) / 100;
+                }
+            });
+
+            //Sort the data by distance.
+            data.sort(function (x, y) {
+                return distances[x.getId()] - distances[y.getId()];
+            });
+
             data.forEach(function(shape) {
                 properties = shape.getProperties();
                 html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">',
@@ -760,8 +764,8 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
                 getOpenTillTime(properties),
                 '<br />',
 
-                //Route the distance to two decimal places.  
-                (Math.round(shape.distance * 100) / 100),
+                //Get the distance of the shape.
+                distances[shape.getId()],
                 ' miles away</div>');
             });
 
@@ -872,6 +876,9 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
             </div>
         */
 
+         //Calculate the distance from the center of the map to the shape in miles, round to 2 decimals.
+        var distance = Math.round(atlas.math.getDistanceTo(map.getCamera().center, shape.getCoordinates(), 'miles') * 100)/100;
+
         var html = ['<div class="storePopup">'];
         html.push('<div class="popupTitle">',
             properties['AddressLine'],
@@ -882,8 +889,8 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
             //Convert the closing time to a format that's easier to read.
             getOpenTillTime(properties),
 
-            //Route the distance to two decimal places.  
-            '<br/>', (Math.round(shape.distance * 100) / 100),
+            //Add the distance information.  
+            '<br/>', distance,
             ' miles away',
             '<br /><img src="images/PhoneIcon.png" title="Phone Icon"/><a href="tel:',
             properties['Phone'],
@@ -896,11 +903,11 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
             html.push('<br/>Amenities: ');
 
             if (properties['IsWiFiHotSpot']) {
-                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>')
+                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>');
             }
 
             if (properties['IsWheelchairAccessible']) {
-                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>')
+                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>');
             }
         }
 
