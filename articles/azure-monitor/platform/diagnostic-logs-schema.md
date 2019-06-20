@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789311"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155301"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
@@ -55,7 +55,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 | Azure Batch |[Registo de diagnóstico do Azure Batch](../../batch/batch-diagnostics.md) |
 | Base de Dados do Azure para MySQL | [Base de dados do Azure para MySQL registos de diagnóstico](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Base de Dados do Azure para PostgreSQL | [Base de dados do Azure para PostgreSQL registos de diagnóstico](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Serviços Cognitivos | Esquema não está disponível. |
+| Serviços Cognitivos | [Registo de diagnósticos para os serviços cognitivos do Azure](../../cognitive-services/diagnostic-logging.md) |
 | Rede de Entrega de Conteúdos | [Registos de diagnóstico do Azure CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registo do Azure Cosmos DB](../../cosmos-db/logging.md) |
 | Data Factory | [Monitorizar fábricas de dados através do Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 * [Stream registos de diagnóstico de recursos ao **dos Hubs de eventos**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Alterar definições de diagnóstico de recursos com a API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analisar registos do armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

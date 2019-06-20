@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989078"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147245"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurar clientes OpenVPN para o Gateway de VPN do Azure
 
@@ -26,7 +26,7 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
 
 ## <a name="windows"></a>Clientes do Windows
 
-1. Baixe e instale o cliente de OpenVPN do official [OpenVPN site](https://openvpn.net/index.php/open-source/downloads.html).
+1. Baixe e instale o cliente de OpenVPN (versão 2.4 ou superior) do official [OpenVPN site](https://openvpn.net/index.php/open-source/downloads.html).
 2. Transfira o perfil VPN para o gateway. Isso pode ser feito a partir do separador de configuração de ponto a site no portal do Azure ou "New-AzVpnClientConfiguration" no PowerShell.
 3. Deszipe o perfil. Em seguida, abra a *vpnconfig.ovpn* ficheiro de configuração a partir da pasta de OpenVPN usando o bloco de notas.
 4. [Exportar](vpn-gateway-certificates-point-to-site.md#clientexport) o cliente de P2S de certificado criado e carregado para a configuração de P2S no gateway.
@@ -61,7 +61,7 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
 
 ## <a name="mac"></a>Clientes Mac
 
-1. Transferir e instalar um cliente OpenVPN, tal como [TunnelBlik](https://tunnelblick.net/downloads.html). 
+1. Transferir e instalar um cliente OpenVPN, tal como [TunnelBlick](https://tunnelblick.net/downloads.html). 
 2. Transfira o perfil VPN para o gateway. Isso pode ser feito na guia configuração ponto a site no portal do Azure ou com "New-AzVpnClientConfiguration" no PowerShell.
 3. Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn pasta OpenVPN no bloco de notas.
 4. Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Ver [exportar a chave pública](vpn-gateway-certificates-point-to-site.md#cer) para obter informações sobre como exportar um certificado para obter a chave pública codificada.

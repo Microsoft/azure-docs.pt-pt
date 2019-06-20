@@ -2,18 +2,18 @@
 title: Guia de publicação oferta de aplicação gerida de aplicações do Azure
 description: Este artigo descreve os requisitos para publicar uma aplicação gerida no Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 12/19/2018
-ms.author: ellacroi
-ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/14/2018
+ms.author: v-qiwe
+ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937807"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154936"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicações do Azure: Guia de publicação de oferta de aplicação gerida
 
@@ -32,9 +32,8 @@ Utilizar a aplicação do Azure: geridos o tipo de oferta de aplicação quando 
 
 |Requisitos |Detalhes  |
 |---------|---------|
-|Implementado a subscrição de um cliente do Azure | Aplicações geridas, tem de ser implementadas numa subscrição do cliente e podem ser geridas por uma entidade de 3 | 
-|Faturação e medição    |  Os recursos serão aprovisionados na subscrição do Azure do cliente. Máquinas de virtuais de pay as you go (em PAYGO) será transacionadas com o cliente através da Microsoft, cobrado por meio da subscrição do cliente do Azure (em PAYGO) 
-No caso de bring-your-own-license, embora a Microsoft irá cobrar os custos de infraestrutura da subscrição de cliente, será transact seu software diretamente de taxas para o cliente de licenciamento        |
+|Implementado a subscrição de um cliente do Azure | Aplicações geridas, tem de ser implementadas numa subscrição do cliente e podem ser geridas por terceiros. | 
+|Faturação e medição    |  Os recursos serão aprovisionados na subscrição do Azure do cliente. Máquinas de virtuais de pay as you go (em PAYGO) será transacionadas com o cliente através da Microsoft, cobrado por meio da subscrição do cliente do Azure (em PAYGO). <br> No caso de bring-your-own-license, embora a Microsoft irá cobrar os custos de infraestrutura da subscrição de cliente, será transact seu software diretamente de taxas para o cliente de licenciamento.        |
 |Compatível com o Azure de disco rígido virtual (VHD)    |   As VMs devem ser criadas no Windows ou Linux.<ul> <ul> <li>Para obter mais informações sobre a criação de um VHD do Linux, consulte [distribuições do Linux apoiadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre a criação de um VHD do Windows, consulte [criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
@@ -50,4 +49,4 @@ Se ainda não fez isso,
 
 Se é registrado e estiver a criar uma nova oferta ou trabalhando num já existente
 
-- [Inicie sessão no Portal de parceiro de Cloud](https://cloudpartner.azure.com) para criar ou concluir sua oferta.
+- [Inicie sessão no Portal de parceiros de nuvem](https://cloudpartner.azure.com) para criar ou concluir sua oferta.

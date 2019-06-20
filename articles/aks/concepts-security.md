@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65074025"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
@@ -69,7 +69,7 @@ Para a conectividade e segurança com redes no local, pode implementar o cluster
 
 Para filtrar o fluxo de tráfego nas redes virtuais, o Azure utiliza regras do grupo de segurança de rede. Estas regras definem a origem e intervalos IP de destino, portas e protocolos que são permitidos ou negados o acesso aos recursos. Regras predefinidas são criadas para permitir tráfego TLS para o servidor de API do Kubernetes. Como criar serviços com balanceadores de carga, mapeamentos de porta ou rotas de entrada, o AKS modifica automaticamente o grupo de segurança de rede para o tráfego flua adequadamente.
 
-## <a name="kubernetes-secrets"></a>Segredos do Kubernetes
+## <a name="kubernetes-secrets"></a>Segredos de Kubernetes
 
 Kubernetes *segredo* é usado para inserir dados confidenciais no pods, como credenciais de acesso ou chaves. Primeiro, vai criar um segredo com a API do Kubernetes. Quando define seu pod ou a implementação, pode ser pedido um segredo específico. Segredos são fornecidos apenas para nós que têm um pod agendado que precise dela, e o segredo é armazenado na *tmpfs*, não é escrito no disco. Quando o último pod num nó de que necessita de um segredo é eliminado, o segredo é eliminado do tmpfs do nó. Segredos são armazenados dentro de um determinado espaço de nomes e apenas podem ser acedidos por pods dentro do mesmo espaço de nomes.
 

@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descreve os processos que espaços de desenvolvimento do Azure power e como eles são configurados no arquivo de configuração de azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 083ed45a8fa95ac5fc26af6547b5765acf80e43b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399836"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154550"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como os espaços de desenvolvimento do Azure funciona e é configurado
 
@@ -210,7 +210,7 @@ O `up` comando carrega os ficheiros de origem da aplicação e outros artefactos
 1. Cria o contentor para a sua aplicação.
 1. Implanta seu aplicativo para o espaço de desenvolvimento.
 1. Cria um nome DNS acessível ao público para o ponto final da aplicação, se configurado.
-1. Utiliza *porta-forward* para fornecer acesso ao seu ponto final de aplicação com http://locahost.
+1. Utiliza *porta-forward* para fornecer acesso ao seu ponto final de aplicação com http://localhost.
 1. Reencaminha stdout e stderr para as ferramentas do lado do cliente.
 
 

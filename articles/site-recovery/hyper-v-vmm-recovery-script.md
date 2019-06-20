@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362276"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700452"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicionar um script VMM para um plano de recuperação
 
@@ -45,7 +45,7 @@ Pode utilizar scripts do PowerShell nos seus planos de recuperação. Para ser a
   
   1. Abra o Editor de registo e, em seguida, aceda a **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Altere o valor de **ScriptLibraryPath** ao  **\\\libserver2.contoso.com\share\\**. Especifique o FQDN completo. Fornece permissões para a localização da partilha. Este é o nó de raiz da partilha. Para verificar o nó de raiz, no VMM, aceda ao nó de raiz na biblioteca. O caminho que se abre é a raiz do caminho. Este é o caminho que tem de utilizar a variável.
+  1. Altere o valor de **ScriptLibraryPath** ao  **\\\libserver2.contoso.com\share\\** . Especifique o FQDN completo. Fornece permissões para a localização da partilha. Este é o nó de raiz da partilha. Para verificar o nó de raiz, no VMM, aceda ao nó de raiz na biblioteca. O caminho que se abre é a raiz do caminho. Este é o caminho que tem de utilizar a variável.
 
   1. Teste o script com uma conta de utilizador que tenha o mesmo nível de direitos de usuário como a conta de serviço do VMM. Utilizar estes direitos de usuário verifica pelo autónomo, testados os scripts executados da mesma forma que eles são executados em planos de recuperação. No servidor do VMM, defina a política de execução para ignorar, da seguinte forma:
 

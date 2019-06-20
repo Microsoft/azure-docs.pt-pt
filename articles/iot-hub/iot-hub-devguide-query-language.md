@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442142"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137719"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do IoT Hub para twins de dispositivo e o módulo, tarefas e encaminhamento de mensagens
 
-O IoT Hub fornece uma poderosa linguagem de tipo SQL para obter informações sobre [dispositivos duplos](iot-hub-devguide-device-twins.md) e [trabalhos](iot-hub-devguide-jobs.md), e [roteamento de mensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
+O IoT Hub fornece uma poderosa linguagem de tipo SQL para obter informações sobre [dispositivos duplos](iot-hub-devguide-device-twins.md), [duplos de módulo](iot-hub-devguide-module-twins.md), [tarefas](iot-hub-devguide-jobs.md), e [deencaminhamentodemensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
 
 * Uma introdução para os principais recursos da linguagem de consulta do IoT Hub, e
 * A descrição detalhada da linguagem. Para obter detalhes sobre a linguagem de consulta para o encaminhamento de mensagens, consulte [consultas de encaminhamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ O IoT Hub fornece uma poderosa linguagem de tipo SQL para obter informações so
 
 ## <a name="device-and-module-twin-queries"></a>Consultas de gémeos de dispositivo e módulo
 
-[Dispositivos duplos](iot-hub-devguide-device-twins.md) e duplos de módulo podem conter objetos JSON arbitrários como etiquetas e propriedades. IoT Hub permite-lhe para consulta dispositivos duplos e duplos de módulo como um único documento JSON que contém todas as informações de duplo.
+[Dispositivos duplos](iot-hub-devguide-device-twins.md) e [duplos de módulo](iot-hub-devguide-module-twins.md) pode conter objetos JSON arbitrários como etiquetas e propriedades. IoT Hub permite-lhe para consulta dispositivos duplos e duplos de módulo como um único documento JSON que contém todas as informações de duplo.
 
 Suponha, por exemplo, que o gémeos de dispositivo do hub IoT tem a seguinte estrutura (módulo duplo seria semelhante apenas com um moduleId adicional):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Consultas do módulo duplo
 
-Consulta de duplos de módulo é semelhante à consulta de dispositivos duplos, mas usando diferente coleção/espaço de nomes, ou seja, em vez de "de dispositivos", pode consultar device.modules:
+Consulta de duplos de módulo é semelhante à consulta de dispositivos duplos, mas usando um namespace/coleção diferente; em vez de partir **dispositivos**, consultar a partir do **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ Atualmente, a consulta no **devices.jobs** não suportam:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta do IoT Hub
 
-Todas as consultas do IoT Hub é composta por de SELECT e cláusulas, com WHERE opcional e as cláusulas GROUP BY. Cada consulta é executada numa coleção de documentos JSON, por exemplo, dispositivos duplos. A cláusula FROM indica a coleção de documentos a ser iterado em (**dispositivos** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com as agregações, os resultados deste passo são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, é gerada uma linha conforme especificado na cláusula SELECT.
+Todas as consultas do IoT Hub é composta por de SELECT e cláusulas, com WHERE opcional e as cláusulas GROUP BY. Cada consulta é executada numa coleção de documentos JSON, por exemplo, dispositivos duplos. A cláusula FROM indica a coleção de documentos a ser iterado em (**dispositivos**, **devices.modules**, ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com as agregações, os resultados deste passo são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, é gerada uma linha conforme especificado na cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Cláusula FROM
 
-O **partir < from_specification >** cláusula pode assumir apenas dois valores: **A partir de dispositivos** para dispositivos duplos da consulta, ou **partir devices.jobs** para detalhes da consulta tarefa por dispositivo.
+O **partir < from_specification >** cláusula pode assumir apenas três valores: **A partir de dispositivos** para dispositivos duplos da consulta, **de devices.modules** para duplos de módulo de consulta, ou **de devices.jobs** para detalhes da consulta tarefa por dispositivo.
 
 
 ## <a name="where-clause"></a>Cláusula WHERE

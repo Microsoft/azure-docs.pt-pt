@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019827"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144041"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de ligação de base de dados SQL e erros transitórios
 
@@ -93,7 +93,7 @@ Uma forma que pode testar a sua lógica de repetição é desligar o computador 
 - **SqlException.Number** = 11001
 - mensagem: "O sistema anfitrião não é conhecido"
 
-Como parte da primeira tentativa de repetição, o seu programa pode corrigir o problema de ortografia e, em seguida, tentar estabelecer ligação.
+Como parte da primeira tentativa de repetição, pode voltar a ligar o computador cliente à rede e, em seguida, tentar estabelecer ligação.
 
 Para fazer este teste prático, desligue o computador a partir da rede antes de começar o seu programa. Em seguida, o seu programa reconhece um parâmetro de tempo de execução que faz com que o programa para:
 
