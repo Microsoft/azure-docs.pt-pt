@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 4db9e6eaf2d7f7630d3d412d5519d97f8beca3ad
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 275fec5fb696a7e1352bbddccd288863e984b796
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272835"
+ms.locfileid: "67304506"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementar uma ferramenta de gestão
 
@@ -66,12 +66,16 @@ Eis como introduzir parâmetros para configurar a ferramenta:
 
 Depois do GitHub do Azure Resource Manager modelo for concluída, encontrará um grupo de recursos que contém dois serviços de aplicação, juntamente com um plano do serviço de aplicações no portal do Azure.
 
-Antes de iniciar sessão e utilizar a ferramenta de gestão, terá de fornecer o consentimento para a nova aplicação do Azure Active Directory que estão associada com a ferramenta de gestão. Ao fornecer consentimento, está a permitir que a ferramenta de gerenciamento fazer chamadas de gerenciamento de área de Trabalho Virtual do Windows em nome do utilizador que tem sessão iniciada para a ferramenta.
+Antes de iniciar sessão e utilizar a ferramenta de gestão, terá de fornecer o consentimento para a nova aplicação do Azure Active Directory que estão associada com a ferramenta de gestão. Ao fornecer consentimento, está a permitir que a ferramenta de gerenciamento fazer chamadas de gerenciamento de área de Trabalho Virtual do Windows em nome do utilizador com sessão iniciada para a ferramenta.
 
-Para determinar quais o usuário pode utilizar para iniciar sessão para a ferramenta, aceda ao seu [página de definições de utilizador do Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) e tome nota do valor para a **os utilizadores podem dar consentimento a aplicações acedam aos dados da empresa em nome deles**.
+![Uma captura de ecrã que mostra as permissões que está a ser fornecidas quando o utilizador está a autorizar a ferramenta de gerenciamento da interface do Usuário.](media/management-ui-delegated-permissions.png)
+
+Para determinar quais o usuário pode utilizar para iniciar sessão para a ferramenta, aceda ao seu [página de definições de utilizador do Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) e tome nota do valor para a **os utilizadores podem dar consentimento a aplicações acedam aos dados da empresa em nome deles** .
+
+![Um captura de ecrã que mostra se os utilizadores podem conceder consentimento a aplicações para apenas de utilizadores.](media/management-ui-user-consent-allowed.png)
 
 - Se o valor é definido como **Sim**, pode iniciar sessão com qualquer conta de utilizador no Azure Active Directory e fornecem consentimento para apenas esse utilizador. No entanto, se iniciar sessão para a ferramenta de gestão com um utilizador diferente mais tarde, tem de efetuar novamente o consentimento do mesmo.
-- Se o valor é definido como **não**, tem de iniciar sessão com um Administrador Global no Azure Active Directory e fornecem consentimento de administrador para todos os utilizadores no diretório. Não irá 
+- Se o valor é definido como **não**, tem de iniciar sessão como um Administrador Global no Azure Active Directory e fornecer o consentimento de administrador para todos os utilizadores no diretório. Nenhum outro usuário será enfrentam um pedido de consentimento.
 
 
 Assim que decidir o que irá utilizar para fornecer o consentimento de utilizador, siga estas instruções para fornecer consentimento para a ferramenta:
@@ -79,6 +83,8 @@ Assim que decidir o que irá utilizar para fornecer o consentimento de utilizado
 1. Ir para os seus recursos do Azure, selecione o recurso de serviços aplicacionais do Azure com o nome que indicou no modelo (por exemplo, Apr3UX) e navegue para o URL associado-lo. Por exemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Inicie sessão com a conta de utilizador do Azure Active Directory adequada.
 3. Se autenticar com um Administrador Global, agora, pode selecionar a caixa de verificação **consentir em nome da sua organização**. Selecione **Accept** para fornecer consentimento.
+   
+   ![Uma captura de ecrã que mostra a página de consentimento completa que o utilizador ou administrador de Verão.](media/management-ui-consent-page.png)
 
 Isso levará agora para a ferramenta de gestão.
 

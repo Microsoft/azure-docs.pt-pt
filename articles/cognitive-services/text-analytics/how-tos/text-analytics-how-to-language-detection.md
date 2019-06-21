@@ -9,14 +9,14 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 481f7a7589a58baac922001d230f95198ed45eb7
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 6f1e71b75aa68c8f4ea1fa8ed373da25dbb3c24b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417939"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304054"
 ---
-# <a name="example-how-to-detect-language-with-text-analytics"></a>Exemplo: Como detectar o idioma com análise de texto
+# <a name="example-how-to-detect-language-with-text-analytics"></a>Exemplo: como detetar idiomas com a Análise de Texto
 
 O [deteção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) recurso da API avalia o texto de entrada e para cada documento e devolve os identificadores de idiomas com uma pontuação indicando a força da análise.
 
@@ -79,7 +79,7 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 
 ## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
-A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
+A análise é realizada aquando da receção do pedido. Consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral para obter informações sobre o tamanho e número de pedidos pode enviar por minuto e segundo.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 

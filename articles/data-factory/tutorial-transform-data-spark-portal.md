@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337198"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312332"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através de uma atividade do Spark no Azure Data Factory
 Neste tutorial, irá utilizar o portal do Azure para criar um pipeline do Azure Data Factory. Este pipeline transforma dados através de uma atividade do Spark e de um serviço ligado do Azure HDInsight a pedido. 
@@ -147,7 +147,7 @@ Nesta secção, vai criar dois serviços ligados:
    
    b. Para **Tipo**, confirme se está selecionado **HDInsight a pedido**.
    
-   c. Para **Serviço Ligado do Armazenamento do Azure**, selecione **AzureStorage1**. Criou este serviço ligado anteriormente. Se utilizou um nome diferente, especifique o nome correto aqui. 
+   c. Para **serviço ligado do armazenamento do Azure**, selecione **AzureBlobStorage1**. Criou este serviço ligado anteriormente. Se utilizou um nome diferente, especifique o nome correto aqui. 
    
    d. Para **Tipo de cluster**, selecione **spark**.
    
@@ -189,7 +189,7 @@ Nesta secção, vai criar dois serviços ligados:
    ![Especificar um serviço ligado do HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Mude para o separador **Script/Jar** e conclua os seguintes passos: 
 
-   a. Para **Serviço Ligado da Tarefa**, selecione **AzureStorage1**.
+   a. Para **serviço ligado da tarefa**, selecione **AzureBlobStorage1**.
    
    b. Selecione **Procurar no Armazenamento**.
 
@@ -206,7 +206,7 @@ Nesta secção, vai criar dois serviços ligados:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Acionar uma execução de pipeline
-Selecione **Acionar** na barra de ferramentas e, em seguida, selecione **Acionar Agora**. 
+Selecione **adicionar acionador** na barra de ferramentas e, em seguida, selecione **acionar agora**. 
 
 ![Botões "Acionar" e "Acionar Agora"](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Selecione **Acionar** na barra de ferramentas e, em seguida, selecione **Acionar
 
    ![Estado da execução do pipeline](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Pode selecionar a ligação **Pipelines**, na parte superior, para regressar à vista de execuções do pipeline.
+   Pode voltar a mudar para vista de execuções do pipeline, selecionando o **todas as execuções de Pipeline** link na parte superior.
 
    ![Vista "Execuções de Atividades"](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

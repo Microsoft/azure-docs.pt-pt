@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 06/05/2019
 ms.author: raymondl
-ms.openlocfilehash: b7683b6d5932872f8cef2f6db9a1ec7e5e4fa86d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c803c85a0900a09b18909e2c81d52915a12cff1a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069186"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304062"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair expressões-chave com a Análise de Texto
 
@@ -84,7 +84,7 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 
 ## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
-A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
+A análise é realizada aquando da receção do pedido. Consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral para obter informações sobre o tamanho e número de pedidos pode enviar por minuto e segundo.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 

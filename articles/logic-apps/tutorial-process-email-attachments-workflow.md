@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414563"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312653"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar a manipulação de e-mails e anexos com o Azure Logic Apps
 
@@ -63,7 +63,7 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
    | **Subscrição** | <*Azure-subscription-name*> | O nome para a subscrição do Azure |  
    | **Grupo de recursos** | LA-Tutorial-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar e gerir os recursos relacionados. <p>**Nota:** Um grupo de recursos existe dentro de uma região específica. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente utilizar a mesma região sempre que possível. |
    | **Nome da conta de armazenamento** | attachmentstorageacct | O nome da sua conta de armazenamento. |
-   | **Localização** | EUA Oeste | A região onde pretende armazenar as informações da sua conta de armazenamento |
+   | **Location** | EUA Oeste | A região onde pretende armazenar as informações da sua conta de armazenamento |
    | **Performance** (Desempenho) | Standard | Esta definição especifica os tipos de dados suportados e os suportes de dados para armazenar dados. Veja [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Account kind** (Tipo de conta) | Fins gerais | O [tipo de conta de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Replicação** | Armazenamento localmente redundante (LRS) | Esta definição especifica de que forma os seus dados são copiados, armazenados, geridos e sincronizados. Consulte [armazenamento localmente redundante (LRS): Redundância de dados de baixo custo do armazenamento do Azure](../storage/common/storage-redundancy-lrs.md). |
@@ -73,7 +73,7 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
 
    | Definição | Valor | Descrição |
    |---------|-------|-------------|
-   | **Secure transfer required** (Transferência segura necessária) | Desactivado | Esta definição especifica a segurança necessária para pedidos provenientes de ligações. Veja [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Transferência segura necessária). |
+   | **Secure transfer required** (Transferência segura necessária) | Desativado | Esta definição especifica a segurança necessária para pedidos provenientes de ligações. Veja [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Transferência segura necessária). |
    ||||
 
    Para criar a sua conta de armazenamento, também pode utilizar o [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) ou a [CLI do Azure](../storage/common/storage-quickstart-create-storage-account-cli.md).
@@ -145,14 +145,14 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
    | Definição | Valor | Descrição |
    | ------- | ----- | ----------- |
-   | **Nome da aplicação**  | CleanTextFunctionApp | Um nome globalmente exclusivo e descritivo para a sua aplicação de funções |
+   | **Nome da aplicação** | <*function-app-name*> | Função nome da sua aplicação globalmente exclusivo e descritivo, que é "CleanTextFunctionApp" neste exemplo, por isso, forneça um nome diferente, como "MyCleanTextFunctionApp" |
    | **Subscrição** | <*your-Azure-subscription-name*> | A mesma subscrição do Azure que utilizou anteriormente | 
    | **Grupo de Recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente |
    | **Plano de Alojamento** | Plano de Consumo | Esta definição determina como alocar e dimensionar os recursos, como o poder de computação, para executar a aplicação de funções. Veja [Hosting plans comparison](../azure-functions/functions-scale.md) (Comparação dos planos de alojamento). | 
-   | **Localização** | EUA Oeste | A mesma região que utilizou anteriormente |
+   | **Location** | EUA Oeste | A mesma região que utilizou anteriormente |
    | **Pilha de tempo de execução** | Linguagem preferencial | Selecione um tempo de execução que oferece suporte a sua função favorita de linguagem de programação. Selecione **.NET** para C# e F# funções. |
    | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para a sua aplicação de funções. Utilize apenas letras minúsculas e números. <p>**Nota:** Esta conta de armazenamento contém as suas aplicações function App e é diferente da sua conta de armazenamento criado anteriormente para anexos de e-mail. |
-   | **Application Insights** | Desativada | Ativa a monitorização de aplicações com o [Application Insights](../azure-monitor/app/app-insights-overview.md); contudo, neste tutorial, escolha a definição **Desativado**. |
+   | **Application Insights** | Desativado | Ativa a monitorização de aplicações com o [Application Insights](../azure-monitor/app/app-insights-overview.md); contudo, neste tutorial, escolha a definição **Desativado**. |
    ||||
 
    Se a sua aplicação de funções não se abrir automaticamente após a implementação, localiz-a no [portal do Azure](https://portal.azure.com). 
@@ -168,7 +168,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
 
    Para criar uma aplicação de funções, também pode utilizar a [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou [modelos do PowerShell e Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
-2. Em **Function Apps**, expanda **CleanTextFunctionApp** e selecione **Functions** (Funções). Na barra de ferramentas das funções, selecione **Nova função**.
+2. Sob **aplicações Function App**, expanda a aplicação de função, o que é "CleanTextFunctionApp" neste exemplo e selecione **funções**. Na barra de ferramentas das funções, selecione **Nova função**.
 
    ![Criar função nova](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -210,7 +210,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
    }
    ```
 
-6. Quando tiver terminado, escolha **Save** (Guardar). Para testar a sua função, no lado direito do editor, no ícone de seta (**<**), escolha **Teste**.
+6. Quando tiver terminado, escolha **Save** (Guardar). Para testar a sua função, no lado direito do editor, no ícone de seta ( **<** ), escolha **Teste**.
 
    ![Abrir o painel "Test" ("Teste")](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -246,8 +246,8 @@ Depois de confirmar que a função está a funcionar, crie a aplicação lógica
    | **Nome** | LA-ProcessAttachment | O nome para a aplicação lógica |
    | **Subscrição** | <*your-Azure-subscription-name*> | A mesma subscrição do Azure que utilizou anteriormente |
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente |
-   | **Localização** | EUA Oeste | A mesma região que utilizou anteriormente |
-   | **Log Analytics** | Desativada | Neste tutorial, escolha a definição **Desativado**. |
+   | **Location** | EUA Oeste | A mesma região que utilizou anteriormente |
+   | **Log Analytics** | Desativado | Neste tutorial, escolha a definição **Desativado**. |
    ||||
 
 3. Depois de o Azure implementar a aplicação, o Estruturador de Aplicações Lógicas abre-se e mostra uma página com um vídeo de introdução e modelos de padrões de aplicações lógicas comuns. Em **Modelos**, escolha **Aplicação Lógica em Branco**.
@@ -316,7 +316,7 @@ Agora, adicione uma condição que seleciona apenas os e-mails que têm anexos.
    ![Selecione "Condição"](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. Mude o nome da condição com uma descrição melhor. 
-   Na barra de título da condição, escolha o **reticências** (**...** ) botão > **mudar o nome**.
+   Na barra de título da condição, escolha o **reticências** ( **...** ) botão > **mudar o nome**.
 
       ![Mudar o nome da condição](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ Este passo adiciona a função do Azure criada anteriormente à sua aplicação 
 
    ![Selecionar a ação “Escolher uma função do Azure”](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Selecione a sua aplicação de função criada anteriormente: **CleanTextFunctionApp**
+3. Selecione a sua aplicação de função criada anteriormente, o que é "CleanTextFunctionApp" neste exemplo:
 
    ![Selecionar a aplicação de funções do Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -626,7 +626,7 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
    ||||
 
    > [!NOTE]
-   > Se selecionar um campo que contém uma matriz, como o campo **Conteúdo**, que é uma matriz que contém anexos, o estruturador adiciona automaticamente um ciclo “Para cada” em torno da ação que referencia esse campo. Desta forma, a sua aplicação lógica pode realizar essa ação em cada item da matriz. Para remover o ciclo, remova o campo da matriz, mova a ação de referenciação para fora do ciclo, selecione as reticências (**...** ) na barra de título do ciclo e escolha **Delete** (Eliminar).
+   > Se selecionar um campo que contém uma matriz, como o campo **Conteúdo**, que é uma matriz que contém anexos, o estruturador adiciona automaticamente um ciclo “Para cada” em torno da ação que referencia esse campo. Desta forma, a sua aplicação lógica pode realizar essa ação em cada item da matriz. Para remover o ciclo, remova o campo da matriz, mova a ação de referenciação para fora do ciclo, selecione as reticências ( **...** ) na barra de título do ciclo e escolha **Delete** (Eliminar).
 
 6. Guarde a aplicação lógica.
 

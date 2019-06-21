@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60571503"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312646"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -238,7 +238,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
 
         ![Segunda atividade Lookup - conjunto de dados novo](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Clique no separador do pipeline, na parte superior, ou clique no nome do pipeline na vista de árvore, do lado esquerdo, para mudar para o editor do pipeline. Na janela de propriedades da atividade **Lookup**, confirme que **SourceDataset** está selecionado no campo **Conjunto de Dados de Origem**. 
-18. Selecione **Consulta** no campo **Utilizar Consulta** e introduza a consulta seguinte; só está a selecionar o valor máximo de **LastModifytime** de **data_ source_table**. Se não tiver esta consulta, o conjunto de dados obtém todas as linhas da tabela conforme especificou o nome da tabela (data_source_table) na definição do conjunto de dados.
+18. Selecione **Consulta** no campo **Utilizar Consulta** e introduza a consulta seguinte; só está a selecionar o valor máximo de **LastModifytime** de **data_ source_table**. Certifique-se de que verificou também **apenas a linha Fist**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table

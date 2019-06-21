@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/03/2019
 ms.author: aahi
-ms.openlocfilehash: 7d52585b51af09c430130141c3680b5630f7b95e
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: a4f1f75c85c99610ee75eb9fda51114b52bbfac3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417283"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304019"
 ---
 # <a name="what-is-text-analytics-api"></a>O que é a API de análise de texto?
 
@@ -89,7 +89,18 @@ Todos os pontos finais da API de Análise de Texto aceitam dados de texto não p
 | Tamanho máximo do pedido completo | 1 MB |
 | Número máximo de documentos num pedido | 1000 documentos |
 
-O limite de taxa é de 100 pedidos por segundo e 1000 pedidos por minuto. Pode enviar uma grande quantidade de documentos numa única chamada (até 1000 documentos).
+O limite de taxa irão variar consoante o escalão de preço.
+
+| Escalão          | Pedidos por segundo | Pedidos por minuto |
+|---------------|---------------------|---------------------|
+| Serviço de multi | 1000                | 1000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1000                | 1000                |
+
+Pedidos são medidos em separado para cada funcionalidade de análise de texto. Por exemplo, pode enviar o número máximo de pedidos para o escalão de preço para cada funcionalidade, ao mesmo tempo.      
 
 ## <a name="unicode-encoding"></a>Codificação Unicode
 

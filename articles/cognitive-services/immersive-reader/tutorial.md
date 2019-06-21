@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Inicie o leitor de imersão (node. js)'
+title: 'Tutorial: Iniciar a Leitura Avançada (Node.js)'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, irá criar uma aplicação node. js que inicia o leitor envolvente e experimental.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: a6300d0233f222f26dc018136038c9fe96ecca84
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 98b46636be321bfe87c08687600894d0c8ab54db
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296787"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311714"
 ---
-# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Inicie o leitor de imersão (node. js)
+# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Iniciar a Leitura Avançada (Node.js)
 
 Na [descrição geral](./overview.md), ficou a conhecer o que é o leitor envolventes e como ele implementa técnicas comprovadas para melhorar a compreensão de leitura para os aprendizes de linguagem, os leitores emergentes e estudantes com diferenças de aprendizado. Este tutorial abrange como criar uma aplicação web node. js que inicia o leitor envolvente e experimental. Neste tutorial, ficará a saber como:
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de subscrição para o leitor envolvente. Obter uma ao seguir [estas instruções](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+* Uma chave de subscrição para o leitor envolvente. Obter uma ao seguir [estas instruções](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 * [NODE. js](https://nodejs.org/) e [Yarn](https://yarnpkg.com)
 * Um IDE como [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -56,7 +56,7 @@ yarn add dotenv
 
 ## <a name="acquire-an-access-token"></a>Adquirir um token de acesso
 
-Em seguida, escreva um API para obter um token de acesso utilizando a sua chave de subscrição de back-end. Precisa de sua chave de subscrição e o ponto final para a próxima etapa. Pode encontrar essas informações em https://azure.microsoft.com/try/cognitive-services/my-apis/.
+Em seguida, escreva um API para obter um token de acesso utilizando a sua chave de subscrição de back-end. Precisa de sua chave de subscrição e o ponto final para a próxima etapa. Pode encontrar a chave de subscrição na página chaves do seu recurso de leitor de imersão no portal do Azure. Pode encontrar o ponto final na página de descrição geral.
 
 Assim que tiver a sua chave de subscrição e o ponto de extremidade, crie um novo ficheiro chamado _. env_e cole o seguinte código para o mesmo, substituindo `{YOUR_SUBSCRIPTION_KEY}` e `{YOUR_ENDPOINT}` com a sua chave de subscrição e o ponto de extremidade, respectivamente.
 
@@ -88,7 +88,7 @@ router.get('/token', function(req, res, next) {
         'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
         'content-type': 'application/x-www-form-urlencoded'
     },
-    url: process.env.ENDPOINT + '/issueToken'
+    url: process.env.ENDPOINT
   },
   function(err, resp, token) {
     return res.send(token);
@@ -103,7 +103,7 @@ Este ponto final de API deve ser protegido por trás de algum tipo de autentica�
 1. Aberto _views\layout.pug_e adicione o seguinte código sob o `head` marcar, antes o `body` marca. Estes `script` etiquetas carregar o [envolventes de leitor de SDK](https://github.com/Microsoft/immersive-reader-sdk) e o jQuery.
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js')
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
@@ -130,7 +130,7 @@ Este ponto final de API deve ser protegido por trás de algum tipo de autentica�
             };
 
             // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, null, content);
+            ImmersiveReader.launchAsync(token, content);
           }});
         }
     ```
@@ -174,7 +174,7 @@ Por predefinição, o idioma da interface do leitor de imersão corresponde a de
     const options = {
         uiLang: 'fr',
     }
-    ImmersiveReader.launchAsync(token, null, content, options);
+    ImmersiveReader.launchAsync(token, content, options);
     ```
 
 2. Navegue para _http://localhost:3000_ . Quando inicia o leitor Imersivos, será apresentada a interface em francês.
