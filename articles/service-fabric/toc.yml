@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5- Eliminar um cluster
           href: service-fabric-tutorial-delete-cluster.md
-    - name: Criar um cluster autónomo no AWS
+    - name: Criar um cluster autónomo
       items:
-        - name: Criar a infraestrutura no AWS
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1- Criar a infraestrutura
+          items:
+            - name: Utilizar o AWS
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Utilizar o Azure
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: Configurar o Service Fabric
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: Implementar uma aplicação no cluster
@@ -695,6 +699,8 @@
       items:
         - name: Diagnosticar cenários comuns
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: Diagnosticar erros do pacote do código
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: Monitorizar aplicações
           items:
             - name: Adicionar registos à sua aplicação

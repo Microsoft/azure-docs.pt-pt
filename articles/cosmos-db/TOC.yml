@@ -624,10 +624,12 @@
         - name: Registo de aplicações com as Logic Apps
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: Monitorizar
+    - name: Monitorizar com Métricas
       items:
-        - name: Monitorizar com métricas
+        - name: Ver métricas da conta do Cosmos DB
           href: use-metrics.md
+        - name: Ver Métricas do Azure Monitor
+          href: cosmos-db-azure-monitor-metrics.md
         - name: SLA do monitor
           href: monitor-accounts.md
     - name: Programar localmente

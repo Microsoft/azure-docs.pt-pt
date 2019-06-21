@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597089"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303921"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -170,10 +170,19 @@ Clustering de ativação pós-falha do Windows Server é suportada pelo Azure Fi
 
 ### <a name="data-deduplication"></a>A eliminação de duplicados de dados
 **Versão do agente 5.0.2.0**   
-Eliminação de dados duplicados é suportada em volumes com camadas ativado no Windows Server 2016 e Windows Server 2019 da cloud. Ativar a eliminação de duplicados num volume com camadas ativado da cloud permite-lhe colocar em cache mais ficheiros no local sem aprovisionar mais armazenamento.
+Eliminação de dados duplicados é suportada em volumes com camadas ativado no Windows Server 2016 e Windows Server 2019 da cloud. Ativar a eliminação de duplicados num volume com camadas ativado da cloud permite-lhe colocar em cache mais ficheiros no local sem aprovisionar mais armazenamento. Tenha em atenção que essas economias de volume aplicam-se apenas no local; não vão ser duplicados seus dados nos ficheiros do Azure. 
 
 **Windows Server 2012 R2 ou versões mais antigas do agente**  
 Para volumes que não têm a cloud em camadas ativado, o Azure File Sync suporta a ser ativada no volume do Windows eliminação de duplicados de dados de servidor.
+
+**Notas**
+- Se a eliminação de duplicados de dados estiver instalada antes de instalar o agente de sincronização de ficheiros do Azure, é necessário reiniciar para suportar a eliminação de duplicados de dados e na cloud em camadas no mesmo volume.
+- Se a eliminação de dados duplicados estiver ativada num volume depois de cloud em camadas é ativada, a tarefa de otimização de eliminação de duplicados inicial otimizará ficheiros no volume que já não estão em camadas e terão o seguinte impacto na cloud em camadas:
+    - Política de espaço livre irá continuar a ficheiros de camada de acordo com o espaço livre no volume ao utilizar o mapa térmico.
+    - Política de data irá ignorar a criação de camadas de ficheiros que podem ter sido caso contrário, elegíveis para a criação de camadas devido a tarefa de otimização de eliminação de duplicados Acessando os arquivos.
+- Para trabalhos de otimização de eliminação de duplicados em curso, irá obter adiada na cloud em camadas com a política de data a eliminação de duplicados de dados [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) definição, se o ficheiro não está já em camadas. 
+    - Exemplo: Se a definição MinimumFileAgeDays é de 7 dias e política de data de camadas na cloud é de 30 dias, a política de data será camadas os ficheiros após 37 dias.
+    - Nota: Depois de um ficheiro é camado pelo Azure File Sync, a tarefa de otimização de eliminação de duplicados irá ignorar o ficheiro.
 
 ### <a name="distributed-file-system-dfs"></a>Sistema de ficheiros distribuído (DFS)
 O Azure File Sync suporta a interoperabilidade com espaços de nomes do DFS (DFS-N) e a replicação de DFS (DFS-R).
@@ -200,9 +209,12 @@ Com o sysprep num servidor que tem instalado o agente de sincronização de fich
 Se cloud disposição em camadas estiver ativada um ponto de final de servidor, os ficheiros que são dispostos em camadas ignorados e não indexados por Windows Search. Ficheiros em camadas não são indexados corretamente.
 
 ### <a name="antivirus-solutions"></a>Soluções antivírus
-Como o antivírus funciona através da análise de ficheiros para o código malicioso conhecido, um produto antivírus pode causar a remoção de ficheiros em camadas. Nas versões 4.0 e acima do agente do Azure File Sync, ficheiros em camadas de ter o conjunto FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS de atributo seguro do Windows. Recomendamos que o serviço de consultoria com o seu fornecedor de software para saber como configurar a sua solução para ignorar a leitura de ficheiros com esse conjunto de atributo (muitos fazem-lo automaticamente).
+Como o antivírus funciona através da análise de ficheiros para o código malicioso conhecido, um produto antivírus pode causar a remoção de ficheiros em camadas. Nas versões 4.0 e acima do agente do Azure File Sync, ficheiros em camadas de ter o conjunto FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS de atributo seguro do Windows. Recomendamos que o serviço de consultoria com o seu fornecedor de software para saber como configurar a sua solução para ignorar a leitura de ficheiros com esse conjunto de atributo (muitos fazem-lo automaticamente). 
 
 Soluções da Microsoft internas antivírus, o Windows Defender e System Center Endpoint Protection (SCEP), o ambos ignorar automaticamente de ficheiros de leitura com esse atributo seja definido. Temos testado-los e identificou um problema menor: ao adicionar um servidor a um grupo de sincronização existente, arquivos de tamanho inferior de 800 bytes são recuperados (transferido) no novo servidor. Estes ficheiros permanecerão no novo servidor e não pode ser camados, uma vez que estas não cumprem o requisito de tamanho de camadas (> 64kb).
+
+> [!Note]  
+> Fornecedores de antivírus podem verificar a compatibilidade entre o produto e o Azure File Sync com o [Azure ficheiro sincronização antivírus compatibilidade teste Suite] (https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Microsoft Download Center.
 
 ### <a name="backup-solutions"></a>Soluções de cópia de segurança
 Como as soluções antivírus, soluções de cópia de segurança podem fazer com que a remoção de ficheiros em camadas. Recomendamos que utilize uma solução de cópia de segurança na cloud para criar cópias de segurança da partilha de ficheiros do Azure em vez de um produto de cópia de segurança no local.
@@ -256,18 +268,15 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |
 | Reino Unido Oeste | Cardiff |
-| US Gov Arizona (pré-visualização) | Arizona |
-| US Gov Texas (pré-visualização) | Texas |
-| US Gov Virgínia (pré-visualização) | Virgínia |
+| Gov (US) - Arizona | Arizona |
+| Gov (US) - Texas | Texas |
+| Gov (US) - Virginia | Virgínia |
 | Europa Ocidental | Países Baixos |
 | EUA Centro-Oeste | Wyoming |
 | EUA Oeste | Califórnia |
 | EUA Oeste 2 | Washington |
 
 O Azure File Sync suporta a sincronização apenas com uma partilha de ficheiros do Azure que está na mesma região que o serviço de sincronização de armazenamento.
-
-> [!Note]  
-> O Azure File Sync está atualmente disponível apenas na pré-visualização privada para as regiões da administração pública. Consulte nossos [notas de versão](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) para obter instruções sobre como inscrever no programa de pré-visualização.
 
 ### <a name="azure-disaster-recovery"></a>Recuperação após desastre do Azure
 Para proteger contra a perda de uma região do Azure, Azure File Sync integra-se com o [redundância de armazenamento georredundante](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) opção (GRS). Armazenamento GRS funciona utilizando a replicação de bloco assíncrono entre o armazenamento na região primária, com a qual normalmente interage, e o armazenamento na região secundária associada. Em caso de desastre que faz com que uma região do Azure para go temporariamente offline ou permanentemente, a Microsoft irá armazenamento de ativação pós-falha para a região emparelhado. 
@@ -302,7 +311,7 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 | Reino Unido Oeste             | Reino Unido Sul           |
 | Gov (US) - Arizona      | Gov (US) - Texas       |
 | US Gov - Iowa         | Gov (US) - Virginia    |
-| US Gov Virgini      | Gov (US) - Texas       |
+| Gov (US) - Virginia      | Gov (US) - Texas       |
 | Europa Ocidental         | Europa do Norte       |
 | EUA Centro-Oeste     | EUA Oeste 2          |
 | EUA Oeste             | EUA Leste            |

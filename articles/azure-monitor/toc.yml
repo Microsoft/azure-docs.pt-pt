@@ -33,26 +33,33 @@
           href: learn/quick-collect-windows-computer.md
 - name: Tutoriais
   items:
-    - name: Analisar dados na análise de registos
-      href: learn/tutorial-viewdata.md
-    - name: Visualizar dados na análise de registos
-      href: learn/tutorial-logs-dashboards.md
+    - name: Registos
+      items:
+        - name: Log Analytics
+          href: log-query/get-started-portal.md
+        - name: Registar consultas
+          href: log-query/get-started-queries.md
+        - name: Visualizar dados de registo
+          href: learn/tutorial-logs-dashboards.md
+        - name: Alertar relativamente aos dados de registo
+          href: learn/tutorial-response.md
+    - name: Application Insights
+      items:
+        - name: Encontrar exceções de tempo de execução de aplicações
+          href: learn/tutorial-runtime-exceptions.md
+        - name: Encontrar problemas no desempenho da aplicação
+          href: learn/tutorial-performance.md
+        - name: Alertar relativamente ao estado de funcionamento das aplicações
+          href: learn/tutorial-alert.md
+        - name: Compreender os utilizadores da aplicação
+          href: learn/tutorial-users.md
+        - name: Criar dashboards personalizados
+          href: learn/tutorial-app-dashboards.md
+        - name: Application Insights
     - name: Arquivar métricas de plataforma e registos de dados
       href: learn/tutorial-archive-data.md
-    - name: Alertar relativamente aos dados de registo
-      href: learn/tutorial-response.md
     - name: Dimensionamento automático com base no desempenho e numa agenda
       href: learn/tutorial-autoscale-performance-schedule.md
-    - name: Encontrar exceções de tempo de execução de aplicações
-      href: learn/tutorial-runtime-exceptions.md
-    - name: Encontrar problemas no desempenho da aplicação
-      href: learn/tutorial-performance.md
-    - name: Alertar relativamente ao estado de funcionamento das aplicações
-      href: learn/tutorial-alert.md
-    - name: Compreender os utilizadores da aplicação
-      href: learn/tutorial-users.md
-    - name: Criar dashboards personalizados
-      href: learn/tutorial-app-dashboards.md
 - name: Amostras
   items:
     - name: Azure PowerShell
@@ -199,6 +206,8 @@
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Correlacionar as origens de dados personalizadas
               href: app/custom-data-correlation.md
+            - name: Ver notificações do serviço
+              href: platform/service-notifications.md
         - name: Instalar e configurar agentes
           items:
             - name: Descrição geral dos agentes de monitorização
@@ -665,6 +674,99 @@
               href: insights/solutions.md
             - name: Soluções de destino
               href: insights/solution-targeting.md
+    - name: Analisar dados
+      items:
+        - name: Métricas
+          items:
+            - name: Introdução ao Explorador de Métricas
+              href: platform/metrics-getting-started.md
+            - name: Funcionalidades avançadas do Explorador de Métricas
+              href: platform/metrics-charts.md
+            - name: Exemplos de gráficos de métricas
+              href: platform/metric-chart-samples.md
+            - name: Resolução de problemas de gráficos de métricas
+              href: platform/metrics-troubleshoot.md
+        - name: Registos
+          items:
+            - name: Descrição geral das consultas de registo
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: Tutoriais
+              items:
+                - name: Tutorial do Log Analytics
+                  href: log-query/get-started-portal.md
+                - name: Tutorial das consultas de registo
+                  href: log-query/get-started-queries.md
+            - name: Dados de registo
+              items:
+                - name: Estrutura dos dados de registo
+                  href: log-query/logs-structure.md
+                - name: Âmbito de consulta
+                  href: log-query/scope.md
+                - name: Propriedades padrão
+                  href: platform/log-standard-properties.md
+            - name: Linguagem da consulta
+              items:
+                - name: Documentação de linguagem de consulta
+                  href: log-query/query-language.md
+                - name: Diferenças de idioma
+                  href: log-query/data-explorer-difference.md
+                - name: Operadores úteis
+                  href: log-query/functions.md
+                - name: Funções
+                  href: log-query/useful-operators.md
+                - name: Transitar da pesquisa de registos
+                  href: log-query/log-search-transition.md
+                - name: Lições
+                  items:
+                    - name: Operações de cadeia
+                      href: log-query/string-operations.md
+                    - name: Operações de data e hora
+                      href: log-query/datetime-operations.md
+                    - name: Funções de agregação
+                      href: log-query/aggregations.md
+                    - name: Agregações avançadas
+                      href: log-query/advanced-aggregations.md
+                    - name: Associações
+                      href: log-query/joins.md
+                    - name: Estruturas de dados e JSON
+                      href: log-query/json-data-structures.md
+                    - name: Escrita de consulta avançada
+                      href: log-query/advanced-query-writing.md
+                    - name: Gráficos e diagramas
+                      href: log-query/charts.md
+                    - name: Consultas de pesquisa
+                      href: log-query/search-queries.md
+                - name: Truques e dicas
+                  items:
+                    - name: SQL
+                      href: log-query/sql-cheatsheet.md
+                    - name: Splunk
+                      href: log-query/splunk-cheatsheet.md
+            - name: Entre recursos
+              items:
+                - name: Consultas entre recursos
+                  href: log-query/cross-workspace-query.md
+                - name: expressão de aplicação
+                  href: log-query/app-expression.md
+                - name: expressão de área de trabalho
+                  href: log-query/workspace-expression.md
+                - name: Unificar recursos de dados da aplicação
+                  href: log-query/unify-app-resource-data.md
+            - name: Exemplos e documentação de orientação
+              items:
+                - name: Exemplos de consultas de registo
+                  href: log-query/examples.md
+                - name: Exemplos de análise inteligente
+                  href: log-query/smart-analytics.md
+                - name: Escrever consultas eficientes
+                  href: log-query/log-query-performance.md
+                - name: Analisar dados de texto
+                  href: log-query/parse-text.md
+            - name: Grupos de computadores
+              href: platform/computer-groups.md
+            - name: Conector de fluxo
+              href: platform/flow-tutorial.md
     - name: Visualizar os dados
       items:
         - name: Vistas
@@ -683,104 +785,10 @@
               href: platform/powerbi.md
             - name: Exportar dados da aplicação
               href: app/export-power-bi.md
+        - name: Dashboards
+          href: app/app-insights-dashboards.md
         - name: Enviar dados para o Grafana
           href: platform/grafana-plugin.md
-    - name: Analisar dados
-      items:
-        - name: Métricas
-          items:
-            - name: Introdução ao Explorador de Métricas
-              href: platform/metrics-getting-started.md
-            - name: Funcionalidades avançadas do Explorador de Métricas
-              href: platform/metrics-charts.md
-            - name: Exemplos de gráficos de métricas
-              href: platform/metric-chart-samples.md
-            - name: Resolução de problemas de gráficos de métricas
-              href: platform/metrics-troubleshoot.md
-        - name: Registos
-          items:
-            - name: Registar consultas
-              href: log-query/log-query-overview.md
-            - name: Portais de consulta do registo
-              href: log-query/portals.md
-            - name: Documentação de linguagem de consulta
-              href: log-query/query-language.md
-            - name: Diferenças de idioma
-              href: log-query/data-explorer-difference.md
-            - name: Transitar da pesquisa de registos
-              href: log-query/log-search-transition.md
-            - name: Introdução
-              items:
-                - name: Introdução ao portal de Análise
-                  href: log-query/get-started-portal.md
-                - name: Introdução às consultas
-                  href: log-query/get-started-queries.md
-                - name: Consultas de pesquisa
-                  href: log-query/search-queries.md
-                - name: Operadores úteis
-                  href: log-query/useful-operators.md
-            - name: Lições
-              items:
-                - name: Operações de cadeia
-                  href: log-query/string-operations.md
-                - name: Operações de data e hora
-                  href: log-query/datetime-operations.md
-                - name: Funções de agregação
-                  href: log-query/aggregations.md
-                - name: Agregações avançadas
-                  href: log-query/advanced-aggregations.md
-                - name: Associações
-                  href: log-query/joins.md
-                - name: Estruturas de dados e JSON
-                  href: log-query/json-data-structures.md
-                - name: Escrita de consulta avançada
-                  href: log-query/advanced-query-writing.md
-                - name: Gráficos e diagramas
-                  href: log-query/charts.md
-                - name: Funções
-                  href: log-query/functions.md
-            - name: Truques e dicas
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-            - name: Linguagem da consulta
-              items:
-                - name: Exemplos
-                  href: log-query/examples.md
-                - name: Escrever consultas eficientes
-                  href: log-query/log-query-performance.md
-                - name: Análises inteligentes
-                  href: log-query/smart-analytics.md
-                - name: Pesquisas entre recursos
-                  href: log-query/cross-workspace-query.md
-                - name: expressão de aplicação
-                  href: log-query/app-expression.md
-                - name: expressão de área de trabalho
-                  href: log-query/workspace-expression.md
-            - name: Dados de registo
-              items:
-                - name: Dados da aplicação
-                  href: app/analytics.md
-                - name: Unificar recursos de dados da aplicação
-                  href: log-query/unify-app-resource-data.md
-                - name: Propriedades padrão
-                  href: platform/log-standard-properties.md
-                - name: Analisar dados de texto
-                  href: log-query/parse-text.md
-            - name: Agir com base nos resultados de pesquisa
-              href: log-query/take-action.md
-            - name: Grupos de computadores
-              href: platform/computer-groups.md
-            - name: Conector de fluxo
-              href: platform/flow-tutorial.md
-            - name: API de Pesquisas de Registos
-              href: 'https://dev.loganalytics.io/'
-        - name: Ver eventos no registo de atividades
-          href: ../azure-resource-manager/resource-group-audit.md
-        - name: Ver notificações do serviço
-          href: platform/service-notifications.md
     - name: Responder a incidentes
       items:
         - name: Alertas
@@ -931,6 +939,8 @@
           items:
             - name: Guia de utilização da API REST
               href: platform/rest-api-walkthrough.md
+            - name: API de Pesquisas de Registos
+              href: 'https://dev.loganalytics.io/'
             - name: API de Alerta
               href: platform/api-alerts.md
         - name: Aplicações
@@ -973,6 +983,8 @@
               href: platform/runbook-datacollect.md
 - name: Referência
   items:
+    - name: Limites do serviço
+      href: service-limits.md
     - name: Application Insights
       items:
         - name: Coleção automática da dependência
