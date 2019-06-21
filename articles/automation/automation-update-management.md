@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b28d590390cd1a1ef1c6651e6943ac2a7fa0af29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: f4fd47ae4f1ebc50de916b537b165eba1c5efb11
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075508"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205031"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -39,7 +39,7 @@ O diagrama seguinte mostra uma vista conceptual do comportamento e fluxo de dado
 
 Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas em várias subscrições no mesmo inquilino.
 
-Assim que um CVE versão, demora 2 a 3 horas para o patch seja apresentado para computadores Linux para avaliação.  Para máquinas Windows, demora de 12 a 15 horas para o patch a aparecer para avaliação, após ele foi lançado.
+Quando um pacote é lançado, demora 2 a 3 horas para o patch seja apresentado para computadores Linux para avaliação. Para máquinas Windows, demora de 12 a 15 horas para o patch a aparecer para avaliação, após ele foi lançado.
 
 Depois de um computador realiza uma análise de conformidade de atualização, o agente reencaminha as informações em massa para os registos do Azure Monitor. Num computador Windows, a análise de conformidade é executada a cada 12 horas por predefinição.
 

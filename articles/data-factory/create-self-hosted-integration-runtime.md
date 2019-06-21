@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967954"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190841"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -44,7 +44,7 @@ Este documento descreve como pode criar e configurar um ir autoalojado.
 
     ```
 
-## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configurar um runtime de integração autoalojado numa VM do Azure com um modelo Azure Resource Manager (automatização)
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>Configurar um runtime de integração autoalojado numa VM do Azure com um modelo Azure Resource Manager 
 Pode automatizar a configuração do Runtime de integração autoalojado numa máquina virtual do Azure, utilizando [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Este modelo fornece uma forma fácil de ter um funcionamento totalmente autoalojado dentro de uma rede virtual do Azure com funcionalidades de elevada disponibilidade e escalabilidade (desde que definir a contagem de nós para 2 ou superior).
 
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
@@ -86,6 +86,7 @@ Pode instalar o runtime de integração autoalojado ao transferir um pacote de i
 
 - Configure um esquema de energia no computador anfitrião para o runtime de integração autoalojado para que a máquina sem a hibernação. Se a máquina de anfitrião hiberna, o runtime de integração autoalojado fica offline.
 - Criar cópias de segurança as credenciais associadas com o runtime de integração autoalojado regularmente.
+- Para automatizar o runtime de integração autoalojado operações de configuração, consulte [abaixo secção](#automation-support-for-self-hosted-ir-function).  
 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Instalar e registar o runtime de integração autoalojado do Centro de Download
 
@@ -109,6 +110,45 @@ Pode instalar o runtime de integração autoalojado ao transferir um pacote de i
     b. Opcionalmente, selecione **chave de autenticação Show** para ver o texto da chave.
 
     c. Selecione **Registar**.
+
+## <a name="automation-support-for-self-hosted-ir-function"></a>Função de Runtime de integração de autoalojado de suporte de automação
+
+
+> [!NOTE]
+> Se estiver a planear configurar o runtime de integração autoalojado numa máquina Virtual do Azure e pretende automatizar a configuração através de modelos Azure Resource Manager, consulte [secção](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template).
+
+Pode usar a linha de comandos para configurar ou gerir um ir de hospedagem interna existente. Isso pode servir-se especialmente para automatizar a instalação, o registo de nós do Runtime de integração autoalojado. 
+
+**Dmgcmd.exe** está incluído na instalação do autoalojado, geralmente localizada: C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ folder. Isso oferece suporte a vários parâmetros e pode ser invocado através de comandos utilizando scripts de batch para a automatização. 
+
+*Utilização:* 
+
+```powershell
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+```
+
+ *Detalhes (parâmetros / propriedade):* 
+
+| Propriedade                                                    | Descrição                                                  | Necessário |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "`<AuthenticationKey>`"                     | Registar o nó do Integration Runtime (autoalojado) com a chave de autenticação especificada | Não       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Ativar o acesso remoto no nó atual para configurar um Cluster de disponibilidade elevada e/ou ativar a definição de credenciais diretamente contra a através do Runtime de integração (sem passar pelo serviço do ADF) autoalojado  **Novo AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet a partir de uma máquina remota na mesma rede. | Não       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Ativar o acesso remoto para o nó atual quando o nó está em execução num contentor | Não       |
+| DisableRemoteAccess                                         | Desative o acesso remoto para o nó atual. Acesso remoto é necessária para a configuração de vários nó. O New -**AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet do PowerShell ainda funciona até mesmo quando acesso remoto está desabilitado, desde que ele é executado no mesmo computador que o nó do Runtime de integração autoalojado. | Não       |
+| Chave de "`<AuthenticationKey>`"                                 | Substituir / atualizar a chave de autenticação anterior. Cuidado como isso pode resultar em sua anterior nó do Runtime de integração autoalojado ficar offline, se a chave é de um novo runtime de integração. | Não       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | Gerar ficheiro de cópia de segurança para o nó atual, o ficheiro de cópia de segurança inclui as credenciais de arquivo de dados e a chave de nó | Não       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | Restaurar o nó a partir de um ficheiro de cópia de segurança                          | Não       |
+| Reiniciar                                                     | Reinicie o serviço do Integration Runtime (autoalojado) de anfitrião   | Não       |
+| Iniciar                                                       | Iniciar o serviço do Integration Runtime (autoalojado) de anfitrião     | Não       |
+| Parar                                                        | Parar o serviço do Integration Runtime (autoalojado) de atualização        | Não       |
+| StartUpgradeService                                         | Iniciar o serviço do Integration Runtime (autoalojado) de atualização       | Não       |
+| StopUpgradeService                                          | Parar o serviço do Integration Runtime (autoalojado) de atualização        | Não       |
+| TurnOnAutoUpdate                                            | Ativar atualização do Integration Runtime (autoalojado) automática        | Não       |
+| TurnOffAutoUpdate                                           | Desativar a atualização do Integration Runtime (autoalojado) automática       | Não       |
+| SwitchServiceAccount "<domain\user>" ["password"]           | Definir DIAHostService para uma nova conta run as. Palavra-passe vazia de utilização ("") para a conta de sistema ou conta virtual | Não       |
+| Loglevel `<logLevel>`                                       | Definir o nível de registo do ETW (desativado, erro, verboso ou todos). Em geral, é utilizada pelo suporte da Microsoft durante a depuração. | Não       |
+
+   
 
 
 ## <a name="high-availability-and-scalability"></a>Elevada disponibilidade e escalabilidade
@@ -341,7 +381,7 @@ Se estiver a utilizar uma firewall de terceiros, é possível abrir manualmente 
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-``` 
+```
 
 Se optar por não abrir a porta 8060 na máquina de runtime de integração autoalojado, utilize mecanismos que não seja o aplicativo de credenciais de definição para configurar as credenciais do arquivo de dados. Por exemplo, pode utilizar o **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet do PowerShell.
 

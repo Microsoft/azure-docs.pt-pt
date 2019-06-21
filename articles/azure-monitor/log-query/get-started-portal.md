@@ -8,20 +8,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255270"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296508"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução ao Log Analytics do Azure Monitor
+# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introdução ao Log Analytics no Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial irá aprender como utilizar o Monitor do Azure Log Analytics no portal do Azure para escrever consultas de registo do Azure Monitor. Ele irá ensiná-lo como para:
+Neste tutorial irá aprender como utilizar o Log Analytics no portal do Azure para escrever consultas de registo do Azure Monitor. Ele irá ensiná-lo como para:
 
-- Escrever consultas simples
+- Utilizar o Log Analytics para escrever uma consulta simples
 - Compreender o esquema dos seus dados
 - Filtrar, ordenar e resultados de grupo
 - Aplicam-se de um intervalo de tempo
@@ -29,13 +29,22 @@ Neste tutorial irá aprender como utilizar o Monitor do Azure Log Analytics no p
 - Guardar e carregar consultas
 - Exportar e partilhar consultas
 
+Para obter um tutorial sobre como escrever consultas de registo, consulte [introdução às consultas de registo no Azure Monitor](get-started-queries.md).<br>
+Para obter mais detalhes sobre as consultas de registo, consulte [descrição geral do registo de consultas no Azure Monitor](log-query-overview.md).
 
 ## <a name="meet-log-analytics"></a>Conheça o Log Analytics
 O log Analytics é uma ferramenta de web utilizada para criar e executar consultas de registo do Azure Monitor. Abri-lo selecionando **registos** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
 
 ![Página de boas-vindas](media/get-started-portal/homepage.png)
 
+## <a name="firewall-requirements"></a>Requisitos de firewall
+Para utilizar o Log Analytics, o seu browser requer acesso para os seguintes endereços. Se o browser estiver acessando o portal do Azure através de uma firewall, tem de ativar o acesso a estes endereços.
 
+| URI | IP | Portas |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinâmica | 80,443 |
+| api.loganalytics.io | Dinâmica | 80,443 |
+| docs.loganalytics.io | Dinâmica | 80,443 |
 
 ## <a name="basic-queries"></a>Consultas básicas
 Consultas podem ser usadas para termos de pesquisa, identificar tendências, analisar padrões e fornecem várias outras informações com base nos seus dados. Começar com uma consulta básica:
@@ -44,9 +53,9 @@ Consultas podem ser usadas para termos de pesquisa, identificar tendências, ana
 Event | search "error"
 ```
 
-Essa consulta pesquisa o _evento_ tabela para registos que contêm o termo "error" em qualquer propriedade.
+Essa consulta pesquisa o _evento_ tabela de registos que contêm o termo _erro_ em qualquer propriedade.
 
-Consultas podem começar com o nome de uma tabela ou um **pesquisa** comando. O exemplo anterior começa com o nome da tabela _evento_, que define o âmbito da consulta. O caráter de pipe (|) separa comandos, para que o resultado do primeiro serve como a entrada do comando seguinte. Pode adicionar qualquer número de comandos para uma única consulta.
+Consultas podem começar com o nome de uma tabela ou um [pesquisa](/kusto/query/searchoperator) comando. O exemplo anterior começa com o nome da tabela _evento_, que obtém todos os registos da tabela de eventos. O caráter de pipe (|) separa comandos, para que o resultado do primeiro serve como a entrada do comando seguinte. Pode adicionar qualquer número de comandos para uma única consulta.
 
 Outra forma de escrever essa mesma consulta deve ser:
 
@@ -54,18 +63,18 @@ Outra forma de escrever essa mesma consulta deve ser:
 search in (Event) "error"
 ```
 
-Neste exemplo, **pesquisa** tem como escopo o _eventos_ tabela e todos os registos na tabela serão pesquisados o termo "erro".
+Neste exemplo, **pesquisa** tem como escopo o _evento_ tabela e todos os registos na tabela serão pesquisados durante o prazo _erro_.
 
 ## <a name="running-a-query"></a>Execução de uma consulta
 Executar uma consulta ao clicar o **execute** botão ou prima **Shift + Enter**. Considere os seguintes detalhes que determinam o código que será executado e os dados que são devolvidos:
 
-- Quebras de linha: Uma única quebra torna sua consulta mais clara. Quebras de linha de vários dividi-la em consultas separadas.
+- Quebras de linha: Uma única quebra torna sua consulta mais fácil de ler. Quebras de linha de vários dividi-la em consultas separadas.
 - Cursor: Coloque o cursor em algum lugar dentro da consulta para executá-lo. A consulta atual é considerada o código até que uma linha em branco é encontrada.
 - Intervalo - um intervalo de hora de tempo _últimas 24 horas_ é definido por padrão. Para utilizar um intervalo diferente, utilize o Seletor de tempo ou adicionar um período de tempo explícito filtro de intervalo para a sua consulta.
 
 
 ## <a name="understand-the-schema"></a>Compreender o esquema
-O esquema é uma coleção de tabelas visualmente agrupados numa categoria de lógica. Várias categorias são de soluções de monitorização. O _LogManagement_ categoria contém dados comuns, como Windows e eventos do Syslog, dados de desempenho e heartbeats do cliente.
+O esquema é uma coleção de tabelas visualmente agrupados numa categoria de lógica. Várias categorias são de soluções de monitorização. O _LogManagement_ categoria contém dados comuns, como Windows e eventos do Syslog, dados de desempenho e agente executa heartbeat.
 
 ![Esquema](media/get-started-portal/schema.png)
 
@@ -181,7 +190,7 @@ O ícone do Explorador de consultas está na área superior direito. Lista todas
 O log Analytics suporta vários métodos de exportação:
 
 - Excel: Guarde os resultados como um ficheiro CSV.
-- Power BI: Exporte os resultados para o power BI. Ver [dados de registo de importação do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md) para obter detalhes.
+- Power BI: Exporte os resultados para o Power BI. Ver [dados de registo de importação do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md) para obter detalhes.
 - Partilhe uma ligação: A consulta em si pode ser compartilhada como um link que, em seguida, pode ser enviado e executado por outros utilizadores que têm acesso à mesma área de trabalho.
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 05/29/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5988f4723f1ef73cf0767ef8ac1b9adf3c1435d
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541619"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190232"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Criar e gerir um catálogo na gestão de direitos do Azure AD (pré-visualização)
 
@@ -60,9 +60,9 @@ Um catálogo é um contentor de recursos e pacotes de acesso. Criar um catálogo
 
 ## <a name="add-resources-to-a-catalog"></a>Adicionar recursos a um catálogo
 
-Para incluir recursos num pacote de acesso, os recursos tem de existir num catálogo. Os tipos de recursos, que pode adicionar são grupos, aplicações e sites do SharePoint Online.
+Para incluir recursos num pacote de acesso, os recursos tem de existir num catálogo. Os tipos de recursos, que pode adicionar são grupos, aplicações e sites do SharePoint Online. Os grupos podem ser criados na cloud grupos do Office 365 ou no Azure cloud criados grupos de segurança do AD. As aplicações podem ser aplicações do enterprise do Azure AD, incluindo aplicações SaaS e suas próprias aplicações federadas com o Azure AD. Os sites podem ser sites do SharePoint Online ou SharePoint Online conjuntos de sites.
 
-**Função de pré-requisitos:** Administrador de utilizador ou proprietário de catálogo
+**Função de pré-requisitos:** Consulte [necessário funções para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. No portal do Azure, clique em **do Azure Active Directory** e, em seguida, clique em **governação de identidade**.
 
@@ -74,9 +74,7 @@ Para incluir recursos num pacote de acesso, os recursos tem de existir num catá
 
 1. Clique num tipo de recurso: **Grupos**, **aplicativos**, ou **sites do SharePoint**.
 
-    Se for um criador de catálogo, pode adicionar qualquer grupo do Office 365 ou o grupo de segurança do Azure AD que é proprietário para o seu catálogo. Se existe um grupo que pretende atribuir aos utilizadores, mas não é o proprietário do grupo, terá de ter um administrador do utilizador adicione esse grupo ao seu catálogo.
-
-    Se for um criador de catálogo, pode adicionar qualquer aplicação de enterprise do Azure AD for o proprietário, incluindo aplicações SaaS e suas próprias aplicações federadas com o Azure AD, para o seu catálogo. Se existir uma aplicação que pretende atribuir aos utilizadores, mas não é o proprietário, terá de ter um administrador de utilizadores que adicionar essa aplicação para o seu catálogo. Depois do aplicativo faz parte do catálogo, pode selecionar qualquer uma das funções do aplicativo num pacote de acesso.
+    Se não vir um recurso que pretende adicionar ou não consegue adicionar um recurso, certificar-se de que tem o necessária a função de diretório do Azure AD e a função de gestão de direitos. Precisará de ter alguém, com as funções necessárias, adicione o recurso ao seu catálogo. Para obter mais informações, consulte [necessário funções para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Selecione um ou mais recursos do tipo que pretende adicionar ao catálogo.
 
@@ -88,7 +86,7 @@ Para incluir recursos num pacote de acesso, os recursos tem de existir num catá
 
 Pode remover recursos de um catálogo. Um recurso só pode ser removido de um catálogo, se não está a ser utilizado em qualquer um dos pacotes de acesso ao catálogo.
 
-**Função de pré-requisitos:** Administrador de utilizador ou proprietário de catálogo
+**Função de pré-requisitos:** Consulte [necessário funções para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. No portal do Azure, clique em **do Azure Active Directory** e, em seguida, clique em **governação de identidade**.
 
@@ -99,22 +97,6 @@ Pode remover recursos de um catálogo. Um recurso só pode ser removido de um ca
 1. Selecione os recursos que pretende remover.
 
 1. Clique em **Remova** (ou clique nas reticências ( **...** ) e, em seguida, clique em **remover recurso**).
-
-## <a name="add-catalog-owners-or-access-package-managers"></a>Adicionar proprietários de catálogo ou gestores de pacotes de acesso
-
-Se quiser delegar a gestão de catálogo ou os pacotes de acesso no catálogo, adicionar proprietários de catálogo ou aceder a gestores de pacotes. Quem cria um catálogo, torna-se o primeiro proprietário de catálogo.
-
-**Função de pré-requisitos:** Administrador de utilizador ou proprietário de catálogo
-
-1. No portal do Azure, clique em **do Azure Active Directory** e, em seguida, clique em **governação de identidade**.
-
-1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo de que pretende adicionar os administradores.
-
-1. No menu à esquerda, clique em **funções e os administradores**.
-
-1. Clique em **adicionar proprietários** ou **adicionar gestores de pacotes de acesso** para selecionar os membros destas funções.
-
-1. Clique em **selecione** para adicionar esses membros.
 
 ## <a name="edit-a-catalog"></a>Editar um catálogo
 
@@ -148,4 +130,5 @@ Pode eliminar um catálogo, mas apenas se não tem quaisquer pacotes de acesso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- [Adicionar um criador de catálogo](entitlement-management-delegate.md#add-a-catalog-creator)
 - [Crie e gerencie um pacote de acesso](entitlement-management-access-package-create.md)

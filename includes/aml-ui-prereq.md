@@ -9,11 +9,11 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 43232dd181f9375b3f3eedc74fc499b0a8cc2965
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123155"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184675"
 ---
 1. [Criar uma área de trabalho do Azure Machine Learning](../articles/machine-learning/service/setup-create-workspace.md#portal) se não tiver uma.
 

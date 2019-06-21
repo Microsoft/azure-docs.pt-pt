@@ -1,10 +1,10 @@
 ---
-title: Proteger o serviço SQL do Azure e os dados no Centro de segurança do Azure | Documentos da Microsoft
+title: Proteger serviços de dados e armazenamento do Azure no Centro de segurança do Azure | Documentos da Microsoft
 description: Este documento trata recomendações no Centro de segurança do Azure que o ajudam a proteger os seus dados e o serviço SQL do Azure e mantenha-se em conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
@@ -12,48 +12,58 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2019
+ms.date: 06/19/2019
 ms.author: monhaber
-ms.openlocfilehash: bbba5f380fddb4fdec43a7414e59778135c4e0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ac0e4ebaafb8b0c9c79e885cecbefc5a65c1823
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428309"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275290"
 ---
-# <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteger o serviço SQL do Azure e os dados no Centro de segurança do Azure
-Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários.  Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs), redes, SQL e dados e aplicações.
+# <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Proteger serviços de dados e armazenamento do Azure no Centro de segurança do Azure
+Este tópico mostra-lhe como ver e implementar recomendações de segurança para os recursos de dados e armazenamento. Foram encontrados estas recomendações do Centro de segurança do Azure ao analisar o estado de segurança dos seus recursos do Azure.
+
+## <a name="view-your-data-security-information"></a>Veja as suas informações de segurança de dados
+
+1. Na **higiene de troca de segurança de recursos** secção, clique em **recursos de dados e armazenamento**.
+
+   ![Recursos de dados e armazenamento](./media/security-center-monitoring/click-data.png)
+
+    O **segurança de dados** página abre-se com recomendações para os recursos de dados.
+
+     ![Recursos de Dados](./media/security-center-monitoring/sql-overview.png)
+
+Nesta página, pode:
+
+* Clique nas **descrição geral** separador lista todas as recomendações de recursos de dados para ser resolvido. 
+* Clique em cada separador e ver as recomendações por tipo de recurso.
+
+    > [!NOTE]
+    > Para obter mais informações sobre a encriptação de armazenamento, leia o artigo [Ativar a encriptação para a conta de armazenamento do Azure no Centro de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
 
 
-### <a name="monitor-data-security"></a>Monitorizar segurança de dados
+## <a name="remediate-a-recommendation-on-a-data-resource"></a>Remediar uma recomendação num recurso de dados
 
-Quando clica em **Segurança de dados** na secção **Prevenção**, é aberto **Recursos de Dados** com recomendações para SQL e Armazenamento. Também tem [recomendações](security-center-sql-service-recommendations.md) para o estado de funcionamento geral da base de dados. Para obter mais informações sobre a encriptação de armazenamento, leia o artigo [Ativar a encriptação para a conta de armazenamento do Azure no Centro de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
+1. A partir de qualquer uma das guias de recursos, clique num recurso. A página de informações é aberta com as recomendações para ser resolvido.
 
-![Recursos de Dados](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
+    ![Informações de recursos](./media/security-center-monitoring/sql-recommendations.png)
 
-Em **Recomendações SQL**, pode clicar em qualquer recomendação e obter mais detalhes sobre mais ações para resolver um problema. O exemplo seguinte mostra a expansão da recomendação **Auditoria de Base de Dados e Deteção de ameaças em bases de dados SQL**.
+2. Clique numa recomendação. Página de recomendações será aberta e exibirá os **passos de remediação** para implementar a recomendação.
 
-![Detalhes sobre uma recomendação de SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
+   ![Passos de remediação](./media/security-center-monitoring/remediate1.png)
 
-**Ativar Auditoria e Deteção de ameaças nas bases de dados SQL** tem as seguintes informações:
+3. Clique em **agir**. É apresentada a página de definições de recursos.
 
-* Uma lista de bases de dados SQL
-* O servidor no qual estão localizadas
-* Informações sobre se esta definição foi herdada a partir do servidor ou se é exclusiva desta base de dados
-* O estado atual
-* A gravidade do problema
+    ![Ativar recomendação](./media/security-center-monitoring/remediate2.png)
 
-Quando clica na base de dados para abordar esta recomendação, é aberto **Deteção de Ameaças e Auditoria**, conforme mostrado no ecrã seguinte.
-
-![Auditoria e Deteção de Ameaças](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
-
-Para ativar a auditoria, selecione **ATIVAR**, na opção **Auditoria**.
+4. Siga os **passos de remediação** e clique em **guardar**.
 
 ## <a name="data-and-storage-recommendations"></a>Recomendações de armazenamento e dados
 
 |Tipo de recurso|Classificação de segurança|Recomendação|Descrição|
 |----|----|----|----|
-|Conta de armazenamento|20|Deve ser ativada para contas de armazenamento com transferência segura|Transferência segura é uma opção que força a sua conta de armazenamento para aceitar pedidos apenas a partir de ligações seguras (HTTPS). Utilização de HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão.|
+|Conta de armazenamento|20|Deve ser ativada para contas de armazenamento com transferência segura|Transferência segura é uma opção que força a sua conta de armazenamento para aceitar pedidos apenas a partir de ligações seguras (HTTPS). HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão.|
 |Redis|20|Devem ser ativadas apenas ligações seguras para a Cache de Redis|Permitir apenas ligações através de SSL para o Azure Cache de Redis. Utilização de ligações seguras garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão.|
 |SQL|15|Deve ser ativada a encriptação de dados transparente nas bases de dados SQL|Ative a encriptação de dados transparente proteger dados em repouso e cumprir os requisitos de conformidade.|
 |SQL|15|Auditoria do SQL server deve ser ativada|Ative a auditoria para servidores SQL do Azure. (Apenas para serviços do SQL do azure. Não inclui SQL em execução nas suas máquinas virtuais.)|
@@ -65,13 +75,13 @@ Para ativar a auditoria, selecione **ATIVAR**, na opção **Auditoria**.
 |Conta de armazenamento|1|Contas de armazenamento devem ser migradas para novos recursos do Azure Resource Manager|Utilizar o novo Azure Resource Manager v2 para as suas contas de armazenamento para fornecer aprimoramentos de segurança, tais como: aceder a mais forte controlo de acesso (RBAC), a auditoria melhor, a implantação baseada no Resource Manager e a governação de identidades geridas, acesso ao Cofre de chaves para segredos e a autenticação baseada no AD do Azure e o suporte para etiquetas e grupos de recursos para facilitar a gestão segurança.|
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
+Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes tópicos:
 
 * [Proteger as máquinas virtuais no Centro de Segurança do Azure](security-center-virtual-machine-recommendations.md)
 * [Proteger as aplicações no Centro de Segurança do Azure](security-center-application-recommendations.md)
 * [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 
-Para saber mais acerca do Centro de Segurança, consulte o seguinte:
+Para saber mais sobre o Centro de segurança, consulte os seguintes tópicos:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

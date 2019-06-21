@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: f0fc3722ee440b6f50b86f916afef7ddc5876eef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41d544fd23d258393cc83ea09371332655223581
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693411"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203935"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementar o módulo duplo de OPC e as dependências do zero
 
@@ -200,52 +200,6 @@ Todos os módulos são implementados através de um manifesto de implantação. 
    ```
 
    O parâmetro de ID de dispositivo diferencia maiúsculas de minúsculas. ![saída da lista de identidade do módulo AZ iot hub](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
-
-## <a name="run-and-debug-locally"></a>Executar e depurar localmente
-
-Para problemas de resolução e depurá-la são útil para executar os módulos de extremidade localmente, utilizando o [simulador de desenvolvimento do IoT Edge](https://github.com/Azure/iotedgehubdev).  Ele fornece uma experiência de desenvolvimento local com um simulador para criar, desenvolver, testar, em execução e depuração de módulos do Azure IoT Edge e soluções com o mesmo código/bits, que são utilizadas na produção.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-1. Implementar o duplo de OPC [dependências](howto-opc-twin-deploy-dependencies.md).
-
-2. Instale [(18.02.0+) do Docker CE](https://www.docker.com/community-edition) nos [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) ou [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
-
-3. Instale [Docker Compose (1.20.0+)](https://docs.docker.com/compose/install/#install-compose) (apenas necessário para **Linux**. Compor já foi incluído na instalação do Windows/macOS Docker CE)
-
-4. Instalar [Python (2.7 / 3.5+) e o Pip](https://www.python.org/)
-
-5. Instalar iotedgehubdev executando o comando no seu terminal abaixo
-
-   ```bash
-   pip install --upgrade iotedgehubdev
-   ```
-
-> [!NOTE]
-> Instale `iotedgehubdev` para **raiz** em Linux/macOS (*não utilize "– utilizador" opção no comando 'instalação do pip'* ).
-> Certifique-se de que não existe nenhum tempo de execução do Azure IoT Edge em execução na mesma máquina com iotedgehubdev, já que exigem que as mesmas portas.
-
-### <a name="quickstart"></a>Início Rápido
-
-1. Siga as instruções para [criar um dispositivo do Edge no portal do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).  Copie a cadeia de ligação de dispositivo do edge.
-
-2. Configure o simulador utilizando a cadeia de ligação do edge.
-
-    ```bash
-    iotedgehubdev setup -c <edge-device-connection-string>
-    ```
-
-3. Cópia acima manifesto num `deployment.json` ficheiro na mesma pasta.  Iniciar a implementação no simulador com
-
-    ```bash
-    iotedgehubdev start -d deployment.json
-    ```
-
-4. Parar de utilizar o simulador
-
-   ```bash
-   iotedgehubdev stop
-   ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

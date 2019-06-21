@@ -9,11 +9,11 @@ ms.date: 08/10/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: 2b61cc8c5c448c28e96b06afa3556688a82567ed
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866815"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202700"
 ---
 ### <a name="delete-local-resources"></a>Eliminar recursos locais
 

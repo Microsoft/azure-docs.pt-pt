@@ -3,17 +3,17 @@ title: Configurar um modelo de dispositivo num aplicativo do Azure IoT Central |
 description: Saiba como configurar um modelo de dispositivo com medidas, configurações, propriedades, regras e um dashboard.
 author: viv-liu
 ms.author: viviali
-ms.date: 01/30/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58f50a1a2b90b4b5f9708bf0f1a7cb51db8e47ae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466483"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275957"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 

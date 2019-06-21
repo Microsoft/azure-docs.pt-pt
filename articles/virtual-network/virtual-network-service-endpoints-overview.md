@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: e621eeeca7a4f325efcfb242c204b2f727e55fc4
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61032584"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147768"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -61,7 +61,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 - A funcionalidade só está disponível para redes virtuais implementadas através do modelo de implementação Azure Resource Manager.
 - Os pontos finais estão ativados nas sub-redes configuradas em redes virtuais do Azure. Os pontos finais não podem ser utilizados para tráfego dos serviços no local para os serviços do Azure. Para obter mais informações, veja [Proteger o acesso do serviço do Azure no local](#securing-azure-services-to-virtual-networks)
 - No Azure SQL, um ponto final de serviço aplica-se apenas ao tráfego de serviço do Azure numa região da rede virtual. No Armazenamento do Azure, para suportar tráfego RA-GRS e GRS, os pontos finais também se expandem para incluir regiões emparelhadas nas quais a rede virtual está implementada. Saiba mais sobre as [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-- Para ADLS Gen 1, a capacidade de integração VNet apenas está disponível para redes virtuais na mesma região.
+- Para ADLS Gen 1, a capacidade de integração VNet apenas está disponível para redes virtuais na mesma região. Também observe que torna a integração da rede virtual de geração 1 de armazenamento do Azure Data Lake usa a segurança de ponto final de serviço de rede virtual entre a rede virtual e o Azure Active Directory (Azure AD) para gerar afirmações de segurança adicional no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. Etiqueta de "Microsoft. azureactivedirectory" listada em serviços de suporte de pontos finais de serviço é utilizada apenas para dar suporte a pontos finais de serviço para ADLS Gen 1. Azure Active Directory (Azure AD) não suporta nativamente pontos finais de serviço. Saiba mais sobre [do Azure Data Lake Store Gen 1 integração VNet](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Proteger serviços do Azure para redes virtuais
 
@@ -120,7 +120,7 @@ Depois configurar os pontos finais de serviço para um serviço específico, val
 
 ## <a name="provisioning"></a>Aprovisionamento
 
-Os pontos finais de serviço podem ser configurados de forma independente em redes virtuais por um utilizador com acesso de escrita numa rede virtual. Para proteger os recursos de serviço do Azure para uma VNet, o utilizador tem de ter permissão *Microsoft.Network/JoinServicetoaSubnet* para as sub-redes que estão a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
+Os pontos finais de serviço podem ser configurados de forma independente em redes virtuais por um utilizador com acesso de escrita numa rede virtual. Para proteger os recursos de serviço do Azure a uma VNet, o utilizador tem de ter permissão para *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* para as sub-redes que está a ser adicionadas. Esta permissão está incluída por predefinição nas funções incorporadas de administrador de serviço e podem ser modificadas mediante a criação de funções personalizadas.
 
 Saiba mais sobre [funções incorporadas](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e a atribuição de permissões específicas a [funções personalizadas](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

@@ -6,23 +6,23 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238979"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165307"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
 Para partilhar uma vista personalizada no Explorador do Time Series Insights, pode criar programaticamente um URL parametrizado dessa vista.
 
-O Explorador do Time Series Insights suporta parâmetros de consulta de URL para especificar vistas na experiência diretamente a partir do URL. Por exemplo, ao utilizar apenas o URL, pode especificar um ambiente de destino, um predicado de pesquisa e um intervalo de tempo pretendido. Quando um utilizador clica no URL personalizado, a interface fornece uma ligação diretamente para esse recurso no portal do Time Series Insights. Aplicam-se as políticas de acesso a dados.
+O Explorador do Time Series Insights suporta parâmetros de consulta de URL para especificar vistas na experiência diretamente a partir do URL. Por exemplo, ao utilizar apenas o URL, pode especificar um ambiente de destino, um predicado de pesquisa e um intervalo de tempo pretendido. Quando um utilizador seleciona no URL personalizado, a interface fornece uma ligação diretamente para esse recurso no portal do Time Series Insights. Aplicam-se as políticas de acesso a dados.
 
 > [!TIP]
 > * Ver o gratuito [demonstração do Time Series Insights](https://insights.timeseries.azure.com/samples).

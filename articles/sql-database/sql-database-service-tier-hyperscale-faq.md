@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 38d9ad007b67756bdca0c6f98267aa16ba38ee9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791434"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275584"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -79,7 +79,7 @@ O escalão de Hiperescala de base de dados do SQL Azure está atualmente dispon�
 
 Sim. Para obter mais informações e limites no número de bases de dados de grande dimensão por servidor lógico, consulte [limites de recursos de base de dados SQL para bases de dados únicos e agrupados num servidor lógico](sql-database-resource-limits-logical-server.md).
 
-### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>O que são características de desempenho de uma base de dados de grande escala
+### <a name="what-are-the-performance-characteristics-of-a-hyperscale-database"></a>Quais são as características de desempenho de uma base de dados de grande escala
 
 A arquitetura de Hiperescala de base de dados SQL fornece elevado desempenho e o débito, dar suporte a tamanhos de base de dados grande. 
 
@@ -94,7 +94,7 @@ Hiperescala de base de dados SQL fornece uma rápida escalabilidade com base na 
 
   Com a Hiperescala, também obtém a capacidade de aprovisionar um ou mais nós de computação adicional que pode utilizar para atender as solicitações de leitura. Isso significa que pode utilizar estes nós de computação adicionais como nós só de leitura para a descarga de sua carga de trabalho de leitura do primária para a computação. Para além só de leitura, que estes nós também servem como acesso frequente-em espera 's em caso de uma ativação pós-falha dos principais.
 
-  Aprovisionamento de cada um desses computação adicional nós podem ser feitas de tempo constante e é uma operação online. Pode ligar a esses nós de computação adicionais de só de leitura, definindo a `ApplicationIntent` argumento na sua cadeia de ligação para `read_only`. Todas as ligações marcado com `read-only` são automaticamente encaminhadas para um de nós de computação adicionais de só de leitura.
+  Aprovisionamento de cada um desses computação adicional nós podem ser feitas de tempo constante e é uma operação online. Pode ligar a esses nós de computação adicionais de só de leitura, definindo a `ApplicationIntent` argumento na sua cadeia de ligação para `readonly`. Todas as ligações marcado com `readonly` são automaticamente encaminhadas para um de nós de computação adicionais de só de leitura.
 
 ## <a name="deep-dive-questions"></a>Perguntas de aprofundamento
 
@@ -140,7 +140,7 @@ Não.
 
 ### <a name="how-many-read-scale-replicas-are-supported"></a>Como muitas réplicas de escala de leitura são suportadas
 
-Por predefinição, as bases de dados de grande escala são criados com uma réplica de uma escala de leitura (duas réplicas no total). Pode dimensionar o número de réplicas só de leitura entre 0 e 4 usando a [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)....
+Por predefinição, as bases de dados de grande escala são criados com uma réplica de uma escala de leitura (duas réplicas no total). Pode dimensionar o número de réplicas só de leitura entre 0 e 4 usando a [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-nodes"></a>Para elevada disponibilidade,, tem de aprovisionar adicionais nós de computação
 
@@ -361,7 +361,7 @@ Criamos 2 réplicas para bases de dados de grande dimensão por predefinição. 
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Como posso ligar a estes nós de computação secundário
 
-Pode ligar a esses nós de computação adicionais de só de leitura, definindo a `ApplicationIntent` argumento na sua cadeia de ligação para `read_only`. Todas as ligações marcado com `read-only` são automaticamente encaminhadas para um de nós de computação adicionais de só de leitura.  
+Pode ligar a esses nós de computação adicionais de só de leitura, definindo a `ApplicationIntent` argumento na sua cadeia de ligação para `readonly`. Todas as ligações marcado com `readonly` são automaticamente encaminhadas para um de nós de computação adicionais de só de leitura.  
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Pode criar um ponto de extremidade dedicado para a réplica de uma escala de leitura
 

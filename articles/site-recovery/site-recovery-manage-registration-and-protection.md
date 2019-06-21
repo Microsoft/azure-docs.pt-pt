@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415493"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203405"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 
@@ -151,6 +151,8 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
 > [!NOTE]
 > Em ambas as opções das serviço de mobilidade não será desinstalado dos servidores protegidos, terá de desinstalá-lo manualmente. Se pretender proteger o servidor novamente usando o mesmo servidor de configuração, pode ignorar a desinstalar o serviço de mobilidade.
 
+> [!NOTE]
+> Se já foi através de uma VM e está em execução no Azure, tenha em atenção que desative a proteção não remover / afetam a ativação pós-falha VM.
 ## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Desative a proteção para uma VM do Azure (Azure para o Azure)
 
 -  Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
@@ -167,8 +169,12 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
    - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação na máquina virtual no local serão limpos e faturação do Site Recovery para este servidor protegido é interrompida.
    - **Remover** -esta opção deve ser utilizada apenas se o ambiente de origem for eliminada ou não está acessível (não ligado). Esta ação remove o item replicado do Azure Site Recovery (a faturação é interrompida). Configuração de replicação na máquina virtual no local **não irá** ser limpos. 
 
-     > [!NOTE]
+ > [!NOTE]
      > Se tiver escolhido o **remover** opção, em seguida, execute o seguinte conjunto de scripts para limpar as definições de replicação no local servidor Hyper-V.
+
+> [!NOTE]
+> Se já foi através de uma VM e está em execução no Azure, tenha em atenção que desative a proteção não remover / afetam a ativação pós-falha VM.
+
 1. No servidor de origem Hyper-V anfitrião, para remover a replicação para a máquina virtual. Substitua SQLVM1 com o nome da sua máquina virtual e execute o script a partir de um PowerShell administrativo
 
 ```powershell

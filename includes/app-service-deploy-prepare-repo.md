@@ -9,11 +9,11 @@ ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 7ec4028c319749b6a3da019e1d320d3937e9c4b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133159"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184732"
 ---
 ## <a name="prepare-your-repository"></a>Preparar o seu repositório
 

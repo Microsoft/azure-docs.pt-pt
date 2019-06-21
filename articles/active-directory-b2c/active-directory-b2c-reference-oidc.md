@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 85639e2648131f9475ad2ae77f31d43e64bf82e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c855a3e0280e1fadf2362f2d8959beff2f5d00a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509212"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271964"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Sessão Web com OpenID Connect no Azure Active Directory B2C
 
@@ -152,7 +153,9 @@ Depois de validar o token de ID, pode iniciar uma sessão com o utilizador. Pode
 
 Se precisar de seu aplicativo web para executar apenas fluxos de utilizador, pode ignorar as próximas seções. Estas secções são aplicáveis apenas a web, aplicativos que precisam para fazer chamadas a uma API web autenticadas e também estão protegidos pelo Azure AD B2C.
 
-Pode resgatar o código de autorização que obteve (utilizando `response_type=code+id_token`) para um token para o recurso pretendido, enviando um `POST` pedido para o `/token` ponto final. Atualmente, o único recurso que pode pedir um token para é a API web back-end da aplicação. A Convenção para pedir um token a próprio é usar o ID de cliente da sua aplicação como o âmbito:
+Pode resgatar o código de autorização que obteve (utilizando `response_type=code+id_token`) para um token para o recurso pretendido, enviando um `POST` pedido para o `/token` ponto final. No Azure AD B2C, pode [pedir tokens de acesso para outra API](active-directory-b2c-access-tokens.md#request-a-token) como de costume, especificando os âmbitos que se no pedido.
+
+Também pode pedir um token de acesso para a API de Web de back-end da aplicação por convenção de usar o ID da aplicação cliente como o âmbito de pedido (o que resulta num token de acesso com esse ID de cliente como o "público"):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 704bb409d2b21e2ae258dbb2d627b1c088d80db7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f99042d91738c88a8b673444bb3d4a40602b012
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254642"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204173"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para cópia de segurança com o Microsoft Azure Backup Server ou o System Center DPM
 
@@ -51,7 +51,7 @@ Para obter mais informações:
 - [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura do MABS.
 - [Reveja o que é suportado](backup-support-matrix-mars-agent.md) para o agente de MARS.
 
-## <a name="supported-scenarios"></a>Cenários suportados 
+## <a name="supported-scenarios"></a>Cenários suportados
 
 **Cenário** | **Agente** | **Location**
 --- | --- | ---
@@ -73,12 +73,12 @@ O DPM/MABS pode ser implementado conforme resumido na tabela seguinte.
 
 O Azure Backup pode criar cópias de segurança instâncias do DPM/MABS que executem qualquer um dos seguintes sistemas operativos. Sistemas operativos devem estar a executar as atualizações e service packs mais recentes.
 
-**Cenário** | **DPM/MABS** 
---- | --- 
-**MABS numa VM do Azure** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Centro de dados do Windows de 2019.<br/><br/> Recomendamos que comece com uma imagem do marketplace.<br/><br/> Mínimo A2 padrão com dois núcleos e 3,5 GB de RAM. 
-**DPM numa VM do Azure** | System Center 2012 R2 com Update 3 ou posterior.<br/><br/> Sistema de operativo do Windows conforme [exigidas pelo System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Recomendamos que comece com uma imagem do marketplace.<br/><br/> Mínimo A2 padrão com dois núcleos e 3,5 GB de RAM. 
-**MABS no local** | Suporte para sistemas de operativos de 64 bits:<br/><br/> MABS v3 e posterior: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> V2 do MABS e posterior: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Todas as versões do MABS: Windows Server 2012 R2, Windows Server 2012 (Standard, Datacenter, Foundation).<br/><br/>Todas as versões do MABS: Windows Storage Server 2012 R2, Windows Server 2012 (Standard, Workgroup).
-**DPM no local** | Físico servidor/Hyper-V VM: System Center 2012 SP1 ou posterior.<br/><br/> VM de VMware: System Center 2012 R2 com Update 5 ou posterior. 
+**Cenário** | **DPM/MABS**
+--- | ---
+**MABS numa VM do Azure** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Centro de dados do Windows de 2019.<br/><br/> Recomendamos que comece com uma imagem do marketplace.<br/><br/> Mínimo A2 padrão com dois núcleos e 3,5 GB de RAM.
+**DPM numa VM do Azure** | System Center 2012 R2 com Update 3 ou posterior.<br/><br/> Sistema de operativo do Windows conforme [exigidas pelo System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Recomendamos que comece com uma imagem do marketplace.<br/><br/> Mínimo A2 padrão com dois núcleos e 3,5 GB de RAM.
+**MABS no local** | Suporte para sistemas de operativos de 64 bits:<br/><br/> MABS v3 e posterior: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> V2 do MABS e posterior: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Todas as versões do MABS: Windows Server 2012 R2.<br/><br/>Todas as versões do MABS: Windows Storage Server 2012 R2.
+**DPM no local** | Físico servidor/Hyper-V VM: System Center 2012 SP1 ou posterior.<br/><br/> VM de VMware: System Center 2012 R2 com Update 5 ou posterior.
 
 
 
@@ -98,7 +98,7 @@ O Azure Backup pode criar cópias de segurança instâncias do DPM/MABS que exec
 Pode implementar MABS numa VM do Azure Stack para que possam gerir cópia de segurança de VMs do Azure Stack e cargas de trabalho a partir de uma única localização.
 
 **Componente** | **Detalhes**
---- | --- 
+--- | ---
 **MABS na VM do Azure Stack** | Pelo menos de tamanho A2. Recomendamos que comece com uma imagem do Windows Server 2012 R2 ou Windows Server 2016 no Azure Marketplace.<br/><br/> Não instale qualquer outra coisa na VM do MABS.
 **Armazenamento MABS** | Utilize uma conta de armazenamento separada para a VM do MABS. O agente de MARS em execução no MABS precisa de armazenamento temporário para uma localização da cache e para armazenar os dados restaurados a partir da cloud.
 **Agrupamento de armazenamento do MABS** | O tamanho do agrupamento de armazenamento do MABS é determinado pelo número e tamanho dos discos que estão ligados à VM do MABS. Cada tamanho de VM do Azure Stack tem um número máximo de discos. Por exemplo, A2 é quatro discos.
@@ -107,7 +107,7 @@ Pode implementar MABS numa VM do Azure Stack para que possam gerir cópia de seg
 **.NET framework em MABS** | A VM do MABS precisa do .NET Framework 3.3 SP1 ou posterior instalado no mesmo.
 **Domínio do MABS** | A VM do MABS tem de estar associada a um domínio. Um utilizador de domínio com privilégios de administrador tem de instalar MABS na VM.
 **Cópia de segurança de dados do Azure Stack VM** | Pode fazer backup de arquivos, pastas e aplicações.
-**Cópia de segurança suportada** | Estes sistemas operativos são suportados para VMs que pretende criar cópias de segurança:<br/><br/> Windows Server via de atualizações Semianuais (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2
+**Cópia de segurança suportada** | Estes sistemas operativos são suportados para VMs que pretende criar cópias de segurança:<br/><br/> Windows Server via de atualizações Semianuais (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 **Suporte do SQL Server para VMs do Azure Stack** | Cópia de segurança do SQL Server 2016, o SQL Server 2014, o SQL Server 2012 SP1.<br/><br/> Criar cópias de segurança e recuperar uma base de dados.
 **Suporte para VMs do Azure Stack SharePoint** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Criar cópias de segurança e recuperar um farm, a base de dados, o front-end e o servidor web.
 **Requisitos de rede para VMs com cópia de segurança** | Todas as VMs na carga de trabalho do Azure Stack tem de pertencer à mesma rede virtual e pertencer à mesma subscrição.
@@ -128,8 +128,8 @@ O servidor DPM/MABS precisa de aceder a estes URLs:
 
 Conectividade para o serviço de cópia de segurança do Azure é necessária para as cópias de segurança funcionar corretamente, e a subscrição do Azure deve estar ativa. A tabela seguinte mostra o comportamento se essas duas coisas não ocorrerem.
 
-**MABS para o Azure** | **Subscrição** | **Cópia de segurança/restauro** 
---- | --- | --- 
+**MABS para o Azure** | **Subscrição** | **Cópia de segurança/restauro**
+--- | --- | ---
 Ligado | Ativa | Criar cópias de segurança para o disco do DPM/MABS.<br/><br/> Criar cópias de segurança para o Azure.<br/><br/> Restaure a partir de disco.<br/><br/> Restaure a partir do Azure.
 Ligado | Expirado/desaprovisionada | Nenhuma cópia de segurança para o disco ou do Azure.<br/><br/> Se a subscrição expirou, pode restaurar a partir de disco ou no Azure.<br/><br/> Se a subscrição está desativada, não é possível restaurar a partir de disco ou no Azure. Os pontos de recuperação do Azure são eliminados.
 Sem conectividade durante mais de 15 dias | Ativa | Nenhuma cópia de segurança para o disco ou do Azure.<br/><br/> Pode restaurar a partir do disco ou do Azure.
@@ -137,7 +137,7 @@ Sem conectividade durante mais de 15 dias | Expirado/desaprovisionada | Nenhuma 
 
 ## <a name="dpmmabs-storage-support"></a>Suporte de armazenamento do DPM/MABS
 
-Dados de cópia de segurança para DPM/MABS são armazenados no armazenamento de disco local. 
+Dados de cópia de segurança para DPM/MABS são armazenados no armazenamento de disco local.
 
 **Armazenamento** | **Detalhes**
 --- | ---
@@ -162,22 +162,21 @@ A tabela seguinte resume o que pode ser uma cópia de segurança para o MABS de 
 
 **Cópia de segurança** | **Versões** | **MABS** | **Detalhes** |
 --- | --- | --- | --- |
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bit) | MABS v3, v2, V1 | No local. | Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados.<br/><br/> Volumes têm de ser, pelo menos, 1 GB e NTFS. |
+**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bit) | MABS v3, v2 | No local. | Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados.<br/><br/> Volumes têm de ser, pelo menos, 1 GB e NTFS. |
 **Windows Server 2016 (Centro de dados, padrão, não o Nano)**<br/><br/> 64/32 bits | MABS v3, v2 | VM no local/Azure.| Volume/share/folder/file; system-state/bare-metal.<br/><br/> Volumes com eliminação de duplicados suportados. |
-**Windows Server 2012 R2 (Datacenter e Standard)**<br/><br/> 64/32 bits | MABS v3, v2, v1 | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VMprotection**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
-**Windows Server 2012 com SP1 (Datacenter e Standard)**<br/><br/> 64/32 bits | MABS v3, v2, v1<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) tem de ser instalado. | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
-**Windows Server 2012 (Datacenter e Standard)**<br/><br/> 64/32 bits | MABS v1 | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
-**Windows 2008 R2 com SP1 (Standard e Enterprise)**<br/><br/> 64/32 bits | Suportado pelo MABS v3, v2, v1.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) tem de ser instalado. | VM no local/Azure. |   **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
-**Windows 2008 R2 (Standard e Enterprise)**<br/><br/> 64/32 bits | MABS v1. Para o MABS v2/v3 o sistema operacional tem de executar SP1. | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
-**Windows Server 2008 com SP2**<br/><br/> 64/32 bits | MABS v1, v2, v3 | Apenas v1 é suportada quando o MABS é implementado como uma máquina física no local ou VM do Hyper-V.<br/><br/> MABS v1, 2, 3 é suportada quando o MABS é implementado como uma VM de VMware.<br/><br/> Não é suportada para o MABS em execução numa VM do Azure. | Volume/share/folder/file; system-state/bare-metal. |
-**Windows Storage Server 2008** | MABS v1, v2, v3 | MABS como no local físico servidor/Hyper-V VM. <br/><br/> Não é suportada para o MABS em execução numa VM do Azure. | Volume/share/folder/file; system-state/bare-metal.
+**Windows Server 2012 R2 (Datacenter e Standard)**<br/><br/> 64/32 bits | MABS v3, v2 | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VMprotection**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
+**Windows Server 2012 com SP1 (Datacenter e Standard)**<br/><br/> 64/32 bits | MABS v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) tem de ser instalado. | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
+**Windows 2008 R2 com SP1 (Standard e Enterprise)**<br/><br/> 64/32 bits | Suportado pelo MABS v3, v2.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) tem de ser instalado. | VM no local/Azure. |   **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
+**Windows 2008 R2 (Standard e Enterprise)**<br/><br/> 64/32 bits | Para o MABS v2/v3 o sistema operacional tem de executar SP1. | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados. |
+**Windows Server 2008 com SP2**<br/><br/> 64/32 bits | MABS v2, v3 | MABS v2, v3 é suportada quando o MABS é implementado como uma VM de VMware.<br/><br/> Não é suportada para o MABS em execução numa VM do Azure. | Volume/share/folder/file; system-state/bare-metal. |
+**Windows Storage Server 2008** | MABS v2, v3 | MABS como no local físico servidor/Hyper-V VM. <br/><br/> Não é suportada para o MABS em execução numa VM do Azure. | Volume/share/folder/file; system-state/bare-metal.
 **SQL Server 2017** | MABS v3 | VM no local/Azure.| Criar cópias de segurança da base de dados do SQL Server.<br/><br/> Backup de cluster do SQL Server suportado.<br/><br/>Bases de dados armazenados em CSVs não suportados. |
 **SQL Server 2016 de Maio de 2016 com SP1** | MABS v3, v2 | VM no local/Azure.| Criar cópias de segurança da base de dados do SQL Server.<br/><br/> Backup de cluster do SQL Server suportado.<br/><br/>Bases de dados armazenados em CSVs não suportados. |
-**SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2, v1 | VM no local/Azure.| Criar cópias de segurança da base de dados do SQL Server.<br/><br/> Backup de cluster do SQL Server suportado.<br/><br/>Bases de dados armazenados em CSVs não suportados. |
-**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | MABS v3, v2, V1 | No local. | Cópia de segurança do servidor do Exchange autónomo, base de dados num Dag.<br/><br/> Recupere a caixa de correio, bases de dados de caixa de correio num Dag.<br/><br/> ReFS não suportado.<br/><br/> Criar cópias de segurança os clusters de disco não partilhados.<br/><br/> Criar cópias de segurança do Exchange Server configurado para replicação contínua. |
-**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | MABS v3, v2, v1 | VM no local/Azure. | Fazer backup de farm, servidor web front-end.<br/><br/> Recupere a farm, base de dados, aplicação web, ficheiro ou item de lista, procura do SharePoint, servidor web front-end.<br/><br/> Não é possível fazer uma cópia de segurança de um farm com o SQL Server AlwaysOn para as bases de dados de conteúdo. |
-**Hyper-V no Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (com SP1)** | MABS v3, v2, v1 | No local. | **Agente do MABS num anfitrião Hyper-V**: Cópia de segurança de VMs completas e hospedagem de arquivos de dados. Fazer uma cópia de segurança de VMs com o armazenamento local, VMs no cluster com o armazenamento CSV, as VMs com armazenamento de servidor de ficheiros SMB.<br/><br/> **Agente MABS na VM do convidado**: Cópia de segurança de cargas de trabalho em execução na VM. CSVs.<br/><br/> **Recuperação**: VM, recuperação ao nível do item de VHD/volume/pastas/ficheiros.<br/><br/> **VMs do Linux**: Criar cópias de segurança quando está a executar Hyper-V no Windows Server 2012 R2 e versões posteriores. Recuperação para VMs do Linux destina-se a toda a máquina. |
-**VMs de VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2, v1<br/><br/> V1 do MABS precisa update rollup 1) | No local. | Fazer uma cópia de segurança de VMs de VMware no armazenamento de SAN, NFS e CSVs.<br/><br/> Recupere VM inteira.<br/><br/> Cópia de segurança do Windows/Linux.<br/><br/> Recuperação ao nível do item de pasta/para VMs do Windows apenas ficheiros.<br/><br/> Os VMware vApps não são suportados.<br/><br/> Recuperação para VMs do Linux destina-se a toda a máquina. | 
+**SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | VM no local/Azure.| Criar cópias de segurança da base de dados do SQL Server.<br/><br/> Backup de cluster do SQL Server suportado.<br/><br/>Bases de dados armazenados em CSVs não suportados. |
+**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | MABS v3, v2 | No local. | Cópia de segurança do servidor do Exchange autónomo, base de dados num Dag.<br/><br/> Recupere a caixa de correio, bases de dados de caixa de correio num Dag.<br/><br/> ReFS não suportado.<br/><br/> Criar cópias de segurança os clusters de disco não partilhados.<br/><br/> Criar cópias de segurança do Exchange Server configurado para replicação contínua. |
+**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | MABS v3, v2 | VM no local/Azure. | Fazer backup de farm, servidor web front-end.<br/><br/> Recupere a farm, base de dados, aplicação web, ficheiro ou item de lista, procura do SharePoint, servidor web front-end.<br/><br/> Não é possível fazer uma cópia de segurança de um farm com o SQL Server AlwaysOn para as bases de dados de conteúdo. |
+**Hyper-V no Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (com SP1)** | MABS v3, v2 | No local. | **Agente do MABS num anfitrião Hyper-V**: Cópia de segurança de VMs completas e hospedagem de arquivos de dados. Fazer uma cópia de segurança de VMs com o armazenamento local, VMs no cluster com o armazenamento CSV, as VMs com armazenamento de servidor de ficheiros SMB.<br/><br/> **Agente MABS na VM do convidado**: Cópia de segurança de cargas de trabalho em execução na VM. CSVs.<br/><br/> **Recuperação**: VM, recuperação ao nível do item de VHD/volume/pastas/ficheiros.<br/><br/> **VMs do Linux**: Criar cópias de segurança quando está a executar Hyper-V no Windows Server 2012 R2 e versões posteriores. Recuperação para VMs do Linux destina-se a toda a máquina. |
+**VMs de VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | No local. | Fazer uma cópia de segurança de VMs de VMware no armazenamento de SAN, NFS e CSVs.<br/><br/> Recupere VM inteira.<br/><br/> Cópia de segurança do Windows/Linux.<br/><br/> Recuperação ao nível do item de pasta/para VMs do Windows apenas ficheiros.<br/><br/> Os VMware vApps não são suportados.<br/><br/> Recuperação para VMs do Linux destina-se a toda a máquina. |
 
 
 
@@ -188,12 +187,11 @@ A tabela seguinte resume o que pode ser uma cópia de segurança para o DPM de m
 
 
 **Cópia de segurança** | **DPM** | **Detalhes**
---- | --- | --- 
+--- | --- | ---
 **Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bit) | Apenas no local.<br/><br/> Para fazer backup com o Windows 10 com o DPM 2012 R2, recomendamos que instale [atualização 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager). | Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados.<br/><br/> Volumes têm de ser, pelo menos, 1 GB e NTFS.
 **Windows Server 2016 (Centro de dados, padrão, não o Nano)**<br/><br/> 64/32 bits | VM no local/Azure.<br/><br/> Apenas para o DPM 2016.| Volume/share/folder/file; system-state/bare-metal.<br/><br/> Volumes com eliminação de duplicados suportados.
 **Windows Server 2012 R2 (Datacenter e Standard)**<br/><br/> 64/32 bits | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados com o DPM 2012 R2 e posterior.
 **Windows Server 2012 com SP1 (Datacenter e Standard)**<br/><br/> 64/32 bits | VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados com o DPM 2012 R2 e posterior.
-**Windows Server 2012 (Datacenter e Standard)**<br/><br/> 64/32 bits |  VM no local/Azure. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.<br/><br/> Volumes com eliminação de duplicados suportados com o DPM 2012 R2 e posterior.
 **Windows 2008 R2 com SP1 (Standard e Enterprise)**<br/><br/> 64/32 bits | VM no local/Azure.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) tem de ser instalado. |   **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Proteção de VM do Azure**: Volume/share/folder/file.
 **Windows 2008 R2 (Standard e Enterprise)**<br/><br/> 64/32 bits | No local.<br/><br/> Não é possível instalar o DPM como uma VM de VMware.<br/><br/> O DPM for executado numa VM do Azure não é suportado. | **Proteção do local**: Volume/share/folder/file; system-state/bare-metal.
 **Windows Server 2008 com SP2**<br/><br/> 64/32 bits | Apenas no local.<br/><br/> O DPM é suportado quando em execução como uma VM de VMware. Não é suportada em execução como um servidor físico ou VM do Hyper-V. | Volume/share/folder/file; system-state/bare-metal.
@@ -205,10 +203,10 @@ A tabela seguinte resume o que pode ser uma cópia de segurança para o DPM de m
 **Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | Para o Exchange 2016, o DPM 2012 R2 tem Update Rollup 9 ou posterior.<br/><br/> Local | Cópia de segurança do servidor do Exchange autónomo, base de dados num Dag.<br/><br/> Recupere a caixa de correio, bases de dados de caixa de correio num Dag.<br/><br/> ReFS não suportado.<br/><br/> Criar cópias de segurança os clusters de disco não partilhados.<br/><br/> Criar cópias de segurança do Exchange Server configurado para replicação contínua.
 **SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 no DPM 2016 e posterior.<br/><br/>VM no local/Azure. | Fazer backup de farm, servidor web front-end.<br/><br/> Recupere a farm, base de dados, aplicação web, ficheiro ou item de lista, procura do SharePoint, servidor web front-end.<br/><br/> Não é possível fazer uma cópia de segurança de um farm com o SQL Server AlwaysOn para as bases de dados de conteúdo.
 **Hyper-V no Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (com SP1)** | Hyper-V suportada para o DPM 2016 e versões posteriores de 2016.<br/><br/> No local. | **Agente do MABS num anfitrião Hyper-V**: Cópia de segurança de VMs completas e hospedagem de arquivos de dados. Fazer uma cópia de segurança de VMs com o armazenamento local, VMs no cluster com o armazenamento CSV, as VMs com armazenamento de servidor de ficheiros SMB.<br/><br/> **Agente MABS na VM do convidado**: Cópia de segurança de cargas de trabalho em execução na VM. CSVs.<br/><br/> **Recuperação**: VM, recuperação ao nível do item de VHD/volume/pastas/ficheiros.<br/><br/> **VMs do Linux**: Criar cópias de segurança quando está a executar Hyper-V no Windows Server 2012 R2 e versões posteriores. Recuperação para VMs do Linux destina-se a toda a máquina.
-**VMs de VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2, v1<br/><br/> O DPM 2012 R2 necessita de System Center Update Rollup 1) <br/><br/>No local. | Fazer uma cópia de segurança de VMs de VMware no armazenamento de SAN, NFS e CSVs.<br/><br/> Recupere VM inteira.<br/><br/> Cópia de segurança do Windows/Linux.<br/><br/> Recuperação ao nível do item de pasta/para VMs do Windows apenas ficheiros.<br/><br/> Os VMware vApps não são suportados.<br/><br/> Recuperação para VMs do Linux destina-se a toda a máquina.
+**VMs de VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> O DPM 2012 R2 necessita de System Center Update Rollup 1) <br/><br/>No local. | Fazer uma cópia de segurança de VMs de VMware no armazenamento de SAN, NFS e CSVs.<br/><br/> Recupere VM inteira.<br/><br/> Cópia de segurança do Windows/Linux.<br/><br/> Recuperação ao nível do item de pasta/para VMs do Windows apenas ficheiros.<br/><br/> Os VMware vApps não são suportados.<br/><br/> Recuperação para VMs do Linux destina-se a toda a máquina.
 
 
-- Tenha em atenção que as cargas de trabalho em cluster, cópias de segurança no DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou num domínio fidedigno/subordinado. 
+- Tenha em atenção que as cargas de trabalho em cluster, cópias de segurança no DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou num domínio fidedigno/subordinado.
 - Pode utilizar a autenticação de NTLM/certificados para criar cópias de segurança em grupos de trabalho ou domínios não fidedignos.
 
 

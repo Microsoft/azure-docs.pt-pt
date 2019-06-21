@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: aljo
-ms.openlocfilehash: fed991193e8d4a1f8e4e2fcf75ef8e2bf0d0a8d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: a309b30fc9438ded280109691afd3bde0883dc3c
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074297"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144400"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -150,7 +150,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |PartitionPrefix|cadeia de caracteres, a predefinição é ""|Estático|Controla o valor de cadeia de caracteres de prefixo de partição nas consultas DNS para serviços particionadas. O valor: <ul><li>Deve estar em conformidade com RFC como será a parte de uma consulta DNS.</li><li>Não deve conter um ponto ".", como o ponto interfere com o comportamento de sufixo DNS.</li><li>Não deve ter mais de 5 carateres.</li><li>Não pode ser uma cadeia vazia.</li><li>Se a definição de PartitionPrefix é substituída, então PartitionSuffix tem de ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md).|
 |PartitionSuffix|cadeia de caracteres, a predefinição é ""|Estático|Controla o valor de cadeia de caracteres de sufixo de partição nas consultas DNS para serviços particionadas. O valor: <ul><li>Deve estar em conformidade com RFC como será a parte de uma consulta DNS.</li><li>Não deve conter um ponto ".", como o ponto interfere com o comportamento de sufixo DNS.</li><li>Não deve ter mais de 5 carateres.</li><li>Se a definição de PartitionPrefix é substituída, então PartitionSuffix tem de ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md). |
 
-## <a name="eventstore"></a>EventStore
+## <a name="eventstoreservice"></a>EventStoreService
 
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
@@ -230,7 +230,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |ReplicaRestartWaitDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(60.0 * 30)|Não permitido|Especifique o período de tempo em segundos. Este é o ReplicaRestartWaitDuration para o FMService |
 |StandByReplicaKeepDuration|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|Não permitido|Especifique o período de tempo em segundos. Este é o StandByReplicaKeepDuration para o FMService |
 |TargetReplicaSetSize|Int, o padrão é 7|Não permitido|Este é o número de destino das réplicas de FM que irá manter recursos de infraestrutura do Windows. Um número mais alto resulta em maior fiabilidade dos dados FM; com uma compensação de desempenho pequeno. |
-|UserMaxStandByReplicaCount |int, a predefinição é 1 |Dinâmica|O número máximo predefinido de réplicas de modo de espera que o sistema mantém-se para os serviços de utilizador. |
+|UserMaxStandByReplicaCount |Int, a predefinição é 1 |Dinâmica|O número máximo predefinido de réplicas de modo de espera que o sistema mantém-se para os serviços de utilizador. |
 |UserReplicaRestartWaitDuration |Tempo em segundos, a predefinição é 60.0 * 30 |Dinâmica|Especifique o período de tempo em segundos. Quando uma réplica persistente fica inativo; Recursos de infraestrutura do Windows é aguarda por esta duração para a réplica seja aberto antes de criar novos réplicas de substituição (o que exigiriam uma cópia do Estado). |
 |UserStandByReplicaKeepDuration |Tempo em segundos, o padrão é 3600.0 * 24 * 7 |Dinâmica|Especifique o período de tempo em segundos. Quando uma réplica persistente voltar atrás de um Estado para baixo; Pode já ter foi substituído. Este temporizador determina quanto o FM irá manter a réplica em modo de espera antes de descartá-la. |
 
@@ -395,7 +395,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|AutomaticMemoryConfiguration |int, a predefinição é 1 |Dinâmica|Sinalizador que indica se as definições de memória devem ser dinamicamente e automaticamente configuradas. Se a zero, em seguida, as definições de configuração de memória são usadas diretamente e não são alterados com base nas condições de sistema. Se um, em seguida, as definições de memória são configuradas automaticamente e pode ser alterada com base nas condições de sistema. |
+|AutomaticMemoryConfiguration |Int, a predefinição é 1 |Dinâmica|Sinalizador que indica se as definições de memória devem ser dinamicamente e automaticamente configuradas. Se a zero, em seguida, as definições de configuração de memória são usadas diretamente e não são alterados com base nas condições de sistema. Se um, em seguida, as definições de memória são configuradas automaticamente e pode ser alterada com base nas condições de sistema. |
 |MaximumDestagingWriteOutstandingInKB | int, a predefinição é 0 |Dinâmica|O número de KB para permitir o início de sessão partilhado avançar à frente de registo de dedicado. Utilize 0 para indicar sem limite.
 |SharedLogId |cadeia de caracteres, a predefinição é "" |Estático|Guid exclusivo para o contentor de registo partilhado. Utilize "" se utilizar o caminho predefinido na raiz de dados de recursos de infraestrutura. |
 |SharedLogPath |cadeia de caracteres, a predefinição é "" |Estático|Nome de ficheiro e caminho para a localização para colocar o contentor de registo partilhado. Utilize "" para utilizar o caminho predefinido na raiz de dados de recursos de infraestrutura. |
@@ -491,7 +491,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | --- | --- | --- | --- |
 |Contadores |String | Dinâmica |Lista separada por vírgulas de contadores de desempenho a recolher. |
 |isEnabled |Bool, a predefinição é verdadeiro | Dinâmica |Sinalizador indica se a recolha do contador de desempenho no nó local está ativada. |
-|MaxCounterBinaryFileSizeInMB |int, a predefinição é 1 | Dinâmica |Tamanho máximo (em MB) de cada arquivo binário do contador de desempenho. |
+|MaxCounterBinaryFileSizeInMB |Int, a predefinição é 1 | Dinâmica |Tamanho máximo (em MB) de cada arquivo binário do contador de desempenho. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, a predefinição é 10 | Dinâmica |Intervalo máximo (em segundos) após o qual é criado um novo ficheiro binário de contador de desempenho. |
 |SamplingIntervalInSeconds |Int, a predefinição é 60 | Dinâmica |Intervalo de amostragem para contadores de desempenho a ser recolhidos. |
 
@@ -546,7 +546,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |SwapPrimaryThrottlingEnabled | Bool, a predefinição é falso|Dinâmica| Determine se a limitação de comutação primário está ativada. |
 |SwapPrimaryThrottlingGlobalMaxValue | int, a predefinição é 0 |Dinâmica| O número máximo de réplicas de comutação primário permitido globalmente. |
 |TraceCRMReasons |Bool, a predefinição é verdadeiro |Dinâmica|Especifica se pretende rastrear motivos para CRM emitido movimentos para o canal de eventos operacionais. |
-|UpgradeDomainConstraintPriority | int, a predefinição é 1| Dinâmica|Determina a prioridade de restrição de domínio de atualização: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
+|UpgradeDomainConstraintPriority | Int, a predefinição é 1| Dinâmica|Determina a prioridade de restrição de domínio de atualização: 0: Disco rígido; 1: Forma recuperável; negativo: Ignore. |
 |UseMoveCostReports | Bool, a predefinição é falso | Dinâmica|Instrui o LB para ignorar o elemento de custo da função de classificação; resultando número potencialmente grande de movimentações para melhor equilibrada colocação. |
 |UseSeparateSecondaryLoad | Bool, a predefinição é verdadeiro | Dinâmica|Definição que determina se utilizar a carga secundária diferente. |
 |ValidatePlacementConstraint | Bool, a predefinição é verdadeiro |Dinâmica| Especifica se é ou não a expressão de PlacementConstraint para um serviço é validada quando ServiceDescription um serviço é atualizado. |

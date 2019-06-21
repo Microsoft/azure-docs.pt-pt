@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4b72b6e33ad59ffceebf58aed7b315a4833b02f9
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475398"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203680"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para conjuntos de nós do Windows Server e cargas de trabalho de aplicação no Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Este artigo descreve algumas das limitações e conceitos de SO para nós do Win
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitações para o Windows Server no Kubernetes
 
-Contentores do Windows Server tem de executar num anfitrião de contentor baseado em Windows. Para executar contentores do Windows Server no AKS, pode [criar um conjunto de nós que executa o Windows Server] [ windows-node-cli] como o SO convidado. Suporte de conjunto de nó de servidor de janela inclui algumas limitações que fazem parte do Windows Server a montante no projeto do Kubernetes. Essas limitações não são específicas para o AKS. Para obter mais informações sobre esse suporte a montante para o Windows Server no Kubernetes, consulte [contentores do Windows Server nas limitações de Kubernetes][upstream-limitations].
+Contentores do Windows Server tem de executar num anfitrião de contentor baseado em Windows. Para executar contentores do Windows Server no AKS, pode [criar um conjunto de nós que executa o Windows Server] [ windows-node-cli] como o SO convidado. Suporte de conjunto de nó de servidor de janela inclui algumas limitações que fazem parte do Windows Server a montante no projeto do Kubernetes. Essas limitações não são específicas para o AKS. Para obter mais informações sobre esse suporte a montante para o Windows Server no Kubernetes, consulte [contentores do Windows Server no Kubernetes limitações](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 As seguintes limitações a montante para contentores do Windows Server no Kubernetes são relevantes para o AKS:
 

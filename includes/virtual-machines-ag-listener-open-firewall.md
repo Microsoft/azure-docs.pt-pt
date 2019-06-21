@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165423"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184205"
 ---
 Neste passo, vai criar uma regra de firewall para abrir a porta de sonda para o endpoint com balanceamento de carga (59999, conforme especificado anteriormente) e outra regra para abrir a porta de serviço de escuta do grupo de disponibilidade. Uma vez que criou o ponto final com balanceamento de carga nas VMs que contêm as réplicas do grupo de disponibilidade, terá de abrir a porta de sonda e a porta do serviço de escuta nas respetivas VMs.
 

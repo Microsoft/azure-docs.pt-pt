@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f512911811535818f4ad857c5c3b956870f619
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0ae638f8cbef29c5d167a3ab59188169cbd934ef
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074549"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150233"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>Aplicação Web que inicia sessão dos utilizadores - registo de aplicações
 
@@ -48,14 +48,14 @@ Se navegar para esta ligação, pode criar bootstrap a criação da sua aplicaç
 1. Se sua dá conta de acesso a mais do que um inquilino, selecione a sua conta no canto superior direito e definir a sua sessão do portal para o Azure AD pretendido de inquilino.
 1. No painel de navegação do lado esquerdo, selecione o **do Azure Active Directory** serviço e, em seguida, selecione **registos das aplicações** > **novo registo**.
 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
-   - Escolha os tipos de conta suportado para a sua aplicação (veja [tipos de conta suportado](./v2-supported-account-types.md))
-   - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `AspNetCore-WebApp`.
-   - Na **URL de resposta**, adicione o URL de resposta para a sua aplicação, por exemplo `https://localhost:44321/`e selecione **registar**.
+   1. Escolha os tipos de conta suportado para a sua aplicação (veja [tipos de conta suportado](./v2-supported-account-types.md))
+   1. Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `AspNetCore-WebApp`.
+   1. Na **URI de redirecionamento**, adicione o tipo de aplicação e o destino de URI que aceitará devolvido respostas token após a autenticação bem-sucedida. Por exemplo, `https://localhost:44321/`.  Selecione **Registar**.
 1. Selecione o **autenticação** menu e, em seguida, adicione as seguintes informações:
-- Na **URL de resposta**, adicione `https://localhost:44321/signin-oidc`e selecione **registar**.
-- Na **definições avançadas** secção, defina **terminar sessão URL** para `https://localhost:44321/signout-oidc`.
-- Sob **concessão implícita**, verifique **tokens de ID**.
-- Selecione **Guardar**.
+   1. Na **URL de resposta**, adicione `https://localhost:44321/signin-oidc`.
+   1. Na **definições avançadas** secção, defina **URL de fim de sessão** para `https://localhost:44321/signout-oidc`.
+   1. Sob **concessão implícita**, verifique **tokens de ID**.
+   1. Selecione **Guardar**.
 
 ### <a name="register-an-app-using-powershell"></a>Registar uma aplicação com o PowerShell
 

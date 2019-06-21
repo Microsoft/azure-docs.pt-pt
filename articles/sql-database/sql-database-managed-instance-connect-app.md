@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297094"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274008"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Ligar a sua aplicação para a instância gerida da base de dados SQL do Azure
 
@@ -45,7 +45,7 @@ Existem duas opções para ligar VNets:
 A opção de peering é aquele preferível porque o peering utiliza a rede de backbone do Microsoft assim, da perspectiva de conectividade, não existe nenhuma diferença notável numa latência entre máquinas virtuais na VNet em modo de peering e na mesma VNet. O VNet peering é limitado às redes na mesma região.  
 
 > [!IMPORTANT]
-> Cenário de peering de VNet para a instância gerida está limitado às redes na mesma região devido a [restrições do peering de redes virtuais Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> Cenário de peering de VNet para a instância gerida está limitado às redes na mesma região devido a [restrições do peering de redes virtuais Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante a [Azure Virtual redes perguntas mais frequentes](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) artigo para obter mais detalhes. 
 
 ## <a name="connect-an-on-premises-application"></a>Ligar uma aplicação no local
 

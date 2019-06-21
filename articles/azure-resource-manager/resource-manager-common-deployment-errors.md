@@ -1,26 +1,19 @@
 ---
 title: Resolver erros comuns de implementação do Azure | Documentos da Microsoft
 description: Descreve como resolver erros comuns ao implementar recursos no Azure com o Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 keywords: Erro de implementação, a implementação do azure, implementar no azure
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128578"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206328"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -86,18 +79,18 @@ Este artigo descreve alguns erros comuns de implementação do Azure e fornece i
 
 ## <a name="find-error-code"></a>Encontrar o código de erro
 
-Existem dois tipos de erros, que pode receber:
+Existem dois tipos de erros que pode receber:
 
 * erros de validação
 * erros de implementação
 
-Erros de validação resultam de cenários que podem ser determinados antes da implantação. Eles incluem erros de sintaxe no seu modelo, ou tentar implementar recursos que iria exceder as quotas de subscrição. Erros de implementação resultam de condições que ocorrem durante o processo de implantação. Eles incluem a tentar aceder a um recurso que está a ser implementado em paralelo.
+Os erros de validação resultam de cenários que podem ser determinados antes da implementação. Estes incluem erros de sintaxe no modelo ou tentativas de implementação de recursos que excederiam as quotas de subscrição. Os erros de implementação resultam de condições que ocorrem durante o processo de implementação. Estes incluem a tentativa de acesso a um recurso que está a ser implementado em paralelo.
 
-Ambos os tipos de erros de devolvem um código de erro que utilizar para resolver problemas relacionados com a implementação. Ambos os tipos de erros são apresentados no [registo de atividades](resource-group-audit.md). No entanto, os erros de validação não aparecem no seu histórico de implementação porque nunca iniciou a implementação.
+Ambos os tipos de erros devolvem um código de erro que deverá utilizar para resolver os problemas da implementação. Ambos os tipos de erros são apresentados no [registo de atividades](resource-group-audit.md). No entanto, os erros de validação não aparecem no histórico de implementação porque a implementação não chegou a ser iniciada.
 
 ### <a name="validation-errors"></a>erros de validação
 
-Ao implementar através do portal, verá um erro de validação depois de enviar seus valores.
+Ao implementar através do portal, será apresentado um erro de validação depois de submeter os valores.
 
 ![Mostrar Erro de validação de portal](./media/resource-manager-common-deployment-errors/validation-error.png)
 
@@ -107,15 +100,15 @@ Selecione a mensagem para obter mais detalhes. Na imagem seguinte, verá uma **I
 
 ### <a name="deployment-errors"></a>erros de implementação
 
-Quando a operação de passa na validação, mas falha durante a implementação, recebe um erro de implementação.
+Quando a operação passa na validação, mas falha durante a implementação, recebe um erro de implementação.
 
-Para ver os códigos de erro de implementação e as mensagens com o PowerShell, utilize:
+Para ver os códigos de erro e as mensagens de implementação com o PowerShell, utilize:
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
 ```
 
-Para ver os códigos de erro de implementação e de mensagens com a CLI do Azure, utilize:
+Para ver os códigos de erro e as mensagens de implementação com a CLI do Azure, utilize:
 
 ```azurecli-interactive
 az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
@@ -125,11 +118,11 @@ No portal, selecione a notificação.
 
 ![Erro de notificação](./media/resource-manager-common-deployment-errors/notification.png)
 
-Pode ver mais detalhes sobre a implementação. Selecione a opção para obter mais informações sobre o erro.
+Pode ver mais detalhes sobre a implementação. Selecione a opção para obter mais informações acerca do erro.
 
 ![Falha na implementação](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-Vê a mensagem de erro e códigos de erro. Observe que existem dois códigos de erro. O primeiro código de erro (**DeploymentFailed**) é um erro geral que não fornece os detalhes de que necessita para resolver o erro. O segundo código de erro (**StorageAccountNotFound**) fornece os detalhes que precisa. 
+Vê a mensagem de erro e os códigos de erro. Observe que existem dois códigos de erro. O primeiro código de erro (**DeploymentFailed**) é um erro geral que não fornece os detalhes necessários para resolver o erro. O segundo código de erro (**StorageAccountNotFound**) fornece os detalhes necessários. 
 
 ![Detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
 

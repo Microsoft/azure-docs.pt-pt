@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fe163fc2370e884bed58bfffe5baffa5642b6d90
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799114"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148005"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo do endereço IP público
 
@@ -32,7 +32,7 @@ Crie um prefixo de endereço IP público numa região do Azure e subscrição ao
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Porquê criar um prefixo de endereço IP público?
 
-Ao criar recursos de endereço IP público, Azure atribuir um endereço IP público disponível a partir de qualquer um dos intervalos utilizados numa região. Assim que o Azure atribui o endereço, sabe o que é o endereço, mas até que o Azure atribui o endereço, não sabe quais endereço pode ser atribuído. Isso pode ser problemático quando, por exemplo, ou seus parceiros comerciais, configurar regras de firewall que permitem que os endereços IP específicos. Sempre que atribuir um novo endereço IP público a um recurso, o endereço tem de ser adicionado para a regra de firewall. Quando atribui endereços aos seus recursos de um prefixo de endereço IP público, regras de firewall não precisam de ser atualizados sempre que atribuir um dos endereços, porque o intervalo inteiro poderia ser adicionado a uma regra.
+Ao criar recursos de endereço IP público, o Azure atribui um endereço IP público disponível de qualquer um dos intervalos utilizados na região. Assim que o Azure atribui o endereço, sabe o que é o endereço, mas até que o Azure atribui o endereço, não sabe quais endereço pode ser atribuído. Isso pode ser problemático quando, por exemplo, ou seus parceiros comerciais, configurar regras de firewall que permitem que os endereços IP específicos. Sempre que atribuir um novo endereço IP público a um recurso, o endereço tem de ser adicionado para a regra de firewall. Quando atribui endereços aos seus recursos de um prefixo de endereço IP público, regras de firewall não precisam de ser atualizados sempre que atribuir um dos endereços, porque o intervalo inteiro poderia ser adicionado a uma regra.
 
 ## <a name="benefits"></a>Benefícios
 

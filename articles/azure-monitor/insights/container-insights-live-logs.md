@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 71c6f1936f8cbc700a24d0ffb497947c8c8d3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fd9248fd38054b7f0e1fad2888d8b0d4cf2e60c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075314"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274236"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Como ver registos e eventos em tempo real (pré-visualização)
 Monitor do Azure para contentores inclui um recurso, o que está atualmente em pré-visualização, que fornece uma vista em direto para seus eventos e registos de contentor do Azure Kubernetes Service (AKS) (stdout/stderr) sem ter de executar os comandos de kubectl. Quando seleciona uma destas opções, um novo painel é apresentada abaixo da tabela de dados de desempenho no **nós**, **controladores**, e **contentores** vista. Ele mostra o registo em direto e os eventos gerados pelo mecanismo de contentor para auxiliar mais ainda na resolução de problemas em tempo real.
@@ -77,6 +77,9 @@ AKS pode ser configurado para utilizar o Azure Active Directory (AD) para autent
 
 >[!NOTE]
 >Configuração da autenticação no Azure Active Directory para início de sessão único só pode ser feito durante a implementação inicial de um novo cluster do AKS. Não é possível configurar o início de sessão único para um cluster do AKS já implementado.
+  
+>[!IMPORTANT]
+>Se reconfigurar o Azure AD para autenticação de utilizador com o URI atualizado, limpe o cache do seu navegador para garantir que o token de autenticação atualizado será transferido e aplicado.   
 
 ## <a name="view-live-logs-and-events"></a>Ver registos em direto e eventos
 

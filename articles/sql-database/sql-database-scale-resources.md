@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743114"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147701"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente recursos de banco de dados com o tempo de inatividade mínimo
 
@@ -41,7 +41,7 @@ Base de dados SQL do Azure oferece a [modelo de compra baseado em DTU](sql-datab
 Pode criar a primeira aplicação numa base de dados pequena e individual a um custo reduzido por mês no escalão de serviço básico, Standard ou fins gerais e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para o escalão de serviço Premium ou críticas para a empresa para satisfazer o ne eds da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
 > [!NOTE]
-> A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual sem períodos de indisponibilidade.
+> A escalabilidade dinâmica é diferente do dimensionamento automático. Dimensionamento automático é quando um serviço é dimensionada automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual com um período de indisponibilidade mínimo.
 
 Uma Base de Dados SQL do Azure única suporta a escalabilidade dinâmica manual, mas não o dimensionamento automático. Para uma experiência mais *automática*, considere utilizar conjuntos elásticos, que permitem que as bases de dados partilhem recursos num conjunto com base nas necessidades individuais da base de dados.
 No entanto, existem scripts que podem ajudar a automatizar a escalabilidade para uma única base de dados do Azure SQL. Por exemplo, veja [Utilizar o PowerShell para monitorizar e dimensionar uma Base de Dados SQL única](scripts/sql-database-monitor-and-scale-database-powershell.md).

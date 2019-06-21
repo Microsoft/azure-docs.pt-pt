@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1cb7c9aa0844c82acd333c4f9dd87a4dda013e7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356182"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165335"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Executar com segurança experimentações e inferência dentro de uma rede virtual do Azure
 
@@ -35,9 +35,13 @@ Este documento parte do princípio de que está familiarizado com redes virtuais
 ## <a name="storage-account-for-your-workspace"></a>Conta de armazenamento para a área de trabalho
 
 > [!IMPORTANT]
-> Pode colocar a conta de armazenamento que está ligada à área de trabalho do Azure Machine Learning serviço por trás da rede virtual apenas durante a execução de experimentação. Inferência de tipos requer acesso sem restrições à conta de armazenamento. Se não tiver a certeza se modificar estas definições ou não, consulte __alterar a regra de acesso de rede predefinida__ na [configurar o armazenamento do Azure firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security). Utilize os passos para permitir o acesso de todas as redes durante a inferência de tipos ou modelo de classificação.
+> O __predefinido a conta de armazenamento__ para o Azure Machine Learning serviço pode ser colocado numa rede virtual __apenas durante a execução de experimentação__.
+>
+> Para __contas de armazenamento de não-padrão para a experimentação__, ou se estiver a utilizar uma conta de armazenamento para __inferência de tipos__, tem de ter __acesso irrestrito à conta de armazenamento__.
+> 
+> Se não tiver a certeza se modificar estas definições ou não, consulte __alterar a regra de acesso de rede predefinida__ na [configurar o armazenamento do Azure firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security). Utilize os passos para permitir o acesso de todas as redes durante a inferência de tipos ou modelo de classificação.
 
-Para utilizar as capacidades de experimentação do Azure Machine Learning com o armazenamento do Azure por trás de uma rede virtual, siga os passos abaixo:
+Para utilizar lugar a conta de armazenamento do Azure predefinida para a área de trabalho numa rede virtual, utilize os seguintes passos:
 
 1. Crie uma computação de experimentação por ex. Machine Learning de computação por trás de uma rede virtual ou anexar uma computação de experimentação para a área de trabalho por ex. Cluster do HDInsight ou máquina virtual. Para obter mais informações, consulte [computação do uso Machine Learning](#use-machine-learning-compute) e [utilizar uma máquina virtual ou um cluster do HDInsight](#use-a-virtual-machine-or-hdinsight-cluster) secções neste documento
 2. Vá para o armazenamento ligado à área de trabalho. ![Imagem do portal do Azure que mostra o armazenamento do Azure que está ligado à área de trabalho do serviço do Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)

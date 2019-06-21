@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2b0c01ee4b1d1bc5ce83fc0afc309abfcf25f33e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6841caf94ec9712ff85e420e4378f8c9572e586b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419395"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202959"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparar uma máquina virtual SLES ou openSUSE para o Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -99,7 +99,7 @@ Como alternativa à criação de seu próprio VHD, SUSE também as publica image
         # logout
 16. Clique em **ação -> encerrar baixo** no Gestor de Hyper-V. O VHD do Linux está agora pronto para ser carregado para o Azure.
 
-- - -
+---
 ## <a name="prepare-opensuse-131"></a>Preparar o openSUSE 13.1 +
 1. No painel central do Gestor de Hyper-V, selecione a máquina virtual.
 2. Clique em **Connect** para abrir a janela para a máquina virtual.

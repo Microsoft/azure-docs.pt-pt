@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7c7d7c480068b754413fd2309a2251d1e3855106
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e46c935d298f2fe7ebfa4bce471288c9ab8a606
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075179"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271945"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Instruções de acompanhamento de utilização para criar vários folheio de uma conversa
 
@@ -229,7 +229,7 @@ A secção anterior pediu uma resposta e de quaisquer pedidos de seguimento nece
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
@@ -254,7 +254,8 @@ A secção anterior pediu uma resposta e de quaisquer pedidos de seguimento nece
                         "qna": null,
                         "displayText": "Create a Windows Account"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -268,14 +269,15 @@ A secção anterior pediu uma resposta e de quaisquer pedidos de seguimento nece
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -289,14 +291,21 @@ A secção anterior pediu uma resposta e de quaisquer pedidos de seguimento nece
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]
 }
 ```
 
-O `prompts` matriz fornece o texto no `displayText` propriedade e o `qnaId` valor para que pode mostrar essas respostas como seguintes opções apresentadas na conversação do fluxo, em seguida, enviar o valor selecionado para a ferramenta QnA Maker no pedido seguinte. 
+O `promptsToAdd` matriz fornece o texto no `displayText` propriedade e o `qnaId` valor para que pode mostrar essas respostas como seguintes opções apresentadas na conversação do fluxo, em seguida, enviar o valor selecionado para a ferramenta QnA Maker no pedido seguinte. 
+
+<!--
+
+The `promptsToDelete` array provides the ...
+
+-->
 
 ## <a name="json-request-to-return-non-initial-answer-and-follow-up-prompts"></a>Pedido JSON para devolver a resposta não inicial e pedidos de acompanhamento
 
@@ -336,7 +345,8 @@ O QnA Maker _GenerateAnswer_ resposta JSON inclui as instruções de acompanhame
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         },
         {
@@ -350,14 +360,15 @@ O QnA Maker _GenerateAnswer_ resposta JSON inclui as instruções de acompanhame
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": [
+                "promptsToAdd": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ]
+                ],
+                "promptsToDelete":[]
             }
         },
         {
@@ -371,7 +382,8 @@ O QnA Maker _GenerateAnswer_ resposta JSON inclui as instruções de acompanhame
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "prompts": []
+                "promptsToAdd": [],
+                "promptsToDelete":[]
             }
         }
     ]

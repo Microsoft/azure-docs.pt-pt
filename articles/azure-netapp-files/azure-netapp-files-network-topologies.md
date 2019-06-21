@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826456"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205660"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
@@ -42,7 +42,7 @@ As funcionalidades indicadas abaixo não são atualmente suportadas para ficheir
 
 As seguintes restrições de rede aplicam-se aos ficheiros do Azure NetApp:
 
-* O número de VMs que podem ligar a um volume (com uma VNet ou em VNets em modo de peering) não pode ter mais de 1000.
+* O número de IPs em utilização numa VNet com ficheiros de NetApp do Azure (incluindo VNets em modo de peering) não pode ter mais de 1000.
 * Cada rede Virtual do Azure (VNet), apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.
 
 
@@ -103,13 +103,13 @@ Considere VNet 2 e 3 de VNet no diagrama acima. Se precisar de 1 da VM ligar à 
 
 Além disso, considere um cenário em que VNet 1 está agrupada com VNet 2 e VNet 2 está agrupada com 3 VNet na mesma região. Os recursos de 1 de VNet podem ligar a recursos na VNet 2, mas não é possível ligar a recursos na VNet 3, a menos que a VNet 1 e 3 de VNet em modo de peering. 
 
-No diagrama acima, embora 3 de VM pode ligar ao Volume 1, 4 de VM não é possível ligar ao Volume 2.  O motivo é que as VNets spoke não em modo de peering, e _encaminhamento de tráfego não é suportado através do peering de VNet_.
+No diagrama acima, embora 3 de VM pode ligar ao Volume 1, 4 de VM não é possível ligar ao Volume 2.  A razão disso é que as VNets spoke não em modo de peering, e _encaminhamento de tráfego não é suportado através do peering de VNet_.
 
 ## <a name="hybrid-environments"></a>Ambientes híbridos
 
 O diagrama seguinte ilustra um ambiente híbrido: 
 
-![Ambiente de rede híbrida](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![Ambiente de rede híbrida](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 No cenário híbrido, aplicações a partir de centros de dados no local precisam de aceder aos recursos no Azure.  Esse é o caso, se deseja estender seu centro de dados para o Azure ou que pretende utilizar serviços nativos do Azure ou para recuperação após desastre. Ver [opções de planeamento de Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) sobre como ligar a vários recursos no local para recursos no Azure através de uma VPN de site a site ou do ExpressRoute.
 
@@ -117,10 +117,10 @@ Numa topologia hub-and-spoke híbrida, a VNet no Azure do hub atua como um ponto
 
 Dependendo da configuração. Pode ligar recursos no local para recursos do hub e os spokes.
 
-Na topologia ilustrada acima, a rede no local está ligada a um concentrador de VNet no Azure e, existem 2 spoke VNets em modo de peering com a VNet do hub.  Neste cenário, as opções de conectividade suportadas para volumes de ficheiros do Azure NetApp são os seguintes:
+Na topologia ilustrada acima, a rede no local está ligada a um concentrador de VNet no Azure e, existem 2 spoke VNets na mesma região em modo de peering com a VNet do hub.  Neste cenário, as opções de conectividade suportadas para volumes de ficheiros do Azure NetApp são os seguintes:
 
-* Recursos no local VM 1 e 2 de VM podem ligar ao Volume 1 no hub através de uma VPN de site a site ou do ExpressRoute. 
-* Recursos no local VM 1 e 2 de VM podem ligar ao Volume 2 ou 3 de Volume.
+* Recursos no local VM 1 e 2 de VM podem ligar ao Volume 1 no hub através de um site-site VPN ou Expressroute. 
+* Recursos no local VM 1 e 2 de VM podem ligar ao Volume 2 ou 3 de Volume através de uma VPN site a site e o peering de Vnet regional.
 * 3 de VM no hub VNet pode ligar ao volume 2 no spoke VNet 1 e 3 de Volume no spoke VNet 2.
 * 4 de VM do spoke VNet 1 e 5 de VM do spoke VNet 2 podem ligar ao Volume 1 na VNet do hub.
 

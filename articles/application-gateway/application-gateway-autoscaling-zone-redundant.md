@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054738"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204998"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona v2 
 
@@ -24,7 +24,7 @@ O novo SKU v2 inclui os seguintes melhoramentos:
 - **Redundância de zona**: Um Gateway de aplicação ou implementação de WAF pode abranger várias zonas de disponibilidade, eliminando a necessidade de aprovisionar instâncias separadas do Gateway de aplicação em cada zona com o Gestor de tráfego. Pode escolher uma zona única ou várias zonas de onde as instâncias de Gateway de aplicação estão implementadas, que torna mais resiliente a falhas de zona. Pode ser distribuído, da mesma forma, o conjunto de back-end para aplicações em zonas de disponibilidade.
 
   Redundância de zona está disponível apenas em que estão disponíveis as zonas do Azure. Em outras regiões, todas as outras funcionalidades são suportadas. Para obter mais informações, consulte [quais são as zonas de disponibilidade no Azure?](../availability-zones/az-overview.md#services-support-by-region)
-- **VIP estático**: Tipo de gateway de aplicação v2 SKU suporta o VIP estático exclusivamente. Isto garante que o VIP associado ao gateway de aplicação não é alterado para o ciclo de vida da implementação, mesmo após um reinício.
+- **VIP estático**: SKU de v2 do Gateway de aplicação suporta o tipo de VIP estático exclusivamente. Isto garante que o VIP associado ao gateway de aplicação não é alterado para o ciclo de vida da implementação, mesmo após um reinício.  Aqui não é um VIP estático no v1, então tem de utilizar o URL do gateway de aplicação em vez do endereço IP para o domínio nome encaminhamento para os serviços aplicacionais através do gateway de aplicação.
 - **Cabeçalho reescrita**: Gateway de aplicação permite-lhe adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP com o SKU da v2. Para obter mais informações, consulte [cabeçalhos de HTTP de reescrever com Gateway de aplicação](rewrite-http-headers.md)
 - **Integração do Key Vault (pré-visualização)** : V2 do Gateway de aplicação suporta a integração com o Key Vault (em pré-visualização pública) para certificados de servidor que estão anexados a serviços de escuta HTTPS ativado. Para obter mais informações, consulte [terminação de SSL com certificados do Key Vault](key-vault-certs.md).
 - **O Azure Kubernetes Service entrada controlador (pré-visualização)** : O controlador de entrada do Gateway de aplicação v2 permite que o Gateway de aplicação do Azure ser utilizado como a entrada para um Azure Kubernetes Service (AKS) conhecido como um Cluster do AKS. Para obter mais informações, consulte a [página de documentação](https://azure.github.io/application-gateway-kubernetes-ingress/).
@@ -42,7 +42,7 @@ O SKU de WAF_v2 e Standard_v2 está disponível nas seguintes regiões: Centro-N
 Com o SKU de v2, o modelo de preços é orientado pelo consumo e já não está ligado a contagens de instâncias ou de tamanhos. Os preços da SKU v2 tem dois componentes:
 
 - **Preço fixo** -esta é uma vez por hora (ou as horas parciais) preço para aprovisionar um Standard_v2 ou WAF_v2 Gateway.
-- **Preço unitário de capacidade** -este é o custo baseado no consumo que é cobrado além do custo fixo. Custo da unidade de capacidade é também calculado por hora ou parcial à hora. Existem três dimensões para a unidade de capacidade - unidade, conexões persistentes e débito de computação. Computação a unidade é uma medida de capacidade de processador consumida. Fatores que afetam a unidade de computação são TLS ligações/seg, cálculos de reescrita de URLs e processamento da regra de WAF. Ligação persistente é uma medida de conexões TCP estabelecidas para o gateway de aplicação num determinado intervalo de faturação. O débito é médio Megabits por segundo processado pelo sistema num determinado intervalo de faturação.
+- **Preço unitário de capacidade** -este é o custo baseado no consumo que é cobrado além do custo fixo. A cobrança da unidade de capacidade também é calculada por hora ou por hora parcial. A unidade de capacidade tem três dimensões: unidade de computação, ligações persistentes e débito. A unidade de computação é a medida da capacidade de processador consumida. Fatores que afetam a unidade de computação são TLS ligações/seg, cálculos de reescrita de URLs e processamento da regra de WAF. Ligação persistente é uma medida de conexões TCP estabelecidas para o gateway de aplicação num determinado intervalo de faturação. O débito é médio Megabits por segundo processado pelo sistema num determinado intervalo de faturação.
 
 Cada unidade de capacidade é composta de no máximo: 1 de computação unidade, ou ligações persistentes de 2500 ou débito 2.22 Mbps.
 

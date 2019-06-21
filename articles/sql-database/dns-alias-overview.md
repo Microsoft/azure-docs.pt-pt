@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
+ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160795"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275194"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias de DNS para a base de dados do Azure SQL
 
@@ -68,13 +68,6 @@ Cmdlets do PowerShell e REST APIs estão disponíveis para que possa gerir progr
 
 ### <a name="rest-apis-for-managing-your-dns-aliases"></a>APIs REST para gerir os seus aliases DNS
 
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
-
 A documentação para as APIs REST está disponível perto na seguinte localização para a web:
 
 - [REST API do banco de dados do SQL do Azure](https://docs.microsoft.com/rest/api/sql/)
@@ -111,7 +104,7 @@ Atualmente, um DNS alias tem as seguintes limitações:
 - *Atraso de até 2 minutos:* Demora até dois minutos para um alias de DNS ser atualizado ou removido.
   - Independentemente de qualquer atraso breve, o alias interrompe imediatamente a referir-se ligações de cliente para o servidor legado.
 - *Pesquisa de DNS:* Por enquanto, a forma apenas autoritativa para verificar qual servidor um determinado DNS alias se refere a está executando uma [pesquisa de DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Não é suportada a auditoria de tabelas](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* Não é possível utilizar um alias de DNS num servidor de base de dados do Azure SQL que tenha *auditoria de tabelas* ativado numa base de dados.
+- _Não é suportada a auditoria de tabelas:_ Não é possível utilizar um alias de DNS num servidor de base de dados do Azure SQL que tenha *auditoria de tabelas* ativado numa base de dados.
   - Auditoria de tabelas é preterida.
   - Recomendamos que mova [auditoria de BLOBs](sql-database-auditing.md).
 

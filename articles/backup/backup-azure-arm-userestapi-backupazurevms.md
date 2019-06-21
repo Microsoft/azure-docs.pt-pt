@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 295c4fed9ab674f0c9e812c02f6b82ee53ef1b91
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646780"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274864"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer cópias de segurança de VM do Azure com o Azure Backup através da REST API
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 O *obter* URI tem todos os parâmetros necessários. Não é necessário nenhum corpo de pedido adicionais.
 
-#### <a name="responses"></a>Responses
+##### <a name="responses-1"></a>Respostas
 
 |Name  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses"></a>Respostas de exemplo
+##### <a name="example-responses-1"></a>Respostas de exemplo
 
 Uma vez a *obter* pedido ser submetido, é devolvida uma resposta 200 (OK).
 
@@ -329,7 +329,7 @@ Devolve duas respostas: 202 (aceite) quando outra operação é criada e, em seg
 |---------|---------|---------|
 |Aceite 202     |         |     Aceite    |
 
-#### <a name="example-responses"></a>Respostas de exemplo
+##### <a name="example-responses-3"></a>Respostas de exemplo
 
 Assim que submeter o *POST* pedido para uma cópia de segurança a pedido, a resposta inicial é 202 (aceite) com um cabeçalho de localização ou o cabeçalho de async do Azure.
 
@@ -439,7 +439,7 @@ O `{containerName}` e `{protectedItemName}` são como construído [acima](#respo
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses-2"></a>Respostas
 
 *ELIMINAR* proteção é um [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que esta operação cria outra operação que tem de ser registados em separado.
 

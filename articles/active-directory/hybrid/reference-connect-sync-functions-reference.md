@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60381150"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204501"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: Referência das Funções
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -89,7 +89,7 @@ As funções com os tipos **mvbin**, **mvstr**, e **mvref** funciona somente em 
 | [ReplaceChars](#replacechars) |[Direita](#right) |[RTrim](#rtrim) |[Cortar](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
-- - -
+---
 ### <a name="bitand"></a>BitAnd
 **Descrição:**  
 A função de BitAnd define do bits especificada num valor.
@@ -111,7 +111,7 @@ Em outras palavras, ele retorna 0 em todos os casos, exceto quando os bits corre
 `BitAnd(&HF, &HF7)`  
 Devolve 7 porque hexadecimal "F" e "F7" avaliar a este valor.
 
-- - -
+---
 ### <a name="bitor"></a>BitOr
 **Descrição:**  
 A função de BitOr define do bits especificada num valor.
@@ -124,7 +124,7 @@ A função de BitOr define do bits especificada num valor.
 **Observações:**  
 Esta função converte os dois parâmetros para a representação binária e define um pouco para 1 se um ou ambos os bits correspondente na máscara e o sinalizador são 1 e 0 se ambos os bits correspondentes são 0. Em outras palavras, ele retorna 1 em todos os casos, exceto em que os bits correspondentes de ambos os parâmetros são 0.
 
-- - -
+---
 ### <a name="cbool"></a>CBool
 **Descrição:**  
 A função de CBool retorna um Booleano baseado na expressão avaliada
@@ -140,7 +140,7 @@ Se a expressão é avaliada para um valor diferente de zero, em seguida, CBool r
 
 Atributos de devolve True se ambos têm o mesmo valor.
 
-- - -
+---
 ### <a name="cdate"></a>CDate
 **Descrição:**  
 A função de CDate devolve um DateTime UTC a partir de uma cadeia de caracteres. DateTime não é um tipo de atributo nativo em sincronia, mas é utilizada por algumas funções.
@@ -161,7 +161,7 @@ Devolve que um DateTime com base no funcionário a hora de início
 Devolve um DateTime que representa "2013-01-11 12:00 AM"
 
 
-- - -
+---
 ### <a name="certextensionoids"></a>CertExtensionOids
 **Descrição:**  
 Devolve os valores de Oid de todas as extensões críticas de um objeto de certificado.
@@ -170,7 +170,7 @@ Devolve os valores de Oid de todas as extensões críticas de um objeto de certi
 `mvstr CertExtensionOids(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certformat"></a>CertFormat
 **Descrição:**  
 Devolve o nome do formato deste certificado X.509v3.
@@ -179,7 +179,7 @@ Devolve o nome do formato deste certificado X.509v3.
 `str CertFormat(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certfriendlyname"></a>CertFriendlyName
 **Descrição:**  
 Devolve o alias associado para um certificado.
@@ -188,7 +188,7 @@ Devolve o alias associado para um certificado.
 `str CertFriendlyName(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certhashstring"></a>CertHashString
 **Descrição:**  
 Devolve o valor de hash SHA1 do certificado X.509v3 como uma cadeia hexadecimal.
@@ -197,7 +197,7 @@ Devolve o valor de hash SHA1 do certificado X.509v3 como uma cadeia hexadecimal.
 `str CertHashString(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certissuer"></a>CertIssuer
 **Descrição:**  
 Devolve o nome de autoridade de certificação que emitiu o certificado X.509v3.
@@ -206,7 +206,7 @@ Devolve o nome de autoridade de certificação que emitiu o certificado X.509v3.
 `str CertIssuer(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certissuerdn"></a>CertIssuerDN
 **Descrição:**  
 Devolve o nome distinto do emissor do certificado.
@@ -215,7 +215,7 @@ Devolve o nome distinto do emissor do certificado.
 `str CertIssuerDN(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certissueroid"></a>CertIssuerOid
 **Descrição:**  
 Devolve o Oid do emissor do certificado.
@@ -224,7 +224,7 @@ Devolve o Oid do emissor do certificado.
 `str CertIssuerOid(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
 **Descrição:**  
 Devolve as informações de algoritmo de chave para este certificado X.509v3 como uma cadeia de caracteres.
@@ -233,7 +233,7 @@ Devolve as informações de algoritmo de chave para este certificado X.509v3 com
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
 **Descrição:**  
 Devolve os parâmetros do algoritmo de chave do certificado X.509v3 como uma cadeia hexadecimal.
@@ -242,7 +242,7 @@ Devolve os parâmetros do algoritmo de chave do certificado X.509v3 como uma cad
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certnameinfo"></a>CertNameInfo
 **Descrição:**  
 Devolve o assunto e o emissor nomes de um certificado.
@@ -253,7 +253,7 @@ Devolve o assunto e o emissor nomes de um certificado.
 *   X509NameType: O valor de X509NameType para o assunto.
 *   includesIssuerName: true para incluir o nome do emissor; caso contrário, FALSO.
 
-- - -
+---
 ### <a name="certnotafter"></a>CertNotAfter
 **Descrição:**  
 Devolve a data na hora local após o qual um certificado já não é válido.
@@ -262,7 +262,7 @@ Devolve a data na hora local após o qual um certificado já não é válido.
 `dt CertNotAfter(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certnotbefore"></a>CertNotBefore
 **Descrição:**  
 Devolve a data na hora local em que um certificado fica válido.
@@ -271,7 +271,7 @@ Devolve a data na hora local em que um certificado fica válido.
 `dt CertNotBefore(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
 **Descrição:**  
 Devolve o Oid da chave pública do certificado X.509v3.
@@ -280,7 +280,7 @@ Devolve o Oid da chave pública do certificado X.509v3.
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
 **Descrição:**  
 Devolve o Oid de parâmetros de chave públicos do certificado X.509v3.
@@ -289,7 +289,7 @@ Devolve o Oid de parâmetros de chave públicos do certificado X.509v3.
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certserialnumber"></a>CertSerialNumber
 **Descrição:**  
 Devolve o número de série do certificado X.509v3.
@@ -298,7 +298,7 @@ Devolve o número de série do certificado X.509v3.
 `str CertSerialNumber(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
 **Descrição:**  
 Devolve o Oid do algoritmo usado para criar a assinatura de um certificado.
@@ -307,7 +307,7 @@ Devolve o Oid do algoritmo usado para criar a assinatura de um certificado.
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certsubject"></a>CertSubject
 **Descrição:**  
 Obtém o nome do requerente distingue-se de um certificado.
@@ -316,7 +316,7 @@ Obtém o nome do requerente distingue-se de um certificado.
 `str CertSubject(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
 **Descrição:**  
 Devolve o nome do requerente distinguido-se de um certificado.
@@ -325,7 +325,7 @@ Devolve o nome do requerente distinguido-se de um certificado.
 `str CertSubjectNameDN(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
 **Descrição:**  
 Devolve o Oid do nome do requerente de um certificado.
@@ -334,7 +334,7 @@ Devolve o Oid do nome do requerente de um certificado.
 `str CertSubjectNameOid(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certthumbprint"></a>CertThumbprint
 **Descrição:**  
 Devolve o thumbprint de um certificado.
@@ -343,7 +343,7 @@ Devolve o thumbprint de um certificado.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="certversion"></a>CertVersion
 **Descrição:**  
 Devolve a versão de formato X.509 de um certificado.
@@ -352,7 +352,7 @@ Devolve a versão de formato X.509 de um certificado.
 `str CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
 
-- - -
+---
 ### <a name="cguid"></a>CGuid
 **Descrição:**  
 A função de CGuid converte a representação de cadeia de caracteres de um GUID em sua representação binária.
@@ -362,7 +362,7 @@ A função de CGuid converte a representação de cadeia de caracteres de um GUI
 
 * Uma cadeia de caracteres formatada neste padrão: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx ou {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-- - -
+---
 ### <a name="contains"></a>Contém
 **Descrição:**  
 A função de Contains localiza uma cadeia de caracteres dentro de um atributo com múltiplos valor
@@ -386,7 +386,7 @@ Para atributos de referência, a cadeia pesquisada deve corresponder exatamente 
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 Se o atributo proxyAddresses tem um endereço de e-mail principal (indicado em maiúsculas "SMTP:"), em seguida, retornar o atributo proxyAddress, caso contrário, devolver um erro.
 
-- - -
+---
 ### <a name="convertfrombase64"></a>ConvertFromBase64
 **Descrição:**  
 A função de ConvertFromBase64 converte o valor codificado em base64 especificado para uma cadeia de caracteres normal.
@@ -404,7 +404,7 @@ A função de ConvertFromBase64 converte o valor codificado em base64 especifica
 
 Ambos os exemplos podem devolver "*Olá, mundo!* "
 
-- - -
+---
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
 **Descrição:**  
 A função de ConvertFromUTF8Hex converte o valor hexadecimal de UTF8 codificado especificado para uma cadeia de caracteres.
@@ -422,7 +422,7 @@ Este formato é utilizado pelo Azure Active Directory como DN.
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 Devolve "*Olá, mundo!* "
 
-- - -
+---
 ### <a name="converttobase64"></a>ConvertToBase64
 **Descrição:**  
 A função de ConvertToBase64 converte uma cadeia de caracteres numa cadeia de base64 do Unicode.  
@@ -435,7 +435,7 @@ Converte o valor de uma matriz de inteiros em sua representação de cadeia de c
 `ConvertToBase64("Hello world!")`  
 Devolve "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
-- - -
+---
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
 **Descrição:**  
 A função de ConvertToUTF8Hex converte uma cadeia de caracteres para um valor hexadecimal de UTF8 codificado.
@@ -450,15 +450,15 @@ O formato de saída desta função é utilizado pelo Azure Active Directory como
 `ConvertToUTF8Hex("Hello world!")`  
 Returns 48656C6C6F20776F726C6421
 
-- - -
-### <a name="count"></a>Contagem
+---
+### <a name="count"></a>Count
 **Descrição:**  
 A função de contagem devolve o número de elementos num atributo com múltiplos valor
 
 **Sintaxe:**  
 `num Count(mvstr attribute)`
 
-- - -
+---
 ### <a name="cnum"></a>CNum
 **Descrição:**  
 A função de CNum usa uma cadeia de caracteres e retorna um tipo de dados numéricos.
@@ -466,7 +466,7 @@ A função de CNum usa uma cadeia de caracteres e retorna um tipo de dados numé
 **Sintaxe:**  
 `num CNum(str value)`
 
-- - -
+---
 ### <a name="cref"></a>CRef
 **Descrição:**  
 Converte uma cadeia de caracteres para um atributo de referência
@@ -477,7 +477,7 @@ Converte uma cadeia de caracteres para um atributo de referência
 **Exemplo:**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
-- - -
+---
 ### <a name="cstr"></a>CStr
 **Descrição:**  
 A função CStr converte um tipo de dados de cadeia de caracteres.
@@ -493,7 +493,7 @@ A função CStr converte um tipo de dados de cadeia de caracteres.
 `CStr([dn])`  
 Poderia retornar "cn = João, dc = contoso, dc = com"
 
-- - -
+---
 ### <a name="dateadd"></a>DateAdd
 **Descrição:**  
 Devolve uma data que contém uma data para o qual foi adicionado um intervalo de tempo especificado.
@@ -519,7 +519,7 @@ Devolve uma data que contém uma data para o qual foi adicionado um intervalo de
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 Adiciona três meses e devolve um valor DateTime que representa "2001-04-01".
 
-- - -
+---
 ### <a name="datefromnum"></a>DateFromNum
 **Descrição:**  
 Converte de função DateFromNum formato de um valor de data do AD para um tipo DateTime.
@@ -532,7 +532,7 @@ Converte de função DateFromNum formato de um valor de data do AD para um tipo 
 `DateFromNum(129699324000000000)`  
 Devolve um valor DateTime que representa 2012-01-01 23: 00:00
 
-- - -
+---
 ### <a name="dncomponent"></a>DNComponent
 **Descrição:**  
 A função de DNComponent devolve o valor de um componente especificado do DN do esquerda.
@@ -547,7 +547,7 @@ A função de DNComponent devolve o valor de um componente especificado do DN do
 `DNComponent(CRef([dn]),1)`  
 Se for o dn "cn = João, UO =...," ela retorna Joe
 
-- - -
+---
 ### <a name="dncomponentrev"></a>DNComponentRev
 **Descrição:**  
 A função de DNComponentRev devolve o valor de um componente especificado do DN do direito (final).
@@ -566,7 +566,7 @@ Se for o dn "cn = João, UO = Atlanta, UO = GA, UO = US, dc = contoso, dc = com"
 `DNComponentRev(CRef([dn]),1,"DC")`  
 Ambos retornam-nos.
 
-- - -
+---
 ### <a name="error"></a>Erro
 **Descrição:**  
 A função de erro é usada para retornar um erro personalizado.
@@ -578,7 +578,7 @@ A função de erro é usada para retornar um erro personalizado.
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 Se o accountName de atributo não estiver presente, emite um erro no objeto.
 
-- - -
+---
 ### <a name="escapedncomponent"></a>EscapeDNComponent
 **Descrição:**  
 A função de EscapeDNComponent usa um componente de um DN e escapes-lo para que podem ser representado no LDAP.
@@ -590,7 +590,7 @@ A função de EscapeDNComponent usa um componente de um DN e escapes-lo para que
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 Certifica-se de que o objeto pode ser criado num diretório LDAP, mesmo que o atributo displayName tem carateres que devem ser escritos no LDAP.
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
 **Descrição:**  
 A função FormatDateTime é utilizada para formatar um DateTime para uma cadeia de caracteres com um formato especificado
@@ -612,7 +612,7 @@ Resultados na "2007-12-25".
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
 Pode resultar em "20140905081453.0Z"
 
-- - -
+---
 ### <a name="guid"></a>Guid
 **Descrição:**  
 A função Guid gera um novo GUID aleatório
@@ -620,7 +620,7 @@ A função Guid gera um novo GUID aleatório
 **Sintaxe:**  
 `str Guid()`
 
-- - -
+---
 ### <a name="iif"></a>IIF
 **Descrição:**  
 A função IIF devolve um de um conjunto de valores possíveis, com base numa condição especificada.
@@ -636,7 +636,7 @@ A função IIF devolve um de um conjunto de valores possíveis, com base numa co
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  Se o utilizador for um colaborador, devolve o alias de um utilizador com "t-" acrescentada ao início do mesmo, outra devolve o alias do utilizador que seja.
 
-- - -
+---
 ### <a name="instr"></a>InStr
 **Descrição:**  
 A função InStr encontra a primeira ocorrência de uma subcadeia numa cadeia de caracteres
@@ -662,7 +662,7 @@ Evalues para 5
 `InStr("repEated","e",3,vbBinaryCompare)`  
 Avalia a 7
 
-- - -
+---
 ### <a name="instrrev"></a>InStrRev
 **Descrição:**  
 A função de InStrRev localiza a última ocorrência de uma subcadeia numa cadeia de caracteres
@@ -684,7 +684,7 @@ Devolve a posição em que a subcadeia foi encontrada ou 0 se não for encontrad
 `InStrRev("abbcdbbbef","bb")`  
 Devolve 7
 
-- - -
+---
 ### <a name="isbitset"></a>IsBitSet
 **Descrição:**  
 A função IsBitSet testes se um pouco está definida ou não
@@ -698,7 +698,7 @@ A função IsBitSet testes se um pouco está definida ou não
 `IsBitSet(&HF,4)`  
 Devolve VERDADEIRO se porque bit "4" está definida para o valor hexadecimal "F"
 
-- - -
+---
 ### <a name="isdate"></a>IsDate
 **Descrição:**  
 Se a expressão pode ser avalia como um tipo DateTime, em seguida, a função IsDate for avaliada como True.
@@ -709,7 +709,7 @@ Se a expressão pode ser avalia como um tipo DateTime, em seguida, a função Is
 **Observações:**  
 Utilizado para determinar se CDate () pode ser concluída com êxito.
 
-- - -
+---
 ### <a name="iscert"></a>IsCert
 **Descrição:**  
 Devolve VERDADEIRO se os dados não processados podem ser serializados no objeto de certificado do .NET X509Certificate2.
@@ -717,7 +717,7 @@ Devolve VERDADEIRO se os dados não processados podem ser serializados no objeto
 **Sintaxe:**  
 `bool CertThumbprint(binary certificateRawData)`  
 *   certificateRawData: Representação de matriz de byte de um certificado X.509. A matriz de bytes pode ser com codificação binária (DER) ou dados X.509 com codificação Base64.
-- - -
+---
 ### <a name="isempty"></a>IsEmpty
 **Descrição:**  
 Se o atributo está presente na MV ou CS, mas é avaliada como uma cadeia vazia, a função de IsEmpty for avaliada como True.
@@ -725,7 +725,7 @@ Se o atributo está presente na MV ou CS, mas é avaliada como uma cadeia vazia,
 **Sintaxe:**  
 `bool IsEmpty(var Expression)`
 
-- - -
+---
 ### <a name="isguid"></a>IsGuid
 **Descrição:**  
 Se a cadeia de caracteres pode ser convertida para um GUID, em seguida, a função de IsGuid avaliada como true.
@@ -742,7 +742,7 @@ Utilizado para determinar se CGuid() pode ser concluída com êxito.
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 Se o StrAttribute tem um formato GUID, retornar uma representação binária, caso contrário, devolver um valor nulo.
 
-- - -
+---
 ### <a name="isnull"></a>IsNull
 **Descrição:**  
 Se a expressão é avaliada como Null, em seguida, a função IsNull retorna true.
@@ -757,7 +757,7 @@ Para um atributo, um valor nulo é expressa pela ausência do atributo.
 `IsNull([displayName])`  
 Devolve True se o atributo não está presente na MV ou CS.
 
-- - -
+---
 ### <a name="isnullorempty"></a>IsNullOrEmpty
 **Descrição:**  
 Se a expressão é nulo ou uma cadeia vazia, a função de IsNullOrEmpty devolve true.
@@ -773,7 +773,7 @@ O inverso desta função é denominado IsPresent.
 `IsNullOrEmpty([displayName])`  
 Devolve True se o atributo não está presente ou é uma cadeia vazia na MV ou CS.
 
-- - -
+---
 ### <a name="isnumeric"></a>IsNumeric
 **Descrição:**  
 A função IsNumeric devolve um valor Booleano indicando se uma expressão pode ser avaliada como um tipo de número.
@@ -784,7 +784,7 @@ A função IsNumeric devolve um valor Booleano indicando se uma expressão pode 
 **Observações:**  
 Utilizado para determinar se CNum() pode ser concluída com êxito para analisar a expressão.
 
-- - -
+---
 ### <a name="isstring"></a>IsString
 **Descrição:**  
 Se a expressão pode ser avaliada como um tipo de cadeia de caracteres, em seguida, a função de IsString for avaliada como True.
@@ -795,7 +795,7 @@ Se a expressão pode ser avaliada como um tipo de cadeia de caracteres, em segui
 **Observações:**  
 Utilizado para determinar se CStr() pode ser concluída com êxito para analisar a expressão.
 
-- - -
+---
 ### <a name="ispresent"></a>IsPresent
 **Descrição:**  
 Se a expressão for avaliada como uma cadeia de caracteres que não seja nulo e não está vazia, a função de IsPresent devolve true.
@@ -809,7 +809,7 @@ O inverso desta função é denominado IsNullOrEmpty.
 **Exemplo:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
-- - -
+---
 ### <a name="item"></a>Item
 **Descrição:**  
 A função Item devolve um item de um cadeia de caracteres/atributos com múltiplos valores.
@@ -829,7 +829,7 @@ Emite um erro se index Je mimo rozsah.
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Devolve o endereço de e-mail principal.
 
-- - -
+---
 ### <a name="itemornull"></a>ItemOrNull
 **Descrição:**  
 A função de ItemOrNull devolve um item de um cadeia de caracteres/atributos com múltiplos valores.
@@ -845,7 +845,7 @@ A função de ItemOrNull é útil em conjunto com a função de Contains, uma ve
 
 Se o índice está fora dos limites, em seguida, devolve um valor nulo.
 
-- - -
+---
 ### <a name="join"></a>Aderir
 **Descrição:**  
 A função de associação usa uma cadeia de caracteres com múltiplos valor e devolve uma cadeia de valor único com separador especificado inserido entre cada item.
@@ -864,7 +864,7 @@ Existe paridade entre as funções de associação e divisão. A função de ass
 `Join([proxyAddresses],",")`  
 Poderia retornar: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 
-- - -
+---
 ### <a name="lcase"></a>LCase
 **Descrição:**  
 A função de LCase converte todos os caracteres numa cadeia de caracteres em minúsculas.
@@ -876,7 +876,7 @@ A função de LCase converte todos os caracteres numa cadeia de caracteres em mi
 `LCase("TeSt")`  
 Devolve "teste".
 
-- - -
+---
 ### <a name="left"></a>À esquerda
 **Descrição:**  
 A função à esquerda devolve um número especificado de carateres da esquerda de uma cadeia de caracteres.
@@ -900,7 +900,7 @@ Se a cadeia de caracteres contém menos carateres do que o numChars especificado
 `Left("John Doe", 3)`  
 Devolve "Joh".
 
-- - -
+---
 ### <a name="len"></a>Len
 **Descrição:**  
 A função Len retorna o número de carateres numa cadeia.
@@ -912,7 +912,7 @@ A função Len retorna o número de carateres numa cadeia.
 `Len("John Doe")`  
 Devolve 8
 
-- - -
+---
 ### <a name="ltrim"></a>LTrim
 **Descrição:**  
 A função de LTrim remove espaços em branco à esquerda de uma cadeia.
@@ -924,7 +924,7 @@ A função de LTrim remove espaços em branco à esquerda de uma cadeia.
 `LTrim(" Test ")`  
 Devolve "teste"
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Descrição:**  
 A função de Mid devolve um número especificado de carateres da posição especificada numa cadeia de caracteres.
@@ -955,7 +955,7 @@ Devolve "hn fazer".
 `Mid("John Doe", 6, 999)`  
 Devolve "Doe"
 
-- - -
+---
 ### <a name="now"></a>agora
 **Descrição:**  
 A função agora devolve um valor de DateTime especificando a data e hora atuais, de acordo com a data do sistema e a hora do seu computador.
@@ -963,7 +963,7 @@ A função agora devolve um valor de DateTime especificando a data e hora atuais
 **Sintaxe:**  
 `dt Now()`
 
-- - -
+---
 ### <a name="numfromdate"></a>NumFromDate
 **Descrição:**  
 A função de NumFromDate devolve uma data no formato de data do AD.
@@ -975,7 +975,7 @@ A função de NumFromDate devolve uma data no formato de data do AD.
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 Returns 129699324000000000
 
-- - -
+---
 ### <a name="padleft"></a>PadLeft
 **Descrição:**  
 Os padleft modelo função esquerda-pads uma cadeia de caracteres para um comprimento especificado com um caráter de preenchimento fornecido.
@@ -1000,7 +1000,7 @@ Os padleft modelo função esquerda-pads uma cadeia de caracteres para um compri
 `PadLeft("User", 10, "0")`  
 Devolve "000000User".
 
-- - -
+---
 ### <a name="padright"></a>PadRight
 **Descrição:**  
 Os PadRight função direito-pads uma cadeia de caracteres para um comprimento especificado com um caráter de preenchimento fornecido.
@@ -1025,7 +1025,7 @@ Os PadRight função direito-pads uma cadeia de caracteres para um comprimento e
 `PadRight("User", 10, "0")`  
 Devolve "User000000".
 
-- - -
+---
 ### <a name="pcase"></a>PCase
 **Descrição:**  
 A função de PCase converte o primeiro caráter de cada palavra espaço delimitado por uma cadeia de caracteres em maiúsculas, e todos os outros carateres são convertidos em minúsculas.
@@ -1044,7 +1044,7 @@ Devolve "Teste".
 `PCase(LCase("TEST"))`  
 Devolve "teste"
 
-- - -
+---
 ### <a name="randomnum"></a>RandomNum
 **Descrição:**  
 A função de RandomNum devolve um número aleatório entre um intervalo especificado.
@@ -1059,7 +1059,7 @@ A função de RandomNum devolve um número aleatório entre um intervalo especif
 `Random(100,999)`  
 Pode retornar 734.
 
-- - -
+---
 ### <a name="removeduplicates"></a>RemoveDuplicates
 **Descrição:**  
 A função de RemoveDuplicates usa uma cadeia de caracteres com múltiplos valor e certifique-se de cada valor é exclusivo.
@@ -1071,7 +1071,7 @@ A função de RemoveDuplicates usa uma cadeia de caracteres com múltiplos valor
 `RemoveDuplicates([proxyAddresses])`  
 Devolve um atributo sanitized proxyAddress onde todos os valores duplicados foram removidos.
 
-- - -
+---
 ### <a name="replace"></a>Substituir
 **Descrição:**  
 A função Replace substitui todas as ocorrências de uma cadeia de caracteres para outra cadeia.
@@ -1094,7 +1094,7 @@ A função reconhece os monikers especiais seguintes:
 `Replace([address],"\r\n",", ")`  
 Substitui CRLF por uma vírgula e um espaço e poderia levar a "Um Microsoft forma, Redmond, WA, USA"
 
-- - -
+---
 ### <a name="replacechars"></a>ReplaceChars
 **Descrição:**  
 A função de ReplaceChars substitui todas as ocorrências de carateres foi encontrados na cadeia de caracteres ReplacePattern.
@@ -1127,7 +1127,7 @@ Devolve Raksmorgas
 `ReplaceChars("O’Neil",%ReplaceString%)`  
 Devolve "ONeil", de escala única é definido para ser removido.
 
-- - -
+---
 ### <a name="right"></a>Direita
 **Descrição:**  
 A função certa devolve um número especificado de carateres da direita (fim) de uma cadeia de caracteres.
@@ -1153,7 +1153,7 @@ Se a cadeia de caracteres contém menos carateres do que o NumChars especificado
 `Right("John Doe", 3)`  
 Devolve "Doe".
 
-- - -
+---
 ### <a name="rtrim"></a>RTrim
 **Descrição:**  
 A função de RTrim remove espaços em branco à direita de uma cadeia.
@@ -1165,7 +1165,7 @@ A função de RTrim remove espaços em branco à direita de uma cadeia.
 `RTrim(" Test ")`  
 Devolve "Teste".
 
-- - -
+---
 ### <a name="select"></a>Selecione
 **Descrição:**  
 Processo de todos os valores num atributo com múltiplos valores (ou saída de uma expressão) com base na função especificada.
@@ -1183,7 +1183,7 @@ Processo de todos os valores num atributo com múltiplos valores (ou saída de u
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 Devolve todos os valores otherPhone o atributo com múltiplos valores depois de ter sido removido hífens (-).
 
-- - -
+---
 ### <a name="split"></a>Dividir
 **Descrição:**  
 A função Split usa uma cadeia de caracteres separada com um delimitador e faz com que seja uma cadeia de caracteres com múltiplos valor.
@@ -1200,7 +1200,7 @@ A função Split usa uma cadeia de caracteres separada com um delimitador e faz 
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 Devolve uma cadeia com múltiplos valor com 2 elementos úteis para o atributo proxyAddress.
 
-- - -
+---
 ### <a name="stringfromguid"></a>StringFromGuid
 **Descrição:**  
 A função de StringFromGuid usa um GUID de binário e converte-o para uma cadeia de caracteres
@@ -1208,7 +1208,7 @@ A função de StringFromGuid usa um GUID de binário e converte-o para uma cadei
 **Sintaxe:**  
 `str StringFromGuid(bin GUID)`
 
-- - -
+---
 ### <a name="stringfromsid"></a>StringFromSid
 **Descrição:**  
 A função de StringFromSid converte uma matriz de bytes que contém um identificador de segurança para uma cadeia de caracteres.
@@ -1216,7 +1216,7 @@ A função de StringFromSid converte uma matriz de bytes que contém um identifi
 **Sintaxe:**  
 `str StringFromSid(bin ObjectSID)`  
 
-- - -
+---
 ### <a name="switch"></a>Comutador
 **Descrição:**  
 A função de comutador é utilizada para devolver um valor único com base nas condições avaliadas.
@@ -1245,7 +1245,7 @@ Valor também pode ser a função de erro, que irá devolver uma string personal
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 Devolve o idioma falado em algumas cidades principais, caso contrário, devolve um erro.
 
-- - -
+---
 ### <a name="trim"></a>Cortar
 **Descrição:**  
 A função de compactação remove e à direita de uma cadeia contém espaços em branco.
@@ -1260,7 +1260,7 @@ Devolve "Teste".
 `Trim([proxyAddresses])`  
 Remove espaços para cada valor no atributo proxyAddress à esquerda e.
 
-- - -
+---
 ### <a name="ucase"></a>UCase
 **Descrição:**  
 A função UCase converte todos os caracteres numa cadeia de caracteres em maiúsculas.
@@ -1272,7 +1272,7 @@ A função UCase converte todos os caracteres numa cadeia de caracteres em maiú
 `UCase("TeSt")`  
 Devolve "Teste".
 
-- - -
+---
 ### <a name="where"></a>Onde
 
 **Descrição:**  
@@ -1290,7 +1290,7 @@ Devolve um subconjunto de valores de um atributo com múltiplos valores (ou saí
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 Devolve os valores de certificado userCertificate o atributo com múltiplos valores que não estão a expirou.
 
-- - -
+---
 ### <a name="with"></a>Com
 **Descrição:**  
 A função de With fornece uma forma de simplificar uma expressão complexa, utilizando uma variável para representar um subexpressão, que é apresentado um ou mais vezes na expressão complexa.
@@ -1308,7 +1308,7 @@ A função de With fornece uma forma de simplificar uma expressão complexa, uti
 Que retorna apenas os valores de certificado existe no atributo userCertificate.
 
 
-- - -
+---
 ### <a name="word"></a>Word
 **Descrição:**  
 A função do Word retorna uma palavra contida numa cadeia de caracteres, com base nos parâmetros que descrevem os delimitadores a utilizar e o número de palavras para retornar.

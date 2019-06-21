@@ -15,18 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c5a76b9cee8fd6eb09ee4d24c1380202fd17cc6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 1f808161087dff614ef83aacc606501bce96d3eb
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836353"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155127"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceba e implemente uma base de dados Oracle no Azure
 
 ## <a name="assumptions"></a>Suposições
 
 - Estiver a planear migrar uma base de dados do Oracle no local para o Azure.
+- Tem o [pacote de diagnóstico](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) para a base de dados do Oracle pretende para migrar
 - Tem uma compreensão das métricas de vários relatórios Oracle AWR.
 - Tem uma compreensão de linha de base de desempenho da aplicação e a utilização de plataforma.
 
@@ -72,11 +73,11 @@ Existem quatro áreas potenciais que pode ajustar para melhorar o desempenho num
 
 ### <a name="generate-an-awr-report"></a>Gerar um relatório AWR
 
-Se tiver uma base de dados Oracle existente e estiver a planear migrar para o Azure, tem várias opções. Pode executar o relatório de Oracle AWR para obter as métricas (IOPS, Mbps, GiBs e assim por diante). Em seguida, selecione a VM com base nas métricas que recolheu. Ou pode contactar a equipa de infraestrutura para obter informações semelhantes.
+Se tiver uma base de dados Oracle existente e estiver a planear migrar para o Azure, tem várias opções. Se tiver o [pacote de diagnóstico](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) para as suas instâncias do Oracle, pode executar o relatório de Oracle AWR para obter as métricas (IOPS, Mbps, GiBs e assim por diante). Em seguida, selecione a VM com base nas métricas que recolheu. Ou pode contactar a equipa de infraestrutura para obter informações semelhantes.
 
 Pode optar por executar o relatório AWR durante cargas de trabalho regulares e horas de pico, para que pode comparar. Com base nestes relatórios, pode dimensionar as VMs com base na carga de trabalho média ou a carga de trabalho máxima.
 
-Segue-se um exemplo de como gerar um relatório AWR:
+Segue-se um exemplo de como gerar um relatório AWR (gerar os relatórios AWR usando sua Oracle Enterprise Manager, se a instalação atual tiver um):
 
 ```bash
 $ sqlplus / as sysdba
@@ -143,6 +144,10 @@ Com base nos seus requisitos de largura de banda de rede, existem vários tipos 
 
 - Latência de rede é superior em comparação com uma implementação no local. Reduzindo rede arredondar viagens pode significativamente melhorar o desempenho.
 - Para reduzir a ida e volta, consolide os aplicativos que têm transações elevadas ou aplicativos "conversadoras" na mesma máquina virtual.
+- Utilize máquinas virtuais com [redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para um melhor desempenho de rede.
+- Para determinados distrubutions do Linux, considere ativar [suporte de cortar/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Instale [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) numa máquina Virtual separada.
+- Páginas enormes não estão ativadas por predefinição no linux. Considere ativar a páginas enormes e defina `use_large_pages = ONLY ` sobre o banco de dados Oracle. Isso pode ajudar a aumentar o desempenho. Podem encontrar mais informações [aqui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipos de disco e configurações
 
@@ -183,14 +188,15 @@ Depois de ter uma visão clara dos requisitos de e/s, pode escolher uma combina�
 - Utilize compressão de dados para reduzir e/s (para dados e índices).
 - Separar os registos de Refazer, sistema e termos e anular TS em discos de dados separado.
 - Não coloque nenhum ficheiro de aplicação em discos de SO predefinido (/ desenvolvimento/sda). Estes discos não estão otimizados para a VM rápida tempos de inicialização e eles podem não oferecer um bom desempenho para a sua aplicação.
+- Ao utilizar VMs de série M no armazenamento Premium, ative [acelerador de escrita](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) Refazer no disco de registos.
 
 ### <a name="disk-cache-settings"></a>Definições de cache do disco
 
 Existem três opções para a colocação em cache do anfitrião:
 
-- *Só de leitura*: Todos os pedidos são colocados em cache para leituras futuras. Todas as escritas são mantidas diretamente para o armazenamento de Blobs do Azure.
+- *ReadOnly*: Todos os pedidos são colocados em cache para leituras futuras. Todas as escritas são mantidas diretamente para o armazenamento de Blobs do Azure.
 
-- *Leitura e escrita*: Este é um algoritmo "read-ahead". As leituras e gravações são colocadas em cache para leituras futuras. Escritas simultânea não são mantidas pela primeira vez para a cache local. Para o SQL Server, as escritas são mantidas ao armazenamento do Azure porque utiliza através de escrita. Ele também fornece a menor latência de disco para cargas de trabalho leves.
+- *ReadWrite*: Este é um algoritmo "read-ahead". As leituras e gravações são colocadas em cache para leituras futuras. Escritas simultânea não são mantidas pela primeira vez para a cache local. Ele também fornece a menor latência de disco para cargas de trabalho leves. Utilizar a cache do ReadWrite com um aplicativo que não manipula a persistir os dados necessários pode levar a perda de dados, no caso de falha de VM.
 
 - *Nenhum* (desativada): Ao utilizar esta opção, pode ignorar a cache. Todos os dados são transferidos para o disco e mantidos no armazenamento do Azure. Este método permite-lhe a mais alta taxa de e/s para cargas de trabalho intensivas de e/s. Também terá de levar "custos de transação" em consideração.
 
@@ -206,12 +212,11 @@ Para maximizar o débito, recomendamos que comece com **None** para colocação 
 
 Depois da definição de disco de dados é guardada, não é possível alterar a definição de cache do anfitrião, a menos que desmonte a unidade ao nível do SO e, em seguida, voltar a montá-lo Depois que fizer a alteração.
 
-
 ## <a name="security"></a>Segurança
 
 Depois de configurar e configurado o seu ambiente do Azure, a próxima etapa é proteger a sua rede. Seguem-se algumas recomendações:
 
-- *Política NSG*: NSG pode ser definido por uma sub-rede ou NIC. É mais simples para controlar o acesso ao nível da sub-rede, tanto para segurança e a força de encaminhamento para coisas como firewalls de aplicações.
+- *Política NSG*: NSG pode ser definido por uma sub-rede ou NIC. É mais simples para controlar o acesso ao nível da sub-rede, para segurança e a força de encaminhamento para coisas como firewalls de aplicações.
 
 - *Jumpbox*: Para obter acesso mais seguro, os administradores devem não ligar-se diretamente para o serviço de aplicações ou a base de dados. Uma jumpbox é utilizado como um suporte de dados entre a máquina de administrador e os recursos do Azure.
 ![Captura de ecrã da página de topologia Jumpbox](./media/oracle-design/jumpbox.png)

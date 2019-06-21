@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132474"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184054"
 ---
 As funções do Azure [acionadores e enlaces](../articles/azure-functions/functions-triggers-bindings.md) comunicar com vários serviços do Azure. Ao integrar-se com estes serviços, pode ter os erros levantados provenientes as APIs dos serviços do Azure subjacentes. Também podem ocorrer erros quando tenta comunicar com outros serviços a partir do código de função utilizando as bibliotecas de cliente ou REST. Para evitar perda de dados e garantir o bom comportamento das suas funções, é importante processar erros da origem.
 

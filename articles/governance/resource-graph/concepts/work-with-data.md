@@ -7,16 +7,18 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137865"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274410"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com conjuntos de dados de grandes recursos do Azure
 
 Gráfico de recursos do Azure foi concebido para trabalhar com e obter informações sobre os recursos no ambiente do Azure. Gráfico de recursos faz obter estes dados rápidas e até mesmo ao consultar os milhares de registos. Gráfico de recursos tem várias opções para trabalhar com estes conjuntos de dados grandes.
+
+Para obter orientações sobre como trabalhar com consultas com alta frequência, veja [orientações para pedidos limitados](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Tamanho do conjunto de dados de resultado
 
@@ -84,6 +86,6 @@ Por exemplo, veja [próxima consulta de página](/rest/api/azureresourcegraph/re
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte o idioma utilizado na [consultas Starter](../samples/starter.md)
-- Consulte avançada usa no [avançadas consultas](../samples/advanced.md)
-- Aprender a [explorar recursos](explore-resources.md)
+- Consulte o idioma utilizado na [consultas Starter](../samples/starter.md).
+- Consulte avançada usa [avançadas consultas](../samples/advanced.md).
+- Aprenda a [explore os recursos](explore-resources.md).

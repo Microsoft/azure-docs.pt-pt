@@ -1,6 +1,6 @@
 ---
 title: Exemplos de código de plataforma de identidade Microsoft | Documentos da Microsoft
-description: Fornece exemplos de código de plataforma (ponto final V2), organizados por cenário de um índice de identidades da Microsoft disponíveis.
+description: Fornece exemplos de código de plataforma (ponto final v2.0), organizados por cenário de um índice de identidades da Microsoft disponíveis.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327111182a4ad8958f2d852a88ba0608d8510c51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 326b69bffa0cd5728b939a91cce4fab3f3a329f7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055904"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272665"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código de plataforma do Microsoft identity (ponto final v2.0)
 
@@ -34,7 +34,7 @@ Pode usar a plataforma de identidade da Microsoft para:
 - Adicionar autenticação e autorização às suas aplicações web e web APIs.
 - Exigir um token de acesso para aceder a uma API web protegida.
 
-Este artigo descreve resumidamente e fornece links para amostras para o ponto de extremidade de plataforma de identidade Microsoft. Estes exemplos mostram-lhe como isso é feito, juntamente com os trechos de código que pode usar em seus aplicativos. Na página de exemplo de código, encontrará Leiame detalhadas tópicos de ajudam com requisitos de instalação e configurar. Comentários dentro do código estão lá ajudar a compreender as seções críticas.
+Este artigo descreve resumidamente e fornece links para amostras para o ponto de extremidade de plataforma de identidade Microsoft. Estes exemplos mostram-lhe como ele é feito e também fornecem trechos de código que pode usar em seus aplicativos. Na página de exemplo de código, encontrará tópicos Leiame detalhadas que o ajudam a com os requisitos de instalação e configuração. Comentários dentro do código de ajudar a compreender as seções críticas.
 
 > [!NOTE]
 > Se estiver interessado em v1.0 exemplos, veja [exemplos de código do Azure AD (v1.0 ponto final)](sample-v1-code.md).
@@ -43,9 +43,9 @@ Para compreender o cenário básico para cada tipo de exemplo, veja [tipos de ap
 
 Também pode contribuir para os exemplos no GitHub. Para saber como, veja [Microsoft Azure Active Directory amostras e documentação](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## <a name="single-page-applications-spa"></a>Aplicativos de página única (SPA)
+## <a name="single-page-applications"></a>Aplicativos de página única
 
-Estes exemplos mostram como escrever uma aplicação de página única protegida com plataforma de identidade da Microsoft. Estes exemplos utilizam um dos tipos de msal:
+Estes exemplos mostram como escrever uma aplicação de página única protegida com plataforma de identidade da Microsoft. Estes exemplos utilizam um dos tipos de msal.
 
 | Plataforma | Descrição | Ligação |
 | -------- | --------------------- | -------- |
@@ -68,9 +68,9 @@ As seguintes amostras ilustram aplicativos da web que iniciar sessão dos utiliz
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Aplicações de dispositivos móveis e computadores cliente público
 
-Os exemplos seguintes mostram cliente público aplicações (aplicações de ambiente de trabalho/móvel) que acedam a API do Microsoft Graph ou o seu próprio Web API em nome de um utilizador. Todos esses aplicativos de cliente utilizam bibliotecas de autenticação da Microsoft (MSAL).
+Os exemplos seguintes mostram cliente público aplicações (aplicações de ambiente de trabalho ou móveis), que acessar a API do Microsoft Graph ou o seu próprio web API em nome de um utilizador. Todos esses aplicativos de cliente utilizam a biblioteca de autenticação da Microsoft (MSAL).
 
-| Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph | Chama uma API Web ASP.NET Core 2.0 |
+| Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph | Chama uma API web do ASP.NET Core 2.0 |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
 | Ambiente de trabalho (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [interativo](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NET.png) | [Autenticação integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
@@ -90,7 +90,7 @@ Os exemplos seguintes mostram uma aplicação que acede o Microsoft Graph API co
 
 ## <a name="headless-applications"></a>Aplicativos sem periféricos
 
-O exemplo seguinte mostra uma aplicação de cliente pública em execução num dispositivo sem um navegador da web. A aplicação pode ser uma ferramenta de linha de comandos, ou em execução no Linux/Mac ou um aplicativo de IoT. O exemplo inclui uma aplicação a aceder a Graph API da Microsoft em nome de um utilizador que inicia sessão interativamente noutro dispositivo (por exemplo, um telemóvel). Esse aplicativo de cliente usa as bibliotecas de autenticação da MicroSoft (MSAL).
+O exemplo seguinte mostra uma aplicação de cliente pública em execução num dispositivo sem um navegador da web. A aplicação pode ser uma ferramenta de linha de comando, uma aplicação em execução no Linux ou Mac ou um aplicativo de IoT. O exemplo inclui uma aplicação a aceder ao Microsoft Graph API, no nome de um utilizador que inicia sessão interativamente noutro dispositivo (por exemplo, um telemóvel). Esta aplicação de cliente utiliza a biblioteca de autenticação da Microsoft (MSAL).
 
 | Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
@@ -98,11 +98,11 @@ O exemplo seguinte mostra uma aplicação de cliente pública em execução num 
 
 ## <a name="web-apis"></a>APIs da Web
 
-Exemplos a seguir mostra como proteger uma API web com o ponto de final de plataforma de identidade Microsoft e como chamar uma API de downstream da Web API.
+Os exemplos seguintes mostram como proteger uma API web com o ponto de final de plataforma de identidade Microsoft e como chamar uma API de downstream da web API.
 
 | Plataforma | Exemplo |
 | -------- | ------------------- |
-| ![Núcleo de ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | API Web ASP.NET Core (serviço) de [dotnet-nativo-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
+| ![Núcleo de ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core API web (serviço) de [dotnet-nativo-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![ASP.NET](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (serviço) de [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
 ## <a name="other-microsoft-graph-samples"></a>Outros exemplos do Microsoft Graph

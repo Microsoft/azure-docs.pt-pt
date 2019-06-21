@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: dc15c8935cd3c20037bbed01f0f24cd2b8642045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bde341063fb6742bbe2a92592981d4a2a437d214
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540934"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203442"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Atualizações de serviço no Azure Site Recovery
 Como uma organização, terá de descobrir como pretende manter os dados protegidos e aplicações/cargas de trabalho em execução quando planeada e falhas não planeadas ocorrerem. O Azure Site Recovery contribui para a sua estratégia BCDR ao manter as suas aplicações em execução em VMs e servidores físicos disponíveis se um site ficar inativo. O Site Recovery replica as cargas de trabalho em execução em VMs e servidores físicos para que permaneçam disponíveis num local secundário, se o site primário não estiver disponível. Recupera as cargas de trabalho para o site primário quando estiver novamente operacional.
@@ -33,6 +33,17 @@ O Azure Site Recovery publica atualizações de serviço regularmente - incluind
 
 > [!IMPORTANT]
 > O suporte oficial para atualizações é de > N-4 para a versão de N (N a ser a versão mais recente). Se estiver num N-6, terá de atualizar primeiro para N-4 e, em seguida, atualizar para o N.
+
+## <a name="expiry-of-components"></a>Expiração de componentes
+Recuperação do site notifica os clientes dos componentes prestes a expirar ou já expirou através de notificações de e-mail (se o que assinou a eles) ou no dashboard do cofre, no portal. As notificações de dashboard do Cofre não estão disponíveis se estiver a proteger uma VM de rV atenção a partir de agora. Além disso, se navegar para a vista de infraestrutura correspondentes para o seu cenário, haverá um botão de "atualização disponível" ao lado do componente, que irá redirecioná-lo para os links para downloads as versões mais recentes.
+
+Segue-se a frequência das notificações por e-mail quando um componentes está prestes a expirar.
+- 60 dias antes do componente está prestes a expirar: quinzenal uma vez
+- Próximos dias 53: uma vez semanal
+- Últimos 7 dias: Vez diária
+- Após a respetiva expirada: quinzenal uma vez
+
+
 
 ### <a name="upgrading-when-the-difference-between-current-version-and-latest-released-version-is-greater-than-4"></a>Atualizar quando a diferença entre a versão atual e versão de lançamento mais recente é superior a 4
 
@@ -118,15 +129,16 @@ Uma reinicialização é recomendada após cada atualização do agente de mobil
 
 |Pacote cumulativo de atualizações  |Fornecedor  |Configuração unificada| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[O Update Rollup 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[O Update Rollup 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[O Update Rollup 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Update Rollup 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) -Hot fix     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[O Update Rollup 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[O Update Rollup 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[O Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## <a name="previous-update-rollups"></a>Rollups de atualizações anteriores
 
+- [O Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [O Update Rollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [O Update Rollup 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [O Update Rollup 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

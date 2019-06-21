@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400148"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154817"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Segurança de dados avançados para servidores SQL no IaaS
-Segurança de dados avançados para servidores do SQL Server em máquinas de virtuais do Azure é um pacote unificado para funções de segurança avançadas do SQL. Atualmente, ele inclui uma funcionalidade para analisar e mitigar potenciais vulnerabilidades de base de dados e detetar atividades anómalas que poderá indicar uma ameaça à sua base de dados. 
+# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Segurança de dados avançados para servidores do SQL Server em máquinas virtuais do Azure (pré-visualização pública)
+Segurança de dados avançados para servidores do SQL Server em máquinas de virtuais do Azure é um pacote unificado para funções de segurança avançadas do SQL. Ele atualmente (em pré-visualização pública) inclui uma funcionalidade para analisar e mitigar potenciais vulnerabilidades de base de dados e detetar atividades anómalas que poderá indicar uma ameaça à sua base de dados. 
 
 Este recurso para servidores SQL de VMs do Azure de segurança baseia-se com a mesma tecnologia fundamental utilizada na [pacote de segurança de dados avançada do Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
@@ -36,7 +36,7 @@ Segurança de dados avançada fornece um conjunto de capacidades avançadas de s
 
 ## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Comece com segurança avançada de dados SQL em VMs do Azure
 
-Os seguintes passos ajudá-lo com segurança avançada de dados para SQL em VMs do Azure.
+Os seguintes passos ajudá-lo com segurança avançada de dados para SQL em pré-visualização pública de VMs do Azure.
 
 ### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configurar a segurança avançada de dados para SQL em VMs do Azure
 
@@ -145,7 +145,7 @@ Pode ver os resultados da avaliação de vulnerabilidade e os relatórios direta
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Proteção avançada contra ameaças para servidores SQL sobre alertas de VMs do Azure
 Os alertas são gerados pelas tentativas invulgares e potencialmente prejudiciais de acesso ou exploração servidores SQL. Esses eventos podem disparar os seguintes alertas:
 
-### <a name="anomalous-access-pattern-alerts"></a>Alertas de padrão de acesso anómalos
+### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>Alertas de padrão de acesso anómalos (suportadas em pré-visualização pública)
 
 * **Acesso a partir de uma localização invulgar:** Este alerta é acionado quando ocorre uma alteração no padrão de acesso ao SQL server, em que alguém iniciou sessão para o SQL server a partir de uma localização geográfica invulgar. Causas possíveis:
      * Um empregam malicioso atacante ou anterior acedeu seu SQL Server.

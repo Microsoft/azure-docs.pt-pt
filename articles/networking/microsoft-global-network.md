@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: 99650577b17874e61d1cede979d7ef2f4bfd491b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247293"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144142"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
 
@@ -33,8 +33,10 @@ O [rede global Microsoft](https://azure.microsoft.com/global-infrastructure/glob
  
 Aceitar para o [melhor experiência possível](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) é fácil quando utilizam o Microsoft cloud. Desde o momento quando o tráfego de cliente entra nossa rede global por meio de nosso estrategicamente colocadas de nós de extremidade, os seus dados viaja através de rotas otimizadas em quase a velocidade da luz. Isto garante a latência ideal para um melhor desempenho. Estes edge-nós, todos interligado à mais de 3500 exclusivos Internet parceiros (elementos) por meio de milhares de conexões em mais do que 145 locais, fornecem a base da nossa estratégia de interligação. 
  
-Se ligar de Londres para Tóquio ou de Washington, D.C. de Los Angeles, o desempenho da rede é quantificado e afetado por coisas como, tremulação, perda de pacotes, débito e latência.  Na Microsoft, preferimos e uso direto interconexões em vez de ligações de trânsito, isso mantém o tráfego de resposta simétrica e ajuda a manter os saltos, peering partes e caminhos mais curto e simples possível. Esta abordagem de premium, normalmente conhecida como [frio potato encaminhamento](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), garante que os clientes de rede tráfego permanece na rede da Microsoft quanto possível antes vamos passá-lo.  
- 
+Se ligar de Londres para Tóquio ou de Washington, D.C. de Los Angeles, o desempenho da rede é quantificado e afetado por coisas como, tremulação, perda de pacotes, débito e latência.  Na Microsoft, preferimos e uso direto interconexões em vez de ligações de trânsito, isso mantém o tráfego de resposta simétrica e ajuda a manter os saltos, peering partes e caminhos mais curto e simples possível. 
+
+Por exemplo, se um utilizador em Londres tenta acessar um serviço em Tóquio, em seguida, o tráfego de Internet insere uma das nossas margens em Londres, são enviados pela WAN Microsoft por meio de França, nossos caminhos de Trans-Saudita entre Europa e Índia e, em seguida, para onde está alojado o serviço do Japão. O tráfego de resposta é simétrico. Isso é por vezes referido como [frio potato encaminhamento](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) que significa que o tráfego permanece ativado da Microsoft de rede mais tempo antes que transferi-lo.  
+  
 Então, que significa todo e qualquer tráfego ao utilizar os serviços da Microsoft? Sim, qualquer tráfego entre dados centra-se, no Microsoft Azure ou entre serviços da Microsoft, como máquinas virtuais, do Office 365, XBox, bds SQL, armazenamento, e redes virtuais são encaminhadas dentro de nossa rede global e nunca pela Internet pública, para garantir ideal desempenho e a integridade.  
  
 Grandes investimentos em capacidade de fibra e diversidade nos caminhos de terrestrial e submarino metro, são cruciais para nós manter consistente e de alto nível de serviço ao mesmo tempo por detrás do crescimento extremo da nossa cloud e serviços online. São acréscimos recentes para nossa rede global nosso [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) submarino cabo, primeiro abrir linha de sistema (OLS do setor) ao longo do subsea, entre o museu, Espanha e Virgínia praia, Virginia, EUA, bem como o [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1)entre Nova Iorque, EUA e Dublin, Irlanda e [novos cruzada do Pacífico (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) entre Tóquio, Japão e Portland, Oregon, EUA. 

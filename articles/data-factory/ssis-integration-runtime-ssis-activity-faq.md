@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: f17c364d258ef356a98180c9903603d92a6a9245
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7789970b47f0e55adee5bbe9da9f303aee6cdb25
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078524"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190128"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>Resolução de problemas de execução de pacotes do SSIS integration Runtime
 
@@ -103,6 +103,13 @@ Este artigo inclui os erros mais comuns que pode usar quando o SSIS em execuçã
 ### <a name="error-message-your-integration-runtime-cannot-be-upgraded-and-will-eventually-stop-working-since-we-cannot-access-the-azure-blob-container-you-provided-for-custom-setup"></a>Mensagem de erro: "O runtime de integração não é possível atualizar e, eventualmente, deixará de funcionar, uma vez que não podemos acessar o contentor de Blobs do Azure fornecidas para configuração personalizada."
 
 * Este erro ocorre quando o Runtime de integração de SSIS não é possível acessar o armazenamento configurado para a configuração personalizada. Verifique se o Uri de SAS que forneceu é válido e ainda não tiver expirado.
+
+### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Mensagem de erro: "Fornecedor Microsoft OLE DB para Analysis Services. 'Hresult: 0x80004005 Description:' Erro COM: Erro COM: mscorlib; Exceção foi emitida pelo destino de uma invocação"
+
+* Causa potencial & ação recomendada:
+  * Uma causa potencial é esse nome de utilizador/palavra-passe com a MFA ativada está configurada para autenticação do Azure Analysis Services, o que ainda não é suportada no runtime de integração do SSIS. Tente utilizar o Principal de serviço para a autenticação do serviço de análise do Azure:
+    1. Preparar o principal de serviço para AAS [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
+    2. No Gestor de ligação, configure "Utilizar um nome de utilizador específico e uma palavra-passe": definir "AppID" como nome de utilizador e "clientSecret" como palavra-passe
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>Pacote usa inesperado muito tempo a executar
 

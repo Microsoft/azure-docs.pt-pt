@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3cff54f49d40fb7da99dcafa9535349ccb70e09
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114517"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150487"
 ---
 A tabela seguinte descreve os limites predefinidos para o Azure para fins gerais v1, v2 e contas de armazenamento de Blobs. O *entrada* limite refere-se a todos os dados de pedidos que são enviados para uma conta de armazenamento. O *saída* limite refere-se a todos os dados de respostas que são recebidas a partir de uma conta de armazenamento.
 
@@ -32,15 +32,15 @@ A tabela seguinte descreve os limites predefinidos para o Azure para fins gerais
 <sup>1</sup>as contas de armazenamento padrão do azure suportam limites mais elevados para entrada por pedido. Para pedir um aumento de limites de conta para entrada, contacte [suporte do Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [replicação de armazenamento do azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) as opções incluem:
-* **RA-GRS**: Armazenamento georredundante com acesso de leitura. Se o RA-GRS for ativado, os destinos de saída para a localização secundária são idênticos para a localização principal.
-* **GRS**: Armazenamento georredundante. 
-* **ZRS**: Armazenamento com redundância de zona.
-* **LRS**: Armazenamento localmente redundante. 
+- **RA-GRS**: Armazenamento georredundante com acesso de leitura. Se o RA-GRS for ativado, os destinos de saída para a localização secundária são idênticos para a localização principal.
+- **GRS**: Armazenamento georredundante.
+- **ZRS**: Armazenamento com redundância de zona.
+- **LRS**: Armazenamento localmente redundante.
 
 > [!NOTE]
 > Recomendamos que utilize uma conta de armazenamento para fins gerais v2 para a maioria dos cenários. Pode facilmente atualizar uma para fins gerais v1 ou uma conta de armazenamento de Blobs do Azure para uma conta para fins gerais v2, sem períodos de indisponibilidade e sem a necessidade de copiar dados.
 >
-> Para obter mais informações sobre contas de armazenamento do Azure, consulte [descrição geral da conta de armazenamento](../articles/storage/common/storage-account-overview.md). 
+> Para obter mais informações sobre contas de armazenamento do Azure, consulte [descrição geral da conta de armazenamento](../articles/storage/common/storage-account-overview.md).
 
 Se as necessidades da sua aplicação excederem os destinos de escalabilidade de uma conta de armazenamento única, pode criar a sua aplicação para utilizar várias contas de armazenamento. Em seguida, pode particionar seus objetos de dados entre essas contas de armazenamento. Para obter informações sobre os preços de volume, consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 

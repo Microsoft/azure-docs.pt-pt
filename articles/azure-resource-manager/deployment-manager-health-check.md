@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: na
 author: mumian
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c2c38754b2051a4f61249f623f60f21e9690f5e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796262"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206630"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir a implementação de integração do Estado de funcionamento para o Azure Deployment Manager (pré-visualização pública)
 

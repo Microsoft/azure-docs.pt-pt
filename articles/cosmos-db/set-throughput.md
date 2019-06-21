@@ -4,14 +4,14 @@ description: Saiba como configurar o débito aprovisionado para contentores do C
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: ce059e542ee7bfa67e899b4923e3410e13e4930e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067510"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165009"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -72,6 +72,9 @@ Pode combinar os dois modelos. Aprovisionamento de débito no banco de dados e o
 
 * Pode criar uma base de dados do Cosmos do Azure com o nome *Z* com o débito aprovisionado de *"K"* RUs. 
 * Em seguida, cria cinco contentores com o nome *uma*, *B*, *C*, *1!d*, e *E* na base de dados. Ao criar o contentor B, certifique-se de habilitar **débito dedicado de aprovisionamento para este contentor** opção e configurar explicitamente *"P"* RUs do débito aprovisionado nesse contêiner. Tenha em atenção que pode configurar débito dedicado e partilhado apenas quando se cria a base de dados e o contentor. 
+
+   ![Definir a taxa de transferência ao nível do contentor](./media/set-throughput/coll-level-throughput.png)
+
 * O *"K"* RUs débito é compartilhado entre os contentores de quatro *uma*, *C*, *1!d*, e *E*. A quantidade exata de débito disponível para *uma*, *C*, *1!d*, ou *E* varia. Não há nenhum SLA para a taxa de transferência de cada contentor individuais.
 * O contentor com o nome *B* é garantida para obter o *"P"* RUs débito o tempo todo. Ele é suportado por SLAs.
 

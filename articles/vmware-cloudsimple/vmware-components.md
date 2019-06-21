@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160189"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165159"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de VMware de nuvem privada
 
@@ -37,7 +37,7 @@ Uma pilha de VMware de nuvem privada é implementada com a seguinte versão de s
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi está instalado em nós de CloudSimple adquiridas quando criar uma nuvem privada.  ESXi fornece o hipervisor para implementar máquinas virtuais de carga de trabalho (VMs).  Nós fornecem infraestrutura hiperconvergida (computação e armazenamento) na sua nuvem privada.  Os nós são uma parte do cluster vSphere na cloud privada.  Cada nó tem quatro interfaces de redes físicas ligadas à rede de underlay.  Duas interfaces de rede físico são utilizados para criar uma **mudar distribuída vSphere (VDS)** no vCenter e duas são utilizados para criar um **NSX gerido distribuído comutador virtual (N VDS)** .  Interfaces de rede são configuradas no modo ativo-ativo para elevada disponibilidade.
+VMware ESXi está instalado em nós de CloudSimple aprovisionados quando criar uma nuvem privada.  ESXi fornece o hipervisor para implementar máquinas virtuais de carga de trabalho (VMs).  Nós fornecem infraestrutura hiperconvergida (computação e armazenamento) na sua nuvem privada.  Os nós são uma parte do cluster vSphere na cloud privada.  Cada nó tem quatro interfaces de redes físicas ligadas à rede de underlay.  Duas interfaces de rede físico são utilizados para criar uma **mudar distribuída vSphere (VDS)** no vCenter e duas são utilizados para criar um **NSX gerido distribuído comutador virtual (N VDS)** .  Interfaces de rede são configuradas no modo ativo-ativo para elevada disponibilidade.
 
 Saiba mais sobre o VMware ESXi
 

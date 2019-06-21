@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 87fd6b626efb60c7fc7ec8896f2c3758ae5cc33c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132877"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184066"
 ---
 ### <a name="app-service-plan"></a>Plano do App Service
 Cria o plano de serviço para alojar a aplicação web. Fornece o nome do plano através do **hostingPlanName** parâmetro. A localização do plano é a mesma localização que utilizou para o grupo de recursos. O preço tamanho de escalão e de trabalho estão especificados na **sku** e **workerSize** parâmetros

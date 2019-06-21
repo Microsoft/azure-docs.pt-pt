@@ -7,15 +7,15 @@ author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 06/12/2019
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: a2fd9073bfb472f52d5dbf60538214c8b4f3d360
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8a9d0d9f35c30636f4b9150c63b64098071e12e9
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207482"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67271499"
 ---
 # <a name="create-containers-for-reuse"></a>Criar contentores para reutilização
 

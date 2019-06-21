@@ -1,6 +1,6 @@
 ---
 title: Solução de VMware do Azure por CloudSimple guia de introdução - criar serviço
-description: Aprenda a criar o serviço de CloudSimple, nós de compra e reserva de nós
+description: Saiba como criar o serviço de CloudSimple, aprovisionar nós e reserva de nós
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9b3b95db24f4b0f9a0cf8f5102dfeea5dc51e29f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5732ea726bdecc10d0757224870ee5d8be83a2b2
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577574"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164224"
 ---
 # <a name="quickstart---create-service"></a>Início rápido - criar serviço
 
@@ -21,7 +21,7 @@ Para começar, crie a solução de VMware do Azure por CloudSimple no portal do 
 
 ## <a name="vmware-solution-by-cloudsimple---service-overview"></a>Solução de VMware ao CloudSimple - descrição geral do serviço
 
-O serviço de CloudSimple permite-lhe consumir a solução de VMware do Azure por CloudSimple.  Criação do serviço permite-lhe adquirir nós, reserva de nós e criar nuvens privadas.  Adicione o serviço de CloudSimple em cada região do Azure onde o serviço de CloudSimple está disponível.  O serviço define a rede de borda da solução de VMware do Azure por CloudSimple.  Esta rede de borda é utilizada para serviços que incluem a conectividade VPN, ExpressRoute e de Internet para nuvens privadas.
+O serviço de CloudSimple permite-lhe consumir a solução de VMware do Azure por CloudSimple.  Criação do serviço permite-lhe a aprovisionar nós, reserva de nós e criar nuvens privadas.  Adicione o serviço de CloudSimple em cada região do Azure onde o serviço de CloudSimple está disponível.  O serviço define a rede de borda da solução de VMware do Azure por CloudSimple.  Esta rede de borda é utilizada para serviços que incluem a conectividade VPN, ExpressRoute e de Internet para nuvens privadas.
 
 Para adicionar o serviço de CloudSimple, tem de criar uma sub-rede de gateway. A sub-rede do gateway é utilizada quando criar a rede de borda e necessita de/28 bloco CIDR. O espaço de endereços da sub-rede de gateway tem de ser exclusivo. Não pode sobrepor a nenhum dos seus espaços de endereços de rede no local ou o espaço de endereços de rede virtual do Azure.
 
@@ -47,9 +47,6 @@ Siga os passos abaixo para ativar o fornecedor de recursos para o serviço de Cl
 
 ## <a name="create-the-service"></a>Criar o serviço
 
->[!NOTE]
-> Serviço de CloudSimple tem de estar ativado na sua subscrição. Se a sua subscrição não ativada, receberá um erro ao tentar criar o serviço.  Siga os passos em [CloudSimple ativar o serviço](https://docs.azure.cloudsimple.com/enable-cloudsimple-service) artigo para ativar o serviço.
-
 1. Selecione **Todos os serviços**.
 2. Procure **CloudSimple serviço**.
 
@@ -71,7 +68,7 @@ Siga os passos abaixo para ativar o fornecedor de recursos para o serviço de Cl
 
 O serviço é criado e adicionado à lista de serviços.
 
-## <a name="purchase-nodes"></a>Comprar nós
+## <a name="provision-nodes"></a>Nós de aprovisionamento
 
 Para configurar a opção pay as you aceda capacidade para um ambiente de nuvem privada CloudSimple, primeiro aprovisionar nós no portal do Azure.
 
@@ -85,7 +82,7 @@ Para configurar a opção pay as you aceda capacidade para um ambiente de nuvem 
 
     ![Adicionar nós CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Selecione a subscrição em que deseja comprar CloudSimple nós.
+5. Selecione a subscrição em que pretende aprovisionar nós de CloudSimple.
 6. Selecione o grupo de recursos para os nós. Para adicionar um novo grupo de recursos, clique em **criar novo**.
 7. Introduza o prefixo para identificar os nós.
 8. Selecione a localização para os recursos de nó.

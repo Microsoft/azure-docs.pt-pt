@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: 53c683dacbb3b94e34bd8662743673c3a0490d94
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119964"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205827"
 ---
 #### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta do Azure; Pode criar um [conta gratuita](https://azure.microsoft.com/free)
