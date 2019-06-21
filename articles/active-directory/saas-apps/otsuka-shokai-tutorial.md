@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5e667151f0148468e9eda8189c0f249b402b56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095281"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274193"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Tutorial: Integrar Otsuka Shokai com o Azure Active Directory
 
@@ -29,7 +29,6 @@ Neste tutorial, irá aprender como integrar Otsuka Shokai com o Azure Active Dir
 
 * Controlar no Azure AD que tenha acesso ao Otsuka Shokai.
 * Permita que os utilizadores ser automaticamente sessão iniciada para Otsuka Shokai com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
 
 Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -112,17 +111,15 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     g. Clique em **Guardar**.
 
-1. No **definir a segurança de início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o em seu bloco de notas .
-
-   ![O link de download de certificado](common/copy-metadataurl.png)
-
-1. Sobre o **configurar Otsuka Shokai** secção, copie o URL adequado com base nos seus requisitos.
-
-   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
 ### <a name="configure-otsuka-shokai"></a>Configure Otsuka Shokai
 
-Para configurar o início de sessão único em **Otsuka Shokai** lado, terá de enviar o **Url de metadados de Federação de aplicação** para [equipa de suporte de Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Ao ligar à página de meu do cliente da aplicação SSO, o Assistente de início de definição de SSO.
+
+2. Se o ID de Otsuka não está registado, avançar para o novo registo de Otsuka-ID.   Se se registrou Otsuka-ID, avance para a definição de ligação.
+
+3. Avançar para o fim e quando o ecrã superior é apresentado depois de iniciar sessão página de meu do cliente, as definições de SSO estiverem concluídas.
+
+4. Da próxima vez que ligar à página de meu do cliente a partir da aplicação SSO, depois de abre o ecrã de diretrizes, o ecrã superior é apresentado depois de iniciar sessão página de meu do cliente.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -156,7 +153,7 @@ Nesta secção, irá ativar a Simon B. utilizar o Azure início de sessão únic
 
 ### <a name="create-otsuka-shokai-test-user"></a>Criar utilizador de teste Otsuka Shokai
 
-Nesta secção, vai criar um usuário chamado B.Simon no Otsuka Shokai. Trabalhar com [equipa de suporte de Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) para adicionar os utilizadores na plataforma Otsuka Shokai. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Novo registo da conta de SaaS será executado no primeiro acesso para Otsuka Shokai. Além disso, podemos irá também associar conta do Azure AD e a conta de SaaS no momento da criação de novo.
 
 ### <a name="test-sso"></a>Teste SSO
 

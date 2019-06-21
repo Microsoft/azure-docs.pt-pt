@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b19c0fd8af2792a4ffb877e5c6a7fc6b3f94511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 975289f338e638ed0209d4f6cf2a163ced996e42
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836133"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202948"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
 [1114181]: https://launchpad.support.sap.com/#/notes/1114181
@@ -150,7 +150,7 @@ A colocação de ficheiros de base de dados e os ficheiros de registo e refazer 
 Como já declarado, se seu requisito de IOPS exceder o que pode fornecer um único VHD, equilibrar o número de IOPS que são necessários para os ficheiros de base de dados num número de VHDs. A maneira mais fácil de distribuir a carga IOPS entre discos é criar uma faixa de software sobre os discos diferentes. Em seguida, coloca um número de ficheiros de dados do SAP DBMS em LUNs criados fora do stripe de software. o número de discos no stripe é orientado por demanda, as necessidades de débito de disco e volume IOPs demandas.
 
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Recomendamos que utilize espaços de armazenamento do Windows para criar conjuntos de faixa entre vários VHDs do Azure. Utilize, pelo menos, Windows Server 2012 R2 ou Windows Server 2016.
@@ -164,7 +164,7 @@ Como já declarado, se seu requisito de IOPS exceder o que pode fornecer um úni
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > Porque o armazenamento do Azure mantém três imagens dos VHDs, não faz sentido para configurar uma redundância, quando do stripe. Apenas terá de configurar a repartição, para que o e/s são distribuídos pelos VHDs de diferentes.
@@ -230,7 +230,7 @@ VMs do Azure oferecem discos nonpersistent depois de uma VM é implementada. No 
 
 Para obter mais informações, consulte [entender a unidade temporária em VMs do Windows no Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > A unidade D numa VM do Azure é uma unidade continuada, que é suportada por alguns discos locais no nó de computação do Azure. Porque é continuada, todas as alterações feitas para o conteúdo na unidade D são perdidas quando a VM é reiniciada. As alterações incluem ficheiros que foram armazenados, os diretórios que foram criados e aplicações que foram instaladas.
@@ -241,7 +241,7 @@ Para obter mais informações, consulte [entender a unidade temporária em VMs d
 >
 >
 
-- - -
+---
 
 
 
@@ -339,7 +339,7 @@ Para reduzir ainda mais a latência de rede entre as VMs do Azure, recomendamos 
 > Nem todos os tipos de VM suportam redes aceleradas. O artigo anterior lista os tipos VM que suportam redes aceleradas.
 >
 
-- - -
+---
 > ![Windows][Logo_Windows] Windows
 >
 > Para saber como implementar VMs com o Accelerated Networking para Windows, veja [criar uma máquina virtual do Windows com redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
@@ -350,7 +350,7 @@ Para reduzir ainda mais a latência de rede entre as VMs do Azure, recomendamos 
 >
 >
 
-- - -
+---
 
 > [!NOTE]
 > No caso do Red Hat, SUSE e Oracle Linux, a redes aceleradas é suportada com as versões recentes. Versões mais antigas, como o RHEL 7.2 ou o SLES 12 SP2 não suportam o Azure Accelerated Networking.

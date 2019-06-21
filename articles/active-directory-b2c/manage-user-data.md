@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510451"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204683"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerir dados de utilizador no Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ ms.locfileid: "66510451"
 
 ## <a name="delete-user-data"></a>Eliminar dados de utilizador
 
-Dados de utilizador são armazenados no diretório do Azure AD B2C e nos registos de auditoria. Todos os dados de auditoria de utilizador são retidos durante 30 dias no Azure AD B2C. Se quiser eliminar dados de utilizador dentro desse período de 30 dias, pode utilizar o [eliminar um utilizador](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) operação. Uma operação de eliminação é necessária para cada um dos inquilinos do Azure AD B2C, onde os dados podem residir. 
+Dados de utilizador são armazenados no diretório do Azure AD B2C e nos registos de auditoria. Todos os dados de auditoria de utilizador são retidos durante sete dias no Azure AD B2C. Se quiser eliminar dados de utilizador dentro desse período de 7 dias, pode utilizar o [eliminar um utilizador](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) operação. Uma operação de eliminação é necessária para cada um dos inquilinos do Azure AD B2C, onde os dados podem residir. 
 
 Cada utilizador no Azure AD B2C está atribuído um ID de objeto. O ID de objeto fornece um identificador inequívoca a utilizar para eliminar dados de utilizador no Azure AD B2C. Dependendo da sua arquitetura, o ID de objeto pode ser um identificador de correlação útil em outros serviços, como financeiro, marketing e bases de dados de gestão de relação de cliente. 
 

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "62119814"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do IoT Hub
@@ -21,7 +21,7 @@ Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Hub.
 ## <a name="advanced-message-queueing-protocol"></a>Protocolo de colocação em fila de mensagens avançados
 [Advanced Message colocação em fila Protocol (AMQP)](https://www.amqp.org/) é um do messaging protocolos que [IoT Hub](#iot-hub) oferece suporte para comunicação com dispositivos. Para obter mais informações sobre os protocolos de mensagens que o IoT Hub suporta, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
 
-## <a name="automatic-device-management"></a>Gestão Automática de Dispositivos
+## <a name="automatic-device-management"></a>Gestão de dispositivos automática
 Gestão automática de dispositivos no IoT Hub do Azure automatiza muitas das tarefas repetitivas e complexas de gerenciamento de frotas de dispositivo grandes sobre a totalidade dos respetivos ciclos de vida. Gestão de dispositivos automático, pode um conjunto de dispositivos com base nas respetivas propriedades de destino, definir uma configuração desejada e permitir que o IoT Hub, atualize os dispositivos sempre que eles vão para o âmbito.  Consiste [configurações de dispositivos automático](iot-hub-auto-device-config.md) e [implementações automáticas do IoT Edge](../iot-edge/how-to-deploy-monitor.md).
 
 ## <a name="automatic-device-configuration"></a>Configuração do dispositivo automática
@@ -67,7 +67,7 @@ Cada hub IoT inclui um incorporado [ponto final](iot-hub-devguide-endpoints.md) 
 ## <a name="cloud-gateway"></a>Gateway de nuvem
 Um gateway de cloud permite uma conectividade de dispositivos que não é possível ligar diretamente à [IoT Hub](#iot-hub). Um gateway de nuvem está alojado na cloud em comparação com uma [gateway de campo](#field-gateway) que executa o local para os seus dispositivos. Um caso de utilização típicos para um gateway de nuvem é implementar a tradução do protocolo para os seus dispositivos.
 
-## <a name="cloud-to-device"></a>Nuvem para dispositivo
+## <a name="cloud-to-device"></a>Cloud-para-dispositivo
 Refere-se às mensagens enviadas a partir de um hub IoT para um dispositivo ligado. Muitas vezes, essas mensagens são comandos que instruem o dispositivo execute uma ação. Para obter mais informações, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="configuration"></a>Configuração
@@ -78,7 +78,7 @@ Utilizar cadeias de ligação no seu código de aplicação para encapsular as i
 - *Cadeias de ligação do dispositivo* permitir que os dispositivos liguem aos pontos finais com acesso de dispositivo num IoT hub.
 - *Cadeias de ligação do IoT Hub* para ativar as aplicações de back-end ligar para os pontos finais de serviço com acesso num IoT hub.
 
-## <a name="custom-endpoints"></a>Pontos finais personalizados
+## <a name="custom-endpoints"></a>Os pontos finais personalizados
 Pode criar personalizado [pontos de extremidade](iot-hub-devguide-endpoints.md) num hub IoT para entregar mensagens distribuídas por um [regra de encaminhamento](#routing-rules). Ligar pontos finais personalizados diretamente para um hub de eventos, uma fila do Service Bus ou um tópico do Service Bus.
 
 ## <a name="custom-gateway"></a>Gateway personalizado
@@ -93,7 +93,7 @@ No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), desired
 ## <a name="desired-properties"></a>Propriedades pretendidas
 No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), assim o desejar propriedades é uma subsecção do dispositivo duplo que é utilizado com [propriedades comunicadas](#reported-properties) para sincronizar a configuração do dispositivo ou condição. As propriedades pretendidas só podem ser definidas um [aplicação de back-end](#back-end-app) e são observado pela [aplicação de dispositivo](#device-app).
 
-## <a name="device-to-cloud"></a>Dispositivo para a nuvem
+## <a name="device-to-cloud"></a>Dispositivo-para-cloud
 Refere-se às mensagens enviadas a partir de um dispositivo ligado ao [IoT Hub](#iot-hub). Essas mensagens podem ser [ponto de dados](#data-point-message) ou [interativas](#interactive-message) mensagens. Para obter mais informações, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Dispositivo
@@ -138,7 +138,7 @@ Um IoT hub expõe várias [pontos de extremidade](iot-hub-devguide-endpoints.md)
 ## <a name="event-hubs-service"></a>Serviço de Hubs de eventos
 [Os Hubs de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) é um serviço de entrada de dados altamente dimensionável que pode ingerir milhões de eventos por segundo. O serviço permite-lhe processar e analisar enormes quantidades de dados produzidos pelos seus dispositivos e aplicações ligados. Para uma comparação com o serviço IoT Hub, veja [comparação do IoT Hub do Azure e Hubs de eventos](iot-hub-compare-event-hubs.md).
 
-## <a name="event-hub-compatible-endpoint"></a>Ponto final compatível com Hubs de Eventos
+## <a name="event-hub-compatible-endpoint"></a>Ponto final compatível com o Hub de eventos
 Para ler [dispositivo-para-cloud](#device-to-cloud) as mensagens enviadas ao seu hub IoT, pode ligar a um ponto final no seu hub e utilizar qualquer método compatível com o Event Hub para ler essas mensagens. Métodos de compatível com o Hub de eventos incluem a utilização a [SDKs de Hubs de eventos](../event-hubs/event-hubs-programming-guide.md) e [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ## <a name="field-gateway"></a>Gateway de campo
@@ -247,7 +247,7 @@ Uma subscrição do Azure é onde ocorre a faturação. Cada recurso do Azure é
 ## <a name="system-properties"></a>Propriedades do sistema
 No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), propriedades do sistema são só de leitura e inclui informações sobre a utilização do dispositivo, como o último Estado de ligação e de tempo de atividade.
 
-## <a name="tags"></a>Etiquetas
+## <a name="tags"></a>Tags
 No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), as etiquetas são metadados do dispositivo, armazenados e recuperados pela solução de back-end na forma de um documento JSON. As etiquetas não estão visíveis para aplicações num dispositivo.
 
 ## <a name="telemetry"></a>Telemetria

@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/18/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28577bfc755d80cd479a40b9e2b653af6ddec319
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236888"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204443"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -34,9 +34,9 @@ Neste artigo, ficará a saber como:
 Antes de fazer backup de uma base de dados do SQL Server, verifique os seguintes critérios:
 
 1. Identificar ou criar um [cofre dos serviços de recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região ou região do que a VM que aloja a instância do SQL Server.
-2. Verifique os [permissões de VM necessário](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) para fazer cópias de segurança de bases de dados SQL.
-3. Certifique-se de que a VM tem [conectividade de rede](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-4. Certifique-se de que as bases de dados do SQL Server, siga os [diretrizes de nomenclatura de base de dados para o Azure Backup](#database-naming-guidelines-for-azure-backup).
+2. Certifique-se de que a VM tem [conectividade de rede](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+3. Certifique-se de que as bases de dados do SQL Server, siga os [diretrizes de nomenclatura de base de dados para o Azure Backup](#database-naming-guidelines-for-azure-backup).
+4. Especificamente para o SQL 2008 e 2008 R2, [Adicionar chave de registo](#add-registry-key-to-enable-registration) para ativar o registo do servidor. Este passo não ser serão necessárias quando o recurso está disponível em geral.
 5. Certifique-se de que não tem quaisquer outras soluções de cópia de segurança ativadas para a base de dados. Desative todas as outras cópias de segurança do SQL Server antes de fazer cópias de segurança da base de dados.
 
 > [!NOTE]
@@ -79,16 +79,6 @@ Utilizar etiquetas de serviço do NSG | Mais fácil de gerenciar como as altera�
 Utilizar etiquetas de FQDN de Firewall do Azure | Mais fácil de gerenciar como os FQDNs necessários são geridos automaticamente | Pode ser utilizado apenas com o Firewall do Azure
 Utilizar um proxy de HTTP | URLs do controle granular no proxy sobre o armazenamento é permitido <br/><br/> Acesso de ponto único de internet às VMs <br/><br/> Não sujeitas a alterações ao endereço IP do Azure | Custos adicionais para executar uma VM com o software de proxy
 
-### <a name="set-vm-permissions"></a>Definir permissões de VM
-
-Ao configurar uma cópia de segurança para uma base de dados do SQL Server, faz o seguinte cópia de segurança do Azure:
-
-- Adiciona a extensão de AzureBackupWindowsWorkload.
-- Cria uma conta NT SERVICE\AzureWLBackupPluginSvc para detetar as bases de dados na máquina virtual. Esta conta é utilizada para uma cópia de segurança e restaurar e necessita de permissões de administrador do sistema do SQL.
-- Deteta as bases de dados que estão em execução numa VM, o Azure Backup utiliza a conta NT AUTHORITY\SYSTEM. Esta conta tem de ser um público início de sessão no SQL.
-
-Se não criar a VM do SQL Server no Azure Marketplace, poderá receber um erro de UserErrorSQLNoSysadminMembership. Para obter mais informações, consulte a secção de considerações e limitações de recursos encontrados na [sobre o SQL Server Backup em VMs do Azure](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Diretrizes de nomenclatura para o Azure Backup do banco de dados
 
 Evite a utilizar os seguintes elementos em nomes de base de dados:
@@ -101,6 +91,22 @@ Evite a utilizar os seguintes elementos em nomes de base de dados:
 
 Aliasing está disponível para carateres não suportados, mas recomendamos que evite-los. Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
+### <a name="add-registry-key-to-enable-registration"></a>Adicionar chave de registo para ativar o registo
+
+1. Abra Regedit
+2. Crie o caminho do diretório de registo: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (precisa para criar o TestHook 'Key' em WorkloadBackup que por sua vez tem de ser criadas no Microsoft).
+3. No caminho de diretório de registo, crie um novo "valor de cadeia de caracteres" com o nome de cadeia de caracteres **AzureBackupEnableWin2K8R2SP1** e valor: **VERDADEIRO**
+
+    ![RegEdit para ativar o registo](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
+
+Em alternativa, pode automatizar este passo, executando o arquivo. reg com o seguinte comando:
+
+```csharp
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
+"AzureBackupEnableWin2K8R2SP1"="True"
+```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -141,7 +147,7 @@ Como detetar as bases de dados em execução numa VM:
     - Cópia de segurança do Azure cria a conta de serviço NT Service\AzureWLBackupPluginSvc na VM.
       - Todas as operações de cópia de segurança e restauro, utilize a conta de serviço.
       - NT Service\AzureWLBackupPluginSvc requer permissões de administrador do sistema do SQL. Todas as VMs do SQL Server criado no Marketplace são fornecidos com o SqlIaaSExtension instalado. A extensão de AzureBackupWindowsWorkload utiliza o SQLIaaSExtension para obter automaticamente as permissões necessárias.
-    - Se não criar a VM no Marketplace, a VM não terá SqlIaaSExtension instalado e a operação de deteção falha com a mensagem de erro UserErrorSQLNoSysAdminMembership. Para corrigir este problema, siga os [instruções](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+    - Se não criar a VM a partir do Marketplace ou se estiver a utilizar o SQL 2008 e 2008 R2, a VM pode não ter SqlIaaSExtension instalado e a operação de deteção falha com a mensagem de erro UserErrorSQLNoSysAdminMembership. Para corrigir este problema, siga as instruções em [permissões de VM do conjunto](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Selecione a VM e a base de dados](./media/backup-azure-sql-database/registration-errors.png)
 
