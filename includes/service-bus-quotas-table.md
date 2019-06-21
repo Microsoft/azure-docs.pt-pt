@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: c1c4a0384342db82ee9c1f6b9e806188d5949681
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171224"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67235414"
 ---
 A tabela seguinte lista as informações de quota específicas de mensagens do Service bus do Azure. Para obter informações sobre preços e outras quotas do Service Bus, consulte [preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Nome da quota | Scope | Notas | Value |
 | --- | --- | --- | --- |
 | Número máximo de um espaço de nomes básico ou Standard por subscrição do Azure |Espaço de Nomes |Pedidos subsequentes para espaços de nomes básico ou Standard adicionais são rejeitados pelo portal do Azure. |100|
-| Número máximo de espaços de nomes Premium por subscrição do Azure |Espaço de Nomes |Pedidos subsequentes para espaços de nomes Premium adicionais são rejeitados pelo portal. |25 |
+| Número máximo de espaços de nomes Premium por subscrição do Azure |Espaço de Nomes |Pedidos subsequentes para espaços de nomes Premium adicionais são rejeitados pelo portal. |50 |
 | Tamanho da fila ou tópico |Entidade |Definido durante a criação da fila ou tópico. <br/><br/> Mensagens de entrada subsequentes são rejeitadas e, uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 GB ou 5 GB.<br /><br />O SKU Premium e o SKU Standard com [particionamento](/azure/service-bus-messaging/service-bus-partitioning) ativada, o tamanho máximo da fila ou tópico é 80 GB. |
 | Número de conexões simultâneas num espaço de nomes |Espaço de Nomes |Pedidos subsequentes para ligações adicionais são rejeitados e, uma exceção é recebida pelo código de chamada. Operações REST não contam para conexões TCP simultâneas. |NetMessaging: 1,000.<br /><br />AMQP: 5,000. |
 | Número de simultâneas receber pedidos numa entidade de fila, tópico ou subscrição |Entidade |Subsequentes receber pedidos são rejeitados e, uma exceção é recebida pelo código de chamada. Esta quota aplica-se para o combinado diversas simultâneas receber operações em todas as subscrições num tópico. |5,000 |

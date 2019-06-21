@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 865fb2ebf0d02c40a8f7c9e9c818e26432e5734a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510729"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272367"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK para a API de SQL: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -47,6 +47,12 @@ ms.locfileid: "65510729"
 * Novo modelo de objeto, com métodos e de nível superior CosmosClient dividir por classes CosmosDatabases, CosmosContainers e CosmosItems relevantes. 
 * Suporte para fluxos. 
 * Atualizado CosmosResponseMessage de servidor para devolver o código de estado e apenas lançar a exceção quando nenhuma resposta é devolvida. 
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+
+* Permitir pedidos de escrita de reversão para uma região diferente, se o original um falhar
+* Adicionar política de repetição de sessão para solicitação de gravação
+* Correções de rastreio a condição de corrida para consultas que causou a páginas em branco
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -375,6 +381,7 @@ Todos os pedidos para o Azure Cosmos DB com um SDK extinto são rejeitados pelo 
 
 | Version | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.5.0](#2.5.0) |18 de Junho de 2019 |--- |
 | [2.4.0](#2.4.0) |05 de Maio de 2019 |--- |
 | [2.3.0](#2.3.0) |04 de Abril de 2019 |--- |
 | [2.2.3](#2.2.3) |11 de Fevereiro de 2019 |--- |

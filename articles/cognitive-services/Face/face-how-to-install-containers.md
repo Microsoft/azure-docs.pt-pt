@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: article
-ms.date: 06/10/2019
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 4d3f3e64e109d0b1dc010be39b62b4f0bdc0573d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beb9818be05fbb9a9e9c958dccb2e375f7685bd0
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063602"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272798"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contentores de rostos
 

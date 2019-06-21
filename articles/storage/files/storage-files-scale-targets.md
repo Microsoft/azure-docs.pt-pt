@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c765c3e29166358f3504949136a67d8d0db96be8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078155"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150460"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 
@@ -45,7 +45,13 @@ Por exemplo: Uma única partilha pode atingir 100 000 IOPS e um único ficheiro 
 Partilhas de ficheiros de Premium são aprovisionadas numa conta de armazenamento especial chamada **filestorage (pré-visualização)** . Esta conta tem destinos de escala ligeiramente diferente do que a conta de armazenamento utilizada para partilhas de ficheiros padrão. Para os alvos de dimensionamento de conta de armazenamento, consulte a tabela a [metas de dimensionamento de conta de armazenamento do Azure](#azure-storage-account-scale-targets) secção.
 
 > [!IMPORTANT]
-> Limites de conta de armazenamento se aplicam a todas as partilhas. Dimensionar até o máximo para as contas de armazenamento só está alcançável se existir apenas uma partilha por conta de armazenamento.
+> Limites de conta de armazenamento se aplicam a todas as partilhas. Dimensionar até o máximo para contas de FileStorage só está alcançável se existir apenas uma partilha por FileStorage conta.
+
+### <a name="file-share-and-file-scale-targets"></a>Metas de dimensionamento de ficheiros e partilha de ficheiros
+
+> [!NOTE]
+> Partilhas de ficheiros padrão maior do que 5 TiB estão em pré-visualização e tem algumas limitações.
+> Para obter uma lista de limitações e para carregar para a pré-visualização destes tamanhos de compartilhamento de arquivos maiores, consulte a [partilhas de ficheiros padrão](storage-files-planning.md#standard-file-shares) secção do guia de planejamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

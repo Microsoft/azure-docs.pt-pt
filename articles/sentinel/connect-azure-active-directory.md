@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce4a57b8c266fe474fc2e6dd8f811fc7440e7ac6
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204484"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190446"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>Ligue os dados do Azure Active Directory
 
@@ -34,6 +34,8 @@ Sentinel do Azure permite-lhe recolher dados a partir [do Azure Active Directory
 - Se quiser exportar dados de início de sessão a partir do Active Directory, tem de ter uma licença do Azure AD P1 ou P2.
 
 - Utilizador com permissões global de administrador de segurança ou de administrador no inquilino que pretende que os registos a partir do stream.
+
+- Para conseguir ver o estado da ligação, tem de ter permissão para aceder aos registos de diagnóstico do Azure AD. 
 
 
 ## <a name="connect-to-azure-ad"></a>Ligar ao Azure AD

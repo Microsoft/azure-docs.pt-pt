@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: a61c2577f79f32f97fe2ef10a2ac67fdbbc1feda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 932d250d6685a1b905e4a03a0118d8c8f1f26418
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073750"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151254"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage desempenho metas de escalabilidade e para contas de armazenamento
 
@@ -45,6 +45,9 @@ Para obter mais informações sobre os alvos de dimensionamento e desempenho par
 
 > [!IMPORTANT]
 > Limites de conta de armazenamento se aplicam a todas as partilhas. Dimensionar até o máximo para as contas de armazenamento só está alcançável se existir apenas uma partilha por conta de armazenamento.
+>
+> Partilhas de ficheiros padrão maior do que 5 TiB estão em pré-visualização e tem algumas limitações.
+> Para obter uma lista de limitações e para carregar para a pré-visualização destes tamanhos de compartilhamento de arquivos maiores, consulte a [partilhas de ficheiros padrão](../files/storage-files-planning.md#standard-file-shares) orientar a secção do planejamento de ficheiros do Azure.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

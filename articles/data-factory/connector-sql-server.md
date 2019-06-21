@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 230fe94820a00c276238a7f5ff189ecc817f3f96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 62845557f33fd9c4f3c2ec4e239213c75101955d
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074049"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275974"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -37,7 +37,8 @@ Especificamente, este conector do SQL Server suporta:
 - Como origem, obter dados com a consulta SQL ou procedimento armazenado.
 - Como sink, acrescentando dados a tabela de destino ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
 
-SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) não é suportado agora.
+>[!NOTE]
+>SQL Server **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)** não é suportada por este conector agora. Para contornar, pode usar [conector do ODBC genérico](connector-odbc.md) e o controlador ODBC do SQL Server. Siga [esta orientação](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) com ODBC download e a ligação de cadeia de caracteres as configurações de driver.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

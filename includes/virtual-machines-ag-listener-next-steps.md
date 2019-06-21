@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 27b09ea9cc7ce3cf2559304a26d0c04f3ea30b54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165470"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184211"
 ---
 Para ligar automaticamente os clientes para a réplica primária, além de um serviço de escuta pode ser utilizado para redirecionar as cargas de trabalho só de leitura para as bases de dados secundárias. Esta utilização pode melhorar o desempenho e escalabilidade da sua solução geral. Para obter mais informações, consulte [utilização ReadIntent encaminhamento com o Azure sempre no serviço de escuta](https://go.microsoft.com/fwlink/?LinkId=522515).
 

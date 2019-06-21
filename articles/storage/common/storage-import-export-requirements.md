@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478594"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147941"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos de sistema de importação/exportação do Azure
 
@@ -41,7 +41,7 @@ Para preparar as unidades de disco rígido usando a ferramenta de WAImportExport
 
 O serviço importar/exportar do Azure suporta os seguintes tipos de contas de armazenamento:
 
-- Contas de armazenamento de v2 de fins gerais (recomendadas para a maioria dos cenários)
+- Contas de armazenamento de v2 de fins gerais padrão (recomendadas para a maioria dos cenários)
 - Contas de Armazenamento de blobs
 - Contas de armazenamento gerais v1 de fins (implementações clássicas ou do Azure Resource Manager), 
 

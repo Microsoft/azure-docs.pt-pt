@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65411566"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementar o OpenShift Container Platform no Azure
@@ -66,7 +66,7 @@ O exemplo seguinte mostra um ficheiro de parâmetros com o nome azuredeploy com 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -282,10 +282,10 @@ Diferentes versões podem ter diferentes parâmetros, pelo que deve verificar os
 | `keyVaultName` | O nome do Cofre de chaves que criou |  |  |
 | `enableAzure` | Ativar fornecedor de Cloud do Azure | true <br> false | true |
 | `aadClientId` | ID do Azure Active Directory do cliente também conhecido como ID de aplicação para o Principal de serviço |  |  |
-| `domainName` | Nome do nome de domínio personalizado para utilizar (se aplicável). Definido como "none" se não for implementar cluster totalmente privada |  | nenhum |
-| `masterClusterDnsType` | Tipo de domínio para a consola da web de OpenShift. 'default' utilizará a etiqueta de DNS do mestre de infra-estrutura IP público. 'custom' permite-lhe definir seu próprio nome de | predefinição <br> personalizado | predefinição |
+| `domainName` | Nome do nome de domínio personalizado para utilizar (se aplicável). Definido como "none" se não for implementar cluster totalmente privada |  | Nenhum |
+| `masterClusterDnsType` | Tipo de domínio para a consola da web de OpenShift. 'default' utilizará a etiqueta de DNS do mestre de infra-estrutura IP público. 'custom' permite-lhe definir seu próprio nome de | predefinição <br> Personalizado | predefinição |
 | `masterClusterDns` | O nome DNS personalizado para utilizar para aceder à consola de web do OpenShift, se tiver selecionado 'custom' para `masterClusterDnsType` |  | console.contoso.com |
-| `routingSubDomainType` | Se definido como 'nipio', `routingSubDomain` utilizará nip.io.  Utilizar o 'custom' se tiver o seu próprio domínio que pretende utilizar para o encaminhamento | nipio <br> personalizado | nipio |
+| `routingSubDomainType` | Se definido como 'nipio', `routingSubDomain` utilizará nip.io.  Utilizar o 'custom' se tiver o seu próprio domínio que pretende utilizar para o encaminhamento | nipio <br> Personalizado | nipio |
 | `routingSubDomain` | O nome DNS com carateres universais que pretende utilizar para o encaminhamento se tiver selecionado 'custom' para `routingSubDomainType` |  | apps.contoso.com |
 | `virtualNetworkNewOrExisting` | Selecione se pretende utilizar uma rede Virtual existente ou criar uma nova rede Virtual | existente <br> novo | novo |
 | `virtualNetworkResourceGroupName` | Nome do grupo de recursos para a nova rede Virtual, se tiver selecionado "novo" para `virtualNetworkNewOrExisting` |  | resourceGroup().name |
@@ -301,12 +301,12 @@ Diferentes versões podem ter diferentes parâmetros, pelo que deve verificar os
 | `existingInfraSubnetReference` | Completo infra-estrutura referência a sub-rede existente para nós. Não necessário se a criar a nova vNet / sub-rede |  |  |
 | `existingCnsSubnetReference` | Referência completa a sub-rede existente para nós CNS. Não necessário se a criar a nova vNet / sub-rede |  |  |
 | `existingNodeSubnetReference` | Referência completa a sub-rede existente para nós de computação. Não necessário se a criar a nova vNet / sub-rede |  |  |
-| `masterClusterType` | Especifique se o cluster utiliza privadas ou públicas nós principais. Se for escolhida privada, os nós principais não são expostos à Internet através de um IP público. Em vez disso, ele usará o IP privado especificado no `masterPrivateClusterIp` | público <br> privado | público |
+| `masterClusterType` | Especifique se o cluster utiliza privadas ou públicas nós principais. Se for escolhida privada, os nós principais não são expostos à Internet através de um IP público. Em vez disso, ele usará o IP privado especificado no `masterPrivateClusterIp` | Público <br> privado | Público |
 | `masterPrivateClusterIp` | Se forem selecionadas privadas nós principais, um endereço IP privado tem ser especificado para utilização pelo balanceador de carga interno para nós principais. Este IP estático tem de estar dentro do bloco de CIDR para a sub-rede mestre e ainda não estiver em utilização. Se forem selecionadas públicas nós principais, este valor não será usado, mas ainda tem de ser especificado |  | 10.1.0.200 |
-| `routerClusterType` | Especifique se o cluster utiliza privado ou público infra-estrutura nós. Se for escolhida privada, a infra-estrutura de nós não são expostos à Internet através de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | público <br> privado | público |
+| `routerClusterType` | Especifique se o cluster utiliza privado ou público infra-estrutura nós. Se for escolhida privada, a infra-estrutura de nós não são expostos à Internet através de um IP público. Em vez disso, ele usará o IP privado especificado no `routerPrivateClusterIp` | Público <br> privado | Público |
 | `routerPrivateClusterIp` | Se privada infra-estrutura nós estão selecionados, em seguida, tem de ser especificado um endereço IP privado para utilizar pelo balanceador de carga interno para infra-estrutura nós. Este IP estático tem de estar dentro do bloco de CIDR para a sub-rede mestre e ainda não estiver em utilização. Se públicos infra-estrutura nós estão selecionados, este valor não será usado, mas ainda tem de ser especificado |  | 10.2.0.200 |
-| `routingCertType` | Utilizar certificado personalizado para o domínio de encaminhamento ou o certificado autoassinado predefinido, siga as instruções em **certificados personalizados** secção | selfsigned <br> personalizado | selfsigned |
-| `masterCertType` | Utilizar certificado personalizado para o domínio principal ou o certificado autoassinado predefinido, siga as instruções em **certificados personalizados** secção | selfsigned <br> personalizado | selfsigned |
+| `routingCertType` | Utilizar certificado personalizado para o domínio de encaminhamento ou o certificado autoassinado predefinido, siga as instruções em **certificados personalizados** secção | selfsigned <br> Personalizado | selfsigned |
+| `masterCertType` | Utilizar certificado personalizado para o domínio principal ou o certificado autoassinado predefinido, siga as instruções em **certificados personalizados** secção | selfsigned <br> Personalizado | selfsigned |
 
 <br>
 

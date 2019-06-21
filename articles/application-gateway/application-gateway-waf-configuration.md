@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 5/15/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 5ddcdeca41e2f21fa27db25f7e0721c7ef87e491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620288"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275188"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de pedido de firewall de aplicação Web e listas de exclusão
 
@@ -35,16 +35,16 @@ WAF também oferece um botão configurável para ativar ou desativar à inspeç�
 
 Listas de exclusão de WAF permitem que omitir determinados atributos de pedido de uma avaliação de WAF. Um exemplo comum é o que Active Directory inserido tokens que são utilizados para autenticação ou campos de palavra-passe. Esses atributos são suscetíveis a conter os carateres especiais que podem disparar um falso positivo das regras WAF. Assim que um atributo é adicionado à lista de exclusão de WAF, não é considerada por qualquer regra de WAF configurada e Active Directory. Listas de exclusão são globais em escopo.
 
-Os seguintes atributos podem ser adicionados às listas de exclusão:
+Os seguintes atributos podem ser adicionados às listas de exclusão. Os valores do campo escolhido não são avaliados em relação a regras de WAF. A exclusão lista remove inspeção de valor do campo.
 
 * Cabeçalhos de pedido
 * Pedido de Cookies
-* Nome de atributo de pedido (argumenty)
+* O nome de atributo de pedido (argumenty) pode ser adicionado como um elemento de exclusão, tais como:
 
-   * Dados de várias partes do formulário
-   * XML
-   * JSON
-   * Args de consulta de URL
+   * Nome do campo de formulário
+   * Entidade XML
+   * Entidade JSON
+   * Argumentos de cadeia de caracteres de consulta de URL
 
 Pode especificar um cabeçalho de pedido exato, o corpo, o cookie ou correspondência de atributo de cadeia de consulta.  Ou, opcionalmente, pode especificar correspondências parciais. A exclusão está sempre um campo de cabeçalho, nunca no seu valor. Regras de exclusão são globais em escopo e aplicam-se a todas as páginas e todas as regras.
 

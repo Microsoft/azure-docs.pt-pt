@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/23/2019
+ms.date: 06/15/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd1ea7665daa6fd93a755cbdb20ebc63e3d63a94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 206b5fef3e4e686bd237fe0f45cfb91dccd4626f
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112547"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136500"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controlos de acesso no Azure Active Directory condicional acesso?
 
@@ -125,11 +125,13 @@ Fornecedores atualmente fornecem um serviço de compatível incluem:
 
 - [Segurança de Duo](https://duo.com/docs/azure-ca)
 - [Datacard da Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [GSMA](https://mobileconnect.io/azure/)
 - [A ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
+- [Thales (Gemalto)](https://resources.eu.safenetid.com/help/AzureMFA/Azure_Help/Index.htm)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 Para obter mais informações sobre esses serviços, contacte diretamente os fornecedores.

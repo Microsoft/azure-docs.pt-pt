@@ -15,17 +15,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 425f4d9dbd6478af834bee6c88d0f13bdaa45b16
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822385"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273682"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência em Hubs de eventos
 
 ## <a name="overview"></a>Descrição geral
-Os Hubs de eventos do Azure utiliza um [modelo de criação de partições](event-hubs-features.md#partitions) para melhorar a disponibilidade e paralelização dentro de um hub de eventos único. Por exemplo, se um hub de eventos tem quatro partições, e um nessas partições é movido de um servidor para outro numa operação de balanceamento de carga, ainda pode enviar e receber de três outras partições. Além disso, a ter mais de partições permite-lhe ter os leitores mais simultâneos processar os seus dados, melhorar o débito agregado. Compreender as implicações de criação de partições e ordenação num sistema distribuído, é um aspeto fundamental do design da solução.
+Os Hubs de eventos do Azure utiliza um [modelo de criação de partições](event-hubs-scalability.md#partitions) para melhorar a disponibilidade e paralelização dentro de um hub de eventos único. Por exemplo, se um hub de eventos tem quatro partições, e um nessas partições é movido de um servidor para outro numa operação de balanceamento de carga, ainda pode enviar e receber de três outras partições. Além disso, a ter mais de partições permite-lhe ter os leitores mais simultâneos processar os seus dados, melhorar o débito agregado. Compreender as implicações de criação de partições e ordenação num sistema distribuído, é um aspeto fundamental do design da solução.
 
 Para ajudar a explicar o equilíbrio entre a ordenação e a disponibilidade, consulte a [Teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), também conhecido como o Teorema do Brewer. Este Teorema aborda a escolha entre consistência, disponibilidade e tolerância de partição. Ele declara que para os sistemas particionados por rede existe sempre variação entre a consistência e disponibilidade.
 
