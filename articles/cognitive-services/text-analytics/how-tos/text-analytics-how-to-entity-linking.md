@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 881c829424124cca843beb7005306edd53be2673
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: ff4f9af82024e9d39ad89a39bcb2fe4130de9101
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203979"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304185"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto
 
@@ -57,7 +57,7 @@ Através do entity linking em várias linguagens requer a utilização de uma ba
 | DateTime      | Hora          | "8 am", "8:00"  | 
 | DateTime      | DateRange     | "2 a 5 de maio"    | 
 | DateTime      | TimeRange     | "18:00 às 19:00"     | 
-| DateTime      | Duração      | "1 minuto e 45 segundos"   | 
+| DateTime      | Duration      | "1 minuto e 45 segundos"   | 
 | DateTime      | Definir           | "todas as terças"     | 
 | DateTime      | fuso horário      |    | 
 | do IdP           | N/A\*         | "https:\//www.bing.com"    |
@@ -105,7 +105,7 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 
 ## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
-A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por segundo e 1000 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
+A análise é realizada aquando da receção do pedido. Consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral para obter informações sobre o tamanho e número de pedidos pode enviar por minuto e segundo.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 

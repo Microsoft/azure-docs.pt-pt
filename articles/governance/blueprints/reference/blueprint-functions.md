@@ -114,7 +114,7 @@ Alguns exemplos de obter dados a partir da _myTemplateArtifact_ exemplo são:
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "meu valor de cadeia de caracteres" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "meu valor" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleano | Verdadeiro |
 
 ## <a name="concat"></a>concat
 

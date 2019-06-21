@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137271"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311845"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição de Batch?
 
@@ -91,6 +91,7 @@ Utilize estas propriedades opcionais para configurar a transcrição:
 | `PunctuationMode` | Especifica como lidar com a pontuação nos resultados de reconhecimento. Aceite os valores são `none` que desativa a pontuação, `dictated` implica que pontuação explícita, `automatic` que permite que o Decodificador lidar com a pontuação, ou `dictatedandautomatic` que implica ditado marcas de pontuação ou automático. |
  | `AddWordLevelTimestamps` | Especifica se os carimbos de nível de word devem ser adicionados à saída. Aceite os valores são `true` que permite aos carimbos de nível do word e `false` (o valor predefinido) para desabilitá-lo. |
  | `AddSentiment` | Especifica o sentimento deve ser adicionado para a expressão. Aceite os valores são `true` que permite que o sentimento por expressão e `false` (o valor predefinido) para desabilitá-lo. |
+ | `AddDiarization` | Especifica que alalysis diarization deve ser executada na entrada que é esperada que seja mono canal que contém dois vozes. Aceite os valores são `true` que permite diarization e `false` (o valor predefinido) para desabilitá-lo. Ela também exige `AddWordLevelTimestamps` ser definida como true.|
 
 ### <a name="storage"></a>Armazenamento
 
@@ -128,13 +129,8 @@ O áudio correspondente irá conter os oradores identificados por um número (at
 
 Observe também que Diarization não está disponível no gravações estéreo. Além disso, todos os JSON saída irá conter a marca de orador. Se não for utilizado diarization, ele mostrará ' orador: Nulo ' no JSON de saída.
 
-Regiões suportadas estão listados abaixo.
-
-| Idioma | Localidade |
-|--------|-------|
-| Português | en-US |
-| Chinês | zh-CN |
-| Deutsch | de-DE |
+> [!NOTE]
+> Diarization está disponível em todas as regiões e para todas as localidades!
 
 ## <a name="sentiment"></a>Sentimento
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 06/20/2019
 ms.author: tulasim
-ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b0e3dfb81a9934b393428a946cf1440367985c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954963"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67311867"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma origem de dados protegida do Sharepoint à sua base de dados de conhecimento
 
@@ -35,6 +35,20 @@ Pode adicionar tudo suportado do QnA Maker [tipos de ficheiro](../Concepts/data-
     ![Obter o URL de ficheiros do Sharepoint ao selecionar o menu de reticências do ficheiro, em seguida, copiar o URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. No portal do QnA Maker, sobre o **definições** página, [adicionar o URL](edit-knowledge-base.md#add-datasource) para a base de dados de conhecimento. 
+
+### <a name="images-with-sharepoint-files"></a>Imagens com arquivos do Sharepoint
+
+Se os ficheiros incluem imagens, aqueles não são extraídos. Pode adicionar a imagem, no portal do QnA Maker, depois do ficheiro é extraído em pares de QnA.
+
+Adicione a imagem com a seguinte sintaxe de markdown: 
+
+```markdown
+![Explanation or description of image](URL of public image)
+```
+
+O texto exibido entre colchetes, `[]`, explica a imagem. O URL em parênteses, `()`, é a ligação direta para a imagem. 
+
+Quando testa o par de QnA no painel de teste interativa, no portal do QnA Maker, é apresentada na imagem, em vez do texto de markdown. Isso valida a imagem pode ser obtido ao público da sua aplicação de cliente.
 
 ## <a name="permissions"></a>Permissões
 
