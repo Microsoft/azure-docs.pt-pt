@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7f68398cb473ca166d328ee15a92f3c848840f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142512"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273294"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Tutorial: Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave
+
+> [!NOTE]
+> Mesmo que o tutorial utiliza a [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) exemplos, os passos gerais são os mesmos para [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), ou outro suportado [SDKs](media-services-apis-overview.md#sdks) .
 
 Pode utilizar os serviços de multimédia para entregar HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming encriptado com o AES com chaves de encriptação de 128 bits. Serviços de multimédia também fornecem o serviço de entrega de chave que fornece as chaves de encriptação para os utilizadores autorizados. Se desejar para serviços de multimédia para encriptar dinamicamente o seu vídeo, associar a chave de encriptação de localizador de transmissão em fluxo e também configurar a política de chave de conteúdo. Quando um fluxo é solicitado por um jogador, serviços de multimédia utiliza a chave especificada para encriptar dinamicamente o seu conteúdo com AES-128. Para desencriptar a transmissão em fluxo, o leitor solicita a chave ao serviço de entrega de chaves. Para determinar se o utilizador está autorizado a obter a chave, o serviço avalia a política de chave de conteúdo que especificou para a chave.
 

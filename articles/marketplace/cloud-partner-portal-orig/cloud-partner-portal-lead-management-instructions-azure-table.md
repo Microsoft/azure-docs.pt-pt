@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a1bcab9816627b453ba8b20b7bcd9402c2dfd151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 08f9d794822dfd7879efc7c4813ecc46f92f6a45
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240522"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147900"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Levar as instruções de gestão para tabelas do Azure
 
@@ -97,7 +97,7 @@ No próximo conjunto de passos, vai ligar à sua tabela do Azure e configure a l
 
      ![Escolha um valor personalizado para o nome da tabela do Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **Consulta de filtro** – clique neste campo e o **obter tempo passado** ícone é apresentado numa janela de pop-up. Selecione **tempo passado** usá-lo como timestamp para filtrar a consulta. Em alternativa, pode colar a seguinte função no campo: createdTime `gt datetime'@{body('Get_past_time')}'` 
+   - **Consulta de filtro** – clique neste campo e o **obter tempo passado** ícone é apresentado numa janela de pop-up. Selecione **tempo passado** usá-lo como timestamp para filtrar a consulta. Em alternativa, pode colar a seguinte função no campo: createdTime `Timestamp gt datetime'@{body('Get_past_time')}'` 
 
      ![Configurar a função de consulta de filtro](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

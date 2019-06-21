@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: afa539bc3369e4f9d9ecf27340436e0be70a03ad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a8857d62b3078d78bdd0a339ebadf766ddb2fb43
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190605"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295810"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início rápido: Criar tarefas automatizadas, processos e fluxos de trabalho com o Azure Logic Apps – Visual Studio
 
@@ -84,9 +84,9 @@ Para começar, crie um [Projeto do Grupo de Recursos do Azure](../azure-resource
 
    Se estiver a utilizar o Visual Studio 2019, siga estes passos:
 
-   1. Na **criar um novo projeto** caixa, selecione a **grupo de recursos do Azure** projeto Visual C# ou Visual Basic. Escolha **Seguinte**.
+   1. Na **criar um novo projeto** caixa, selecione a **grupo de recursos do Azure** projeto Visual C# ou Visual Basic. Selecione **Next**.
 
-   1. Forneça um nome para o grupo de recursos do Azure que pretende utilizar e outras informações do projeto. Escolha **Criar**.
+   1. Forneça um nome para o grupo de recursos do Azure que pretende utilizar e outras informações do projeto. Selecione **Criar**.
 
 1. Na lista de modelos, selecione o **aplicação lógica** modelo. Escolha **OK**.
 
@@ -105,6 +105,9 @@ Quando tiver o seu grupo de recursos do Azure do projeto, crie a sua aplicação
 
    ![Abrir o ficheiro .json da aplicação lógica com o Estruturador da Aplicação Lógica](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
+   > [!TIP]
+   > Se não tiver este comando no Visual Studio 2019, verifique que tem as atualizações mais recentes para o Visual Studio.
+
    Visual Studio pede-lhe para a sua subscrição do Azure e um grupo de recursos do Azure para criar e implementar recursos para a sua aplicação lógica e ligações.
 
 1. Para **subscrição**, selecione a sua subscrição do Azure. Para **grupo de recursos**, selecione **criar nova** para criar um novo grupo de recursos do Azure.
@@ -116,7 +119,7 @@ Quando tiver o seu grupo de recursos do Azure do projeto, crie a sua aplicação
    | Lista do perfil de utilizador | Contoso <br> jamalhartnett@contoso.com | Por predefinição, a conta que utilizou para iniciar sessão |
    | **Subscrição** | "Pay As You Go" <br> (jamalhartnett@contoso.com) | O nome da sua subscrição do Azure e a conta associada |
    | **Grupo de Recursos** | MyLogicApp-RG <br> (E.U.A. Oeste) | O grupo de recursos do Azure e a localização para armazenar e implementar recursos da sua aplicação lógica |
-   | **Localização** | MyLogicApp-RG2 <br> (E.U.A. Oeste) | Uma localização diferente, se não quiser utilizar a localização do grupo de recursos |
+   | **Location** | MyLogicApp-RG2 <br> (E.U.A. Oeste) | Uma localização diferente, se não quiser utilizar a localização do grupo de recursos |
    ||||
 
 1. O estruturador de aplicações lógicas abre uma página que mostra o vídeo de introdução e os acionadores habitualmente utilizados. Desloque-se para baixo, passar o vídeo e acionadores para **modelos**e selecione **aplicação lógica em branco**.
@@ -142,7 +145,7 @@ Na caixa de pesquisa, escreva "rss". Na lista de disparadores, selecione este ac
 
 Antes de poder executar e testar a sua aplicação lógica, implemente a aplicação no Azure a partir do Visual Studio.
 
-1. No Explorador de Soluções, no menu de atalho do projeto, selecione **Implementar** > **Novo...**. Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
+1. No Explorador de Soluções, no menu de atalho do projeto, selecione **Implementar** > **Novo...** . Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
 
    ![Criar a implementação da aplicação lógica](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 

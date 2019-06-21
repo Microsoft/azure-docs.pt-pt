@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966315"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296176"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas mais frequentes perguntas-cópia de segurança de VMs do Azure
 
@@ -89,6 +89,9 @@ Não não possível efetuar instantâneos no disco habilitados para WA. No entan
 O Azure Backup não é possível criar cópias de segurança do disco habilitados para WA, mas pode excluir da cópia de segurança. No entanto, a cópia de segurança não fornece consistência da base de dados porque as informações no disco WA-ativada não não uma cópia de segurança. Pode fazer backup de discos com esta configuração se pretender que o disco do sistema de operativo cópia de segurança e a cópia de segurança de discos que não são habilitados para WA.
 
 Estamos executando pré-visualização privada para uma cópia de segurança do SAP HANA com um RPO de 15 minutos. Baseia-se de forma semelhante, a cópia de segurança de BD SQL e utiliza a interface de backInt para soluções de terceiros certificadas pelo SAP HANA. Se estiver interessado, envie um e-mail para `AskAzureBackupTeam@microsoft.com` com o assunto **Inscreva-se para a pré-visualização privada para cópia de segurança do SAP HANA em VMs do Azure**.
+
+### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>O que é o atraso máximo que pode esperar na hora de início de cópia de segurança desde o momento de cópia de segurança agendada que tiver definido na política de cópia de segurança minha VM?
+A cópia de segurança agendada será acionada dentro de 2 horas do tempo de cópia de segurança agendada. Para ex. Se 100 VMs tem tempo de cópia de segurança de início agendado às 2:00, em seguida, por máximo 4:00 todos o 100VMs terão tarefa de cópia de segurança em curso. Se as cópias de segurança agendadas têm foram colocadas em pausa devido a falha e retomado/repetida pode começar a cópia de segurança fora desta janela agendadas 2 horas.
 
 
 ## <a name="restore"></a>Restauro

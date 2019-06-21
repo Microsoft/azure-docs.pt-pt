@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6ed18a49a77f8061c975bdf3ecb085ebf71317
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204410"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190770"
 ---
 # <a name="connect-your-domain-name-server"></a>Connect your domain name server
 
@@ -36,21 +36,33 @@ Ao ativar a ligação de registo de DNS, pode:
 - Carga de pedidos de vista nos servidores DNS
 - Falhas de registo DNS dinâmicas do Vista
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="connected-sources"></a>Origens ligadas
 
-Ligação de DNS é conseguida ao instalar um agente na máquina de DNS. O agente recebe eventos do DNS e os passa para o Log Analytics.
+A tabela seguinte descreve as origens ligadas que são suportadas por esta solução:
+
+| **Origem ligada** | **Suporte** | **Descrição** |
+| --- | --- | --- |
+| [Agentes do Windows](../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de DNS de agentes do Windows. |
+| [Agentes do Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes diretos do Linux. |
+| [Grupo de gestão do System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes num grupo de gestão do Operations Manager ligado. Não é necessária uma conexão direta do agente do Operations Manager para o Azure Monitor. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
+| [Conta de armazenamento do Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é utilizado pela solução. |
+
+### <a name="data-collection-details"></a>Detalhes de recolha de dados
+
+A solução recolhe dados de relacionados a eventos DNS de inventário DNS e dos servidores DNS onde está instalado um agente de Log Analytics. Dados relacionados com o inventário, como o número de servidores DNS, zonas e registos de recursos, são recolhidos ao executar os cmdlets do PowerShell de DNS. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados a eventos são recolhidos quase em tempo real do [analíticas e registos de auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecida pelo aprimorados registo e diagnósticos DNS no Windows Server 2012 R2.
+
 
 ## <a name="connect-your-dns-appliance"></a>Ligar a sua aplicação de DNS
 
 1. No portal do Azure sentinela, selecione **conectores de dados** e escolha o **DNS** mosaico.
 1. Se as máquinas DNS no Azure:
-    1. Clique em **transferir e instalar o agente para máquinas de virtuais do Windows**.
+    1. Clique em **instalar o agente na máquina de virtual do Windows Azure**.
     1. Na **máquinas virtuais** , selecione a máquina DNS que pretende transmitir para o Azure sentinela. Certifique-se de que esta é uma VM do Windows.
     1. Na janela que se abre para essa VM, clique em **Connect**.  
     1. Clique em **habilitar** no **conector do DNS** janela. 
 
 2. Se a sua máquina DNS não é uma VM do Azure:
-    1. Clique em **transferir e instalar o agente para máquinas do Windows não pertencente ao Azure**.
+    1. Clique em **instalar o agente em máquinas não Azure**.
     1. Na **agente direto** janela, selecione **agente de transferir o Windows (64 bits)** ou **agente de transferir o Windows (32 bits)** .
     1. Instale o agente no seu computador DNS. Copiar o **ID da área de trabalho**, **chave primária**, e **chave secundária** e utilizá-los quando lhe for pedido durante a instalação.
 

@@ -4,14 +4,14 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: bb7715a7eaa2cb499ed80b78130571f315ef0c95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083528"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295451"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -89,14 +89,14 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Machine Learning - Machine Learning Studio, serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de aprendizagem automática podem ser movidos entre subscrições.
 * Managed Disks - Managed Disks em zonas de disponibilidade não podem ser movidos para uma subscrição diferente
 * Serviços de Multimédia
-* Monitor de - Certifique-se de que mover para a nova assinatura não excede [quotas da subscrição](../azure-subscription-service-limits.md#monitor-limits)
+* Monitor de - Certifique-se de que mover para a nova assinatura não excede [quotas da subscrição](../azure-subscription-service-limits.md#azure-monitor-limits)
 * Hubs de Notificação
 * Informações Operacionais
 * Gestão de Operações
 * Dashboards de portais
 * Power BI - tanto o Power BI Embedded e robustez com a coleção de área de trabalho de BI
 * IP público - IP público de SKU básico que podem ser movido. Não é possível mover o IP público de SKU Standard.
-* Serviços de recuperação cofre - Inscreva-se numa [pré-visualização](#recovery-services-limitations).
+* Serviços de recuperação cofre - consulte [limitações](#recovery-services-limitations).
 * SAP HANA no Azure
 * Scheduler
 * Pesquisa - não é possível mover a vários recursos de pesquisa em regiões diferentes numa única operação. Em vez disso, movê-los em operações separadas.
@@ -104,7 +104,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Service Fabric
 * Service Fabric Mesh
 * Serviço SignalR
-* Não é possível mover o armazenamento - contas de armazenamento em regiões diferentes na mesma operação. Em vez disso, a utilizar operações separadas para cada região.
+* Armazenamento
 * Armazenamento (clássica) – consulte [limitações da implementação clássica](#classic-deployment-limitations)
 * Serviço de sincronização de armazenamento
 * Estado do Stream Analytics - Analytics Stream tarefas não podem ser movidas quando em execução.

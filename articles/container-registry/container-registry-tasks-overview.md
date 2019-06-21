@@ -1,22 +1,22 @@
 ---
-title: Automatizar o SO e aplicação de patches de estrutura com tarefas de registo de contentor do Azure (ACR tarefas)
-description: Uma introdução às tarefas do ACR, um conjunto de recursos do Azure Container Registry, que fornece a criação da imagem do contentor seguras e automatizadas e aplicação de patches na cloud.
+title: Automatizar a criação e aplicação de patches de imagens de contentor com tarefas de registo de contentor do Azure (ACR tarefas)
+description: Uma introdução às tarefas do ACR, um conjunto de funcionalidades no Azure Container Registry, que fornece a criação da imagem do contentor seguras e automatizada, a gestão e a aplicação de patches na cloud.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: danlep
-ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 5089650996693b81e548bba8d89c0de29a8afd93
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977204"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147989"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatizar o SO e aplicação de patches de estrutura com tarefas do ACR
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contentor e a manutenção com tarefas do ACR
 
-Os contentores oferecem novos níveis de virtualização, isolando as dependências de aplicativo e o desenvolvedor da infraestrutura e os requisitos operacionais. No entanto, o que permanece, é a necessidade de abordar como a virtualização de aplicativo é corrigida.
+Os contentores oferecem novos níveis de virtualização, isolando as dependências de aplicativo e o desenvolvedor da infraestrutura e os requisitos operacionais. No entanto, o que permanece, é a necessidade de abordar como a virtualização de aplicativo é gerenciada e corrigida durante o ciclo de vida do contentor.
 
 ## <a name="what-is-acr-tasks"></a>O que é o ACR tarefas?
 
@@ -46,8 +46,7 @@ A tabela seguinte mostra alguns exemplos de localizações de contexto suportado
 | Sistema de ficheiros local | Ficheiros dentro de um diretório no sistema de ficheiros local. | `/home/user/projects/myapp` |
 | Ramo principal do GitHub | Ramo de arquivos dentro do mestre (ou outro padrão) de um repositório do GitHub.  | `https://github.com/gituser/myapp-repo.git` |
 | Ramo do GitHub | Ramo específico de um repositório do GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| Pedido Pull do GitHub | Pedido Pull num repositório do GitHub. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| Subpasta do GitHub | Arquivos numa subpasta num repositório do GitHub. Exemplo mostra a combinação da especificação de PR e subpasta. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Subpasta do GitHub | Arquivos numa subpasta num repositório do GitHub. Exemplo mostra a combinação de uma especificação de ramo e subpasta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
 | Tarball remoto | Arquivos num arquivo compactado num servidor Web remoto. | `http://remoteserver/myapp.tar.gz` |
 
 Tarefas de ACR foi concebida como um ciclo de vida de contentor primitivo. Por exemplo, integre ACR tarefas na sua solução de CI/CD. Executando [início de sessão az] [ az-login] com um [principal de serviço][az-login-service-principal], sua solução de CI/CD, em seguida, poderia emitir [az acr build] [ az-acr-build] compilações de imagem de comandos para iniciar.
@@ -65,7 +64,7 @@ Saiba como acionar compilações em consolidação de código de origem no segun
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizar o sistema operacional e a aplicação de patches do framework
 
-O poder das tarefas do ACR para realmente aprimorar seu fluxo de trabalho de compilação do contentor é proveniente de sua capacidade de detetar uma atualização para uma imagem base. Quando a imagem base atualizada é emitida para o seu registo, o ACR tarefas pode criar automaticamente quaisquer imagens de aplicação com base no mesmo.
+O poder das tarefas do ACR para realmente aprimorar seu fluxo de trabalho de compilação do contentor é proveniente de sua capacidade de detetar uma atualização para uma imagem base. Quando a imagem base atualizada é enviada por push para o seu registo, ou uma imagem de base é atualizada num repositório público, como no Docker Hub, o ACR tarefas pode criar automaticamente quaisquer imagens de aplicação com base no mesmo.
 
 Podem ser amplamente categorizadas em imagens de contentor *base* imagens e *aplicação* imagens. As imagens bases incluem, geralmente, o sistema operativo e as estruturas de aplicativo no qual a aplicação é criada, juntamente com outras personalizações. Estas imagens de bases são, elas próprias, normalmente com base nas imagens a montante públicas, por exemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], ou [node. js ][base-node]. Várias das suas imagens de aplicação podem partilhar uma imagem de base comum.
 
@@ -76,7 +75,7 @@ Uma vez que as tarefas de ACR Deteta dinamicamente dependências de imagem de ba
 Saiba mais sobre o sistema operacional e a aplicação de patches de estrutura no terceiro tutorial de tarefas do ACR, [automatizar imagem baseia-se na imagem base a atualização com o Azure Container Registry tarefas](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Imagem de base de atualizações de compilações de Acionador apenas quando tanto as imagens bases e de aplicações residem no mesmo registo de contentor do Azure ou a base de reside num repositório do Docker Hub público.
+> Atualmente, a imagem base atualiza acionador compilações apenas quando tanto as imagens bases e de aplicações residem no mesmo registo de contentor do Azure ou a base de reside num repositório público do Docker Hub ou de registo de contentor do Microsoft.
 
 ## <a name="multi-step-tasks"></a>Tarefas com vários passos
 
