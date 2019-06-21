@@ -6,16 +6,16 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: divswa, LADocs
+ms.reviewer: divswa, klam, LADocs
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66f1d726dcfa1a077abbff0d9f028036db43cc25
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60408601"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293082"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Criar, monitorizar e gerir ficheiros de FTP ao utilizar o Azure Logic Apps
 
@@ -30,13 +30,31 @@ Pode usar acionadores que obtém respostas a partir do seu servidor FTP e dispon
 
 ## <a name="limits"></a>Limits
 
-* Ações de FTP suportam apenas os ficheiros que estão *50 MB ou mais pequeno* a menos que utilize [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md), que permitem-lhe exceder este limite. Atualmente, os acionadores FTP não suportam a segmentação.
-
 * O conector FTP suporta apenas explícita FTP sobre SSL (FTPS) e não é compatível com FTPS implícita.
+
+* Por predefinição, as ações de FTP podem ler ou gravar arquivos que estão *50 MB ou mais pequeno*. Para lidar com ficheiros maiores do que 50 MB, suporte de ações de FTP [segmentação de mensagem](../logic-apps/logic-apps-handle-large-messages.md). O **obter conteúdo do ficheiro** ação utiliza implicitamente segmentação.
+
+* Os acionadores FTP não suportam a segmentação. Quando solicitar o conteúdo do ficheiro, acionadores selecionar apenas os ficheiros que estão a 50 MB ou mais pequeno. Para obter os ficheiros mais de 50 MB, siga este padrão:
+
+  * Utilizar um acionador FTP que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
+
+  * Siga o acionador com o FTP **obter conteúdo do ficheiro** ação, que lê o arquivo completo e implicitamente utiliza a segmentação.
+
+## <a name="how-ftp-triggers-work"></a>Como FTP aciona o trabalho
+
+Trabalho de acionadores FTP ao consultar o sistema de ficheiros FTP e está à procura de qualquer ficheiro que foi alterado desde a última consulta. Algumas ferramentas permitem-lhe preservar o carimbo de hora, quando os ficheiros alterados. Nestes casos, tem de desativar esta funcionalidade para que o acionador pode trabalhar. Seguem-se algumas definições comuns:
+
+| Cliente SFTP | Ação |
+|-------------|--------|
+| Winscp | Aceda a **opções** > **preferências** > **transferir** > **editar**  >  **Preservar timestamp** > **desativar** |
+| FileZilla | Aceda a **transferência** > **preservar os carimbos de ficheiros transferidos** > **desativar** |
+|||
+
+Quando um acionador localiza um novo ficheiro, o acionador verifica que o novo ficheiro é completa e não parcialmente escrito. Por exemplo, um ficheiro pode ter as alterações em curso quando o acionador verifica o servidor de ficheiros. Para evitar o retorno de um arquivo parcialmente escrito, o acionador anota o carimbo de hora para o ficheiro que tem alterações recentes, mas não retorna imediatamente esse arquivo. O acionador devolver o ficheiro apenas quando consulta o servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o acionador intervalo de consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * Os anfitrião servidor endereço e a conta as credenciais de FTP
 
@@ -56,22 +74,13 @@ Pode usar acionadores que obtém respostas a partir do seu servidor FTP e dispon
 
    -ou-
 
-   Para logic apps existentes, sob a última etapa em que pretende adicionar uma ação, escolha **novo passo**e, em seguida, selecione **adicionar uma ação**. 
-   Na caixa de pesquisa, introduza "ftp" como o filtro. 
-   Abaixo da lista de ações, selecione a ação que pretende.
+   Para logic apps existentes, sob a última etapa em que pretende adicionar uma ação, escolha **novo passo**e, em seguida, selecione **adicionar uma ação**. Na caixa de pesquisa, introduza "ftp" como o filtro. Abaixo da lista de ações, selecione a ação que pretende.
 
-   Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-   Selecione o sinal de adição ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. Selecione o sinal de adição ( **+** ) que aparece e selecione **adicionar uma ação**.
 
 1. Forneça os detalhes necessários para a sua ligação e, em seguida, escolha **criar**.
 
 1. Forneça os detalhes necessários para o seu acionador selecionado ou a ação e continuar a criar o fluxo de trabalho da sua aplicação lógica.
-
-Quando solicitar o conteúdo do ficheiro, o acionador não obter ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão:
-
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
-
-* Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="examples"></a>Exemplos
 
@@ -79,17 +88,9 @@ Quando solicitar o conteúdo do ficheiro, o acionador não obter ficheiros super
 
 ### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>Acionador FTP: Quando um ficheiro é adicionado ou modificado
 
-Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando o acionador detetar quando um ficheiro é adicionado ou alterado num servidor FTP. Por exemplo, que pode adicionar uma condição que verifica o conteúdo do arquivo e decide se obter esse conteúdo, com base em se esse conteúdo cumpre uma condição especificada. Por fim, pode adicionar uma ação que obtém o conteúdo do arquivo e colocar esse conteúdo numa pasta no servidor SFTP. 
+Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando o acionador detetar quando um ficheiro é adicionado ou alterado num servidor FTP. Por exemplo, que pode adicionar uma condição que verifica o conteúdo do arquivo e decide se obter esse conteúdo, com base em se esse conteúdo cumpre uma condição especificada. Por fim, pode adicionar uma ação que obtém o conteúdo do arquivo e colocar esse conteúdo numa pasta no servidor SFTP.
 
 **Exemplo de Enterprise**: Pode utilizar este acionador para monitorizar uma pasta FTP para novos ficheiros que descrevem as encomendas de cliente. Em seguida, pode utilizar como uma ação de FTP **obter conteúdo do ficheiro**, para que possa obter conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
-
-Quando solicitar o conteúdo do ficheiro, os acionadores não é possível obter ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
-
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
-
-* Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
-
-Uma aplicação lógica válida e funcional exige um acionador e pelo menos uma ação. Por isso, certifique-se de que adicionar uma ação depois de adicionar um acionador.
 
 Eis um exemplo que mostra este acionador: **Quando um ficheiro é adicionado ou modificado**
 
@@ -101,8 +102,7 @@ Eis um exemplo que mostra este acionador: **Quando um ficheiro é adicionado ou 
 
 1. Forneça os detalhes necessários para a sua ligação e, em seguida, escolha **criar**.
 
-   Por predefinição, este conector transfere ficheiros num formato de texto. 
-   Transferência de ficheiros em binário formatar, por exemplo, onde e quando o tipo de codificação, selecione **transporte binário**.
+   Por predefinição, este conector transfere ficheiros num formato de texto. Transferência de ficheiros em binário formatar, por exemplo, onde e quando o tipo de codificação, selecione **transporte binário**.
 
    ![Criar a ligação ao servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
@@ -120,23 +120,17 @@ Agora que a aplicação lógica tem um acionador, adicione as ações que preten
 
 ### <a name="ftp-action-get-content"></a>Ação de FTP: Obter o conteúdo
 
-Esta ação obtém o conteúdo de um arquivo num servidor FTP quando esse ficheiro é adicionado ou atualizado. Por exemplo, pode adicionar o acionador do exemplo anterior e uma ação que obtém o conteúdo do ficheiro após esse ficheiro é adicionado ou editado. 
-
-Quando solicitar o conteúdo do ficheiro, os acionadores não é possível obter ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
-
-* Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)** .
-
-* Siga o acionador com uma ação que lê o arquivo completo, como **obter conteúdo do ficheiro através do caminho**, e ter a ação utilizar [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md).
+Esta ação obtém o conteúdo de um arquivo num servidor FTP quando esse ficheiro é adicionado ou atualizado. Por exemplo, pode adicionar o acionador do exemplo anterior e uma ação que obtém o conteúdo do ficheiro após esse ficheiro é adicionado ou editado.
 
 Eis um exemplo que mostra esta ação: **Obter o conteúdo**
 
-1. Sob o acionador ou outras ações, escolha **novo passo**. 
+1. Sob o acionador ou outras ações, escolha **novo passo**.
 
 1. Na caixa de pesquisa, introduza "ftp" como o filtro. Abaixo da lista de ações, selecione a ação: **Obter conteúdo do ficheiro - FTP**
 
    ![Selecione a ação de FTP](./media/connectors-create-api-ftp/select-ftp-action.png)  
 
-1. Se já tiver uma ligação para o servidor FTP e a conta, vá para o passo seguinte. Caso contrário, forneça os detalhes necessários para essa ligação e, em seguida, escolha **criar**. 
+1. Se já tiver uma ligação para o servidor FTP e a conta, vá para o passo seguinte. Caso contrário, forneça os detalhes necessários para essa ligação e, em seguida, escolha **criar**.
 
    ![Criar a ligação ao servidor FTP](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
 
@@ -153,11 +147,6 @@ Eis um exemplo que mostra esta ação: **Obter o conteúdo**
 ## <a name="connector-reference"></a>Referência do conector
 
 Para obter detalhes técnicos sobre os limites, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja os [página de referência do conector](/connectors/ftpconnector/).
-
-## <a name="get-support"></a>Obter suporte
-
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: 2d555908007f4e43a38b6d0eff909ef5050878ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b7910ee6f58c582b824cec834d92a24c0e184bfb
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069679"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205281"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões suportadas do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -52,9 +52,9 @@ Isso é conhecido como "N-3"-(N (versão mais recente) - 3 (as versões secundá
 
 Por exemplo, se apresenta o AKS *1.13.x* hoje em dia, o suporte é fornecido para as seguintes versões:
 
-Versão secundária nova lista de versões suportadas
------------------        ----------------------
-1.13.x                   1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
+Nova versão secundária    |    Lista de versões suportadas
+-----------------    |    ----------------------
+1.13.x               |    1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b
 
 Em que "x" e ".a" e ".b" são versões de patch representativa.
 
@@ -84,11 +84,15 @@ Se o Kubernetes de origem a lançado 1.12.3 e 1.11.6 e versões do AKS as versõ
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
 
+> [!NOTE]
+> Os clientes não devem afixar criação do cluster, CI ou outras tarefas automatizadas para versões de patch específico. 
+
 ### <a name="communications"></a>Comunicações
 
 * Para a nova **pequenas** versões do Kubernetes
-  * Todos os utilizadores são notificados da nova versão e qual versão será removida.
-  * Os clientes que executam a versão **a ser removido** será notificado que têm **60 dias** para atualizar para uma versão suportada (por exemplo, versão secundária).
+  * Todos os utilizadores são notificados publicamente da nova versão e qual versão será removida.
+  * Quando for lançada uma nova versão de patch, a versão de patch mais antiga é removida ao mesmo tempo.
+  * Os clientes têm **60 dias** a contar da data notificação pública para atualizar para uma versão mais pequena suportada.
 * Para a nova **patch** versões do Kubernetes
   * Todos os utilizadores são notificados da nova versão de patch que serão lançadas e para atualizar para a versão mais recente do patch.
   * Os utilizadores têm **30 dias** para atualizar para uma versão de patch mais recente, suportados. Os utilizadores têm **30 dias** para atualizar para uma versão de patch suportados antes do mais antigo é removido.

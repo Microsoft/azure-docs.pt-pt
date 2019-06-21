@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 5b5b83fe0028e43ca35bf883b29cb71bad6ca2c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66253690"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166218"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar o Enterprise Security Package clusters no Azure HDInsight
 
@@ -332,7 +332,7 @@ Este passo requer os seguintes pré-requisitos:
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Criar uma relação de ponto a ponto entre a rede Virtual que está a alojar AADDS (`HDIFabrikam-AADDSVNET`) e a rede Virtual que irá alojar o ESP ativado o cluster do HDInsight (`HDIFabrikam-HDIVNet `). Utilize o seguinte código do powershell para configurar o peering entre estas duas redes virtuais.
+1. Criar uma relação de ponto a ponto entre a rede Virtual que está a alojar AADDS (`HDIFabrikam-AADDSVNET`) e a rede Virtual que irá alojar o ESP ativado o cluster do HDInsight (`HDIFabrikam-HDIVNet`). Utilize o seguinte código do powershell para configurar o peering entre estas duas redes virtuais.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')

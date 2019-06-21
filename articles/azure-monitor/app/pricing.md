@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 05/29/2019
 ms.author: dalek
-ms.openlocfilehash: ebcb0922335a2bdc5423ec4e4bfce7c1cd71c46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 188911fa3fb872c8db1612406bf3d4e9b36d837b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357271"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303851"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -30,7 +30,7 @@ Se tiver perguntas sobre preços do Application Insights, pode postar uma pergun
 
 ## <a name="pricing-model"></a>Modelo preços
 
-Preços para [do Azure Application Insights] [ start] baseia-se no volume de dados ingerido. Cada recurso do Application Insights é cobrado como um serviço separado e contribui para a faturação da sua subscrição do Azure.
+Preços para [do Azure Application Insights][start] baseia-se no volume de dados ingerido. Cada recurso do Application Insights é cobrado como um serviço separado e contribui para a faturação da sua subscrição do Azure.
 
 ### <a name="data-volume-details"></a>Detalhes do volume de dados
 
@@ -38,11 +38,12 @@ Preços para [do Azure Application Insights] [ start] baseia-se no volume de dad
 * Encargos de dados do seu aplicativo agora são comunicados num novo contador de faturação com o nome **ingestão de dados** a partir de Abril de 2018. Este novo medidor é compartilhado entre a monitorização de tecnologias, como informações de aplicativos e do Log Analytics e está atualmente sob o nome do serviço **do Log Analytics**. 
 * [Live Stream métricas](../../azure-monitor/app/live-stream.md) dados não são contabilizados para fins de preços.
 
-Para obter preços atuais na sua moeda e região, veja [os preços do Application Insights][pricing].
+> [!NOTE]
+> Todos os preços apresentados nas capturas de ecrã neste artigo são, por exemplo, apenas para fins. Para obter preços atuais na sua moeda e região, veja [os preços do Application Insights][pricing].
 
 ### <a name="multi-step-web-tests"></a>Testes Web com vários passos
 
-[Testes web de vários passos](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) implicar um custo adicional. Testes web de vários passos são testes web que executam uma sequência de ações.
+[Testes web de vários passos](../../azure-monitor/app/availability-multistep.md) implicar um custo adicional. Testes web de vários passos são testes web que executam uma sequência de ações.
 
 Não existe cobrança separada para *testes de ping* de uma única página. Telemetria dos testes de ping e testes de vários passos é cobrada a mesma que outros telemetria da sua aplicação.
 
@@ -53,7 +54,7 @@ O Application Insights torna fácil de entender o que os seus custos têm probab
 ![Escolha preços](./media/pricing/pricing-001.png)
 
 R. Reveja o volume dos seus dados para o mês. Isto inclui todos os dados que recebeu e mantidos (após qualquer [amostragem](../../azure-monitor/app/sampling.md)) de seu servidor e as aplicações de cliente e de testes de disponibilidade.  
-B. Cobrado separadamente é feito [testes web de vários passos](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (Isso não incluir testes de disponibilidade simples, que estão incluídos no custo de volume de dados.)  
+B. Cobrado separadamente é feito [testes web de vários passos](../../azure-monitor/app/availability-multistep.md). (Isso não incluir testes de disponibilidade simples, que estão incluídos no custo de volume de dados.)  
 C. Ver as tendências de volume de dados do mês passado.  
 D. Ativar a ingestão de dados [amostragem](../../azure-monitor/app/sampling.md).   
 E. Defina o limite de volume de dados diário.  

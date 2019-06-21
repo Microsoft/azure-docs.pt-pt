@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a66fa70f6f5615257554e98e40e605d6a7e981fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508961"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154022"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Página única início de sessão com o fluxo implícito de OAuth 2.0 no Azure Active Directory B2C
 
-Muitos aplicativos modernos têm um aplicação de página única front-end que é principalmente escrito em JavaScript. Muitas vezes, a aplicação é escrita usando uma estrutura como AngularJS, ember ou Durandal. Aplicações de página única e outras aplicações de JavaScript que são executados principalmente num navegador tem alguns desafios adicionais para a autenticação:
+Muitos aplicativos modernos têm um aplicação de página única front-end que é principalmente escrito em JavaScript. Muitas vezes, a aplicação é escrita usando uma estrutura como o React, Angular ou VUE. Aplicações de página única e outras aplicações de JavaScript que são executados principalmente num navegador tem alguns desafios adicionais para a autenticação:
 
 - As características de segurança destas aplicações são diferentes dos aplicativos web baseados em servidor tradicional.
 - Muitos servidores de autorização e fornecedores de identidade não suportam os recursos de várias origens (CORS) pedidos de partilha.

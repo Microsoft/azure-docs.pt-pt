@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: article
-ms.date: 06/10/2019
+ms.topic: conceptual
+ms.date: 06/20/2019
 ms.author: dapine
-ms.openlocfilehash: fc9e2b6e5ab2d2103cab2681fe603c1ca9b725c8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 061d335767b7b1b61973c28861759d4d12c6c476
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069220"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295646"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores de análise de texto
 

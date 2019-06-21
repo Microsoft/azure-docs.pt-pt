@@ -1,5 +1,5 @@
 ---
-title: Comprar nós para a solução de VMware ao CloudSimple - Azure
+title: Aprovisionar nós para solução de VMware ao CloudSimple - Azure
 description: Saiba como adicionar nós para o VMWare com a implementação de CloudSimple
 author: dikamath
 ms.author: dikamath
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9f5108207c4f8debc65b9d1fe625ae7033ca4e70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33de07663c91f12d4e10c4661b841cd2dbe5a162
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577184"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165263"
 ---
-# <a name="purchase-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Comprar nós para a solução de VMware ao CloudSimple - Azure
+# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Aprovisionar nós para solução de VMware ao CloudSimple - Azure
 
 Aprovisionar nós no portal do Azure. Em seguida, pode configurar pay as you aceda capacidade para o seu ambiente de nuvem privada CloudSimple.
 
-## <a name="add-a-purchased-node-to-your-cloudsimple-private-cloud"></a>Adicionar um nó adquirido a sua nuvem privada CloudSimple
+## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Adicionar um nó aprovisionado a sua nuvem privada CloudSimple
 
 1. Selecione **Todos os serviços**.
 2. Procure **CloudSimple nós**.
@@ -31,7 +31,7 @@ Aprovisionar nós no portal do Azure. Em seguida, pode configurar pay as you ace
 
     ![Adicionar nós CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Selecione a subscrição em que deseja comprar CloudSimple nós.
+5. Selecione a subscrição em que pretende aprovisionar nós de CloudSimple.
 6. Selecione o grupo de recursos para os nós. Para adicionar um novo grupo de recursos, clique em **criar novo**.
 7. Introduza o prefixo para identificar os nós.
 8. Selecione a localização para os recursos de nó.

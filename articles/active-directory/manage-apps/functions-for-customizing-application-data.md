@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824633"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204471"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -40,7 +40,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 ## <a name="list-of-functions"></a>Lista de funções
 [Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [comutador](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Acrescentar
 **Função:**<br> Append(Source, suffix)
 
@@ -53,7 +53,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 | **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
 | **suffix** |Necessário |Cadeia |A cadeia a acrescentar ao final do valor de origem. |
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
 **Função:**<br> FormatDateTime (origem, inputFormat, outputFormat)
 
@@ -67,7 +67,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 | **inputFormat** |Necessário |Cadeia |Formato esperado do valor de origem. Para formatos suportados, consulte [ https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Necessário |Cadeia |Formato da data de saída. |
 
-- - -
+---
 ### <a name="join"></a>Associar
 **Função:**<br> Junte-se (separador, source1 source2,...)
 
@@ -82,7 +82,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 | **separator** |Necessário |Cadeia |Cadeia utilizada para separar os valores de origem quando eles são concatenados numa cadeia de caracteres. Pode ser "" se nenhum separador é necessário. |
 | **... source1 sourceN** |Variável-número de vezes, necessário |Cadeia |Cadeia de valores a ser unidas. |
 
-- - -
+---
 ### <a name="mid"></a>Mid
 **Função:**<br> Mid (origem, início, comprimento)
 
@@ -96,7 +96,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 | **start** |Necessário |inteiro |Índice no **origem** cadeia de caracteres onde a subcadeia deve começar. Primeiro caractere na cadeia de caracteres terão o índice de 1, o segundo caráter terão índice 2 e assim por diante. |
 | **Comprimento** |Necessário |inteiro |Comprimento da subcadeia. Se o comprimento termina fora o **origem** cadeia de caracteres, a função devolve a subcadeia do **iniciar** índice até o final da **origem** cadeia de caracteres. |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **Função:**<br> NormalizeDiacritics(source)
 
@@ -108,7 +108,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 | --- | --- | --- | --- |
 | **Origem** |Necessário |String | Normalmente, um nome de primeiro ou último atributo de nome. |
 
-- - -
+---
 ### <a name="not"></a>não
 **Função:**<br> Not(Source)
 
@@ -120,7 +120,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Booleano da cadeia |Era esperado **origem** valores são "True" ou "False". |
 
-- - -
+---
 ### <a name="replace"></a>Substituir
 **Função:**<br> Substituir (origem, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, modelo)
 
@@ -153,7 +153,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **replacementAttributeName** |Opcional |Cadeia |Nome do atributo a ser utilizado para o valor de substituição, quando a origem não tem nenhum valor. |
 | **Modelo** |Opcional |Cadeia |Quando **modelo** valor é fornecido, procurará **oldValue** dentro do modelo e substituí-lo com o valor de origem. |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **Função:**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
 
@@ -171,7 +171,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **... uniqueValueRule1 uniqueValueRuleN** |Pelo menos 2 são vinculados a necessário, não superior |String | Lista de regras de geração de valor único para avaliar. |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Função:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -183,7 +183,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Necessário |Cadeia |**[appRoleAssignments]**  objeto. |
 
-- - -
+---
 ### <a name="split"></a>Dividir
 **Função:**<br> Split (origem, delimitador)
 
@@ -196,7 +196,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
 | **delimiter** |Necessário |String |Especifica os carateres que serão utilizado para dividir a cadeia de caracteres (exemplo: ",") |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
 **Função:**<br> StripSpaces(source)
 
@@ -208,7 +208,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
 
-- - -
+---
 ### <a name="switch"></a>Comutador
 **Função:**<br> Comutador (origem, defaultValue, chave1, value1, chave2, value2...)
 
@@ -223,7 +223,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **chave** |Necessário |Cadeia |**Chave** comparar **origem** com de valor. |
 | **valor** |Necessário |Cadeia |Valor de substituição para o **origem** correspondentes a chave. |
 
-- - -
+---
 ### <a name="tolower"></a>ToLower
 **Função:**<br> ToLower (origem, cultura)
 
@@ -236,7 +236,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
 | **culture** |Opcional |String |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
 
-- - -
+---
 ### <a name="toupper"></a>ToUpper
 **Função:**<br> ToUpper (origem, cultura)
 

@@ -1,6 +1,6 @@
 ---
-title: Ligar computadores Windows ao Log Analytics do Azure | Documentos da Microsoft
-description: Este artigo descreve como ligar computadores Windows alojados em outras clouds ou no local para o Log Analytics com o Microsoft Monitoring Agent (MMA).
+title: Ligar computadores Windows para o Azure Monitor | Documentos da Microsoft
+description: Este artigo descreve como ligar computadores Windows alojados em outras clouds ou no local para o Azure Monitor com o agente do Log Analytics para Windows.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d57e619ec17e183bc8c9bb155f3e111f43b85f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7f562959ac6022539ccf7137f352a2e9507758dc
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952480"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146356"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Ligar computadores Windows para o Azure Monitor
 
@@ -110,14 +110,16 @@ A tabela seguinte realça os parâmetros específicos suportados pelo programa d
 2. Para instalar o agente e configurá-lo para reportar a uma área de trabalho na cloud comercial do Azure, a partir da pasta silenciosamente extraiu os ficheiros de configuração para o tipo: 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    ou para configurar o agente para reportar a cloud do Azure US Government, escreva: 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
+    >[!NOTE]
+    >Os valores de cadeia de caracteres para os parâmetros *OPINSIGHTS_WORKSPACE_ID* e *OPINSIGHTS_WORKSPACE_KEY* tem de ser encapsulado em aspas duplas para instruir o Windows Installer para interprit como opções válidas para o pacote. 
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Instalar o agente através do DSC na automatização do Azure
 
@@ -202,4 +204,6 @@ Nos resultados da pesquisa retornados, deverá ver registos de heartbeat para o 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Revisão [gerir e manter o agente Log Analytics para Windows e Linux](agent-manage.md) para saber mais sobre como gerir o agente durante seu ciclo de vida de implementação nas suas máquinas.  
+- Revisão [gerir e manter o agente Log Analytics para Windows e Linux](agent-manage.md) para saber mais sobre como gerir o agente durante seu ciclo de vida de implementação nas suas máquinas.  
+
+- Revisão [o agente do Windows de resolução de problemas](agent-windows-troubleshoot.md) se ocorrerem problemas ao instalar ou gerir o agente.

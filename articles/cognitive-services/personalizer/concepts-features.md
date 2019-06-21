@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: ebe7f9307fcfa39d6cb133203a4c17243ad390c5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b2054aa963991ffa2d92aabf1ce896031f2d87fc
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027139"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296048"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -40,6 +40,12 @@ Não prescrevem personalizer, limitar ou corrigir que funcionalidades pode envia
 ## <a name="supported-feature-types"></a>Tipos de recurso suportados
 
 Personalizer oferece suporte a recursos de tipos de cadeia, numéricos e booleanos.
+
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como escolher o tipo de recurso afeta o Machine Learning na Personalizer
+
+* **Cadeias de caracteres**: Para tipos de cadeia de caracteres, cada combinação de chave e valor cria pesos de novo no Personalizer modelo de aprendizagem. 
+* **Numérico**: Quando o número proporcionalmente deve afetar o resultado de personalização, deve usar valores numéricos. Este é o cenário muito dependente. Um exemplo simplificado por exemplo, quando personalizar um varejo experiência, NumberOfPetsOwned poderia ser um recurso que é numérico, como pode desejar que as pessoas com 2 ou 3 animais de estimação influenciar o resultado de personalização duas vezes ou três vezes por tanto quanto ter 1 animal de estimação. Recursos que se baseiam em unidades numéricas, mas em que o significado não é linear - como idade, temperatura ou pessoa Height - melhor são codificados como cadeias de caracteres e a qualidade da funcionalidade normalmente podem ser melhorada através da utilização de intervalos. Por exemplo, idade poderia ser codificada como "Idade": "0-5", "Idade": "6-10", etc.
+* **Booleano** valores enviados com o valor do act "false", como se ainda não haviam sido enviadas em todos os.
 
 Devem ser omitidas funcionalidades que não estão presentes no pedido. Evite o envio de recursos com um valor nulo, porque ele será processado como existente e com um valor de "null" quando o modelo de formação.
 

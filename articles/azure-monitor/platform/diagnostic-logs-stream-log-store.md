@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238028"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303689"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Registos de diagnóstico do Azure Stream à área de trabalho do Log Analytics no Azure Monitor
 
@@ -60,7 +60,7 @@ A área de trabalho do Log Analytics não tem de estar na mesma subscrição que
 
 4. Clique em **Guardar**.
 
-Após alguns instantes, a nova definição é apresentada na sua lista de definições para este recurso, e os registos de diagnóstico são transmitidas em fluxo para essa área de trabalho assim que novos dados de evento são gerados. Tenha em atenção que pode haver até quinze minutos entre quando um evento é emitido e quando for apresentada no Log Analytics.
+Após alguns instantes, a nova definição é apresentada na sua lista de definições para este recurso, e os registos de diagnóstico são transmitidas em fluxo para essa área de trabalho assim que novos dados de evento são gerados. Pode haver até 15 minutos entre quando um evento é emitido e quando for apresentada no Log Analytics.
 
 ### <a name="via-powershell-cmdlets"></a>Cmdlets do PowerShell
 
@@ -99,37 +99,81 @@ O `--resource-group` argumento só é necessária se `--workspace` não é um ID
 
 No painel de registos no portal do Azure Monitor, pode consultar os registos de diagnóstico como parte da solução de gestão de registos na tabela AzureDiagnostics. Também existem [várias soluções de monitorização para recursos do Azure](../../azure-monitor/insights/solutions.md) pode instalar para obter informações imediatas sobre os dados de registo estão a enviar para o Azure Monitor.
 
+## <a name="azure-diagnostics-vs-resource-specific"></a>Vs de diagnóstico do Azure recursos específicos  
+Depois de um destino do Log Analytics é habilitado numa configuração de diagnósticos do Azure, existem duas maneiras distintas que dados irão aparecer na sua área de trabalho:  
+- **Diagnóstico do Azure** -este é o método herdado usado atualmente pela maioria dos serviços do Azure. Neste modo, todos os dados a partir de qualquer definição de diagnóstico apontava para uma determinada área de trabalho terminarão no _AzureDiagnostics_ tabela. 
+<br><br>Uma vez que muitos recursos enviam dados para a mesma tabela (_AzureDiagnostics_), o esquema desta tabela é o conjunto superutilizadores dos esquemas de todos os tipos de dados diferentes a ser recolhidos. Por exemplo, se tiver criado as definições de diagnóstico para a coleção dos seguintes tipos de dados, tudo a ser enviados para a mesma área de trabalho:
+    - Registos de 1 de recursos (ter um esquema consiste em colunas A, B e C) de auditoria  
+    - Registos de erros de 2 de recursos (ter um esquema consiste em colunas D, E e F)  
+    - Registos de fluxo de dados de 3 de recursos (ter um esquema formada por colunas G, H e eu)  
+
+    A tabela de AzureDiagnostics será semelhante ao seguinte, com alguns dados de exemplo:  
+
+    | ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
+    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+    | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+    | Microsoft.Resource2 | ErrorLogs | | | | q1 | W1 | e1 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+    | Microsoft.Resource2 | ErrorLogs | | | | q2 | W2 | e2 |
+    | Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+    | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+    | ... |
+
+- **Recursos específicos** -neste modo, as tabelas individuais na área de trabalho selecionada são criadas por cada categoria selecionada na configuração das definições de diagnóstico. Este método mais recente torna muito mais fácil encontrar exatamente o que pretende localizar por meio de explícita separação de preocupações: uma tabela para cada categoria. Além disso, ele fornece benefícios em seu suporte para tipos dinâmicos. Já pode ver este modo para selecionar tipos de recursos do Azure, por exemplo [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) ou [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) registos. Em última análise, podemos esperar que todos os tipos de dados para migrar para o modo de recursos específicos. 
+
+    No exemplo acima, isso poderia resultar em três tabelas que está sendo criadas: 
+    - Tabela _AuditLogs_ da seguinte forma:
+
+        | ResourceProvider | Category | A | B | C |
+        | -- | -- | -- | -- | -- |
+        | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+        | Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+        | ... |
+
+    - Tabela _registos de erros_ da seguinte forma:  
+
+        | ResourceProvider | Category | D | E | F |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource2 | ErrorLogs | q1 | W1 | e1 |
+        | Microsoft.Resource2 | ErrorLogs | q2 | W2 | e2 |
+        | ... |
+
+    - Tabela _DataFlowLogs_ da seguinte forma:  
+
+        | ResourceProvider | Category | G | H | I |
+        | -- | -- | -- | -- | -- | 
+        | Microsoft.Resource3 | DataFlowLogs | j1 | k1 | l1|
+        | Microsoft.Resource3 | DataFlowLogs | j3 | k3 | l3|
+        | ... |
+
+    Outras vantagens de utilizar o modo de recursos específicos incluem um desempenho melhorado de latência de ingestão e tempos de consulta, melhor capacidade de deteção de esquemas e sua estrutura, a capacidade de conceder direitos de RBAC numa tabela específica e muito mais.
+
+### <a name="selecting-azure-diagnostic-vs-resource-specific-mode"></a>Selecionar modo de diagnóstico do Azure vs recursos específicos
+Mais recursos do Azure, não terá uma escolha se pretende utilizar o modo de diagnóstico do Azure ou recursos específicos; os dados irão fluir automaticamente através do método que o recurso selecionada para utilizar. Consulte a documentação fornecida pelo recurso que ativou para enviar dados para o Log Analytics para obter mais detalhes em que modo é que está a ser empregado. 
+
+Conforme indicado na secção anterior, em última análise, é o objetivo do Azure Monitor para que todos os serviços no Azure, utilize o modo de recursos específicos. Para facilitar essa transição e certifique-se de que nenhum dado seja perdido como parte do mesmo, alguns serviços do Azure quando a adesão ao Log Analytics irá fornecer-lhe com uma seleção de modo:  
+   ![Diagnóstico Seletor de modo de definições](media/diagnostic-logs-stream-log-store/diagnostic-settings-mode-selector.png)
+
+Estamos **vivamente** Recomendamos que, para evitar potencialmente difícil migrações mais adiante, qualquer recentemente criado utilize definições de diagnóstico de modo centralizado em recursos.  
+
+Para definições de diagnóstico existentes, uma vez ativada por um determinado recurso do Azure, será capaz de alternar retroativamente do diagnóstico do Azure para o modo de recursos específicos. Os dados ingeridos anteriormente continuarão disponíveis na _AzureDiagnostics_ até que a idade dos fora, conforme configurado na sua configuração de retenção no espaço de trabalho, mas quaisquer novos dados serão enviados para a tabela dedicada de tabela. Isso significa que, de qualquer consulta que tem de abranger os dados antigos e novos (até que os dados antigos totalmente idade dos), um [União](https://docs.microsoft.com/azure/kusto/query/unionoperator) operador nas suas consultas serão necessárias para combinar os dois conjuntos de dados.
+
+Consulte para notícias sobre o Azure novos registos de suporte no modo de recursos específicos de serviços no [Azure atualiza as](https://azure.microsoft.com/updates/) blogue!
+
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Conhecido limitação: limite de coluna em AzureDiagnostics
-Uma vez que muitos recursos enviar tipos de dados são enviados para a mesma tabela (_AzureDiagnostics_), o esquema desta tabela é o conjunto superutilizadores dos esquemas de todos os tipos de dados diferentes a ser recolhidos. Por exemplo, se tiver criado as definições de diagnóstico para a coleção dos seguintes tipos de dados, tudo a ser enviados para a mesma área de trabalho:
-- Registos de 1 de recursos (ter um esquema consiste em colunas A, B e C) de auditoria  
-- Registos de erros de 2 de recursos (ter um esquema consiste em colunas D, E e F)  
-- Registos de fluxo de dados de 3 de recursos (ter um esquema formada por colunas G, H e eu)  
- 
-A tabela de AzureDiagnostics será semelhante ao seguinte, com alguns dados de exemplo:  
- 
-| ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
-| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
-| Microsoft.Resource2 | ErrorLogs | | | | q1 | W1 | e1 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
-| Microsoft.Resource2 | ErrorLogs | | | | q2 | W2 | e2 |
-| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
-| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
-| ... |
- 
-Existe um limite explícito de qualquer tabela registo do Azure não ter mais de 500 colunas. Uma vez atingido, quaisquer linhas que contêm dados com qualquer coluna fora da primeira 500 serão ignoradas durante a ingestão. A tabela de AzureDiagnostics é em particular suscetível a ser afetado este limite. Normalmente, isto acontece porque uma grande variedade de origens de dados são enviados para a mesma área de trabalho, ou várias origens de dados muito detalhada a ser enviadas para a mesma área de trabalho. 
- 
+Existe um limite explícito de qualquer tabela registo do Azure não ter mais de 500 colunas. Uma vez atingido, quaisquer linhas que contêm dados com qualquer coluna fora da primeira 500 serão ignoradas durante a ingestão. A tabela de AzureDiagnostics é em particular suscetível a ser afetado este limite. Normalmente, isto acontece porque uma grande variedade de origens de dados são enviados para a mesma área de trabalho, ou várias origens de dados verboso a ser enviadas para a mesma área de trabalho. 
+
 #### <a name="azure-data-factory"></a>Azure Data Factory  
-O Azure Data Factory, devido a um conjunto muito detalhado de registos, é um recurso que é conhecido por ser particularmente afetadas por este limite. Em particular:  
+O Azure Data Factory, devido a um conjunto muito detalhado de registos, é um recurso que é conhecido por ser particularmente afetadas por este limite. Em particular, para quaisquer definições de diagnóstico configurada antes dos recursos específicos de modo foi explicitamente escolhendo a utilizar o modo de recursos específicos por motivos de compatibilidade reversa ou ativada:  
 - *Parâmetros de utilizador definidos em relação a qualquer atividade no seu pipeline*: haverá uma nova coluna criada para cada parâmetro exclusivamente-com o nome de utilizador em relação a qualquer atividade. 
-- *Atividade entradas e saídas*: estas variam de atividade para atividade e gerar uma grande quantidade de devido a respetiva natureza verbosa. 
+- *Atividade entradas e saídas*: estas variam de atividade para atividade e gerar um grande número de colunas devido a respetiva natureza verbosa. 
  
-Como com as mais amplas propostas de solução abaixo, é recomendado para isolar os registos do ADF para sua própria área de trabalho para minimizar a possibilidade destes registos afetar outros tipos de registos recolhidos em suas áreas de trabalho. Esperamos que tenha mantido registos do Azure Data Factory em breve.
+Como com as mais amplas propostas de solução abaixo, recomenda-se para migrar os seus registos ao utilizar o modo de recursos específicos logo que possível. Se não conseguir fazê-lo imediatamente, uma alternativa intermediária é isolar os registos do ADF para sua própria área de trabalho para minimizar a possibilidade destes registos afetar outros tipos de registos recolhidos em suas áreas de trabalho. 
  
 #### <a name="workarounds"></a>Soluções alternativas
-Curta duração, até que o limite de 500 coluna é redefinido, é recomendável separar os tipos de dados verboso em áreas de trabalho separadas para reduzir a possibilidade de atingir o limite.
+A curto prazo, até que todos os serviços do Azure estão ativados no modo de recursos específicos, para todos os serviços não, mas que suporta o modo de recursos específicos, é recomendável separar os tipos de dados verboso publicados por estes serviços em áreas de trabalho separadas para reduzir a possibilidade de atingir o limite.  
  
-Longo prazo, o diagnóstico do Azure irá ser deixando de lado um esquema unificado, disperso nas tabelas individuais por cada tipo de dados; combinado com o suporte para tipos dinâmicos, isto melhorará bastante a usabilidade de dados que entram no registos do Azure através do mecanismo de diagnóstico do Azure. Já verá isto para, selecione os tipos de recursos do Azure, por exemplo [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) ou [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) registos. Procure notícias sobre novos tipos de recursos no Azure que suporta estes registos organizados no [Azure atualiza as](https://azure.microsoft.com/updates/) blogue!
+Longo prazo, o diagnóstico do Azure vai estar mudando na direção de todos os serviços do Azure que suporta o modo de recursos específicos. Recomendamos a mudança para este modo logo que possível para reduzir a possibilidade de que está a ser afetado por esta limitação de 500 coluna.  
 
 
 ## <a name="next-steps"></a>Passos Seguintes

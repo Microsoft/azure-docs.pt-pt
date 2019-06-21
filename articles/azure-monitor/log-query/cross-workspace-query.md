@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 51645f4f0c6dcc70d76ed1a20bc40f95db9d9717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e411182a26e370ef82a20e67ee18cedd5d96d86
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693356"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296113"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de registo entre recursos no Azure Monitor  
 
-Anteriormente com o Azure Monitor, conseguia apenas analisar os dados a partir de área de trabalho atual e limitada a capacidade de consulta em várias áreas de trabalho definidas na sua subscrição.  Além disso, pode pesquisar apenas os itens de telemetria recolhidos a partir da sua aplicação baseada na web com o Application Insights diretamente no Application Insights ou a partir do Visual Studio. Isso também tornou um desafio para nativamente analisar operacional e os dados das aplicações em conjunto.   
+Anteriormente com o Azure Monitor, conseguia apenas analisar os dados a partir de área de trabalho atual e limitada a capacidade de consulta em várias áreas de trabalho definidas na sua subscrição.  Além disso, pode pesquisar apenas os itens de telemetria recolhidos a partir da sua aplicação baseada na web com o Application Insights diretamente no Application Insights ou a partir do Visual Studio. Isso também tornou um desafio para nativamente analisar operacional e os dados das aplicações em conjunto.
 
 Agora, pode consultar não apenas em várias áreas de trabalho do Log Analytics, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isso fornece uma vista de todo o sistema dos seus dados. Só pode realizar estes tipos de consultas [do Log Analytics](portals.md).
 
 ## <a name="cross-resource-query-limits"></a>Limites de consulta entre recursos 
 
 * O número de recursos do Application Insights e áreas de trabalho do Log Analytics que podem ser incluídos numa única consulta está limitado a 100.
-* Entre recursos consulta não é suportada no estruturador de vistas. Pode criar uma consulta do Log Analytics e afixá-la ao dashboard do Azure e [visualizar uma pesquisa de registos](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
-* Consulta de entre recursos nos alertas de registo é suportada no novo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza o [herdados API de alerta do Log Analytics](../platform/api-alerts.md) para a criação de novo log de regras de alerta no portal do Azure, a menos que alternar do [API herdada de alertas de registo](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API se tornará o padrão de novas regras de alerta no portal do Azure e permite-lhe criar regras de alertas do log de consulta de entre recursos. Log de consulta entre recursos pode criar regras de alerta sem fazendo a mudança, utilizando o [modelo ARM para scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, mas esta regra de alerta é gerenciável entanto [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não no portal do Azure.
+* Entre recursos consulta não é suportada no estruturador de vistas. Pode criar uma consulta do Log Analytics e afixá-la ao dashboard do Azure para [visualizar uma consulta de registo](../learn/tutorial-logs-dashboards.md). 
+* Consulta de entre recursos nos alertas de registo é suportada no novo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza o [herdados API de alerta do Log Analytics](../platform/api-alerts.md) para a criação de novo log de regras de alerta no portal do Azure, a menos que alternar do [API herdada de alertas de registo](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API se tornará o padrão de novas regras de alerta no portal do Azure e permite-lhe criar regras de alertas do log de consulta de entre recursos. Registo de consultas entre recursos pode criar regras de alerta sem fazendo a mudança, utilizando o [modelo Azure Resource Manager para scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, mas esta regra de alerta é gerenciável entanto [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não no portal do Azure.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em áreas de trabalho do Log Analytics e o Application insights

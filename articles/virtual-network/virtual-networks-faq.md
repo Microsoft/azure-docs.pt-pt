@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: f4facdf8fc530c35ba02620f451a00a8da36d982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497099"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154494"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -382,13 +382,17 @@ Pontos finais de serviço, adicione uma rota de sistema que tem precedência sob
 Para alcançar o serviço do Azure, os NSGs necessário permitir a conectividade de saída. Se seus NSGs estão abertas para todo tráfego de saída da Internet, o tráfego de ponto final de serviço deve funcionar. Também pode limitar o tráfego de saída ao serviço de IPs utilizando apenas as etiquetas de serviço.  
  
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Que permissões preciso configurar pontos finais de serviço?
-Pontos finais de serviço podem ser configurados numa rede virtual de forma independente por um utilizador com acesso de escrita para a rede virtual. Para proteger os recursos de serviço do Azure para uma VNet, o utilizador tem de ter permissão **Microsoft.Network/JoinServicetoaSubnet** para as sub-redes que estão a ser adicionadas. Esta permissão está incluída na função de administrador de serviço interno por padrão e pode ser modificada através da criação de funções personalizadas. Saiba mais sobre as funções incorporadas e atribuição de permissões específicas para [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Pontos finais de serviço podem ser configurados numa rede virtual de forma independente por um utilizador com acesso de escrita para a rede virtual. Para proteger os recursos de serviço do Azure a uma VNet, o utilizador tem de ter permissão **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** para as sub-redes que está a ser adicionadas. Esta permissão está incluída na função de administrador de serviço interno por padrão e pode ser modificada através da criação de funções personalizadas. Saiba mais sobre as funções incorporadas e atribuição de permissões específicas para [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Pode, filtrar tráfego de rede virtual para serviços do Azure, permitindo que apenas os recursos específicos de serviço do azure, através de pontos finais de serviço de VNet? 
 
 Políticas de ponto final de serviço de rede virtual (VNet) permitem-lhe filtrar o tráfego de rede virtual para serviços do Azure, permitindo que os recursos de serviço do Azure específico apenas sobre os pontos finais de serviço. Políticas de ponto final fornecem controlo de acesso granular do tráfego de rede virtual para os serviços do Azure. Pode saber mais sobre as políticas de ponto final de serviço [aqui](virtual-network-service-endpoint-policies-overview.md).
- 
+
+### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>O Azure Active Directory (Azure AD) suporta pontos finais de serviço de VNet?
+
+Azure Active Directory (Azure AD) não suporta nativamente pontos finais de serviço. Pode ser vista a lista completa dos serviços do Azure que suporta pontos finais de serviço de VNet [aqui](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Tenha em atenção que a marca "Microsoft. azureactivedirectory" listada em serviços de suporte de pontos finais de serviço é utilizada para dar suporte a pontos finais de serviço para ADLS Gen 1. Para ADLS Gen 1, integração da rede virtual de geração 1 de armazenamento do Azure Data Lake faz uso da segurança de ponto final de serviço de rede virtual entre a rede virtual e o Azure Active Directory (Azure AD) para gerar afirmações de segurança adicional no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso. Saiba mais sobre [Azure Data Lake Store Gen 1 integração VNet] (... /Data-Lake-Store/data-Lake-Store-Network-Security.md?TOC=%2fazure%2fvirtual-Network%2ftoc.JSON
+
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Existem limites sobre quantos VNet pontos finais de serviço que pode configurar na minha VNet?
 Não existe nenhum limite no número total de pontos finais de serviço de VNet numa rede virtual. Para um recurso de serviço do Azure (como uma conta do Armazenamento do Microsoft Azure), os serviços podem impor limites ao número de sub-redes utilizadas para a proteção do recurso. A tabela seguinte mostra alguns limites de exemplo: 
 

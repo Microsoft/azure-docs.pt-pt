@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: 5bb15a6a068c6324a4c2063796831f3c50356d3b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442028"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202736"
 ---
 > [!div class="op_single_selector"]
 > * [Descrição Geral](../articles/hdinsight/hadoop/hdinsight-use-pig.md)

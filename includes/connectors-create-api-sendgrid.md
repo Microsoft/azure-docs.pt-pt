@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: b06c57f50f759677770839ae06cb05e4de36f84c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103685"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205810"
 ---
 ### <a name="prerequisites"></a>Pré-requisitos
 * R [SendGrid](https://www.SendGrid.com/) conta 

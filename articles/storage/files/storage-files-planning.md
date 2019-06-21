@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237664"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150330"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -76,8 +76,23 @@ Se estiver a utilizar o Azure File Sync para aceder a partilha de ficheiros do A
 
 Os ficheiros do Azure oferece dois escalões de desempenho: standard e premium.
 
-* **Partilhas de ficheiros padrão** são apoiados por rotação unidades de disco de rígido (HDDs) que apresentam um desempenho fiável para cargas de trabalho de e/s que são menos sensíveis à variabilidade de desempenho, como partilhas de ficheiros para fins gerais e ambientes de desenvolvimento/teste. Partilhas de ficheiros padrão só estão disponíveis num modelo de faturação pay as you go.
-* **As partilhas de ficheiros (pré-visualização) Premium** são apoiados por discos Estado sólidos (SSDs) que fornecem consistente de alto desempenho e baixa latência, em milissegundos de dígito na maioria das operações de e/s, para mais cargas de trabalho de e/s intensiva. Isso as torna adequadas para uma grande variedade de cargas de trabalho, como bases de dados, alojamento de web sites, ambientes de desenvolvimento, etc. Partilhas de ficheiros de Premium só estão disponíveis num modelo de faturação aprovisionado. Partilhas de ficheiros de Premium utilizam um modelo de implantação separado de partilhas de ficheiros padrão.
+### <a name="standard-file-shares"></a>Partilhas de ficheiros padrão
+
+Partilhas de ficheiros padrão são apoiadas por unidades de disco rígido (HDDs). Partilhas de ficheiros padrão fornecem desempenho fiável para cargas de trabalho de e/s que são menos sensíveis à variabilidade de desempenho, como partilhas de ficheiros para fins gerais e ambientes de desenvolvimento/teste. Partilhas de ficheiros padrão só estão disponíveis num modelo de faturação pay as you go.
+
+Partilhas de ficheiros padrão até 5 TiB de tamanho estão disponíveis como uma oferta de disponibilidade geral. Embora a maior partilhas de ficheiros, que são quaisquer partilhas de maiores do que 5 TiB, até um máximo de 100 TiB, estão atualmente disponíveis como uma oferta de pré-visualização.
+
+> [!IMPORTANT]
+> - Exige que crie uma nova conta de armazenamento de fins gerais (não é possível expandir as contas de armazenamento existentes).
+> - Só estão disponíveis com o LRS.
+> - Disponível em três regiões: E.U.A. oeste 2, Europa Ocidental e regiões do Sudeste asiático.
+> - LRS para conversão de conta GRS não será possível em qualquer conta de armazenamento nova criada depois da subscrição é aceite para a pré-visualização de partilhas de ficheiros maior.
+
+Se gostaria de carregar para a pré-visualização destes tamanhos de compartilhamento de arquivos maiores, submeter isso [formulário](https://aka.ms/azurefilesatscalesurvey). 
+
+### <a name="premium-file-shares-preview"></a>Partilhas de ficheiros de Premium (pré-visualização)
+
+As partilhas de ficheiros (pré-visualização) Premium são apoiadas por discos de estado sólidos (SSDs). Partilhas de ficheiros de Premium fornecem consistente de alto desempenho e baixa latência, em milissegundos de dígito na maioria das operações de e/s, para cargas de trabalho de e/s intensiva. Isso as torna adequadas para uma grande variedade de cargas de trabalho, como bases de dados, alojamento de web sites, ambientes de desenvolvimento, etc. Partilhas de ficheiros de Premium só estão disponíveis num modelo de faturação aprovisionado. Partilhas de ficheiros de Premium utilizam um modelo de implantação separado de partilhas de ficheiros padrão.
 
 Cópia de segurança do Azure está disponível para partilhas de ficheiros de premium e o serviço Kubernetes do Azure suporta partilhas de ficheiros de premium na versão 1.13 e acima.
 
@@ -180,7 +195,7 @@ Tenha em consideração esses pontos ao decidir que opção de replicação a ut
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
 
-Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 TiB (TiB 100 para partilhas de ficheiros de premium, que estão em pré-visualização pública). Por causa da limitação atual, deve considerar o crescimento de dados esperado durante a implantação de uma partilha de ficheiros do Azure.
+Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 TiB (TiB 100 em pré-visualização). Por causa da limitação atual, deve considerar o crescimento de dados esperado durante a implantação de uma partilha de ficheiros do Azure.
 
 É possível sincronizar as partilhas de ficheiros do Azure vários para um único servidor de ficheiros do Windows com o Azure File Sync. Isto permite-lhe garantir que as partilhas de ficheiros de grande, mais antigos que podem ter no local podem ser colocadas em Azure File Sync. Para obter mais informações, consulte [planear uma implementação de sincronização de ficheiros do Azure](storage-files-planning.md).
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113077"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293076"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração do Azure Active Directory B2B FAQs
 
@@ -42,7 +42,7 @@ Sim. Os utilizadores convidados podem repor o método de autenticação multifat
 A organização que o convidou efetua a autenticação multifator. A organização que o convidou deve certificar-se de que a organização tem licenças suficientes para os seus utilizadores B2B que estão a utilizar a autenticação multifator.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>E se uma organização de parceiro já tem de configurar a autenticação multifator? Podemos confiar a autenticação multifator e não utilize nossa própria autenticação multifator?
-Esta funcionalidade está planejada para uma versão futura, pelo que, em seguida, pode selecionar parceiros específicos a excluir da sua a autenticação multifator (o convite da organização).
+Atualmente, esta funcionalidade não é suportada. Se o acesso aos recursos da sua organização precisar de autenticação multifator, a organização do parceiro precisará se registrar para o multi-factor authentication na sua (a convidar) organização.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Como posso utilizar convites atrasados?
 Uma organização poderá querer adicionar utilizadores de colaboração B2B, aprovisioná-los para aplicações, conforme necessário e, em seguida, enviar convites. Pode usar o convite de colaboração do B2B API para personalizar o fluxo de trabalho de integração.

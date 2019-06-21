@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 75ff1f7a37522c295bff10fe22bbb995fea65d52
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 50a252ff93f7e2cc6e5c6100c6bce850e9e96baf
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276042"
+ms.locfileid: "67295629"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial do Python: Chamar APIs serviços cognitivos num pipeline de indexação do Azure Search
 
@@ -465,73 +465,7 @@ Os resultados devem ter um aspeto semelhantes ao seguinte exemplo. A captura de 
 Repita esta operação para campos adicionais: conteúdo, languageCode, keyPhrases e organizações neste exercício. Pode devolver vários campos através de `$select` com uma lista delimitada por vírgulas.
 
 Pode utilizar GET ou POST, dependendo da complexidade da cadeia de consulta e do comprimento. Para obter mais informações, veja [Consultar através da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>Aceder ao documento melhorado
-
-A pesquisa cognitiva permite ver a estrutura do documento melhorado. Os documentos melhorados são estruturas temporárias criadas durante o melhoramento e, em seguida, eliminados quando o processo é concluído.
-
-Para capturar um instantâneo do documento melhorado criado durante a indexação, adicione um campo chamado `enriched` ao índice. O indexador captura automaticamente para o campo uma representação da cadeia de todos os melhoramentos desse documento.
-
-O campo `enriched` vai conter uma cadeia que é uma representação lógica do documento melhorado na memória no JSON.  Contudo, o valor do campo é um documento JSON válido. As aspas são de saída por isso terá de substituir `\"` com `"` ver o documento como formatada em JSON.  
-
-O campo `enriched` destina-se a fins de depuração, apenas para ajudá-lo a compreender a forma lógica do conteúdo a partir do qual as expressões estão a ser avaliadas. Pode ser também uma ferramenta útil para compreender e depurar o conjunto de competências.
-
-Para capturar o conteúdo de um documento plena, repetir o exercício anterior e incluir o `enriched` campo ao criar o índice.
-
-> [!Tip]
-> Antes de repetir estes passos, tem de eliminar a origem de dados, índice, indexador e conjunto de capacidades que acabou de criar. Para obter mais informações, consulte [reposição e volte a executar](#reset).
-
-```python
-# Create index with enriched field
-index_payload = {
-    "name": index_name,
-    "fields": [
-      {
-        "name": "id",
-        "type": "Edm.String",
-        "key": "true",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false",
-        "sortable": "true"
-      },
-      {
-        "name": "content",
-        "type": "Edm.String",
-        "sortable": "false",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "languageCode",
-        "type": "Edm.String",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "keyPhrases",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "filterable": "false",
-        "facetable": "false"
-      },
-      {
-        "name": "organizations",
-        "type": "Collection(Edm.String)",
-        "searchable": "true",
-        "sortable": "false",
-        "filterable": "false",
-        "facetable": "false"
-      }
-   ]
-}
-```
-
-<a name="reset"></a>
+it <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Repor e executar novamente
 

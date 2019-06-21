@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7de7fe1c677d54c0fa3e6d3ca4730ef1083bc81
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955261"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273269"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar ativação pós-falha em vários pontos finais da CDN do Azure com o Gestor de tráfego do Azure
 
@@ -81,7 +81,7 @@ Depois de configurar os perfis de CDN e o Gestor de tráfego, siga estes passos 
 
     A CDN do Azure utiliza o *cdnverify* subdomínio para validar o mapeamento de DNS para concluir este processo de registo. Para obter mais informações, consulte [criar um registo CNAME DNS](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Este passo ativa o CDN do Azure para reconhecer o domínio personalizado para que ele pode responder a suas solicitações.
     
- > [!NOTE]
+    > [!NOTE]
     > Para ativar o SSL num **CDN do Azure da Akamai** perfis, tem diretamente o cname do domínio personalizado para o ponto final. ainda, cdnverify para ativar o SSL não é suportado. 
     >
 

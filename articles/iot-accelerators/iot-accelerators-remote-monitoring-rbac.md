@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443136"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203171"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurar os controlos de acesso baseado em funções no solution accelerator monitorização remota
 
@@ -91,11 +91,11 @@ Os passos seguintes descrevem como adicionar uma função a uma aplicação no A
 
 1. Encontrar o **registo de aplicações** para a sua solução no portal do Azure. O nome da aplicação é o nome da sua solução de monitorização remota. Na captura de ecrã seguinte, são os nomes de exibição de solução e aplicativo **contoso-rm4**.
 
-    ![Registo da aplicação](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Registo da aplicação](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Selecione a aplicação e, em seguida, clique em **manifesto**. Pode ver os dois existente [funções de aplicação](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) definidas para a aplicação:
 
-    ![Manifesto do Vista](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Manifesto do Vista](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Editar o manifesto para adicionar uma função chamada **ManageDevices** conforme mostrado no seguinte fragmento. Precisará de uma cadeia de caracteres como um GUID exclusiva para o novo ID de função. Pode gerar um novo GUID com um serviço, como o [gerador de GUID Online](https://www.guidgenerator.com/):
 

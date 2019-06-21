@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
-ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07c8087043526a8eb0bf7a1963a761c40c11a925
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851151"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202858"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -39,7 +39,6 @@ Cada rota contém um prefixo de endereço e o tipo de salto seguinte. Quando o t
 |Predefinição|Exclusivos da rede virtual                           |Rede virtual|
 |Predefinição|0.0.0.0/0                                               |Internet       |
 |Predefinição|10.0.0.0/8                                              |Nenhuma           |
-|Predefinição|172.16.0.0/12                                           |Nenhuma           |
 |Predefinição|192.168.0.0/16                                          |Nenhuma           |
 |Predefinição|100.64.0.0/10                                           |Nenhuma           |
 
@@ -49,7 +48,7 @@ Os tipos de salto seguintes listados na tabela anterior representam a forma como
 * **Internet**: Encaminha o tráfego especificado pelo prefixo de endereço para a Internet. A rota predefinida do sistema especifica o prefixo de endereço 0.0.0.0/0. Se não substituir as rotas predefinidas do Azure, o Azure encaminha o tráfego de qualquer endereço não especificado por um intervalo de endereços dentro de uma rede virtual para a Internet, com uma exceção. Se o endereço de destino for para um dos serviços do Azure, o Azure encaminha o tráfego diretamente para o serviço através da rede principal do Azure, em vez de o encaminhar para a Internet. O tráfego entre os serviços do Azure não atravessa a Internet, independentemente da região do Azure na qual a rede virtual existe ou da região em que uma instância do serviço Azure está implementada. Pode substituir a rota do sistema predefinida do Azure para o prefixo de endereço 0.0.0.0/0 por uma [rota personalizada](#custom-routes).<br>
 * **Nenhum**: O tráfego encaminhado para o **None** tipo de próximo salto é removido, em vez de encaminhado fora da sub-rede. O Azure cria automaticamente rotas predefinidas para os seguintes prefixos de endereço:<br>
 
-    * **10.0.0.0/8 172.16.0.0/12 e 192.168.0.0/16**: Reservado para utilização privada em RFC 1918.<br>
+    * **10.0.0.0/8 e 192.168.0.0/16**: Reservado para utilização privada em RFC 1918.<br>
     * **100.64.0.0/10**: Reservado em RFC 6598.
 
     Se atribuir um dos intervalos de endereços anteriores dentro do espaço de endereços de uma rede virtual, o Azure altera automaticamente o tipo de salto seguinte da rota de **Nenhum** para **Rede virtual**. Se atribuir um intervalo de endereços ao espaço de endereços de uma rede virtual que inclui um dos quatro prefixos de endereços reservados, mas não é igual a estes, o Azure remove a rota para o prefixo e adiciona uma rota ao prefixo de endereço que adicionou, tendo **Rede virtual** como o tipo de salto seguinte.
@@ -253,10 +252,9 @@ A tabela de rotas de *Subnet2* na imagem contém as rotas seguintes:
 |Predefinição |Ativa |0.0.0.0/0           |Internet                  |                   |
 |Predefinição |Ativa |10.0.0.0/8          |Nenhuma                      |                   |
 |Predefinição |Ativa |100.64.0.0/10       |Nenhuma                      |                   |
-|Predefinição |Ativa |172.16.0.0/12       |Nenhuma                      |                   |
 |Predefinição |Ativa |192.168.0.0/16      |Nenhuma                      |                   |
 
-A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de endereços 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 da tabela de rotas *Subnet1* quando a rota definida pelo utilizador para o prefixo 0.0.0.0/0 foi adicionada a *Subnet1*.  
+A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. Azure removeu as rotas para os prefixos de endereço 10.0.0.0/8 192.168.0.0/16 e 100.64.0.0/10 do *Subnet1* tabela de rotas quando a rota definida pelo utilizador para o prefixo de endereço 0.0.0.0/0 foi adicionada para *Subnet1*.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 4f747bd570f02d90718766b5cf35d363c08594e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce86a97f8f565c7917c8f71b8910acf8ceffbede
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743068"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164644"
 ---
 # <a name="azure-application-gateway-powershell-samples"></a>Exemplos do PowerShell do Gateway de aplicação do Azure
 
@@ -22,5 +22,5 @@ A tabela seguinte inclui ligações para exemplos de script do Azure PowerShell 
 |---|---|
 | [Gerir o tráfego web](./scripts/create-vmss-powershell.md) | Cria um Gateway de aplicação e todos os recursos relacionados.|
 | [Restringir o tráfego da web](./scripts/create-vmss-waf-powershell.md) | Cria um Gateway de aplicação que restringe o tráfego através de regras da OWASP.|
-|[Regras personalizadas de WAF](scripts/waf-custom-rules-powershell.md)|Cria uma Firewall de aplicação Web de Gateway de aplicação com regras personalizadas.
+|[Regras personalizadas do WAF v2](scripts/waf-custom-rules-powershell.md)|Cria um Firewall de aplicações da Web de Gateway de aplicação v2 com regras personalizadas.
 | | |

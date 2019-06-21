@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b3116230a085bfbb9a6139fbada4179d802bf5e
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728071"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296074"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Com as funções em consultas de registo do Azure Monitor
-
-> [!NOTE]
-> Deve efetuar [começar com o portal do Analytics](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 
 Utilizar uma consulta de registo com outra consulta pode guardá-lo como uma função. Isto permite-lhe simplificar consultas complexas, ao dividi-las em partes e permite-lhe reutilizar código comum com várias consultas.
 

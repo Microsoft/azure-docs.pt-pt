@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Analisar dados do Apache Spark com o Power BI no Azure HDInsight '
-description: Utilize o Microsoft Power BI para visualizar os dados do Apache Spark armazenados clusters do HDInsight
+description: Tutorial - utilize o Microsoft Power BI para visualizar os dados do Apache Spark armazenados clusters do HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/16/2019
-ms.openlocfilehash: bf70abd2b3119a97af5ad1d4c56274f8e575fd3e
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: d5296fe19cef9e8881d39bd9e59eb4c40d049959
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860974"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296195"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark no HDInsight com o Power BI
 
@@ -61,7 +61,7 @@ O [bloco de notas do Jupyter](https://jupyter.org/) que criou no [tutorial anter
 
     ![Mostrar linhas da tabela hvac no Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
-3. No menu **File (Ficheiro)** do bloco de notas, selecione **Close and Halt (Fechar e Parar)**. Encerre o bloco de notas para libertar os recursos.
+3. No menu **File (Ficheiro)** do bloco de notas, selecione **Close and Halt (Fechar e Parar)** . Encerre o bloco de notas para libertar os recursos.
 
 ## <a name="visualize-the-data"></a>Ver os dados
 

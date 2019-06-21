@@ -8,31 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cacd5510147ce997efec922f4b4656956a098d88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 2553aa95d5028c510b4e1a1b7f51a9f410bcea51
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676942"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154853"
 ---
 # <a name="register-the-microsoftvmwarecloudsimple-resource-provider-on-your-azure-subscription"></a>Registar o fornecedor de recursos de Microsoft.VMwareCloudSimple na sua subscrição do Azure
 
-O serviço de CloudSimple permite-lhe consumir a solução de VMware do Azure por CloudSimple. Para utilizar o serviço de CloudSimple, terá primeiro de ser ativado na sua subscrição do Azure. Em seguida, pode registar o serviço de Microsoft.VMwareCloudSimple como o fornecedor de recursos.
-
-## <a name="enable-the-cloudsimple-service"></a>Ativar o serviço de CloudSimple
-
-Para ativar o serviço de CloudSimple na sua subscrição do Azure, abra um pedido de suporte com [suporte da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Selecione as opções seguintes ao submeter o pedido.
-
-* Tipo de problema: **Technical**
-* Subscrição: **O ID de subscrição**
-* Tipo de serviço: **Solução de VMware ao CloudSimple**
-* Tipo de problema: **Quota de nós dedicado**
-* Subtipo de problema: **Aumentar a quota de nós dedicados**
-* Assunto: **Ativar o serviço de CloudSimple**
-
-Também pode contactar o seu representante de conta da Microsoft em [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com). Forneça o seu ID de subscrição do Azure no e-mail.  
-
-Depois do serviço de CloudSimple está ativado para a sua subscrição, pode ativar o fornecedor de recursos na subscrição.
+O serviço de CloudSimple permite-lhe consumir a solução de VMware do Azure por CloudSimple. Pode registrar o serviço de Microsoft.VMwareCloudSimple como o fornecedor de recursos.
 
 ## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 

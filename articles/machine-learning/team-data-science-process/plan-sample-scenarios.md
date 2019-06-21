@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 130ab6ee8e59b157d1fbdd8769f14814445dea18
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429754"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202747"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários de análises avançadas no Azure Machine Learning
 Este artigo descreve a variedade de origens de dados de exemplo e cenários de destino que podem ser processados pela [Team Data Science Process (TDSP)](overview.md). O TDSP fornece uma abordagem sistemática para as equipas colaborarem na criação de aplicações inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem as características dos dados, localizações de origem e repositórios de destino no Azure.
@@ -239,7 +239,7 @@ Para replicar a base de dados completa do SQL Server na sua VM do SQL Server, de
 1. Fluxo de experimentação do simples do Azure Machine Learning a partir do conjunto de dados carregado.
 
 ## <a name="decisiontree"></a>Árvore de decisão para a seleção do cenário
-- - -
+---
 O diagrama a seguir resume os cenários descritos acima e o Advanced Analytics Process e opções de tecnologia feitas que leva-o para cada um dos cenários itemized. Tenha em atenção que o processamento de dados, exploração, engenharia de funcionalidades e amostragem podem demorar colocar num ou mais método/ambiente – na origem, intermediária, e/ou ambientes de destino – e pode continuar de maneira iterativa, conforme necessário. O diagrama apenas serve para ilustrar alguns dos possíveis fluxos e não fornece uma enumeração exaustiva.
 
 ![Cenários de instruções de processo de DS de exemplo][8]

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 3e1a5d8ba8b6d0ec8e3ec1ba9506a88ee87d8ed1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab74b778757aefc22f66e8b52d1f1d922526f14a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515731"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296139"
 ---
 # <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo 
 
@@ -27,7 +27,7 @@ Quando cria uma conta de Media Services, um **predefinição** ponto final de tr
 > [!NOTE]
 > Para começar a transmissão em fluxo de vídeos, precisa para começar a **ponto final de transmissão em fluxo** partir da qual quer transmitir o vídeo. 
 >  
-> É-lhe cobrada apenas quando o ponto final de transmissão em fluxo está no estado de execução.
+> É-lhe cobrada apenas quando o ponto final de transmissão em fluxo está em execução.
 
 ## <a name="naming-convention"></a>Convenção de nomenclatura
 
@@ -143,7 +143,7 @@ Terá também de considerar como adaptável funciona de transmissão em fluxo. C
 
 Depois de um ponto final de transmissão em fluxo é aprovisionado com o CDN ativada aqui é um tempo de espera definido nos serviços de suporte de dados antes de atualização de DNS é feita para mapear o ponto final de transmissão em fluxo para o ponto final da CDN.
 
-Se pretender mais tarde desativar/ativar a CDN, o ponto final de transmissão em fluxo tem de estar no **parado** estado. Pode demorar até duas horas para que a integração da CDN do Azure obter ativada e as alterações de ser o Active Directory em todos os POP de CDN. No entanto, pode iniciar o seu ponto final de transmissão em fluxo e fluxo sem interrupções a partir do ponto final de transmissão em fluxo e assim que a integração foi concluída, a transmissão é entregue da CDN. Durante o período de aprovisionamento, o ponto final de transmissão em fluxo vai estar num **a partir de** estado e poderá observar degradação do desempenho.
+Se pretender mais tarde desativar/ativar a CDN, o ponto final de transmissão em fluxo tem de estar no **parado** estado. Pode demorar até duas horas para que a integração da CDN do Azure obter ativada e as alterações de ser o Active Directory em todos os POP de CDN. No entanto, pode iniciar o seu ponto final de transmissão em fluxo e fluxo sem interrupções a partir do ponto final de transmissão em fluxo e assim que a integração foi concluída, a transmissão é entregue da CDN. Durante o período de aprovisionamento, o ponto final de transmissão em fluxo vai estar na **a partir de** estado e poderá observar degradação do desempenho.
 
 Quando o ponto de final de transmissão em fluxo Standard é criado, ele é configurado por predefinição com Standard da Verizon. Pode configurar fornecedores de Premium da Verizon ou Standard da Akamai com REST APIs. 
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996522"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273074"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
 A origem de dados de registos personalizado no Azure Monitor permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog. Depois de recolhidos, pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleção de campos individuais.
@@ -35,11 +35,7 @@ Os ficheiros de registo a recolher devem coincidir com os seguintes critérios.
 - O ficheiro de registo deve usar a codificação ASCII ou UTF-8.  Não são suportados outros formatos, como o UTF-16.
 
 >[!NOTE]
->Se existirem entradas duplicadas no ficheiro de registo, o Azure Monitor recolhê-los.  No entanto, os resultados da consulta serão inconsistente onde os filtrar os resultados mostram mais eventos que a contagem de resultado.  É importante que validar o registo para determinar se o aplicativo que cria a mesma está a causar esse comportamento e solucioná-lo se for possível antes de criar a definição de coleção de registo personalizado.  
->
-  
->[!NOTE]
-> Se a sua aplicação cria um novo ficheiro de registo por dia ou quando atingir um determinado tamanho, o agente do Log Analytics para Linux não Deteta-las após ser reiniciado. Isso é porque o agente apenas enumera e começa a monitorizar a existência de padrões com os registos especificados após a inicialização e, por isso precisa planejar em torno dele automatizando o reinício do agente.  Esta limitação não existe com o agente do Log Analytics para Windows.  
+> Se existirem entradas duplicadas no ficheiro de registo, o Azure Monitor recolhê-los. No entanto, os resultados da consulta serão inconsistente onde os filtrar os resultados mostram mais eventos que a contagem de resultado. É importante que validar o registo para determinar se o aplicativo que cria a mesma está a causar esse comportamento e solucioná-lo se for possível antes de criar a definição de coleção de registo personalizado.  
 >
 
 >[!NOTE]

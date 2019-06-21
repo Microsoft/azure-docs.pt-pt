@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734654"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147931"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de leitura na base de dados do Azure para PostgreSQL - servidor único
 
@@ -122,6 +122,9 @@ Ao utilizar a mesma configuração de servidor como o mestre, é criada uma rép
 PostgreSQL requer o valor da `max_connections` parâmetro na réplica de leitura para ser maior que ou igual ao valor principal; caso contrário, a réplica não inicia. Na base de dados do Azure para PostgreSQL, o `max_connections` valor do parâmetro baseia-se no SKU. Para obter mais informações, consulte [limites na base de dados do Azure para PostgreSQL](concepts-limits.md). 
 
 Se tenta atualizar os valores de servidor, mas não cumprem os limites, receberá um erro.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+[Requer o PostgreSQL](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) o valor da `max_prepared_transactions` parâmetro na réplica de leitura para ser maior que ou igual ao valor principal; caso contrário, a réplica não inicia. Se pretender alterar `max_prepared_transactions` no mestre de, primeiro alterá-la nas réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas paradas
 Se parar a replicação entre um servidor principal e uma réplica de leitura, reinicia a réplica para aplicar a alteração. A réplica parada torna-se um servidor autónomo que aceita as leituras e gravações. O servidor autónomo não pode se transformar numa réplica novamente.

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: d88fda62c59d01a3703fdb583e0881aa8478a6cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: acd873cd19cafb785f968fd3d8671640bcfafed8
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050757"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163709"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -136,7 +136,7 @@ az functionapp config appsettings set --name <APP_NAME> \
 --resource-group <RESOURCE_GROUP> \
 --settings "JAVA_OPTS=-Djava.awt.headless=true"
 ```
-Este exemplo permite que o modo sem periféricos. Substitua `<APP_NAME>` com o nome da sua aplicação de função, e `<RESOURCE_GROUP> ` com o grupo de recursos.
+Este exemplo permite que o modo sem periféricos. Substitua `<APP_NAME>` com o nome da sua aplicação de função, e `<RESOURCE_GROUP>` com o grupo de recursos.
 
 > [!WARNING]  
 > Na [plano de consumo](functions-scale.md#consumption-plan), tem de adicionar o `WEBSITE_USE_PLACEHOLDER` definição com um valor de `0`.  

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9df5eb9fa4493f82c6efd4a8e30eee324e4eac2a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869799"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273844"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao SDK Android do Azure Maps
 
@@ -201,7 +201,7 @@ Android Studio irá demorar alguns segundos para criar a aplicação. Após a co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para adicionar itens ao seu mapa, consulte:
+Saiba como adicionar dados de sobreposição no mapa:
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada de símbolo para um mapa de Android](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
@@ -211,5 +211,3 @@ Para adicionar itens ao seu mapa, consulte:
 
 > [!div class="nextstepaction"]
 > [Alterar os estilos de mapa no Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
-
-

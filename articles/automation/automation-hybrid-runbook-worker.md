@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1453f5282d9e3a48e5ca5d734258d70e44424a5a
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198460"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296218"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize a recursos no seu datacenter ou na cloud com o trabalho de Runbook híbrida
 
@@ -46,6 +46,7 @@ Para instalar e configurar um Runbook Worker híbrido do Windows, pode usar dois
 
 Reveja os [informações para planeamento da sua rede](#network-planning) antes de começar a implementar uma função de trabalho de Runbook híbrida. Depois de implementar com êxito a função de trabalho, reveja [executar runbooks numa função de trabalho de Runbook híbrida](automation-hrw-run-runbooks.md) para aprender a configurar seus runbooks para automatizar processos no seu datacenter no local ou outro ambiente de cloud.
 
+O computador pode ser adicionado a um grupo de trabalho de Runbook híbrida na conta de automatização para suportar runbooks de automatização, desde que estiver a utilizar a mesma conta para a solução e a associação ao grupo de trabalho de Runbook híbrida. Esta funcionalidade foi adicionada à versão 7.2.12024.0 da Função de Trabalho de Runbook Híbrida.
 ## <a name="remove-a-hybrid-runbook-worker"></a>Remover uma função de trabalho de Runbook híbrida
 
 Pode remover um ou mais operadores de Runbook híbrida de um grupo ou pode remover o grupo, dependendo das suas necessidades. Para remover uma função de trabalho de Runbook híbrida de um computador no local, utilize os seguintes passos:

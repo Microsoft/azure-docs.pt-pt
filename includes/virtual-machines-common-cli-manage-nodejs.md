@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158516"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184274"
 ---
 Antes de poder utilizar a CLI do Azure com comandos e modelos do Resource Manager para implementar recursos e cargas de trabalho do Azure, precisa de uma conta no Azure. Se não tiver uma conta, pode obter uma [avaliação gratuita do Azure, aqui](https://azure.microsoft.com/pricing/free-trial/).
 

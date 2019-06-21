@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 51a75ee7bf87c38e3916bdbc8d85abcfb14dca8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140335"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184764"
 ---
 1. Na [portal do Azure](https://portal.azure.com/), clique em **Procurar tudo** > **serviços aplicacionais**e, em seguida, clique em seu back-end de aplicações móveis. Sob **configurações**, clique em **Push do serviço de aplicações**e, em seguida, clique no nome do hub de notificação.
 2. Aceda a **Google (GCM)** , introduza o **chave de servidor de** valor obtido a partir do Firebase no procedimento anterior, e, em seguida, clique em **guardar**.

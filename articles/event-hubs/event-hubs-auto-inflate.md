@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822772"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273698"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure
-Os Hubs de eventos do Azure é uma plataforma de transmissão em fluxo de dados altamente dimensionável. Como tal, a utilização de Hubs de eventos aumenta, muitas vezes, depois de começar a utilizar o serviço. Essa utilização requer aumentar o predeterminado [unidades de débito](event-hubs-features.md#throughput-units) para dimensionar os Hubs de eventos e processar maiores taxas de transferência. O **ampliação automática** funcionalidade dos Hubs de eventos de dimensionamento automaticamente do aumento do número de unidades de débito, para utilização de satisfazer as necessidades. Aumentar as unidades de débito impede cenários, no qual de limitação:
+Os Hubs de eventos do Azure é uma plataforma de transmissão em fluxo de dados altamente dimensionável. Como tal, a utilização de Hubs de eventos aumenta, muitas vezes, depois de começar a utilizar o serviço. Essa utilização requer aumentar o predeterminado [unidades de débito](event-hubs-scalability.md#throughput-units) para dimensionar os Hubs de eventos e processar maiores taxas de transferência. O **ampliação automática** funcionalidade dos Hubs de eventos de dimensionamento automaticamente do aumento do número de unidades de débito, para utilização de satisfazer as necessidades. Aumentar as unidades de débito impede cenários, no qual de limitação:
 
 * As taxas de entrada de dados excederem as unidades de débito do conjunto.
 * Taxas de pedidos de saída de dados excederem as unidades de débito do conjunto.
@@ -32,7 +32,7 @@ O serviço de Hubs de eventos aumenta o débito, quando a carga aumenta acima do
 
 ## <a name="how-auto-inflate-works"></a>Como funciona a ampliação automática
 
-Tráfego de Hubs de eventos é controlado pelas [unidades de débito](event-hubs-features.md#throughput-units). Uma única unidade de débito permite que 1 MB por segundo de entrada e de duas vezes essa quantidade de saída. Os hubs de eventos Standard podem ser configurados com as unidades de débito de 1 a 20. Ampliação automática permite que comece por algo pequeno com as unidades de débito necessário mínimo que escolher. A funcionalidade, em seguida, pode ser dimensionada automaticamente para o limite máximo de unidades de débito que precisar, consoante o aumento no tráfego. Ampliação automática fornece as seguintes vantagens:
+Tráfego de Hubs de eventos é controlado pelas [unidades de débito](event-hubs-scalability.md#throughput-units). Uma única unidade de débito permite que 1 MB por segundo de entrada e de duas vezes essa quantidade de saída. Os hubs de eventos Standard podem ser configurados com as unidades de débito de 1 a 20. Ampliação automática permite que comece por algo pequeno com as unidades de débito necessário mínimo que escolher. A funcionalidade, em seguida, pode ser dimensionada automaticamente para o limite máximo de unidades de débito que precisar, consoante o aumento no tráfego. Ampliação automática fornece as seguintes vantagens:
 
 - Um mecanismo de dimensionamento eficiente começar aos poucos e aumentar verticalmente à medida que cresce.
 - Dimensione automaticamente para o limite superior especificado sem problemas de limitação.

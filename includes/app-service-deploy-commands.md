@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2be66b742d7a4572d3613a8b1fdeafd5fb7ed271
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111275"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184069"
 ---
 Para implementar os recursos no Azure, deve ter a sessão iniciada na sua conta do Azure e deve utilizar o módulo do Azure Resource Manager. Para saber mais sobre como utilizar o Azure Resource Manager com o Azure PowerShell ou com a CLI do Azure, veja:
 

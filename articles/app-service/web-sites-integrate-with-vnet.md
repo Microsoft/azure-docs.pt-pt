@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a5187ed299f77c11892c6e34c8dfd3f904c7e075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: b269c75be7fec55fb77afecc6d04b86266c74a6f
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067715"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147310"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma rede Virtual do Azure
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e como configurá-lo com as aplicações no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure] [ VNETOverview] (VNets) permitem-lhe colocar muitos dos seus recursos do Azure numa rede de endereçáveis não internet.  
@@ -102,6 +102,10 @@ Assim que a aplicação é integrada com a sua VNet, irá utilizar o mesmo servi
 Para desligar a sua aplicação da VNet, selecione **desligar**. Esta ação irá reiniciar a aplicação web. 
 
 A nova funcionalidade de integração de VNet permite-lhe utilizar pontos finais de serviço.  Para utilizar pontos finais de serviço com a sua aplicação, utilize a nova integração de VNet para ligar a uma VNet selecionada e, em seguida, configurar pontos finais de serviço na sub-rede que utilizou para a integração. 
+
+#### <a name="web-app-for-containers"></a>Aplicações Web para Contentores
+
+Se utilizar o serviço de aplicações no Linux com imagens incorporadas, a funcionalidade de integração de VNet regional funciona sem alterações adicionais. Se utilizar a aplicação Web para contentores, terá de modificar a imagem do docker para utilizar a integração de VNet. Na sua imagem do docker, utilize a variável de ambiente de porta como porta de escuta do servidor web principal, em vez de utilizar um número de porta embutido em código. A variável de ambiente de porta é automaticamente definida pela plataforma de serviço de aplicações em tempo de inicialização de contentor.
 
 ### <a name="how-vnet-integration-works"></a>Como funciona a integração de VNet
 

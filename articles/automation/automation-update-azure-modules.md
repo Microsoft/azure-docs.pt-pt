@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: cd7c268008afbd87e855516d5834676423272646
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427480"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146721"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar módulos do Azure PowerShell na automatização do Azure
 
@@ -35,9 +35,7 @@ Se desenvolver seus scripts localmente, é recomendado ter as mesmas versões do
 
 Seguem-se algumas considerações para levar em conta ao utilizar este processo para atualizar os módulos do Azure:
 
-* Este runbook suporta apenas a atualizar o **Azure** e **AzureRm** módulos atualmente. [Os módulos do Azure PowerShell Az](/powershell/azure/new-azureps-module-az) são suportados nas contas de automatização, mas não é possível atualizar este runbook. Há fatores importantes que precisa levar em conta ao utilizar o `Az` módulos na sua conta de automatização, para obter mais informações, consulte [módulos Using Az na conta de automatização](az-modules.md).
-
-* Evite a partir de contas de automatização que contêm módulos Az este runbook.
+* Este runbook oferece suporte a atualizar o **Azure** e **AzureRm** módulos por predefinição. Este runbook oferece suporte a atualizar o **Az** módulos também. Reveja os [runbook de módulos do Azure de atualização Leia-me](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) para obter mais informações sobre como atualizar `Az` módulos com este runbook. Existem adicionais fatores importantes que precisa levar em conta ao utilizar o `Az` módulos na sua conta de automatização, para obter mais informações, consulte [módulos Using Az na conta de automatização](az-modules.md).
 
 * Antes de iniciar este runbook, certifique-se de que a sua conta de automatização tem um [credencial da conta Run As do Azure](manage-runas-account.md) criado.
 

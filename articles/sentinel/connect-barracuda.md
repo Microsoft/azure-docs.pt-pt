@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: dd45be69ec29fdcd00710b7366348846f325b151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 350d2c6253a417637c7ec8f2e38919dc4b969340
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921977"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190779"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Ligar a sua aplicação da Barracuda 
 
@@ -41,7 +41,7 @@ Barracuda Web Application Firewall pode integrar e exportar registos diretamente
 2. No portal do Azure sentinela, vá para a área de trabalho no qual implementou sentinela do Azure e selecione as reticências (...) no final da linha e selecione **definições avançadas**. 
 1. Selecione **dados** e, em seguida **Syslog**.
 1. Certifique-se de que o recurso define no Barracuda existe e definir a gravidade e clique em **guardar**.
-6. Para utilizar o esquema relevante no Log Analytics para os eventos de Barracuda, procure **CommonSecurityLog**.
+6. Para utilizar o esquema relevante no Log Analytics para os eventos de Barracuda, procure **CommonSecurityLog** e **barracuda_CL**.
 
 
 ## <a name="validate-connectivity"></a>Validar a conectividade

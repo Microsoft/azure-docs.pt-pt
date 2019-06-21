@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519006"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296094"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de registo do Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de registo no Azure Monitor
 
 
 > [!NOTE]
@@ -28,9 +28,9 @@ ms.locfileid: "65519006"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial irá aprender a escrever consultas de registo do Azure Monitor. Ele irá ensiná-lo como para:
+Neste tutorial irá aprender a escrever consultas de registo no Azure Monitor. Ele irá ensiná-lo como para:
 
-- Compreender a estrutura dos consultas
+- Compreender a estrutura de consulta
 - Ordenar os resultados de consulta
 - Filtrar os resultados da consulta
 - Especifique um intervalo de tempo
@@ -38,6 +38,8 @@ Neste tutorial irá aprender a escrever consultas de registo do Azure Monitor. E
 - Defina e utilize campos personalizados
 - Resultados de agregação e de grupo
 
+Para obter um tutorial sobre como utilizar o Log Analytics no portal do Azure, veja [introdução ao Log Analytics do Azure Monitor](get-started-portal.md).<br>
+Para obter mais detalhes sobre as consultas de registo no Azure Monitor, consulte [descrição geral do registo de consultas no Azure Monitor](log-query-overview.md).
 
 ## <a name="writing-a-new-query"></a>Escrever uma nova consulta
 Consultas podem começar com o nome de uma tabela ou o *pesquisa* comando. Deve começar com um nome de tabela, uma vez que define um âmbito claro para a consulta e melhora o desempenho da consulta e relevância dos resultados.
@@ -71,8 +73,8 @@ search in (SecurityEvent) "Cryptographic"
 
 Essa consulta pesquisa o *SecurityEvent* tabela para registos que contêm a frase "Criptográficos utilizados". Esses registos, 10 registros serão retornados e apresentados. Se podemos omitir os `in (SecurityEvent)` parte e apenas execute `search "Cryptographic"`, a pesquisa abordará *todos os* tabelas, que poderiam demorar mais tempo e ser menos eficiente.
 
-> [!NOTE]
-> Por predefinição, um intervalo de tempo de _últimas 24 horas_ está definido. Para utilizar um intervalo diferente, utilize o Seletor de hora (junto à *ir* botão) ou adicionar um período de tempo explícito filtro de intervalo para a sua consulta.
+> [!WARNING]
+> Consultas de pesquisa são, normalmente, mais lentas do que as consultas baseadas em tabela porque têm que processar mais dados. 
 
 ## <a name="sort-and-top"></a>Ordenar e a parte superior
 Embora **tirar** é útil para obter alguns registos, os resultados são selecionados e exibidos sem nenhuma ordem específica. Para obter uma vista ordenada, poderia **ordenação** pela coluna preferencial:

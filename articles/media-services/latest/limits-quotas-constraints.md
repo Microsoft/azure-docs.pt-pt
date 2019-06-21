@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824458"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293449"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas e limitações em serviços de multimédia do Azure v3
 
@@ -44,6 +44,7 @@ Este artigo descreve as quotas e limitações em serviços de multimédia do Azu
 | Transformações por conta dos Media Services | 100 (fixa)|
 | Localizadores de transmissão em fluxo exclusivos associados um recurso de uma só vez | 100<sup>(6)</sup> (fixa) |
 | Opções de acordo com a política de chave de conteúdo |30 | 
+| Licenças por mês para cada um dos tipos DRM, serviços de multimédia do serviço de entrega por conta da chave|1 000 000|
 
 <sup>1</sup> o tamanho máximo suportado para um único blob está atualmente até 5 TB de armazenamento de Blobs do Azure. Limites adicionais aplicam-se nos serviços de multimédia com base sobre os tamanhos VM que são utilizados pelo serviço. O limite de tamanho aplica-se para os ficheiros que é carregado e também os ficheiros que obterem gerados como resultado dos serviços de multimédia de processamento (codificação ou analisar). Se o ficheiro de origem for superior a 260 GB, o seu trabalho provavelmente falhará. 
 

@@ -1,22 +1,17 @@
 ---
 title: Criar o grupo de recursos e recursos na subscrição - modelo Azure Resource Manager
 description: Descreve como criar um grupo de recursos num modelo Azure Resource Manager. Ela também mostra como implementar recursos no âmbito da subscrição do Azure.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8414e94582ec4022915e4c353f33eec72f3dc98a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66129160"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205645"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível da subscrição
 

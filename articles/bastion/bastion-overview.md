@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: overview
 ms.date: 06/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: cfd68bbacf4cf8171efdba7878ec8c06055a4997
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d153c876366c8c747e06bf50a0ea26bcdcea10eb
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191169"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303584"
 ---
 # <a name="what-is-azure-bastion-preview"></a>O que é o Azure Bastion? (Pré-visualização)
 
@@ -48,7 +48,7 @@ As seguintes funcionalidades estão disponíveis para experimentar durante a pr�
 * **Sessão remota através de SSL e firewall traversal para RDP/SSH:** Bastion do Azure utiliza um cliente de web de HTML5 com base em que é transmitido automaticamente para o seu dispositivo local, para que obtém a sessão RDP/SSH através de SSL na porta 443, permitindo-lhe atravessar firewalls empresariais em segurança.
 * **Não existe nenhum IP público necessário na VM do Azure:** Azure Bastion abre a ligação de RDP/SSH à máquina virtual do Azure com o IP privado na sua VM. Não é necessário um IP público na sua máquina virtual.
 * **Sem complicação de gerir NSGs:** Bastion do Azure é uma plataforma totalmente gerida do serviço de PaaS do Azure que está protegido, internamente, para fornecer a que proteger a conectividade RDP/SSH. Não precisa de aplicar qualquer NSGs na sub-rede de Bastion do Azure. Como o Azure Bastion liga-se às suas máquinas virtuais através de IP privado, pode configurar os seus NSGs para permitir apenas o RDP/SSH a partir de Bastion do Azure. Esta ação remove a complicação de gerir NSGs sempre que precisar para ligar em segurança às suas máquinas virtuais.
-* **Novamente a proteção de porta de verificação:** Uma vez que não é necessário para expor as suas máquinas virtuais para a Internet pública, as VMs estão protegidas contra por não autorizados e utilizadores mal intencionados localizados fora da rede virtual de verificação de porta.
+* **Proteção contra a verificação de porta:** Uma vez que não é necessário para expor as suas máquinas virtuais para a Internet pública, as VMs estão protegidas contra por não autorizados e utilizadores mal intencionados localizados fora da rede virtual de verificação de porta.
 * **Proteção contra explorações de dia zero. O sistema de proteção num único local apenas:** Bastion do Azure é um serviço de PaaS totalmente gerido de plataforma. Uma vez que ele reside no perímetro da sua rede virtual, não precisa se preocupar sobre o sistema de proteção de cada uma das máquinas virtuais na sua rede virtual. A plataforma do Azure protege contra explorações de dia zero, mantendo o Bastion Azure protegida e sempre atualizadas para.
 
 ## <a name="faq"></a>FAQ

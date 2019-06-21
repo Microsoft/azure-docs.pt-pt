@@ -1,23 +1,17 @@
 ---
 title: Funções do Azure Resource Manager modelo - lógicas | Documentos da Microsoft
 description: Descreve as funções para utilizar num modelo do Azure Resource Manager para determinar os valores lógicos.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405656"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205464"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos Azure Resource Manager
 
@@ -81,7 +75,7 @@ O resultado do exemplo anterior é:
 | orExampleOutput | Booleano | Verdadeiro |
 | notExampleOutput | Booleano | Falso |
 
-## <a name="bool"></a>booleano
+## <a name="bool"></a>bool
 
 `bool(arg1)`
 
@@ -145,7 +139,7 @@ Devolve um valor com base em se uma condição for true ou false.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| condition |Sim |boolean |O valor a verificar se ela é true ou false. |
+| condição |Sim |boolean |O valor a verificar se ela é true ou false. |
 | trueValue |Sim | cadeia de caracteres, int, objeto ou matriz |O valor a devolver quando a condição for verdadeira. |
 | falseValue |Sim | cadeia de caracteres, int, objeto ou matriz |O valor a devolver quando a condição for falsa. |
 
@@ -196,7 +190,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/krnese/AzureDeplo
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {

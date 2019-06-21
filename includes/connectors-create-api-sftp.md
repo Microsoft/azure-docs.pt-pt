@@ -1,10 +1,15 @@
 ---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
 ms.openlocfilehash: d249a205c64f4e067f2d81c7e1068c8ad9756958
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130063"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202770"
 ---
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) conta  

@@ -10,11 +10,11 @@ ms.date: 10/04/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6b21f73edd7dcad2deb5412ad606eb6ec035a057
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132428"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184051"
 ---
 A tabela seguinte mostra como adicionar suporte para essa ligação em cada ambiente de desenvolvimento.
 
