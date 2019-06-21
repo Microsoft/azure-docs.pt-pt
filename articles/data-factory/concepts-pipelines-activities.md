@@ -98,8 +98,8 @@ Tag | Descrição | Tipo | Necessário
 --- | ----------- | ---- | --------
 name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Tem de começar com uma letra, número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
 description | Especifique o texto que descreve para o que é utilizado o pipeline. | String | Não
-atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Array | Sim
-parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
+activities | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Array | Sim
+parameters | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | List | Não
 
 ## <a name="activity-json"></a>JSON da Atividade
 A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Existem dois tipos principais de atividades: A execução e atividades de controlo.
@@ -134,7 +134,7 @@ description | Texto que descreve para o que é utilizada a atividade | Sim
 type | Tipo de atividade. Veja os diferentes tipos de atividades nas secções [Atividades de Movimento de Dados](#data-movement-activities), [Atividades de Transformação de Dados](#data-transformation-activities) e [Atividades de Controlo](#control-activities). | Sim
 linkedServiceName | Nome do serviço ligado utilizado pela atividade.<br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. | Sim, para Atividade do HDInsight, Atividade de Classificação do Machine Learning, Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outras.
 typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
-política | Políticas que afetam o comportamento de runtime da atividade. Esta propriedade inclui o comportamento de tempo limite e de repetição. Se não for especificada, são utilizados valores predefinidos. Para obter mais informações, veja a secção [Política das atividades](#activity-policy). | Não
+policy | Políticas que afetam o comportamento de runtime da atividade. Esta propriedade inclui o comportamento de tempo limite e de repetição. Se não for especificada, são utilizados valores predefinidos. Para obter mais informações, veja a secção [Política das atividades](#activity-policy). | Não
 dependsOn | Esta propriedade é utilizada para definir as dependências de atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency) | Não
 
 ### <a name="activity-policy"></a>Política das atividades
