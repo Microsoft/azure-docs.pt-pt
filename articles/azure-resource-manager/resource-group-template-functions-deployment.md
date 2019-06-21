@@ -33,7 +33,7 @@ Para obter valores de recursos, grupos de recursos ou subscrições, veja [funç
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>implementação
+## <a name="deployment"></a>deployment
 `deployment()`
 
 Devolve informações sobre a operação de implementação atual.
