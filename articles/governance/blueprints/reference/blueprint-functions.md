@@ -25,9 +25,9 @@ São suportadas as seguintes funções:
 - [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
-- [subscrição](#subscription)
+- [subscription](#subscription)
 
-## <a name="artifacts"></a>Artefactos
+## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
@@ -114,7 +114,7 @@ Alguns exemplos de obter dados a partir da _myTemplateArtifact_ exemplo são:
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "meu valor de cadeia de caracteres" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "meu valor" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleano | Verdadeiro |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -324,7 +324,7 @@ Em seguida, utilize o `resourceGroups()` função a partir do contexto de quaisq
 }
 ```
 
-## <a name="subscription"></a>subscrição
+## <a name="subscription"></a>subscription
 
 `subscription()`
 
