@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556227"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295667"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -31,7 +31,7 @@ Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seu
 - Componentes nos serviços de multimédia, permitem-lhe ingerir, pré-visualização, do pacote, gravam, encriptar e transmitir o evento em direto para os seus clientes ou para uma CDN para uma maior distribuição.
 
 Este artigo fornece uma descrição geral e a documentação de orientação de transmissão em fluxo em direto com serviços de multimédia e links para outros artigos relevantes.
-
+ 
 > [!NOTE]
 > Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
 
@@ -49,27 +49,27 @@ Filtragem dinâmica é utilizado para controlar o número de faixas, formatos, v
 
 ## <a name="live-event-types"></a>Tipos de evento em direto
 
-Um evento em direto pode ser um dos dois tipos: codificação de pass-through e em direto. Para obter detalhes sobre a transmissão em fluxo em direto no Serviços de multimédia v3, consulte [eventos ao vivo e saídas de Live](live-events-outputs-concept.md).
+Os [Eventos em Direto](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Um evento em direto pode ser um dos dois tipos: codificação de pass-through e em direto. Para obter detalhes sobre a transmissão em fluxo em direto no Serviços de multimédia v3, consulte [eventos ao vivo e saídas de Live](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Pass-through
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
-Quando utilizar o pass-through **Evento em Direto**, conta com o codificador em direto no local para gerar uma transmissão em fluxo de vídeo de velocidade múltipla e enviá-la como um feed de contribuição para o Evento em Direto (através do protocolo RTMP ou MP4 fragmentado). O Evento em Direto realiza as transmissões em fluxo de vídeo de entrada sem qualquer processamento adicional. Tal um pass-through evento em direto é otimizado para eventos em direto de longa execução ou transmissão em direto lineares 24 x 365. 
+Ao utilizar o pass-through **evento em direto**, contar com o codificador em direto de locais para gerar um fluxo de vídeo de velocidade de transmissão múltiplas e enviar como a contribuição feed para o evento em direto (usando o protocolo de entrada RTMP ou MP4 fragmentado). O evento em direto, em seguida, continua até os fluxos de vídeo de entrada para o empacotador dinâmico (transmissão em fluxo o ponto de extremidade) sem qualquer transcodificação adicional. Tal um pass-through evento em direto é otimizado para eventos em direto de longa execução ou transmissão em direto lineares 24 x 365. 
 
 ### <a name="live-encoding"></a>Live Encoding  
 
 ![codificação em direto](./media/live-streaming/live-encoding.svg)
 
-Ao utilizar a codificação em direto com os Serviços de Multimédia, configuraria o codificador em direto no local para enviar um vídeo de velocidade de transmissão única como o feed de contribuição para o Evento em Direto (através dos protocolos RTMP ou Fragmented-Mp4.) O Evento em Direto codifica essa transmissão em fluxo de velocidade única recebia numa [transmissão de vídeo em fluxo de velocidade múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e disponibiliza-a para entrega nos dispositivos de reprodução através de protocolos como MPEG-DASH, HLS e Smooth Streaming. 
+Ao utilizar a cloud encoding com Media Services, poderia configurar a seu codificador em direto de locais para enviar uma velocidade de transmissão única vídeo como a contribuição feed (até 32Mbps agregado) para o evento em direto (usando o protocolo de entrada RTMP ou MP4 fragmentado). Transcodifica o evento em direto a velocidade de transmissão única entrada transmitir para o [vários fluxos de vídeo de velocidade de transmissão](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) em resoluções diferentes para melhorar a entrega e disponibiliza-a disponibilização em dispositivos de reprodução através de protocolos padrão do setor como MPEG-DASH, Apple HTTP Live Streaming (HLS) e Microsoft Smooth Streaming. 
 
 ## <a name="live-streaming-workflow"></a>Fluxo de trabalho de transmissão em fluxo em direto
 
 Para compreender o fluxo de trabalho de transmissão em fluxo em direto em serviços de multimédia v3, tem de primeira revisão e compreender os seguintes conceitos: 
 
-- [Pontos finais de API de transmissão em fluxo](streaming-endpoint-concept.md)
-- [Eventos e a API de saídas em direto do Live](live-events-outputs-concept.md)
-- [API de localizadores de transmissão em fluxo](streaming-locators-concept.md)
+- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos Finais de Transmissão em Fluxo)
+- [Live Events and Live Outputs](live-events-outputs-concept.md) (Eventos em Direto e Saídas em Direto)
+- [Streaming Locators](streaming-locators-concept.md) (Localizadores de Transmissão em Fluxo)
 
 ### <a name="general-steps"></a>Passos gerais
 
@@ -79,7 +79,7 @@ Para compreender o fluxo de trabalho de transmissão em fluxo em direto em servi
 4. Obter o URL de pré-visualização e utilizá-lo para verificar que a entrada do codificador, na verdade, está a ser recebida.
 5. Criar uma nova **Asset** objeto.
 6. Criar uma **Live saída** e utilize o nome de recurso que criou.<br/>O **saída Live** irá arquivar a transmissão para o **Asset**.
-7. Criar uma **localizador de transmissão em fluxo** com o incorporado **política de transmissão em fluxo** tipos.<br/>Se pretende encriptar o seu conteúdo, consulte [descrição geral da proteção de conteúdo](content-protection-overview.md).
+7. Criar uma **localizador de transmissão em fluxo** com o [tipos internos da política de transmissão em fluxo](streaming-policy-concept.md)
 8. Listar os caminhos na **localizador de transmissão em fluxo** para recuperar os URLs para utilizar (esses são determinísticos).
 9. Obter o nome do anfitrião para o **ponto final de transmissão em fluxo** (origem) que deseja transmitir em fluxo do.
 10. Combine o URL do passo 8 com o nome de anfitrião no passo 9 para obter o URL completo.

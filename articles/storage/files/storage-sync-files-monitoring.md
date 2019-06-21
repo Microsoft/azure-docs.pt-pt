@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711645"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190522"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -69,11 +69,14 @@ As métricas seguintes para o Azure File Sync estão disponíveis no Azure Monit
 | Nome da métrica | Descrição |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (carregamento e transferência).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
-| Lembre-se camadas da cloud | Tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
+| Lembre-se camadas da cloud | Tamanho dos dados recuperados.<br><br>Nota: Esta métrica será removida no futuro. Utilize a métrica de tamanho de recolhimento camada da Cloud para monitorizar o tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
+| Tamanho de recolhimento camadas da cloud | Tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor nome, grupo de sincronização |
+| Tamanho de recolhimento camadas da cloud por aplicação | Tamanho dos dados recuperados pelo aplicativo.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome de aplicação nome, servidor nome, grupo de sincronização |
+| Débito de recolhimento de camadas na cloud | Tamanho da taxa de transferência de recolhimento de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor nome, grupo de sincronização |
 | Ficheiros não sincronizar | Contagem de ficheiros que estão a falhar para sincronizar.<br><br>Unidade: Count<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
-| Ficheiros sincronizados | Contagem de ficheiros transferidos (carregamento e transferência).<br><br>Unidade: Contagem<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+| Ficheiros sincronizados | Contagem de ficheiros transferidos (carregamento e transferência).<br><br>Unidade: Count<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
 | Estado online do servidor | Número de heartbeats recebido do servidor.<br><br>Unidade: Count<br>Tipo de agregação: Máximo<br>Dimensão aplicável: Nome do servidor |
-| Resultado da sessão de sincronização | Resultado da sessão de sincronização (1 = a sincronização com êxito sessão; 0 = a sessão de sincronização com falha)<br><br>Unidade: Count<br>Tipos de agregação: Máximo<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+| Resultado da sessão de sincronização | Resultado da sessão de sincronização (1 = a sincronização com êxito sessão; 0 = a sessão de sincronização com falha)<br><br>Unidade: Contagem<br>Tipos de agregação: Máximo<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
 
 ## <a name="windows-server"></a>Windows Server
 

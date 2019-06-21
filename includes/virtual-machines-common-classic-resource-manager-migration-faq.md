@@ -9,11 +9,11 @@ ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
 ms.openlocfilehash: 74496cd3d4cd01be326baae870b075eb923983af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158255"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184234"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas mais frequentes sobre a migração da implementação clássica para a implementação Azure Resource Manager
 

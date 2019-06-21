@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 607da7983cabe4c36c01171ba8d88c752b99ce3d
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721084"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303818"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
 
-Sonda o coração de beating da sua aplicação web em direto em produção com o Stream de métricas em direto da [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecionar e filtrar os contadores de desempenho e de métricas para ver em tempo real, sem qualquer perturbação ao seu serviço. Inspecione os rastreamentos de pilha de exceções e pedidos de amostra falhada. Em conjunto com [Profiler](../../azure-monitor/app/profiler.md), [depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md), e [testes de desempenho](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Stream de métricas em direto fornece uma ferramenta de diagnóstico avançada e não INVASIVO para a web em direto site.
+Sonda o coração de beating da sua aplicação web em direto em produção com o Stream de métricas em direto da [Application Insights](../../azure-monitor/app/app-insights-overview.md). Selecionar e filtrar os contadores de desempenho e de métricas para ver em tempo real, sem qualquer perturbação ao seu serviço. Inspecione os rastreamentos de pilha de exceções e pedidos de amostra falhada. Em conjunto com [Profiler](../../azure-monitor/app/profiler.md), [depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md). Stream de métricas em direto fornece uma ferramenta de diagnóstico não INVASIVO e poderosa para seu web site em direto.
 
 Com o Stream de métricas em direto, pode:
 
@@ -192,15 +192,6 @@ No entanto, se reconhece e confia em todos os servidores ligados, pode experimen
 >[!NOTE]
 >Recomendamos vivamente que configure o canal autenticado antes da inserção de informações potencialmente confidenciais, como CustomerID nos critérios de filtro.
 >
-
-## <a name="generating-a-performance-test-load"></a>Gerar uma carga de teste de desempenho
-
-Se pretender ver o efeito de um aumento de carga, utilize o painel de teste de desempenho. Ela simula a pedidos de um número de usuários simultâneos. Ele pode executar qualquer um dos "testes manuais" (testes de ping) de uma única URL, ou pode ser executada uma [teste de desempenho na web de vários passos](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) que carrega (da mesma forma como um teste de disponibilidade).
-
-> [!TIP]
-> Depois de criar o teste de desempenho, abra o teste e o painel de Stream em direto no windows separadas. Pode ver quando é iniciado o teste de desempenho em fila de mensagens em fila e a transmissão em direto do watch ao mesmo tempo.
->
-
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

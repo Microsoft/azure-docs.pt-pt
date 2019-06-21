@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: 49ab52f031e24ac77a534c86061fe831bbec39ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114676"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296214"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 
@@ -27,20 +27,23 @@ Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seu
 > [!TIP]
 > Para os clientes a migrar a partir dos serviços de multimédia v2 APIs, o **evento em direto** entidade substitui **canal** no v2 e **Live saída** substitui **programa**.
 
-
 ## <a name="live-events"></a>Eventos em Direto
 
-Os [Eventos em Direto](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um Evento em Direto, é estabelecido um ponto final de entrada que pode ser utilizado para enviar um sinal em direto a partir de um codificador remoto. O codificador em direto remoto envia o feed de contribuição para esse ponto final de entrada através do [protocolo RTMP](https://www.adobe.com/devnet/rtmp.html) ou do [protocolo Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Para a transmissão em fluxo uniforme de protocolo de ingestão, os esquemas de URL suportados são `http://` ou `https://`. Para o RTMP de protocolo de ingestão, os esquemas de URL suportados são `rtmp://` ou `rtmps://`. 
+Os [Eventos em Direto](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um evento em direto, é criado um ponto de final entrado primário e secundário que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. O codificador em direto remoto envia a contribuição do feed que o ponto final através de entrada a [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) protocolo de entrada (MP4 fragmentado). Protocolo de ingestão de RTMP, o conteúdo pode ser enviado de forma (`rtmp://`) ou encriptado em segurança na conexão (`rtmps://`). Para a transmissão em fluxo uniforme de protocolo de ingestão, os esquemas de URL suportados são `http://` ou `https://`.  
 
 ## <a name="live-event-types"></a>Tipos de evento em direto
 
-R [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) pode ser um dos dois tipos: codificação de pass-through e em direto. 
+R [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) pode ser um dos dois tipos: codificação de pass-through e em direto. Os tipos são definidos durante a criação usando [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+
+* **LiveEventEncodingType.None** -um codificador em direto no local envia um fluxo de velocidade de transmissão múltiplas. As transmissões em fluxo passa por meio do evento em direto sem qualquer processamento adicional. 
+* **LiveEventEncodingType.Standard** – um codificador em direto envia um fluxo de velocidade de transmissão única para o evento em direto e os serviços de multimédia cria vários fluxos de velocidade de transmissão no local. Se o feed de contribuição é da 720p ou resolução superior, o **Default720p** configuração predefinida será codificar um conjunto de pares de velocidades de transmissão/resolução 6.
+* **LiveEventEncodingType.Premium1080p** – um codificador em direto envia um fluxo de velocidade de transmissão única para o evento em direto e os serviços de multimédia cria vários fluxos de velocidade de transmissão no local. A configuração predefinida de Default1080p Especifica o conjunto de saída de pares de resolução/velocidades de transmissão. 
 
 ### <a name="pass-through"></a>Pass-through
 
 ![pass-through](./media/live-streaming/pass-through.svg)
 
-Quando utilizar o pass-through **Evento em Direto**, conta com o codificador em direto no local para gerar uma transmissão em fluxo de vídeo de velocidade múltipla e enviá-la como um feed de contribuição para o Evento em Direto (através do protocolo RTMP ou MP4 fragmentado). O Evento em Direto realiza as transmissões em fluxo de vídeo de entrada sem qualquer processamento adicional. Um Evento em Direto de pass-through está otimizado para eventos em direto de longa duração ou transmissão em fluxo em direto linear 24 x 365. Quando criar este tipo de Evento em Direto, especifique None (LiveEventEncodingType.None).
+Quando utilizar o pass-through **Evento em Direto**, conta com o codificador em direto no local para gerar uma transmissão em fluxo de vídeo de velocidade múltipla e enviá-la como um feed de contribuição para o Evento em Direto (através do protocolo RTMP ou MP4 fragmentado). O Evento em Direto realiza as transmissões em fluxo de vídeo de entrada sem qualquer processamento adicional. Tal um pass-through evento em direto é otimizado para eventos em direto de longa execução ou transmissão em direto lineares 24 x 365. Quando criar este tipo de Evento em Direto, especifique None (LiveEventEncodingType.None).
 
 Pode enviar o feed de contribuição em resoluções até 4 K e a uma velocidade de 60 fotogramas/segundo, com os codecs de vídeo H.264/AVC ou H.265/HEVC e o codec de áudio AAC (AAC-LC, HE-AACv1 ou HE-AACv2).  Veja o artigo [Live Event types comparison](live-event-types-comparison.md) (Comparação de tipos de Eventos em Direto) para obter mais detalhes.
 
@@ -84,16 +87,18 @@ Pode utilizar URLs intuitivos ou não intuitivos.
 
 * URL de não intuitivos
 
-    Os URLs não intuitivos são o modo predefinido no AMS v3. Potencialmente, recebe o Evento em Direto mais depressa, embora o URL de ingestão só seja conhecido quando esse evento é iniciado. Se parar/iniciar o Evento em Direto, o URL mudará. <br/>Os URLs não intuitivos são úteis em cenários nos quais o utilizador final quer utilizar uma aplicação para transmitir em fluxo e essa aplicação pretende receber um evento em direto depressa e em que ter um URL de ingestão dinâmica não é problema.
+    URL personalizado não é o modo predefinido nos serviços de multimédia v3. Potencialmente, recebe o Evento em Direto mais depressa, embora o URL de ingestão só seja conhecido quando esse evento é iniciado. Se parar/iniciar o Evento em Direto, o URL mudará. <br/>Os URLs não intuitivos são úteis em cenários nos quais o utilizador final quer utilizar uma aplicação para transmitir em fluxo e essa aplicação pretende receber um evento em direto depressa e em que ter um URL de ingestão dinâmica não é problema.
+    
+    Se não precisar de uma aplicação de cliente para gerar previamente um URL de ingestão antes do evento Live é criado, apenas permitir que os serviços de multimédia para gerar automaticamente o Token de acesso para o evento em direto.
 * URL personalizado
 
     O modo intuitivo é o preferido das grandes empresas de transmissão que utilizam codificadores de transmissão de hardware e não querem reconfigurar os codificadores quando iniciam o Evento em Direto. Essas empresas querem um URL de ingestão preditivo, que não mude ao longo do tempo.
     
-    Para especificar neste modo, defina `vanityUrl` para `true` no momento de criação (a predefinição é `false`). Também tem de transmitir o seu token de acesso (`LiveEventInput.accessToken`) no momento da criação. Especifique o valor do token para evitar um token aleatório no URL. O token de acesso tem de ser uma cadeia GUID válida (com ou sem os traços). Assim que o modo é definido não pode ser atualizada.
+    Para especificar neste modo, defina `vanityUrl` para `true` no momento de criação (a predefinição é `false`). Também tem de transmitir o seu token de acesso (`LiveEventInput.accessToken`) no momento da criação. Especifique o valor do token para evitar um token aleatório no URL. O token de acesso tem de ser uma cadeia GUID válida (com ou sem os hífenes). Assim que o modo é definido não pode ser atualizada.
 
     O token de acesso tem de ser exclusivo no seu centro de dados. Se a sua aplicação tem de utilizar um URL personalizado, recomenda-se sempre criar uma nova instância GUID para o token de acesso (em vez de reutilizar qualquer GUID existente). 
 
-    Utilizar as APIs seguintes para ativar o URL de intuitivos e definir o token de acesso para um GUID válido (por exemplo `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`):
+    Utilizar as APIs seguintes para ativar o URL de intuitivos e definir o token de acesso para um GUID válido (por exemplo `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`).  
     
     |Idioma|Ativar o URL personalizado|Definir o token de acesso|
     |---|---|---|
@@ -103,41 +108,41 @@ Pode utilizar URLs intuitivos ou não intuitivos.
     
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura de URL de ingestão em direto
 
-A cadeia *aleatória* abaixo é um número hexadecimal de 128 bits (que é composto por 32 carateres de 0-9 e a-f).<br/>
-O *token de acesso* o que precisa especificar para URL fixo. Tem de definir uma cadeia de token de acesso que é uma cadeia de caracteres do GUID do comprimento válido. <br/>
-O *nome de fluxo* indica o nome de fluxo para uma ligação específica. O valor de nome de fluxo, normalmente, é adicionado ao codificador em direto que utiliza.
+* A cadeia *aleatória* abaixo é um número hexadecimal de 128 bits (que é composto por 32 carateres de 0-9 e a-f).
+* *o token de acesso* -a cadeia de caracteres do GUID válida definida ao usar o modo de intuitivos. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *o nome do Stream* -indica o nome de fluxo para uma ligação específica. O valor de nome de fluxo, normalmente, é adicionado pelo codificador em direto que utilizar. Pode configurar o codificador em direto para utilizar qualquer nome para descrever a ligação, por exemplo: "video1_audio1", "video2_audio1", "stream".
 
 #### <a name="non-vanity-url"></a>URL de não intuitivos
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmp://<random 128bit hex string>.channel.media.azure.net:1936/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2935/live/<auto-generated access token>/<stream name>`<br/>
+`rtmps://<random 128bit hex string>.channel.media.azure.net:2936/live/<auto-generated access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Transmissão em Fluxo Uniforme
 
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### <a name="vanity-url"></a>URL personalizado
 
 ##### <a name="rtmp"></a>RTMP
 
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<access token>/<stream name>`<br/>
-`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<access token>/<stream name>`<br/>
-`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/live/<your access token>/<stream name>`<br/>
+`rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/live/<your access token>/<stream name>`<br/>
+`rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/live/<your access token>/<stream name>`<br/>
 
 ##### <a name="smooth-streaming"></a>Transmissão em Fluxo Uniforme
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml/streams(<stream name>)`<br/>
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<your access token>/ingest.isml/streams(<stream name>)`<br/>
 
 ## <a name="live-event-preview-url"></a>URL de pré-visualização de eventos em direto
 
-Uma vez a **evento em direto** começa a receber a contribuição de feed, pode utilizar o seu ponto de extremidade de pré-visualização para pré-visualizar e validar que estão a receber a transmissão em direto antes de publicar ainda mais. Depois de ter verificado que o fluxo de pré-visualização é bom, pode utilizar o LiveEvent para disponibilizar a transmissão em direto para uma entrega por meio de um ou mais (previamente criado) **pontos finais de transmissão em fluxo**. Para tal, crie um novo [saída Live](https://docs.microsoft.com/rest/api/media/liveoutputs) sobre o **evento em direto**. 
+Uma vez a **evento em direto** começa a receber a contribuição de feed, pode utilizar o seu ponto de extremidade de pré-visualização para pré-visualizar e validar que estão a receber a transmissão em direto antes de publicar ainda mais. Depois de ter verificado que o fluxo de pré-visualização é bom, pode utilizar o evento em direto para disponibilizar a transmissão em direto para uma entrega por meio de um ou mais (previamente criado) **pontos finais de transmissão em fluxo**. Para tal, crie um novo [saída Live](https://docs.microsoft.com/rest/api/media/liveoutputs) sobre o **evento em direto**. 
 
 > [!IMPORTANT]
 > Certifique-se de que o vídeo está a ser encaminhados para o URL de pré-visualização antes de continuar!

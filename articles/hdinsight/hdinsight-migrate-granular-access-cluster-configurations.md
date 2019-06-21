@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1ec4786291d6e2e5be6785e52cf3ab5bb5bbc690
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 982c5dcc052f92afe381235db0bf066262fd82c6
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754530"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304290"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para o acesso granular baseado em funções para as configurações de cluster
 
@@ -20,10 +20,10 @@ Introduzimos algumas alterações importantes para dar suporte a mais acesso bas
 
 ## <a name="what-is-changing"></a>O que está a mudar?
 
-Anteriormente, segredos podem ser obtidos através da API do HDInsight por possessing o proprietário, contribuinte ou leitor de utilizadores de cluster [funções RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), conforme eles estavam disponíveis para qualquer pessoa com o `*/read` permissão era necessária.
+Anteriormente, segredos podem ser obtidos através da API do HDInsight por possessing o proprietário, contribuinte ou leitor de utilizadores de cluster [funções RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), conforme eles estavam disponíveis para qualquer pessoa com o `*/read` permissão.
 Daqui em diante, aceder a estes segredos exigirá o `Microsoft.HDInsight/clusters/configurations/*` permissão, o que significa que já não podem ser acedidos por utilizadores com a função de leitor. Segredos são definidos conforme devem permitir valores que podem ser utilizados para obter um acesso mais elevado de função de um utilizador. Estes incluem valores como credenciais HTTP do gateway de cluster, as chaves de conta de armazenamento e as credenciais da base de dados.
 
-Estamos a introduzir também um novo [operador de Cluster do Hdinsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) função que será capaz de obter segredos sem a ser concedidas as permissões administrativas do Contribuidor ou proprietário. Para resumir:
+Estamos a introduzir também um novo [operador de Cluster do HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) função que será capaz de obter segredos sem a ser concedidas as permissões administrativas do Contribuidor ou proprietário. Para resumir:
 
 | Função                                  | Anteriormente                                                                                       | No futuro       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
@@ -155,7 +155,7 @@ Atualizar para o [Az PowerShell versão 2.0.0](https://www.powershellgallery.com
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Adicionar a atribuição de função de operador de Cluster do HDInsight para um utilizador
 
-Um utilizador com o [contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pode atribuir a função a [operador de Cluster do Hdinsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) função aos utilizadores que gostaria de ter acesso de leitura/gravação para sensíveis Valores de configuração de cluster do HDInsight (por exemplo, as credenciais de gateway do cluster e as chaves de conta de armazenamento).
+Um utilizador com o [contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ou [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pode atribuir a função a [operador de Cluster do HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) função aos utilizadores que gostaria de ter acesso de leitura/gravação para sensíveis Valores de configuração de cluster do HDInsight (por exemplo, as credenciais de gateway do cluster e as chaves de conta de armazenamento).
 
 ### <a name="using-the-azure-cli"></a>Com a CLI do Azure
 

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/20/2019
+ms.date: 6/21/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ace0b56ce1ba4c140666c8f2dd6e2187f479446e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: deca4d1f66950e89148089d2984eb9cb35c470a8
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272644"
+ms.locfileid: "67304569"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -73,7 +73,7 @@ A filtragem com base em informações sobre ameaças pode ser ativada para que a
 
 ### <a name="outbound-snat-support"></a>Suporte SNAT de saída
 
-Todos os endereços IP de tráfego de rede virtual de saída são convertidos no IP público do Azure Firewall (Tradução de Endereços de Rede de Origem). Pode identificar e permitir tráfego com origem na sua rede virtual para destinos de Internet remotos.
+Todos os endereços IP de tráfego de rede virtual de saída são convertidos no IP público do Azure Firewall (Tradução de Endereços de Rede de Origem). Pode identificar e permitir tráfego com origem na sua rede virtual para destinos de Internet remotos. Firewall do Azure não SNAT quando o IP de destino é um intervalo IP privados por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se a sua organização utilizar um intervalo de endereços IP público para redes privadas, o Firewall do Azure será SNAT o tráfego para um dos endereços IP privados de firewall no AzureFirewallSubnet.
 
 ### <a name="inbound-dnat-support"></a>Suporte DNAT de entrada
 

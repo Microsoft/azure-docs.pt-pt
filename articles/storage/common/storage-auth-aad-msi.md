@@ -1,6 +1,6 @@
 ---
-title: Autenticar o acesso a blobs e filas com identidades geridas para recursos do Azure - armazenamento do Azure | Documentos da Microsoft
-description: Armazenamento de BLOBs e filas do Azure suporta a autenticação do Azure Active Directory com identidades geridas para recursos do Azure. Pode utilizar identidades geridas para recursos do Azure para autenticar o acesso a blobs e filas de aplicações em execução em máquinas virtuais do Azure, aplicações de funções, os conjuntos de dimensionamento de máquinas virtuais e outros.
+title: Autorizar o acesso a blobs e filas com o Azure Active Directory e de identidades geridas para recursos do Azure - armazenamento do Azure
+description: Armazenamento de BLOBs e filas do Azure suporta a autorização de acesso aos recursos com o Azure Active Directory e de identidades geridas para recursos do Azure. Pode utilizar identidades geridas para recursos do Azure para autorizar o acesso a blobs e filas de aplicações em execução em máquinas virtuais do Azure, aplicações de funções, os conjuntos de dimensionamento de máquinas virtuais e outros.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,14 +9,14 @@ ms.date: 04/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f7525c3e125010bb4db9655bc214861e22dc8875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23e1171a8757d021b8c6d38f90bdbf720014045f
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787967"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303424"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autenticar o acesso a blobs e filas com o Azure Active Directory e de identidades geridas para recursos do Azure
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autorizar o acesso a blobs e filas com o Azure Active Directory e de identidades geridas para recursos do Azure
 
 Armazenamento de BLOBs e filas do Azure suporta a autenticação do Azure Active Directory (Azure AD) com [geridos identidades para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). Gerido identidades para recursos do Azure podem autorizar o acesso ao blob e os dados de fila utilizando as credenciais do Azure AD a partir de aplicações em execução em máquinas virtuais do Azure (VMs), aplicações de funções, os conjuntos de dimensionamento de máquinas virtuais e outros serviços. Usando identidades geridas para recursos do Azure em conjunto com a autenticação do Azure AD, é possível evitar o armazenamento de credenciais com as aplicações que são executados na cloud.  
 
@@ -26,7 +26,7 @@ Este artigo mostra como autorizar o acesso aos dados de BLOBs ou filas com uma i
 
 Antes de poder utilizar identidades geridas para recursos do Azure para autorizar o acesso para blobs e filas da VM, primeiro tem de ativar identidades geridas para recursos do Azure na VM. Para saber como ativar identidades geridas para recursos do Azure, consulte um dos seguintes artigos:
 
-- [Portal do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI do Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modelo Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: 02bc8835ddb163d81f389e13b21b88adca55cb2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082628"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272759"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Implementar um modelo com uma imagem personalizada do Docker
 
@@ -43,6 +43,7 @@ Este documento é dividido em duas seções:
 * Um grupo de trabalho de serviço do Azure Machine Learning. Para obter mais informações, consulte a [criar uma área de trabalho](setup-create-workspace.md) artigo.
 * O Azure Machine Learning SDK. Para obter mais informações, consulte a secção de SDK de Python do [criar uma área de trabalho](setup-create-workspace.md#sdk) artigo.
 * O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* O [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Uma [Azure Container Registry](/azure/container-registry) ou outro registo do Docker que está acessível na internet.
 * Os passos neste documento partem do princípio de que está familiarizado com a criação e a utilizar um __configuração de inferência de tipos__ objeto como parte da implementação de modelo. Para obter mais informações, consulte a secção "Preparar a implementação" [onde pretende implementar e como](how-to-deploy-and-where.md#prepare-to-deploy).
 

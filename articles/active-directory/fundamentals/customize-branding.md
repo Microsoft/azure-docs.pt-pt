@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65441633"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204585"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página da sua organização do Azure Active Directory início de sessão
 Utilize o logótipo e esquemas de cores personalizada da sua organização para fornecer uma consistente aspeto e funcionalidade em suas páginas de início de sessão no Azure Active Directory (Azure AD). As páginas de início de sessão são apresentadas quando os utilizadores iniciam sessão em aplicações de baseada na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.
@@ -58,7 +58,7 @@ A imagem corporativa personalizada deixa de aparecer imediatamente quando os uti
 
         - **Logótipo de faixa.** Selecione uma versão. png ou. jpg do seu logótipo apareça na página de início de sessão após o utilizador introduzir um nome de utilizador e no **as minhas aplicações** página do portal.
             
-            A imagem não pode ser aumentasse que 36 pixels ou maior do que 245 pixels. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
+            A imagem não pode ser aumentasse que 60 pixels ou maior do que 280 pixels. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
 
         - **Sugestão de nome de utilizador.** Escreva o texto de sugestão que aparece aos utilizadores se esquecerem o respetivo nome de utilizador. Este texto deve ser o Unicode, sem ligações ou código e não pode exceder os 64 carateres. Se os convidados iniciarem sessão sua aplicação, sugerimos que não a adicionar desta sugestão.
 

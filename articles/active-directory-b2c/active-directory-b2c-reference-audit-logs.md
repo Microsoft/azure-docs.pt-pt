@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 27c91185bacea839ec73a3f4bd06f5df43bd4edf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509641"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205353"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Registos de auditoria do acesso ao Azure AD B2C
 
@@ -23,6 +24,9 @@ O Azure Active Directory B2C (Azure AD B2C) emite os registos de auditoria que c
 
 > [!IMPORTANT]
 > Registos de auditoria só são mantidos durante sete dias. Plano para transferir e armazenar os registos através de um dos métodos abaixo se necessitar de um período de retenção mais longo.
+
+> [!NOTE]
+> Não pode ver o utilizador-inícios de sessão de aplicativos individuais do Azure AD B2C no **usuários** secção do **Azure Active Directory** ou **do Azure AD B2C** painéis. Os inícios de sessão lá irão mostrar a atividade do utilizador, mas não podem ser correlacionados com a aplicação B2C que o utilizador iniciou sessão no. Tem de utilizar os registos de auditoria para que, como explicado mais neste artigo.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Descrição geral das atividades disponíveis na categoria de B2C de registos de auditoria
 O **B2C** categoria nos registos de auditoria contém os seguintes tipos de atividades:
@@ -41,6 +45,18 @@ O **B2C** categoria nos registos de auditoria contém os seguintes tipos de ativ
 
 ## <a name="example-activity"></a>Atividade de exemplo
 O exemplo abaixo mostra os dados capturados quando um utilizador inicia sessão com um fornecedor de identidade externo: ![Registos de auditoria - exemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+
+O painel de detalhes de atividade contém as seguintes informações relevantes:
+
+|Section|Campo|Descrição|
+|-------|-----|-----------|
+| Atividade | Name | Que atividade ocorreu. Por exemplo, "emitir uma id_token para a aplicação" (o que conclui o usuário real início de sessão). |
+| Iniciado por (Ator) | ObjectId | O **ID de objeto** da aplicação B2C que o utilizador está a iniciar sessão (este identificador não está visível no Portal do Azure, mas pode ser acessado pela Graph API por exemplo). |
+| Iniciado por (Ator) | Spn | O **ID da aplicação** da aplicação B2C que o utilizador está a iniciar sessão. |
+| Destino (s) | ObjectId | O **ID de objeto** do utilizador que está a iniciar sessão. |
+| Detalhes Adicionais | TenantId | O **ID de inquilino** do inquilino do Azure AD B2C. |
+| Detalhes Adicionais | `PolicyId` | O **ID de política** do fluxo de utilizador (política) a ser utilizado para a sessão do utilizador. |
+| Detalhes Adicionais | ApplicationId | O **ID da aplicação** da aplicação B2C que o utilizador está a iniciar sessão. |
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Aceder a registos de auditoria através do Portal do Azure
 1. Aceda ao [Portal do Azure](https://portal.azure.com). Certifique-se de que está no diretório do B2C.
@@ -62,6 +78,9 @@ Verá uma lista de atividades iniciadas durante os últimos sete dias.
 - Utilize o **intervalo de datas** lista pendente para filtrar o intervalo de datas das atividades mostradas
 - Se clicar numa linha específica na lista, uma caixa contextual no lado direito irá mostrar-lhe atributos adicionais associados a atividade
 - Clique em **transferir** para transferir as atividades como um ficheiro csv
+
+> [!NOTE]
+> Também pode ver os registos de auditoria ao navegar até **do Azure AD B2C** vez **Azure Active Directory** na barra de Favoritos no lado esquerdo. Sob **atividades**, clique em **registos de auditoria**, onde encontrará os registos do mesmo com capacidades de filtragem semelhante.
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Aceder a registos de auditoria por meio da API de relatórios do Azure AD
 Registos de auditoria são publicados no mesmo pipeline como outras atividades do Azure Active Directory, para que possam ser acedidos através da [do Azure Active Directory reporting API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 06/12/2019
-ms.openlocfilehash: b740b49e2decabd5f104d1db5d38b48f2bc2111c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116195"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275478"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>SQL Database do Azure sem servidor (pré-visualização)
 
@@ -253,6 +253,8 @@ O agrupamento de recursos de utilizador é interno, a maioria dos limites de ges
 
 ### <a name="metrics"></a>Métricas
 
+As métricas para monitorizar a utilização de recursos do agrupamento de pacote e um utilizador de aplicação de uma base de dados sem servidor estão listadas na tabela a seguir:
+
 |Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
 |Pacote de aplicação|app_cpu_percent|Percentagem de vCores utilizados pela aplicação em relação ao vCores máximo permitido para a aplicação.|Percentagem|
@@ -263,10 +265,6 @@ O agrupamento de recursos de utilizador é interno, a maioria dos limites de ges
 |Conjunto de utilizador|log_IO_percent|Percentagem de log MB/s utilizado por carga de trabalho do utilizador em relação ao MB/s de registo máximo permitido para carga de trabalho do utilizador.|Percentagem|
 |Conjunto de utilizador|workers_percent|Percentagem de trabalhadores utilizados por carga de trabalho do utilizador em relação ao trabalhadores máximos permitido para a carga de trabalho do utilizador.|Percentagem|
 |Conjunto de utilizador|sessions_percent|Percentagem de sessões utilizado por carga de trabalho do utilizador em relação ao sessões máximo permitido para a carga de trabalho do utilizador.|Percentagem|
-____
-
-> [!NOTE]
-> Métricas no portal do Azure estão disponíveis no painel da base de dados para uma base de dados sob **monitorização**.
 
 ### <a name="pause-and-resume-status"></a>Colocar em pausa e retomar do Estado
 

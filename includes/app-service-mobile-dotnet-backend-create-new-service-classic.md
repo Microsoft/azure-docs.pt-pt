@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140632"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184941"
 ---
-1. Inicie sessão no [portal do Azure].
+1. Inicie sessão no [Azure portal].
 2. Selecione **+ novo** > **Web + móvel** > **aplicação móvel**e, em seguida, forneça um nome para as suas aplicações de Mobile back-end.
 3. Para **grupo de recursos**, selecione um grupo de recursos existente ou crie um novo (utilizando o mesmo nome que a sua aplicação). 
 4. Para **plano do App Service**, o plano predefinido (no [escalão Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionada. Pode ainda selecionar um plano diferente ou [criar um novo](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
@@ -31,4 +31,4 @@ ms.locfileid: "66140632"
    Aguarde alguns minutos para a base de dados a serem implantados com êxito antes de continuar.
 
 <!-- URLs. -->
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

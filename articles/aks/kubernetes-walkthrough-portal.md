@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 58f89ddcf4480df14689541ec99b6c9b2526721a
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 67ea040294e669859881dfd90533eba942105dec
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688095"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303361"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: Implementar um cluster do Azure Kubernetes Service (AKS) no portal do Azure
 
@@ -64,7 +64,7 @@ Utilizar o Cloud Shell aberto a `>_` botão na parte superior do portal do Azure
 
 ![Abrir o Azure Cloud Shell no portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
-Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este comando transfere credenciais e configura a CLI do Kubernetes para utilizá-los. O exemplo seguinte obtém credenciais para o nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
+Para configurar `kubectl` para ligar ao seu cluster do Kubernetes, utilize o [az aks get-credentials][az-aks-get-credentials] comando. Este comando transfere credenciais e configura a CLI do Kubernetes para utilizá-los. O exemplo seguinte obtém credenciais para o nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -85,12 +85,12 @@ aks-agentpool-14693408-0   Ready     agent     15m       v1.11.5
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Um arquivo de manifesto do Kubernetes define um estado pretendido para o cluster, como o contentor de imagens para executar. Neste início rápido, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação Azure Vote. Esse manifesto inclui dois [implementações de Kubernetes] [ kubernetes-deployment] -um para as aplicações do Azure Vote Python de exemplo e outro para uma instância de Redis. Dois [serviços do Kubernetes] [ kubernetes-service] também são criados - um serviço interno para a instância de Redis e um serviço externo para aceder a aplicação Azure Vote a partir da internet.
+Um arquivo de manifesto do Kubernetes define um estado pretendido para o cluster, como o contentor de imagens para executar. Neste início rápido, é utilizado um manifesto para criar todos os objetos necessários para executar a aplicação Azure Vote. Esse manifesto inclui dois [implementações de Kubernetes][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] também são criados - um serviço interno para a instância de Redis e um serviço externo para aceder a aplicação Azure Vote a partir da internet.
 
 > [!TIP]
-> Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em mais cenários do mundo real, pode utilizar o [Azure Dev Spaces][azure-dev-spaces] para iterar e depurar o seu código rápida e diretamente no cluster do AKS. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
+> Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em mais cenários de mundo real, pode usar [do Azure Dev espaços][azure-dev-spaces] rapidamente iterar e depurar seu código diretamente no cluster do AKS. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
 
-Crie um ficheiro denominado `azure-vote.yaml` e copie a seguinte definição de YAML. No Azure Cloud Shell, crie o ficheiro com `vi` ou `Nano`, como se trabalhar num sistema físico ou virtual:
+No cloud shell, utilize `nano` ou `vi` para criar um arquivo chamado `azure-vote.yaml` e copie a seguinte definição de YAML:
 
 ```yaml
 apiVersion: apps/v1
@@ -177,7 +177,7 @@ spec:
     app: azure-vote-front
 ```
 
-Implemente a aplicação com o [aplicam-se de kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Implemente a aplicação com o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f azure-vote.yaml
@@ -240,14 +240,14 @@ Para ver os registos relativos ao pod `azure-vote-front`, selecione a ligação 
 
 ## <a name="delete-cluster"></a>Eliminar o cluster
 
-Quando o cluster já não for necessário, elimine o recurso do cluster, o que, por sua vez, elimina todos os recursos associados. Esta operação pode ser levada a cabo no portal do Azure através da seleção do botão **Eliminar** no dashboard do cluster do AKS. Em alternativa, é possível utilizar o comando [az aks delete][az-aks-delete] no Cloud Shell:
+Quando o cluster já não for necessário, elimine o recurso do cluster, o que, por sua vez, elimina todos os recursos associados. Esta operação pode ser levada a cabo no portal do Azure através da seleção do botão **Eliminar** no dashboard do cluster do AKS. Em alternativa, o [eliminar az aks][az-aks-delete] comando pode ser utilizado no Cloud Shell:
 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete].
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [considerações principal e de eliminação do serviço AKS][sp-delete].
 
 ## <a name="get-the-code"></a>Obter o código
 

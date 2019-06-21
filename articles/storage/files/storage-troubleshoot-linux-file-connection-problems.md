@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118718"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295077"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Resolução de problemas de ficheiros do Azure no Linux
 
@@ -191,6 +191,40 @@ Utilize o utilizador de conta de armazenamento para copiar os ficheiros:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Não é possível ligar a ou montar uma partilha de ficheiros do Azure
+
+### <a name="cause"></a>Causa
+
+Causas comuns para esse problema são:
+
+- Está a utilizar um cliente de distribuição de Linux incompatível. Recomendamos que utilize as seguintes distribuições do Linux para ligar a uma partilha de ficheiros do Azure:
+
+    |   | SMB 2.1 <br>(Monta em VMs na mesma região do Azure) | SMB 3.0 <br>(Monta no local e em várias regiões) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+
+- Utilitários CIFS (cifs utils) não estão instalados no cliente.
+- A versão mínima do SMB/CIFS, 2.1, não está instalada no cliente.
+- Encriptação SMB 3.0 não é suportada no cliente. Encriptação SMB 3.0 está disponível no Ubuntu 16.4 e versões posteriores, juntamente com SUSE 12.3 e versões posteriores. Outras distribuições requerem kernel 4.11 e versões posteriores.
+- Está a tentar ligar a uma conta de armazenamento através da porta TCP 445, que não é suportada.
+- Está a tentar ligar a uma partilha de ficheiros do Azure a partir de uma VM do Azure e a VM não está na mesma região que a conta de armazenamento.
+- Se o [transferência segura necessária]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição está ativada na conta de armazenamento, ficheiros do Azure irá permitir que apenas as ligações que utilizam SMB 3.0 com a encriptação.
+
+### <a name="solution"></a>Solução
+
+Para resolver o problema, utilize o [ferramenta de resolução de problemas para erros de montagem no Linux dos ficheiros do Azure](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Esta ferramenta:
+
+* Ajuda-o para validar o cliente com o ambiente.
+* Deteta a configuração de cliente incompatível que podem causar a falha de acesso para ficheiros do Azure.
+* Fornece orientação prescritiva Self-resolver este problema.
+* Recolhe os rastreios de diagnóstico.
+
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: não é possível aceder '&lt;caminho&gt;": Erro de entrada/saída
 

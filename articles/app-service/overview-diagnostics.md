@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539839"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147356"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Descrição geral de diagnóstico de serviço de aplicações do Azure
 
@@ -103,12 +103,12 @@ Como o monitoramento proativo de CPU, proativa autorrecuperação oferece uma ab
 
 ![Proativa autorrecuperável](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>Alterar análise
+## <a name="change-analysis-only-for-windows-app"></a>Análise de alterações (apenas para a aplicação do Windows)
 
-Por vezes, num ambiente de desenvolvimento rápido, pode ser difícil manter o controle de todas as alterações feitas à sua aplicação e permitir que o pinpoint somente numa alteração que causou um comportamento de mau estado de funcionamento. Análise de alterações pode ajudar a restringir sobre as alterações feitas à sua aplicação para facilitar a experiência trouble-shooting. Análise de alterações está incorporada no relatório de diagnóstico, como **falha aplicação** para que possa utilizá-lo simultaneamente com outras métricas.
+Por vezes, num ambiente de desenvolvimento rápido, pode ser difícil manter o controle de todas as alterações feitas à sua aplicação e permitir que o pinpoint somente numa alteração que causou o comportamento de mau estado de funcionamento. Análise de alterações pode ajudar a restringir sobre as alterações feitas à sua aplicação para facilitar a experiência trouble-shooting. Análise de alterações se encontra no **as alterações da aplicação** e também incorporado como um relatório de diagnóstico **falha aplicação** para que possa utilizá-lo simultaneamente com outras métricas.
+
+Análise de alterações tem de ser ativado antes de utilizar a funcionalidade. Para obter mais informações sobre a análise de alteração, visite [Apresentamos a nova experiência de análise de alterações no diagnóstico do serviço de aplicações](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
 ![Página de padrão de análise de alteração](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Vista de diff](./media/app-service-diagnostics/diff-view-12.png)
-
-Análise de alterações tem de ser ativado antes de utilizar a funcionalidade. Para obter mais informações sobre a análise de alteração, visite [Apresentamos a nova experiência de análise de alterações no diagnóstico do serviço de aplicações](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).

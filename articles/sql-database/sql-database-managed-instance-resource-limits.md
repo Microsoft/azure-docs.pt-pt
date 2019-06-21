@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/13/2019
-ms.openlocfilehash: 15f64c7087ea4d24f271af67b251030a2196fa10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070362"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272239"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Descrição geral do Azure SQL Database managed limites de recursos de instância
 
@@ -54,7 +54,7 @@ A instância gerida tem dois escalões de serviço: Fins gerais e crítico para 
 | Tamanho máximo de armazenamento de instância | -2 TB para 4 vCores (Gen5 apenas)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5: <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
-| Ficheiros de base de dados máximo por instância | Até 280 | 32\.767 ficheiros por base de dados |
+| Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
 | IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 K (1375/vCore) |
 | Taxa de transferência do registo | 3 MB/s por vCore<br/>Máx. de 22 MB/s por instância | 4 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
 | Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
@@ -105,7 +105,7 @@ A tabela seguinte mostra os limites de regionais padrão para subscrições de s
 
 \* Ao planear as suas implementações, considere que um vCore comercial crítico (BC) (devido a redundância adicionado) consome 4 x de um vCore de fins gerais (GP) mais capacidade. Assim, para seus cálculos, 1 vCore GP = 1 vCore de unidade e 1 BC vCore = 4 unidades de vCore. Para simplificar a análise de consumo contra os limites predefinidos, resuma as unidades de vCore em todas as sub-redes na região em que as instâncias geridas são implementadas e comparam os resultados com os limites de unidade de instância para o seu tipo de subscrição. **Número máximo de unidades de vCore** limite aplica-se a cada subscrição numa região. Não existe nenhum limite por sub-redes individuais, exceto que a soma de todos os vCores implementado em várias sub-redes têm de ser inferior ou igual a **máximo de número de unidades de vCore**.
 
-\* * Maiores limites de sub-rede e vCore estão disponíveis nas seguintes regiões: Leste da Austrália, E.U.A. leste, E.U.A. Leste 2, Europa do Norte, EUA Centro-Sul, Sudeste asiático, do Reino Unido Sul, Europa Ocidental, E.U.A. oeste 2.
+\*\* Maiores limites de sub-rede e vCore estão disponíveis nas seguintes regiões: Leste da Austrália, E.U.A. leste, E.U.A. Leste 2, Europa do Norte, EUA Centro-Sul, Sudeste asiático, do Reino Unido Sul, Europa Ocidental, E.U.A. oeste 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma quota maior para SQL instância gerida
 

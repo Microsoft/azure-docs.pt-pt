@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b00a5262b1e144aa47cd7fd640906225ff4fecd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58c5c8321e505fe2c1c7d19c58fe0d031b75b3e4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068793"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294869"
 ---
 # <a name="azure-disk-encryption-overview"></a>Descrição geral da encriptação de disco do Azure
 
@@ -45,7 +45,7 @@ O Azure Disk Encryption suporta os seguintes cenários de cliente:
 Também suporta os seguintes cenários para as VMs quando estão ativadas no Microsoft Azure:
 
 * Integração com o Cofre de chaves do Azure.
-* [Escalão Standard VMs](https://azure.microsoft.com/pricing/details/virtual-machines/). [VMs do Linux](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) dentro estas camadas têm de cumprir o requisito de memória mínima de 7 GB. 
+* [Escalão Standard VMs](https://azure.microsoft.com/pricing/details/virtual-machines/) que cumpram os [requisito mínimo de memória](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes). 
 * Ativar a encriptação do Windows e VMs do Linux, disco gerido e dimensionar VMs do conjunto de imagens de galeria do Azure suportadas.
 * A desativação da encriptação no SO e dados unidades para VMs do Windows, dimensionamento VMs do conjunto e geridas VMs de disco.
 * Desativar encriptação em unidades de dados para VMs do Linux, dimensionamento VMs do conjunto e geridas VMs de disco.
@@ -56,7 +56,7 @@ Também suporta os seguintes cenários para as VMs quando estão ativadas no Mic
 * Ativar a encriptação nos discos de dados e SO de VM do Linux.
 
    > [!NOTE]
-   > Criptografia de unidade de sistema operacional para algumas distribuições do Linux não é suportada. Para obter mais informações, consulte a [FAQ de encriptação de disco do Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artigo.
+   > Criptografia de unidade de sistema operacional para algumas distribuições do Linux não é suportada. Para obter mais informações, consulte o [sistemas operativos suportados do Azure Disk Encryption: Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
 * Ativar a encriptação em VMs que estão configurados com início de espaços de armazenamento do Windows no Windows Server 2016.
 * Criar cópias de segurança e restauro de VMs encriptadas para a chave de encriptação de chaves (KEK) e cenários de não-KEK.
@@ -93,8 +93,6 @@ Inclui o Azure Disk Encryption para VMs para Windows e Linux:
 * [Os cmdlets de encriptação de disco do PowerShell](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
 * [Os cmdlets de encriptação de disco de CLI do Azure](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [Os modelos de encriptação de disco do Azure Resource Manager](azure-security-disk-encryption-appendix.md#resource-manager-templates).
-
-O Azure Disk Encryption é suportado em VMs que executam o Windows ou o SO Linux. Para obter mais informações sobre os sistemas operativos suportados, consulte [perguntas mais frequentes sobre](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 
 > [!NOTE]
 > Não existe nenhum custo adicional para encriptar discos da VM com o Azure Disk Encryption. Standard [preços do Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) aplica-se ao Cofre de chaves, que é utilizado para armazenar as chaves de encriptação. 

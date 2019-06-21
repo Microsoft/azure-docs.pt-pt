@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24fba1961c8fd95f1b9489716d690dd6eaa97b62
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589732"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274842"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para separando aplicativos em relação do Service Bus interrupções e desastres
 
@@ -54,9 +54,9 @@ Se a aplicação não necessitar de comunicação de remetente para o recetor pe
 ### <a name="active-replication"></a>Replicação do Active Directory
 Replicação de Active Directory utiliza entidades em ambos os espaços de nomes para cada operação. Qualquer cliente que envia uma mensagem envia duas cópias da mesma mensagem. A primeira cópia é enviada para a entidade principal (por exemplo, **contosoPrimary.servicebus.windows.net/sales**), e a segunda cópia da mensagem é enviada para a entidade secundária (por exemplo,  **contosoSecondary.servicebus.windows.net/sales**).
 
-Um cliente recebe mensagens de ambas as filas. O recetor processar a primeira cópia de uma mensagem e a segunda cópia suprimida. Para suprimir mensagens duplicadas, o remetente deve etiquetar cada mensagem com um identificador exclusivo. As duas cópias da mensagem devem ser etiquetadas com o mesmo identificador. Pode utilizar o [Brokeredmessage] [ BrokeredMessage.MessageId] ou [BrokeredMessage.Label] [ BrokeredMessage.Label] propriedades ou uma propriedade personalizada a mensagem. O destinatário tem de manter uma lista de mensagens que já recebidos.
+Um cliente recebe mensagens de ambas as filas. O recetor processar a primeira cópia de uma mensagem e a segunda cópia suprimida. Para suprimir mensagens duplicadas, o remetente deve etiquetar cada mensagem com um identificador exclusivo. As duas cópias da mensagem devem ser etiquetadas com o mesmo identificador. Pode utilizar o [Brokeredmessage][BrokeredMessage.MessageId] ou [BrokeredMessage.Label][BrokeredMessage.Label] propriedades ou uma propriedade personalizada a mensagem. O destinatário tem de manter uma lista de mensagens que já recebidos.
 
-O [georreplicação com o escalão Standard do Service Bus] [ Geo-replication with Service Bus Standard Tier] exemplo demonstra os replicação de Active Directory de entidades de mensagens.
+O [georreplicação com o escalão Standard do Service Bus][Geo-replication with Service Bus Standard Tier] exemplo demonstra os replicação de Active Directory de entidades de mensagens.
 
 > [!NOTE]
 > A abordagem de replicação do Active Directory duplica o número de operações, essa abordagem pode levar à custo mais elevado.
@@ -75,10 +75,10 @@ Ao usar os replicação passivo, nos seguintes cenários de mensagens são perdi
 * **Atraso de mensagem ou perda**: Partem do princípio de que o remetente enviada com êxito um m1 de mensagem para a fila primária e, em seguida, a fila fica indisponível antes do recetor recebe m1. O remetente envia uma mensagem subseqüente m2 para a fila secundária. Se a fila primária está temporariamente indisponível, o destinatário recebe m1 depois da fila fica disponível novamente. Em caso de desastre, o recetor nunca poderá receber m1.
 * **Duplicar receção**: Partem do princípio de que o remetente envia uma mensagem m para a fila principal. Do Service Bus com êxito processa m, mas não conseguir enviar uma resposta. Depois da operação de envio exceder o tempo limite, o remetente envia uma cópia idêntica do m para a fila secundária. Se o destinatário é consegue receber a primeira cópia de m antes da fila primária fica indisponível, o destinatário recebe ambas as cópias de m, aproximadamente ao mesmo tempo. Se o recetor não for capaz de receber a primeira cópia de m antes da fila primária fica indisponível, o destinatário recebe inicialmente apenas a segunda cópia da m, mas, em seguida, recebe uma segunda cópia da m quando a fila primária fica disponível.
 
-O [georreplicação com o escalão Standard do Service Bus] [ Geo-replication with Service Bus Standard Tier] exemplo demonstra os replicação passiva de entidades de mensagens.
+O [georreplicação com o escalão Standard do Service Bus][Geo-replication with Service Bus Standard Tier] exemplo demonstra os replicação passiva de entidades de mensagens.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Proteger pontos finais de reencaminhamento contra falhas de datacenter ou desastres
-Georreplicação de pontos de extremidade de reencaminhamento permite que um serviço que expõe um ponto de extremidade de reencaminhamento estar acessível na presença de falhas do Service Bus. Para alcançar os replicação geográfica, o serviço tem de criar dois pontos de extremidade de reencaminhamento num espaço de nomes diferentes. Os espaços de nomes tem de residir em datacenters diferentes e dois pontos de extremidade tem de ter nomes diferentes. Por exemplo, um ponto final primário pode ser contatado em **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto sua contraparte secundário pode ser contatado em **contosoSecondary.servicebus.windows.net /mySecondaryService**.
+Georreplicação de [reencaminhamento do Azure](../service-bus-relay/relay-what-is-it.md) pontos finais permite que um serviço que expõe um ponto de extremidade de reencaminhamento estar acessível na presença de falhas do Service Bus. Para alcançar os replicação geográfica, o serviço tem de criar dois pontos de extremidade de reencaminhamento num espaço de nomes diferentes. Os espaços de nomes tem de residir em datacenters diferentes e dois pontos de extremidade tem de ter nomes diferentes. Por exemplo, um ponto final primário pode ser contatado em **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto sua contraparte secundário pode ser contatado em **contosoSecondary.servicebus.windows.net /mySecondaryService**.
 
 O serviço de escuta, em seguida, em ambos os pontos de extremidade e um cliente pode chamar o serviço através de qualquer ponto de extremidade. Uma aplicação cliente escolhe um dos relés como o ponto final primário aleatoriamente e envia a solicitação para o ponto final do Active Directory. Se a operação falhar com um código de erro, esta falha indica que o ponto de extremidade de reencaminhamento não está disponível. A aplicação abrirá um canal para o ponto final de cópia de segurança e emite novamente o pedido. Nesse momento o Active Directory e os pontos finais de cópia de segurança mudar funções: a aplicação cliente considera o antigo ponto final do Active Directory para ser o novo ponto de final de cópia de segurança e o ponto de final de cópia de segurança antigo para o novo ponto final do Active Directory. Se ambos enviar operações falhar, as funções de duas entidades permanecem inalteradas e é devolvido um erro.
 

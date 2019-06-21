@@ -9,11 +9,11 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f57c2cacca9bb3e4526ec6261b8aa0ff6c18448a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164506"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184236"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem conduzir a máquina virtual no Azure a ser afetado: manutenção de hardware não planeada, o período de indisponibilidade inesperado e a manutenção planeada.

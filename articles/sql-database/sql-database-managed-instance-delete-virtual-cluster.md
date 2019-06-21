@@ -1,6 +1,6 @@
 ---
-title: Eliminar VNet depois da eliminar a base de dados do Azure SQL instância gerida | Documentos da Microsoft
-description: Saiba como eliminar VNet depois da eliminar a base de dados do Azure SQL instância gerida.
+title: Eliminar uma sub-rede, depois de eliminar uma base de dados do SQL do Azure a instância gerida | Documentos da Microsoft
+description: Saiba como eliminar uma rede virtual do Azure após a eliminação de uma base de dados do SQL do Azure a instância gerida.
 services: sql-database
 ms.service: sql-database
 ms.subservice: management
@@ -12,39 +12,39 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec5d99e160e739f59e2bf2ea369fe83e9900a1f1
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791383"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295307"
 ---
-# <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Eliminar a sub-rede depois da eliminar a base de dados do Azure SQL instância gerida
+# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Eliminar uma sub-rede, depois de eliminar uma base de dados do SQL do Azure a instância gerida
 
-Este artigo fornece diretrizes sobre como eliminar manualmente a sub-rede depois da eliminar a base de dados do SQL Azure última gerido a instância que residem no mesmo.
+Este artigo fornece diretrizes sobre como eliminar manualmente uma sub-rede depois da eliminar a base de dados do SQL Azure última gerido a instância que residem no mesmo.
 
-O [virtual cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) que continha o eliminado a instância gerida será mantida durante 12 horas contra a eliminação de instância. O cluster virtual é mantido ativo por design para permitir a criação rápida de instâncias geridas na mesma sub-rede. Manter um cluster virtual vazio é sem encargos. Durante este período, não é possível eliminar a sub-rede associada ao cluster virtual.
+Base de dados SQL utiliza um [virtual cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) para conter a instância gerida eliminada. O cluster virtual persiste durante 12 horas após a eliminação de instância, que lhe permite criar rapidamente instâncias geridas na mesma sub-rede. Não existe nenhum custo associado para manter um cluster virtual vazio. Durante este período, não é possível eliminar a sub-rede associada ao cluster virtual.
 
-Versão imediata da sub-rede utilizada por um cluster virtual vazio é possível através de eliminação manual do virtual cluster. Eliminação do virtual cluster pode ser obtida através do portal do Azure ou clusters virtuais API.
+Se não quiser esperar 12 horas, e preferir ao eliminar o cluster virtual e a respetiva sub-rede imediatamente, pode fazer isso manualmente. Elimine o cluster virtual manualmente com o portal do Azure ou os API de clusters virtuais.
 
 > [!NOTE]
 > O cluster virtual não deve conter nenhum instâncias geridas para a eliminação seja concluída com êxito.
 
-## <a name="delete-virtual-cluster-from-azure-portal"></a>Eliminar o virtual cluster do portal do Azure
+## <a name="delete-virtual-cluster-from-the-azure-portal"></a>Eliminar o virtual cluster do portal do Azure
 
-Para eliminar um cluster virtual através do portal do Azure, procure os recursos de virtual cluster utilizando a pesquisa interna.
+Para eliminar um cluster virtual com o portal do Azure, procure os recursos de virtual cluster.
 
-![Pesquisar virtual cluster.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
+![Captura de ecrã do portal do Azure, com a caixa de pesquisa realçado](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
 
-Depois de localizar o cluster virtual que pretende eliminar, selecione esse recurso e selecione a opção de eliminação. Será solicitado a confirmar a eliminação de virtual cluster.
+Depois de localizar o cluster virtual que pretende eliminar, selecione esse recurso e selecione **eliminar**. Lhe for pedido para confirmar a eliminação de virtual cluster.
 
-![Elimine virtual cluster.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
+![Captura de ecrã do portal do Azure Virtual clusters do dashboard, com a opção de eliminação realçada](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
-Confirmação de que o cluster virtual foi eliminado é fornecida nas notificações do portal do Azure. Eliminação concluída com êxito do virtual cluster versões imediatamente a sub-rede para uso posterior.
+A área de notificações do portal do Azure mostra-lhe confirmação de que o cluster virtual foi eliminado. Eliminação concluída com êxito do virtual cluster versões imediatamente a sub-rede para reutilização.
 
-## <a name="delete-virtual-cluster-using-api"></a>Eliminar o cluster virtual com a API
+## <a name="delete-virtual-cluster-by-using-the-api"></a>Eliminar o virtual cluster, utilizando a API
 
-Para eliminar um virtual de cluster através da utilização de API os parâmetros do URI especificados na [clusters virtuais Eliminar método](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+Para eliminar um cluster virtual por meio da API, utilize os parâmetros do URI especificados na [clusters virtuais Eliminar método](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

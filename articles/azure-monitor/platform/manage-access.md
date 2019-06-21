@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782807"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295510"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerir dados de registo e áreas de trabalho no Azure Monitor
 Arquivos de Monitor do Azure registos de dados numa área de trabalho do Log Analytics, que é essencialmente um contentor que inclui informações de configuração e dados. Para gerir o acesso aos registos de dados, realizar diversas tarefas administrativas relacionadas com a áreas de trabalho. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
@@ -278,7 +278,7 @@ Ver [definir o controlo de acesso por tabela](#table-level-rbac) abaixo se prete
 ## <a name="table-level-rbac"></a>Nível de tabela RBAC
 **RBAC de nível de tabela** permite-lhe fornecer um controle mais granular aos dados numa área de trabalho do Log Analytics, além de outras permissões. Esse controle permite-lhe definir os tipos de dados específicos que podem ser acedidos apenas por um conjunto específico de utilizadores.
 
-Implementar o controlo de acesso de tabela com [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) conceder ou negar o acesso específico [tabelas](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) na área de trabalho. Estas funções são aplicadas a áreas de trabalho com voltada para a área de trabalho ou recurso centrado [modos de controlo de acesso](#access-control-mode) independentemente do utilizador [modo de acesso](#access-modes).
+Implementar o controlo de acesso de tabela com [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) conceder ou negar o acesso específico [tabelas](../log-query/logs-structure.md) na área de trabalho. Estas funções são aplicadas a áreas de trabalho com voltada para a área de trabalho ou recurso centrado [modos de controlo de acesso](#access-control-mode) independentemente do utilizador [modo de acesso](#access-modes).
 
 Criar uma [função personalizada](../../role-based-access-control/custom-roles.md) com as seguintes ações para definir o acesso ao controlo de acesso de tabela.
 

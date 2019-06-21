@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2943a1501e1d81ff4884c21b5aa3861e16523bbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3e9b3b2db4a4adc01ad3b1f348b66496658f0f5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827704"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190938"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar tarefas de gestão em máquinas virtuais do Azure com a extensão de agente do SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
@@ -54,6 +54,7 @@ Requisitos para utilizar a extensão do agente IaaS do SQL Server na sua VM:
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
+* Windows Server 2019 
 
 **Versões do SQL Server**:
 
@@ -62,6 +63,7 @@ Requisitos para utilizar a extensão do agente IaaS do SQL Server na sua VM:
 * SQL Server 2012
 * SQL Server 2014
 * SQL Server 2016
+* SQL Server 2017
 
 **Azure PowerShell**:
 

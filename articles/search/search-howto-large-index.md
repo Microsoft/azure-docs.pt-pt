@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949825"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302236"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Como indexar grandes conjuntos de dados no Azure Search
 
@@ -54,7 +54,7 @@ Agendamento do indexador é um importante mecanismo para processar grandes conju
 
 Por design, agendada indexação começa em intervalos específicos, com uma tarefa normalmente concluir antes de continuar no próximo intervalo agendado. No entanto, se o processamento não for concluída dentro do intervalo, o indexador será interrompido (porque ele ficou sem tempo). No intervalo seguinte, onde pela última vez parou, com a manutenção do sistema de retoma de processamento de controle de onde o que ocorre. 
 
-Em termos práticos, para cargas de índice que abrangem vários dias, pode colocar o indexador com base numa agenda de 24 horas. Durante a indexação CVS para o próximo ciclo de 24 horas, ele será reiniciada no último documento bom conhecido. Dessa forma, um indexador pode trabalhar sua maneira por meio de uma lista de pendências do documento em relação a uma série de dias até que todos os documentos não processados são processados. Para obter mais informações sobre esta abordagem, consulte [indexação de grandes conjuntos de dados no armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Para obter mais informações sobre como definir agendas em geral, consulte [criar API REST do indexador](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax).
+Em termos práticos, para cargas de índice que abrangem vários dias, pode colocar o indexador com base numa agenda de 24 horas. Durante a indexação CVS para o próximo ciclo de 24 horas, ele será reiniciada no último documento bom conhecido. Dessa forma, um indexador pode trabalhar sua maneira por meio de uma lista de pendências do documento em relação a uma série de dias até que todos os documentos não processados são processados. Para obter mais informações sobre esta abordagem, consulte [indexação de grandes conjuntos de dados no armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Para obter mais informações sobre como definir agendas em geral, consulte [criar API REST do indexador](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) ou consulte [como agendar indexadores para o Azure Search](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

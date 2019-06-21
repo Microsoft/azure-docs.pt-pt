@@ -7,16 +7,16 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 06/10/2019
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: IEvangelist
 ms.custom: seodec18
-ms.openlocfilehash: 49e3af546ffcf5be47c73bfe633223a4d968d887
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a85ac72dfa428bfeddd1fc1ce74ae0af7b4e9af
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060922"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275172"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contentores de reconhecer texto
 

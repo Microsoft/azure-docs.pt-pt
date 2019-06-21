@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555881"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303521"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -80,7 +80,7 @@ A API de v3 tem os seguintes intervalos de funcionalidades em relação a API v2
 
 * O [codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e o legado [processadores de análise de multimédia](../previous/media-services-analytics-overview.md) (pré-visualização do Azure Media Services indexador 2, Editor de rostos, etc.) não estão acessíveis por meio de v3.<br/>Os clientes que pretendem migrar a partir de 1 de indexador de multimédia ou 2 preview imediatamente podem utilizar o AudioAnalyzer predefinir na v3 API.  Esta configuração predefinida nova contém mais recursos do que o indexador 1 mais antigas do suporte de dados ou 2. 
 * Muitas da [recursos avançados do Media Encoder Standard no v2](../previous/media-services-advanced-encoding-with-mes.md) APIs não estão atualmente disponíveis na v3, tais como:
-    * Recorte (para cenários sob demanda e em direto)
+  
     * Clips de ativos
     * Sobreposições
     * Corte

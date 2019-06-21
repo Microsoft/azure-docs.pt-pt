@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: 4d7c1d9b59e802343f6d8fe258e8e4ac961bb2df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061016"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67292810"
 ---
-# <a name="standard-properties-in-azure-monitor-log-records"></a>Registos de propriedades padrão no Azure Monitor
-São de dados de registo no Azure Monitor [armazenado como um conjunto de registos](../log-query/log-query-overview.md), cada um com um tipo de dados específico que tenha um conjunto exclusivo de propriedades. Vários tipos de dados terá propriedades padrão que são comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como pode usá-los em consultas.
+# <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades padrão nos Logs de Monitor do Azure
+São de dados nos registos do Azure Monitor [armazenado como um conjunto de registos numa área de trabalho do Log Analytics ou o aplicativo do Application Insights](../log-query/logs-structure.md), cada um com um tipo de dados específico que tenha um conjunto exclusivo de propriedades. Vários tipos de dados terá propriedades padrão que são comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como pode usá-los em consultas.
 
 Algumas dessas propriedades são ainda estiver no processo que está a ser implementado, pelo que poderá ver em alguns tipos de dados, mas ainda não em outros.
 
-## <a name="timegenerated"></a>TimeGenerated
-O **TimeGenerated** propriedade contém a data e hora em que o registo foi criado. Ele fornece uma propriedade comuns a utilizar para filtragem ou resumir por hora. Quando seleciona um intervalo de tempo para uma vista ou dashboard no portal do Azure, ele usa TimeGenerated para filtrar os resultados.
+## <a name="timegenerated-and-timestamp"></a>TimeGenerated e timestamp
+O **TimeGenerated** (área de trabalho do Log Analytics) e **timestamp** propriedades (aplicativo do Application Insights) contém a data e hora em que o registo foi criado. Ele fornece uma propriedade comuns a utilizar para filtragem ou resumir por hora. Quando selecionar um intervalo de tempo para uma vista ou dashboard no portal do Azure, ele usa TimeGenerated ou timestamp para filtrar os resultados.
 
 ### <a name="examples"></a>Exemplos
 
@@ -39,16 +39,25 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Tipo
-O **tipo** propriedade contém o nome da tabela que o registo foi obtido a partir da qual pode também ser considerado como o tipo de registo. Esta propriedade é útil para consultas que combinam registos de múltiplas tabelas, tais como os que utilizam o `search` operador, para distinguir entre os registros de diferentes tipos. **$table** pode ser utilizado em vez de **tipo** em alguns locais.
+A seguinte consulta devolve o número de exceções criadas para cada dia da semana anterior.
+
+```Kusto
+exceptions
+| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
+| summarize count() by bin(TimeGenerated, 1day) 
+| sort by timestamp asc 
+```
+
+## <a name="type-and-itemtype"></a>Tipo e itemType
+O **tipo** (área de trabalho do Log Analytics) e **itemType** (aplicativo do Application Insights) propriedades espera o nome da tabela que o registo foi obtido do que pode também ser considerado como o registo tipo. Esta propriedade é útil para consultas que combinam registos de múltiplas tabelas, tais como os que utilizam o `search` operador, para distinguir entre os registros de diferentes tipos. **$table** pode ser utilizado em vez de **tipo** em alguns locais.
 
 ### <a name="examples"></a>Exemplos
 A seguinte consulta devolve a contagem de registos por tipo recolhido durante a última hora.
 
 ```Kusto
 search * 
-| where TimeGenerated > ago(1h) 
-| summarize count() by Type 
+| where TimeGenerated > ago(1h)
+| summarize count() by Type
 ```
 
 ## <a name="resourceid"></a>\_ResourceId

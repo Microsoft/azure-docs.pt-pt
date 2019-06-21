@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870511"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272826"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Acesso delegado na pré-visualização de ambiente de Trabalho Virtual do Windows
 
@@ -42,11 +42,11 @@ Acesso delegado na área de Trabalho Virtual do Windows tem várias definições
 
 ## <a name="powershell-cmdlets-for-role-assignments"></a>Cmdlets do PowerShell para atribuições de funções
 
-Pode executar os seguintes cmdlets para criar, ver e editar atribuições de funções:
+Pode executar os seguintes cmdlets para criar, visualizar e remover atribuições de funções:
 
 * **Get-RdsRoleAssignment** apresenta uma lista de atribuições de funções.
 * **Novo RdsRoleAssignment** cria uma nova atribuição de função.
-* **Conjunto RdsRoleAssignment** edita atribuições de funções.
+* **Remove-RdsRoleAssignment** elimina as atribuições de funções.
 
 ### <a name="accepted-parameters"></a>Parâmetros aceites
 

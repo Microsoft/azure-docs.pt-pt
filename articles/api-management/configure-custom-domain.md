@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: a8bfa7c5baa316b4019480bfc146b6cc61eff979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74552f2d4bea495c0278ef6ed4a408188752a7e
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141291"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274985"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado 
 
@@ -49,7 +49,7 @@ Para efetuar os passos descritos neste artigo, tem de ter:
    + **SCM** (a predefinição é: `<apim-service-name>.scm.azure-api.net`).
 
      >[!NOTE]
-     > Pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizar **Proxy** (este URL é utilizado para chamar a API exposta por meio de gestão de API) e **Portal** (portal do programador URL). **Gerenciamento** e **SCM** pontos de extremidade são usados internamente por clientes APIM e, portanto, com menos frequência recebem um nome de domínio personalizado.
+     > Pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizar **Proxy** (este URL é utilizado para chamar a API exposta por meio de gestão de API) e **Portal** (portal do programador URL). **Gerenciamento** e **SCM** pontos de extremidade são usados internamente por clientes APIM e, portanto, com menos frequência recebem um nome de domínio personalizado. Na maioria dos casos, apenas um nome único domínio personalizado pode ser definido para um determinado ponto de extremidade. No entanto, o **Premium** camada de suporte a definição de vários nomes de anfitrião para o **Proxy** ponto final.  
 
 1. Selecione o ponto final que pretende atualizar. 
 1. Na janela à direita, clique em **personalizado**.

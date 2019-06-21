@@ -5,11 +5,11 @@ ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
 ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66125202"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184597"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Manter os ficheiros no Azure Cloud Shell
 Cloud Shell utiliza o armazenamento de ficheiros do Azure para manter os ficheiros em sessões. No início inicial, o Cloud Shell pede-lhe para associar uma partilha de ficheiros novos ou existentes para manter os ficheiros em sessões.

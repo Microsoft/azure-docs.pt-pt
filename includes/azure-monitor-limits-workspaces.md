@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: dfcf47a95d1dbff34ff322768fc4ac6c9674cff4
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
-ms.translationtype: HT
+ms.openlocfilehash: 21e2d3f75028d239175effa7a3608cc18ccfc95c
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295963"
+ms.locfileid: "67305320"
 ---
 **Volume de recolha de dados e retenção** 
 
 | Escalão | Limitar por dia | Retenção de dados | Comentário |
 |:---|:---|:---|:---|
 | Escalão de preço atual por GB<br>(introduzida em Abril de 2018) | Sem limite | 30 - 730 dias | Retenção de dados para além dos 31 dias está disponível para encargos adicionais. Saiba mais sobre os preços do Azure Monitor. |
-| Escalões gratuitos legados<br>(introduzida em Abril de 2016) | 500 MB | 7 dias | Quando a sua área de trabalho atinge o limite de transferência de dados diário 500 MB, a análise de dados é parada e retomada no início do dia seguinte. Os dias são baseados no fuso horário UTC. |
+| Escalões gratuitos legados<br>(introduzida em Abril de 2016) | 500 MB | 7 dias | Quando a sua área de trabalho atinge a 500 MB por limite de dias, ingestão de dados parada e retomada no início do dia seguinte. Os dias são baseados no fuso horário UTC. Tenha em atenção que os dados recolhidos pelo centro de segurança do Azure não estão incluído neste 500 MB por limite de dias e continuará a ser recolhidos acima desse limite.  |
 | Escalão de legado autónomo por GB<br>(introduzida em Abril de 2016) | Sem limite | 30 para 730 dias | Retenção de dados para além dos 31 dias está disponível para encargos adicionais. Saiba mais sobre os preços do Azure Monitor. |
 | Herdado por nó (OMS)<br>(introduzida em Abril de 2016) | Sem limite | 30 para 730 dias | Retenção de dados para além dos 31 dias está disponível para encargos adicionais. Saiba mais sobre os preços do Azure Monitor. |
 | Escalão Standard legado | Sem limite | 30 dias  | Retenção não pode ser ajustada |

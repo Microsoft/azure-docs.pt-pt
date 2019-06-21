@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427891"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206074"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -426,7 +426,7 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
     | [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
 
     >[!IMPORTANT]
-    >Se o seu armazenamento do Azure está configurado com o ponto final de serviço da VNet, tem de utilizar a autenticação de identidade gerida. Consulte [impacto de utilizar pontos finais de serviço de VNet com o armazenamento do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Se o seu armazenamento do Azure está configurado com o ponto final de serviço da VNet, tem de utilizar a autenticação de identidade gerida - consulte [impacto de utilizar pontos finais de serviço de VNet com o armazenamento do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Saiba as configurações necessárias na fábrica de dados a partir [BLOBs do Azure - autenticação de identidade gerida](connector-azure-blob-storage.md#managed-identity) e [Gen2 de armazenamento do Azure Data Lake - autenticação de identidade gerida](connector-azure-data-lake-storage.md#managed-identity) secção respectivamente.
 
 2. O **formato de dados de origem** é do **Parquet**, **ORC**, ou **delimitados por texto**, com as seguintes configurações:
 
@@ -537,12 +537,12 @@ Se a sua origem de dados está em texto formato ou outro compatível de não-Pol
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-A solução é anule a seleção de "**utilizar predefinição de tipo**" opção (como false) no sink de atividade de cópia -> definições personalizadas de PolyBase. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+A solução é anule a seleção de "**utilizar predefinição de tipo**" opção (como false) no sink de atividade de cópia -> definições de PolyBase. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
 )" é uma configuração de PolyBase nativa que especifica como lidar com valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto. 
 
 **Outros**
 
-Para mais knonw PolyBase problemas, consulte [carga de resolução de problemas do Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+Para problemas de PolyBase mais conhecidos, consulte [carga de resolução de problemas do Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de recursos do SQL Data Warehouse
 

@@ -12,18 +12,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 01/04/2019
+ms.date: 06/19/2019
 ms.author: jowargo
-ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6a6bc9b1d4826796299d073e0edfbfcede948e7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61460920"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274916"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Notification Hubs utilizando o Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!IMPORTANT]
+> Este tutorial foi preterido. 
 
 O Baidu Cloud Push é um serviço em nuvem chinês que pode utilizar para enviar notificações push para dispositivos móveis.
 
@@ -284,7 +287,7 @@ Tome nota da `DefaultListenSharedAccessSignature` e da `DefaultFullSharedAccessS
 
     Defina o valor da cadeia `API_KEY` com a API_KEY do projeto Baidu Cloud.
 
-    Defina o valor da cadeia `NotificationHubName` com o nome do hub de notificação a partir do [portal do Azure] e, em seguida, `NotificationHubConnectionString` com `DefaultListenSharedAccessSignature` a partir do [portal do Azure].
+    Defina o valor da cadeia `NotificationHubName` com o nome do hub de notificação a partir do [Azure portal] e, em seguida, `NotificationHubConnectionString` com `DefaultListenSharedAccessSignature` a partir do [Azure portal].
 
 11. Abra MainActivity.java e adicione o seguinte ao método onCreate:
 
@@ -466,7 +469,7 @@ Tome nota da `DefaultListenSharedAccessSignature` e da `DefaultFullSharedAccessS
 
 ## <a name="send-notifications-to-your-app"></a>Enviar notificações para a sua aplicação
 
-Pode testar rapidamente a receção das notificações no [portal do Azure]: utilize o botão **Enviar** no ecrã de configuração do hub de notificação, conforme mostrado nos seguintes ecrãs:
+Pode testar rapidamente a receção das notificações no [Azure portal]: utilize o botão **Enviar** no ecrã de configuração do hub de notificação, conforme mostrado nos seguintes ecrãs:
 
 ![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
 ![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
@@ -533,10 +536,10 @@ Para testar esta aplicação com o emulador, na barra de ferramentas superior do
 
 A aplicação obtém o `userId` e o `channelId` a partir do serviço de notificações do Baidu Push e regista-os no hub de notificação.
 
-Para enviar uma notificação de teste, pode utilizar o separador de depuração do [portal do Azure]. Se criou a aplicação de consola do .NET para Visual Studio, basta premir a tecla F5 no Visual Studio para executar a aplicação. A aplicação envia uma notificação apresentada na área de notificação superior do dispositivo ou emulador.
+Para enviar uma notificação de teste, pode utilizar o separador de depuração do [Azure portal]. Se criou a aplicação de consola do .NET para Visual Studio, basta premir a tecla F5 no Visual Studio para executar a aplicação. A aplicação envia uma notificação apresentada na área de notificação superior do dispositivo ou emulador.
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [SDK Android do Baidu Push]: https://push.baidu.com/sdk/push_client_sdk_for_android
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Portal do Baidu]: https://www.baidu.com/

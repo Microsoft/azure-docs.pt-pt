@@ -1,6 +1,6 @@
 ---
-title: Stream em direto com Media Services do Azure v3 através do .NET | Documentos da Microsoft
-description: Este tutorial explica os passos da transmissão em fluxo em direto com os Serviços de Multimédia v3 com .NET Core.
+title: Stream em direto com Media Services do Azure v3 | Documentos da Microsoft
+description: Este tutorial orienta-o pelos passos de transmissão em fluxo em direto com serviços de multimédia v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,19 +14,19 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8bac9b178aef1ddee396d94a193d9b9262cd6fce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5028fd4179f19634b41bb46a5f6df40f36cc8e29
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123073"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275564"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Stream em direto com serviços de multimédia v3 através do .NET
-
-Nos serviços de multimédia do Azure, [eventos ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um evento em direto fornece um ponto de final de entrada (URL de ingestão) que, em seguida, forneça a um codificador em direto. O evento Live recebe a transmissão em direto de entrada do codificador em direto e disponibiliza-o para transmissão em fluxo através de um ou mais [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints). Eventos em direto também fornecem um ponto de extremidade pré-visualização (URL de pré-visualização) que utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
+# <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Stream em direto com Media Services
 
 > [!NOTE]
-> Certifique-se de que revê [Transmissão em fluxo em direto com os Serviços de Multimédia v3](live-streaming-overview.md) antes de continuar. 
+> Mesmo que o tutorial utiliza a [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) exemplos, os passos gerais são os mesmos para [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), ou outro suportado [SDKs](media-services-apis-overview.md#sdks) .
+
+Nos serviços de multimédia do Azure, [eventos ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um evento em direto fornece um ponto de final de entrada (URL de ingestão) que, em seguida, forneça a um codificador em direto. O evento Live recebe a transmissão em direto de entrada do codificador em direto e disponibiliza-o para transmissão em fluxo através de um ou mais [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints). Eventos em direto também fornecem um ponto de extremidade pré-visualização (URL de pré-visualização) que utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
 
 Este tutorial mostra-lhe como:    
 
@@ -47,6 +47,9 @@ O seguinte é necessário para concluir o tutorial.
 - Siga os passos em [acesso à API de serviços de multimédia do Azure com a CLI do Azure](access-api-cli-how-to.md) e guarde as credenciais. Terá de utilizá-los para aceder à API.
 - Uma câmara ou um dispositivo (como um computador portátil) que é utilizado para transmitir um evento.
 - Um codificador em direto no local que converte sinais da câmara para transmissões em fluxos que são enviadas para o serviço de transmissão em fluxo em direto dos Serviços de Multimédia. O fluxo tem de ser em formato **RTMP** ou de **transmissão em fluxo uniforme**.
+
+> [!TIP]
+> Certifique-se de que revê [Transmissão em fluxo em direto com os Serviços de Multimédia v3](live-streaming-overview.md) antes de continuar. 
 
 ## <a name="download-and-configure-the-sample"></a>Transferir e configurar o exemplo
 
@@ -88,7 +91,7 @@ Algumas coisas que talvez queira especificar ao criar o evento em direto são:
 * A localização dos Serviços de Multimédia 
 * O protocolo de transmissão em fluxo para o evento em direto (atualmente, são suportados os protocolos RTMP e Smooth Streaming).<br/>Não é possível alterar a opção de protocolo enquanto o evento em direto ou suas saídas associadas em direto estão em execução. Se necessitar de protocolos diferentes, deve criar evento Live separado para cada protocolo de transmissão em fluxo.  
 * Restrições de IP na ingestão e na pré-visualização. Pode definir os endereços IP que estão autorizados a ingerir um vídeo para este evento em direto. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo "10.0.0.1"), um intervalo de IP com um endereço IP e uma máscara de sub-rede CIDR (por exemplo, ' 10.0.0.1/22') ou um intervalo de IP com um endereço IP e uma máscara de sub-rede de ponto decimal (por exemplo , ' 10.0.0.1(255.255.252.0)').<br/>Se não for especificado qualquer endereço IP e se não existir nenhuma definição de regra, não será permitido nenhum endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP tem de estar em um dos seguintes formatos: Endereço IpV4 com 4 números, o intervalo de endereços CIDR.
-* Ao criar o evento, poderá especificar o início automático do mesmo. <br/>Quando o início automático está definido como true, o evento em direto será iniciado após a criação. Isso significa que, o faturação começa logo que o startsrunning de evento em direto. Tem de chamar explicitamente Stop do recurso de evento em direto para parar a faturação ainda mais. Para obter mais informações, consulte [Estados de evento em direto e de faturação](live-event-states-billing.md).
+* Ao criar o evento, poderá especificar o início automático do mesmo. <br/>Quando o início automático está definido como true, o evento em direto será iniciado após a criação. Isso significa que, a faturação é iniciada assim que o evento Live começa a ser executado. Tem de chamar explicitamente Stop do recurso de evento em direto para parar a faturação ainda mais. Para obter mais informações, consulte [Estados de evento em direto e de faturação](live-event-states-billing.md).
 * Para um URL de inserção ser preditiva, defina o modo de "personalizado". Para obter informações detalhadas, consulte [URLs de inserção de evento em direto](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]

@@ -7,15 +7,15 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: article
-ms.date: 06/10/2019
+ms.topic: conceptual
+ms.date: 06/20/2019
 ms.author: dapine
-ms.openlocfilehash: 1468b0a8a37ba1ec3455252b80139ae5db1e7af8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bebf8a8a02b51cf2f96f5159283313974bf5081f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069189"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296699"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Implementar o contentor de deteção de idioma para o Azure Kubernetes Service
 

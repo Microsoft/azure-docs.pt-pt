@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: d4d2f24a0a7b1f01627ed2cea4a5732ca0e001c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2dc5fab0966c2ead0276cd8b23ea764bd4f9ef59
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068413"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190479"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
 
@@ -32,7 +32,7 @@ A unidade de implementação para as funções do Azure é a aplicação de fun�
 
 ## <a name="requirements-for-continuous-deployment"></a>Requisitos para a implementação contínua
 
-Para a implementação contínua com êxito, a estrutura de diretórios tem de ser compatível com a seguinte estrutura de pasta básico que espera as funções do Azure:
+Para a implementação contínua com êxito, a estrutura de diretórios têm de ser compatível com a seguinte estrutura de pasta básico que espera as funções do Azure:
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,13 +44,15 @@ Utilize este procedimento para configurar a implementação contínua para uma a
 
     ![Abrir o deployment center](./media/functions-continuous-deployment/platform-features.png)
 
-2. Sobre o **Deployment Center**, selecione **GitHub** para **controlo de origem** > **autorizar**.
+2. Na **Deployment Center**, selecione **GitHub**e, em seguida, selecione **autorizar**. Ou, se já autorizado GitHub, selecione **continuar**. 
 
     ![Central de implantação](./media/functions-continuous-deployment/github.png)
 
-3. Selecione **autorizar AzureAppService** > **continuar**.
+3. No GitHub, selecione **autorizar AzureAppService**. 
 
     ![Autorizar](./media/functions-continuous-deployment/authorize.png)
+    
+    No portal do Azure **Deployment Center**, selecione **continuar**.
 
 4. Selecione um dos seguintes fornecedores de compilação:
 

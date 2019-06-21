@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 311015aff5ea7020043ad8e43fd987144cdcbf52
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074268"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206735"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados na base de dados do Azure SQL
 
@@ -56,7 +56,7 @@ Alterar o serviço de camada ou a computação de tamanho de uma base de dados e
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latência de alterar o tamanho de computação de camada ou ao redimensionar o serviço
 
-A latência de alterar a camada de serviços ou rescale o tamanho de computação de um único banco de dados ou conjunto elástico é parametrizada da seguinte forma:
+A latência estimada para alterar a camada de serviços ou rescale o tamanho de computação de um único banco de dados ou conjunto elástico é parametrizada da seguinte forma:
 
 |Camada de serviços|Base de dados única básica,</br>Standard (S0-S1)|Conjunto elástico básico,</br>Standard (S2-S12), </br>Hiperescala, </br>Base de dados única finalidade geral ou conjunto elástico|Base de dados única Premium ou críticas para a empresa ou o conjunto elástico|
 |:---|:---|:---|:---|

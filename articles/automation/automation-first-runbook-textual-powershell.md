@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b08e1489cf337360e838a3b5d5531fa2d4c0073b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 752aca68d1a95734bcefbd0c92d4cfc1e6fade7c
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694322"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303902"
 ---
 # <a name="my-first-powershell-runbook"></a>O meu primeiro runbook do PowerShell
 
@@ -34,6 +34,7 @@ Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 * Subscrição do Azure. Se ainda não tiver uma, pode [ativar as vantagens de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se numa conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automatização](automation-quickstart-create-account.md) para manter o runbook e autenticar-se nos recursos do Azure. Esta conta tem de ter permissão para iniciar e parar a máquina virtual.
 * Uma máquina virtual do Azure. Parar e iniciar esta máquina, pelo que não deve ser uma VM de produção.
+* Se pretender [atualizar seus módulos do Azure](automation-update-azure-modules.md) com base nos cmdlets do que utilizar.
 
 ## <a name="create-new-runbook"></a>Criar novo runbook
 

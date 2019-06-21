@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c8aa00d069ae54584d8e828dab35c22048f1876
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015626"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295549"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Utilize a ferramenta de migração voluntária para migrar as regras do alerta clássicas
 
@@ -38,7 +38,7 @@ O processo de migração converte as regras de alerta clássicas para regras de 
 
 - O formato do payload de notificação e as APIs para criar e gerir novas regras de alerta são diferentes das regras de alerta clássicas porque eles oferecem suporte a mais recursos. [Saiba como preparar a migração](alerts-prepare-migration.md).
 
-- Não não possível migrar algumas regras de alerta clássicas com a ferramenta. [Saiba quais regras não podem ser migradas e o que fazer com eles](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated).
+- Não não possível migrar algumas regras de alerta clássicas com a ferramenta. [Saiba quais regras não podem ser migradas e o que fazer com eles](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
 
     > [!NOTE]
     > O processo de migração não afetarão a avaliação de suas regras de alerta clássicas. Este irá continuar a executar e enviar alertas até serem migradas e as novas regras de alerta entram em vigor.

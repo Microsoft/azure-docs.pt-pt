@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: Python e APIs REST - Azure Search'
 description: Criar, carregar e consultar um índice com o Python, blocos de notas do Jupyter e a API de REST do Azure Search.
-ms.date: 06/11/2019
+ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c519cbd151ac3008593e3309930db4e9a9414e51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056631"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302285"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Início rápido: Criar um índice da Azure Search utilizando blocos de notas do Jupyter Python
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67056631"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Criar um bloco de notas do Jupyter que cria, carrega e consulta o índice da Azure Search com o Python e o [as APIs de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como criar um bloco de notas passo a passo, começando do zero. Em alternativa, pode executar um bloco de notas terminado. Para transferir uma cópia, aceda a [repositório Azure-pesquisa-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
+Criar um bloco de notas do Jupyter que cria, carrega e consulta o índice da Azure Search com o Python e o [as APIs de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como criar um bloco de notas passo a passo, começando do zero. Em alternativa, pode executar um bloco de notas terminado. Para transferir uma cópia, vá para o[repositório azure-aearch-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

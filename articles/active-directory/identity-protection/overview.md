@@ -17,12 +17,12 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66015218"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67204506"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é o Azure Active Directory Identity Protection?
 
@@ -59,7 +59,7 @@ O Azure Active Directory Identity Protection é mais do que uma monitorização 
 - Fornecimento de fluxos de trabalho básicos para controlar as investigações
 - Proporciona acesso fácil para ações de remediação, tais como a reposição de palavra-passe
 
-**Políticas de acesso condicional baseado no risco:**
+**Políticas de acesso condicional com base no risco:**
 
 - Política para mitigar o risco de inícios de sessão ao inícios de sessão de bloquear ou exigir que os desafios de autenticação multifator
 - Política para bloquear ou contas de utilizador de risco de seguro
@@ -71,7 +71,7 @@ O balanceamento de carga as atividades de gestão em torno de sua implementaçã
 
 | Função | Pode fazer | Não é possível fazer |
 | :-- | --- | --- |
-| Administrador Global | Acesso total ao Identity Protection, carregar Identity Protection| |
+| Administrador global | Acesso total ao Identity Protection, carregar Identity Protection| |
 | Administrador de segurança | Acesso total ao Identity Protection | Carregar Identity Protection, repor palavras-passe para um utilizador |
 | Leitor de segurança | Acesso só de leitura ao Identity Protection | Carregar Identity Protection, remediar utilizadores, configurar políticas, repor palavras-passe |
 

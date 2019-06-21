@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571410"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204538"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Alterar a palavra-passe da conta do Conector do Azure AD
 A conta do conector do Azure AD deve para ser o serviço gratuitamente. Se precisar de repor as respetivas credenciais, então este tópico é para si. Por exemplo, se um Administrador Global tiver por engano repor a palavra-passe da conta com o PowerShell.
@@ -39,12 +39,12 @@ Este cmdlet repõe a palavra-passe para a conta de serviço e atualizá-la no Az
 ## <a name="known-issues-these-steps-can-solve"></a>Problemas conhecidos que podem resolver estes passos
 Esta secção é uma lista de erros relatados por clientes que foram corrigidos por um credenciais repor na conta do conector do Azure AD.
 
-- - -
+---
 Evento 6900  
 O servidor encontrou um erro inesperado ao processar uma notificação de alteração de palavra-passe:  
 AADSTS70002: Credenciais de validação de erro. AADSTS50054: Foi utilizada uma palavra-passe antiga para a autenticação.
 
-- - -
+---
 Evento 659  
 Erro ao obter a configuração de sincronização da política de palavra-passe. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
 AADSTS70002: Credenciais de validação de erro. AADSTS50054: Foi utilizada uma palavra-passe antiga para a autenticação.

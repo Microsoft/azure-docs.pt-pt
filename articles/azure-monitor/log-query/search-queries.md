@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560832"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295566"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa nos registos do Azure Monitor
-
-> [!NOTE]
-> Deve efetuar [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Consultas de registo do Azure Monitor podem começar com um nome de tabela ou um comando de pesquisa. Este tutorial abrange as consultas baseadas em pesquisa. Há vantagens em cada método.
 
 As consultas baseadas em tabela comece pela consulta de âmbito e, portanto, tendem a ser mais eficiente do que as consultas de pesquisa. Consultas de pesquisa são que menos estruturado que torna a melhor escolha quando procurar por um valor específico em colunas ou tabelas. **pesquisa** pode analisar todas as colunas numa determinada tabela ou em todas as tabelas, para o valor especificado. A quantidade de dados a serem processados pode ser enorme, que é a razão pela qual estas consultas podem demorar mais tempo a concluir e podem devolver conjuntos de resultados muito grandes.

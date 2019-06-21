@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 5f0042fa7b44fb150b9aaa982cad48a02da3bba7
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
-ms.translationtype: HT
+ms.openlocfilehash: e3b9acf38bc213db7fcde5fbb5fe26f455c0fc00
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295988"
+ms.locfileid: "67305322"
 ---
 | Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |

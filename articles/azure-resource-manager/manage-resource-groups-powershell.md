@@ -5,18 +5,15 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 8ae86d8bc7914a7a9c41eee93bb16b2f774993b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6a102b794ca9c43e1dd18f923f6ce224596499
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550500"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296266"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerir grupos de recursos do Azure Resource Manager com o Azure PowerShell
 
@@ -122,10 +119,12 @@ Pode aplicar etiquetas a grupos de recursos e recursos para organizar logicament
 
 ## <a name="export-resource-groups-to-templates"></a>Grupos de recursos de exportação para modelos
 
-Depois de configurar o seu grupo de recursos com êxito, poderá ver o modelo do Resource Manager para o grupo de recursos. Exportar o modelo oferece duas vantagens:
+Depois de configurar o grupo de recursos, pode ver um modelo do Resource Manager para o grupo de recursos. Exportar o modelo oferece duas vantagens:
 
-- Automatize implementações futuras da solução porque o modelo contém toda a infraestrutura completa.
+- Automatize implementações futuras da solução porque o modelo contém toda a infraestrutura.
 - Aprenda a sintaxe do modelo ao procurar em JavaScript Object Notation (JSON) que representa a sua solução.
+
+Para exportar todos os recursos num grupo de recursos, utilize o [Export-AzResourceGroup](/powershell/module/az.resources/Export-AzResourceGroup) cmdlet e forneça o nome do grupo de recursos.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -133,7 +132,87 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Export-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 
-Para obter mais informações, consulte [grupo de recursos de exportação](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+Ele salva o modelo como um ficheiro local.
+
+Em vez de exportar todos os recursos no grupo de recursos, pode selecionar que recursos a exportar.
+
+Para exportar um recurso, passar essa ID de recurso.
+
+```azurepowershell-interactive
+$resource = Get-AzResource `
+  -ResourceGroupName <resource-group-name> `
+  -ResourceName <resource-name> `
+  -ResourceType <resource-type>
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource $resource.ResourceId
+```
+
+Para exportar mais do que um recurso, de transmitir o IDs de recurso numa matriz.
+
+```azurepowershell-interactive
+Export-AzResourceGroup `
+  -ResourceGroupName <resource-group-name> `
+  -Resource @($resource1.ResourceId, $resource2.ResourceId)
+```
+
+Ao exportar o modelo, pode especificar se os parâmetros são utilizados no modelo. Por predefinição, os parâmetros para nomes de recursos são incluídos, mas não têm um valor predefinido. Tem de passar esse valor de parâmetro durante a implementação.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": null,
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": null,
+    "type": "String"
+  }
+}
+```
+
+O recurso, o parâmetro é utilizado para o nome.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+Se utilizar o `-IncludeParameterDefaultValue` parâmetro ao exportar o modelo, o parâmetro de modelo inclui um valor predefinido que é definido como o valor atual. Pode utilizar esse valor de predefinição ou substituir o valor predefinido ao transmitir um valor diferente.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+Se utilizar o `-SkipResourceNameParameterization` parâmetro ao exportar o modelo, os parâmetros para os nomes de recursos não estão incluídos no modelo. Em vez disso, o nome do recurso é definido diretamente no recurso para o valor atual. Não é possível personalizar o nome durante a implementação.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
+
+Para obter mais informações, consulte [exportação única e vários recurso para o modelo no portal do Azure](./export-template-portal.md).
 
 ## <a name="manage-access-to-resource-groups"></a>Gerir o acesso aos grupos de recursos
 

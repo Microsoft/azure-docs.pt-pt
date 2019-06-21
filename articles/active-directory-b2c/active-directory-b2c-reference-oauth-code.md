@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7157682d7952529f9dfa98e8bc8707df9cfe944f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: b3e94bfdb513016015320dfcdf7db30981466303
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509249"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272071"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização de OAuth 2.0 no Azure Active Directory B2C
 
@@ -116,7 +117,9 @@ error=access_denied
 | state |Consulte a descrição completa na tabela anterior. Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
 
 ## <a name="2-get-a-token"></a>2. Obter um token
-Agora que comprou um código de autorização, poderá resgatá a `code` de um token para o recurso pretendido ao enviar um pedido POST para o `/token` ponto final. No Azure AD B2C, o único recurso que pode pedir um token para é a API web back-end da aplicação. A Convenção de que é utilizada para pedir um token a próprio é usar o ID de cliente da sua aplicação como o âmbito:
+Agora que comprou um código de autorização, poderá resgatá a `code` de um token para o recurso pretendido ao enviar um pedido POST para o `/token` ponto final. No Azure AD B2C, pode [pedir tokens de acesso para outra API](active-directory-b2c-access-tokens.md#request-a-token) como de costume, especificando os âmbitos que se no pedido.
+
+Também pode pedir um token de acesso para a API de Web de back-end da aplicação por convenção de usar o ID da aplicação cliente como o âmbito de pedido (o que resulta num token de acesso com esse ID de cliente como o "público"):
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

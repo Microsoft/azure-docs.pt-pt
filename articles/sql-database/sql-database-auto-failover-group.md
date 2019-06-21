@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522861"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190718"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -42,7 +42,10 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Grupo de ativação pós-falha (NÉVOA)**
 
-  Um grupo de ativação pós-falha é um grupo de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária. Quando é criado para instâncias geridas, um grupo de ativação pós-falha contém todas as bases de dados de utilizador na instância e, portanto, apenas um grupo de ativação pós-falha pode ser configurado numa instância.
+  Um grupo de ativação pós-falha é um grupo denominado de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária. Quando é criado para instâncias geridas, um grupo de ativação pós-falha contém todas as bases de dados de utilizador na instância e, portanto, apenas um grupo de ativação pós-falha pode ser configurado numa instância.
+  
+  > [!IMPORTANT]
+  > O nome do grupo de ativação pós-falha tem de ser globalmente exclusivo no `.database.windows.net` domínio.
 
 - **Servidores de base de dados SQL**
 

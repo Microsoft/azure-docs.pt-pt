@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165363"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184207"
 ---
 Em seguida, se estiver a executar todos os servidores no cluster do Windows Server 2008 R2 ou Windows Server 2012, tem de verificar se a correção [KB2854082](https://support.microsoft.com/kb/2854082) é instalado em cada um dos servidores no local ou VMs do Azure que fazem parte do cluster. Qualquer servidor ou VM que está no cluster, mas não no grupo de disponibilidade, deve também ter esta correção instalada.
 

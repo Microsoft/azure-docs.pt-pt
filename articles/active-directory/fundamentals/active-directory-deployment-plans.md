@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c761cad49ad42bd592b1fd8105052b39ef1177
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f59cae87af5f29d900159639798f9cd031f3d765
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110454"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302376"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Está à procura de orientações completas para implementar algumas das capacidades do Azure Active Directory (Azure AD)? Os planos de implementação que se seguem orientam-no ao longo do valor comercial, das considerações de planeamento, de design e dos procedimentos operacionais necessários para implementar algumas das capacidades mais comuns do Azure AD. 
@@ -60,7 +60,7 @@ As funções poderão incluir o seguinte
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Ao utilizar métodos de autenticação aprovados pelo administrador, o MFA do Azure ajuda a salvaguardar o acesso a dados e aplicações, enquanto cumpre a exigência de um processo de início de sessão simples.|
 |[Acesso condicional](https://aka.ms/deploymentplans/ca)|Com acesso condicional, é possível implementar as decisões de controlo de acesso automatizada para o que pode aceder às suas aplicações na cloud, com base em condições.|
 |[Reposição personalizada de palavras-passe](https://aka.ms/SSPRDPDownload)|A reposição personalizada de palavras-passe ajuda os utilizadores a repor as respetivas palavras-passe, sem qualquer intervenção do administrador, quando e onde precisarem.|
-|[Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)|O Azure AD Privileged Identity Management (PIM) ajuda-o a gerir as funções administrativas com privilégios no Azure AD, recursos do Azure e outros serviços Online da Microsoft. PIM fornece soluções, como acesso just-in-time, fluxos de trabalho de aprovação de solicitação e acesso totalmente integrado a revisões para que possa identificar, descobrir e impedir que atividades maliciosas de funções com privilégios em tempo real.|
+|[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|O Azure AD Privileged Identity Management (PIM) ajuda-o a gerir as funções administrativas com privilégios no Azure AD, recursos do Azure e outros serviços Online da Microsoft. PIM fornece soluções, como acesso just-in-time, fluxos de trabalho de aprovação de solicitação e acesso totalmente integrado a revisões para que possa identificar, descobrir e impedir que atividades maliciosas de funções com privilégios em tempo real.|
 |[Início de sessão único](https://aka.ms/SSODPDownload)|O início de sessão único ajuda-o a aceder a todos os recursos e aplicações de que precisa para trabalhar ao iniciar sessão só uma vez e com uma única conta de utilizador. Depois de iniciar sessão, pode utilizar o Microsoft Office, o SalesForce ou o Box sem ter de se autenticar (por exemplo, introduzir uma palavra-passe) uma segunda vez.|
 |[SSO totalmente integrado](https://aka.ms/SeamlessSSODPDownload)|O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO Totalmente Integrado do Azure AD) inicia sessão automaticamente pelos utilizadores quando estão a utilizar os dispositivos da empresa ligados à sua rede empresarial. Depois de ativar esta funcionalidade, os utilizadores não precisam de introduzir as palavras-passe para iniciar sessão no Azure AD e, por norma, nem sequer têm de introduzir os nomes de utilizador. Esta funcionalidade dá aos utilizadores acesso fácil às aplicações baseadas na cloud sem serem precisos componentes no local adicionais.|
 |[Painel de Acesso](https://aka.ms/AccessPanelDPDownload)|Proporcionar aos usuários um hub simple para detetar e aceder a todos os seus aplicativos. Ativá-los para serem mais produtivos com capacidades self-service, como a capacidade de solicitar acesso a aplicações de novas e grupos, ou gerir o acesso a estes recursos em nome de outros.|

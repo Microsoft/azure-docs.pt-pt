@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6425fdfe89ca2f4c47aaf0e5ffd1dac7767b5020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057929"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203303"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar dados de ou para a geração 2 de armazenamento do Azure Data Lake com o Azure Data Factory
 
@@ -60,6 +60,9 @@ O conector de geração 2 de armazenamento do Azure Data Lake suporta os seguint
 - [Autenticação do principal de serviço](#service-principal-authentication)
 - [Identidades geridas para a autenticação de recursos do Azure](#managed-identity)
 
+>[!NOTE]
+>Quando utilizar o PolyBase para carregar dados para o SQL Data Warehouse, se a sua origem de geração 2 de armazenamento do Data Lake está configurada com o ponto final de rede Virtual, tem de utilizar a autenticação de identidade gerida conforme exigido pelo PolyBase. Consulte a [autenticação de identidade gerida](#managed-identity) seção com mais de pré-requisitos de configuração.
+
 ### <a name="account-key-authentication"></a>Autenticação de chave de conta
 
 Para utilizar a autenticação de chave de conta de armazenamento, são suportadas as seguintes propriedades:
@@ -103,10 +106,10 @@ Para utilizar autenticação do principal de serviço, siga estes passos.
     - Chave da aplicação
     - ID do inquilino
 
-2. Conceda a permissão de adequada principal do serviço.
+2. Conceda a permissão de adequada principal do serviço. Saiba mais sobre como funciona a permissão na geração 2 de armazenamento do Data Lake do [apresenta uma lista de controlo de acesso em arquivos e diretórios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **Como origem**: No Explorador de armazenamento do Azure, conceder, pelo menos, **leitura + execução** permissão para listar e copie os ficheiros em pastas e subpastas. Em alternativa, pode conceder **leitura** permissão para copiar um ficheiro individual. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, o **leitor de dados de Blob de armazenamento** função.
-    - **Como sink**: No Explorador de armazenamento, conceder, pelo menos, **escrita + execução** permissão para criar itens subordinados numa pasta. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, o **contribuinte de dados de Blob de armazenamento** função.
+    - **Como origem**: No Explorador de armazenamento, conceder, pelo menos, **Execute** permissão a partir do sistema de arquivos de origem, juntamente com **leitura** permissão para os ficheiros copiar. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, o **leitor de dados de Blob de armazenamento** função.
+    - **Como sink**: No Explorador de armazenamento, conceder, pelo menos, **Execute** permissão a partir do sistema de arquivos de sink, juntamente com **escrever** permissão para a pasta de sink. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, o **contribuinte de dados de Blob de armazenamento** função.
 
 >[!NOTE]
 >A lista de pastas a partir do nível da conta ou a ligação de teste, precisa definir a permissão do principal de serviço, sendo concedido ao **conta de armazenamento com a permissão de "Leitor de dados de Blob de armazenamento" no IAM**. Isso é verdade, quando utiliza o:
@@ -157,10 +160,10 @@ Para utilizar identidades geridas para a autenticação de recursos do Azure, si
 
 1. [Obter as informações de identidade gerida do Data Factory](data-factory-service-identity.md#retrieve-managed-identity) ao copiar o valor da **ID da aplicação de identidade de serviço** gerada juntamente com sua fábrica.
 
-2. Conceda a permissão adequada de identidade gerida.
+2. Conceda a permissão adequada de identidade gerida. Saiba mais sobre como funciona a permissão no Data Lake Storage Gen2 da [apresenta uma lista de controlo de acesso em arquivos e diretórios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Como origem**: No Explorador de armazenamento, conceder, pelo menos, **leitura + execução** permissão para listar e copie os ficheiros em pastas e subpastas. Em alternativa, pode conceder **leitura** permissão para copiar um ficheiro individual. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, o **leitor de dados de Blob de armazenamento** função.
-    - **Como sink**: No Explorador de armazenamento, conceder, pelo menos, **escrita + execução** permissão para criar itens subordinados numa pasta. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, o **contribuinte de dados de Blob de armazenamento** função.
+    - **Como origem**: No Explorador de armazenamento, conceder, pelo menos, **Execute** permissão a partir do sistema de arquivos de origem, juntamente com **leitura** permissão para os ficheiros copiar. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, o **leitor de dados de Blob de armazenamento** função.
+    - **Como sink**: No Explorador de armazenamento, conceder, pelo menos, **Execute** permissão a partir do sistema de arquivos de sink, juntamente com **escrever** permissão para a pasta de sink. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, o **contribuinte de dados de Blob de armazenamento** função.
 
 >[!NOTE]
 >A lista de pastas a partir do nível da conta ou a ligação de teste, precisa definir a permissão de a identidade gerida sendo concedido ao **conta de armazenamento com a permissão de "Leitor de dados de Blob de armazenamento" no IAM**. Isso é verdade, quando utiliza o:
@@ -169,7 +172,7 @@ Para utilizar identidades geridas para a autenticação de recursos do Azure, si
 >Se tiver questões sobre a concessão da permissão ao nível da conta, pode ignorar manualmente a ligação de teste e o caminho de entrada durante a criação. Atividade de cópia ainda funciona, desde que a identidade gerida é concedida com a permissão adequada nos arquivos sejam copiados.
 
 >[!IMPORTANT]
->Se utilizar o PolyBase para carregar dados de geração 2 de armazenamento do Data Lake para o SQL Data Warehouse, quando utiliza a autenticação de identidade gerida de geração 2 de armazenamento do Data Lake, certifique-se de que também siga os passos 1 e 2 no [esta orientação](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Siga as instruções para registar o servidor de base de dados SQL com o Azure Active Directory (Azure AD). Também atribuir a função de contribuinte de dados de Blob de armazenamento com controlo de acesso baseado em funções para o seu servidor de base de dados SQL. O resto é feito pela fábrica de dados. Se sua Gen2 de armazenamento do Data Lake está configurado com um ponto de extremidade de rede Virtual do Azure para utilizar o PolyBase para carregar dados a partir do mesmo, tem de utilizar a autenticação de identidade gerida.
+>Se utilizar o PolyBase para carregar dados de geração 2 de armazenamento do Data Lake para o SQL Data Warehouse, ao utilizar a autenticação de identidade gerida de geração 2 de armazenamento do Data Lake, certifique-se de que também siga os passos 1 e 2 no [esta orientação](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) como 1) registe o seu SQL Servidor de base de dados com o Azure Active Directory (Azure AD) e 2) atribuir a função de contribuinte de dados de Blob de armazenamento ao seu servidor de base de dados SQL; o resto são processadas pelo Data Factory. Se sua Gen2 de armazenamento do Data Lake está configurado com um ponto de extremidade de rede Virtual do Azure, para utilizar o PolyBase para carregar dados a partir do mesmo, tem de utilizar a autenticação de identidade gerida conforme exigido pelo PolyBase.
 
 Estas propriedades são suportadas para o serviço ligado:
 

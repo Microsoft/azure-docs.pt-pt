@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: 506076e2d9b171e1ec1ff604519cbbfbe4339e87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5e2af7a7118eaa95e43049b3594ffd584aad4cc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66733073"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203086"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps e Microsoft Flow
 
@@ -4303,7 +4303,7 @@ Neste exemplo, ambas as expressões de localizar nós que correspondem a `<locat
 
 * *Expressão 2*
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 Seguem-se os argumentos:
 
@@ -4317,9 +4317,9 @@ Seguem-se os argumentos:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Aqui está o nó de resultado que corresponda a `<location></location` nó:
+Aqui está o nó de resultado que corresponda a `<location></location>` nó:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

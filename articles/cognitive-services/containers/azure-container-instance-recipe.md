@@ -7,15 +7,15 @@ author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 06/12/2019
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 5de11b62bb2a2302c247907627e27339400fcf25
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: db73d4e30c960eb09e6b5fbc9411901c69c28b01
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207493"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272965"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>Implementar e executar o contentor na instância de contentor do Azure (ACI)
 

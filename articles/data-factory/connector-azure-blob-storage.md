@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be075b78d8388b7146a9a3180ca825fc6476108
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233194"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206039"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -60,7 +60,10 @@ Conector de Blobs do Azure suporta os seguintes tipos de autenticação, consult
 - [Identidades geridas para a autenticação de recursos do Azure](#managed-identity)
 
 >[!NOTE]
->HDInsights, Azure Machine Learning e carga do Azure SQL Data Warehouse PolyBase suportam apenas a autenticação de chave de conta de armazenamento de Blobs do Azure.
+>Quando utilizar o PolyBase para carregar dados para o SQL Data Warehouse, se a origem ou o armazenamento de BLOBs de teste está configurado com o ponto final de rede Virtual, tem de utilizar a autenticação de identidade gerida conforme exigido pelo PolyBase e utilize o Runtime de integração autoalojado com a versão 3.18 ou superior. Consulte a [autenticação de identidade gerida](#managed-identity) seção com mais de pré-requisitos de configuração.
+
+>[!NOTE]
+>Atividades do HDInsights e o Azure Machine Learning só suportam a autenticação de chave de conta de armazenamento de Blobs do Azure.
 
 ### <a name="account-key-authentication"></a>Autenticação de chave de conta
 
@@ -272,6 +275,9 @@ Consulte a [autenticar o acesso ao armazenamento do Azure com o Azure Active Dir
 
     - **Como origem**, acesso para controlar (IAM), pelo menos a conceder **leitor de dados de Blob de armazenamento** função.
     - **Como sink**, acesso para controlar (IAM), pelo menos a conceder **contribuinte de dados de Blob de armazenamento** função.
+
+>[!IMPORTANT]
+>Se utilizar o PolyBase para carregar dados do Blob (como origem ou como teste) para o SQL Data Warehouse, ao utilizar a autenticação de identidade gerida para o Blob, certifique-se de que também siga os passos 1 e 2 no [esta orientação](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) como 1) registe-se a base de dados SQL servidor com o Azure Active Directory (Azure AD) e 2) atribuir a função de contribuinte de dados de Blob de armazenamento ao seu servidor de base de dados SQL; o resto são processadas pelo Data Factory. Se o seu armazenamento de Blobs está configurado com um ponto de extremidade de rede Virtual do Azure, para utilizar o PolyBase para carregar dados a partir do mesmo, tem de utilizar a autenticação de identidade gerida conforme exigido pelo PolyBase.
 
 Estas propriedades são suportadas para um serviço ligado do armazenamento de Blobs do Azure:
 

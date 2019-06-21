@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147246"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184726"
 ---
 ## <a name="repeatability-during-copy"></a>Capacidade de repetição durante a cópia
 Quando armazena a cópia de dados para o Azure SQL e do SQL Server de outros dados, é necessário ter a capacidade de repetição em mente para evitar resultados indesejados. 

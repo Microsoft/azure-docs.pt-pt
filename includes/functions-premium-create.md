@@ -9,11 +9,11 @@ ms.date: 04/01/2019
 ms.author: jehollan, glenga
 ms.custom: include file
 ms.openlocfilehash: 0f3303e7bc87ca0bd29f367405372568ed6da7a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131564"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184414"
 ---
 1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
