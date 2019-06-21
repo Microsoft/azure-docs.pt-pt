@@ -68,7 +68,7 @@ Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
 name | Nome da atividade condição-if. | String | Sim
 type | Tem de ser definido como **IfCondition** | String | Sim
-expressão | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão com o resultado do tipo Booleano | Sim
+expression | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão com o resultado do tipo Booleano | Sim
 ifTrueActivities | Conjunto de atividades que são executadas quando a expressão avalia `true`. | Array | Sim
 ifFalseActivities | Conjunto de atividades que são executadas quando a expressão avalia `false`. | Array | Sim
 
