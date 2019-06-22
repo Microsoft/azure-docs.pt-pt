@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b405c643f642a8b3f950848fe8cba65207cb5cb3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 04c7663073a710fe39017b01edd0623a837d6354
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271418"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331808"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python
 
@@ -47,12 +47,13 @@ Quando o recurso do reconhecedor de forma a conclusão da implantação, localiz
 
 ## <a name="train-a-form-recognizer-model"></a>Preparar um modelo de formulário reconhecedor
 
-Em primeiro lugar, terá um conjunto de dados de treinamento num blob de armazenamento do Azure. Deve ter um mínimo de cinco exemplo formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio com dois formulários preenchidos. Nome de ficheiro do formulário vazio tem de incluir a palavra "vazia".
+Em primeiro lugar, terá um conjunto de dados de treinamento num contentor de BLOBs de armazenamento do Azure. Deve ter um mínimo de cinco exemplo formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio com dois formulários preenchidos. Nome de ficheiro do formulário vazio tem de incluir a palavra "vazia".
 
 Para preparar um modelo de formulário reconhecedor utilizando os documentos no seu contentor de Blobs do Azure, chame o **treinar** API ao executar o python de código a seguir. Antes de executar o código, efetue estas alterações:
 
 1. Substitua `<Endpoint>` com o URL de ponto final para o recurso do reconhecedor de formulário na região do Azure, onde obteve as chaves de subscrição.
-1. Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS) da localização de dados de treinamento.  
+1. Substitua `<SAS URL>` com o Blob do Azure partilhado do contentor de armazenamento do URL de assinatura (SAS) de acesso. Para obter isso, abra o Explorador de armazenamento do Microsoft Azure, o contentor com o botão direito e selecione **assinatura de acesso partilhado do Get**. Clique a caixa de diálogo seguinte e copie o valor de **URL** secção. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: `application/pdf`, `image/jpeg`, `image/png`.
 1. Substitua `<Subscription key>` com a chave de subscrição que copiou no passo anterior.
     ```python
     ########### Python Form Recognizer Train #############
@@ -63,7 +64,7 @@ Para preparar um modelo de formulário reconhecedor utilizando os documentos no 
     source = r"<SAS URL>"
     headers = {
         # Request headers
-        'Content-Type': 'application/json',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
     url = base_url + "/train" 
@@ -83,59 +84,40 @@ Receberá um `200 (Success)` resposta com esta saída JSON:
 
 ```json
 {
-  "parameters": {
-    "Endpoint": "{Endpoint}",
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": "{API key}",
-    "body": {},
-    "trainRequest": {
-      "source": "/input/data",
-      "sourceFilter": {
-        "prefix": "",
-        "includeSubFolders": false
-      }
+  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
+  "trainingDocuments": [
+    {
+      "documentName": "Invoice_1.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_2.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_3.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_4.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_5.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
     }
-  },
-  "responses": {
-    "200": {
-      "body": {
-        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
-        "trainingDocuments": [
-          {
-            "documentName": "0.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "1.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "2.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "3.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "4.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          }
-        ],
-        "errors": []
-      }
-    }
-  }
+  ],
+  "errors": []
 }
 ```
 
@@ -148,7 +130,7 @@ Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabela
 1. Substitua `<Endpoint>` com o ponto final que obteve com a sua chave de subscrição do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
 1. Substitua `<path to your form>` com o caminho do seu formulário (por exemplo, C:\temp\file.pdf).
 1. Substitua `<modelID>` com o ID de modelo que recebeu na secção anterior.
-1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: pdf, imagem/jpeg, png/imagem.
+1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: `application/pdf`, `image/jpeg`, `image/png`.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
     ```python
@@ -161,7 +143,7 @@ Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabela
     model_id = "<modelID>"
     headers = {
         # Request headers
-        'Content-Type': 'application/<file type>',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<subscription key>',
     }
 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b5f3b77e3af719d0e3b37ac196b1691ce659e5e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3f3b74452ff1f866b0285eee962ab3678b151a30
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271448"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331838"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com cURL
 
@@ -52,7 +52,7 @@ Em primeiro lugar, terá um conjunto de dados de treinamento num blob de armazen
 Para preparar um modelo de formulário reconhecedor utilizando os documentos no seu contentor de Blobs do Azure, chame o **treinar** API ao executar o comando cURL que se segue. Antes de executar o comando, efetue estas alterações:
 
 1. Substitua `<Endpoint>` com o ponto final que obteve na sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
-1. Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS) da localização de dados de treinamento. (Obter o URL de SAS ao clicar em "Assinatura de acesso partilhado" no menu de definições na conta de armazenamento e "cadeia de ligação e gerar SAS". Isto irá mostrar o URL de SAS de serviço de Blobs. Ajustar essa url adicionando o containername após .net / e antes? sv = no url, por exemplo:.blob.core.windows.net/ < name_of_your_container > /? sv =... Este é o URL de SAS para ser usado.)
+1. Substitua `<SAS URL>` com o Blob do Azure partilhado do contentor de armazenamento do URL de assinatura (SAS) de acesso. Para obter isso, abra o Explorador de armazenamento do Microsoft Azure, o contentor com o botão direito e selecione **assinatura de acesso partilhado do Get**. Clique a caixa de diálogo seguinte e copie o valor de **URL** secção. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Substitua `<subscription key>` com a chave de subscrição que copiou no passo anterior.
 
 ```bash
@@ -63,59 +63,40 @@ Receberá um `200 (Success)` resposta com o seguinte resultado JSON:
 
 ```json
 {
-  "parameters": {
-    "Endpoint": "{Endpoint}",
-    "Content-Type": "application/json",
-    "Ocp-Apim-Subscription-Key": "{API key}",
-    "body": {},
-    "trainRequest": {
-      "source": "/input/data",
-      "sourceFilter": {
-        "prefix": "",
-        "includeSubFolders": false
-      }
+  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
+  "trainingDocuments": [
+    {
+      "documentName": "Invoice_1.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_2.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_3.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_4.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
+    },
+    {
+      "documentName": "Invoice_5.pdf",
+      "pages": 1,
+      "errors": [],
+      "status": "success"
     }
-  },
-  "responses": {
-    "200": {
-      "body": {
-        "modelId": "ad1901b6-ddaa-4249-8938-3f03f65cc893",
-        "trainingDocuments": [
-          {
-            "documentName": "0.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "1.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "2.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "3.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          },
-          {
-            "documentName": "4.pdf",
-            "pages": 1,
-            "errors": [],
-            "status": "success"
-          }
-        ],
-        "errors": []
-      }
-    }
-  }
+  ],
+  "errors": []
 }
 ```
 
@@ -128,12 +109,12 @@ Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabela
 1. Substitua `<Endpoint>` com o ponto final que obteve na sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
 1. Substitua `<modelID>` com o ID de modelo que recebeu na secção anterior.
 1. Substitua `<path to your form>` com o caminho do seu formulário (por exemplo, C:\temp\file.pdf).
-1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: pdf, imagem/jpeg, png/imagem.
+1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: `application/pdf`, `image/jpeg`, `image/png`.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Examinar a resposta

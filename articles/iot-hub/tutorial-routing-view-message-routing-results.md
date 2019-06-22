@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162872"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330544"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: ver as mensagens encaminhadas
 
@@ -126,7 +126,7 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    **Ponto final**: Selecione **mensagens**. (Se selecionar Monitorização de Operações, poderá obter os dados de telemetria sobre o hub IoT, em vez dos dados que está a enviar.) 
 
-   **Nome da política de acesso partilhado**: Selecione **iothubowner**. O portal preenche a Chave da Política de Acesso Partilhado por si.
+   **Nome da política de acesso partilhado**: Selecione **serviço**. O portal preenche a Chave da Política de Acesso Partilhado por si.
 
    **Grupo de consumidores**: Selecione o grupo de consumidores definido no passo 1 deste tutorial. Este tutorial utiliza **contosoconsumers**.
    

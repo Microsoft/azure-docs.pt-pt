@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479546"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329369"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funções definidas pelo utilizador para JavaScript do Stream Analytics do Azure
  
@@ -120,6 +120,8 @@ Object | Record
 Array | Array
 Null, Undefined | NULL
 Qualquer outro tipo (por exemplo, uma função ou erro) | Não suportado (resultados num erro de runtime)
+
+Linguagem JavaScript diferencia maiúsculas de minúsculas e os campos do objeto no código JavaScript letras maiúsculas e minúsculas tem de corresponder as maiúsculas e minúsculas dos campos nos dados de entrada. Tenha em atenção que os trabalhos com o nível de compatibilidade 1.0 converterá campos da instrução SQL SELECT para estar em minúsculas. No nível de compatibilidade 1.1 e posteriores, campos da instrução SELECT terão a mesmo tem maiúsculas e minúsculas, conforme especificado na consulta SQL.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades**.
