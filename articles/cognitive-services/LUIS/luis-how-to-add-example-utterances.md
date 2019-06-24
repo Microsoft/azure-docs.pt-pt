@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c7476a82df75d8ba653a2a8e6c0f9f557b53c42
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072856"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341880"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 
 Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Ensinar a compreensão de idiomas (LUIS), precisa adicionar [expressões de exemplo](luis-concept-utterance.md) para um [intenção](luis-concept-intent.md).
 
-Normalmente, adicione uma expressão de exemplo para um objetivo primeiro e, em seguida, criar entidades e expressões de etiqueta na página de intenção. Se o primeiro, em vez disso, seria criar entidades, veja [adicionar entidades](luis-how-to-add-entities.md).
+Normalmente, adicione uma expressão de exemplo para um objetivo pela primeira vez e, em seguida, criar entidades e expressões com na página da intenção da etiqueta. Se o primeiro, em vez disso, seria criar entidades, veja [adicionar entidades](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Marcar entidades em expressões de exemplo
 

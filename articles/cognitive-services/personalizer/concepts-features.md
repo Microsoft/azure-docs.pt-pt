@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
+ms.topic: concept
+ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: b2054aa963991ffa2d92aabf1ce896031f2d87fc
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296048"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340896"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -29,7 +29,7 @@ Por exemplo, pode ter uma **funcionalidade** sobre:
 * O _conteúdo_ por exemplo, se um vídeo é um `Documentary`, um `Movie`, ou um `TV Series`, ou se um item de varejo está disponível na loja.
 * O _atual_ período de tempo, como o dia da semana é.
 
-Não prescrevem personalizer, limitar ou corrigir que funcionalidades pode enviar para ações e contexto:
+Personalizer não prescrevem, limitar ou corrigir que funcionalidades pode enviar para ações e contexto:
 
 * Pode enviar alguns recursos para algumas ações e não para outras pessoas, se não os tiver. Por exemplo, as séries de TV podem ter atributos não tem de filmes.
 * Pode ter alguns recursos disponíveis apenas algumas vezes. Por exemplo, um aplicativo móvel pode fornecer mais informações do que uma página da web. 
@@ -70,12 +70,15 @@ Pode nomear a funcionalidade espaços de nomes seguindo as suas próprias conven
 
 No seguinte JSON `user`, `state`, e `device` são espaços de nomes do recurso.
 
+Objetos JSON podem incluir objetos JSON aninhados e simples/valores de propriedade. Uma matriz pode ser incluída apenas se os itens de matriz são números. 
+
 ```JSON
 {
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug"
+                "name":"Doug",
+                "latlong": [47.6, -122.1]
             }
         },
         {
@@ -121,7 +124,7 @@ Por exemplo, um carimbo para o segundo é um recurso muito disperso. Que poderia
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expanda os conjuntos de recursos com informações extrapolados
 
-Também pode obter mais recursos pensar unexplored atributos que podem derivar de informações que já tem. Por exemplo, numa personalização da lista de filmes fictícia, é possível que um dia da semana do fim de semana vs obter um comportamento diferente dos utilizadores? Tempo poderia ser expandido para ter um atributo "semana" ou "dia da semana". Feriados nacionais norte-americanos culturais unidade atenção a determinados tipos de filme? Por exemplo, um atributo "Halloween" é útil em locais onde é relevante. É possível que a meteorologia chuvosa tem um impacto significativo na escolha de um filme para muitas pessoas? Com o momento e local, um serviço meteorológico poderia fornecer que as informações e pode adicioná-la como uma funcionalidade extra. 
+Também pode obter mais recursos pensar unexplored atributos que podem derivar de informações que já tem. Por exemplo, numa personalização da lista de filmes fictícia, é possível que um dia da semana do fim de semana vs elicits um comportamento diferente dos utilizadores? Tempo poderia ser expandido para ter um atributo "semana" ou "dia da semana". Feriados nacionais norte-americanos culturais unidade atenção a determinados tipos de filme? Por exemplo, um atributo "Halloween" é útil em locais onde é relevante. É possível que a meteorologia chuvosa tem um impacto significativo na escolha de um filme para muitas pessoas? Com o momento e local, um serviço meteorológico poderia fornecer que as informações e pode adicioná-la como uma funcionalidade extra. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Expanda os conjuntos de recursos com inteligência artificial e os serviços cognitivos
 
@@ -196,6 +199,8 @@ Em alguns casos, ele pode ser determinado apenas mais tarde na sua lógica de ne
 
 Ao chamar a classificação, vai enviar várias ações à sua escolha:
 
+Objetos JSON podem incluir objetos JSON aninhados e simples/valores de propriedade. Uma matriz pode ser incluída apenas se os itens de matriz são números. 
+
 ```json
 {
     "actions": [
@@ -204,7 +209,8 @@ Ao chamar a classificação, vai enviar várias ações à sua escolha:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "medium"
+          "spiceLevel": "medium",
+          "grams": [400,800]
         },
         {
           "nutritionLevel": 5,
@@ -217,7 +223,8 @@ Ao chamar a classificação, vai enviar várias ações à sua escolha:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [150, 300, 450]
         },
         {
           "nutritionalLevel": 2
@@ -229,7 +236,8 @@ Ao chamar a classificação, vai enviar várias ações à sua escolha:
       "features": [
         {
           "taste": "sweet",
-          "spiceLevel": "none"
+          "spiceLevel": "none",
+          "grams": [300, 600, 900]
         },
         {
           "nutritionLevel": 5
@@ -244,7 +252,8 @@ Ao chamar a classificação, vai enviar várias ações à sua escolha:
       "features": [
         {
           "taste": "salty",
-          "spiceLevel": "low"
+          "spiceLevel": "low",
+          "grams": [300, 600]
         },
         {
           "nutritionLevel": 8
@@ -271,6 +280,8 @@ A aplicação é responsável por carregar as informações sobre o contexto da 
 
 Contexto é expresso como um objeto JSON que é enviado para a API de classificação:
 
+Objetos JSON podem incluir objetos JSON aninhados e simples/valores de propriedade. Uma matriz pode ser incluída apenas se os itens de matriz são números. 
+
 ```JSON
 {
     "contextFeatures": [
@@ -288,7 +299,9 @@ Contexto é expresso como um objeto JSON que é enviado para a API de classifica
         {
             "device": {
                 "mobile":true,
-                "Windows":true
+                "Windows":true,
+                "screensize": [1680,1050]
+                }
             }
         }
     ]

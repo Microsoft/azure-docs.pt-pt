@@ -80,7 +80,7 @@ Esta é a estrutura geral para obter uma definição de saída:
 |-----------|----------|------|-------------|
 | <*key-name*> | Sim | String | O nome da chave para a saída de valor de retorno |
 | <*key-type*> | Sim | int, float, string, securestring, bool, array, objeto JSON | O tipo para o valor de retorno de saída |
-| <*key-value*> | Sim | Mesmo que <*key-type*> | O valor de retorno de saída |
+| <*key-value*> | Sim | Mesmo que <*tipo de chave*> | O valor de retorno de saída |
 |||||
 
 Para obter o resultado de um fluxo de trabalho execute, reveja o histórico de execuções e detalhes no portal do Azure da sua aplicação lógica ou utilize o [API do REST de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Também é possível passar saída a sistemas externos, por exemplo, o Power BI para que possa criar dashboards.

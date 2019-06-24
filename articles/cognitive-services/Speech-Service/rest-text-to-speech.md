@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 59155b41906ffd401b971bee1248a225d0c33657
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072458"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342197"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de texto para discurso
 
@@ -225,6 +225,7 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 | 400 | Pedido Inválido | Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo. |
 | 401 | Não autorizado | O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto. |
 | 413 | Entidade do pedido demasiado grande | A entrada SSML é superior a 1024 carateres. |
+| 415 | Tipo de suporte não suportado | É possível que o mal `Content-Type` foi fornecido. `Content-Type` deve ser definido como `application/ssml+xml`. | 
 | 429 | Demasiados Pedidos | Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição. |
 | 502 | Gateway incorrecto | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos. |
 
