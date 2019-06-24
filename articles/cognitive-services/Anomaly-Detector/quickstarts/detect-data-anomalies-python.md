@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: cd37638b9bac2a1b48f0ef0abb7b18da440049f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0ab39a7bb86671efb6258e3171e3bf7847aa241f
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080733"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341733"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Início rápido: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias e Python
 
@@ -82,8 +82,10 @@ Utilize este guia de introdução para começar a utilizar dois modos de deteç�
 
 ```python
 def send_request(endpoint, url, subscription_key, request_data):
-    headers = {'Content-Type': 'application/json', 'Ocp-Apim-Subscription-Key': subscription_key}
-    response = requests.post(endpoint+url, data=json.dumps(request_data), headers=headers)
+    headers = {'Content-Type': 'application/json',
+               'Ocp-Apim-Subscription-Key': subscription_key}
+    response = requests.post(
+        endpoint+url, data=json.dumps(request_data), headers=headers)
     return json.loads(response.content.decode("utf-8"))
 ```
 
@@ -100,18 +102,20 @@ def send_request(endpoint, url, subscription_key, request_data):
 ```python
 def detect_batch(request_data):
     print("Detecting anomalies as a batch")
-    result = send_request(endpoint, batch_detection_url, subscription_key, request_data)
+    result = send_request(endpoint, batch_detection_url,
+                          subscription_key, request_data)
     print(json.dumps(result, indent=4))
 
     if result.get('code') != None:
-        print("Detection failed. ErrorCode:{}, ErrorMessage:{}".format(result['code'], result['message']))
+        print("Detection failed. ErrorCode:{}, ErrorMessage:{}".format(
+            result['code'], result['message']))
     else:
         # Find and display the positions of anomalies in the data set
         anomalies = result["isAnomaly"]
         print("Anomalies detected in the following data positions:")
         for x in range(len(anomalies)):
             if anomalies[x] == True:
-                print (x)
+                print(x)
 ```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalias do ponto de dados mais recentes
@@ -124,7 +128,8 @@ def detect_batch(request_data):
 def detect_latest(request_data):
     print("Determining if latest data point is an anomaly")
     # send the request, and print the JSON result
-    result = send_request(endpoint, latest_point_detection_url, subscription_key, request_data)
+    result = send_request(endpoint, latest_point_detection_url,
+                          subscription_key, request_data)
     print(json.dumps(result, indent=4))
 ```
 

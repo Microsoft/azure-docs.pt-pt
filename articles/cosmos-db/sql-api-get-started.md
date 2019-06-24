@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 60c7e6b32f60d6f42d706489c41dbeea4af0d15d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596101"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342127"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Criar uma aplicação de consola .NET para gerir dados na conta do Azure Cosmos DB SQL API
 
@@ -78,7 +78,7 @@ Siga estas instruções para criar uma conta do Azure Cosmos DB no portal do Azu
 
 1. No Visual Studio 2017, selecione **arquivo** > **New** > **projeto**.
    
-1. Na **novo projeto** caixa de diálogo, selecione **Visual C#**   >  **aplicação de consola (.NET Framework)**, nomeie o projeto *AzureCosmosDBApp* e, em seguida, selecione **OK**.
+1. Na **novo projeto** caixa de diálogo, selecione **Visual C#**   >  **aplicação de consola (.NET Framework)** , nomeie o projeto *AzureCosmosDBApp* e, em seguida, selecione **OK**.
    
    ![Captura de ecrã da janela Novo Projeto](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
@@ -450,7 +450,7 @@ O diagrama seguinte ilustra como a sintaxe de consulta do Azure Cosmos DB SQL ch
 
 ![Diagrama que ilustra o âmbito e o significado da consulta utilizada pelo tutorial NoSQL para criar uma aplicação de consola C#](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-O [FROM](how-to-sql-query.md#FromClause) palavra-chave na consulta SQL é opcional, porque as consultas do Azure Cosmos DB já estão confinadas a uma única coleção. Pode alternar `FROM Families f` com `FROM root r`, ou qualquer outro nome de variável que escolher. O Azure Cosmos DB irá inferir que `Families`, `root`, ou o nome da variável que escolher refere-se para o conjunto atual.
+O [FROM](sql-query-from.md) palavra-chave na consulta SQL é opcional, porque as consultas do Azure Cosmos DB já estão confinadas a uma única coleção. Pode alternar `FROM Families f` com `FROM root r`, ou qualquer outro nome de variável que escolher. O Azure Cosmos DB irá inferir que `Families`, `root`, ou o nome da variável que escolher refere-se para o conjunto atual.
 
 ## <a id="ReplaceDocument"></a>Atualizar um documento JSON
 

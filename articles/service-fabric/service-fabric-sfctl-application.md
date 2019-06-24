@@ -47,7 +47,7 @@ Criar, eliminar e gerir aplicações e tipos de aplicativos.
 | upgrade-resume | Retoma a atualizar uma aplicação no cluster do Service Fabric. |
 | upgrade-rollback | Inicia a reverter a atualização de atualmente em curso de uma aplicação no cluster do Service Fabric. |
 | upgrade-status | Obtém os detalhes para a atualização mais recente efetuada nesta aplicação. |
-| load | Copie um pacote de aplicação do Service Fabric para o armazenamento de imagens. |
+| upload | Copie um pacote de aplicação do Service Fabric para o armazenamento de imagens. |
 
 ## <a name="sfctl-application-create"></a>Criar aplicação de sfctl
 Cria uma aplicação de Service Fabric com a descrição especificada.

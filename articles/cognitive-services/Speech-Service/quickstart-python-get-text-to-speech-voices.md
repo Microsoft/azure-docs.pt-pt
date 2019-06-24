@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 5d43060ee5303c1df3a1b8448f086ecc32a1f8c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e28665dfcdaec55ba4f1fa671e9439a9cf4aa7d
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056870"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338639"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Início rápido: Obter a lista de texto para discurso vozes com Python
 
@@ -98,7 +98,8 @@ def get_voices(self):
     if response.status_code == 200:
         with open('voices.json', 'wb') as voices:
             voices.write(response.content)
-            print("\nStatus code: " + str(response.status_code) + "\nvoices.json is ready to view.\n")
+            print("\nStatus code: " + str(response.status_code) +
+                  "\nvoices.json is ready to view.\n")
     else:
         print("\nStatus code: " + str(
             response.status_code) + "\nSomething went wrong. Check your subscription key and headers.\n")

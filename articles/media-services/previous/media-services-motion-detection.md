@@ -95,12 +95,12 @@ A tabela seguinte descreve os elementos do ficheiro de saída JSON.
 | Elemento | Descrição |
 | --- | --- |
 | Version |Refere-se para a versão da API de vídeo. A versão atual é 2. |
-| Escala temporal |"Ticks" por segundo do vídeo. |
+| Timescale |"Ticks" por segundo do vídeo. |
 | Offset |O desvio de tempo para os carimbos de data / no "ticks". Na versão 1.0 de APIs de vídeo, ela sempre será 0. No futuro cenários que suportamos, pode alterar este valor. |
 | Framerate |Fotogramas por segundo do vídeo. |
 | Width, Height |Refere-se para a largura e altura do vídeo em pixéis. |
-| Iniciar |O carimbo de hora de início em "ticks". |
-| Duração |O comprimento do evento, em "ticks". |
+| Start |O carimbo de hora de início em "ticks". |
+| Duration |O comprimento do evento, em "ticks". |
 | Interval |O intervalo de cada entrada no evento, em "ticks". |
 | Events |Cada fragmento de evento contém o motion detetado dentro desse período de tempo. |
 | Type |Na versão atual, isso é sempre "2" para o movimento genérico. Isto dá a etiqueta as APIs de vídeo a flexibilidade para categorizar o motion em futuras versões. |

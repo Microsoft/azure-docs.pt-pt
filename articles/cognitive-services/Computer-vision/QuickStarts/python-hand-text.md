@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c4aec2506f44bc8649848c9d074fdf40f32ffa65
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: c5fff6e63dac1dff39f4abf30cf0efdf073d04df
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357361"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338392"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Extrair texto manuscrito usando a REST API e Python em de imagem digitalizada
 
@@ -53,7 +53,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 import requests
 import time
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 from PIL import Image
@@ -78,7 +78,7 @@ text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-data    = {'url': image_url}
+data = {'url': image_url}
 response = requests.post(
     text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
@@ -99,15 +99,15 @@ while (poll):
     print(analysis)
     time.sleep(1)
     if ("recognitionResults" in analysis):
-        poll= False 
+        poll = False
     if ("status" in analysis and analysis['status'] == 'Failed'):
-        poll= False
+        poll = False
 
-polygons=[]
+polygons = []
 if ("recognitionResults" in analysis):
     # Extract the recognized text, with bounding boxes.
     polygons = [(line["boundingBox"], line["text"])
-        for line in analysis["recognitionResults"][0]["lines"]]
+                for line in analysis["recognitionResults"][0]["lines"]]
 
 # Display the image and overlay it with the extracted text.
 plt.figure(figsize=(15, 15))
@@ -115,9 +115,9 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 ax = plt.imshow(image)
 for polygon in polygons:
     vertices = [(polygon[0][i], polygon[0][i+1])
-        for i in range(0, len(polygon[0]), 2)]
-    text     = polygon[1]
-    patch    = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
+                for i in range(0, len(polygon[0]), 2)]
+    text = polygon[1]
+    patch = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(vertices[0][0], vertices[0][1], text, fontsize=20, va="top")
 ```

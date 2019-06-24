@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c22230545ccbe1ef1b4bfa35a33f0302197463b1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 1696a20094357d084ba54739767509b8d50c4ad5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124533"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341299"
 ---
 # <a name="example-identify-faces-in-images"></a>Exemplo: Identificar rostos em imagens
 
@@ -41,10 +41,10 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Como alternativa, especificar a chave de subscrição no cabeçalho do pedido HTTP **ocp-apim-subscription-key: &lt;Chave de subscrição&gt;**.
+Como alternativa, especificar a chave de subscrição no cabeçalho do pedido HTTP **ocp-apim-subscription-key: &lt;Chave de subscrição&gt;** .
 Quando utiliza uma biblioteca de cliente, a chave de subscrição é passada por meio do construtor da classe FaceServiceClient. Por exemplo:
  
-```CSharp 
+```csharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
@@ -63,7 +63,7 @@ Primeiro, crie um novo PersonGroup utilizando o [PersonGroup - criar](https://we
 
 Depois de um grupo é definido, pode definir as pessoas dentro da mesma, utilizando o [PersonGroup pessoa - criar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. O método da biblioteca de cliente é o CreatePersonAsync. Pode adicionar um rosto a cada pessoa depois de ocorrer.
 
-```CSharp 
+```csharp 
 // Create an empty PersonGroup
 string personGroupId = "myfriends";
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends");
@@ -84,7 +84,8 @@ A deteção é feita pelo envio de um pedido "POST" da Web para a API [Rosto –
 Para cada rosto detetado, chame [PersonGroup pessoa – adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) para adicioná-la à pessoa correta.
 
 O código a seguir demonstra o processo de como detetar um rosto a partir de uma imagem e adicioná-lo a uma pessoa:
-```CSharp 
+
+```csharp 
 // Directory contains image files of Anna
 const string friend1ImageDir = @"D:\Pictures\MyFriends\Anna\";
  
@@ -105,13 +106,13 @@ Se a imagem tiver mais de um rosto, é adicionado apenas o mostrador da maior. P
 
 O PersonGroup deve ser treinado para que identificação pode ser possível efetuar ao utilizá-lo. O PersonGroup tem reestruturar os depois de adicionar ou remover qualquer pessoa, ou se editar face registado de uma pessoa. O treino é feito com a API [PersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249). Ao utilizar a biblioteca de cliente, é uma chamada ao método TrainPersonGroupAsync:
  
-```CSharp 
+```csharp 
 await faceServiceClient.TrainPersonGroupAsync(personGroupId);
 ```
  
 Treinamento é um processo assíncrono. Não pode ser concluída, mesmo depois do método TrainPersonGroupAsync retorna. Poderá ter de consultar o estado de treinamento. Utilize o [PersonGroup - obter o estado de treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) método API ou GetPersonGroupTrainingStatusAsync da biblioteca de clientes. O código a seguir demonstra uma lógica simples de esperar por PersonGroup formação para concluir:
  
-```CSharp 
+```csharp 
 TrainingStatus trainingStatus = null;
 while(true)
 {
@@ -134,7 +135,7 @@ A face de teste deve ser detetada através dos passos anteriores. Em seguida, o 
 
 O código a seguir demonstra o processo de identificação:
 
-```CSharp 
+```csharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))

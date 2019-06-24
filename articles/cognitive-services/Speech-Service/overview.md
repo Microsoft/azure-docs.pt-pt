@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 4750937ee7ef6230ed4635d739a102a501b19a30
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002995"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341806"
 ---
 # <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
 
@@ -32,7 +32,7 @@ Esses recursos constituem os serviços de voz do Azure. Utilize as ligações ne
 | | [Transcrição de batch](batch-transcription.md) | Transcrição de batch permite assíncrona transcrição de voz em texto de grandes volumes de dados. Este é um serviço baseado em REST, que utiliza o mesmo ponto final como a personalização e a gestão de modelos. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
 | | [Transcrição da conversação](conversation-transcription-service.md) | Permite que o reconhecimento de voz em tempo real, identificação de orador e diarization. Ele é perfeito para fotografar reuniões presenciais com a capacidade de distinguir os oradores. | Sim | Não |
 | | [Criar modelos de voz personalizada](#customize-your-speech-experience) | Se estiver usando a voz em texto para o reconhecimento e transcrição de num ambiente exclusivo, pode criar e formar modelos acústicos, idioma e pronúncia personalizados para o ruído do endereço ou específicos da indústria vocabulário. | Não | [Sim](https://westus.cris.ai/swagger/ui/index) |
-| [Voz](text-to-speech.md) | Conversão de texto em voz | Voz converte a entrada de texto em fala sintetizada de semelhante à humana. Escolha entre vozes padrão e vozes neurais (consulte [suporte de idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Voz](text-to-speech.md) | Conversão de texto em voz | Voz converte a introdução de texto em fala sintetizada de semelhante à humana usando [Speech Synthesis Markup Language (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Escolha entre vozes padrão e vozes neurais (consulte [suporte de idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie tipos de voz personalizada exclusivo para a sua marca ou o produto. | Não | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Voz](speech-translation.md) | Tradução de voz | Tradução de voz permite a tradução em tempo real, vários idioma de voz às suas aplicações, ferramentas e dispositivos. Utilize este serviço para a tradução de voz para voz e conversão de voz em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não |
 | [Assistentes de voz em primeiro lugar Virtual](voice-first-virtual-assistants.md) | Assistentes de voz em primeiro lugar virtual | Assistentes de virtual personalizados, usando os serviços de voz do Azure permitem aos programadores criar interfaces conversacionais naturais, semelhante à humana para seus aplicativos e experiências. Canal de voz de linha direta do Bot Framework aprimora esses recursos, fornecendo um ponto de entrada organizada, coordenada para um bot compatível, que permite a voz na voz horizontalmente interação com baixa latência e alta fiabilidade. | [Sim](voice-first-virtual-assistants.md) | Não |
