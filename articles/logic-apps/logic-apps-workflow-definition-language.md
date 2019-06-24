@@ -79,8 +79,8 @@ Esta é a estrutura geral para obter uma definição de saída:
 | Atributo | Necessário | Tipo | Descrição |
 |-----------|----------|------|-------------|
 | <*key-name*> | Sim | String | O nome da chave para a saída de valor de retorno |
-| <*key-type*> | Sim | int, número de vírgula flutuante, cadeia de caracteres, securestring, booleano, matriz, objeto JSON | O tipo para o valor de retorno de saída |
-| <*key-value*> | Sim | Mesmo que <*tipo de chave*> | O valor de retorno de saída |
+| <*key-type*> | Sim | int, float, string, securestring, bool, array, objeto JSON | O tipo para o valor de retorno de saída |
+| <*key-value*> | Sim | Mesmo que <*key-type*> | O valor de retorno de saída |
 |||||
 
 Para obter o resultado de um fluxo de trabalho execute, reveja o histórico de execuções e detalhes no portal do Azure da sua aplicação lógica ou utilize o [API do REST de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Também é possível passar saída a sistemas externos, por exemplo, o Power BI para que possa criar dashboards.
@@ -110,7 +110,7 @@ Esta é a estrutura geral para uma definição de parâmetro:
 
 | Atributo | Necessário | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| <*parameter-type*> | Sim | int, número de vírgula flutuante, cadeia de caracteres, securestring, booleano, matriz, objeto JSON, secureobject <p><p>**Nota**: Para todas as palavras-passe, chaves e segredos, utilize o `securestring` e `secureobject` tipos porque o `GET` operação não retorna esses tipos. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | O tipo para o parâmetro |
+| <*parameter-type*> | Sim | int, float, string, securestring, bool, array, objeto JSON, secureobject <p><p>**Nota**: Para todas as palavras-passe, chaves e segredos, utilize o `securestring` e `secureobject` tipos porque o `GET` operação não retorna esses tipos. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | O tipo para o parâmetro |
 | <*default-parameter-values*> | Sim | Mesmo que `type` | O valor de parâmetro predefinido quando é especificado nenhum valor quando cria uma instância de fluxo de trabalho |
 | <*array-with-permitted-parameter-values*> | Não | Array | Uma matriz com valores que pode aceitar o parâmetro |
 | `metadata` | Não | Objeto JSON | Quaisquer outros detalhes de parâmetro, por exemplo, o nome ou uma descrição legível para a sua aplicação lógica ou fluxo ou os dados de tempo de design usados pelo Visual Studio ou outras ferramentas |
