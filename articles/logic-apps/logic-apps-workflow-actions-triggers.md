@@ -79,8 +79,8 @@ Cada tipo de Acionador tem uma interface diferente e entradas que definem o comp
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Verifica ou *inquéritos* qualquer ponto final. Este ponto final deve estar em conformidade com um contrato de Acionador específico usando um padrão assíncrono "202" ou retornando uma matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Cria um ponto final que pode ser chamado para a aplicação lógica, mas chama o URL especificado para registar ou anular o registo. |
-| [**Periodicidade**](#recurrence-trigger) | É acionado com base numa agenda definida. Pode definir uma data futura e a hora para trabalharem este acionador. Com base na frequência, também pode especificar tempos e dias para a execução de seu fluxo de trabalho. | 
-| [**Pedido**](#request-trigger)  | Cria um ponto final que pode ser chamado para a aplicação lógica e também é conhecido como um acionador "manual". Por exemplo, veja [chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Recurrence**](#recurrence-trigger) | É acionado com base numa agenda definida. Pode definir uma data futura e a hora para trabalharem este acionador. Com base na frequência, também pode especificar tempos e dias para a execução de seu fluxo de trabalho. | 
+| [**Request**](#request-trigger)  | Cria um ponto final que pode ser chamado para a aplicação lógica e também é conhecido como um acionador "manual". Por exemplo, veja [chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Acionadores de API geridos
