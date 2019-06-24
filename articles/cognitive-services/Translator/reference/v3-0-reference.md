@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-pawal
-ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4133cec401723ab103b0b3bfff62eee21b653e2b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387506"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331828"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -31,20 +31,20 @@ A versão 3 da API de texto do Translator fornece uma API da Web baseados em JSO
 
 ## <a name="base-urls"></a>Base URLs
 
-Microsoft Translator é fornecida fora várias localizações de datacenter. Atualmente estão localizados em 6 [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator é fornecida fora várias localizações de datacenter. Atualmente estão localizados em 6 [geografias do Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **Americas:** E.U.A. oeste 2 e EUA Centro-Oeste 
 * **Ásia-Pacífico:** Sudeste asiático e sul da Coreia
 * **Europa:** Europa do Norte e Europa Ocidental
 
-Pedidos para a API de texto do Microsoft Translator estiverem na maioria dos casos, processados pelo centro de dados que esteja mais próximo da origem da solicitação. Em caso de falha do datacenter, o pedido pode ser encaminhado fora da região.
+Pedidos para a API de texto do Microsoft Translator estiverem na maioria dos casos, processados pelo centro de dados que esteja mais próximo da origem da solicitação. Em caso de falha do datacenter, o pedido pode ser encaminhado fora da área geográfica do Azure.
 
-Para forçar o pedido deve ser processada por um Data Center específico, altere o ponto final Global no pedido de API para o ponto de final desejado regional:
+Para forçar o pedido deve ser processada por uma determinada localização geográfica do Azure, altere o ponto final Global no pedido de API para o ponto de final desejado regional:
 
-|Descrição|Região|URL de base|
+|Descrição|Geografia do Azure|URL de base|
 |:--|:--|:--|
-|Azure|Global|  api.cognitive.microsofttranslator.com|
-|Azure|América do Norte|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Global (, independente de região)|   api.cognitive.microsofttranslator.com|
+|Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Ásia-Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
@@ -154,6 +154,7 @@ O código de erro é uma combinação de número de 6 dígitos o código de esta
 | 400075| A combinação de par e categoria de idioma não é válida.|
 | 400077| Foi excedido o tamanho máximo do pedido. Modo de exibição [limites de pedido](../request-limits.md).|
 | 400079| A pedido para a tradução entre de e para o idioma personalizadas do sistema não existem.|
+| 400080| Transliteração não é suportada para o idioma ou script.|
 | 401000| O pedido não está autorizado porque as credenciais estão em falta ou inválido.|
 | 401015| "As credenciais fornecidas são para a API de voz. Este pedido requer credenciais para a API de texto. Utilize uma subscrição para a API de texto do Translator."|
 | 403000| A operação não é permitida.|
