@@ -200,7 +200,7 @@ O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| Saídas | Array | Obtém a tarefa de saídas.|
+| outputs | Array | Obtém a tarefa de saídas.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
@@ -456,9 +456,9 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo da faixa (áudio / vídeo). |
 | trackName | string | Nome da faixa. |
-| Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
+| bitrate | integer | Velocidade de transmissão da faixa. |
 | timestamp | string | Timestamp do segmento de dados removida. |
-| escala temporal | string | Escala temporal do período de tempo. |
+| timescale | string | Escala temporal do período de tempo. |
 | resultCode | string | Motivo da lista de segmentos de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -496,12 +496,12 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo da faixa (áudio / vídeo). |
 | trackName | string | Nome da faixa (qualquer um dos fornecidos pelo codificador ou, em caso de RTMP, servidor gera no *TrackType_Bitrate* formato). |
-| Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
+| bitrate | integer | Velocidade de transmissão da faixa. |
 | ingestUrl | string | Ingestão de URL fornecido pelo evento em direto. |
 | encoderIp | string  | IP do codificador. |
 | encoderPort | string | Porta do codificador de onde vem esse fluxo. |
 | timestamp | string | Primeira timestamp do segmento de dados recebido. |
-| escala temporal | string | Escala temporal em que é representado timestamp. |
+| timescale | string | Escala temporal em que é representado timestamp. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -572,8 +572,8 @@ O objeto de dados tem as seguintes propriedades:
 | firstTimestamp | string | Timestamp recebido para um dos níveis de qualidade/faixas de tipo de vídeo. |
 | firstDuration | string | Duração do segmento de dados com timestamp primeiro. |
 | secondTimestamp | string  | Timestamp recebido para algum outro nível de controle/qualidade do tipo vídeo. |
-| SecondDuration | string | Duração do segmento de dados com o segundo timestamp. |
-| escala temporal | string | Escala temporal de carimbos e duração.|
+| secondDuration | string | Duração do segmento de dados com o segundo timestamp. |
+| timescale | string | Escala temporal de carimbos e duração.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -613,16 +613,16 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo da faixa (áudio / vídeo). |
 | trackName | string | Nome da faixa (qualquer um dos fornecidos pelo codificador ou, em caso de RTMP, servidor gera no *TrackType_Bitrate* formato). |
-| Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
-| incomingBitrate | inteiro | Velocidade de transmissão calculada com base nos segmentos de dados provenientes do codificador. |
+| bitrate | integer | Velocidade de transmissão da faixa. |
+| incomingBitrate | integer | Velocidade de transmissão calculada com base nos segmentos de dados provenientes do codificador. |
 | lastTimestamp | string | Mais recente timestamp recebida um Roteiro na última 20 segundos. |
-| escala temporal | string | Escala temporal em que são expressos carimbos. |
-| overlapCount | inteiro | Número de segmentos de dados tinha overlapped carimbos de data / no último 20 segundos. |
-| discontinuityCount | inteiro | Número de discontinuities observados nos últimos 20 segundos. |
-| nonIncreasingCount | inteiro | Número de segmentos de dados carimbos de data no passado foram recebido nos últimos 20 segundos. |
+| timescale | string | Escala temporal em que são expressos carimbos. |
+| overlapCount | integer | Número de segmentos de dados tinha overlapped carimbos de data / no último 20 segundos. |
+| discontinuityCount | integer | Número de discontinuities observados nos últimos 20 segundos. |
+| nonIncreasingCount | integer | Número de segmentos de dados carimbos de data no passado foram recebido nos últimos 20 segundos. |
 | unexpectedBitrate | bool | Se forem diferentes velocidades de transmissão de expected e actual ao limite permitido mais do que em última 20 segundos. É verdadeiro se e apenas se, incomingBitrate > = 2 * velocidade de transmissão ou incomingBitrate < = IncomingBitrate ou de velocidade de transmissão/2 = 0. |
 | state | string | Estado do evento em direto. |
-| Bom estado de funcionamento | bool | Indica se ingerir é bom estado de funcionamento com base nas contagens e sinalizadores. Bom estado de funcionamento é verdadeiro se overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
+| healthy | bool | Indica se ingerir é bom estado de funcionamento com base nas contagens e sinalizadores. Bom estado de funcionamento é verdadeiro se overlapCount = 0 & & discontinuityCount = 0 & & nonIncreasingCount = 0 & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -657,11 +657,11 @@ O objeto de dados tem as seguintes propriedades:
 | -------- | ---- | ----------- |
 | trackType | string | Tipo da faixa (áudio / vídeo). |
 | trackName | string | Nome da faixa (qualquer um dos fornecidos pelo codificador ou, em caso de RTMP, servidor gera no *TrackType_Bitrate* formato). |
-| Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
+| bitrate | integer | Velocidade de transmissão da faixa. |
 | previousTimestamp | string | Timestamp do fragmento anterior. |
 | newTimestamp | string | Timestamp do fragmento atual. |
 | discontinuityGap | string | Lacuna entre acima dois carimbos. |
-| escala temporal | string | Escala temporal na qual lacuna timestamp e descontinuidade são representados. |
+| timescale | string | Escala temporal na qual lacuna timestamp e descontinuidade são representados. |
 
 ### <a name="common-event-properties"></a>Propriedades de evento comum
 
@@ -674,7 +674,7 @@ Um evento tem os seguintes dados de nível superior:
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. Por exemplo, "Microsoft.Media.JobStateChange". |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | id | string | Identificador exclusivo para o evento. |
-| data | objeto | Dados de eventos de serviços de multimédia. |
+| data | object | Dados de eventos de serviços de multimédia. |
 | dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
 | metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
