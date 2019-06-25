@@ -88,7 +88,7 @@ Funções de cadeia só funcionam em cadeias de caracteres.
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Devolve a posição inicial para uma subcadeia. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devolve a posição inicial para a última ocorrência de uma subcadeia. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substituir uma subcadeia com a cadeia especificada e retornar a cadeia de caracteres atualizada. |
-| [dividir](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devolva uma matriz que contém subcadeias de caracteres, separadas por vírgulas, a partir de uma cadeia de caracteres maior com base num caractere delimitador especificado na cadeia de caracteres original. |
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devolva uma matriz que contém subcadeias de caracteres, separadas por vírgulas, a partir de uma cadeia de caracteres maior com base num caractere delimitador especificado na cadeia de caracteres original. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verificar se uma cadeia de caracteres começa com uma subcadeia específica. |
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Devolva carateres de uma cadeia de caracteres, a partir da posição especificada. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retorne uma cadeia de caracteres no formato em minúsculas. |
@@ -109,9 +109,9 @@ Para trabalhar com coleções, em geral, matrizes, cadeias de caracteres e, às 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Devolva o primeiro item a partir de uma coleção. |
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retornar uma coleção que tenha *apenas* os itens comuns em coleções especificadas. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando dentro de uma ação de repetição numa matriz, retorna o item atual na matriz durante a iteração da ação de atual. |
-| [aderir](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retornar uma cadeia de caracteres que tenha *todos os* os itens de uma matriz, separados pelo caractere especificado. |
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retornar uma cadeia de caracteres que tenha *todos os* os itens de uma matriz, separados pelo caractere especificado. |
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Devolva o último item a partir de uma coleção. |
-| [Comprimento](../logic-apps/workflow-definition-language-functions-reference.md#length) | Devolva o número de itens numa cadeia ou matriz. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Devolva o número de itens numa cadeia ou matriz. |
 | [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remover itens da frente de uma coleção e devolver *todas as outras* itens. |
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Itens de retorno da frente de uma coleção. |
 | [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retornar uma coleção que tenha *todos os* os itens de coleções especificadas. |
