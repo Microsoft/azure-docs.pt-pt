@@ -120,13 +120,13 @@ Esta definição funciona com todos os navegadores. No entanto, para satisfazer 
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
 | Windows 7              | Internet Explorer, Chrome                     |
 | iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
-| Android                | Browser gerido do Intune do Chrome, Microsoft Edge, |
+| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
 | Windows Phone          | Internet Explorer, Microsoft Edge             |
 | Windows Server 2016    | Internet Explorer, Microsoft Edge             |
 | Windows Server 2016    | Chrome                                        |
 | Windows Server 2012 R2 | Internet Explorer, Chrome                     |
 | Windows Server 2008 R2 | Internet Explorer, Chrome                     |
-| macOS                  | Chrome, o Safari                                |
+| macOS                  | Chrome, Safari                                |
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Por que vejo um certificado de linha de comandos no navegador
 
@@ -140,19 +140,19 @@ Para implementar automaticamente esta extensão para navegadores de Chrome, crie
 
 |    |    |
 | --- | --- |
-| Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
-| Tipo | REG_SZ (String) |
-| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Type | REG_SZ (String) |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
 Para o Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
 
 |    |    |
 | --- | --- |
-| Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
-| Tipo | REG_SZ (String) |
-| Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| Type | REG_SZ (String) |
+| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Esses navegadores suportam a autenticação do dispositivo, permitindo ao dispositivo ser identificados e validadas em relação uma política. A verificação de dispositivo falha se o browser está em execução no modo privado.
 
