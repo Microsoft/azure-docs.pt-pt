@@ -72,7 +72,7 @@ A tabela seguinte descreve os atributos de um parâmetro.
 |:--- |:--- |
 | type |Tipo de dados para o parâmetro. O controlo de entrada apresentado para o utilizador depende do tipo de dados.<br><br>bool - caixa pendente<br>cadeia de caracteres - caixa de texto<br>Int - caixa de texto<br>SecureString - campo palavra-passe<br> |
 | category |Categoria opcional para o parâmetro.  Parâmetros da mesma categoria são agrupados em conjunto. |
-| Controlo |Funcionalidades adicionais para os parâmetros de cadeia de caracteres.<br><br>DateTime - controle de Datetime é apresentado.<br>GUID - valor Guid é gerado automaticamente e o parâmetro não é apresentado. |
+| control |Funcionalidades adicionais para os parâmetros de cadeia de caracteres.<br><br>DateTime - controle de Datetime é apresentado.<br>GUID - valor Guid é gerado automaticamente e o parâmetro não é apresentado. |
 | description |Descrição opcional para o parâmetro.  Apresentado num balão de informações junto do parâmetro. |
 
 ### <a name="standard-parameters"></a>Parâmetros padrão
@@ -85,7 +85,7 @@ A tabela seguinte lista os parâmetros padrão para todas as soluções de gest�
 
 | Parâmetro | Tipo | Descrição |
 |:--- |:--- |:--- |
-| nomeConta |string |Nome da conta de automatização do Azure. |
+| accountName |string |Nome da conta de automatização do Azure. |
 | pricingTier |string |Escalão de preço da área de trabalho do Log Analytics e a conta de automatização do Azure. |
 | regionId |string |Região da conta de automatização do Azure. |
 | solutionName |string |Nome da solução.  Se estiver a implementar sua solução por meio de modelos de início rápido, em seguida, deve definir solutionName como um parâmetro para que pode definir uma cadeia de caracteres em vez disso, exigir que o utilizador especifique um. |
@@ -226,8 +226,8 @@ O **plano** entidade do recurso de solução tem as propriedades na tabela segui
 |:--- |:--- |
 | name |Nome da solução. |
 | version |Versão da solução conforme determinado pelo autor. |
-| Produto |Cadeia de caracteres exclusiva para identificar a solução. |
-| publicador |Editor da solução. |
+| product |Cadeia de caracteres exclusiva para identificar a solução. |
+| publisher |Editor da solução. |
 
 
 
