@@ -130,14 +130,14 @@ A tabela seguinte contém as propriedades e as descrições para os parâmetros 
 | Name |Nome da cache | |
 | Location |Localização da cache | |
 | ResourceGroupName |Nome do grupo de recursos no qual pretende criar a cache | |
-| Tamanho |O tamanho da cache. Valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
+| Size |O tamanho da cache. Valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |O número de partições horizontais para criar quando criar uma cache premium com clustering ativado. Valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Especifica o SKU da cache. Valores válidos são: Básico, Standard e Premium |Standard |
 | RedisConfiguration |Especifica as definições de configuração do Redis. Para obter detalhes sobre cada definição, consulte o seguinte procedimento [RedisConfiguration propriedades](#redisconfiguration-properties) tabela. | |
 | EnableNonSslPort |Indica se a porta não SSL está ativada. |Falso |
 | MaxMemoryPolicy |Este parâmetro foi preterido - utilizar RedisConfiguration em vez disso. | |
 | StaticIP |Ao alojar a cache numa VNET, especifica um endereço IP exclusivo na sub-rede para a cache. Se não for indicado, um é escolhido por da sub-rede. | |
-| Subrede |Ao alojar a cache numa VNET, especifica o nome da sub-rede na qual implementar a cache. | |
+| Subnet |Ao alojar a cache numa VNET, especifica o nome da sub-rede na qual implementar a cache. | |
 | VirtualNetwork |Ao alojar a cache numa VNET, especifica o ID de recurso da VNET na qual implementar a cache. | |
 | KeyType |Especifica que a chave de acesso para voltar a gerar quando renovar teclas de acesso. Valores válidos são: Servidor primário, secundário | |
 
