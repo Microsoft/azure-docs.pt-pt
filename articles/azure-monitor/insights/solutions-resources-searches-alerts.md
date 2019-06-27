@@ -79,8 +79,8 @@ Cada propriedade de uma procura guardada é descrita na tabela seguinte.
 | Propriedade | Descrição |
 |:--- |:--- |
 | category | A categoria para a pesquisa guardada.  Qualquer pesquisas guardadas na mesma solução, muitas vezes, irão partilhar uma única categoria para que estes são agrupados em conjunto na consola do. |
-| DisplayName | Nome a apresentar para a pesquisa guardada no portal. |
-| consulta | Consulta seja executada. |
+| displayName | Nome a apresentar para a pesquisa guardada no portal. |
+| query | Consulta seja executada. |
 
 > [!NOTE]
 > Poderá ter de utilizar os carateres de escape na consulta, se ele inclui carateres que poderão ser interpretados como JSON. Por exemplo, se a consulta foi **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"** , deve ser gravado no arquivo da solução como **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"** .
@@ -176,10 +176,10 @@ As propriedades de recursos de ação do alerta são descritas nas tabelas segui
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| Tipo | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
-| Name | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
-| Descrição | Não | Descrição opcional do alerta. |
-| Gravidade | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
+| type | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
+| name | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
+| description | Não | Descrição opcional do alerta. |
+| severity | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Limiar
