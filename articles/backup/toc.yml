@@ -144,8 +144,6 @@
           items:
             - name: Gerir as cópias de segurança de VMs do Azure
               href: backup-azure-manage-vms.md
-            - name: Monitorizar alertas para cópias de segurança de VMs do Azure
-              href: backup-azure-monitor-vms.md
         - name: Restaurar as VMs do Azure
           items:
             - name: Restaurar VMs do Azure no portal

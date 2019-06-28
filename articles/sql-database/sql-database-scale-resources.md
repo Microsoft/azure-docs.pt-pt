@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.date: 06/25/2019
+ms.openlocfilehash: d8949f63dfa9b409cc14fe9c3bbed70f23a73c86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147701"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357139"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente recursos de banco de dados com o tempo de inatividade mínimo
 
-Base de dados SQL do Azure permite-lhe adicionar dinamicamente mais recursos à base de dados com o período de indisponibilidade mínimo.
+Base de dados SQL do Azure permite-lhe adicionar dinamicamente mais recursos à base de dados com mínima [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); no entanto, existe um comutador ao longo do período em que conectividade é perdida na base de dados por um curto período de tempo, o que pode ser atenuados com a lógica de repetição.
 
 ## <a name="overview"></a>Descrição geral
 

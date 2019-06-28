@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 865fb2ebf0d02c40a8f7c9e9c818e26432e5734a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272367"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341591"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK para a API de SQL: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -48,10 +48,8 @@ ms.locfileid: "67272367"
 * Suporte para fluxos. 
 * Atualizado CosmosResponseMessage de servidor para devolver o código de estado e apenas lançar a exceção quando nenhuma resposta é devolvida. 
 
-### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* Permitir pedidos de escrita de reversão para uma região diferente, se o original um falhar
-* Adicionar política de repetição de sessão para solicitação de gravação
 * Correções de rastreio a condição de corrida para consultas que causou a páginas em branco
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
@@ -228,7 +226,7 @@ ms.locfileid: "67272367"
 * Corrigi um problema na qual partição cruzada por ordem continuação de consulta não trabalhava na classificação no campo de cadeia de caracteres.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](how-to-sql-query.md#Aggregates).
+* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](sql-query-aggregates.md).
 * Reduzidas débito mínimo em coleções particionadas do 10,100 RU/s para 2500 RU/s.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4
@@ -381,7 +379,7 @@ Todos os pedidos para o Azure Cosmos DB com um SDK extinto são rejeitados pelo 
 
 | Version | Data de lançamento | Data de retirada |
 | --- | --- | --- |
-| [2.5.0](#2.5.0) |18 de Junho de 2019 |--- |
+| [2.4.1](#2.4.1) |20 de Junho de 2019 |--- |
 | [2.4.0](#2.4.0) |05 de Maio de 2019 |--- |
 | [2.3.0](#2.3.0) |04 de Abril de 2019 |--- |
 | [2.2.3](#2.2.3) |11 de Fevereiro de 2019 |--- |

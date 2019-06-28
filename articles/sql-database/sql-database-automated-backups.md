@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 1c81f5748d1e3edff4902eb462b9beea78acd8bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951647"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357334"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -32,7 +32,7 @@ Base de dados SQL utiliza a tecnologia do SQL Server para criar [cópias de segu
 Pode utilizar estas cópias de segurança para:
 
 - **Restaurar uma base de dados existente para um ponto anterior no tempo no passado** dentro do período de retenção com o portal do Azure, o Azure PowerShell, a CLI do Azure ou a REST API. Base de dados e conjuntos elásticos, esta operação irá criar uma nova base de dados no mesmo servidor que a base de dados original. Na instância gerida, esta operação pode criar uma cópia da base de dados ou idêntica ou diferente instância geridas na mesma subscrição.
-  - **[Alterar o período de retenção de cópia de segurança](#how-to-change-the-pitr-backup-retention-period)**  entre 35 dias para configurar a política de cópia de segurança.
+  - **[Alterar o período de retenção de cópia de segurança](#how-to-change-the-pitr-backup-retention-period)**  entre 7 de 35 dias para configurar a política de cópia de segurança.
   - **Alterar a política de retenção de longo prazo cópia de segurança para os 10 anos** sobre a base de dados e a utilização de conjuntos elásticos [do portal do Azure](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies) ou [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups).
 - **Restaurar uma base de dados eliminada até o momento em que tiver sido eliminado** ou em qualquer altura dentro do período de retenção. Só pode ser restaurado a base de dados eliminada no mesmo servidor lógico ou onde a base de dados original foi criado a instância gerida.
 - **Restaurar uma base de dados para outra região geográfica**. O restauro geográfico permite-lhe recuperar a partir de um desastre geográfico ao não é possível aceder ao seu servidor e base de dados. Ele cria uma nova base de dados em qualquer servidor existente em qualquer lugar no mundo.

@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951307"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357085"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
 
@@ -212,6 +212,33 @@ A tabela seguinte mostra um exemplo de como o que pode acontecer quando atualiza
 Neste exemplo, suponha que o cliente muda para leitura da região secundária em T5. Pode lido com êxito a **função de administrador** entidade neste momento, mas a entidade contém um valor para a contagem de administradores que não é consistente com o número de **funcionário** entidades que são marcado como administradores na região secundária neste momento. O cliente simplesmente foi possível apresentar este valor, com o risco que chegou a informações inconsistentes. Em alternativa, o cliente poderia tentar determinar que o **função de administrador** está num estado potencialmente inconsistente porque as atualizações ocorreram fora de ordem e, em seguida, informam o utilizador desse fato.
 
 Reconhecer que tem dados potencialmente inconsistentes, o cliente pode utilizar o valor do *hora da última sincronização* que pode obter a qualquer momento, consultando um serviço de armazenamento. Isso informa ao tempo quando os dados na região secundária eram último consistente e quando o serviço fosse aplicada a todas as transações antes desse ponto no tempo. No exemplo mostrado acima, depois do serviço insere a **funcionário** entidade na região secundária, a hora da última sincronização estiver definida como *T1*. Ele continua a é *T1* até as atualizações de serviço a **funcionário** entidade na região secundária quando é definido como *T6*. Se o cliente obtém a hora da última sincronização quando ele lê a entidade na *T5*, ele pode compará-lo com o carimbo de hora na entidade. Se o carimbo de hora na entidade é posterior à hora da última sincronização, em seguida, a entidade está num estado inconsistente potencialmente e pode levar a que quer que esteja a ação adequada para a sua aplicação. Utilizar este campo exige que saiba quando a última atualização para o primário foi concluída.
+
+## <a name="getting-the-last-sync-time"></a>Obter a hora da última sincronização
+
+Pode utilizar o PowerShell ou CLI do Azure para obter a hora da última sincronização para determinar quando dados pela última vez foi escritos para o secundário.
+
+### <a name="powershell"></a>PowerShell
+
+Para obter a hora da última sincronização para a conta de armazenamento com o PowerShell, verifique a conta de armazenamento **GeoReplicationStats.LastSyncTime** propriedade. Não se esqueça de substituir os valores de marcador de posição pelos seus próprios valores:
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>CLI do Azure
+
+Para obter a hora da última sincronização para a conta de armazenamento ao utilizar a CLI do Azure, verifique a conta de armazenamento **geoReplicationStats.lastSyncTime** propriedade. Utilize o `--expand` parâmetro para retornar valores para as propriedades aninhado **geoReplicationStats**. Não se esqueça de substituir os valores de marcador de posição pelos seus próprios valores:
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
 
 ## <a name="testing"></a>Testes
 

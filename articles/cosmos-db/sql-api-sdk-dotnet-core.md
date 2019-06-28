@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 4ec9d5e605a2319a04dac4cb52dbe49c77354479
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14350125f88c315a813eb64e3ce2b88dbec2aa24
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510643"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340204"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -49,6 +49,10 @@ O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão
 * Novo modelo de objeto, com métodos e de nível superior CosmosClient dividir por classes CosmosDatabases, CosmosContainers e CosmosItems relevantes.
 * Suporte para fluxos.
 * Atualizado CosmosResponseMessage de servidor para devolver o código de estado e apenas lançar a exceção quando nenhuma resposta é devolvida.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+
+* Correções de rastreio a condição de corrida para consultas que causou a páginas em branco
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
@@ -228,7 +232,7 @@ O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](how-to-sql-query.md#Aggregates).
+* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](sql-query-aggregates.md).
 * Reduzidas débito mínimo em coleções particionadas do 10,100 RU/s para 2500 RU/s.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -251,6 +255,7 @@ Se tiver questões relacionadas com este SDK, publicar no [Stack Overflow](https
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |20 de Junho de 2019 |--- |
 | [2.4.0](#2.4.0) |05 de Maio de 2019 |--- |
 | [2.3.0](#2.3.0) |04 de Abril de 2019 |--- |
 | [2.2.3](#2.2.3) |11 de Março de 2019 |--- |

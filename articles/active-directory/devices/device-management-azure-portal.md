@@ -2,29 +2,23 @@
 title: Como gerir dispositivos através do portal do Azure | Documentos da Microsoft
 description: Saiba como utilizar o portal do Azure para gerir dispositivos.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f162e5e6eb29e4a658000826ccf25389086342
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4a0037d46db67460d507c6e92ab550f7d9c2fbe
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730444"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341420"
 ---
-# <a name="manage-device-identity-using-the-azure-portal"></a>Gerir a identidade de dispositivo com o portal do Azure
+# <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos no portal do Azure
 
 Com a gestão de identidade de dispositivo no Azure Active Directory (Azure AD), pode certificar-se de que os utilizadores estão a aceder ao seus recursos de dispositivos que cumprem as normas de segurança e conformidade.
 
@@ -65,19 +59,19 @@ A página de definições de dispositivo permite-lhe configurar:
 
 - **Os utilizadores podem associar dispositivos ao Azure AD** -esta definição permite-lhe selecionar os utilizadores que podem registar os dispositivos deles como [dispositivos do Azure AD join](overview.md#azure-ad-joined-devices). A predefinição é **todos os**.
 
->[!NOTE]
+> [!NOTE]
 > **Os utilizadores podem associar dispositivos ao Azure AD** definição só é aplicável a associação do Azure AD no Windows 10.
 
 - **Dispositivos associados de administradores locais adicionais no Azure AD** -pode selecionar os utilizadores que são concedidos direitos de administrador local num dispositivo. Utilizadores adicionados aqui são adicionados para o *administradores de dispositivos* função no Azure AD. Os administradores globais no Azure AD e os proprietários do dispositivo são concedidos direitos de administrador local por predefinição. Esta opção é um recurso de edição premium disponível por meio de produtos como o Azure AD Premium ou Enterprise Mobility Suite (EMS).
-- **Os utilizadores podem registar os seus dispositivos com o Azure AD** -tem de configurar esta definição para permitir que os dispositivos pessoais, iOS, Android e macOs com o Windows 10 ser [registado](overview.md#azure-ad-registered-devices) com o Azure AD. Se selecionou **None**, dispositivos não têm permissão para registar com o Azure AD. Inscrição com o Microsoft Intune ou gestão de dispositivos móveis (MDM) para o Office 365 requer o registo. Se tiver configurado qualquer um destes serviços, **todos os** está selecionado e **NONE** não está disponível.
-- **Exigir multi-Factor Auth associar dispositivos** -pode escolher se os utilizadores têm de fornecer um segundo fator de autenticação para [associação](overview.md#azure-ad-joined-devices) respetivo dispositivo para o Azure AD. A predefinição é **não**. Recomendamos que requerem a autenticação multifator ao registar um dispositivo. Antes de ativar a autenticação multifator para este serviço, certifique-se de que a autenticação multifator está configurada para os utilizadores que registem os seus dispositivos. Para obter mais informações sobre serviços diferentes multi-factor authentication, consulte [introdução ao multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
+- **Os utilizadores podem registar os seus dispositivos com o Azure AD** -tem de configurar esta definição para permitir que os dispositivos pessoais, iOS, Android e macOs com o Windows 10 ser [registado](overview.md#azure-ad-registered-devices) com o Azure AD. Se selecionou **None**, dispositivos não têm permissão para registar com o Azure AD. Inscrição com o Microsoft Intune ou gestão de dispositivos móveis (MDM) para o Office 365 requer o registo. Se tiver configurado qualquer um destes serviços, **todos os** está selecionado e **NONE** não está disponível. Se tiver ativado esta definição do Intune, em seguida, as opções aqui estarão esbatidas.
+- **Exigir multi-Factor Auth associar dispositivos** -pode escolher se os utilizadores têm de fornecer um segundo fator de autenticação para [associação](overview.md#azure-ad-joined-devices) respetivo dispositivo para o Azure AD. A predefinição é **não**. Recomendamos que requerem a autenticação multifator ao registar um dispositivo. Antes de ativar a autenticação multifator para este serviço, certifique-se de que o Azure multi-factor Authentication está configurado para os utilizadores que registem os seus dispositivos. Para obter mais informações, consulte o artigo [implementação de multi-factor Authentication](../authentication/howto-mfa-getstarted.md). 
 
->[!NOTE]
+> [!NOTE]
 > **Exigir multi-Factor Auth associar dispositivos** definição não é aplicável a dispositivos de associados ao Azure AD híbrido.
 
 - **Número máximo de dispositivos** -esta definição permite-lhe selecionar o número máximo de dispositivos que um utilizador pode ter no Azure AD. Se um utilizador atingir esta quota, eles não são conseguir adicionar dispositivos adicionais até que um ou mais dos dispositivos existentes são removidas. A quota de dispositivos é contada para todos os dispositivos que estão associados ao Azure AD ou do Azure AD registados hoje mesmo. O valor predefinido é **20**.
 
->[!NOTE]
+> [!NOTE]
 > **Número máximo de dispositivos** definição não é aplicável a dispositivos de associados ao Azure AD híbrido.
 
 - **Os utilizadores podem sincronizar definições e dados de aplicação em todos os dispositivos** -por predefinição, esta definição está definida como **NONE**. A seleção de utilizadores específicos ou grupos ou todos permite ao utilizador as definições e dados de aplicação sincronizar entre os dispositivos Windows 10. Saiba mais sobre como funciona a sincronização no Windows 10.

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c72c4d21f948d6d6c4d1d4598efa0e13de9705a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d056aacf8f3969b645747e2303574f3fea3bda
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926204"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357109"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação numa base de dados de instância gerida de base de dados do Azure SQL
 
@@ -40,7 +40,7 @@ Configurar uma instância gerida a funcionar como um publicador e/ou de um distr
 
 - Que a instância gerida não está atualmente a participar numa relação de georreplicação.
 - O publicador de instância gerida está na mesma rede virtual como o distribuidor e o subscritor, ou [vNet peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) tiver sido estabelecida entre as redes virtuais de todos os três entidades. 
-- Conectividade utiliza a autenticação do SQL entre os participantes de replicação.
+- A conectividade utiliza a Autenticação SQL entre os participantes da replicação.
 - Um compartilhamento de conta de armazenamento do Azure para o diretório de trabalho de replicação.
 - Porta 445 (saída de TCP) está aberta nas regras de segurança de NSG para as instâncias geridas para aceder à partilha de ficheiros do Azure. 
 
@@ -172,7 +172,7 @@ EXEC sp_adddistpublisher
   @login = N'$(username)',
   @password = N'$(password)',
   @working_directory = N'$(file_storage)',
-  @storage_connection_string = N'$(file_storage_key)';
+  @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
 Este script configura um editor local na instância gerida, adiciona um servidor vinculado e cria um conjunto de tarefas para o SQL Server Agent. 

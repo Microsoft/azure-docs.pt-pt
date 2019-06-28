@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: 4be73554df0b6bddaafe3910c80c855e127d79f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac58bbbc252d66620ad410bffa805b75ec3042d4
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771656"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341759"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para a base de dados do Azure SQL
 
@@ -39,7 +39,7 @@ Aqui estão algumas configurações dentro de cada serviço que pode ajudar a me
 
 - **Particionadas e índices de tabela** – utilizando um [particionada](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) tabela SQL e índices particionados na tabela com a mesma coluna como sua chave de partição (por exemplo, PartitionId) podem reduzir significativamente as contenções entre partições durante a escrita. Para uma tabela particionada, terá de criar uma [função de partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e uma [esquema de partição](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de ficheiros primário. Isto também irá aumentar a disponibilidade dos dados existentes enquanto está a ser carregados novos dados. Pode ser atingido o limite de e/s de registo com base no número de partições, que pode ser aumentada ao atualizar o SKU.
 
-- **Evitar a violação de chave exclusivas** – se obtiver [várias mensagens de aviso de violação de chave](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) no registo de atividade do Azure Stream Analytics, certifique-se a tarefa não é afetada pelo violações de restrição exclusiva que são provável que aconteça durante a casos de recuperação. Isso pode ser evitado, definindo a [ignorar\_duplicado\_chave](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) opção nos índices.
+- **Evitar a violação de chave exclusivas** – se obtiver [várias mensagens de aviso de violação de chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) no registo de atividade do Azure Stream Analytics, certifique-se a tarefa não é afetada pelo violações de restrição exclusiva que são provável que aconteça durante a casos de recuperação. Isso pode ser evitado, definindo a [ignorar\_duplicado\_chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) opção nos índices.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Fábrica de dados do Azure e de tabelas em memória
 

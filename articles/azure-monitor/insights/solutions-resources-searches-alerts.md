@@ -76,7 +76,7 @@ Incluem [pesquisas guardadas](../../azure-monitor/log-query/log-query-overview.m
 
 Cada propriedade de uma procura guardada é descrita na tabela seguinte.
 
-| Propriedade | Descrição |
+| Propriedade | description |
 |:--- |:--- |
 | category | A categoria para a pesquisa guardada.  Qualquer pesquisas guardadas na mesma solução, muitas vezes, irão partilhar uma única categoria para que estes são agrupados em conjunto na consola do. |
 | displayName | Nome a apresentar para a pesquisa guardada no portal. |
@@ -121,7 +121,7 @@ Uma pesquisa guardada pode ter uma ou mais agendas com cada agenda que represent
     }
 As propriedades de recursos de agenda são descritas na tabela seguinte.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | enabled       | Sim | Especifica se o alerta é ativado quando é criado. |
 | interval      | Sim | A frequência com que a consulta é executada em minutos. |
@@ -174,18 +174,18 @@ Ações de alerta tem a seguinte estrutura. Isto inclui as variáveis e parâmet
 
 As propriedades de recursos de ação do alerta são descritas nas tabelas seguintes.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | type | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
 | name | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
 | description | Não | Descrição opcional do alerta. |
-| severity | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
+| Gravidade | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Limiar
 Esta secção é necessária. Define as propriedades para o limiar de alerta.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | Operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior que<br>lt = menor que** |
 | Value | Sim | O valor a comparar os resultados. |
@@ -196,7 +196,7 @@ Esta secção é opcional. Incluí-lo para um alerta de medida da métrica.
 > [!NOTE]
 > Alertas de medida da métrica estão atualmente em pré-visualização pública.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | TriggerCondition | Sim | Especifica se o limiar de número total de falhas ou falhas consecutivas de entre os valores seguintes:<br><br>**Total<br>consecutivos** |
 | Operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior que<br>lt = menor que** |
@@ -206,7 +206,7 @@ Esta secção é opcional. Incluí-lo para um alerta de medida da métrica.
 #### <a name="throttling"></a>Limitação
 Esta secção é opcional. Inclua nesta secção, se desejar suprimir alertas a partir da mesma regra por um determinado período de tempo após a criação de um alerta.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | DurationInMinutes | Sim, se o elemento incluído de limitação | Número de minutos para suprimir alertas depois da mesma regra de alerta é criada. |
 
@@ -215,7 +215,7 @@ Todos os alertas no Azure, utilize o grupo de ação como o mecanismo predefinid
 
 Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automatização de Runbook e outras ações, tem de ser definido no lado primeiro antes, criando um alerta, um grupo de ação é possível criar [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou de utilização [grupo de ação - modelo do Resource](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | AzNsNotification | Sim | O ID de recurso do grupo de ação do Azure a ser associado ao alerta para tomar as medidas necessárias quando critérios de alerta são cumpridos. |
 | CustomEmailSubject | Não | Linha de requerente personalizado de correio enviado para todos os endereços especificados no grupo de ação associada. |
@@ -231,7 +231,7 @@ Cada agenda tem um **alerta** ação. Isso define os detalhes do alerta e, opcio
 ##### <a name="emailnotification"></a>EmailNotification
  Esta secção é opcional incluí-lo se pretender que o alerta para enviar correio para um ou mais destinatários.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | Recipients | Sim | Lista delimitada por vírgulas de endereços de e-mail para enviar a notificação quando é criado um alerta, tal como no exemplo a seguir.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
 | Subject | Sim | Assunto da mensagem. |
@@ -240,7 +240,7 @@ Cada agenda tem um **alerta** ação. Isso define os detalhes do alerta e, opcio
 ##### <a name="remediation"></a>Remediação
 Esta secção é opcional incluí-lo se pretender que um runbook para começar em resposta ao alerta. 
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | RunbookName | Sim | Nome do runbook para começar. |
 | WebhookUri | Sim | URI do webhook do runbook. |
@@ -269,7 +269,7 @@ Se o alerta chamar um webhook, então, esta terá de um recurso de ação com um
     }
 As propriedades de recursos de ação do Webhook são descritas nas tabelas seguintes.
 
-| Nome do elemento | Necessário | Descrição |
+| Nome do elemento | Necessário | description |
 |:--|:--|:--|
 | type | Sim | Tipo de ação. Isto é **Webhook** para ações de webhook. |
 | name | Sim | Nome a apresentar para a ação. Não é apresentado na consola do. |

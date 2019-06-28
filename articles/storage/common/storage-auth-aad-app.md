@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30ebfec88182684f8e852808e978a51854389898
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073427"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341624"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autenticar com o Azure Active Directory a partir de uma aplicação para o acesso para blobs e filas
 
@@ -121,7 +121,7 @@ Em seguida, atribuir explicitamente a **contribuinte de dados de Blob de armazen
 
 Quando a aplicação acede ao armazenamento do Azure, ele assim por diante nome do usuário, que significa que os recursos de BLOBs ou filas são acedidos utilizando as permissões do utilizador que tem sessão iniciada. Para experimentar este exemplo de código, precisa de uma aplicação web que pede ao utilizador para iniciar sessão com uma identidade do Azure AD. Pode criar o seu próprio, ou utilizar a aplicação de exemplo fornecida pela Microsoft.
 
-Um aplicativo de web de exemplo completo que recebe um token e a utiliza para criar um blob no armazenamento do Azure está disponível no [GitHub](http://aka.ms/aadstorage). Rever e executar o exemplo concluído pode ser útil para compreender os exemplos de código. Para obter instruções sobre como executar o exemplo concluído, consulte a secção intitulada [modo de exibição e execute o exemplo concluído](#view-and-run-the-completed-sample).
+Um aplicativo de web de exemplo completo que recebe um token e a utiliza para criar um blob no armazenamento do Azure está disponível no [GitHub](https://aka.ms/aadstorage). Rever e executar o exemplo concluído pode ser útil para compreender os exemplos de código. Para obter instruções sobre como executar o exemplo concluído, consulte a secção intitulada [modo de exibição e execute o exemplo concluído](#view-and-run-the-completed-sample).
 
 #### <a name="add-references-and-using-statements"></a>Adicionar referências e instruções "using"  
 
@@ -235,7 +235,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## <a name="view-and-run-the-completed-sample"></a>Ver e executar o exemplo concluído
 
-Para executar o aplicativo de exemplo, primeiro clonar ou transferi-lo a partir [GitHub](http://aka.ms/aadstorage). Em seguida, atualize a aplicação conforme descrito nas seções a seguir.
+Para executar o aplicativo de exemplo, primeiro clonar ou transferi-lo a partir [GitHub](https://aka.ms/aadstorage). Em seguida, atualize a aplicação conforme descrito nas seções a seguir.
 
 ### <a name="provide-values-in-the-settings-file"></a>Forneça os valores no ficheiro de definições
 

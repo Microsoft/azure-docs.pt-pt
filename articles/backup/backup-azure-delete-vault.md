@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 51de1c4ac17360282877f05d52c3ea8fa2c6d712
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275618"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310748"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
@@ -124,7 +124,7 @@ Este procedimento fornece um exemplo que mostra como remover dados de cópia de 
 
 > [!NOTE]
 > Para remover itens, na consola do servidor de gestão ou na consola do MARS num servidor protegido, pare a proteção e eliminar cópias de segurança. Se os itens de cópia de segurança permanecem, irá aparecer o erro seguinte ao tentar eliminar e anular o registo do servidor:
-> 
+>
 >![Falha na eliminação](./media/backup-azure-delete-vault/deletion-failed.png)
 
 6. Para verificar que a tarefa de eliminação foi concluída, verifique as mensagens do Azure ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/messages.png).
@@ -159,8 +159,8 @@ Este procedimento fornece um exemplo que mostra como remover dados de cópia de 
 
 > [!NOTE]
 > Itens de cópia de segurança associados um servidor de cópia de segurança do servidor de gestão ou agente de cópia de segurança do Azure têm de ser eliminadas antes de registos do servidor, esses são eliminados. Para remover os itens de cópia de segurança, navegue para o DPM SC, MABS ou a consola de gestão de MARS no servidor, conforme aplicável e selecione as opções relevantes para parar a proteção e elimine as cópias de segurança. Se quaisquer itens de cópia de segurança ainda se encontram associados, verá o seguinte erro:
-> 
-> 
+>
+>
 >![Falha na eliminação](./media/backup-azure-delete-vault/deletion-failed.png)
 
 8. Para verificar que a tarefa de eliminação foi concluída, verifique as mensagens do Azure ![eliminar dados de cópia de segurança](./media/backup-azure-delete-vault/messages.png).

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9cfec65843012e781c8a8dd06cbc4d1225b0dd36
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257532"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338900"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 para pré-requisitos de envolvimento do cliente
 
@@ -40,7 +40,7 @@ O Dynamics 365 para a aplicação de envolvimento do cliente deve estar em confo
 
 Os requisitos comerciais incluem as seguinte obrigações de procedimentos, contratuais e legais:
 
-* Tem de estar registado no [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) ou ser um publicador de Marketplace na nuvem registados. Se não estiver registrado, siga os passos em [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Para o terceiro passo, em vez disso, utilize o [formulário de nomeação do parceiro de AppSource](https://appsource.microsoft.com/partners/signup)). 
+* Tem de estar registado no [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) ou ser um publicador de Marketplace na nuvem registados. Se não estiver registrado, siga os passos em [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Também pode se conectar com o [Dynamics 365 para a equipa de integração de Customer Engagement](https://experience.dynamics.com/isvengage/)).
 
     >[!NOTE]
     >Deve utilizar a mesma conta de registo do Microsoft Developer Center para iniciar sessão no Portal de parceiros de nuvem. Deve ter apenas uma conta Microsoft para as ofertas do Azure Marketplace. Esta conta não deve ser específica de ofertas ou serviços individuais.

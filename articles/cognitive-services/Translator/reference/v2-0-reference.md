@@ -3,19 +3,19 @@ title: Versão 2.0 da API de texto do tradutor
 titleSuffix: Azure Cognitive Services
 description: Documentação de referência para a API de texto do Translator V2.0.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-pawal
-ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 88503c73e2ca9cf04e64ca3a47793e9b10ca325a
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389833"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357821"
 ---
 # <a name="translator-text-api-v20"></a>V2.0 de API de texto do tradutor
 
