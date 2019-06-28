@@ -103,17 +103,17 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
-| AvailabilityDuration | Duração |
+| AvailabilityDuration | duration |
 | AvailabilityMessage | message |
-| AvailabilityRunLocation | localização |
+| AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
-| Localidade | client_city |
+| City | client_city |
 | ClientIP | client_IP |
-| Computador | cloud_RoleInstance | 
-| País | client_CountryOrRegion | 
+| Computer | cloud_RoleInstance | 
+| Country | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
@@ -125,23 +125,23 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
-| SO | client_OS | 
+| OS | client_OS | 
 | PageViewCount | itemCount |
-| PageViewDuration | Duração | 
+| PageViewDuration | duration | 
 | PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
-| RequestDuration | Duração | 
+| RequestDuration | duration | 
 | RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | exito | 
+| RequestSuccess | success | 
 | ResponseCode | resultCode | 
-| Função | cloud_RoleName |
+| Role | cloud_RoleName |
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | type |
-| do IdP | _url |
+| URL | _url |
 | UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Passos Seguintes
