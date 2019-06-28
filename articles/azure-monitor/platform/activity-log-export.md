@@ -234,10 +234,10 @@ Os elementos neste JSON são descritos na tabela seguinte.
 | durationMs |Duração da operação em milissegundos |
 | callerIpAddress |Endereço IP do utilizador que efetuou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. |
 | correlationId |Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
-| identidade |Blob JSON que descrevem a autorização e afirmações. |
+| identity |Blob JSON que descrevem a autorização e afirmações. |
 | authorization |Blob de propriedades RBAC do evento. Normalmente, inclui as propriedades de "action", "função" e "escopo". |
-| nível |Nível do evento. Um dos seguintes valores: _Crítico_, _erro_, _aviso_, _informativa_, e _verboso_ |
-| localização |Região em que ocorreu a localização (ou global). |
+| level |Nível do evento. Um dos seguintes valores: _Crítico_, _erro_, _aviso_, _informativa_, e _verboso_ |
+| location |Região em que ocorreu a localização (ou global). |
 | properties |Conjunto de `<Key, Value>` pares (ou seja, dicionário), que descreve os detalhes do evento. |
 
 > [!NOTE]
