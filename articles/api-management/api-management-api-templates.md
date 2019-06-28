@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 82c180d869801cd9cd91a3e2a3659644f4e263d9
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e8519bf436e1af19a22a840f48bf1bfccdae99b2
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273336"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341262"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API na gestão de API do Azure
 
@@ -345,7 +345,7 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|`apiId`|string|O id da API atual.|  
+|`apiId`|string|O ID da API atual.|  
 |`apiName`|string|O nome da API.|  
 |`apiDescription`|string|Uma descrição da API.|  
 |`api`|[Resumo da API](api-management-template-data-model-reference.md#APISummary) entidade.|A API atual.|  
@@ -1363,7 +1363,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### <a name="controls"></a>Controlos  
  Os modelos de exemplo de código não permitem o uso de qualquer [controlos de página](api-management-page-controls.md).  

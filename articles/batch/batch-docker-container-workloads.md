@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 11/19/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51037e66ec649fc275a746c9f5316b91d82e186a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cfd00ad124db33cec8e30e8e1bb701388ee71838
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776276"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340230"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicações de contentor no Azure Batch
 
@@ -104,10 +104,10 @@ Para configurar um conjunto preparado para contentor sem imagens de contentor pr
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
-        publisher='microsoft-azure-batch',
-        offer='ubuntu-server-container',
-        sku='16-04-lts',
-        version='latest')
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
 
 """
 Specify container configuration. This is required even though there are no prefetched images.
@@ -116,13 +116,13 @@ Specify container configuration. This is required even though there are no prefe
 container_conf = batch.models.ContainerConfiguration()
 
 new_pool = batch.models.PoolAddParameter(
-        id=pool_id,
-        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
-            image_reference=image_ref_to_use,
-            container_configuration=container_conf,
-            node_agent_sku_id='batch.node.ubuntu 16.04'),
-        vm_size='STANDARD_D1_V2',
-        target_dedicated_nodes=1)
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
 ...
 ```
 
@@ -144,7 +144,8 @@ image_ref_to_use = batch.models.ImageReference(
 Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
 """
 
-container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+container_conf = batch.models.ContainerConfiguration(
+    container_image_names=['ubuntu'])
 
 new_pool = batch.models.PoolAddParameter(
     id=pool_id,
@@ -274,14 +275,13 @@ O fragmento de Python seguinte mostra uma linha de comandos básicos em execuç�
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='myimage', 
+    image_name='myimage',
     container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
     command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
-
 ```
 
 O exemplo do c# seguinte mostra as definições de contêiner básico para uma tarefa de cloud:

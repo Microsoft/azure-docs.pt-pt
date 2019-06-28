@@ -3,19 +3,19 @@ title: 'Início rápido: Procure palavras dicionário bilingue, Python - API de 
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a encontrar traduções alternativas e exemplos de utilização para um texto especificado com o Python e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 0a204238e86e23a10d698b1b8b0a465c6cbb75da
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: swmachan
+ms.openlocfilehash: d1d2dcfda401325c9faa1577e08292d7959369f6
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340976"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357903"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Início rápido: Procure palavras com dicionário bilingue com Python
 

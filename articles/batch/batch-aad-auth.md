@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cda3f99a263e8eef13ee2e8d8e6453eda0f4cb6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922449"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341182"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço do Batch com o Active Directory
 
-O Azure Batch suporta a autenticação com [do Azure Active Directory] [ aad_about] (Azure AD). O Azure AD é o diretório de multi-inquilino com base na cloud da Microsoft e o serviço de gestão de identidade. Azure próprio utiliza o Azure AD para autenticar os seus clientes, os administradores de serviços e utilizadores organizacionais.
+O Azure Batch suporta a autenticação com [do Azure Active Directory][aad_about] (Azure AD). O Azure AD é o diretório de multi-inquilino com base na cloud da Microsoft e o serviço de gestão de identidade. Azure próprio utiliza o Azure AD para autenticar os seus clientes, os administradores de serviços e utilizadores organizacionais.
 
 Ao utilizar a autenticação do Azure AD com o Azure Batch, pode autenticar-se de uma de duas formas:
 
@@ -64,7 +64,7 @@ Utilize o **ponto final de recurso do Azure Batch** para adquirir um token para 
 
 ## <a name="register-your-application-with-a-tenant"></a>Registar a aplicação com um inquilino
 
-O primeiro passo para utilizar o Azure AD para autenticar está a registar a aplicação no inquilino do Azure AD. Registar a aplicação permite-lhe chamar do Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) a partir do código. A ADAL fornece uma API para autenticar com o Azure AD a partir da sua aplicação. Registar a aplicação é necessário se planeia utilizar a autenticação integrada ou um principal de serviço.
+O primeiro passo para utilizar o Azure AD para autenticar está a registar a aplicação no inquilino do Azure AD. Registar a aplicação permite-lhe chamar do Azure [Active Directory Authentication Library][aad_adal] (ADAL) a partir do código. A ADAL fornece uma API para autenticar com o Azure AD a partir da sua aplicação. Registar a aplicação é necessário se planeia utilizar a autenticação integrada ou um principal de serviço.
 
 Quando registar a sua aplicação, fornecer informações sobre a sua aplicação para o Azure AD. Em seguida, do Azure AD fornece um ID de aplicação (também chamado de um *ID de cliente*) que utilizou para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
@@ -324,31 +324,31 @@ from azure.common.credentials import ServicePrincipalCredentials
 Quando utilizar um principal de serviço, tem de fornecer o ID do inquilino. Para obter o ID de inquilino, siga os passos descritos em [obter o ID de inquilino do Azure Active Directory](#get-the-tenant-id-for-your-active-directory):
 
 ```python
-TENANT_ID = "<tenant-id>";
+TENANT_ID = "<tenant-id>"
 ```
 
 Referenciar o ponto de final do recurso de serviço do Batch:  
 
 ```python
-RESOURCE = "https://batch.core.windows.net/";
+RESOURCE = "https://batch.core.windows.net/"
 ```
 
 Fazer referência a sua conta do Batch:
 
 ```python
-BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com"
 ```
 
 Especifica o ID de aplicação (ID de cliente) para a sua aplicação. O ID da aplicação está disponível no seu registo de aplicações no portal do Azure:
 
 ```python
-CLIENT_ID = "<application-id>";
+CLIENT_ID = "<application-id>"
 ```
 
 Especifique a chave secreta que copiou do portal do Azure:
 
 ```python
-SECRET = "<secret-key>";
+SECRET = "<secret-key>"
 ```
 
 Criar uma **ServicePrincipalCredentials** objeto:

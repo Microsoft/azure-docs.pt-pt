@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 427c4615fcbb036ffff56a8fc592f258fb98845e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755120"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341494"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 
@@ -98,8 +98,8 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 | [Criador do laboratório](#lab-creator) | Permite-lhe criar, gerir e eliminar os seus laboratórios geridos nas suas contas de laboratório do Azure. |
 | [Contribuidor do log Analytics](#log-analytics-contributor) | Contribuidor do log Analytics pode ler todos os dados de monitorização e editar as definições de monitorização. Editar definições de monitorização inclui adicionar a extensão VM para VMs; ler as chaves de conta de armazenamento para poder configurar a recolha de registos do armazenamento do Azure; criar e configurar contas de automatização; Adicionar soluções; e configurar os diagnósticos do Azure em todos os recursos do Azure. |
 | [Leitor do log Analytics](#log-analytics-reader) | Leitor do log Analytics pode ver e procurar todos os dados de monitorização e como e vista de definições, incluindo ver a configuração dos diagnósticos do Azure em todos os recursos do Azure de monitorização. |
-| [Contribuidor da aplicação lógica](#logic-app-contributor) | Permite-lhe gerir a aplicação lógica, mas não aceder-lhes. |
-| [Operador de aplicação lógica](#logic-app-operator) | Permite-lhe ler, ativar e desativar a aplicação lógica. |
+| [Contribuidor da aplicação lógica](#logic-app-contributor) | Permite-lhe gerir aplicações lógicas, mas não alterar o acesso aos mesmos. |
+| [Operador de aplicação lógica](#logic-app-operator) | Permite-lhe ler, ativar e desativar aplicações lógicas, mas não editar ou atualizá-los. |
 | [Função de operador de aplicação gerida](#managed-application-operator-role) | Permite-lhe ler e executar ações nos recursos de aplicação gerida |
 | [Leitor de aplicativos gerenciados](#managed-applications-reader) | Permite-lhe ler os recursos de acesso JIT gerido de aplicação e a pedido. |
 | [Contribuidor de identidade gerido](#managed-identity-contributor) | Criar, ler, atualizar e eliminar a identidade atribuída ao utilizador |
@@ -1620,7 +1620,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe gerir a aplicação lógica, mas não aceder-lhes. |
+> | **Descrição** | Permite-lhe gerir aplicações lógicas, mas não alterar o acesso aos mesmos. |
 > | **Id** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -1654,7 +1654,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe ler, ativar e desativar a aplicação lógica. |
+> | **Descrição** | Permite-lhe ler, ativar e desativar aplicações lógicas, mas não editar ou atualizá-los. |
 > | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -2494,7 +2494,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite a gestão de contas de armazenamento. Isso não concede acesso a dados na conta de armazenamento. |
+> | **Descrição** | Permite a gestão de contas de armazenamento. Fornece acesso à chave de conta, que pode ser utilizado para aceder a dados por meio de autorização de chave partilhada. |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Ler todos os de autorização |

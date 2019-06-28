@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab7165c3315e3a53f90900be8eaf1b9c614a2b07
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192627"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341135"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de Alerta Personalizadas no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a criar regras de alerta personalizadas no Centro de Segurança do Azure.
@@ -29,17 +29,15 @@ Este documento ajuda-o a criar regras de alerta personalizadas no Centro de Segu
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Regras de extinção do alerta de personalizado no Centro de segurança do Azure
 
-A experiência de alertas personalizados será retirada a 30 de Junho de 2019 devido a extinção da infraestrutura subjacente que baseia-se. Num período de tempo até que a desaprovação, os utilizadores poderão editar regras de alerta personalizadas existentes, mas não será possível adicionar novas etiquetas.
+A experiência de alertas personalizados será retirada a 30 de Junho de 2019 devido a extinção da infraestrutura subjacente que baseia-se. Num período de tempo até que a desaprovação, os utilizadores poderão editar regras de alerta personalizadas existentes, mas não será possível adicionar novas etiquetas. Após a remoção, todos os alertas personalizados definidos não vão ter efeito e não serão gerados alertas de segurança com base nessas regras de alertas personalizados.
 Os usuários são aconselhados a qualquer um:
-- Ativar [Azure sentinela](https://azure.microsoft.com/services/azure-sentinel/) com a integração de um clique para migrar os seus alertas existentes e criar novos automaticamente
+- Ativar [Azure sentinela](https://azure.microsoft.com/services/azure-sentinel/) e utilizar incorporada [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) funcionalidade voltar a criar suas regras de alerta
 - Voltar a criar seus alertas com alertas de registo do Azure Monitor
                                      
-Para manter os alertas existentes e migrá-los para o Azure sentinela, inicie [iniciar o Azure sentinela](https://portal.azure.com/#create/Microsoft.ASI/preview). Como primeiro passo, selecione a área de trabalho onde estão armazenadas os seus alertas personalizados e, em seguida, selecione o item de menu 'Analytics' para migrar automaticamente os alertas.
+Para manter os alertas existentes e migrá-los para o Azure sentinela, inicie [iniciar o Azure sentinela](https://portal.azure.com/#create/Microsoft.ASI/preview). Como primeiro passo, selecione a área de trabalho onde estão armazenadas os seus alertas personalizados e, em seguida, selecione o item de menu 'Analytics' para configurar as regras de alertas personalizados. Visite o [documentação](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) para obter informações adicionais.
 
 > [!NOTE]
-> Migração de alertas personalizados para o Azure sentinela é uma única migração de todos os seus alertas personalizadas na área de trabalho selecionada. Depois de concluída a migração, os alertas personalizados para essa área de trabalho selecionada não estará acessíveis através do Centro de segurança do Azure.
->
-> Alertas personalizados usando [pesquisa](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) ou [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) consultas de instruções não são suportadas no Azure sentinela e não serão migradas. Edite estes alertas antes de efetuar a migração.
+> Alertas personalizados usando [pesquisa](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) ou [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) consultas de instruções não são suportadas no Azure sentinela. Edite estes alertas antes de efetuar a migração.
 
 Voltar a criar os alertas com alertas de registo do Azure Monitor, consulte: [Criar, ver e gerir alertas de registo com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para obter instruções sobre como criar alertas de registo. Para uma visão geral dos alertas de registo no Azure Monitor, clique em [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 

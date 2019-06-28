@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137763"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357590"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Utilize as máquinas de virtuais de ciência de dados do Azure
 
@@ -51,9 +51,9 @@ Obter estes valores a partir da página da DSVM no portal do Azure.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Aceder a ficheiros de blocos de notas do Azure da DSVM
 
-Para preservar a paridade de caminhos de arquivo com o **computação gratuita** escalão, é possível apenas abrir um projeto ao mesmo tempo numa DSVM do. Para abrir um novo projeto, tem de encerrar o projeto aberto pela primeira vez.
+Acesso do sistema de ficheiros é suportada para versões DSVM 19.06.15 ou posterior. Para verificar a versão, ligue primeiro à sua DSVM através de SSH (o endereço IP está disponível no portal do Azure). Em seguida, execute o seguinte comando com sua `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. O número de versão é mostrado no resultado para "versão".
 
-![Botão de encerramento em blocos de notas do Azure](media/shutdown.png)
+Para preservar a paridade de caminhos de arquivo com o **computação gratuita** escalão, é possível apenas abrir um projeto ao mesmo tempo numa DSVM do. Para abrir um novo projeto, tem de encerrar o projeto aberto pela primeira vez.
 
 Quando um projeto é executado numa VM, os ficheiros estão montados no diretório raiz do servidor do Jupyter (o diretório mostrado na JupyterHub), substituindo os arquivos de blocos de notas do Azure padrão. Quando encerrar a VM com o **encerramento** botão do bloco de notas da interface do Usuário, blocos de notas do Azure restaura os arquivos padrão.
 

@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: 1b5d18a3dfd1181fd06b58fd58f496457e24b58e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50a2161be4ee70f7ae5c8baa3816eb9f9943a5d2
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956366"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358009"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilizar um balanceador de carga interno com o Azure Kubernetes Service (AKS)
 
 Para restringir o acesso às suas aplicações no Azure Kubernetes Service (AKS), pode criar e utilizar um balanceador de carga interno. Um balanceador de carga interno torna um serviço do Kubernetes acessível apenas para aplicações em execução na mesma rede virtual do cluster de Kubernetes. Este artigo mostra-lhe como criar e utilizar um balanceador de carga interno com o Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> O Balanceador de carga do Azure está disponível em dois SKUs - *básica* e *padrão*. AKS suporta atualmente o *básica* SKU. Se pretender utilizar o *padrão* SKU, pode usar o montante [motor de aks][aks-engine]. Para obter mais informações, consulte [comparação SKU do Balanceador de carga do Azure][azure-lb-comparison].
+> O Balanceador de carga do Azure está disponível em dois SKUs - *básica* e *padrão*. Por predefinição, o *básica* SKU é utilizada quando é utilizado um manifesto de serviço para criar um balanceador de carga no AKS. Para obter mais informações, consulte [comparação SKU do Balanceador de carga do Azure][azure-lb-comparison].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
+Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 Também precisa da versão 2.0.59 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
@@ -48,7 +48,7 @@ spec:
     app: internal-app
 ```
 
-Implementar o Balanceador de carga interno através de [kubectl aplicar] kubectl-aplicar] e especifique o nome do seu manifesto YAML:
+Implementar o Balanceador de carga interno através do [kubectl aplicar][kubectl-apply] e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl apply -f internal-lb.yaml
@@ -96,7 +96,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>Utilizar redes privadas
 
-Ao criar o cluster do AKS, pode especificar definições de rede avançadas. Esta abordagem permite-lhe implementar o cluster numa rede virtual do Azure existente e sub-redes. Um cenário é implementar o seu cluster do AKS para uma rede privada ligada ao seu ambiente no local e executar serviços acessíveis apenas internamente. Para obter mais informações, consulte Configurar suas próprias sub-redes da rede virtual com [Kubenet] [ use-kubenet] ou [Azure CNI][advanced-networking].
+Ao criar o cluster do AKS, pode especificar definições de rede avançadas. Esta abordagem permite-lhe implementar o cluster numa rede virtual do Azure existente e sub-redes. Um cenário é implementar o seu cluster do AKS para uma rede privada ligada ao seu ambiente no local e executar serviços acessíveis apenas internamente. Para obter mais informações, consulte Configurar suas próprias sub-redes da rede virtual com [Kubenet][use-kubenet] or [Azure CNI][advanced-networking].
 
 Sem alterações para os passos anteriores são necessários para implementar um balanceador de carga interno num cluster do AKS que utiliza uma rede privada. O Balanceador de carga é criado no mesmo grupo de recursos do seu cluster do AKS mas ligado à sua rede privada virtual e sub-rede, conforme mostrado no exemplo a seguir:
 
@@ -108,7 +108,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Poderá ter de conceder o principal de serviço para o seu cluster do AKS a *contribuinte de rede* função para o grupo de recursos onde os recursos de rede virtual do Azure são implementados. Ver o principal de serviço com [show do az aks][az-aks-show], tais como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Para criar uma atribuição de função, utilize o [criação da atribuição de função de az] [ az-role-assignment-create] comando.
+> Poderá ter de conceder o principal de serviço para o seu cluster do AKS a *contribuinte de rede* função para o grupo de recursos onde os recursos de rede virtual do Azure são implementados. Ver o principal de serviço com [show do az aks][az-aks-show], tal como `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Para criar uma atribuição de função, utilize o [criação da atribuição de função de az][az-role-assignment-create] comando.
 
 ## <a name="specify-a-different-subnet"></a>Especifique uma sub-rede diferente
 
@@ -141,6 +141,7 @@ Diretamente também pode eliminar um serviço como com qualquer recurso do Kuber
 Saiba mais sobre os serviços do Kubernetes com o [documentação dos serviços de Kubernetes][kubernetes-services].
 
 <!-- LINKS - External -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [aks-engine]: https://github.com/Azure/aks-engine
 

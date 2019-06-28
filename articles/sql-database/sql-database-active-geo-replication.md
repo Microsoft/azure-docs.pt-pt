@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/18/2019
+ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387456"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341433"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criar e utilizar a georreplicação ativa
 
@@ -100,9 +100,6 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   Cada base de dados secundária pode participar em separado de um conjunto elástico ou não estar em qualquer conjunto elástico em todos os. A opção de agrupamento para cada base de dados secundária está separada e não dependem da configuração de quaisquer outra secundária da base de dados (se primário ou secundário). Cada conjunto elástico está contido numa única região, por isso várias bases de dados secundários na mesma topologia nunca podem partilhar um conjunto elástico.
 
-- **Tamanho de computação configuráveis do banco de dados secundário**
-
-  Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que essa base de dados secundária é criada com o mesmo tamanho de computação (DTUs ou vCores) como principal. Uma secundária com tamanho inferior de computação está em risco de um atraso de replicação maior, indisponibilidade potencial de secundário e, consequentemente, um risco de perda de dados substancial após uma ativação pós-falha. Como resultado, o RPO publicado = 5 s não pode ser garantida. O risco de outro é que após a ativação pós-falha do desempenho do aplicativo será afetado devido à falta de capacidade de computação da nova principal até que ele é atualizado para um tamanho de computação mais elevado. A hora da atualização depende do tamanho de base de dados. Além disso, atualmente essa atualização requer que as bases de dados primárias e secundárias estão online e, portanto, não podem ser concluídas até que a falha é atenuada. Se optar por criar o secundário com o menor tamanho de computação, o gráfico de percentagem de e/s de registo no portal do Azure fornece uma boa forma de estimar o tamanho mínimo de computação da secundária que é necessário para sustentar a carga de replicação. Por exemplo, se a sua base de dados primária é P6 (1000 DTUS) e o respetivo registo de % de e/s é de 50% secundário tem de ser, pelo menos, P4 (500 DTU). Também pode obter os dados de e/s de registo usando [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vistas de base de dados.  Para obter mais informações sobre os tamanhos de computação de base de dados SQL, consulte [quais são os escalões de serviço de base de dados SQL](sql-database-purchase-models.md).
 
 - **Ativação pós-falha controlada pelo utilizador e a reativação pós-falha**
 
@@ -112,7 +109,19 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 Recomendamos que utilize [regras de firewall do IP de nível de base de dados](sql-database-firewall-configure.md) para georreplicado bases de dados para que estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundárias têm as mesmas regras de firewall do IP como principal. Essa abordagem elimina a necessidade dos clientes manualmente configurar e manter regras de firewall nos servidores que alojam as bases de dados primárias e secundárias. Da mesma forma, usando [utilizadores de base de dados contidos](sql-database-manage-logins.md) para dados de acesso garante que as bases de dados primários e secundários têm sempre a mesma as credenciais de utilizador durante uma ativação pós-falha, não há nenhum interrupções devido a incompatibilidades com inícios de sessão e palavras-passe. Com a adição da [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primárias e secundárias e eliminando a necessidade de gerenciamento de credenciais em bases de dados completamente.
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade uma base de dados primária
+## <a name="configuring-secondary-database"></a>Configurar a base de dados secundária
+
+Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que essa base de dados secundária é criada com o mesmo tamanho de computação (DTUs ou vCores) como principal. Se a base de dados primária está com uma carga de trabalho de escrita intensivas, uma secundária com o tamanho de computação inferior não pode ser capaz de acompanhar. Fará com que o desfasamento de Refazer na indisponibilidade secundária, potencial e, consequentemente, um risco de perda de dados substancial após uma ativação pós-falha. Como resultado, o RPO publicado = 5 s não pode ser garantida. Também poderá resultar em falhas ou interrupção de outras cargas de trabalho principal. 
+
+A outra conseqüência de uma configuração secundária desequilibrada é que, após a ativação pós-falha, desempenho do aplicativo será inferior devido a capacidade de computação suficiente da nova principal. Será necessário atualizar para uma computação superior para o nível necessário, o que não será possível até que a falha é atenuada. 
+
+> [!NOTE]
+> Atualmente, a atualização da base de dados principal não é possível se secundário está offline. 
+
+
+Se optar por criar o secundário com o menor tamanho de computação, o gráfico de percentagem de e/s de registo no portal do Azure fornece uma boa forma de estimar o tamanho mínimo de computação da secundária que é necessário para sustentar a carga de replicação. Por exemplo, se a sua base de dados primária é P6 (1000 DTUS) e o respetivo registo de % de e/s é de 50% secundário tem de ser, pelo menos, P4 (500 DTU). Também pode obter os dados de e/s de registo usando [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vistas de base de dados.  Para obter mais informações sobre os tamanhos de computação de base de dados SQL, consulte [quais são os escalões de serviço de base de dados SQL](sql-database-purchase-models.md).
+
+## <a name="upgrading-or-downgrading-primary-database"></a>Atualizar ou fazer downgrade base de dados primária
 
 Pode atualizar ou mudar a versão de uma base de dados principal para um tamanho de computação diferentes (dentro do mesmo escalão de serviço, não entre fins gerais e crítico para a empresa) sem desligar a quaisquer bases de dados secundários. Ao atualizar, recomendamos que Atualize primeiro o banco de dados secundário e, em seguida, atualizar o primário. Ao fazer downgrade, inverter a ordem: mudar para a versão principal primeiro e, em seguida, mudar o secundário. Quando atualizar ou mudar para a versão da base de dados para um escalão de serviço diferente, esta recomendação é imposta.
 
@@ -134,7 +143,7 @@ Devido a alta latência das redes de longa distância, a cópia contínua utiliz
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitorização de desfasamento de georreplicação
 
-Para monitorizar o atraso em relação ao RPO, utilize *replication_lag_sec* coluna da [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) na base de dados primária. Ele mostra o atraso em segundos, entre as transações consolidadas principal e persistido no secundário. Por exemplo, Se o valor da lentidão é de 1 segundo, isso significa que se o principal é afetado por uma falha neste momento e ativação pós-falha é intiated, um segundo da mais recente transtions não será guardado. 
+Para monitorizar o atraso em relação ao RPO, utilize *replication_lag_sec* coluna da [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) na base de dados primária. Ele mostra o atraso em segundos, entre as transações consolidadas principal e persistido no secundário. Por exemplo, Se o valor da lentidão é de 1 segundo, isso significa se o principal é afetado por uma falha neste momento e ativação pós-falha é iniciada, um segundo das transições de mais recentes não será guardado. 
 
 Para medir a latência relativamente a alterações na base de dados primária, que foram aplicadas no secundário, ou seja, disponível para ser lido a partir do secundário, comparar *last_commit* tempo na base de dados secundário com o mesmo valor principal base de dados.
 

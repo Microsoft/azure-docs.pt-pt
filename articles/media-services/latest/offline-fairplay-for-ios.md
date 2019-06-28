@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 58315e639a54b67bdef6751004b7a768e4f92224
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2514fff2a3bb292a86c9f4c0e92c37ed2709097
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937505"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341048"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming para iOS 
 
@@ -40,6 +40,9 @@ Além de proteger conteúdo para a transmissão online ao longo de vários proto
 * Em alguns países/regiões, disponibilidade de internet e/ou de largura de banda é continua a ser limitada. Os utilizadores podem optar por transferir primeiro para conseguir ver o conteúdo numa resolução que seja alto o suficiente para uma experiência de visualização satisfatória. Neste caso, o problema, normalmente, não é a disponibilidade de rede, mas a largura de banda de rede limitada. Over-the-top (OTT) / fornecedores de plataforma de vídeo online (OVP) peça ao apoio de modo offline.
 
 Este artigo aborda o suporte de modo offline FairPlay Streaming (FPS) que se destina a dispositivos com iOS 10 ou posterior. Esta funcionalidade não é suportada para outras plataformas Apple, como watchOS, tvOS ou Safari no macOS.
+
+> [!NOTE]
+> Apenas é faturada a offline DRM para fazer uma única solicitação para uma licença ao baixar o conteúdo. Todos os erros não são faturados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

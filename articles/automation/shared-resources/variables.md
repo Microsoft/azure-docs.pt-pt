@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ac34f1d1e7fc2a967c7608f31f3b943f9380d01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 622b4ab41162a7858097f717a103878f05917cd3
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786199"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342166"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variável na automatização do Azure
 
@@ -28,7 +28,7 @@ Recursos de variável são valores que estão disponíveis para todos os runbook
 
 Uma vez que as variáveis da automatização são mantidas, estão disponíveis mesmo que o runbook ou configuração DSC falha. Este comportamento permite que um valor definido por um runbook que, em seguida, é utilizado por outro ou que é utilizado pelo mesmo runbook ou configuração de DSC da próxima vez que for executada.
 
-Quando uma variável é criada, pode especificar que ele é armazenado encriptado. Variáveis encriptadas são armazenadas em segurança na automatização do Azure, e seu valor não pode ser obtido a partir da [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet que é fornecido como parte do módulo Azure PowerShell. É a única forma que um valor encriptado pode ser obtido a partir da **Get-AutomationVariable** atividade num runbook ou configuração DSC.
+Quando uma variável é criada, pode especificar que ele é armazenado encriptado. Variáveis encriptadas são armazenadas em segurança na automatização do Azure, e seu valor não pode ser obtido a partir da [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet que é fornecido como parte do módulo Azure PowerShell. É a única forma que um valor encriptado pode ser obtido a partir da **Get-AutomationVariable** atividade num runbook ou configuração DSC. Se quiser alterar uma variável encriptada para não encriptado, pode tem de eliminar e voltar a criar a variável como não encriptado.
 
 >[!NOTE]
 >Os elementos seguros na automatização do Azure incluem as credenciais, certificados, ligações e variáveis encriptadas. Esses ativos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é armazenada num sistema gerido Key Vault. Antes de armazenar um recurso seguro, a chave é carregada a partir do Key Vault e, em seguida, utilizada para encriptar o elemento. Este processo é gerido pela automatização do Azure.

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 35cbe04380e2113f986d1e7adf3f7fdf89cb9326
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078875"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357647"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registos de auditoria na base de dados do Azure para MySQL
 
@@ -45,7 +45,7 @@ Outros parâmetros que pode ajustar incluem:
 
 Registos de auditoria estão integrados com os registos de diagnóstico do Azure Monitor. Assim que tive ativado os registos de auditoria no seu servidor MySQL, pode emiti-los para registos do Azure Monitor, os Hubs de eventos ou armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico no portal do Azure, veja a [artigo de portal de registo de auditoria](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
-## <a name="schemas"></a>Esquemas
+## <a name="diagnostic-logs-schemas"></a>Esquemas de registos de diagnóstico
 
 As secções seguintes descrevem o que é o resultado por registos de auditoria do MySQL com base no tipo de evento. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 

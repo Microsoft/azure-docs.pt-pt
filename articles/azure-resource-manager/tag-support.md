@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056880"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339849"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-using-tags.md). A coluna intitulada **suporta etiquetas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna intitulada **marca no relatório de custo** indica se esse tipo de recurso passa a etiqueta para o relatório de custos.
@@ -864,8 +864,8 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | dnszones/TXT | Não |  Não |
 | expressRouteCircuits | Sim  | Não |
 | expressRouteServiceProviders | Não |  Não |
-| frontdoors | Sim | Sim |
-| frontdoorWebApplicationFirewallPolicies | Sim | Sim |
+| frontdoors | Sim, mas limitado (consulte [nota abaixo](#frontdoor)) | Sim |
+| frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (consulte [nota abaixo](#frontdoor)) | Sim |
 | getDnsResourceReference | Não |  Não |
 | interfaceEndpoints | Sim | Sim |
 | internalNotify | Não |  Não |
@@ -898,6 +898,10 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | vpnGateways | Sim | Não |
 | vpnSites | Sim | Sim |
 | webApplicationFirewallPolicies | Sim | Sim |
+
+<a id="frontdoor" />
+
+Porta de entrada do serviço do Azure, pode aplicar etiquetas ao criar o recurso, mas a atualização ou adição de etiquetas não é atualmente suportada.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Suporta etiquetas | Etiquetar no relatório de custos |

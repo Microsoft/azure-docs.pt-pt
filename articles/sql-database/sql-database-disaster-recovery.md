@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075817"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341080"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar uma base de dados do Azure SQL ou a ativação pós-falha para uma secundária
 
@@ -34,7 +34,7 @@ Para saber mais sobre os cenários de continuidade de negócios e os recursos pa
 > Se estiver a utilizar ou conjuntos de bases de dados de Premium ou críticas para a empresa com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica.
 
 > [!NOTE]
-> Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que a base de dados secundário é criado com o mesmo tamanho de computação (DTUs ou vCores) como principal. Para obter mais informações, consulte [Upgrading ou fazer downgrade como base de dados primária](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que a base de dados secundário é criado com o mesmo tamanho de computação (DTUs ou vCores) como principal. Para obter mais informações, consulte [Upgrading ou fazer downgrade como base de dados primária](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Utilize um ou vários grupos de ativação pós-falha para gerir a ativação pós-falha de várias bases de dados.

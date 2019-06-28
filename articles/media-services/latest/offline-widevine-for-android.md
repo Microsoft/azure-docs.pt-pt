@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937225"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341021"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine para transmissão em fluxo para Android
 
@@ -38,6 +38,9 @@ Para a criação de aplicações do Android player, descrevemos as três opçõe
 > * Crie um leitor usando a extensão de multimédia encriptadas (EME) e a extensão de origem de mídia (MSE) no Chrome v62 de browser para dispositivos móveis ou posterior
 
 O artigo também responde a algumas perguntas comuns relacionadas com a transmissão em fluxo offline do conteúdo do Widevine protegido.
+
+> [!NOTE]
+> Apenas é faturada a offline DRM para fazer uma única solicitação para uma licença ao baixar o conteúdo. Todos os erros não são faturados.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 

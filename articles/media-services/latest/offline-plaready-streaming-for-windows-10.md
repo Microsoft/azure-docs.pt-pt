@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae5fdd51d9bc1a3e7e2521c6ca1ff64d884c96f8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937475"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341765"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline de transmissão em fluxo para o Windows 10
 
@@ -27,6 +27,9 @@ Serviços de multimédia do Azure suportam offline download/reprodução com pro
 
 - [Offline FairPlay Streaming for iOS](offline-fairplay-for-ios.md) (Transmissão Offline do FairPlay para iOS)
 - [Offline Widevine para transmissão em fluxo para Android](offline-widevine-for-android.md)
+
+> [!NOTE]
+> Apenas é faturada a offline DRM para fazer uma única solicitação para uma licença ao baixar o conteúdo. Todos os erros não são faturados.
 
 ## <a name="overview"></a>Descrição geral
 

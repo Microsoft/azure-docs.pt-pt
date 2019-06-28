@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: d8012fb75282d64f7d1858e02b842b1c770200f9
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191775"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339440"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Criar um anfitrião de bastião do Azure (pré-visualização)
 
@@ -41,7 +41,7 @@ Para participar nesta pré-visualização, terá de se registar. Utilize estes p
 
 Esta secção ajuda-o a criar um novo recurso de Bastion do Azure no portal do Azure.
 
-1. Na home page no [ portal do Azure - pré-visualização](http://aka.ms/BastionHost), clique em **+ criar um recurso**. Certifique-se de que utilizar a ligação fornecida para aceder ao portal para esta pré-visualização, não o portal do Azure normal.
+1. Na home page no [ portal do Azure - pré-visualização](https://aka.ms/BastionHost), clique em **+ criar um recurso**. Certifique-se de que utilizar a ligação fornecida para aceder ao portal para esta pré-visualização, não o portal do Azure normal.
 
 1. No **New** página, além do *pesquisar no Marketplace* , digite **Bastion**, em seguida, clique em **Enter** para obter os resultados da pesquisa.
 

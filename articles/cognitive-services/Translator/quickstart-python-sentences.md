@@ -3,19 +3,19 @@ title: 'Início rápido: Obter comprimentos de sentença, Python - API de texto 
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a determinar os comprimentos de frases (em carateres) com o Python e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: a3c38660ef1ef657a2fef555ff4cc5fb01897837
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: swmachan
+ms.openlocfilehash: 2aede18f3b093f52a205e053c72cac5a2e6e6b1b
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340943"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357887"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento de sentença com Python
 

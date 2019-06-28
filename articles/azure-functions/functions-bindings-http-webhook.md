@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: fb219316afa798dfda777c4d0d406d5b8cabf7f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9f43720ff36b6dfac51a1626413ff7c2e590cd0
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472360"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342266"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -307,6 +307,7 @@ Aqui está o código de Python:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
@@ -792,7 +793,7 @@ O [Host. JSON](functions-host-json.md) ficheiro contém as definições que cont
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 Utilize a enlace de responder para o remetente de pedido HTTP de saída HTTP. Essa ligação requer um acionador HTTP e permite-lhe personalizar a resposta associada à solicitação do acionador. Se o enlace de saída de um HTTP não for fornecido, um acionador HTTP retorna HTTP 200 OK, com um corpo vazio nas funções 1.x ou HTTP 204 sem conteúdo com um corpo vazio nas funções 2.x.
 

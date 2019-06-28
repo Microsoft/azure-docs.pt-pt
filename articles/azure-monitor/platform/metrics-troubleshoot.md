@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: cff1bbefc3c54f7f9c02c646bd9eef528fe28c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939574"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341984"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Gráficos de métricas de resolução de problemas
 
@@ -73,7 +73,7 @@ Coleção de **SO convidado** métricas requer configurar a extensão de diagnó
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Mensagem de "Erro ao obter dados" no dashboard
 
-Esse problema é comum quando o dashboard foi criado com uma métrica que mais tarde foi preterida e removida do Azure. Para verificar que é o caso, abra a **métricas** separador dos seus recursos e as métricas disponíveis no selecionador de métrica de verificação. Se a métrica não é apresentada, a métrica foi removida do Azure. Normalmente, quando uma métrica é preterida, existe uma nova melhor métrica que fornece uma perspectiva semelhante sobre o estado de funcionamento do recurso.
+Esse problema pode ocorrer quando o dashboard foi criado com uma métrica que mais tarde foi preterida e removida do Azure. Para verificar que é o caso, abra a **métricas** separador dos seus recursos e as métricas disponíveis no selecionador de métrica de verificação. Se a métrica não é apresentada, a métrica foi removida do Azure. Normalmente, quando uma métrica é preterida, existe uma nova melhor métrica que fornece uma perspectiva semelhante sobre o estado de funcionamento do recurso.
 
 **Solução:** Atualize o mosaico de falha ao selecionar uma métrica alternativa para o gráfico no dashboard. Pode [reveja uma lista de métricas disponíveis para serviços do Azure](metrics-supported.md).
 

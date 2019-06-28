@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: miparker
-ms.openlocfilehash: a4773ddd8114659118e89cfee57e73ddb39ff6b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c35044918876b2c7710e26f6b868bc1096c2f538
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116690"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340395"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Tutorial: Notificações push para aplicações Swift iOS que utilizam a API de REST de Hubs de notificação
 
@@ -87,12 +87,12 @@ Nesta secção, irá criar a aplicação iOS que irá ligar ao hub de notificaç
 
 1. Atualização **devsettings.plist** para incluir as seguintes entradas de configuração ao utilizar os seus próprios valores do hub de notificação que aprovisionou:
 
-   | Chave                            | Tipo                     | Value                     |
+   | Chave                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | String                   | <hubKey>                  |
-   | notificationHubKeyName         | String                   | <hubKeyName>              |
-   | notificationHubName            | String                   | <hubName>                 |
-   | notificationHubNamespace       | String                   | <hubNamespace>            |
+   | notificationHubKey             | String                   | \<hubKey>                  |
+   | notificationHubKeyName         | String                   | \<hubKeyName>              |
+   | notificationHubName            | String                   | \<hubName>                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace>            |
 
    Pode encontrar os valores necessários ao navegar para o recurso do hub de notificação no portal do Azure. Em particular, o **notificationHubName** e **notificationHubNamespace** valores são no canto superior direito do **Essentials** resumo dentro do **Descrição geral** página.
 
@@ -411,7 +411,7 @@ Siga estes passos para chamar o **instalações** API:
    | Chave           | Value            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | Autorização | <sasToken>       |
+   | Autorização | \<sasToken>       |
    | x-ms-version  | 2015-01          |
 
 1. Selecione o **código** botão é exibido no canto superior direito sob a **guardar** botão. O pedido deve ter um aspeto semelhante ao seguinte exemplo:
@@ -659,7 +659,7 @@ Pode enviar notificações através da [REST API](/rest/api/notificationhubs/) u
    | Chave                            | Value                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
-   | Autorização                  | <sasToken>                     |
+   | Autorização                  | \<sasToken>                     |
    | ServiceBusNotification-Format  | Modelo                       |
    | Tags                           | "12345"                        |
 

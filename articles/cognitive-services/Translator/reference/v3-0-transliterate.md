@@ -3,19 +3,19 @@ title: Método de transcrição de API de texto do tradutor
 titlesuffix: Azure Cognitive Services
 description: Use o método de Transliteração de API de texto do Translator.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 138a04cca1bbbaf7b59f628f491a5f13d73fb6f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: ddf4ca1939e09f5f63999657e7a751c9e53693e2
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387398"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357663"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Texto do Translator API 3.0: Transliterate
 

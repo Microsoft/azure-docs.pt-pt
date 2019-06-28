@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 20fb352e65a570063d9a0f55667db073f8a4ee27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 726da603b5f583c85f4b7c4262c6e97f565a3678
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062423"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339935"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -67,7 +67,7 @@ Iremos aumentar os limites de armazenamento em nossos escalões fins gerais e me
 | IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS| 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS |
 
 > [!IMPORTANT]
-> Armazenamento de grandes está atualmente em pré-visualização pública nas seguintes regiões: E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, E.U.A. oeste, E.U.A. oeste 2, Europa do Norte, Europa Ocidental, Sudeste asiático, leste do Japão, Coreia Central, leste da Austrália.
+> Armazenamento de grandes está atualmente em pré-visualização pública nas seguintes regiões: E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, E.U.A. oeste, Europa do Norte, Europa Ocidental, Sudeste asiático, leste do Japão, Coreia Central, leste da Austrália.
 >
 > A pré-visualização do amplo armazenamento não suporta atualmente:
 >
