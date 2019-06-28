@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164457"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329984"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -30,7 +30,7 @@ Algum suporte de tipos de saídas [particionamento](#partitioning). [Tamanhos de
 
 Stream Analytics suporta [do Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). Armazenamento do Azure Data Lake é um repositório de hiperescala para cargas de trabalho de análise de macrodados em toda a empresa. Pode utilizar o armazenamento do Data Lake para armazenar dados de qualquer tamanho, tipo e velocidade de ingestão para análises exploratórias e operacionais. Stream Analytics tem de estar autorizado a aceder ao armazenamento do Data Lake.
 
-Saída de armazenamento do Azure Data Lake do Stream Analytics não está atualmente disponível nas regiões do Azure Alemanha (T-Systems International) e Azure China (21Vianet).
+Saída de armazenamento do Azure Data Lake do Stream Analytics não está atualmente disponível nas regiões do Azure Alemanha (T-Systems International) e Azure China 21Vianet.
 
 A tabela seguinte lista os nomes das propriedades e suas descrições para configurar a saída de armazenamento Gen 1 do Data Lake.   
 
@@ -50,7 +50,7 @@ A tabela seguinte lista os nomes das propriedades e suas descrições para confi
 
 ## <a name="sql-database"></a>SQL Database
 
-Pode usar [base de dados do Azure SQL](https://azure.microsoft.com/services/sql-database/) como uma saída de dados que é de natureza relacionais ou de aplicativos que dependem de conteúdo a ser alojado numa base de dados relacional. Tarefas do Stream Analytics gravar numa tabela existente na base de dados SQL. O esquema da tabela deve corresponder exatamente os campos e seus tipos de dados de saída da tarefa. Também pode especificar [do Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como uma saída através da base de dados SQL a opção de saída. Para saber mais sobre formas de melhorar o débito de escrita, consulte a [Stream Analytics com o Azure SQL Database como saída](stream-analytics-sql-output-perf.md) artigo. 
+Pode usar [base de dados do Azure SQL](https://azure.microsoft.com/services/sql-database/) como uma saída de dados que é de natureza relacionais ou de aplicativos que dependem de conteúdo a ser alojado numa base de dados relacional. Tarefas do Stream Analytics gravar numa tabela existente na base de dados SQL. O esquema da tabela deve corresponder exatamente os campos e seus tipos de dados de saída da tarefa. Também pode especificar [do Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como uma saída através da base de dados SQL a opção de saída. Para saber mais sobre formas de melhorar o débito de escrita, consulte a [Stream Analytics com o Azure SQL Database como saída](stream-analytics-sql-output-perf.md) artigo.
 
 A tabela seguinte lista os nomes de propriedade e a respetiva descrição para a criação de uma base de dados SQL de saída.
 
@@ -63,10 +63,10 @@ A tabela seguinte lista os nomes de propriedade e a respetiva descrição para a
 | Palavra-passe | A palavra-passe para ligar à base de dados. |
 | Tabela | O nome da tabela em que o resultado é escrito. O nome da tabela diferencia maiúsculas de minúsculas. O esquema desta tabela deve corresponder exatamente ao número de campos e seus tipos que gera a saída de tarefa. |
 |Herdam o esquema de partição| Uma opção para herdar o esquema de particionamento de seu passo de consulta anterior, para ativar a topologia totalmente paralela com vários gravadores à tabela. Para obter mais informações, consulte [saída de Azure Stream Analytics para a base de dados do Azure SQL](stream-analytics-sql-output-perf.md).|
-|Corresponde à contagem de batch| O limite recomendado o número de registos enviados com cada em massa de inserir a transação.|
+|Contagem máxima de lotes| O limite superior recomendado, o número de registos enviados com cada em massa de inserir a transação.|
 
 > [!NOTE]
-> A SQL Database do Azure é suportada para uma tarefa de Stream Analytics, mas a máquina virtual do Azure com o SQL Server com uma base de dados anexado não é suportado de saída da oferta.
+> O Azure SQL Database oferta é suportada para uma saída da tarefa de Stream Analytics, mas a máquina virtual do Azure com o SQL Server com uma base de dados anexados ou numa instância gerida do SQL Azure ainda não é suportado. Trata-se sujeita a alterações em versões futuras.
 
 ## <a name="blob-storage"></a>Armazenamento de blobs
 
@@ -108,7 +108,7 @@ Precisa de alguns parâmetros para configurar fluxos de dados dos hubs de evento
 | Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída | Um nome amigável utilizado nas consultas para direcionar o resultado da consulta para este hub de eventos. |
-| Espaço de nomes do hub de eventos |Um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo hub de eventos, também criou um espaço de nomes do hub de eventos. |
+| Espaço de nomes do hub de eventos | Um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo hub de eventos, também criou um espaço de nomes do hub de eventos. |
 | Nome do hub de eventos | O nome da sua saída do hub de eventos. |
 | Nome de política do hub de eventos | A política de acesso partilhado, o que pode criar no hub de eventos **configurar** separador. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. |
 | Chave de política do hub de eventos | A chave de acesso partilhado que é utilizada para autenticar o acesso para o espaço de nomes do hub de eventos. |
@@ -123,7 +123,7 @@ Precisa de alguns parâmetros para configurar fluxos de dados dos hubs de evento
 
 Pode usar [Power BI](https://powerbi.microsoft.com/) como uma saída de uma tarefa do Stream Analytics para fornecer uma experiência Rica visualização dos resultados da análise. Pode utilizar esta capacidade para dashboards operacionais, geração de relatórios e controlado por métrica de relatório.
 
-Saída do Power BI do Stream Analytics não está atualmente disponível nas regiões do Azure Alemanha (T-Systems International) e Azure China (21Vianet).
+Saída do Power BI do Stream Analytics não está atualmente disponível nas regiões do Azure Alemanha (T-Systems International) e Azure China 21Vianet.
 
 A tabela seguinte lista os nomes das propriedades e suas descrições para configurar a saída do Power BI.
 
@@ -209,17 +209,17 @@ A tabela seguinte lista os nomes de propriedade e suas descrições para a cria�
 
 É o número de partições [com base no SKU de barramento de serviço e no tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.
 
-## <a name="service-bus-topics"></a>Tópicos do Service Bus
+## <a name="service-bus-topics"></a>Tópicos de Service Bus
 Filas do Service Bus fornecem um método de comunicação unidirecional de remetente para o recetor. [Tópicos do Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de um-para-muitos de comunicação.
 
-A tabela seguinte lista os nomes de propriedade e suas descrições para a criação de uma saída de tópico.
+A tabela seguinte lista os nomes de propriedade e suas descrições para a criação de uma saída de tópico do Service Bus.
 
 | Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável utilizado nas consultas para direcionar o resultado da consulta para este tópico do Service Bus. |
 | Espaço de nomes do Service Bus |Um contentor para um conjunto de entidades de mensagens. Quando tiver criado um novo hub de eventos, também criou um espaço de nomes do Service Bus. |
 | Nome do tópico |Tópicos são entidades de mensagens, semelhantes a filas e hubs de eventos. Foram concebidos para recolher fluxos de eventos a partir de dispositivos e serviços. Quando é criado um tópico, também forneceu um nome específico. As mensagens enviadas para um tópico não estão disponíveis, a menos que é criada uma subscrição, então verifique se existe uma ou mais subscrições sob o tópico. |
-| Nome da política do tópico |Quando cria um tópico, também pode criar políticas de acesso partilhado sobre o assunto **configurar** separador. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. |
+| Nome da política do tópico |Quando cria um tópico do Service Bus, também pode criar políticas de acesso partilhado sobre o assunto **configurar** separador. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. |
 | Chave da política do tópico |A chave de acesso partilhado que é utilizada para autenticar o acesso ao espaço de nomes do Service Bus. |
 | Formato de serialização de eventos |O formato de serialização para dados de saída. JSON, CSV e Avro são suportados. |
 | Codificação |Se estiver a utilizar o formato JSON ou CSV, uma codificação tem de ser especificada. UTF-8 é o único formato de codificação suportado neste momento. |
@@ -231,7 +231,7 @@ A tabela seguinte lista os nomes de propriedade e suas descrições para a cria�
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [O Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) é um serviço de base de dados distribuído globalmente que oferece dimensionamento elástico ilimitado em todo o mundo, a consulta avançada e indexação automática através de modelos de dados sem esquema. Para saber mais sobre as opções de coleção do Azure Cosmos DB para o Stream Analytics, consulte a [Stream Analytics com o Azure Cosmos DB como saída](stream-analytics-documentdb-output.md) artigo.
 
-Saída do Azure Cosmos DB do Stream Analytics não está atualmente disponível nas regiões do Azure Alemanha (T-Systems International) e Azure China (21Vianet).
+Saída do Azure Cosmos DB do Stream Analytics não está atualmente disponível nas regiões do Azure Alemanha (T-Systems International) e Azure China 21Vianet.
 
 > [!Note]
 > Neste momento, o Azure Stream Analytics só suporta a ligação ao Azure Cosmos DB com a API de SQL.
@@ -253,7 +253,7 @@ A tabela seguinte descreve as propriedades para a criação de uma saída do Azu
 ## <a name="azure-functions"></a>Funções do Azure
 As funções do Azure é um serviço de computação sem servidor que pode utilizar para executar código a pedido sem ter de aprovisionar ou gerir a infraestrutura explicitamente. Permite-lhe implementar código acionado por eventos que ocorrem nos serviços do Azure ou o parceiro. Esta capacidade das funções do Azure para responder a acionadores torna-as numa saída natural para o Azure Stream Analytics. Este adaptador de saída permite aos utilizadores ligar as funções do Azure Stream Analytics e executar um script ou fragmento de código em resposta a uma variedade de eventos.
 
-Saída de funções do Azure do Stream Analytics não está atualmente disponível nas regiões do Azure Alemanha (T-Systems International) e Azure China (21Vianet).
+Saída de funções do Azure do Stream Analytics não está atualmente disponível nas regiões do Azure Alemanha (T-Systems International) e Azure China 21Vianet.
 
 O Azure Stream Analytics invoca funções do Azure através de acionadores HTTP. O adaptador de saída das funções do Azure está disponível com as seguintes propriedades configuráveis:
 
@@ -295,7 +295,7 @@ A tabela seguinte resume o suporte de partição e o número de gravadores de sa
 | Tipo de saída | Suporte de criação de partições | Chave de partição  | Vários autores de saída |
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Sim | Utilize {date} e tokens de {time} no padrão do prefixo do caminho. Escolha o formato de data, como MM-DD-YYYY, DD/MM/AAAA ou AAAA/MM/DD. HH é utilizada para o formato de hora. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). |
-| Base de Dados SQL do Azure | Sim | Com base na cláusula PARTITION BY na consulta. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). Para saber mais sobre a obtenção da, melhor escrever o desempenho de taxa de transferência quando está carregando dados na base de dados do Azure SQL, veja [saída de Azure Stream Analytics para a base de dados do Azure SQL](stream-analytics-sql-output-perf.md). |
+| Base de Dados SQL do Azure | Sim, precisa de ativada. | Com base na cláusula PARTITION BY na consulta. | Quando a opção de herdar de criação de partições estiver ativada, segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). Para saber mais sobre a obtenção da, melhor escrever o desempenho de taxa de transferência quando está carregando dados na base de dados do Azure SQL, veja [saída de Azure Stream Analytics para a base de dados do Azure SQL](stream-analytics-sql-output-perf.md). |
 | Armazenamento de Blobs do Azure | Sim | Utilize {date} e tokens de {time} a partir de seus campos de evento no padrão de caminho. Escolha o formato de data, como MM-DD-YYYY, DD/MM/AAAA ou AAAA/MM/DD. HH é utilizada para o formato de hora. Saída de BLOBs pode ser particionada por um atributo único evento personalizado {fieldname} ou {datetime:\<especificador >}. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Sim | Sim | Varia consoante o alinhamento da partição.<br /> Quando a chave de partição para a saída do hub de eventos é igualmente alinhada com o passo de consulta (anterior) a montante, o número de gravadores é igual ao número de partições na saída do hub de eventos. Cada writer usa a [EventHubSender classe](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. <br /> Quando a chave de partição para a saída do hub de eventos não está alinhada com o passo de consulta (anterior) a montante, o número de gravadores é igual ao número de partições nesse passo anterior. Cada writer usa a [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) na **EventHubClient** para enviar eventos para todas as partições de saída. |
 | Power BI | Não | Nenhuma | Não aplicável. |
@@ -315,14 +315,14 @@ A tabela seguinte explica algumas das considerações sobre a criação de batch
 | Tipo de saída | Tamanho máximo de mensagem | Otimização de tamanho de lote |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Ver [limites de armazenamento do Data Lake](../azure-subscription-service-limits.md#data-lake-store-limits). | Utilize até 4 MB por operação de escrita. |
-| Base de Dados SQL do Azure | Insira o máximo de 10 000 linhas por em massa única.<br />100 linhas mínimas por inserção em massa única. <br />Ver [limita de SQL do Azure](../sql-database/sql-database-resource-limits.md). |  Todos os lotes é inicialmente em massa inserida com tamanho máximo do batch. Pode dividir o batch em metade (até alcançar o tamanho do lote mínima) com base em caso de erro não permanente de SQL. |
+| Base de Dados SQL do Azure | Configurável com a contagem máxima de lotes. Inserir 10.000 máximas e 100 mínimas de linhas por em massa única por predefinição.<br />Ver [limita de SQL do Azure](../sql-database/sql-database-resource-limits.md). |  Todos os lotes é inicialmente em massa inserida com contagem de lote máximo. Batch é dividido em metade (até que a contagem mínima de lote) com base em caso de erro não permanente de SQL. |
 | Armazenamento de Blobs do Azure | Ver [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits). | O tamanho do bloco de blob máximo é de 4 MB.<br />A contagem de bock de blob máximo é de 50 000. |
-| Azure Event Hubs  | 256 KB por mensagem. <br />Ver [limita os Hubs de eventos](../event-hubs/event-hubs-quotas.md). |  Quando não está alinhada a criação de partições de entrada/saída, cada evento é fornecido em individualmente **EventData** e enviadas num lote de até ao tamanho máximo de mensagem (1 MB para o SKU Premium). <br /><br />  Quando a criação de partições de entrada/saída está alinhada, vários eventos são incluídos numa única **EventData** de instância, até ao tamanho máximo de mensagens e enviados.  |
+| Azure Event Hubs  | 256 KB ou 1 MB por mensagem. <br />Ver [limita os Hubs de eventos](../event-hubs/event-hubs-quotas.md). |  Quando não está alinhada a criação de partições de entrada/saída, cada evento é fornecido em individualmente `EventData` e enviadas num lote de até ao tamanho máximo de mensagens. Isso também acontece se [propriedades de metadados personalizados](#custom-metadata-properties-for-output) são utilizados. <br /><br />  Quando a criação de partições de entrada/saída está alinhada, vários eventos são incluídos numa única `EventData` de instância, até ao tamanho máximo de mensagens e enviados. |
 | Power BI | Ver [limita a API de Rest do Power BI](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Armazenamento de Tabelas do Azure | Ver [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits). | A predefinição é 100 entidades por transação única. Pode configurá-la para um valor menor, conforme necessário. |
-| Fila do Service Bus do Azure   | 256 KB por mensagem.<br /> Ver [do Service Bus limita](../service-bus-messaging/service-bus-quotas.md). | Utilize um único evento por mensagem. |
-| Tópico de barramento de serviço do Azure | 256 KB por mensagem.<br /> Ver [do Service Bus limita](../service-bus-messaging/service-bus-quotas.md). | Utilize um único evento por mensagem. |
-| Azure Cosmos DB   | Ver [do Azure Cosmos DB limita](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Tamanho do lote e escrever a frequência são ajustadas dinamicamente com base em respostas do Azure Cosmos DB. <br /> Não existem não existem limitações predeterminadas do Stream Analytics. |
+| Fila do Service Bus do Azure   | 256 KB por mensagem para o escalão Standard, 1MB para o escalão Premium.<br /> Ver [do Service Bus limita](../service-bus-messaging/service-bus-quotas.md). | Utilize um único evento por mensagem. |
+| Tópico de barramento de serviço do Azure | 256 KB por mensagem para o escalão Standard, 1MB para o escalão Premium.<br /> Ver [do Service Bus limita](../service-bus-messaging/service-bus-quotas.md). | Utilize um único evento por mensagem. |
+| Azure Cosmos DB   | Ver [do Azure Cosmos DB limita](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Tamanho do lote e escrever a frequência são ajustadas dinamicamente com base nas respostas do Azure Cosmos DB. <br /> Não existem não existem limitações predeterminadas do Stream Analytics. |
 | Funções do Azure   | | O tamanho de lote de predefinido é 262.144 bytes (256 KB). <br /> A contagem de eventos padrão por lote é 100. <br /> O tamanho do lote é configurável e pode aumentar ou diminuir o Stream Analytics [opções de saída](#azure-functions).
 
 ## <a name="next-steps"></a>Passos Seguintes

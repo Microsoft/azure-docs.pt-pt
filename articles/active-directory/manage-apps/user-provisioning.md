@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/02/2019
+ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a58d2b235757faf760539f514ea349e33e12b41
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963975"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310011"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 
@@ -190,46 +190,7 @@ A tarefa de aprovisionamento será removida da quarentena depois de todos os err
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Quanto tempo necessário para aprovisionar os utilizadores?
 
-Desempenho depende se a tarefa de aprovisionamento está a executar uma sincronização inicial ou uma sincronização incremental.
-
-Para **inicial sincronizações**, o tempo de trabalho depende de vários fatores, incluindo o número de utilizadores e grupos no âmbito de aprovisionamento e o número total de utilizadores e de grupo no sistema de origem. Uma lista abrangente dos fatores que afetam o desempenho da sincronização inicial são resumidas posteriormente nesta secção.
-
-Para **sincronizações incrementais**, o tempo de trabalho depende do número de alterações detetado nesse ciclo de sincronização. Se existirem menos de 5.000 utilizador ou alterações de associação de grupo, pode concluir a tarefa dentro de um ciclo de sincronização incremental único. 
-
-A tabela seguinte resume as horas de sincronização para cenários comuns de aprovisionamento. Nestes cenários, o sistema de origem é o Azure AD e o sistema de destino é uma aplicação SaaS. Os tempos de sincronização são derivados de uma análise estatística dos trabalhos de sincronização para as aplicações de SaaS, ServiceNow, o local de trabalho, o Salesforce e o G Suite.
-
-
-| Configuração de âmbito | Os utilizadores, grupos e membros no âmbito | Tempo de sincronização inicial | Hora de sincronização incremental |
-| -------- | -------- | -------- | -------- |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |  < 1,000 |  < a 30 minutos | < a 30 minutos |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |  1\.000 - 10.000 | 142 - minutos 708 | < a 30 minutos |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |   10,000 - 100,000 | 1,170 - minutos 2,340 | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  < 1,000 | < a 30 minutos  | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  1\.000 - 10.000 | < 120 de 30 minutos | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  10,000 - 100,000  | 713 - minutos 1,425 | < a 30 minutos |
-| Sincronizar todos os utilizadores no Azure AD|  < 1,000  | < a 30 minutos | < a 30 minutos |
-| Sincronizar todos os utilizadores no Azure AD | 1\.000 - 10.000  | 43 - minutos de 86 | < a 30 minutos |
-
-
-Para a configuração **sincronização atribuído apenas grupos de utilizadores e**, pode utilizar as seguintes fórmulas para determinar a aproximado mínimo e máximo esperado **inicial sincronização** vezes:
-
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
-Resumo dos fatores que influenciam o tempo que demora a concluir uma **inicial sincronização**:
-
-- O número total de utilizadores e grupos no âmbito de aprovisionamento.
-
-- O número total de utilizadores, grupos e membros do grupo presentes no sistema de origem (Azure AD).
-
-- Se os utilizadores no âmbito de aprovisionamento são correspondidos com os utilizadores existentes no aplicativo de destino, ou tem de ser criado pela primeira vez. Tarefas de sincronização para o qual todos os utilizadores são criados pela primeira vez demorar cerca de *duas vezes desde* como sincronizar tarefas para o qual todos os utilizadores são correspondidos com os utilizadores existentes.
-
-- Número de erros no [registos de auditoria](check-status-user-account-provisioning.md). O desempenho é mais lento, se existirem muitos erros e o serviço de aprovisionamento tornou-se num Estado de quarentena.    
-
-- Limites de velocidade e a limitação implementada pelo sistema de destino do pedido. Alguns sistemas de destino implementam limites de velocidade do pedido e limitação, que pode afetar o desempenho durante as operações de sincronização de grandes dimensões. Nestas condições, uma aplicação que recebe demasiados pedidos demasiado rápidos poderá atrasar a respetiva taxa de resposta ou fechar a ligação. Para melhorar o desempenho, o conector tem de ajustar por não enviar os pedidos de aplicações mais rapidamente do que a aplicação pode processá-los. Aprovisionamento conectores criados pela Microsoft fazer esta alteração. 
-
-- O número e os tamanhos dos grupos atribuídos. A sincronizar grupos atribuídos exige mais tempo a sincronizar os utilizadores. O número e os tamanhos dos grupos atribuídos afetam o desempenho. Se tiver um aplicativo [mapeamentos ativados para sincronização de objetos de grupo](customize-application-attributes.md#editing-group-attribute-mappings), propriedades de grupo, tais como nomes de grupo e as associações são sincronizadas, além de usuários. Estes sincronizações adicionais irão demorar mais tempo do que apenas a sincronizar objetos de utilizador.
-
+Desempenho depende se a tarefa de aprovisionamento está a executar um ciclo de aprovisionamento inicial ou um ciclo incremental. Para obter detalhes sobre o aprovisionamento quanto necessário e como monitorizar o estado do serviço de aprovisionamento, consulte [verificar o estado de aprovisionamento de utilizadores](application-provisioning-when-will-provisioning-finish-specific-user.md). 
 
 ## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Como posso saber se os utilizadores estão a ser aprovisionados corretamente?
 

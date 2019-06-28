@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b2618807a39f20de041a78204dcc40793b22843
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821967"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275437"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e a terminologia nos Hubs de eventos do Azure
 
@@ -152,38 +152,11 @@ Dados do evento:
 
 É da sua responsabilidade gerir o desvio.
 
-## <a name="scaling-with-event-hubs"></a>Dimensionar com os Hubs de eventos
-
-Existem dois fatores que influenciam o dimensionamento com os Hubs de eventos.
-*   Unidades de débito
-*   Partições
-
-### <a name="throughput-units"></a>Unidades de débito
-
-A capacidade de débito do Event Hubs é controlada por *unidades de débito*. As unidades de débito são unidades de capacidade previamente compradas. Uma taxa de transferência única permite-lhe:
-
-* Entrada: Até 1 MB por segundo ou 1000 eventos por segundo (o que acontecer primeiro).
-* Saída: Até 2 MB por segundo ou 4096 eventos por segundo.
-
-Além da capacidade das unidades de débito adquiridas, a entrada é limitada e é devolvida uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). A saída não produz exceções de limitação, mas continua a ser limitada à capacidade das unidades de débito adquiridas. Se receber exceções da taxa de publicação ou estiver à espera de ver uma saída superior, não se esqueça de verificar quantas unidades de débito adquiriu para o espaço de nomes. Pode gerir unidades de débito no **escala** painel dos espaços de nomes no [portal do Azure](https://portal.azure.com). Também pode gerir unidades de débito programaticamente usando a [APIs de Hubs de eventos](event-hubs-api-overview.md).
-
-Unidades de débito são previamente adquiridas e são faturadas por hora. Assim que forem adquiridas, as unidades de débito são faturadas por um mínimo de uma hora. Débito até 20 unidades podem ser adquiridas para um espaço de nomes de Hubs de eventos e são partilhadas entre todos os hubs de eventos nesse espaço de nomes.
-
-### <a name="partitions"></a>Partições
-
-As partições permitem-lhe dimensionamento para seu processamento a jusante. Por causa do modelo de consumidor particionado dos Hubs de eventos oferece com partições, pode aumentar horizontalmente ao processar seus eventos em simultâneo. Um Hub de eventos pode ter até 32 partições.
-
-Recomendamos que equilibre as unidades de débito de 1:1 e as partições para alcançar a escala ideal. Uma única partição tem uma entrada e de saída até uma unidade de débito garantido. Embora possa ser capaz de alcançar um débito mais elevado numa partição, o desempenho não é garantido. É por isso é altamente recomendável que o número de partições num hub de eventos de ser maior que ou igual ao número de unidades de débito.
-
-Tendo em conta o débito total que tencione necessidade, sabe o número de unidades de débito que necessita e o número mínimo de partições, mas o número de partições que deve ter? Escolha o número de partições com base em quer atingir o paralelismo a jusante, bem como as suas necessidades de débito futuras. Não existe nenhum custo associado para o número de partições que tem dentro de um Hub de eventos.
-
-Para obter informações detalhadas sobre os preços dos Hubs de Eventos, veja [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre os Hubs de Eventos, visite as seguintes ligações:
 
-* Introdução a um [Tutorial dos Hubs de Eventos][Event Hubs tutorial]
+* Introdução a um [Tutorial dos Event Hubs][Event Hubs tutorial]
 * [Guia de programação dos Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência em Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)

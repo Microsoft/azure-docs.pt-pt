@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696649"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190553"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store cópias de segurança da base de dados do Azure SQL para até 10 anos
 
@@ -59,8 +59,8 @@ W = 12 semanas (84 dias), M = 12 meses (365 dias), Y = 10 anos (3650 dias), Week
 
 Se modificar a política acima e W = 0 (não existem cópias de segurança semanais), a cadência de conjunto de cópias de segurança irão mudar conforme mostrado na tabela acima, as datas realçadas. A quantidade de armazenamento necessária para manter estas cópias de segurança reduziria em conformidade. 
 
-> [!NOTE]
-> O período de tempo das cópias de segurança LTR individuais é controlado pela base de dados do Azure SQL. Manual não é possível criar uma cópia de segurança LTR ou controlar a temporização da criação de cópia de segurança.
+> [!IMPORTANT]
+> O período de tempo das cópias de segurança LTR individuais é controlado pela base de dados do Azure SQL. Manual não é possível criar uma cópia de segurança LTR ou controlar a temporização da criação de cópia de segurança. Depois de configurar uma política LTR, poderá demorar até 7 dias antes da primeira cópia de segurança LTR serão apresentados na lista de cópias de segurança disponíveis.  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Georreplicação e retenção de cópia de segurança de longo prazo

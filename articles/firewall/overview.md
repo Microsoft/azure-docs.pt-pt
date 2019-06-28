@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 6/21/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: deca4d1f66950e89148089d2984eb9cb35c470a8
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
-ms.translationtype: MT
+ms.openlocfilehash: 2567c47e41306a7940b6d065feb49ae80bb16198
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304569"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312692"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -89,7 +89,7 @@ Isto permite que os seguintes cenários:
 - **SNAT** -portas adicionais estão disponíveis para ligações SNAT de saída, reduzindo a possibilidade de exaustão de porta SNAT. Neste momento, o Firewall do Azure seleciona aleatoriamente o endereço IP público de origem para utilizar uma ligação. Se tiver qualquer filtragem jusante na sua rede, terá de permitir que todos os endereços IP públicos associados com a firewall.
 
 > [!NOTE]
-> Durante a pré-visualização pública, se adicionar ou remover um endereço IP público para um firewall em execução, conectividade de entrada existente usando regras DNAT pode não funcionar para 40-120 segundos.
+> Durante a pré-visualização pública, se adicionar ou remover um endereço IP público para um firewall em execução, conectividade de entrada existente usando regras DNAT pode não funcionar para 40-120 segundos. Não é possível remover o primeiro endereço IP público atribuído para o firewall, a menos que a firewall está desalocada ou eliminada.
 
 ### <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 

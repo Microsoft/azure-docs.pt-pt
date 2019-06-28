@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0b17a87fa02c382ae19cca6e4abcfff2ec475450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252678"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274937"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar o encaminhamento de mensagens e o Event Grid para o IoT Hub
 
@@ -64,7 +64,7 @@ Roteamento de mensagens do IoT Hub e a integração do IoT Hub com o Event Grid 
 
    Roteamento de mensagens do IoT Hub suporta um número limitado de pontos de extremidade exclusivos e tipos de ponto final, mas pode criar conectores para redirecionar os dados e eventos para pontos finais adicionais. Para obter uma lista completa de pontos finais suportados, consulte a tabela na secção anterior. 
 
-   A integração do IoT Hub com o Event Grid suporta 500 pontos finais por IoT Hub e uma maior variedade de tipos de ponto final. Ingenuamente integra-se com as funções do Azure, o Logic Apps, filas de armazenamento e o Service Bus e também funciona com webhooks para estender o envio de dados fora do ecossistema de serviço do Azure e em aplicações empresariais de terceiros.
+   A integração do IoT Hub com o Event Grid suporta 500 pontos finais por IoT Hub e uma maior variedade de tipos de ponto final. Ele integra-se nativamente com as funções do Azure, o Logic Apps, filas de armazenamento e o Service Bus e também funciona com webhooks para estender o envio de dados fora do ecossistema de serviço do Azure e em aplicações empresariais de terceiros.
 
 * **É importante se seus dados chegam em ordem?**
 

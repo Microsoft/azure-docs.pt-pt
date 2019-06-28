@@ -12,12 +12,12 @@ ms.date: 05/15/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2576a33e62b370bc2fd91c5d155e9f8d6e52c0f8
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824171"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190278"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 
@@ -95,7 +95,7 @@ Com base em palavra-passe de início de sessão único é suportado para qualque
 - No Windows 7 ou posterior e no MacOS X ou posterior do Chrome
 - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
-Para configurar uma aplicação na cloud para baseado em palavra-passe de início de sessão único, consulte [configurar a aplicação para a palavra-passe início de sessão único](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
+Para configurar uma aplicação na cloud para baseado em palavra-passe de início de sessão único, consulte [configurar a aplicação para a palavra-passe início de sessão único](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
 
 Para configurar uma aplicação no local para o início de sessão único através do Proxy de aplicações, consulte [vaulting para início de sessão único com o Proxy da aplicação de palavra-passe](application-proxy-configure-single-sign-on-password-vaulting.md)
 

@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: 12574dd6600004175ab85eead0f837544c6e5ebf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 52e221088a7b12551636ecdc81532448f38eb26c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59004790"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330456"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>Início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (Java)
 
@@ -87,7 +87,7 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
     Irá utilizar este valor mais adiante no guia de início rápido.
 
-3. Também precisa do _ponto final compatível com hub de eventos_, do _caminho compatível com hub de eventos_ e da _chave primária iothubowner_ do hub IoT para permitir que a aplicação back-end se ligue ao hub IoT e obtenha as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
+3. Também tem do _ponto final de compatível com o Event Hubs_, _caminho compatível com o Event Hubs_, e _chave primária do serviço_ do seu hub IoT para ativar a aplicação de back-end para ligar ao seu hub IoT e obter as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
 
      **YourIoTHubName: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
@@ -96,7 +96,7 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     Tome nota destes três valores, que irá utilizar mais tarde neste guia de início rápido.
@@ -135,12 +135,11 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 2. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** num editor de texto à sua escolha. Atualize as seguintes variáveis e guarde as alterações no ficheiro.
 
-    | Variável | Valor |
+    | Variável | Value |
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto final compatível com o hub de eventos que anotou anteriormente. |
     | `eventHubsCompatiblePath`     | Substitua o valor da variável pelo caminho compatível com o Hub de Eventos que anotou anteriormente. |
-    | `iotHubSasKey`                | Substitua o valor da variável pela chave primária iothubowner que anotou anteriormente. |
-
+    | `iotHubSasKey`                | Substitua o valor da variável com a chave de principal de serviço que anotou anteriormente. |
 
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e compilar a aplicação back-end:
 

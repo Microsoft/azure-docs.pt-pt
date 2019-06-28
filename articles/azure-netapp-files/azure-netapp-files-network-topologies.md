@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205660"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331968"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
@@ -81,7 +81,7 @@ Se a VNet é executado o peering com outra VNet, não é possível expandir o es
 
 ### <a name="udrs-and-nsgs"></a>As UDRs e NSGs
 
-Grupos de segurança de rede (NSGs) com um salto seguinte não podem ser utilizados como sub-redes delegadas para os ficheiros do Azure NetApp. Da mesma forma, as rotas definidas pelo utilizador (UDRs) também não são suportadas. 
+Rotas definidas pelo utilizador (UDRs) e os grupos de segurança de rede (NSGs) não são suportados em sub-redes delegadas para os ficheiros do Azure NetApp.
 
 Como solução, pode aplicar NSGs a outras sub-redes que permitem ou negam o tráfego de e para a sub-rede de ficheiros do Azure NetApp delegada.  
 

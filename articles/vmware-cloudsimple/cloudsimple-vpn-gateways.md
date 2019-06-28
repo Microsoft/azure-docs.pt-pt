@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c9689a468e8784eb4ec3590011e02a37d92d6b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083404"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332042"
 ---
 # <a name="vpn-gateways-overview"></a>Descrição geral de gateways VPN
 
@@ -26,7 +26,7 @@ CloudSimple fornece dois tipos de gateways de VPN:
 
 ## <a name="site-to-site-vpn-gateway"></a>Gateway de VPN de site a site
 
-Um gateway de VPN de site a site é utilizado para enviar tráfego encriptado entre uma rede de região CloudSimple e um datacenter no local. Utilize esta ligação para definir o intervalo de sub-redes/CIDR, para tráfego de rede entre a sua rede no local e a rede de região de CloudSimple.
+Um gateway de VPN de site a site é utilizado para enviar tráfego encriptado entre uma rede de região CloudSimple e um datacenter no local. Utilize esta ligação para definir o intervalo de sub-redes/CIDR, para a comunicação entre a sua rede no local e a rede de região de CloudSimple.
 
 O gateway de VPN, pode consumir os serviços no local na sua nuvem privada e serviços na sua nuvem privada, da rede no local.  CloudSimple fornece um servidor VPN baseado em políticas para estabelecer ligação a partir da sua rede no local.
 
@@ -38,6 +38,9 @@ Casos de utilização para VPN de site para site incluem:
 * Acessibilidade de cargas de trabalho em execução na sua nuvem privada a partir da sua rede no local.
 
 ![Topologia de ligação de VPN de site a Site](media/cloudsimple-site-to-site-vpn-connection.png)
+
+> [!IMPORTANT]
+> Tem de fixar MSS de TCP em 1078 bytes ou inferior. Ou se os dispositivos VPN não suportarem a afixação MSS, em alternativa definir o MTU na interface de túnel para 1118 bytes em vez disso. 
 
 ### <a name="cryptographic-parameters"></a>Parâmetros criptográficos
 

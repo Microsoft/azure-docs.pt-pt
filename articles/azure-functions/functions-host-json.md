@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521384"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310471"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de Host. JSON para as funções do Azure 2.x  
 
@@ -147,7 +147,7 @@ Uma lista de funções que o anfitrião de tarefa é executada. Uma matriz vazia
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica o período de tempo limite para todas as funções. No plano de consumo sem servidor, o intervalo válido é entre 1 segundo para 10 minutos e o valor predefinido é de 5 minutos. Num plano do serviço de aplicações, não existe nenhum limite global e o padrão depende da versão de runtime. Na versão 2.x, o valor predefinido para um serviço de aplicações plano é 30 minutos. Na versão 1.x, é *nulo*, que indica sem tempo limite.
+Indica o período de tempo limite para todas as funções. No plano de consumo sem servidor, o intervalo válido é entre 1 segundo para 10 minutos e o valor predefinido é de 5 minutos. Num plano de serviço de aplicações dedicado, não existe nenhum limite global e o valor predefinido é 30 minutos. Um valor de `-1` indica não vinculada de execução.
 
 ```json
 {

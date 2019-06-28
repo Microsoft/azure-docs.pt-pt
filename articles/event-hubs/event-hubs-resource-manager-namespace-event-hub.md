@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 06/14/2019
 ms.author: shvija
-ms.openlocfilehash: c020a7673fe018565a6f1aeb9f7cb2124024a2c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 007e016672f8548956b37b961805183a504d6bf0
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118869"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154074"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Início rápido: Criar um hub de eventos com um modelo Azure Resource Manager
 
@@ -83,7 +83,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, criou o espaço de nomes dos Hubs de Eventos e utilizou exemplos de aplicações para enviar e receber eventos do hub de eventos. Para obter instruções passo a passo enviar eventos para (ou) receber eventos de um hub de eventos, consulte a **enviar e receber eventos** tutoriais:
+Neste artigo, criou um espaço de nomes de Hubs de eventos e um hub de eventos no espaço de nomes. Para obter instruções passo a passo enviar eventos para (ou) receber eventos de um hub de eventos, consulte a **enviar e receber eventos** tutoriais:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)

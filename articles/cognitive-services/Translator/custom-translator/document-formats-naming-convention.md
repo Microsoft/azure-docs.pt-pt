@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 29b74aeaaae0bcfd5f6ae4a3c38cc00176292899
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0959be545f541da2f0efd5bd1e8cc209ab5a0996
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386919"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275426"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Formatos e orientações de convenção de nomenclatura de documentos
 
@@ -37,7 +37,7 @@ Esta tabela inclui todos os formatos de ficheiro suportados que pode utilizar pa
 
 ## <a name="dictionary-formats"></a>Formatos de dicionário
 
-Para dicionários, personalizado Translator suporta todos os formatos de arquivo que aqueles são suportadas para o conjunto de preparação. Se estiver a utilizar o dicionário do Excel, certifique-se de que a primeira linha / linha da folha de cálculo deve ser códigos de idioma.
+Para dicionários, personalizado Translator suporta todos os formatos de ficheiro que são suportados para conjuntos de formação. Se estiver a utilizar um dicionário de Excel, a primeira linha / linha da folha de cálculo deve ser códigos de idioma.
 
 ## <a name="zip-file-formats"></a>Formatos de arquivo zip
 

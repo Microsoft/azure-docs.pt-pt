@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058166"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190152"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação após desastre do Service Bus Geo do Azure
 
@@ -62,6 +62,17 @@ O processo de configuração é o seguinte-
 2. Aprovisionar um ***secundário*** espaço de nomes do Service Bus Premium numa região *diferente de onde o espaço de nomes principal é aprovisionado*. Isto ajudará a permitir o isolamento de falhas em várias regiões de centro de dados diferentes.
 
 3. Criar o emparelhamento entre o espaço de nomes principal e o espaço de nomes secundário para obter o ***alias***.
+
+    >[!NOTE] 
+    > Se tiver [migrado o seu espaço de nomes do Azure Service Bus Standard para Premium do Azure Service Bus](service-bus-migrate-standard-premium.md), em seguida, tem de utilizar o alias já existente (ou seja, a cadeia de ligação espaço de nomes do Service Bus Standard) para criar a recuperação após desastre configuração através da **PS/CLI** ou **REST API**.
+    >
+    >
+    > Isto acontece porque, durante a migração, o Azure Service Bus Standard espaço de nomes ligação cadeia/nome de DNS em si se torna um alias para o espaço de nomes Premium do Azure Service Bus.
+    >
+    > As aplicações de cliente devem utilizar este alias (ou seja, a cadeia de ligação espaço de nomes do Azure Service Bus Standard) para ligar ao espaço de nomes Premium onde o emparelhamento de recuperação de desastres foi configurado.
+    >
+    > Se utilizar o Portal para configurar a configuração da recuperação após desastre, o portal de abstrair esta limitação do utilizador.
+
 
 4. Utilize o ***alias*** obtido no passo 3 conectar seus aplicativos de cliente a Geo-DR ativada espaço de nomes principal. Inicialmente, os pontos de alias para o espaço de nomes principal.
 

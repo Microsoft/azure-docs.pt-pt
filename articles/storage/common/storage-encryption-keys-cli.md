@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 06/24/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ca2cfc9369fd6fb001b2a2dc401c33e5ddfd38c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 925b69e064e260a78a102a068f052ad7d396c380
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142914"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357066"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>Configurar chaves geridas pelo cliente para a encriptação de armazenamento do Azure a partir da CLI do Azure
 
@@ -62,7 +62,7 @@ Para definir a política de acesso do Cofre de chaves, chame [az keyvault conjun
 
 ```azurecli-interactive
 storage_account_principal=$(az storage account show \
-    -name <storage-account> \
+    --name <storage-account> \
     --resource-group <resource-group> \
     --query identity.principalId \
     --output tsv)

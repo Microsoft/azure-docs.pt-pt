@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62c3b35f80300a38213b089567c3f63a8a2ce8db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: ab80279fae9dacdf7462b6c9d8208e0a56ca0877
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235060"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164988"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente do Time Series Insights com o portal do Azure
 
@@ -36,7 +36,7 @@ Dados de referência não estão associados retroativamente. Assim, os dados de 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Localize o seu ambiente do Time Series Insights existente. Clique em **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
+1. Localize o seu ambiente do Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
 1. Selecione o **descrição geral** página. Localize a **URL de Explorador do Time Series Insights** e abrir a ligação.  
 
@@ -76,7 +76,7 @@ Dados de referência não estão associados retroativamente. Assim, os dados de 
 
 1. Se for necessário, mude o nome os cabeçalhos de coluna. O nome de coluna de chave é necessário para associar à propriedade correspondente na origem de evento. Certifique-se de que os nomes de coluna chave de dados de referência correspondem exatamente ao nome do evento para seus dados de entrada, incluindo sensibilidade. Os nomes de coluna sem chave são utilizados para aumentar os dados de entrada com os valores de dados de referência correspondente.
 
-1. Clique em **adicionar uma linha** ou **adicionar uma coluna** para adicionar mais valores de dados de referência, conforme necessário.
+1. Selecione **adicionar uma linha** ou **adicionar uma coluna** para adicionar mais valores de dados de referência, conforme necessário.
 
 1. Escreva um valor no **filtrar as linhas...**  campo para rever linhas específicas, conforme necessário. O filtro é útil para analisar dados, mas não se aplica ao carregar os dados.
 

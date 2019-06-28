@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736671"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330874"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Perguntas mais frequentes sobre a porta de entrada do serviço do Azure
 
@@ -75,11 +75,11 @@ O serviço de porta de entrada do Azure tem a mesma lista de localizações POP 
 
 ### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>É uma implementação de dedicado para a minha aplicação de serviço de porta de entrada do Azure ou é partilhado entre os clientes?
 
-O serviço de porta de entrada do Azure é um serviço de multi-inquilino e distribuído globalmente. Por isso, a infraestrutura para a porta de entrada é compartilhada entre todos os seus clientes. No entanto, através da criação de uma porta de entrada define a configuração específica necessária para a sua aplicação e 
+O serviço de porta de entrada do Azure é um serviço de multi-inquilino e distribuído globalmente. Por isso, a infraestrutura para a porta de entrada é compartilhada entre todos os seus clientes. No entanto, ao criar um perfil de porta de entrada, pode definir a configuração específica necessária para a sua aplicação e sem alterações para a porta da frente afetam outras configurações de porta de entrada.
 
 ### <a name="is-http-https-redirection-supported"></a>É HTTP -> redirecionamento a HTTPS suportado?
 
-Porta de entrada atualmente não suporta redirecionamento de URL.
+Sim. Na verdade, o serviço de porta de entrada do Azure suporta o anfitrião, caminho e consulta de cadeia de redirecionamento, bem como parte do redirecionamento de URL. Saiba mais sobre [redirecionamento de URL](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Ordem pela qual são regras de encaminhamento processadas?
 
@@ -141,6 +141,11 @@ Porta de entrada suporta o TLS 1.0, 1.1 e 1.2 de versões. TLS 1.3 ainda não é
 
 Para ativar o protocolo HTTPS para o fornecimento com segurança o conteúdo num domínio personalizado da porta de entrada, pode optar por utilizar um certificado que é gerido pelo serviço de porta de entrada do Azure ou utilizar o seu próprio certificado.
 Desde o início geridos provisões de opção um certificado SSL padrão por meio da Digicert e armazenados na frente Key Vault da porta. Se optar por utilizar o seu próprio certificado, pode carregar um certificado de uma AC suportado e pode ser um SSL padrão, o certificado de validação estendida ou até mesmo um certificado de caráter universal. Certificados autoassinados não são suportados. Saiba mais [como ativar o HTTPS num domínio personalizado](https://aka.ms/FrontDoorCustomDomainHTTPS).
+
+### <a name="does-front-door-support-auto-rotation-of-certificates"></a>Porta de entrada suporta a rotação automática de certificados?
+
+Para o seu próprio certificado SSL personalizado, rotação automática não é suportada. Semelhante a como ele foi configurado na primeira vez para um determinado domínio personalizado, precisa para ponto de porta de entrada para a versão de certificado correto no seu Cofre de chaves e certifique-se de que o principal de serviço para a porta da frente ainda tem acesso ao Key Vault. Esta operação de implementação do certificado atualizado por porta de entrada é totalmente atômica e não causa qualquer impacto na produção fornecido o nome do requerente ou SAN para o certificado não é alterado.
+</br>Para a opção de certificado de porta da frente geridos, os certificados são rodadas automaticamente por porta de entrada.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Quais são os conjuntos de cifras atual suportados pelo serviço de porta de entrada do Azure?
 

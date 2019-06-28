@@ -4,14 +4,14 @@ description: Saiba mais sobre como especificar e estimar os requisitos da unidad
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 9615aebd345c957c8e401581ff94735f39ba73c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12f91676ac50511bf3d2d33f7fed2029e152dc98
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953534"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164993"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de pedido no Azure Cosmos DB
 
@@ -75,3 +75,4 @@ Embora a estimar o número de RUs por segundo para aprovisionar, considere os se
 * Saiba como [otimizar o débito aprovisionado de custo no Azure Cosmos DB](optimize-cost-throughput.md).
 * Saiba como [otimizar leituras e gravações de custos no Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Saiba como [otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md).
+* Saiba como [utilize métricas de débito de monitor](use-metrics.md).

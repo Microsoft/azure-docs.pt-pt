@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206714"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329348"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as unidades transmissão em fluxo
 
-(SUs) de unidades de transmissão em fluxo representa os recursos de computação alocados para executar uma tarefa. Quanto mais SUs, mais recursos de CPU e de memória são alocados ao trabalho. Este permite que de capacidade se concentre na lógica da consulta e abstrai a necessidade de gerir o hardware para executar seu do Stream Analytics da tarefa de forma atempada.
+(SUs) de unidades de transmissão em fluxo representa os recursos de computação alocados para executar uma tarefa do Stream Analytics. Quanto mais SUs, mais recursos de CPU e de memória são alocados ao trabalho. Este permite que de capacidade se concentre na lógica da consulta e abstrai a necessidade de gerir o hardware para executar seu do Stream Analytics da tarefa de forma atempada.
 
 Para obter processamento de fluxos com baixa latência, os trabalhos do Azure Stream Analytics fazem todos os processamentos na memória. Se ficar sem memória, a tarefa de transmissão em fluxo falha. Como resultado, para uma tarefa de produção, é importante monitorizar a utilização de recursos de uma tarefa de transmissão em fluxo e certificar-se de que existe suficiente alocado para manter as tarefas em execução 24x7 de recurso.
 
@@ -85,7 +85,7 @@ Por exemplo, na seguinte consulta, o número associado `clusterid` é a cardinal
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Para melhorar os problemas causados por elevada cardinalidade da consulta anterior, pode enviar eventos para o Hub de eventos repartido pelas `clusterid`e aumentar horizontalmente a consulta ao permitir que o sistema processar cada partição de entrada separadamente com **PARTIÇÃO POR** conforme mostrado no exemplo abaixo:
+Para minimizar os problemas causados por elevada cardinalidade da consulta anterior, pode enviar eventos para o Hub de eventos repartido pelas `clusterid`e aumentar horizontalmente a consulta ao permitir que o sistema processar cada partição de entrada separadamente com **PARTIÇÃO POR** conforme mostrado no exemplo abaixo:
 
    ```sql
    SELECT count(*) 

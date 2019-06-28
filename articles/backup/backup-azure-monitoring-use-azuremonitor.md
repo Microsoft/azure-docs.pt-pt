@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 1e85b633024b5a3e85874707ae9a1f068e7a328d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 7c53d8fe0ee5bbfdbe180aa4d18d8c7b7fab29c2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808516"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295283"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitorização em escala com o Azure Monitor
 
@@ -29,7 +29,7 @@ O [incorporadas de monitorização e alertas artigo](backup-azure-monitoring-bui
 ## <a name="using-log-analytics-workspace"></a>Utilizar a área de trabalho do Log Analytics
 
 > [!NOTE]
-> Dados a partir de backups de VM do Azure, o agente de MAB, System Center DPM (SC-DPM), as cópias de segurança SQL em VMs do Azure estão a ser colocados na área de trabalho do Log Analytics através das definições de diagnóstico. Suporte para backups de partilha de ficheiros do Azure, Microsoft Azure Backup Server (MABS) está disponível em breve.
+> Dados de cópias de segurança de VM do Azure, o agente de MAB, System Center DPM (SC-DPM), as cópias de segurança SQL em VMs do Azure e cópias de segurança da partilha de ficheiros do Azure estão a ser colocados na área de trabalho do Log Analytics através das definições de diagnóstico. Suporte para o Microsoft Azure Backup Server (MABS) está disponível em breve.
 
 Podemos são tirar partido das capacidades de dois serviços do Azure - **das definições de diagnóstico** (para enviar dados de vários recursos do Azure Resource Manager para outro recurso) e **do Log Analytics** (LA - gerar alertas personalizados em que pode definir outros canais de notificação através de grupos de ação) para a monitorização em escala. Os seguintes detalhes de secções sobre como utilizá-la para monitorizar a cópia de segurança do Azure em escala.
 
@@ -47,6 +47,9 @@ Pode selecionar uma área de trabalho LA a partir de outra subscrição como des
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Implementar a solução à área de trabalho do Log Analytics
 
 Quando os dados estiverem no interior da área de trabalho LA [implementar um modelo de GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) em LA para visualizar os dados. Certifique-se de que fornecer o mesmo grupo de recursos, o nome de área de trabalho e localização da área de trabalho para identificar corretamente a área de trabalho e, em seguida, instale este modelo no mesmo.
+
+> [!NOTE]
+> Os utilizadores que não tem alertas ou tarefas de cópia de segurança/restauro na sua área de trabalho LA poderão ver um erro com o código "BadArgumentError" no portal. Os utilizadores podem ignorar este erro e continuar a utilizar a solução. Depois de dados do tipo relevante começaram a ser encaminhados para a área de trabalho, as visualizações irão refletir que os mesmos e os utilizadores não verão este erro mais.
 
 ### <a name="view-azure-backup-data-using-log-analytics-la"></a>Ver dados de cópia de segurança do Azure com o Log Analytics (LA)
 

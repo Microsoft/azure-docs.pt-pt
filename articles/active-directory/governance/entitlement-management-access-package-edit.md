@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce51f4df50de50cef06bba699ca7c6f76bc5d166
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73c1717249abac30847f96073ee6daf7d98112d7
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833172"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190341"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Editar e gerir um pacote de acesso existente na gestão de direitos do Azure AD (pré-visualização)
 
@@ -348,4 +348,5 @@ Na gestão de direitos do Azure AD irá processar alterações em massa para a a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- [Adicionar um proprietário de catálogo ou um Gestor de pacotes de acesso](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Processo e notificações de e-mail do pedido](entitlement-management-process.md)

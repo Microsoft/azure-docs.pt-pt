@@ -3,16 +3,15 @@ title: Configurar uma transformação de origem na funcionalidade de mapeamento 
 description: Saiba como configurar uma transformação de origem no mapeamento de fluxo de dados.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 5b53819c1d30f6cd62c5941d4b44d70a4996daad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67117880"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190792"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
 
@@ -124,6 +123,14 @@ Se a origem está na base de dados SQL ou SQL Data Warehouse, tem opções adici
 
 * **Consulta**: Introduza uma consulta SQL para a sua origem. Esta definição substitui qualquer tabela que escolheu no conjunto de dados. Tenha em atenção que **Order By** cláusulas não são suportadas aqui, mas pode definir uma instrução SELECT FROM completa. Também pode utilizar as funções de tabela definido pelo utilizador. **Selecionar * de udfGetData()** é uma UDF do SQL que devolve uma tabela. Esta consulta irá produzir uma tabela de origem que pode utilizar no seu fluxo de dados.
 * **Tamanho do lote**: Introduza um tamanho de lote para colocar partes de dados grandes em leituras.
+* **Nível de isolamento**: Predefinição para origens SQL nos fluxos de dados de mapeamento ADF é Read Uncommitted. Pode alterar o nível de isolamento aqui para um dos seguintes valores:
+* Read comprometida
+* Ler não consolidadas
+* Leitura passível de repetição
+* Serializável
+* Nenhum (ignorar o nível de isolamento)
+
+![Nível de isolamento](media/data-flow/isolationlevel.png "nível de isolamento")
 
 > [!NOTE]
 > As operações de arquivo executadas apenas quando iniciar o fluxo de dados a partir de um (uma depuração de pipeline ou execução execute) de execução do pipeline que utiliza a atividade de executar o fluxo de dados num pipeline. As operações de ficheiros *não* executar no modo de depuração do fluxo de dados.

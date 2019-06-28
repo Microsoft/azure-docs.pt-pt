@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058553"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331313"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -414,3 +414,12 @@ Atualmente, os espaços de desenvolvimento do Azure destina-se para execução n
 
 ### <a name="try"></a>Experimente
 [Adicionar um taint](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) ao seu cluster do AKS para garantir que o Linux pods não estão agendados para ser executada num nó do Windows.
+
+## <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>Erro "foi encontrado nenhuma inequívocas nós do Linux no estado pronto no cluster. Deve haver pelo menos um nó de Linux inequívocas no estado pronto para implementar os pods no espaço de nomes "azds"."
+
+### <a name="reason"></a>Reason
+
+Espaços de desenvolvimento do Azure não foi possível criar um controlador do seu cluster do AKS porque ele não foi possível encontrar um nó inequívocas uma *pronto* estado para agendar pods na. Espaços de desenvolvimento do Azure requer pelo menos um nó de Linux numa *pronto* Estado que permita para agendar pods sem especificar tolerations.
+
+### <a name="try"></a>Experimente
+[Atualizar a configuração de taint](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) no seu cluster do AKS para garantir que o Linux, pelo menos, um nó permite agendamento pods sem especificar tolerations. Além disso, certifique-se de que, pelo menos, um nó de Linux que permite o agendamento de pods sem especificar tolerations é no *pronto* estado. Se o nó está a demorar muito tempo a chegar a *pronto* de estado, pode tentar reiniciar o nó.

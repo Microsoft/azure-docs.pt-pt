@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150271"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184131"
 ---
 1. No portal, em **Todos os recursos**, clique em **+Adicionar**.
 2. No **tudo** caixa de pesquisa de página, escreva **gateway de rede Local**, em seguida, clique aqui para retornar uma lista de recursos. Clique em **Gateway de rede Local** para abrir a página e, em seguida, clique em **Criar** para abrir a página **Criar gateway de rede local**.

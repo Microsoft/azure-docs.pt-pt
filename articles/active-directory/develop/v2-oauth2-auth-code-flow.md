@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c45071406c420546a90a71751045fea926804f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 235fe1fbe7febc193826cf09202365ee4a788194
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66513526"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164768"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e de fluxo de código de autorização de OAuth 2.0
 
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `client_id`   | Necessário    | O **ID da aplicação (cliente)** que o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída à sua aplicação.  |
 | `response_type` | Necessário    | Tem de incluir `code` para o fluxo de código de autorização.       |
 | `redirect_uri`  | Necessário | O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. Para aplicações de dispositivos móveis e nativas, deve usar o valor predefinido de `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
-| `scope`  | Necessário    | Uma lista separada por espaço de [âmbitos](v2-permissions-and-consent.md) que pretende que o utilizador para autorizar. |
+| `scope`  | Necessário    | Uma lista separada por espaço de [âmbitos](v2-permissions-and-consent.md) que pretende que o utilizador para autorizar.  Para o `/authorize` leg da solicitação, isso pode abranger vários recursos, permitindo que a sua aplicação obter o consentimento para várias APIs que deseja chamar web. |
 | `response_mode`   | Recomendado | Especifica o método que deve ser utilizado para enviar a cópia de token resultante à sua aplicação. Pode ser um dos seguintes procedimentos:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` Fornece o código como um parâmetro de cadeia de caracteres de consulta no seu URI de redirecionamento. Se estiver solicitando um token de ID com o fluxo implícito, é possível utilizar `query` conforme especificado no [especificação de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se estiver solicitando apenas do código, pode usar `query`, `fragment`, ou `form_post`. `form_post` executa uma POSTAGEM que contém o código para o seu URI de redirecionamento. Para mais informações, veja [protocolo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | Recomendado | Um valor incluído no pedido que também vai ser devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O valor pode também codificar a informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | `prompt`  | Opcional    | Indica o tipo de interação do utilizador que é necessário. São os únicos valores válidos neste momento `login`, `none`, e `consent`.<br/><br/>- `prompt=login` irá forçar o utilizador para introduzir as respetivas credenciais na solicitação, eliminando-início de sessão único.<br/>- `prompt=none` é o oposto – ele garantirá que não é apresentada ao utilizador qualquer linha de comandos interativa tipo. Se o pedido não é possível concluir silenciosamente por meio de início de sessão único, o ponto de extremidade de plataforma de identidade Microsoft irá devolver um `interaction_required` erro.<br/>- `prompt=consent` irá acionar a caixa de diálogo de consentimento do OAuth depois do utilizador inicia sessão, solicitando que o usuário para conceder permissões à aplicação. |
@@ -154,7 +154,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | Necessário   | O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são `common`, `organizations`, `consumers`e identificadores de inquilinos. Para obter mais detalhes, consulte [Noções básicas de protocolo](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | Necessário  | ID de aplicação (cliente) que o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída à sua aplicação de página. |
 | `grant_type` | Necessário   | Tem de ser `authorization_code` para o fluxo de código de autorização.   |
-| `scope`      | Necessário   | Uma lista de âmbitos separadas por espaços. Os âmbitos solicitados neste leg tem de ser equivalente a ou um subconjunto dos âmbitos solicitada no leg primeiro. Se os âmbitos especificados neste pedido abrangem vários servidores de recursos, o ponto de extremidade de plataforma de identidade Microsoft irá devolver um token para o recurso especificado no âmbito da primeira. Para obter uma explicação mais detalhada de âmbitos, consulte [permissões e consentimento e âmbitos](v2-permissions-and-consent.md). |
+| `scope`      | Necessário   | Uma lista de âmbitos separadas por espaços. Os âmbitos solicitados neste leg tem de ser equivalente a ou um subconjunto dos âmbitos solicitada no leg primeiro. Os âmbitos têm de estar todos a partir de um único recurso, juntamente com os âmbitos OIDC (`profile`, `openid`, `email`). Para obter uma explicação mais detalhada de âmbitos, consulte [permissões e consentimento e âmbitos](v2-permissions-and-consent.md). |
 | `code`          | Necessário  | Authorization_code que obteve no leg primeiro do fluxo. |
 | `redirect_uri`  | Necessário  | O valor de redirect_uri mesmo que foi utilizado para adquirir o authorization_code. |
 | `client_secret` | necessária para as aplicações web | O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação. Não deve usar o segredo de aplicação numa aplicação nativa porque client_secrets não podem ser armazenados com confiança nos dispositivos. Ela é necessária para aplicações web e APIs, que têm a capacidade de armazenar o client_secret em segurança no lado do servidor web.  O segredo do cliente tem de ser codificados de URL antes de serem enviados.  |

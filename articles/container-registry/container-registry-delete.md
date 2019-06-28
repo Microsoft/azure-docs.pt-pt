@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 06/17/2019
 ms.author: danlep
-ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c544c8ed6fbfcb859ff1ff01e7bedf46cfb21418
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60430814"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295137"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Eliminar imagens de contentor no Azure Container Registry
 
@@ -60,7 +60,7 @@ Um registo privado, como o Azure Container Registry, o nome da imagem também in
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-Para uma discussão sobre imagem identificando as práticas recomendadas, consulte o [marcação do Docker: Melhores práticas para etiquetagem e controlo de versões de imagens do docker] [ tagging-best-practices] postagem de blog no MSDN.
+Para uma discussão sobre imagem identificando as práticas recomendadas, consulte o [marcação do Docker: Melhores práticas para etiquetagem e controlo de versões de imagens do docker][tagging-best-practices] postagem de blog no MSDN.
 
 ### <a name="layer"></a>Camada
 
@@ -106,10 +106,6 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-O manifesto abordado aqui é diferente do manifesto de imagem, pode ver no portal do Azure ou com [inspecionar o manifesto de docker][docker-manifest-inspect]. Na secção seguinte, "Resumo de manifesto" refere-se para o resumo gerado pela operação de push, não a *config.digest* no manifesto de imagem. Pode obter e eliminar imagens da **digest manifesto**, não config.digest. A imagem seguinte ilustra os dois tipos de resumos de.
-
-![Resumo de manifesto e config.digest no portal do Azure][manifest-digest]
-
 ### <a name="manifest-digest"></a>Resumo do manifesto
 
 Os manifestos são identificados por um valor de hash SHA-256 exclusivo, ou *digest manifesto*. Cada imagem – se etiquetados ou não – é identificada pelo respetivo digest. O valor de texto implícita é exclusivo, mesmo que os dados de camada da imagem são idênticos ao que de outra imagem. Esse mecanismo é o que permite que envie repetidamente imagens de forma idêntica marcadas para um registo. Por exemplo, pode enviar repetidamente `myimage:latest` para o seu registo sem erro pois cada imagem é identificada pelo respetivo digest exclusivo.
@@ -135,9 +131,9 @@ Pode eliminar dados de imagem do seu registo de contentor de várias formas:
 
 ## <a name="delete-repository"></a>Eliminar repositório
 
-Eliminar um repositório elimina todas as imagens no repositório, incluindo todas as etiquetas, camadas exclusivas e manifestos. Quando elimina um repositório, recuperar o espaço de armazenamento utilizado pelas imagens que se encontravam nesse repositório.
+Eliminar um repositório elimina todas as imagens no repositório, incluindo todas as etiquetas, camadas exclusivas e manifestos. Quando elimina um repositório, recuperar o espaço de armazenamento utilizado pelas imagens que fazem referência a camadas exclusivas nesse repositório.
 
-A seguinte da CLI do Azure comando elimina o repositório "acr-helloworld" e todas as etiquetas e manifestos de dentro do repositório. Se camadas referenciadas pelos manifestos eliminados não são referenciadas por quaisquer outras imagens no registo, os seus dados de camada também serão eliminados.
+A seguinte da CLI do Azure comando elimina o repositório "acr-helloworld" e todas as etiquetas e manifestos de dentro do repositório. Se a camadas referenciadas pelos manifestos eliminados não são referenciadas por quaisquer outras imagens no registo, os dados de camada é também eliminados, recuperar o espaço de armazenamento.
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
@@ -147,7 +143,7 @@ A seguinte da CLI do Azure comando elimina o repositório "acr-helloworld" e tod
 
 Pode eliminar imagens individuais a partir de um repositório, especificando o nome do repositório e a etiqueta na operação de eliminação. Quando elimina por etiqueta, recuperar o espaço de armazenamento usado por qualquer camadas exclusivas na imagem (camadas não é partilhadas por quaisquer outras imagens no registo).
 
-Para eliminar por etiqueta, utilize [eliminação de repositório az acr] [ az-acr-repository-delete] e especifique o nome da imagem no `--image` parâmetro. Todas as camadas exclusivas para a imagem e quaisquer outras marcas associadas à imagem são eliminados.
+Para eliminar por etiqueta, utilize [eliminação de repositório az acr][az-acr-repository-delete] e especifique o nome da imagem no `--image` parâmetro. Todas as camadas exclusivas para a imagem e quaisquer outras marcas associadas à imagem são eliminados.
 
 Por exemplo, a eliminar o "acr-helloworld:latest" imagem do registo "myregistry":
 
@@ -187,7 +183,7 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-Em seguida, especifique o resumo do que pretende eliminar no [eliminação de repositório az acr] [ az-acr-repository-delete] comando. O formato do comando é:
+Em seguida, especifique o resumo do que pretende eliminar no [eliminação de repositório az acr][az-acr-repository-delete] comando. O formato do comando é:
 
 ```azurecli
 az acr repository delete --name <acrName> --image <repositoryName>@<digest>
@@ -203,7 +199,7 @@ Are you sure you want to continue? (y/n): y
 
 O `acr-helloworld:v2` imagem será eliminada do Registro, conforme é qualquer camada de dados exclusiva para essa imagem. Se um manifesto é associado a vários tags, todas as marcas associadas também são eliminadas.
 
-### <a name="list-digests-by-timestamp"></a>Resumos de lista por timestamp
+## <a name="delete-digests-by-timestamp"></a>Eliminar resumos ao timestamp
 
 Para manter o tamanho de um repositório ou de registo, poderá ter de eliminar periodicamente resumos de manifestos com mais de uma determinada data.
 
@@ -213,8 +209,6 @@ O seguinte comando da CLI do Azure apresenta uma lista de todos os digest manife
 az acr repository show-manifests --name <acrName> --repository <repositoryName> \
 --orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
 ```
-
-### <a name="delete-digests-by-timestamp"></a>Eliminar resumos ao timestamp
 
 Depois de identificar os resumos de manifestos obsoletos, pode executar o script de Bash seguinte para eliminar os resumos de manifestos com mais de um carimbo especificado. Ele requer que a CLI do Azure e **xargs**. Por predefinição, o script não realiza nenhuma exclusão. Alteração da `ENABLE_DELETE` valor a `true` para ativar a eliminação de imagem.
 
@@ -296,7 +290,7 @@ Conforme mencionado na [digest manifesto](#manifest-digest) secção, envio de u
 
 Como pode ver na saída do último passo na sequência, existe agora uma órfãos manifesto cujos `"tags"` propriedade é uma lista vazia. Esse manifesto ainda existe no Registro, juntamente com quaisquer dados de camada exclusivo por ele referenciados. **Para eliminar tais órfãos imagens e os seus dados de camada, tem de eliminar por digest manifesto**.
 
-### <a name="list-untagged-images"></a>Listar imagens não marcadas
+## <a name="delete-all-untagged-images"></a>Eliminar todas as imagens não marcadas
 
 Pode listar todas as imagens não marcadas no seu repositório utilizando o seguinte comando da CLI do Azure. Substitua `<acrName>` e `<repositoryName>` com valores adequados para o seu ambiente.
 
@@ -304,7 +298,7 @@ Pode listar todas as imagens não marcadas no seu repositório utilizando o segu
 az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
 ```
 
-### <a name="delete-all-untagged-images"></a>Eliminar todas as imagens não marcadas
+Utilizar este comando num script, pode eliminar todas as imagens não marcadas num repositório.
 
 > [!WARNING]
 > Utilize os seguintes scripts de exemplo com cuidado – eliminado dados de imagem são UNRECOVERABLE. Se tiver de sistemas que solicitar imagens ao manifesto digest (em vez do nome da imagem), não deve executar esses scripts. A eliminar imagens não marcadas irá impedir que esses sistemas extrair as imagens a partir do registo. Em vez de solicitar ao manifesto, considere adotar uma *marcação exclusivo* esquema, uma [recomendado melhor prática][tagging-best-practices].
@@ -333,7 +327,10 @@ then
     az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
-    echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
+    else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
 fi
 ```
 
@@ -357,7 +354,9 @@ if ($enableDelete) {
     az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
-    Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."
+    Write-Host "No data deleted."
+    Write-Host "Set `$enableDelete = `$TRUE to enable image deletion."
+    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null]" -o tsv
 }
 ```
 
@@ -371,7 +370,7 @@ Para obter mais informações sobre o armazenamento de imagem no Azure Container
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
-[tagging-best-practices]: https://blogs.msdn.microsoft.com/stevelasker/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
+[tagging-best-practices]: https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete

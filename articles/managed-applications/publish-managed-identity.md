@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 5ef653e825a5f1eb0f5df52f9c2544a5224b34cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003450"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312239"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Aplicação gerida do Azure com a identidade gerida
 
@@ -322,7 +322,7 @@ Depois de criar o pacote de aplicação gerida, a aplicação gerida pode ser co
 O token da aplicação gerida pode agora ser acedido através do `listTokens` api a partir do inquilino do publicador. Um exemplo de solicitação a seguinte aparência:
 
 ``` HTTP
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}?api-version=2018-09-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
 ```
 
 Como pode ser uma resposta de exemplo:
