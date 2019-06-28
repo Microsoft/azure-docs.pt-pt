@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476073"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445378"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Tarefa Elástica com o PowerShell
 
 As [tarefas elásticas](sql-database-job-automation-overview.md#elastic-database-jobs) permitem a execução de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
 
-Neste tutorial, vai conhecer os passos necessários para executar uma consulta em várias bases de dados:
+Neste tutorial, vai aprender os passos necessários para executar uma consulta em várias bases de dados:
 
 > [!div class="checklist"]
 > * Criar um agente de Tarefa Elástica
@@ -71,7 +71,7 @@ Get-Module Az.Sql
 
 A criação de um agente de Tarefa Elástica requer uma base de dados (S0 ou superior) para utilização como [base de dados de Tarefa](sql-database-job-automation-overview.md#job-database). 
 
-*O script abaixo cria um novo grupo de recursos, servidor e base de dados para utilização como base de dados de Tarefa. O script abaixo também cria um segundo servidor com 2 bases de dados em branco para executar tarefas.*
+*O script abaixo cria um novo grupo de recursos, servidor e base de dados para utilização como base de dados de Tarefa. O script abaixo também cria um segundo servidor com duas bases de dados em branco para executar tarefas em relação a.*
 
 As tarefas elásticas não têm requisitos de nomenclatura específicos, pelo que pode utilizar quaisquer convenções de nomenclatura que queira, desde que estejam em conformidade com os [requisitos do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
@@ -285,6 +285,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>Estados de execução de tarefa
+
+A tabela seguinte lista os Estados de execução de tarefa possível:
+
+|Estado|Descrição|
+|:---|:---|
+|**Criado** | A execução de tarefa acabou de ser criada e não esteja em curso.|
+|**InProgress** | A execução de tarefa está atualmente em curso.|
+|**WaitingForRetry** | A execução de tarefa não conseguiu concluir a ação e está a aguardar para repetir.|
+|**Foi efetuada com êxito** | A execução de tarefa foi concluída com êxito.|
+|**SucceededWithSkipped** | A execução de tarefa foi concluída com êxito, mas alguns dos seus filhos foram ignorados.|
+|**Falhou** | A execução de tarefa tem falha e esgotado seu repetições.|
+|**TimedOut** | A execução da tarefa excedeu o tempo limite.|
+|**Foi cancelada** | A execução de tarefa foi cancelada.|
+|**Ignorado** | A execução de tarefa foi ignorada porque outra execução do mesmo passo da tarefa já estava executando o mesmo destino.|
+|**WaitingForChildJobExecutions** | A execução de tarefa está a aguardar sua execuções do filho concluir.|
 
 ## <a name="schedule-the-job-to-run-later"></a>Agendar a tarefa para execução mais tarde
 

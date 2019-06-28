@@ -3,19 +3,19 @@ title: 'Início rápido: Traduzir texto Java - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender como converter uma cadeia de texto de inglês, italiano e alemão com Java e a API de REST de texto do Translator.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: fbbe139160a7efd528e63e206aa37ac72b2542df
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: f8846e8dc6df8753562a36c05342f04307dd886e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515194"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445092"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>Início rápido: Utilize a API de texto do Translator para traduzir uma cadeia de caracteres com Java
 
@@ -107,6 +107,8 @@ Adicionar estas linhas para o `Translate` classe. Perceberá que, juntamente com
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de,it";
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Criar um cliente e criar um pedido
 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 3f3b74452ff1f866b0285eee962ab3678b151a30
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 144cd0380cfe2a49d5827f9ecc34ed197f4ad1cd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331838"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441818"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com cURL
 

@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897050513449c099ce75c248eef00a38aac98ad9
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534819"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462331"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualize e analise os eventos a partir de seus espaços duplos Digital do Azure com o Time Series Insights
 
@@ -52,7 +52,7 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
 
 1. Introduza um **nome** para o espaço de nomes de Hubs de eventos. Escolher **padrão** para **escalão de preço**, o seu **subscrição**, o **grupo de recursos** que utilizou para a sua instância de duplos Digital, e o **localização**. Selecione **Criar**.
 
-1. Numa implementação de espaço de nomes dos Hubs de eventos, selecione o espaço de nomes em **recursos**.
+1. Numa implementação de espaço de nomes dos Hubs de eventos, selecione o **descrição geral** painel, em seguida, selecione **Ir para recurso**.
 
     ![Espaço de nomes de Hubs de eventos após a implementação](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -65,7 +65,7 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
 
 1. Selecione o **grupo de consumidores** botão na parte superior e introduza um nome, tal como **tsievents** para o grupo de consumidores. Selecione **Criar**.
 
-    ![Grupo de consumidores do Hub de Eventos](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
+    ![Grupo de consumidores do Hub de eventos](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
    Depois de criar o grupo de consumidores, ele aparece na lista na parte inferior do hub de eventos **descrição geral** painel.
 
@@ -132,17 +132,19 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
 
 1. Procure e selecione um recurso novo do **Time Series Insights**. Selecione **Criar**.
 
-1. Introduza um **Nome** para a instância do Time Series Insights e selecione a sua **Subscrição**. Selecione o **grupo de recursos** que utilizou para a sua instância de duplos Digital e seu **localização**. Selecione **Criar**.
+1. Introduza um **Nome** para a instância do Time Series Insights e selecione a sua **Subscrição**. Selecione o **grupo de recursos** que utilizou para a sua instância de duplos Digital e seu **localização**. Selecione **seguinte: Origem do evento** botão ou o **origem do evento** separador.
 
     ![Seleções para a criação de uma instância do Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. Depois da instância for implementada, abrir o ambiente do Time Series Insights e, em seguida, abra seu **origens de eventos** painel. Selecione o **adicionar** botão na parte superior para adicionar um grupo de consumidores.
-
-1. No painel **New event source** (Nova origem de evento), introduza **Name** (Nome) e confirme que os outros valores estão devidamente selecionados. Selecione **ManageSend** para **nome de política do hub de eventos**e, em seguida, selecione o grupo de consumidores que criou na secção anterior para **grupo de consumidores do hub de eventos**. Selecione **Criar**.
+1. Na **origem do evento** separador, introduza um **nome**, selecione **Hub de eventos** como o **tipo de origem**e certifique-se de que os outros valores estão selecionados corretamente. Selecione **ManageSend** para **nome de política de acesso do Hub de eventos**e, em seguida, selecione o grupo de consumidores que criou na secção anterior para **grupo de consumidores do Hub de eventos**. Selecione **Rever + criar**.
 
     ![Seleções para a criação de uma origem de evento](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Abra o **descrição geral** painel para seu ambiente do Time Series Insights e selecione o **vá para o ambiente** botão na parte superior. Se receber um aviso de acesso de dados, abra a **políticas de acesso de dados** painel para a sua instância do Time Series Insights, selecione **Add**, selecione **contribuinte** como a função e selecione o utilizador apropriado.
+1. Na **rever + criar** painel, reveja as informações que introduziu e selecione **criar**.
+
+1. No painel de implementação, selecione o recurso de Time Series Insights que acabou de criar. Esta ação abre o **descrição geral** painel para o seu ambiente do Time Series Insights.
+
+1. Selecione o **vá para o ambiente** botão na parte superior. Se receber um aviso de acesso de dados, abra a **políticas de acesso de dados** painel para a sua instância do Time Series Insights, selecione **Add**, selecione **contribuinte** como a função e selecione o utilizador apropriado.
 
 1. O **vá para o ambiente** botão abre a [Explorador do Time Series Insights](../time-series-insights/time-series-insights-explorer.md). Se não mostra todos os eventos, simular eventos de dispositivo ao navegar para o **conectividade do dispositivo** projeto do exemplo de duplos Digital e a execução `dotnet run`.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/25/2019
 ms.author: scottwhi
-ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: be3262daf7ea2a637133ad658efe07ba9426415b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382700"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449080"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>A enviar pedidos para a API de sugestão automática do Bing.
 
@@ -95,11 +95,11 @@ O seguinte exemplo mostra um pedido que devolve as cadeias de consulta sugeridas
 
 Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o cabeçalho do ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para a combinação de utilizador e dispositivo.
 
-O seguinte mostra a resposta ao pedido anterior. A resposta inclui um grupo de sugestões da Web que contém uma lista de sugestões de consulta de pesquisa. Cada sugestão inclui um campo `displayText`, `query` e `url`.
+O grupo de sugestão de web seguinte é uma resposta ao pedido acima. O grupo contém uma lista de sugestões de consulta de pesquisa, com cada sugestão, incluindo uma `displayText`, `query`, e `url` campo.
 
 O campo `displayText` contém a consulta sugerida que utilizaria para preencher a lista pendente da sua caixa de pesquisa. Tem de apresentar todas as sugestões incluídas na resposta e pela ordem fornecida.  
 
-Se o usuário seleciona uma consulta da lista pendente, pode usá-lo para chamar um da [APIs de pesquisa Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e exibir os resultados por conta própria ou enviar o utilizador para a página de resultados do Bing com retornado `url` campo. O exemplo seguinte utiliza a API de pesquisa Web Bing.
+Se o usuário seleciona uma consulta da lista pendente, pode usá-lo para chamar um da [APIs de pesquisa Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e exibir os resultados por conta própria ou enviar o utilizador para a página de resultados do Bing com retornado `url` campo.
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

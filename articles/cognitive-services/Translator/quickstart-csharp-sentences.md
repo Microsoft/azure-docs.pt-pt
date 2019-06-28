@@ -3,19 +3,19 @@ title: 'Início rápido: Obter comprimentos de sentença, C# -API de texto do tr
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender como determinar o comprimento de sentença com .NET Core e a API de texto do Translator.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 00fe7ce5558672812be7949b8474a403499de94f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 27f515c775d4b1a77563ac10338fc2255e42731c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123383"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448172"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-c"></a>Início rápido: Utilize a API de texto do Translator para determinar a frase através de comprimentoC#
 
@@ -163,6 +163,8 @@ foreach (BreakSentenceResult o in deserializedOutput)
     Console.WriteLine("The first sentence length is: {0}", o.SentLen[0]);
 }
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 

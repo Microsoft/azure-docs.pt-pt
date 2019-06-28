@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 126bb05109e624fb1198ea16b07cd7836103f9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100868"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure com HR2day por Merces
 
@@ -112,7 +112,7 @@ Para configurar o Azure AD início de sessão único com HR2day por Merces, exec
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. Sua HR2day pelo aplicativo Merces espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+5. Sua HR2day pelo aplicativo Merces espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos de utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-hr2day-by-merces-test-user"></a>Criar HR2day por utilizador de teste Merces
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no HR2day por Merces. Trabalhar com [equipa de suporte de HR2day por Merces](mailto:servicedesk@merces.nl) para adicionar os utilizadores no HR2day pelo Merces plataforma. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no HR2day por Merces. Trabalhar com [equipa de suporte de HR2day por Merces](mailto:servicedesk@merces.nl) para adicionar os utilizadores no HR2day pelo Merces plataforma. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, entre em contato com o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl).

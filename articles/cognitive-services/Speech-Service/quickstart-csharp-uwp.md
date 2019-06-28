@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 674bb3f22f7b8c7c7ea3b52c2f27d862a9961fcb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 5a42f9196bc7803a794f031819948d50934009f8
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466256"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466792"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz numa aplicação UWP com o SDK de voz
 
-Também estão disponíveis para inícios Rápidos [tradução de voz](quickstart-translate-speech-uwp.md) e [Assistente de voz em primeiro lugar virtual](quickstart-virtual-assistant-csharp-uwp.md).
+Também estão disponíveis para inícios Rápidos [voz](quickstart-text-to-speech-csharp-uwp.md), [tradução de voz](quickstart-translate-speech-uwp.md) e [Assistente de voz em primeiro lugar virtual](quickstart-virtual-assistant-csharp-uwp.md).
 
 Se assim o desejar, escolha uma linguagem de programação diferente e/ou o ambiente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]

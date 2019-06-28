@@ -3,19 +3,19 @@ title: 'Início rápido: Detetar o idioma de texto, C# -API de texto do tradutor
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender como detectar o idioma do texto fornecido com o .NET Core e a API de REST de texto do Translator.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 76e97a5241c1e39d02d8f33bf1894743d32e6244
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: eaf9fa86437d2c69a9a1a68fba797f69c1339dd1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123406"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448243"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto atravésC#
 
@@ -178,6 +178,8 @@ foreach (DetectResult o in deserializedOutput)
 }
 ```
 
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## <a name="put-it-all-together"></a>Juntar tudo
 
 A última etapa é chamar `DetectTextRequest()` no `Main` função. Localize `static void Main(string[] args)` e substituí-lo com este código:
@@ -195,7 +197,6 @@ static async Task Main(string[] args)
     await DetectTextRequest(subscriptionKey, host, route, breakSentenceText);
 }
 ```
-
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
 É isso, está pronto para executar a aplicação de exemplo. A partir da linha de comandos (ou sessão de terminal), navegue para o diretório de projeto e execute:

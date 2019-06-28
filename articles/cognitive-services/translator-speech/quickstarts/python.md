@@ -3,20 +3,20 @@ title: 'Início rápido: Python de API de voz do tradutor'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Voz do Microsoft Translator.
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: v-jaswel
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9eb4d34155c2c095c59ffcd54c9a0a5ed243872a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535519"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442115"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>Início rápido: Voz do Translator API com Python
 <a name="HOLTop"></a>

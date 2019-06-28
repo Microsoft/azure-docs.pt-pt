@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 06/28/2019
+ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415693"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461536"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 
@@ -24,6 +24,7 @@ Pode utilizar o serviço de migração de base de dados do Azure para migrar as 
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
+>
 > * Migre o esquema de exemplo usando o utilitário de pg_dump.
 > * Criar uma instância do Azure Database Migration Service.
 > * Utilizar o Azure Database Migration Service para criar um projeto de migração.
@@ -65,11 +66,11 @@ Para concluir este tutorial, precisa de:
 * Criar ao nível do servidor [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para base de dados do Azure para PostgreSQL permitir que o serviço de migração de base de dados do Azure aceder às bases de dados de destino. Forneça o intervalo de sub-rede da VNet utilizada para o Azure Database Migration Service.
 * Existem dois métodos para invocar a CLI:
 
-    * No canto superior direito do portal do Azure, selecione o botão Cloud Shell:
+  * No canto superior direito do portal do Azure, selecione o botão Cloud Shell:
 
        ![Botão Cloud Shell no portal do Azure](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-    * Instale e execute a CLI localmente. A CLI 2.0 é a ferramenta de linha de comandos para gerir os recursos do Azure.
+  * Instale e execute a CLI localmente. A CLI 2.0 é a ferramenta de linha de comandos para gerir os recursos do Azure.
 
        Para transferir a CLI, siga as instruções no artigo [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). O artigo também indica as plataformas que suportam a CLI 2.0.
 
@@ -77,9 +78,9 @@ Para concluir este tutorial, precisa de:
 
 * Ative a replicação lógica no ficheiro postgresql.config e defina os seguintes parâmetros:
 
-    * wal_level = **logical**
-    * max_replication_slots = [número de ranhuras], definição recomendada de **5 ranhuras**
-    * max_wal_senders = [número de tarefas simultâneas] – O parâmetro max_wal_senders define o número de tarefas simultâneas que podem ser executadas, definição recomendada de **10 tarefas**
+  * wal_level = **logical**
+  * max_replication_slots = [número de ranhuras], definição recomendada de **5 ranhuras**
+  * max_wal_senders = [número de tarefas simultâneas] – O parâmetro max_wal_senders define o número de tarefas simultâneas que podem ser executadas, definição recomendada de **10 tarefas**
 
 ## <a name="migrate-the-sample-schema"></a>Migrar o esquema de exemplo
 
@@ -115,8 +116,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
     ```
 
 4. Se tiver chaves externas no seu esquema, o carregamento inicial e a sincronização contínua da migração irão falhar. Execute o seguinte script em PgAdmin ou em psql para extrair o script de remoção de chave de referência e adicionar o script de chave de referência no destino (Base de Dados do Azure para PostgreSQL).
-
-    
+  
     ```
     SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
@@ -141,7 +141,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-     ```
+    ```
 
     Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta.
 
@@ -213,7 +213,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
 
    * Localização: E.U.A. Leste 2
    * Subscrição: 97181df2-909d-420b-ab93-1bff15acb6b7
-   * Nome do Grupo de Recursos: PostgresDemo
+   * Nome do grupo de recursos: PostgresDemo
    * Nome do serviço DMS: PostgresCLI
 
    ```
@@ -261,8 +261,8 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
     Por exemplo, o comando seguinte cria um projeto que utiliza estes parâmetros:
 
    * Localização: EUA Centro-Oeste
-   * Nome do Grupo de Recursos: PostgresDemo
-   * Nome do Serviço: PostgresCLI
+   * Nome do grupo de recursos: PostgresDemo
+   * Nome do serviço: PostgresCLI
    * Nome do projeto: PGMigration
    * Plataforma de origem: PostgreSQL
    * Plataforma de destino: AzureDbForPostgreSql

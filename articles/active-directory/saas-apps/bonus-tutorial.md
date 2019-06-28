@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298f25e151d4c52749d646a9457f0962c68bf4d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106136"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442780"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Active Directory do Azure com Bonusly
 
@@ -148,7 +148,7 @@ Para configurar o Azure AD início de sessão único com Bonusly, execute os seg
 
     c. Na **IdP emissor** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
     
-    d. Colar o **Thumbprint** valor copiados a partir do portal do Azure para o **impressão digital do certificado** caixa de texto.
+    d. Colar o **Thumbprint** valor copiados a partir do portal do Azure para o **impressão digital do certificado** caixa de texto.
     
     e. Clique em **Guardar**.
 

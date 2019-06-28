@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: f74becc24e5d04cefdd05066b8431946578cc35e
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 8a03d87441f26d3116aff8af33fd94da0ef9a909
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151072"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438441"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Tutorial: Utilize um bot de funções ativada com compreensão de idiomas emC#
 
@@ -358,14 +358,7 @@ No Visual Studio, inicie o bot. É aberta uma janela de browser com o site do bo
 
     [![Resposta de bot básico no emulador](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-## <a name="learn-more-about-the-web-app-bot-and-framework"></a>Saiba mais sobre a estrutura e a Web App Bot
-
-O serviço Azure Bot utiliza o Bot Framework SDK. Saiba mais sobre o SDK e o Bot Framework:
-
-* Documentação do [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
-* [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples) (Exemplos do Bot Builder)
-* [Construtor de bot C# SDK](https://github.com/Microsoft/botbuilder-dotnet)
-* [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools) (Ferramentas do Bot Builder):
+[!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

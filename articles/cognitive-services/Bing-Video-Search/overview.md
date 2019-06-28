@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2f6be01a3aee4e156b7af184fa2537455fc73f3f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 7b17c03b464ed7ccc13de2221c8e4cb36be05c3f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386524"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442700"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>O que é a API de Pesquisa de Vídeos do Bing?
 

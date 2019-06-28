@@ -3,19 +3,19 @@ title: 'Início rápido: Traduzir texto, C# – texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá traduzir texto de um idioma noutro através da API de Texto do Microsoft Translator com C#.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 82fa15f6b17ff3104b0832e11a094d0737d5d2ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 242c16fd0ec1d32c889d511aee78924a296e191d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123347"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449435"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Início rápido: Utilize a API de texto do Translator para traduzir usando uma cadeia de caracteresC#
 
@@ -198,6 +198,8 @@ foreach (TranslationResult o in deserializedOutput)
     }
 }
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 

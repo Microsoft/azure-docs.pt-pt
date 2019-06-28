@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 9d29fdbfc82f221dac3b304dcf9de8c230b4d5e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056802"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467059"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Início rápido: Criar um Assistente de virtual de voz em primeiro lugar, com o SDK de voz, UWP
 
-Também estão disponíveis para inícios Rápidos [voz em texto](quickstart-csharp-uwp.md) e [tradução de voz](quickstart-translate-speech-uwp.md).
+Também estão disponíveis para inícios Rápidos [voz em texto](quickstart-csharp-uwp.md), [voz](quickstart-text-to-speech-csharp-uwp.md) e [tradução de voz](quickstart-translate-speech-uwp.md).
 
 Neste artigo, vai desenvolver uma C# aplicação plataforma Universal do Windows (UWP) com o [SDK de voz](speech-sdk.md). O programa irá ligar-se para um bot previamente criado e configurado para permitir uma experiência de Assistente de voz em primeiro lugar virtual da aplicação cliente. A aplicação é compilada com o [Pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
 
@@ -32,14 +32,11 @@ Neste artigo, vai desenvolver uma C# aplicação plataforma Universal do Windows
 Este início rápido requer:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Uma chave de subscrição do Azure para os serviços de voz no **westus2** região. Crie esta subscrição no [portal do Azure](https://portal.azure.com).
+* Uma chave de subscrição do Azure para serviços de voz. [Obter uma gratuitamente](get-started.md) ou criá-la no [portal do Azure](https://portal.azure.com).
 * Um bot criado anteriormente configurado com o [canal direto de linha de voz](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > Direto de linha de voz (pré-visualização) só está atualmente disponível na **westus2** região.
-
-    > [!NOTE]
-    > A versão de avaliação de 30 dias para o padrão descrito em do escalão de preço [experimentar gratuitamente os serviços de voz](get-started.md) é restringido aos **westus** (não **westus2**) e, portanto, não é compatível com o Direct Voz da linha. Escalão gratuito e standard **westus2** subscrições são compatíveis.
+    > Direto de linha de voz (pré-visualização) está atualmente disponível num subconjunto de regiões de serviços de voz. Consulte a [a lista de regiões suportadas para os assistentes de voz em primeiro lugar virtual](regions.md#voice-first-virtual-assistants) e certifique-se de que os recursos são implementados nessas regiões.
 
 ## <a name="optional-get-started-fast"></a>Opcional: Começar rapidamente
 
@@ -63,7 +60,7 @@ Neste início rápido descreve, passo a passo, como criar um aplicativo cliente 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
         <Grid>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
                 <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
@@ -111,7 +108,7 @@ Neste início rápido descreve, passo a passo, como criar um aplicativo cliente 
     {
         public sealed partial class MainPage : Page
         {
-            private SpeechBotConnector botConnector;
+            private DialogServiceConnector connector;
 
             private enum NotifyType
             {
@@ -230,7 +227,7 @@ Neste início rápido descreve, passo a passo, como criar um aplicativo cliente 
                 });
             }
 
-            private void InitializeBotConnector()
+            private void InitializeDialogServiceConnector()
             {
                 // New code will go here
             }
@@ -243,31 +240,31 @@ Neste início rápido descreve, passo a passo, como criar um aplicativo cliente 
     }
     ```
 
-1. Em seguida, irá criar o `SpeechBotConnector` com as suas informações de subscrição. Adicione o seguinte para o corpo do método da `InitializeBotConnector`, substituindo as cadeias de caracteres `YourChannelSecret`, `YourSpeechSubscriptionKey`, e `YourServiceRegion` pelos seus próprios valores para o bot, a subscrição de voz, e [região](regions.md).
+1. Em seguida, irá criar o `DialogServiceConnector` com as suas informações de subscrição. Adicione o seguinte para o corpo do método da `InitializeDialogServiceConnector`, substituindo as cadeias de caracteres `YourChannelSecret`, `YourSpeechSubscriptionKey`, e `YourServiceRegion` pelos seus próprios valores para o bot, a subscrição de voz, e [região](regions.md).
 
     > [!NOTE]
-    > Em pré-visualização, o canal direto de linha de voz atualmente, só suporta o **westus2** região.
+    > Direto de linha de voz (pré-visualização) está atualmente disponível num subconjunto de regiões de serviços de voz. Consulte a [a lista de regiões suportadas para os assistentes de voz em primeiro lugar virtual](regions.md#voice-first-virtual-assistants) e certifique-se de que os recursos são implementados nessas regiões.
 
     > [!NOTE]
     > Para informações sobre como configurar o seu bot e obter um segredo de canal, consulte a documentação do Bot Framework para [o canal direto de linha de voz](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
-    // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
+    // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
     const string channelSecret = "YourChannelSecret"; // Your channel secret
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-    const string region = "YourServiceRegion"; // Your subscription service region. Note: only 'westus2' is currently supported
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only a subset of regions are currently supported
 
-    var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
-    botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
-    botConnector = new SpeechBotConnector(botConnectorConfig);
+    var botConfig = DialogServiceConfig.FromBotSecret(channelSecret, speechSubscriptionKey, region);
+    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `SpeechBotConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de voz e outras informações. Adicionar manipuladores para esses eventos, acrescentar o seguinte ao final do corpo do método de `InitializeBotConnector`.
+1. `DialogServiceConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de voz e outras informações. Adicionar manipuladores para esses eventos, acrescentar o seguinte ao final do corpo do método de `InitializeDialogServiceConnector`.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
-    botConnector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     {
         NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
@@ -277,7 +274,7 @@ Neste início rápido descreve, passo a passo, como criar um aplicativo cliente 
         }
     };
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.Canceled += (sender, canceledEventArgs) =>
+    connector.Canceled += (sender, canceledEventArgs) =>
     {
         NotifyUser($"Canceled, reason={canceledEventArgs.Reason}");
         if (canceledEventArgs.Reason == CancellationReason.Error)
@@ -286,47 +283,47 @@ Neste início rápido descreve, passo a passo, como criar um aplicativo cliente 
         }
     };
     // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.Recognizing += (sender, recognitionEventArgs) =>
+    connector.Recognizing += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Recognizing! in-progress text={recognitionEventArgs.Result.Text}");
     };
     // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
-    botConnector.Recognized += (sender, recognitionEventArgs) =>
+    connector.Recognized += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
     };
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.SessionStarted += (sender, sessionEventArgs) =>
+    connector.SessionStarted += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Now Listening! Session started, id={sessionEventArgs.SessionId}");
     };
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.SessionStopped += (sender, sessionEventArgs) =>
+    connector.SessionStopped += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Listening complete. Session ended, id={sessionEventArgs.SessionId}");
     };
     ```
 
-1. Com a configuração estabelecida e os manipuladores de eventos registados, o `SpeechBotConnector` agora precisa apenas escutar. Adicione o seguinte ao corpo dos `ListenButton_ButtonClicked` método no `MainPage` classe.
+1. Com a configuração estabelecida e os manipuladores de eventos registados, o `DialogServiceConnector` agora precisa apenas escutar. Adicione o seguinte ao corpo dos `ListenButton_ButtonClicked` método no `MainPage` classe.
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
     {
-        if (botConnector == null)
+        if (connector == null)
         {
-            InitializeBotConnector();
+            InitializeDialogServiceConnector();
             // Optional step to speed up first interaction: if not called, connection happens automatically on first use
-            var connectTask = botConnector.ConnectAsync();
+            var connectTask = connector.ConnectAsync();
         }
 
         try
         {
             // Start sending audio to your speech-enabled bot
-            var listenTask = botConnector.ListenOnceAsync();
+            var listenTask = connector.ListenOnceAsync();
 
             // You can also send activities to your bot as JSON strings -- Microsoft.Bot.Schema can simplify this
             string speakActivity = @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
-            await botConnector.SendActivityAsync(speakActivity);
+            await connector.SendActivityAsync(speakActivity);
 
         }
         catch (Exception ex)
@@ -359,10 +356,12 @@ Neste início rápido descreve, passo a passo, como criar um aplicativo cliente 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Criar e implementar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Traduzir voz](how-to-translate-speech-csharp.md)
-- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalizar modelos de idioma](how-to-customize-language-model.md)
+- [Sobre os assistentes de voz em primeiro lugar virtual](voice-first-virtual-assistants.md)
+- [Obtenha gratuitamente uma chave de subscrição de serviços de voz](get-started.md)
+- [Palavras de reativação personalizado](speech-devices-sdk-create-kws.md)
+- [Ligar direto de linha de voz ao seu bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)

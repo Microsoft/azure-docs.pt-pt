@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a809a4de588a388c4be8ca6efa245450699eeb64
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815505"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441612"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Criar uma aplicação Android para detetar e rostos numa imagem de fotograma
 
@@ -68,7 +68,7 @@ Em seguida, substitua o conteúdo do **MainActivity** classe com o código a seg
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
 
-### <a name="try-the-app"></a>Experimentar a aplicação
+### <a name="try-the-app"></a>Experimente a aplicação
 
 Comente a chamada para **detectAndFrame** no **onActivityResult** método. Em seguida, prima **executar** no menu para testar a sua aplicação. Quando a aplicação abre-se, num emulador ou um dispositivo ligado, clique nas **procurar** na parte inferior. Deverá aparecer a caixa de diálogo de seleção de arquivo do dispositivo. Escolha uma imagem e certifique-se de que ele exibe na janela. Em seguida, feche a aplicação e avance para o passo seguinte.
 
@@ -78,7 +78,7 @@ Comente a chamada para **detectAndFrame** no **onActivityResult** método. Em se
 
 ### <a name="add-the-gradle-dependency"></a>Adicione a dependência de Gradle
 
-No painel **Projeto**, utilize o seletor de lista pendente para selecionar **Android**. Expanda **Scripts de Gradle** e abra *build.gradle (Module: app)*. Adicione uma dependência para a biblioteca de cliente do Face `com.microsoft.projectoxford:face:1.4.3`, conforme mostrado na captura de ecrã abaixo, e clique em **Sincronizar Agora**.
+No painel **Projeto**, utilize o seletor de lista pendente para selecionar **Android**. Expanda **Scripts de Gradle** e abra *build.gradle (Module: app)* . Adicione uma dependência para a biblioteca de cliente do Face `com.microsoft.projectoxford:face:1.4.3`, conforme mostrado na captura de ecrã abaixo, e clique em **Sincronizar Agora**.
 
 ![Captura de ecrã do Android Studio do ficheiro build.gradle da Aplicação](../Images/face-tut-java-gradle.png)
 
@@ -100,7 +100,7 @@ No painel **Projeto**, expanda **aplicação**, em seguida, **manifestos**, e ab
 
 ## <a name="upload-image-and-detect-faces"></a>Carregar a imagem e detetar rostos
 
-A aplicação irá detetar rostos ao chamar o **FaceServiceClient.detect** método, que encapsula o [detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API e devolve uma lista de **Face** instâncias.
+A aplicação irá detetar rostos ao chamar o **faceClient.Face.DetectWithStreamAsync** método, que encapsula o [detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API e devolve uma lista de **Face** instâncias.
 
 Cada devolvido **Face** inclui um retângulo para indicar a localização, combinada com uma série de atributos faciais opcional. Neste exemplo, apenas os retângulos são solicitados.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: cb8b188f8d5313852ce57481031faafc28e247b3
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204330"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443018"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -59,7 +59,7 @@ Cópia de segurança do Azure anunciou recentemente o suporte para [término do 
 2. .NET framework 4.5.2 e acima tem de ser instalado na VM
 3. Não é suportada a cópia de segurança para a FCI e bases de dados espelhadas
 
-Todas as outras [considerações e limitações de recursos](#feature-consideration-and-limitations) aplicam-se a essas versões também. O cliente não será cobrado para esta funcionalidade até o momento está em disponibilidade geral.
+Não é são cobrados a utilizadores para esta funcionalidade até o momento está em disponibilidade geral. Todas as outras [considerações e limitações de recursos](#feature-consideration-and-limitations) aplicam-se a essas versões também. Consulte a [pré-requisitos](backup-sql-server-database-azure-vms.md#prerequisites) antes de configurar a proteção em servidores do SQL Server 2008 e 2008 R2, que incluem a definição a [chave de registo](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (este passo não seriam necessário quando o recurso é geralmente disponível).
 
 
 ## <a name="feature-consideration-and-limitations"></a>Funcionalidade considerações e limitações
@@ -193,13 +193,13 @@ Adicione **NT AUTHORITY\SYSTEM** e **NT Service\AzureWLBackupPluginSvc** início
 8. Repetir a mesma seqüência de etapas (1 a 7 acima) para adicionar o início de sessão do NT Service\AzureWLBackupPluginSvc a instância do SQL Server. Se o início de sessão já existir, certificar-se de que tem a função de servidor sysadmin e em estado tem de conceder a permissão para ligar ao motor de base de dados e de início de sessão como ativado.
 9. Depois de conceder permissão, **voltar a detetar bds** no portal do: Cofre **->** infraestrutura de cópia de segurança **->** carga de trabalho na VM do Azure:
 
-    ![Redeteção de DBs no Portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+    ![Redeteção de DBs no portal do Azure](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
 Em alternativa, pode automatizar conceder as permissões ao executar os seguintes comandos do PowerShell no modo de administrador. O nome da instância está definido como MSSQLSERVER por predefinição. Alterar a instância de argumento no script do nome se precisa de ser:
 
 ```powershell
 param(
-    [Parameter(Mandatory=$false)] 
+    [Parameter(Mandatory=$false)]
     [string] $InstanceName = "MSSQLSERVER"
 )
 if ($InstanceName -eq "MSSQLSERVER")
@@ -211,7 +211,7 @@ else
     $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
 }
 try
-{ 
+{
     sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
 }
 catch
@@ -220,7 +220,7 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 try
-{ 
+{
     sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
 }
 catch

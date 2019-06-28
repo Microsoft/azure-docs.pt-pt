@@ -5,26 +5,27 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239690"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433942"
 ---
-# <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Executar a classificação de imagens na periferia com o serviço de visão personalizada
+# <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
-O Azure IoT Edge pode mover as suas cargas de trabalho da cloud para a periferia e tornar a sua solução IoT Edge mais eficiente. Esta capacidade é particularmente útil para serviços que processam muitos dados, como modelos de imagem digitalizada. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/home.md) permite-lhe compilar classificadores de imagens personalizados e implementá-los como contentores nos dispositivos. Em conjunto, estes dois serviços permitem-lhe obter informações de imagens ou de transmissões em fluxo de vídeos sem que seja necessário transferir todos os dados do local primeiro. A Visão Personalizada oferece um classificador que compara uma imagem com um modelo preparado para gerar informações. 
+O Azure IoT Edge pode mover as suas cargas de trabalho da cloud para a periferia e tornar a sua solução IoT Edge mais eficiente. Esta capacidade é particularmente útil para serviços que processam muitos dados, como modelos de imagem digitalizada. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/home.md) permite-lhe compilar classificadores de imagens personalizados e implementá-los como contentores nos dispositivos. Em conjunto, estes dois serviços permitem-lhe obter informações de imagens ou de transmissões em fluxo de vídeos sem que seja necessário transferir todos os dados do local primeiro. A Visão Personalizada oferece um classificador que compara uma imagem com um modelo preparado para gerar informações.
 
-Por exemplo, a Visão Personalizada num dispositivo IoT Edge pode determinar se o tráfego numa autoestrada é superior ou inferior ao normal ou se um parque de estacionamento tem lugares disponíveis numa fila. Essas informações podem ser partilhadas com outro serviço, o que possibilita realizar ações. 
+Por exemplo, a Visão Personalizada num dispositivo IoT Edge pode determinar se o tráfego numa autoestrada é superior ou inferior ao normal ou se um parque de estacionamento tem lugares disponíveis numa fila. Essas informações podem ser partilhadas com outro serviço, o que possibilita realizar ações.
 
-Neste tutorial, ficará a saber como: 
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
+>
 > * Compilar um classificador de imagens com a Visão Personalizada.
 > * Desenvolver um módulo do IoT Edge que consulta o servidor Web da Visão Personalizada no seu dispositivo.
 > * Enviar os resultados do classificador de imagens para o Hub IoT.
@@ -72,10 +73,11 @@ Quando o classificador de imagens estiver compilado e preparado, pode exportá-l
    | ----- | ----- |
    | Nome | Indique um nome para o projeto, como **EdgeTreeClassifier**. |
    | Descrição | Descrição do projeto opcional. |
-   | Grupo de Recursos | Aceite a predefinição, **Limited trial** (Avaliação limitada). |
+   | Grupo de Recursos | Selecione um dos seus grupos de recursos do Azure inclui um recurso de serviço de visão personalizada ou **criar um novo** se ainda não tiver adicionado uma. |
    | Project Types (Tipos de Projetos) | **Classification** (Classificação) |
-   | Classification Types (Tipos de Classificações) | **Multiclass (single tag per image)** (Multiclasses [etiqueta individual por imagem]) | 
+   | Classification Types (Tipos de Classificações) | **Multiclass (single tag per image)** (Multiclasses [etiqueta individual por imagem]) |
    | Domínios | **General (compact)** (Geral [compacto]) |
+   | Exportar recursos | **Plataformas básicas (Tensorflow, CoreML, ONNX,...)** |
 
 5. Selecione **Create project** (Criar projeto).
 

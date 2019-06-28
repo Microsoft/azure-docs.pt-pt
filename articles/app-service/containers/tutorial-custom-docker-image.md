@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 72602cb1fda88497172b1837eab98d5e9ce41776
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117590"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435438"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Criar uma imagem personalizada e executar no serviço de aplicações a partir de um registo privado
 
-[Serviço de aplicações](app-service-linux-intro.md) fornece imagens do Docker incorporadas no Linux com suporte para versões específicas, como PHP 7.0 e node. js 4.5. Serviço de aplicações utiliza a tecnologia de contentor do Docker para alojar imagens incorporadas e imagens personalizadas como plataforma como um serviço. Neste tutorial, saiba como criar uma imagem personalizada e executá-lo no serviço de aplicações. Este padrão é útil se as imagens incorporadas não incluírem a linguagem que quer ou se a aplicação exigir uma configuração específica que não é fornecida nas mesmas.
+[Serviço de aplicações](app-service-linux-intro.md) fornece imagens do Docker incorporadas no Linux com suporte para versões específicas, como PHP 7.3 e node. js 10.14. Serviço de aplicações utiliza a tecnologia de contentor do Docker para alojar imagens incorporadas e imagens personalizadas como plataforma como um serviço. Neste tutorial, saiba como criar uma imagem personalizada e executá-lo no serviço de aplicações. Este padrão é útil se as imagens incorporadas não incluírem a linguagem que quer ou se a aplicação exigir uma configuração específica que não é fornecida nas mesmas.
 
 Neste tutorial, ficará a saber como:
 
@@ -211,7 +211,7 @@ Quando a aplicação Web tiver sido criada, a CLI do Azure mostra informações 
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Configurar as credenciais do registo na aplicação web
 
-Para o serviço de aplicações extrair a imagem privada, ele precisa de informações sobre o seu registo e a imagem. No Cloud Shell, fornecê-los com o [ `az webapp config container set` ](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) comando. Substitua  *\<nome da aplicação >*,  *\<azure---nome do container registry >*,  _\<registry-username >_ e  _\<palavra-passe >_.
+Para o serviço de aplicações extrair a imagem privada, ele precisa de informações sobre o seu registo e a imagem. No Cloud Shell, fornecê-los com o [ `az webapp config container set` ](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) comando. Substitua  *\<nome da aplicação >* ,  *\<azure---nome do container registry >* ,  _\<registry-username >_ e  _\<palavra-passe >_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

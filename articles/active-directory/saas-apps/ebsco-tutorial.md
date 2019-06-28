@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 8fd0ecf67e3e6492fa3e6d9e12379e06ee3f814d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f1198334d8bd4ba58b4fbba02942fc8c54c578
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103769"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integração do Active Directory do Azure com EBSCO
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD início de sessão único com EBSCO, execute os segui
 
     ![image](common/both-preintegrated-signon.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
 
     > [!NOTE]
     > O valor de URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente EBSCO](mailto:sso@ebsco.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.

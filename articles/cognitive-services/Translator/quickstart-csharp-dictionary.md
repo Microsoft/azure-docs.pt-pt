@@ -3,19 +3,19 @@ title: 'Início rápido: Procure palavras dicionário bilingue, C# -API de texto
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, ficará a saber como obter traduções alternativas para um termo e também os exemplos de utilização desses alternam traduções, usando o .NET Core e a API de texto do Translator.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: a937ac1039d7a7552290257f42dd4bc45c8f0605
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 0c8fb4eb50b5824126d2be2160dd341ed60955af
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514975"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448203"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Início rápido: Procure palavras com o uso de dicionário bilingueC#
 
@@ -89,6 +89,8 @@ System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
+
+
 ## <a name="instantiate-the-client-and-make-a-request"></a>Criar uma instância do cliente e fazer um pedido
 
 Estas linhas instanciar o `HttpClient` e o `HttpRequestMessage`:
@@ -143,6 +145,8 @@ static string PrettyPrint(string s)
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
 }
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 

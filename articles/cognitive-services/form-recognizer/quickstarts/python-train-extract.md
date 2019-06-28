@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Preparar um modelo e extrair dados de formulário com a API de REST com Python - reconhecedor de formulário'
+title: 'Início rápido: Preparar um modelo e extrair dados de formulário com a API REST com Python - reconhecedor de formulário'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai utilizar a API de REST do reconhecedor de formulário com o Python para preparar um modelo e extrair dados de formulários.
 author: PatrickFarley
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 04c7663073a710fe39017b01edd0623a837d6354
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: b01b42af99575f512ccc76b0a56e4d18106c319f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331808"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441806"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python
 
@@ -53,7 +53,6 @@ Para preparar um modelo de formulário reconhecedor utilizando os documentos no 
 
 1. Substitua `<Endpoint>` com o URL de ponto final para o recurso do reconhecedor de formulário na região do Azure, onde obteve as chaves de subscrição.
 1. Substitua `<SAS URL>` com o Blob do Azure partilhado do contentor de armazenamento do URL de assinatura (SAS) de acesso. Para obter isso, abra o Explorador de armazenamento do Microsoft Azure, o contentor com o botão direito e selecione **assinatura de acesso partilhado do Get**. Clique a caixa de diálogo seguinte e copie o valor de **URL** secção. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: `application/pdf`, `image/jpeg`, `image/png`.
 1. Substitua `<Subscription key>` com a chave de subscrição que copiou no passo anterior.
     ```python
     ########### Python Form Recognizer Train #############
@@ -64,7 +63,7 @@ Para preparar um modelo de formulário reconhecedor utilizando os documentos no 
     source = r"<SAS URL>"
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
     url = base_url + "/train" 

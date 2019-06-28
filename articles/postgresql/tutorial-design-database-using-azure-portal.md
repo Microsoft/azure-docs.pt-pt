@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 5/16/2019
-ms.openlocfilehash: 94988f4f287730c69b51e44bcbfa4e3d63d139fa
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.date: 06/25/2019
+ms.openlocfilehash: 421d5cde46b466c0c13a52755abdf137e52f2f6b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515705"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443101"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL - servidor único com o portal do Azure
 
@@ -88,7 +88,7 @@ O serviço Base de Dados do Azure para PostgreSQL utiliza uma firewall ao nível
 
 2. Na página do servidor, selecione **Segurança da ligação**. 
 
-3. Clique na caixa de texto em **Nome da Regra** e adicione uma nova regra de firewall para colocar na lista de permissões o intervalo IP para conectividade. Introduza o seu intervalo de IP. Clique em **Guardar**.
+3. Clique na caixa de texto abaixo **nome da regra,** e adicionar uma nova regra de firewall para especificar o intervalo IP para a conectividade. Introduza o seu intervalo de IP. Clique em **Guardar**.
 
    ![Base de Dados do Azure para o PostgreSQL – Criar a Regra de Firewall](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
@@ -113,38 +113,36 @@ Quando criou o servidor da Base de Dados do Azure para PostgreSQL, também criou
    ![Base de Dados do Azure para o PostgreSQL – Início de Sessão de Administrador do Servidor](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
-## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Ligar-se à base de dados do PostgreSQL com o psql no Cloud Shell
+## <a name="connect-to-postgresql-database-using-psql"></a>Ligar à base de dados do PostgreSQL com psql
+Se o seu computador cliente tiver o PostgreSQL instalado, pode utilizar uma instância local de [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) ou o Azure Cloud Console para ligar a um servidor PostgreSQL do Azure. Agora, vamos utilizar o utilitário da linha de comandos psql para ligar à Base de Dados do Azure para o servidor PostgreSQL.
 
-Agora, vamos utilizar o utilitário da linha de comandos [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) para ligar ao servidor da Base de Dados do Azure para PostgreSQL. 
-1. Inicie o Azure Cloud Shell através do ícone de terminal no painel de navegação superior.
-
-   ![Base de Dados de Azure para o PostgreSQL – ícone do terminal do Azure Cloud Shell](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
-
-2. O Azure Cloud Shell é aberto no browser, onde poderá escrever os comandos bash.
-
-   ![Base de Dados do Azure para o PostgreSQL – Linha de Comandos Bash do Azure Shell](./media/tutorial-design-database-using-azure-portal/8-bash.png)
-
-3. Na linha de comandos do Cloud Shell, estabeleça ligação à Base de Dados do Azure para o servidor PostgreSQL com os comandos psql. O formato seguinte é utilizado para estabelecer ligação a uma Base de Dados do Azure para o servidor PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
-   ```bash
-   psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
+1. Execute o comando psql seguinte para ligar a uma Base de Dados do Azure para PostgreSQL:
+   ```
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   Por exemplo, o comando seguinte liga à base de dados predefinida com o nome **postgres** no servidor PostgreSQL **mydemoserver.postgres.database.azure.com**, com as credenciais de acesso. Quando lhe for pedido, introduza a palavra-passe de administrador do servidor.
-
-   ```bash
+   Por exemplo, o comando seguinte liga à base de dados predefinida com o nome **postgres** no servidor PostgreSQL **mydemoserver.postgres.database.azure.com**, com as credenciais de acesso. Introduza o `<server_admin_password>` que escolheu quando lhe for pedida a palavra-passe.
+  
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
-## <a name="create-a-new-database"></a>Criar uma nova base de dados
-Assim que estiver ligado ao servidor, crie uma base de dados vazia na linha de comandos.
-```bash
-CREATE DATABASE mypgsqldb;
-```
+   > [!TIP]
+   > Se preferir usar um caminho de URL para se ligar ao Postgres, o URL de codificar o @ com o nome de utilizador de início de sessão `%40`. Por exemplo deve ser a cadeia de ligação do psql,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
-Na linha de comandos, execute o comando seguinte para mudar a ligação para a base de dados **mypgsqldb** recentemente criada.
-```bash
-\c mypgsqldb
-```
+2. Assim que estiver ligado ao servidor, crie uma base de dados em branco na linha de comandos:
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
+
+3. Na linha de comandos, execute o comando seguinte para mudar a ligação para a base de dados **mypgsqldb** criada recentemente:
+   ```sql
+   \c mypgsqldb
+   ```
+
 ## <a name="create-tables-in-the-database"></a>Criar tabelas na base de dados
 Agora que sabe como ligar à Base de Dados do Azure para PostgreSQL, pode concluir algumas tarefas básicas:
 

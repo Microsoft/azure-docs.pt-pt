@@ -4,23 +4,24 @@ description: Neste tutorial, vai desenvolver do Azure funcionar como um módulo 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239645"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433065"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar o Azure funciona como módulos do IoT Edge
 
-Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial explica-lhe como criar e implementar uma função do Azure que filtra dados de sensores no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:     
+Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial explica-lhe como criar e implementar uma função do Azure que filtra dados de sensores no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
+>
 > * Utilize o Visual Studio Code para criar uma função do Azure.
 > * Utilizar o VS Code e o Docker para criar uma imagem do Docker e publicá-la num registo de contentor.
 > * Implementar o módulo a partir do registo de contentor no seu dispositivo IoT Edge.
@@ -136,14 +137,14 @@ Vamos adicionar alguns códigos adicionais para que o módulo processa as mensag
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        var filteredMessage = new Message(messageBytes);
                        // Copy the properties of the original message into the new Message object.
                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                        {filteredMessage.Properties.Add(prop.Key, prop.Value);}
                        // Add a new property to the message to indicate it is an alert.
                        filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
+                       // Send the message.
                        await output.AddAsync(filteredMessage);
                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
                    }
@@ -160,12 +161,12 @@ Vamos adicionar alguns códigos adicionais para que o módulo processa as mensag
        class Machine
        {
            public double temperature {get; set;}
-           public double pressure {get; set;}         
+           public double pressure {get; set;}
        }
        class Ambient
        {
            public double temperature {get; set;}
-           public int humidity {get; set;}         
+           public int humidity {get; set;}
        }
    }
    ```
@@ -176,17 +177,17 @@ Vamos adicionar alguns códigos adicionais para que o módulo processa as mensag
 
 Na secção anterior, criou uma solução do IoT Edge e adicionou código ao **CSharpFunction** para filtrar mensagens onde a temperatura comunicada da máquina é inferior ao limiar aceitável. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor.
 
-Nesta secção, vai apresentar as credenciais para o seu registo de contentor duas vezes. A primeira é para iniciar sessão localmente no seu computador de desenvolvimento, para que o Visual Studio Code possa enviar imagens para o registo. O segundo é no ficheiro **.env** da sua solução de IoT Edge, o que lhe dá permissões do dispositivo do IoT Edge para pedir imagens do seu registo. 
+Nesta secção, fornecer as credenciais para o seu registo de contentor para a segunda vez (o primeiro estava a ser o **. env** ficheiros da sua solução de IoT Edge) ao iniciar sessão localmente no seu computador de desenvolvimento para que possam do Visual Studio Code enviar imagens para o registo.
 
 1. Abra o terminal integrado do VS Code ao selecionar **Ver** > **Terminal**. 
 
 2. Introduza o comando seguinte no terminal integrado e inicie sessão no seu registo de contentor. Utilize o nome do utilizador e o servidor de início de sessão que copiou do registo de contentor do Azure anteriormente.
-     
+
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
 
-    Quando lhe for pedida a palavra-passe, cole-a no seu registo de contentor e prima **Enter**.
+    Quando lhe for pedida a palavra-passe, cole a palavra-passe (estará visível na janela de terminal) para o seu registo de contentor e prima **Enter**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>

@@ -3,19 +3,19 @@ title: 'Início rápido: Traduzir texto, Python - API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator com Python em menos de 10 minutos.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 6edfabc898df8de94eb546039f87a12c965f8831
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: swmachan
+ms.openlocfilehash: 689aa655967910c0114f50eac522df00c5659d1b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340917"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444898"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Início rápido: Utilize a API de texto do Translator para traduzir uma cadeia de caracteres com Python
 
@@ -94,6 +94,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-request-to-translate-text"></a>Criar um pedido para traduzir texto
 

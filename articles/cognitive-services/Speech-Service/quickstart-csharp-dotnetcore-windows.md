@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: f3dd4d20c6455e97b566ed435b14437d614e25b4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 873145cf9d418433ba241ce06d7d594fb3e6322b
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466435"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465722"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para .NET Core
 
-Também estão disponíveis para inícios Rápidos [tradução de voz](quickstart-translate-speech-dotnetcore-windows.md).
+Também estão disponíveis para inícios Rápidos [voz](quickstart-text-to-speech-dotnetcore.md) e [tradução de voz](quickstart-translate-speech-dotnetcore-windows.md).
 
 Se assim o desejar, escolha uma linguagem de programação diferente e/ou o ambiente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]

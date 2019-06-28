@@ -6,18 +6,18 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 738e78ce06d98960c87414948e045cc4abe37d6b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533541"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462194"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionar a sua criação e o monitor trabalhar condições duplos Digital do Azure
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Aprovisionar a sua criação e o monitor de condições de pré-visualização de duplos Digital do Azure a funcionar
 
-Este tutorial demonstra como utilizar o Azure Digital Twins para monitorizar os seus espaços relativamente às condições de temperatura e ao nível de conforto pretendidos. Depois de [configurar a criação de exemplo](tutorial-facilities-setup.md), pode aprovisionar a criar e executar funções personalizadas nos seus dados de sensor, utilizando os passos neste tutorial.
+Este tutorial demonstra como utilizar a pré-visualização de duplos Digital do Azure para monitorizar os seus espaços para condições de temperatura pretendido e nível de conforto. Depois de [configurar a criação de exemplo](tutorial-facilities-setup.md), pode aprovisionar a criar e executar funções personalizadas nos seus dados de sensor, utilizando os passos neste tutorial.
 
 Neste tutorial, ficará a saber como:
 
@@ -43,14 +43,14 @@ Pode definir um conjunto de condições específicas para monitorizar os dados d
 
 Partir do **ocupação-quickstart** projeto de exemplo, abra o arquivo **src\actions\provisionSample.yaml** no Visual Studio Code. Repare na secção que começa com o tipo **matchers**. Cada entrada sob este tipo cria na ferramenta de correspondência com a especificado **nome**. Na ferramenta de correspondência que irá monitorizar um sensor do tipo **dataTypeValue**. Observe como ele se relaciona com o espaço com o nome *A1 de sala de foco*, que tem um **dispositivos** nó que contém alguns sensores. Para aprovisionar na ferramenta de correspondência que irá controlar a um destes sensores, certifique-se de que seus **dataTypeValue** corresponda o sensor **dataType**. 
 
-Adicione a seguinte na ferramenta de correspondência, abaixo dos matchers existentes. Certificar-se de que as chaves estão bem alinhadas e espaços não são substituídos por tabulações.
+Adicione a seguinte na ferramenta de correspondência, abaixo dos matchers existentes. Certificar-se de que as chaves estão bem alinhadas e espaços não são substituídos por tabulações. Estas linhas também estão presentes no *provisionSample.yaml* ficheiro como linhas Comentada. Pode remover os comentários-los ao remover o `#` caractere à frente de cada linha.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Na ferramenta de correspondência controlará o sensor SAMPLE_SENSOR_TEMPERATURE que adicionou no [o primeiro tutorial](tutorial-facilities-setup.md). Estas linhas também estão presentes no *provisionSample.yaml* ficheiro como linhas Comentada. Pode remover os comentários-los ao remover o `#` caractere à frente de cada linha.
+Na ferramenta de correspondência controlará o sensor SAMPLE_SENSOR_TEMPERATURE que adicionou no [o primeiro tutorial](tutorial-facilities-setup.md). 
 
 <a id="udf"></a>
 

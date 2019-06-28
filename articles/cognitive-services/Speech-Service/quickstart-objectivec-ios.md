@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: aca7a114fb6e00ab1bbf6ab24492056fca3059f4
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003153"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466631"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no iOS com o SDK de voz
 
@@ -42,7 +42,7 @@ Pode ser transferido a partir [aqui](https://aka.ms/csspeech/iosbinary). Transfi
 
 ## <a name="create-an-xcode-project"></a>Criar um Projeto Xcode
 
-Inicie o Xcode e um novo projeto ao clicar em **File (Ficheiro)** > **New (Novo)** > **Project (Projeto)**.
+Inicie o Xcode e um novo projeto ao clicar em **File (Ficheiro)**  > **New (Novo)**  > **Project (Projeto)** .
 Na caixa de diálogo de seleção do modelo, selecione o modelo "iOS Single View App" (Vista de Aplicação Única de iOS).
 
 Nas caixas de diálogo que se seguem, faça as seleções seguintes:
@@ -67,7 +67,7 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 
 A aplicação de exemplo terá uma interface do Usuário muito simples: Dois botões para iniciar o reconhecimento de voz a partir de ficheiro ou de entrada do microfone e uma etiqueta de texto para exibir o resultado.
 A IU é configurada na parte `Main.storyboard` do projeto.
-Abra a vista XML do storyboard ao clicar com o botão direito do rato na entrada `Main.storyboard` da árvore do projeto e ao selecionar **Open As... (Abrir Como...)** > **Source Code (Código Fonte)**.
+Abra a vista XML do storyboard ao clicar com o botão direito do rato na entrada `Main.storyboard` da árvore do projeto e ao selecionar **Open As... (Abrir Como...)**  > **Source Code (Código Fonte)** .
 Substitua o gerado automaticamente XML com este código:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
@@ -89,10 +89,9 @@ Substitua o gerado automaticamente XML com este código:
 
 ## <a name="building-and-running-the-sample"></a>Criar e Executar o Exemplo
 
-1. Torne a saída de depuração visível (**View (Ver)** > **Debug Area (Área de Depuração)** > **Activate Console (Ativar Consola)**).
-1. Escolha o simulador do iOS ou um dispositivo iOS ligado para o seu computador de desenvolvimento como o destino para a aplicação na lista os **produto** -> **destino** menu.
-1. Crie e execute o código de exemplo no simulador iOS ao selecionar **Product (Produto)** -> **Run (Executar)** no menu ou ao clicar no botão **Play (Reproduzir)**.
-   Atualmente, o SDK de Voz apenas suporta plataformas iOS de 64 bits.
+1. Torne a saída de depuração visível (**View (Ver)**  > **Debug Area (Área de Depuração)**  > **Activate Console (Ativar Consola)** ).
+1. Escolha o simulador do iOS ou um dispositivo iOS ligado para o seu computador de desenvolvimento como o destino para a aplicação na lista os **produto** > **destino** menu.
+1. Crie e execute o código de exemplo no simulador iOS ao selecionar **Product (Produto)**  > **Run (Executar)** no menu ou ao clicar no botão **Play (Reproduzir)** .
 1. Depois de clicar no botão "Recognize (File)" (Reconhecer (Ficheiro)) na aplicação, deverá ver o conteúdo do ficheiro de áudio "What's the weather like?" na parte inferior do ecrã.
 
    ![Aplicação iOS Simulada](media/sdk/qs-objectivec-simulated-app.png)

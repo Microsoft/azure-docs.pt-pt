@@ -3,20 +3,20 @@ title: Bot QnA - Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Crie um chatbot de FAQ da página de publicação para uma base de dados de conhecimento existente. Este bot usa o SDK do Bot Framework v4. Não é necessário escrever qualquer código para criar o bot, todo o código é fornecido por si.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 06/11/2019
-ms.author: tulasim
-ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: tutorial
+ms.date: 06/24/2019
+ms.author: diberry
+ms.openlocfilehash: 1d475d988847bd4cc9e37b91a0c5d28678cb05f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053236"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446641"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Crie um QnA Bot com o Azure Bot Service v4
 
@@ -84,12 +84,6 @@ Crie um bot como uma aplicação de cliente para a base de dados de conhecimento
 
     Para obter mais informações sobre os Bots do Azure, consulte [criador de FAQ de utilização para responder a perguntas](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
-## <a name="related-to-qna-maker-bots"></a>Relacionados aos bots de QnA Maker
-
-* O bot de ajuda do QnA Maker, utilizado no portal do QnA Maker, está disponível como um [exemplo de bot](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
-    ![Ícone de bot de ajuda do QnA Maker é robô vermelho](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
-* [Cuidados de saúde bots](https://docs.microsoft.com/HealthBot/qna_model_howto) utilize o QnA Maker como um dos respetivos [modelos de linguagem](https://docs.microsoft.com/HealthBot/qna_model_howto).
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando tiver terminado com o bot neste tutorial, remova o bot no portal do Azure. 
@@ -103,6 +97,16 @@ Se não tiver criado um novo grupo de recursos, terá de encontrar os recursos a
 * O serviço cognitivo
 * O serviço de aplicações
 * Opcionalmente, também pode incluir o serviço de informações da aplicação e o armazenamento de dados do application insights
+
+
+## <a name="related-to-qna-maker-bots"></a>Relacionados aos bots de QnA Maker
+
+* O bot de ajuda do QnA Maker, utilizado no portal do QnA Maker, está disponível como um [exemplo de bot](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![Ícone de bot de ajuda do QnA Maker é robô vermelho](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Cuidados de saúde bots](https://docs.microsoft.com/HealthBot/qna_model_howto) utilize o QnA Maker como um dos respetivos [modelos de linguagem](https://docs.microsoft.com/HealthBot/qna_model_howto).
+
+
+[!INCLUDE [Bot Information](../../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

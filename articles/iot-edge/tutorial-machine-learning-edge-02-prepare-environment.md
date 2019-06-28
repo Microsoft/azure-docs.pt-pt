@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f36b706213639c5bea383ec20ffc7f6d7ed01021
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: fd3b5766ec2bd8d1babf847598f1fbe5b6511ce7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155703"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432837"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configurar um ambiente para aprendizagem do IoT Edge
 
@@ -190,7 +190,7 @@ O script demora cerca de dois minutos para ser executado. Depois de concluído, 
 
 Como parte da criação do hub IoT, o script que fizemos na secção anterior também criado um ponto final personalizado e uma rota. As rotas do IoT Hub é composto por uma expressão de consulta e um ponto de extremidade. Se uma mensagem corresponde à expressão, os dados são enviados ao longo da rota para o ponto final associado. Pontos de extremidade podem ser dos Hubs de eventos, filas do Service Bus e tópicos. Neste caso, o ponto final é um contentor de BLOBs numa conta de armazenamento. Vamos utilizar o portal do Azure para rever a rota criada por nosso script.
 
-1. Abra o [Portal do Azure](http://portal.azure.com).
+1. Abra o [Portal do Azure](https://portal.azure.com).
 
 1. Selecione todos os serviços do navegador à esquerda, escreva IoT na caixa de pesquisa e selecione **IoT Hub**.
 

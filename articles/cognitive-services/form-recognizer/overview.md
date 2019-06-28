@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 8fb382227c71fce7ebe062057adf5edfb90a1a92
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 82ee2aa5627ac5fa4584f5af6b6b80cc2813c667
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601617"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441841"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
-O Reconhecedor de Formato do Azure é um serviço cognitivo que utiliza a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Pode chamar o seu modelo de formulário reconhecedor personalizado usando uma API REST simples para reduzir a complexidade e integrá-lo facilmente no seu fluxo de trabalho ou aplicação. Para começar, basta cinco de formulário de documentos ou um formulário vazio do mesmo tipo como seu material de entrada. Obter resultados precisos adaptadas ao seu conteúdo específico sem muita intervenção manual ou conhecimentos de ciência de dados extensa rapidamente.
+O Reconhecedor de Formato do Azure é um serviço cognitivo que utiliza a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Pode chamar o seu modelo de formulário reconhecedor personalizado usando uma API REST simples para reduzir a complexidade e integrá-lo facilmente no seu fluxo de trabalho ou aplicação. Para começar, basta cinco documentos de preenchidos formulário ou de dois formulários preenchidos além de um formulário vazio do mesmo tipo como seu material de entrada. Obter resultados precisos adaptadas ao seu conteúdo específico sem muita intervenção manual ou conhecimentos de ciência de dados extensa rapidamente.
 
 ## <a name="request-access"></a>Pedir acesso
 Formulário reconhecedor está disponível uma pré-visualização de acesso limitado. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) formulário. O formulário solicita as informações sobre si, sua empresa e o cenário de utilizador para o qual usará o reconhecedor de formulário. Se o seu pedido é aprovado pela equipe de serviços cognitivos do Azure, receberá um e-mail com instruções para acessar o serviço.
@@ -35,22 +35,7 @@ Formulário reconhecedor está disponível como uma API REST. Pode criar, dar fo
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 
-Formulário reconhecedor funciona em documentos de entrada que cumpram estes requisitos:
-
-* Formato tem de ser JPG, PNG ou PDF (texto ou digitalizados). Incorporado no texto de PDFs são melhor porque não existe nenhuma possibilidade de erro na extração de carateres e localização.
-* Tamanho do ficheiro tem de ser inferior a 4 megabytes (MB).
-* Para imagens, dimensões tem de ser entre 50 x 50 pixéis e 4200 x 4200 pixels.
-* Se analisados de documentos de documento, formulários devem ser análises de alta qualidade.
-* Texto tem de utilizar o alfabeto latino (carateres em inglês).
-* Dados devem ser impressa (não código).
-* Dados tem de conter as chaves e valores.
-* As chaves podem aparecer acima ou à esquerda dos valores, mas nunca abaixo ou à direita.
-
-Formulário reconhecedor atualmente não suporta estes tipos de dados de entrada:
-
-* Tabelas complexas (tabelas aninhadas, cabeçalhos intercalados ou células e assim por diante).
-* Botões de caixas de seleção ou opção.
-* Mais de 50 páginas dos documentos em PDF.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
@@ -68,7 +53,7 @@ Utilize as seguintes APIs para treinar e extrair dados estruturados de formulár
 
 | API REST | Descrição |
 |-----|-------------|
-| Treinar | Prepare um modelo de novo para analisar seus formulários com cinco formulários do mesmo tipo ou de um formulário vazio.  |
+| Preparar | Prepare um modelo de novo para analisar seus formulários usando os cinco formulários do mesmo tipo. Em alternativa, preparar com um formulário vazio e dois formulários preenchidos.  |
 | Analisar  |Analise um único documento passado como um fluxo para extrair os pares chave-valor e tabelas do formulário com o seu modelo personalizado.  |
 
 Explore os [documento de referência da REST API](https://aka.ms/form-recognizer/api). 

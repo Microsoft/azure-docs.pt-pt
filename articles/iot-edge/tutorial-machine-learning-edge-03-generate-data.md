@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3cf23f491aad1766f2d4087c440cc080dbe345e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a93b1128fe1ea0e03efc9060f2c3c4a93145f838
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057653"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432856"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Gerar dados de dispositivo simulado
 
@@ -153,7 +153,7 @@ Os dados que acabámos de enviar ao seu hub IoT foi encaminhados para o contento
 
 1. Clique dessas pastas para encontrar os ficheiros de dados etiquetados **00** e **01** correspondente para a partição.
 
-1. Os ficheiros são escritos em [Avro](http://avro.apache.org/) formato, mas duas vezes em um desses arquivos abrirá noutro separador do browser e parcialmente compor os dados. Se lhe for pedido em vez disso, para abrir o arquivo num programa, pode escolher o VS Code e ele será composta corretamente.
+1. Os ficheiros são escritos em [Avro](https://avro.apache.org/) formato, mas duas vezes em um desses arquivos abrirá noutro separador do browser e parcialmente compor os dados. Se lhe for pedido em vez disso, para abrir o arquivo num programa, pode escolher o VS Code e ele será composta corretamente.
 
 1. Não é necessário para tentar ler ou interpretar os dados neste momento; podemos fazê-lo no próximo artigo.
 

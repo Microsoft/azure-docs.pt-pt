@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: b463e2bd3df0c38bf446745a2eade221b00324da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2cf65f9ee920b50af6242cee6b53cd07e53f0bc
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072526"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467027"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Início rápido: Criar um Assistente de virtual de voz em primeiro lugar, com o SDK de voz, o Java
 
@@ -30,14 +30,11 @@ Este início rápido requer:
 * Sistema operativo: (64-bit) do Windows, Ubuntu Linux 16.04/18.04 (64 bits) ou macOS 10.13 ou posterior
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Uma chave de subscrição do Azure para os serviços de voz no **westus2** região. Crie esta subscrição no [portal do Azure](https://portal.azure.com).
+* Uma chave de subscrição do Azure para serviços de voz. [Obter uma gratuitamente](get-started.md) ou criá-la no [portal do Azure](https://portal.azure.com).
 * Um bot pré-configuradas criado com o Bot Framework versão 4.2 ou superior. O bot têm de subscrever o novo canal de "Fala de linha direta" para receber as entradas de voz.
 
     > [!NOTE]
-    > Direto de linha de voz (pré-visualização) só está atualmente disponível na **westus2** região.
-
-    > [!NOTE]
-    > A versão de avaliação de 30 dias para o padrão descrito em do escalão de preço [experimentar gratuitamente os serviços de voz](get-started.md) é restringido aos **westus** (não **westus2**) e, portanto, não é compatível com o Direct Voz da linha. Escalão gratuito e standard **westus2** subscrições são compatíveis.
+    > Direto de linha de voz (pré-visualização) está atualmente disponível num subconjunto de regiões de serviços de voz. Consulte a [a lista de regiões suportadas para os assistentes de voz em primeiro lugar virtual](regions.md#Voice-first virtual assistants) e certifique-se de que os recursos são implementados nessas regiões.
 
 Se estiver a executar o Ubuntu 16.04/18.04, certifique-se de que estas dependências estão instaladas antes de iniciar o Eclipse:
 
@@ -82,8 +79,8 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
 
@@ -142,62 +139,59 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
     }
     ```
 
-1. Na **principal** método, primeiro irá configurar seu `BotConnectorConfig` e utilizá-lo para criar um `SpeechBotConnector` instância. Isto irá ligar para o canal de voz de linha direta para interagir com o seu bot. Um `AudioConfig` instância também é utilizada para especificar a origem de entrada de áudio. Neste exemplo, o microfone do padrão é utilizado com `AudioConfig.fromDefaultMicrophoneInput()`.
+1. Na **principal** método, primeiro irá configurar seu `DialogServiceConfig` e utilizá-lo para criar um `DialogServiceConnector` instância. Isto irá ligar para o canal de voz de linha direta para interagir com o seu bot. Um `AudioConfig` instância também é utilizada para especificar a origem de entrada de áudio. Neste exemplo, o microfone do padrão é utilizado com `AudioConfig.fromDefaultMicrophoneInput()`.
 
     * Substitua a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição, o que pode ser obtido a partir de [aqui](get-started.md).
     * Substitua a cadeia de caracteres `YourServiceRegion` com o [região](regions.md) associados à subscrição.
     * Substitua a cadeia de caracteres `YourChannelSecret` com seu segredo de canal de voz de linha direta.
 
     > [!NOTE]
-    > Em pré-visualização, o canal direto de linha de voz atualmente, só suporta o **westus2** região.
-
-    > [!NOTE]
-    > A versão de avaliação de 30 dias para o padrão descrito em do escalão de preço [experimentar gratuitamente os serviços de voz](get-started.md) é restringido aos **westus** (não **westus2**) e, portanto, não é compatível com o Direct Voz da linha. Escalão gratuito e standard **westus2** subscrições são compatíveis.
+    > Direto de linha de voz (pré-visualização) está atualmente disponível num subconjunto de regiões de serviços de voz. Consulte a [a lista de regiões suportadas para os assistentes de voz em primeiro lugar virtual](regions.md#voice-first-virtual-assistants) e certifique-se de que os recursos são implementados nessas regiões.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
-    final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
+    final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a SpeechjBotConnector instance
-    final SpeechBotConnector botConnector = new SpeechBotConnector(botConnectorConfig, audioConfig);
+    // Create a DialogServiceConnector instance
+    final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `SpeechBotConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de voz e outras informações. Adicione estes serviços de escuta de eventos a seguir.
+1. `DialogServiceConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de voz e outras informações. Adicione estes serviços de escuta de eventos a seguir.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // Recognized will provide the final recognized text once audio capture is completed
-    botConnector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
         log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
     });
 
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
         log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
     });
 
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.canceled.addEventListener((o, canceledEventArgs) -> {
+    connector.canceled.addEventListener((o, canceledEventArgs) -> {
         log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
-        botConnector.disconnectAsync();
+        connector.disconnectAsync();
     });
 
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
-    botConnector.activityReceived.addEventListener((o, activityEventArgs) -> {
+    connector.activityReceived.addEventListener((o, activityEventArgs) -> {
         final String act = activityEventArgs.getActivity().serialize();
             log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
             if (activityEventArgs.hasAudio()) {
@@ -206,15 +200,15 @@ Além disso, para ativar o registo, atualize o **pom** arquivo para incluir a se
         });
     ```
 
-1. Ligar o `SpeechBotConnector` para direto de linha de voz, invocando o `connectAsync()` método. Para testar o seu bot, é possível invocar o `listenOnceAsync` método para enviar a entrada de áudio do microfone. Além disso, também pode utilizar o `sendActivityAsync` método para enviar uma atividade personalizada como uma cadeia de caracteres serializada. Essas atividades personalizadas podem fornecer dados adicionais que o seu bot irá utilizar na conversação.
+1. Ligar o `DialogServiceConnector` para direto de linha de voz, invocando o `connectAsync()` método. Para testar o seu bot, é possível invocar o `listenOnceAsync` método para enviar a entrada de áudio do microfone. Além disso, também pode utilizar o `sendActivityAsync` método para enviar uma atividade personalizada como uma cadeia de caracteres serializada. Essas atividades personalizadas podem fornecer dados adicionais que o seu bot irá utilizar na conversação.
 
     ```java
-    botConnector.connectAsync();
+    connector.connectAsync();
     // Start listening.
     System.out.println("Say something ...");
-    botConnector.listenOnceAsync();
+    connector.listenOnceAsync();
 
-    // botConnector.sendActivityAsync(...)
+    // connector.sendActivityAsync(...)
     ```
 
 1. Guardar as alterações para o `Main` ficheiro.
@@ -479,10 +473,12 @@ A consola irá apresentar uma mensagem "Diga algo" neste momento, pode falar uma
 Exemplos adicionais, tais como a leitura de voz de um arquivo de áudio, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
+> [Criar e implementar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Quickstart: Translate speech, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
-- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalizar modelos de idioma](how-to-customize-language-model.md)
+- [Sobre os assistentes de voz em primeiro lugar virtual](voice-first-virtual-assistants.md)
+- [Obtenha gratuitamente uma chave de subscrição de serviços de voz](get-started.md)
+- [Palavras de reativação personalizado](speech-devices-sdk-create-kws.md)
+- [Ligar direto de linha de voz ao seu bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explore exemplos de Java no GitHub](https://aka.ms/csspeech/samples)

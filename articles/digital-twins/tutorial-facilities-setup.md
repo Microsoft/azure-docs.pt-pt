@@ -6,18 +6,18 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f826c6652937caab8b140b489626eef97612baea
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534644"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462212"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implementar o Azure Digital Twins e configurar um gráfico espacial
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implementar a pré-visualização de duplos Digital do Azure e configurar um gráfico espacial
 
-Pode utilizar o serviço de duplos Digital do Azure para reunir as pessoas, lugares e dispositivos num sistema geográfico coerente. Esta série de tutoriais demonstra como utilizar o gémeos Digital do Azure para detetar a ocupação da sala com condições ideais de qualidade de temperatura e ar. 
+Pode utilizar o serviço de pré-visualização de duplos Digital do Azure para reunir as pessoas, lugares e dispositivos num sistema geográfico coerente. Esta série de tutoriais demonstra como utilizar o gémeos Digital do Azure para detetar a ocupação da sala com condições ideais de qualidade de temperatura e ar. 
 
 Estes tutoriais irão guiá-lo por meio de uma aplicação de consola .NET para criar um cenário de um edifício de escritórios. A criação tem vários andares e salas de cada andar. Os ambientes de contenham os dispositivos com sensores anexados que Deteta movimento, temperatura ambiente e a qualidade de ar. 
 
@@ -103,7 +103,7 @@ Na pasta de exemplo extraídos, abra o ficheiro **digital-twins-samples-csharp\d
 1. No Visual Studio Code, abra a [appSettings](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) de ficheiros a **ocupação-quickstart** projeto. Atualize os valores seguintes:
    * **ClientId**: Introduza o ID da aplicação do seu registo de aplicação do Azure AD. Observou este ID na secção onde [definir permissões de aplicação](#permissions).
    * **Inquilino**: Introduza o ID de diretório da sua [inquilino do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Também observa que este ID na secção onde [definir permissões de aplicação](#permissions).
-   * **BaseUrl**: Introduza o URL da sua instância de duplos Digital. Para obter este URL, substitua os marcadores de posição este URL com os valores para a sua instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Também pode obter este URL, modificando o URL da API de gestão do [a secção Implementação](#deploy). Substitua **swagger /** com **api/v1.0/**.
+   * **BaseUrl**: Introduza o URL da sua instância de duplos Digital. Para obter este URL, substitua os marcadores de posição este URL com os valores para a sua instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Também pode obter este URL, modificando o URL da API de gestão do [a secção Implementação](#deploy). Substitua **swagger /** com **api/v1.0/** .
 
 1. Ver uma lista das funcionalidades de duplos Digital que pode ser explorado utilizando o exemplo. Execute o seguinte comando:
 

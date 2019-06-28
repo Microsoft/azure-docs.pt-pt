@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 71668b41125de323640dd668f733c1bd1982f583
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: d569437a3e6f6f05ddb9c6fa85f62c77ac51f72b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304431"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443806"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-search"></a>C#Tutorial: Crie seu primeiro aplicativo - Azure Search
 
@@ -302,7 +302,7 @@ Elimine o conteúdo de index. cshtml em sua totalidade e recriar o ficheiro nos 
             {
                 // Display the hotel name and description.
                 @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
+                @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
             }
         }
     }

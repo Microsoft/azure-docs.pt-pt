@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar, carregar e consultar um índice no portal do Azure - Azure Search'
-description: Criar e consultar o seu primeiro índice na Azure Search utilizando o Assistente para importar dados e dados de exemplo incorporado no portal do Azure.
+title: 'Início rápido: Criar, carregar e consultar um índice através do portal do Azure - Azure Search'
+description: Utilize o Assistente para importar dados no portal do Azure para criar, carregar e consultar o seu primeiro índice no Azure Search.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 90857ec2fabb1b807d3e3001f99ea3897d7d628a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606461"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443855"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início rápido: Utilizar ferramentas do portal internas para importação de Azure Search, indexação e consultas
+# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Início rápido: Criar um índice da Azure Search no portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
@@ -200,7 +200,7 @@ Os filtros de faceta são incluídos nos resultados da pesquisa. Pode utilizar o
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Exemplo (por facetas com redução de âmbito): `search=*&facet=city&$top=2`
 
-* **search=*** é uma consulta vazia. As pesquisas em branco pesquisam em tudo. Uma das razões para submeter uma consulta em branco é para filtrar ou especificar facetas no conjunto completo de documentos. Por exemplo, pretende que uma estrutura de navegação por facetas seja constituída por todas as cidades no índice.
+* **search=** * é uma consulta vazia. As pesquisas em branco pesquisam em tudo. Uma das razões para submeter uma consulta em branco é para filtrar ou especificar facetas no conjunto completo de documentos. Por exemplo, pretende que uma estrutura de navegação por facetas seja constituída por todas as cidades no índice.
 
 * **facet** devolve uma estrutura de navegação que pode ser transmitida a um controlo de IU. Devolve categorias e uma contagem. Neste caso, as categorias baseiam-se no número de cidades. Não existe agregação no Azure Search, mas pode aproximar a agregação através de `facet`, que dá uma contagem de documentos em cada categoria.
 

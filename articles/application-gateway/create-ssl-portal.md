@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed4230969e81eee0d77b7e4b69eac3a264068388
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66134432"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449156"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicação com a terminação de SSL com o portal do Azure
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
@@ -54,9 +54,9 @@ PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
 Thumbprint                                Subject
 ----------                                -------
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
-
-Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate:
 ```
+
+Uso [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com o Thumbprint que foi devolvido para exportar um ficheiro pfx de certificado:
 
 ```powershell
 $pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
@@ -81,7 +81,7 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
    - *myAGSubnet* - para o nome da sub-rede.
    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-     ![Criar rede virtual](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Criar a rede virtual](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Selecione **OK** para criar a rede virtual e sub-rede.
 7. Selecione **escolher um endereço IP público**, selecione **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, selecione **OK**.
@@ -98,7 +98,7 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
 1. Selecione **todos os recursos** no menu do lado esquerdo e, em seguida, selecione **myVNet** na lista de recursos.
 2. Selecione **sub-redes**e, em seguida, selecione **sub-rede**.
 
-    ![Criar subrede](./media/create-ssl-portal/application-gateway-subnet.png)
+    ![Criar sub-rede](./media/create-ssl-portal/application-gateway-subnet.png)
 
 3. Introduza *myBackendSubnet* para o nome da sub-rede e, em seguida, selecione **OK**.
 

@@ -7,17 +7,17 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
-ms.openlocfilehash: 64f016ac0fa572cb8cf8504902108cffae267cec
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: e9773c2e8f6f8de3a44e45989aa577a5d8c2dcee
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293284"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433832"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Neste artigo, irá aprender a criar uma [Apache Hadoop](https://hadoop.apache.org/) cluster, a pedido, no HDInsight do Azure com o Azure Data Factory. Utilize, em seguida, pipelines de dados no Azure Data Factory para executar tarefas do Hive e eliminar o cluster. No final deste tutorial, irá aprender a operacionalizar um trabalho de grandes volumes de dados, executar em que a criação do cluster, a execução de tarefa e a exclusão de cluster são executadas com base numa agenda.
+Neste tutorial, irá aprender a criar uma [Apache Hadoop](https://hadoop.apache.org/) cluster, a pedido, no HDInsight do Azure com o Azure Data Factory. Utilize, em seguida, pipelines de dados no Azure Data Factory para executar tarefas do Hive e eliminar o cluster. No final deste tutorial, irá aprender a operacionalizar um trabalho de grandes volumes de dados, executar em que a criação do cluster, a execução de tarefa e a exclusão de cluster são executadas com base numa agenda.
 
 Este tutorial abrange as seguintes tarefas: 
 
@@ -41,7 +41,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="create-preliminary-azure-objects"></a>Criar objetos do Azure preliminares
 
-Nesta secção, vai criar vários objetos que serão utilizados para o cluster do HDInsight que cria a pedido. A conta de armazenamento criada irá conter o exemplo [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (`hivescript.hql`) que usar para simular uma amostra [Apache Hive](https://hive.apache.org/) tarefa que é executada no cluster.
+Nesta secção, vai criar vários objetos que serão utilizados para o cluster do HDInsight que cria a pedido. A conta de armazenamento criada irá conter o exemplo [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (`partitionweblogs.hql`) que usar para simular uma amostra [Apache Hive](https://hive.apache.org/) tarefa que é executada no cluster.
 
 Esta secção utiliza um script do Azure PowerShell para criar a conta de armazenamento e copie os ficheiros necessários na conta de armazenamento. O script de exemplo do Azure PowerShell nesta secção, executa as seguintes tarefas:
 
@@ -49,7 +49,7 @@ Esta secção utiliza um script do Azure PowerShell para criar a conta de armaze
 2. Cria um grupo de recursos do Azure.
 3. Cria uma Conta de armazenamento do Azure.
 4. Cria um contentor de BLOBs na conta de armazenamento
-5. Copia o exemplo de script de HiveQL (**hivescript. hql**) o contentor de Blobs. O script está disponível em [ https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql ](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). O script de exemplo já está disponível em outro contentor de BLOBs público. O script do PowerShell abaixo efetua uma cópia desses arquivos para a conta de armazenamento do Azure cria.
+5. Copia o exemplo de script de HiveQL (**partitionweblogs. hql**) o contentor de Blobs. O script está disponível em [ https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql ](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). O script de exemplo já está disponível em outro contentor de BLOBs público. O script do PowerShell abaixo efetua uma cópia desses arquivos para a conta de armazenamento do Azure cria.
 
 > [!WARNING]  
 > Tipo de conta de armazenamento `BlobStorage` não pode ser utilizado para clusters do HDInsight.
@@ -155,7 +155,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 4. Sobre o **recursos** mosaico, verá um recurso listado, a menos que partilha o grupo de recursos com outros projetos. Esse recurso é a conta de armazenamento com o nome que especificou anteriormente. Selecione o nome de conta de armazenamento.
 5. Selecione o **Blobs** mosaicos.
 6. Selecione o **adfgetstarted** contentor. Verá uma pasta denominada **hivescripts**.
-7. Abra a pasta e certifique-se de que contém o ficheiro de script de exemplo **hivescript. hql**.
+7. Abra a pasta e certifique-se de que contém o ficheiro de script de exemplo **partitionweblogs. hql**.
 
 ## <a name="understand-the-azure-data-factory-activity"></a>Compreender a atividade do Azure Data Factory
 
@@ -290,11 +290,11 @@ Nesta secção, vai criar dois serviços ligados na sua fábrica de dados.
 
     1. Para **serviço ligado de Script**, selecione **HDIStorageLinkedService** na lista pendente. Este valor é o serviço ligado de armazenamento que criou anteriormente.
 
-    1. Para **caminho do ficheiro**, selecione **procurar no armazenamento** e navegue para a localização onde o script do Hive de exemplo está disponível. Se tiver executado o script do PowerShell anteriormente, nesta localização deve ser `adfgetstarted/hivescripts/hivescript.hql`.
+    1. Para **caminho do ficheiro**, selecione **procurar no armazenamento** e navegue para a localização onde o script do Hive de exemplo está disponível. Se tiver executado o script do PowerShell anteriormente, nesta localização deve ser `adfgetstarted/hivescripts/partitionweblogs.hql`.
 
         ![Fornecer detalhes de script de ramo de registo para o pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Hive fornecer detalhes de script para o pipeline")
 
-    1. Sob **avançadas** > **parâmetros**, selecione **preencher automaticamente a partir do script**. Esta opção procura todos os parâmetros do script de ramo de registo que requerem valores em tempo de execução. O script que utilizar (**hivescript. hql**) tem um **saída** parâmetro. Forneça o **valor** no formato `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` para apontar para uma pasta existente no seu armazenamento do Azure. O caminho é sensível a maiúsculas e minúsculas. Este é o caminho onde a saída do script será armazenada.
+    1. Sob **avançadas** > **parâmetros**, selecione **preencher automaticamente a partir do script**. Esta opção procura todos os parâmetros do script de ramo de registo que requerem valores em tempo de execução. O script que utilizar (**partitionweblogs. hql**) tem um **saída** parâmetro. Forneça o **valor** no formato `wasb://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` para apontar para uma pasta existente no seu armazenamento do Azure. O caminho é sensível a maiúsculas e minúsculas. Este é o caminho onde a saída do script será armazenada.
     
         ![Fornecer os parâmetros para o script do Hive](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "fornecer os parâmetros para o script do Hive")
 
@@ -338,7 +338,7 @@ Nesta secção, vai criar dois serviços ligados na sua fábrica de dados.
 
         ![Verificar a saída do pipeline do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "verificar a saída do pipeline de fábrica de dados do Azure")
 
-## <a name="clean-up-the-tutorial"></a>Limpar o tutorial
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Com a criação de cluster do HDInsight a pedido, não é necessário eliminar explicitamente o cluster de HDInsight. O cluster é eliminado com base na configuração que forneceu ao criar o pipeline. No entanto, mesmo depois do cluster é eliminado, as contas de armazenamento associadas ao cluster continuam a existir. Este comportamento é predefinido para que possa manter seus dados intactos. No entanto, se não desejar persistir os dados, pode eliminar a conta de armazenamento que criou.
 
@@ -356,11 +356,8 @@ Em alternativa, pode eliminar o grupo de recursos inteiro que criou para este tu
 
 1. Introduza o nome do grupo de recursos para confirmar a eliminação e, em seguida, selecione **eliminar**.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar o Azure Data Factory para criar o cluster do HDInsight e executar a pedido [Apache Hive](https://hive.apache.org/) tarefas. Avance para o artigo seguinte para saber como criar clusters do HDInsight com configuração personalizada.
 
 > [!div class="nextstepaction"]
 >[Criar clusters do HDInsight do Azure com configuração personalizada](hdinsight-hadoop-provision-linux-clusters.md)
-
-

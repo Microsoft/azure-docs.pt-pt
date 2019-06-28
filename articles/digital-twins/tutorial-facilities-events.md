@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a2364068a1fcba46509408672e5be7440fcfba5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533750"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462243"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações do seus espaços duplos Digital do Azure ao utilizar o Logic Apps
 
@@ -76,16 +76,16 @@ Uma [tópico do event grid](../event-grid/concepts.md#topics) fornece uma interf
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Substitua o marcador de posição `Primary_connection_string_for_your_Event_Grid` com o valor de **YOUR_KEY_1**.
+1. Substitua o marcador de posição `<Primary connection string for your Event Grid>` com o valor de **YOUR_KEY_1**.
 
-1. Substitua o marcador de posição `Secondary_connection_string_for_your_Event_Grid` com o valor de **YOUR_KEY_2**.
+1. Substitua o marcador de posição `<Secondary connection string for your Event Grid>` com o valor de **YOUR_KEY_2**.
 
-1. Substitua o marcador de posição `Event_Grid_Topic_Path` pelo caminho do tópico do Event Grid. Obter esse caminho, removendo **https://** e os caminhos de recursos à direita da **ponto final do tópico** URL. Deverá ser semelhante ao formato *NomedoEventGrid.asuaLocalização.eventgrid.azure.net*.
+1. Substitua o marcador de posição para **caminho** com o caminho do tópico do event grid. Obter esse caminho, removendo **https://** e os caminhos de recursos à direita da **ponto final do tópico** URL. Deverá ser semelhante ao formato *NomedoEventGrid.asuaLocalização.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Introduza todos os valores, sem aspas. Certificar-se de que existe caráter de espaço, pelo menos, uma após a vírgula no ficheiro YAML. Também pode validar o seu conteúdo do ficheiro YAML, utilizando qualquer validador YAML online, tal como [essa ferramenta](https://onlineyamltools.com/validate-yaml).
@@ -114,7 +114,7 @@ Pode utilizar o [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) serv
 
 1. Abra o seu recurso do Logic Apps quando é implementada e, em seguida, abra a **Estruturador da aplicação lógica** painel. 
 
-1. Selecione o acionador **When an Event Grid event occurs** (Quando ocorrer um evento do Event Grid). Inicie sessão no seu inquilino com a sua conta do Azure quando lhe for pedido. Selecione **permitir o acesso** para o seu recurso do Event Grid quando lhe for pedido. Selecione **Continuar**.
+1. Selecione o **ocorre quando um evento de grelha recursos de eventos** acionador. Inicie sessão no seu inquilino com a sua conta do Azure quando lhe for pedido. Selecione **permitir o acesso** para o seu recurso do Event Grid, se lhe for pedido. Selecione **Continuar**.
 
 1. Na **ocorrência de um evento do recurso (pré-visualização)** janela: 
    
@@ -134,7 +134,7 @@ Pode utilizar o [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) serv
 
    b. Na **conteúdo** campo, selecione **corpo** partir o **conteúdo dinâmico** lista.
 
-   c. Selecione **exemplo de utilização para o payload para gerar esquema**. Cole o payload JSON seguinte e, em seguida, selecione **feito**.
+   c. Selecione **Utilizar o payload de exemplo para gerar esquema**. Cole o payload JSON seguinte e, em seguida, selecione **feito**.
 
     ```JSON
     {
@@ -174,7 +174,7 @@ Pode utilizar o [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) serv
 
    a. Selecione **adicionar uma ação**e selecione **Outlook do Office 365**.
 
-   b. Partir do **ações** lista, selecione **enviar um e-mail**. Selecione **iniciar sessão** e utilize as suas credenciais de conta de e-mail. Selecione **permitir o acesso** quando lhe for pedido.
+   b. Partir do **ações** lista, selecione **enviar um e-mail**. Selecione **iniciar sessão** e utilize as suas credenciais de conta de e-mail. Selecione **permitir o acesso** se lhe for pedido.
 
    c. Na caixa **To** (Para), introduza o ID do seu e-mail para receber notificações. Na **assunto**, introduza o texto **notificação duplos Digital para a qualidade de ar fraco no espaço**. Em seguida, selecione **TopologyObjectId** partir do **conteúdo dinâmico** listar para **Parse JSON**.
 

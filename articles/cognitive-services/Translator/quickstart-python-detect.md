@@ -3,19 +3,19 @@ title: 'Início rápido: Detetar o idioma de texto, Python - API de texto do tra
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a identificar o idioma do texto fornecido com o Python e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 18531c1fa3a3394d68656fe1ad4a3f996d05b371
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: swmachan
+ms.openlocfilehash: 4bf24582bed7d80616d040f807c603567476f33c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340989"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444948"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto com o Python
 
@@ -91,6 +91,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-request-to-detect-text-language"></a>Criar um pedido para detetar o idioma do texto
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 06/25/2019
 ms.author: aahi
-ms.openlocfilehash: 9f0cf6c39876355862e2a4c9823d01b1cfd19c0f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: c1c002f96f05feca09432690ef1feb40eea1041b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383348"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449055"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Envio de consultas para a API de pesquisa de notícias do Bing
 
@@ -66,10 +66,8 @@ O código a seguir mostra a resposta ao pedido anterior. O exemplo também mostr
 
 ```
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
-BingAPIs-SessionId: 92C9798D29C846ABBDAE4AB6C47CC888
 X-MSEdge-ClientID: 3358F499A06F6A562B88F8F4A1236BC0
 BingAPIs-Market: en-US
-X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 2018-09-17T16:55:22Z
 
 {
    "_type": "News",

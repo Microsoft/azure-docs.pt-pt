@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520494"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450182"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado de porta de entrada
 
@@ -77,12 +77,11 @@ Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Est
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
  
 1. Cofre de chaves do Azure: Tem de ter uma conta do Azure Key Vault em execução na mesma subscrição como a porta de entrada que pretende ativar o HTTPS personalizado. Se não tiver uma, crie uma conta do Azure Key Vault.
- 
-2. Certificados de Cofre de chaves do Azure: Se já tiver um certificado, pode carregá-lo diretamente à sua conta do Azure Key Vault ou pode criar um novo certificado diretamente através do Azure Key Vault a partir de um parceiro de CAs esse cofre de chaves do Azure integra-se.
 
 > [!WARNING]
-> </br> - Atualmente, o Azure Front Door Service suporta apenas contas do Key Vault na mesma subscrição que a configuração do Front Door. Escolher um Key Vault numa subscrição diferente do que o Front Door resultará numa falha.
-> </br> - Atualmente, o Azure Front Door Service suporta apenas certificados carregados com um PFX **sem** uma palavra-passe.
+> O serviço de porta de entrada do Azure atualmente suporta apenas contas do Cofre de chaves na mesma subscrição que a configuração de porta de entrada. Escolher um Key Vault numa subscrição diferente do que o Front Door resultará numa falha.
+
+2. Certificados de Cofre de chaves do Azure: Se já tiver um certificado, pode carregá-lo diretamente à sua conta do Azure Key Vault ou pode criar um novo certificado diretamente através do Azure Key Vault a partir de um parceiro de CAs esse cofre de chaves do Azure integra-se.
 
 #### <a name="register-azure-front-door-service"></a>Registar o Azure Front Door Service
 
@@ -147,7 +146,7 @@ O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu d
 
 Para obter mais informações sobre os registos CNAME, veja [Criar o registo DNS CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido durante um ano e será renovado automaticamente antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
+Se o registo CNAME estiver no formato correto, DigiCert verifica o seu nome de domínio personalizado automaticamente e cria um certificado dedicado para o seu nome de domínio. DigitCert não lhe enviará um e-mail de verificação e não terá de aprovar o seu próprio pedido. O certificado é válido durante um ano e será autorenewed antes de expirar. Avance para [Aguardar pela propagação](#wait-for-propagation). 
 
 Normalmente, a validação automática demora alguns minutos. Se não vir o seu domínio validado ao fim de uma hora, abra um pedido de suporte.
 
@@ -170,7 +169,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 
-Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um filtro de spam, adicione admin@digicert.com à lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
+Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um filtro de spam, adicione admin@digicert.com à sua lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.
 
 Quando clica na ligação de aprovação, é direcionado para um formulário de aprovação online. Siga as instruções do formulário; tem duas opções de verificação:
 
@@ -178,7 +177,7 @@ Quando clica na ligação de aprovação, é direcionado para um formulário de 
 
 - Pode aprovar apenas o nome de anfitrião específico utilizado neste pedido. É necessária aprovação adicional para pedidos subsequentes.
 
-Após a aprovação, a DigiCert conclui a criação do certificado para o seu nome de domínio personalizado. O certificado é válido durante um ano e será renovado automaticamente antes de expirar.
+Após a aprovação, a DigiCert conclui a criação do certificado para o seu nome de domínio personalizado. O certificado é válido durante um ano e será autorenewed antes de expirar.
 
 ## <a name="wait-for-propagation"></a>Aguardar pela propagação
 

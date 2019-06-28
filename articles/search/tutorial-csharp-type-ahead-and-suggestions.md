@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 48dde6ebe19f5a6c14008fd4e5e27a9fb0151928
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304142"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434696"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>C#Tutorial: Adicionar preenchimento automático e sugestões - Azure Search
 
@@ -69,11 +69,11 @@ A função de conclusão automática chamada no script acima não é algo que te
     ```cs
     <head>
         <meta charset="utf-8">
-        <title>Autocomplete demo</title>
-        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+        <title>Typeahead</title>
+        <link href="https://code.jquery.com/ui/1.12.1/themes/start/jquery-ui.css"
               rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <link rel="stylesheet" href="~/css/hotels.css" />
     </head>
@@ -461,9 +461,9 @@ Considere o seguintes das novidades deste projeto:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Um dos problemas com preenchimento automático e sugestões é que envolvem chamadas repetidas para o servidor (um em cada traço chave após o número mínimo de carateres digitado é alcançado). Se repetem estes resultados de chamadas mais lentas do que as respostas esperadas no, a experiência do usuário diminui. A utilização de facetas fornece uma alternativa interessante para evitar estas chamadas repetidas, o que veremos seguinte.
+No próximo tutorial, vamos dar uma olhada na outra maneira de melhorar a experiência do usuário, usando facetas para restringir as pesquisas com um único clique.
 
 > [!div class="nextstepaction"]
-> [C#Tutorial: Utilizar facetas para uma eficiência de navegação e rede - Azure Search](tutorial-csharp-facets.md)
+> [C#Tutorial: Utilizar facetas para ajudar a navegação - Azure Search](tutorial-csharp-facets.md)
 
 

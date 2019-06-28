@@ -3,19 +3,19 @@ title: 'Início rápido: Obter comprimentos de sentença, ouça - API de texto d
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com o Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: erhopf
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 723e7e33a043f3700b562cf50a6f75539741507f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: a2ed5fdd9ff8042bcf23fb5ce31880ae4167483a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515223"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449630"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento de sentença com Go
 
@@ -137,6 +137,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="handle-and-print-the-response"></a>Processar e a resposta de impressão
 

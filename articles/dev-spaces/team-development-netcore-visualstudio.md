@@ -11,12 +11,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: c3a988a831ad1069e5988f9c67e92a85a7a44840
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 53c870ad135fe13eb3bf7556678cac29352911aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765207"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442932"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipa com o Azure Dev Spaces
 
@@ -65,7 +65,7 @@ Em primeiro lugar, tem de implementar uma linha de base dos nossos serviços. Es
 1. Clique com o botão direito do rato no projeto em **Solution Explorer** (Explorador de Soluções) e selecione **Properties** (Propriedades).
 1. Selecione o separador **Debug** (Depurar) à esquerda para mostrar as definições do Azure Dev Spaces.
 1. Selecione **alteração** para criar o espaço que será utilizado quando F5 ou CTRL+F5 o serviço.
-1. Na lista pendente de espaço, selecione  **\<criar novo espaço de... \>**.
+1. Na lista pendente de espaço, selecione  **\<criar novo espaço de... \>** .
 1. Certifique-se de que o espaço de principal está definido como  **\<none\>** e introduza o nome do espaço **dev**. Clique em OK.
 1. Prima Ctrl + F5 para executar _mywebapi_ sem o depurador anexado.
 1. Mude para a janela do Visual Studio com o _webfrontend_ do projeto e prima Ctrl + F5 para executá-lo também.
@@ -90,7 +90,7 @@ Faça o seguinte para criar um novo espaço:
 2. Clique com o botão direito do rato no projeto em **Solution Explorer** (Explorador de Soluções) e selecione **Properties** (Propriedades).
 3. Selecione o separador **Debug** (Depurar) à esquerda para mostrar as definições do Azure Dev Spaces.
 4. Aqui, pode alterar ou criar o cluster e/ou o espaço que será utilizado quando premir F5 ou Ctrl+F5. *Certifique-se de que o Azure Dev Space que criou anteriormente está selecionado*.
-5. Na lista pendente de espaço, selecione  **\<criar novo espaço de... \>**.
+5. Na lista pendente de espaço, selecione  **\<criar novo espaço de... \>** .
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
@@ -124,9 +124,9 @@ Segue-se um diagrama que o ajudará a compreender como funcionam os diferentes e
 Esta capacidade incorporada do Azure Dev Spaces permite-lhe testar o código ponto a ponto num ambiente partilhado sem que cada programador tenha de recriar a pilha completa de serviços no respetivo espaço. Este tipo de encaminhamento requer que os cabeçalhos de propagação sejam reencaminhados no código da aplicação, conforme ilustrado no passo anterior deste guia.
 
 ### <a name="test-code-running-in-the-devscott-space"></a>Testar o código em execução no _dev/scott_ espaço
-Para testar a nova versão do *mywebapi* em conjunto com *webfrontend*, abra o browser para o URL do ponto de acesso público para *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eus.azds.io)e aceda à página About. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
+Para testar a nova versão do *mywebapi* em conjunto com *webfrontend*, abra o browser para o URL do ponto de acesso público para *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eus.azds.io) e aceda à página About. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
 
-Em seguida, adicione o elemento "scott.s." ao URL de modo a mostrar algo semelhante a http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualize o browser. O ponto de interrupção definido no seu *mywebapi* projeto deve ser atingido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto acontece porque o caminho para os seus códigos atualizados no *mywebapi* está em execução no _dev/scott_ espaço.
+Em seguida, adicione o elemento "scott.s." parte para o URL para que ele lê algo como http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualize o browser. O ponto de interrupção definido no seu *mywebapi* projeto deve ser atingido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto acontece porque o caminho para os seus códigos atualizados no *mywebapi* está em execução no _dev/scott_ espaço.
 
 Depois de ter uma _dev_ espaço que contém sempre suas alterações mais recentes e supondo que a aplicação foi concebido para tirar partido do DevSpace baseados no espaço Encaminhamento conforme descrito nesta secção do tutorial, Espero que ele se torna mais fácil ver como os espaços de desenvolvimento muito pode ajudar no teste de novos recursos dentro do contexto do aplicativo maior. Em vez de precisar implantar _todos os_ serviços no seu espaço privado, pode criar um espaço privado que deriva de _dev_e "apenas up" os serviços que está realmente a trabalhar. A infraestrutura de encaminhamento de espaços de desenvolvimento irá processar o resto utilizando os serviços fora do seu espaço de privada pois pode encontrar, ao utilizar a predefinição para a versão mais recente em execução no _dev_ espaço. E ainda assim, melhor _vários_ os programadores podem ativamente desenvolver serviços diferentes ao mesmo tempo no seu próprio espaço sem interromper entre si.
 

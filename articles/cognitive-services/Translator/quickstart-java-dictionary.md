@@ -3,19 +3,19 @@ title: 'Início rápido: Procure palavras dicionário bilingue, Java - API de te
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, ficará a saber como obter traduções alternativas para um termo e também os exemplos de utilização desses alternam traduções, com Java e a API de texto do Translator.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 027e895ffbeb3cc0ff5b3348c2d7a8b76b930cf3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: d4c8f06b1689f3aaa5a88e39583a48cf990dd532
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514815"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445147"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Início rápido: Procure palavras com dicionário bilingue com Java
 
@@ -108,6 +108,8 @@ Adicionar estas linhas para o `AltTranslation` classe. Perceberá que, juntament
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Criar um cliente e criar um pedido
 

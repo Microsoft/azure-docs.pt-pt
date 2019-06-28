@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 0314c0e03402d53c7f79eed2efe11db953d184e6
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147513"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448220"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o disco do Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -88,7 +88,7 @@ Siga os passos seguintes se retornando o dispositivo na Europa.
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Pegar na região da Ásia-Pacífico
 
-Esta região inclui instruções para recolha no Japão, Coreia e Austrália.
+Esta região inclui instruções para recolha no Japão, Coreia, Austrália e Singapura.
 
 #### <a name="pick-up-in-australia"></a>Pegar na Austrália
 
@@ -103,43 +103,64 @@ Os datacenters do Azure na Austrália tem uma notificação de segurança adicio
 
 #### <a name="pick-up-in-japan"></a>Escolher no Japão
 
-1. Certifique-se incluir o retorno connote de Chakubarai de Post do Japão.
-2. Escreva a sua empresa informações de nome e endereço sobre o connote como suas informações do remetente.
-3. Ligue para o número de pedido de recolha de postagem de Japão 0800-0800-111 (dial gratuita). O código postal de 7 dígitos para o endereço de recolha de marcação e, em seguida, encaminhar para o seu escritório de postagem mais próximo.
-    - Horas disponíveis para pedido de recolha dependem os respetivos escritórios de post.
-    - Informe-se de que o envio se para o Japão Post Chakubarai Yu-Pack.
-    - Utilize o Chakubarai função de raça que foi incluído.
-4. Se a função de raça Japão Post Chakubarai não foi incluído, envie um e-mail *soluções Quantium* em `Customerservice.JP@quantiumsolutions.com`. *Soluções de Quantium* solicitará Japão Post para selecionar e peça-lhe para trazer o connote após a recolha.
-    - Indicar a referência número do Chakubarai função de raça coluna de comentário que será apresentada a mensagem do Japão.
-    - Introduza o endereço de entrega, conforme mostrado abaixo:   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Escreva nome e endereço obter informações sobre a nota consignment como suas informações de remetente de sua empresa.
+2. Solução de Quantium utilizando o modelo de e-mail seguinte de e-mail.
 
-Se a função de raça o Chakubarai está em falta, pode pedir a recolha através de e-mail. Utilize o seguinte modelo de e-mail para pedir a recolha.
+    - Se a nota do Japão Post Chakubarai consignment não estava incluída ou está em falta, tenha em atenção que neste e-mail. Quantium soluções Japão irá pedir Japão Post para trazer a nota consignment após a recolha.
+    - Se tiver vários pedidos, envie um e-mail para garantir a recolha individual.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Receba um e-mail de confirmação de soluções de Quantium depois de ter marcadas uma recolha. A confirmação de e-mail também inclui informações sobre a nota de consignment Chakubarai.
+
+Se for necessário, pode contactar o suporte de solução de Quantium (japonês) as seguintes informações: 
+
+- E-mail:Customerservice.JP@quantiumsolutions.com 
+- Telefone: 03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>Pegar na Coreia
 
-1. Certifique-se incluir o connote retorno.
-2. A recolha do pedido:
-    1. Chamar *Quantium Solutions International* linha direta no 070 8231 1418 durante o horário do office (10 AM para 5 PM, segunda-feira a sexta-feira). Para citar *recolha Microsoft* e o número de connote para fazer com que uma coleção.  
-    2. Se a linha direta estiver ocupada, envie um e-mail `microsoft@rocketparcel.com`, com o assunto do e-mail *Microsoft Pickup* e o número de connote como referência.
+1. Certifique-se incluir a nota consignment retorno.
+2. Para pedir recolha quando nota consignment está presente:
+    1. Chamar *Quantium Solutions International* linha direta no 070 8231 1418 durante o horário do office (10 AM para 5 PM, segunda-feira a sexta-feira). Para citar *recolha do Microsoft Azure* e o número de pedido de serviço para fazer com que uma coleção.  
+    2. Se a linha direta estiver ocupada, envie um e-mail `microsoft@rocketparcel.com`, com o assunto do e-mail *recolha do Microsoft Azure* e o número de pedido de serviço como referência.
     3. Se não receber o courier para coleção, chamar *Quantium Solutions International* linha direta para disposições alternativas. 
+    4. Receberá um e-mail de confirmação para a agenda de recolha.
+3. Efetue este passo apenas se a nota consignment não está presente. A recolha do pedido:
+    1. Chamar *Quantium Solutions International* linha direta no 070 8231 1418 durante o horário do office (10 AM para 5 PM, segunda-feira a sexta-feira). Para citar *recolha do Microsoft Azure* e o número de pedido de serviço para fazer com que uma coleção. Especifique que precisa de uma nova nota consignment para fazer com que uma coleção. Forneça o remetente (cliente), informações de destinatário (Centro de dados do Azure) e o número de referência (número de pedido de serviço). 
+    2. Se a linha direta estiver ocupada, envie um e-mail `microsoft@rocketparcel.com`, com o assunto do e-mail *recolha do Microsoft Azure* e o número de pedido de serviço como referência.
+    3. Se não receber o courier para coleção, chamar *Quantium Solutions International* linha direta para disposições alternativas. 
+    4. Receberá uma confirmação verbal se a solicitação é feita por telefone.
+
+### <a name="pick-up-in-singapore"></a>Recolher em Singapura
+
+1. A etiqueta de impressão e anexe para o box. Se a etiqueta é dano ou perda:
+    - Aceda a **Descrição Geral > Transferir etiqueta de envio**.
+
+        ![Transferir etiqueta de envio](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Esta ação transfere uma etiqueta de envio para devolução, conforme mostrado abaixo.
+
+        ![Etiqueta de envio de exemplo](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Affix a etiqueta no dispositivo. Certifique-se de que a etiqueta está visível.
+
+2. A recolha do pedido:
+    - Chamar **SingPost** linha direta no **6845 6485** durante o horário do office (9h para 5 pm, segunda-feira a sexta-feira).  
+    - Para citar *recolha do Microsoft Azure* e o serviço pedido número (número de controlo sobre a etiqueta de envio) para fazer com que uma coleção. 
+    - Receberá uma confirmação verbal para a agenda de recolha. 
+    - Se não receber o courier para coleção, chamar **SingPost** na **6845 6485** para disposições alternativas. 
+3. Passar para o courier. 
+
 
 ## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
 

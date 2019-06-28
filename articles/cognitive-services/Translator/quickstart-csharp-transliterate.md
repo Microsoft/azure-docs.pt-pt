@@ -3,19 +3,19 @@ title: 'Início rápido: Converter o script de texto, C# – texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a transcrição de texto (converter) a partir de um script para outro e usando a API de REST de texto do Translator e .NET Core. Neste exemplo, o japonês é transliterado para utilizar o alfabeto latino.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 8e08372e591c9d600b42ae8e66baf7addf7806c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: f09f9081dd535762afd2e26e5e86476eb06f5133
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123378"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445244"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto a utilizarC#
 
@@ -157,6 +157,8 @@ foreach (TransliterationResult o in deserializedOutput)
     Console.WriteLine("Transliterated to {0} script: {1}", o.Script, o.Text);
 }
 ```
+
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Juntar tudo
 
