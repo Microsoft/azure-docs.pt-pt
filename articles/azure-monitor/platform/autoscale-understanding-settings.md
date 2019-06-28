@@ -91,27 +91,27 @@ Para ilustrar o esquema de definição de dimensionamento automático, é utiliz
 
 | Section | Nome do elemento | Descrição |
 | --- | --- | --- |
-| Definição | ID | ID de recurso. da definição de dimensionamento automático Definições de dimensionamento automático são um recurso do Azure Resource Manager. |
+| Definição | id | ID de recurso. da definição de dimensionamento automático Definições de dimensionamento automático são um recurso do Azure Resource Manager. |
 | Definição | name | O nome da definição de dimensionamento automático. |
-| Definição | localização | A localização da definição de dimensionamento automático. Esta localização pode ser diferente da localização do recurso que está a ser dimensionado. |
+| Definição | location | A localização da definição de dimensionamento automático. Esta localização pode ser diferente da localização do recurso que está a ser dimensionado. |
 | properties | targetResourceUri | O ID de recurso do recurso que está a ser dimensionado. Só pode ter uma definição de dimensionamento automático por recurso. |
-| properties | Perfis | Uma definição de dimensionamento automático é composta por um ou mais perfis. Sempre que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
-| Perfil | name | O nome do perfil. Pode escolher qualquer nome que o ajuda a identificar o perfil. |
-| Perfil | Capacity.Maximum | A capacidade máxima permitida. Ele garante que o dimensionamento automático, ao executar este perfil, não dimensionar seu recurso acima deste número. |
-| Perfil | Capacity.Minimum | A capacidade mínima permitida. Ele garante que o dimensionamento automático, ao executar este perfil, não dimensionar seu recurso abaixo deste número. |
-| Perfil | Capacity.default | Se existir um problema ao ler a métrica de recurso (no caso, a CPU de "vmss1"), e a capacidade atual é inferior a predefinição, o dimensionamento automático aumenta horizontalmente para a predefinição. Isso é para garantir a disponibilidade do recurso. Se a capacidade atual já é maior do que a capacidade predefinida, dimensionamento automático não horizontalmente. |
-| Perfil | regras | Dimensionamento automático pode ser dimensionada automaticamente entre as capacidades de máxima e mínimas, ao utilizar as regras no perfil. Pode ter várias regras num perfil. Normalmente, há duas regras: um para determinar quando deve aumentar horizontalmente e outro para determinar quando deve reduzir horizontalmente. |
-| Regra | metricTrigger | Define as condições de métricas da regra. |
-| metricTrigger | MetricName | O nome da métrica. |
-| metricTrigger |  metricResourceUri | O ID de recurso do recurso que emite a métrica. Na maioria dos casos, é o mesmo que o recurso a ser dimensionado. Em alguns casos, podem ser diferente. Por exemplo, pode dimensionar um conjunto de dimensionamento de máquinas virtuais com base no número de mensagens numa fila de armazenamento. |
+| properties | profiles | Uma definição de dimensionamento automático é composta por um ou mais perfis. Sempre que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
+| profile | name | O nome do perfil. Pode escolher qualquer nome que o ajuda a identificar o perfil. |
+| profile | capacity.Maximum | A capacidade máxima permitida. Ele garante que o dimensionamento automático, ao executar este perfil, não dimensionar seu recurso acima deste número. |
+| profile | capacity.Minimum | A capacidade mínima permitida. Ele garante que o dimensionamento automático, ao executar este perfil, não dimensionar seu recurso abaixo deste número. |
+| profile | capacity.default | Se existir um problema ao ler a métrica de recurso (no caso, a CPU de "vmss1"), e a capacidade atual é inferior a predefinição, o dimensionamento automático aumenta horizontalmente para a predefinição. Isso é para garantir a disponibilidade do recurso. Se a capacidade atual já é maior do que a capacidade predefinida, dimensionamento automático não horizontalmente. |
+| profile | rules | Dimensionamento automático pode ser dimensionada automaticamente entre as capacidades de máxima e mínimas, ao utilizar as regras no perfil. Pode ter várias regras num perfil. Normalmente, há duas regras: um para determinar quando deve aumentar horizontalmente e outro para determinar quando deve reduzir horizontalmente. |
+| rule | metricTrigger | Define as condições de métricas da regra. |
+| metricTrigger | metricName | O nome da métrica. |
+| metricTrigger | metricResourceUri | O ID de recurso do recurso que emite a métrica. Na maioria dos casos, é o mesmo que o recurso a ser dimensionado. Em alguns casos, podem ser diferente. Por exemplo, pode dimensionar um conjunto de dimensionamento de máquinas virtuais com base no número de mensagens numa fila de armazenamento. |
 | metricTrigger | timeGrain | A duração de amostragem da métrica. Por exemplo, **TimeGrain = "PT1M"** significa que as métricas devem ser agregadas a cada 1 minuto, ao utilizar o método de agregação especificado no elemento estatística. |
 | metricTrigger | estatística | O método de agregação dentro do período de timeGrain. Por exemplo, **estatística = "Average"** e **timeGrain = "PT1M"** significa que as métricas devem ser agregadas cada 1 minuto pela média. Esta propriedade determina a forma como é objeto de amostragem da métrica. |
 | metricTrigger | timeWindow | A quantidade de tempo para procurar novamente por métricas. Por exemplo, **timeWindow = "PT10M"** significa que sempre que o dimensionamento automático for executado, ele consulta métricas durante os últimos 10 minutos. A janela de tempo permite às métricas ser normalizados e evita a reação a picos transitórios. |
 | metricTrigger | timeAggregation | O método de agregação utilizado para agregar as métricas de amostragem. Por exemplo, **TimeAggregation = "Average"** devem se agregar as métricas de amostragem pela média. No caso anterior, pegar os dez exemplos de 1 minuto e, média-los. |
-| Regra | scaleAction | A ação a tomar quando o metricTrigger da regra é acionada. |
+| rule | scaleAction | A ação a tomar quando o metricTrigger da regra é acionada. |
 | scaleAction | direction | "Aumente" para aumentar horizontalmente, ou "Diminuir" para reduzir horizontalmente.|
 | scaleAction | value | Quanto para aumentar ou diminuir a capacidade do recurso. |
-| scaleAction | arrefecimento | A quantidade de tempo de espera após uma operação de dimensionamento antes de dimensionar novamente. Por exemplo, se **arrefecimento = "PT10M"** , dimensionamento automático não tentar Dimensionar novamente para mais de 10 minutos. O arrefecimento é permitir que as métricas estabilizar após a adição ou remoção de instâncias. |
+| scaleAction | cooldown | A quantidade de tempo de espera após uma operação de dimensionamento antes de dimensionar novamente. Por exemplo, se **arrefecimento = "PT10M"** , dimensionamento automático não tentar Dimensionar novamente para mais de 10 minutos. O arrefecimento é permitir que as métricas estabilizar após a adição ou remoção de instâncias. |
 
 ## <a name="autoscale-profiles"></a>Perfis de dimensionamento automático
 
