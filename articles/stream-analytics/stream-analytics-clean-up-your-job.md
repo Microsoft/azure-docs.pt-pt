@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb81c73f7946a10bae0470a55dcf1c0d55c2b847
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159430"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330039"
 ---
-# <a name="clean-up-your-azure-stream-analytics-job"></a>Limpar a tarefa do Azure Stream Analytics
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Parar ou eliminar a tarefa do Azure Stream Analytics
 
-Tarefas do Azure Stream Analytics podem ser facilmente eliminadas através do portal do Azure, Azure PowerShell, Azure SDK para .net ou a REST API. Não é possível recuperar uma tarefa do Stream Analytics, uma vez que foi eliminado.
+Tarefas do Azure Stream Analytics podem ser facilmente paradas ou eliminadas através do portal do Azure, Azure PowerShell, Azure SDK para .net ou a REST API. Não é possível recuperar uma tarefa do Stream Analytics, uma vez que foi eliminado.
 
 >[!NOTE] 
 >Quando parar a tarefa de Stream Analytics, os dados presentes apenas no armazenamento de entrada e saído, como os Hubs de eventos ou a base de dados do Azure SQL. Se forem necessárias para remover os dados do Azure, certifique-se de que siga o processo de remoção para os recursos de entrada e saídos da sua tarefa do Stream Analytics.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Parar uma tarefa no portal do Azure
+
+Quando parar uma tarefa, os recursos são deprovisionned e deixa de processamento de eventos. Custos relacionados com esta tarefa também são parados. No entanto, toda a sua configuração são mantidas e pode reiniciar a tarefa mais tarde 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
@@ -35,6 +37,9 @@ Tarefas do Azure Stream Analytics podem ser facilmente eliminadas através do po
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Eliminar uma tarefa no portal do Azure
+
+>[!WARNING] 
+>Não é possível recuperar uma tarefa do Stream Analytics, uma vez que foi eliminado.
 
 1. Inicie sessão no Portal do Azure. 
 

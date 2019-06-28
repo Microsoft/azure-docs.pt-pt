@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/27/2019
-ms.openlocfilehash: 15b96d44b1ff78a83a4364579b7984d20e3f4d85
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 06/21/2019
+ms.openlocfilehash: 462b485b5dc5106ab18959ab2cdbfe1bfc0f94bf
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597704"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330568"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Início rápido: Controlar um dispositivo ligado a um hub IoT (node. js)
 
@@ -99,12 +99,12 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName --output table
+      --name YourIoTHubName --policy-name service --output table
     ```
 
     Anote a cadeia de ligação do serviço, que se parece com:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     Irá utilizar este valor mais adiante no guia de início rápido. A cadeia de ligação do serviço é diferente da cadeia de ligação de dispositivo.
 

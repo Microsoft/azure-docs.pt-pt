@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6d95e4a0a7aeedef2fc7e635d2e49ea68c3ba0ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b74238ee49fe0d96d218f1800a33a9d60badc6d5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992040"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341699"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Como utilizar filas do Service Bus com Python
 
@@ -45,13 +45,13 @@ O **ServiceBusClient** objeto permite-lhe trabalhar com as filas. Adicione o seg
 from azure.servicebus import ServiceBusClient
 ```
 
-O código seguinte cria um **ServiceBusClient** objeto. Substitua `mynamespace`, `sharedaccesskeyname`, e `sharedaccesskey` com o seu espaço de nomes, nome da chave de acesso partilhado (SAS) de assinatura e seu valor.
+O código seguinte cria um **ServiceBusClient** objeto. Substitua `<CONNECTION STRING>` com sua connectionstring do servicebus.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
 ```
 
-Os valores para o nome da chave SAS e o valor podem ser encontrados na [portal do Azure] [ Azure portal] informações da ligação, ou no Visual Studio **propriedades** painel ao selecionar o serviço Espaço de nomes do barramento no Server Explorer (conforme mostrado na secção anterior).
+Os valores para o nome da chave SAS e o valor podem ser encontrados na [portal do Azure][Azure portal] informações de ligação, ou no Visual Studio **propriedades** painel ao selecionar o espaço de nomes do Service Bus no Explorador de servidores (como mostrado na secção anterior).
 
 ```python
 sb_client.create_queue("taskqueue")

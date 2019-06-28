@@ -5,20 +5,75 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 50e1cb95249f0108430e978ae3ffe23b6edc778d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418394"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272865"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades no Site Recovery
 
 O [do Azure Site Recovery](site-recovery-overview.md) serviço é atualizado e melhorado de forma contínua. Para ajudar a manter-se atualizado, este artigo fornece informações sobre as versões mais recentes, novos recursos e novo conteúdo. Esta página é atualizada regularmente.
 
 Se tiver sugestões para recursos de recuperação de Site, Adoraríamos [ouvir os seus comentários](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## <a name="updates-june-2019"></a>Atualizações (Junho de 2019)
+
+### <a name="update-rollup-37"></a>O Update rollup 37
+
+[Coletânea de 37](https://support.microsoft.com/help/4508614/) fornece as seguintes atualizações.
+
+**Atualização** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Atualizações para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup)
+**Correções/melhoramentos de problemas** | Diversas correções e melhorias (conforme detalhado no rollup)
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
+
+Recursos adicionados este mês estão resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+**Partições GPT** | De Update Rollup 37 e posteriores (versão serviço de mobilidade 9.25.5241.1), até cinco GPT as partições são suportadas em UEFI. Antes desta atualização, quatro tinham suporte.
+
+
+
+## <a name="updates-may-2019"></a>Atualizações (Maio de 2019)
+
+### <a name="update-rollup-36"></a>O Update rollup 36
+
+[Coletânea de 36](https://support.microsoft.com/help/4503156) fornece as seguintes atualizações.
+
+**Atualização** | **Detalhes**
+--- | ---
+**Fornecedores e agentes** | Uma atualização para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup)
+**Correções/melhoramentos de problemas** | Diversas correções e melhorias (conforme detalhado no rollup)
+
+### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure
+
+Recursos adicionados este mês estão resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+**Replicar os discos adicionados** | Ative a replicação para discos de dados adicionados a uma VM do Azure que já está ativada para recuperação após desastre. [Saiba mais](azure-to-azure-enable-replication-added-disk.md).
+**Atualizações automáticas** | Quando configurar as atualizações automáticas para a extensão de serviço de mobilidade que é executada em VMs do Azure ativado para a recuperação após desastre, agora, pode selecionar uma conta de automatização existente para utilizar, em vez de utilizar a conta predefinida criada pelo Site Recovery. [Saiba mais](azure-to-azure-autoupdate.md).
+
+
+### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
+
+Recursos adicionados este mês estão resumidos na tabela.
+
+**Funcionalidade** | **Detalhes**
+--- | ---
+**Processar a monitorização de servidores** | Para recuperação após desastre de VMs de VMware no local e servidores físicos, monitorizar e resolver problemas do servidor de processo com alertas e relatórios de estado de funcionamento de servidores aprimorado. [Saiba mais](vmware-physical-azure-monitor-process-server.md). 
+
+
+
 
 
 ## <a name="updates-march-2019"></a>Atualizações (Março de 2019)
@@ -32,8 +87,9 @@ Se tiver sugestões para recursos de recuperação de Site, Adoraríamos [ouvir 
 **Fornecedores e agentes** | Uma atualização para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup)
 **Correções/melhoramentos de problemas** | Diversas correções e melhorias (conforme detalhado no rollup)
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
-Novos recursos adicionados na atualização.
+### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
+
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
@@ -63,8 +119,8 @@ Novos recursos adicionados na atualização.
 **Correções/melhoramentos de problemas** | Um número de correções e melhorias (conforme detalhado no rollup).
 
 
-#### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure 
-Novos recursos adicionados na atualização.
+### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure 
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
@@ -73,8 +129,8 @@ Novos recursos adicionados na atualização.
 **Espaços de armazenamento direto** | Pode configurar a recuperação após desastre para aplicações em execução em aplicações de VM do Azure, utilizando [espaços de armazenamento direto](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) para elevada disponibilidade.  Utilizar espaços de armazenamento direto (S2D), juntamente com o Site Recovery fornece proteção abrangente das cargas de trabalho de VM do Azure. O S2D permite-lhe alojar num cluster de convidados no Azure. Isso é especialmente útil quando uma VM aloja um aplicativo crítico, como a camada de SAP ASCS, o SQL Server ou o servidor de ficheiros de escalamento horizontal.
 
 
-#### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
-Novos recursos adicionados na atualização.
+### <a name="vmwarephysical-server-disaster-recovery"></a>Recuperação de desastre do VMware/servidor físico
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
@@ -83,6 +139,7 @@ Novos recursos adicionados na atualização.
 
 
 ## <a name="updates-january-2019"></a>Atualizações (Janeiro de 2019)
+
 
 ### <a name="accelerated-networking-azure-vms"></a>Funcionamento em rede acelerado (as VMs do Azure)
 
@@ -99,16 +156,19 @@ Funcionamento em rede acelerado ativar Virtualização de e/s de raiz única (SR
 **Fornecedores e agentes** | Uma atualização para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup).
 **Correções/melhoramentos de problemas** | Um número de correções e melhorias (conforme detalhado no rollup).
 
-#### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure
+### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure
 
-Novos recursos adicionados na atualização.
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
 **Suporte do Linux** | Foi adicionado suporte para a estação de trabalho do Red Hat 6 horas dia, 7 e novas versões de kernel para Ubuntu, Debian e SUSE.
 **Espaços de armazenamento direto** | Site Recovery suporta VMs do Azure com espaços de armazenamento direto (S2D).
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>Replicação de servidores de VMs de VMware/físico 
+### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>Recuperação de desastres de servidores de VMs de VMware/físico
+
+Recursos adicionados este mês estão resumidos na tabela.
+ 
 **Funcionalidade** | **Detalhes**
 --- | ---
 **Suporte do Linux** | Foi adicionado suporte para a VM de Redhat Enterprise Linux 7,6, estação de trabalho do Red Hat 6 horas dia, 7, Oracle Linux 6.10/7,6 e novas versões de kernel para Ubuntu, Debian e SUSE.
@@ -123,9 +183,8 @@ Novos recursos adicionados na atualização.
 **Fornecedores e agentes** | Uma atualização para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup).
 **Correções/melhoramentos de problemas** | Um número de correções e melhorias (conforme detalhado no rollup).
 
-#### <a name="vmware-vmsphysical-servers-replication"></a>Replicação de servidores de VMs de VMware/físico 
-Novos recursos adicionados na atualização.
-
+### <a name="vmware-vmsphysical-servers-replication"></a>Replicação de servidores de VMs de VMware/físico 
+Recursos adicionados este mês estão resumidos na tabela.
 **Funcionalidade** | **Detalhes**
 --- | ---
 **Suporte do Linux** | Foi adicionado suporte para Oracle Linux 6.8 e 6.9/7.0 e para o kernel de UEK5.
@@ -135,8 +194,8 @@ Novos recursos adicionados na atualização.
 **Ativação pós-falha** | Tempo de ativação pós-falha melhorada para onde storvsc e vsbus não são controladores de arranque de VMs de VMware.
 **Suporte UEFI** | VMs do Azure não suportam o tipo de arranque UEFI. Agora, pode migrar servidores físicos no local com a UEFI para o Azure com o Site Recovery. Recuperação de site efetua a migração do servidor ao converter o tipo de arranque para BIOS antes da migração. Recuperação de site anteriormente suportada essa conversão para VMs apenas. O suporte está disponível para os servidores físicos com o Windows Server 2012 ou posterior.
 
-#### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure
-Novos recursos adicionados na atualização.
+### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
@@ -176,8 +235,8 @@ Recuperação após desastre de VMs do Azure incorre em custos de licenciamento 
 **Fornecedores e agentes** | Uma atualização para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup).
 **Correções/melhoramentos de problemas** | Um número de correções e melhorias (conforme detalhado no rollup).
 
-#### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure
-Novos recursos adicionados na atualização.
+### <a name="azure-vm-disaster-recovery"></a>Recuperação de desastre VM do Azure
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
@@ -208,8 +267,8 @@ Novos recursos adicionados na atualização.
 **Fornecedores e agentes** | Uma atualização para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup).
 **Correções/melhoramentos de problemas** | Um número de correções e melhorias (conforme detalhado no rollup).
 
-#### <a name="azure-vms-disaster-recovery"></a>Recuperação de desastre de VMs do Azure 
-Novos recursos adicionados na atualização.
+### <a name="azure-vms-disaster-recovery"></a>Recuperação de desastre de VMs do Azure 
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
@@ -217,8 +276,8 @@ Novos recursos adicionados na atualização.
 **Suporte de cloud** | Suporte a recuperação após desastre para VMs do Azure na cloud da Alemanha.
 **Recuperação de desastres entre subscrições** | Suporte para replicar VMs do Azure numa única região para outra região de uma subscrição diferente, no mesmo inquilino do Azure Active Directory. [Saiba mais](https://aka.ms/cross-sub-blog).
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Recuperação após desastre de VM de VMware/servidor físico 
-Novos recursos adicionados na atualização.
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Recuperação após desastre de VM de VMware/servidor físico 
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
@@ -237,17 +296,17 @@ Novos recursos adicionados na atualização.
 **Fornecedores e agentes** | Uma atualização para os agentes de recuperação de Site e fornecedores (conforme detalhado no rollup).
 **Correções/melhoramentos de problemas** | Um número de correções e melhorias (conforme detalhado no rollup).
 
-#### <a name="azure-vms-disaster-recovery"></a>Recuperação de desastre de VMs do Azure 
+### <a name="azure-vms-disaster-recovery"></a>Recuperação de desastre de VMs do Azure 
 
-Novos recursos adicionados na atualização.
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---
 **Suporte do Linux** | Suporte adicionado para Red Hat Enterprise Linux 7.5.
 
-#### <a name="vmware-vmphysical-server-disaster-recovery"></a>Recuperação após desastre de VM de VMware/servidor físico 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Recuperação após desastre de VM de VMware/servidor físico 
 
-Novos recursos adicionados na atualização.
+Recursos adicionados este mês estão resumidos na tabela.
 
 **Funcionalidade** | **Detalhes**
 --- | ---

@@ -6,27 +6,27 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 5929ff439bc31e16643e5c57868cd6b68f9cd99c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761983"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329563"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões de solução do Stream Analytics do Azure
 
 Como muitos outros serviços do Azure, o Stream Analytics melhor é utilizado para criar uma solução ponto-a-ponto maior com outros serviços. Este artigo aborda as soluções do Azure Stream Analytics simples e vários padrões de arquiteturais. Pode se basear estes padrões para desenvolver soluções mais complexas. Os padrões descritos neste artigo podem ser usados numa ampla variedade de cenários. Exemplos de padrões específicos de cenário estão disponíveis na [arquiteturas de soluções do Azure](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
-## <a name="create-a-stream-analytics-job-with-a-real-time-dashboard"></a>Criar uma tarefa do Stream Analytics com um dashboard em tempo real
+## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Criar uma tarefa de Stream Analytics para a experiência de vistas em tempo real de energia
 
-Com a facilidade de Azure Stream Analytics de utilização, pode definir rapidamente dashboards em tempo real e alertas. Uma solução simples ingere eventos a partir dos Hubs de eventos ou o IoT Hub, e [feeds o dashboard do Power BI com um conjunto de dados de transmissão em fluxo](/power-bi/service-real-time-streaming). Para obter mais informações, veja o tutorial detalhado [analisar dados de chamada telefónica com o Stream Analytics e visualizar os resultados num dashboard do Power BI](stream-analytics-manage-job.md).
+Com o Azure Stream Analytics, pode definir rapidamente dashboards em tempo real e alertas. Uma solução simples ingere eventos a partir dos Hubs de eventos ou o IoT Hub, e [feeds o dashboard do Power BI com um conjunto de dados de transmissão em fluxo](/power-bi/service-real-time-streaming). Para obter mais informações, veja o tutorial detalhado [analisar dados de chamada telefónica com o Stream Analytics e visualizar os resultados num dashboard do Power BI](stream-analytics-manage-job.md).
 
 ![Dashboard do ASA Power BI](media/stream-analytics-solution-patterns/pbidashboard.png)
 
 Essa solução pode ser criada em apenas alguns minutos a partir do portal do Azure. Não existe que nenhuma codificação extensa envolvido e linguagem SQL é usada para expressar a lógica de negócios.
 
-Este padrão de solução de dashboard em tempo real oferece a latência mais baixa da origem de evento para o dashboard do Power BI num browser. O Azure Stream Analytics é o serviço apenas do Azure com esta capacidade incorporada.
+Este padrão de solução oferece a latência mais baixa da origem de evento para o dashboard do Power BI num browser. O Azure Stream Analytics é o serviço apenas do Azure com esta capacidade incorporada.
 
 ## <a name="use-sql-for-dashboard"></a>Utilizar o SQL para o dashboard
 
@@ -34,19 +34,19 @@ O dashboard do Power BI oferece baixa latência, mas não pode ser utilizada par
 
 ![Dashboard do ASA SQL](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-Com o SQL base de dados dá-lhe mais flexibilidade a custa de maior latência. Esta solução é ideal para as tarefas com requisitos de latência maiores do que um segundo. Com esse método, pode maximizar o utilitário do Power BI para o setor adicional e decomposição os dados para relatórios. Também ganha a flexibilidade de usar outras soluções de dashboard, como o Tableau.
+Com o SQL base de dados dá-lhe mais flexibilidade, mas à custa uma latência ligeiramente superior. Esta solução é ideal para as tarefas com requisitos de latência maiores do que um segundo. Com esse método, pode maximizar as capacidades do Power BI para o setor adicional e decomposição os dados para relatórios e muito mais opções de visualização. Também ganha a flexibilidade de usar outras soluções de dashboard, como o Tableau.
 
-SQL não é um arquivo de dados de alto débito e o débito máximo para uma base de dados SQL do Azure Stream Analytics é 24 MB/s. Se a origens de eventos na sua solução de produzem os dados a uma tarifa mais alta, terá de usar a lógica de processamento no Stream Analytics para reduzir a taxa de saída para o SQL. Técnicas, como a filtragem, agregados em janelas, o padrão de correspondência com associações temporais e funções de análise podem ser utilizadas. A taxa de saída para o SQL pode ser mais otimizada com as técnicas descritas [saída de Azure Stream Analytics para a base de dados do Azure SQL](stream-analytics-sql-output-perf.md).
+SQL não é um arquivo de dados de alto débito. O débito máximo para uma base de dados SQL do Azure Stream Analytics está, atualmente, cerca de 24 MB/s. Se a origens de eventos na sua solução de produzem os dados a uma tarifa mais alta, terá de usar a lógica de processamento no Stream Analytics para reduzir a taxa de saída para o SQL. Técnicas, como a filtragem, agregados em janelas, o padrão de correspondência com associações temporais e funções de análise podem ser utilizadas. A taxa de saída para o SQL pode ser mais otimizada com as técnicas descritas [saída de Azure Stream Analytics para a base de dados do Azure SQL](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Incorporar informações em tempo real na sua aplicação com as mensagens de evento
 
 A utilização em segundo lugar mais popular do Stream Analytics é gerar alertas em tempo real. Neste padrão de solução, a lógica de negócios no Stream Analytics pode ser utilizada para detetar [padrões temporais e geográficos](stream-analytics-geospatial-functions.md) ou [anomalias](stream-analytics-machine-learning-anomaly-detection.md), em seguida, produzir sinais de alerta. No entanto, ao contrário da solução de dashboard onde o Stream Analytics utiliza o Power BI como um ponto de extremidade preferido, pode ser utilizado um número de Coletores de dados intermediários. Estes sinks incluem os Hubs de eventos do Service Bus e as funções do Azure. Como o construtor de aplicação, terá de decidir qual sink de dados funciona melhor para seu cenário.
 
-Lógica de consumidor de eventos de Downstream deve ser implementada para gerar alertas no seu fluxo de trabalho de negócios existentes. Uma vez que pode implementar a lógica personalizada nas funções do Azure, as funções são a forma mais rápida, pode efetuar esta integração. Um tutorial para utilizar a função do Azure como a saída de uma tarefa do Stream Analytics pode ser encontrada na [executar as funções do Azure das tarefas do Azure Stream Analytics](stream-analytics-with-azure-functions.md). As funções do Azure também oferece suporte a vários tipos de notificações, incluindo texto e e-mail. Aplicação lógica também pode ser utilizada para essa integração, com os Hubs de eventos entre o Stream Analytics e a aplicação lógica.
+Lógica de consumidor de eventos de Downstream deve ser implementada para gerar alertas no seu fluxo de trabalho de negócios existentes. Uma vez que pode implementar a lógica personalizada nas funções do Azure, as funções do Azure é a forma mais rápida, pode efetuar esta integração. Um tutorial para utilizar a função do Azure como a saída de uma tarefa do Stream Analytics pode ser encontrada na [executar as funções do Azure das tarefas do Azure Stream Analytics](stream-analytics-with-azure-functions.md). As funções do Azure também oferece suporte a vários tipos de notificações, incluindo texto e e-mail. Aplicação lógica também pode ser utilizada para essa integração, com os Hubs de eventos entre o Stream Analytics e a aplicação lógica.
 
 ![Aplicação de mensagens de evento do ASA](media/stream-analytics-solution-patterns/eventmessagingapp.png)
 
-Os Hubs de eventos, por outro lado, oferece o ponto de integração mais flexível. Muitos outros serviços, como o Explorador de dados do Azure e o Time Series Insight, podem consumir eventos dos Hubs de eventos. Os serviços podem ser ligados diretamente para o sink de Hubs de eventos do Azure Stream Analytics para concluir a solução. Os Hubs de eventos também é o mais alto débito Mediador de mensagens disponível no Azure para estes cenários de integração.
+Os Hubs de eventos, por outro lado, oferece o ponto de integração mais flexível. Muitos outros serviços, como o Explorador de dados do Azure e o Time Series Insights podem consumir eventos a partir dos Hubs de eventos. Os serviços podem ser ligados diretamente para o sink de Hubs de eventos do Azure Stream Analytics para concluir a solução. Os Hubs de eventos também é o mais alto débito Mediador de mensagens disponível no Azure para estes cenários de integração.
 
 ## <a name="dynamic-applications-and-websites"></a>Web sites e aplicativos dinâmicos
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 907816d4f44a953ae338f6ca505b8fb3e048234e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139709"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329640"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Aplicação de serviço de aplicações do Azure com o PowerShell de clonagem
 
@@ -28,7 +28,7 @@ ms.locfileid: "66139709"
 
 Com o lançamento do Microsoft Azure PowerShell versão 1.1.0, foi adicionada uma nova opção para `New-AzWebApp` que permite-lhe clonar uma aplicação de serviço de aplicações existente para uma aplicação criada recentemente numa região diferente ou na mesma região. Esta opção permite aos clientes implementar um número de aplicações em regiões diferentes, rápida e facilmente.
 
-Clonagem de aplicação é atualmente suportado apenas para planos de serviço de aplicações de escalão premium. O novo recurso utiliza as mesmas limitações, como a funcionalidade de cópia de segurança de serviço de aplicações, consulte [cópia de segurança uma aplicação no App Service do Azure](manage-backup.md).
+Clonagem de aplicação é suportada para Standard, Premium, o Premium V2 e Isolated planos do serviço de aplicações. O novo recurso utiliza as mesmas limitações, como a funcionalidade de cópia de segurança de serviço de aplicações, consulte [cópia de segurança uma aplicação no App Service do Azure](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonar uma aplicação existente
 Cenário: Uma aplicação existente na região Centro-Sul e deseja clonar os conteúdos para uma nova aplicação na região e.u.a. Centro-Norte. Pode ser feito ao utilizar a versão do Azure Resource Manager do cmdlet do PowerShell para criar uma nova aplicação com o `-SourceWebApp` opção.

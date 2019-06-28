@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b0b637bdbab8f85c87d28473dda8f2e8f8a086e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427150"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312067"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory
 O Integration Runtime (IR) é a infraestrutura de computação que o Azure Data Factory utiliza para proporcionar as seguintes capacidades de integração de dados em diferentes ambientes de rede:
@@ -40,7 +40,7 @@ A tabela seguinte descreve as capacidades e o suporte de rede para cada um dos t
 
 Tipo de IR | Rede pública | Rede privada
 ------- | -------------- | ---------------
-Azure | Fluxo de dados<br/>Movimento de dados<br/>Distribuição de atividades | &nbsp;
+Azure | Fluxo de Dados<br/>Movimento de dados<br/>Distribuição de atividades | &nbsp;
 Autoalojado | Movimento de dados<br/>Distribuição de atividades | Movimento de dados<br/>Distribuição de atividades
 Azure-SSIS | Execução de pacotes do SSIS | Execução de pacotes do SSIS
 
@@ -74,7 +74,7 @@ Para obter informações sobre como criar e configurar um runtime de integraçã
 Os runtimes de integração autoalojados podem:
 
 - Executar a atividade de cópia entre arquivos de dados na cloud e um arquivo de dados numa rede privada.
-- Expedir as seguintes atividades de transformação relativamente aos recursos de computação no local ou de rede Virtual do Azure: Atividade de Hive do HDInsight (BYOC-traga seu Cluster próprio), atividade de Pig do HDInsight (BYOC), atividade de MapReduce do HDInsight (BYOC), atividade do Spark do HDInsight (BYOC), transmissão em fluxo do HDInsight atividade (BYOC), atividade execução de lote do Machine Learning, Machine Learning Atividades do recurso, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada .NET, atividade de pesquisa e atividade obter metadados de atualização.
+- Expedir as seguintes atividades de transformação relativamente aos recursos de computação no local ou de rede Virtual do Azure: Atividade de Hive do HDInsight (BYOC-traga seu Cluster próprio), atividade de Pig do HDInsight (BYOC), atividade de MapReduce do HDInsight (BYOC), atividade do Spark do HDInsight (BYOC), transmissão em fluxo do HDInsight atividade (BYOC), atividade execução de lote do Machine Learning, Machine Learning Atividades do recurso, a atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada (é executada no Azure Batch), atividade de pesquisa e atividade obter metadados de atualização.
 
 > [!NOTE] 
 > Utilize o runtime de integração autoalojado para suportar arquivos de dados que requeiram que utilize o seu próprio controlador, como SAP Hana, MySQL, etc.  Para obter mais informações, veja [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Arquivos de dados suportados).

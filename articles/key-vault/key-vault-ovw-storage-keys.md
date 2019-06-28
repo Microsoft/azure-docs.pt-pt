@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 91cc3f96f9cdd231c38232c972c2628d12b9f4b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ac054bc9750e4297080c4ab64030c9c6a5fb55a
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476146"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312839"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Azure Key Vault e a CLI do Azure 
 
@@ -94,7 +94,7 @@ Existem quatro passos básicos para utilizar o Key Vault para gerir as chaves de
 1. Atribua a função RBAC de "Função conta de armazenamento chave operador serviço" para o Key Vault. Esta função limita o âmbito de acesso à sua conta de armazenamento. Para uma conta de armazenamento clássicas, utilize a função de "Clássico função conta de armazenamento chave operador Service".
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
+    az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
     ```
     
     `93c27d83-f79b-4cb2-8dd4-4aa716542e74` é o ID de objeto para o Cofre de chaves na cloud pública do Azure. Para obter o ID de objeto do Cofre de chaves na cloud do Azure Government, veja [ID da aplicação principal de serviço](#service-principal-application-id).

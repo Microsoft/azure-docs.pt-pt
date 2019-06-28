@@ -7,17 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515925"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330004"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Resolver problemas relacionados com o Azure Stream Analytics, utilizando os registos de diagnóstico
 
 Ocasionalmente, uma tarefa do Azure Stream Analytics inesperadamente interrompe o processamento. É importante ser capaz de resolver esse tipo de evento. As falhas podem ser provocadas por um resultado de consulta inesperado, pela conectividade aos dispositivos ou por uma falha de serviço repentina. Os registos de diagnóstico do Stream Analytics podem ajudar a identificar a causa dos problemas quando eles ocorrerem e reduzem o tempo de recuperação.
+
+É altamente recomendado para ativar registos de diagnóstico para todas as tarefas de produção.
 
 ## <a name="log-types"></a>Tipos de registo
 
@@ -62,7 +64,7 @@ Ativar registos de diagnóstico e enviando-as aos registos do Azure Monitor é a
 
     ![Navegação do painel para os registos de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Criar um **Name** na **definições de diagnóstico** e selecione a caixa junto a **enviar para o Log Analytics**. Em seguida, adicione um existente ou crie um novo **área de trabalho do Log analytics**. As caixas de verificação **execução** e **criação** sob **LOG**, e **AllMetrics** sob **MÉTRICA** . Clique em **Guardar**.
+2.  Criar um **Name** na **definições de diagnóstico** e selecione a caixa junto a **enviar para o Log Analytics**. Em seguida, adicione um existente ou crie um novo **área de trabalho do Log analytics**. As caixas de verificação **execução** e **criação** sob **LOG**, e **AllMetrics** sob **MÉTRICA** . Clique em **Guardar**. É recomendado utilizar uma área de trabalho do Log Analytics na mesma região do Azure que a tarefa de Stream Analytics para evitar custos adicionais.
 
     ![Definições para os registos de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -113,9 +115,9 @@ Registos de execução tem informações sobre eventos que ocorreram durante a e
 
 ### <a name="data-errors"></a>Erros de dados
 
-Qualquer erro que ocorre durante a tarefa está a processar dados está nesta categoria de registos. Estes registos com mais frequência são criados durante a dados lidos, serialização e operações de escrita. Estes registos não incluem erros de conectividade. Erros de conectividade são tratados como eventos genéricos.
+Qualquer erro que ocorre durante a tarefa está a processar dados está nesta categoria de registos. Estes registos com mais frequência são criados durante a dados lidos, serialização e operações de escrita. Estes registos não incluem erros de conectividade. Erros de conectividade são tratados como eventos genéricos. Pode saber mais sobre a causa de diversas diferentes [erros de dados de entrada e saída](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
 Origem | Nome da tarefa de entrada ou saída onde ocorreu o erro.
 Mensagem | Mensagem associada com o erro.
@@ -149,4 +151,4 @@ ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_ide
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar tarefas do Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referência da REST API de gestão de análise de Stream](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Erros de dados do Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)

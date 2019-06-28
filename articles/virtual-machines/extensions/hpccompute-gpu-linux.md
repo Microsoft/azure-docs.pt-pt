@@ -85,7 +85,7 @@ Todas as definições são opcionais. O comportamento padrão é não atualizar 
 | Name | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualizar o kernel, mesmo que não é necessário para instalação de controladores | false | true, false | boolean |
-| driverVersion | NV: Versão do controlador de grelha<br> NC/ND: Versão do Kit de ferramentas CUDA. Os controladores mais recentes para o escolhido CUDA são instalados automaticamente. | mais recente | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: Versão do controlador de grelha<br> NC/ND: Versão do Kit de ferramentas CUDA. Os controladores mais recentes para o escolhido CUDA são instalados automaticamente. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale o Kit de ferramentas de CUDA. Relevante apenas para VMs de série de NC/ND. | true | true, false | boolean |
 
 

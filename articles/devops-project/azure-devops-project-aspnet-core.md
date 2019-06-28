@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 88fb243af7628b159a2255c2cdae2ab86f39ca1e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275481"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331426"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Criar um pipeline CI/CD para .NET com projetos de DevOps do Azure
 
@@ -46,7 +46,7 @@ Projetos de DevOps cria um pipeline CI/CD no Azure DevOps. Pode criar uma nova o
 
 1. Selecione o exemplo de aplicação **.NET**. Os exemplos de .NET incluem uma escolha da arquitetura de ASP.NET open source ou da arquitetura de .NET Core para várias plataformas.
 
-    ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
 2. Este exemplo corresponde a uma aplicação MVC ASP.NET Core. Selecione o **.NET Core** estrutura de aplicativo, em seguida, selecione **próxima**.    
     
@@ -54,37 +54,35 @@ Projetos de DevOps cria um pipeline CI/CD no Azure DevOps. Pode criar uma nova o
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma subscrição do Azure 
 
-1. Crie uma nova organização do Azure DevOps gratuita ou escolher uma organização existente.
+1. Introduza um **nome do projeto**.
 
-    a. Escolha um nome para o seu projeto. 
+2. Criar uma nova gratuitamente **organização de DevOps do Azure** ou escolha uma organização existente na lista pendente.
 
-    b. Selecione a subscrição do Azure e a localização, escolha um nome para a sua aplicação e, em seguida, selecione **feito**.  
-    Após alguns minutos, é apresentado o dashboard de projetos de DevOps no portal do Azure. Um aplicativo de exemplo está configurado num repositório na sua organização de DevOps do Azure, uma compilação é executada e a aplicação é implementada para o Azure. Este dashboard fornece visibilidade para o repositório de código, o pipeline de CI/CD e a sua aplicação no Azure.
-    
+3. Selecione seu **subscrição do Azure**, introduza um nome para seu **aplicação Web** ou use o padrão, em seguida, selecione **feito**. Após alguns minutos, a descrição de geral de implantação de projetos de DevOps é apresentada no portal do Azure. 
 
-2. À direita do dashboard, selecione **procurar** para ver a sua aplicação em execução.
+4. Selecione **Ir para recurso** para ver o dashboard do projeto de DevOps. No canto superior direito, afixar os **projeto** ao seu dashboard para um acesso rápido. Uma aplicação de exemplo está configurada num repositório no seu **organização de DevOps do Azure**. Uma compilação é executada e a aplicação é implementada para o Azure.
 
-    ![Vista do Dashboard](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
+5. O dashboard fornece visibilidade em seu repositório de código, seu pipeline CI/CD e sua aplicação no Azure. À direita em recursos do Azure, selecione **procurar** para ver a sua aplicação em execução.
+
+   ![Vista do Dashboard](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Consolidar as alterações de código e executar o CI/CD
 
- Projetos de DevOps criado um repositório de Git em repositórios do Azure ou do GitHub. Para ver o repositório e fazer alterações de código no aplicativo, faça o seguinte:
+Projetos de DevOps criado um repositório de Git em repositórios do Azure ou do GitHub. Para ver o repositório e fazer alterações de código no aplicativo, faça o seguinte:
 
-1. À esquerda do dashboard de projetos de DevOps, selecione a ligação para o seu **mestre** ramo.  
-Esta ligação abre uma vista para o repositório Git recentemente criado.
+1. À esquerda do dashboard de projetos de DevOps, selecione a ligação para o seu **mestre** ramo. Esta ligação abre uma vista para o repositório Git recentemente criado.
 
-1. Para ver o URL de clone do repositório, selecione **Clone** na parte superior direita do browser.  
-Pode clonar o repositório Git no seu IDE preferido.  Nos próximos passos, pode utilizar o browser para fazer e consolidar alterações de código diretamente no ramo principal.
+2. Em alguns passos que se seguem, pode utilizar o navegador da web para fazer e consolidar as alterações de código diretamente a **mestre** ramo. Também pode clonar o repositório de Git no seu IDE favorito selecionando **Clone** da parte superior direita da página de repositório. 
 
-1. No lado esquerdo do browser, vá para o **Views/Home/index.cshtml** ficheiro.
+3. No lado esquerdo, navegue até a estrutura de ficheiros de aplicação para **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-1. Selecione **editar**e, em seguida, faça uma alteração para o título h2. Por exemplo, digite **dar os primeiros passos com os projetos de DevOps do Azure** ou fazer alguma alteração.
+4. Selecione **editar**e, em seguida, faça uma alteração para o título h2. Por exemplo, digite **dar os primeiros passos com os projetos de DevOps do Azure** ou fazer alguma alteração.
 
-    ![Edições de código](_img/azure-devops-project-aspnet-core/codechange.png)
+      ![Edições de código](_img/azure-devops-project-aspnet-core/codechange.png)
 
-1. Selecione **consolidar**e, em seguida, guarde as alterações.
+5. Selecione **consolidar**, deixe um comentário e selecione **consolidar** novamente.
 
-1. No seu browser, aceda ao dashboard do projeto de DevOps do Azure.  Deverá agora ver que está em curso uma compilação. As alterações que efetuou são automaticamente criadas e implementadas por meio de um pipeline CI/CD.
+6. No seu browser, aceda ao dashboard do projeto de DevOps do Azure.  Deverá agora ver que está em curso uma compilação. As alterações que efetuou são automaticamente criadas e implementadas por meio de um pipeline CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examine o pipeline de CI/CD
 

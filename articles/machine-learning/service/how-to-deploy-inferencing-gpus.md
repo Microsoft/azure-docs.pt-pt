@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: ec71165553a1d65ff133d605bf94255100f74e6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f455d4f972153af934ab8966d0f1753fc55aa21
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388928"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205923"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência de tipos com GPU
 
@@ -144,7 +144,7 @@ model = Model(ws,"resnet50")
 inference_config = InferenceConfig(runtime= "python", 
                                    entry_script="score.py",
                                    conda_file="myenv.yml", 
-                                   gpu_enabled=True)
+                                   enable_gpu=True)
 ```
 
 Para obter mais informações, consulte:

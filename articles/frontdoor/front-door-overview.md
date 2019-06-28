@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 04/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736331"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330825"
 ---
 # <a name="what-is-azure-front-door-service"></a>O que é o Azure Front Door Service?
 O Azure Front Door Service permite-lhe definir, gerir e monitorizar o encaminhamento global do tráfego da Web ao otimizar para o melhor desempenho e ativação pós-falha instantânea para uma elevada disponibilidade. Com o Front Door, pode transformar as suas aplicações empresariais e para consumidores globais (múltiplas regiões) em aplicações, APIs e conteúdos robustos, modernos e personalizados, com um elevado desempenho e que alcancem uma audiência global com o Azure.
@@ -60,6 +60,13 @@ O Front Door também suporta HTTPS para nomes de domínio personalizados. Utiliz
 O Azure Front Door permite criar regras de firewall de aplicações Web (WAF) personalizadas para o controlo de acesso de forma a proteger a carga de trabalho HTTP/HTTPS da exploração com base em endereços IP de cliente, no indicativo e em parâmetros http. Além disso, o Front Door também permite criar regras de limitação de velocidade para evitar o tráfego de bots maliciosos. 
 
 A plataforma do Front Door encontra-se protegida pela proteção básica do [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md). Para aumentar a proteção, é possível ativar a proteção padrão do Azure DDoS Protection nas suas VNETs e recursos de salvaguarda contra ataques de camada de rede (TCP/UDP) através de ajuste automático e mitigação. O Front Door é um proxy inverso de camada 7; só permite que o tráfego Web passe para os back-ends e bloqueia os outros tipos de tráfego por predefinição.
+
+## <a name="url-redirection"></a>Redirecionamento de URL
+Com o envio de setor forte no suporte a apenas uma comunicação segura, espera-se aplicações web para redirecionar automaticamente qualquer tráfego HTTP para HTTPS. Isto garante que todas as comunicações entre os utilizadores e a aplicação ocorrem ao longo de um caminho encriptado. 
+
+Tradicionalmente, os proprietários dos aplicativos abordaram a esse requisito através da criação de um serviço dedicado, cujo único objetivo foi redirecionar os pedidos recebidos de HTTP para HTTPS. Serviço de porta de entrada do Azure suporta a capacidade de redirecionar o tráfego de HTTP para HTTPS. Isto simplifica a configuração da aplicação, otimiza a utilização de recursos e suporta novos cenários de redirecionamento, incluindo o redirecionamento global e com base no caminho. Redirecionamento de URL do serviço de porta de entrada do Azure não está limitado a HTTP para redirecionamento a HTTPS sozinho, mas também para redirecionar para um nome de anfitrião diferente, redirecionando para um caminho diferente, ou até mesmo a redirecionar para uma nova cadeia de consulta no URL.
+
+Para obter mais informações, consulte [redirecionar o tráfego](front-door-url-redirect.md) com o serviço de porta de entrada do Azure.
 
 ## <a name="url-rewrite"></a>Reescrever URL
 O Front Door suporta [reescrita de URL](front-door-url-rewrite.md) ao permitir-lhe configurar um Caminho de Reencaminhamento Personalizado opcional que poderá utilizar quando criar o pedido para reencaminhar para o back-end. O Front Door também permite configurar o cabeçalho do Anfitrião que será enviado durante o reencaminhamento do pedido para o back-end.

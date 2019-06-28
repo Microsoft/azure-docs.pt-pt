@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d206ea1afe43a91707a4bcd981a4158ff08fdc3a
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471593"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206153"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -116,7 +116,7 @@ Todos os seus recursos, como VMs, discos e transferência de Web sites para o no
 
 ### <a id="no-button"></a> Por que motivo não vejo no botão "Transferir a subscrição"?
 
-Infelizmente, a transferência de subscrição Self-Service não está disponível para a sua oferta. Ver a lista de ofertas de suporte no [suportado ofertas](#supported-offers) seção deste artigo. Além disso, podemos não bloqueiam a transferência de subscrição para qualquer países. No entanto, cruzada país transferência não é suportada. Para transferir a sua subscrição cruzada país, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+Infelizmente, a transferência de subscrição self-service não está disponível para a sua oferta. Ver a lista de ofertas de suporte no [suportado ofertas](#supported-offers) seção deste artigo. Além disso, podemos não bloqueiam a transferência de subscrição para qualquer países. Consulte a [lista completa destes países](https://azure.microsoft.com/pricing/faq/) onde o Azure está disponível comercialmente. No entanto, a transferência de subscrição self-service não suporta a transferência de país cruzada. Para transferir a sua subscrição cruzada país, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Posso transferir a propriedade para uma conta em outro país?

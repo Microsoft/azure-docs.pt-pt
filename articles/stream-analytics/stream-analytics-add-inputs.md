@@ -8,23 +8,23 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: b5979f8523aad95152378a2e7fabbe9fd8571e09
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 87e260c97a748807929a0e7021e3efb2ae8f8e7b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154099"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329292"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Compreender as entradas para o Azure Stream Analytics
 
 Tarefas do Azure Stream Analytics ligar a uma ou mais entradas de dados. Cada entrada define uma ligação a uma origem de dados existente. Stream Analytics aceita a entrada de dados de vários tipos de origens de eventos, incluindo os Hubs de eventos, o IoT Hub e armazenamento de Blobs. As entradas são referenciadas por nome na consulta SQL transmissão em fluxo que escreve para cada tarefa. Na consulta, pode associar várias entradas para mesclar dados ou comparar dados de transmissão em fluxo com uma pesquisa a dados de referência e transmitir os resultados para saídas. 
 
-Stream Analytics tem integração de primeira classe dentre três tipos de recursos como entradas:
+Stream Analytics tem integração de classe empresarial com três tipos de recursos como entradas:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) 
 - [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) 
 
-Estes recursos de entrada podem residir na mesma subscrição do Azure como a tarefa de Stream Analytics, ou de uma subscrição diferente.
+Estes recursos de entrada podem residir na mesma subscrição do Azure, como a tarefa de Stream Analytics, ou de uma subscrição diferente.
 
 Pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)para criar, editar e testar as entradas da tarefa de Stream Analytics.
 
@@ -37,7 +37,7 @@ Um fluxo de dados é uma sequência não vinculada de eventos ao longo do tempo.
 Para obter mais informações sobre entradas de dados de transmissão em fluxo, consulte [Stream dados como entrada para o Stream Analytics](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Entrada de dados de referência
-Stream Analytics também suporta a entrada conhecida como *dados de referência*. Dados de referência estão completamente estáticos ou alterados lentamente. É normalmente utilizado para efetuar a correlação e pesquisas. Por exemplo, pode associar dados a entrada de fluxo de dados para dados nos dados de referência, como poderia executar uma associação SQL para pesquisar por valores estáticos. Armazenamento de Blobs do Azure e base de dados do Azure SQL atualmente são suportadas como origem de entrada para dados de referência. Blobs de origem de dados de referência têm um limite de 300 MB de tamanho, dependendo da complexidade da consulta e atribuído unidades transmissão em fluxo.
+Stream Analytics também suporta a entrada conhecida como *dados de referência*. Dados de referência estão completamente estáticos ou alterados lentamente. É normalmente utilizado para efetuar a correlação e pesquisas. Por exemplo, pode associar dados a entrada de fluxo de dados para dados nos dados de referência, como poderia executar uma associação SQL para pesquisar por valores estáticos. Armazenamento de Blobs do Azure e base de dados do Azure SQL atualmente são suportados como origens de entrada para dados de referência. Blobs de origem de dados de referência têm um limite de 300 MB de tamanho, dependendo da complexidade da consulta e atribuído unidades transmissão em fluxo (consulte a [limitação de tamanho](stream-analytics-use-reference-data.md#size-limitation) secção da documentação de dados de referência para obter mais detalhes).
 
 Para obter mais informações sobre as entradas de dados de referência, consulte [usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md)
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 57f238a8f91df1271e91894b88a7f02118b1f123
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165504"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67184203"
 ---
 ### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Determinar o nome DNS da máquina virtual
 Para ligar ao Motor de Base de Dados do SQL Server a partir de outro computador, tem de saber qual é o nome DNS (Sistema de Nomes de Domínio) da máquina virtual. (Este é o nome que a Internet utiliza para identificar a máquina virtual. Pode utilizar o endereço IP, mas este pode mudar quando o Azure move recursos para redundância ou manutenção. O nome DNS será estável porque pode ser redirecionado para um novo endereço IP.)  

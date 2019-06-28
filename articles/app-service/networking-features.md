@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 362f0b32ea99d0b888ea9f1efa0cd4ea74eb2fa1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498953"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338501"
 ---
 # <a name="app-service-networking-features"></a>Funcionalidades de rede do serviço de aplicações
 
@@ -88,7 +88,7 @@ Quando utiliza uma aplicação atribuída endereço, o tráfego atravessa ainda 
 * Suportar as necessidades SSL baseado em IP para a sua aplicação
 * Definir um endereço dedicado para a sua aplicação que não é partilhado com qualquer outra coisa
 
-Pode saber como definir um endereço na sua aplicação com o tutorial [SSL baseado em IP configurando][appassignedaddress]. 
+Pode saber como definir um endereço na sua aplicação com o tutorial [SSL baseado em IP configurar][appassignedaddress]. 
 
 ### <a name="access-restrictions"></a>Restrições de acesso 
 
@@ -112,7 +112,7 @@ Pontos finais de serviço permite-lhe bloquear **entrada** aceder à sua aplica�
 ![pontos finais de serviço](media/networking-features/service-endpoints.png)
 
 * Configurar um Gateway de aplicação com a sua aplicação para bloquear o tráfego de entrada para a sua aplicação
-* Testricting acesso à sua aplicação para recursos na sua VNet. Isto pode incluir as VMs, os ASEs ou, inclusivamente, noutras aplicações que utilizam a integração de VNet 
+* Restringir o acesso à sua aplicação para recursos na sua VNet. Isto pode incluir as VMs, os ASEs ou, inclusivamente, noutras aplicações que utilizam a integração de VNet 
 
 ![pontos finais de serviço com o gateway de aplicação](media/networking-features/service-endpoints-appgw.png)
 
@@ -136,7 +136,7 @@ Esta funcionalidade é frequentemente utilizada para:
 
 Uma vez que o recurso permite o acesso a recursos no local sem uma brecha de firewall de entrada, é popular entre os desenvolvedores. Os outros saídos serviço de aplicações recursos de rede são muito Virtual rede Azure relacionados. As ligações híbridas não tem uma dependência de passar por uma VNet e podem ser utilizadas para uma maior variedade de necessidades de rede. É importante observar que a funcionalidade de ligações de híbridas do serviço de aplicações não se importa com nem sabe o que está a fazer com base no mesmo. Isto é, digamos que pode usá-lo para aceder a uma base de dados, um serviço web ou um soquete TCP arbitrário no seu próprio mainframe. A funcionalidade de túneis essencialmente pacotes TCP. 
 
-Enquanto as ligações híbridas são populares para desenvolvimento, também é utilizado em várias aplicações de produção também. É ótimo para aceder a um serviço web ou a base de dados, mas não é adequada para situações que envolvem um ligações muitos excelentes que está sendo criado. 
+Enquanto as ligações híbridas são populares para desenvolvimento, também é utilizado em várias aplicações de produção também. É ótimo para aceder a um serviço web ou a base de dados, mas não é adequada para situações que envolvem a criação de muitas ligações. 
 
 ### <a name="gateway-required-vnet-integration"></a>Gateway necessário integração de VNet 
 

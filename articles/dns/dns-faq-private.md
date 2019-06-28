@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: c963cb1b6930b41a703b479e0213311d971e6606
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082849"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274050"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ de DNS privado do Azure
 
@@ -88,6 +88,13 @@ Os limites predefinidos seguintes aplicam-se ao utilizar o DNS privado do Azure.
 ## <a name="is-there-portal-support-for-private-zones"></a>Existe suporte para zonas privadas do portal?
 
 Sim e as zonas privadas já criadas através de APIs, PowerShell, CLI e SDKs são visíveis no portal do Azure.
+
+## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Por que motivo não meu zonas DNS privadas existentes é exibido na experiência do novo portal?
+
+Como parte da versão de pré-visualização atualizar Lançamos um novo modelo de recurso para zonas privadas do DNS. As zonas privadas do DNS existentes tem de ser migrados para o novo modelo de recursos antes de estes apresentado na nova experiência de portal. Veja abaixo para obter instruções sobre como migrar para o novo modelo de recursos.
+
+## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>Como posso migrar meu zonas privadas do DNS existentes para o novo modelo?
+Recomendamos vivamente que migrar para o novo modelo de recurso logo que possível. Modelo de recursos herdados será suportado, no entanto, ainda mais serão não ser desenvolvidas funcionalidades sobre este modelo. No futuro, pretendemos preteri-la em favor do novo modelo de recursos. Para obter orientações sobre como migrar seu DNS privado existente ver zonas para o novo modelo de recurso[guia de migração para zonas privadas do DNS do Azure](private-dns-migration-guide.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

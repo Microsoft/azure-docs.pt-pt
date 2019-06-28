@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 714283628e1b2ac445d36d0b07fe299b589a1cf0
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989915"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312807"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Criar e explorar automatizada experimentações de machine learning no portal do Azure (pré-visualização)
 
@@ -96,16 +96,16 @@ Selecione o botão Criar experimentação para preencher o formulário seguinte.
 
 1. Para a previsão:
     1. Selecione a coluna de hora: Esta coluna contém os dados de tempo para ser utilizado.
-    1. Selecione horizonte previsão: Indica o número de unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever o futuro. Quanto mais o modelo é necessário para prever o futuro, quanto menos precisas torna-se. [Saiba mais sobre previsão e previsão horizonte](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment).
+    1. Selecione horizonte previsão: Indica o número de unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever o futuro. Quanto mais o modelo é necessário para prever o futuro, quanto menos precisas torna-se. [Saiba mais sobre previsão e previsão horizonte](how-to-auto-train-forecast.md).
 
 1. (Opcional) Definições avançadas: definições adicionais que pode utilizar para controlar melhor a tarefa de preparação.
 
     Definições avançadas|Descrição
     ------|------
-    Métrica primária| Métrica principal utilizada para o seu modelo de classificação. [Saiba mais sobre as métricas de modelo](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
+    Métrica primária| Métrica principal utilizada para o seu modelo de classificação. [Saiba mais sobre as métricas de modelo](how-to-configure-auto-train.md#explore-model-metrics).
     Critérios de saída| Quando qualquer um desses critérios forem atendidos, a tarefa de preparação termina antes da conclusão completa. <br> *O tempo de tarefa (minutos) de treinamento*: Quanto para permitir que a tarefa de preparação executar.  <br> *Número máximo de iterações*: Número máximo de pipelines (iterações) para testar a tarefa de preparação. A tarefa não será executada mais do que o número especificado de iterações. <br> *Métrica de pontuação limiar*:  Pontuação de métrica mínimo para todos os pipelines. Isto garante que se tiver uma métrica de destino definido que deseja alcançar, que não passar mais tempo na tarefa de treinamento que o necessário.
     O pré-processamento| Selecione para ativar ou desativar o pré-processamento feito pela aprendizagem automática. O pré-processamento inclui a limpeza de dados automática, preparar e transformação para gerar recursos sintéticos. [Saiba mais sobre o processamento prévio de](#preprocess).
-    Validação| Selecione uma das opções de validação cruzada para utilizar a tarefa de preparação. [Saiba mais sobre cruzada validação](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
+    Validação| Selecione uma das opções de validação cruzada para utilizar a tarefa de preparação. [Saiba mais sobre cruzada validação](how-to-configure-auto-train.md).
     Simultaneidade| Selecione os limites de vários núcleos para utilizar quando utilizar vários núcleo computação.
     Algoritmo de bloqueados| Selecione algoritmos que pretende excluir da tarefa de preparação.
 
@@ -180,7 +180,7 @@ Tarefas de preparação pode demorar algum tempo para cada termine a execução 
 
 ### <a name="view-training-run-details"></a>Treinamento de vista Detalhes da execução
 
-Faça uma busca detalhada em qualquer um dos modelos de saída para ver detalhes de execução, como gráficos de métricas e distribuição de desempenho de treinamento. [Saiba mais sobre os gráficos](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
+Faça uma busca detalhada em qualquer um dos modelos de saída para ver detalhes de execução, como gráficos de métricas e distribuição de desempenho de treinamento. [Saiba mais sobre os gráficos](how-to-track-experiments.md#understanding-automated-ml-charts).
 
 ![Detalhes de iteração](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -220,7 +220,7 @@ ML automatizada ajuda-o com a implementação do modelo sem escrever código:
 
 1. Selecione o **procurar** botão junto à caixa "Conda File" para carregar o ficheiro de ambiente (condaEnv.yml) que transferiu anteriormente.
 
-    Pode usar o seu script de classificação e o arquivo de conda, bem como carregar ficheiros adicionais. [Saiba mais sobre o script de classificação](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+    Pode usar o seu script de classificação e o arquivo de conda, bem como carregar ficheiros adicionais. [Saiba mais sobre o script de classificação](how-to-deploy-and-where.md#script).
 
       >[!Important]
       > Os nomes de ficheiros devem ser em 32 carateres e deve começar e terminar com carateres alfanuméricos. Pode incluir travessões, carateres de sublinhado, pontos e carateres de alfanuméricos entre. Não são permitidos espaços.
@@ -228,7 +228,7 @@ ML automatizada ajuda-o com a implementação do modelo sem escrever código:
     ![Criar imagem](media/how-to-create-portal-experiments/create-image.png)
 
 1. Selecione o botão "Criar" para iniciar a criação de imagem. Esta ação irá demorar alguns minutos a concluir, assim que estiver pronto, verá uma mensagem na barra superior.
-1. Aceda ao separador "Imagens", selecione a caixa de verificação junto a imagem que pretende implementar e selecione "Criar a implementação". [Saiba mais sobre implementações](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+1. Aceda ao separador "Imagens", selecione a caixa de verificação junto a imagem que pretende implementar e selecione "Criar a implementação". [Saiba mais sobre implementações](how-to-deploy-and-where.md).
 
     Existem 2 opções para a implantação.
      + Instância de contentor do Azure (ACI) - Isto é utilizado mais para fins de teste de finalidade em vez de implementação operacional em escala. Lembre-se de que preencha os valores para, pelo menos, um núcleo para _capacidade de reserva de CPU_e, pelo menos, um gigabyte (GB) para _capacidade de reserva de memória_

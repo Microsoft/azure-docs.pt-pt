@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8c23e429966cf9a1e93ac46ea3ecd11744761872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1c6f8074dab19b18f695763b160e4aeffe3ac44
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148627"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204836"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminação de forma recuperável para blobs de armazenamento do Azure
 O armazenamento do Azure agora oferece a eliminação de forma recuperável para objetos de blob, para que mais facilmente podem recuperar seus dados quando incorretamente é modificada ou eliminada por uma aplicação ou outro utilizador da conta de armazenamento.
@@ -274,13 +274,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>Devo utilizar a eliminação de forma recuperável?
-Se é provável que os seus dados acidentalmente são modificados ou eliminados por uma aplicação ou outro utilizador da conta de armazenamento, recomendamos que Ativando a eliminação de forma recuperável. Eliminação de forma recuperável é uma parte de uma estratégia de proteção de dados e pode ajudar a evitar perda de dados acidentais.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Existem implicam considerações especiais para utilizar a eliminação de forma recuperável?
+Se é provável que os seus dados acidentalmente são modificados ou eliminados por uma aplicação ou outro utilizador da conta de armazenamento, recomendamos que Ativando a eliminação de forma recuperável. Ativar eliminação de forma recuperável para dados frequentemente substituídas poderá resultar em encargos de capacidade de armazenamento maiores e maior latência quando lista os blobs. Pode mitigar isso ao armazenar os dados com frequência substituídos numa conta de armazenamento separada com eliminação de forma recuperável desativada. 
 
 ## <a name="faq"></a>FAQ
-**Existem implicam considerações especiais para utilizar a eliminação de forma recuperável?**  
-Ativar eliminação de forma recuperável para dados frequentemente substituídas poderá resultar em encargos de capacidade de armazenamento maiores e maior latência quando lista os blobs. Pode mitigar isso ao armazenar os dados com frequência substituídos numa conta de armazenamento separada com eliminação de forma recuperável desativada. 
-
 **Para quais tipos de armazenamento posso utilizar eliminação de forma recuperável?**  
 Atualmente, a eliminação de forma recuperável só está disponível para armazenamento de blob (objeto).
 

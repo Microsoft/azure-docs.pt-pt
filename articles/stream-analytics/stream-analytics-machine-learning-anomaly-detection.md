@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: fdf98a0c0c40010bb55955b54dc7b04db8e199f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493267"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329906"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias no Azure Stream Analytics
 
@@ -21,7 +21,7 @@ Disponível na cloud e no Azure IoT Edge, Azure Stream Analytics oferece incorpo
 
 Os modelos de machine learning partem do princípio de uma série de tempo de amostragem de maneira uniforme. Se não for uniforme a série de tempo, pode inserir um passo de agregação com uma janela em cascata antes de chamar a deteção de anomalias.
 
-As operações do machine learning não suportam as tendências de sazonalidade ou número multi correlações.
+As operações do machine learning não suportam as tendências de sazonalidade ou número multi correlações neste momento.
 
 ## <a name="model-accuracy-and-performance"></a>Precisão de modelo e o desempenho
 
@@ -29,9 +29,9 @@ Em geral, precisão do modelo é aprimorado com mais dados na janela deslizante.
 
 As funções funcionam através do estabelecimento de um determinado normal, com base no que eles já viu até agora. Valores atípicos são identificados por comparação com o estabelecido normal, dentro do nível de confiança. O tamanho da janela deve basear-se nos eventos mínimo necessários para preparar o modelo para o comportamento normal, para que quando ocorrer uma anomalia, seria capaz de reconhecê-lo.
 
-Tenha em atenção que o tempo de resposta do modelo aumenta com o tamanho de histórico, porque tem de comparar em relação a um número mais elevado de eventos passados. Recomenda-se para incluir apenas o número necessário de eventos para um melhor desempenho.
+Tempo de resposta do modelo aumenta com tamanho de histórico, porque tem de comparar em relação a um número mais elevado de eventos passados. Recomenda-se para incluir apenas o número necessário de eventos para um melhor desempenho.
 
-As lacunas na série de tempo podem ser o resultado do modelo não receber eventos em determinados pontos no tempo. Esta situação é manipulada pela análise de Stream com o imputation. O tamanho de histórico, bem como uma duração de tempo, para a mesma janela deslizante é utilizado para calcular a média da taxa em que os eventos são esperados para chegar.
+As lacunas na série de tempo podem ser o resultado do modelo não receber eventos em determinados pontos no tempo. Esta situação é manipulada pela análise de Stream usando a lógica de imputation. O tamanho de histórico, bem como uma duração de tempo, para a mesma janela deslizante é utilizado para calcular a média da taxa em que os eventos são esperados para chegar.
 
 ## <a name="spike-and-dip"></a>Pico e dip
 
@@ -40,7 +40,7 @@ Anomalias temporárias num fluxo de eventos de série de tempo são conhecidas c
 
 ![Exemplo de anomalias de pico e dip](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-Na mesma janela deslizante, se um segundo pico for menor que o primeiro, a classificação calculada para a menor oscilação provavelmente não é significativa suficiente em comparação com a classificação para o pico primeiro no nível de confiança especificado. Pode tentar reduzir a definição de nível de confiança do modelo para capturar essas anomalias. No entanto, se começar a obter demasiados alertas, pode utilizar um intervalo mais alto de confiança.
+Na mesma janela deslizante, se um segundo pico for menor que o primeiro, a classificação calculada para a menor oscilação provavelmente não é significativa suficiente em comparação com a classificação para o pico primeiro no nível de confiança especificado. Pode tentar diminuir o nível de confiança do modelo para detectar essas anomalias. No entanto, se começar a obter demasiados alertas, pode utilizar um intervalo mais alto de confiança.
 
 A seguinte consulta de exemplo parte do princípio de uma taxa uniforme de entrada de um evento por segundo numa janela deslizante de 2 minutos com um histórico de eventos de 120. A instrução SELECT final extrai e devolve a pontuação e anomalias Estado com um nível de confiança de 95%.
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0d52e84ba027f902cebf543ae019b5e4b53400b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059678"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275737"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
@@ -29,7 +29,7 @@ Um conjunto de registos de alias é suportado para os seguintes tipos de registo
 
 ## <a name="capabilities"></a>Capacidades
 
-- **Ponto para um recurso IP público a partir de um conjunto de registos de A/AAAA de DNS.** Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso IP público. O conjunto de registos de DNS é automaticamente se o endereço IP público é alterado ou é eliminada. Os registos que apontam para endereços IP incorretos dangling DNS são evitados.
+- **Ponto para um recurso IP público a partir de um conjunto de registos de A/AAAA de DNS.** Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso IP público. O registo DNS de conjunto de alterações automaticamente se o endereço IP público, altera ou é eliminada. Os registos que apontam para endereços IP incorretos dangling DNS são evitados.
 
 - **Ponto para um perfil do Gestor de tráfego a partir de um conjunto de registos DNS A/AAAA/CNAME.** Pode criar um A/AAAA ou registo CNAME defina e utilize registos de alias para apontar para um perfil do Gestor de tráfego. É especialmente útil quando precisa encaminhar o tráfego no apex de zona, como os registos CNAME tradicionais não são suportados para um vértice da zona. Por exemplo, digamos que seu perfil do Gestor de tráfego é myprofile.trafficmanager.net e sua zona DNS da empresa for contoso.com. Pode criar um conjunto de registos de alias do tipo A/AAAA para contoso.com (o vértice da zona) e aponte para myprofile.trafficmanager.net.
 - **Aponte para um ponto de extremidade de rede de entrega conteúdo (CDN)** . Isto é útil quando criar os Web sites estáticos com o armazenamento do Azure e CDN do Azure.

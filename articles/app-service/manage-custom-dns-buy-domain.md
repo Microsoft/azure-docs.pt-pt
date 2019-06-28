@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475234"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310148"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de aplicações do Azure
 
@@ -147,7 +147,7 @@ Também pode ver os nomes de anfitriões selecionados no **domínios personaliza
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> R **nota Secure** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e irá receber qualquer pedido HTTPS a partir de um browser ao seu domínio personalizado e erro ou aviso, consoante o browser. Para configurar o enlace SSL, consulte [comprar e configurar um certificado SSL para o serviço de aplicações do Azure](web-sites-purchase-ssl-web-site.md).
+> R **não proteger** etiqueta para o seu domínio personalizado significa que ainda não está vinculado a um certificado SSL e qualquer solicitação HTTPS a partir de um browser ao seu domínio personalizado irá receber um erro ou aviso, consoante o browser. Para configurar o enlace SSL, consulte [comprar e configurar um certificado SSL para o serviço de aplicações do Azure](web-sites-purchase-ssl-web-site.md).
 >
 
 Para testar os nomes de anfitrião, navegue para os nomes de anfitrião listadas no browser. No exemplo da captura de ecrã anterior, tentar navegar até _kontoso.net_ e _www\.kontoso.net_.

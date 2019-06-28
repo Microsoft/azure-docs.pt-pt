@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: d25082c429c58c074726c75f7ff6f248daee4151
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 249e5ac33b1420ada2cda45ea729471351f21adf
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050612"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341992"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de programadores de Python de funções do Azure
 
@@ -73,10 +73,11 @@ Opcionalmente, para aproveitar o intellisense e funcionalidades de conclusão au
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
-```  
+```
 
 Utilize as anotações de Python incluídas nos [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) pacote para o enlace de entrada e saídas para seus métodos.
 
@@ -154,6 +155,7 @@ Por exemplo, o código a seguir demonstra a diferença entre os dois:
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -163,7 +165,7 @@ def main(req: func.HttpRequest,
 Quando a função é invocada, o pedido HTTP é passado para a função como `req`. Uma entrada será recuperada de armazenamento de Blobs do Azure com base na _ID_ o URL de rota e disponibilizados tal como `obj` no corpo da função.  Aqui a conta de armazenamento especificado a cadeia de ligação se encontra no `AzureWebJobsStorage` que é a mesma conta de armazenamento utilizada pela aplicação de função.
 
 
-## <a name="outputs"></a>Saídas
+## <a name="outputs"></a>outputs
 
 Saída pode ser expressas no valor de retorno e parâmetros de saída. Se existir apenas uma saída, recomendamos que utilize o valor de retorno. Para várias saídas, terá que usar parâmetros de saída.
 
@@ -200,6 +202,7 @@ Para produzir várias saídas, utilize o `set()` método fornecido pelo `azure.f
 ```python
 import azure.functions as func
 
+
 def main(req: func.HttpRequest,
          msg: func.Out[func.QueueMessage]) -> str:
 
@@ -216,6 +219,7 @@ O exemplo seguinte regista uma mensagem de informações quando a função é in
 
 ```python
 import logging
+
 
 def main(req):
     logging.info('Python HTTP trigger function processed a request.')
@@ -237,6 +241,8 @@ Recomendamos que escreve sua função do Azure como um coroutine assíncrona uti
 
 ```python
 # Will be run with asyncio directly
+
+
 async def main():
     await some_nonblocking_socket_io_op()
 ```
@@ -245,6 +251,8 @@ Se a função Main () é síncrona (sem `async` qualificador) executamos automat
 
 ```python
 # Would be run in an asyncio thread-pool
+
+
 def main():
     some_blocking_socket_io()
 ```
@@ -258,8 +266,9 @@ Por exemplo:
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest,
-            context: azure.functions.Context) -> str:
+         context: azure.functions.Context) -> str:
     return f'{context.invocation_id}'
 ```
 
@@ -280,6 +289,7 @@ Não é garantido que o estado da sua aplicação será mantido para execuções
 
 ```python
 CACHED_DATA = None
+
 
 def main(req):
     global CACHED_DATA
@@ -335,6 +345,7 @@ Por exemplo, segue-se um teste de simulação de uma função acionada por HTTP:
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -348,13 +359,14 @@ import unittest
 import azure.functions as func
 from . import my_function
 
+
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
         # Construct a mock HTTP request.
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/my_function', 
+            url='/my_function',
             params={'name': 'Test'})
 
         # Call the function.
@@ -362,7 +374,7 @@ class TestFunction(unittest.TestCase):
 
         # Check the output.
         self.assertEqual(
-            resp.get_body(), 
+            resp.get_body(),
             'Hello, Test!',
         )
 ```
@@ -372,6 +384,7 @@ Eis outro exemplo, com uma função acionada por fila:
 ```python
 # myapp/__init__.py
 import azure.functions as func
+
 
 def my_function(msg: func.QueueMessage) -> str:
     return f'msg body: {msg.get_body().decode()}'
@@ -384,6 +397,7 @@ import unittest
 import azure.functions as func
 from . import my_function
 
+
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
         # Construct a mock Queue message.
@@ -395,10 +409,10 @@ class TestFunction(unittest.TestCase):
 
         # Check the output.
         self.assertEqual(
-            resp, 
+            resp,
             'msg body: test',
         )
-``` 
+```
 
 ## <a name="known-issues-and-faq"></a>Problemas conhecidos e FAQ
 

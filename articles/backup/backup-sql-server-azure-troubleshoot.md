@@ -6,14 +6,14 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 05/27/2019
+ms.date: 06/18/2019
 ms.author: anuragm
-ms.openlocfilehash: 8459bb451c4ff462ee816b986cafdbf776603917
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ed30a35f30d1b6b9fdcd43110ed93618a10dbc3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306959"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204196"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
 
@@ -25,8 +25,7 @@ Para ver a consideração de funcionalidade, consulte o artigo [cópia de segura
 
 ## <a name="sql-server-permissions"></a>Permissões do SQL Server
 
-Para configurar a proteção para uma base de dados do SQL Server numa máquina virtual, o **AzureBackupWindowsWorkload** extensão tem de estar instalada nessa máquina virtual. Se receber o erro **UserErrorSQLNoSysadminMembership**, significa que a instância de SQL não tem as permissões de cópia de segurança necessárias. Para corrigir este erro, siga os passos em [defina permissões para as VMs do SQL externas](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
+Para configurar a proteção para uma base de dados do SQL Server numa máquina virtual, o **AzureBackupWindowsWorkload** extensão tem de estar instalada nessa máquina virtual. Se receber o erro **UserErrorSQLNoSysadminMembership**, significa que a instância de SQL não tem as permissões de cópia de segurança necessárias. Para corrigir este erro, siga os passos em [defina permissões para as VMs do SQL externas](backup-azure-sql-database.md#set-vm-permissions).
 
 ## <a name="backup-type-unsupported"></a>Tipo de cópia de segurança não suportado
 

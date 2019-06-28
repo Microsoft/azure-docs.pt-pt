@@ -3,17 +3,17 @@ title: Configurar a monitorização de alertas para tarefas do Azure Stream Anal
 description: Este artigo descreve como utilizar o portal do Azure para configurar a monitorização e alertas para tarefas do Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 09a5c77c770f7709b90d4959da5be9134b0f0ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/21/2019
+ms.openlocfilehash: 26e8e004f917b1c138bc27389cac1cc52672f3d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077673"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329863"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para tarefas do Azure Stream Analytics
 
@@ -22,6 +22,7 @@ ms.locfileid: "67077673"
 Pode definir regras em métricas de dados de registos de operações através do portal, bem como [programaticamente](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>Configurar alertas no portal do Azure
+### <a name="get-alerted-when-a-job-stops-unexpectedly"></a>Receber alertas quando uma tarefa para inesperadamente
 
 O exemplo seguinte demonstra como configurar alertas para quando a tarefa entra num Estado com falhas. Este alerta é recomendado para todas as tarefas.
 

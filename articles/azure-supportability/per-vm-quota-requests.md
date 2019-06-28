@@ -7,18 +7,27 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: f921b4a95c1b0cfb29d84c0bacc17d268af6e6c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 79879cd7f5ea5af1b794735f32e6e1367458e124
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082823"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310731"
 ---
-# <a name="vm-series-vcpu-limit-increase"></a>Aumento de limite de vCPU de série de VM
+# <a name="vm-series-vcpu-limit-increase"></a>Aumento do limite de vCPU das Séries de VM
+
+Quotas de vCPU de Gestor de recursos para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais são impostas em dois escalões para cada subscrição, em cada região. 
+
+A primeira camada é o **limite Total Regional de vCPUs** (em todas as séries de VM), e a segunda camada é o **por série de VM vCPUs limitar** (por exemplo, a série D vCPUs). Sempre que uma nova VM vai ser implementada, a soma da utilização de vCPUs novos e existentes para a série de VM não pode exceder a quota de vCPU aprovada para a série de VM específica. Além disso, a contagem de vCPU total de novas e existentes implementada em todas as séries de VM não deve exceder a quota de vCPUs Total Regional aprovada para a subscrição. Se qualquer um das quotas são excedido, a implementação da VM será não ser permitida.
+Pode pedir um aumento de limite de quota de vCPUs para a série VM no portal do Azure. Um aumento de quota de série de VM aumenta automaticamente o limite Total Regional de vCPUs na mesma proporção. 
+
+Quando é criada uma nova subscrição, o padrão de vCPUs regionais, o Total pode não ser igual à soma de quotas de vCPU predefinidas para todas as séries de VM individuais. Isso pode resultar numa subscrição com quota suficiente para cada série de VM individuais que pretende implementar, mas não suficientes quota de vCPUs regionais Total para todas as implementações. Neste caso, terá de submeter um pedido para aumentar o limite Total Regional de vCPUs explicitamente. Limite de total de vCPUs regionais não pode exceder a soma de quota aprovado em todas as séries VM para a região.
+
+Saiba mais sobre quotas no [página de quotas de vCPU de Máquina Virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e [subscrição do Azure e limites do serviço](https://aka.ms/quotalimits) página. 
 
 Agora pode solicitar um aumento em **ajuda + suporte** painel ou o **utilizações + Quota** painel no portal. 
 
-## <a name="request-per-vm-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitar por aumento de quota de vCPU VM através de nível de subscrição do **ajuda + suporte** painel
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Solicitar por aumento de quota de vCPU de série de VM através de nível de subscrição do **ajuda + suporte** painel
 
 Siga as instruções abaixo para criar um pedido de suporte através "Ajuda + suporte" painel do Azure disponível no portal do Azure. 
 
@@ -59,7 +68,7 @@ Siga as instruções abaixo para criar um pedido de suporte através "Ajuda + su
 ![Novos limites](./media/resource-manager-core-quotas-request/new-limits.png)
 
 
-## <a name="request-per-vm-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Pedido por aumento de quota de vCPU VM através de nível de subscrição **utilizações + Quota** painel
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Pedido por aumento de quota de vCPU de série de VM através de nível de subscrição **utilizações + Quota** painel
 
 Siga as instruções abaixo para criar um pedido de suporte através do Azure "utilização + quotas" painel disponível no portal do Azure. 
 

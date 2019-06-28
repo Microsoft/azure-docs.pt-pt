@@ -7,15 +7,15 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: b395b7bccbf93b56e84d5e7b5a4ed7355eaca335
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7605bf36c41c5b1276d29076173efd52409afaa9
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296338"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310348"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Descrição geral das consultas de registo no Azure Monitor
-Consultas de registo ajudá-lo a aproveitar totalmente o valor da os dados recolhidos nas [registos do Azure Monitor](../platform/data-platform-logs.md). Uma linguagem de consulta poderosa permite-lhe associar dados de várias tabelas, Agregar grandes conjuntos de dados e executar operações complexas com pouco código. Praticamente qualquer pergunta pode ser respondida e análise realizada, desde que tenham sido recolhidos os dados de suporte e compreender como construir a consulta correta.
+Consultas de registo ajudá-lo a aproveitar totalmente o valor dos dados recolhidos nas [registos do Azure Monitor](../platform/data-platform-logs.md). Uma linguagem de consulta poderosa permite-lhe associar dados de várias tabelas, Agregar grandes conjuntos de dados e executar operações complexas com pouco código. Praticamente qualquer pergunta pode ser respondida e análise realizada, desde que tenham sido recolhidos os dados de suporte e compreender como construir a consulta correta.
 
 Algumas funcionalidades no Azure Monitor, como [insights](../insights/insights-overview.md) e [soluções](../insights/solutions-inventory.md) processar dados de registo sem lhe expor as consultas subjacentes. Para aproveitar totalmente os outros recursos do Azure Monitor, deve compreender como as consultas são construídas e como pode usá-los para analisar dados nos registos de Monitor do Azure interativamente.
 

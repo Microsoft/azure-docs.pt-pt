@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: bb99a3c063f69aa5aeb00efdb51319a53d05b2d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aaab5ef4d8fc3d60a12f9e9f85f2846695fd1ab4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067611"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329659"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Pedido de dados em tempo real com o serviço de mobilidade do Azure Maps
 
@@ -113,22 +113,23 @@ Vamos usar "522" como nosso metro ID, que é o metro parar o ID de área "Seattl
             }
         ]
     }
+    ```
 
 
-## Real-time data for bike docking station
+## <a name="real-time-data-for-bike-docking-station"></a>Dados em tempo real para a estação de ancoragem de bicicletas
 
-The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information such as availability and vacancy information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes.
+O [obter API de informações de estação de ancoragem de trânsito](https://aka.ms/AzureMapsMobilityTransitDock) do serviço de mobilidade do Azure Maps, permite para pedir informações estáticas e em tempo real, como a disponibilidade e informações de vago para uma determinada bicicletas ou scooter estação de ancoragem. Faremos um pedido para obter dados em tempo real para uma estação de ancoragem para bicicletas.
 
-In order to make a request to the Get Transit Dock Info API, you will need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) and setting the **objectType** parameter to "bikeDock". Follow the steps below to get real-time data of a docking station for bikes.
+Para fazer um pedido para a API informações de introdução de estação de ancoragem de trânsito, é necessário o **dockId** dessa estação. Pode obter o ID de estação de ancoragem fazendo uma solicitação de pesquisa para o [obter próximos API de trânsito](https://aka.ms/AzureMapsMobilityNearbyTransit) e ao definir o **objectType** parâmetro para "bikeDock". Siga os passos abaixo para obter dados em tempo real de uma estação de ancoragem para bicicletas.
 
 
-### Get dock ID
+### <a name="get-dock-id"></a>Obter ID da estação de ancoragem
 
-To get **dockID**, follow the steps below to make a request to the Get Nearby Transit API:
+Para obter **dockID**, siga os passos abaixo para fazer um pedido para a API para obter próximos trânsito:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get dock ID**.
+1. No Postman, clique em **nova solicitação** | **pedido GET** e nomeie- **Get ID da estação de ancoragem**.
 
-2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
+2.  No separador Builder, selecione o **Obtenha** método HTTP, introduza o seguinte URL de pedido e clique em **enviar**.
  
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock

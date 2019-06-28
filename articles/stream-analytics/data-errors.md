@@ -6,17 +6,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: ecc7077bf208adf1ac89adcce2f2e480ce34888e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65607232"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329587"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 
-Quando existe uma discrepância dos dados que é processado por uma tarefa do Azure Stream Analytics, o Stream Analytics envia um evento de erro de dados para os registos de diagnóstico. Stream Analytics escreve informações detalhadas e os eventos de exemplo, os seus registos de diagnóstico quando ocorrem erros de dados. Também é fornecido um resumo dessas informações através de notificações do portal para alguns erros.
+Erros de dados são erros que ocorrem durante o processamento de dados.  Estes erros com maior frequência ocorrem durante a serialização de eliminação de dados, serialização e operações de escrita.  Quando ocorrem erros de dados, o Stream Analytics escreve informações detalhadas e os eventos de exemplo para os registos de diagnóstico.  Em alguns casos, o resumo destas informações também é disponibilizado por meio de notificações do portal.
 
 Este artigo descreve os tipos de erro diferente, causas e detalhes de registo de diagnóstico para erros de entrada e saída de dados.
 
@@ -45,6 +45,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: O tipo de compressão de entrada que selecionou não corresponderem aos dados.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto: Mensagens com os erros de desserialização, incluindo o tipo de compressão inválida são removidas da entrada.
 * Detalhes do registo
    * Identificador da mensagem de entrada. Para o Hub de eventos, o identificador é o PartitionId, o deslocamento e o número de sequência.
 
@@ -59,6 +60,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: O cabeçalho de dados de entrada é inválido. Por exemplo, um CSV tem colunas com nomes duplicados.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto: Mensagens com os erros de desserialização, incluindo o cabeçalho inválido são removidas da entrada.
 * Detalhes do registo
    * Identificador da mensagem de entrada. 
    * Payload real até alguns quilobytes.
@@ -74,6 +76,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: As colunas de entrada definidas com CREATE TABLE ou por meio de TIMESTAMP BY não existe.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto: Eventos com colunas em falta são removidos da entrada.
 * Detalhes do registo
    * Identificador da mensagem de entrada. 
    * Nomes das colunas que estão em falta. 
@@ -94,6 +97,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: Não é possível converter a entrada para o tipo especificado na instrução CREATE TABLE.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto: Eventos com o erro de conversão de tipo são removidos da entrada.
 * Detalhes do registo
    * Identificador da mensagem de entrada. 
    * Nome da coluna e tipo esperado.
@@ -113,6 +117,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: Dados de entrada não estão no formato correto. Por exemplo, a entrada não é um JSON válido.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto: Todos os eventos na mensagem depois foi encontrado um erro de dados inválidos são removidos da entrada.
 * Detalhes do registo
    * Identificador da mensagem de entrada. 
    * Payload real até alguns quilobytes.
@@ -132,6 +137,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: Não é possível converter o valor da expressão TIMESTAMP BY para datetime.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto: Eventos com timestamp inválido de entrada são ignorados da entrada.
 * Detalhes do registo
    * Identificador da mensagem de entrada. 
    * Mensagem de erro. 
@@ -148,6 +154,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: O valor de TIMESTAMP BY OVER timestampColumn má hodnotu NULL.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto: Eventos com a chave de timestamp inválido de entrada são ignorados da entrada.
 * Detalhes do registo
    * A carga real até alguns quilobytes.
 
@@ -162,6 +169,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: A diferença entre a hora de aplicação e a hora da chegada é superior à janela de tolerância de chegada tardia.
 * Notificação do portal fornecida: Não
 * Nível de registo de diagnóstico: Informações
+* Impacto:  Eventos de entrada atrasados são processados de acordo com o "lidar com outros eventos" definir a ordenação de eventos de seção da configuração da tarefa. Para obter mais informações, consulte [políticas de manipulação de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do registo
    * Tempo do aplicativo e a hora de chegada. 
    * Payload real até alguns quilobytes.
@@ -177,6 +185,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: A diferença entre a hora de aplicação e o tempo de chegada é superior a 5 minutos.
 * Notificação do portal fornecida: Não
 * Nível de registo de diagnóstico: Informações
+* Impacto:  Eventos de entrada antigos são processados de acordo com o "lidar com outros eventos" definir a ordenação de eventos de seção da configuração da tarefa. Para obter mais informações, consulte [políticas de manipulação de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do registo
    * Tempo do aplicativo e a hora de chegada. 
    * Payload real até alguns quilobytes.
@@ -192,6 +201,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: Evento é considerado fora de ordem, de acordo com a janela de tolerância fora de ordem definida.
 * Notificação do portal fornecida: Não
 * Nível de registo de diagnóstico: Informações
+* Impacto:  Fora de ordem de eventos são processados de acordo com o "lidar com outros eventos" definição de eventos secção de ordenação da configuração da tarefa. Para obter mais informações, consulte [políticas de manipulação de tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do registo
    * Payload real até alguns quilobytes.
 
@@ -208,6 +218,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: A coluna necessária para a saída não existe. Por exemplo, existe uma coluna definida como does't PartitionKey de tabela do Azure.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto:  Erros de conversão de dados de saída todos os incluindo em falta a coluna necessária são processados em conformidade com o [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) definição.
 * Detalhes do registo
    * Nome da coluna e o identificador de registo ou parte do registo.
 
@@ -222,6 +233,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: O valor da coluna não esteja de acordo com a saída. Por exemplo, o nome da coluna não é uma coluna de tabela do Azure válida.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto:  Erros de conversão de dados de saída todos os incluindo o nome de coluna inválido são processados em conformidade com o [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) definição.
 * Detalhes do registo
    * Nome da coluna e identificador de registo ou parte do registo.
 
@@ -236,6 +248,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: Uma coluna não pode ser convertida para um tipo válido na saída. Por exemplo, o valor da coluna é incompatível com restrições ou tipo definido na tabela SQL.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto:  Erros de conversão de dados de saída todos os incluindo erro de conversão de tipo são processados em conformidade com o [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) definição.
 * Detalhes do registo
    * Nome da coluna.
    * O identificador de registo ou parte do registo.
@@ -251,6 +264,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: O valor da mensagem é superior ao tamanho suportado de saída. Por exemplo, um registo é maior do que 1 MB para um Hub de eventos de saída.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto:  Erros de conversão de dados de saída todos os incluindo o limite de tamanho excedido de registo são processados em conformidade com o [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) definição.
 * Detalhes do registo
    * O identificador de registo ou parte do registo.
 
@@ -265,6 +279,7 @@ Ver [resolver problemas relacionados com o Azure Stream Analytics, utilizando os
 * Causa: Um registo já contém uma coluna com o mesmo nome como uma coluna de sistema. Por exemplo, a saída do CosmosDB com uma coluna chamada ID quando a coluna ID é uma coluna diferente.
 * Notificação do portal fornecida: Sim
 * Nível de registo de diagnóstico: Aviso
+* Impacto:  Erros de conversão de dados de saída todos os incluindo chave duplicada são processados em conformidade com o [política de dados de saída](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) definição.
 * Detalhes do registo
    * Nome da coluna.
    * O identificador de registo ou parte do registo.

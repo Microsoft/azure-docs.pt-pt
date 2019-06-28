@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 797db8d0dd321676a3fa436a328a9981a3d3ca3b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786378"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312053"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados de DB2 através do Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -34,6 +34,7 @@ Especificamente, este conector de DB2 suporta as seguintes plataformas de IBM DB
 
 * IBM DB2 para 11.1 de z/OS
 * IBM DB2 para z/OS 10.1
+* IBM DB2 para i 7.3
 * IBM DB2 para i 7.2
 * IBM DB2 para i 7.1
 * IBM DB2 para LUW 11

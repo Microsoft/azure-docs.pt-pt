@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 1822bfe9f2d6d337db74ba94d43644b0b3567c71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfdebacb4de205fa42fe96ceb9970d2d109536e8
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455612"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296157"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de Stream como entrada para o Stream Analytics
 
@@ -38,7 +38,7 @@ Pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md), [Vis
 
 Os Hubs de eventos do Azure fornece altamente dimensionável ingestors de eventos de publicação-subscrição. Um hub de eventos pode recolher milhões de eventos por segundo para que possa processar e analisar enormes quantidades de dados produzidos pelos seus dispositivos e aplicações ligados. Juntos, os Hubs de eventos e Stream Analytics proporcionam uma solução de ponto-a-ponto para análise em tempo real. Os Hubs de eventos permite-lhe o feed de eventos para o Azure em tempo real, e as tarefas do Stream Analytics podem processar esses eventos em tempo real. Por exemplo, pode enviar cliques da web, as leituras dos sensores ou online de registo de eventos para Hubs de eventos. Em seguida, pode criar tarefas do Stream Analytics para utilizar os Hubs de eventos como os fluxos de dados de entrada para em tempo real filtrar, Agregar e correlação.
 
-`EventEnqueuedUtcTime` é o carimbo de hora da chegada de um evento num hub de eventos e o carimbo de hora padrão de eventos provenientes dos Hubs de eventos para o Stream Analytics. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) palavra-chave.
+`EventEnqueuedUtcTime` é o carimbo de hora da chegada de um evento num hub de eventos e o carimbo de hora padrão de eventos provenientes dos Hubs de eventos para o Stream Analytics. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) palavra-chave.
 
 ### <a name="event-hubs-consumer-groups"></a>Grupos de consumidores de Hubs de eventos
 
@@ -86,7 +86,7 @@ FROM Input
 
 O IoT Hub do Azure é altamente escaláveis de publicação-subscrição ingestor de eventos otimizado para cenários de IoT.
 
-O carimbo de hora padrão de eventos provenientes de um IoT Hub no Stream Analytics é o carimbo de hora a que o evento chegou no IoT Hub, que é `EventEnqueuedUtcTime`. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) palavra-chave.
+O carimbo de hora padrão de eventos provenientes de um IoT Hub no Stream Analytics é o carimbo de hora a que o evento chegou no IoT Hub, que é `EventEnqueuedUtcTime`. Para processar os dados como um fluxo usando um timestamp, no caso de payload, tem de utilizar o [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) palavra-chave.
 
 ### <a name="iot-hub-consumer-groups"></a>Grupos de consumidores do Hub de IOT
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063759"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274299"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorizar e otimizar a base de dados do Azure para PostgreSQL - servidor único
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para PostgreSQL fornece várias opções de monitorização para fornecer informações sobre o comportamento do seu servidor.
@@ -33,11 +33,13 @@ Estas métricas estão disponíveis para a base de dados do Azure para PostgreSQ
 |serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|A percentagem de armazenamento de registo de servidor utilizado fora do armazenamento de registos de servidor máxima do servidor.|
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em utilização.|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
-|active_connections|Ligações ativas|Count|O número de ligações ativas para o servidor.|
+|active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
 |connections_failed|Ligações com Falhas|Count|O número de ligações falhadas para o servidor.|
 |network_bytes_egress|Saída da Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede no através de ligações de Active Directory.|
 |backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|
+|pg_replica_log_delay_in_bytes|Atraso máximo entre as réplicas|Bytes|O atraso em bytes entre o mestre e a réplica de lagging maioria. Esta métrica está disponível no servidor principal apenas.|
+|pg_replica_log_delay_in_seconds|Atraso de réplica|Segundos|O tempo, uma vez que o último reproduzidos transação. Esta métrica está disponível para apenas os servidores de réplica.|
 
 ## <a name="server-logs"></a>Registos do servidor
 Pode ativar o registo no seu servidor. Estes registos também estão disponíveis através de registos de diagnóstico do Azure no [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md), os Hubs de eventos e a conta de armazenamento. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.

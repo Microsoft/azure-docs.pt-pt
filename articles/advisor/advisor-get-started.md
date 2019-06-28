@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468305"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332062"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -94,9 +94,9 @@ Poderá ter grupos de recursos ou subscrições para que não pretende receber r
 
 Este procedimento configura a regra de utilização de CPU média para a recomendação de máquina virtual de baixa utilização.
 
-O assistente monitoriza a utilização da máquina virtual durante 14 dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Máquinas virtuais cuja utilização média da CPU é 5 por cento ou menos e utilização de rede é de 7 MB ou menos para quatro ou mais dias são considerados máquinas de virtuais de baixa utilização.
+O assistente monitoriza a utilização da máquina virtual durante sete dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Virtual máquinas são consideradas baixa utilização se a utilização da CPU é de 5% ou menos e a utilização de rede é inferior a % de 2 ou se a atual carga de trabalho pode ser atendida por um tamanho mais pequeno da máquina virtual.
 
-Se gostaria de ser mais agressivo na identificação de máquinas virtuais de baixa utilização, pode ajustar a regra de utilização de CPU média numa base por subscrição.  A regra de utilização média da CPU pode ser definida como 5%, 10%, % de 15 ou 20%.
+Se gostaria de ser mais agressivo na identificação de máquinas virtuais de baixa utilização, pode ajustar a regra de utilização de CPU média numa base por subscrição.  A regra de utilização da CPU pode ser definida como 5%, 10%, % de 15 ou 20%.
 
 > [!NOTE]
 > Para ajustar a regra de utilização de CPU média para identificar máquinas de virtuais de baixa utilização, tem de ser uma subscrição *proprietário*.  Se não tiver as permissões necessárias para uma subscrição ou grupo de recursos, a opção para incluir ou exclui-lo será desativada na interface do usuário. 

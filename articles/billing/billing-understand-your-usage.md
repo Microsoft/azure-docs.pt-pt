@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 9ff9b6b5313026d2102b98659183fa97c6a5ef84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683992"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275062"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Compreender os termos no seu ficheiro de utilização e os encargos do Azure
 
@@ -72,6 +72,7 @@ InvoiceSection | MCA | Ver InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Identificador exclusivo para o departamento de EA ou secção da nota fiscal MCA.
 InvoiceSectionName | EA, MCA | Nome do departamento de EA ou secção da nota fiscal MCA.
 IsAzureCreditEligible | EA, MCA | Indica se o custo é elegível para ser pagas com créditos do Azure (valores: TRUE, False).
+IsEstimated | Todos | Indica se o período de faturação é fechado/finalizado. Dados de utilização podem mudar ao longo do período de faturação até que a nota fiscal é gerada. Estes registos são marcados como "estimado".
 Location | EA, MCA | Localização do Datacenter onde o recurso está em execução.
 MeterCategory | Todos | Nome da categoria de classificação para o medidor. Por exemplo, *serviços Cloud* e *Networking*.
 MeterId | Todos | O identificador exclusivo para o medidor.

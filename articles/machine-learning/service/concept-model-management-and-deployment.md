@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0eaf48f57c3011222b71a63d703e1ccec7aca001
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cbb7f13214a86f528521fdeb1ffa1374ca813ef
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692831"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331696"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning
 
@@ -54,11 +54,14 @@ Para obter mais informações sobre ONNX com o serviço Azure Machine Learning, 
 Registo do modelo permite-lhe armazenar e versão seus modelos na cloud do Azure, na sua área de trabalho. O registo de modelo torna mais fácil organizar e manter o controle de seus modelos de formação.
 
 > [!TIP]
-> Também pode registar modelos com base fora o serviço Azure Machine Learning.
+> Um modelo registado é um contentor lógico para um ou mais arquivos que formam o seu modelo. Por exemplo, se tiver um modelo que está armazenado em vários arquivos, pode registá-los como um modelo único na sua área de trabalho do Azure Machine Learning. Depois do Registro, pode, em seguida, transferir ou implementar o modelo registado e receber todos os ficheiros que foram registados.
  
 Modelos registrados são identificados pelo nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Também pode fornecer marcas de metadados adicionais durante o registo que pode ser utilizado ao pesquisar para modelos. O serviço do Azure Machine Learning suporta qualquer modelo que pode ser carregados com o Python 3.5.2 ou superior.
 
-Não é possível eliminar modelos que estão a ser utilizados numa implementação ativa.
+> [!TIP]
+> Também pode registar modelos com base fora o serviço Azure Machine Learning.
+
+Não é possível eliminar um modelo registado que está a ser utilizado numa implementação ativa.
 
 Para obter mais informações, consulte a secção de modelo de registro de [implementar modelos](how-to-deploy-and-where.md#registermodel).
 

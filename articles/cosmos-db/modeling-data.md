@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf075c2909b35bb08ca4cb24aaa3b99597f34c6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953852"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203519"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelação de dados na Azure Cosmos DB
 
@@ -176,9 +176,9 @@ Stock *zaza* podem ser cedência das muitas centenas de vezes num único dia e m
 
 ## <a name="referencing-data"></a>Dados de referência
 
-Então, incorporar dados funciona muito bem para muitos casos, mas é claro que existem cenários quando desnormalizar os dados causará problemas que não vale a pena. Então, o que fazemos agora?
+A incorporar dados funciona muito bem para muitos casos, mas existem cenários quando desnormalizar os dados causará problemas que não vale a pena. Então, o que fazemos agora?
 
-Bases de dados relacionais não são o único local onde pode criar relações entre entidades. Num banco de dados do documento, pode ter informações num documento, na verdade, se relaciona com dados em outros documentos. Agora, estou não defendendo durante um minuto, mesmo que criamos sistemas que poderiam ser mais apropriados para uma base de dados relacional no Azure Cosmos DB ou outro banco de dados de documento, mas as relações simples podem ser utilizadas e podem ser útil.
+Bases de dados relacionais não são o único local onde pode criar relações entre entidades. Num banco de dados do documento, pode ter informações num documento que se relaciona com dados em outros documentos. Não é recomendada a criação de sistemas que poderiam ser mais apropriados para uma base de dados relacional no Azure Cosmos DB ou outro banco de dados de documento, mas as relações simples podem ser utilizadas e podem ser útil.
 
 No JSON abaixo, optamos por usar o exemplo de um portfólio de ações de anteriormente, mas desta vez, nos Referimos ao item das ações portefólio em vez de incorporá-lo. Dessa forma, quando o item de estoque são alterados frequentemente ao longo do dia o documento único que tem de ser atualizada é o único documento de estoque.
 

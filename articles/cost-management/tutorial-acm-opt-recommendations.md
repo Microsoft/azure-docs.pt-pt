@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416088"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164497"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Otimizar os custos de recomendações
 
@@ -54,7 +54,7 @@ O **impacto** categoria, juntamente com o **potenciais poupanças anuais**, fora
 Recomendações de alto impacto incluem:
 - [Comprar instâncias de máquinas virtuais reservadas para poupar dinheiro sobre os custos de pay as you go](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
 - [Otimizar a máquina virtual passar por redimensionamento ou encerrar subutilizadas instâncias](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Utilize o armazenamento Standard para armazenar instantâneos de Managed Disks ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+- [Utilize o armazenamento Standard para armazenar instantâneos de Managed Disks](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
 
 Impacto intermédio recomendações incluem:
 - [Eliminar pipelines do Azure Data Factory que estão a falhar](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)

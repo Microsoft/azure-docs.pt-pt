@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 7789970b47f0e55adee5bbe9da9f303aee6cdb25
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: a018a383de855a05b14aa6e1f1c465f8868f672d
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190128"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312172"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>Resolução de problemas de execução de pacotes do SSIS integration Runtime
 
@@ -110,6 +110,11 @@ Este artigo inclui os erros mais comuns que pode usar quando o SSIS em execuçã
   * Uma causa potencial é esse nome de utilizador/palavra-passe com a MFA ativada está configurada para autenticação do Azure Analysis Services, o que ainda não é suportada no runtime de integração do SSIS. Tente utilizar o Principal de serviço para a autenticação do serviço de análise do Azure:
     1. Preparar o principal de serviço para AAS [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
     2. No Gestor de ligação, configure "Utilizar um nome de utilizador específico e uma palavra-passe": definir "AppID" como nome de utilizador e "clientSecret" como palavra-passe
+
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-managed-identity"></a>Mensagem de erro: "ADONET origem não conseguiu obter a ligação de {GUID} com a seguinte mensagem de erro: Falha de início de sessão do utilizador 'Início de sessão do NT AUTHORITY\ANONYMOUS' "ao utilizar a identidade gerida
+
+* Causa potencial & ação recomendada:
+  * Certifique-se de que não configurar o método de autenticação de Gestor de ligações como "Autenticação de palavra-passe do Active Directory" quando o parâmetro "ConnectUsingManagedIdentity" é True. Pode configurá-lo como "Autenticação de SQL" em vez disso, que seriam ignorado se estiver definido para "ConnectUsingManagedIdentity"
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>Pacote usa inesperado muito tempo a executar
 

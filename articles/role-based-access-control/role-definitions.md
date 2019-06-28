@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2019
+ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 00501ec72dff99f93fa04944c5ab733fce38ce21
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074013"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275039"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Compreender as definições de funções para recursos do Azure
 
@@ -52,7 +52,8 @@ O `{action}` parte de uma cadeia de operação Especifica o tipo de operações 
 | ------------------- | ------------------- |
 | `*` | O caráter universal concede acesso a todas as operações que corresponde à cadeia. |
 | `read` | Permite ler operações (GET). |
-| `write` | Permite escrever operações (PUT, POST e PATCH). |
+| `write` | Permite escrever operações (PUT ou PATCH). |
+| `action` | Permite operações personalizadas como reiniciar as máquinas virtuais (POST). |
 | `delete` | Permite elimina operações (eliminar). |
 
 Aqui está o [contribuinte](built-in-roles.md#contributor) definição de função no formato JSON. O caráter universal (`*`) uma operação em `Actions` indica que o principal atribuído a esta função pode efetuar todas as ações ou em outras palavras, ele pode gerir tudo. Isso inclui ações definidas no futuro, o Azure adiciona novos tipos de recursos. As operações sob `NotActions` são subtraído `Actions`. No caso do [contribuinte](built-in-roles.md#contributor) função, `NotActions` remove a capacidade desta função para gerir o acesso aos recursos e também atribuir acesso a recursos.
@@ -79,7 +80,7 @@ Aqui está o [contribuinte](built-in-roles.md#contributor) definição de funç�
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>Operações de gestão e de dados (pré-visualização)
+## <a name="management-and-data-operations"></a>Operações de gestão e de dados
 
 Controlo de acesso baseado em funções para operações de gestão é especificado na `Actions` e `NotActions` propriedades de uma definição de função. Aqui estão alguns exemplos de operações de gestão no Azure:
 
@@ -89,7 +90,7 @@ Controlo de acesso baseado em funções para operações de gestão é especific
 
 Acesso de gestão não é herdado aos seus dados. Essa separação impede que funções com carateres universais (`*`) de ter acesso ilimitado aos seus dados. Por exemplo, se um utilizador tem um [leitor](built-in-roles.md#reader) função numa assinatura, em seguida, podem visualizar a conta de armazenamento, mas por padrão não é possível ver os dados subjacentes.
 
-Anteriormente, o controlo de acesso baseado em funções não foi utilizado para operações de dados. Autorização para operações de dados diversificados em fornecedores de recursos. O mesmo modelo de autorização de controle com base em função de acesso utilizado para operações de gestão tiver sido expandido para operações de dados (atualmente em pré-visualização).
+Anteriormente, o controlo de acesso baseado em funções não foi utilizado para operações de dados. Autorização para operações de dados diversificados em fornecedores de recursos. O mesmo modelo de autorização de controle com base em função de acesso utilizado para operações de gestão tiver sido expandido para operações de dados.
 
 Para suportar operações de dados, foram adicionadas novas propriedades de dados para a estrutura de definição de função. Operações de dados estão especificadas na `DataActions` e `NotDataActions` propriedades. Ao adicionar essas propriedades de dados, a separação entre a gestão e de dados é mantida. Isto impede que as atribuições de funções atual com carateres universais (`*`), de repente, tenha acesso a dados. Aqui estão algumas operações de dados que podem ser especificadas em `DataActions` e `NotDataActions`:
 
@@ -169,11 +170,7 @@ Para visualizar e trabalhar com operações de dados, tem de ter as versões cor
 
 Para ver e utilizar as operações de dados na REST API, tem de definir o **versão de api** parâmetro para a versão seguinte ou posterior:
 
-- 2018-01-01-pré-visualização
-
-O portal do Azure também permite aos utilizadores procurar e gerir o conteúdo das filas e BLOBs experiência de pré-visualização de contentores através do Azure AD. Ver e gerir o conteúdo de um clique de contentor de BLOBs ou filas a **explorar dados com o Azure AD preview** na descrição geral da conta de armazenamento.
-
-![Explore as filas e BLOBs contentores com a pré-visualização do Azure AD](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>Ações
 
@@ -195,7 +192,7 @@ O `NotActions` permissão Especifica as operações de gestão que são excluíd
 > Se um utilizador é atribuído uma função que exclui uma operação em `NotActions`e é atribuído uma segunda função concede acesso à mesma operação, o utilizador tem permissão para executar essa operação. `NotActions` Não é uma negação de regra – é simplesmente uma forma conveniente para criar um conjunto de operações permitidas quando precisam de operações específicas a serem excluídos.
 >
 
-## <a name="dataactions-preview"></a>dataActions (pré-visualização)
+## <a name="dataactions"></a>DataActions
 
 O `DataActions` permissão Especifica as operações de dados que permite que a função a ser executada aos seus dados dentro desse objeto. Por exemplo, se um utilizador tem de ler BLOBs acesso a dados para uma conta de armazenamento, em seguida, podem ler os blobs dentro dessa conta de armazenamento. Aqui estão alguns exemplos de operações de dados que podem ser utilizados em `DataActions`.
 
@@ -206,7 +203,7 @@ O `DataActions` permissão Especifica as operações de dados que permite que a 
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Devolve uma mensagem. |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Devolve uma mensagem ou o resultado de escrever ou eliminar uma mensagem. |
 
-## <a name="notdataactions-preview"></a>notDataActions (pré-visualização)
+## <a name="notdataactions"></a>NotDataActions
 
 O `NotDataActions` permissão Especifica as operações de dados que são excluídas da permitidos `DataActions`. O acesso concedido por uma função (permissões efetivas) é calculado ao subtrair a `NotDataActions` operações a partir da `DataActions` operações. Cada fornecedor de recursos fornece seu respectivo conjunto de APIs para realizar operações de dados.
 

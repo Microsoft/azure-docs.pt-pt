@@ -8,34 +8,14 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 813c8e92907a60046c2e53f97d4dd05125076241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133000"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277405"
 ---
-<a name="virtual-networking-limits-classic"></a>Os seguintes limites só se aplicam para recursos geridos através de rede a **clássico** modelo de implementação por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
-
-| Resource | Limite predefinido | Limite máximo |
-| --- | --- | --- |
-| Redes virtuais |50 |100 |
-| Sites de rede local |20 |Contacte o suporte. |
-| Servidores DNS por rede virtual |20 |20 |
-| Endereços IP privados por rede virtual |4,096 |4,096 |
-| Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 000, até 1.000.000 para dois ou mais NICs. |500 000, até 1.000.000 para dois ou mais NICs. |
-| Grupos de segurança de rede (NSGs) |200 |200 |
-| Regras do NSG por NSG |1,000 |1,000 |
-| Tabelas de rotas definidas pelo utilizador |200 |200 |
-| Rotas definidas pelo utilizador por tabela de rotas |400 |400 |
-| Endereços IP públicos (dinâmico) |5 |Contacte o suporte |
-| Endereços IP públicos reservados |20 |Contacte o suporte |
-| VIP público por implementação |5 |Contacte o suporte |
-| VIP privado (Balanceamento de carga interno) por implementação |1 |1 |
-| Listas de controlo de acesso de ponto final (ACLs) |50 |50 |
-
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - Azure Resource Manager
-Os seguintes limites só se aplicam para recursos geridos através de rede **do Azure Resource Manager** por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
+<a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - os seguintes limites só se aplicam para recursos geridos através de rede do Azure Resource Manager **do Azure Resource Manager** por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Aumentámos recentemente todos os limites predefinidos para os limites máximos. Se não houver nenhuma coluna de limite máximo, o recurso não tem limites ajustável. Se tivesse estes limites aumentados em suporte no passado e não vir os limites atualizados nas tabelas seguintes, [abra um pedido de suporte do cliente online sem custos](../articles/azure-resource-manager/resource-manager-quota-errors.md)
@@ -70,7 +50,7 @@ Os seguintes limites só se aplicam para recursos geridos através de rede **do 
 | Endereços IP públicos - dinâmico | 1000 para o básico. |Contacte o suporte. |
 | Endereços IP públicos - estáticos | 1000 para o básico. |Contacte o suporte. |
 | Endereços IP públicos - estáticos | 200 para o Standard.|Contacte o suporte. |
-| Tamanho de prefixo IP público | /28 | Contacte o suporte. |
+| Comprimento do prefixo IP público | /28 | Contacte o suporte. |
 
 #### <a name="load-balancer"></a>Limites do Balanceador de carga
 Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
@@ -91,3 +71,21 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 
 <sup>1</sup>o limite é de até 150 recursos, em qualquer combinação de recursos da máquina virtual autónoma, recursos e recursos do conjunto de dimensionamento de máquinas virtuais do conjunto de disponibilidade.
 
+#### <a name="virtual-networking-limits-classic"></a>Os seguintes limites só se aplicam para recursos geridos através de rede a **clássico** modelo de implementação por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
+
+| Resource | Limite predefinido | Limite máximo |
+| --- | --- | --- |
+| Redes virtuais |50 |100 |
+| Sites de rede local |20 |Contacte o suporte. |
+| Servidores DNS por rede virtual |20 |20 |
+| Endereços IP privados por rede virtual |4,096 |4,096 |
+| Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 000, até 1.000.000 para dois ou mais NICs. |500 000, até 1.000.000 para dois ou mais NICs. |
+| Grupos de segurança de rede (NSGs) |200 |200 |
+| Regras do NSG por NSG |1,000 |1,000 |
+| Tabelas de rotas definidas pelo utilizador |200 |200 |
+| Rotas definidas pelo utilizador por tabela de rotas |400 |400 |
+| Endereços IP públicos (dinâmico) |5 |Contacte o suporte |
+| Endereços IP públicos reservados |20 |Contacte o suporte |
+| VIP público por implementação |5 |Contacte o suporte |
+| VIP privado (Balanceamento de carga interno) por implementação |1 |1 |
+| Listas de controlo de acesso de ponto final (ACLs) |50 |50 |

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478883"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329818"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Tirar partido de paralelização de consultas no Azure Stream Analytics
 Este artigo mostra-lhe como tirar partido da paralelização no Azure Stream Analytics. Saiba como dimensionar tarefas do Stream Analytics ao configurar partições de entrada e a definição de consulta de análise de otimização.
@@ -60,7 +60,7 @@ Uma *constrangedoramente paralelas* tarefa é o cenário mais escalonável, temo
 
 1. Se a sua lógica de consulta depende da mesma chave a ser processada pela mesma instância de consulta, deve certificar-se de que os eventos de ir para a mesma partição de sua entrada. Para os Hubs de eventos ou o IoT Hub, isso significa que os dados do evento tem de ter o **PartitionKey** conjunto de valor. Em alternativa, pode utilizar os remetentes particionados. Para armazenamento de BLOBs, isso significa que os eventos são enviados para a mesma pasta de partição. Se a sua lógica de consulta não requer a mesma chave a ser processado pela mesma instância de consulta, pode ignorar este requisito. Um exemplo dessa lógica seria uma simple consulta de filtro de projeto de select.  
 
-2. Depois dos dados são dispostos no lado de entrada, deve certificar-se de que a consulta estiver particionada. Isto requer a utilização **PARTITION BY** em todos os passos. São permitidos vários passos, mas todos eles devem ser particionados pela mesma chave. Atualmente, a chave de particionamento deve ser definida como **PartitionId** para que a tarefa para ser totalmente paralela.  
+2. Depois dos dados são dispostos no lado de entrada, deve certificar-se de que a consulta estiver particionada. Isto requer a utilização **PARTITION BY** em todos os passos. São permitidos vários passos, mas todos eles devem ser particionados pela mesma chave. No nível de compatibilidade 1.0 e 1.1, a chave de particionamento deve ser definida como **PartitionId** para que a tarefa para ser totalmente paralela. Para as tarefas com o nível de compatility 1.2 e superior, coluna personalizada pode ser especificada como chave de partição nas definições de entrada e a tarefa será paralellized automoatically mesmo sem a cláusula PARTITION BY.
 
 3. A maioria dos nossos saída aproveitar as vantagens do particionamento, no entanto, se usar um tipo de saída que não suporta a criação de partições de seu trabalho não será totalmente paralelo. Consulte a [secção de saída](#outputs) para obter mais detalhes.
 
@@ -87,7 +87,7 @@ Consulta:
     WHERE TollBoothId > 100
 ```
 
-Esta consulta é um filtro simple. Por conseguinte, não precisamos de se preocupar sobre a criação de partições de entrada que está a ser enviada para o hub de eventos. Tenha em atenção que a consulta inclui **PARTITION BY PartitionId**, por isso, ele cumpre o requisito #2 anteriores. Para a saída, precisamos de configurar a saída do hub de eventos da tarefa para que o conjunto de chaves de partição para **PartitionId**. Última verificação de um é certificar-se de que o número de partições de entrada é igual ao número de partições de saída.
+Esta consulta é um filtro simple. Por conseguinte, não precisamos de se preocupar sobre a criação de partições de entrada que está a ser enviada para o hub de eventos. Tenha em atenção que as tarefas com o nível de compatibilidade antes 1.2 tem de incluir **PARTITION BY PartitionId** cláusula, para que ele cumpre o requisito #2 anteriores. Para a saída, precisamos de configurar a saída do hub de eventos da tarefa para que o conjunto de chaves de partição para **PartitionId**. Última verificação de um é certificar-se de que o número de partições de entrada é igual ao número de partições de saída.
 
 ### <a name="query-with-a-grouping-key"></a>Consultar com uma chave de agrupamento
 
@@ -141,6 +141,26 @@ Consulta:
 Como pode ver, a segunda etapa usa **TollBoothId** como a chave de particionamento. Este passo não é o mesmo que o primeiro passo e, portanto, requer-nos fazer um shuffle. 
 
 Os exemplos anteriores mostram algumas tarefas do Stream Analytics que estão em conformidade com (ou não) uma topologia constrangedoramente paralela. Se eles estão em conformidade com, eles têm o potencial para dimensionamento máximo. Atualiza para tarefas que não se ajustam um desses perfis, orientações de dimensionamento estará disponíveis no futuro. Por agora, utilize a documentação de orientação geral nas seções a seguir.
+
+### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>1\.2 - com vários passo de consulta com valores de diferentes PARTITION BY de nível de compatibilidade 
+* Entrada: Hub de eventos com 8 partições
+* Saída: Hub de eventos com 8 partições
+
+Consulta:
+
+```SQL
+    WITH Step1 AS (
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    )
+
+    SELECT SUM(Count) AS Count, TollBoothId
+    FROM Step1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
+
+Nível de compatibilidade 1.2 permite a execução paralela da consulta por predefinição. Por exemplo, a consulta da seção anterior será parttioned, desde que a coluna "TollBoothId" está definida como chave de partição de entrada. Cláusula de PARTIÇÃO por ParttionId não é necessária.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcular o máximo de unidades de uma tarefa de transmissão em fluxo
 O número total de unidades de transmissão em fluxo que pode ser utilizado por uma tarefa do Stream Analytics depende o número de passos da consulta definida para a tarefa e o número de partições para cada passo.

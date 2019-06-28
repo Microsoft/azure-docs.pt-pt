@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0dec8179cc9b69eeea679f517693e4debb9fb56e
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926631"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340709"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -66,7 +66,7 @@ Ative a replicação. Este procedimento assume que a região primária do Azure 
      >Não é possível alterar o tipo de disponibilidade - instância única, a zona de disponibilidade ou conjunto de disponibilidade, depois de ativar a replicação. Terá de desativar e ativar a replicação alterar o tipo de disponibilidade.
      >
     
-   - **Política de replicação**: Define as definições de recuperação ponto retenção histórico e aplicação de frequência de instantâneo consistente. Por predefinição, o Azure Site Recovery cria uma nova política de replicação com as predefinições dos ' 24 horas para retenção do ponto de recuperação e "60 minutos para a frequência de instantâneo consistente da aplicação.
+   - **Política de replicação**: Define as definições de recuperação ponto retenção histórico e aplicação de frequência de instantâneo consistente. Por predefinição, o Azure Site Recovery cria uma nova política de replicação com configurações padrão dos "24 horas para retenção do ponto de recuperação e frequência de instantâneos de"4 horas' para a aplicação consistente.
 
      ![Ativar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
