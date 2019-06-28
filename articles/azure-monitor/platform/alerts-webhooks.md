@@ -78,14 +78,14 @@ A operação de POSTAGEM contém o payload JSON seguinte e o esquema para todos 
 | name |S | |O nome do alerta. |
 | description |S | |Uma descrição do alerta. |
 | conditionType |S |Métrica, eventos |Dois tipos de alertas são suportados: métricas e eventos. Alertas de métricas são baseadas em condições de métricas. Alertas de eventos baseiam-se num evento no registo de atividades. Utilize este valor para verificar se o alerta é com base numa métrica ou num evento. |
-| condição |S | |Os campos específicos para verificar se baseia a **conditionType** valor. |
-| MetricName |Para alertas de métricas | |O nome da métrica que define o que a regra monitoriza. |
+| condition |S | |Os campos específicos para verificar se baseia a **conditionType** valor. |
+| metricName |Para alertas de métricas | |O nome da métrica que define o que a regra monitoriza. |
 | metricUnit |Para alertas de métricas |Bytes, BytesPerSecond, contagem, CountPerSecond, por cento, segundos |A unidade permitida na métrica. Ver [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Para alertas de métricas | |O valor real da métrica que causou o alerta. |
-| Limiar |Para alertas de métricas | |O valor de limiar em que o alerta está ativado. |
+| threshold |Para alertas de métricas | |O valor de limiar em que o alerta está ativado. |
 | windowSize |Para alertas de métricas | |O período de tempo que é utilizado para monitorizar a atividade de alerta com base no limiar. O valor tem de ser entre 5 minutos e 1 dia. O valor tem de estar no formato de duração ISO 8601. |
 | timeAggregation |Para alertas de métricas |Média, último, máximo, mínimo, None, Total |Como os dados que são recolhidos devem ser combinados ao longo do tempo. O valor predefinido é média. Ver [valores permitidos](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| Operador |Para alertas de métricas | |O operador que é utilizado para comparar os dados de métricos atuais para o limiar definido. |
+| operator |Para alertas de métricas | |O operador que é utilizado para comparar os dados de métricos atuais para o limiar definido. |
 | subscriptionId |S | |O ID de subscrição do Azure. |
 | resourceGroupName |S | |O nome do grupo de recursos para o recurso afetado. |
 | resourceName |S | |O nome de recurso do recurso afetado. |
