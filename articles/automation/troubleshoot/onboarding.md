@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 012cf227bea7dc24eb85fcd9179a7b1025327dcf
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399763"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342138"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
@@ -55,7 +55,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Este erro pode dever-se o escalão de preço não corresponde ao modelo de faturação da subscrição. Para obter mais informações, consulte [monitorizar a utilização e custos estimados no Azure Monitor](http://aka.ms/PricingTierWarning).
+Este erro pode dever-se o escalão de preço não corresponde ao modelo de faturação da subscrição. Para obter mais informações, consulte [monitorizar a utilização e custos estimados no Azure Monitor](https://aka.ms/PricingTierWarning).
 
 #### <a name="resolution"></a>Resolução
 

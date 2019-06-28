@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256884"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342111"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socializar com o Azure Cosmos DB
 
@@ -96,7 +96,7 @@ A criação de feeds é apenas uma questão de criação de documentos que podem
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Poderia ter um fluxo de "mais recente" com postagens ordenadas por data de criação. Ou poderia ter um fluxo "mais interessantes" com esses posts com gostos mais nas últimas 24 horas. Ainda pode implementar um fluxo personalizado para cada utilizador com base numa lógica como seguidores e interesses. Ainda seria uma lista de publicações. É uma questão de como criar estas listas, mas o desempenho de leitura permanece unhindered. Depois de adquirir uma destas listas, emite uma consulta única para o Cosmos DB utilizando a [no operador](how-to-sql-query.md#WhereClause) para obter páginas de postagens por vez.
+Poderia ter um fluxo de "mais recente" com postagens ordenadas por data de criação. Ou poderia ter um fluxo "mais interessantes" com esses posts com gostos mais nas últimas 24 horas. Ainda pode implementar um fluxo personalizado para cada utilizador com base numa lógica como seguidores e interesses. Ainda seria uma lista de publicações. É uma questão de como criar estas listas, mas o desempenho de leitura permanece unhindered. Depois de adquirir uma destas listas, emite uma consulta única para o Cosmos DB utilizando a [palavra-chave](sql-query-keywords.md#in) para obter páginas de postagens por vez.
 
 Os fluxos de feeds podem ser criados usando [dos serviços de aplicações do Azure](https://azure.microsoft.com/services/app-service/) processos de fundo: [Webjobs](../app-service/webjobs-create.md). Quando é criada uma publicação, o processamento em segundo plano pode ser acionado, utilizando [armazenamento do Azure](https://azure.microsoft.com/services/storage/) [filas](../storage/queues/storage-dotnet-how-to-use-queues.md) e Webjobs acionados com o [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando o após a propagação dentro de fluxos com base na sua própria lógica personalizada.
 

@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/06/2019
-ms.openlocfilehash: 28e0e69d3a6a4d3a38146cbf2c49426b3b16c784
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: bef21dc35bbd2b9b50cf7b362624321866773bfe
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789457"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331344"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Estados de tarefa do Stream Analytics do Azure
 
@@ -23,7 +23,7 @@ Uma tarefa do Stream Analytics pode ser de uma das quatro Estados num determinad
 | --- | --- | --- |
 | **Em execução** | A tarefa está em execução no Azure ler eventos provenientes de origens de entrada definidas, processá-los e escrever os resultados para os sinks de saída configurados. | É melhor prática para controlar o desempenho de seu trabalho através da monitorização [métricas-chave](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). |
 | **Parado** | Seu trabalho é interrompido e não processa eventos. | N/D | 
-| **Degradado** | Erros transitórios provavelmente têm maior impacto na sua tarefa. Stream Analytics imediatamente tentará recuperar esses erros e retornar a um Estado de execução (dentro de alguns minutos). Estes erros podem acontecer devido a problemas de rede, a disponibilidade dos outros recursos do Azure, desserialização erros etc. Desempenho de seu trabalho poderá ser afetado quando a tarefa está em estado degradado.| Pode examinar os [registos de diagnóstico ou atividade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) para saber mais sobre a causa destes erros transitórios. Em casos como erros de desserialização, recomenda-se para tomar medidas corretivas para se certificar de eventos não são um formato incorreto. Se a tarefa mantém for atingido o limite de utilização de recursos, tente aumentar o número SU ou [paralelizar seu trabalho](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). Em outros casos em que não é possível efetuar qualquer ação, o Stream Analytics irá tentar recuperar para uma *em execução* estado.  |
+| **Degradado** | Poderão existir problemas de intermitentes com as suas ligações de entrada e saídas. Estes erros são chamados de erros transitórios que podem tornar seu trabalho entrar num Estado de Degraded. Stream Analytics imediatamente tentará recuperar esses erros e retornar a um Estado de execução (dentro de alguns minutos). Estes erros podem acontecer devido a problemas de rede, a disponibilidade dos outros recursos do Azure, desserialização erros etc. Desempenho de seu trabalho poderá ser afetado quando a tarefa está em estado degradado.| Pode examinar os [registos de diagnóstico ou atividade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) para saber mais sobre a causa destes erros transitórios. Em casos como erros de desserialização, recomenda-se para tomar medidas corretivas para se certificar de eventos não são um formato incorreto. Se a tarefa mantém for atingido o limite de utilização de recursos, tente aumentar o número SU ou [paralelizar seu trabalho](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). Em outros casos em que não é possível efetuar qualquer ação, o Stream Analytics irá tentar recuperar para uma *em execução* estado. <br> Pode usar [atraso de marca d'água](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor) métrica para compreender se estes erros transitórios estejam a afetar o desempenho de seu trabalho.|
 | **Falhou** | Sua tarefa encontrou um erro crítico, resultando em estado de falha. Eventos não são lidos e processados. Erros de tempo de execução são uma causa comum para terminar em estado de falha de tarefas. | Pode [configurar alertas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#set-up-alerts-in-the-azure-portal) para que seja notificado quando o trabalho vai para o estado de falha. <br> <br>Pode depurar usando [atividade e os registos de diagnóstico](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs#debugging-using-activity-logs) para identificar a causa raiz e resolver o problema.|
 
 ## <a name="next-steps"></a>Passos Seguintes
