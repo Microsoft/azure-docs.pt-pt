@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61433715"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477834"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial do projeto Acoustics Unreal/Wwise Design
 Este tutorial descreve a configuração de design e o fluxo de trabalho do projeto Acoustics no Unreal e Wwise.
@@ -122,6 +122,11 @@ Para gerir os dados de acústicos de transmissão em fluxo por conta própria, e
 Tamanho do bloco já tem de ser definido antes de chamar o mosaico da carga de força. Por exemplo, pode fazer algo semelhante a isto para carregar um ficheiro ACE, defina o tamanho do mosaico e transmitir em fluxo numa região:
 
 ![Opções de captura de ecrã de configuração de transmissão em fluxo no Unreal](media/streaming-setup.png)
+
+A função de esquema de carregamento de dados de Acoustics utilizada neste exemplo tem os seguintes parâmetros:
+
+* **Destino:** No ator AcousticsSpace.
+* **Criar novo:** O recurso de dados de acoustics seja carregado. Deixar esta aplicação em branco/definição-la como nula, a criar atual será descarregado sem carregar um novo.
 
 ### <a name="optionally-query-for-surface-proximity"></a>Opcionalmente, a consulta de proximidade superfície
 Se quiser ver como fechar superfícies estão numa direção específica em todo o serviço de escuta, pode usar a função de distância de consulta. Essa função pode ser útil para impulsionar direcionais reflexos atrasados ou para outra lógica do jogo orientado pelo proximidade superfície. A consulta é mais barato do que um cast ray porque os resultados são extraídos da tabela de referência de acoustics.

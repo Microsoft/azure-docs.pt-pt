@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9ae894bee803c60b56a1bfacd5667f355aa44d2b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 835dc8d25ad1d6a30020408636b556c3f247200d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799989"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478365"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com a API de REST do Python para chamar o serviço cognitivos de análise de texto 
 <a name="HOLTop"></a>
@@ -49,7 +49,6 @@ Crie uma aplicação Python nova no seu editor favorito ou IDE. Adicione as segu
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 Crie variáveis para a sua chave de subscrição e o ponto final para a API de REST de análise de texto. Certifique-se de que a região em que o ponto de extremidade corresponde ao utilizado quando se inscreveu no (por exemplo `westcentralus`). Se estiver a utilizar uma chave de avaliação gratuita, não precisa alterar nada.
@@ -90,7 +89,7 @@ languages = response.json()
 pprint(languages)
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Output
 
 ```json
 {
@@ -160,7 +159,7 @@ sentiments = response.json()
 pprint(sentiments)
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Output
 
 A classificação de sentimento de um documento é entre 0,0 e 1,0, com uma pontuação superior que indicam um sentimento positivo mais.
 
@@ -192,7 +191,7 @@ A classificação de sentimento de um documento é entre 0,0 e 1,0, com uma pont
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair frases-chave
+## <a name="extract-key-phrases"></a>Extrair expressões-chave
  
 Para extrair expressões-chave a partir de um conjunto de documentos, acrescente `keyPhrases` para o ponto final base de análise de texto para formar o URL de deteção de idioma. Por exemplo: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
@@ -220,7 +219,7 @@ key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Output
 
 ```json
 {
@@ -290,7 +289,7 @@ response  = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
 ```
 
-### <a name="output"></a>Resultado
+### <a name="output"></a>Output
 
 ```json
 {'documents': [{'id': '1',

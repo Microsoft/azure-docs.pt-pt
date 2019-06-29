@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8f8d110a13e768d93f0be3c4baaf5715436f2ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8d2aed16b5af60c44501e6d72332783a164ff91
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828058"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478395"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Cenários de utilizador de exemplo para a API de análise de texto
 
@@ -29,7 +29,7 @@ Obtenha informações a partir dos clientes e funcionários resultados de pesqui
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analisar chamadas dos clientes de entrada gravado
 
-Extraia informações de chamadas de serviços de cliente com o texto em voz, análise de sentimentos e extração de expressões chave. Exiba os resultados no dashboard do Power BI ou um portal para melhor compreender os clientes, realçar tendências de serviço de cliente e envolvimento do cliente de unidade. Envie pedidos da API como um lote para relatórios ou em tempo real de intervenção. 
+Extraia informações de chamadas de serviços de cliente com o texto em voz, análise de sentimentos e extração de expressões chave. Exiba os resultados no dashboard do Power BI ou um portal para melhor compreender os clientes, realçar tendências de serviço de cliente e envolvimento do cliente de unidade. Envie pedidos da API como um lote para relatórios ou em tempo real de intervenção. Ver [código de exemplo](https://github.com/rlagh2/callcenteranalytics).
 
 ![Uma imagem que descreve como automatizar a obtenção de informações de chamadas de serviço de cliente através da análise de sentimentos](media/use-cases/azure-inbound.svg)
 
