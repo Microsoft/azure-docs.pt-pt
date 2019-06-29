@@ -3,19 +3,19 @@ title: Implementações de linguagem não suportado - Translator personalizado
 titleSuffix: Azure Cognitive Services
 description: Como implementar pares de idiomas não suportado no Translator personalizado.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: v-pawal
-ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 284a7e98c088edb73a2c770a4c14bb0a479a6621
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390623"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436075"
 ---
 # <a name="unsupported-language-deployments"></a>Implementações de linguagens não suportadas
 

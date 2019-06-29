@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b30b14e561fd3851a41701d2ecb8d98d5a02ed
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110123"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445570"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Utilizar marcadores decoration para realçar o texto
 
@@ -56,7 +56,7 @@ Se `textDecorations` é **true**, Bing pode incluir os seguintes marcadores em c
 |U+E018|\<sup>|Marca o início do conteúdo sobrescrito
 |U+E019|\</sup>|Marca o fim do conteúdo sobrescrito
 
-A exemplo a seguir mostra um `Computation` resposta que contém os marcadores subscrito para um termo de consulta log(2). O `expression` campo contém o marcadores apenas se for ' é textDecoration **true**.
+A exemplo a seguir mostra um `Computation` resposta que contém os marcadores subscrito para um termo de consulta log(2). O `expression` campo contém o se apenas de marcadores `textDecoration` é **verdadeiro**.
 
 ![marcadores de computação](./media/bing-markers-computation.PNG) 
 

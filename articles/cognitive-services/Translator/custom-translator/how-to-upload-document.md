@@ -2,19 +2,19 @@
 title: Como carregar um documento - Translator personalizado
 titleSuffix: Azure Cognitive Services
 description: Pode utilizar a funcionalidade de carregamento do documento para carregar o documento de paralelo para sua treinamentos. Documentos paralelos são pares de documentos em que uma é a tradução do outro. Um documento no par contém frases no idioma de origem e o outro documento contém essas frases traduzidas no idioma de destino.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 1fa786bee960f71e4109041d935757a0d1edd75e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 948c9628147ae8cf869046b283601b939d35b290
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386937"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447917"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
 

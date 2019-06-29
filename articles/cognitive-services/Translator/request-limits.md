@@ -3,19 +3,19 @@ title: Limites - API de texto de tradutor de pedido
 titleSuffix: Azure Cognitive Services
 description: Este artigo apresenta os limites de pedido para a API de texto do Translator. Incorrerá em encargos com base na contagem de carateres, não pedido frequência com um limite de 5000 carateres por pedido. Limites de caracteres são a subscrição com base, com F0 limitado a 2 milhões de carateres por hora.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: d04677362e0ba3ace59d55ede9bd6241f17130e9
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: swmachan
+ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269224"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435036"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de pedido para o texto do tradutor
 
@@ -38,7 +38,11 @@ As seguintes tabela listas de elemento e o caráter limites da matriz para cada 
 
 ## <a name="character-limits-per-hour"></a>Limites do caractere por hora
 
-O limite de carateres por hora baseia-se a sua camada de subscrição de texto do Translator. A quota de hora a hora deve ser consumida uniformemente em toda a hora. Se chega a superar as estes limites ou enviar demasiado grande de uma parte da quota de num curto período de tempo, provavelmente receberá um fora de resposta de quota. Não há nenhum limite no pedidos em simultâneo.
+O limite de carateres por hora baseia-se a sua camada de subscrição de texto do Translator. 
+
+A quota de hora a hora deve ser consumida uniformemente em toda a hora. Por exemplo, atingiu o limite de camada de F0 de 2 milhões de carateres por hora, caracteres devem ser consumidos não mais rapidamente do que aproximadamente 33,300 carateres por janela deslizante de minutos (2 milhões de carateres divididos por 60 minutos).
+
+Se chega a superar as estes limites ou enviar demasiado grande de uma parte da quota de num curto período de tempo, provavelmente receberá um fora de resposta de quota. Não há nenhum limite no pedidos em simultâneo.
 
 | Escalão | Limite de carateres |
 |------|-----------------|

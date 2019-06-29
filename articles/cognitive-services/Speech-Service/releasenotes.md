@@ -8,17 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606343"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449251"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-sdk-160-2019-june-release"></a>Voz SDK 1.6.0: Versão de Junho de 2019
+**Amostras**
+*   Exemplos de início rápido para texto em voz em UWP e o Unity
+*   Exemplo de início rápido para Swift no iOS
+*   Exemplos de Unity para conversão de voz e reconhecimento de intenção e tradução
+*   Exemplos de início rápido atualizada para DialogServiceConnector
+
+**Melhorias / alterações**
+* Espaço de nomes de caixa de diálogo:
+    * SpeechBotConnector foi renomeada para DialogServiceConnector
+    * BotConfig foi renomeada para DialogServiceConfig
+    * BotConfig::FromChannelSecret() tem sido remapeado para DialogServiceConfig::FromBotSecret()
+    * Todos os clientes de voz de linha direta existentes continuam a ser suportada após a mudança de nome
+* Atualizar placa de REST de TTS para suportar o proxy, ligação persistente
+* Melhorar a mensagem de erro quando é passada uma região inválida
+
+**Correções de erros**
+*   Correção para TTS: onde SpeakTextAsync futuro devolvido sem ter de esperar até que o áudio tem composição foi concluída
+*   Correção para o marshalling de cadeias de caracteres em C# para ativar o suporte de linguagem completa
+*   Correção do problema de aplicação .NET core carregar a biblioteca de núcleo com o framework de destino net461 nos exemplos
+*   Correção para problemas ocasionais implementar as bibliotecas nativas para a pasta de saída nos exemplos
+*   Correção de socket web fechar de forma fiável
+*   Correção para possíveis falhas ao abrir uma ligação sob uma carga muito pesada no Linux
+
 
 ## <a name="speech-sdk-151"></a>1\.5.1 do SDK de voz
 

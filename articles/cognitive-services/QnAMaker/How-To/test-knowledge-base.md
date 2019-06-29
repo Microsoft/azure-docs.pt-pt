@@ -3,20 +3,20 @@ title: Como testar uma base de dados de conhecimento - QnA Maker
 titlesuffix: Azure Cognitive Services
 description: Teste a sua base de dados de conhecimento do QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas a ser devolvido. Pode testar a base de dados de conhecimento através de uma interface de bate-papo avançada também permite que faça edições.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/08/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d9c00c4ea7fd0494d00551dc37b186e1a357037
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472118"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439731"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Testar a sua base de dados de conhecimento interativamente em QnA Maker
 

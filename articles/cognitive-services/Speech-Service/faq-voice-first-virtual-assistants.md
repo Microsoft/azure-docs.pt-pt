@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
-ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c669f00ae65667f85976aca218ce51d630159ee
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072611"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465490"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>Voz em primeiro lugar virtual assistentes pré-visualização: Perguntas mais frequentes
 
@@ -25,7 +25,7 @@ Se não conseguir encontrar respostas para suas perguntas neste documento, confi
 
 **P: O que é direta de linha de fala?**
 
-**R:** O `SpeechBotConnector` desde o SDK de voz fornece bidirecional, comunicação assíncrona com bots que estão ligados para o canal de voz de linha direta no Bot Framework. Este canal fornece um acesso coordenado a conversão de voz em texto e voz dos serviços de voz do Azure que permitem que os bots tornar-se totalmente voice no, as experiências de conversação de voz. Com o suporte para palavras de reativação e a verificação do Word de reativação, esta solução torna possível criar altamente personalizáveis assistentes de virtual de voz em primeiro lugar para sua marca ou o produto.
+**R:** O `DialogServiceConnector` desde o SDK de voz fornece bidirecional, comunicação assíncrona com bots que estão ligados para o canal de voz de linha direta no Bot Framework. Este canal fornece um acesso coordenado a conversão de voz em texto e voz dos serviços de voz do Azure que permitem que os bots tornar-se totalmente voice no, as experiências de conversação de voz. Com o suporte para palavras de reativação e a verificação do Word de reativação, esta solução torna possível criar altamente personalizáveis assistentes de virtual de voz em primeiro lugar para sua marca ou o produto.
 
 **P: Como posso começar a utilizar?**
 
@@ -35,7 +35,7 @@ Se não conseguir encontrar respostas para suas perguntas neste documento, confi
 
 **P: Recebo um erro 401 quando se liga e nada funciona. Eu sei a que minha chave de subscrição de voz é válido. O que está acontecendo?**
 
-**R:** Em pré-visualização, o direta de linha de voz tem limitações muito específicas sobre a subscrição utilizada. Certifique-se de que está a utilizar o **voz** recursos (Microsoft.CognitiveServicesSpeechServices, "Fala") e *não* o **serviços cognitivos** (de recursos Microsoft.CognitiveServicesAllInOne, "Todos os serviços cognitivos"). Além disso, tenha em atenção que apenas os **westus2** região é atualmente suportada.
+**R:** Em pré-visualização, conversão de voz de linha direta tem limitações específicas nos quais as subscrições que pode utilizar. Certifique-se de que está a utilizar o **voz** recursos (Microsoft.CognitiveServicesSpeechServices, "Fala") e *não* o **serviços cognitivos** (de recursos Microsoft.CognitiveServicesAllInOne, "Todos os serviços cognitivos"). Apenas [um subconjunto de regiões de serviços de voz](regions.md#voice-first-virtual-assistants) são atualmente suportados para conversão de voz de linha direta.
 
 ![Corrija a subscrição para a conversão de voz de linha direta](media/voice-first-virtual-assistants/faq-supported-subscription.png "exemplo de uma subscrição de voz compatível")
 
@@ -43,9 +43,9 @@ Se não conseguir encontrar respostas para suas perguntas neste documento, confi
 
 **R:** Este erro indica um problema de comunicação entre o bot e direto de linha de voz. Certifique-se de que [ligado o canal direto de linha de voz](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [foi adicionado suporte de protocolo de transmissão em fluxo](https://aka.ms/botframework/addstreamingprotocolsupport) para o seu bot (com suporte de Web Socket relacionado) e, em seguida, verifique se seu bot está a responder à entrada pedidos do canal.
 
-**P: Isso não funciona e/ou estou recebendo um erro diferente ao utilizar um SpeechBotConnector e não está claro o que devemos fazer. O que *deve* devo fazer?**
+**P: Esse código não funciona e/ou ao utilizar um DialogServiceConnector estou recebendo um erro de diferente. O que devo fazer?**
 
-**R:** Com base no ficheiro de registo fornece substancialmente mais detalhes e pode ajudar a acelerar os pedidos de suporte. Para ativar esta opção, veja [como utilizar o registo de ficheiros](how-to-use-logging.md).
+**R:** Com base no ficheiro de registo fornece substancialmente mais detalhes e pode ajudar a acelerar os pedidos de suporte. Para ativar esta funcionalidade, consulte [como utilizar o registo de ficheiros](how-to-use-logging.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

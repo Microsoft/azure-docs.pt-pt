@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341843"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442524"
 ---
-# <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Pré-visualização: Migrar para a versão de API 3.x para aplicações de LUIS
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Pré-visualização: Migrar para a versão de API 3.x para aplicações de LUIS
 
 O ponto final de predição de consulta APIs foram alterados. Utilize este guia para compreender como migrar para o ponto final de versão 3 APIs. 
 
@@ -43,6 +43,27 @@ São as seguintes funcionalidades de LUIS **nepodporuje** na V3 API:
 * V7 de verificação de ortografia do Bing
 
 [Documentação de referência](https://aka.ms/luis-api-v3) está disponível para V3.
+
+## <a name="endpoint-url-changes-by-slot-name"></a>Alterações de URL de ponto final por nome da ranhura
+
+O formato da chamada de ponto de extremidade HTTP V3 foi alterado.
+
+|MÉTODO|do IdP|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+## <a name="endpoint-url-changes-by-version-id"></a>Alterações de URL de ponto final por ID de versão
+
+Se quiser consultar por versão, tem primeiro de [publicar através da API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) com o `"directVersionPublish":true`. Consulte o ponto final a referenciar o ID de versão em vez do nome de ranhura.
+
+
+|MÉTODO|do IdP|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
 
 ## <a name="prebuilt-entities-with-new-json"></a>Entidades previamente concebidas com novo JSON
 

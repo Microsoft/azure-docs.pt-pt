@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 518f1048224a97943756c5b51b83cd509f82e11e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072500"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466994"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões suportadas do serviço de voz
 
@@ -35,9 +35,9 @@ O SDK de voz está disponível nestas regiões para **reconhecimento de fala**, 
   Região | Parâmetro do SDK de voz | Portal de personalização de voz
  ------|-------|--------
  EUA Oeste | `westus` | https://westus.cris.ai
- E.U.A. Oeste 2 | `westus2` | https://westus2.cris.ai
+ EUA Oeste 2 | `westus2` | https://westus2.cris.ai
  EUA Leste | `eastus` | https://eastus.cris.ai
- E.U.A. Leste 2 | `eastus2` | https://eastus2.cris.ai
+ EUA Leste 2 | `eastus2` | https://eastus2.cris.ai
  EUA Central | `centralus` | https://centralus.cris.ai
  EUA Centro-Norte | `northcentralus` | https://northcentralus.cris.ai
  EUA Centro-Sul | `southcentralus` | https://southcentralus.cris.ai
@@ -73,6 +73,20 @@ Regiões disponíveis para **reconhecimento da intenção** através do SDK de v
  América do Sul | Sul do Brasil | `brazilsouth`
 
 Este é um subconjunto das regiões publicação suportados pelos [serviço de compreensão de idiomas (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+
+### <a name="voice-first-virtual-assistants"></a>Assistentes de voz em primeiro lugar virtual
+
+O [SDK de voz](speech-sdk.md) suporta **Assistente de voz em primeiro lugar virtual** recursos nestas regiões:
+
+Região | Parâmetro do SDK de voz
+-------|---------------------
+EUA Oeste | `westus`
+EUA Oeste 2 | `westus2`
+EUA Leste | `eastus`
+EUA Leste 2 | `eastus2`
+Europa Ocidental | `westeurope`
+Europa do Norte | `northeurope`
+Sudeste Asiático | `southeastasia`
 
 ## <a name="rest-apis"></a>APIs REST
 

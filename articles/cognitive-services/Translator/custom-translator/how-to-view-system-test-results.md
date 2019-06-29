@@ -2,19 +2,19 @@
 title: Ver resultados de teste de sistema e de implementação - Translator personalizado
 titleSuffix: Azure Cognitive Services
 description: Quando seu treinamento é efetuada com êxito, reveja os testes de sistema para analisar os resultados de treinamento. Se estiver satisfeito com os resultados de treinamento, coloca um pedido de implementação para o modelo preparado.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 675ae10e304bd22c441740a87e8033136ff63ebd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389320"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442483"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 

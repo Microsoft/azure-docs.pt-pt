@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae075dbc922932a4eaffd9126560c159d33459d0
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808449"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466970"
 ---
 # <a name="ship-an-application"></a>Enviar uma aplicação
 
@@ -46,6 +46,9 @@ Os ficheiros necessários do SDK de voz podem ser implementados no mesmo diretó
 
 >[!NOTE]
 > A partir da versão 1.3.0 o ficheiro `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (lançado em versões anteriores) não é necessária mais. A funcionalidade está agora integrada no SDK core.
+
+>[!NOTE]
+> Para a aplicação de formulários do Windows (.NET Framework) C# do projeto, certifique-se de que as bibliotecas estão incluídas nas definições de implementação do seu projeto. Pode verificar isto em `Properties -> Publish Section`. Clique no `Application Files` botão e encontre as bibliotecas correspondentes de rolagem para baixo da lista. Certifique-se de que o valor é definido como `Included`. Visual Studio incluirá o arquivo ao projeto é publicado/implementadas.
 
 ## <a name="linux"></a>Linux
 

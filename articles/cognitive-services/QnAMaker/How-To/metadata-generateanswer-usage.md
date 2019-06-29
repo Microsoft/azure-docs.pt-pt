@@ -3,19 +3,19 @@ title: Metadados com GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A ferramenta QnA Maker permite-lhe adicionar metadados, na forma de pares chave/valor, a seus conjuntos de pergunta/resposta. Pode filtrar os resultados de consultas do utilizador e armazenar informações adicionais que podem ser utilizadas em conversas de acompanhamento.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/17/2019
-ms.author: tulasim
-ms.openlocfilehash: d1e7a29e4ca94405e2d6b2000309ef6e2c3a777c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/27/2019
+ms.author: diberry
+ms.openlocfilehash: 99c076d7f26638833b568935e766cf319d21945e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164615"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443476"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta com a API de GenerateAnswer e metadados
 
@@ -37,13 +37,13 @@ Cada entidade do QnA tem um ID exclusivo e persistente. Pode utilizar o ID para 
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obter previsões de resposta com a API de GenerateAnswer
 
-A API de GenerateAnswer no seu bot ou aplicação é utilizada para consultar a base de dados de conhecimento com uma pergunta de utilizador obter a melhor correspondência da pergunta e resposta define.
+Utilizar o [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no seu bot ou aplicação para consultar a base de dados de conhecimento com uma pergunta de utilizador obter a melhor correspondência da pergunta e resposta define.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicar para obter o ponto final de GenerateAnswer 
 
-Depois de publicar a sua base de dados de conhecimento, a partir do [portal do QnA Maker](https://www.qnamaker.ai), ou utilizando o [API](https://go.microsoft.com/fwlink/?linkid=2092179), pode obter os detalhes do ponto final do GenerateAnswer.
+Depois de publicar a sua base de dados de conhecimento, a partir do [portal do QnA Maker](https://www.qnamaker.ai), ou utilizando o [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), pode obter os detalhes do ponto final do GenerateAnswer.
 
 Para obter os detalhes do seu ponto final:
 1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -59,34 +59,21 @@ Também pode obter os detalhes do seu ponto final da **definições** separador 
 
 ## <a name="generateanswer-request-configuration"></a>Configuração de pedido de GenerateAnswer
 
-Chamar GenerateAnswer com um pedido HTTP POST. Para o código de exemplo que mostra como chamar GenerateAnswer, consulte a [inícios Rápidos](../quickstarts/csharp.md).
+Chamar GenerateAnswer com um pedido HTTP POST. Para o código de exemplo que mostra como chamar GenerateAnswer, consulte a [inícios Rápidos](../quickstarts/csharp.md). 
 
-O **URL do pedido** tem o seguinte formato: 
+O pedido POST utiliza:
+
+* Necessário [parâmetros do URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Necessário [propriedade header](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, para segurança
+* Necessário [body propriedades](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
+
+O URL de GenerateAnswer tem o seguinte formato: 
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|Propriedade de pedido HTTP|Name|Tipo|Objetivo|
-|--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de conhecimento|string|O GUID de sua base de dados de conhecimento.|
-|Parâmetro de rota de URL|Anfitrião de ponto final do QnAMaker|string|O nome de anfitrião do ponto final implementado na sua subscrição do Azure. Isto estará disponível sob o **definições** página depois de publicar a base de dados de conhecimento. |
-|Cabeçalho|Content-Type|string|O tipo de suporte do corpo enviado para a API. Valor predefinido é: '|
-|Cabeçalho|Autorização|string|A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Corpo da mensagem|Objeto JSON|JSON|A pergunta com as definições.|
-
-
-O corpo JSON tem várias definições:
-
-|Propriedade de corpo JSON|Necessário|Tipo|Objetivo|
-|--|--|--|--|
-|`question`|Necessário|string|Uma pergunta do utilizador sejam enviados para a sua base de dados de conhecimento.|
-|`top`|Opcional|inteiro|O número de resultados classificados a incluir na saída. O valor predefinido é 1.|
-|`userId`|Opcional|string|Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.|
-|`scoreThreshold`|Opcional|inteiro|Apenas respostas com pontuação de confiança acima deste limiar vão ser devolvidas. O valor predefinido é 0.|
-|`isTest`|Opcional|Boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
-|`strictFilters`|Opcional|string|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados. Utilize `none` para indicar a resposta não deve ter nenhum filtro de metadados. |
-|`RankerType`|Opcional|string|Se for especificado como `QuestionOnly`, informa ao QnA Maker para pesquisar apenas a perguntas. Se não for especificado, o QnA Maker pesquisa perguntas e respostas.
+Não se esqueça de definir a propriedade de cabeçalho HTTP do `Authorization` com um valor da cadeia de caracteres `EndpointKey ` com à direita do espaço, em seguida, a chave de ponto de extremidade encontrada no **definições** página.
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -109,19 +96,7 @@ Um exemplo de corpo JSON é semelhante a:
 
 ## <a name="generateanswer-response-properties"></a>Propriedades de resposta de GenerateAnswer
 
-Uma resposta com êxito retorna um status de 200 e uma resposta JSON. 
-
-|Propriedade de respostas (classificada por classificação)|Objetivo|
-|--|--|
-|pontuação|Uma pontuação de classificação, entre 0 e 100.|
-|Id|Um ID exclusivo atribuído para a resposta.|
-|Perguntas|As perguntas fornecidas pelo usuário.|
-|Resposta|A resposta à pergunta.|
-|source|O nome da origem do qual a resposta foi extraída ou guardada na base de dados de conhecimento.|
-|do IdP|Os metadados associados com a resposta.|
-|metadata.name|Nome de metadados. (string, comprimento máximo: 100, necessária)|
-|metadata.value|Valor de metadados. (string, comprimento máximo: 100, necessária)|
-
+O [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query) é um objeto JSON, incluindo todas as informações necessárias apresentar a resposta e a próxima ativar na conversação, se disponível.
 
 ```json
 {

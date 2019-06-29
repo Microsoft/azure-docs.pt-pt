@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: db73d4e30c960eb09e6b5fbc9411901c69c28b01
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272965"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445824"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>Implementar e executar o contentor na instância de contentor do Azure (ACI)
 
@@ -35,46 +35,7 @@ Esta solução funciona com qualquer contentor de serviços cognitivos. O recurs
 
 Todas as variáveis em colchetes angulares, `<>`, precisam ser substituídos pelos seus próprios valores. Essa substituição inclui dos parênteses.
 
-## <a name="step-2-launch-your-container-on-azure-container-instances-aci"></a>Passo 2: Iniciar o contentor no Azure Container Instances (ACI)
-
-**Criar o recurso de instância de contentor do Azure (ACI).**
-
-1. Vá para o [criar](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) página do Container Instances.
-
-1. Sobre o **Noções básicas** separador, introduza os seguintes detalhes:
-
-    |Página|Definição|Value|
-    |--|--|--|
-    |Noções básicas|Subscrição|Selecione a sua subscrição.|
-    |Noções básicas|Grupo de recursos|Selecione o grupo de recursos disponíveis ou criar um novo como `cognitive-services`.|
-    |Noções básicas|Nome do contentor|Introduza um nome como `cognitive-container-instance`. Este nome tem de estar no limites inferiores.|
-    |Noções básicas|Location|Selecione uma região para a implementação.|
-    |Noções básicas|Tipo de imagem|`Public`|
-    |Noções básicas|Nome da imagem|Introduza a localização do contentor de serviços cognitivos. Isso pode ser a mesma localização que utilizou no `docker pull` comando, _por exemplo_: <br>`mcr.microsoft.com/azure-cognitive-services/sentiment`|
-    |Noções básicas|Tipo de SO|`Linux`|
-    |Noções básicas|Tamanho|Alterar o tamanho para as recomendações sugeridas para o seu contentor específico do serviço cognitivo.:<br>2 núcleos<br>4GB
-    ||||
-  
-1. Sobre o **redes** separador, introduza os seguintes detalhes:
-
-    |Página|Definição|Value|
-    |--|--|--|
-    |Redes|Portas|Edite a porta de existente para TCP partir `80` para `5000`. Isso significa que estão a expor o contentor na porta 5000.|
-    ||||
-
-1. Sobre o **avançadas** separador, introduza os seguintes detalhes para passar através do contêiner necessárias definições para o recurso de instância de contentor de faturação:
-
-    |Chave de página Avançadas|Valor de página Avançadas|
-    |--|--|
-    |`apikey`|Copiado do **chaves** página do recurso. Precisa apenas uma das duas chaves. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copiado do **descrição geral** página do recurso. |
-    |`eula`|`accept`|
-
-    Se o seu contentor tiver outras definições de configuração como monta entrada, saída monta ou Registro em log, essas definições também tem de ser adicionado.
-
-1. Selecione **reveja e criar**.
-1. Depois de passar a validação, selecione **criar** para concluir o processo de criação.
-1. Selecione o ícone de sino na parte superior da navegação. Esta é a janela de notificação. Isso exibirá um azul **Ir para recurso** botão quando o recurso é criado. Selecione o botão Ir novo recurso.
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Utilizar a instância de contentor
 

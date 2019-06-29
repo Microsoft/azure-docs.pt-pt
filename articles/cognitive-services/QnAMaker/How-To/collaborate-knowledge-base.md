@@ -1,21 +1,21 @@
 ---
-title: Colaborar na base de dados de conhecimento - Qna Maker
+title: Colaborar na base de dados de conhecimento - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: A ferramenta QnA Maker permite que várias pessoas colaborar numa base de dados de conhecimento. Esta funcionalidade é fornecida com o controlo de acesso.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
-ms.openlocfilehash: ca754f197a46fc41b6f1b432611a2177ec0afafa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: diberry
+ms.openlocfilehash: 757b791f632e6d7ecb15a0a40384061f0658a6ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61374862"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447518"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaborar na sua base de dados de conhecimento
 

@@ -9,17 +9,17 @@ ms.subservice: form-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 45303f1f75e80a66c3cb85154d458a970c214370
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: f38752928832b7dee6a7e55f1d25374a64391bbe
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295495"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441881"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalar e executar contentores do reconhecedor de formulário
 Reconhecedor de formulário do Azure aplica-se a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e tabelas de formulários. Ele associa as entradas da tabela e valores com os pares chave-valor e, em seguida, produz dados estruturados, que inclui as relações no arquivo original. 
 
-Para reduzir a complexidade e integrar facilmente um modelo de formulário reconhecedor personalizado ao seu processo de automatização de fluxo de trabalho ou de outro aplicativo, pode chamar o modelo com uma API REST simples. Apenas cinco documentos (ou um formulário vazio) é necessários, pelo que pode obter resultados rapidamente, com precisão e adaptado ao seu conteúdo específico. Sem muita intervenção manual ou a experiência de ciência de dados extensa é necessária. E ele não requer a etiquetagem de dados ou de anotação de dados.
+Para reduzir a complexidade e integrar facilmente um modelo de formulário reconhecedor personalizado ao seu processo de automatização de fluxo de trabalho ou de outro aplicativo, pode chamar o modelo com uma API REST simples. Apenas cinco de formulário de documentos (ou um formulário vazio e dois formulários preenchidos) são necessários, pelo que pode obter resultados rapidamente, com precisão e adaptados ao seu conteúdo específico. Sem muita intervenção manual ou a experiência de ciência de dados extensa é necessária. E ele não requer a etiquetagem de dados ou de anotação de dados.
 
 |Função|Funcionalidades|
 |-|-|

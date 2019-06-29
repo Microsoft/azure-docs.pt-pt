@@ -3,20 +3,20 @@ title: Método de idiomas de API de voz do Translator
 titleSuffix: Azure Cognitive Services
 description: Use o método de idiomas de API de voz do Translator.
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4abe6330d0359f7d7c922facecaaf1a8b1fc7174
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827906"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446962"
 ---
 # <a name="translator-speech-api-languages"></a>API de voz de tradutor: Languages
 
@@ -140,8 +140,8 @@ X-RequestId|Valor gerado pelo servidor para identificar o pedido e utilizada par
 
 |Parâmetro|Descrição|Tipo de parâmetro|Tipo de Dados|
 |:--|:--|:--|:--|
-|versão de API    |Versão da API do pedido pelo cliente. Valores permitidos são: `1.0`.|consulta|string|
-|scope  |Conjuntos de idiomas suportados ou vozes para devolver ao cliente. Este parâmetro for especificado como uma lista separada por vírgulas de palavras-chave. As palavras-chave seguintes estão disponíveis:<ul><li>`speech`: Fornece o conjunto de idiomas suportados para transcrição de voz.</li><li>`tts`: Fornece o conjunto de vozes suportado para conversão de voz de texto.</li><li>`text`: Fornece o conjunto de idiomas suportados para a tradução de texto.</li></ul>Se não for especificado um valor, o valor de `scope` assume a predefinição `text`.|consulta|string|
+|versão de API    |Versão da API do pedido pelo cliente. Valores permitidos são: `1.0`.|query|string|
+|scope  |Conjuntos de idiomas suportados ou vozes para devolver ao cliente. Este parâmetro for especificado como uma lista separada por vírgulas de palavras-chave. As palavras-chave seguintes estão disponíveis:<ul><li>`speech`: Fornece o conjunto de idiomas suportados para transcrição de voz.</li><li>`tts`: Fornece o conjunto de vozes suportado para conversão de voz de texto.</li><li>`text`: Fornece o conjunto de idiomas suportados para a tradução de texto.</li></ul>Se não for especificado um valor, o valor de `scope` assume a predefinição `text`.|query|string|
 |X-ClientTraceId    |Um GUID gerado pelo cliente utilizado para rastrear um pedido. Para facilitar a resolução de problemas relacionados, os clientes devem fornecer um novo valor com cada solicitação e registrá-lo.|cabeçalho|string|
 |Accept-Language    |Alguns dos campos na resposta são nomes de idiomas ou regiões. Utilize este parâmetro para definir o idioma em que os nomes são devolvidos. O idioma é especificado ao fornecer uma etiqueta de idioma do BCP 47 bem formada. Selecione uma etiqueta na lista de identificadores de idioma devolvida com o `text` âmbito. Para os idiomas sem suporte, os nomes são fornecidos em inglês.<br/>Por exemplo, utilize o valor `fr` para pedir nomes em francês ou utilizar o valor `zh-Hant` para nomes do pedido em chinês tradicional.|cabeçalho|string|
 

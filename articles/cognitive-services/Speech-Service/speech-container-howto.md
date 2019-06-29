@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 0fe30bc6bdd1bba03df349305d8846e78063bd26
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6df40909e2072ac2126344ba5b696c9e520e9955
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342201"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434153"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contentores do serviço de voz
 
@@ -25,7 +25,7 @@ São os contentores de dois voz **voz em texto** e **voz**.
 
 |Função|Funcionalidades|mais recente|
 |-|-|--|
-|Conversão de voz em texto| <li>Converte contínuas em tempo real de voz ou lote gravações de áudio em texto com os resultados intermediários.|1.1.1|
+|Conversão de voz em texto| <li>Converte contínuas em tempo real de voz ou lote gravações de áudio em texto com os resultados intermediários.|1.1.2|
 |Texto em Voz| <li>Converte texto em voz com som natural. com a introdução de texto sem formatação ou Speech Synthesis Markup Language (SSML). |1.1.0|
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -101,10 +101,10 @@ Todas as etiquetas, exceto para `latest` estão no formato seguinte, onde o `<cu
 A seguinte marca é um exemplo do formato de:
 
 ```
-1.0.0-amd64-en-us-preview
+1.1.2-amd64-en-us-preview
 ```
 
-A tabela seguinte lista as regiões suportadas para **voz em texto** no 1.1.1 versão do contentor:
+A tabela seguinte lista as regiões suportadas para **voz em texto** no 1.1.2 versão do contentor:
 
 |Região de idioma|Tags|
 |--|--|
@@ -129,7 +129,7 @@ Todas as etiquetas, exceto para `latest` estão no formato seguinte, em que o `<
 A seguinte marca é um exemplo do formato de:
 
 ```
-1.0.0-amd64-en-us-jessarus-preview
+1.1.0-amd64-en-us-jessarus-preview
 ```
 
 A tabela seguinte lista as regiões suportadas para **voz** no 1.1.0 versão do contentor:

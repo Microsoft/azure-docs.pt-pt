@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8c7476a82df75d8ba653a2a8e6c0f9f557b53c42
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341880"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442569"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 
 Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Ensinar a compreensão de idiomas (LUIS), precisa adicionar [expressões de exemplo](luis-concept-utterance.md) para um [intenção](luis-concept-intent.md).
 
-Normalmente, adicione uma expressão de exemplo para um objetivo pela primeira vez e, em seguida, criar entidades e expressões com na página da intenção da etiqueta. Se o primeiro, em vez disso, seria criar entidades, veja [adicionar entidades](luis-how-to-add-entities.md).
+Normalmente, adicione uma expressão de exemplo para uma primeira intenção, e, em seguida, criar entidades e expressões de etiqueta no **intenções** página. Se o primeiro, em vez disso, seria criar entidades, veja [adicionar entidades](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Marcar entidades em expressões de exemplo
 
@@ -32,7 +32,7 @@ Determinados tipos de entidade, como entidades previamente concebidas e entidade
 
 ## <a name="add-a-simple-entity"></a>Adicione uma entidade
 
-No procedimento seguinte, criar e etiquetar uma entidade personalizada na seguinte expressão na página de intenção:
+No procedimento seguinte, criar e etiquetar uma entidade personalizada na seguinte expressão **intenções** página:
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Para obter lista de departamento da empresa, pode ter normalizados valores: `Acc
 
     Pode adicionar mais itens de lista ou mais de item de sinónimos ao etiquetagem outras expressões ou ao editar a entidade a partir da **entidades** na navegação à esquerda. [Editar](luis-how-to-add-entities.md#add-list-entities) as entidades dá-lhe as opções da introdução itens adicionais com correspondente sinónimos ou importando uma lista. 
 
-## <a name="add-composite-entity"></a>Adicionar entidade composta
+## <a name="add-a-composite-entity"></a>Adicionar uma entidade composta
 
-Entidades compostas criadas a partir de existente **entidades** numa entidade principal. 
+Entidades compostas criadas a partir de existente **entidades** para formar uma entidade principal. 
 
 A expressão, partindo do princípio `Does John Smith work in Seattle?`, uma expressão composta pode devolver informações da entidade do nome do funcionário `John Smith`e a localização `Seattle` numa entidade composta. As entidades subordinadas tem de existir na aplicação e ser marcado como na expressão de exemplo antes de criar a entidade composta.
 
@@ -131,15 +131,15 @@ Pode executar ações em expressões de exemplo como um grupo selecionado ou com
 
 ### <a name="remove-entity-labels-from-utterances"></a>Remover etiquetas de entidade de expressões
 
-Pode remover as etiquetas de entidade aprendidas de máquina de uma expressão na página de intenção. Se a entidade não ficou a saber de máquina, não pode ser removido de uma expressão. Se precisar de remover a expressão a uma entidade não aprendidas máquina, terá de eliminar a entidade de todo o aplicativo. 
+Pode remover as etiquetas de entidade aprendidas de máquina de uma expressão na página de objetivos. Se a entidade não ficou a saber de máquina, não pode ser removido de uma expressão. Se precisar de remover a expressão a uma entidade não aprendidas máquina, terá de eliminar a entidade de todo o aplicativo. 
 
 Para remover uma etiqueta de entidade aprendidas de máquina de uma expressão, selecione a entidade a expressão. Em seguida, selecione **remover etiqueta** na caixa de lista pendente de entidade é apresentada.
 
-### <a name="add-prebuilt-entity-label"></a>Adicionar etiqueta de entidade predefinidos
+### <a name="add-a-prebuilt-entity-label"></a>Adicione uma etiqueta de entidade predefinidos
 
 Quando adiciona as entidades previamente concebidas para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades previamente concebidas e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-regular-expression-entity-label"></a>Adicionar etiqueta de entidade de expressão regular
+### <a name="add-a-regular-expression-entity-label"></a>Adicione uma etiqueta de entidade de expressão regular
 
 Se adicionar as entidades de expressão regular para a sua aplicação LUIS, não precisa de expressões de etiqueta com estas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -149,7 +149,7 @@ Se adicionar as entidades de expressão regular para a sua aplicação LUIS, nã
 Ver [adicionar padrão de expressão existente na página de intenção ou a entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-patternany-entity"></a>Adicionar entidade pattern.any
+### <a name="add-a-patternany-entity"></a>Adicionar uma entidade de pattern.any
 
 Se adicionar as entidades de pattern.any à sua aplicação LUIS, não é possível Etiquetar expressões com estas entidades. Apenas são válidas em padrões. Para saber mais sobre entidades pattern.any e como adicioná-las, veja [adicionar entidades](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ Depois de adicionar, editar ou remover expressões, [treinar](luis-how-to-train.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de etiquetagem discursos em suas intenções, agora, pode criar uma [entidade composta](luis-how-to-add-entities.md).
+Depois de etiquetagem expressões com no seu **intenções**, agora, pode criar um [entidade composta](luis-how-to-add-entities.md).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 8a9d0d9f35c30636f4b9150c63b64098071e12e9
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 37fa972d52c564c4d61e5923c2b3dc48bde9d2ee
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271499"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445815"
 ---
 # <a name="create-containers-for-reuse"></a>Criar contentores para reutilização
 
