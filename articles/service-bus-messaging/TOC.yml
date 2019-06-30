@@ -19,6 +19,8 @@
               href: service-bus-quickstart-powershell.md
             - name: CLI do Azure
               href: service-bus-quickstart-cli.md
+            - name: Modelo Azure Resource Manager
+              href: service-bus-resource-manager-namespace-queue.md
         - name: Enviar e receber mensagens
           items:
             - name: .NET
@@ -40,7 +42,11 @@
     - name: Tópicos e subscrições do Service Bus
       items:
         - name: Criar tópicos e subscrições
-          href: service-bus-quickstart-topics-subscriptions-portal.md
+          items:
+            - name: Portal do Azure
+              href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Modelo Azure Resource Manager
+              href: service-bus-resource-manager-namespace-topic.md
         - name: Publicar e subscrever para mensagens
           items:
             - name: .NET
@@ -187,10 +193,6 @@
           items:
             - name: Criar um espaço de nomes
               href: service-bus-resource-manager-namespace.md
-            - name: Criar um espaço de nomes e uma fila
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: Criar um espaço de nomes com o tópico e uma subscrição
-              href: service-bus-resource-manager-namespace-topic.md
             - name: Criar uma regra de autorização para o espaço de nomes e para a fila
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Criar um espaço de nomes com o tópico, uma subscrição e regra'

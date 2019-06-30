@@ -5,8 +5,8 @@ metadata:
   title: Documentação dos Azure AD Domain Services
   description: Saiba como utilizar Active Directory Domain Services para associarem máquinas virtuais do Azure a um domínio sem utilizar controladores de domínio. Tutoriais e outra documentação mostram-lhe como gerir máquinas virtuais através de políticas de grupo.
   keywords: 'Azure AD, Azure, associação a um domínio, política de grupo, LDAP, Kerberos, controlador de domínio, DC, levantar e deslocar'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page

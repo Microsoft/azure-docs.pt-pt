@@ -14,8 +14,6 @@
   items:
     - name: Plano para os clusters do ESP
       href: apache-domain-joined-architecture.md
-    - name: Criar clusters ESP e sincronizar com o local
-      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Configurar os clusters do ESP com o Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Sincronizar utilizadores do Azure AD para um cluster do HDInsight
@@ -30,26 +28,30 @@
       href: ../spark/apache-spark-eclipse-tool-plugin.md
     - name: Utilizar o Apache Oozie nos clusters de ESP
       href: hdinsight-use-oozie-domain-joined-clusters.md
-- name: Proteção de dados
-  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-- name: Acesso à rede
+    - name: Proteção de dados
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Acesso à rede
+      items:
+        - name: HDInsight em VNet do Azure
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+        - name: Ligar o HDInsight com a sua rede local
+          href: ../connect-on-premises-network.md
+        - name: Criar cluster do Apache HBase no Azure VNet
+          href: ../hbase/apache-hbase-provision-vnet.md
+        - name: Replicação do cluster do Apache HBase no Azure VNet
+          href: ../hbase/apache-hbase-replication.md
+    - name: Monitorizar com os registos do Azure Monitor
+      items:
+        - name: Utilizar os registos do Azure Monitor
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Utilizar consultas com os registos do Azure Monitor
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+        - name: Monitorizar o desempenho do cluster
+          href: ../hdinsight-key-scenarios-to-monitor.md
+- name: Procedimento
   items:
-    - name: HDInsight em VNet do Azure
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-    - name: Ligar o HDInsight com a sua rede local
-      href: ../connect-on-premises-network.md
-    - name: Criar cluster do Apache HBase no Azure VNet
-      href: ../hbase/apache-hbase-provision-vnet.md
-    - name: Replicação do cluster do Apache HBase no Azure VNet
-      href: ../hbase/apache-hbase-replication.md
-- name: Monitorizar com os registos do Azure Monitor
-  items:
-    - name: Utilizar os registos do Azure Monitor
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-    - name: Utilizar consultas com os registos do Azure Monitor
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-    - name: Monitorizar o desempenho do cluster
-      href: ../hdinsight-key-scenarios-to-monitor.md
+    - name: Criar clusters ESP e sincronizar com o local
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
 - name: Referência
   items:
     - name: Exemplos de código

@@ -1,6 +1,8 @@
 ### YamlMime:Landing
 title: Azure IoT Edge
 summary: 'O Azure IoT Edge é um serviço da Internet das Coisas (IoT) criado sobre o Hub IoT. Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou "na periferia", em vez de na cloud. Ao mover as partes da sua carga de trabalho para a periferia, os seus dispositivos podem gastar menos tempo a enviar mensagens para a cloud e reagir mais depressa a eventos.'
+metadata:
+  ms.topic: landing-page
 landingContent:
   - title: Desenvolver para dispositivos Linux
     linkLists:
